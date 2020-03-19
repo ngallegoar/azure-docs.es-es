@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 4af31b281f4b2e7cdd7ed217753df55ce8009fa9
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: df2c3fc2ab6f6c742f56273119923a7e02cf8e43
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446790"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383820"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](~/articles/cognitive-services/Speech-Service/get-started.md).
-* [Python 3.5 o versiones posteriores](https://www.python.org/downloads/).
+* [Python 3.5 a 3.8](https://www.python.org/downloads/).
 * El paquete del SDK de Voz de Python está disponible para estos sistemas operativos:
     * Windows: x64 y x86.
     * Mac: macOS X versión 10.12 o posterior.
-    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 en x64.
+    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 on x64.
 * En Linux, ejecute estos comandos para instalar los paquetes necesarios:
 
   * En Ubuntu:
@@ -40,6 +40,16 @@ ms.locfileid: "77446790"
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.2 libasound2
     ```
+
+  * En On RHEL/CentOS 8:
+
+    ```sh
+    sudo yum update
+    sudo yum install alsa-lib openssl python3
+    ```
+
+> [!NOTE]
+> En RHEL/CentOS 8, siga las instrucciones sobre [cómo configurar OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 * En Windows, necesita [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para su plataforma.
 
@@ -110,7 +120,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalación y uso del SDK de Voz con Visual Studio Code
 
-1. Descargue e instale una versión de 64 bits (3.5 o posterior) de [Python](https://www.python.org/downloads/) en el equipo.
+1. Descargue e instale una versión de 64 bits (de la 3.5 a la 3.8) de [Python](https://www.python.org/downloads/) en el equipo.
 1. Descargue e instale [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Abra Visual Studio Code e instale la extensión de Python. Seleccione **File** > **Preferences** > **Extensions** (Archivo > Preferencias > Extensiones) en el menú. Busque **Python**.
 

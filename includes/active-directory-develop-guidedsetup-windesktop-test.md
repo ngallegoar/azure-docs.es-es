@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f121be4ec8c3d3ab618e2955d9dbd8ab5eea461d
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186493"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129129"
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
@@ -41,18 +41,18 @@ La primera vez que inicie sesión en su aplicación, también se le pedirá que 
 
 Después de iniciar sesión, verá la información del perfil de usuario que devuelve la llamada a Microsoft Graph API. Los resultados se muestran en el cuadro **API Call Results** (Resultados de la llamada a la API). La información básica sobre el token que se ha adquirido a través de la llamada a `AcquireTokenInteractive` o a `AcquireTokenSilent` debe estar visible en el cuadro **Información de token**. Los resultados contienen las siguientes propiedades:
 
-|Propiedad  |Formato  |DESCRIPCIÓN |
+|Propiedad  |Formato  |Descripción |
 |---------|---------|---------|
-
-|**Nombre de usuario**  | <span> user@domain.com </span> | El nombre de usuario que se utiliza para identificar al usuario. | | **Token expira** | Fecha y hora | La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
+|**Nombre de usuario** |<span>user@domain.com</span> |Nombre de usuario que se usa para identificar al usuario.|
+|**Expiración del token** |DateTime |Hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
 
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Más información sobre los ámbitos y permisos delegados
 
-Microsoft Graph API requiere el ámbito *user.read* para leer el perfil del usuario. Este ámbito se agrega automáticamente de forma predeterminada en todas las aplicaciones que se van a registrar en el Portal de registro de aplicaciones. Otras API de Microsoft Graph, así como las API personalizadas para el servidor back-end, pueden requerir ámbitos adicionales. Microsoft Graph API requiere el ámbito *Calendars.read* para mostrar los calendarios del usuario.
+Microsoft Graph API requiere el ámbito *user.read* para leer el perfil del usuario. Este ámbito se agrega automáticamente de forma predeterminada en todas las aplicaciones que se van a registrar en el Portal de registro de aplicaciones. Otras API de Microsoft Graph, así como las API personalizadas para el servidor back-end, pueden requerir ámbitos adicionales. Microsoft Graph API requiere el ámbito *Calendars.Read* para mostrar los calendarios del usuario.
 
-Para tener acceso a los calendarios del usuario en el contexto de una aplicación, agregue el permiso delegado *Calendars.Read* a la información del registro de la aplicación. A continuación, agregue el ámbito *Calendars.Read* a la llamada `acquireTokenSilent`.
+Para acceder a los calendarios del usuario en el contexto de una aplicación, agregue el permiso delegado *Calendars.Read* a la información del registro de la aplicación. A continuación, agregue el ámbito *Calendars.Read* a la llamada `acquireTokenSilent`.
 
 >[!NOTE]
 >Es posible que se pida al usuario algún consentimiento adicional a medida que aumente el número de ámbitos.

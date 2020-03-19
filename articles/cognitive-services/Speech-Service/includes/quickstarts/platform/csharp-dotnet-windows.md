@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: db00398efa638ac945bc188ad0c44f904059e689
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a09b969ee3e11aeb04f338cf035b21b5da9bd952
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468496"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925840"
 ---
-En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para .NET Framework en Windows.
+En esta guía se muestra cómo instalar el [SDK de Voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para .NET Framework en Windows. Si desea simplemente que el nombre del paquete comience por su cuenta, ejecute `Install-Package Microsoft.CognitiveServices.Speech` en la consola de NuGet.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Esta guía de inicio rápido requiere:
 
@@ -71,7 +71,21 @@ El siguiente paso consiste en instalar el [paquete NuGet del SDK de Voz](https:/
 
    Después de instalar el paquete aparecerá una confirmación en la ventana **Consola del administrador de paquetes**.
 
-Ahora puede continuar con la sección [Pasos siguientes](#next-steps).
+### <a name="choose-target-architecture"></a>Elección de la arquitectura de destino
+
+Para compilar y ejecutar la aplicación de consola, cree una configuración de plataforma que coincida con la arquitectura del equipo.
+
+1. En la barra de menús, seleccione **Compilar** > **Administrador de configuración**. Aparecerá el cuadro de diálogo **Administrador de configuración**.
+
+   ![Cuadro de diálogo Administrador de configuración](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+
+1. En el cuadro desplegable **Active solution platform** (Plataforma de soluciones activas), seleccione **Nuevo**. Aparecerá el cuadro de diálogo **Nueva plataforma de solución**.
+
+1. En el cuadro desplegable **escriba o seleccione la nueva plataforma**:
+   - Si está ejecutando Windows de 64 bits, seleccione **x64**.
+   - Si está ejecutando Windows de 32 bits, seleccione **x86**.
+
+1. Seleccione **Aceptar** y, después, **Cerrar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

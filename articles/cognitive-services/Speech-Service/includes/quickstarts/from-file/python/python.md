@@ -1,20 +1,15 @@
 ---
-title: 'Inicio rápido: Reconocimiento de la voz de un archivo de audio en Python: servicio de voz'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
 author: IEvangelist
-manager: nitinme
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/30/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: f3a6ffeede05c1a2e9a883d40df19819e6a4bb3b
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: b3d7ea44acac99cc8077993f679bdcea2e5018fa
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446062"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082125"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -23,8 +18,7 @@ Antes de comenzar, compruebe lo siguiente:
 > [!div class="checklist"]
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha creado una aplicación de LUIS y ha obtenido una clave de punto de conexión](../../../../quickstarts/create-luis.md)
-> * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
-> * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md?pivots=programming-language-python)
+> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -93,7 +87,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Instalación y uso del SDK de Voz con Visual Studio Code
 
-1. Descargue e instale una versión de 64 bits (3.5 o posterior) de [Python](https://www.python.org/downloads/) en el equipo.
+1. Descargue e instale una versión de 64 bits (de la 3.5 a la 3.8) de [Python](https://www.python.org/downloads/) en el equipo.
 1. Descargue e instale [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Abra Visual Studio Code e instale la extensión de Python. Seleccione **File** > **Preferences** > **Extensions** (Archivo > Preferencias > Extensiones) en el menú. Busque **Python**.
 

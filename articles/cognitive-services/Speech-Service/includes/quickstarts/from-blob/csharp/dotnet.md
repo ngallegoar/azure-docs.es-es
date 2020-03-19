@@ -4,20 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: 1022a744564ed61a90973f7bba3eb32e9a632b46
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 9404818142fdde109bfa89d54b9287108352f132
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942652"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78932738"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
-> * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-csharp)
-> * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md?pivots=programmming-language-csharp)
+> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-csharp)
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha cargado de un archivo de origen en un blob de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
@@ -31,24 +30,51 @@ El primer paso es asegurarse de que tiene el proyecto abierto en Visual Studio.
 ## <a name="add-a-reference-to-newtonsoftjson"></a>Adición de una referencia a Newtonsoft.Json
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **helloworld** y seleccione **Administrar paquetes NuGet** para mostrar el Administrador de paquetes NuGet.
-
 1. En la esquina superior derecha, busque el cuadro desplegable **Origen del paquete** y asegúrese de que **`nuget.org`** está seleccionado.
-
 1. En la esquina superior izquierda, seleccione **Examinar**.
-
 1. En el cuadro de búsqueda, escriba *newtonsoft.json* y seleccione **Entrar**.
-
 1. En los resultados de la búsqueda, seleccione el paquete [**Newtonsoft.Json**](https://www.nuget.org/packages/Newtonsoft.Json) y, después, seleccione **Instalar** para instalar la versión estable más reciente.
-
 1. Acepte todos los contratos y licencias para iniciar la instalación.
-
    Después de instalar el paquete aparecerá una confirmación en la ventana **Consola del administrador de paquetes**.
 
 ## <a name="start-with-some-boilerplate-code"></a>Inicio con código reutilizable
 
 Vamos a agregar código que funcione como el esqueleto del proyecto.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-43,138,277)]
+```csharp
+class Program
+{
+    // Replace with your subscription key
+    const string SubscriptionKey = "YourSubscriptionKey";
+
+    // Update with your service region
+    const string Region = "YourServiceRegion";
+    const int Port = 443;
+ 
+    // Recordings and locale
+    const string Locale = "en-US";
+    const string RecordingsBlobUri = "YourFileUrl";
+ 
+    // Name and description
+    const string Name = "Simple transcription";
+    const string Description = "Simple transcription description";
+ 
+    const string SpeechToTextBasePath = "api/speechtotext/v2.0/";
+ 
+    static async Task Main()
+    {
+        // For non-Windows 10 users.
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+ 
+        await TranscribeAsync();
+    }
+ 
+    static async Task TranscribeAsync()
+    {
+        Console.WriteLine("Starting transcriptions client...");
+    }
+}
+```
 
 [!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
@@ -58,18 +84,154 @@ Como las API REST toman las solicitudes en formato JSON y también devuelven res
 Para facilitar la administración de solicitudes y respuestas, se declararán algunas clases para la serialización y deserialización del código JSON.
 
 Continúe y coloque sus declaraciones detrás de `TranscribeAsync`.
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=140-276)]
+
+```csharp
+public class ModelIdentity
+{
+    ModelIdentity(Guid id) => Id = id;
+
+    public Guid Id { get; private set; }
+
+    public static ModelIdentity Create(Guid Id) => new ModelIdentity(Id);
+}
+
+public class Transcription
+{
+    [JsonConstructor]
+    Transcription(
+        Guid id,
+        string name,
+        string description,
+        string locale,
+        DateTime createdDateTime,
+        DateTime lastActionDateTime,
+        string status,
+        Uri recordingsUrl,
+        IReadOnlyDictionary<string, string> resultsUrls)
+    {
+        Id = id;
+        Name = name;
+        Description = description;
+        CreatedDateTime = createdDateTime;
+        LastActionDateTime = lastActionDateTime;
+        Status = status;
+        Locale = locale;
+        RecordingsUrl = recordingsUrl;
+        ResultsUrls = resultsUrls;
+    }
+
+    public string Name { get; set; }
+
+    public string Description { get; set; }
+
+    public string Locale { get; set; }
+
+    public Uri RecordingsUrl { get; set; }
+
+    public IReadOnlyDictionary<string, string> ResultsUrls { get; set; }
+
+    public Guid Id { get; set; }
+
+    public DateTime CreatedDateTime { get; set; }
+
+    public DateTime LastActionDateTime { get; set; }
+
+    public string Status { get; set; }
+
+    public string StatusMessage { get; set; }
+}
+
+public class TranscriptionDefinition
+{
+    TranscriptionDefinition(
+        string name,
+        string description,
+        string locale,
+        Uri recordingsUrl,
+        IEnumerable<ModelIdentity> models)
+    {
+        Name = name;
+        Description = description;
+        RecordingsUrl = recordingsUrl;
+        Locale = locale;
+        Models = models;
+        Properties = new Dictionary<string, string>
+        {
+            ["PunctuationMode"] = "DictatedAndAutomatic",
+            ["ProfanityFilterMode"] = "Masked",
+            ["AddWordLevelTimestamps"] = "True"
+        };
+    }
+
+    public string Name { get; set; }
+
+    public string Description { get; set; }
+
+    public Uri RecordingsUrl { get; set; }
+
+    public string Locale { get; set; }
+
+    public IEnumerable<ModelIdentity> Models { get; set; }
+
+    public IDictionary<string, string> Properties { get; set; }
+
+    public static TranscriptionDefinition Create(
+        string name,
+        string description,
+        string locale,
+        Uri recordingsUrl)
+        => new TranscriptionDefinition(name, description, locale, recordingsUrl, new ModelIdentity[0]);
+}
+```
 
 ## <a name="create-and-configure-an-http-client"></a>Creación y configuración de un cliente HTTP
 Lo primero que necesitamos es un cliente HTTP con una dirección URL base y un conjunto de autenticación correctos.
-Inserte este código en `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=46-50)]
+Inserte este código en `TranscribeAsync`.
+
+```csharp
+var client = new HttpClient
+{
+    Timeout = TimeSpan.FromMinutes(25),
+    BaseAddress = new UriBuilder(Uri.UriSchemeHttps, $"{Region}.cris.ai", Port).Uri,
+    DefaultRequestHeaders =
+    {
+        { "Ocp-Apim-Subscription-Key", SubscriptionKey }
+    }
+};
+```
 
 ## <a name="generate-a-transcription-request"></a>Generación de una solicitud de transcripción
-A continuación, se generará la solicitud de transcripción. Agregue este código a `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]
+A continuación, se generará la solicitud de transcripción. Agregue este código a `TranscribeAsync`.
+
+```csharp
+var transcriptionDefinition =
+    TranscriptionDefinition.Create(
+        Name,
+        Description,
+        Locale,
+        new Uri(RecordingsBlobUri));
+
+var res = JsonConvert.SerializeObject(transcriptionDefinition);
+var sc = new StringContent(res);
+sc.Headers.ContentType = JsonMediaTypeFormatter.DefaultMediaType;
+```
 
 ## <a name="send-the-request-and-check-its-status"></a>Envío de la solicitud y comprobación de su estado
 Ahora, se va a publicar la solicitud en el servicio de voz y se va a comprobar el código de respuesta inicial. Este código de respuesta indicará simplemente si el servicio ha recibido la solicitud. El servicio devolverá una dirección URL en los encabezados de respuesta, que es la ubicación en la que se almacenará el estado de la transcripción.
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=59-70)]
+
+```csharp
+Uri transcriptionLocation = null;
+using (var response = await client.PostAsync($"{SpeechToTextBasePath}Transcriptions/", sc))
+{
+    if (!response.IsSuccessStatusCode)
+    {
+        Console.WriteLine("Error {0} starting transcription.", response.StatusCode);
+        return;
+    }
+
+    transcriptionLocation = response.Headers.Location;
+}
+```
 
 ## <a name="wait-for-the-transcription-to-complete"></a>Espere a que finalice la operación.
 Dado que el servicio procesa la transcripción de forma asincrónica, es necesario sondear su estado cada cierto tiempo. Aquí se va a comprobar cada cinco segundos.
@@ -77,17 +239,312 @@ Dado que el servicio procesa la transcripción de forma asincrónica, es necesar
 Para comprobar el estado se puede recuperar el contenido en la dirección URL que obtuvimos al publicar la solicitud. Cuando se recupera el contenido, se deserializa en una de nuestras clases auxiliares para facilitar la interacción con él.
 
 Este es el código de sondeo con la visualización del estado de todas las tareas, excepto el de una finalización correcta, que se hará a continuación.
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=72-106,121-137)]
+
+```csharp
+Console.WriteLine($"Created transcription at location {transcriptionLocation}.");
+Console.WriteLine("Checking status.");
+
+var completed = false;
+
+// Check for the status of our transcriptions periodically
+while (!completed)
+{
+    Transcription transcription = null;
+    using (var response = await client.GetAsync(transcriptionLocation.AbsolutePath))
+    {
+        var contentType = response.Content.Headers.ContentType;
+        if (response.IsSuccessStatusCode &&
+            string.Equals(contentType.MediaType, "application/json", StringComparison.OrdinalIgnoreCase))
+        {
+            transcription = await response.Content.ReadAsAsync<Transcription>();
+        }
+        else
+        {
+            Console.WriteLine("Error with status {0} getting transcription result", response.StatusCode);
+            continue;
+        }
+    }
+
+    switch (transcription.Status)
+    {
+        case "Failed":
+            completed = true;
+            Console.WriteLine("Transcription failed. Status: {0}", transcription.StatusMessage);
+            break;
+
+        case "Succeeded":
+            break;
+
+        case "Running":
+            Console.WriteLine("Transcription is still running.");
+            break;
+
+        case "NotStarted":
+            Console.WriteLine("Transcription has not started.");
+            break;
+    }
+
+    await Task.Delay(TimeSpan.FromSeconds(5));
+}
+
+Console.WriteLine("Press any key...");
+Console.ReadKey();
+```
 
 ## <a name="display-the-transcription-results"></a>Visualización de los resultados de la transcripción
-Cuando el servicio haya finalizado correctamente la transcripción, los resultados se almacenarán en otra dirección URL que se puede obtener de la respuesta de estado.
+Cuando el servicio haya finalizado correctamente la transcripción, los resultados se almacenarán en otra dirección URL que se puede obtener de la respuesta de estado. Aquí se realizará una solicitud para descargar esos resultados en un archivo temporal antes de leerlos y deserializarlos.
+Una vez que se cargan los resultados, se pueden imprimir en la consola. Agregue el siguiente código a la etiqueta `case "Succeeded":`.
 
-Aquí se realizará una solicitud para descargar esos resultados en un archivo temporal antes de leerlos y deserializarlos.
-Una vez que se cargan los resultados, se pueden imprimir en la consola.
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=107-120)]
+```csharp
+completed = true;
+var webClient = new WebClient();
+var filename = Path.GetTempFileName();
+webClient.DownloadFile(transcription.ResultsUrls["channel_0"], filename);
+var results = File.ReadAllText(filename);
+Console.WriteLine($"Transcription succeeded. Results: {Environment.NewLine}{results}");
+File.Delete(filename);
+```
 
 ## <a name="check-your-code"></a>Comprobación del código
-En este momento, el código debe tener esta apariencia: (Se han agregado algunos comentarios a esta versión) [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-277)]
+En este momento, el código debe tener esta apariencia: (Se han agregado algunos comentarios a esta versión)
+
+```csharp
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+
+namespace BatchClient
+{
+    class Program
+    {
+        // Replace with your subscription key
+        const string SubscriptionKey = "YourSubscriptionKey";
+
+        // Update with your service region
+        const string Region = "YourServiceRegion";
+        const int Port = 443;
+
+        // Recordings and locale
+        const string Locale = "en-US";
+        const string RecordingsBlobUri = "YourFileUrl";
+
+        // Name and description
+        const string Name = "Simple transcription";
+        const string Description = "Simple transcription description";
+
+        const string SpeechToTextBasePath = "api/speechtotext/v2.0/";
+
+        static async Task Main()
+        {
+            // For non-Windows 10 users.
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+            await TranscribeAsync();
+        }
+
+        static async Task TranscribeAsync()
+        {
+            Console.WriteLine("Starting transcriptions client...");
+
+            // Create the client object and authenticate
+            var client = new HttpClient
+            {
+                Timeout = TimeSpan.FromMinutes(25),
+                BaseAddress = new UriBuilder(Uri.UriSchemeHttps, $"{Region}.cris.ai", Port).Uri,
+                DefaultRequestHeaders =
+                {
+                    { "Ocp-Apim-Subscription-Key", SubscriptionKey }
+                }
+            };
+
+            var transcriptionDefinition =
+                TranscriptionDefinition.Create(
+                    Name,
+                    Description,
+                    Locale,
+                    new Uri(RecordingsBlobUri));
+
+            var res = JsonConvert.SerializeObject(transcriptionDefinition);
+            var sc = new StringContent(res);
+            sc.Headers.ContentType = JsonMediaTypeFormatter.DefaultMediaType;
+
+            Uri transcriptionLocation = null;
+
+            using (var response = await client.PostAsync($"{SpeechToTextBasePath}Transcriptions/", sc))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine("Error {0} starting transcription.", response.StatusCode);
+                    return;
+                }
+
+                transcriptionLocation = response.Headers.Location;
+            }
+
+            Console.WriteLine($"Created transcription at location {transcriptionLocation}.");
+            Console.WriteLine("Checking status.");
+
+            var completed = false;
+
+            // Check for the status of our transcriptions periodically
+            while (!completed)
+            {
+                Transcription transcription = null;
+
+                // Get all transcriptions for the user
+                using (var response = await client.GetAsync(transcriptionLocation.AbsolutePath))
+                {
+                    var contentType = response.Content.Headers.ContentType;
+                    if (response.IsSuccessStatusCode &&
+                        string.Equals(contentType.MediaType, "application/json", StringComparison.OrdinalIgnoreCase))
+                    {
+                        transcription = await response.Content.ReadAsAsync<Transcription>();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error with status {0} getting transcription result", response.StatusCode);
+                        continue;
+                    }
+                }
+
+                // For each transcription in the list we check the status
+                switch (transcription.Status)
+                {
+                    case "Failed":
+                        completed = true;
+                        Console.WriteLine("Transcription failed. Status: {0}", transcription.StatusMessage);
+                        break;
+
+                    case "Succeeded":
+                        completed = true;
+                        var webClient = new WebClient();
+                        var filename = Path.GetTempFileName();
+                        webClient.DownloadFile(transcription.ResultsUrls["channel_0"], filename);
+                        var results = File.ReadAllText(filename);
+                        Console.WriteLine($"Transcription succeeded. Results: {Environment.NewLine}{results}");
+                        File.Delete(filename);
+                        break;
+
+                    case "Running":
+                        Console.WriteLine("Transcription is still running.");
+                        break;
+
+                    case "NotStarted":
+                        Console.WriteLine("Transcription has not started.");
+                        break;
+                }
+
+                await Task.Delay(TimeSpan.FromSeconds(5));
+            }
+
+            Console.WriteLine("Press any key...");
+            Console.ReadKey();
+        }
+    }
+
+    public class ModelIdentity
+    {
+        ModelIdentity(Guid id) => Id = id;
+
+        public Guid Id { get; private set; }
+
+        public static ModelIdentity Create(Guid Id) => new ModelIdentity(Id);
+    }
+
+    public class Transcription
+    {
+        [JsonConstructor]
+        Transcription(
+            Guid id,
+            string name,
+            string description,
+            string locale,
+            DateTime createdDateTime,
+            DateTime lastActionDateTime,
+            string status,
+            Uri recordingsUrl,
+            IReadOnlyDictionary<string, string> resultsUrls)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            CreatedDateTime = createdDateTime;
+            LastActionDateTime = lastActionDateTime;
+            Status = status;
+            Locale = locale;
+            RecordingsUrl = recordingsUrl;
+            ResultsUrls = resultsUrls;
+        }
+
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
+        public string Locale { get; set; }
+
+        public Uri RecordingsUrl { get; set; }
+
+        public IReadOnlyDictionary<string, string> ResultsUrls { get; set; }
+
+        public Guid Id { get; set; }
+
+        public DateTime CreatedDateTime { get; set; }
+
+        public DateTime LastActionDateTime { get; set; }
+
+        public string Status { get; set; }
+
+        public string StatusMessage { get; set; }
+    }
+
+    public class TranscriptionDefinition
+    {
+        TranscriptionDefinition(
+            string name,
+            string description,
+            string locale,
+            Uri recordingsUrl,
+            IEnumerable<ModelIdentity> models)
+        {
+            Name = name;
+            Description = description;
+            RecordingsUrl = recordingsUrl;
+            Locale = locale;
+            Models = models;
+            Properties = new Dictionary<string, string>
+            {
+                ["PunctuationMode"] = "DictatedAndAutomatic",
+                ["ProfanityFilterMode"] = "Masked",
+                ["AddWordLevelTimestamps"] = "True"
+            };
+        }
+
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
+        public Uri RecordingsUrl { get; set; }
+
+        public string Locale { get; set; }
+
+        public IEnumerable<ModelIdentity> Models { get; set; }
+
+        public IDictionary<string, string> Properties { get; set; }
+
+        public static TranscriptionDefinition Create(
+            string name,
+            string description,
+            string locale,
+            Uri recordingsUrl)
+            => new TranscriptionDefinition(name, description, locale, recordingsUrl, new ModelIdentity[0]);
+    }
+}
+```
 
 ## <a name="build-and-run-your-app"></a>Compilación y ejecución de la aplicación
 

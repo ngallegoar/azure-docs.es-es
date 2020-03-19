@@ -4,20 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: 1225a1e528b32401f350374fb9393c52225c49e8
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 02e0e1494a897b31cb6ef28083677fa48f854c91
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942824"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924963"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
-> * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md?pivots=programmming-language-java)
+> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha cargado de un archivo de origen en un blob de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
@@ -32,7 +31,9 @@ El primer paso es asegurarse de que tiene el proyecto abierto en Eclipse.
 ## <a name="add-a-reference-to-gson"></a>Adición de una referencia a Gson
 En este inicio rápido, se usará un serializador o deserializador JSON externos. Para Java, hemos elegido [Gson](https://github.com/google/gson).
 
-Abra el archivo pom.xml y agregue la siguiente referencia: [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
+Abra el archivo pom.xml y agregue la siguiente referencia.
+
+[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
 ## <a name="start-with-some-boilerplate-code"></a>Inicio con código reutilizable
 

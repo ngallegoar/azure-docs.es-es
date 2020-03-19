@@ -4,20 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: bfecfa1918d2e9199971b2f9738530dc1b4e3c4c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 646cce25efcbebab6229389f63912346e3712cdd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942674"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925267"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, compruebe lo siguiente:
 
 > [!div class="checklist"]
-> * [Ha configurado el entorno de desarrollo](../../../../quickstarts/setup-platform.md)
-> * [Ha creado un proyecto de ejemplo vacío](../../../../quickstarts/create-project.md)
+> * [Configuración del entorno de desarrollo y creación de un proyecto vacío](../../../../quickstarts/setup-platform.md)
 > * [Ha creado un recurso de Voz de Azure](../../../../get-started.md)
 > * [Ha cargado de un archivo de origen en un blob de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
@@ -37,7 +36,7 @@ Siga estos pasos para la instalación:
 1. El paquete instalado tiene el nombre `swagger_client`. Puede comprobar que la instalación ha funcionado con el comando `python -c "import swagger_client"`.
 
 > [!NOTE]
-> Debido a un `swagger_client`error conocido en la generación automática de Swagger](https://github.com/swagger-api/swagger-codegen/issues/7541), pueden producirse errores al importar el paquete `swagger_client`.
+> Debido a un [error conocido en la generación automática de Swagger](https://github.com/swagger-api/swagger-codegen/issues/7541), pueden producirse errores al importar el paquete `swagger_client`.
 > Para corregirlos, elimine la línea con el contenido
 > ```py
 > from swagger_client.models.model import Model  # noqa: F401,E501
