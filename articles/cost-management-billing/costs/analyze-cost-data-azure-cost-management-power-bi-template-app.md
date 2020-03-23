@@ -15,7 +15,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/06/2020
 ms.locfileid: "78399632"
 ---
-# <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Análisis del costo con la aplicación Azure Cost Management para Power BI para Contrato Enterprise (EA)
+# <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Análisis del costo con la aplicación Azure Cost Management para Power BI para Contratos Enterprise (EA)
 
 En este artículo se explica cómo instalar y usar la aplicación Azure Cost Management para Power BI. La aplicación le ayuda a analizar y administrar los costos de Azure en Power BI. Puede usar la aplicación para supervisar costos, tendencias de uso e identificar opciones de optimización de costos para reducir los gastos.
 
@@ -60,7 +60,7 @@ Están disponibles los siguientes informes en la aplicación.
 
 **Getting Started** (Introducción): proporciona vínculos útiles a documentación y vínculos para proporcionar comentarios.
 
-**Account overview** (Información general de la cuenta): el informe muestra un resumen mensual de la información, incluidos:
+**Account overview** (Información general de la cuenta): este informe muestra un resumen mensual de la información, incluidos:
 
 - Cargos de créditos
 - Nuevas compras
@@ -71,15 +71,15 @@ Están disponibles los siguientes informes en la aplicación.
 
 **Usage by Services** (Uso por servicios): proporciona una vista con el tiempo de uso por MeterCategory. Puede realizar un seguimiento de los datos de uso y profundizar en las anomalías para comprender los cambios de uso abruptos e interrupciones.
 
-**Top 5 Usage drivers** (Principales 5 impulsores del uso): el informe muestra un resumen del costo filtrado por los cinco principales valores de MeterCategory y los valores de MeterName correspondientes.
+**Top 5 Usage drivers** (Principales 5 impulsores del uso): este informe muestra un resumen del costo filtrado por los cinco principales valores de MeterCategory y los valores de MeterName correspondientes.
 
-**Windows Server AHB Usage** (Uso de AHB de Windows Server): el informe muestra el número de máquinas virtuales con la Ventaja híbrida de Azure habilitada. También muestra el número de núcleos o vCPU usados por las máquinas virtuales.
+**Windows Server AHB Usage** (Uso de AHB de Windows Server): este informe muestra el número de máquinas virtuales con la Ventaja híbrida de Azure habilitada. También muestra el número de núcleos o vCPU usados por las máquinas virtuales.
 
 ![Informe completo de Ventaja híbrida de Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png)
 
 El informe también identifica las máquinas virtuales de Windows en las que la ventaja híbrida está **habilitada** pero hay _menos de_ ocho vCPU. También muestra dónde **no está habilitada** la ventaja híbrida que tiene ocho _o más_ vCPU. Esta información le ayudará a usar completamente su ventaja híbrida. Aplique la ventaja a las máquinas virtuales más costosas para maximizar el posible ahorro.
 
-![Ventajas híbridas de Azure: menos de ocho vCPU y vCPU no habilitados](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png)
+![Ventajas híbridas de Azure: menos de ocho vCPU y vCPU no habilitadas](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png)
 
 **RI Chargeback** (Contracargo de RI): el informe le ayuda a comprender dónde y qué parte de una ventaja de instancia reservada (RI) se aplica por región, suscripción, grupo de recursos o recurso. El informe utiliza datos de uso amortizados para mostrar la vista.
 
@@ -87,7 +87,7 @@ Puede aplicar un filtro en _chargetype_ para ver los datos de sobreutilización 
 
 Para más información sobre los datos amortizados, consulte [Obtención del uso y los costos de reservas de Contrato Enterprise](/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
 
-**RI Savings** (Ahorro de RI): el informe muestra el ahorro acumulado por las reservas de suscripción, grupo de recursos y nivel de recurso. Muestra lo siguiente:
+**RI Savings** (Ahorro de RI): este informe muestra el ahorro acumulado por las reservas de suscripción, grupo de recursos y nivel de recurso. Muestra lo siguiente:
 
 - Costo con reserva
 - Costo estimado a petición si la reserva no se ha aplicado al uso
@@ -98,7 +98,7 @@ Para más información sobre los datos amortizados, consulte [Obtención del uso
 Puede usar los datos de uso amortizados para compilar sobre los datos.
 
 <a name="shared-recommendation"></a>
-**VM RI Coverage (shared recommendation)** [Cobertura de RI de máquina virtual (recomendación compartida)]: el informe se divide entre el uso de máquina virtual a petición y el uso de instancias reservadas de la máquina virtual durante el período seleccionado. Proporciona recomendaciones para las compras de instancias reservadas de máquinas virtuales en un ámbito compartido.
+**VM RI Coverage (shared recommendation)** (Cobertura de RI de máquinas virtuales [recomendación compartida]): el informe se divide entre el uso de máquina virtual a petición y el uso de instancias reservadas de máquinas virtuales durante el período seleccionado. Proporciona recomendaciones para las compras de instancias reservadas de máquinas virtuales en un ámbito compartido.
 
 Para usar el informe, seleccione el filtro de exploración en profundidad.
 
@@ -113,17 +113,17 @@ Para cada nivel de exploración en profundidad, se aplican los siguientes filtro
 
 La tabla de recomendaciones proporciona recomendaciones para la compra de la reserva, en función de los tamaños de máquina virtual usados.
 
-Los valores de _Normalized Size_ (Tamaño normalizado) y _Recommended Quantity Normalized_ (Cantidad recomendada normalizada) le ayudan a normalizar la compra al menor tamaño de un grupo de flexibilidad de tamaño de instancia. La información es útil si tiene previsto comprar solo una reserva para todos los tamaños del grupo de flexibilidad de tamaño de instancia.
+Los valores de _Normalized Size_ (Tamaño normalizado) y _Recommended Quantity Normalized_ (Cantidad recomendada normalizada) le ayudan a normalizar que se compre el menor tamaño de un grupo de flexibilidad de tamaño de instancia. La información es útil si tiene previsto comprar solo una reserva para todos los tamaños del grupo de flexibilidad de tamaño de instancia.
 
 ![Recomendaciones de instancias reservadas](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ri-recomendations.png)
 
-**VM RI Coverage (single recommendation)** [Cobertura de RI de máquina virtual (recomendación única)]: el informe se divide entre el uso de máquina virtual a petición y el uso de instancias reservadas de máquinas virtuales durante el período de tiempo seleccionado. Proporciona recomendaciones para las compras de instancias reservadas de máquinas virtuales en el ámbito de una suscripción.
+**VM RI Coverage (single recommendation)** (Cobertura de RI de máquina virtual [recomendación única]): el informe se divide entre el uso de máquina virtual a petición y el uso de instancias reservadas de máquinas virtuales durante el período de tiempo seleccionado. Proporciona recomendaciones para las compras de instancias reservadas de máquinas virtuales en el ámbito de una suscripción.
 
 Para más información sobre cómo usar el informe, consulte la sección sobre la [cobertura de RI de máquina virtual (recomendación compartida)](#shared-recommendation).
 
-**RI purchases** (Compras de RI): el informe muestra las compras de instancias reservadas durante el período especificado.
+**RI purchases** (Compras de RI): este informe muestra las compras de instancias reservadas durante el período especificado.
 
-**Price sheet** (Hoja de precios): el informe muestra una lista detallada de precios específicos de una cuenta de facturación o de la inscripción de Contrato Enterprise.
+**Price sheet** (Hoja de precios): este informe muestra una lista detallada de precios específicos de una cuenta de facturación o de la inscripción de Contrato Enterprise.
 
 ## <a name="troubleshoot-problems"></a>Solucionar problemas
 
@@ -175,17 +175,17 @@ La información siguiente resume los datos disponibles en la aplicación. Tambi�
 
 | **Referencia de tabla** | **Descripción** |
 | --- | --- |
-| **AutoFitComboMeter** | Datos incluidos en la aplicación para normalizar la recomendación de instancia reservada y el uso al menor tamaño en el grupo de familias de instancias. |
-| [**Balance summary**](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary#response) (Resumen del saldo) | Resumen del saldo de las instancias de Contrato Enterprise. |
+| **AutoFitComboMeter** | Datos incluidos en la aplicación para normalizar la recomendación de instancia reservada y el uso del menor tamaño en el grupo de familias de instancias. |
+| [**Balance summary**](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary#response) (Resumen del saldo) | Resumen del saldo de los Contratos Enterprise. |
 | [**Budgets**](/rest/api/consumption/budgets/get#definitions) (Presupuestos) | Detalles del presupuesto para ver los costos reales o el uso de los objetivos de presupuesto existentes. |
-| [**Pricesheets**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) (Hojas de precios) | Tasas de los medidores aplicables para el perfil de facturación proporcionado o la inscripción a Contrato Enterprise. |
+| [**Pricesheets**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) (Hojas de precios) | Tasas de los medidores aplicables para el perfil de facturación proporcionado o la inscripción de Contrato Enterprise. |
 | [**RI charges**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) (Cargos de RI) | Cargos asociados a las instancias reservadas en los últimos 24 meses. |
 | [**RI recommendations (shared)** ](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) [Recomendaciones de RI (compartidas)] | Recomendaciones de compras de instancias reservadas basadas en todas las tendencias de uso de las suscripciones durante los últimos 7, 30 o 60 días. |
 | [**RI recommendations (single)** ](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) [Recomendaciones de RI (únicas)] | Recomendaciones de compra de instancias reservadas basadas en las tendencias de uso de las suscripciones únicas durante los últimos 7, 30 o 60 días. |
 | [**RI usage details**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) (Detalles de uso de RI) | Detalles de consumo de las instancias reservadas existentes durante el último mes. |
 | [**RI usage summary**](/rest/api/consumption/reservationssummaries/list) (Resumen de uso de RI) | Porcentaje diario de uso de reservas de Azure. |
-| [**Usage details**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) (Detalles de uso) | Un desglose de cantidades consumidas y de cargos estimados para el perfil de facturación determinado en la inscripción a Contrato Enterprise. |
-| [**Usage details amortized**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) (Detalles de uso amortizados) | Un desglose de cantidades consumidas y de cargos amortizados estimados para el perfil de facturación determinado en la inscripción a Contrato Enterprise. |
+| [**Usage details**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) (Detalles de uso) | Un desglose de cantidades consumidas y de cargos estimados para el perfil de facturación determinado en la inscripción de Contrato Enterprise. |
+| [**Usage details amortized**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) (Detalles de uso amortizados) | Un desglose de cantidades consumidas y de cargos amortizados estimados para el perfil de facturación determinado en la inscripción de Contrato Enterprise. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
