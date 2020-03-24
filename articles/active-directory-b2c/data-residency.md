@@ -52,7 +52,7 @@ Los datos residen en **Europa** para los países o regiones siguientes:
 
 Los datos residen en **Asia Pacifico** para los países o regiones siguientes:
 
-> Afganistán, Hong Kong RAE, India, Indonesia, Japón, Corea, Malasia, Filipinas, Singapur, Sri Lanka, Taiwán y Tailandia.
+> Afganistán, RAE de Hong Kong, India, Indonesia, Japón, Corea, Malasia, Filipinas, Singapur, Sri Lanka, Taiwán y Tailandia.
 
 Los países o regiones siguientes están a punto de agregarse a la lista. De momento, todavía puede usar Azure AD B2C escogiendo cualquiera de los países o regiones anteriores.
 

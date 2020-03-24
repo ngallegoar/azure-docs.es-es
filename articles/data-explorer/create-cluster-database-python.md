@@ -24,7 +24,7 @@ ms.locfileid: "77560514"
 > * [Python](create-cluster-database-python.md)
 > * [Plantilla ARM](create-cluster-database-resource-manager.md)
 
-En este artículo, va a crear un clúster y una base de datos de Azure Data Explorer mediante Python. Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado para analizar en tiempo real grandes volúmenes de datos de que se transmiten desde aplicaciones, sitios web, dispositivos IoT, etc. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en él. A continuación, ingiera, o cague, los datos en una base de datos para que pueda ejecutar consultas en ella.
+En este artículo, va a crear un clúster y una base de datos de Azure Data Explorer mediante Python. Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado para analizar en tiempo real grandes volúmenes de datos de que se transmiten desde aplicaciones, sitios web, dispositivos IoT, etc. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en él. A continuación, ingiera, o cargue, los datos en una base de datos para que pueda ejecutar consultas en ella.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

@@ -50,7 +50,7 @@ En esta instancia, a medida que aumenta el tiempo de carga de **Página del prod
 
 Impacto admite propiedades y medidas personalizadas y estándar, así que puede usar lo que prefiera. En lugar de duración, use filtros en los eventos principales y secundarios para obtener datos más específicos.
 
-## <a name="do-users-from-different-countries-or-regions-convert-at-different-rates"></a>¿Las tasas de conversión de los usuarios varían en función de los países?
+## <a name="do-users-from-different-countries-or-regions-convert-at-different-rates"></a>¿Las tasas de conversión de los usuarios varían en función de los países o regiones?
 
 1. Seleccione una vista de página en la lista desplegable **For the page view** (Para la vista de página).
 2. Elija "País o región" en la lista desplegable **analyze how its** (Analizar su).

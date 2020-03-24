@@ -18,7 +18,7 @@ ms.locfileid: "76960385"
 
 Las reglas personalizadas permiten la creación de reglas adaptadas para satisfacer las necesidades precisas de las aplicaciones y las directivas de seguridad. Ahora, puede restringir el acceso a las aplicaciones web por país o región. Como con todas las reglas personalizadas, esta lógica se puede componer con otras reglas para satisfacer las necesidades de la aplicación.
 
-Para crear una regla personalizada de filtrado geográfico, simplemente seleccione *Geolocalización* como el tipo de coincidencia y, después, seleccione el país o los países que quiere permitir o bloquear desde la aplicación. Consulte el artículo sobre [cómo crear reglas personalizadas en PowerShell](configure-waf-custom-rules.md) y más ejemplos de reglas personalizadas (create-custom-waf-rules.md) para más información.
+Para crear una regla personalizada de filtrado geográfico, simplemente seleccione *Geolocalización* como el tipo de coincidencia y, después, seleccione el país o región o los países o regiones que quiere permitir o bloquear desde la aplicación. Consulte el artículo sobre [cómo crear reglas personalizadas en PowerShell](configure-waf-custom-rules.md) y más ejemplos de reglas personalizadas (create-custom-waf-rules.md) para más información.
 
 > [!IMPORTANT]
 > Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

@@ -49,7 +49,7 @@ Lenguajes:
 | Nombre del subtipo              | Descripción                                                                              | Disponible a partir de la versión del modelo |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
 | N/D                       | Organizaciones, como `Atlantic Ocean`, `library`, `Eiffel Tower` o `Statue of Liberty`  | `2019-10-01`                           |
-| Entidad geopolítica (GPE): solo inglés| Ciudades, países, estados, por ejemplo `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
+| Entidad geopolítica (GPE): solo inglés| Ciudades, países o regiones, estados, por ejemplo `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organización  
 

@@ -125,7 +125,7 @@ Para ver los países o regiones en los que se usan estos métodos de pago para c
 | Liechtenstein                    | Sí               | Sí                                      | Sí    | Sí             |
 | Lituania                        | Sí               | Sí                                      | Sí    | No              |
 | Luxemburgo                       | Sí               | Sí                                      | Sí    | Sí             |
-| República de Macedonia                        | No                | Sí                                      | Sí    | No              |
+| Macedonia del Norte                        | No                | Sí                                      | Sí    | No              |
 | Madagascar                       | Sí               | Sí                                      | Sí    | No              |
 | Malaui                           | Sí               | Sí                                      | Sí    | Sí             |
 | Malasia                         | Sí               | Sí                                      | Sí    | Sí             |

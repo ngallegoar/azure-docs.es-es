@@ -39,7 +39,7 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
   - El campo de correo electrónico es ahora `type=email` y los teclados para móviles proporcionarán las sugerencias correctas.
   - Compatibilidad con la traducción de Chrome
 - Páginas unificadas y autoafirmadas
-  - Los campos de nombre de usuario/correo electrónico y contraseña ahora usan el elemento HTML `form` para permitir que Edge e Internet Explorer (IE) guarden correctamente esta información.
+  - Los campos de nombre de usuario/correo electrónico y contraseña ahora usan el elemento HTML `form` para permitir que Microsoft Edge e Internet Explorer (IE) guarden correctamente esta información.
 
 ## <a name="110"></a>1.1.0
 

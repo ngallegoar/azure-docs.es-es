@@ -517,8 +517,8 @@ Para descargar la hoja de precios:
 1. En la esquina superior derecha, busque el vínculo a la lista de precios de Azure Marketplace debajo de su nombre de usuario.
 1. Haga clic con el botón derecho en el vínculo y seleccione **Guardar destino como**.
 1. En la ventana **Guardar**, cambie el título del documento a `AzureMarketplacePricelist.zip`, que cambiará el archivo de .xlsx a .zip.
-1. Después de completada la descarga, tendrá un archivo ZIP con listas de precios específicas del país.
-1. Los LSP deben hacer referencia al archivo individual del país para obtener los precios específicos del país. Los LSP pueden usar la pestaña **Notificaciones** para estar al tanto de las SKU que son nuevas o retiradas.
+1. Después de completada la descarga, tendrá un archivo ZIP con listas de precios específicas del país o región.
+1. Los LSP deben hacer referencia al archivo individual del país para obtener los precios específicos del país o región. Los LSP pueden usar la pestaña **Notificaciones** para estar al tanto de las SKU que son nuevas o retiradas.
 1. Los cambios de precio son poco frecuentes. Los LSP reciben notificaciones por correo electrónico de los aumentos de precios y las variaciones en los tipos de cambio (FX) con 30 días de antelación.
 1. Los LSP reciben una factura por inscripción, por ISV y por trimestre.
 

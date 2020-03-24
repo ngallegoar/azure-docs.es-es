@@ -142,7 +142,7 @@ Asegúrese de configurar el parámetro **Vista** según lo necesario para las AP
 >    * SDK web de Azure Maps
 >    * Android SDK para Azure Maps
 
-De manera predeterminada, el parámetro Vista está establecido en **Unificado**, aunque no lo haya definido en la solicitud. Determine la ubicación de los usuarios. A continuación, establezca el parámetro **Vista** correctamente para esa ubicación. Como alternativa, tiene la opción de establecer "View=Auto", que devolverá los datos del mapa según la dirección IP de la solicitud.  El parámetro **Vista** de Azure Maps se debe usar de conformidad con las leyes aplicables, incluidas aquellas relacionadas con la asignación del país donde están disponibles los mapas, las imágenes y otros datos y contenido de terceros a los que está autorizado a acceder a través de Azure Maps.
+De manera predeterminada, el parámetro Vista está establecido en **Unificado**, aunque no lo haya definido en la solicitud. Determine la ubicación de los usuarios. A continuación, establezca el parámetro **Vista** correctamente para esa ubicación. Como alternativa, tiene la opción de establecer "View=Auto", que devolverá los datos del mapa según la dirección IP de la solicitud.  El parámetro **Vista** de Azure Maps se debe usar de conformidad con las leyes aplicables, incluidas aquellas relacionadas con la asignación del país o región donde están disponibles los mapas, las imágenes y otros datos y contenido de terceros a los que está autorizado a acceder a través de Azure Maps.
 
 
 La siguiente tabla proporciona vistas compatibles.

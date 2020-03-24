@@ -39,7 +39,7 @@ Para más información sobre la autenticación en Azure Maps, consulte [Administ
 
 Al buscar una dirección completa o parcial mediante el servicio Search de Azure Maps, la API lee las palabras clave de la consulta de búsqueda. A continuación, devuelve las coordenadas de longitud y latitud de la dirección. Este proceso se denomina *geocodificación*. 
 
-La capacidad de geocodificación de un país depende de la disponibilidad de datos de carreteras y de la precisión del servicio de geocodificación. Para más información sobre las funcionalidades de geocodificación de Azure Maps por país o región, consulte [Cobertura de geocodificación](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
+La capacidad de geocodificación de un país o región depende de la disponibilidad de datos de carreteras y de la precisión del servicio de geocodificación. Para más información sobre las funcionalidades de geocodificación de Azure Maps por país o región, consulte [Cobertura de geocodificación](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 
 ### <a name="limit-search-results"></a>Limitar los resultados de la búsqueda
 
@@ -70,7 +70,7 @@ Se recomienda usar la [API de búsqueda aproximada](https://docs.microsoft.com/r
 * Use el parámetro `idxSet` para dar prioridad al conjunto exacto de tipos de resultados. Para dar prioridad a un conjunto exacto de resultados, puede enviar una lista de índices separada por comas. En la lista, el orden de los elementos no importa. Azure Maps admite los índices siguientes:
 
     * `Addr` - **Intervalos de direcciones**: puntos de dirección que se interpolan desde el principio y el final de la calle. Esos puntos se representan como intervalos de direcciones.
-    * `Geo` - **Geografías**: divisiones administrativas del territorio. Una geografía puede ser un país, un estado o una ciudad, por ejemplo.
+    * `Geo` - **Geografías**: divisiones administrativas del territorio. Una geografía puede ser un país o región, un estado o una ciudad, por ejemplo.
     * `PAD` - **Direcciones de punto**: direcciones que incluyen el nombre y el número de la calle. Las direcciones de punto se pueden encontrar en un índice. Un ejemplo es *Soquel Dr 2501*. Una dirección de punto proporciona el nivel más alto de precisión disponible para las direcciones.  
     * `POI` - **Puntos de interés**: puntos en un mapa que se considera que merece la pena prestar atención o que pueden ser interesantes. La [API de búsqueda de direcciones](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) no devuelve puntos de interés.  
     * `Str` - **Calles**: calles en el mapa.
@@ -481,7 +481,7 @@ url.QueryEscape(query)
 
 En una búsqueda de puntos de interés, puede solicitar los resultados por nombre. Por ejemplo, puede buscar una empresa por su nombre. 
 
-Es muy recomendable que use el parámetro `countrySet` para especificar los países en los que la aplicación necesita cobertura. El comportamiento predeterminado es buscar en todo el mundo. Esta búsqueda tan amplia puede devolver resultados innecesarios y la búsqueda puede tardar mucho tiempo.
+Es muy recomendable que use el parámetro `countrySet` para especificar los países o regiones en los que la aplicación necesita cobertura. El comportamiento predeterminado es buscar en todo el mundo. Esta búsqueda tan amplia puede devolver resultados innecesarios y la búsqueda puede tardar mucho tiempo.
 
 ### <a name="brand-search"></a>Búsqueda de marcas
 
@@ -771,7 +771,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 * **Intervalo de direcciones**: intervalo de puntos de dirección que se interpolan desde el principio y el final de la calle.  
 
-* **Geography**: áreas en un mapa que representan una división administrativa de un territorio, es decir, país, estado o ciudad. 
+* **Geography**: áreas en un mapa que representan una división administrativa de un territorio, es decir, país, región, estado o ciudad. 
 
 * **Punto de interés**: puntos de un mapa que merecen atención y pueden ser de interés.
 

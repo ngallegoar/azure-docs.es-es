@@ -49,7 +49,7 @@ Antes de comenzar, asegúrese de que ha completado [Tutorial: Copia de datos a A
     - Es aconsejable usar un envoltorio de burbujas bien protegido para empaquetar los discos.
     - Asegúrese de que todo encaja perfectamente para reducir los movimientos dentro de la caja.
 
-Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver el dispositivo. Las instrucciones son diferentes para EE. UU. o Canadá, Unión Europea (UE), Australia o países de Asia.
+Los siguientes pasos vienen determinados por el lugar al que se vaya a devolver el dispositivo. Las instrucciones son diferentes para EE. UU. o Canadá, Unión Europea (UE), Australia o países o regiones de Asia.
 
 ### <a name="in-us-or-canada"></a>[En Estados Unidos o Canadá](#tab/in-us-or-canada)
 

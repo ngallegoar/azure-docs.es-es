@@ -46,7 +46,7 @@ En la tabla siguiente se enumeran los dispositivos y exploradores que se han pro
 | Dispositivo | Browser     |  Resultado  | 
 | ------------- |:-------------:|:-----:|
 | Huawei/One+ | Chrome\* | Pass (pasado)|
-| Huawei/One+ | Edge\* | Pass (pasado)|
+| Huawei/One+ | Microsoft Edge\* | Pass (pasado)|
 | Huawei/One+ | Firefox\* | Pass (pasado)|
 | Huawei/One+ | Brave\* | Pass (pasado)|
 | One+ | Ecosia\* | Pass (pasado)|

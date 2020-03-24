@@ -212,7 +212,7 @@ customEvents
 
 La consulta mostrará los resultados de la siguiente forma:
 
-![Lista desplegable de países](./media/usage-workbooks/012-country-dropdown.png)
+![Lista desplegable de países o regiones](./media/usage-workbooks/012-country-dropdown.png)
 
 Las listas desplegables son herramientas increíblemente eficaces para personalizar y crear informes interactivos.
 
@@ -226,7 +226,7 @@ Los tipos de parámetro de intervalo de tiempo tienen 15 intervalos predetermina
 
 El tipo de parámetro del selector de recursos le permite definir el ámbito del informe para ciertos tipos de recursos. Un ejemplo de libro creado previamente que aprovecha el tipo de selector de recursos es el libro **Failure Insights**.
 
-![Lista desplegable de países](./media/usage-workbooks/013-resource-picker.png)
+![Lista desplegable de países o regiones](./media/usage-workbooks/013-resource-picker.png)
 
 ## <a name="saving-and-sharing-workbooks-with-your-team"></a>Almacenamiento y uso compartido de libros con el equipo
 
