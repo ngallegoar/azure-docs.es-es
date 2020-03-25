@@ -15,13 +15,13 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74027107"
 ---
-# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adición o eliminación automáticas de miembros de grupos
+# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adición o eliminación de miembros del grupo automáticamente
 
 En Azure Active Directory (Azure AD), puede agregar o quitar usuarios de grupos de seguridad o grupos de Office 365 automáticamente, por lo que no siempre tiene que hacerlo manualmente. Cada vez que cambian las propiedades de un usuario o un dispositivo, Azure AD evalúa todas las reglas de grupos dinámicos del inquilino para ver si el cambio hace que se deban agregar o quitar miembros.
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Esta característica requiere una licencia de Azure Active Directory Premium como administrador global del inquilino. Si no dispone de una, en Azure AD, seleccione **Licencias** > **Productos** > **Probar/Comprar**.
 
@@ -97,7 +97,7 @@ Quizás su plan administrativo final es asignar todos los usuarios invitados a s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 > [!div class="checklist"]
 > * Creación de un grupo de usuarios invitados
 > * Asignación de licencias al nuevo grupo

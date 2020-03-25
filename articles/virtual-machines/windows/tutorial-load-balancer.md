@@ -16,10 +16,10 @@ ms.date: 12/03/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 05a796d7bbe08f8e560c6545f3ed37c0f54b9cf9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74067860"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Tutorial: Equilibrio de carga de máquinas virtuales Windows en Azure para crear una aplicación de alta disponibilidad con Azure PowerShell
@@ -180,7 +180,7 @@ for ($i=1; $i -le 3; $i++)
 ```
 
 
-## <a name="create-virtual-machines"></a>Crear máquinas virtuales
+## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 Para mejorar la alta disponibilidad de la aplicación, coloque las máquinas virtuales en un conjunto de disponibilidad.
 
 Cree un conjunto de disponibilidad con [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado *myAvailabilitySet*:

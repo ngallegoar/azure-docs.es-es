@@ -10,10 +10,10 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 5f14164da5cd89cc7d0578e6b64c39d227734d75
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969471"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Tutorial: Implementación de la aplicación de ASP.NET Core en Azure Service Fabric mediante Azure DevOps Projects
@@ -35,15 +35,15 @@ En este tutorial, aprenderá lo siguiente:
 > * Confirmación de los cambios en Git e implementación automática en Azure
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+* Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabric"></a>A usar DevOps Projects para crear una aplicación de ASP.NET Core e implementarla en Service Fabric
 
 DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como un clúster de Service Fabric, en la suscripción de Azure que elija.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el panel izquierdo, seleccione **Crear un recurso**.
 
@@ -161,7 +161,7 @@ Si va a realizar pruebas, limpie los recursos para que no se acumulen costos de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si lo desea, puede modificar las canalizaciones de CI/CD de Azure para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial aprendió lo siguiente:
+Si lo desea, puede modificar las canalizaciones de CI/CD de Azure para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * A usar DevOps Projects para crear una aplicación de ASP.NET Core e implementarla en Service Fabric

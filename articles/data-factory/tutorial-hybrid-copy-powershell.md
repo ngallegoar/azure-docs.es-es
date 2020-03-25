@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 61ee9e46b1c1d4c1e1ec4815c7a88de921650230
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75982611"
 ---
-# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copia de datos de una base de datos de SQL Server local en Azure Blob Storage
+# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: copia de datos de una base de datos de SQL Server local a Azure Blob Storage
 
 En este tutorial, use Azure PowerShell para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local a Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube.
 
@@ -177,7 +177,7 @@ Si no está en el equipo, instale la versión más reciente de Azure PowerShell.
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Para crear instancias de Data Factory, a la cuenta de usuario que use para iniciar sesión en Azure debe se le deben asignar los roles *colaborador* o *propietario*, o bien debe de ser de un *administrador* de la suscripción a Azure.
-> * Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+> * Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 >
 >
 
@@ -478,7 +478,7 @@ En este paso, defina un conjunto de datos que represente los datos de la instanc
 ### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Creación de un conjunto de datos para Azure Blob Storage (receptor)
 En este paso, se define un conjunto de datos que representa los datos que se van a copiar a Azure Blob Storage. El conjunto de datos es del tipo AzureBlob. Hace referencia al servicio vinculado Azure Storage que creó anteriormente en este tutorial.
 
-El servicio vinculado tiene la información de conexión que Data Factory usa en el runtime para conectarse a su cuenta de Azure Storage. Este conjunto de datos especifica la carpeta del almacenamiento de Azure a la que se copian los datos desde la base de datos de SQL Server. En este tutorial, la carpeta es: *adftutorial/fromonprem*, donde `fromonprem` es el contenedor de blobs y `adftutorial` es la carpeta.
+El servicio vinculado tiene la información de conexión que Data Factory usa en el runtime para conectarse a su cuenta de Azure Storage. Este conjunto de datos especifica la carpeta del almacenamiento de Azure a la que se copian los datos desde la base de datos de SQL Server. En este tutorial, la carpeta es: *adftutorial/fromonprem*, donde `adftutorial` es el contenedor de blobs y `fromonprem` es la carpeta.
 
 1. Cree un archivo JSON denominado *AzureBlobDataset.json* en la carpeta *C:\ADFv2Tutorial* con el siguiente código:
 

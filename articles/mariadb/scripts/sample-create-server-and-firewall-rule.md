@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.openlocfilehash: 3e0c17bbb413c2036ad1a3794dc029aaef0fe68c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74771745"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Cree un servidor de MariaDB y configure una regla de firewall mediante la CLI de Azure
@@ -41,5 +41,5 @@ Este script usa los comandos que se describen en la tabla siguiente:
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para más información sobre la CLI de Azure, consulte: [Documentación de la CLI de Azure](/cli/azure).
-- Pruebe otros scripts adicionales: [Ejemplos de la CLI de Azure para Azure Database for MariaDB](../sample-scripts-azure-cli.md)
+- Para más información sobre la CLI de Azure: [Documentación de la CLI de Azure](/cli/azure).
+- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MariaDB](../sample-scripts-azure-cli.md).

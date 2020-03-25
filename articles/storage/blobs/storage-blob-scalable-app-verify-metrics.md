@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68698988"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Comprobar las métricas de rendimiento y latencia de una cuenta de almacenamiento
@@ -50,7 +50,7 @@ Seleccione la opción **Últimas 24 horas (automático)** junto a **Tiempo**. El
 
 Los gráficos pueden tener más de una métrica asignada, pero asignar más de una métrica deshabilita la capacidad de grupo por dimensiones.
 
-## <a name="dimensions"></a>Dimensiones
+## <a name="dimensions"></a>Dimensions
 
 Las [Dimensiones](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) se utilizan para obtener los pormenores de los gráficos y obtener información más detallada. Las métricas diferentes tienen distintas dimensiones. Una dimensión que está disponible es la dimensión **Nombre de API**. Esta dimensión se sale del gráfico en cada llamada de API independiente. La primera imagen que tiene a continuación muestra un gráfico de ejemplo con las transacciones de una cuenta de almacenamiento. En la segunda imagen se muestra el mismo gráfico, pero con la dimensión Nombre de API seleccionada. Tal como puede ver, cada transacción aparece en una lista que proporciona más detalles sobre cuántas llamadas se realizaron por nombre de API.
 

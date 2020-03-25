@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 4a6dc3dc2b0580f72ffae5cb5d034b0acdb64612
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73155394"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Tutorial: Integración de Azure Active Directory con GaggleAMP
+# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Tutorial: integración de Azure Active Directory con GaggleAMP
 
 En este tutorial, aprenderá a integrar GaggleAMP con Azure Active Directory (Azure AD).
 Integrar GaggleAMP con Azure AD le proporciona las siguientes ventajas:
@@ -34,7 +34,7 @@ Integrar GaggleAMP con Azure AD le proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con GaggleAMP, necesita los siguientes elementos:
 
@@ -134,7 +134,7 @@ Para configurar el inicio de sesión único de Azure AD con GaggleAMP, realice l
 
 ### <a name="configure-gaggleamp-single-sign-on"></a>Configuración del inicio de sesión único de GaggleAMP
 
-1. En otra instancia del explorador, vaya a la página de SSO de SAML que ha creado para usted el equipo de soporte técnico de Gaggle (por ejemplo:  *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit* ).
+1. En otra instancia del explorador, vaya a la página de SSO de SAML que ha creado para usted el equipo de soporte técnico de Gaggle (por ejemplo: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit* ).
 
 2. En la página **SAML SSO** (Inicio de sesión único de SAML), realice los pasos siguientes:  
    
@@ -173,7 +173,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

@@ -16,13 +16,13 @@ ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76834661"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Supervisión de la comunicación de red entre dos máquinas virtuales mediante Azure Portal
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: supervisar la comunicación de red entre dos máquinas virtuales mediante Azure Portal
 
 La comunicación correcta entre una máquina virtual (VM) y un punto de conexión, como otra máquina virtual, puede ser crítica para una organización. En ocasiones, se introducen cambios de configuración que pueden interrumpir la comunicación. En este tutorial, aprenderá a:
 
@@ -159,7 +159,7 @@ De forma predeterminada, Azure permite la comunicación de todos los puertos ent
 
     Puede ver que hay un icono de signo de exclamación rojo en la columna Estado de la interfaz de red **myvm2529**.
 
-6. Para saber por qué ha cambiado el estado, seleccione 10.0.0.5 en la imagen anterior. El monitor de conexión le informa de que el motivo del error de comunicación es: *Tráfico bloqueado debido a la regla de grupo de seguridad de red siguiente: UserRule_DenySshInbound*.
+6. Para saber por qué ha cambiado el estado, seleccione 10.0.0.5 en la imagen anterior. El monitor de conexión le informará que el motivo del error de comunicación es el siguiente: *Tráfico bloqueado debido a la siguiente regla del grupo de seguridad de red: UserRule_DenySshInbound*.
 
     Si no sabía que alguien había implementado la regla de seguridad que creó en el paso 4, ahora sabrá gracias al monitor de conexión que esta regla es la que provoca el problema de comunicación. A continuación, puede cambiar, invalidar o quitar la regla para restablecer la comunicación entre las VM.
 

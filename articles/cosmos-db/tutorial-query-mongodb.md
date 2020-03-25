@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870146"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Consulta de los datos con la API de Azure Cosmos DB para MongoDB
@@ -58,7 +58,7 @@ En las consultas de este artículo se usa el documento de ejemplo siguiente.
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a> Consulta 1 de ejemplo 
+## <a name="example-query-1"></a><a id="examplequery1"></a> Consulta 1 de ejemplo 
 
 Dado el documento de familia de ejemplo anterior, la consulta siguiente devuelve los documentos donde el campo Id. coincide con `WakefieldFamily`.
 
@@ -108,7 +108,7 @@ Dado el documento de familia de ejemplo anterior, la consulta siguiente devuelve
     "isRegistered": false
     }
 
-## <a id="examplequery2"></a>Consulta 2 de ejemplo 
+## <a name="example-query-2"></a><a id="examplequery2"></a>Consulta 2 de ejemplo 
 
 La consulta siguiente devuelve todos los elementos secundarios de la familia. 
 
@@ -141,7 +141,7 @@ La consulta siguiente devuelve todos los elementos secundarios de la familia.
     }
 
 
-## <a id="examplequery3"></a>Consulta 3 de ejemplo 
+## <a name="example-query-3"></a><a id="examplequery3"></a>Consulta 3 de ejemplo 
 
 La consulta siguiente devuelve todas las familias que están registradas. 
 
@@ -150,7 +150,7 @@ La consulta siguiente devuelve todas las familias que están registradas.
     db.families.find( { "isRegistered" : true })
 **Resultados**: no se devolverá ningún documento. 
 
-## <a id="examplequery4"></a>Consulta 4 de ejemplo
+## <a name="example-query-4"></a><a id="examplequery4"></a>Consulta 4 de ejemplo
 
 La consulta siguiente devuelve todas las familias que no están registradas. 
 
@@ -194,7 +194,7 @@ La consulta siguiente devuelve todas las familias que no están registradas.
     "isRegistered": false
 }
 
-## <a id="examplequery5"></a>Consulta 5 de ejemplo
+## <a name="example-query-5"></a><a id="examplequery5"></a>Consulta 5 de ejemplo
 
 La consulta siguiente devuelve todas las familias que no están registradas y el estado es NY. 
 
@@ -240,7 +240,7 @@ La consulta siguiente devuelve todas las familias que no están registradas y el
 }
 
 
-## <a id="examplequery6"></a>Consulta 6 de ejemplo
+## <a name="example-query-6"></a><a id="examplequery6"></a>Consulta 6 de ejemplo
 
 La consulta siguiente devuelve todas las familias en las que los grados de los elementos secundarios son 8.
 
@@ -285,7 +285,7 @@ La consulta siguiente devuelve todas las familias en las que los grados de los e
     "isRegistered": false
 }
 
-## <a id="examplequery7"></a>Consulta 7 de ejemplo
+## <a name="example-query-7"></a><a id="examplequery7"></a>Consulta 7 de ejemplo
 
 La consulta siguiente devuelve todas las familias en las que el valor de tamaño de la matriz secundaria es 3.
 

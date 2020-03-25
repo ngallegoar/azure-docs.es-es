@@ -9,10 +9,10 @@ ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: 2ddf171090ab4a9e3dbe4506a399cbdbd2621bdd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67186389"
 ---
 Cuando haya terminado, puede eliminar el grupo de recursos. Al eliminar el grupo de recursos, se elimina la cuenta de almacenamiento, el recurso compartido de archivos de Azure y otros recursos que se implementaron en el grupo de recursos.

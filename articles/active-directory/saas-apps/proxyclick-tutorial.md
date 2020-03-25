@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 6a4d1c8a390ebd1194d14c057bb32d3111bf39be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Tutorial: Integración de Azure Active Directory con Proxyclick
@@ -35,7 +35,7 @@ Para más información acerca de la integración de aplicaciones SaaS con Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con Proxyclick, necesita los siguientes elementos:
 

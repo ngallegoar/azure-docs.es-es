@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
 ms.openlocfilehash: cec1d3e07800dd3093ca79a87cafcf5fceafbf2f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209195"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importación de una instancia de Azure Function App como API en Azure API Management
@@ -35,14 +35,14 @@ Aprenderá a:
 > * Prueba de la API en Azure Portal
 > * Prueba de la API en el portal para desarrolladores
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Complete la guía de inicio rápido [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 * Asegúrese de que tiene una aplicación de Azure Functions en la suscripción. Para más información, consulte [Creación de una instancia de Azure Function App](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Debe contener funciones con desencadenador HTTP y la configuración del nivel de autorización debe establecerse en *Anónimo* o *Función*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="add-new-api-from-azure-function-app"></a> Importación de una instancia de Azure Function App como una API nueva
+## <a name="import-an-azure-function-app-as-a-new-api"></a><a name="add-new-api-from-azure-function-app"></a> Importación de una instancia de Azure Function App como una API nueva
 
 Siga estos pasos para crear una API desde una instancia de Azure Function App.
 
@@ -77,7 +77,7 @@ Siga estos pasos para crear una API desde una instancia de Azure Function App.
 
 8. Haga clic en **Crear**.
 
-## <a name="append-azure-function-app-to-api"></a>Anexión de una instancia de Azure Function App a una API existente
+## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a>Anexión de una instancia de Azure Function App a una API existente
 
 Siga estos pasos para anexar Azure Function App a una API existente.
 
@@ -111,7 +111,7 @@ Siga estos pasos para anexar Azure Function App a una API existente.
 
     ![Anexar desde Function App](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization"></a>Autorización
+## <a name="authorization"></a><a name="authorization"></a>Autorización
 
 La importación de una instancia de Azure Function App genera automáticamente:
 
@@ -143,7 +143,7 @@ Vaya a la instancia de Azure API Management y seleccione **Valores con nombre** 
 
 ![Agregar desde Function App](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> Prueba de la nueva API en Azure Portal
+## <a name="test-the-new-api-in-the-azure-portal"></a><a name="test-in-azure-portal"></a> Prueba de la nueva API en Azure Portal
 
 Puede llamar a operaciones directamente desde Azure Portal. Mediante Azure Portal es una manera cómoda de ver y probar las operaciones de una API.  
 

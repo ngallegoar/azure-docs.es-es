@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Optimizely | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Optimizely | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Optimizely.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 2e25c615e040dd4359e278b95045fbc71ca60ef1
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68943955"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integración de Azure Active Directory con Optimizely
+# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: integración de Azure Active Directory con Optimizely
 
 En este tutorial, obtendrá información sobre cómo integrar Optimizely con Azure Active Directory (Azure AD).
 La integración de Optimizely con Azure AD le proporciona las siguientes ventajas:
@@ -34,7 +34,7 @@ La integración de Optimizely con Azure AD le proporciona las siguientes ventaja
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con Optimizely, se necesitan los siguientes elementos:
 
@@ -118,7 +118,7 @@ Para configurar el inicio de sesión único de Azure AD con Optimizely, realice 
 
 6. Además de lo anterior, la aplicación Optimizely espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
-    | NOMBRE | Atributo de origen |
+    | Nombre | Atributo de origen |
     | ---------------| --------------- |
     | email | user.mail |
     
@@ -199,7 +199,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

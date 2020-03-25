@@ -4,13 +4,13 @@ description: Aprenda a crear funciones de Azure que se ejecutan en una imagen de
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: b714806c163a94bbae7069c357e603b82ba797ba
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+zone_pivot_groups: programming-languages-set-functions
+ms.openlocfilehash: 8c074c677c645dd03e3cf5288d82aa3e65720e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482367"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223732"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creación de una función en Linux con un contenedor personalizado
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Puede seguir este tutorial en cualquier equipo que ejecute Windows, MacOS o Linux. Completar el tutorial hará que incurra en un pequeño costo en su cuenta de Azure.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versión 2.7.1846 u otra posterior.
@@ -70,7 +70,7 @@ Puede seguir este tutorial en cualquier equipo que ejecute Windows, MacOS o Linu
 
 1. En un símbolo del sistema o terminal, cree una carpeta para este tutorial en una ubicación adecuada y, a continuación, vaya a esa carpeta.
 
-1. Siga las instrucciones de [Creación y activación de un entorno virtual](functions-create-first-function-python.md#create-and-activate-a-virtual-environment) para crear un entorno virtual para usarlo en este tutorial.
+1. Siga las instrucciones de [Creación y activación de un entorno virtual](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) para crear un entorno virtual para usarlo en este tutorial.
 
 1. Ejecute el siguiente comando para el lenguaje elegido para crear un proyecto de aplicación de funciones en una carpeta denominada `LocalFunctionsProject`. La opción `--docker` genera un archivo `Dockerfile` para el proyecto que permite definir un contenedor personalizado adecuado para su uso con Azure Functions y el entorno de ejecución seleccionado.
 
@@ -339,8 +339,9 @@ Una aplicación de funciones en Azure administra la ejecución de las funciones 
 
     ```azurecli
     az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
+    ```
     
-1. Add this setting to the function app by using the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command. In the following command, replace `<app_name>` with the name of your function app, and replace `<connection_string>` with the connection string from the previous step (a long encoded string that begins with "DefaultEndpointProtocol="):
+1. Agregue esta configuración a la aplicación de funciones mediante el comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). En el siguiente comando, reemplace `<app_name>` por el nombre de la aplicación de funciones y reemplace `<connection_string>` por la cadena de conexión del paso anterior (una cadena larga codificada que comienza por "DefaultEndpointProtocol ="):
  
     ```azurecli
     az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
@@ -873,7 +874,7 @@ export default httpTrigger;
 
 En un explorador, use la misma dirección URL de antes para invocar la función. El explorador debe mostrar la misma respuesta que antes, ya que no se modificó esa parte del código de la función. No obstante, el mensaje agregado escribió un mensaje mediante el parámetro `name` de URL en la cola de almacenamiento `outqueue`.
 
-Puede ver la cola en [Azure Portal](../storage/queues/storage-quickstart-queues-portal.md) o en el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/). También puede ver la cola en la CLI de Azure como se indica en los pasos siguientes:
+La cola se puede ver en [Azure Portal](../storage/queues/storage-quickstart-queues-portal.md) o en el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/). También puede ver la cola en la CLI de Azure como se indica en los pasos siguientes:
 
 1. Abra el archivo *local.setting.json* del proyecto de Functions y copie el valor de la cadena de conexión. En una ventana de terminal o de comandos, ejecute el siguiente comando para crear una variable de entorno denominada `AZURE_STORAGE_CONNECTION_STRING` y pegue la cadena de conexión concreta en lugar de `<connection_string>`. (Esta variable de entorno significa que no es necesario proporcionar la cadena de conexión a cada comando posterior mediante el argumento `--connection-string`).
 

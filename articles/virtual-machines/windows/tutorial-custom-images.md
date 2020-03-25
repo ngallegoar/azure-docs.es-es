@@ -13,10 +13,10 @@ ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 7360798f2f95184145a856babf501e3080cbaaf4
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76274200"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con Azure PowerShell
@@ -50,7 +50,7 @@ Para crear una imagen de una máquina virtual, debe preparar la máquina virtual
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>Generalización de VM con Windows mediante Sysprep
 
-Entre otras características, Sysprep elimina toda la información personal de la cuenta y prepara, entre otras cosas, la máquina para usarse como imagen. Para más información acerca de Sysprep, consulte [Uso de Sysprep: Introducción](https://technet.microsoft.com/library/bb457073.aspx).
+Entre otras características, Sysprep elimina toda la información personal de la cuenta y prepara, entre otras cosas, la máquina para usarse como imagen. Para obtener más información sobre Sysprep, vea [Uso de Sysprep: Introducción](https://technet.microsoft.com/library/bb457073.aspx).
 
 
 1. Conexión a una máquina virtual.

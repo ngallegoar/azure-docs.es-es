@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: 74a72df9d8c0bc8a578fea57ab81fb496f8e6add
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74420355"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Creación de un agente de trabajos elásticos mediante PowerShell
@@ -34,7 +34,7 @@ En este tutorial aprenderá los pasos necesarios para ejecutar una consulta en v
 > * Inicio de la ejecución de un trabajo
 > * Supervisión de un trabajo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 La versión actualizada de los trabajos de Elastic Database tiene un nuevo conjunto de cmdlets de PowerShell para su utilización durante la migración. Estos nuevos cmdlets transfieren todas las credenciales de trabajos, destinos (incluidas bases de datos, servidores y colecciones personalizadas), desencadenadores de trabajos, programaciones de trabajos, contenido de trabajos y trabajos existentes a un nuevo agente de trabajos elásticos.
 
@@ -236,7 +236,7 @@ $job | Add-AzSqlElasticJobStep -Name "step1" -TargetGroupName $serverGroup.Targe
 $job | Add-AzSqlElasticJobStep -Name "step2" -TargetGroupName $serverGroupExcludingDb2.TargetGroupName -CredentialName $jobCred.CredentialName -CommandText $sqlText2
 ```
 
-### <a name="run-the-job"></a>Ejecución del trabajo
+### <a name="run-the-job"></a>Ejecutar el trabajo
 
 Para iniciar el trabajo inmediatamente, ejecute el comando siguiente:
 
@@ -274,9 +274,9 @@ $jobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 
 En la tabla siguiente se muestran los posibles estados de ejecución de los trabajos:
 
-|State|DESCRIPCIÓN|
+|State|Descripción|
 |:---|:---|
-|**Created** | La ejecución del trabajo se acaba de crear y aún no está en curso.|
+|**Creado** | La ejecución del trabajo se acaba de crear y aún no está en curso.|
 |**InProgress** | La ejecución del trabajo está en curso.|
 |**WaitingForRetry** | La ejecución del trabajo no pudo completar la acción y está esperando para intentarlo de nuevo.|
 |**Correcto** | La ejecución del trabajo se ha completado correctamente.|

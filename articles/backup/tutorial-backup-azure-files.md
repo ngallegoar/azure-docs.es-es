@@ -4,10 +4,10 @@ description: En este tutorial, aprenderá a usar Azure Portal para configurar un
 ms.date: 06/10/2019
 ms.topic: tutorial
 ms.openlocfilehash: ec9074a39f2ece7878c0c3ef828dc21748d0ab89
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76293936"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Copia de seguridad de los recursos compartidos de archivos de Azure en Azure Portal
@@ -35,7 +35,7 @@ La copia de seguridad de los recursos compartidos de archivos de Azure está en 
 * No elimine las instantáneas que crea Azure Backup. La eliminación de instantáneas puede provocar la pérdida de puntos de recuperación o errores de restauración.
 * No elimine los recursos compartidos de archivos que estén protegidos por Azure Backup. La solución actual eliminará todas las instantáneas realizadas por Azure Backup una vez que se elimina el recurso compartido de archivos y, por consiguiente, se pierden todos los puntos de restauración
 
-La copia de seguridad de recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) solo se encuentra disponible actualmente en las regiones de Centro de EE. UU. (CUS), Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Norte de Europa (NE), Sudeste Asiático (SEA), Oeste de Europa (WE) y Oeste de EE. UU. 2 (WUS2).
+La copia de seguridad de recursos compartidos de archivos de Azure en cuentas de almacenamiento con replicación de [almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) solo se encuentra disponible actualmente en las regiones de Centro de EE. UU. (CUS), Este de EE. UU. (EUS), Este de EE. UU. 2 (EUS2), Norte de Europa (NE), Sudeste de Asia (SEA), Oeste de Europa (WE) y Oeste de EE. UU. 2 (WUS2).
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configuración de la copia de seguridad de un recurso compartido de archivos de Azure
 

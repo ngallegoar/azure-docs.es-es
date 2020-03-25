@@ -15,10 +15,10 @@ ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 0cf9f8362d3fa683084aef840cf35cd9a843608a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614815"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Actualización del nombre de usuario y la contraseña de administración de las VM en un clúster
@@ -35,7 +35,7 @@ Si es necesario, instale PowerShell con la instrucción que se encuentra en la [
 
 ## <a name="script-explanation"></a>Explicación del script
 
-Este script usa los siguientes comandos: Cada comando de la tabla crea un vínculo a documentación específica del comando.
+Cada script utiliza los comandos siguientes: cada comando de la tabla crea un vínculo a documentación específica del comando.
 
 | Get-Help | Notas |
 |---|---|

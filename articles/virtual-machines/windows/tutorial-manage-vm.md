@@ -16,10 +16,10 @@ ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: c48d5e514d854568043d001a22411b6a67f79e6a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74067809"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Creación y administración de máquinas virtuales Windows con Azure PowerShell
@@ -180,7 +180,7 @@ El tamaño de la máquina virtual determina la cantidad de recursos de proceso, 
 
 En la tabla siguiente se clasifican los tamaños en casos de uso.  
 
-| type                     | Tamaños comunes           |    DESCRIPCIÓN       |
+| Tipo                     | Tamaños comunes           |    Descripción       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Uso general](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
 | [Proceso optimizado](sizes-compute.md)   | Fsv2          | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
@@ -241,12 +241,12 @@ Start-AzVM `
 Una máquina virtual de Azure puede tener uno de muchos estados de energía. 
 
 
-| Estado de energía | DESCRIPCIÓN
+| Estado de energía | Descripción
 |----|----|
 | Iniciando | La máquina virtual se está iniciando. |
 | En ejecución | La máquina virtual se está ejecutando. |
 | Deteniéndose | La máquina virtual se está deteniendo. |
-| Detenido | La máquina virtual está detenida. Las máquinas virtuales en el estado detenido siguen acumulando cargos por procesos.  |
+| Detenido | La VM está detenida. Las máquinas virtuales en el estado detenido siguen acumulando cargos por procesos.  |
 | Desasignando | La máquina virtual se está desasignando. |
 | Desasignado | Indica que la máquina virtual se quitó del hipervisor, pero sigue estando disponible en el plano de control. Las máquinas virtuales en el estado `Deallocated` no incurren en cargos por los procesos. |
 | - | Se desconoce el estado de la máquina virtual. |
@@ -308,7 +308,7 @@ Remove-AzResourceGroup `
 En este tutorial, ha aprendido conceptos básicos sobre la creación y administración de máquinas virtuales. Por ejemplo:
 
 > [!div class="checklist"]
-> * Crear y conectar elementos a una máquina virtual.
+> * Crear y conectar elementos a una máquina virtual
 > * Seleccionar y usar imágenes de máquinas virtuales
 > * Ver y usar tamaños de una máquina virtual específicos
 > * Cambiar el tamaño de una máquina virtual

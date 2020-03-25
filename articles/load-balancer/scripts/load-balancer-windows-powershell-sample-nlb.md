@@ -13,13 +13,13 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: ccc9ed364ce7ec5b18d04a71a8215675f7876b81
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74075920"
 ---
-# <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Ejemplo de script de Azure PowerShell: Equilibrio de carga del tráfico a las máquinas virtuales para lograr una alta disponibilidad
+# <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Ejemplo de script de Azure PowerShell: equilibrio de carga del tráfico a las máquinas virtuales para lograr una alta disponibilidad
 
 En este ejemplo de script de Azure PowerShell se crea todo lo necesario para ejecutar varias máquinas virtuales Windows configuradas con valores de alta disponibilidad y equilibrio de carga. Después de ejecutar el script, tendrá tres máquinas virtuales unidas en un conjunto de disponibilidad de Azure y accesibles mediante Azure Load Balancer.
 

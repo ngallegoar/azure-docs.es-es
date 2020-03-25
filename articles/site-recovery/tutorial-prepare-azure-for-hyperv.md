@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74084169"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Preparación de los recursos de Azure para la recuperación ante desastres en Hyper-V
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in"></a>Iniciar sesión
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="verify-account-permissions"></a>Comprobar los permisos de la cuenta
 
@@ -87,7 +87,7 @@ Cuando se crean máquinas virtuales de Azure desde el almacenamiento después de
 3. Especifique el grupo de recursos en el que desea crear la red. En este tutorial, use el grupo de recursos existente **contosoRG**.
 4. En **Intervalo de direcciones** , escriba **10.0.0.0/24** como intervalo de la red. No hay ninguna subred para esta red.
 5. En **Suscripción**, seleccione la suscripción en la que se creará la red.
-6. En **Ubicación**, elija **Europa Occidental**. La red virtual de Azure debe estar en la misma región que el almacén de Recovery Services.
+6. En **Ubicación**, elija **Oeste de Europa**. La red virtual de Azure debe estar en la misma región que el almacén de Recovery Services.
 7. Deje las opciones predeterminadas de protección básica contra DDoS, con ningún punto de conexión de servicio en la red.
 8. Seleccione **Crear**.
 

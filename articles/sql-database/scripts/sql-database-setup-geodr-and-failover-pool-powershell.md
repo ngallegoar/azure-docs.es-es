@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 3ff5d41c8d37745cbb06dbb98b5ce6e9b6a19ed4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73691487"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Use PowerShell para configurar la replicación geográfica activa para una base de datos agrupada en Azure SQL Database
@@ -28,7 +28,7 @@ En este ejemplo de script de PowerShell se configura la replicación geográfica
 
 Si decide instalar y usar PowerShell de manera local, en este tutorial se requiere la versión 1.4.0 de AZ PowerShell o posterior. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
-## <a name="sample-scripts"></a>Scripts de ejemplo
+## <a name="sample-scripts"></a>Muestras de scripts
 
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-elastic-pool.ps1?highlight=17-20 "Set up active geo-replication for elastic pool")]
 

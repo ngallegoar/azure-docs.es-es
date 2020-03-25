@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73176819"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicación de varias versiones de la API 
@@ -34,11 +34,11 @@ En este tutorial, aprenderá a:
 
 ![Versión que se muestra en el portal para desarrolladores](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
-+ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Además, realice el siguiente tutorial: [Importación y publicación de la primera API](import-and-publish.md).
++ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
 
 ## <a name="add-a-new-version"></a>Agregar una nueva versión
 

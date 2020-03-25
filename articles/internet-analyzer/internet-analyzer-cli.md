@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74184282"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Creación de una prueba de Internet Analyzer mediante la CLI (versión preliminar)

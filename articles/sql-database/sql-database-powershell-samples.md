@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: dd16753a9b057e441884b0a6a019701766aaa321
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73821397"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Ejemplos de Azure PowerShell para Azure SQL Database
@@ -27,7 +27,7 @@ Azure SQL Database le permite configurar las bases de datos, instancias y grupos
 
 Si decide instalar y usar PowerShell de manera local, en este tutorial se requiere la versión 1.4.0 de AZ PowerShell o posterior. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
-## <a name="single-database-and-elastic-poolstabsingle-database"></a>[Grupos elásticos y base de datos única](#tab/single-database)
+## <a name="single-database-and-elastic-pools"></a>[Grupos elásticos y base de datos única](#tab/single-database)
 
 En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell para Azure SQL Database.
 
@@ -59,7 +59,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell para A
 
 Obtenga más información sobre la [API de la base de datos única de Azure PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
 
-## <a name="managed-instancetabmanaged-instance"></a>[Instancia administrada](#tab/managed-instance)
+## <a name="managed-instance"></a>[Instancia administrada](#tab/managed-instance)
 
 En la tabla siguiente se incluyen vínculos a ejemplos de scripts de Azure PowerShell para Managed Instance de Azure SQL Database.
 

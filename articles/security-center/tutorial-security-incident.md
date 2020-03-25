@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
 ms.openlocfilehash: 49e2af8fd2d71e1e5103f5337d5c7104c2904322
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74559198"
 ---
-# <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Respuesta a incidentes de seguridad
+# <a name="tutorial-respond-to-security-incidents"></a>Tutorial: respuesta a incidentes relacionados con la seguridad
 Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado e inteligencia de amenazas para alertarle de cualquier actividad malintencionada. Además, en Security Center se pueden integrar alertas de otros servicios y productos de seguridad, así como crear alertas personalizadas basadas en indicadores u orígenes de inteligencia propios. Una vez que se genera una alerta, es necesario investigarla y tomar las medidas correctoras de inmediato. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
@@ -31,7 +31,7 @@ Security Center analiza continuamente las cargas de trabajo de la nube híbrida 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para recorrer todas las características que se tratan en este tutorial, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
 
 ## <a name="scenario"></a>Escenario

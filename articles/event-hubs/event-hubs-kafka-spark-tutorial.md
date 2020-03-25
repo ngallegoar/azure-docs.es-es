@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 5bd25604844ce0521b6bac2d637a2d48a6ef089b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72555740"
 ---
 # <a name="connect-your-apache-spark-application-with-kafka-enabled-azure-event-hubs"></a>Conexión de la aplicación de Apache Spark con Azure Event Hubs habilitado para Kafka
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Lectura de Event Hubs para Kafka
 > * Escritura de Event Hubs para Kafka
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar este tutorial, asegúrese de que dispone de lo siguiente:
 -   Suscripción de Azure. En caso de no tener ninguna, [cree una cuenta gratuita](https://azure.microsoft.com/free/).

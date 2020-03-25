@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.openlocfilehash: c8781ec34cb54afc4040d858722b28e10d68bccd
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74765802"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Enumeración y actualización de configuraciones de un servidor de Azure Database for MySQL mediante la CLI de Azure
@@ -43,6 +43,6 @@ Este script usa los comandos que se describen en la tabla siguiente:
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para más información sobre la CLI de Azure, consulte: [Documentación de la CLI de Azure](/cli/azure).
-- Pruebe otros scripts adicionales: [Ejemplos de la CLI de Azure para Azure Database for MySQL](../sample-scripts-azure-cli.md)
+- Para más información sobre la CLI de Azure: [Documentación de la CLI de Azure](/cli/azure).
+- Pruebe scripts adicionales en: [Ejemplos de la CLI de Azure para Azure Database for MySQL](../sample-scripts-azure-cli.md).
 - Para obtener más información sobre los parámetros del servidor, consulte [Cómo configurar parámetros del servidor en Azure Database for MySQL](../howto-server-parameters.md).

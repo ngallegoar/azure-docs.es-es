@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c2bddb4ef1401dd45b5aa9418f6e1890df0879ae
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 27f216a3cc101d4241fb8d30d27999a0397356dc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277217"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80062808"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Crear y administrar un conjunto de escalado con la CLI de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
@@ -69,7 +69,7 @@ az vmss list-instances \
 
 La salida del ejemplo siguiente muestra dos instancias de máquina virtual del conjunto de escalado:
 
-```bash
+```output
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
 ------------  --------------------  ----------  ------------  -------------------  ---------------  ------------------------------------
            1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUP  c059be0c-37a2-497a-b111-41272641533c
@@ -100,7 +100,7 @@ az vmss list-instance-connection-info \
 
 La salida del ejemplo siguiente muestra el nombre de instancia, la dirección IP pública del equilibrador de carga y el número de puerto al que las reglas NAT reenvían el tráfico:
 
-```bash
+```output
 {
   "instance 1": "13.92.224.66:50001",
   "instance 3": "13.92.224.66:50003"
@@ -109,13 +109,13 @@ La salida del ejemplo siguiente muestra el nombre de instancia, la dirección IP
 
 Conéctese mediante SSH a la primera instancia de máquina virtual. Especifique la dirección IP pública y el número de puerto con el parámetro `-p`, tal como se muestra en el comando anterior:
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
 Una vez que inicia sesión en la instancia de máquina virtual, puede realizar algunos cambios de configuración manual según sea necesario. Por ahora, cierre la sesión SSH de la manera habitual:
 
-```bash
+```console
 exit
 ```
 
@@ -129,7 +129,7 @@ az vm image list --output table
 
 En la siguiente salida de ejemplo se muestran las imágenes de máquina virtual más comunes en Azure. *UrnAlias* se puede usar para especificar una de estas imágenes comunes cuando se crea un conjunto de escalado.
 
-```bash
+```output
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
@@ -153,7 +153,7 @@ az vm image list --offer CentOS --all --output table
 
 La siguiente salida reducida muestra algunas de las imágenes de CentOS 7.3 disponibles:
 
-```azurecli-interactive 
+```output
 Offer    Publisher   Sku   Urn                                 Version
 -------  ----------  ----  ----------------------------------  -------------
 CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20161221   7.3.20161221
@@ -202,7 +202,7 @@ az vm list-sizes --location eastus --output table
 
 La salida es similar al siguiente ejemplo reducido, que muestra los recursos asignados a cada tamaño de máquina virtual:
 
-```azurecli-interactive
+```output
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  4          3584  Standard_DS1_v2                       1           1047552                    7168

@@ -13,30 +13,30 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: a2bec6401ae3ac53f46e92e9be38abf57a92163d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74108100"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importación de API de SOAP y conversión en REST
 
 Este artículo muestra cómo importar una API de SOAP y convertirla en REST. El artículo también muestra cómo probar la API de APIM.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Importación de API de SOAP y conversión en REST
 > * Prueba de la API en Azure Portal
 > * Pruebe la API en el Portal para desarrolladores
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
+Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importación y publicación de una API de back-end
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importación y publicación de una API de back-end
 
 1. Seleccione **API** en **API MANAGEMENT**.
 2. Seleccione **WSDL** en la lista **Add a new API** (Agregar una nueva API).

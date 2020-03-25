@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, máquina virtual, agentes
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: 2e811d628c017316a5bc50a8ddc22ee24d6f744e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158538"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Escalado de las implementaciones de Jenkins para satisfacer la demanda con agentes de máquina virtual de Azure
@@ -27,7 +27,7 @@ En este tutorial, aprenderá lo siguiente:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una suscripción de Azure
 * Un servidor maestro de Jenkins. Si no lo tiene, vea el [inicio rápido](install-jenkins-solution-template.md) para configurar uno en Azure.

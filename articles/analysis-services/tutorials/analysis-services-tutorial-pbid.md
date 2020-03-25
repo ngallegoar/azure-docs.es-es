@@ -8,13 +8,13 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73572329"
 ---
-# <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Conexión con Power BI Desktop
+# <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: conexión con Power BI Desktop
 
 En este tutorial, va a usar Power BI Desktop para conectarse a la base de datos del modelo de ejemplo de adventureworks en el servidor. Las tareas que va a llevar a cabo simulan una conexión de usuario típico al modelo y la creación de un informe básico a partir de los datos del modelo.
 
@@ -23,7 +23,7 @@ En este tutorial, va a usar Power BI Desktop para conectarse a la base de datos 
 > * Conexión mediante Power BI Desktop
 > * Creación de un informe básico
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - [Agregar la base de datos del modelo de ejemplo de adventureworks](../analysis-services-create-sample-model.md) al servidor.
 - Tener permisos de [*lectura*](../analysis-services-server-admins.md) para la base de datos del modelo de ejemplo de adventureworks.

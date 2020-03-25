@@ -17,10 +17,10 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 259635613855e4d7687cf569c94bbd3dd04027fe
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160629"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integración de Azure Active Directory con Mimecast Personal Portal
@@ -35,7 +35,7 @@ La integración de Mimecast Personal Portal con Azure AD proporciona las siguien
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con Mimecast Personal Portal, necesita los siguientes elementos:
 
@@ -108,7 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con Mimecast Personal Po
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: 
 
-    | Region  |  Valor | 
+    | Region  |  Value | 
     | --------------- | --------------- | 
     | Europa          | `https://eu-api.mimecast.com/login/saml`|
     | Estados Unidos   | `https://us-api.mimecast.com/login/saml`|
@@ -118,7 +118,7 @@ Para configurar el inicio de sesión único de Azure AD con Mimecast Personal Po
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
 
-    | Region  |  Valor | 
+    | Region  |  Value | 
     | --------------- | --------------- |
     | Europa          | `https://eu-api.mimecast.com/sso/<accountcode>`|
     | Estados Unidos   | `https://us-api.mimecast.com/sso/<accountcode>`|    
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con Mimecast Personal Po
 
     c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL: 
 
-    | Region  |  Valor | 
+    | Region  |  Value | 
     | --------------- | --------------- | 
     | Europa          | `https://eu-api.mimecast.com/login/saml`|
     | Estados Unidos   | `https://us-api.mimecast.com/login/saml`|
@@ -214,7 +214,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

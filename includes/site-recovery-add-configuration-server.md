@@ -10,10 +10,10 @@ ms.date: 02/28/2019
 ms.author: mayg
 ms.custom: include file
 ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67186029"
 ---
 1. Ejecute el archivo de instalación unificada.
@@ -35,7 +35,7 @@ ms.locfileid: "67186029"
      ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. En **Comprobación de requisitos previos**, el programa de instalación ejecuta una comprobación para asegurarse de que se pueda ejecutar la instalación. Si aparece una advertencia sobre la **comprobación de la sincronización de hora global**, compruebe que la hora del reloj del sistema (configuración de **fecha y hora**) es la misma que la de la zona horaria.
 
-    ![Requisitos previos](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+    ![Prerequisites](./media/site-recovery-add-configuration-server/combined-wiz5.png)
 7. En **MySQL Configuration** (Configuración de MySQL), cree credenciales para iniciar sesión en la instancia de servidor MySQL que se va a instalar.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
