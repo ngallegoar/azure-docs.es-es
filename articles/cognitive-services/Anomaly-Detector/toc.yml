@@ -30,7 +30,7 @@
       href: tutorials/batch-anomaly-detection-powerbi.md
     - name: Detección de anomalías en datos transmitidos con Azure Databricks
       href: tutorials/anomaly-detection-streaming-databricks.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Identificación de anomalías en los datos
       href: how-to/identify-anomalies.md

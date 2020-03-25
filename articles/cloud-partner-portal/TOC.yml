@@ -8,14 +8,14 @@
       href: ./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
     - name: Productos compatibles
       href: ./Cloud-partner-portal-products-that-can-get-published-via-portal.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Administración de Virtual Machines
       items:
         - name: Creación de oferta de máquina virtual
           href: ./cloud-partner-portal-publish-virtual-machine.md
           items:
-            - name: Requisitos previos
+            - name: Prerequisites
               href: './cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm'
             - name: Registro de cuenta de desarrollador de Microsoft
               href: ./cloud-partner-portal-dev-center-accounts-registration.md

@@ -20,15 +20,15 @@
           href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-database
         - name: Habilitar una tabla
           href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-table
-        - name: Seleccionar filas para migrar
+        - name: Selección de las filas que se van a migrar
           href: /sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database
-    - name: administración
+    - name: Administrar
       items:
         - name: Supervisar la migración de datos
           href: /sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database
-        - name: Pausar y reanudar la migración
+        - name: Pausa y reanudación de la migración
           href: /sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database
-        - name: Administrar y solucionar problemas
+        - name: Administración y solución de problemas
           href: /sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database
         - name: Copia de seguridad
           href: /sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database

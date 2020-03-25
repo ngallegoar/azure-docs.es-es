@@ -90,7 +90,7 @@
           href: concept-azure-ad-connect-sync-user-and-contacts.md
         - name: Descripción de los atributos paralelos
           href: how-to-connect-syncservice-shadow-attributes.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Instalación y actualización
       items:
@@ -312,6 +312,8 @@
           href: tshoot-connect-attribute-not-syncing.md
         - name: Problemas de instalación
           href: tshoot-connect-install-issues.md
+        - name: Cambios de UPN
+          href: howto-troubleshoot-upn-changes.md
 - name: Referencia
   items:
     - name: La identidad híbrida requería puertos y protocolos

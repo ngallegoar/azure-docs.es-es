@@ -22,7 +22,7 @@
       href: physical-security.md
     - name: Compatibilidad
       href: supportability.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Decisión sobre la arquitectura de implementación
       href: deployment-architecture.md

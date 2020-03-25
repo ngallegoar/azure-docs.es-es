@@ -30,7 +30,7 @@
           href: virtual-machines-windows-classic-ps-sql-ext-listener.md
         - name: Ampliación de los grupos de disponibilidad locales a Azure
           href: virtual-machines-windows-classic-sql-onprem-availability.md
-    - name: administración
+    - name: Administrar
       items:
         - name: Uso de la Extensión Agente de IaaS de SQL Server
           href: virtual-machines-windows-classic-sql-server-agent-extension.md
@@ -44,13 +44,13 @@
           href: ../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
     - name: Copia de seguridad y restauración
       items:
-        - name: Copia de seguridad y restauración
+        - name: Copias de seguridad y restauración
           href: ../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
         - name: Copia de seguridad automatizada
           href: virtual-machines-windows-classic-sql-automated-backup.md
         - name: Uso de Azure Storage para la copia de seguridad y la restauración
           href: ../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-    - name: Procedimientos recomendados para mejorar el rendimiento
+    - name: Procedimientos recomendados de rendimiento
       href: ../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
     - name: Patrones de aplicación
       href: ../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
@@ -58,7 +58,7 @@
   items:
     - name: Azure PowerShell
       href: /powershell/azure/overview?view=azuresmps-3.7.0
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/
     - name: T-SQL
       href: 'https://docs.microsoft.com/sql/t-sql/language-reference'

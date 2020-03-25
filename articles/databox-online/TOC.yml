@@ -31,7 +31,7 @@
           href: data-box-gateway-use-cases.md
     - name: Procedimientos
       items:
-        - name: administración
+        - name: Administrar
           items:
             - name: Recursos compartidos
               href: data-box-gateway-manage-shares.md
@@ -47,7 +47,7 @@
           href: data-box-gateway-monitor.md
         - name: Solución de problemas
           href: data-box-gateway-troubleshoot.md
-        - name: Ponerse en contacto con el soporte técnico de Microsoft
+        - name: Ponerse en contacto con el servicio de soporte técnico de Microsoft
           href: data-box-edge-contact-microsoft-support.md
     - name: Notas de la versión
       items:
@@ -91,7 +91,7 @@
       items:
         - name: 'Desarrollo de un módulo de C#'
           href: data-box-edge-create-iot-edge-module.md
-        - name: administración
+        - name: Administrar
           items:
             - name: Proceso perimetral
               href: data-box-edge-manage-compute.md
@@ -109,7 +109,7 @@
               href: data-box-edge-connect-powershell-interface.md
         - name: Solución de problemas
           href: data-box-edge-troubleshoot.md
-        - name: Ponerse en contacto con el soporte técnico de Microsoft
+        - name: Ponerse en contacto con el servicio de soporte técnico de Microsoft
           href: data-box-edge-contact-microsoft-support.md
         - name: Supervisión
           href: data-box-edge-monitor.md

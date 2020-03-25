@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Data Lake Analytics?
       href: data-lake-analytics-overview.md
-- name: Primeros pasos
+- name: Introducción
   items:
     - name: Portal de Azure
       href: data-lake-analytics-get-started-portal.md
@@ -14,7 +14,7 @@
       href: data-lake-analytics-data-lake-tools-for-vscode.md
     - name: Azure PowerShell
       href: data-lake-analytics-get-started-powershell.md
-    - name: CLI de Azure
+    - name: Azure CLI
       href: data-lake-analytics-get-started-cli.md
 - name: Procedimientos
   items:
@@ -24,7 +24,7 @@
           href: data-lake-analytics-manage-use-portal.md
         - name: Línea de comandos
           items:
-            - name: CLI de Azure
+            - name: Azure CLI
               href: data-lake-analytics-manage-use-cli.md
             - name: Azure PowerShell
               href: data-lake-analytics-manage-use-powershell.md
@@ -72,7 +72,7 @@
               href: data-lake-analytics-u-sql-programmability-guide.md
         - name: Visual Studio
           items:
-            - name: Instalación
+            - name: Instalar
               href: data-lake-analytics-data-lake-tools-install.md
             - name: Ejecución local
               href: data-lake-analytics-data-lake-tools-local-run.md

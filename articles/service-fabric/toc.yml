@@ -316,8 +316,6 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: Equilibrado de un clúster
               href: service-fabric-cluster-resource-manager-balancing.md
-            - name: Agrupación en subclústeres
-              href: service-fabric-cluster-resource-manager-subclustering.md
             - name: Limitaciones
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Movimiento de servicio

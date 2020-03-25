@@ -33,6 +33,10 @@
       href: cli-samples.md
 - name: Conceptos
   items:
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: Conmutación por error y aplicación de revisiones
       href: cache-failover.md
     - name: Procedimientos recomendados
@@ -44,7 +48,7 @@
     - name: Plan
       items:
         - name: Elegir un nivel de caché
-          href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
+          href: 'cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use'
         - name: Distribuir la memoria caché mediante agrupación en clústeres
           href: cache-how-to-premium-clustering.md
         - name: Conservar la memoria caché con la persistencia de datos de Redis

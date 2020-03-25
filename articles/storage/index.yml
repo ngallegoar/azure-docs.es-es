@@ -16,7 +16,7 @@ metadata:
 abstract:
   description: 'Azure Storage es un servicio administrado por Microsoft que proporciona almacenamiento en la nube altamente disponible, seguro, duradero, escalable y redundante. Azure Storage incluye Azure Blobs (objetos), Azure Data Lake Storage Gen2, Azure Files, Azure Queues y Azure Tables. Aprenda a sacar el máximo partido a Azure Storage en sus aplicaciones con nuestros inicios rápidos y tutoriales.'
 sections:
-  - title: Inicio rápido en 5 minutos
+  - title: Guías de inicio rápido de 5 minutos
     items:
       - type: paragraph
         text: Aprenda a trabajar con Azure Storage con la exploración de estos inicios rápidos.
@@ -31,7 +31,7 @@ sections:
               text: PowerShell
           - image:
               src: media/index/cli.svg
-              text: CLI de Azure
+              text: Azure CLI
           - image:
               src: media/index/logo_net.svg
           - image:
@@ -74,7 +74,7 @@ sections:
         style: cards
         className: cardsD
         items:
-          - title: Blobs
+          - title: Datos BLOB
             html: <p>Carga y procesamiento de datos de imagen en la nube</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">Carga y recuperación de datos de imagen en la nube</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Desencadenamiento de Azure Functions para procesar blobs</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">Protección de los datos de la aplicación</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Supervisión y solución de problemas de almacenamiento</a></li></ul><p>Diseño de la aplicación para una alta disponibilidad</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Haga que los datos de la aplicación tengan alta disponibilidad</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simulación de un error al leer datos de la región primaria</a></li></ul>
           - title: Data Lake Storage Gen2
             html: '<p><a href="/azure/storage/blobs/data-lake-storage-handle-data-using-databricks">Extracción, transformación y carga de datos mediante Azure Databricks</a></p><p><a href="/azure/storage/blobs/data-lake-storage-use-databricks-spark">Acceso a los datos de Azure Data Lake Storage Gen2 con DataBricks mediante Spark</a></p><p><a href="/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive">Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight</a></p>'

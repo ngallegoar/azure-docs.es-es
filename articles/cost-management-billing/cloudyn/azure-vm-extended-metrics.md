@@ -1,20 +1,20 @@
 ---
-title: Adición de métricas extendidas a máquinas virtuales de Azure | Microsoft Docs
+title: Adición de métricas extendidas a máquinas virtuales de Azure
 description: Este artículo le ayuda a habilitar y configurar métricas de diagnóstico extendidas en las máquinas virtuales de Azure.
-keywords: ''
 author: bandersmsft
 ms.reviewer: vitavor
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.custom: seodec18
-ms.openlocfilehash: 84a9d6aa6203b8a518b0e33bed0ec2707c4389a1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ROBOTS: NOINDEX
+ms.openlocfilehash: b4c646f3d42edc39f457cd735f16409f4ef05d2c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082921"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481626"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adición de métricas extendidas a máquinas virtuales de Azure
 
@@ -30,7 +30,9 @@ Tras habilitar la recopilación de métricas puede:
 Por ejemplo, puede supervisar los porcentajes de CPU y de memoria de las máquinas virtuales de Azure. Las métricas de las VM de Azure corresponden a _Porcentaje de CPU_ y _\Memoria\% de bytes confirmados en uso_.
 
 > [!NOTE]
-> La recopilación de datos métricos extendidos solo se admite con la supervisión a nivel de invitado de Azure. Cloudyn no es compatible con el [agente de Log Analytics](../../azure-monitor/platform/agents-overview.md). 
+> La recopilación de datos métricos extendidos solo se admite con la supervisión a nivel de invitado de Azure. Cloudyn no es compatible con el [agente de Log Analytics](../../azure-monitor/platform/agents-overview.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinar si las métricas extendidas están habilitadas
 

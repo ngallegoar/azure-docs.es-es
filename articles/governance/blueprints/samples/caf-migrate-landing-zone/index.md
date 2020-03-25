@@ -4,10 +4,10 @@ description: Introducción y arquitectura del ejemplo de plano técnico de la zo
 ms.date: 08/20/2019
 ms.topic: sample
 ms.openlocfilehash: 08171a39c83ea6822243d7239882a19b053f213e
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "74545492"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la zona de aterrizaje de migración de Microsoft Cloud Adoption Framework para Azure
@@ -16,7 +16,7 @@ El plano técnico de la zona de aterrizaje de la migración de Microsoft Cloud A
 
 El plano técnico de [fundamentos de CAF](../caf-foundation/index.md) amplía este ejemplo.
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 El ejemplo de plano técnico de la zona de aterrizaje de migración de CAF implementa los recursos de infraestructura básicos en Azure que pueden usar las organizaciones para preparar su suscripción a la migración de máquinas virtuales. También ayuda a poner en marcha los controles de gobernanza necesarios para administrar su propia nube. En este ejemplo se implementarán y aplicarán los recursos, las directivas y las plantillas que permitirán a una organización comenzar con confianza en Azure.
 

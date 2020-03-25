@@ -1,7 +1,7 @@
 ### YamlMime:TOC
 - name: Solución de problemas en Azure Virtual Machines
   href: index.yml
-- name: Solución de errores de implementación
+- name: Solución de errores en la implementación
   items:
     - name: Windows
       href: troubleshoot-deploy-vm-windows.md

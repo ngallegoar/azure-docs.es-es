@@ -83,8 +83,6 @@
       items:
         - name: Introducción al portal de Azure EA
           href: ea-portal-get-started.md
-        - name: Descripción de la factura del contrato Enterprise
-          href: ../understand/review-enterprise-agreement-bill.md
         - name: Roles de EA en Azure
           href: understand-ea-roles.md
         - name: Administración del portal del Contrato Enterprise de Azure

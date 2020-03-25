@@ -155,7 +155,7 @@
           href: 'https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample'
         - name: Servicios vinculados de procesos
           href: data-factory-compute-linked-services.md
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: Plantilla del Administrador de recursos de Azure
           href: data-factory-how-to-use-resource-manager-templates.md

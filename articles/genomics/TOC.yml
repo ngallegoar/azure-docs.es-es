@@ -9,7 +9,7 @@
   items:
     - name: Ejecutar un ejemplo de flujo de trabajo de Genomics
       href: quickstart-run-genomics-workflow-portal.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Uso de varios formatos de archivo de entrada
       items:
@@ -31,7 +31,7 @@
       href: file-support-ticket-genomics.md
     - name: Historial de lanzamiento de versiones
       href: version-release-history-genomics.md
-    - name: Continuidad del negocio
+    - name: Continuidad empresarial
       href: business-continuity-genomics.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'

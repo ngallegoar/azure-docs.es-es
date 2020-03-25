@@ -43,7 +43,7 @@
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Video+Search'
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Obtener información de vídeos
       href: video-insights.md

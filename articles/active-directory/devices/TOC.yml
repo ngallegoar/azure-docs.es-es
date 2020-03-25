@@ -32,7 +32,7 @@
       href: concept-primary-refresh-token.md
     - name: Estaciones de trabajo administradas por Azure
       href: concept-azure-managed-workstation.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   expanded: false
   items:
     - name: Planeación de la implementación de la unión a Azure AD

@@ -14,7 +14,7 @@
       href: connection-telemetry.md
     - name: Modelo de incorporación
       href: onboarding-model.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Registro de Peering Service
       items:
@@ -22,7 +22,7 @@
           href: azure-portal.md
         - name: Azure PowerShell
           href: powershell.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: cli.md
     - name: Medición de telemetría de conexión
       href: measure-connection-telemetry.md
@@ -30,7 +30,7 @@
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.peering
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/ext/peering/peering
 - name: Recursos
   items:

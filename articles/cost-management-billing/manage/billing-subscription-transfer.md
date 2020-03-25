@@ -11,11 +11,11 @@ ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245383"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238166"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de facturación de una suscripción de Azure a otra cuenta
 
@@ -124,7 +124,7 @@ La transferencia de suscripciones en Azure Portal está disponible para los tipo
 
 Estas Preguntas más frecuentes se aplican a los usuarios que van a transferir la propiedad de facturación de una suscripción de Azure a otra cuenta.
 
-### <a name="whoisaa"></a> ¿Quién es el administrador de facturación de una cuenta?
+### <a name="who-is-a-billing-administrator-of-an-account"></a><a name="whoisaa"></a> ¿Quién es el administrador de facturación de una cuenta?
 
 Un administrador de facturación es una persona que tiene permiso para administrar la facturación de una cuenta. Está autorizado para tener acceso a la facturación en [Azure Portal](https://portal.azure.com) y realizar diversas tareas de facturación, como crear suscripciones, ver y pagar facturas o actualizar los métodos de pago.
 
@@ -206,15 +206,15 @@ El administrador de empresa puede actualizar la propiedad de la cuenta para cual
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-### <a id="no-button"></a>¿Por qué no veo el botón "Transfer subscription" (Transferir suscripción)?
+### <a name="why-dont-i-see-the-transfer-subscription-button"></a><a id="no-button"></a>¿Por qué no veo el botón "Transfer subscription" (Transferir suscripción)?
 
 La transferencia de suscripción de autoservicio no está disponible para su cuenta de facturación. Actualmente, no se admite la transferencia de la propiedad de facturación de suscripciones en cuentas de Contrato Enterprise (EA) en Azure Portal. Además, las cuentas de Contrato de cliente de Microsoft que se crean mientras trabaja con un representante de Microsoft no admiten la transferencia de la propiedad de facturación.
 
-### <a id="no-button"></a> ¿Por qué mi tipo de suscripción no admite la transferencia?
+### <a name="why-doesnt-my-subscription-type-support-transfer"></a><a id="no-button"></a> ¿Por qué mi tipo de suscripción no admite la transferencia?
 
 No todos los tipos de suscripciones admiten la transferencia de la propiedad de facturación. Para ver la lista de tipos de suscripción que admiten transferencias, consulte [Tipos de suscripción admitidos](#supported-subscription-types).
 
-### <a id="no-button"></a> ¿Por qué recibo un error de acceso denegado al intentar transferir la propiedad de facturación de una suscripción?
+### <a name="why-am-i-receiving-an-access-denied-error-when-i-try-to-transfer-billing-ownership-of-a-subscription"></a><a id="no-button"></a> ¿Por qué recibo un error de acceso denegado al intentar transferir la propiedad de facturación de una suscripción?
 
 Verá este error si intenta transferir una suscripción de un plan de Microsoft Azure y no tiene el permiso necesario. Para transferir una suscripción de un plan de Microsoft Azure, debe ser propietario o colaborador en la sección de la factura en la que se factura la suscripción. Para más información, consulte [Administrar las suscripciones para la sección de factura](understand-mca-roles.md#manage-subscriptions-for-invoice-section).
 

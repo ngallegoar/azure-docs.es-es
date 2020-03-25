@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199507"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238047"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Descripción de los roles administrativos del contrato de cliente de Microsoft en Azure
 

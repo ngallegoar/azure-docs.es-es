@@ -119,14 +119,6 @@
       href: 'https://msdn.microsoft.com/library/mt163667.aspx'
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.network/trafficmanagerprofiles
-- name: Temas relacionados
-  items:
-    - name: Application Gateway
-      href: /azure/application-gateway/
-    - name: Load Balancer
-      href: /azure/load-balancer/
-    - name: Azure DNS
-      href: /azure/dns/
 - name: Recursos
   items:
     - name: Azure Roadmap

@@ -56,7 +56,7 @@
     - name: Análisis para Visual Search API
       maintainContext: true
       href: ../bing-web-search/bing-web-stats.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Obtener información sobre el uso de token
       href: use-insights-token.md

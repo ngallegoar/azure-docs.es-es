@@ -2,7 +2,7 @@
   items:
     - name: Supervisión de agente
       href: ../monitoring/index.md
-- name: Primeros pasos
+- name: Introducción
   items:
     - name: Registros de Azure Monitor
       href: ../log-analytics/log-analytics-get-started.md
@@ -14,7 +14,7 @@
       href: ../site-recovery/site-recovery-overview.md
 - name: Procedimientos
   items:
-    - name: Análisis
+    - name: Analizar
       items:
         - name: Registros de Azure Monitor
           href: ../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json

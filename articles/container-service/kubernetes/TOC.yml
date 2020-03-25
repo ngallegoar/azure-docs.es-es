@@ -29,7 +29,7 @@
   items:
     - name: 'Entidad de servicio: Kubernetes'
       href: container-service-kubernetes-service-principal.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Kubernetes con Windows
       href: container-service-kubernetes-windows-walkthrough.md
@@ -63,7 +63,7 @@
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/acs
     - name: PowerShell
       href: /powershell/module/az.compute
@@ -81,7 +81,7 @@
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Disponibilidad en regiones
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Stackoverflow
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

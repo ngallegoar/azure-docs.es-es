@@ -25,7 +25,7 @@ abstract:
     href: 'https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Notification-Hubs-in-an-Android-Application'
     width: 250
 sections:
-  - title: Tutoriales detallados
+  - title: Tutoriales paso a paso
     items:
       - type: paragraph
         text: 'Aprenda a enviar notificaciones push con Notification Hubs:'

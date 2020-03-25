@@ -101,7 +101,7 @@
               href: virtual-machines-windows-sql-workgroup-availability-group.md
             - name: Configuración manual
               items:
-                - name: Prerrequisitos
+                - name: Prerequisites
                   href: virtual-machines-windows-portal-sql-availability-group-prereq.md
                 - name: Tutorial
                   href: virtual-machines-windows-portal-sql-availability-group-tutorial.md

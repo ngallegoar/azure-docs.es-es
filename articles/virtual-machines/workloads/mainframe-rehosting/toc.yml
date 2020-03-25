@@ -10,7 +10,7 @@
       items:
         - name: Proceso
           href: concepts/mainframe-compute-azure.md
-        - name: Almacenamiento
+        - name: Storage
           href: concepts/mainframe-storage-azure.md
     - name: Micro Focus
       items:

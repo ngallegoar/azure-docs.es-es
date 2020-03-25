@@ -68,7 +68,7 @@
               href: manage-certificates-for-federated-single-sign-on.md
             - name: Restricciones de inquilino
               href: tenant-restrictions.md
-            - name: Configuración del cifrado de token SAML (versión preliminar)
+            - name: Configuración del cifrado de tokens SAML
               href: howto-saml-token-encryption.md
             - name: Portales de usuario final
               href: end-user-experiences.md
@@ -139,9 +139,7 @@
               href: grant-admin-consent.md
             - name: Configuración del flujo de trabajo de consentimiento del administrador (versión preliminar)
               href: configure-admin-consent-workflow.md
-            - name: Métodos para asignar usuarios y grupos a una aplicación
-              href: methods-for-assigning-users-and-groups.md
-            - name: Asignación de un usuario a una aplicación
+            - name: Asignar un usuario o grupo a una aplicación
               href: assign-user-or-group-access-portal.md
             - name: Creación de colecciones en Aplicaciones
               href: access-panel-collections.md

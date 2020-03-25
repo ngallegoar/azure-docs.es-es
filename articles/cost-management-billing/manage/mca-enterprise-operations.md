@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: banders
 ms.openlocfilehash: 6692bb8f323e42edfe546e15620442881f99032d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78272182"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Finalización de tareas del Contrato Enterprise en la cuenta de facturación para un contrato de cliente de Microsoft

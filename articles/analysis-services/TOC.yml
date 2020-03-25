@@ -38,7 +38,7 @@
       href: analysis-services-bcdr.md
     - name: Orígenes de datos admitidos
       href: analysis-services-datasource.md
-- name: Procedimiento
+- name: Instrucciones
   items:
     - name: Server
       items:

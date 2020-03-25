@@ -35,7 +35,7 @@
   items:
     - name: Ejemplos de código
       href: /samples/browse/?products=azure-functions&term=durable
-    - name: CLI de Azure
+    - name: Azure CLI
       href: ../functions-cli-samples.md
 - name: Conceptos
   items:
@@ -83,9 +83,9 @@
       href: durable-functions-http-api.md
     - name: API de .NET
       href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
-    - name: Desarrollo
+    - name: Desarrollar
       items:
         - name: Creación en Azure Portal
           href: durable-functions-create-portal.md

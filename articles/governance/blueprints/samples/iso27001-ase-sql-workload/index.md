@@ -4,10 +4,10 @@ description: Introducción y arquitectura del ejemplo de plano técnico para car
 ms.date: 01/13/2020
 ms.topic: sample
 ms.openlocfilehash: d77029b93b1e77bdba85c5dd5608cbdc5d6543a5
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "75920774"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Introducción a un ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001

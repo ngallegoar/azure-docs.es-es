@@ -30,7 +30,7 @@
       href: azure-notebooks-user-account.md
     - name: Perfiles
       href: azure-notebooks-user-profile.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Creación y clonación de proyectos
       href: create-clone-jupyter-notebooks.md

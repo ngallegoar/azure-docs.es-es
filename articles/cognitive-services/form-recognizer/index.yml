@@ -3,7 +3,7 @@ title: Documentación de Form Recognizer
 summary: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados manualmente. Los modelos entrenados con datos etiquetados pueden funcionar mejor y pueden trabajar con documentos más complicados.
 metadata:
   title: 'Documentación de Form Recognizer: inicios rápidos, tutoriales, referencia de API - Azure Cognitive Services | Microsoft Docs'
-  description: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados manualmente. Los modelos entrenados con datos etiquetados no solo pueden funcionar mejor, sino que también pueden trabajar con documentos más complicados.
+  description: Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo conozca tanto el diseño como los datos de los campos sin necesidad de un etiquetado manual de los datos o de una codificación intensiva. El aprendizaje supervisado también se puede realizar con datos etiquetados manualmente. Los modelos entrenados con datos etiquetados pueden funcionar mejor y pueden trabajar con documentos más complicados.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
@@ -12,10 +12,10 @@ metadata:
   ms.author: pafarley
   ms.date: 09/05/2019
   ms.openlocfilehash: de869fd9beb66a4122c1204648d17cff480e4b7f
-  ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/01/2020
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "78206493"
 landingContent:
 - title: Acerca de Form Recognizer
