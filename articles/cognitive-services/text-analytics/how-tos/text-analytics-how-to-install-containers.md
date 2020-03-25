@@ -25,7 +25,7 @@ Los contenedores permiten ejecutar las API Text Analytics en su propio entorno y
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 > [!IMPORTANT]
-> La cuenta gratuita está limitada a 5000 transacciones al mes y para lo contenedores son válidos los planes de tarifa**Gratis** y **Estándar** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank"><span class="docon docon-navigate-external x-hidden-focus"></span></a>. Para más información sobre las tasas de solicitudes de las transacciones, consulte [Límites de datos](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
+> La cuenta gratuita se limita a 5.000 transacciones al mes y solo las **gratis** y **estándar** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">los planes de tarifa <span class="docon docon-navigate-external x-hidden-focus"></span></a> son válidas para los contenedores. Para más información sobre las tasas de solicitudes de las transacciones, consulte [Límites de datos](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
