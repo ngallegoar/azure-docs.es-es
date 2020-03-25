@@ -143,8 +143,6 @@
           href: consuming-from-excel.md
         - name: Uso del complemento de Excel
           href: excel-add-in-for-web-services.md
-        - name: Uso del grupo de Batch
-          href: dedicated-capacity-for-bes-jobs.md
     - name: Casos de uso
       items:
         - name: Abandono de clientes

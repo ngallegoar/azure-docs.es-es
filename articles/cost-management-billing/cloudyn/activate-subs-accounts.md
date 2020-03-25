@@ -1,26 +1,28 @@
 ---
-title: Activación de suscripciones y cuentas de Azure | Microsoft Docs
+title: Activación de suscripciones y cuentas de Azure
 description: Habilite el acceso mediante las API de Azure Resource Manager tanto en las cuentas nuevas como en las existentes y resuelva los problemas comunes de las cuentas.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 2467ee65b3f7090e5854bdd7848abab667ccfe55
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 62138163b3c3f94d60c55cf93d84db5dff446823
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301376"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474669"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Activación de suscripciones y cuentas de Azure con Cloudyn
 
 La adición o actualización de las credenciales de Azure Resource Manager permiten a Cloudyn detectar todas las cuentas y suscripciones dentro de su inquilino de Azure. Si también está habilitada la extensión de Azure Diagnostics en las máquinas virtuales, Cloudyn podrá recopilar más métricas, como la CPU y la memoria. En este artículo se describe cómo habilitar el acceso mediante las API de Azure Resource Manager tanto en las cuentas nuevas como en las existentes. También se describe cómo resolver los problemas comunes de las cuentas.
 
 Cuando la suscripción a Azure _no está activada_, Cloudyn no puede acceder a la mayor parte de los datos de la misma. Para que Cloudyn pueda acceder a las cuentas _sin activar_ es preciso editarlas.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="required-azure-permissions"></a>Permisos de Azure necesarios
 

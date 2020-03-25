@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 5e1117bdefc4916fedc5c316632641d77c2f09d3
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: bbed4209d26fe32f95b93b2c7411e1ab74f03ede
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206034"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80131354"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -65,7 +65,7 @@ Colaborador de Cost Management es el rol con menos privilegios que se recomienda
 
 - **Actuación cuando se superan los presupuestos**: los colaboradores de Cost Management también necesitan acceso para crear y administrar grupos de acciones para reaccionar automáticamente a usos por encima del límite. Considere la posibilidad de conceder el rol de [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) a un grupo de recursos que contiene el grupo de acciones que se debe usar cuando se superan los umbrales del presupuesto. La automatización de acciones concretas requiere roles adicionales para los servicios específicos utilizados como, por ejemplo, Automation y Azure Functions.
 - **Programación de exportación de datos de costo**: los colaboradores de Cost Management también necesitan acceso para administrar las cuentas de almacenamiento y programar una exportación para copiar datos en una de ellas. Considere la posibilidad de conceder el rol [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a un grupo de recursos que contenga la cuenta de almacenamiento donde se exportan los datos de costos.
-- **Visualización de las recomendaciones de ahorro de costos**: los lectores y los colaboradores de Cost Management tienen permiso para *ver* las recomendaciones sobre costos de forma predeterminada. No obstante, el acceso para actuar sobre las recomendaciones de costos requiere acceso a los recursos individuales. Considere la posibilidad de conceder un [rol específico de servicio](../../role-based-access-control/built-in-roles.md#descriptions-and-ids) si desea actuar en una recomendación basada en costos.
+- **Visualización de las recomendaciones de ahorro de costos**: los lectores y los colaboradores de Cost Management tienen permiso para *ver* las recomendaciones sobre costos de forma predeterminada. No obstante, el acceso para actuar sobre las recomendaciones de costos requiere acceso a los recursos individuales. Considere la posibilidad de conceder un [rol específico de servicio](../../role-based-access-control/built-in-roles.md#all) si desea actuar en una recomendación basada en costos.
 
 ## <a name="enterprise-agreement-scopes"></a>Ámbitos del Contrato Enterprise
 

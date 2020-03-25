@@ -1,20 +1,18 @@
 ---
 title: Configuración de la integración de AWS con Azure Cost Management
 description: En este artículo se le guiará a través de la instalación y configuración de la integración de informes de uso y costo de AWS con Azure Cost Management.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.custom: ''
-ms.openlocfilehash: 90d75383c1bd7c67b3feeb77fe2284d7b4e0cdf9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c0f6f18abf7c05cf5ae6dcaa31a57974ecfca806
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200000"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203090"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instalar y configurar la integración de informes de uso y costo de AWS
 
@@ -39,11 +37,11 @@ Use la página **Informes de uso y costo** de la consola de Administración de c
 9. En el cuadro de diálogo Configurar bucket de S3, realice una de las siguientes tareas:
     1. Seleccione un bucket existente en la lista desplegable y elija **Siguiente**.
     2. Escriba un nombre de bucket y la región donde desea crear un nuevo bucket y elija **Siguiente**.
-10. Seleccione **Confirmo que esta política es correcta** y haga clic en **Guardar**.
-11. (Opcional) En Prefijo de la ruta del informe, escriba el prefijo de la ruta de acceso del informe que quiera antes del nombre del informe.
+10.    Seleccione **Confirmo que esta política es correcta** y haga clic en **Guardar**.
+11.    (Opcional) En Prefijo de la ruta del informe, escriba el prefijo de la ruta de acceso del informe que quiera antes del nombre del informe.
 Si no especifica un prefijo, el prefijo predeterminado es el nombre que especificó para el informe. El intervalo de fechas tiene el formato `/report-name/date-range/`.
 12. Para **Detalle del tiempo**, elija **Por hora**.
-13. En **Control de versiones de informe**, elija si desea que cada versión del informe sobrescriba la versión anterior o si desea informes nuevos adicionales.
+13.    En **Control de versiones de informe**, elija si desea que cada versión del informe sobrescriba la versión anterior o si desea informes nuevos adicionales.
 14. En **Habilitar la integración de datos de informe para**, no se requiere ninguna selección.
 15. Para **Tipo de compresión**, seleccione **GZIP**.
 16. Seleccione **Next** (Siguiente).
@@ -124,8 +122,8 @@ El JSON de la directiva debe ser similar al ejemplo siguiente. Reemplace _bucket
             "Effect": "Allow",
             "Action": [
 "organizations:ListAccounts",
-            "ce:*",
-            "cur:DescribeReportDefinitions"
+             "ce:*",
+             "cur:DescribeReportDefinitions"
             ],
             "Resource": "*"
         },
