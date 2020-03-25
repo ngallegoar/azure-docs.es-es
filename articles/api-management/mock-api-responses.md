@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067938"
 ---
 # <a name="mock-api-responses"></a>Simulación de respuestas de API
@@ -37,11 +37,11 @@ En este tutorial, aprenderá a:
 
 ![Respuesta de la operación simulada](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 + Comprender el [concepto de directivas en API Management de Azure](api-management-howto-policies.md).
-+ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Creación de una API de prueba 
 
@@ -63,7 +63,7 @@ Los pasos de esta sección muestran cómo crear una API en blanco sin back-end. 
 1. Seleccione la API que creó en los pasos anteriores.
 2. Haga clic en **+ Agregar operación**.
 
-    | Configuración             | Valor                             | DESCRIPCIÓN                                                                                                                                                                                   |
+    | Configuración             | Value                             | Descripción                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Nombre para mostrar**    | *Llamada de prueba*                       | El nombre se muestra en el **Portal para desarrolladores**.                                                                                                                                       |
     | **URL** (verbo HTTP) | GET                               | Puede elegir uno de los verbos HTTP predefinidos.                                                                                                                                         |
@@ -121,7 +121,7 @@ Los pasos de esta sección muestran cómo crear una API en blanco sin back-end. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Creación de una API de prueba

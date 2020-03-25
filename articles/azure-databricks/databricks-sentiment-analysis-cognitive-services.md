@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.openlocfilehash: 382dff156c088f367200f0dd46c3758193ade189
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75889223"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análisis de opiniones sobre los datos de streaming con Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análisis de opiniones sobre los datos transmitidos con Azure Databricks
 
 En este tutorial, aprenderá a ejecutar un análisis de sentimiento en un flujo de datos casi en tiempo real mediante Azure Databricks. El sistema de ingesta de datos se configura mediante Azure Event Hubs. Los mensajes se consumen desde Event Hubs en Azure Databricks mediante el conector Event Hubs para Spark. Por último, utilice Cognitive Service APIs para ejecutar el análisis de opiniones de los datos transmitidos.
 

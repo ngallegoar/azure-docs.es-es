@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
 ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "65604091"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
@@ -27,7 +27,7 @@ En En este tutorial se describe cómo se puede solicitar Azure Data Box. En este
 > * Seguimiento del pedido
 > * Cancelar el pedido
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de implementar el dispositivo, complete los siguientes requisitos previos de configuración tanto del servicio Data Box como del dispositivo.
 
@@ -53,16 +53,16 @@ Antes de comenzar, asegúrese de que:
 
 Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
-1. Use sus credenciales de Microsoft Azure para iniciar sesión en esta dirección URL: [ https://portal.azure.com ](https://portal.azure.com).
+1. Use sus credenciales de Microsoft Azure para iniciar sesión en esta dirección URL: [https://portal.azure.com](https://portal.azure.com).
 2. Haga clic en **+ Crear un recurso** y busque *Azure Data Box*. Haga clic en **Azure Data Box**.
     
    [![Buscar Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
 
-3. Haga clic en **Create**(Crear).
+3. Haga clic en **Crear**.
 
 4. Compruebe si el servicio Data Box está disponible en su región. Escriba o seleccione la siguiente información y haga clic en **Aplicar**. 
 
-    |Configuración  |Valor  |
+    |Configuración  |Value  |
     |---------|---------|
     |Subscription     | Seleccione una suscripción patrocinada por EA, CSP o Azure para el servicio Data Box. <br> La suscripción está vinculada a la cuenta de facturación.       |
     |Tipo de transferencia     | Seleccione **Importar en Azure**.        |
@@ -75,10 +75,10 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
 6. En **Order** (Pedido), especifique el valor de **Order details** (Detalles del pedido). Escriba o seleccione la siguiente información y haga clic en **Siguiente**.
     
-    |Configuración  |Valor  |
+    |Configuración  |Value  |
     |---------|---------|
-    |NOMBRE     |  Especifique un nombre descriptivo para hacer un seguimiento del pedido. <br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número.      |
-    |Grupos de recursos     |   Uso uno existente o cree uno nuevo. <br> Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente.         |
+    |Nombre     |  Especifique un nombre descriptivo para hacer un seguimiento del pedido. <br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número.      |
+    |Resource group     |   Uso uno existente o cree uno nuevo. <br> Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente.         |
     |Región de Azure de destino     | Seleccione la región de la cuenta de almacenamiento. <br> Para más información, vaya a [Disponibilidad por región](data-box-overview.md#region-availability).        |
     |Destino de almacenamiento     | Elija una cuenta de almacenamiento o discos administrados, o ambos. <br> En función de la región de Azure especificada, seleccione una o varias cuentas de almacenamiento en la lista filtrada una cuenta de almacenamiento existente. Data Box se puede vincular con un máximo de diez cuentas de almacenamiento. <br> También puede crear una nueva **cuenta de uso general v1**, **cuenta de uso general v2** o **cuenta de almacenamiento de blobs**. <br>Se admiten cuentas de almacenamiento con redes virtuales. Para permitir que el servicio de Data Box trabaje con cuentas de almacenamiento seguro, habilite los servicios de confianza dentro de la configuración de firewall de la red de la cuenta de almacenamiento. Para obtener más información, vea cómo [agregar Azure Data Box como un servicio de confianza](../storage/common/storage-network-security.md#exceptions).|
 
@@ -88,7 +88,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
     Si usa Data Box para crear discos administrados desde los discos duros virtuales locales, también deberá proporcionar la siguiente información:
 
-    |Configuración  |Valor  |
+    |Configuración  |Value  |
     |---------|---------|
     |Grupos de recursos     | Cree grupos de recursos si pretende crear discos administrados desde los discos duros virtuales locales. Puede usar un grupo de recursos existente solo si el grupo de recursos se creó anteriormente al crear un pedido de Data Box para el disco administrado por el servicio Data Box. <br> Especifique varios grupos de recursos separados por punto y coma. Se admite un máximo de 10 grupos de recursos.|
 
