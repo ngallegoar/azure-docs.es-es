@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199133"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Revisión de la factura de Azure
@@ -120,7 +120,7 @@ Los costos que aparecen en el análisis de costos deben coincidir exactamente co
 
 ![Cargos de uso de la factura](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external"></a>Servicios externos que se facturan por separado
+## <a name="external-services-billed-separately"></a><a name="external"></a>Servicios externos que se facturan por separado
 
 Los servicios externos, o cargos de Azure Marketplace, son para aquellos recursos creados por proveedores de software de otros fabricantes. Estos recursos están disponibles para su uso desde Azure Marketplace. Por ejemplo, un firewall Barracuda es un recurso de Azure Marketplace que ofrecen otros fabricantes. Todos los cargos por el firewall y sus medidores correspondientes aparecerán como cargos por servicios externos.
 
@@ -149,7 +149,7 @@ Cuando se crea la máquina virtual, cada medidor comienza a emitir registros de 
 
 Puede ver los medidores que se usaron para calcular la factura en el archivo CSV de uso.
 
-## <a name="payment"></a>Pagar la factura
+## <a name="pay-your-bill"></a><a name="payment"></a>Pagar la factura
 
 Si ha configurado una tarjeta de crédito como forma de pago, el pago se cargará automáticamente en un plazo de diez días después de finalizar el período de facturación. En el extracto de la tarjeta de crédito, el elemento de línea diría **MSFT Azure**.
 

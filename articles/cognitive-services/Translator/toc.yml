@@ -32,7 +32,7 @@
           href: customization.md
         - name: Cómo la API cuenta los caracteres
           href: character-counts.md
-    - name: Guías de procedimientos
+    - name: Guías paso a paso
       items:
         - name: Suscripción en Translator Text API
           href: translator-text-how-to-signup.md
@@ -46,12 +46,6 @@
           href: prevent-translation.md
         - name: Usar la característica de diccionario dinámico
           href: dynamic-dictionary.md
-        - name: Uso de contenedores
-          items:
-            - name: Instalación y ejecución de contenedores
-              href: how-to-install-containers.md
-            - name: Configuración de contenedores
-              href: translator-text-container-config.md
         - name: Traducción detrás de firewalls
           href: firewalls.md
     - name: Ejemplos
@@ -144,7 +138,7 @@
           href: custom-translator/training-and-model.md
         - name: Puntuación BLEU
           href: custom-translator/what-is-bleu-score.md
-    - name: Guías de procedimientos
+    - name: Guías paso a paso
       items:
         - name: Crear un proyecto
           href: custom-translator/how-to-create-project.md
@@ -168,7 +162,7 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: Recursos
       items:
-        - name: Compatibilidad con lenguajes
+        - name: Compatibilidad con idiomas
           href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
         - name: Glosario
           href: custom-translator/glossary.md
@@ -178,5 +172,7 @@
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Cumplimiento normativo
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+        - name: Cifrado
+          href: translator-encryption-of-data-at-rest.md
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

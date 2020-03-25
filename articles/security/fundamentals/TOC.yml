@@ -36,7 +36,7 @@
           href: infrastructure-monitoring.md
         - name: Integridad
           href: infrastructure-integrity.md
-        - name: Protección de datos
+        - name: Protección de los datos
           href: protection-customer-data.md
     - name: Aislamiento en la nube de Azure
       href: isolation-choices.md
@@ -48,8 +48,6 @@
       href: identity-management-best-practices.md
     - name: Lista de comprobación de seguridad
       href: steps-secure-identity.md
-    - name: Seleccionar inicio de sesión sin contraseña
-      href: ad-passwordless.md
     - name: Elección de la autenticación de Azure AD
       href: choose-ad-authn.md
 - name: Seguridad de las redes
@@ -66,7 +64,7 @@
   items:
     - name: Microsoft Antimalware
       href: antimalware.md
-    - name: Introducción a la seguridad de las máquinas virtuales
+    - name: Información general sobre la seguridad de las máquinas virtuales
       href: virtual-machines-overview.md
     - name: 'Procedimientos recomendados: cargas de trabajo de IaaS'
       href: iaas.md

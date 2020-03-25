@@ -1,20 +1,20 @@
 ---
 title: Administración de presupuestos de Cloudyn en Azure
 description: Este artículo le ayuda a crear presupuestos e iniciar su administración en Cloudyn rápidamente.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 1436c9b3b612a231760b6cdb04b5166fb45d7962
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: f2f8fdbf2b470e9f1eb0d82c4c6de230c2a9e78f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201142"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79464162"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Administración de presupuestos de Azure con Cloudyn
 
@@ -27,6 +27,8 @@ En función de los presupuestos asignados, puede establecer alertas de umbral ba
 Los informes de presupuesto muestran el presupuesto asignado. Los usuarios pueden ver si sus gastos superan, no llegan o son iguales a su consumo a lo largo del tiempo. Cuando selecciona **Show/Hide Fields** (Mostrar/Ocultar campos) en la parte superior de un informe de presupuesto, puede ver el costo, el presupuesto, el costo acumulado o el presupuesto total.
 
 Azure Cost Management ofrece una funcionalidad similar a Cloudyn. Azure Cost Management es una solución de administración de costos de Azure nativa. Le ayuda a analizar costos, crear y administrar presupuestos, exportar datos y revisar y actuar sobre recomendaciones de optimización para ahorrar dinero. Para más información acerca de los presupuestos en Cost Management, consulte [Creación y administración de presupuestos](../costs/tutorial-acm-create-budgets.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="create-budgets"></a>Creación de presupuestos
 

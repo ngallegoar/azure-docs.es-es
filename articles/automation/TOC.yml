@@ -305,11 +305,11 @@
 - name: Administración de recursos compartidos
   items:
     - name: Certificados
-      href: automation-certificates.md
+      href: shared-resources/certificates.md
     - name: Conexiones
       href: automation-connections.md
     - name: Credenciales
-      href: automation-credentials.md
+      href: shared-resources/credentials.md
     - name: Módulos de PowerShell
       items:
         - name: Módulos
@@ -319,9 +319,9 @@
         - name: Actualización de módulos de Azure PowerShell
           href: automation-update-azure-modules.md
     - name: Programaciones
-      href: automation-schedules.md
+      href: shared-resources/schedules.md
     - name: variables
-      href: automation-variables.md
+      href: shared-resources/variables.md
     - name: Administración de paquetes de Python 2
       href: python-packages.md
     - name: Solución de problemas de recursos compartidos

@@ -1,18 +1,18 @@
 ---
 title: Compilación de aplicaciones móviles con Visual Studio App Center y los servicios de Azure
 description: Aprenda a usar servicios como Visual Studio App Center para compilar aplicaciones móviles reales, junto con otros servicios de Azure.
-author: elamalani
+author: codemillmatt
 ms.assetid: 98899889-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 6e60aa223b3c4f362ed13411c54212e9d1fa2c87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 19d317ca564f925562994a5f90cd3892d0ee1d08
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454421"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240848"
 ---
 # <a name="mobile-application-development-in-microsoft"></a>Desarrollo de aplicaciones móviles en Microsoft
 Tanto los responsables de la toma de decisiones, como los equipos de desarrollo y los departamentos de TI necesitan crear una sólida estrategia de desarrollo de aplicaciones móviles que:

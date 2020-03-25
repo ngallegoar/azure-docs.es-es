@@ -3,7 +3,7 @@
 - name: Información general
   expanded: true
   items:
-    - name: ¿Qué es el servicio Face?
+    - name: ¿Qué es el servicio API?
       href: Overview.md
 - name: Guías de inicio rápido
   items:
@@ -115,5 +115,7 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Cumplimiento normativo
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Cifrado
+      href: face-encryption-of-data-at-rest.md
     - name: Notas de la versión
       href: ReleaseNotes.md

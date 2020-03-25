@@ -11,10 +11,10 @@ metadata:
   ms.author: genli
   ms.date: 09/09/2019
   ms.openlocfilehash: 4111df079f6e4c0d49ab1381add835d493b3540a
-  ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/20/2020
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "77519247"
 landingContent:
 - title: Solución de errores en la implementación
@@ -87,11 +87,11 @@ landingContent:
       url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-vm-boot-configure-update
     - text: Ciclo de vida y estados de máquina virtual
       url: https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle
-- title: Reinicio de máquina virtual inesperado
+- title: Reinicio inesperado de la máquina virtual
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Consulta de registros de reinicio de máquina virtual para identificar la causa del reinicio
+    - text: Consulta de los registros de reinicio de una máquina virtual para identificar la causa del reinicio
       url: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
     - text: Diagnóstico y recuperación de errores de arranque después de un reinicio
       url: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
@@ -117,7 +117,7 @@ landingContent:
     links:
     - text: Solución de problemas de Azure Disk Encryption
       url: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg
-    - text: Preguntas más frecuentes de Azure Disk Encryption
+    - text: Preguntas frecuentes sobre el cifrado de discos
       url: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq
     - text: Solución de problemas de extensiones de Azure
       url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot

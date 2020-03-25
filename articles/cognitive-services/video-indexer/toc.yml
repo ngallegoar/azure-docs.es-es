@@ -14,7 +14,7 @@
   items:
     - name: Migración de v1 a v2
       href: ../../media-services/video-indexer/migrate-from-v1-to-v2.md
-    - name: Conexión a Azure
+    - name: Conexión con Azure
       href: ../../media-services/video-indexer/connect-to-azure.md
     - name: Administración de una cuenta conectada a Azure
       href: ../../media-services/video-indexer/manage-account-connected-to-azure.md

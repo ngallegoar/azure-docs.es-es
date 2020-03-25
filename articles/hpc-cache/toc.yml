@@ -10,7 +10,7 @@
       href: hpc-cache-namespace.md
 - name: Guías paso a paso
   items:
-    - name: Prerrequisitos
+    - name: Prerequisites
       href: hpc-cache-prereqs.md
     - name: Creación de la caché
       href: hpc-cache-create.md
