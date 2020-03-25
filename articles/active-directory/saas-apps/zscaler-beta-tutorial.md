@@ -17,10 +17,10 @@ ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68943289"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integración de Azure Active Directory con Zscaler Beta
@@ -35,7 +35,7 @@ Al integrar Zscaler Beta con Azure AD, puede hacer lo siguiente:
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con Zscaler Beta, necesita los siguientes elementos:
 
@@ -91,7 +91,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Zscaler Beta, realice los pasos siguientes.
 
-1. En la página de integración de aplicaciones de **Zscaler Beta** de [Azure Portal](https://portal.azure.com/), seleccione **Inicio de sesión único**.
+1. En la página de integración de aplicaciones de [Zscaler Beta](https://portal.azure.com/) de **Azure Portal**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -118,7 +118,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Beta, reali
 
 6. La aplicación Zscaler Beta espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice estos pasos para agregar el atributo del token de SAML como se muestra en la tabla siguiente.
     
-    | NOMBRE | Atributo de origen | 
+    | Nombre | Atributo de origen | 
     | ---------------| --------------- |
     | memberOf  | user.assignedroles |
 

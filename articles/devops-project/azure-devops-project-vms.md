@@ -10,10 +10,10 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: b03fb27c46d4fd925b91b8927fdd50ff4912aaec
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969555"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Tutorial: Implementación de una aplicación de ASP.NET en máquinas virtuales de Azure mediante Azure DevOps Projects
@@ -37,15 +37,15 @@ En este tutorial, aprenderá lo siguiente:
 > * Configurar la supervisión de Azure Application Insights
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+* Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## <a name="use-devops-projects-to-deploy-your-aspnet-app"></a>A usar DevOps Projects para implementar una aplicación ASP.NET
 
 DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como máquinas virtuales, en la suscripción de Azure que se elija.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el panel izquierdo, seleccione **Nuevo**.
 
@@ -60,7 +60,7 @@ DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear 
 
 1. Seleccione la máquina virtual y, después, **Siguiente**.
 
-## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configuración de Azure DevOps y de una suscripción de Azure
+## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configuración de Azure DevOps y una suscripción de Azure
 
 1. Cree una organización de Azure DevOps o elija una existente. 
 
@@ -208,7 +208,7 @@ Si lo desea, puede modificar estas canalizaciones de compilación y de versión 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * A usar DevOps Projects para implementar una aplicación ASP.NET

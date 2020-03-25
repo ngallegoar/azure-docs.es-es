@@ -9,17 +9,17 @@ ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 8d89c7eda845f0e5ed9bc8ccc7b6b3812ba275f9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74132993"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configuración de la recuperación ante desastres para máquinas virtuales de Hyper-V en el sitio local secundario
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a su estrategia de recuperación ante desastres mediante la administración y la coordinación de la replicación, la conmutación por error y la conmutación por recuperación de máquinas locales y máquinas virtuales (VM) de Azure.
 
-En este artículo se muestra cómo configurar la recuperación ante desastres en un sitio secundario, para máquinas virtuales de Hyper-V locales administradas en nubes de System Center Virtual Machine Manager (VMM). En este artículo, aprenderá a:
+En este artículo se muestra cómo configurar la recuperación ante desastres en un sitio secundario, para máquinas virtuales de Hyper-V locales administradas en nubes de System Center Virtual Machine Manager (VMM). En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Preparar los hosts de Hyper-V y los servidores VMM locales
@@ -30,7 +30,7 @@ En este artículo se muestra cómo configurar la recuperación ante desastres en
 > * Habilitación de la replicación para una máquina virtual
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para realizar este escenario:
 

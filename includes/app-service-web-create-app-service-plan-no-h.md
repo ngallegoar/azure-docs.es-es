@@ -9,10 +9,10 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: a91ad8b83966010b4cddb361b55e38456e8f1725
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67186798"
 ---
 En Cloud Shell, cree un plan de App Service con el comando [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest).
@@ -25,7 +25,7 @@ En el siguiente ejemplo se crea un plan de App Service denominado `myAppServiceP
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-Cuando se ha creado el plan de App Service, la CLI de Azure muestra información similar al ejemplo siguiente:
+Cuando se crea el plan de App Service, la CLI de Azure muestra información similar al ejemplo siguiente:
 
 ```json
 { 

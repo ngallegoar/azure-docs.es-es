@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: ba5ecc29edbcd69324500e87add846e4395ce0a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620589"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067563"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparación de Azure para la recuperación ante desastres en el entorno local en Azure
 
@@ -59,7 +59,7 @@ Para completar estas tareas su cuenta debe tener asignado el rol integrado de co
 3. En la página **Crear almacén de Recovery Services**, seleccione la **Suscripción**. Vamos a usar la **suscripción de Contoso**.
 4. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo. En este tutorial se va a usar **contosoRG**.
 5. En **Nombre del almacén**, escriba un nombre descriptivo para identificar el almacén. Para este conjunto de tutoriales se usa **ContosoVMVault**.
-6. En **Región**, seleccione la región en la que debería estar el almacén. se va a usar **Europa Occidental**.
+6. En **Región**, seleccione la región en la que debería estar el almacén. se va a usar **Oeste de Europa**.
 7. Seleccione **Revisar + crear**.
 
    ![Crear un nuevo almacén](./media/tutorial-prepare-azure/new-vault-settings.png)

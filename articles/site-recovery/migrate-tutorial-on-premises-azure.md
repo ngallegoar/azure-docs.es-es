@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 24015810a295ef88b7d3e63bfc464ddddef6b55f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73939633"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
@@ -51,9 +51,9 @@ Seleccione aquello que desea replicar y la ubicación donde se va a realizar la 
 1. Haga clic en **Almacenes de Recovery Services** > almacén.
 2. En el menú de recursos, haga clic en **Site Recovery** > **Preparar la infraestructura** > **Objetivo de protección**.
 3. En **Objetivo de protección**, seleccione el contenido que quiera migrar.
-    - **VMware**: Seleccione **To Azure (En Azure)**  > **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor).
-    - **Máquina física**: Seleccione **To Azure (En Azure)**  > **No virtualizado/Otro**.
-    - **Hyper-V**: Seleccione **To Azure (En Azure)**  > **Yes, with Hyper-V (Sí, con Hyper-V)** . Si VMM administra las máquinas virtuales de Hyper-V, seleccione **Sí**.
+    - **VMware**: seleccione **To Azure (En Azure)**  > **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor).
+    - En **Máquina física**: seleccione **To Azure (En Azure)**  > **No virtualizado/Otro**.
+    - **Hyper-V**: seleccione **To Azure (En Azure)**  > **Yes, with Hyper-V (Sí, con Hyper-V)** . Si VMM administra las máquinas virtuales de Hyper-V, seleccione **Sí**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configuración del entorno de origen
@@ -115,7 +115,7 @@ Ejecute una conmutación por error para las máquinas que desea migrar.
 
 
 > [!WARNING]
-> **No cancele una conmutación por error en curso**: La replicación de la máquina virtual se detiene antes de que se inicie la conmutación por error. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.
+> **No cancele una conmutación por error en curso**: antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.
 
 En algunos escenarios, la conmutación por error requiere un procesamiento adicional que tarda aproximadamente de ocho a diez minutos en completarse. Puede observar tiempos de conmutación por error de prueba más largos en los servidores físicos, las máquinas de VMware Linux, las máquinas virtuales de VMware que no tienen el servicio DHCP habilitado y las máquinas virtuales de VMware que no tienen los siguientes controladores de arranque: storvsc, vmbus, storflt, intelide y atapi.
 
@@ -158,7 +158,7 @@ Algunos pasos se pueden automatizar como parte del proceso de migración con la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial se migran máquinas virtuales locales a máquinas virtuales de Azure. Now
+En este tutorial se migran máquinas virtuales locales a máquinas virtuales de Azure. Ahora
 
 > [!div class="nextstepaction"]
 > [Configure la recuperación ante desastres](azure-to-azure-replicate-after-migration.md) en una región secundaria de Azure para las máquinas virtuales de Azure.

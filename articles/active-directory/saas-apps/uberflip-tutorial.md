@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Uberflip | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Uberflip | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Uberflip.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 6710344e73e3c0ea6f9b3491209689871cc14a4f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d20c05e6ec5a413b81ede9cb4906de2595967115
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160943"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048470"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: integración de Azure Active Directory con Uberflip
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integración de Azure Active Directory con Uberflip
 
 En este tutorial, aprenderá a integrar Uberflip con Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ La integración de Uberflip con Azure AD proporciona las siguientes ventajas:
 
 Para más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con Uberflip, necesita los siguientes elementos:
 
@@ -54,7 +54,7 @@ Uberflip admite las siguientes características:
 
 Para configurar la integración de Uberflip en Azure AD, deberá agregar Uberflip desde Azure Marketplace a la lista de aplicaciones SaaS administradas:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En el panel izquierdo, seleccione **Azure Active Directory**.
 
    ![Opción de Azure Active Directory](common/select-azuread.png)

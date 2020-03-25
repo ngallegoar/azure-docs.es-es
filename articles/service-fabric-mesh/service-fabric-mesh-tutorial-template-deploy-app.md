@@ -7,13 +7,13 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75494944"
 ---
-# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar una aplicación en Service Fabric Mesh mediante una plantilla
+# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: implementar una aplicación en Service Fabric Mesh mediante una plantilla
 
 Este tutorial es la primera parte de una serie. Obtendrá información sobre cómo implementar una aplicación de Azure Service Fabric Mesh mediante una plantilla.  La aplicación se compone de un servicio front-end web ASP.NET y un servicio back-end ASP.NET Core Web API, que se encuentran en Docker Hub.  Extraiga las dos imágenes de contenedor de Docker Hub y luego insértelas en su propio registro privado. A continuación, cree una plantilla de Azure RM para la aplicación e implemente la aplicación desde el registro de contenedor en Service Fabric Mesh. Cuando haya terminado, tendrá una sencilla aplicación de lista de tareas pendientes que se ejecuta en Service Fabric Mesh.
 

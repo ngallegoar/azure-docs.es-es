@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: 64c4e65ca7b69c7d61c706b48591ac19be3bfcf5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72792520"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Incorporación de sugerencias o de la función de autocompletar a la aplicación de Azure Cognitive Search
@@ -36,7 +36,7 @@ En este ejercicio se explican las tareas siguientes:
 > * En C#, definir las sugerencias y las acciones de autocompletar en HomeController.cs
 > * En JavaScript, llamar a las API REST directamente para proporcionar la misma funcionalidad
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Un servicio Azure Cognitive Search es opcional para este ejercicio porque la solución utiliza un servicio de espacio aislado en vivo que hospeda un índice de demostración de NYCJobs preparado. Si desea ejecutar este ejemplo en su propio servicio de búsqueda, consulte en el [índice de configuración de trabajos de NYC](#configure-app) las instrucciones.
 
@@ -291,7 +291,7 @@ En la línea 148, encontrará un script que llama al `autocompleteUri`. La prim
 
 Hasta ahora, ha estado utilizando el índice de la demostración NYCJobs hospedado. Si desea la visibilidad completa de todo el código, incluido el índice, siga estas instrucciones para crear y cargar el índice en su propio servicio de búsqueda.
 
-1. [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este ejemplo. 
+1. [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este ejemplo. 
 
    > [!Note]
    > Si va a usar el servicio gratuito Azure Cognitive Search, está limitado a tres índices. El cargador de datos de NYCJobs crea dos índices. Asegúrese de que haya espacio en el servicio para aceptar los nuevos índices.

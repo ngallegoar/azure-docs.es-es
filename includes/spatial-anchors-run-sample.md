@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: shreshar
 ms.openlocfilehash: fbc91b2610d97fe071e6585a58d7789dca873a9a
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72882334"
 ---
 Implemente la aplicación en el dispositivo. Una vez que se inicia la aplicación, en el cuadro de diálogo **Choose A Demo** (Elegir una demostración), use las flechas izquierda y derecha para seleccionar la opción **LocalShare** y pulse **Go!** (Ir). Siga las instrucciones de la aplicación. Puede seleccionar **Create & Share Anchor** (Crear y compartir delimitador) o **Locate Shared Anchor** (Buscar delimitador anclado).

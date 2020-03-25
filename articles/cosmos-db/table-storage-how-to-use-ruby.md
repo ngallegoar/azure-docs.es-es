@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: 7994b478321c925b3eab73291a109d50b9066fef
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76770875"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Uso de Azure Table Storage y Table API de Azure Cosmos DB con Ruby
@@ -94,9 +94,9 @@ azure_table_service.insert_entity("testtable", entity)
 ## <a name="update-an-entity"></a>Actualización de una entidad
 Hay varios métodos para actualizar una entidad existente:
 
-* **update_entity():** actualiza una entidad existente al reemplazarla.
+* **update_entity():** actualiza una entidad que ya existe reemplazándola.
 * **merge_entity():** actualiza una entidad que ya existe combinando los valores de las nuevas propiedades con la entidad existente.
-* **insert_or_merge_entity():** actualiza una entidad existente al reemplazarla. Si no hay entidades, se insertará una nueva.
+* **insert_or_merge_entity():** actualiza una entidad que ya existe reemplazándola. Si no hay entidades, se insertará una nueva.
 * **insert_or_replace_entity():** actualiza una entidad que ya existe combinando los valores de las nuevas propiedades con la entidad existente. Si no hay entidades, se insertará una nueva.
 
 En el ejemplo siguiente se demuestra cómo actualizar una entidad usando **update_entity()** :

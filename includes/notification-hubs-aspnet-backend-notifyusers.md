@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77192504"
 ---
 ## <a name="create-the-webapi-project"></a>Creación del proyecto de API web
@@ -20,8 +20,8 @@ ms.locfileid: "77192504"
 En las secciones siguientes se describe la creación de un nuevo back-end de ASP.NET WebAPI. Este proceso tiene tres objetivos principales:
 
 - **Autenticación de clientes**: se agrega un controlador de mensajes para autenticar las solicitudes de cliente y asociar el usuario a la solicitud.
-- **Registro para notificaciones mediante el back-end de Web API**: se agrega un controlador para manejar los registros nuevos de un dispositivo cliente para que reciba notificaciones. El nombre de usuario autenticado se agrega automáticamente al registro como [etiqueta](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
-- **Envío de notificaciones a los clientes**: se agrega un controlador para que los usuarios puedan desencadenar una inserción segura en los dispositivos y clientes asociados a la etiqueta.
+- **Registro para recibir notificaciones mediante el back-end de WebAPI**: se agrega un controlador para administrar los registros nuevos de un dispositivo cliente para que reciba notificaciones. El nombre de usuario autenticado se agrega automáticamente al registro como [etiqueta](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
+- **Envío de notificaciones a los clientes**: se agrega un controlador para que los usuarios puedan desencadenar una inserción segura en los dispositivos y clientes asociados con la etiqueta.
 
 Realice las siguientes acciones para crear el nuevo back-end de ASP.NET WebAPI:
 
@@ -140,7 +140,7 @@ En esta sección se crea una clase de controlador de mensajes llamada **Authenti
     ```
 
     > [!NOTE]
-    > Nota de seguridad: la clase `AuthenticationTestHandler` no proporciona una autenticación verdadera. Se utiliza únicamente para simular una autenticación básica y no es segura. Debe implementar un mecanismo de autenticación seguro en las aplicaciones y servicios de producción.
+    > Nota de seguridad: la clase `AuthenticationTestHandler` no proporciona autenticación real. Se utiliza únicamente para simular una autenticación básica y no es segura. Debe implementar un mecanismo de autenticación seguro en las aplicaciones y servicios de producción.
 5. Para registrar el controlador de mensajes, agregue el siguiente código al final del método `Register` de la clase **App_Start/WebApiConfig.cs**:
 
     ```csharp

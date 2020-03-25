@@ -7,13 +7,13 @@ ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75613982"
 ---
-# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Creación de la infraestructura de AWS para hospedar un clúster de Service Fabric
+# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: creación de la infraestructura de AWS para hospedar un clúster de Service Fabric
 
 Los clústeres de Service Fabric independientes ofrecen la opción de elegir un entorno propio y crear un clúster como parte del enfoque "Cualquier sistema operativo, cualquier nube" que toma Service Fabric. En esta serie de tutoriales se crea un clúster independiente hospedado en AWS y se instala en él una aplicación.
 
@@ -41,7 +41,7 @@ Seleccione **Launch Instance** (Iniciar instancia), en la siguiente pantalla, el
 
 ![Selección de la instancia de EC2][aws-ec2instance]
 
-Seleccione **t2.medium** y, a continuación, seleccione **Next: Configure Instance Details** (Siguiente: configuración de los detalles de la instancia), en la siguiente pantalla, cambie el número de instancias a `3` y seleccione **Advanced Details** (Detalles avanzados) para expandir esa sección.
+Seleccione **t2.medium** y **Next: Configure Instance Details** (Siguiente: configuración de los detalles de la instancia), en la siguiente pantalla, cambie el número de instancias a `3` y seleccione **Advanced Details** (Detalles avanzados) para expandir esa sección.
 
 Para conectar las máquinas virtuales juntas en Service Fabric, las que hospedan la infraestructura deben tener las mismas credenciales.  Hay dos formas habituales de obtener credenciales coherentes: unirlas todas al mismo dominio o establecer la misma contraseña de administrador en todas las máquinas virtuales.  Para este tutorial se utiliza un script de datos de usuario para establecer las instancias de EC2 para que todas ellas tengan la misma contraseña.  En un entorno de producción, la combinación de los hosts en un dominio de Windows es más segura.
 

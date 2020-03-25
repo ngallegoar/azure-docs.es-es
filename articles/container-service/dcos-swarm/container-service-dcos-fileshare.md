@@ -10,11 +10,11 @@ ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
 ms.openlocfilehash: e6651fc5988a1e1830807219cda02ab057db9a4f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329827"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60480391"
 ---
 # <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(EN DESUSO) Creación y montaje de un recurso compartido de archivos en un clúster de DC/OS
 
@@ -27,7 +27,7 @@ En este tutorial se detalla la creación de un recurso compartido de archivos en
 > * Creación de un recurso compartido de archivos
 > * Montaje del recurso compartido en el clúster de DC/OS
 
-Necesita un clúster de ACS con DC/OS para completar los pasos de este tutorial. Si es necesario, este [script de ejemplo](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) puede crear uno.
+Necesita un clúster de DC/OS de ACS para completar los pasos de este tutorial. Si es necesario, este [script de ejemplo](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) puede crear uno.
 
 Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si debe actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
@@ -87,7 +87,7 @@ Copie la clave privada en el nodo principal. Esta clave es necesaria para crear 
 scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh
 ```
 
-Cree una conexión SSH para el patrón (o el primer patrón) del clúster basado en DC/OS. Actualice el nombre de usuario si se utilizó un valor no predeterminado al crear el clúster.
+Cree una conexión SSH con el patrón (o el primer patrón) del clúster basado en DC/OS. Actualice el nombre de usuario si se utilizó un valor no predeterminado al crear el clúster.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN

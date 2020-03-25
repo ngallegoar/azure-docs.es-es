@@ -10,10 +10,10 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: b27d56d78296dc5500f97802f811a8923c4e87a8
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969682"
 ---
 # <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Tutorial: Implementación de aplicaciones ASP.NET Core en Azure Kubernetes Service con Azure DevOps Projects
@@ -30,22 +30,22 @@ En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
 > * A usar DevOps Projects para implementar una aplicación ASP.NET Core en AKS
-> * A configurar Azure DevOps y una suscripción de Azure 
+> * Configuración de Azure DevOps y una suscripción de Azure 
 > * Examen del clúster de AKS
 > * Examen de la canalización de CI
 > * Examen de la canalización de CD
 > * Confirmación de los cambios en Git y su implementación automática en Azure
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+* Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## <a name="use-devops-projects-to-deploy-an-aspnet-core-app-to-aks"></a>A usar DevOps Projects para implementar una aplicación ASP.NET Core en AKS
 
 DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como un clúster de AKS, en la suscripción de Azure que prefiera.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el panel izquierdo, seleccione **Crear un recurso**.
 
@@ -177,11 +177,11 @@ Si va a realizar pruebas, limpie los recursos para que no se acumulen costos de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si lo desea, puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial aprendió lo siguiente:
+Si lo desea, puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * A usar DevOps Projects para implementar una aplicación ASP.NET Core en AKS
-> * A configurar Azure DevOps y una suscripción de Azure 
+> * Configuración de Azure DevOps y una suscripción de Azure 
 > * Examen del clúster de AKS
 > * Examen de la canalización de CI
 > * Examen de la canalización de CD

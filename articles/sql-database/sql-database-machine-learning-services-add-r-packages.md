@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ms.openlocfilehash: ce85f45d823df42e70af53824e175968439621d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73819864"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Incorporación de un paquete de R a Azure SQL Database Machine Learning Services (versión preliminar)
@@ -26,7 +26,7 @@ En este artículo se explica cómo agregar un paquete de R que aún no se haya i
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Instalar [R](https://www.r-project.org) y [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) en la máquina local. R está disponible para Windows, MacOS y Linux. En este artículo se da por supuesto que usa Windows.
 
@@ -35,7 +35,7 @@ En este artículo se explica cómo agregar un paquete de R que aún no se haya i
 > [!NOTE]
 > No se puede instalar un paquete mediante la ejecución de un script de R con **sp_execute_external_script** en Azure Data Studio o SSMS. Solo puede instalar y quitar paquetes mediante la línea de comandos de R y RStudio como se describe en este artículo. Una vez instalado el paquete, puede acceder a las funciones del paquete de un script de R con **sp_execute_external_script**.
 
-## <a name="list-r-packages"></a>Enumeración de paquetes de R
+## <a name="list-r-packages"></a>Lista de paquetes de R
 
 Microsoft proporciona una serie de paquetes de R preinstalados con Machine Learning Services en la instancia de Azure SQL Database.
 Ejecute el siguiente comando en Azure Data Studio o SSMS para ver una lista de los paquetes de R instalados.
@@ -60,7 +60,7 @@ La salida debe tener una apariencia similar a la siguiente.
 
 **Resultados**
 
-![Paquetes instalados de R](./media/sql-database-machine-learning-services-add-r-packages/r-installed-packages.png)
+![Paquetes instalados en R](./media/sql-database-machine-learning-services-add-r-packages/r-installed-packages.png)
 
 ## <a name="add-a-package-with-sqlmlutils"></a>Incorporación de un paquete con sqlmlutils
 
@@ -92,7 +92,7 @@ En el siguiente ejemplo instalará el paquete **[glue](https://cran.r-project.or
 
 ### <a name="add-the-package"></a>Incorporación del paquete
 
-1. Abra RStudio y cree un nuevo archivo **Script de R**. 
+1. Abra RStudio y cree un nuevo archivo de **script de R**. 
 
 1. Use el siguiente código de R para instalar un paquete **glue** mediante **sqlmlutils**. Sustituya los valores por la información de conexión de Azure SQL Database propia.
 
@@ -108,7 +108,7 @@ En el siguiente ejemplo instalará el paquete **[glue](https://cran.r-project.or
     ```
 
     > [!TIP]
-    > El **ámbito** puede ser **PÚBLICO** o **PRIVADO**. El ámbito público es útil para que el administrador de la base de datos instale paquetes que todos los usuarios puedan usar. El ámbito privado hace que el paquete solo esté disponible para el usuario que lo instala. Si no se especifica el ámbito, el ámbito predeterminado es **PRIVADO**.
+    > El **ámbito** puede ser **PÚBLICO** o **PRIVADO**. El ámbito público es útil para que el administrador de bases de datos instale paquetes que todos los usuarios pueden usar. El ámbito privado hace que el paquete esté disponible solo para el usuario que lo instala. Si no especifica el ámbito, el ámbito predeterminado es **PRIVADO**.
 
 ### <a name="verify-the-package"></a>Comprobación del paquete
 
@@ -170,6 +170,6 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 
 Para más información acerca de Azure SQL Database Machine Learning Services con R (versión preliminar), consulte los siguientes artículos.
 
-- [Azure SQL Database Machine Learning Services with R (preview)](sql-database-machine-learning-services-overview.md) (Azure SQL Database Machine Learning Services con R [versión preliminar])
+- [Azure SQL Database Machine Learning Services con R (versión preliminar)](sql-database-machine-learning-services-overview.md)
 - [Escribir funciones de R avanzadas en Azure SQL Database Machine Learning Services (versión preliminar)](sql-database-machine-learning-services-functions.md)
-- [Trabajar con datos SQL y R en Machine Learning Services (versión preliminar) de Azure SQL Database](sql-database-machine-learning-services-data-issues.md)
+- [Trabajar con datos SQL y R en Azure SQL Database Machine Learning Services (versión preliminar)](sql-database-machine-learning-services-data-issues.md)

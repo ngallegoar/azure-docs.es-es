@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
 ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73686334"
 ---
-# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: Protección de los recursos con Azure Security Center
+# <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: protección de los recursos con Azure Security Center
 Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a las máquinas virtuales Just-In-Time (JIT) reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a las máquinas virtuales. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
 
 En este tutorial, aprenderá a:
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Configuración de una directiva de acceso a las máquinas virtuales Just-In-Time
 > * Configuración de una directiva de control de aplicación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para recorrer todas las características que se tratan en este tutorial, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
 
 ## <a name="manage-vm-access"></a>Administración de acceso a VM
@@ -77,8 +77,8 @@ Los controles de aplicación adaptables ayudan a definir un conjunto de aplicaci
    La sección **Grupos de recursos** contiene tres pestañas:
 
    - **Configurado**: lista de grupos de recursos con VM configuradas con control de aplicación.
-   - **Recomendaciones**: lista de grupos de recursos para los que se recomienda el control de aplicación.
-   - **Ninguna recomendación**: lista de grupos de recursos que contienen máquinas virtuales sin ninguna recomendación de control de aplicación. Por ejemplo, máquinas virtuales en las que las aplicaciones cambian constantemente y no han alcanzado un estado estable.
+   - **Recomendado**: lista de grupos de recursos para los que se recomienda el control de aplicación.
+   - **No recommendation** (Ninguna recomendación): lista de grupos de recursos que contienen VM sin ninguna recomendación de control de aplicación. Por ejemplo, máquinas virtuales en las que las aplicaciones cambian constantemente y no han alcanzado un estado estable.
 
 2. Seleccione la pestaña **Recomendado** para obtener una lista de grupos de recursos con las recomendaciones de control de aplicación.
 
@@ -123,7 +123,7 @@ En este tutorial, aprendió a limitar la exposición a amenazas mediante:
 Pase al siguiente tutorial para aprender a responder a incidentes relacionados con la seguridad.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Respuesta a incidentes de seguridad](tutorial-security-incident.md)
+> [Tutorial: respuesta a incidentes relacionados con la seguridad](tutorial-security-incident.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

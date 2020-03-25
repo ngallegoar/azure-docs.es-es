@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Workspot Control | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Workspot Control | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workspot Control.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 086ec95531b01477be56d4b1a19d189f167a020f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086683"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: integración de Azure Active Directory con Workspot Control
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integración de Azure Active Directory con Workspot Control
 
 En este tutorial, aprenderá a integrar Workspot Control con Azure Active Directory (Azure AD). Al integrar Workspot Control con Azure AD, puede hacer lo siguiente:
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a integrar Workspot Control con Azure Active Direct
 
 Para más información acerca de la integración de aplicaciones SaaS con Azure AD, consulte [Inicio de sesión único en aplicaciones con Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con Workspot Control, se necesitan los siguientes elementos:
 

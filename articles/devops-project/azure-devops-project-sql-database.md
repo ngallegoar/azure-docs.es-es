@@ -10,10 +10,10 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 560b16a40d73d07df6c9f446c7196cd930e2274e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71971497"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Tutorial: Implementación de la aplicación de ASP.NET y el código de Azure SQL Database mediante Azure DevOps Projects
@@ -37,15 +37,15 @@ En este tutorial, aprenderá lo siguiente:
 > * A conectar a la base de datos de Azure SQL 
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+* Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>Creación de un proyecto en DevOps Projects para una aplicación ASP.NET y una base de datos de Azure SQL
 
 DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como una base de datos de Azure SQL, en la suscripción de Azure que prefiera.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el panel izquierdo, seleccione **Crear un recurso**.
 
@@ -68,7 +68,7 @@ DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear 
 
 1. Escriba el nombre del proyecto de Azure DevOps. 
 
-1. Seleccione los servicios de la suscripción de Azure.  
+1. Seleccione los servicios de la suscripción a Azure.  
     Opcionalmente, para ver los valores de configuración adicionales de Azure e identificar el nombre de usuario en la sección **Detalles de inicio de sesión del servidor de bases de datos**, puede seleccionar **Cambiar**. Almacene el nombre de usuario para los pasos posteriores de este tutorial. Si realiza este paso opcional, salga del área de configuración de Azure antes de seleccionar **Listo**.
  
 1. Seleccione **Listo**.  
@@ -200,7 +200,7 @@ Si va a realizar pruebas, limpie los recursos para que no se acumulen costos de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si lo desea, puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial aprendió lo siguiente:
+Si lo desea, puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * A usar Azure DevOps Projects para implementar una aplicación de ASP.NET y código de Azure SQL Database

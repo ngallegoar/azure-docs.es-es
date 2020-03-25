@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 27c7e32f081003ac236c6d1405eb3512f6c4433c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 62a8c68b11562cac7bb9e8a318cbe08084449423
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034638"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066506"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial: Uso de cloud-init para personalizar una máquina virtual Linux en Azure durante el primer arranque
 
@@ -44,12 +44,12 @@ Trabajamos con nuestros asociados para que cloud-init se incluya y funcione en l
 
 | Publicador | Oferta | SKU | Versión | Preparado para cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |latest |Sí | 
-|Canonical |UbuntuServer |16.04-LTS |latest |Sí | 
-|Canonical |UbuntuServer |14.04.5-LTS |latest |Sí |
-|CoreOS |CoreOS |Stable |latest |Sí |
+|Canonical |UbuntuServer |18.04-LTS |latest |sí | 
+|Canonical |UbuntuServer |16.04-LTS |latest |sí | 
+|Canonical |UbuntuServer |14.04.5-LTS |latest |sí |
+|CoreOS |CoreOS |Stable |latest |sí |
 |OpenLogic 7.6 |CentOS |7-CI |latest |Vista previa |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Sí |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sí |
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |Vista previa |
 
 
@@ -58,7 +58,7 @@ Para ver cloud-init en acción, cree una máquina virtual que instale NGINX y ej
 
 En el símbolo del sistema de bash o en Cloud Shell, cree un archivo denominado *cloud-init.txt* y pegue la siguiente configuración. Por ejemplo, escriba `sensible-editor cloud-init.txt` para crear el archivo y ver una lista de editores disponibles. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
 
-```azurecli-interactive
+```bash
 #cloud-config
 package_upgrade: true
 packages:

@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454442"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222152"
 ---
-# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar un registro de contenedor de Azure con replicación geográfica
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparación de un registro de contenedor de Azure con replicación geográfica
 
 Un registro de contenedor de Azure es un registro de Docker privado implementado en Azure que puede mantener cerca de la red en las implementaciones. En este conjunto de artículos de tres tutoriales, aprenderá a usar la replicación geográfica para implementar una aplicación web de ASP.NET Core que se ejecuta en un contenedor de Linux en dos instancias de [Web App for Containers](../app-service/containers/index.yml). Podrá ver cómo Azure implementa automáticamente la imagen en cada instancia de Web App desde el repositorio de replicación geográfica más cercano.
 
@@ -37,7 +37,7 @@ Azure Cloud Shell no incluye los componentes de Docker necesarios para completar
 
 ## <a name="create-a-container-registry"></a>Creación de un Registro de contenedor
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 Seleccione **Crear un recurso** > **Contenedores** > **Azure Container Registry**.
 
@@ -45,8 +45,8 @@ Seleccione **Crear un recurso** > **Contenedores** > **Azure Container Registry*
 
 Configure el registro nuevo con la configuración siguiente:
 
-* **Nombre del Registro**: cree un nombre del Registro único global en Azure y que contenga entre 5 y 50 caracteres alfanuméricos.
-* **Grupos de recursos**: **Crear nuevo** > `myResourceGroup`
+* **Nombre del registro**: cree un nombre de registro único global en Azure y que contenga entre 5 y 50 caracteres alfanuméricos.
+* **Grupo de recursos**: **Crear nuevo** > `myResourceGroup`.
 * **Ubicación**: `West US`.
 * **Usuario administrador**: `Enable` (es necesario para que Web App for Containers extraiga imágenes).
 * **SKU**: `Premium` (es necesario para la replicación geográfica).

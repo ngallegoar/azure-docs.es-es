@@ -17,13 +17,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 736cca668057f38431f91e36ff8fa97840274a38
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76120738"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutorial: Integración de Azure Active Directory con &frankly
+# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutorial: integración de Azure Active Directory con &frankly
 
 En este tutorial, obtendrá información sobre cómo integrar Aha! con Azure Active Directory (Azure AD).
 Integrar &frankly con Azure AD le proporciona las siguientes ventajas:

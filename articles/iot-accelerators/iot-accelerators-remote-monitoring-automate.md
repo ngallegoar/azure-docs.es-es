@@ -10,13 +10,13 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888886"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223572"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detección de problemas de dispositivos conectados a la solución de supervisión
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detección de problemas con los dispositivos conectados a una solución de supervisión
 
 En este tutorial, configurará el acelerador de soluciones de supervisión remota para detectar problemas de los dispositivos de IoT conectados. Para detectar problemas con los dispositivos, agregue reglas que generen alertas en el panel de la solución.
 
@@ -24,12 +24,12 @@ Para introducir reglas y alertas, el tutorial usa un dispositivo refrigerador si
 
 También se le ha pedido que cree una alerta crítica para un refrigerador cuando, en los últimos cinco minutos, la humedad media del dispositivo sea mayor del 80 % y la temperatura del dispositivo sea superior a 75 grados Fahrenheit.
 
-En este tutorial, va a:
+En este tutorial, hizo lo siguiente:
 
 >[!div class="checklist"]
 > * Ver las reglas de la solución
 > * Crear una regla
-> * Crear una regla con varias condiciones
+> * Creación de una regla con varias condiciones
 > * Editar una regla existente
 > * Activar y desactivar reglas
 
@@ -51,7 +51,7 @@ Para ver solo las reglas que se aplican a los dispositivos refrigerador, aplique
 
 Para crear una regla que genere una advertencia cuando la presión del dispositivo refrigerador se sitúe por encima de 150 PSI, elija **Nueva regla**. Utilice los valores siguientes para crear la regla:
 
-| Configuración          | Valor                                 |
+| Configuración          | Value                                 |
 | ---------------- | ------------------------------------- |
 | Nombre de la regla        | Advertencia del refrigerador                       |
 | Descripción      | La presión del refrigerador ha superado 150 PSI |
@@ -74,12 +74,12 @@ Puede ver cuándo se desencadena la regla en la página **Rules** (Reglas) o en 
 
 Para crear una regla con varias condiciones que genere una alerta crítica cuando la humedad media del dispositivo refrigerador durante los últimos cinco minutos es superior al 80 % y la temperatura es superior a 75 grados Fahrenheit, seleccione **Nueva regla**. Utilice los valores siguientes para crear la regla:
 
-| Configuración          | Valor                                 |
+| Configuración          | Value                                 |
 | ---------------- | ------------------------------------- |
 | Nombre de la regla        | Humedad y temperatura críticas del refrigerador    |
 | Descripción      | La temperatura y la humedad son críticas |
 | Grupo de dispositivos     | Grupo de dispositivos **Refrigeradores**             |
-| Cálculo      | Media                               |
+| Cálculo      | Average                               |
 | Período de tiempo      | 5                                     |
 | Campo de condición 1| humedad                              |
 | Operador de condición 1 | Mayor que                      |
@@ -90,7 +90,7 @@ Para crear una regla con varias condiciones que genere una alerta crítica cuand
 
 Para agregar la segunda condición, haga clic en "+ Agregar condición". Utilice los siguientes valores para la nueva condición:
 
-| Configuración          | Valor                                 |
+| Configuración          | Value                                 |
 | ---------------- | ------------------------------------- |
 | Campo de condición 2| temperatura                           |
 | Operador de condición 2 | Mayor que                      |

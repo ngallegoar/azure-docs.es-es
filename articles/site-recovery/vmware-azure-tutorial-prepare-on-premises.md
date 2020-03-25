@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893631"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222632"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
@@ -68,8 +68,8 @@ Prepare la cuenta como se indica a continuación:
 
 Prepare un dominio o cuenta local con permisos para instalar en la máquina virtual.
 
-- **Máquinas virtuales Windows**: Para instalar en máquinas virtuales Windows, si no usa una cuenta de dominio, deshabilite el control Acceso de usuarios remotos en la máquina local. Para ello, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
-- **Máquinas virtuales Linux**: Para instalar en máquinas virtuales Linux, prepare una cuenta raíz en el servidor Linux de origen.
+- **Máquinas virtuales Windows**: para instalar en máquinas virtuales Windows, si no usa una cuenta de dominio, deshabilite el control Acceso de usuarios remotos en la máquina local. Para ello, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
+- **Máquinas virtuales Linux**: para instalar en máquinas virtuales Linux, prepare una cuenta raíz en el servidor Linux de origen.
 
 
 ## <a name="check-vmware-requirements"></a>Comprobación de los requisitos de VMware

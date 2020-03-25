@@ -4,17 +4,18 @@ titleSuffix: Azure Storage
 description: Cree una cuenta de Azure Storage y luego recupere y rote una de sus claves de acceso de cuenta.
 services: storage
 author: tamram
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
+ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 54a7a6cb89c88726853a39ab5b2a61e1f0cde0b5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 52ebed3de093f15d8188ee5fec49d75d5a4a206d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894934"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060808"
 ---
 # <a name="rotate-storage-account-access-keys-with-powershell"></a>Rotación de las claves de acceso de las cuentas de almacenamiento con PowerShell
 

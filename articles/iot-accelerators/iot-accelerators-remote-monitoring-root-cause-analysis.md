@@ -9,13 +9,13 @@ ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77565475"
 ---
-# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: Realización de un análisis de causas principales en una alerta
+# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Tutorial: realización de un análisis de causas principales en una alerta
 
 En este tutorial, obtendrá información sobre cómo usar el acelerador de solución de supervisión remota para diagnosticar la causa principal de una alerta. Verá que una alerta se ha activado en el panel de solución de supervisión remota y, a continuación, usará el explorador de Azure Time Series Insights para investigar la causa principal.
 

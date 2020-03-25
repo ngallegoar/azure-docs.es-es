@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 60a4646b77f083590a6eb8a8648d6dea932f0bdd
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 263b4e76d334aab82f6bbac9aa268a50f4dd3784
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849758"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223842"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 > * Aplicación de TLS 1.1 y 1.2
 > * Automatización de la administración de TLS con scripts
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía paso a paso, debe:
 
@@ -79,7 +79,7 @@ Si la aplicación no tiene ningún certificado para el dominio personalizado sel
 
 Utilice la siguiente tabla para ayudarle a configurar el enlace SSL en el cuadro de diálogo **Enlace TLS/SSL** y, a continuación, haga clic en **Agregar enlace**.
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 |-|-|
 | Dominio personalizado | El nombre de dominio para el que se agrega el enlace SSL. |
 | Huella digital de certificado privado | El certificado a enlazar. |
@@ -147,9 +147,15 @@ En la página de la aplicación, en el panel de navegación izquierdo, seleccion
 
 Una vez completada la operación, la aplicación rechaza todas las conexiones con versiones inferiores de TLS.
 
+## <a name="handle-ssl-termination"></a>Control de la terminación de SSL
+
+En App Service, la [terminación de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produce en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a su aplicación en forma de solicitudes HTTP sin cifrar. Si su aplicación lógica necesita comprobar si las solicitudes de usuario están cifradas, inspeccione el encabezado `X-Forwarded-Proto`.
+
+Guías de configuración específicas del lenguaje, como la guía [Configuración de Node.js en Linux](containers/configure-language-nodejs.md#detect-https-session), que muestra cómo detectar una sesión HTTPS en el código de la aplicación.
+
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 [!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
@@ -160,4 +166,4 @@ Una vez completada la operación, la aplicación rechaza todas las conexiones co
 ## <a name="more-resources"></a>Más recursos
 
 * [Uso de un certificado SSL en el código de la aplicación](configure-ssl-certificate-in-code.md)
-* [Preguntas más frecuentes: Certificados de App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Preguntas frecuentes: Certificados de App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

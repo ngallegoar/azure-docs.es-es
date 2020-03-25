@@ -16,17 +16,17 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 808b2d964bb39af6b410a84563717102ebece454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutorial: Integración de Azure Active Directory con Predictix Price Reporting
 
 En este tutorial aprenderá a integrar Predictix Price Reporting con Azure Active Directory (Azure AD).
 
-Esta integración ofrece estas ventajas:
+Esta integración ofrece las siguientes ventajas:
 
 * Puede usar Azure AD para controlar quién tiene acceso a Predictix Price Reporting.
 * Puede permitir que los usuarios inicien sesión automáticamente en Predictix Price Reporting (inicio de sesión único) con sus cuentas de Azure AD.
@@ -36,7 +36,7 @@ Para más información acerca de la integración de aplicaciones SaaS con Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con Predictix Price Reporting, necesita:
 
@@ -78,8 +78,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con Predictix 
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** para permitir que los usuarios utilicen esta característica.
 2. **[Configuración del inicio de sesión único en Predictix Price Reporting](#configure-predictix-price-reporting-single-sign-on)** en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** para probar el inicio de sesión único de Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** para permitir el inicio de sesión único de Azure AD para el usuario.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** para probar el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** para permitir el inicio de sesión único de Azure AD para el usuario.
 5. **[Creación de un usuario de prueba en Predictix Price Reporting](#create-a-predictix-price-reporting-test-user)** vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** para comprobar que la configuración funciona.
 
@@ -132,7 +132,7 @@ Para configurar el inicio de sesión único de Azure AD con Predictix Price Rep
 
     1. **Identificador de Azure AD**.
 
-    1. **Dirección URL de cierre de sesión**.
+    1. **Dirección URL de cierre de sesión**
 
 ### <a name="configure-predictix-price-reporting-single-sign-on"></a>Configuración del inicio de sesión único en Predictix Price Reporting
 
@@ -194,9 +194,9 @@ A continuación debe crear un usuario llamado Britta Simon en Predictix Price Re
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-Ahora debe probar la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.
+Ahora, debe probar la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al seleccionar el icono de Predictix Price Reporting en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Predictix Price Reporting para la que configurara el inicio de sesión único. Para más información, consulte [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
+Al seleccionar el icono de Predictix Price Reporting en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Predictix Price Reporting para la que configurara el inicio de sesión único. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

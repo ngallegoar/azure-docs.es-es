@@ -11,10 +11,10 @@ ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
 ms.openlocfilehash: c754740369da6d0a8084b9b60ef178fb28e32f1b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75445670"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migración de los datos a una cuenta de Cassandra API en Azure Cosmos DB
@@ -33,13 +33,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites-for-migration"></a>Requisitos previos para la migración
 
-* **Cálculo de las necesidades de rendimiento:** Antes de migrar datos a la cuenta de Cassandra API en Azure Cosmos DB, debe calcular las necesidades de rendimiento de la carga de trabajo. En general, se recomienda comenzar con el rendimiento medio requerido por las operaciones CRUD y después incluir el rendimiento adicional necesario para las operaciones de picos o Extraer carga de transformación (ETL). Necesita los siguientes detalles para planear la migración: 
+* **Calcule sus necesidades de rendimiento:** antes de migrar datos a la cuenta de Cassandra API en Azure Cosmos DB, debe calcular las necesidades de rendimiento de la carga de trabajo. En general, se recomienda comenzar con el rendimiento medio requerido por las operaciones CRUD y después incluir el rendimiento adicional necesario para las operaciones de picos o Extraer carga de transformación (ETL). Necesita los siguientes detalles para planear la migración: 
 
-  * **Tamaño de datos existente o tamaño de datos estimado:** Define el requisito de rendimiento y de tamaño mínimo de la base de datos. Si realiza la estimación de tamaño de los datos para una nueva aplicación, puede asumir que los datos se distribuyen uniformemente entre las filas y calcular el valor multiplicando con el tamaño de los datos. 
+  * **Tamaño de los datos existentes o tamaño de datos estimado:** define el requisito de tamaño y el rendimiento de base de datos mínimo. Si realiza la estimación de tamaño de los datos para una nueva aplicación, puede asumir que los datos se distribuyen uniformemente entre las filas y calcular el valor multiplicando con el tamaño de los datos. 
 
-  * **Rendimiento necesario:** Tasa de rendimiento de lectura (consultar/obtener) y escritura (actualizar/eliminar/insertar) aproximada. Este valor es necesario para calcular las unidades de solicitud necesarios junto con el tamaño de datos de estado estable.  
+  * **Rendimiento necesario:** tasa de rendimiento de lectura (consultar/obtener) y escritura (actualizar/eliminar/insertar) aproximada. Este valor es necesario para calcular las unidades de solicitud necesarios junto con el tamaño de datos de estado estable.  
 
-  * **El esquema:** Conéctese a su clúster de Cassandra existente mediante cqlsh y exporte el esquema desde Cassandra: 
+  * **Obtener el esquema:** conéctese a su clúster de Cassandra existente mediante cqlsh y exporte el esquema desde Cassandra: 
 
     ```bash
     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
@@ -47,7 +47,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     Después de identificar los requisitos de carga de trabajo existentes, debe crear una cuenta de Azure Cosmos DB, una base de datos y varios contenedores según los requisitos de rendimiento recopilados.  
 
-  * **Determinación del cargo de RU para una operación:** Puede determinar las RU mediante el uso de cualquiera de los SDK compatible con Cassandra API. En este ejemplo se muestra la versión de .NET de la obtención de cargos de la unidad de solicitud.
+  * **Determinar la carga de unidades de solicitud para una operación:** puede determinar las unidades de solicitud mediante cualquiera de los SDK compatibles con Cassandra API. En este ejemplo se muestra la versión de .NET de la obtención de cargos de la unidad de solicitud.
 
     ```csharp
     var tableInsertStatement = table.Insert(sampleEntity);
@@ -61,13 +61,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
       }
     ```
 
-* **Asignación del rendimiento necesario:** Azure Cosmos DB puede escalar automáticamente el almacenamiento y rendimiento a medida que crecen sus necesidades. Puede estimar sus necesidades de rendimiento mediante el uso de la [Calculadora de unidades de solicitud de Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
+* **Asignar el rendimiento necesario:** Azure Cosmos DB puede escalar automáticamente el almacenamiento y rendimiento a medida que crecen sus necesidades. Puede estimar sus necesidades de rendimiento mediante el uso de la [Calculadora de unidades de solicitud de Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
 
-* **Creación de tablas en la cuenta de Cassandra API:** Antes de comenzar la migración de datos, cree previamente todas las tablas desde Azure Portal o desde cqlsh. Si va a migrar a una cuenta de Azure Cosmos DB que tiene un rendimiento de nivel de base de datos, asegúrese de proporcionar una clave de partición al crear los contenedores de Azure Cosmos DB.
+* **Crear tablas en la cuenta de Cassandra API:** antes de comenzar la migración de datos, cree previamente todas las tablas de Azure Portal o cqlsh. Si va a migrar a una cuenta de Azure Cosmos DB que tiene un rendimiento de nivel de base de datos, asegúrese de proporcionar una clave de partición al crear los contenedores de Azure Cosmos DB.
 
-* **Aumento del rendimiento:** La duración de la migración de datos depende de la cantidad de rendimiento aprovisionado para las tablas de Azure Cosmos DB. Aumente el rendimiento de la duración de la migración. Gracias al mayor rendimiento, puede evitar la limitación de velocidad y realizar la migración en menos tiempo. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. También se recomienda tener la cuenta de Azure Cosmos DB en la misma región que la base de datos de origen. 
+* **Aumentar el rendimiento:** la duración de la migración de datos depende de la cantidad de rendimiento aprovisionado para las tablas de Azure Cosmos DB. Aumente el rendimiento de la duración de la migración. Gracias al mayor rendimiento, puede evitar la limitación de velocidad y realizar la migración en menos tiempo. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. También se recomienda tener la cuenta de Azure Cosmos DB en la misma región que la base de datos de origen. 
 
-* **Habilitación de SSL:** Azure Cosmos DB tiene estándares y requisitos de seguridad estrictos. No olvide habilitar SSL al interactuar con la cuenta. Al usar CQL con SSH, tiene una opción para proporcionar información de SSL.
+* **Habilitar SSL:** Azure Cosmos DB tiene estándares y requisitos de seguridad estrictos. No olvide habilitar SSL al interactuar con la cuenta. Al usar CQL con SSH, tiene una opción para proporcionar información de SSL.
 
 ## <a name="options-to-migrate-data"></a>Opciones para migrar datos
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Samanage | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con Samanage | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Samanage.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 741efbae84e18c811beb6c0579c1949c5ddf619c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160120"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: Integración de Azure Active Directory con Samanage
+# <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: integración de Azure Active Directory con Samanage
 
 En este tutorial, obtendrá información sobre cómo integrar Samanage con Azure Active Directory (Azure AD).
 La integración de Samanage con Azure AD proporciona las siguientes ventajas:
@@ -35,7 +35,7 @@ La integración de Samanage con Azure AD proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con Samanage, necesita los siguientes elementos:
 
@@ -133,7 +133,7 @@ Para configurar el inicio de sesión único de Azure AD con Samanage, siga estos
 
 2. Haga clic en **Dashboard** (Panel) y seleccione **Setup** (Configuración) en el panel de navegación izquierdo.
    
-    ![Panel](./media/samanage-tutorial/tutorial_samanage_001.png "panel")
+    ![Panel](./media/samanage-tutorial/tutorial_samanage_001.png "Panel")
 
 3. Haga clic en **Inicio de sesión único**.
    
@@ -182,7 +182,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -221,7 +221,7 @@ En el caso de Samanage, el aprovisionamiento es una tarea manual.
 
 2. Haga clic en **Dashboard** (Panel) y seleccione **Setup** (Configuración) en el panel de navegación izquierdo.
    
-    ![Configuración](./media/samanage-tutorial/tutorial_samanage_001.png "Configuración")
+    ![Configuración](./media/samanage-tutorial/tutorial_samanage_001.png "Configurar")
 
 3. Haga clic en la pestaña **Usuarios** .
    

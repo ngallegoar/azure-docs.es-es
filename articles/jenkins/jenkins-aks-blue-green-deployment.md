@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, e
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251472"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implementación en Azure Kubernetes Service (AKS) con Jenkins y el patrón de implementación azul/verde
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a realizar las siguientes tareas:
 > * Configurar manualmente un clúster de Kubernetes
 > * Crear y ejecutar un trabajo de Jenkins
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 - [Cuenta de GitHub](https://github.com): se necesita una cuenta de GitHub para clonar el repositorio de ejemplo.
 - [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): usará la CLI de Azure 2.0 para crear el clúster de Kubernetes.
 - [Chocolatey](https://chocolatey.org): un administrador de paquetes que se usa para instalar kubectl.
@@ -255,7 +255,7 @@ En esta sección, verá cómo preparar el servidor de Jenkins para ejecutar una 
 
 ## <a name="run-the-job"></a>Ejecutar el trabajo
 
-1. Verifique que puede ejecutar el proyecto correctamente en el entorno local. A continuación, se indica cómo puede hacerlo. [Ejecución del proyecto en la máquina local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. Verifique que puede ejecutar el proyecto correctamente en el entorno local. Aquí se indica cómo: [Ejecutar el proyecto en la máquina local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Ejecute el trabajo de Jenkins. La primera vez que se ejecuta el trabajo, Jenkins implementa la aplicación de tareas pendientes en el entorno azul, que es el entorno inactivo predeterminado. 
 

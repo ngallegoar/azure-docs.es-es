@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
 ms.openlocfilehash: 7da122465c9842ad580808ff713b75e775bde96b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76766496"
 ---
 ## <a name="use-azure-cloud-shell"></a>Uso de Azure Cloud Shell
@@ -19,7 +19,7 @@ Para iniciar Azure Cloud Shell:
 
 | Opción | Ejemplo o vínculo |
 |-----------------------------------------------|---|
-| Seleccione **Probarlo** en la esquina superior derecha de un bloque de código. Solo con seleccionar **Probar** no se copia automáticamente el código en Cloud Shell. | ![Ejemplo de Probarlo para Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. Solo con seleccionar **Pruébelo** no se copia automáticamente el código en Cloud Shell. | ![Ejemplo de Probarlo para Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
 | Vaya a [https://shell.azure.com](https://shell.azure.com) o seleccione el botón **Iniciar Cloud Shell** para abrir Cloud Shell en el explorador. | [![Iniciar Cloud Shell en una nueva ventana](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
 | Seleccione el botón **Cloud Shell** en la barra de menús de la esquina superior derecha de [Azure Portal](https://portal.azure.com). | ![Botón Cloud Shell en Azure Portal](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
@@ -29,6 +29,6 @@ Para ejecutar el código de este artículo en Azure Cloud Shell:
 
 1. Seleccione el botón **Copiar** de un bloque de código para copiar el código.
 
-1. Pegue el código en la sesión de Cloud Shell; para ello, seleccione **Ctrl**+**Shift**+**V** en Windows y Linux, o bien seleccione **Cmd**+**Shift**+**V** en macOS.
+1. Pegue el código en la sesión de Cloud Shell. Para ello, seleccione **Ctrl**+**Mayús**+**V** en Windows y Linux, o bien seleccione **Cmd**+**Mayús**+**V** en macOS.
 
 1. Seleccione **Entrar** para ejecutar el código.

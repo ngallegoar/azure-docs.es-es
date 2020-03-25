@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 457ab3a0d5e816becbd2b32d858d5172951f27ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094119"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutorial: Integración de Azure Active Directory con Predictix Ordering
+# <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutorial: integración de Azure Active Directory con Predictix Ordering
 
 En este tutorial aprenderá a integrar Predictix Ordering con Azure Active Directory (Azure AD).
-Esta integración ofrece estas ventajas:
+Esta integración ofrece las siguientes ventajas:
 
 * Puede usar Azure AD para controlar quién tiene acceso a Predictix Ordering.
 * Puede permitir que los usuarios inicien sesión automáticamente en Predictix Ordering (inicio de sesión único) con sus cuentas de Azure AD.
@@ -35,7 +35,7 @@ Para más información acerca de la integración de aplicaciones SaaS con Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con Predictix Ordering, necesita:
 
@@ -44,7 +44,7 @@ Para configurar la integración de Azure AD con Predictix Ordering, necesita:
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial configurará y probará el inicio de sesión único de Azure AD en un entorno de prueba.
+En este tutorial configurará y probará el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Predictix Ordering admite el inicio de sesión único iniciado por SP.
 
@@ -131,7 +131,7 @@ Para configurar el inicio de sesión único de Azure AD con Predictix Ordering,
 
     2. **Identificador de Azure AD**.
 
-    3. **Dirección URL de cierre de sesión**.
+    3. **Dirección URL de cierre de sesión**
 
 ### <a name="configure-predictix-ordering-single-sign-on"></a>Configuración del inicio de sesión único en Predictix Ordering
 
@@ -193,9 +193,9 @@ A continuación debe crear un usuario llamado Britta Simon en Predictix Ordering
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-Ahora debe probar la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.
+Ahora, debe probar la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al seleccionar el icono de Predictix Ordering en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Predictix Ordering para la que configurara el inicio de sesión único. Para más información, consulte [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
+Al seleccionar el icono de Predictix Ordering en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Predictix Ordering para la que configurara el inicio de sesión único. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

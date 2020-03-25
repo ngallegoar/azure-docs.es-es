@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 72d25582d15e745b0bdefcde5f68af94eab49293
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277281"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222612"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Creación y localización de anclajes mediante Azure Spatial Anchors en Unity
 
@@ -32,7 +32,7 @@ Azure Spatial Anchors permite compartir delimitadores entre diferentes dispositi
 - Cargarlos en la nube.
 - Localizar y eliminar los anclajes espaciales en la nube.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía, asegúrese de que cumple los siguientes requisitos previos:
 
@@ -313,7 +313,7 @@ Obtenga más información sobre el método [Stop](https://docs.microsoft.com/dot
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-Obtenga más información sobre el método [Reset](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset).
+Más información sobre el método [Reset](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset).
 
 ```csharp
     this.cloudSession.Reset();

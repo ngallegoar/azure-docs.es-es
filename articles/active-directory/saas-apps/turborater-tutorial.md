@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
 ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67088274"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Integración de Azure Active Directory con TurboRater
@@ -34,7 +34,7 @@ La integración de TurboRater con Azure AD proporciona las siguientes ventajas:
 
 Para más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con TurboRater, se necesitan los siguientes elementos:
 
@@ -51,7 +51,7 @@ TurboRater admite el inicio de sesión único (SSO) iniciado por IDP.
 
 Para configurar la integración de TurboRater en Azure AD, deberá agregar TurboRater desde Azure Marketplace a la lista de aplicaciones SaaS administradas:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com?azure-portal=true).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com?azure-portal=true).
 1. En el panel izquierdo, seleccione **Azure Active Directory**.
 
     ![Opción de Azure Active Directory](common/select-azuread.png)
@@ -76,8 +76,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con TurboRater,
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** , para permitir que los usuarios utilicen esta característica.
 1. **[Configuración del inicio de sesión único en TurboRater](#configure-turborater-single-sign-on)** , para configurar los valores de Inicio de sesión único en la aplicación.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B. Simon.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B. Simon para que use el inicio de sesión único de Azure AD.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B. Simon.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B. Simon para que use el inicio de sesión único de Azure AD.
 1. **[Creación de un usuario de prueba de TurboRater](#create-a-turborater-test-user)** , para que haya un usuario llamado B. Simon en TurboRater que esté vinculado al usuario de Azure AD llamado B. Simon.
 1. **[Prueba del inicio de sesión único](#test-single-sign-on)** , para comprobar si funciona la configuración.
 

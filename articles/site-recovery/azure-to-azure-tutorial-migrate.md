@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78303943"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
@@ -34,7 +34,7 @@ En este tutorial, aprenderá lo siguiente:
 > [!NOTE]
 > En este tutorial se muestra cómo trasladar las máquinas virtuales de Azure de una región a otra tal cual. Si tiene que mejorar la disponibilidad moviendo las máquinas virtuales en un conjunto de disponibilidad a máquinas virtuales ancladas a la zona en una región distinta, consulte el [tutorial Traslado de máquinas virtuales de Azure a zonas de disponibilidad](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Asegúrese de tener las máquinas virtuales de Azure en la región de Azure desde la que va a realizar el traslado.
 - Compruebe si [se admite la combinación de región de origen y región de destino](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) que ha elegido y tome una decisión informada sobre la región de destino.

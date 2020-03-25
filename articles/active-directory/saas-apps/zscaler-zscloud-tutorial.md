@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Zscaler ZSCloud | Microsoft Docs'
+title: 'Tutorial: integración de Azure Active Directory con ZScaler ZSCloud | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ZScaler ZSCloud.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 43d7e58f0c267afe8a22c217d9800abb041df8cb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68723057"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: Integración de Azure Active Directory con Zscaler ZSCloud
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Tutorial: integración de Azure Active Directory con ZScaler ZSCloud
 
 En este tutorial, aprenderá a integrar ZScaler ZSCloud con Azure Active Directory (Azure AD).
 La integración de ZScaler ZSCloud con Azure AD le proporciona las siguientes ventajas:
@@ -34,7 +34,7 @@ La integración de ZScaler ZSCloud con Azure AD le proporciona las siguientes ve
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con ZScaler ZSCloud, necesita los siguientes elementos:
 
@@ -118,7 +118,7 @@ Para configurar el inicio de sesión único de Azure AD con ZScaler ZSCloud, hag
 
 6. Además de lo anterior, la aplicación Zscaler ZSCloud espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
     
-    | NOMBRE | Atributo de origen |
+    | Nombre | Atributo de origen |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
@@ -159,9 +159,9 @@ Para configurar el inicio de sesión único de Azure AD con ZScaler ZSCloud, hag
 
 1. Para automatizar la configuración en Zscaler ZSCloud, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
 
-    ![Extensión de Mis aplicaciones](common/install-myappssecure-extension.png)
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
 
-2. Después de agregar la extensión al explorador, haga clic en **Configurar Zscaler ZSCloud** para ir a la aplicación Zscaler ZSCloud. Desde allí, proporcione las credenciales del administrador para iniciar sesión en Zscaler ZSCloud. La extensión del explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 6.
+2. Después de agregar la extensión al explorador, haga clic en **Configurar Zscaler ZSCloud** para ir a la aplicación Zscaler ZSCloud. Desde allí, proporcione las credenciales del administrador para iniciar sesión en Zscaler ZSCloud. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 6.
 
     ![Configuración del inicio de sesión único](common/setup-sso.png)
 
@@ -256,7 +256,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

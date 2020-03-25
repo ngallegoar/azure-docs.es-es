@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
 ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226471"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222472"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Hacer copias de seguridad de Windows Server en Azure
 
@@ -42,7 +42,7 @@ Para poder realizar una copia de seguridad de Windows Server, debe crear una ubi
     * escriba *myRecoveryServicesVault* en **Nombre**.
     * El id. de suscripción actual aparecerá en **Suscripción**.
     * En **Grupo de recursos**, seleccione **Usar existente** y elija *myResourceGroup*. Si *myResourceGroup* no existe, seleccione **Crear nuevo** y escriba *myResourceGroup*.
-    * En el menú desplegable **Ubicación**, elija *Europa Occidental*.
+    * En el menú desplegable **Ubicación**, elija *Oeste de Europa*.
     * Haga clic en **Crear** para crear el almacén de Recovery Services.
 
 Una vez creado el almacén, aparece en la lista de almacenes de Recovery Services.

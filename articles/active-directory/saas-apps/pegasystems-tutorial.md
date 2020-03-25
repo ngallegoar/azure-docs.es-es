@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72026805"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: Integración de Azure Active Directory con Pega Systems
+# <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: integración de Azure Active Directory con Pega Systems
 
 En este tutorial, aprenderá a integrar Pega Systems con Azure Active Directory (Azure AD).
 
@@ -36,7 +36,7 @@ Para más información acerca de la integración de aplicaciones SaaS con Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la integración de Azure AD con Pega Systems, se necesitan los siguientes elementos:
 
@@ -45,7 +45,7 @@ Para configurar la integración de Azure AD con Pega Systems, se necesitan los s
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba:
+En este tutorial configurará y probará el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Pega Systems admite el inicio de sesión único iniciado por SP e IDP.
 
@@ -76,16 +76,16 @@ Para habilitar el inicio de sesión único, deberá establecer un vínculo entre
 
 Para configurar y probar el inicio de sesión único de Azure AD con Pega Systems, debe hacer lo siguientes:
 
-1. **[Configure el inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** para habilitar la característica para los usuarios.
-2. **[Configure el inicio de sesión único en Pega Systems](#configure-pega-systems-single-sign-on)**  en el lado de la aplicación.
-3. **[Cree un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** para probar el inicio de sesión único de Azure AD.
-4. **[Asignar el usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** para permitir el inicio de sesión único de Azure AD del usuario.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** para permitir que los usuarios utilicen esta característica.
+2. **[Configure el inicio de sesión único en Pega Systems](#configure-pega-systems-single-sign-on)** en el lado de la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** para probar el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** para permitir el inicio de sesión único de Azure AD para el usuario.
 5. **[Cree un usuario de prueba de Pega Systems](#create-a-pega-systems-test-user)** que esté vinculado a la representación del usuario en Azure AD.
-6. **[Pruebe el inicio de sesión único](#test-single-sign-on)** para comprobar que la configuración funciona.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** para comprobar que la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
+En esta sección habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
 Para configurar el inicio de sesión único de Azure AD con Pega Systems, haga lo siguiente:
 

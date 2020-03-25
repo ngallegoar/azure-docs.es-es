@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
 ms.openlocfilehash: 0c24464050d0beee120dcb234582a464d6245270
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76310652"
 ---
-# <a name="cli-example-create-an-asset"></a>Ejemplo de la CLI: Creación de un recurso
+# <a name="cli-example-create-an-asset"></a>CLI de ejemplo: Creación de un recurso
 
 El script de la CLI de Azure de este artículo muestra cómo crear un recurso de Media Services al que cargar contenido.
 

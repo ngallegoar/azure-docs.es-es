@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75498158"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Conmutación por error de máquinas virtuales de Hyper-V a Azure
@@ -38,9 +38,9 @@ Asegúrese de que no hay instantáneas en la máquina virtual y de que la máqui
 
 La conmutación por error y la conmutación por recuperación constan de tres etapas:
 
-1. **Conmutación por error a Azure**: Conmute por error máquinas virtuales de Hyper-V del sitio local a Azure.
-2. **Conmutación por recuperación al entorno local**: conmute por error máquinas virtuales de Azure al sitio local cuando este esté disponible. Inicia la sincronización de datos de Azure en el entorno local y, al finalizar, muestra las máquinas virtuales en el entorno local.  
-3. **Replicación inversa en máquinas virtuales locales**: Cuando haya conmutado por recuperación a un entorno local, realice replicación inversa en las máquinas virtuales locales para que comiencen a replicarse en Azure.
+1. **Conmutación por error a Azure**: conmutar por error máquinas virtuales de Hyper-V desde el sitio local a Azure.
+2. **Conmutación por recuperación a un sitio local**: conmutar por error máquinas virtuales de Azure al sitio local, cuando esté disponible. Inicia la sincronización de datos de Azure en el entorno local y, al finalizar, muestra las máquinas virtuales en el entorno local.  
+3. **Replicación inversa en máquinas virtuales locales**: después de la conmutación por recuperación a un entorno local, realice replicación inversa en las máquinas virtuales locales para que comiencen a replicarse en Azure.
 
 ## <a name="verify-vm-properties"></a>Comprobar las propiedades de la máquina virtual
 
@@ -64,7 +64,7 @@ En **Elementos protegidos**, haga clic en **Elementos replicados** > VM.
 4. Una vez verificada la conmutación por error, haga clic en **Confirmar**. Así se eliminan los puntos de recuperación disponibles.
 
 > [!WARNING]
-> **No cancele una conmutación por error en curso**: Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.
+> **No cancele una conmutación por error en curso**: si cancela una conmutación por error en curso, esta se detiene, pero la máquina virtual no se volverá a replicar.
 
 ## <a name="connect-to-failed-over-vm"></a>Conexión a la máquina virtual conmutada por error
 

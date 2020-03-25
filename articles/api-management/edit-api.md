@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
 ms.openlocfilehash: 6be36493fabce07838991c789e111e918a9a826d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70072150"
 ---
 # <a name="edit-an-api"></a>Edición de una API
@@ -26,7 +26,7 @@ Los pasos descritos en este tutorial muestran cómo usar API Management (APIM) p
 + Para hacerlo, puede agregar, eliminar, cambiar el nombre de las operaciones en la instancia de APIM. 
 + Puede editar el swagger de la API.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 + [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 + [Importación y publicación de la primera API](import-and-publish.md)
@@ -47,7 +47,7 @@ Los pasos descritos en este tutorial muestran cómo usar API Management (APIM) p
 
 Puede actualizar su back-end API desde Azure Portal siguiendo estos pasos:
 
-1. Seleccione **Todas las operaciones**
+1. Seleccione **Todas las operaciones**.
 2. Haga clic en lápiz en la ventana **front-end**.
 
     ![Edición de una API](./media/edit-api/edit-api002.png)

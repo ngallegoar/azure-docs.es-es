@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756855"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "61450585"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Tutorial: Creación de un dispositivo simulado personalizado
 
@@ -30,11 +30,11 @@ En este tutorial, hizo lo siguiente:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir este tutorial, necesitará una instancia implementada de Simulación de dispositivo en la suscripción de Azure.
 
-Si aún no la ha implementado, debe completar primero la guía de inicio rápido [Implementación y ejecución de simulación de dispositivo de IoT en Azure](quickstart-device-simulation-deploy.md).
+Si aún no la ha implementado, debe completar primero la [Guía de inicio rápido: Implementación y ejecución de una simulación de dispositivo IoT en Azure](quickstart-device-simulation-deploy.md).
 
 ## <a name="open-device-simulation"></a>Abrir Simulación de dispositivo
 
@@ -54,13 +54,13 @@ Seleccione **Modelos de dispositivo** en la barra de menús. La página **Modelo
 
 Haga clic en **+ Agregar modelos de dispositivo** en la esquina superior derecha de la página:
 
-![Agregar modelo de dispositivo](media/iot-accelerators-device-simulation-create-custom-device/devicemodels.png)
+![Incorporación del modelo de dispositivo](media/iot-accelerators-device-simulation-create-custom-device/devicemodels.png)
 
 En este tutorial, va a crear un frigorífico simulado que envía datos de temperatura y de humedad.
 
 Rellene el formulario con la siguiente información:
 
-| Configuración             | Valor                                                |
+| Configuración             | Value                                                |
 | ------------------- | ---------------------------------------------------- |
 | Nombre del modelo de dispositivo   | Frigorífico                                         |
 | Descripción del modelo   | Un frigorífico con sensores de temperatura y humedad |
@@ -73,8 +73,8 @@ Haga clic en **+ Add data point** (Agregar punto de datos) para agregar los punt
 
 | Punto de datos          | Comportamiento        | Valor mínimo | Valor máximo | Unidad |
 | ------------------- | --------------- | --------- | --------- | ---- |
-| Temperatura         | Aleatorio          | -50       | 100       | F    |
-| Humedad            | Aleatorio          | 0         | 100       | %    |
+| Temperatura         | Random          | -50       | 100       | F    |
+| Humedad            | Random          | 0         | 100       | %    |
 
 Haga clic en **Guardar** para guardar el modelo de dispositivo.
 

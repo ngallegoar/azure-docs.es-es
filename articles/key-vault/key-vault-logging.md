@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78195362"
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
@@ -38,7 +38,7 @@ Use este tutorial para tener ayuda para empezar a trabajar con el registro de Az
 
 Para obtener información general sobre Key Vault, consulte [¿Qué es Azure Key Vault?](key-vault-overview.md) Para obtener información acerca de dónde está disponible Key Vault, consulte la [página de precios](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para realizar este tutorial, debe disponer de lo siguiente:
 
@@ -46,7 +46,7 @@ Para realizar este tutorial, debe disponer de lo siguiente:
 * Azure PowerShell, versión mínima de 1.0.0. Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `$PSVersionTable.PSVersion`.  
 * Suficiente almacenamiento en Azure para sus registros de Key Vault.
 
-## <a id="connect"></a>Conexión a su suscripción del almacén de claves
+## <a name="connect-to-your-key-vault-subscription"></a><a id="connect"></a>Conexión a su suscripción del almacén de claves
 
 El primer paso para configurar el registro de claves es hacer que Azure PowerShell apunte al registro de claves que desea registrar.
 
@@ -72,7 +72,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 Hacer que PowerShell apunte a la suscripción correcta es un paso importante, especialmente si tiene varias suscripciones asociadas a su cuenta. Para obtener más información sobre cómo configurar PowerShell de Azure, consulte [Instalación y configuración de PowerShell de Azure](/powershell/azure/overview).
 
-## <a id="storage"></a>Creación de una cuenta de almacenamiento para sus registros
+## <a name="create-a-storage-account-for-your-logs"></a><a id="storage"></a>Creación de una cuenta de almacenamiento para sus registros
 
 Aunque puede usar una cuenta de almacenamiento existente para sus registros, crearemos una cuenta de almacenamiento que se dedicará a los registros de Key Vault. Por comodidad para cuando tengamos que especificarlos más adelante, almacenaremos los detalles en una variable denominada **sa**.
 
@@ -87,7 +87,7 @@ Para una mayor facilidad de administración, también usaremos el grupo de recur
 >
 >
 
-## <a id="identify"></a>Identificación del Almacén de claves para los registros
+## <a name="identify-the-key-vault-for-your-logs"></a><a id="identify"></a>Identificación del Almacén de claves para los registros
 
 En el [tutorial de introducción](key-vault-get-started.md), el nombre del almacén de claves era **ContosoKeyVault**. Vamos a seguir usando ese nombre y almacenando los detalles en una variable denominada **kv**:
 
@@ -95,7 +95,7 @@ En el [tutorial de introducción](key-vault-get-started.md), el nombre del almac
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a id="enable"></a>Habilitación del registro
+## <a name="enable-logging"></a><a id="enable"></a>Habilitación del registro
 
 Para habilitar el registro de Key Vault, usaremos el cmdlet **Set-AzDiagnosticSetting**, junto con las variables que hemos creado para la nueva cuenta de almacenamiento y el almacén de claves. También estableceremos la marca **-Enabled** en **$true** y estableceremos la categoría en **AuditEvent** (la única categoría del registro de Key Vault):
 
@@ -132,7 +132,7 @@ Qué se registra:
   * Firmar, comprobar, cifrar, descifrar, encapsular y desencapsular claves, obtener secretos y elaborar listados de claves y secretos (y sus versiones).
 * Solicitudes no autenticadas que dan como resultado una respuesta 401. Por ejemplo, las solicitudes que no tienen un token de portador, cuyo formato es incorrecto o está caducado o que tienen un token no válido.  
 
-## <a id="access"></a>Acceso a los registros
+## <a name="access-your-logs"></a><a id="access"></a>Acceso a los registros
 
 Los registros de Key Vault se almacenan en el contenedor **insights-logs-auditevent** de la cuenta de almacenamiento proporcionada. Para ver los registros, tendrá que descargar blobs.
 
@@ -214,7 +214,7 @@ Ahora está listo para comenzar a ver lo que está en los registros. Pero antes 
 * Para consultar el estado de la configuración del diagnóstico del recurso del almacén de claves: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Para deshabilitar el registro del recurso del almacén de claves: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
-## <a id="interpret"></a>Interpretación de los registros de Key Vault
+## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Interpretación de los registros de Key Vault
 
 Los blobs individuales se almacenan como texto, con formato de blob JSON. Veamos una entrada de registro como ejemplo. Ejecute este comando:
 
@@ -303,13 +303,13 @@ En la tabla siguiente se muestran los valores **operationName** y los comandos c
 | **SecretList** |[Enumerar secretos en un almacén](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Enumerar versiones de un secreto](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Uso de registros de Azure Monitor
+## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Uso de registros de Azure Monitor
 
 Puede utilizar la solución Key Vault en registros de Azure Monitor para revisar los registros **AuditEvent** de Key Vault. En los registros de Azure Monitor, las consultas de los registros se usan para analizar los datos y obtener la información que necesita. 
 
 Para obtener más información, incluido cómo configurar esta opción, consulte [Solución Azure Key Vault Analytics en Azure Monitor](../azure-monitor/insights/azure-key-vault.md). En este artículo también se incluyen instrucciones si necesita migrar desde la solución Key Vault anterior que se ofrecía durante la versión preliminar de los registros de Azure Monitor, cuando enrutó por primera vez los registros a una cuenta de Azure Storage y configuró los registros de Azure Monitor para que leyeran desde ahí.
 
-## <a id="next"></a>Pasos siguientes
+## <a name="next-steps"></a><a id="next"></a>Pasos siguientes
 
 Para ver un tutorial que use Azure Key Vault en una aplicación web .NET, consulte [Uso de Azure Key Vault desde una aplicación web](tutorial-net-create-vault-azure-web-app.md).
 

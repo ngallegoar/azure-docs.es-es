@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2a53086b959f5b93d17d307a59682a44fe1f33a8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6c8b29052b4ca1d3ccd6f1f9b6afba5177dbd6c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034582"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066490"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Copia de seguridad y restauración de archivos en máquinas virtuales Linux en Azure
 
@@ -43,7 +43,7 @@ Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea 
 ## <a name="create-a-backup"></a>Creación de una copia de seguridad
 Cree una copia de seguridad diaria programada en un almacén de Recovery Services:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 
 3. En la lista, seleccione la máquina virtual de la que quiere realizar una copia de seguridad.
 4. En la hoja de la máquina virtual, en la sección **Configuración**, haga clic en **Copia de seguridad**. Se abre la hoja **Habilitar copia de seguridad**.
@@ -64,7 +64,7 @@ Si accidentalmente elimina o realiza cambios en un archivo, puede usar Recuperac
 
 En este ejemplo, se muestra cómo recuperar la página web predeterminada de nginx, /var/www/html/index.nginx-debian.html. En este ejemplo, la dirección IP pública de la máquina virtual es *13.69.75.209*. Para encontrar la dirección IP de una máquina virtual, utilice:
 
- ```bash 
+ ```azurecli
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
@@ -78,6 +78,7 @@ En este ejemplo, se muestra cómo recuperar la página web predeterminada de ngi
     ```bash
     ssh 13.69.75.209
     ```
+
 2. Elimine /var/www/html/index.nginx-debian.html.
 
     ```bash
@@ -94,7 +95,7 @@ En este ejemplo, se muestra cómo recuperar la página web predeterminada de ngi
 8. En la hoja de la máquina virtual, en la sección **Configuración**, haga clic en **Copia de seguridad**. Se abre la hoja **Copia de seguridad**. 
 9. En el menú de la parte superior de la hoja, seleccione **Recuperación de archivos**. Se abrirá la hoja **Recuperación de archivos**.
 10. En **Paso 1: Seleccionar punto de recuperación**, seleccione un punto de recuperación en la lista desplegable.
-11. En **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Descargar ejecutable**. Guarde el archivo descargado en un equipo local.
+11. En **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Download Executable** (Descargar ejecutable). Guarde el archivo descargado en un equipo local.
 7. Haga clic en **Descargar script** para descargar el archivo de script localmente.
 8. Abra un símbolo del sistema de Bash y escriba lo siguiente, pero reemplace *Linux_myVM_05-05-2017.sh* por la ruta de acceso y el nombre de archivo correctos del script que ha descargado, *azureuser* por el nombre de usuario de la máquina virtual y *13.69.75.209* por la dirección IP pública de la máquina virtual.
     
@@ -122,7 +123,7 @@ En este ejemplo, se muestra cómo recuperar la página web predeterminada de ngi
     
 12. La salida del script proporciona la ruta de acceso del punto de montaje. La salida es similar a esta:
 
-    ```bash
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
                           
@@ -155,12 +156,12 @@ En este ejemplo, se muestra cómo recuperar la página web predeterminada de ngi
 
     ![Página web predeterminada de nginx](./media/tutorial-backup-vms/nginx-working.png)
 
-18. En el equipo local, vuelva a la pestaña del explorador de Azure Portal y, en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente al cabo de 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un nuevo punto de montaje.
+18. En el equipo local, vuelva a la pestaña de explorador de Azure Portal y en **Paso 3: Desmontar los discos después de la recuperación**, haga clic en el botón **Desmontar discos**. Si olvida realizar este paso, la conexión al punto de montaje se cierra automáticamente al cabo de 12 horas. A las 12 horas, es preciso que descargue un script nuevo para crear un nuevo punto de montaje.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear una copia de seguridad de una máquina virtual.

@@ -16,10 +16,10 @@ ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 1b67522834497a264d95fc9b80246b16841d6026
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67594221"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adición de Azure CDN a una aplicación web de Azure App Service
@@ -38,7 +38,7 @@ Temas que se abordarán:
 > * Utilizar cadenas de consulta para controlar las versiones en caché.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial:
 
@@ -72,7 +72,7 @@ En la página **Azure Content Delivery Network**, proporcione la configuración 
 
 ![Creación del perfil y el punto de conexión en el portal](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
-| Configuración | Valor sugerido | DESCRIPCIÓN |
+| Configuración | Valor sugerido | Descripción |
 | ------- | --------------- | ----------- |
 | **Perfil de CDN** | myCDNProfile | Un perfil de CDN es una colección de puntos de conexión de CDN con el mismo plan de tarifa. |
 | **Plan de tarifa** | Estándar de Akamai | El [plan de tarifa](cdn-features.md) especifica el proveedor y las características disponibles. En este tutorial se usa *Standard Akamai*. |

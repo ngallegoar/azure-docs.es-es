@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
 ms.openlocfilehash: eb9c21bf1972304da688586da9ccabe5063fa112
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75438972"
 ---
-# <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Creación de una factoría de datos mediante Visual Studio
+# <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Creación de una instancia de Data Factory mediante Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Introducción y requisitos previos](data-factory-build-your-first-pipeline.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
@@ -29,14 +29,14 @@ ms.locfileid: "75438972"
 
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el artículo [Inicio rápido: Creación de una factoría de datos con Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory, consulte [Guía de inicio rápido: Creación de una factoría de datos mediante Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Este tutorial muestra cómo crear una instancia de Azure Data Factory mediante Visual Studio. Va a crear un proyecto de Visual Studio mediante la plantilla de proyectos de Data Factory, a definir entidades de Data Factory (servicios vinculados, conjuntos de datos y canalización) en formato JSON y, finalmente, a publicar o implementar estas entidades en la nube. 
 
-La canalización de este tutorial tiene solo una actividad: **Actividad de Hive de HDInsight**. Esta actividad ejecuta un script de Hive en un clúster de Azure HDInsight que transforma los datos de entrada para generar datos de salida. La canalización está programada para ejecutarse una vez al mes entre las horas de inicio y finalización especificadas. 
+La canalización de este tutorial tiene una actividad: **actividad de HDInsight Hive**. Esta actividad ejecuta un script de Hive en un clúster de Azure HDInsight que transforma los datos de entrada para generar datos de salida. La canalización está programada para ejecutarse una vez al mes entre las horas de inicio y finalización especificadas. 
 
 > [!NOTE]
-> Este tutorial no muestra cómo copiar datos mediante Azure Data Factory. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Este tutorial no muestra cómo copiar datos mediante Azure Data Factory. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Copia de datos de Blob Storage en SQL Database mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > pero cualquier canalización puede tener más de una actividad. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
@@ -44,7 +44,7 @@ La canalización de este tutorial tiene solo una actividad: **Actividad de Hive 
 ## <a name="walkthrough-create-and-publish-data-factory-entities"></a>Tutorial: Creación y publicación de entidades de Data Factory
 Estos son los pasos que debe realizar en este tutorial:
 
-1. Crear dos servicios vinculados: **AzureStorageLinkedService1** y **HDInsightOnDemandLinkedService1**. 
+1. Cree dos servicios vinculados: **AzureStorageLinkedService1** y **HDInsightOnDemandLinkedService1**. 
    
     En este tutorial, los datos de entrada y los de salida de la actividad de Hive están en la misma instancia de Azure Blob Storage. Va a usar un clúster de HDInsight a petición para procesar los datos de entrada existentes para generar datos de salida. El clúster de HDInsight a petición se crea automáticamente mediante Azure Data Factory en tiempo de ejecución cuando los datos de entrada están listos para su procesamiento. Debe vincular los almacenes o procesos de datos a la factoría de datos para que el servicio de Data Factory pueda conectarse a ellos en tiempo de ejecución. Por tanto, va a vincular su cuenta de Azure Storage a la factoría de datos mediante AzureStorageLinkedService1 y a vincular un clúster de HDInsight a petición mediante HDInsightOnDemandLinkedService1. Al publicar, especifique el nombre de la factoría de datos que va a crear o de una ya existente.  
 2. Cree dos conjuntos de datos: **InputDataset** y **OutputDataset**, que representan los datos de entrada y salida que se almacenan en Azure Blob Storage. 
@@ -52,7 +52,7 @@ Estos son los pasos que debe realizar en este tutorial:
     Estas definiciones de conjunto de datos hacen referencia al servicio vinculado de Azure Storage que creó en el paso anterior. Para InputDataset, debe especificar el contenedor de blobs (adfgetstarted) y la carpeta (inptutdata) que contiene un blob con los datos de entrada. Para OutputDataset, debe especificar el contenedor de blobs (adfgetstarted) y la carpeta (partitioneddata) que contiene los datos de salida. Especifique también otras propiedades como estructura, disponibilidad y directiva.
 3. Cree una canalización llamada **MyFirstPipeline**. 
   
-    En este tutorial, la canalización solo tiene una actividad: **actividad de Hive de HDInsight**. Esta actividad transforma los datos de entrada para generar datos de salida mediante la ejecución de un script de Hive en un clúster de HDInsight a petición. Para más información acerca de la actividad de Hive, consulte [Actividad de Hive](data-factory-hive-activity.md) 
+    En este tutorial, la canalización tiene una actividad: **actividad de HDInsight Hive**. Esta actividad transforma los datos de entrada para generar datos de salida mediante la ejecución de un script de Hive en un clúster de HDInsight a petición. Para más información acerca de la actividad de Hive, consulte [Actividad de Hive](data-factory-hive-activity.md) 
 4. Cree una instancia de Data Factory denominada **DataFactoryUsingVS**. Implemente tanto la instancia de Data Factory como todas las entidades de Data Factory (servicios vinculados, tablas y la canalización).
 5. Después de publicar, use las hojas de Azure Portal y la aplicación de supervisión y administración para supervisar la canalización. 
   
@@ -65,7 +65,7 @@ Estos son los pasos que debe realizar en este tutorial:
 3. Debe tener lo siguiente instalado en el equipo:
    * Visual Studio 2013 o Visual Studio 2015.
    * Descargue el SDK de Azure para Visual Studio 2013 o Visual Studio 2015. Vaya a la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **VS 2013** o **VS 2015** en la sección **.NET**.
-   * Descargue el complemento más reciente de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). También puede actualizar el complemento con el procedimiento siguiente: En el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Microsoft Azure Data Factory Tools for Visual Studio (Herramientas de Microsoft Azure Data Factory para Visual Studio)**  -> **Actualizar**.
+   * Descargue el último complemento de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). También puede actualizar el complemento, para lo que debe seguir estos pasos: en el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Herramientas de Microsoft Azure Data Factory para Visual Studio** -> **Actualizar**.
 
 Vamos a usa Visual Studio para crear una instancia de Azure Data Factory.
 
@@ -79,7 +79,7 @@ Vamos a usa Visual Studio para crear una instancia de Azure Data Factory.
     ![Explorador de soluciones](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ### <a name="create-linked-services"></a>Crear servicios vinculados
-En este paso, creará dos servicios vinculados: **Azure Storage** y **HDInsight bajo demanda**. 
+En este paso se crean dos servicios vinculados: **Azure Storage** y **HDInsight a petición**. 
 
 El servicio vinculado de Azure Storage vincula una cuenta de Azure Storage a Data Factory proporcionando la información de conexión. El servicio Data Factory utiliza la cadena de conexión del valor de configuración del servicio vinculado para conectarse a Azure Storage en tiempo de ejecución. Este almacenamiento contiene los datos de entrada y salida de la canalización y el archivo de script de Hive utilizado por la actividad de Hive. 
 
@@ -214,7 +214,7 @@ Ahora, se crea el conjunto de datos de salida que representa los datos de salida
 4. Guarde el archivo **OutputDataset.json** .
 
 ### <a name="create-pipeline"></a>Creación de una canalización
-Hasta ahora se han creado el servicio vinculado de Azure Storage y los conjuntos de datos de entrada y salida. Ahora, cree una canalización con una actividad **HDInsightHive**. La **entrada** de la actividad de Hive está establecida en **AzureBlobInput** y la **salida** de la actividad está establecida en **AzureBlobOutput**. Un segmento de un conjunto de datos de entrada está disponible mensualmente (frecuencia: mensual, intervalo: 1) y el segmento de salida se genera mensualmente también. 
+Hasta ahora se han creado el servicio vinculado de Azure Storage y los conjuntos de datos de entrada y salida. Ahora, cree una canalización con una actividad **HDInsightHive**. La **entrada** de la actividad de Hive está establecida en **AzureBlobInput** y la **salida** de la actividad está establecida en **AzureBlobOutput**. Un segmento de un conjunto de datos de entrada está disponible mensualmente (frecuencia: mes, intervalo: 1), y también se genera mensualmente un segmento de salida. 
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en **Canalizaciones**, seleccione **Agregar** y haga clic en **Nuevo elemento**.
 2. Seleccione **Hive Transformation Pipeline** (Canalización de transformación de Hive) en la lista y haga clic en **Agregar**.
@@ -345,7 +345,7 @@ En este paso, va a supervisar la canalización mediante la vista de diagrama de 
    1. Haga clic en **More services** (Más servicios) y en **Fábricas de datos**.
        
         ![Examinar factorías de datos](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
-   2. Seleccione el nombre de la factoría de datos (por ejemplo, **DataFactoryUsingVS09152016**) en la lista de factorías de datos.
+   2. Seleccione el nombre de la factoría de datos (por ejemplo: **DataFactoryUsingVS09152016**) en la lista de factorías de datos.
    
        ![Seleccione su factoría de datos](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 2. En la página principal de la factoría de datos, haga clic en **Diagrama**.
@@ -414,7 +414,7 @@ La Aplicación de supervisión y administración también se puede usar para sup
     
     A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use herramientas como el [Explorador de Microsoft Storage](https://storageexplorer.com/) para eliminar contenedores de Azure Blob Storage.
 - Actualmente, el conjunto de datos de salida es lo que controla la programación, por lo que debe crear un conjunto de datos de salida aunque la actividad no genere ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada. 
-- Este tutorial no muestra cómo copiar datos mediante Azure Data Factory. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Este tutorial no muestra cómo copiar datos mediante Azure Data Factory. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Copia de datos de Blob Storage en SQL Database mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 
 ## <a name="use-server-explorer-to-view-data-factories"></a>Uso del Explorador de servidores para ver las entidades de Data Factory
@@ -556,7 +556,7 @@ En este tutorial, ha creado una instancia de Data Factory de Azure para procesar
 4. Ha creado una **canalización** con una actividad de **Hive de HDInsight**.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md). 
 

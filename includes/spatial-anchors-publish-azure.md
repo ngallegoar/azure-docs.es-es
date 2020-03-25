@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67186004"
 ---
 ### <a name="open-the-publish-wizard"></a>Apertura del Asistente para publicación
@@ -41,7 +41,7 @@ Junto a **Plan de hospedaje**, seleccione **Nuevo**.
 
 En el cuadro de diálogo **Configurar un plan de hospedaje**, use estos valores:
 
-| Configuración | Valor sugerido | DESCRIPCIÓN |
+| Configuración | Valor sugerido | Descripción |
 |-|-|-|
 |Plan de servicio de aplicación| MySharingServicePlan | Nombre del plan de App Service. |
 | Location | Oeste de EE. UU. | El centro de datos donde se hospeda la aplicación web. |

@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759540"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79224132"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configuración de un laboratorio mediante Azure DevTest Labs
 En este tutorial, va a crear un laboratorio mediante Azure Portal. El administrador de laboratorio configura un laboratorio en una organización, crea máquinas virtuales en el laboratorio y configura las directivas. Los usuarios de laboratorio (por ejemplo: desarrolladores y evaluadores) reclaman las máquinas virtuales en el laboratorio, se conectan a ellas y las usan. 
@@ -61,7 +61,7 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear un laboratorio 
 1. En la página **DevTest Lab**, seleccione **+ Agregar** en la barra de herramientas. 
 
     ![Botón Agregar](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. En la página **Choose a base** (Elija una base), realice una búsqueda con una palabra clave (por ejemplo: Windows, Ubuntu) y seleccione una de las imágenes base de la lista. 
+1. En la página **Elegir base de datos**, busque con la palabra clave (por ejemplo, Windows, Ubuntu) y seleccione una de las imágenes de base de la lista. 
 1. En la página **Máquina virtual**, realice las acciones siguientes: 
     1. En **Nombre de máquina virtual**, escriba un nombre para la máquina virtual. 
     2. En **Nombre de usuario**, escriba un nombre para el usuario que tiene acceso a la máquina virtual. 
