@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa14b45235f2a62f05e84efafc41b899dc531d49
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74868684"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integración de un bosque existente y un nuevo bosque con un único inquilino de Azure AD
@@ -28,7 +28,7 @@ El entorno que se crea en este tutorial se puede usar para realizar pruebas o pa
 
 En este escenario, hay un bosque existente sincronizado mediante Azure AD Connect con un inquilino de Azure AD. Y tiene un nuevo bosque que desea sincronizar con el mismo inquilino de Azure AD. Configurará el aprovisionamiento en la nube para el nuevo bosque. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 ### <a name="in-the-azure-active-directory-admin-center"></a>En el Centro de administración de Azure Active Directory
 
 1. Cree una cuenta de administrador global solo en la nube en el inquilino de Azure AD. De esta manera, puede administrar la configuración del inquilino en caso de que los servicios locales fallen o no estén disponibles. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../active-directory-users-create-azure-portal.md). Realizar este paso es esencial para garantizar que no queda bloqueado fuera de su inquilino.
@@ -63,7 +63,7 @@ En este escenario, hay un bosque existente sincronizado mediante Azure AD Conne
 ![Pantalla principal](media/how-to-install/install1.png)</br>
 
 7. Una vez que finalice esta operación, se iniciará el asistente para configuración.  Inicie sesión con su cuenta de administrador global de Azure AD.  Tenga en cuenta que si la seguridad de IE mejorada está habilitada, bloqueará el inicio de sesión.  En ese caso, cierre la instalación, deshabilite la seguridad mejorada de IE en Administrador del servidor y haga clic en el **AAD Connect Provisioning Agent Wizard** (Asistente para el agente de aprovisionamiento de AAD Connect) para reiniciar la instalación.
-8. En la pantalla **Connect Active Directory** (Conectar Active Directory), haga clic en **Add directory** (Agregar directorio) e inicie sesión con su cuenta de administrador de dominio de Active Directory.  NOTA:  La cuenta de administrador de dominio no debe tener requisitos de cambio de contraseña. Si la contraseña expira o cambia, tendrá que volver a configurar el agente con las credenciales nuevas. Esta operación agregará el directorio local.  Haga clic en **Next**.</br>
+8. En la pantalla **Connect Active Directory** (Conectar Active Directory), haga clic en **Add directory** (Agregar directorio) e inicie sesión con su cuenta de administrador de dominio de Active Directory.  NOTA:  La cuenta de administrador de dominio no debe tener requisitos de cambio de contraseña. Si la contraseña expira o cambia, tendrá que volver a configurar el agente con las credenciales nuevas. Esta operación permitirá agregar su directorio local.  Haga clic en **Next**.</br>
 ![Pantalla principal](media/how-to-install/install3.png)</br>
 
 9. En la pantalla **Configuración completa**, haga clic en **Confirmar**.  Esta operación registrará el agente y lo reiniciará.</br>
@@ -80,7 +80,7 @@ La comprobación del agente se produce en Azure Portal y en el servidor local qu
 ### <a name="azure-portal-agent-verification"></a>Comprobación del agente en Azure Portal
 Para comprobar que Azure ve el agente, siga estos pasos:
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 2. A la izquierda, seleccione **Azure Active Directory**, haga clic en **Azure AD Connect** y, en el centro, seleccione **Administración del aprovisionamiento (versión preliminar)** .</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 
@@ -94,7 +94,7 @@ Para comprobar que Azure ve el agente, siga estos pasos:
 Para comprobar que el agente se ejecuta, siga estos pasos:
 
 1.  Inicie sesión en el servidor con una cuenta de administrador.
-2.  Abra **Servicios**. Para ello, vaya a él o a Inicio/Ejecutar/Services.msc.
+2.  Abra **Servicios**. Para ello, vaya ahí o a Inicio/Ejecutar/Services.msc.
 3.  En **Servicios** asegúrese de que tanto el **Actualizador del Agente de Microsoft Azure AD Connect** como el **Agente de aprovisionamiento de Microsoft Azure AD Connect** están presentes y que su estado es **En ejecución**.
 ![Servicios](media/how-to-troubleshoot/troubleshoot1.png)
 
@@ -104,7 +104,7 @@ Para comprobar que el agente se ejecuta, siga estos pasos:
 1.  Inicie sesión en Azure Portal.
 2.  Haga clic en **Azure Active Directory**.
 3.  Haga clic en **Azure AD Connect**.
-4.  Seleccione **Administrar aprovisionamiento (versión preliminar)** 
+4.  Seleccione **Administración del aprovisionamiento (versión preliminar)** 
 ![](media/how-to-configure/manage1.png).
 5.  Haga clic en **Nueva configuración**
 ![](media/tutorial-single-forest/configure1.png).

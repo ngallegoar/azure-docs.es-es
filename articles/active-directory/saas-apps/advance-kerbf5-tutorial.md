@@ -17,10 +17,10 @@ ms.date: 11/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 984fd0c7946a50922315269c87e08b1c35b74348
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74074760"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con F5
@@ -33,7 +33,7 @@ En este tutorial, obtendrá información sobre cómo integrar F5 con Azure Acti
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -118,7 +118,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -188,7 +188,7 @@ En esta sección, va a permitir que B.Simon acceda a F5 mediante el inicio de se
     >[!Note]
     >Necesitará que la cuenta de delegación de Kerberos se cree y se especifique. Consulte la sección Referencia de KCD (consulte el apéndice para ver las referencias a variables)
 
-    • Origen de nombre de usuario `session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    • Origen de nombre de usuario `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
     • Origen de nombre de territorio `session.logon.last.domain`
 
@@ -246,7 +246,7 @@ En esta sección, va a permitir que B.Simon acceda a F5 mediante el inicio de se
 >[!Note]
 >Para más detalles, consulte [aquí](https://www.f5.com/pdf/deployment-guides/kerberos-constrained-delegation-dg.pdf).
 
-* **Paso 1: Crear una cuenta de delegación**
+* **Paso 1: Crear una cuenta de delegación**
 
     * Ejemplo
     ```
@@ -256,14 +256,14 @@ En esta sección, va a permitir que B.Simon acceda a F5 mediante el inicio de se
     New-ADUser -Name "APM Delegation Account" -UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -SamAccountName "big-ipuser" -PasswordNeverExpires $true -Enabled $true -AccountPassword (Read-Host -AsSecureString "Password!1234")
     ```
 
-* **Paso 2: Establecer SPN (en la cuenta de delegación de APM)**
+* **Paso 2: Establecer SPN (en la cuenta de delegación de APM)**
 
     *  Ejemplo
     ```
     setspn –A host/big-ipuser.superdemo.live big-ipuser
     ```
 
-* **Paso 3: Delegación de SPN (para la cuenta App Service)**
+* **Paso 3: Delegación de SPN (para la cuenta App Service)**
 
     * Configure la delegación adecuada para la cuenta de delegación de F5.
     * En el ejemplo siguiente, se está configurando la cuenta de delegación de APM para KCD para la aplicación FRP-App1.superdemo.live.
