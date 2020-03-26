@@ -10,10 +10,10 @@ ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74084381"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de la CLI de Azure y Azure Portal para configurar el enrutamiento de mensajes de IoT Hub
@@ -162,7 +162,7 @@ Ahora, configure el enrutamiento de la cuenta de almacenamiento. Vaya al panel d
 
 9. Ahora, complete el resto de la información de la consulta de enrutamiento. En esta consulta se especifican los criterios para enviar mensajes al contenedor de almacenamiento que acaba de agregar como punto de conexión. Rellene los campos de la pantalla.
 
-   **Nombre**: escriba el nombre de la consulta de enrutamiento. En este tutorial se usa **ContosoStorageRoute**.
+   **Name**: escriba el nombre de la consulta de enrutamiento. En este tutorial se usa **ContosoStorageRoute**.
 
    **Punto de conexión**: seleccione el punto de conexión que acaba de configurar.
 
@@ -200,7 +200,7 @@ Ahora, configure el enrutamiento de la cola de Service Bus. Vaya al panel de enr
 
 6. Ahora, complete el resto de la información de la consulta de enrutamiento. En esta consulta se especifican los criterios para enviar mensajes a la cola de Service Bus que acaba de agregar como punto de conexión. Rellene los campos de la pantalla. 
 
-   **Nombre**: escriba el nombre de la consulta de enrutamiento. En este tutorial se usa **ContosoSBQueueRoute**. 
+   **Name**: escriba el nombre de la consulta de enrutamiento. En este tutorial se usa **ContosoSBQueueRoute**. 
 
    **Punto de conexión**: seleccione el punto de conexión que acaba de configurar.
 

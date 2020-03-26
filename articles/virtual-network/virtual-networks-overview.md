@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 768d01346b7697953d44742458c7e507ae7c115a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3b908406c8717d2fa8834bc4dff1bcd27ec4761f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894606"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290203"
 ---
 # <a name="what-is-azure-virtual-network"></a>¿Qué es Azure Virtual Network?
 
@@ -38,7 +38,7 @@ Al crear la red en Azure, es importante tener en cuenta los siguientes principio
 - Asegúrese de que los espacios de dirección no se superponen. Asegúrese de que el espacio de direcciones (bloque CIDR) de red virtual no se superponen con otros intervalos de red de la organización.
 - Las subredes no deben cubrir el espacio de direcciones completo de la red virtual. Planee con antelación y reserve algún espacio de direcciones para el futuro.
 - Se recomienda que tenga menos redes virtuales de gran tamaño que múltiples redes virtuales pequeñas. Esto impedirá la sobrecarga de administración.
-- Proteja la red virtual con grupos de seguridad de red (NSG).
+- Asegure las redes virtual mediante la asignación de grupos de seguridad de red (NSG) a sus subredes.
 
 ## <a name="communicate-with-the-internet"></a>Comunicación con internet
 

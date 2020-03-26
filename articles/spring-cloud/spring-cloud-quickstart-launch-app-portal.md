@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: a215fe2305b320fe27ef9d868d060f3e9cb14c1c
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 9cd59fdf81e9b5d56872d20c76e8ea177b3c8577
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431389"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470901"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Inicio rápido: Inicio de una aplicación de Azure Spring Cloud existente desde Azure Portal
 
@@ -48,7 +48,7 @@ Para completar esta guía de inicio rápido:
 
 Instale la extensión de Azure Spring Cloud para la CLI de Azure, para lo cual debe usar el siguiente comando
 
-```Azure CLI
+```azurecli
 az extension add --name spring-cloud
 ```
 
@@ -114,7 +114,7 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
 
 1. Abra una instancia de [Azure Cloud Shell](https://shell.azure.com) y clone el repositorio de la aplicación de ejemplo en la máquina local.  Aquí, primero se crea un directorio temporal denominado `source-code` antes de clonar la aplicación.
 
-    ```azurecli
+    ```console
     mkdir source-code
     cd source-code
     git clone https://github.com/Azure-Samples/piggymetrics
@@ -122,10 +122,11 @@ El servicio tarda aproximadamente 5 minutos en implementarse.  Una vez implemen
 
 2. Cree el paquete clonado.
 
-    ```azurecli
+    ```console
     cd piggymetrics
     mvn clean package -DskipTests
     ```
+
 3. Asigne nombres a su grupo de recursos y a su servicio. Asegúrese de sustituir los marcadores de posición siguientes por el nombre del grupo de recursos y el nombre del servicio que aprovisionó anteriormente en este tutorial.
 
     ```azurecli

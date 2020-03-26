@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machi
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.openlocfilehash: f784419736854095cc1bc5da14f3867ac3f7eb12
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155825"
 ---
 # <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Tutorial: Creación de una máquina virtual o un conjunto de escalado de máquinas virtuales desde Azure Shared Image Gallery mediante Ansible
@@ -28,7 +28,7 @@ ms.locfileid: "74155825"
 > * Creación de un conjunto de escalado de máquinas virtuales con la imagen generalizada
 > * Obtenga información sobre Shared Image Gallery, la imagen y la versión.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -368,7 +368,7 @@ ansible-playbook 07-delete-gallery.yml
 
 Cuando ya no los necesite, elimine los recursos creados en este artículo. 
 
-El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para lo siguiente:
+El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para:
 
 - Eliminar los dos grupos de recursos creados anteriormente.
 
@@ -386,7 +386,7 @@ Guarde el siguiente cuaderno de estrategias como `cleanup.yml`:
         state: absent
 ```
 
-Estas son algunas notas claves que se deben tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
+Estas son algunas notas importantes que hay que tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
 
 - Reemplace el marcador de posición `{{ resource_group_name }}` por el nombre del grupo de recursos.
 - Se eliminarán todos los recursos de los dos grupos de recursos especificados.

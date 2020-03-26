@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 9f16ebc5acff7bbccc9de28e2fab0d223c6e244b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68640014"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Creación de un modelo de agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar)
@@ -27,9 +27,9 @@ En la segunda parte de esta serie de tres tutoriales creará un modelo de K-Mean
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
-> * Definir el número de clústeres para un algoritmo K-Means
-> * Realizar la agrupación en clústeres
-> * Analizar los resultados
+> * Definición del número de clústeres para un algoritmo de k-means
+> * Agrupación en clústeres
+> * Análisis de los resultados
 
 En la [primera parte](sql-database-tutorial-clustering-model-prepare-data.md) ha aprendido a preparar los datos de una base de datos de Azure SQL para realizar la agrupación en clústeres.
 
@@ -37,19 +37,19 @@ En la [tercera parte](sql-database-tutorial-clustering-model-deploy.md) aprender
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* En la segunda parte de este tutorial se da por hecho que ha realizado la [**primera parte** ](sql-database-tutorial-clustering-model-prepare-data.md) y que satisface sus requisitos previos.
+* En la segunda parte de este tutorial se da por hecho que ha realizado la [**primera parte**](sql-database-tutorial-clustering-model-prepare-data.md) y que satisface sus requisitos previos.
 
 ## <a name="define-the-number-of-clusters"></a>Definición del número de clústeres
 
-Para agrupar en clústeres los datos del cliente, usará el algoritmo **K-Means** de agrupación en clústeres, una de las formas más sencillas y conocidas de agrupar datos.
-Puede leer más información acerca de K-Means en [A complete guide to K-means clustering algorithm](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html) (Guía completa sobre el algoritmo de agrupación en clústeres K-means).
+Para agrupar en clústeres los datos de clientes, usará el algoritmo de agrupación en clústeres **k-means**, una de las formas más sencillas y conocidas de agrupar datos.
+Para más información sobre k-means, vea [Guía completa sobre el algoritmo de agrupación en clústeres k-means](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
 
-El algoritmo acepta dos entradas: Los propios datos y un número predefinido "*k*" que representa el número de clústeres que desea generar.
-La salida son *k* clústeres con los datos de entrada particionados entre ellos.
+El algoritmo acepta dos entradas: los datos en sí y un número predefinido "*k*", que representa el número de clústeres que se generarán.
+El resultado es *k* clústeres con los datos de entrada repartidos entre los clústeres.
 
-Para determinar el número de clústeres que debe utilizar el algoritmo, use un trazado de la suma de los cuadrados dentro de los grupos entre el número de clústeres extraídos. El número adecuado de clústeres que se debe usar se encuentra en la curva o "codo" del trazado.
+Para determinar el número de clústeres que usará el algoritmo, use una representación de la suma de cuadrados dentro de los grupos por el número de clústeres extraídos. El número adecuado de clústeres que se usará se encuentra en la curva o "codo" de la representación.
 
 ```r
 # Determine number of clusters by using a plot of the within groups sum of squares,
@@ -62,9 +62,9 @@ plot(1:20, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups s
 
 ![Gráfico de codo](./media/sql-database-tutorial-clustering-model-build/elbow-graph.png)
 
-Según el gráfico, parece que *k = 4* sería un buen valor para probar. Ese valor *k* agrupará los clientes en cuatro clústeres.
+Según el gráfico, parece que *k = 4* sería un buen valor para probar. El valor *k* agrupará los clientes en cuatro clústeres.
 
-## <a name="perform-clustering"></a>Realizar la agrupación en clústeres
+## <a name="perform-clustering"></a>Agrupación en clústeres
 
 En el siguiente script de R, usará la función **rxKmeans**, que es la función K-Means del paquete RevoScaleR.
 
@@ -88,7 +88,7 @@ clust <- rxKmeans( ~ orderRatio + itemsRatio + monetaryRatio + frequency,
 customer_cluster <- rxDataStep(return_cluster);
 ```
 
-## <a name="analyze-the-results"></a>Analizar los resultados
+## <a name="analyze-the-results"></a>Análisis de los resultados
 
 Ahora que ha realizado la agrupación en clústeres mediante K-Means, el siguiente paso es analizar el resultado y ver si puede encontrar información procesable.
 
@@ -122,18 +122,18 @@ Within cluster sum of squares by cluster:
     0.0000  1329.0160 18561.3157   363.2188
 ```
 
-Las medias de los cuatro clústeres se proporcionan mediante las variables definidas en la [primera parte](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers):
+Las cuatro medias de clústeres se proporcionan mediante las variables definidas en la [parte uno](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers):
 
-* *orderRatio* = proporción de pedidos devueltos (número total de pedidos devueltos parcial o totalmente en comparación con el número total de pedidos)
-* *itemsRatio* = proporción de artículos devueltos (número total de artículos devueltos en comparación con el número de artículos comprados)
-* *monetaryRatio* = proporción de importe devuelto (importe monetario total de los artículos en comparación con el importe adquirido)
+* *orderRatio* = índice de devolución de pedidos (número total de pedidos con una devolución total o parcial comparado con el número total de pedidos)
+* *itemsRatio* = índice de artículos devueltos (número total de artículos devueltos comparado con el número de artículos comprados)
+* *monetaryRatio* = índice de importes de devoluciones (total de importes monetarios de los artículos devueltos comparado con el importe de las compras)
 * *frequency* = frecuencia de devolución
 
-La minería de datos mediante K-Means a menudo requiere un análisis en profundidad de los resultados y pasos adicionales para comprender mejor cada clúster, pero puede proporcionar algunos buenos clientes potenciales.
-Aquí tiene un par de maneras en las que podría interpretar estos resultados:
+Con frecuencia, la minería de datos que usa k-means necesita un análisis más detallado de los resultados y pasos adicionales para comprender mejor cada clúster, pero puede proporcionar pistas adecuadas.
+Estas son dos formas en que se podrían interpretar estos resultados:
 
 * El clúster 1 (el clúster más grande) parece estar constituido por un grupo de clientes que no están activos (todos los valores son cero).
-* El clúster 3 parece estar constituido por un grupo que destaca en términos de comportamiento de devolución.
+* Parece que el clúster 3 es un grupo que destaca en términos de comportamiento de devoluciones.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -148,11 +148,11 @@ En Azure Portal, haga lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En la segunda parte de esta serie de tutoriales, ha hecho lo siguiente:
+En la parte dos de esta serie de tutoriales, ha completado estos pasos:
 
-* Definir el número de clústeres para un algoritmo K-Means
-* Realizar la agrupación en clústeres
-* Analizar los resultados
+* Definición del número de clústeres para un algoritmo de k-means
+* Agrupación en clústeres
+* Análisis de los resultados
 
 Para implementar el modelo de aprendizaje automático que ha creado, siga la tercera parte de esta serie de tutoriales:
 

@@ -16,10 +16,10 @@ ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
 ms.openlocfilehash: ba70d5f186c1424b2019716ab7a87aeae85f8913
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74187299"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de Azure Functions
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 > * Configurar la aplicación de Azure Functions para actualizar su configuración en respuesta a los cambios en un almacén de App Configuration.
 > * Inserte la configuración más reciente en las llamadas a Azure Functions.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con la carga de trabajo de **desarrollo de Azure**.
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="reload-data-from-app-configuration"></a>Recarga de datos de App Configuration
 
-1. Abra *Function1.cs*. Además de la propiedad de tipo `static` `Configuration`, agregue una nueva propiedad `static` `ConfigurationRefresher` para mantener una instancia singleton de `IConfigurationRefresher` que se utilizará para indicar actualizaciones de configuración durante las llamadas posteriores a Azure Functions.
+1. Abra *Function1.cs*. Además de la propiedad de tipo `static``Configuration`, agregue una nueva propiedad `static``ConfigurationRefresher` para mantener una instancia singleton de `IConfigurationRefresher` que se utilizará para indicar actualizaciones de configuración durante las llamadas posteriores a Azure Functions.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -110,11 +110,11 @@ En este tutorial, aprenderá a:
 
     ![Inicio rápido: inicio de funciones locales](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-5. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
+5. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
 
 6. Seleccione **Explorador de configuración** y actualice los valores de la clave siguiente:
 
-    | Clave | Valor |
+    | Clave | Value |
     |---|---|
     | TestApp:Settings:Message | Datos de Azure App Configuration, actualizados |
 

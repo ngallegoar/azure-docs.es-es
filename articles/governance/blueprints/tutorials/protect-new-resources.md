@@ -4,10 +4,10 @@ description: En este tutorial, usará las opciones Solo lectura y No eliminar de
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327440"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints
@@ -21,9 +21,9 @@ En este tutorial va a completar estos pasos:
 > - Marcado de la definición del plano técnico como **Publicado**
 > - Asignación de la definición del plano técnico a una suscripción existente
 > - Inspección del nuevo grupo de recursos
-> - Anulación de la asignación del plano técnico para quitar los bloqueos
+> - Anular la asignación del plano técnico para quitar los bloqueos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
@@ -39,7 +39,7 @@ En primer lugar, cree la definición del plano técnico.
 
 1. Especifique esta información en la pestaña **Datos básicos**:
 
-   - **Nombre del plano técnico**: proporcione un nombre para su copia de la muestra de plano técnico. Para este tutorial, usaremos el nombre **locked-storageaccount**.
+   - **Nombre del plano técnico**: proporcione un nombre para su copia del ejemplo de plano técnico. Para este tutorial, usaremos el nombre **locked-storageaccount**.
    - **Descripción del plano técnico**: Agregue una descripción para la definición del plano técnico. Use **For testing blueprint resource locking on deployed resources** (Para probar el bloqueo de recursos del plano técnico en los recursos implementados).
    - **Ubicación de definición**: seleccione el botón de puntos suspensivos (...) y luego seleccione la suscripción o grupo de administración donde se va a guardar la definición del plano técnico.
 
@@ -132,12 +132,12 @@ Después de publicar la definición del plano técnico puede asignarla a una sus
 
 1. Proporcione los valores de parámetro para la asignación de plano técnico:
 
-   - **Aspectos básicos**
+   - **Conceptos básicos**
 
      - **Suscripciones**: seleccione una o varias de las suscripciones que estén en el grupo de administración en el que se guardó la definición del plano técnico. Si selecciona varias suscripciones, se creará una asignación para cada una de ellas mediante los parámetros que especifique.
      - **Nombre de asignación**: el nombre se rellena previamente en función del nombre de la definición del plano técnico. Queremos esta asignación para representar el bloqueo del nuevo grupo de recursos, de modo que cambie el nombre de asignación por **assignment-locked-storageaccount-TestingBPLocks**.
      - **Ubicación**: seleccione la región en la que se crea la identidad administrada. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
-       Para este tutorial, seleccione **Este de EE. UU. 2**.
+       Para este tutorial, seleccione **Este de EE. UU. 2**.
      - **Versión de definición de Blueprint**: seleccione la versión publicada, **1.0**, de la definición del plano técnico.
 
    - **Asignación de bloqueo**
@@ -152,9 +152,9 @@ Después de publicar la definición del plano técnico puede asignarla a una sus
 
      Los parámetros definidos en esta sección se aplican al artefacto en que se definen. Estos son [parámetros dinámicos](../concepts/parameters.md#dynamic-parameters), ya que se definen durante la asignación del plano técnico. En cada artefacto, establezca el valor del parámetro en lo que se ve en la columna **Valor**.
 
-     |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Valor|DESCRIPCIÓN|
+     |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Value|Descripción|
      |-|-|-|-|-|
-     |Grupo de recursos de RGtoLock|Resource group|NOMBRE|TestingBPLocks|Define el nombre del nuevo grupo de recursos al que se aplican los bloqueos de plano técnico.|
+     |Grupo de recursos de RGtoLock|Resource group|Nombre|TestingBPLocks|Define el nombre del nuevo grupo de recursos al que se aplican los bloqueos de plano técnico.|
      |Grupo de recursos de RGtoLock|Resource group|Location|Oeste de EE. UU. 2|Define la ubicación del nuevo grupo de recursos al que se aplican los bloqueos de plano técnico.|
      |StorageAccount|Plantilla de Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|La SKU de almacenamiento. El valor predeterminado es _Standard_LRS_.|
 
@@ -225,7 +225,7 @@ Cuando finalice el tutorial, elimine estos recursos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a proteger los nuevos recursos implementados con Azure Blueprints. Para más información sobre Azure Blueprints, continúe con el artículo sobre el ciclo de vida de los planos técnicos.
+En este tutorial, ha aprendido a proteger los nuevos recursos implementados con Azure Blueprints. Para más información sobre Azure Blueprints, vaya el artículo sobre el ciclo de vida de los planos técnicos.
 
 > [!div class="nextstepaction"]
 > [Más información acerca del ciclo de vida del plano técnico](../concepts/lifecycle.md)

@@ -10,11 +10,11 @@ ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 475e628901a96334976dbdbbaa8b362197ec3bc3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914048"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214214"
 ---
 ::: zone target = "docs"
 
@@ -50,7 +50,7 @@ En cada caso, asegúrese de que los nombres de los recursos compartidos y de las
 
 ::: zone target = "docs"
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que:
 
@@ -171,7 +171,7 @@ Después de haberse conectado al recurso compartido SMB, inicie una copia de dat
     ```
     Los atributos se describen en la tabla siguiente.
     
-    |Atributo  |DESCRIPCIÓN  |
+    |Atributo  |Descripción  |
     |---------|---------|
     |/e      |Copia los subdirectorios incluyendo los directorios vacíos.         |
     |/r:     |Especifica el número de reintentos en las copias con errores.         |

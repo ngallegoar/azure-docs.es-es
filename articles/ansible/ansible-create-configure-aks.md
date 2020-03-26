@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, ak
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: 6672c3fac1c5d546a61622e3fd6df6c5397f87a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156687"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Tutorial: Configuración de clústeres de Azure Kubernetes Service (AKS) en Azure mediante Ansible
@@ -26,7 +26,7 @@ Es posible configurar AKS para que utilice [Azure Active Directory (AD)](/azure/
 > * Creación de un clúster de AKS
 > * Configuración de un clúster de AKS
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -77,7 +77,7 @@ tasks:
         Environment: Production
 ```
 
-Antes de ejecutar el cuaderno de estrategias, vea las notas siguientes:
+Antes de ejecutar el cuaderno de estrategias, consulte las notas siguientes:
 
 - La primera sección dentro de `tasks` define un grupo de recursos denominado `myResourceGroup` dentro de la ubicación `eastus`.
 - La segunda sección dentro de `tasks` define un clúster de AKS denominado `myAKSCluster` dentro del grupo de recursos `myResourceGroup`.
@@ -145,11 +145,11 @@ Guarde el siguiente cuaderno de estrategias como `azure_configure_aks.yml`:
             vm_size: Standard_D2_v2
 ```
 
-Antes de ejecutar el cuaderno de estrategias, vea las notas siguientes:
+Antes de ejecutar el cuaderno de estrategias, consulte las notas siguientes:
 
 - Para el marcador de posición `your_ssh_key`, escriba la clave pública de RSA en el formato de línea única: debe empezar por "ssh-rsa" (sin las comillas).
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook azure_configure_aks.yml
@@ -192,7 +192,7 @@ Guarde el siguiente cuaderno de estrategias como `azure_delete_aks.yml`:
       state: absent
   ```
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook azure_delete_aks.yml

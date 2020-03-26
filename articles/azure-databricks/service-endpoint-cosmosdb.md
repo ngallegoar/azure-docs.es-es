@@ -8,10 +8,10 @@ ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74706162"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutorial: Implementar Azure Databricks con un punto de conexión de Cosmos DB
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a:
 > * Crear un clúster de Azure Databricks
 > * Realizar una consulta de Cosmos DB desde un cuaderno de Azure Databricks
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, haga lo siguiente:
 
@@ -51,11 +51,11 @@ Antes de empezar, haga lo siguiente:
 
 ## <a name="create-a-cosmos-db-account"></a>Creación de una cuenta de Cosmos DB
 
-1. Abra Azure Portal. En la parte superior izquierda de la pantalla, seleccione **Create a resource > Databases > Azure Cosmos DB** (Crear un recurso > Bases de datos > Azure Cosmos DB).
+1. Abra Azure Portal. En la parte superior izquierda de la pantalla, seleccione **Create a resource > Databases > Azure Cosmos DB** (Crear un recurso > Bases de datos > Azure Cosmos DB).
 
 2. Rellene los **detalles de la instancia** en la pestaña **Basics** (Datos básicos) con la configuración siguiente:
 
-   |Configuración|Valor|
+   |Configuración|Value|
    |-------|-----|
    |Subscription|*su suscripción*|
    |Grupo de recursos|*su grupo de recursos*|

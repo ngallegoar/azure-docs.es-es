@@ -12,11 +12,11 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 650a4f643f170fc64dd0e0643d645a7dcbffdfbc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420467"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215393"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory
 
@@ -100,13 +100,13 @@ Para editar las propiedades de la aplicación:
        | Configuración de propiedades de la aplicación | | | Experiencia del usuario asignado | |
        |---|---|---|---|---|
        | ¿Habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden los usuarios asignados iniciar sesión? | ¿Pueden ver los usuarios asignados la aplicación?* |
-       | Sí | Sí | Sí | Sí | Sí  |
-       | Sí | Sí | no  | Sí | no   |
-       | Sí | no  | Sí | Sí | Sí  |
-       | Sí | no  | no  | Sí | no   |
-       | no  | Sí | Sí | no  | no   |
-       | no  | Sí | no  | no  | no   |
-       | no  | no  | Sí | no  | no   |
+       | sí | sí | sí | sí | sí  |
+       | sí | sí | no  | sí | no   |
+       | sí | no  | sí | sí | sí  |
+       | sí | no  | no  | sí | no   |
+       | no  | sí | sí | no  | no   |
+       | no  | sí | no  | no  | no   |
+       | no  | no  | sí | no  | no   |
        | no  | no  | no  | no  | no   |
 
    - Comportamiento para los usuarios **no asignados**:
@@ -114,13 +114,13 @@ Para editar las propiedades de la aplicación:
        | Configuración de propiedades de la aplicación | | | Experiencia del usuario no asignado | |
        |---|---|---|---|---|
        | ¿Está habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden iniciar sesión los usuarios no asignados? | ¿Pueden ver la aplicación los usuarios no asignados?* |
-       | Sí | Sí | Sí | no  | no   |
-       | Sí | Sí | no  | no  | no   |
-       | Sí | no  | Sí | Sí | no   |
-       | Sí | no  | no  | Sí | no   |
-       | no  | Sí | Sí | no  | no   |
-       | no  | Sí | no  | no  | no   |
-       | no  | no  | Sí | no  | no   |
+       | sí | sí | sí | no  | no   |
+       | sí | sí | no  | no  | no   |
+       | sí | no  | sí | sí | no   |
+       | sí | no  | no  | sí | no   |
+       | no  | sí | sí | no  | no   |
+       | no  | sí | no  | no  | no   |
+       | no  | no  | sí | no  | no   |
        | no  | no  | no  | no  | no   |
 
      ¿*Puede el usuario ver la aplicación en el panel de acceso y el iniciador de aplicaciones de Office 365?

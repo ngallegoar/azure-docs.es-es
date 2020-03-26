@@ -4,10 +4,10 @@ description: Asignación de controles del ejemplo de plano técnico SWIFT CSP-C
 ms.date: 09/24/2019
 ms.topic: sample
 ms.openlocfilehash: 1826e4820f06fc3a858ce6cd5f8906baaa9808cc
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74546526"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico SWIFT CSP-CSCF v2020
@@ -280,7 +280,7 @@ Este proyecto le ayuda a supervisar el sistema de auditoría y cumplimiento de s
 - Se deben habilitar los registros de diagnóstico en Azure Stream Analytics
 - Implementación de Advanced Data Security en los servidores de SQL Server
 - Implementación de auditorías en servidores SQL Server
-- Implementar Network Watcher al crear redes virtuales
+- Implementar Network Watcher al crear redes virtuales.
 - Implementación de la detección de amenazas en servidores SQL Server.
 
 ## <a name="22-and-28-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>2.2 y 2.8 Supervisión del sistema de información | Análisis del tráfico o la exfiltración encubierta

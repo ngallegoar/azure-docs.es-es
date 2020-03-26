@@ -4,10 +4,10 @@ description: Ejecute cuadernos de Jupyter Notebook en la nube mediante el servic
 ms.topic: overview
 ms.date: 04/05/2019
 ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75646337"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Introducción a Azure Notebooks (versión preliminar)
@@ -65,7 +65,7 @@ Para cada cuaderno, seleccione el kernel (es decir, el entorno en tiempo de ejec
 
 Azure Notebooks también incluye paquetes adicionales a las distribuciones base. Los kernels de Python, por ejemplo, incluyen las bibliotecas numpy, pandas, scikit-learn, matplotlib y bokeh.
 
-También puede personalizar un proyecto para crear un entorno para todos los cuadernos de ese proyecto. Para más información, consulte [Inicio rápido: Creación de un proyecto con un entorno personalizado](quickstart-create-jupyter-notebook-project-environment.md).
+También puede personalizar un proyecto para crear un entorno para todos los cuadernos de ese proyecto. Para más información, consulte [Quickstart: Create a project with a custom environment](quickstart-create-jupyter-notebook-project-environment.md) (Guía de inicio rápido: Creación de un proyecto con un entorno personalizado).
 
 Además de las distribuciones base, Azure Notebooks viene preinstalado con muchos paquetes adicionales que son útiles para los científicos de datos. También puede instalar sus propios paquetes mediante el proceso típico para cada lenguaje.
 
@@ -74,7 +74,7 @@ Además de las distribuciones base, Azure Notebooks viene preinstalado con mucho
 Azure Notebooks está preconfigurado con las siguientes extensiones de Jupyter:
 
 - [RISE](https://github.com/damianavila/RISE): una extensión de presentación de Jupyter (también conocida como live_reveal). Para más información, consulte [Run a notebook slideshow](present-jupyter-notebooks-slideshow.md) (Ejecución de una presentación de cuaderno).
-- [JupyterLab](https://github.com/jupyterlab/jupyterlab): un completo entorno de cálculo para trabajar con cuadernos de Jupyter Notebook.
+- [JupyterLab](https://github.com/jupyterlab/jupyterlab): un completo entorno de cálculo para trabajar con cuadernos de Jupyter.
 - [Altair](https://github.com/ellisonbg/altair): una biblioteca de visualización estadísticas declarativa para Python.
 - [BQPlot](https://github.com/bloomberg/bqplot): una plataforma de trazado interactiva para cuadernos de Jupyter Notebook.
 - [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): widgets HTML interactivo para cuadernos de Jupyter Notebook.

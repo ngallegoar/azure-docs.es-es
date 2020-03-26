@@ -6,12 +6,12 @@ ms.author: jzim
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/06/2019
-ms.openlocfilehash: bf9172f0c84834c951446520ff0bfcc3ef756c9c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c6334aa20b543dfbf87fedcfe45d54bbcf7a219a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278306"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79477024"
 ---
 # <a name="tutorial-scale-an-azure-red-hat-openshift-cluster"></a>Tutorial: Escalado de un clúster de Red Hat OpenShift en Azure
 
@@ -28,7 +28,7 @@ En esta serie de tutoriales, se aprende a:
 > * Escalado de un clúster de Red Hat OpenShift en Azure
 > * [Eliminación de un clúster de Red Hat OpenShift en Azure](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar este tutorial:
 
@@ -38,7 +38,7 @@ Antes de empezar este tutorial:
 
 Si ejecuta la CLI de Azure de manera local, ejecute `az login` para iniciar sesión en Azure.
 
-```bash
+```azurecli
 az login
 ```
 
@@ -54,7 +54,7 @@ CLUSTER_NAME=yourclustername
 
 Ahora vamos a escalar el clúster a cinco nodos con la CLI de Azure:
 
-```bash
+```azurecli
 az openshift scale --resource-group $CLUSTER_NAME --name $CLUSTER_NAME --compute-count 5
 ```
 

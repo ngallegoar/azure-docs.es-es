@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77621001"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Introducción a Azure Functions
@@ -67,7 +67,7 @@ Hay una variedad de plantillas que le ayudarán a empezar a trabajar con escenar
 
 - **Tema de Service Bus**: conéctese a otros servicios locales o de Azure mediante [la respuesta a los mensajes de tema de Service Bus](./functions-bindings-service-bus.md).
 
-## <a name="pricing"></a>¿Cuánto cuesta Funciones de Azure?
+## <a name="how-much-does-functions-cost"></a><a name="pricing"></a>¿Cuánto cuesta Funciones de Azure?
 
 Azure Functions tiene tres tipos de planes de precios. Elija la que mejor se adapte a sus necesidades:
 

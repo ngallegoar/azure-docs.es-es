@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: 7c38ba6dbabef4affd8672295a93d46fd4b0e494
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74384179"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Tutorial: Sincronización de datos desde SQL Database Edge a Azure SQL Database mediante SQL Data Sync
@@ -22,7 +22,7 @@ En este tutorial, aprenderá a usar un *grupo de sincronización* de Azure SQL D
 
 Dado que SQL Database Edge se basa en las versiones más recientes del [Motor de base de datos de SQL Server](/sql/sql-server/sql-server-technical-documentation/), cualquier mecanismo de sincronización de datos que sea aplicable a una instancia de SQL Server local también se puede usar para sincronizar datos con la instancia de SQL Database Edge que se ejecute en un dispositivo perimetral.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para este tutorial se requiere un equipo Windows configurado con [Data Sync Agent para Azure SQL Data Sync](../sql-database/sql-database-data-sync-agent.md).
 

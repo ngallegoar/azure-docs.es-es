@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74324807"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutorial: Creación de una aplicación de cadena de bloques para Azure Blockchain Workbench
@@ -25,7 +25,7 @@ Aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una implementación de Blockchain Workbench. Para más información sobre la implementación, consulte [Implementación de Azure Blockchain Workbench](deploy.md).
 * Usuarios de Azure Active Directory en el inquilino asociado a Blockchain Workbench. Para más información, consulte [Add Azure AD users in Azure Blockchain Workbench](manage-users.md#add-azure-ad-users) (Incorporación de usuarios de Azure AD en Azure Blockchain Workbench).
@@ -204,7 +204,7 @@ El archivo de configuración tiene varias secciones. A continuación se ofrece i
 
 El principio del archivo de configuración contiene información acerca de la aplicación incluyendo el nombre y la descripción.
 
-### <a name="application-roles"></a>Roles de la aplicación
+### <a name="application-roles"></a>Roles de aplicación
 
 La sección de roles de aplicación define los roles de usuario que pueden actuar o participar en la aplicación de cadena de bloques. Puede definir un conjunto de roles diferentes según la funcionalidad. En el escenario de solicitud-respuesta, hay una diferencia entre la funcionalidad de un solicitante como entidad que genera solicitudes y la de un respondedor como entidad que genera respuestas.
 

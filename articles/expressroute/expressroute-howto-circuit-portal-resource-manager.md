@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
 ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74813160"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutorial: Creación y modificación de un circuito ExpressRoute
@@ -34,9 +34,9 @@ Este artículo lo ayudará a crear un circuito ExpressRoute mediante Azure Porta
 * Asegúrese de que tiene permisos para crear recursos de red. Si no tiene los permisos adecuados, póngase en contacto con el administrador de cuenta.
 * Puede [ver un vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) antes de comenzar para entender mejor los pasos.
 
-## <a name="create"></a>Crear y aprovisionar un circuito ExpressRoute
+## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Crear y aprovisionar un circuito ExpressRoute
 
-### <a name="1-sign-in-to-the-azure-portal"></a>1. Inicie sesión en el Portal de Azure.
+### <a name="1-sign-in-to-the-azure-portal"></a>1. Inicio de sesión en Azure Portal
 
 Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
@@ -118,11 +118,11 @@ Consulte el artículo [Creación y modificación del enrutamiento de un circuito
 
 A continuación, vincule una red virtual a su circuito ExpressRoute. Consulte el artículo [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md) al trabajar con el modelo de implementación de Resource Manager.
 
-## <a name="status"></a>Obtención del estado de un circuito ExpressRoute
+## <a name="getting-the-status-of-an-expressroute-circuit"></a><a name="status"></a>Obtención del estado de un circuito ExpressRoute
 
 Puede ver el estado de un circuito seleccionándolo y consultando la página Información.
 
-## <a name="modify"></a>Modificación de un circuito ExpressRoute
+## <a name="modifying-an-expressroute-circuit"></a><a name="modify"></a>Modificación de un circuito ExpressRoute
 
 Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar a la conectividad. Puede modificar el ancho de banda, la SKU, el modelo de facturación y permitir operaciones clásicas en la página **Configuración**. Para obtener información sobre los límites y las limitaciones, consulte las [preguntas más frecuentes de ExpressRoute](expressroute-faqs.md).
 
@@ -151,7 +151,7 @@ Para modificar un circuito ExpressRoute, haga clic en **Configuración**.
 
 ![Modificación del circuito](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
 
-## <a name="delete"></a>Desaprovisionar y eliminar un circuito ExpressRoute
+## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Desaprovisionar y eliminar un circuito ExpressRoute
 
 Puede eliminar el circuito ExpressRoute seleccionando el icono **Eliminar** . Tenga en cuenta la información siguiente:
 

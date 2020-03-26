@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 91a52e7eac40c0ac2ab682f251a2ae0013259b25
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77013756"
 ---
 ## <a name="what-is-table-storage"></a>¿Qué es Table Storage?
@@ -26,15 +26,15 @@ Table Storage contiene los siguientes componentes:
 
 ![Diagrama de componentes de Table Storage][Table1]
 
-* **Formato de dirección URL**: las cuentas de Azure Table Storage utilizan este formato: `http://<storage account>.table.core.windows.net/<table>`
+* **Formato de la dirección URL:** las cuentas de Azure Table Storage utilizan este formato: `http://<storage account>.table.core.windows.net/<table>`
 
   Las cuentas de Table API de Azure Cosmos DB utilizan este formato:`http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
   Puede desviar las tablas de Azure directamente mediante esta dirección con el protocolo OData. Para más información, consulte [OData.org][OData.org].
-* **Cuentas:** Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Para más información sobre las cuentas de almacenamiento, consulte [Introducción a las cuentas de Storage](../articles/storage/common/storage-account-overview.md).
+* **Cuentas**: todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Para más información sobre las cuentas de almacenamiento, consulte [Introducción a las cuentas de Storage](../articles/storage/common/storage-account-overview.md).
 
     Todo el acceso a Azure Cosmos DB se realiza a través de una cuenta de Table API. Consulte [Creación de una cuenta de Table API](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) para obtener información sobre cómo crear una cuenta de Table API.
-* **Tabla**: Una tabla es una colección de entidades. Las tablas no exigen un esquema sobre entidades, lo que significa que una única tabla puede contener entidades que dispongan de diferentes conjuntos de propiedades.  
+* **Tabla**: una tabla es una colección de entidades. Las tablas no exigen un esquema sobre entidades, lo que significa que una única tabla puede contener entidades que dispongan de diferentes conjuntos de propiedades.  
 * **Entidad**: una entidad es un conjunto de propiedades, similar a una fila de base de datos. Una entidad en Azure Storage puede tener hasta 1 MB. Una entidad en Azure Cosmos DB puede tener hasta 2 MB.
 * **Propiedades**: una propiedad es un par nombre-valor. Cada entidad puede incluir hasta 252 propiedades para almacenar datos. Cada entidad dispone también de tres propiedades del sistema que especifican una clave de partición, una clave de fila y una marca de tiempo. Pueden realizarse consultas en las entidades con la misma partición de manera más rápida e insertarse o actualizarse en operaciones atómicas. Una clave de fila de la entidad es el identificador exclusivo en una partición.
 

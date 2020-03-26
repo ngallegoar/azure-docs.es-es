@@ -4,10 +4,10 @@ description: En este tutorial, creará una consulta de Resource Graph y la compa
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74303956"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Creación y uso compartido de una consulta de Azure Resource Graph en Azure Portal
@@ -24,7 +24,7 @@ En este tutorial, va a completar las siguientes tareas:
 > - Detección de consultas compartidas.
 > - Eliminación de una consulta compartida.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -156,4 +156,4 @@ Cuando haya terminado este tutorial, elimine las consultas privadas y compartida
 En este tutorial, ha creado consultas privadas y compartidas. Para más información sobre el lenguaje de Resource Graph, vaya a la página de detalles del lenguaje de consulta.
 
 > [!div class="nextstepaction"]
-> [Obtenga más información sobre el lenguaje de consulta](../concepts/query-language.md)
+> [Obtener más información sobre el lenguaje de consulta](../concepts/query-language.md)

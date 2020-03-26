@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
 ms.openlocfilehash: 5f4d1b8ef742a8dcafa2b8e34a6209f85ae050d9
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77650682"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Spark en Azure HDInsight mediante Azure Portal
@@ -45,7 +45,7 @@ Azure Portal se usa para crear un clúster de HDInsight que utiliza blobs de Azu
     |Propiedad  |Descripción  |
     |---------|---------|
     |Subscription  | En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster. |
-    |Resource group | En la lista desplegable, seleccione el grupo de recursos existente o **Crear**.|
+    |Resource group | En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
     |Nombre del clúster | Escriba un nombre único global.|
     |Region   | En la lista desplegable, seleccione una región donde crear el clúster. |
     |Tipo de clúster| Seleccione Seleccionar tipo de clúster para abrir una lista. En ella, seleccione **Spark**.|

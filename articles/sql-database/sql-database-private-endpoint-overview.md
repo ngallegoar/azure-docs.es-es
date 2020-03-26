@@ -9,10 +9,10 @@ ms.topic: overview
 ms.reviewer: vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: ab9c5c5c1134d2e09a790a788a3b7e55f807dd9b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78945372"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Private Link para Azure SQL Database y Data Warehouse

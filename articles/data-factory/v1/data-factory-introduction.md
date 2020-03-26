@@ -1,6 +1,6 @@
 ---
 title: Introducción a Data Factory, un servicio de integración de datos
-description: Sepa lo que es Azure Data Factory, un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos.
+description: 'Sepa lo que es Azure Data Factory: un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos.'
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
 ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73666796"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
@@ -75,7 +75,7 @@ Con los datos presentes en un almacén de datos centralizado en la nube, podrá 
 Entregue datos transformados de la nube a orígenes locales como SQL Server. También puede conservarlos en los orígenes de almacenamiento en la nube para que los consuma la inteligencia empresarial y las herramientas de Analytics, así como otras aplicaciones.
 
 ## <a name="key-components"></a>Componentes claves
-Una suscripción de Azure puede tener una o varias instancias de Azure Data Factory (o factorías de datos). Azure Data Factory se compone de cuatro componentes clave. Estos componentes funcionan juntos para proporcionar la plataforma en la que pueda crear flujos de trabajo basados en datos con pasos para moverlos y transformarlos. 
+Una suscripción de Azure puede tener una o varias instancias de Azure Data Factory (o factorías de datos). Azure Data Factory consta de cuatro componentes principales. Estos componentes funcionan juntos para proporcionar la plataforma en la que pueda crear flujos de trabajo basados en datos con pasos para moverlos y transformarlos. 
 
 ### <a name="pipeline"></a>Canalización
 Una factoría de datos puede tener una o más canalizaciones. Una canalización es un grupo de actividades. Juntas, las actividades de una canalización realizan una tarea. 
@@ -118,16 +118,16 @@ Los servicios vinculados se utilizan en Data Factory por dos motivos:
 
 ### <a name="relationship-between-data-factory-entities"></a>Relación entre las entidades de Data Factory
 
-![Diagrama: Data Factory, un servicio de integración de datos en la nube (conceptos clave)](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Diagrama: Data Factory, un servicio de integración de datos en la nube - conceptos clave](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Regiones admitidas
-Actualmente, se pueden crear factorías de datos en las regiones Oeste de EE. UU., Este de EE.UU. y Europa del Norte. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre almacenes de datos o para procesarlos mediante servicios de proceso.
+Actualmente, se pueden crear factorías de datos en las regiones Oeste de EE. UU., Este de EE.UU. y Norte de Europa. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre almacenes de datos o para procesarlos mediante servicios de proceso.
 
 Azure Data Factory no almacena ningún dato. Permite crear flujos de trabajo basados en datos para orquestar el movimiento de datos entre [almacenes de datos compatibles](#data-movement-activities). Por otra parte, permite procesar datos mediante [servicios de proceso](#data-transformation-activities) en otras regiones o en un entorno local. También permite [supervisar y administrar flujos de trabajo](data-factory-monitor-manage-pipelines.md) mediante mecanismos de programación y de interfaz de usuario.
 
-Data Factory solo está disponible en las regiones Oeste de EE. UU., Este de EE. UU. y Europa del Norte. Sin embargo, el servicio que alimenta el movimiento de datos en Data Factory está disponible [globalmente](data-factory-data-movement-activities.md#global) en varias regiones. Si un almacén de datos se encuentra detrás de un firewall, será una instancia de [Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) instalada en el entorno local la que mueva los datos en su lugar.
+Data Factory solo está disponible en las regiones Oeste de EE. UU., Este de EE. UU. y Norte de Europa. Sin embargo, el servicio que alimenta el movimiento de datos en Data Factory está disponible [globalmente](data-factory-data-movement-activities.md#global) en varias regiones. Si un almacén de datos se encuentra detrás de un firewall, será una instancia de [Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) instalada en el entorno local la que mueva los datos en su lugar.
 
-Por ejemplo, supongamos que sus entornos de proceso, tales como un clúster de Azure HDInsight y Azure Machine Learning, se encuentran en la región Europa Occidental. Puede crear y utilizar una instancia de Azure Data Factory de Europa del Norte. Después, puede usarla para programar trabajos en los entornos de proceso de Europa Occidental. Data Factory tarda unos milisegundos en desencadenar el trabajo en su entorno de proceso, pero el tiempo para ejecutar el trabajo en el entorno de proceso no cambia.
+Por ejemplo, supongamos que sus entornos de proceso, tales como un clúster de Azure HDInsight y Azure Machine Learning, se encuentran en la región Oeste de Europa. Puede crear y utilizar una instancia de Azure Data Factory de Norte de Europa. Después, puede usarla para programar trabajos en los entornos de proceso de Oeste de Europa. Data Factory tarda unos milisegundos en desencadenar el trabajo en su entorno de proceso, pero el tiempo para ejecutar el trabajo en el entorno de proceso no cambia.
 
 ## <a name="get-started-with-creating-a-pipeline"></a>Introducción a la creación de una canalización
 Puede usar una de esas herramientas o una de estas API para crear canalizaciones de datos en Azure Data Factory: 
@@ -140,7 +140,7 @@ Puede usar una de esas herramientas o una de estas API para crear canalizaciones
 
 Para aprender a compilar factorías de datos con canalizaciones de datos, siga las instrucciones paso a paso de los siguientes tutoriales:
 
-| Tutorial | DESCRIPCIÓN |
+| Tutorial | Descripción |
 | --- | --- |
 | [Movimiento de datos entre dos almacenes de datos en la nube](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Cree una factoría de datos con una canalización que mueva datos de Blob Storage a SQL Database. |
 | [Transformación de datos con el clúster de Hadoop](data-factory-build-your-first-pipeline.md) |Compile su primera instancia de Azure Data Factory con una canalización de datos que procese los datos al ejecutar un script de Hive en un clúster de Azure HDInsight (Hadoop). |

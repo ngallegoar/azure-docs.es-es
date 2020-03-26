@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 4ccf62dd8a249c9ba23bbb4510164b35a58db917
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72387401"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push localizadas a aplicaciones Windows mediante Azure Notification Hubs
@@ -46,7 +46,7 @@ En este tutorial, aprenderá a:
 > * Actualizar una aplicación de back-end para enviar notificaciones localizadas
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete el [Tutorial: Envío de notificaciones a dispositivos concretos (Plataforma universal de Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 

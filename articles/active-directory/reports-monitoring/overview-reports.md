@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b655fa2f12eac894e97c61cc931983aa58fff7a9
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74007922"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>¿Qué son los informes de Azure Active Directory?
@@ -37,7 +37,7 @@ La arquitectura de informes se basa en dos pilares principales:
 - [Informes de seguridad](#security-reports)
 - [Informes de actividad](#activity-reports)
 
-![Informes](./media/overview-reports/01.png)
+![Notificación](./media/overview-reports/01.png)
 
 
 ## <a name="security-reports"></a>Informes de seguridad

@@ -4,15 +4,15 @@ description: En este tutorial, aprenderá a hacer una copia de seguridad de una 
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.openlocfilehash: 3216404b04647e2fb5f15beb09b9a4ccd6648bba
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74171880"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure
 
-En este tutorial se muestra cómo hacer una copia de seguridad de una base de datos de SQL Server que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services. En este artículo, aprenderá a:
+En este tutorial se muestra cómo hacer una copia de seguridad de una base de datos de SQL Server que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services. En este artículo aprenderá a:
 
 > [!div class="checklist"]
 >
@@ -21,7 +21,7 @@ En este tutorial se muestra cómo hacer una copia de seguridad de una base de da
 > * Configurar la protección automática de las bases de datos.
 > * Ejecutar una copia de seguridad a petición.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para poder realizar copias de seguridad de la base de datos de SQL Server, primero debe comprobar si reúne las siguientes condiciones:
 
@@ -149,7 +149,7 @@ Configure la copia de seguridad de la manera siguiente:
 
     ![Área de notificaciones](./media/backup-azure-sql-database/notifications-area.png)
 
-### <a name="create-a-backup-policy"></a>Creación de una directiva de copia de seguridad
+### <a name="create-a-backup-policy"></a>Crear una directiva de copia de seguridad
 
 Una directiva de copia de seguridad define cuándo se realizan las copias de seguridad y cuánto tiempo se conservan.
 

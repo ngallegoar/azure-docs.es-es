@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 311bb367748be98af704ab11919abea6e38d0ff3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9d2d1985b23e1c7f5e0f7d9fd2795bd85e28ace0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588338"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214813"
 ---
 # <a name="connect-data-sources"></a>Conexión con orígenes de datos
 
@@ -56,7 +56,6 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
     - [Office 365](connect-office-365.md)
     - [ATP de Microsoft Defender](connect-microsoft-defender-advanced-threat-protection.md)
     - [Firewall de aplicaciones web de Microsoft](connect-microsoft-waf.md)
-    - [Eventos de seguridad de Windows](connect-windows-security-events.md) 
     - [Firewall de Windows](connect-windows-firewall.md)
     - [Eventos de seguridad de Windows](connect-windows-security-events.md)
 
@@ -91,7 +90,7 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
     - Servidores Linux
     - Otras nubes
     
-## Opciones de conexión del agente<a name="agent-options"></a>
+## <a name="agent-connection-options"></a>Opciones de conexión del agente<a name="agent-options"></a>
 
 Para conectar su dispositivo externo a Azure Sentinel, el agente debe implementarse en una máquina dedicada (máquina virtual o local) para admitir la comunicación entre el dispositivo y Azure Sentinel. Puede implementar el agente automáticamente o de forma manual. La implementación automática solo está disponible si su máquina dedicada es una nueva máquina virtual que crea en Azure. 
 

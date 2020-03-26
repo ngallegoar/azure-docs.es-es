@@ -9,10 +9,10 @@ ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 24173b553f30f652caf20b1ec7500fd9c4d2f7a0
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73241228"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Inicio rápido: Creación y supervisión de una topología de Apache Storm en Azure HDInsight
@@ -21,7 +21,7 @@ Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a 
 
 En esta guía de inicio rápido, usará un ejemplo del proyecto [storm-starter](https://github.com/apache/storm/tree/v2.0.0/examples/storm-starter) de Apache para crear y supervisar una topología de Apache Storm en un clúster de Apache Storm existente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Apache Storm en HDInsight. Consulte el artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **Storm** como **Tipo de clúster**.
 
@@ -55,7 +55,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
 
     En esta nueva página se ofrece la siguiente información:
 
-    |Propiedad | DESCRIPCIÓN |
+    |Propiedad | Descripción |
     |---|---|
     |Estadísticas de topología|Información básica sobre el rendimiento de la topología, organizada en ventanas de tiempo. Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.|
     |Spouts|Información básica sobre spouts, entre la que se incluye el último error que ha devuelto cada spout.|
@@ -72,7 +72,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
 
     En la nueva página se muestra la siguiente información:
 
-    |Propiedad | DESCRIPCIÓN |
+    |Propiedad | Descripción |
     |---|---|
     |Estadísticas de spouts/bolts|Información básica sobre el rendimiento de los componentes, organizada en ventanas de tiempo. Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.|
     |Estadísticas de entrada (solo bolt)|Información sobre los componentes que generan los datos que consume el bolt.|

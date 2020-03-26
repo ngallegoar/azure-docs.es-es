@@ -15,10 +15,10 @@ ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844996"
 ---
 # <a name="what-is-azure-network-watcher"></a>¿Qué es Azure Network Watcher?
@@ -27,7 +27,7 @@ Azure Network Watcher proporciona herramientas para supervisar, diagnosticar, ve
 
 ## <a name="monitoring"></a>Supervisión
 
-### <a name = "connection-monitor"></a>Supervisión de la comunicación entre una máquina virtual y un punto de conexión
+### <a name="monitor-communication-between-a-virtual-machine-and-an-endpoint"></a><a name = "connection-monitor"></a>Supervisión de la comunicación entre una máquina virtual y un punto de conexión
 
 Los puntos de conexión pueden ser otra máquina virtual (VM), un nombre de dominio completo (FQDN), un identificador uniforme de recursos (URI) o la dirección IPv4. La funcionalidad *monitor de conexión* supervisa la comunicación a intervalos regulares y le informa de los cambios de disponibilidad, latencia y topología de red entre la máquina virtual y el punto de conexión. Por ejemplo, podría tener una máquina virtual de servidor web que se comunica con una máquina virtual de servidor de base de datos. Alguna persona de su organización puede, sin su conocimiento, aplicar una ruta personalizada o una regla de seguridad de red a la máquina de servidor web o de servidor de base de datos o a la subred.
 
@@ -55,7 +55,7 @@ Cuando se implementa una máquina virtual, Azure aplica varias reglas de segurid
 
 Cuando se crea una red virtual, Azure crea varias rutas de salida predeterminadas para el tráfico de red. El tráfico saliente de todos los recursos, como las máquinas virtuales, implementados en una red virtual, se enruta por las rutas predeterminadas de Azure. Puede invalidar las rutas predeterminadas de Azure o crear rutas adicionales. Puede que una máquina virtual ya no pueda comunicarse con otros recursos debido a una ruta específica. La funcionalidad *Próximo salto* permite especificar una dirección IPv4 de origen y destino. La funcionalidad Próximo salto después comprueba la comunicación y le informa del tipo de próximo salto utilizado para enrutar el tráfico. A continuación, puede quitar, cambiar o agregar una ruta, para resolver un problema de enrutamiento. Obtenga más información sobre la funcionalidad [próximo salto](diagnose-vm-network-routing-problem.md).
 
-### <a name="connection-troubleshoot"></a>Diagnóstico de conexiones de salida desde una máquina virtual
+### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnóstico de conexiones de salida desde una máquina virtual
 
 La funcionalidad *Solución de problemas de conexión* permite probar una conexión entre una máquina virtual y otra máquina virtual, un FQDN, un URI o una dirección IPv4. La prueba devuelve información similar a la que se devuelve al usar la funcionalidad [monitor de conexión](#connection-monitor), pero prueba la conexión en un momento dado, en lugar de supervisarla con el tiempo, como bien hace la funcionalidad monitor de supervisión. Obtenga más información sobre cómo solucionar problemas de conexión con [connection-troubleshoot](network-watcher-connectivity-overview.md).
 

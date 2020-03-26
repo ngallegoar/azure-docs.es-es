@@ -17,10 +17,10 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5146675b6eefd11fc1e6875ed9009ece92753ffb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72028095"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implementación del complemento de interfaz de red de contenedor de Azure Virtual Network
@@ -31,7 +31,7 @@ El complemento de interfaz de red de contenedor (CNI) de Azure Virtual Network s
 
 ACS-Engine implementa un clúster de Kubernetes con una plantilla de Azure Resource Manager. La configuración del clúster se especifica en un archivo JSON que se pasa a la herramienta al generar la plantilla. Para ver la lista completa de las configuraciones de clúster compatibles y sus descripciones, consulte [Microsoft Azure Container Service Engine - definición de clúster](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md) (Motor de Microsoft Azure Container Service: definiciones de clúster). Este es el complemento de red predeterminado para los clústeres creados con ACS-Engine. Las siguientes opciones de configuración de red son importantes a la hora de configurar el complemento:
 
-  | Configuración                              | DESCRIPCIÓN                                                                                                           |
+  | Configuración                              | Descripción                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
   | firstConsecutiveStaticIP             | Dirección IP que se asigna al nodo maestro. Es una opción de configuración obligatoria.                                     |
   | clusterSubnet en kubernetesConfig | CIDR de la subred de red virtual donde se implementa el clúster y desde la cuál se asignan las direcciones IP a los pods.   |
@@ -39,7 +39,7 @@ ACS-Engine implementa un clúster de Kubernetes con una plantilla de Azure Resou
   | vnetCidr                             | CIDR de la red virtual en la que se va a implementar el clúster.                                                             |
   | max-Pods en kubeletConfig         | Número máximo de pods en cada máquina virtual de agente. Para el complemento, el valor predeterminado es 30. Puede especificar hasta 250.  |
 
-### <a name="example-configuration"></a>Configuración de ejemplo
+### <a name="example-configuration"></a>Ejemplo de configuración
 
 El siguiente ejemplo JSON es para un clúster con las siguientes propiedades:
 -   Un nodo maestro y dos nodos agente 

@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: 4c6a9a2b5991c9f99bf728ecfed144cc77e4c49a
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314341"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290473"
 ---
 # <a name="what-is-azure-machine-learning"></a>¿Qué es Azure Machine Learning?
 
@@ -66,7 +66,7 @@ También puede [automatizar el entrenamiento y optimización del modelo](tutoria
 
 Para realizar la implementación y el entrenamiento sin código o con poco código, pruebe:
 
-+ **Diseñador de Azure Machine Learning**
++ **Diseñador de Azure Machine Learning (versión preliminar)**
 
   Use el diseñador para preparar los datos, entrenar, probar, implementar, administrar y realizar un seguimiento de los modelos de aprendizaje automático sin necesidad de escribir código. No se requiere programación; conecte visualmente los conjuntos de datos y los módulos para construir el modelo. Pruebe el [tutorial del diseñador](tutorial-designer-automobile-price-train-score.md).
 
@@ -116,7 +116,7 @@ Azure Machine Learning funciona con otros servicios de la plataforma Azure y tam
 
 La cuenta de Azure Storage, los destinos de proceso y otros recursos se pueden usar de forma segura dentro de una red virtual para entrenar modelos y realizar la inferencia. Para más información, consulte [Protección de experimentos e inferencias en una red virtual](how-to-enable-virtual-network.md).
 
-## <a name="sku"></a>Basic Edition y Enterprise Edition
+## <a name="basic--enterprise-editions"></a><a name="sku"></a>Basic Edition y Enterprise Edition
 
 Azure Machine Learning ofrece dos ediciones adaptadas a sus necesidades de aprendizaje automático:
 + Basic (disponibilidad general)

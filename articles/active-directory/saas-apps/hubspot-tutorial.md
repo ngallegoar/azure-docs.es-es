@@ -17,10 +17,10 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c4b235426a7029abb9bb79ba56e582cccc3b14a6
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68944450"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integración de Azure Active Directory con HubSpot
@@ -35,7 +35,7 @@ La integración de HubSpot con Azure AD le proporciona las siguientes ventajas:
 
 Para más información acerca de la integración de aplicaciones SaaS (software como servicio) con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con HubSpot, necesita los siguientes elementos:
 
@@ -55,7 +55,7 @@ HubSpot admite las siguientes características:
 
 Para integrar HubSpot con Azure AD, debe agregar HubSpot a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Seleccione **Azure Active Directory** en el menú izquierdo.
 
@@ -79,14 +79,14 @@ En esta sección, podrá configurar y probar el inicio de sesión único de Azur
 
 Para configurar y probar el inicio de sesión único de Azure AD con HubSpot, es preciso completar los siguientes bloques de creación:
 
-| Tarea | DESCRIPCIÓN |
+| Tarea | Descripción |
 | --- | --- |
 | **[Configuración del inicio de sesión único en Azure AD](#configure-azure-ad-single-sign-on)** | Permite que los usuarios usen esta característica. |
 | **[Configuración del inicio de sesión único de HubSpot](#configure-hubspot-single-sign-on)** | Configura los valores de inicio de sesión único en la aplicación. |
 | **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** | Prueba el inicio de sesión único de Azure AD con el usuario Britta Simon. |
 | **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** | Permite que Britta Simon use el inicio de sesión único de Azure AD. |
 | **[Creación de un usuario de prueba de HubSpot](#create-a-hubspot-test-user)** | Crea un homólogo de Britta Simon en HubSpot que está vinculado a la representación del usuario en Azure AD. |
-| **[Prueba del inicio de sesión único](#test-single-sign-on)** | Comprueba que la configuración funciona. |
+| **[Prueba de inicio de sesión único](#test-single-sign-on)** | Comprueba que la configuración funciona. |
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 

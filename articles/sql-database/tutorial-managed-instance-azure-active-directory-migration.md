@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
 ms.openlocfilehash: 2c8d7252b4e4ca8caa465727c0d2328c4aafaefb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227920"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Tutorial: Migración de los grupos y usuarios de Windows locales de SQL Server a una instancia administrada de Azure SQL Database mediante la sintaxis DDL de T-SQL
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 > - Migrar manualmente los usuarios a la instancia administrada mediante la sintaxis ALTER USER
 > - Probar la autenticación con los nuevos usuarios asignados
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial son necesarios los siguientes requisitos previos:
 
@@ -75,7 +75,7 @@ Reasigna un usuario al inicio de sesión de Azure AD
 _groupName_</br>
 Especifica el nombre del grupo identificado en la base de datos.
 
-## <a name="part-1-create-logins-for-sql-server-on-premises-users-and-groups"></a>Parte 1: Creación de inicios de sesión para usuarios y grupos locales de SQL Server
+## <a name="part-1-create-logins-for-sql-server-on-premises-users-and-groups"></a>Parte 1: Creación de inicios de sesión para usuarios y grupos locales de SQL Server
 
 > [!IMPORTANT]
 > La siguiente sintaxis crea un inicio de sesión de un usuario y un grupo en SQL Server. Deberá asegurarse de que el usuario y el grupo existen dentro de Active Directory antes de ejecutar la siguiente sintaxis. </br> </br>
@@ -114,7 +114,7 @@ create database migration
 go
 ```
 
-## <a name="part-2-create-windows-users-and-groups-then-add-roles-and-permissions"></a>Parte 2: Creación de usuarios y grupos de Windows y, a continuación, incorporación de roles y permisos
+## <a name="part-2-create-windows-users-and-groups-then-add-roles-and-permissions"></a>Parte 2: Creación de usuarios y grupos de Windows y, a continuación, incorporación de roles y permisos
 
 Use la siguiente sintaxis para crear el usuario de prueba.
 
@@ -200,7 +200,7 @@ select * from test;
 go
 ```
 
-## <a name="part-3-backup-and-restore-the-individual-user-database-to-managed-instance"></a>Parte 3: Realización de una copia de seguridad y restauración de la base de datos de usuario individual en una instancia administrada
+## <a name="part-3-backup-and-restore-the-individual-user-database-to-managed-instance"></a>Parte 3: Realización de una copia de seguridad y restauración de la base de datos de usuario individual en una instancia administrada
 
 Cree una copia de seguridad de la base de datos de migración mediante las indicaciones del artículo [Copy Databases with Backup and Restore](/sql/relational-databases/databases/copy-databases-with-backup-and-restore) (Copia de bases de datos con copia de seguridad y restauración), o use la siguiente sintaxis:
 
@@ -220,7 +220,7 @@ Consulte [Inicio rápido: Restauración de una base de datos en una instancia ad
 
 Ejecute el comando ALTER USER para completar el proceso de migración en la instancia administrada.
 
-1. Inicie sesión en la instancia administrada mediante la cuenta de administrador de Azure AD para la instancia administrada. A continuación, cree el inicio de sesión de Azure AD en la instancia administrada mediante la siguiente sintaxis. Para más información, consulte [Tutorial: Seguridad de una instancia administrada de Azure SQL Database mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)](sql-database-managed-instance-aad-security-tutorial.md).
+1. Inicie sesión en la instancia administrada mediante la cuenta de administrador de Azure AD para la instancia administrada. A continuación, cree el inicio de sesión de Azure AD en la instancia administrada mediante la siguiente sintaxis. Para más información, consulte el [Tutorial: Seguridad de una instancia administrada de Azure SQL Database mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master 

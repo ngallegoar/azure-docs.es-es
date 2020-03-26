@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: acf5f3cdf761e1773d6e9384a4ceb99a645ed7cc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74773541"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Inicio rápido: Creación de una Base de datos de Azure para el servidor MySQL con la CLI de Azure
@@ -47,12 +47,12 @@ Cree un servidor de Azure Database for MySQL con el comando **[az mysql server c
 
 **Configuración** | **Valor de ejemplo** | **Descripción**
 ---|---|---
-Nombre | mydemoserver | Elija un nombre único que identifique al servidor de Azure Database for MySQL. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
+name | mydemoserver | Elija un nombre único que identifique al servidor de Azure Database for MySQL. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
 resource-group | myresourcegroup | Especifique el nombre del grupo de recursos de Azure.
 sku-name | GP_Gen5_2 | El nombre de la SKU. Sigue la convención {plan de tarifa}\_{generación de procesos}\_{núcleos virtuales} en forma abreviada. En esta misma tabla puede obtener más información acerca del parámetro sku-name.
 backup-retention | 7 | Cuánto tiempo deben conservarse las copias de seguridad. La unidad es días. El intervalo es 7-35. 
 geo-redundant-backup | Disabled | Si se deben habilitar las copias de seguridad con redundancia geográfica en este servidor o no. Valores permitidos: Enabled (Habilitada), Disabled (Deshabilitada).
-location | westus | La ubicación de Azure para el servidor.
+ubicación | westus | La ubicación de Azure para el servidor.
 ssl-enforcement | habilitado | Si debe ssl debe habilitarse, o no, en este servidor. Valores permitidos: Enabled (Habilitada), Disabled (Deshabilitada).
 storage-size | 51200 | La capacidad de almacenamiento del servidor (la unidad es megabytes). El tamaño de almacenamiento válido un mínimo de 5120 MB y aumenta en incrementos de 1024 MB. Consulte el documento de los [planes de tarifa](./concepts-pricing-tiers.md) para más información acerca de los límites de tamaño de almacenamiento. 
 version | 5.7 | La versión principal de MySQL.
@@ -67,7 +67,7 @@ El valor del parámetro sku-name sigue la convención {plan de tarifa}\_{generac
 
 Para comprender cuáles son los valores válidos por región y nivel consulte la documentación sobre [planes de tarifa](./concepts-pricing-tiers.md).
 
-En el ejemplo siguiente se crea un servidor MySQL 5.7 llamado `mydemoserver` en la región Oeste de EE. UU., en el grupo de recursos `myresourcegroup` y con el inicio de sesión de administrador de servidor `myadmin`. Se trata de un servidor **Gen 4** de **uso general** con **2 núcleos virtuales**. Sustituya `<server_admin_password>` por su propio valor.
+En el ejemplo siguiente se crea un servidor MySQL 5.7 llamado `mydemoserver` en la región Oeste de EE. UU., en el grupo de recursos `myresourcegroup` y con el inicio de sesión de administrador de servidor `myadmin`. Se trata de un servidor **Gen 4** de **uso general** con **dos núcleos virtuales**. Sustituya `<server_admin_password>` por su propio valor.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
@@ -208,7 +208,7 @@ mysql>
 |---|---|---|
 |   Nombre de la conexión | Mi conexión | Especifique una etiqueta para esta conexión (puede ser cualquier cosa) |
 | Método de conexión | elija Estándar (TCP/IP) | Use el protocolo TCP/IP para conectarse a Azure Database for MySQL> |
-| Nombre de host. | mydemoserver.mysql.database.azure.com | Nombre del servidor que anotó anteriormente. |
+| Hostname | mydemoserver.mysql.database.azure.com | Nombre del servidor que anotó anteriormente. |
 | Port | 3306 | Se usa el puerto predeterminado para MySQL. |
 | Nombre de usuario | myadmin@mydemoserver | El inicio de sesión de administrador del servidor que anotó anteriormente. |
 | Contraseña | **** | Use la contraseña de la cuenta de administrador que configuró anteriormente. |

@@ -14,19 +14,19 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 800dbfc05c47a949bf024e9a5c671979b49ad201
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68639976"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparación de los datos para realizar una agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar)
 
 En la primera parte de esta serie de tres tutoriales importará y preparará los datos de una base de datos de Azure SQL mediante R. Más adelante en la serie usará estos datos para entrenar e implementar un modelo de Machine Learning de agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar).
 
-La *agrupación en clústeres* consiste en organizar los datos en grupos en los que los miembros de un grupo son semejantes de alguna manera.
-Use el algoritmo **K-Means** para realizar la agrupación en clústeres de los clientes en un conjunto de datos de compras y devoluciones de productos. Mediante la agrupación en clústeres de los clientes, puede centrar los esfuerzos de marketing más eficazmente determinando varios grupos específicos como objetivo.
-La agrupación en clústeres K-Means es un algoritmo de *aprendizaje no supervisado* que busca patrones en los datos basándose en semejanzas.
+*Agrupar en clústeres* es organizar datos en grupos, donde los miembros de un grupo son de alguna forma similares.
+Usará el algoritmo **k-means** para realizar la agrupación de clientes en clústeres en un conjunto de datos de compras y devoluciones de productos. Al agrupar los clientes en clústeres, puede centrar sus actividades de marketing de forma más eficaz al dirigirse a grupos específicos.
+La agrupación en clústeres k-means es un algoritmo de *aprendizaje no supervisado* que analiza patrones en datos basándose en similitudes.
 
 En las partes uno y dos de esta serie, va a desarrollar algunos scripts de R en RStudio para preparar los datos y entrenar un modelo de Machine Learning. Luego, en la tercera parte, ejecutará esos scripts de R en una base de datos SQL mediante procedimientos almacenados.
 
@@ -43,7 +43,7 @@ En la [tercera parte](sql-database-tutorial-clustering-model-deploy.md) aprender
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure: si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -57,11 +57,11 @@ En la [tercera parte](sql-database-tutorial-clustering-model-deploy.md) aprender
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="import-the-sample-database"></a>Importación de la base de datos de ejemplo
 
-El conjunto de datos de ejemplo usado en este tutorial se ha guardado en un archivo de copia de seguridad de base de datos **.bacpac** para que pueda descargarlo y usarlo. Este conjunto de datos se deriva del conjunto de datos [tpcx-bb](http://www.tpc.org/tpcx-bb/default.asp) que proporciona el [Consejo de rendimiento de procesamiento de transacciones (TPC)](http://www.tpc.org/default.asp).
+El conjunto de datos de ejemplo usado en este tutorial se ha guardado en un archivo de copia de seguridad de base de datos **.bacpac** para que pueda descargarlo y usarlo. Este conjunto de datos se basa en el conjunto de datos [tpcx-bb](http://www.tpc.org/tpcx-bb/default.asp) proporcionado por [Transaction Processing Performance Council (TPC)](http://www.tpc.org/default.asp).
 
 1. Descargue el archivo [tpcxbb_1gb.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
 
@@ -71,14 +71,14 @@ El conjunto de datos de ejemplo usado en este tutorial se ha guardado en un arch
    * Durante la versión preliminar pública, elija la configuración **Gen5/vCore** (Gen5/Núcleo virtual) para la nueva base de datos.
    * Llame a la nueva base de datos "tpcxbb_1gb".
 
-## <a name="separate-customers"></a>Clientes independientes
+## <a name="separate-customers"></a>Separación de clientes
 
 Cree un archivo de RScript en RStudio y ejecute el siguiente script.
 En la consulta SQL, está dividiendo a los clientes entre las dimensiones siguientes:
 
-* **orderRatio** = proporción de pedidos devueltos (número total de pedidos devueltos parcial o totalmente en comparación con el número total de pedidos)
-* **itemsRatio** = proporción de artículos devueltos (número total de artículos devueltos en comparación con el número de artículos comprados)
-* **monetaryRatio** = proporción de importe devuelto (importe monetario total de los artículos en comparación con el importe adquirido)
+* **orderRatio** = índice de devolución de pedidos (número total de pedidos con una devolución total o parcial comparado con el número total de pedidos)
+* **itemsRatio** = índice de artículos devueltos (número total de artículos devueltos comparado con el número de artículos comprados)
+* **monetaryRatio** = índice de importes de devoluciones (total de importes monetarios de los artículos devueltos comparado con el importe de las compras)
 * **frequency** = frecuencia de devolución
 
 En la función **paste**, reemplace **Server**, **UID** y **PWD** por su propia información de conexión.
@@ -182,7 +182,7 @@ customer_data <- rxDataStep(customer_returns);
 head(customer_data, n = 5);
 ```
 
-Verá unos resultados parecidos a estos:
+Se mostrarán resultados similares a los siguientes.
 
 ```results
   customer orderRatio itemsRatio monetaryRatio frequency
@@ -206,7 +206,7 @@ En Azure Portal, haga lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En la primera parte de esta serie de tutoriales, realizó estos pasos:
+En la parte uno de esta serie de tutoriales, ha completado estos pasos:
 
 * Importar una base de datos de ejemplo en una base de datos de Azure SQL
 * Separar clientes en diferentes dimensiones mediante R

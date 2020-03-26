@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158148"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticación de Azure SignalR Service con Azure Functions
@@ -25,7 +25,7 @@ Un tutorial detallado para crear un salón de chat con autenticación y mensajer
 * [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu): Difusión de nuevos mensajes a los clientes de chat conectados
 * [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu): Hospedaje del sitio web estático para la interfaz de usuario del cliente de chat
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 El siguiente software es necesario para poder seguir este tutorial.
 
@@ -41,26 +41,26 @@ El siguiente software es necesario para poder seguir este tutorial.
 
 Vaya a [Azure Portal](https://portal.azure.com/) e inicie sesión con sus credenciales.
 
-## <a name="create-an-azure-signalr-service-instance"></a>Creación de una instancia de Azure SignalR Service
+## <a name="create-an-azure-signalr-service-instance"></a>Creación de una instancia del servicio Azure SignalR
 
 Va a compilar y probar la aplicación de Azure Functions localmente. La aplicación accederá a la instancia de Azure SignalR Service que se debe crear con antelación.
 
 1. Haga clic en el botón **Crear un recurso** ( **+** ) para crear un nuevo recurso de Azure.
 
-1. Busque **SignalR Service** y selecciónelo. Haga clic en **Create**(Crear).
+1. Busque **SignalR Service** y selecciónelo. Haga clic en **Crear**.
 
     ![Nueva instancia de SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
 1. Escriba la siguiente información.
 
-    | NOMBRE | Valor |
+    | Nombre | Value |
     |---|---|
     | Nombre del recurso | Un nombre único para la instancia del servicio SignalR |
     | Resource group | Cree un grupo de recursos y asígnele con un nombre único |
     | Location | Selección de una ubicación cercana a usted |
     | Nivel de precios | Gratuito |
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 1. Una vez implementada la instancia, ábrala en el portal y busque su página de configuración. Cambie la configuración del modo de servicio a *Sin servidor*.
 
@@ -145,11 +145,11 @@ Cuando se abre la aplicación de chat por primera vez en el explorador, este req
 
 1. Cuando se le solicite, proporcione la siguiente información.
 
-    | NOMBRE | Valor |
+    | Nombre | Value |
     |---|---|
     | Carpeta de la aplicación de función | Seleccione la carpeta de proyecto principal. |
     | Plantilla | Desencadenador HTTP |
-    | NOMBRE | negotiate |
+    | Nombre | negotiate |
     | Nivel de autorización | Anónimas |
 
     Se crea una carpeta denominada **negotiate** que contiene la nueva función.
@@ -204,11 +204,11 @@ La aplicación web también necesita una API de HTTP para enviar mensajes de cha
 
 1. Cuando se le solicite, proporcione la siguiente información.
 
-    | NOMBRE | Valor |
+    | Nombre | Value |
     |---|---|
     | Carpeta de la aplicación de función | Selección de la carpeta de proyecto principal |
     | Plantilla | Desencadenador HTTP |
-    | NOMBRE | SendMessage |
+    | Nombre | SendMessage |
     | Nivel de autorización | Anónimas |
 
     Se crea una carpeta denominada **SendMessage** que contiene la nueva función.
@@ -315,7 +315,7 @@ Para una aplicación de función que se ejecute en Azure, se necesita una cuenta
 
 1. Escriba la siguiente información.
 
-    | NOMBRE | Valor |
+    | Nombre | Value |
     |---|---|
     | Subscription | Seleccione la suscripción que contenga la instancia de SignalR Service |
     | Resource group | Seleccione el mismo grupo de recursos |
@@ -371,7 +371,7 @@ Cuando se envía un mensaje, la aplicación puede decidir enviarlo a todos los c
 
 1. Cuando se le solicite, proporcione la siguiente información.
 
-    | NOMBRE | Valor |
+    | Nombre | Value |
     |---|---|
     | Carpeta de implementación | Seleccione la carpeta de proyecto principal. |
     | Subscription | Seleccione su suscripción. |
@@ -390,7 +390,7 @@ Cuando se envía un mensaje, la aplicación puede decidir enviarlo a todos los c
 
 1. Cuando se le solicite, proporcione la siguiente información.
 
-    | NOMBRE | Valor |
+    | Nombre | Value |
     |---|---|
     | Archivo de configuración local | local.settings.json |
     | Subscription | Seleccione su suscripción. |
@@ -449,7 +449,7 @@ La aplicación web se hospedará mediante la característica de sitios web está
 
 1. Escriba los siguientes valores:
 
-    | NOMBRE | Valor |
+    | Nombre | Value |
     |---|---|
     | Subscription | Seleccione su suscripción. |
     | Cuenta de almacenamiento | Seleccione la cuenta de almacenamiento que creó anteriormente |

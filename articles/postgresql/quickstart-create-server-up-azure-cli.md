@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.openlocfilehash: fe15c02286223ec0829b31664811b7f589cf16aa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74774839"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Inicio rápido: Usar un comando de la CLI de Azure, az postgres up (versión preliminar), para crear una instancia de Azure Database for PostgreSQL: servidor único
@@ -21,7 +21,7 @@ ms.locfileid: "74774839"
 
 Azure Database for PostgreSQL es un servicio administrado que le permite ejecutar, administrar y escalar bases de datos de PostgreSQL de alta disponibilidad en la nube. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En este inicio rápido se muestra cómo usar el comando [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) para crear un servidor Azure Database for PostgreSQL mediante la CLI de Azure. Además de crear el servidor, el comando `az postgres up` crea una base de datos de ejemplo, un usuario raíz en la base de datos, abre el firewall para servicios de Azure y crea reglas de firewall predeterminadas para el equipo cliente. Estos valores predeterminados ayudan a acelerar el proceso de desarrollo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -62,7 +62,7 @@ resource-group | Generado por el sistema | Un nuevo grupo de recursos de Azure.
 sku-name | GP_Gen5_2 | El nombre de la SKU. Sigue la convención {plan de tarifa}\_{generación de procesos}\_{núcleos virtuales} en forma abreviada. El valor predeterminado es un servidor de uso general Gen5 con 2 núcleos virtuales. Consulte nuestra [página de precios](https://azure.microsoft.com/pricing/details/postgresql/) para más información acerca de los niveles.
 backup-retention | 7 | El tiempo durante el cual se conserva la copia de seguridad. La unidad es días.
 geo-redundant-backup | Disabled | Si se deben habilitar las copias de seguridad con redundancia geográfica en este servidor o no.
-location | westus2 | La ubicación de Azure para el servidor.
+ubicación | westus2 | La ubicación de Azure para el servidor.
 ssl-enforcement | Disabled | Si debe ssl debe habilitarse, o no, en este servidor.
 storage-size | 5120 | La capacidad de almacenamiento del servidor (la unidad es megabytes).
 version | 10 | La versión principal de PostgreSQL.

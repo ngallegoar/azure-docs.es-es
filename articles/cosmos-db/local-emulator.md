@@ -7,11 +7,11 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
 ms.openlocfilehash: 287933de6403d680c5aa5b6c78df49abe5f2ac56
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591377"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222132"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Uso del emulador de Azure Cosmos para desarrollo y pruebas locales
 
@@ -227,7 +227,7 @@ El certificado X.509 puede importarse en el almacén de certificados de Java sig
 
 Al conectarse al emulador desde los SDK de Node.js y Python, se deshabilita la verificación de SSL.
 
-## <a id="command-line"></a>Referencia de la herramienta de la línea de comandos
+## <a name="command-line-tool-reference"></a><a id="command-line"></a>Referencia de la herramienta de la línea de comandos
 Desde la ubicación de instalación, puede usar la línea de comandos para iniciar y detener el emulador, configurar las opciones y realizar otras operaciones.
 
 ### <a name="command-line-syntax"></a>Sintaxis de línea de comandos
@@ -276,7 +276,7 @@ Para ver la lista de opciones, escriba `Microsoft.Azure.Cosmos.Emulator.exe /?` 
 | Coherencia | Defina el nivel de coherencia predeterminado de la cuenta. | Microsoft.Azure.Cosmos.Emulator.exe /Consistency=\<consistency\> | \<consistency\>: el valor debe ser de uno de los siguientes [niveles de consistencia](consistency-levels.md): Sesión, Strong, Eventual o BoundedStaleness. El valor predeterminado es Session. |
 | ? | Se muestra el mensaje de ayuda.| | |
 
-## <a id="set-partitioncount"></a>Cambio del número de contenedores
+## <a name="change-the-number-of-containers"></a><a id="set-partitioncount"></a>Cambio del número de contenedores
 
 De forma predeterminada se pueden crear hasta 25 contenedores de tamaño fijo (solo compatibles con los SDK de Azure Cosmos DB) o 5 contenedores ilimitados con el emulador de Azure Cosmos. Al modificar el valor de **PartitionCount**, se pueden crear hasta 250 contenedores de tamaño fijo o 50 contenedores ilimitados, o cualquier combinación de los dos que no supere los 250 contenedores de tamaño fijo (un contenedor ilimitado = 5 contenedores de tamaño fijo). Sin embargo, no se recomienda configurar el emulador para que se ejecute con más de 200 contenedores de tamaño fijo. Esto se debe a la sobrecarga añadida a las operaciones de E/S del disco, que producen tiempos de expiración impredecibles al usar las API de punto de conexión.
 
@@ -421,7 +421,7 @@ Para abrir el Explorador de datos vaya a la siguiente dirección URL en el explo
 
 Si tiene una aplicación cliente de .NET que se ejecuta en un contenedor de Docker de Linux y ejecuta el emulador de Azure Cosmos en un equipo host, siga la sección siguiente para Linux para importar el certificado en el contenedor de Docker de Linux.
 
-## Ejecución en Mac o Linux<a id="mac"></a>
+## <a name="running-on-mac-or-linux"></a>Ejecución en Mac o Linux<a id="mac"></a>
 
 Actualmente, el emulador de Cosmos solo se puede ejecutar en Windows. Los usuarios con Mac o Linux pueden ejecutar el emulador en una máquina virtual Windows hospedada por un hipervisor como Parallels o VirtualBox. A continuación se muestran los pasos necesarios para habilitarlo.
 
@@ -505,7 +505,7 @@ Use las siguientes sugerencias para solucionar los problemas que podrían surgir
 
 - Mientras se ejecuta el emulador, si el equipo entra en modo de suspensión o se ejecuta alguna actualización del sistema operativo, es posible que aparezca un mensaje del tipo **el servicio no está disponible en estos momentos**. Restablezca el emulador; para ello, haga clic con el botón derecho en el icono que aparece en la bandeja de notificaciones de Windows y seleccione **Reset Data** (Restablecer datos).
 
-### <a id="trace-files"></a>Recopilación de archivos de seguimiento
+### <a name="collect-trace-files"></a><a id="trace-files"></a>Recopilación de archivos de seguimiento
 
 Para recopilar los seguimientos de depuración, ejecute los siguientes comandos desde un símbolo del sistema administrativo:
 
@@ -518,7 +518,7 @@ Para recopilar los seguimientos de depuración, ejecute los siguientes comandos 
 7. Vaya a `%ProgramFiles%\Azure Cosmos DB Emulator` y localice el archivo docdbemulator_000001.etl.
 8. Abra una incidencia de soporte técnico en [Azure Portal](https://portal.azure.com) e incluya el archivo .etl junto con los pasos de reproducción.
 
-### <a id="uninstall"></a>Desinstalación del emulador local
+### <a name="uninstall-the-local-emulator"></a><a id="uninstall"></a>Desinstalación del emulador local
 
 1. Cierre todas las instancias abiertas del emulador local; para ello, haga clic con el botón derecho en el icono del emulador de Azure Cosmos en la bandeja del sistema y haga clic en Salir. Todas las instancias pueden tardar un minuto en salir.
 2. En el cuadro de búsqueda de Windows, escriba **Aplicaciones y características** y haga clic en el resultado **Aplicaciones y características (configuración del sistema)** .

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 10/23/2019
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 9fcf178b71ac1f07bfb58cd2502701ae5392b472
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158392"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementación desde GitHub en Azure App Service con la integración e implementación continuas de Jenkins
@@ -33,7 +33,7 @@ En este tutorial va a completar estas tareas:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita estos elementos:
 
@@ -158,7 +158,7 @@ Esta es la salida que genera el comando **`create-for-rbac`** :
 
    ![Agregar credenciales de la entidad de servicio de Azure](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-service-principal-credentials.png)
 
-   | Propiedad | Valor | DESCRIPCIÓN | 
+   | Propiedad | Value | Descripción | 
    |----------|-------|-------------| 
    | **Subscription ID** | <*yourAzureSubscription-ID*> | El valor GUID de la suscripción de Azure <p>**Sugerencia**: si no conoce el identificador de suscripción de Azure, ejecute este comando de la CLI de Azure en la línea de comandos o en Cloud Shell y, a continuación, utilice el valor GUID `id`: <p>`az account list` | 
    | **Id. de cliente** | <*yourAzureServicePrincipal-ID*> | El valor GUID `appId` que se generó anteriormente para la entidad de servicio de Azure | 

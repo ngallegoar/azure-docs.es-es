@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual mach
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: fb8d2a4bfca32be4575ca8f11018e5cab17cd9a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156817"
 ---
 # <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Escalabilidad automática de los conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
@@ -29,7 +29,7 @@ La característica de ajuste automático del número de instancias de máquina v
 > * Recuperación de la información de configuración de escalabilidad automática 
 > * Deshabilitación de una configuración de escalabilidad automática
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
@@ -77,7 +77,7 @@ Guarde el siguiente cuaderno de estrategias como `vmss-auto-scale.yml`:
               - '10'
 ```
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook vmss-auto-scale.yml
@@ -171,7 +171,7 @@ Guarde el siguiente cuaderno de estrategias como `vmss-auto-scale-metrics.yml`:
             value: '1'
 ```
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook vmss-auto-scale-metrics.yml
@@ -199,7 +199,7 @@ Guarde el siguiente cuaderno de estrategias como `vmss-auto-scale-get-settings.y
         var: autoscale_query.autoscales[0]
 ```
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook vmss-auto-scale-get-settings.yml
@@ -226,7 +226,7 @@ Guarde el siguiente cuaderno de estrategias como `vmss-auto-scale-delete-setting
          state: absent
 ```
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 vmss-auto-scale-delete-setting.yml

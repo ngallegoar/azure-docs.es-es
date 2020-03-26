@@ -4,10 +4,10 @@ description: Tutorial que muestra cómo implementar una red virtual local en Azu
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 361f9919fdd406a1fef6bbf2b7512dbc20266a54
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159208"
 ---
 # <a name="tutorial-create-on-premises-virtual-network-in-azure-using-terraform"></a>Tutorial: Creación de una red virtual local en Azure con Terraform
@@ -18,13 +18,13 @@ Se explican las siguientes tareas:
 
 > [!div class="checklist"]
 > * Uso de HCL (HashiCorp Language) para implementar una red virtual en topología en estrella tipo hub-and-spoke
-> * Uso de Terraform para crear recursos de dispositivos de red del concentrador
+> * Uso de Terraform para crear recursos de dispositivo de red del centro
 > * Uso de Terraform para crear una máquina virtual local
 > * Uso de Terraform para crear una puerta de enlace de red privada virtual local
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-1. [Creación de una topología de red híbrida en topología en estrella tipo hub-and-spoke con Terraform en Azure](./terraform-hub-spoke-introduction.md).
+1. [Creación de una topología de red híbrida en estrella tipo hub-and-spoke con Terraform en Azure](./terraform-hub-spoke-introduction.md).
 
 ## <a name="create-the-directory-structure"></a>Creación de la estructura de directorios
 

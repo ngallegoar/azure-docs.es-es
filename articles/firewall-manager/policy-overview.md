@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 1308f4ba3335f2fd2633f6e39a679cd6477a4b5c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77444955"
 ---
 # <a name="azure-firewall-manager-preview-policy-overview"></a>Información general sobre las directivas de Azure Firewall Manager (versión preliminar)
@@ -59,7 +59,7 @@ Azure Firewall admite las reglas y las directivas tradicionales. En la siguiente
 
 ## <a name="pricing"></a>Precios
 
-Las directivas se facturan en función de las asociaciones del firewall. Una directiva con una asociación de firewall o ninguna es gratuita. Una directiva con varias asociaciones de firewall se factura a una tarifa fija. Para más información, consulte [Precios de Azure Firewall Manager](https://azure.microsoft.com/pricing/details/firewall-manager/).
+Las directivas se facturan en función de las asociaciones del firewall. Una directiva con una o cero asociaciones de firewall es gratuita. Una directiva con varias asociaciones de firewall se factura según una tarifa fija. Para más información, consulte [Precios de Azure Firewall Manager](https://azure.microsoft.com/pricing/details/firewall-manager/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
