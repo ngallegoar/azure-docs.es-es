@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 3d9d1240e31d40a3d9c75d56314acc1721d90b99
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73488141"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>¿Qué es Azure Internet Analyzer? (versión preliminar)
@@ -39,12 +39,12 @@ Durante la versión preliminar están disponibles los siguientes puntos de conex
     * Sur de Brasil
     * Centro de la India
     * Centro de EE. UU.
-    * Asia oriental
+    * Este de Asia
     * Este de EE. UU.
     * Japón Occidental
     * Norte de Europa
     * Norte de Sudáfrica
-    * Sudeste asiático 
+    * Sudeste de Asia 
     * Norte de Emiratos Árabes Unidos
     * Oeste de Reino Unido  
     * Oeste de Europa
@@ -84,7 +84,7 @@ Aunque Internet Analyzer puede responder a muchas preguntas, algunas de las más
 * ¿Cuál es la mejor nube para su población de usuarios finales en cada región? 
     *  *Prueba sugerida: personalizado (otro servicio en la nube) frente a Azure (cualquier punto de conexión preconfigurado)*
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Para usar Internet Analyzer, configure un recurso de Internet Analyzer en Microsoft Azure Portal e instale el pequeño cliente de JavaScript en la aplicación. El cliente mide la latencia entre los usuarios finales y los puntos de conexión seleccionados, para lo cual descarga una imagen de un píxel a través de HTTPS. Después de recopilar las medidas de latencia, el cliente envía los datos a Internet Analyzer.
 
