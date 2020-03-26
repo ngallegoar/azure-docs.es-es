@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
 ms.openlocfilehash: 5440333360549c5df2da57c97b24dcc77436ba4b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70072700"
 ---
 # <a name="add-an-api-manually"></a>Adición manual de una API
@@ -27,7 +27,7 @@ Si desea importar una API existente, consulte la sección de [temas relacionados
 
 En este artículo, creará una API en blanco y especificará [httpbin.org](https://httpbin.org) (un servicio de prueba público) como API de back-end.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 
@@ -85,7 +85,7 @@ En esta sección se explica cómo agregar una operación que toma un parámetro.
 
 ### <a name="add-the-operation"></a>Adición de la operación
 
-1. Seleccione API que creó en los pasos anteriores.
+1. Seleccione la API que creó en los pasos anteriores.
 2. Haga clic en **+ Agregar operación**.
 3. En la **URL**, seleccione **GET** y escriba " */status/{code}* " en el recurso. Si lo desea, puede proporcionar cierta información asociada a este parámetro. Por ejemplo, escriba "*Número*" en **TYPE** y "*200*" (valor predeterminado) en **VALUES**.
 4. Escriba "GetStatus" en **Nombre para mostrar**.

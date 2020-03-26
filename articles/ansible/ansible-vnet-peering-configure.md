@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, networking, peering
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 78699a005d721b46a88a26452f5db68438793d34
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155728"
 ---
 # <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Tutorial: Configuración del emparejamiento de redes virtuales de Azure con Ansible
@@ -27,7 +27,7 @@ El tráfico entre máquinas virtuales de la misma red virtual se enruta mediante
 > * Emparejar las dos redes virtuales.
 > * Eliminación del emparejamiento entre las dos redes
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -36,7 +36,7 @@ El tráfico entre máquinas virtuales de la misma red virtual se enruta mediante
 
 Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para lo siguiente:
+El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para:
 
 - Crear dos grupos de recursos. 
 
@@ -53,10 +53,10 @@ El código del cuaderno de estrategias de ejemplo de esta sección se utiliza pa
 
 ## <a name="create-the-first-virtual-network"></a>Crear la primera red virtual.
 
-El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para lo siguiente:
+El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para:
 
 - Creación de una red virtual
-- Crear una subred dentro de la red virtual.
+- Crear una subred dentro de la red virtual
 
 ```yml
   - name: Create first virtual network
@@ -74,10 +74,10 @@ El código del cuaderno de estrategias de ejemplo de esta sección se utiliza pa
 
 ## <a name="create-the-second-virtual-network"></a>Crear la segunda red virtual.
 
-El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para lo siguiente:
+El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para:
 
 - Creación de una red virtual
-- Crear una subred dentro de la red virtual.
+- Crear una subred dentro de la red virtual
 
 ```yml
   - name: Ceate second virtual network
@@ -95,7 +95,7 @@ El código del cuaderno de estrategias de ejemplo de esta sección se utiliza pa
 
 ## <a name="peer-the-two-virtual-networks"></a>Emparejar las dos redes virtuales.
 
-El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para lo siguiente:
+El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para:
 
 - Inicializar el emparejamiento de las redes virtuales.
 - Emparejar las dos redes virtuales creadas previamente.
@@ -126,7 +126,7 @@ El código del cuaderno de estrategias de ejemplo de esta sección se utiliza pa
 
 ## <a name="delete-the-virtual-network-peering"></a>Eliminar el emparejamiento de las redes virtuales.
 
-El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para lo siguiente:
+El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para:
 
 - Eliminar el emparejamiento entre las dos redes virtuales creadas previamente.
 
@@ -290,7 +290,7 @@ localhost                  : ok=12   changed=9    unreachable=0    failed=0    s
 
 Cuando ya no los necesite, elimine los recursos creados en este artículo. 
 
-El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para lo siguiente:
+El código del cuaderno de estrategias de ejemplo de esta sección se utiliza para:
 
 - Eliminar los dos grupos de recursos creados anteriormente.
 

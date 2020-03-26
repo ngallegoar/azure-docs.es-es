@@ -10,10 +10,10 @@ ms.date: 06/20/2019
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 4e7e9428af86f131632650f18d45e7dd48f4b5cb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71971570"
 ---
 # <a name="continuously-deploy-to-azure-functions-with-devops-projects"></a>Implementación continua en Azure Functions con DevOps Projects
@@ -39,9 +39,9 @@ En este tutorial, aprenderá lo siguiente:
 
 Actualmente, los entornos de ejecución compatibles con Functions son **.NET** y **Node.js**. En este tutorial, usaremos .NET para la implementación en Azure Functions. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+* Suscripción a Azure. Puede obtener una de forma gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 
 ## <a name="use-devops-projects-to-deploy-an-aspnet-app-to-azure-functions"></a>Uso de DevOps Projects para implementar una aplicación de ASP.NET en Azure Functions
 
@@ -97,7 +97,7 @@ DevOps Projects configura automáticamente una canalización de CI/CD de Azure c
 
 1. Haga clic en el hipervínculo en **Compilar**. Una pestaña del explorador muestra la canalización de compilación del nuevo proyecto.
 
-    ![Compilación](_img/azure-devops-project-functions/build.png)
+    ![Build](_img/azure-devops-project-functions/build.png)
 
 1. Seleccione **Editar**. En este panel puede examinar las distintas tareas de la canalización de compilación. La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio de Git, compilar la aplicación, ejecutar pruebas unitarias y publicar salidas que se usan para implementaciones.
 
@@ -158,7 +158,7 @@ Cuando no necesite los recursos relacionados que haya creado puede eliminarlos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si lo desea, puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial aprendió lo siguiente:
+Si lo desea, puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * A usar DevOps Projects para implementar una aplicación de ASP.NET Core en Azure Functions

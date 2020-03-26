@@ -10,11 +10,11 @@ ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277336"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222862"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Tutorial: Transformación de datos con Azure Data Box Edge
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Comprobar la transformación y la transferencia de los datos
 
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de configurar un rol de proceso en un dispositivo de Data Box Edge, asegúrese de que:
 
@@ -50,10 +50,10 @@ Para configurar el proceso en Data Box Edge, creará un recurso de IoT Hub.
 3. En la hoja **Configurar el proceso de Edge**, escriba lo siguiente:
 
    
-    |Campo  |Valor  |
+    |Campo  |Value  |
     |---------|---------|
     |IoT Hub     | Elija entre **Nuevo** o **Existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que utiliza el recurso de Data Box Edge.     |
-    |NOMBRE     |Escriba un nombre para el recurso de IoT Hub.         |
+    |Nombre     |Escriba un nombre para el recurso de IoT Hub.         |
 
     ![Introducción al proceso](./media/data-box-edge-deploy-configure-compute/configure-compute-2.png)
 
@@ -109,9 +109,9 @@ En esta sección, agregará un módulo personalizado al dispositivo IoT Edge que
 2. En la hoja **Configurar y agregar módulo**, escriba los valores siguientes:
 
     
-    |Campo  |Valor  |
+    |Campo  |Value  |
     |---------|---------|
-    |NOMBRE     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en un dispositivo de IoT Edge asociado con Data Box Edge.        |
+    |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en un dispositivo de IoT Edge asociado con Data Box Edge.        |
     |URI de imagen     | El URI de la imagen de contenedor correspondiente del módulo.        |
     |Credenciales necesarias     | Si está activada, se usa el nombre de usuario y la contraseña para recuperar los módulos con una dirección URL coincidente.        |
     |Recurso compartido de entrada     | Seleccione un recurso compartido de entrada. En este caso, el recurso compartido local perimetral es el recurso compartido de entrada. El módulo que se usa aquí mueve los archivos desde el recurso compartido local perimetral hasta un recurso compartido perimetral donde se cargan en la nube.        |
@@ -157,7 +157,7 @@ Ha completado el proceso de validación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Configurar el proceso

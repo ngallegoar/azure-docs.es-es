@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067461"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformación y protección de una API
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 ![Directivas](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 -   Conocer la [terminología de API Management de Azure](api-management-terminology.md).
 -   Comprender el [concepto de directivas en API Management de Azure](api-management-howto-policies.md).
@@ -201,7 +201,7 @@ En el resto de esta sección se prueban transformaciones de directiva que establ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 >

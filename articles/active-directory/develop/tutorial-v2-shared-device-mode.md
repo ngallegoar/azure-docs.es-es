@@ -16,10 +16,10 @@ ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: bf7e6bb22ce89d6be3f79efad1f1a3679e8780e7
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77086069"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutorial: Uso del modo de dispositivo compartido en la aplicación Android
@@ -53,7 +53,7 @@ Consulte la [documentación de configuración](https://docs.microsoft.com/azure/
 
 Establezca `"shared_device_mode_supported"` como `true` en el archivo de configuración de MSAL.
 
-Es posible que no tenga previsto admitir el modo de varias cuentas. Este podría ser el caso si no va a usar un dispositivo compartido y el usuario puede iniciar sesión en la aplicación con más de una cuenta al mismo tiempo. Si es así, establezca `"account_mode"` en `"SINGLE"`. De esta forma, se garantiza que la aplicación siempre obtendrá `ISingleAccountPublicClientApplication` y simplifica considerablemente la integración de MSAL. El valor predeterminado de `"account_mode"` es `"MULTIPLE"`, por lo que es importante cambiar este valor en el archivo de configuración si utiliza el modo `"single account"`.
+Es posible que no tenga previsto admitir el modo de varias cuentas. Este podría ser el caso si no va a usar un dispositivo compartido y el usuario puede iniciar sesión en la aplicación con más de una cuenta al mismo tiempo. Si es así, establezca `"account_mode"` en `"SINGLE"`. De esta forma, se garantiza que la aplicación siempre obtendrá `ISingleAccountPublicClientApplication` y simplifica considerablemente la integración de MSAL. El valor predeterminado de `"account_mode"` es `"MULTIPLE"`, por lo que es importante cambiar este valor en el archivo de configuración si utiliza el modo de `"single account"`.
 
 Este es un ejemplo del archivo auth_config.json incluido en el directorio **app**>**main**>**res**>**raw** de la aplicación de ejemplo:
 
@@ -79,9 +79,9 @@ Este es un ejemplo del archivo auth_config.json incluido en el directorio **app*
 
 ### <a name="detect-shared-device-mode"></a>Detección del modo de dispositivo compartido
 
-El modo de dispositivo compartido le permite configurar dispositivos Android para que los compartan varios empleados, a la vez que ofrece la administración del dispositivo respaldada por Microsoft Identity. Los empleados pueden iniciar sesión en sus dispositivos y acceder a la información sobre los clientes rápidamente. Cuando terminan su turno o su tarea, pueden cerrar la sesión de todas las aplicaciones en el dispositivo compartido con un solo clic y el dispositivo estará inmediatamente listo para que lo use el siguiente empleado.
+El modo de dispositivo compartido le permite configurar dispositivos Android para que los compartan varios empleados, a la vez que ofrece la administración respaldada del dispositivo por parte de Microsoft Identity. Los empleados pueden iniciar sesión en sus dispositivos y acceder a la información sobre los clientes rápidamente. Cuando terminan su turno o su tarea, pueden cerrar la sesión de todas las aplicaciones en el dispositivo compartido con un solo clic y el dispositivo estará inmediatamente listo para que lo use el siguiente empleado.
 
-Use `isSharedDevice()` para determinar si una aplicación se está ejecutando en un dispositivo que está en modo de dispositivo compartido. La aplicación podría usar esta marca para determinar si debe modificar la experiencia del usuario según corresponda.
+Use `isSharedDevice()` para determinar si una aplicación se está ejecutando en un dispositivo que está en modo de dispositivo compartido. La aplicación podría usar esta marca para determinar si debe modificar la experiencia de usuario según corresponda.
 
 Este es un fragmento de código que muestra cómo puede usar `isSharedDevice()`.  Procede de la clase `SingleAccountModeFragment` de la aplicación de ejemplo:
 
@@ -91,7 +91,7 @@ deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Sh
 
 ### <a name="initialize-the-publicclientapplication-object"></a>Inicialización del objeto PublicClientApplication
 
-Si establece `"account_mode":"SINGLE"` en el archivo de configuración de MSAL, puede convertir de forma segura el objeto de aplicación devuelto como un `ISingleAccountPublicCLientApplication`.
+Si establece `"account_mode":"SINGLE"` en el archivo de configuración MSAL, puede convertir de forma segura el objeto de aplicación devuelto como un `ISingleAccountPublicCLientApplication`.
 
 ```java
 private ISingleAccountPublicClientApplication mSingleAccountApp;
@@ -114,7 +114,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
 
 ### <a name="detect-single-vs-multiple-account-mode"></a>Detección del modo de varias cuentas o de una sola
 
-Si va a escribir una aplicación que solo utilizarán los trabajadores de primera línea en un dispositivo compartido, se recomienda escribirla para que admita únicamente el modo de una sola cuenta. Esto incluye la mayoría de las aplicaciones que se centran en tareas, como las de registros médicos, facturas y la mayor parte de las de línea de negocio. De este modo, se simplificará el desarrollo, ya que no es necesario acomodar muchas características del SDK.
+Si va a escribir una aplicación que solo utilizarán los trabajadores de primera línea en un dispositivo compartido, se recomienda escribirla para que admita únicamente el modo de una sola cuenta. Esto incluye a la mayoría de las aplicaciones que se centran en tareas, como las de registros médicos, facturas y la mayor parte de las de línea de negocio. De este modo, se simplificará el desarrollo, ya que no es necesario acomodar muchas características del SDK.
 
 Si la aplicación admite varias cuentas, así como el modo de dispositivo compartido, debe realizar una comprobación de tipo y convertirla en la interfaz adecuada, como se muestra a continuación.
 
@@ -207,7 +207,7 @@ En los pasos siguientes se describe cómo configurar la aplicación en Azure Por
 
 En primer lugar, registre la aplicación en el inquilino de su organización. A continuación, proporcione estos valores en auth_config.json para que la aplicación se ejecute correctamente.
 
-Para más información sobre cómo hacerlo, consulte [Registrar su aplicación](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
+Para más información sobre cómo hacerlo, consulte [Registro de la aplicación](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
 
 > [!NOTE]
 > Al registrar la aplicación, use la guía de inicio rápido que se encuentra a la izquierda y, a continuación, seleccione **Android**. De esta forma, llegará a una página en la que se le pedirá que proporcione el valor de **Nombre del paquete** y **Hash de firma** de la aplicación. Son muy importantes para garantizar que la configuración de la aplicación funcione. Después recibirá un objeto de configuración que puede usar para la aplicación que va a cortar y pegar en el archivo auth_config.json.
@@ -232,7 +232,7 @@ Inicie la aplicación Authenticator y vaya a la página principal de la cuenta. 
 
 ![Pantalla Agregar cuenta de Authenticator](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
 
- Vaya al panel **Configuración** con la barra de menús del lado derecho. Seleccione **Registro de dispositivos** en **Cuentas profesionales o educativas**.
+ Vaya al panel **Configuración** con la barra de menús del lado derecho. Seleccione **Registro del dispositivo** en **Cuentas profesionales y educativas**.
  
  ![Pantalla Agregar cuenta de Authenticator](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
 
@@ -242,13 +242,13 @@ Inicie la aplicación Authenticator y vaya a la página principal de la cuenta. 
 
 El administrador de dispositivos en la nube debe escribir su correo electrónico de la organización en **Registro como dispositivo compartido**. A continuación, haga clic en el botón **Registrar como dispositivo compartido** y escriba sus credenciales.
 
-![pantalla de registro de dispositivos](media/tutorial-v2-shared-device-mode/register-device.png)
+![pantalla de registro del dispositivo](media/tutorial-v2-shared-device-mode/register-device.png)
 
 ![inicio de sesión](media/tutorial-v2-shared-device-mode/sign-in.png)
 
 El dispositivo ya está en modo compartido.
 
-![pantalla de registro de dispositivos](media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png)
+![pantalla de registro del dispositivo](media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png)
 
  Cualquier inicio y cierre de sesión en el dispositivo será global, lo que significa que se aplicará a todas las aplicaciones que estén integradas con MSAL y Microsoft Authenticator en el dispositivo. Ahora puede implementar aplicaciones en el dispositivo que usen las características del modo de dispositivo compartido.
 

@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df45ab0a7b1729ae6c1602c9769cd5b6da26f6ac
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74014355"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory
@@ -31,7 +31,7 @@ Con las ubicaciones con nombre, puede etiquetar intervalos de direcciones IP de 
 
 En este tutorial, obtendrá información sobre cómo configurar ubicaciones con nombre en su entorno.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este inicio rápido necesita instalar:
 
@@ -41,7 +41,7 @@ Para completar este inicio rápido necesita instalar:
 
 ## <a name="configure-named-locations"></a>Configuración de ubicaciones con nombre
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. En el panel de la izquierda, seleccione **Azure Active Directory** y luego seleccione **Acceso condicional** en la sección **Seguridad**.
 
@@ -55,7 +55,7 @@ Para completar este inicio rápido necesita instalar:
 
    * En el cuadro **Nombre**, escriba el nombre de la ubicación con nombre.
    * En **Intervalos IP**, escriba el intervalo IP en formato CIDR.  
-   * Haga clic en **Create**(Crear).
+   * Haga clic en **Crear**.
     
      ![La hoja Nuevo](./media/quickstart-configure-named-locations/61.png)
 

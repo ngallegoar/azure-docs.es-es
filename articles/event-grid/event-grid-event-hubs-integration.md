@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718186"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir macrodatos a un almacenamiento de datos
@@ -38,13 +38,13 @@ En este artículo, podrá llevar a cabo estos pasos:
 > * Ejecutar una aplicación que envía los datos al centro de eventos.
 > * Ver los datos migrados en el almacenamiento de datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para realizar este tutorial, necesitará lo siguiente:
 
-* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * [Visual Studio 2019](https://www.visualstudio.com/vs/) con cargas de trabajo para: desarrollo de escritorio de .NET, desarrollo de Azure, desarrollo web y de ASP.NET, desarrollo de Node.js y desarrollo de Python.
 * Descargue el [proyecto de ejemplo EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) en su equipo.
 
@@ -60,7 +60,7 @@ En este paso, implementará la infraestructura requerida con una [plantilla de R
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Inicio de Azure Cloud Shell en Azure Portal
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 2. Seleccione el botón **Cloud Shell** que se encuentra en la parte superior.
 
     ![Portal de Azure](media/event-grid-event-hubs-integration/azure-portal.png)
@@ -135,7 +135,7 @@ En este paso, implementará la infraestructura requerida con una [plantilla de R
         New-AzResourceGroup -Name rgDataMigration -Location westcentralus
         ```
     2. Especifique un nombre para el **grupo de recursos**.
-    3. Presione Entrar. 
+    3. Presione ENTRAR. 
 3. Para implementar todos los recursos mencionados en la sección anterior (centro de eventos, cuenta de almacenamiento, aplicación de función, almacenamiento de datos de SQL), ejecute el comando siguiente:
     1. Copie y pegue el comando en la ventana Cloud Shell. También puede que quiera copiar y pegar en el editor que prefiera, establecer valores y luego copiar el comando en Cloud Shell. 
 

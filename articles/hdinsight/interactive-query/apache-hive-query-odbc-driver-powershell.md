@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494329"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutorial: Consulta de Apache Hive con ODBC y PowerShell
@@ -28,7 +28,7 @@ En este tutorial, realizará las tareas siguientes:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
@@ -52,19 +52,19 @@ En los siguientes pasos se explica cómo crear un origen de datos ODBC de Apache
 
 1. Escriba o seleccione los valores siguientes:
 
-   | Propiedad | DESCRIPCIÓN |
+   | Propiedad | Descripción |
    | --- | --- |
    |  Data Source Name |Asigne un nombre al origen de datos |
    |  Host(s) |Escriba `CLUSTERNAME.azurehdinsight.net`. Por ejemplo: `myHDICluster.azurehdinsight.net` |
    |  Port |Use **443**.|
    |  Base de datos |Use el **valor predeterminado**. |
    |  Mechanism |Seleccione **Servicio HDInsight de Microsoft Azure**. |
-   |  User Name |Escriba el nombre de usuario HTTP del clúster de HDInsight. El nombre de usuario predeterminado es **admin**. |
+   |  Nombre de usuario |Escriba el nombre de usuario HTTP del clúster de HDInsight. El nombre de usuario predeterminado es **admin**. |
    |  Contraseña |Escriba la contraseña del usuario del clúster de HDInsight. Seleccione la casilla **Save Password (Encrypted)** [Guardar contraseña (cifrada)].|
 
 1. Opcional: Seleccione **Opciones avanzadas**.  
 
-   | Parámetro | DESCRIPCIÓN |
+   | Parámetro | Descripción |
    | --- | --- |
    |  Use Native Query |Cuando esta opción está seleccionada, el controlador ODBC NO trata de convertir TSQL en HiveQL. Utilice esta opción solo si está 100 % seguro de que está enviando instrucciones HiveQL puras. Al conectarse a SQL Server o a Azure SQL Database, debe dejar esta opción desactivada. |
    |  Rows fetched per block |Al capturar un gran volumen de registros, es posible que sea necesario ajustar este parámetro para garantizar un rendimiento óptimo. |

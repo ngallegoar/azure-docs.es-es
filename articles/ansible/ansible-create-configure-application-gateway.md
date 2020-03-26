@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, cuaderno de estrategias, azure applicati
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 07f75e39b8c6f592ecd4c48697527493b1109bb9
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156613"
 ---
 # <a name="tutorial-manage-web-traffic-with-azure-application-gateway-using-ansible"></a>Tutorial: Administración del tráfico web con Azure Application Gateway mediante Ansible
@@ -25,7 +25,7 @@ ms.locfileid: "74156613"
 > * Creación de dos instancias de contenedor de Azure con imágenes HTTPD
 > * Creación de una puerta de enlace de aplicación que funciona con las instancias de contenedor de Azure del clúster de servidores
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -48,12 +48,12 @@ Guarde el siguiente cuaderno de estrategias como `rg.yml`:
         location: "{{ location }}"
 ```
 
-Antes de ejecutar el cuaderno de estrategias, vea las notas siguientes:
+Antes de ejecutar el cuaderno de estrategias, consulte las notas siguientes:
 
 - El nombre del grupo de recursos es `myResourceGroup`. Este valor se utiliza a lo largo del tutorial.
 - El grupo de recursos se crea en la ubicación `eastus`.
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook rg.yml
@@ -101,12 +101,12 @@ Guarde el siguiente cuaderno de estrategias como `vnet_create.yml`:
         domain_name_label: "{{ publicip_domain }}"
 ```
 
-Antes de ejecutar el cuaderno de estrategias, vea las notas siguientes:
+Antes de ejecutar el cuaderno de estrategias, consulte las notas siguientes:
 
 * La sección `vars` contiene los valores que se usan para crear los recursos d red. 
 * Deberá cambiar estos valores para su entorno específico.
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook vnet_create.yml
@@ -159,7 +159,7 @@ Guarde el siguiente cuaderno de estrategias como `aci_create.yml`:
               - 80
 ```
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook aci_create.yml
@@ -253,7 +253,7 @@ Guarde el siguiente cuaderno de estrategias como `appgw_create.yml`:
             name: rule1
 ```
 
-Antes de ejecutar el cuaderno de estrategias, vea las notas siguientes:
+Antes de ejecutar el cuaderno de estrategias, consulte las notas siguientes:
 
 * `appGatewayIP` se define en el bloque `gateway_ip_configurations`. Se necesita una referencia de subred para la configuración IP de la puerta de enlace.
 * `appGatewayBackendPool` se define en el bloque `backend_address_pools`. Una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
@@ -262,7 +262,7 @@ Antes de ejecutar el cuaderno de estrategias, vea las notas siguientes:
 * `appGatewayFrontendIP` se define en el bloque `frontend_ip_configurations`. Asigna myAGPublicIPAddress a appGatewayHttpListener.
 * `rule1` se define en el bloque `request_routing_rules`. La regla de enrutamiento predeterminada asociada a appGatewayHttpListener.
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook appgw_create.yml

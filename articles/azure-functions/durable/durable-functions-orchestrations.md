@@ -6,11 +6,11 @@ ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
 ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356660"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290113"
 ---
 # <a name="durable-orchestrations"></a>Orquestaciones de Durable Functions
 
@@ -31,7 +31,7 @@ A continuación se muestran algunas reglas acerca de los identificadores de inst
 
 * Deben tener entre 1 y 256 caracteres.
 * No deben comenzar por `@`.
-* No deben contener caracteres `/`, `\`, `?` ni `#`.
+* No deben contener caracteres `/`, `\`, `#` ni `?`.
 * No deben contener caracteres de control.
 
 > [!NOTE]
@@ -140,13 +140,13 @@ Notas sobre los valores de las columnas:
   * **TimerCreated**: se ha creado un temporizador durable. La columna `FireAt` contiene la hora UTC programada a la que expira el temporizador.
   * **TimerFired**: se ha desencadenado un temporizador durable.
   * **EventRaised**: se envió un evento externo a la instancia de orquestación. La columna `Name` captura el nombre del evento y `Input`, la carga del evento.
-  * **OrchestratorCompleted**: la función de orquestador esperada.
+  * **OrchestratorCompleted**: función de orquestador esperada.
   * **ContinueAsNew**: la función de orquestador se ha completado y se ha reiniciado con el nuevo estado. La columna `Result` contiene el valor, que se utiliza como entrada en la instancia reiniciada.
   * **ExecutionCompleted**: la función de orquestador se ejecutó hasta finalizar o que se produjera un error. Las salidas de la función o los detalles del error se almacenan en la columna `Result`.
 * **Marca de tiempo**: marca de tiempo UTC del evento del historial.
-* **Name**: nombre de la aplicación de función invocada.
+* **Nombre**: nombre de la aplicación de función invocada.
 * **Entrada**: entrada de la función con formato JSON.
-* **Result**: resultado de la función; es decir, el valor devuelto.
+* **Salida**: resultado de la función; es decir, el valor devuelto.
 
 > [!WARNING]
 > Aunque es útil como herramienta de depuración, no confíe en esta tabla. Puede cambiar con el progreso de la extensión Durable Functions.
