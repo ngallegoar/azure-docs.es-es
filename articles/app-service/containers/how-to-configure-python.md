@@ -4,13 +4,13 @@ description: Aprenda a configurar un contenedor de Python precompilado para la a
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: seodec18
-ms.openlocfilehash: d2c5a094c45eeca779a33a39261bd3fc17d53d1a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 8a9276f73c1d9bdf0289f41bb59340b29f5a2575
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913861"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80046020"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 
@@ -50,7 +50,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="customize-build-automation"></a>Personalización de la automatización de compilaciones
 
-Si implementa la aplicación mediante el uso de paquetes Git o zip con la automatización de compilaciones activada, App Service genera pasos de automatización a través de la siguiente secuencia:
+Si implementa la aplicación utilizando paquetes Git o zip con la automatización de compilaciones activada, la automatización de compilaciones de App Service se ejecutará en este orden:
 
 1. Ejecute el script personalizado si lo especifica `PRE_BUILD_SCRIPT_PATH`.
 1. Ejecute `pip install -r requirements.txt`.

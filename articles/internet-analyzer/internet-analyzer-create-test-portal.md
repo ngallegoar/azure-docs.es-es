@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 64bbed9b558d4c20889b28a5247e2113d20daa77
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73509839"
 ---
 # <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Creación de una prueba de Internet Analyzer mediante el portal (versión preliminar)
@@ -74,5 +74,5 @@ Para comenzar cualquier prueba, el cliente JavaScript debe estar insertado en la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Preguntas frecuentes sobre Internet Analyzer](internet-analyzer-faq.md).
+* Consulte [Preguntas frecuentes sobre Internet Analyzer](internet-analyzer-faq.md)
 * Más información sobre la inserción del [cliente de Internet Analyzer](internet-analyzer-embed-client.md) y la creación de un [punto de conexión personalizado](internet-analyzer-custom-endpoint.md).

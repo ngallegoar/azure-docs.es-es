@@ -12,23 +12,23 @@ ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
 ms.openlocfilehash: ff2508952b75bad88ff8ff92388c20ba52f50f42
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73818252"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Inicio rápido: Creación de una regla de firewall de nivel de servidor para bases de datos únicas y agrupadas mediante Azure Portal
 
 Este inicio rápido le guía en la creación de una [regla de firewall de nivel de servidor](sql-database-firewall-configure.md) para bases de datos agrupadas y únicas en Azure SQL Database mediante Azure Portal para que pueda conectarse a servidores de base de datos, bases de datos únicas y grupos elásticos y sus bases de datos. Una regla de firewall es necesaria para conectarse desde otros recursos de Azure y desde recursos locales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este inicio rápido se usan los recursos creados en [Creación de una base de datos única mediante Azure Portal](sql-database-single-database-get-started.md) como punto de partida.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Creación de una regla de firewall de IP de nivel de servidor
 

@@ -4,11 +4,11 @@ description: En esta guía de inicio rápido, dará los pasos necesarios para ha
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: e75152c720d94f084b43f855452e5e8ce4dc6bc8
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304126"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215643"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Inicio rápido: Ejecución de la primera consulta de Resource Graph con la CLI de Azure
 
@@ -16,7 +16,7 @@ El primer paso para usar Azure Resource Graph es comprobar que está instalada l
 
 Al final de este proceso, habrá agregado la extensión a la instalación de la CLI de Azure que haya elegido y habrá ejecutado la primera consulta de Resource Graph.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

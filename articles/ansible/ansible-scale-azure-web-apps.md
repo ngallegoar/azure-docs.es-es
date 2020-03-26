@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, es
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 9eb50922361c817de8047dece4849a9b221677f0
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155918"
 ---
 # <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Tutorial: Escalado de aplicaciones en Azure App Service con Ansible
@@ -24,7 +24,7 @@ ms.locfileid: "74155918"
 > * Obtener datos de un plan de App Service existente
 > * Escalado vertical del plan de App Service a S2 con tres roles de trabajo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

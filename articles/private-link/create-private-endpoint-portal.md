@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 485eb14938fc7e490ea2d68c9090cdfdbf01cc8f
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78252557"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Inicio rápido: Creación de un punto de conexión privado mediante Azure Portal
@@ -37,11 +37,11 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
 | **\<nombre-de-grupo-recursos>**  | myResourceGroup |
-| **\<nombre-de-red-virtual>** | myVirtualNetwork          |
-| **\<nombre-de-región>**          | Centro-Oeste de EE. UU.    |
+| **\<virtual-network-name>** | myVirtualNetwork          |
+| **\<region-name>**          | Centro-Oeste de EE. UU.    |
 | **\<espacio-de-direcciones-IPv4>**   | 10.1.0.0\16          |
 | **\<nombre-de-subred>**          | mySubnet        |
-| **\<intervalo-de-direcciones-de-subred>** | 10.1.0.0\24          |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

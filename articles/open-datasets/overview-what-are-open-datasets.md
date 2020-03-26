@@ -8,10 +8,10 @@ author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
 ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73606158"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>¿Qué es Azure Open Datasets y cómo puede usarse?
@@ -25,7 +25,7 @@ Los conjuntos de datos incluyen datos de dominio público para el clima, censos,
 ## <a name="curated-prepared-datasets"></a>Conjuntos de datos mantenidos, preparados
 Los conjuntos de datos públicos abiertos seleccionados en Azure Open Datasets están optimizados para su uso en los flujos de trabajo de aprendizaje automático. 
 
-En general, los científicos de datos dedican la mayor parte de su tiempo a la limpieza y preparación de los datos para análisis avanzados. Open Datasets se copia a la nube de Azure y se preprocesa para ahorrarle tiempo. A intervalos regulares, los datos se extraen de los orígenes, por ejemplo, mediante una conexión FTP a la Administración Nacional Oceánica y Atmosférica (NOAA). A continuación, los datos se redistribuyen en un formato estructurado y, después, se enriquecen según corresponda con características como el código postal o la ubicación de la estación meteorológica más cercana.
+En general, los científicos de datos dedican la mayor parte de su tiempo a la limpieza y preparación de los datos para análisis avanzados. Open Datasets se copia a la nube de Azure y se preprocesa para ahorrarle tiempo. A intervalos regulares, los datos se extraen de los orígenes, por ejemplo, mediante una conexión FTP a la Administración Nacional Oceánica y Atmosférica (NOAA). A continuación, los datos se analizan en un formato estructurado y, después, se enriquecen según corresponda con características como el código postal o la ubicación de la estación meteorológica más cercana.
 
 Los conjuntos de datos se hospedan conjuntamente con los procesos en la nube en Azure, lo que facilita el acceso y la manipulación.  
 
@@ -33,14 +33,14 @@ A continuación, encontrará ejemplos de conjuntos de datos disponibles.
 
 ### <a name="weather-data"></a>Datos meteorológicos
  
-|Dataset         | Notebooks     | DESCRIPCIÓN                                    |
+|Dataset         | Cuaderno     | Descripción                                    |
 |----------------|---------------|------------------------------------------------|
 |[Integrated Surface Data (ISD) de NOAA](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/?tab=data-access#AzureDatabricks) | Datos meteorológicos mundiales por hora de NOAA, con la mejor cobertura espacial en Norteamérica, Europa, Australia y partes de Asia. Actualización diaria. |
 |[Global Forecast System (GFS) de NOAA](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/noaa-global-forecast-system/?tab=data-access#AzureDatabricks) | Datos de previsión meteorológica por hora a 15 días de NOAA para Estados Unidos. Actualización diaria. |
 
 ### <a name="calendar-data"></a>Datos de calendario
 
-|Dataset         | Notebooks     | DESCRIPCIÓN                                    |
+|Dataset         | Cuaderno     | Descripción                                    |
 |----------------|---------------|------------------------------------------------|
 |[Días festivos públicos](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) | [Azure Notebooks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureNotebooks) <br> [Azure Databricks](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/?tab=data-access#AzureDatabricks) | Datos mundiales de días festivos públicos, que abarcan 41 países o regiones de 1970 a 2099. Incluye el país y si la mayoría de las personas cuentan con tiempo de permiso retribuido. |
 

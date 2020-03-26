@@ -8,10 +8,10 @@ ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 670020d276b9d4a868f24eb4a3f522581060adca
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72754975"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API de Azure Cosmos DB para MongoDB
@@ -30,10 +30,10 @@ De forma predeterminada, las nuevas cuentas creadas mediante la API de Azure Cos
 
 Las principales ventajas de Cosmos DB como base de datos completamente administrada y distribuida globalmente como servicio se describen [aquí](introduction.md). Además, al implementar de forma nativa los protocolos de conexión de API de NoSQL populares, Cosmos DB ofrece las siguientes ventajas:
 
-* Migre fácilmente la aplicación a Cosmos DB al tiempo que conserva partes significativas de la lógica de aplicación.
-* Mantenga la aplicación portátil y permanezca independiente de proveedores de nube.
+* Migrar fácilmente la aplicación a Cosmos DB, al tiempo que conserva partes importantes de la lógica de aplicación.
+* Mantener la aplicación portátil y permanecer independiente de proveedores de nube.
 * Obtenga contratos de nivel de servicio con respaldo financiero líderes del sector para API de NoSQL comunes con tecnología de Cosmos DB.
-* Escale de forma elástica el rendimiento y el almacenamiento aprovisionados para sus bases de datos de Cosmos según sus necesidades y pague solo el rendimiento y el almacenamiento que necesita. Esto se traduce en ahorros de costos significativos.
+* Escale de forma elástica el rendimiento y el almacenamiento aprovisionados para sus bases de datos de Cosmos según sus necesidades y pague solo el rendimiento y el almacenamiento que necesita. lo que se traduce en un importante ahorro de costos.
 * Distribución global llave en mano con replicación de arquitectura multimaestro.
 
 ## <a name="cosmos-dbs-api-for-mongodb"></a>API de Cosmos DB para MongoDB

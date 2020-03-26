@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
 ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73664496"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Inicio rápido: Incorporación de equipos Linux a Azure Security Center
@@ -26,7 +26,7 @@ Después de incorporar las suscripciones de Azure, puede habilitar Security Cent
 
 En este inicio rápido se explica cómo instalar el agente en un equipo Linux.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar esta guía de inicio rápido. Vea [Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) para obtener instrucciones de actualización. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
@@ -68,7 +68,7 @@ Ahora puede supervisar las máquinas virtuales de Azure y los equipos que no son
 
   ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Equipos que no son de Azure
 
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) MV de Azure
+  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Cuando ya no lo necesite, puede quitar el agente del equipo Linux.

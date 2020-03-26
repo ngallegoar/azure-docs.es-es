@@ -10,10 +10,10 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75459629"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Tutorial: Diseño de una base de datos relacional en una base de datos única en Azure SQL Database con SSMS
@@ -35,7 +35,7 @@ Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Micr
 > [!NOTE]
 > Para este tutorial, se utiliza una base de datos única. También puede usar una base de datos agrupada en un grupo elástico o una base de datos de instancia en una instancia administrada. Para la conectividad a una instancia administrada, consulte estos artículos de inicio rápido sobre la instancia administrada: [Inicio rápido: Configuración de una máquina virtual de Azure para la conexión a Instancia administrada de Azure SQL Database](sql-database-managed-instance-configure-vm.md) y [Inicio rápido: Configuración de una conexión de punto a sitio a una Instancia administrada de Azure SQL Database desde el entorno local](sql-database-managed-instance-configure-p2s.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
 

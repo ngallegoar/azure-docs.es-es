@@ -10,19 +10,19 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: bc92e0cf579bc008fdb09c9cbb576d8cac0191cb
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73721437"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Guía de inicio rápido: Enrutamiento de eventos personalizados al punto de conexión web con PowerShell y Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados al punto de conexión web con PowerShell y Event Grid
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa Azure PowerShell para crear un tema personalizado, suscribirse al tema y desencadenar el evento para ver el resultado. Por lo general, se envían eventos a un punto de conexión que procesa los datos del evento y realiza acciones. Sin embargo, para simplificar en este artículo, los eventos se envían a una aplicación web que recopila y muestra los mensajes.
 
 Cuando haya terminado, verá que los datos del evento se han enviado a la aplicación web.
 
-![Visualización de los resultados](./media/custom-event-quickstart-powershell/view-result.png)
+![Vista de resultados](./media/custom-event-quickstart-powershell/view-result.png)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

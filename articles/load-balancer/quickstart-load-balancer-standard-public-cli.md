@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: fdbd002ac946f3ac3a1a67980905d4ed6f5510c5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 1f6a05fdfc28adf412ffbd1402e37b69d1c51634
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470350"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79477772"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Inicio rápido: Creación de una instancia de Standard Load Balancer para equilibrar la carga de máquinas virtuales mediante la CLI de Azure
 
@@ -58,7 +58,7 @@ Para crear una dirección IP pública en la zona 1, utilice:
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
-Utilice ```-SKU Basic``` para crear una dirección IP pública básica. Las direcciones IP públicas básicas no son compatibles con el **equilibrador de carga estándar**. Microsoft recomienda el uso del **estándar** para cargas de trabajo de producción.
+Utilice `-SKU Basic` para crear una dirección IP pública básica. Las direcciones IP públicas básicas no son compatibles con el **equilibrador de carga estándar**. Microsoft recomienda el uso del **estándar** para cargas de trabajo de producción.
 
 > [!IMPORTANT]
 > En el resto de esta guía de inicio rápido se supone que se elige la SKU **estándar** durante el proceso de selección de la SKU anterior.
@@ -73,7 +73,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 
 ### <a name="create-the-load-balancer"></a>Creación del equilibrador de carga
 
-Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) una instancia de Azure Load Balancer pública llamada **myLoadBalancer** que incluya un grupo de servidores front-end llamado **myFrontEnd** y un grupo de servidores back-end llamado **myBackEndPool** que esté asociado a la dirección IP pública **myPublicIP** que creó en el paso anterior. Utilice ```--sku basic``` para crear una dirección IP pública básica. Microsoft recomienda la SKU estándar para cargas de trabajo de producción.
+Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) una instancia de Azure Load Balancer pública llamada **myLoadBalancer** que incluya un grupo de servidores front-end llamado **myFrontEnd** y un grupo de servidores back-end llamado **myBackEndPool** que esté asociado a la dirección IP pública **myPublicIP** que creó en el paso anterior. Utilice `--sku basic` para crear una dirección IP pública básica. Microsoft recomienda la SKU estándar para cargas de trabajo de producción.
 
 ```azurecli-interactive
   az network lb create \
@@ -83,7 +83,7 @@ Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
-  ```
+```
 
 > [!IMPORTANT]
 > En el resto de esta guía de inicio rápido se supone que se elige la SKU **estándar** durante el proceso de selección de la SKU anterior.
@@ -133,7 +133,8 @@ Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en *myRe
     --name myVnet \
     --subnet-name mySubnet
 ```
-###  <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
+
+### <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
 
 En el caso de una instancia de Load Balancer Estándar, las máquinas virtuales de la dirección de back-end deben tener tarjetas NIC que pertenezcan a un grupo de seguridad de red. Cree un grupo de seguridad de red para definir las conexiones entrantes a la red virtual.
 
@@ -161,6 +162,7 @@ Cree una regla de grupo de seguridad de red para permitir las conexiones entrant
     --access allow \
     --priority 200
 ```
+
 ### <a name="create-nics"></a>Creación de tarjetas NIC
 
 Cree tres interfaces de red con el comando [az network nic create](/cli/azure/network/nic#az-network-nic-create) y asócielas con la dirección IP pública y el grupo de seguridad de red. 
@@ -246,11 +248,11 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-``` 
- 
+```
+
 Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az-vm-create).
 
- ```azurecli-interactive
+```azurecli-interactive
 
   az vm create \
     --resource-group myResourceGroupSLB \
@@ -283,6 +285,7 @@ Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az-vm-create).
     --no-wait
 
 ```
+
 Es posible que la implementación de las máquinas virtuales tarde unos minutos.
 
 ## <a name="test-the-load-balancer"></a>Prueba del equilibrador de carga
@@ -295,16 +298,18 @@ Para obtener la dirección IP pública del equilibrador de carga, use [az networ
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
-``` 
+```
+
    ![Prueba del equilibrador de carga](./media/load-balancer-standard-public-cli/running-nodejs-app.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para quitar el grupo de recursos, el equilibrador de carga y todos los recursos relacionados.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete --name myResourceGroupSLB
 ```
+
 ## <a name="next-steps"></a>Pasos siguientes
 En esta guía de inicio rápido, ha creado una instancia de Standard Load Balancer, le ha asociado máquinas virtuales, ha configurado la regla de tráfico de Load Balancer y el sondeo de estado y, después, ha probado la instancia de Load Balancer. Para más información sobre Azure Load Balancer, consulte los [tutoriales sobre Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 

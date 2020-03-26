@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
 ms.openlocfilehash: e964be548a2f82ecc268a147dd20817b232f51a6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74924804"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparación de Azure Data Factory con Azure Data Factory versión 1
@@ -71,7 +71,7 @@ Un caso de uso importante en los patrones de extracción, transformación y carg
 ### <a name="other-control-flow-activities"></a>Otras actividades del flujo de control
 Estas son otras actividades del flujo de control compatibles con la versión actual de Data Factory. 
 
-Actividad de control | DESCRIPCIÓN
+Actividad de control | Descripción
 ---------------- | -----------
 [Actividad ForEach](control-flow-for-each-activity.md) | Define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura de bucle ForEach de los lenguajes de programación.
 [Actividad web](control-flow-web-activity.md) | Llama a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso. 
@@ -129,11 +129,11 @@ Los SDK que se actualizan en la versión actual no son compatibles con los clien
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Portal de Azure | [Sí](quickstart-create-data-factory-portal.md) | Sin |
+| Portal de Azure | [Sí](quickstart-create-data-factory-portal.md) | No |
 | Azure PowerShell | [Sí](quickstart-create-data-factory-powershell.md) | [Sí](data-factory-build-your-first-pipeline-using-powershell.md) |
 | .NET SDK | [Sí](quickstart-create-data-factory-dot-net.md) | [Sí](data-factory-build-your-first-pipeline-using-vs.md) |
 | API DE REST | [Sí](quickstart-create-data-factory-rest-api.md) | [Sí](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| SDK de Python | [Sí](quickstart-create-data-factory-python.md) | Sin |
+| SDK de Python | [Sí](quickstart-create-data-factory-python.md) | No |
 | Plantilla de Resource Manager | [Sí](quickstart-create-data-factory-resource-manager-template.md) | [Sí](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Roles y permisos

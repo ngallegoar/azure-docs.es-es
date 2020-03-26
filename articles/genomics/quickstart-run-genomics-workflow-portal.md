@@ -9,17 +9,17 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.openlocfilehash: 05b94ca9bd14392bad5288882a80f5c75590ef7b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76931793"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Inicio rápido: Ejecución de un flujo de trabajo mediante el servicio Microsoft Genomics
 
 En este inicio rápido, se cargan los datos de entrada en una cuenta de Azure Blob Storage y se ejecuta un flujo de trabajo a través del servicio Microsoft Genomics mediante el cliente Genomics de Python. Microsoft Genomics es un servicio escalable y seguro para el análisis secundario que puede procesar rápidamente un genoma; este proceso empieza por lecturas de datos sin formato y produce lecturas alineadas y llamadas a variantes. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Python 2.7.12 +](https://www.python.org/downloads/release/python-2714/), con `pip` instalado y `python` en la ruta de acceso del sistema. El cliente de Microsoft Genomics no es compatible con Python 3. 
@@ -37,11 +37,11 @@ Configure la cuenta de Genomics con la siguiente información, como se muestra e
  |Subscription         | Nombre de la suscripción|Esta es la unidad de facturación para los servicios de Azure. Para más información sobre su suscripción, consulte el artículo [Suscripciones](https://account.azure.com/Subscriptions). |      
  |Resource group       | MyResourceGroup       |  Los grupos de recursos le permiten agrupar varios recursos de Azure (cuenta de almacenamiento o cuenta genómica, entre otros) en un único grupo para una administración sencilla. Para más información, consulte [Grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
  |Nombre de cuenta         | MyGenomicsAccount     |Elija un identificador de cuenta único. Para ver los nombres válidos, consulte [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
- |Location                   | Oeste de EE. UU. 2                    |    El servicio está disponible en Oeste de EE. UU. 2, Oeste de Europa y Sudeste Asiático. |
+ |Location                   | Oeste de EE. UU. 2                    |    El servicio está disponible en Oeste de EE. UU. 2, Oeste de Europa y Sudeste de Asia. |
 
 Puede seleccionar **Notificaciones** en la barra de menús superior para supervisar el proceso de implementación.
 
-![Notifications](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box1.png "Notificaciones")
+![Notificaciones](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box1.png "Notificaciones")
 
 Para más información sobre Microsoft Genomics, consulte [¿Qué es Microsoft Genomics?](overview-what-is-genomics.md)
 

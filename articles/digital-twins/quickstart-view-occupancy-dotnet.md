@@ -10,14 +10,16 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 01/10/2020
-ms.openlocfilehash: 6c9c5df27f4a361e534bac2fe21b2c470f8d0186
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: de8611e53339d38a03836bc9272ad42ff88a59b8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895582"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79371433"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Inicio rápido: Búsqueda de salas disponibles mediante Azure Digital Twins
+
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 El servicio Azure Digital Twins le permite recrear una imagen digital de su entorno físico. Así, puede recibir notificaciones mediante eventos en su entorno y personalizar las respuestas a estos.
 
@@ -27,7 +29,7 @@ El siguiente vídeo resume la configuración del inicio rápido:
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 1. Antes de comenzar, si no tiene una cuenta de Azure, [cree una gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

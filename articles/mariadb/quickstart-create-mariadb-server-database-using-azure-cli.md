@@ -6,24 +6,24 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 5cfdcf2664871849d4488be4320f6aa03e296ce7
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f83af794a179634b9b6b7adedd329ea6f4a7b8d0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770040"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79536469"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Creación de un servidor de Azure Database for MariaDB mediante la CLI de Azure
 
-Puede usar la CLI de Azure para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear un servidor de Azure Database for MariaDB en un grupo de recursos de Azure en unos cinco minutos. 
+Puede usar la CLI de Azure para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear un servidor de Azure Database for MariaDB en un grupo de recursos de Azure en unos cinco minutos.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Si va a usar e instalar la CLI de forma local para esta guía de inicio rápido, deberá ejecutar la versión 2.0 de la CLI de Azure u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si va a usar e instalar la CLI de forma local para esta guía de inicio rápido, deberá ejecutar la versión 2.0 de la CLI de Azure u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
 Si tiene varias suscripciones, elija aquella que contiene el recurso o la suscripción que se le factura. Para seleccionar un identificador de suscripción específico en su cuenta, use el comando [az account set](/cli/azure/account#az-account-set):
 
@@ -45,14 +45,14 @@ az group create --name myresourcegroup --location westus
 
 Cree un servidor de Azure Database for MariaDB con el comando [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). Un servidor puede administrar varias bases de datos. Normalmente se usa una base de datos independiente para cada proyecto o para cada usuario.
 
-Configuración | Valor de ejemplo | DESCRIPCIÓN
+Configuración | Valor de ejemplo | Descripción
 ---|---|---
-Nombre | **mydemoserver** | Escriba un nombre único que identifique el servidor de Azure Database for MariaDB. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
+name | **mydemoserver** | Escriba un nombre único que identifique el servidor de Azure Database for MariaDB. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
 resource-group | **myresourcegroup** | Escriba el nombre del grupo de recursos de Azure.
 sku-name | **GP_Gen5_2** | El nombre de la SKU. Sigue la convención *plan de tarifa*\_*generación de procesos*\_*núcleos virtuales* en forma abreviada. Para más información acerca del parámetro **sku-name**, consulte la sección que sigue a esta tabla.
 backup-retention | **7** | Cuánto tiempo deben conservarse las copias de seguridad. La unidad es días. Intervalo: de 7 a 35. 
 geo-redundant-backup | **Deshabilitada** | Si se deben habilitar las copias de seguridad con redundancia geográfica en este servidor o no. Valores permitidos: **Enabled** (Habilitada), **Disabled** (Deshabilitada).
-location | **westus** | La ubicación de Azure para el servidor.
+ubicación | **westus** | La ubicación de Azure para el servidor.
 ssl-enforcement | **Enabled** | Si se debe habilitar SSL, o no, en este servidor. Valores permitidos: **Enabled** (Habilitada), **Disabled** (Deshabilitada).
 storage-size | **51200** | La capacidad de almacenamiento del servidor (la unidad es megabytes). Los tamaños válidos de almacenamiento son a partir de 5120 MB con aumentos de 1024 MB. Consulte los [planes de tarifa](./concepts-pricing-tiers.md) para más información acerca de los límites de tamaño de almacenamiento. 
 version | **10.2** | La versión del motor principal de MariaDB.
@@ -74,13 +74,12 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver  -
 
 > [!NOTE]
 > Considere la posibilidad de usar el plan de tarifa Básico si menos proceso y E/S resultan adecuados para su carga de trabajo. Tenga en cuenta que los servidores que creó en el plan de tarifa Básico no se podrán escalar más adelante a De uso general u Optimizada para memoria. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/mariadb/) para más información.
-> 
 
 ## <a name="configure-a-firewall-rule"></a>Configuración de una regla de firewall
 
-Cree una regla de firewall de nivel de servidor de Azure Database for MariaDB mediante el comando [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create). Una regla de firewall de nivel de servidor permite que una aplicación externa, como la herramienta de línea de comandos mysql o MySQL Workbench, se conecte al servidor a través del firewall del servicio Azure Database for MariaDB. 
+Cree una regla de firewall de nivel de servidor de Azure Database for MariaDB mediante el comando [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create). Una regla de firewall de nivel de servidor permite que una aplicación externa, como la herramienta de línea de comandos mysql o MySQL Workbench, se conecte al servidor a través del firewall del servicio Azure Database for MariaDB.
 
-En el ejemplo siguiente se crea una regla de firewall denominada `AllowMyIP` que permite las conexiones desde una dirección IP específica, 192.168.0.1. Sustituya por una dirección IP o intervalo de direcciones IP que se corresponda a la ubicación desde la que se conecta. 
+En el ejemplo siguiente se crea una regla de firewall denominada `AllowMyIP` que permite las conexiones desde una dirección IP específica, 192.168.0.1. Sustituya por una dirección IP o intervalo de direcciones IP que se corresponda a la ubicación desde la que se conecta.
 
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
@@ -88,14 +87,13 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 
 > [!NOTE]
 > Las conexiones a Azure Database for MariaDB se comunican mediante puerto 3306. Si intenta conectarse desde una red corporativa, es posible que no se permita el tráfico saliente a través del puerto 3306. En este caso, solo podrá conectarse al servidor si el departamento de TI abre el puerto 3306.
-> 
 
 ## <a name="configure-ssl-settings"></a>Configuración de SSL
 
 De manera predeterminada, se exigen conexiones SSL entre su servidor y las aplicaciones cliente. Este valor predeterminado garantiza la seguridad de los datos "en movimiento" al cifrar el flujo de datos que circula por Internet. Para esta guía de inicio rápido, deshabilite las conexiones SSL del servidor. Esto no se recomienda en servidores de producción. Para más información, consulte [Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MariaDB](./howto-configure-ssl.md).
 
 En el ejemplo siguiente se deshabilita la obligación de SSL en el servidor de Azure Database for MariaDB:
- 
+
 ```azurecli-interactive
 az mariadb server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
 ```
@@ -156,9 +154,10 @@ Para conectarse al servidor mediante la herramienta mysql de la línea de comand
    ```sql
    status
    ```
+
    Debería ver algo parecido al siguiente texto:
 
-   ```bash
+   ```cmd
    C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
    Enter password: ***********
    Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -211,11 +210,11 @@ Para conectarse al servidor mediante la herramienta mysql de la línea de comand
 
    ![Configuración de una nueva conexión](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
-   | Configuración | Valor sugerido | DESCRIPCIÓN |
+   | Configuración | Valor sugerido | Descripción |
    |---|---|---|
    | Nombre de la conexión | **Conexión de demostración** | Especifique una etiqueta para esta conexión (el nombre de la conexión puede ser cualquiera) |
    | Método de conexión | **Estándar (TCP/IP)** | Use el protocolo TCP/IP para conectarse a Azure Database for MariaDB |
-   | Nombre de host. | **mydemoserver.mariadb.database.azure.com** | El nombre del servidor que anotó anteriormente. |
+   | Hostname | **mydemoserver.mariadb.database.azure.com** | El nombre del servidor que anotó anteriormente. |
    | Port | **3306** | El puerto predeterminado para Azure Database for MariaDB. |
    | Nombre de usuario | **myadmin\@mydemoserver** | El inicio de sesión de administrador del servidor que anotó anteriormente. |
    | Contraseña | *La contraseña* | Use la contraseña de la cuenta de administrador que configuró anteriormente. |

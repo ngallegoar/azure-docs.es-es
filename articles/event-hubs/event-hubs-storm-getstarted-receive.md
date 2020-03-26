@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 11/05/2019
 ms.author: shvija
 ms.openlocfilehash: 90293da07d3a7ef1c32e5f82d35198d4ffa536b1
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73717609"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Inicio rápido: Recepción de eventos desde Event Hubs mediante Apache Storm
@@ -28,7 +28,7 @@ ms.locfileid: "73717609"
 
 Para más información sobre los patrones de recepción de Event Hubs, vea la [Información general de Event Hubs][Event Hubs overview].
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de empezar con el inicio rápido, **cree un espacio de nombres de Event Hubs y un centro de eventos**. Use [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento que se indica en [este artículo](event-hubs-create.md). 
 
 ## <a name="create-project-and-add-code"></a>Creación del proyecto y adición de código

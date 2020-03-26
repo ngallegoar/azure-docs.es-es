@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Supervisión y ajuste de un servidor único de Azure Database for PostgreSQL'
+title: 'Tutorial: Supervisión y ajuste de Azure Database for PostgreSQL: servidor único'
 description: 'Este tutorial trata sobre la supervisión y el ajuste en Azure Database for PostgreSQL: Single Server.'
 author: rachel-msft
 ms.author: raagyema
@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74774744"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Supervisión y ajuste en Azure Database for PostgreSQL: Single Server
@@ -32,7 +32,7 @@ Necesita un servidor de Azure Database for PostgreSQL con PostgreSQL versión 9.
 ## <a name="enabling-data-collection"></a>Habilitación de la recopilación de datos
 El [Almacén de consultas](concepts-query-store.md) captura un historial de las consultas y las estadísticas de espera en el servidor y lo almacena en la base de datos **azure_sys** en el servidor. Es una característica opcional. Para habilitarla:
 
-1. Abra Azure Portal.
+1. Abra Azure Portal.
 
 2. Seleccione su servidor de Azure Database for PostgreSQL.
 
@@ -46,15 +46,15 @@ El [Almacén de consultas](concepts-query-store.md) captura un historial de las 
 
 
 ## <a name="performance-insights"></a>Información detallada del rendimiento
-La vista [Información de rendimiento de consultas](concepts-query-performance-insight.md) en Azure Portal mostrará la información clave del Almacén de consultas. 
+La vista [Query Performance Insight](concepts-query-performance-insight.md) en Azure Portal detectará visualizaciones en la información de clave del Almacén de consultas. 
 
 1. En la página del portal del servidor Azure Database for PostgreSQL, seleccione **Información de rendimiento de consultas**, en la sección **Soporte técnico y solución de problemas** del menú de la izquierda.
 
-2. La pestaña **Consultas de larga ejecución** muestra las 5 consultas principales por promedio de duración por ejecución, agregadas en intervalos de 15 minutos. 
+2. La pestaña **Consultas de larga ejecución** muestra las 5 principales consultas por promedio de duración por ejecución, que se agregan en intervalos de 15 minutos. 
    
    ![Página de inicio de Información de rendimiento de consultas](./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png)
 
-   Puede ver más consultas; para ello, selecciónelas en la lista desplegable **Número de consultas**. Al hacerlo, los colores del gráfico pueden cambiar a un identificador de consulta específico.
+   Puede ver más consultas seleccionando en el lista desplegable **Número de consultas**. Al hacerlo, los colores del gráfico pueden cambiar a un identificador de consulta específico.
 
 3. Puede hacer clic y arrastrar en el gráfico para restringir a un período de tiempo específico.
 
@@ -62,7 +62,7 @@ La vista [Información de rendimiento de consultas](concepts-query-performance-i
 
 5. Consulte la tabla debajo del gráfico para obtener más información acerca de las consultas de larga ejecución en ese período.
 
-6. Seleccione la pestaña **Estadísticas de espera** para ver las visualizaciones correspondientes de las esperas en el servidor.
+6. Seleccione la pestaña **Estadísticas de espera** para ver las visualizaciones correspondientes a esperas en el servidor.
    
    ![Estadísticas de espera de Query Performance Insight](./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png)
 
@@ -83,7 +83,7 @@ La característica [Recomendaciones de rendimiento](concepts-performance-recomme
 
 4. La ventana **Recomendaciones de rendimiento** mostrará una lista de recomendaciones, si se detecta alguna. 
 
-5. Una recomendación mostrará información sobre la **Base de datos**, **Tabla**, **Columna** y **Tamaño del índice** correspondientes.
+5. Una recomendación mostrará información sobre la **Base de datos**, la **Tabla**, la **Columna** y el **Tamaño del índice** correspondientes.
 
    ![Resultado de Recomendaciones de rendimiento](./media/tutorial-performance-intelligence/performance-recommendations-result.png)
 

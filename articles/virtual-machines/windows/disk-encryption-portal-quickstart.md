@@ -7,10 +7,10 @@ ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
 ms.openlocfilehash: 2518de3ad5d0f583cd4962796e4adda5751351df
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74151047"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Inicio rápido: Creación y cifrado de una máquina virtual Windows desde Azure Portal
@@ -21,7 +21,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 
 ## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual

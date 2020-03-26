@@ -7,15 +7,15 @@ author: ReutAmior
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: c1395bc3b329630a1ecbd479d275c30c9c787bb1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e9a4575ce2f353d61654263aea8d968c650a689e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839012"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79499749"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>Inicio rápido: Invitación a los usuarios a Video Indexer
 
@@ -55,7 +55,7 @@ Los usuarios no reciben una notificación tras la eliminación. Una vez quitados
 
 Ahora puede usar el [sitio web de Video Indexer](video-indexer-view-edit.md) o el [portal para desarrolladores de Video Indexer](video-indexer-use-apis.md) para ver la información detallada del vídeo.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Introducción a Video Indexer](video-indexer-overview.md)
 - [Suscripción y carga del primer vídeo](video-indexer-get-started.md)

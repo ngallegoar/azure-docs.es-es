@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, ak
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: e3667ad7a561f56d5fddaacad705c53d1de9ac36
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156903"
 ---
 # <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: Configuración de la red de Azure CNI en Azure Kubernetes Service (AKS) con Ansible
@@ -31,7 +31,7 @@ Para más información sobre las conexiones de red a las aplicaciones de AKS, ve
 > * Creación de un clúster de AKS
 > * Configuración de redes de Azure CNI
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -102,7 +102,7 @@ Guarde el siguiente cuaderno de estrategias como `aks.yml`:
   register: aks
 ```
 
-Estas son algunas notas claves que se deben tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
+Estas son algunas notas importantes que hay que tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
 
 - Use el módulo `azure_rm_aks_version` para buscar la versión compatible.
 - `vnet_subnet_id` es la subred que creó en la sección anterior.
@@ -146,7 +146,7 @@ Guarde el siguiente cuaderno de estrategias como `aks-azure-cni.yml`:
            var: aks
 ```
 
-Estas son algunas notas claves que se deben tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
+Estas son algunas notas importantes que hay que tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
 
 - Cambie el valor `aksansibletest` por el nombre del grupo de recursos.
 - Cambie el valor `aksansibletest` por el nombre de AKS.
@@ -265,7 +265,7 @@ Guarde el siguiente cuaderno de estrategias como `cleanup.yml`:
             force: yes
 ```
 
-Estas son algunas notas claves que se deben tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
+Estas son algunas notas importantes que hay que tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
 
 - Reemplace el marcador de posición `{{ resource_group_name }}` por el nombre del grupo de recursos.
 - Se eliminarán todos los recursos del grupo de recursos especificado.

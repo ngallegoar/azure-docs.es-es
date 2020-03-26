@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596775"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implementación de un modelo predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar)
@@ -29,10 +29,10 @@ Creará un procedimiento almacenado con un script de R insertado que realiza pre
 En este artículo, con los scripts de R que desarrolló en las partes uno y dos, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear un procedimiento almacenado que genere el modelo de Machine Learning
-> * Almacenamiento del modelo en una tabla de base de datos
-> * Crear un procedimiento almacenado que hace predicciones mediante el modelo
-> * Ejecutar el modelo con nuevos datos
+> * Crear un procedimiento almacenado que genere el modelo de aprendizaje automático
+> * Almacenar el modelo en una tabla de base de datos
+> * Crear un procedimiento almacenado que realice predicciones mediante el modelo
+> * Ejecutar el modelo con datos nuevos
 
 En la [primera parte](sql-database-tutorial-predictive-model-prepare-data.md), aprendió a importar una base de datos de ejemplo y, luego, a preparar los datos para su uso en el entrenamiento de un modelo predictivo en R.
 
@@ -40,11 +40,11 @@ En la [segunda parte](sql-database-tutorial-predictive-model-build-compare.md), 
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* En la tercera parte de esta serie de tutoriales se da por hecho que ha completado [**la primera parte** ](sql-database-tutorial-predictive-model-prepare-data.md) y la [ **segunda parte**](sql-database-tutorial-predictive-model-build-compare.md).
+* En la tercera parte de esta serie de tutoriales se da por hecho que ha completado [**la primera parte**](sql-database-tutorial-predictive-model-prepare-data.md) y la [**segunda parte**](sql-database-tutorial-predictive-model-build-compare.md).
 
-## <a name="create-a-stored-procedure-that-generates-the-model"></a>Creación de un procedimiento almacenado que genera el modelo
+## <a name="create-a-stored-procedure-that-generates-the-model"></a>Crear un procedimiento almacenado que genere el modelo
 
 En la segunda parte de esta serie de tutoriales, decidió que un modelo de árbol de decisión (dtree) era el más preciso. Ahora, con los scripts de R desarrollados, cree un procedimiento almacenado (`generate_rental_rx_model`) que entrene y genere el modelo dtree mediante rxDTree desde el paquete RevoScaleR.
 
@@ -88,9 +88,9 @@ END;
 GO
 ```
 
-## <a name="store-the-model-in-a-database-table"></a>Almacenamiento del modelo en una tabla de base de datos
+## <a name="store-the-model-in-a-database-table"></a>Almacenar el modelo en una tabla de base de datos
 
-Cree una tabla en la base de datos TutorialDB y, luego, guarde el modelo en la tabla.
+Cree una tabla en la base de datos TutorialDB y, después, guarde el modelo en la tabla.
 
 1. Cree una tabla (`rental_rx_models`) para almacenar el modelo.
 
@@ -128,7 +128,7 @@ Cree una tabla en la base de datos TutorialDB y, luego, guarde el modelo en la t
     FROM rental_rx_models;
     ```
 
-## <a name="create-a-stored-procedure-that-makes-predictions"></a>Creación de un procedimiento almacenado que hace predicciones
+## <a name="create-a-stored-procedure-that-makes-predictions"></a>Creación de un procedimiento almacenado que realiza predicciones
 
 Cree un procedimiento almacenado (`predict_rentalcount_new`) que hace predicciones mediante el modelo entrenado y un conjunto de nuevos datos.
 
@@ -173,7 +173,7 @@ END;
 GO
 ```
 
-## <a name="execute-the-model-with-new-data"></a>Ejecución del modelo con nuevos datos
+## <a name="execute-the-model-with-new-data"></a>Ejecutar el modelo con datos nuevos
 
 Ahora puede usar el procedimiento almacenado `predict_rentalcount_new` para predecir el número de alquileres a partir de los nuevos datos.
 
@@ -197,7 +197,7 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-Ha creado, entrenado e implementado correctamente un modelo en una base de datos de Azure SQL. Luego, ha usado ese modelo en un procedimiento almacenado para predecir valores en función de nuevos datos.
+Ha creado, entrenado e implementado correctamente un modelo en una base de datos de Azure SQL. Después, ha usado el modelo en un procedimiento almacenado para predecir valores basándose en datos nuevos.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -212,12 +212,12 @@ En Azure Portal, haga lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En la tercera parte de esta serie de tutoriales, ha hecho lo siguiente:
+En la parte tres de esta serie de tutoriales, ha completado estos pasos:
 
-* Crear un procedimiento almacenado que genere el modelo de Machine Learning
-* Almacenamiento del modelo en una tabla de base de datos
-* Crear un procedimiento almacenado que hace predicciones mediante el modelo
-* Ejecutar el modelo con nuevos datos
+* Crear un procedimiento almacenado que genere el modelo de aprendizaje automático
+* Almacenar el modelo en una tabla de base de datos
+* Crear un procedimiento almacenado que realice predicciones mediante el modelo
+* Ejecutar el modelo con datos nuevos
 
 Para más información sobre el uso de R en Azure SQL Database Machine Learning Services (versión preliminar), consulte:
 

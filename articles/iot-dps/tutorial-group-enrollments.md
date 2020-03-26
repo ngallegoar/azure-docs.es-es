@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: d6cb3af134ff272d79cfc440047a3d90733ee9e8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74976815"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Tutorial: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos y servicios Java y las inscripciones de grupos para el servicio Azure IoT Hub Device Provisioning
@@ -66,7 +66,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
 ## <a name="create-a-device-enrollment-entry"></a>Creación de una entrada de inscripción de dispositivo
 
-1. Abra el símbolo del sistema. Clone el repositorio de GitHub para obtener ejemplos de código del SDK de Java:
+1. Abra un símbolo del sistema. Clone el repositorio de GitHub para obtener ejemplos de código del SDK de Java:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -153,7 +153,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
     ![Información del servicio](./media/tutorial-group-enrollments/extract-dps-endpoints.png)
 
-1. Abra el símbolo del sistema. Navegue hasta la carpeta del proyecto de ejemplo.
+1. Abra un símbolo del sistema. Navegue hasta la carpeta del proyecto de ejemplo.
 
     ```cmd/sh
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
@@ -241,7 +241,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
     ![El registro se completó correctamente.](./media/tutorial-group-enrollments/registration.png)
 
-1. En el portal, navegue hasta IoT Hub vinculado a su servicio de aprovisionamiento y abra la hoja **Device Explorer**. En el aprovisionamiento correcto del dispositivo simulado X.509 con el Hub, su identificador de dispositivo aparece en la hoja **Device Explorer** con el *ESTADO* **habilitado**. Tenga en cuenta que debe hacer clic en el botón **Actualizar** situado en la parte superior si ya ha abierto la hoja antes de ejecutar la aplicación de ejemplo del dispositivo. 
+1. En el portal, navegue hasta IoT Hub vinculado a su servicio de aprovisionamiento y abra la hoja **Device Explorer**. En el aprovisionamiento correcto del dispositivo simulado X.509 con el Hub, su identificador de dispositivo aparece en la hoja **Device Explorer** con el *ESTADO***habilitado**. Tenga en cuenta que debe hacer clic en el botón **Actualizar** situado en la parte superior si ya ha abierto la hoja antes de ejecutar la aplicación de ejemplo del dispositivo. 
 
     ![El dispositivo se registra con el centro de IoT](./media/tutorial-group-enrollments/hub-registration.png) 
 

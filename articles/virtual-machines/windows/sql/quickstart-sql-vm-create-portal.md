@@ -14,10 +14,10 @@ ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 801a6fc0602882d1af49c06bafcfd51942e6da2e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75965647"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de una máquina virtual Windows de SQL Server 2017 en Azure Portal
@@ -33,11 +33,11 @@ Esta guía de inicio rápido le ayuda a crear una máquina virtual de SQL Server
   > - Esta guía de inicio rápido describe una manera de aprovisionar y conectarse a una máquina virtual de SQL rápidamente. Para más información sobre otras opciones de aprovisionamiento de máquinas virtuales de SQL, consulte la [guía de aprovisionamiento de máquinas virtuales Windows de SQL Server en Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
   > - Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
-## <a id="subscription"></a> Obtener una suscripción de Azure
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Obtener una suscripción de Azure
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a id="select"></a> Seleccionar una imagen de máquina virtual de SQL Server
+## <a name="select-a-sql-server-vm-image"></a><a id="select"></a> Seleccionar una imagen de máquina virtual de SQL Server
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta.
 
@@ -51,7 +51,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
    ![Nueva ventana de búsqueda](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
-## <a id="configure"></a> Proporcionar los detalles básicos
+## <a name="provide-basic-details"></a><a id="configure"></a> Proporcionar los detalles básicos
 
 En la pestaña **Básico**, especifique la siguiente información:
 
@@ -116,7 +116,7 @@ Puede supervisar la implementación desde Azure Portal. En el botón **Notificac
 
     ![conexión ssms](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
-## <a id="remotedesktop"></a> Iniciar sesión en la máquina virtual de forma remota
+## <a name="log-in-to-the-vm-remotely"></a><a id="remotedesktop"></a> Iniciar sesión en la máquina virtual de forma remota
 
 Use los pasos siguientes para conectarse a la máquina virtual de SQL Server con Escritorio remoto:
 

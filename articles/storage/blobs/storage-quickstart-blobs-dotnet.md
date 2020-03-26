@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 09002a8c0999dc137ca3386ca7392a566d323e8a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5cfb0430bc94d347afd75bc01170a71a7ad53565
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196066"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215413"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para .NET
 
@@ -114,7 +114,7 @@ Azure Blob Storage está optimizado para el almacenamiento de cantidades masivas
 
 En el siguiente diagrama se muestra la relación entre estos recursos.
 
-![Diagrama de arquitectura de Blob Storage](./media/storage-blob-introduction/blob1.png)
+![Diagrama de arquitectura de Blob Storage](./media/storage-blobs-introduction/blob1.png)
 
 Use las siguientes clases de .NET para interactuar con estos recursos:
 
@@ -237,9 +237,11 @@ Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
 // Download the blob's contents and save it to a file
 BlobDownloadInfo download = await blobClient.DownloadAsync();
 
-using FileStream downloadFileStream = File.OpenWrite(downloadFilePath);
-await download.Content.CopyToAsync(downloadFileStream);
-downloadFileStream.Close();
+using (FileStream downloadFileStream = File.OpenWrite(downloadFilePath))
+{
+    await download.Content.CopyToAsync(downloadFileStream);
+    downloadFileStream.Close();
+}
 ```
 
 ### <a name="delete-a-container"></a>Eliminación de un contenedor

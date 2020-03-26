@@ -10,10 +10,10 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
 ms.openlocfilehash: fa6e393500e9deeb91ee84aa5255320003817f08
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76719898"
 ---
 # <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>Tutorial: Configuración de la replicación transaccional entre dos instancias administradas y SQL Server
@@ -34,7 +34,7 @@ Para más información, consulte los artículos [Instancia administrada de SQL](
 
 Para configurar la replicación entre un publicador de instancia administrada y un suscriptor de instancia administrada, consulte [Configuración de la replicación transaccional entre dos instancias administradas](replication-with-sql-database-managed-instance.md). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar el tutorial, asegúrese de que cuenta con estos requisitos previos:
 

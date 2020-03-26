@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
 ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73686526"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Inicio rápido: Incorporación de máquinas virtuales de Azure Stack a Security Center
@@ -26,7 +26,7 @@ Después de incorporar la suscripción de Azure, puede habilitar Security Center
 
 En este tutorial de inicio rápido se muestra cómo agregar la extensión de máquina virtual **Azure Monitor, Update and Configuration Management** en una máquina virtual (se admiten tanto Linux como Windows) que se ejecuta en Azure Stack.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Debe tener una suscripción de Azure en el nivel de servicio Estándar de Security Center para poder iniciar este tutorial de inicio rápido. Vea [Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) para obtener instrucciones de actualización. Dicho nivel de Security Center se puede probar de forma gratuita durante 30 días. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).

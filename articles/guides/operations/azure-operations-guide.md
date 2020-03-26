@@ -9,10 +9,10 @@ ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.openlocfilehash: 4f9da6cbfe8d1e6b92c39148b275de193730c8f1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77623577"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
@@ -184,7 +184,7 @@ Una suscripción es una agrupación lógica de servicios de Azure que está vinc
 
 Para poder trabajar con los servicios de Azure, necesita una suscripción. Existen varios tipos de suscripción disponibles.
 
-**Cuentas gratuita**: el vínculo para registrarse para una cuenta gratuita se encuentra en el [sitio web de Azure](https://azure.microsoft.com/). Esto proporciona un crédito a lo largo de 30 días para probar cualquier combinación de recursos de Azure. Si se supera la cantidad de crédito, la cuenta será suspendida. Al final del período de prueba, los servicios se retiran y dejará de funcionar. Puede actualizar a una suscripción de pago por uso en cualquier momento.
+**Cuentas gratuitas**: el vínculo para registrarse para una cuenta gratuita se encuentra en el [sitio web de Azure](https://azure.microsoft.com/). Esto proporciona un crédito a lo largo de 30 días para probar cualquier combinación de recursos de Azure. Si se supera la cantidad de crédito, la cuenta será suspendida. Al final del período de prueba, los servicios se retiran y dejará de funcionar. Puede actualizar a una suscripción de pago por uso en cualquier momento.
 
 **Suscripciones de MSDN**: si tiene una suscripción de MSDN, obtendrá una cantidad específica de crédito de Azure cada mes. Por ejemplo, si tiene Microsoft Visual Studio Enterprise con una suscripción de MSDN, obtendrá \$150 al mes de crédito de Azure.
 
@@ -270,7 +270,7 @@ Una plantilla de Resource Manager está formada por cuatro secciones:
 
 - **Variables**: se utilizan para contener valores que se usan en toda la implementación. A diferencia de los parámetros, los valores de las variables no se proporcionan en tiempo de implementación. En su lugar, se define en código o se genera dinámicamente.
 
-- **Recursos:** esta sección de la plantilla define los recursos que se van a implementar, como máquinas virtuales, cuentas de almacenamiento y redes virtuales.
+- **Recursos**: esta sección de la plantilla define los recursos que se van a implementar, como máquinas virtuales, cuentas de almacenamiento y redes virtuales.
 
 - **Salida**: una vez finalizada una implementación, Resource Manager puede devolver datos como, por ejemplo, cadenas de conexión generadas dinámicamente.
 
@@ -298,7 +298,7 @@ Estos son algunos ejemplos de [roles integrados en Azure](../../role-based-acces
 
 - **Lector**: un usuario con este rol puede leer recursos de todos los tipos (excepto los secretos) pero no puede realizar cambios.
 
-- **Colaborador de la máquina virtual**: un usuario con este rol puede administrar máquinas virtuales, pero no puede administrar la red virtual a la que está conectado o la cuenta de almacenamiento donde reside el archivo de disco duro virtual.
+- **Colaborador de máquina virtual**: un usuario con este rol puede administrar máquinas virtuales, pero no puede administrar la red virtual a la que está conectado o la cuenta de almacenamiento donde reside el archivo de disco duro virtual.
 
 - **Colaborador de base de datos SQL**: un usuario con este rol puede administrar bases de datos SQL, pero no sus directivas relacionadas con la seguridad.
 
@@ -473,9 +473,9 @@ Hay varias opciones para implementar una red virtual.
 
 - Plantillas del Administrador de recursos de Azure
 
-> **Cuándo se debe usar**: siempre que trabaje con máquinas virtuales en Azure, trabajará con redes virtuales. Esto permite segmentar las máquinas virtuales en subredes públicas y privadas de forma similar a los centros de datos en el entorno local.
+> **Cuándo se deben usar**: Siempre que trabaje con máquinas virtuales en Azure, trabajará con redes virtuales. Esto permite segmentar las máquinas virtuales en subredes públicas y privadas de forma similar a los centros de datos en el entorno local.
 >
-> **Introducción**: La implementación de una red virtual de Azure mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva red virtual en un grupo de recursos nuevo o existente. Al crear una nueva máquina virtual desde el portal, puede seleccionar una red virtual existente o crear una nueva. Introducción y [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
+> **Introducción**: La implementación de una red virtual de Azure mediante Azure Portal solo requiere una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva red virtual en un grupo de recursos nuevo o existente. Al crear una nueva máquina virtual desde el portal, puede seleccionar una red virtual existente o crear una nueva. Introducción y [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acceso y seguridad para redes virtuales
 

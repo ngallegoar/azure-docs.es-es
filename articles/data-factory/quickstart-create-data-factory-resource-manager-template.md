@@ -11,11 +11,11 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 7ad0367a89730c3aba37c5f75158cb42ae4ae668
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440070"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215753"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Creación de una instancia de Azure Data Factory mediante una plantilla de Azure Resource Manager
 
@@ -456,7 +456,7 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
-## <a name="data-factory-entities-in-the-template"></a>Definiciones de JSON para entidades
+## <a name="json-definitions-for-entities"></a><a name="data-factory-entities-in-the-template"></a>Definiciones de JSON para entidades
 
 Las siguientes entidades de Data Factory se definen en la plantilla JSON:
 

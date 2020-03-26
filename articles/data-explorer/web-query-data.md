@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/04/2019
 ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67797187"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Inicio rápido: Consulta de datos en la interfaz de usuario web de Azure Data Explorer
@@ -20,7 +20,7 @@ El Explorador de datos de Azure es un servicio de exploración de datos altament
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Además de una suscripción de Azure, necesita [un clúster y una base de datos de prueba](create-cluster-database-portal.md) para completar esta guía de inicio rápido.
 

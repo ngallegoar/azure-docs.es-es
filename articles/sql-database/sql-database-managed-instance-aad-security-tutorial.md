@@ -10,10 +10,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: bd65a21c2aa21643c76966410931949db7d17ad6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73822789"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Seguridad de una instancia administrada de Azure SQL Database mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 
 Para más información, consulte los artículos de [introducción a Instancia administrada de Azure SQL Database](sql-database-managed-instance-index.yml) y sus [funcionalidades](sql-database-managed-instance.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar el tutorial, asegúrese de que cuenta con estos requisitos previos:
 
@@ -108,7 +108,7 @@ Para más información, consulte [CREATE LOGIN](/sql/t-sql/statements/create-log
 
 Para crear otras entidades de seguridad (inicios de sesión) de un servidor de Azure AD, se deben otorgar roles o permisos de SQL Server a la entidad de seguridad (SQL o Azure AD).
 
-### <a name="sql-authentication"></a>Autenticación de SQL
+### <a name="sql-authentication"></a>Autenticación SQL
 
 - Si el inicio de sesión es una entidad de seguridad de SQL, solo los inicios de sesión que forman parte del rol `sysadmin` pueden utilizar el comando create para crear inicios de sesión para una cuenta de Azure AD.
 

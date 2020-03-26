@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
 ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75350134"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrado del tráfico de red con un grupo de seguridad de red mediante Azure Portal
@@ -68,7 +68,7 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
     | Nombre           | myAsgWebServers                                               |
     | Subscription   | Seleccione su suscripción.                                     |
     | Resource group | Seleccione **Usar existente** y después seleccione **myResourceGroup**. |
-    | Location       | East US                                                       |
+    | Location       | Este de EE. UU.                                                       |
 
 4. Complete el paso 3 de nuevo, especificando los valores siguientes:
 
@@ -77,7 +77,7 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
     | Nombre           | myAsgMgmtServers                                              |
     | Subscription   | Seleccione su suscripción.                                     |
     | Resource group | Seleccione **Usar existente** y después seleccione **myResourceGroup**. |
-    | Location       | East US                                                       |
+    | Location       | Este de EE. UU.                                                       |
 
 ## <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
 
@@ -90,7 +90,7 @@ Un grupo de seguridad de aplicaciones permite agrupar servidores con funciones s
     |Nombre|myNsg|
     |Subscription| Seleccione su suscripción.|
     |Resource group | Seleccione **Usar existente** y después seleccione *myResourceGroup*.|
-    |Location|East US|
+    |Location|Este de EE. UU.|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Asociación del grupo de seguridad de red a la subred
 

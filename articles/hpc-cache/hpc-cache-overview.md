@@ -7,11 +7,11 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582126"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216393"
 ---
 # <a name="what-is-azure-hpc-cache"></a>¿Qué es Azure HPC Cache?
 
@@ -49,14 +49,14 @@ La implementación de Azure HPC Cache puede ayudar a acelerar los cálculos en l
 
 Azure HPC Cache está disponible en estas regiones de Azure:
 
-* East US
+* Este de EE. UU.
 * Este de EE. UU. 2
-* Europa del Norte
-* Europa occidental
-* Sudeste asiático
+* Norte de Europa
+* Oeste de Europa
+* Sudeste de Asia
 * Sidney
 * Oeste de EE. UU. 2
-* Corea Central
+* Centro de Corea del Sur
 
 Consulte la [página del producto Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para la información de disponibilidad más reciente.
 

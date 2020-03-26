@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 0bd0d8eb8abe6f320f73e35b1e3b08e1d8dc1de3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718914"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante la CLI y temas o suscripciones
@@ -34,7 +34,7 @@ Un ejemplo de este escenario es una actualización del surtido de inventario de 
 
 Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para desarrollar una aplicación de Service Bus con Java, debe tener instalado lo siguiente:
 
@@ -138,7 +138,7 @@ Después de aprovisionar el espacio de nombres y los temas y suscripciones, y de
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Navegue hasta la carpeta de ejemplos `azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java`. Tenga en cuenta que en el shell de Bash, los comandos distinguen mayúsculas de minúsculas y que los separadores de ruta de acceso deben ser barras diagonales.
+2. Vaya a la carpeta de ejemplos `azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java`. Tenga en cuenta que en el shell de Bash, los comandos distinguen mayúsculas de minúsculas y que los separadores de ruta de acceso deben ser barras diagonales.
 
 3. Emita el siguiente comando para compilar la aplicación:
    

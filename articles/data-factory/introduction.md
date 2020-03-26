@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
 ms.openlocfilehash: e23268d21b01435aa71d4f471afc6d37ee9e9c1d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73672699"
 ---
 # <a name="what-is-azure-data-factory"></a>¿Qué es Azure Data Factory?
@@ -28,7 +28,7 @@ Para analizar estos registros, la empresa debe usar datos de referencia, como in
 
 Para extraer información, espera procesar los datos combinados mediante un clúster de Spark en la nube (Azure HDInsight) y publicar los datos transformados en un almacenamiento de datos en la nube como Azure SQL Data Warehouse para generar fácilmente un informe sobre él. Quieren automatizar este flujo de trabajo y supervisarlo y administrarlo según una programación diaria. También quieren ejecutarlo cuando los archivos lleguen a un contenedor de almacén de blobs.
 
-Azure Data Factory es la plataforma que resuelve estos escenarios de datos. Se trata de un *servicio de integración de datos y ETL basado en la nube que le permite crear flujos de trabajo controlados por datos a fin de coordinar el movimiento y la transformación de datos a escala*. Con Azure Data Factory, puede crear y programar flujos de trabajo basados en datos (llamados canalizaciones) que pueden ingerir datos de distintos almacenes de datos. Puede crear procesos ETL complejos que transformen datos visualmente con flujos de datos o mediante servicios de proceso como Azure HDInsight Hadoop, Azure Databricks y Azure SQL Database. 
+Azure Data Factory es la plataforma que resuelve estos escenarios de datos. Se trata de un *servicio de integración de datos y ETL basado en la nube que le permite crear flujos de trabajo orientados a datos a fin de coordinar el movimiento y la transformación de datos a escala*. Con Azure Data Factory, puede crear y programar flujos de trabajo basados en datos (llamados canalizaciones) que pueden ingerir datos de distintos almacenes de datos. Puede crear procesos ETL complejos que transformen datos visualmente con flujos de datos o mediante servicios de proceso como Azure HDInsight Hadoop, Azure Databricks y Azure SQL Database. 
 
 Además, puede publicar los datos transformados en almacenes de datos, como Azure SQL Data Warehouse, para que los consuman aplicaciones de inteligencia empresarial (BI). En última instancia, mediante Azure Data Factory, los datos sin procesar se pueden organizar en almacenes de datos y Data Lakes significativos para tomar mejores decisiones empresariales.
 
@@ -36,7 +36,7 @@ Además, puede publicar los datos transformados en almacenes de datos, como Azur
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 
-Data Factory contiene una serie de sistemas interconectados que proporcionan una plataforma completa para ingenieros de datos.
+Data Factory contiene una serie de sistemas interconectados que proporcionan una plataforma completa de un extremo a otro para los ingenieros de datos.
 
 ### <a name="connect-and-collect"></a>Conectar y recopilar
 
@@ -49,7 +49,7 @@ Sin Data Factory, las empresas deben crear componentes de movimiento de datos pe
 Con Data Factory, puede usar la [actividad de copia](copy-activity-overview.md) en una canalización de datos para mover los datos desde almacenes de datos de origen locales y en la nube a un almacén de datos de centralización en la nube para su posterior análisis. Por ejemplo, puede recopilar datos de Azure Data Lake Storage y transformarlos posteriormente mediante un servicio de proceso de Azure Data Lake Analytics. También puede recopilar datos de Azure Blob Storage y transformarlos más adelante mediante un clúster de Azure HDInsight Hadoop.
 
 ### <a name="transform-and-enrich"></a>Transformar y enriquecer
-Cuando los datos estén presentes en un almacén de datos centralizado en la nube, procese o transforme los datos recopilados mediante flujos de datos de asignación de ADF. Los flujos de datos permiten a los ingenieros crear y mantener grafos de transformación de datos que se ejecutan en Spark sin necesidad de tener conocimientos en clústeres de Spark o programación de Spark.
+Cuando los datos están presentes en un almacén de datos centralizado en la nube, procese o transforme los datos recopilados mediante flujos de datos de asignación de ADF. Los flujos de datos permiten a los ingenieros de datos crear y mantener gráficos de transformación de datos que se ejecutan en Spark sin necesidad de comprender los clústeres de Spark o la programación de Spark.
 
 Si prefiere codificar las transformaciones a mano, ADF admite actividades externas para ejecutar las transformaciones en servicios de proceso como HDInsight Hadoop, Spark, Data Lake Analytics y Machine Learning.
 
@@ -68,7 +68,7 @@ Una factoría de datos puede tener una o más canalizaciones. La canalización e
 La ventaja de esto es que la canalización le permite administrar las actividades como un conjunto en lugar de tener que administrar cada una de ellas individualmente. Las actividades de una canalización se pueden encadenar juntas para operar de forma secuencial o pueden funcionar de forma independiente en paralelo.
 
 ### <a name="mapping-data-flows"></a>Asignación de flujos de datos
-Cree y administre grafos de lógica de transformación de datos que pueda usar para transformar datos de cualquier tamaño. Puede crear una biblioteca reutilizable de rutinas de transformación de datos y ejecutar esos procesos con escalabilidad horizontal desde las canalizaciones de ADF. Data Factory ejecutará la lógica en un clúster de Spark que se activa y se desactiva cuando lo necesita. Nunca tendrá que administrar o mantener clústeres.
+Cree y administre gráficos de lógica de transformación de datos que puede usar para transformar datos de cualquier tamaño. Puede crear una biblioteca reutilizable de rutinas de transformación de datos y ejecutar esos procesos con escalabilidad horizontal desde las canalizaciones de ADF. Data Factory ejecutará la lógica en un clúster de Spark que se pone en marcha y se detiene cuando lo necesita. Nunca tendrá que administrar o mantener clústeres.
 
 ### <a name="activity"></a>Actividad
 Las actividades representan un paso del procesamiento en una canalización. Por ejemplo, puede usar una actividad de copia para copiar datos de un almacén de datos a otro. De igual forma, puede usar una actividad de Hive, que ejecuta una consulta de Hive en un clúster de Azure HDInsight para transformar o analizar los datos. Data Factory admite tres tipos de actividades: actividades de movimiento de datos, actividades de transformación de datos y actividades de control.
@@ -105,7 +105,7 @@ El flujo de control es una orquestación de actividades de canalización que inc
 Las variables se pueden usar dentro de las canalizaciones para almacenar valores temporales y también se pueden usar junto con parámetros para habilitar el paso de valores entre canalizaciones, flujos de datos y otras actividades.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Estos son los documentos importantes con los pasos siguientes que se van a explorar:
+Estos son los documentos importantes del paso siguiente que se van a explorar:
 
 - [Dataset and linked services](concepts-datasets-linked-services.md) (Conjuntos de datos y servicios vinculados)
 - [Canalizaciones y actividades](concepts-pipelines-activities.md)

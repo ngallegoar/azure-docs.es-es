@@ -6,12 +6,12 @@ ms.author: jzim
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/04/2019
-ms.openlocfilehash: 0e6aecccc19572ee980feb4d816fae1f2b0101b7
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 58fc695707995aafe4d804ffab8beee7c52b4320
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274901"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79455305"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: Creación de un clúster de Red Hat OpenShift en Azure
 
@@ -28,7 +28,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Escalado de un clúster de Red Hat OpenShift en Azure](tutorial-scale-cluster.md)
 > * [Eliminación de un clúster de Red Hat OpenShift en Azure](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 > [!IMPORTANT]
 > En este tutorial se requiere la versión 2.0.65 de la CLI de Azure.
@@ -46,7 +46,7 @@ Asegúrese de haber [configurado el entorno de desarrollo](howto-setup-environme
 
 Si ejecuta la CLI de Azure de manera local, abra un shell de comandos de Bash y ejecute `az login` para iniciar sesión en Azure.
 
-```bash
+```azurecli
 az login
 ```
 
@@ -95,7 +95,7 @@ TENANT=<tenant ID>
 
 Cree el grupo de recursos para el clúster. Ejecute el siguiente comando desde el mismo shell de Bash que usó para definir las variables anteriores:
 
-```bash
+```azurecli
 az group create --name $CLUSTER_NAME --location $LOCATION
 ```
 
@@ -113,7 +113,7 @@ Si no conoce el nombre de red o el grupo de recursos al que pertenece la red vir
 
 Defina una variable VNET_ID con el siguiente comando de la CLI en un shell de BASH:
 
-```bash
+```azurecli
 VNET_ID=$(az network vnet show -n {VNET name} -g {VNET resource group} --query id -o tsv)
 ```
 
@@ -131,7 +131,7 @@ _Para crear un área de trabajo de Log Analytics, consulte [Creación de un áre
 
 Defina una variable WORKSPACE_ID mediante el siguiente comando de la CLI en un shell de BASH:
 
-```bash
+```azurecli
 WORKSPACE_ID=$(az monitor log-analytics workspace show -g {RESOURCE_GROUP} -n {NAME} --query id -o tsv)
 ```
 
@@ -144,19 +144,19 @@ Ya está listo para crear un clúster. A continuación se creará el clúster en
 
 Si **no** va a emparejar el clúster a una red virtual o **no** quiere usar Azure Monitor, utilice el siguiente comando:
 
-```bash
+```azurecli
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
 En caso de que **sí** vaya a emparejar el clúster a una red virtual, use el comando siguiente que agrega la marca `--vnet-peer`:
 
-```bash
+```azurecli
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
 ```
 
 Si **quiere** usar Azure Monitor con el clúster, utilice el siguiente comando, que agrega la marca `--workspace-id`:
 
-```bash
+```azurecli
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --workspace-id $WORKSPACE_ID
 ```
 
@@ -172,7 +172,7 @@ Después de unos minutos, finaliza `az openshift create`.
 
 Obtenga la dirección URL para iniciar sesión en el clúster mediante la ejecución del siguiente comando:
 
-```bash
+```azurecli
 az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
 ```
 
@@ -220,7 +220,7 @@ En la consola de OpenShift, haga clic en el signo de interrogación de la esquin
 >
 > Como alternativa, puede [descargar la CLI de OC](https://www.okd.io/download.html) directamente.
 
-La página **Command Line Tools** (Herramientas de línea de comandos) proporciona un comando con el formato `oc login https://<your cluster name>.<azure region>.cloudapp.azure.com --token=<token value>`.  Haga clic en el botón *Copy to clipboard* (Copiar al Portapapeles) para copiar este comando.  En una ventana de terminal, [establezca la ruta de acceso](https://docs.okd.io/latest/cli_reference/get_started_cli.html#installing-the-cli) para incluir la instalación local de las herramientas de OC. A continuación, inicie sesión en el clúster mediante el comando de la CLI de OC que copió.
+La página **Command Line Tools** (Herramientas de línea de comandos) proporciona un comando con el formato `oc login https://<your cluster name>.<azure region>.cloudapp.azure.com --token=<token value>`.  Haga clic en el botón *Copy to clipboard* (Copiar al Portapapeles) para copiar este comando.  En una ventana de terminal, [establezca la ruta de acceso](https://docs.okd.io/latest/cli_reference/openshift_cli/getting-started-cli.html#installing-the-cli) para incluir la instalación local de las herramientas de OC. A continuación, inicie sesión en el clúster mediante el comando de la CLI de OC que copió.
 
 Si no se pudo obtener el valor del token siguiendo los pasos anteriores, obténgalo de: `https://<your cluster name>.<azure region>.cloudapp.azure.com/oauth/token/request`.
 

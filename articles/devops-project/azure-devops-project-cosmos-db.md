@@ -10,10 +10,10 @@ ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73888907"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB con DevOps Projects
@@ -37,7 +37,7 @@ En este tutorial, aprenderá lo siguiente:
 > * Confirmar los cambios en Git e implementarlos automáticamente en Azure
 > * Limpiar los recursos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesita una suscripción de Azure, que puede obtener de forma gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -45,7 +45,7 @@ Necesita una suscripción de Azure, que puede obtener de forma gratuita mediante
 
 DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure (como Azure Cosmos DB, Application Insights, App Service y planes de App Service) en la suscripción de Azure que prefiera.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el panel izquierdo, seleccione **Crear un recurso**.
 
@@ -158,7 +158,7 @@ Cuando ya no necesite los recursos relacionados que haya creado, elimínelos. Us
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial aprendió lo siguiente:
+Puede modificar estas canalizaciones de compilación y de versión para satisfacer las necesidades de su equipo. También puede usar este patrón de CI/CD como plantilla para las demás canalizaciones. En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Usar DevOps Projects para la implementación de aplicaciones de Node.js con tecnología de Azure Cosmos DB

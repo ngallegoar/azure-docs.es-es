@@ -9,16 +9,16 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4bcee1097010bb8746b11185a470ca2584485c3f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73488973"
 ---
 1. En la página del portal de la WAN virtual, en la sección **Conectividad**, seleccione **Sitios VPN** para abrir la página de sitios VPN.
 2. En la página **Sitios de VPN**, haga clic en **+Crear sitio**.
 
-   ![Aspectos básicos](./media/virtual-wan-tutorial-site-include/basics.png "Aspectos básicos")
+   ![Conceptos básicos](./media/virtual-wan-tutorial-site-include/basics.png "Aspectos básicos")
 3. Dentro de la página **Crear un sitio VPN**, en la pestaña **Aspectos básicos** rellene los campos siguientes:
 
     * **Región**: anteriormente se conocía como ubicación. Se trata de la ubicación en la que desea crear este recurso de sitio.

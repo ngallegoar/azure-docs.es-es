@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
 ms.openlocfilehash: e296ae36eeeb816d8704ab03824f8cbb80082ea6
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77163014"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Envío o recepción de eventos en Event Hubs mediante JavaScript (azure/event-hubs, versión 5)
@@ -22,7 +22,7 @@ En este inicio rápido se muestra cómo enviar y recibir eventos desde un centro
 > En este inicio rápido se usa el reciente paquete azure/event-hubs, versión 5. Para ver un inicio rápido que use el antiguo paquete de la versión 2 de azure/event-hubs, consulte más reciente del paquete, consulte [Envío o recepción de eventos en Event Hubs mediante Node.js ( versión 2)](event-hubs-node-get-started-send.md). 
 
 ## <a name="prerequisites"></a>Prerrequisitos
-Si es la primera vez que usa Azure Event Hubs, consulte la [información general de Event Hubs](event-hubs-about.md) antes de proceder con este inicio rápido. 
+Si es la primera vez que usa Azure Event Hubs, consulte la [información general de Event Hubs](event-hubs-about.md) antes de continuar con este inicio rápido. 
 
 Para completar este tutorial de inicio rápido, debe cumplir los siguientes requisitos previos:
 

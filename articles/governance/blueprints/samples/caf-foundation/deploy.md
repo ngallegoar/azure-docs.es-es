@@ -4,10 +4,10 @@ description: Pasos para implementar el ejemplo de plano técnico de CAF Foundati
 ms.date: 08/20/2019
 ms.topic: sample
 ms.openlocfilehash: df17f8c3f539e25635ea4718be9d51d5e5e3f708
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74545516"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implementación del ejemplo de plano técnico de Microsoft Cloud Adoption Framework para Azure Foundation
@@ -100,14 +100,14 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
 En la tabla siguiente se proporciona una lista de los parámetros del artefacto de plano técnico:
 
-|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
+|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
 |SKU de cuenta de almacenamiento permitida|Asignación de directiva|Policy_Allowed-StorageAccount-SKUs|SKU usada en cuentas de almacenamiento de registro de diagnóstico|
 |SKU de máquina virtual permitida|Asignación de directiva|Policy_Allowed-VM-SKUs|SKU de máquina virtual permitida|
 |Anexar la etiqueta CostCenter a los grupos de recursos|Asignación de directiva|Policy_CostCenter_Tag|Anexar la etiqueta CostCenter y su valor del grupo de recursos|
 |Tipos de recursos que no desea permitir en su entorno|Asignación de directiva|Policy _Allowed-Resource-Types|Qué recursos de Azure quiere permitir en su entorno|
-|Implementar Key Vault|Plantilla de Resource Manager|KV-AccessPolicy|**Bloqueado**: grupo o usuario de Azure AD <Object ID> al que conceder permisos en Key Vault|
-|Implementar Log Analytics|Plantilla de Resource Manager|LogAnalytics_DataRetention|**Bloqueado**: número de días que se conservarán los datos en Log Analytics.|
+|Implementación de Key Vault|Plantilla de Resource Manager|KV-AccessPolicy|**Bloqueado**: grupo o usuario de Azure AD <Object ID> al que conceder permisos en Key Vault|
+|Implementación de Log Analytics|Plantilla de Resource Manager|LogAnalytics_DataRetention|**Bloqueado**: número de días que se conservarán los datos en Log Analytics.|
 |Implementación de Log Analytics|Plantilla de Resource Manager|LogAnalytics_Location|**Bloqueado**: región que se usa al establecer el área de trabajo.|
 
 ## <a name="next-steps"></a>Pasos siguientes

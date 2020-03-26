@@ -14,25 +14,32 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fef325b67c38eda09a05dac9d74bd5b97df164cc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462086"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067768"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Respuesta a eventos de Azure Service Bus recibidos a través de Azure Event Grid con Azure Functions y Azure Logic Apps
-En este tutorial, aprenderá a responder a eventos de Azure Service Bus que se reciben a través de Azure Event Grid con Azure Functions y Azure Logic Apps. Realizará los siguientes pasos:
- 
-- Cree una función de Azure de prueba para depurar y ver el flujo inicial de eventos desde Event Grid.
-- Cree una función de Azure para recibir y procesar los mensajes de Azure Service Bus basados en eventos de Event Grid.
-- Crear una aplicación lógica para responder a eventos de Event Grid
+En este tutorial, aprenderá a responder a eventos de Azure Service Bus que se reciben a través de Azure Event Grid con Azure Functions y Azure Logic Apps. 
 
-Después de crear los artefactos de Service Bus, Event Grid, Azure Functions y Logic Apps, realizará las siguientes acciones: 
+En este tutorial, aprenderá a:
+> [!div class="checklist"]
+> * Creación de un espacio de nombres de Service Bus
+> * Preparación de una aplicación de ejemplo para enviar mensajes
+> * Configuración de una función de prueba en Azure
+> * Conexión de la función y el espacio de nombres mediante Event Grid
+> * Envío de mensaje al tema de Service Bus
+> * Recepción de mensajes mediante Azure Functions
+> * Recepción de mensajes mediante Logic Apps
 
-1. Enviar mensajes a un tema de Service Bus 
-2. Comprobar que las suscripciones al tema recibieron esos mensajes
-3. Comprobar que la función o la aplicación lógica de suscripción al evento ha recibido el evento 
+## <a name="prerequisites"></a>Prerrequisitos
+
+Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
+
+- [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](https://www.visualstudio.com/vs) o posterior.
+- [NET Core SDK](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
 
 ## <a name="create-a-service-bus-namespace"></a>Creación de un espacio de nombres de Service Bus
 Siga las instrucciones de este tutorial: [Inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones al tema ](service-bus-quickstart-topics-subscriptions-portal.md) para realizar las siguientes tareas:
@@ -65,7 +72,7 @@ Antes de examinar todo el escenario, configure por lo menos una pequeña funció
 Luego, siga estos pasos: 
 
 
-# <a name="azure-functions-v2tabv2"></a>[Azure Functions V2](#tab/v2)
+# <a name="azure-functions-v2"></a>[Azure Functions V2](#tab/v2)
 
 1. Expanda **Functions** en la vista de árbol y seleccione la función. Reemplace el código de la función por el código siguiente: 
 
@@ -122,7 +129,7 @@ Luego, siga estos pasos:
 
     ![Obtención de dirección URL de la función](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
-# <a name="azure-functions-v1tabv1"></a>[Azure Functions V1](#tab/v1)
+# <a name="azure-functions-v1"></a>[Azure Functions V1](#tab/v1)
 
 1. Configure la función para usar la versión **V1**: 
     1. Seleccione la aplicación de función en la vista de árbol y seleccione **Function app settings** (Configuración de Function App). 

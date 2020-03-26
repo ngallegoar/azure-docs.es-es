@@ -4,22 +4,24 @@ description: 'En este inicio rápido se proporciona un ejemplo de código de Jav
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: seo-java-august2019
+ms.custom:
+- mvc
+- seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 566bf606b275b8e2c1f456600b46b1d7304d2ce7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: cf03cebcd69bd85a4cc94ceb7e99fd0edef99b58
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769021"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80063124"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Inicio rápido: uso de Java para conectarse a Azure Database for PostgreSQL y consultar datos: servidor único
 
 En este inicio rápido se va a conectar a una instancia de Azure Database for PostgreSQL mediante una aplicación de Java. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En los pasos de este artículo, se da por hecho que está familiarizado con el desarrollo con Java, pero que nunca ha trabajado con Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 08/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70142912"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>¿Qué es Azure Data Box Heavy?
@@ -59,13 +59,13 @@ Data Box Heavy está pensado para mover grandes cantidades de datos a Azure si
 
 El dispositivo Data Box Heavy tiene las siguientes características en esta versión.
 
-| Especificaciones                                          | DESCRIPCIÓN              |
+| Especificaciones                                          | Descripción              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | Alrededor de 500 libras. <br>Dispositivo en ruedas de bloqueo para su transporte|
-| Dimensiones                                              | Ancho: 26 pulgadas Alto: 28 pulgadas Largo: 48 pulgadas |
+| Dimensions                                              | Ancho: 26 pulgadas Alto: 28 pulgadas Largo: 48 pulgadas |
 | Espacio en bastidor                                              | No se puede montar en bastidor|
 | Se necesitan cables                                         | 4 cables de alimentación de 120 V/10 A (NEMA 5-15) con conexión a tierra incluidos <br> El dispositivo admite una potencia de hasta 240 V con tomacorrientes C-13 <br> Use cables de red compatibles con [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
-| Potencia                                                    | 4 fuentes de alimentación (PSU) integradas compartidas entre ambos nodos del dispositivo <br> Consumo de potencia típico de 1200 vatios|
+| Power                                                    | 4 fuentes de alimentación (PSU) integradas compartidas entre ambos nodos del dispositivo <br> Consumo de potencia típico de 1200 vatios|
 | Capacidad de almacenamiento                                        | Alrededor de 1 PB sin procesar, 70 discos de 14 TB cada uno <br> 770 TB de capacidad utilizable|
 | Número de nodos                                          | 2 nodos independientes por dispositivo (500 TB cada uno) |
 | Interfaces de red por nodo                             | 4 interfaces de red por nodo <br><br> MGMT, DATA3 <ul><li> 2 interfaces de 1 GbE </li><li> MGMT es para la administración y la configuración inicial y no es configurable por el usuario. </li><li> DATA3 es un Protocolo de configuración dinámica de host (DHCP) y configurable por el usuario de manera dinámica.</li></ul>Interfaces de datos DATA1, DATA2 <ul><li>2 interfaces de 40 GbE </li><li> Estáticas o configurables por el usuario para DHCP (valor predeterminado).</li></ul>|
@@ -104,7 +104,7 @@ Data Box Heavy puede transferir datos en función de la región en la que se i
 
 - **Disponibilidad del servicio**: para esta versión, Data Box Heavy está disponible en las siguientes regiones:
     - Todas las regiones de nube pública de Estados Unidos: Centro-oeste de EE. UU., Oeste de EE. UU. 2, Oeste de EE. UU., Centro-Sur de EE. UU, Centro de EE. UU., Centro-Norte de EE. UU., Este de EE. UU. y Este de EE. UU. 2.
-    - Unión Europea: Europa Occidental y Europa del Norte.
+    - Unión Europea: Oeste de Europa y Norte de Europa.
     - Reino Unido: Sur de Reino Unido y Oeste de Reino Unido.
     - Francia: Centro de Francia y Sur de Francia.
 
@@ -118,7 +118,7 @@ Siga estos pasos para registrarse en Data Box Heavy:
 
 1. Inicie sesión en Azure Portal en: https://portal.azure.com.
 2. Haga clic en **+ Crear un recurso** para crear un recurso. Busque **Azure Data Box**. Seleccione el servicio **Azure Data Box**.
-3. Haga clic en **Create**(Crear).
+3. Haga clic en **Crear**.
 4. Seleccione la suscripción que quiere usar para Data Box Heavy. Seleccione la región donde quiere implementar el recurso Data Box Heavy. En la opción **Data Box Heavy**, haga clic en **Registrarse**.
 5. Responda a las preguntas relativas al país o la región de residencia de los datos, período de tiempo, servicio de Azure de destino para la transferencia de datos, ancho de banda y frecuencia de transferencia de datos. Revise los Términos y privacidad y seleccione la casilla "Microsoft can use your email address to contact you" (Microsoft puede usar su dirección de correo electrónico para ponerse en contacto con usted).
 

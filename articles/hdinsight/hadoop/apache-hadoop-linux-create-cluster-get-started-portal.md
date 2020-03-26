@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/24/2020
-ms.openlocfilehash: 7d2dd65224aad231db9574aa5a1fa4a00b328da8
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 8939d9b342094342d576c00cf02e622286c8fc0f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623558"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80130566"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Hadoop en Azure HDInsight mediante Azure Portal
 
@@ -43,7 +43,7 @@ En esta sección, crea un clúster de Hadoop en HDInsight con Azure Portal.
     |Propiedad  |Descripción  |
     |---------|---------|
     |Subscription    |  En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster. |
-    |Resource group     | En la lista desplegable, seleccione el grupo de recursos existente o **Crear**.|
+    |Resource group     | En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
     |Nombre del clúster   | Escriba un nombre único global. El nombre puede tener un máximo de 59 caracteres, letras, números y guiones incluidos. Los caracteres primero y último del nombre no pueden ser guiones. |
     |Region    | En la lista desplegable, seleccione una región donde crear el clúster.  Elija una ubicación más cercana a usted para mejorar el rendimiento. |
     |Tipo de clúster| Seleccione **Seleccionar tipo de clúster**. A continuación, seleccione **Hadoop** como tipo de clúster.|
@@ -52,7 +52,7 @@ En esta sección, crea un clúster de Hadoop en HDInsight con Azure Portal.
     |Nombre de usuario de Secure Shell (SSH) | El nombre de usuario predeterminado es **sshuser**.  Puede proporcionar otro nombre para el nombre de usuario de SSH. |
     |Uso de la contraseña de inicio de sesión del clúster para SSH| Seleccione esta casilla para que el usuario de SSH tenga la misma contraseña que la proporcionada para el usuario de inicio de sesión del clúster.|
 
-    ![HDInsight Linux: introducción a la especificación de valores de clúster básicos](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics-blank.png "Especificación de valores básicos para crear un clúster de HDInsight")
+    ![HDInsight Linux: introducción a la especificación de valores de clúster básicos](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics.png "Especificación de valores básicos para crear un clúster de HDInsight")
 
     Seleccione el botón **Siguiente: Almacenamiento >>**  para avanzar a la configuración de almacenamiento.
 

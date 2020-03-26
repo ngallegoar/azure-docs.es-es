@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
 ms.openlocfilehash: d2f31be5e7ece32fb1e0f6d9a2e482688d46eeb3
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75770958"
 ---
 # <a name="expressroute-overview"></a>Información general sobre ExpressRoute
@@ -58,7 +58,7 @@ Puede conectarse a Microsoft en una de nuestras [ubicaciones de configuración e
 Por ejemplo, si se conectó a Microsoft en Ámsterdam mediante ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en Europa Septentrional y Europa Occidental. Para obtener información general sobre las regiones geopolíticas, las regiones de Microsoft Cloud asociadas y las correspondientes ubicaciones de emparejamiento de ExpressRoute, consulte [Asociados de ExpressRoute y ubicaciones de emparejamiento](expressroute-locations.md).
 
 ### <a name="global-connectivity-with-expressroute-premium"></a>Conectividad global con ExpressRoute Premium
-Puede habilitar [ExpressRoute Premium](expressroute-faqs.md) para extender la conectividad a través de límites geopolíticos. Por ejemplo, si se conectó a Microsoft en Ámsterdam con ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en todas las regiones del mundo (excluidas las nubes nacionales). Puede acceder a los servicios implementados en Sudamérica o Australia del mismo modo que accede a las regiones de Europa Septentrional y Europa Occidental.
+Puede habilitar [ExpressRoute Premium](expressroute-faqs.md) para extender la conectividad a través de límites geopolíticos. Por ejemplo, si se conectó a Microsoft en Ámsterdam con ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en todas las regiones del mundo (excluidas las nubes nacionales). Puede acceder a los servicios implementados en Sudamérica o Australia del mismo modo que accede a las regiones de Europa Septentrional y Oeste de Europa.
 
 ### <a name="local-connectivity-with-expressroute-local"></a>Conectividad local con ExpressRoute Local
 Para transferir datos de manera rentable, habilite el [SKU local](expressroute-faqs.md) si puede traer los datos a una ubicación de ExpressRoute cerca de la región de Azure deseada. Con Local, la transferencia de datos se incluye en la carga del puerto de ExpressRoute. 
@@ -106,7 +106,7 @@ Puede elegir el modelo de facturación que mejor le convenga. Elija entre los mo
 * **Datos medidos**. La facturación se basa en unos honorarios mensuales y todas las transferencias de datos de entrada están incluidas de forma gratuita. Las transferencias de datos de salida se cobran de acuerdo a un precio por GB de transferencia de datos. Las tasas de transferencia de datos varían según la región.
 * **Complemento ExpressRoute Premium**. ExpressRoute Premium es un complemento que se agrega a un circuito ExpressRoute. El complemento ExpressRoute Premium ofrece las siguientes capacidades: 
   * Límites de ruta ampliados para las configuraciones entre pares públicos y privados de Azure, de 4.000 rutas a 10.000 rutas.
-  * Conectividad global para los servicios. Un circuito ExpressRoute creado en cualquier región (excepto las nubes nacionales) tendrá acceso a los recurso de cualquier otra región del mundo. Por ejemplo, un circuito ExpressRoute aprovisionado en Silicon Valley puede acceder a una red virtual creada en Europa occidental .
+  * Conectividad global para los servicios. Un circuito ExpressRoute creado en cualquier región (excepto las nubes nacionales) tendrá acceso a los recurso de cualquier otra región del mundo. Por ejemplo, un circuito ExpressRoute aprovisionado en Silicon Valley puede acceder a una red virtual creada en Oeste de Europa .
   * Número de vínculos de red virtual por circuito ExpressRoute ampliado de 10 a un límite superior, que depende del ancho de banda del circuito.
 
 ## <a name="faq"></a>Preguntas más frecuentes

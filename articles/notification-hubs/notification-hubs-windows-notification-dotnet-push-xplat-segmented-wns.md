@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 9151870836b1a616a79e54275ed185a425c11f0c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72385615"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Tutorial: Envío de notificaciones a dispositivos concretos que ejecutan aplicaciones de la Plataforma universal de Windows
@@ -47,7 +47,7 @@ En este tutorial se realizan las tareas siguientes:
 > * Envío de notificaciones con etiquetas
 > * Ejecución de la aplicación y generación de notificaciones
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete el [Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs][get-started] antes de empezar este tutorial.  
 
@@ -139,7 +139,7 @@ El primer paso consiste en agregar elementos de la interfaz de usuario a la pág
     Si desea registrar más de una plantilla, especifique un nombre de plantilla, por ejemplo, *simpleWNSTemplateExample*. Se asigna un nombre a las plantillas para que pueda actualizarlas o eliminarlas. Puede registrar más de una plantilla, por ejemplo, para tener una para las notificaciones del sistema y otra para los iconos.
 
     >[!NOTE]
-    > Con Notification Hubs, un dispositivo puede registrar varias plantillas con la misma etiqueta. En este caso, un mensaje entrante dirigido a esa etiqueta da lugar a que se entreguen varias notificaciones al dispositivo, una por cada plantilla. Este proceso le permite mostrar el mismo mensaje en varias notificaciones visuales, como distintivo y como notificación del sistema en una aplicación de la Tienda Windows.
+    > Con Notification Hubs, un dispositivo puede registrar varias plantillas con la misma etiqueta. En este caso, un mensaje entrante dirigido a esa etiqueta da lugar a que se entreguen varias notificaciones al dispositivo, una por cada plantilla. Este proceso le permite mostrar el mismo mensaje en varias notificaciones visuales, como distintivo y como notificación del sistema en una aplicación de la Tienda Windows.
 
     Para obtener más información, consulte [Plantillas](notification-hubs-templates-cross-platform-push-messages.md).
 
