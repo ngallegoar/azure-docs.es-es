@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, cache, redis
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 2ef36ee9e3601d77bfa114b903f6a75b5874b158
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156512"
 ---
 # <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Tutorial: Configuración de cachés en Azure Redis Cache mediante Ansible
@@ -27,7 +27,7 @@ ms.locfileid: "74156512"
 > * Adición de una regla de firewall a una caché
 > * Eliminación de una caché
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -240,7 +240,7 @@ En esta sección, ejecute el cuaderno de estrategias para probar varias caracter
 
 En la sección `vars`, reemplace el marcador de posición `{{ resource_group_name }}` por el nombre del grupo de recursos.
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook rediscache.yml
@@ -339,7 +339,7 @@ Guarde el siguiente código como `cleanup.yml`:
 
 En la sección `vars`, reemplace el marcador de posición `{{ resource_group_name }}` por el nombre del grupo de recursos.
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook cleanup.yml

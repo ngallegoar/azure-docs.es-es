@@ -17,10 +17,10 @@ ms.date: 1/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6dab2fd0ee2f25e835b4bd07a3534475d3d93b5e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integración de Azure Active Directory con Signagelive
@@ -34,11 +34,11 @@ La integración de Signagelive con Azure AD proporciona las siguientes ventajas:
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Signagelive, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una versión de prueba de un mes aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una evaluación gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 * Una suscripción habilitada para el inicio de sesión único en Signagelive
 
 ## <a name="scenario-description"></a>Descripción del escenario
@@ -112,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con Signagelive, siga lo
     > [!NOTE]
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Signagelive](mailto:support@signagelive.com) para obtener este valor. También puede hacer referencia a los patrones de la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** para descargar el **certificado (sin procesar)** de las opciones proporcionadas según sus requisitos. A continuación, guárdelo en su equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** para descargar el **certificado (sin procesar)** de las opciones proporcionadas según sus requisitos. Luego, guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificateraw.png)
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con Signagelive, siga lo
 
 ### <a name="configure-signagelive-single-sign-on"></a>Configuración del inicio de sesión único de Signagelive
 
-Para configurar el inicio de sesión único en Signagelive, envíe el **certificado (sin procesar)** descargado y las direcciones URL copiadas de Azure Portal al [equipo de soporte técnico de Signagelive](mailto:support@signagelive.com). Ellos se aseguran de que la conexión de inicio de sesión único de SAML está establecida correctamente en ambos lados.
+Para configurar el inicio de sesión único en Signagelive, envíe el **certificado (sin procesar)** descargado y las direcciones URL copiadas de Azure Portal al [equipo de soporte técnico de Signagelive](mailto:support@signagelive.com). Estas garantizan que la conexión de inicio de sesión único de SAML está establecida correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 

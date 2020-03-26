@@ -17,10 +17,10 @@ author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: a0496999a9a5dc3e9bfd57df0ec035e6db77d620
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73615124"
 ---
 # <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Tutorial: Creación de una canalización de CI/CD para el código existente mediante Azure DevOps Projects
@@ -32,21 +32,21 @@ Podrá:
 > [!div class="checklist"]
 > * Usar DevOps Projects para crear una canalización de CI/CD
 > * Configurar el acceso a un repositorio de GitHub y elegir un marco
-> * Configurar Azure DevOps y una suscripción de Azure 
+> * Configuración de Azure DevOps y una suscripción de Azure 
 > * Confirmar cambios en GitHub e implementarlos automáticamente en Azure
 > * Examen de la canalización de CI/CD de Azure Pipelines
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+* Suscripción a Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 * Acceda a un repositorio de GitHub o a un repositorio de Git externo que contenga código .NET, Java, PHP, Node.js, Python o código web estático.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Azure DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. Azure DevOps Projects también crea recursos de Azure en la suscripción de Azure que prefiera.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. En el menú de Azure Portal, seleccione **Crear un recurso**.
 
@@ -62,7 +62,7 @@ Azure DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede 
 
 1. Seleccione **GitHub** o un repositorio de código de **Git** externo. Para este tutorial, seleccione **GitHub**. Es posible que se le pida que se autentique en GitHub la primera vez, para que Azure pueda acceder al repositorio de GitHub.
 
-1. Seleccione un **repositorio** y una **rama** y, a continuación, seleccione **Siguiente**.
+1. Seleccione un **Repositorio** y una **Rama** y, a continuación, seleccione **Siguiente**.
 
 1. Si usa contenedores de Docker, cambie **¿Está dockerizada la aplicación?** a **Sí**. En este tutorial, deje **No** seleccionado y, a continuación, seleccione **Siguiente**. Para más información sobre el uso de contenedores de Docker, mantenga el puntero sobre el icono **i**.
 

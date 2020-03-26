@@ -17,10 +17,10 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0447a8dd464363ae7e076dde2520565005d7c0a5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67588232"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutorial: Integración de Azure Active Directory con Sectigo Certificate Manager
@@ -35,11 +35,11 @@ La integración de Sectigo Certificate Manager con Azure AD proporciona las sigu
 
 Para más información acerca de la integración de aplicaciones SaaS (software como servicio) con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Sectigo Certificate Manager, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no tiene una suscripción de Azure AD, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Una suscripción de Azure AD. Si no tiene una suscripción de Azure AD, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Suscripción a Sectigo Certificate Manager con inicio de sesión único habilitado.
 
 ## <a name="scenario-description"></a>Descripción del escenario
@@ -55,7 +55,7 @@ Sectigo Certificate Manager admite las características siguientes:
 
 Para integrar Sectigo Certificate Manager con Azure AD, debe agregar Sectigo Certificate Manager a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Seleccione **Azure Active Directory** en el menú izquierdo.
 
@@ -79,12 +79,12 @@ En esta sección, podrá configurar y probar el inicio de sesión único de Azur
 
 Para configurar y probar el inicio de sesión único de Azure AD con Sectigo Certificate Manager, debe completar los siguientes bloques de creación:
 
-| Tarea | DESCRIPCIÓN |
+| Tarea | Descripción |
 | --- | --- |
 | **[Configuración del inicio de sesión único en Azure AD](#configure-azure-ad-single-sign-on)** | Permite que los usuarios usen esta característica. |
 | **[Configuración del inicio de sesión único en Sectigo Certificate Manager](#configure-sectigo-certificate-manager-single-sign-on)** | Configura los valores de inicio de sesión único en la aplicación. |
 | **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** | Prueba el inicio de sesión único de Azure AD con el usuario Britta Simon. |
-| **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** | Permite que Britta Simon use el inicio de sesión único de Azure AD. |
+| **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** | Permite que Britta Simon use el inicio de sesión único de Azure AD. |
 | **[Creación de un usuario de prueba de Sectigo Certificate Manager](#create-a-sectigo-certificate-manager-test-user)** | Crea un homólogo de Britta Simon en Sectigo Certificate Manager que está vinculado a la representación del usuario en Azure AD. |
 | **[Prueba de inicio de sesión único](#test-single-sign-on)** | Comprueba que la configuración funciona. |
 
@@ -204,7 +204,7 @@ En esta sección, se crea un usuario llamado Britta Simon en Sectigo Certificate
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el portal Aplicaciones.
 
-Después de configurar el inicio de sesión único, cuando se selecciona **Sectigo Certificate Manager** en el portal Aplicaciones, se inicia automáticamente su sesión de Sectigo Certificate Manager. Para más información acerca del portal Aplicaciones, consulte [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
+Después de configurar el inicio de sesión único, cuando se selecciona **Sectigo Certificate Manager** en el portal Aplicaciones, se inicia automáticamente su sesión de Sectigo Certificate Manager. Para más información acerca del portal Aplicaciones, consulte [Acceso y uso de aplicaciones en el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

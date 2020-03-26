@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50c283122fe707e922275b6c1a6c576009964855
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273353"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216013"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Inicio rápido: Incorporación de un usuario invitado con PowerShell
 
@@ -25,7 +25,7 @@ Hay muchas maneras de invitar a los asociados externos a sus aplicaciones y serv
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Instalación del último módulo de AzureADPreview
 Asegúrese de que instala la última versión de Azure AD PowerShell para el módulo Graph (AzureADPreview). 
@@ -78,7 +78,7 @@ Cuando se le solicite, escriba las credenciales.
 1. Para enviar una invitación a su cuenta de correo electrónico de prueba, ejecute el siguiente comando de PowerShell (reemplace **"Sanda"** y **sanda\@fabrikam.com** por la dirección de correo electrónico y el nombre de la cuenta de correo electrónico de prueba): 
 
    ```powershell
-   New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
+   New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.microsoft.com -SendInvitationMessage $true
    ```
 2. El comando envía una invitación a la dirección de correo electrónico especificada. Consulte la salida, que debería ser similar a la siguiente:
 

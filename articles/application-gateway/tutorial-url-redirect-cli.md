@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 23ddbdc62b2592a8fbfb7cdccaca52cbfe9aee62
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 87f6febaf89f82c2c81b397c94d744229b3f4b34
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074441"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239506"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: Creación de una puerta de enlace de aplicaciones con redirección basada en rutas de dirección URL con la CLI de Azure
 
@@ -133,9 +133,9 @@ az network application-gateway frontend-port create \
   --name rport
 ```
 
-## <a name="add-listeners-and-rules"></a>Adición de reglas y agentes de escucha
+## <a name="add-listeners-and-rules"></a>Incorporación de reglas y agentes de escucha
 
-### <a name="add-listeners"></a>Adición de agentes de escucha
+### <a name="add-listeners"></a>Incorporación de agentes de escucha
 
 Agregue los agentes de escucha de backend llamados *backendListener* y *redirectedListener* que son necesarios para enrutar el tráfico con [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener).
 
@@ -196,7 +196,7 @@ az network application-gateway redirect-config create \
   --target-listener backendListener
 ```
 
-### <a name="add-the-redirection-url-path-map"></a>Adición de la asignación de ruta de URL de redirección
+### <a name="add-the-redirection-url-path-map"></a>Incorporación de la asignación de ruta de URL de redireccionamiento
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -208,7 +208,7 @@ az network application-gateway url-path-map create \
   --rule-name redirectPathRule
 ```
 
-### <a name="add-routing-rules"></a>Adición de reglas de enrutamiento
+### <a name="add-routing-rules"></a>Incorporación de reglas de enrutamiento
 
 Las reglas de enrutamiento asocian las asignaciones de ruta de URL con los agentes de escucha que ha creado. Puede agregar las reglas llamadas *defaultRule* y *redirectedRule* mediante [az network application-gateway rule create](/cli/azure/network/application-gateway/rule).
 
@@ -286,7 +286,7 @@ done
 
 Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Como, por ejemplo, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm` o `http://40.121.222.19:8081/images/test.htm`.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \

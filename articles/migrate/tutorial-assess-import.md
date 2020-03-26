@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 91b9c71e7c735fca08f71ca37ed28734c8d634a1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 23fa1a2a0b035d04334c51c02411de6de70f2cad
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079868"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79453653"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Evaluación de servidores con datos importados
 
@@ -106,43 +106,42 @@ En la tabla siguiente se resumen los campos de archivo que se van a rellenar:
 **Nombre del campo** | **Obligatorio** | **Detalles**
 --- | --- | ---
 **Nombre del servidor** | Sí | Es recomendable especificar el nombre de dominio completo (FQDN).
-**Dirección IP** | Sin | Dirección del servidor.
+**Dirección IP** | No | Dirección del servidor.
 **Núcleos** | Sí | Número de núcleos de procesador asignados al servidor.
 **Memoria** | Sí | RAM total (en MB) asignada al servidor.
 **OS name** (Nombre de SO) | Sí | Sistema operativo del servidor. <br/> La valoración reconoce los nombres del sistema operativo que coinciden con los nombres de [esta](#supported-operating-system-names) lista, o que los contienen.
-**Versión del sistema operativo** | Sin | Versión del sistema operativo del servidor.
-**Número de discos** | Sin | No es necesario si se proporcionan detalles del disco individual.
-**Disk 1 size** (Tamaño de disco 1)  | Sin | Tamaño máximo del disco (en GB).<br/>Puede agregar detalles de más discos mediante la [adición de columnas](#add-multiple-disks) en la plantilla. Puede agregar hasta ocho discos.
-**Disk 1 read ops** (Operaciones de lectura de disco 1) | Sin | Operaciones de lectura de disco por segundo.
-**Disk 1 write ops** (Operaciones de escritura de disco 1) | Sin | Operaciones de escritura de discos por segundo.
-**Disk 1 read throughput** (Rendimiento de lectura de disco 1) | Sin | Datos leídos del disco por segundo (en MB por segundo).
-**Disk 1 write throughput** (Rendimiento de escritura de disco 1) | Sin | Datos escritos en el disco por segundo (en MB por segundo).
-**CPU utilization percentage** (Porcentaje de uso de la CPU) | Sin | Porcentaje de CPU en uso.
-**Memory utilization percentage** (Porcentaje de uso de la memoria) | Sin | Porcentaje de RAM en uso.
-**Total disks read ops** (Total de operaciones de lectura de discos) | Sin | Operaciones de lectura de disco por segundo.
-**Total disks write ops** (Total de operaciones de escritura de discos) | Sin | Operaciones de escritura de discos por segundo.
-**Total disks read throughput** (Total de rendimiento de lectura de discos) | Sin | Datos leídos del disco (en MB por segundo).
-**Total disks write throughput** (Total de rendimiento de escritura de discos) | Sin | Datos escritos en el disco (en MB por segundo).
-**Network in throughput** (Rendimiento de entrada de red) | Sin | Datos recibidos por el servidor (en MB por segundo).
-**Network out throughput** (Rendimiento de salida de red) | Sin | Datos transmitidos por el servidor (en MB por segundo).
-**Firmware type** (Tipo de firmware) | Sin | Firmware del servidor. Los valores pueden ser "BIOS" o "UEFI".
-**Tipo de servidor** | Sin | Los valores pueden ser "Físico" o "Virtual".
-**Hipervisor** | Sin | Hipervisor en el que se está ejecutando una máquina. <br/> Los valores pueden ser "VMware", "Hyper-V", "Xen", "AWS", "GCP" u "Otro".
-**Hypervisor version number** (Número de versión de hipervisor) | Sin | Versión del hipervisor.
-**Virtual machine ID** (Identificador de máquina virtual) | Sin | Identificador de la máquina virtual. Este es el valor de **InstanceUUid** para una máquina virtual de VMware vCenter o el **identificador de máquina virtual de Hyper-V** para Hyper-V.
-**Virtual machine manager ID** (Identificador de Virtual Machine Manager) | Sin | Este es el valor de **InstanceUUid** para VMWare vCenter. No es necesario para Hyper-V.
-**MAC address** (Dirección MAC)| Sin | Dirección MAC de servidor.
-**BIOS ID** (IDENTIFICADOR DE BIOS) | Sin | Identificador del BIOS de servidor.
-**Custom server ID** (Identificador de servidor personalizado) | Sin | Identificador de servidor único local en el entorno local. <br/> Resulta útil para realizar el seguimiento del servidor importado mediante el identificador local.
-**Application 1 name** (Nombre de aplicación 1) | Sin | Nombre de la carga de trabajo que se ejecuta en el servidor.<br/>Puede agregar detalles de más aplicaciones si [agrega columnas](#add-multiple-applications) en la plantilla. Puede agregar hasta cinco aplicaciones.
-**Application 1 type** (Tipo de aplicación 1) | Sin | Tipo de la carga de trabajo que se ejecuta en el servidor.
-**Application 1 version** (Versión de aplicación 1) | Sin | Versión de la carga de trabajo que se ejecuta en el servidor.
-**Application 1 license expiry** (Expiración de licencia de aplicación 1) | Sin | Expiración de la licencia para la carga de trabajo (si procede).
-**Business unit** (Unidad de negocio) | Sin | Unidad de negocio a la que pertenece el servidor.
-**Business owner** (Propietario de empresa) | Sin | Propietario de la unidad de negocio.
-**Business application name** (Nombre de la aplicación empresarial) | Sin | Nombre de la aplicación a la que pertenece la aplicación.
-**Ubicación** | Sin | Centro de datos en el que se encuentra el servidor.
-**Server decommission date** (Fecha de retirada del servidor) | Sin | Fecha de retirada del servidor físico o del servidor físico subyacente del servidor virtual.
+**Versión del sistema operativo** | No | Versión del sistema operativo del servidor.
+**Número de discos** | No | No es necesario si se proporcionan detalles del disco individual.
+**Disk 1 size** (Tamaño de disco 1)  | No | Tamaño máximo del disco (en GB).<br/>Puede agregar detalles de más discos mediante la [adición de columnas](#add-multiple-disks) en la plantilla. Puede agregar hasta ocho discos.
+**Disk 1 read ops** (Operaciones de lectura de disco 1) | No | Operaciones de lectura de disco por segundo.
+**Disk 1 write ops** (Operaciones de escritura de disco 1) | No | Operaciones de escritura de discos por segundo.
+**Disk 1 read throughput** (Rendimiento de lectura de disco 1) | No | Datos leídos del disco por segundo (en MB por segundo).
+**Disk 1 write throughput** (Rendimiento de escritura de disco 1) | No | Datos escritos en el disco por segundo (en MB por segundo).
+**CPU utilization percentage** (Porcentaje de uso de la CPU) | No | Porcentaje de CPU en uso.
+**Memory utilization percentage** (Porcentaje de uso de la memoria) | No | Porcentaje de RAM en uso.
+**Total disks read ops** (Total de operaciones de lectura de discos) | No | Operaciones de lectura de disco por segundo.
+**Total disks write ops** (Total de operaciones de escritura de discos) | No | Operaciones de escritura de discos por segundo.
+**Total disks read throughput** (Total de rendimiento de lectura de discos) | No | Datos leídos del disco (en MB por segundo).
+**Total disks write throughput** (Total de rendimiento de escritura de discos) | No | Datos escritos en el disco (en MB por segundo).
+**Network in throughput** (Rendimiento de entrada de red) | No | Datos recibidos por el servidor (en MB por segundo).
+**Network out throughput** (Rendimiento de salida de red) | No | Datos transmitidos por el servidor (en MB por segundo).
+**Firmware type** (Tipo de firmware) | No | Firmware del servidor. Los valores pueden ser "BIOS" o "UEFI".
+**Tipo de servidor** | No | Los valores pueden ser "Físico" o "Virtual".
+**Hipervisor** | No | Hipervisor en el que se está ejecutando una máquina. <br/> Los valores pueden ser "VMware", "Hyper-V", "Xen", "AWS", "GCP" u "Otro".
+**Hypervisor version number** (Número de versión de hipervisor) | No | Versión del hipervisor.
+**Virtual machine ID** (Identificador de máquina virtual) | No | Identificador de la máquina virtual. Este es el valor de **InstanceUUid** para una máquina virtual de VMware vCenter o el **identificador de máquina virtual de Hyper-V** para Hyper-V.
+**Virtual machine manager ID** (Identificador de Virtual Machine Manager) | No | Este es el valor de **InstanceUUid** para VMWare vCenter. No es necesario para Hyper-V.
+**MAC address** (Dirección MAC)| No | Dirección MAC de servidor.
+**BIOS ID** (IDENTIFICADOR DE BIOS) | No | Identificador del BIOS de servidor.
+**Custom server ID** (Identificador de servidor personalizado) | No | Identificador de servidor único local en el entorno local. <br/> Resulta útil para realizar el seguimiento del servidor importado mediante el identificador local.
+**Application 1 name** (Nombre de aplicación 1) | No | Nombre de la carga de trabajo que se ejecuta en el servidor.<br/>Puede agregar detalles de más aplicaciones si [agrega columnas](#add-multiple-applications) en la plantilla. Puede agregar hasta cinco aplicaciones.
+**Application 1 type** (Tipo de aplicación 1) | No | Tipo de la carga de trabajo que se ejecuta en el servidor.
+**Application 1 version** (Versión de aplicación 1) | No | Versión de la carga de trabajo que se ejecuta en el servidor.
+**Application 1 license expiry** (Expiración de licencia de aplicación 1) | No | Expiración de la licencia para la carga de trabajo (si procede).
+**Business unit** (Unidad de negocio) | No | Unidad de negocio a la que pertenece el servidor.
+**Business owner** (Propietario de empresa) | No | Propietario de la unidad de negocio.
+**Business application name** (Nombre de la aplicación empresarial) | No | Nombre de la aplicación a la que pertenece la aplicación.
+**Ubicación** | No | Centro de datos en el que se encuentra el servidor.
 
 ### <a name="add-operating-systems"></a>Incorporación de sistemas operativos
 

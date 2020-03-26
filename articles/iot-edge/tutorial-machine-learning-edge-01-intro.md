@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74106511"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Tutorial: Una solución integral con Azure Machine Learning y IoT Edge
@@ -74,7 +74,7 @@ En la siguiente imagen se ilustran los pasos generales que se siguen en este tut
 
 1. **Mantén y perfecciona el modelo**. Nuestro trabajo no termina una vez que se implementa el modelo. En muchos casos, queremos seguir recopilando datos y cargar esos datos periódicamente a la nube. A continuación, podemos usar estos datos para volver a entrenar y refinar nuestro modelo, que luego podemos volver a implementar en IoT Edge.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar el tutorial, necesitas acceso a una suscripción a Azure en la que tengas derechos para crear recursos. Varios de los servicios usados en este tutorial incurrirán en cargos de Azure. Si no dispones de una suscripción a Azure, es posible que puedas empezar a trabajar con un [cuenta gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/).
 

@@ -4,10 +4,10 @@ description: Pasos de implementación para el ejemplo de plano técnico Canada F
 ms.date: 09/05/2019
 ms.topic: sample
 ms.openlocfilehash: 087112df7ab18cd71bde80f22b13c9c7800c05e9
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74544596"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implementación de los ejemplos de plano técnico Canada Federal PBMM
@@ -91,7 +91,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
 En la tabla siguiente se proporciona una lista de los parámetros del artefacto de plano técnico:
 
-Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
+Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
 |\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux |Asignación de directiva |Área de trabajo de Log Analytics para máquinas virtuales Linux |Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux |Asignación de directiva |Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito. |Se puede usar una matriz vacía para indicar que no hay parámetros opcionales: `[]` |

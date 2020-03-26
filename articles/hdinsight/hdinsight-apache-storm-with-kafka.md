@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: eac9bee6992520492b846e3b579d8a05c327e749
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494359"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Storm con Apache Kafka en HDInsight
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 > * Detención de las topologías
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Debe estar familiarizado con la creación de temas de Kafka. Para más información, consulte el documento [Inicio de Apache Kafka en HDInsight](./kafka/apache-kafka-get-started.md).
 
@@ -366,7 +366,7 @@ streams:
 
 El proyecto contiene un archivo denominado `dev.properties` que se utiliza para pasar los parámetros utilizados por las topologías. Define las siguientes propiedades:
 
-| archivo dev.properties | DESCRIPCIÓN |
+| archivo dev.properties | Descripción |
 | --- | --- |
 | `kafka.zookeeper.hosts` | Los hosts de [Apache Zookeeper](https://zookeeper.apache.org/) para el clúster de Kafka. |
 | `kafka.broker.hosts` | Los hosts de agente de Kafka (nodos de trabajo). |
@@ -406,7 +406,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
 
    1. Utilice los datos siguientes para rellenar las entradas de la sección **Plantilla personalizada**:
 
-      | Configuración | Valor |
+      | Configuración | Value |
       | --- | --- |
       | Subscription | Su suscripción de Azure |
       | Resource group | El grupo de recursos que contiene los recursos. |

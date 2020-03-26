@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 3da1902906c4fb12bf5eef473ee39e721e4efe3a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74927070"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Inicio rápido: Uso de Azure Redis Cache con una aplicación web de ASP.NET 
 
 En este inicio rápido usará Visual Studio 2019 para crear una aplicación web de ASP.NET que se conecte a Azure Redis Cache para almacenar y recuperar datos de la caché. Después implementará la aplicación en Azure App Service.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) con las cargas de trabajo **ASP.NET y desarrollo web** y **desarrollo de Azure**.
@@ -47,7 +47,7 @@ En este inicio rápido usará Visual Studio 2019 para crear una aplicación we
 
 4. Asegúrese de especificar **Sin autenticación** en la opción **Autenticación**. Dependiendo de la versión de Visual Studio, puede establecerse otro valor predeterminado de **autenticación**. Para cambiarlo, seleccione **Cambiar autenticación** y después **Sin autenticación**.
 
-5. Haga clic en **Aceptar** para crear el proyecto.
+5. Seleccione **Aceptar** para crear el proyecto.
 
 ## <a name="create-a-cache"></a>Creación de una caché
 
@@ -115,7 +115,7 @@ El sistema en tiempo de ejecución de ASP.NET combina el contenido del archivo e
     Install-Package StackExchange.Redis
     ```
 
-3. El paquete NuGet se descarga y agrega las referencias de ensamblado requeridas para que la aplicación cliente acceda a Azure Redis Cache con el cliente de caché Azure Redis Cache StackExchange. Si prefiere usar una versión con nombre seguro de la biblioteca de cliente `StackExchange.Redis`, instale el paquete `StackExchange.Redis.StrongName`.
+3. El paquete NuGet descarga y agrega las referencias de ensamblado requeridas para que la aplicación cliente acceda a Azure Cache for Redis con el cliente StackExchange.Azure Cache for Redis. Si prefiere usar una versión con nombre seguro de la biblioteca de cliente `StackExchange.Redis`, instale el paquete `StackExchange.Redis.StrongName`.
 
 ### <a name="to-update-the-homecontroller-and-layout"></a>Para actualizar HomeController y Layout
 
@@ -143,7 +143,7 @@ El sistema en tiempo de ejecución de ASP.NET combina el contenido del archivo e
 
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.GetDatabase();
+            IDatabase cache = lazyConnection.Value.GetDatabase();
 
             // Perform cache operations using the cache object...
 
@@ -166,7 +166,7 @@ El sistema en tiempo de ejecución de ASP.NET combina el contenido del archivo e
             ViewBag.command5 = "CLIENT LIST";
             ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
 
-            lazyConnection.Dispose();
+            lazyConnection.Value.Dispose();
 
             return View();
         }
@@ -259,7 +259,7 @@ Cuando haya probado con éxito la aplicación localmente, puede implementarla en
 
 3. En el cuadro de diálogo **Crear servicio de aplicaciones**, realice los cambios siguientes:
 
-    | Configuración | Valor recomendado | DESCRIPCIÓN |
+    | Configuración | Valor recomendado | Descripción |
     | ------- | :---------------: | ----------- |
     | **Nombre de la aplicación** | Use el valor predeterminado. | El nombre de la aplicación es el nombre de host de la aplicación cuando se implementa en Azure. El nombre puede tener un sufijo de marca de tiempo que se le agrega, si es necesario, para que sea único. |
     | **Suscripción** | Elija la suscripción de Azure. | En esta suscripción se cargan los costos de hospedaje relacionados. Si tiene varias suscripciones de Azure, compruebe que se selecciona la suscripción deseada.|

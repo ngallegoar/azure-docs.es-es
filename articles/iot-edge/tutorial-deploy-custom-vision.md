@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 07350ffe4a57bfe4a79bfce5d821b51535867935
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76167014"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Clasificación de imágenes en el perímetro con Custom Vision Service
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 >[!TIP]
 >Este tutorial es una versión simplificada del proyecto de ejemplo de [Custom Vision y Azure IoT Edge en un Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi). Este tutorial se ha diseñado para ejecutarse en una máquina virtual en la nube y usa imágenes estáticas para entrenar y probar el clasificador de imágenes, lo que resulta útil para cualquiera que acabe de empezar a evaluar Custom Vision en IoT Edge. El proyecto de ejemplo usa hardware físico y configura una cámara en directo para entrenar y probar el clasificador de imágenes, que es útil para cualquiera que desee probar un escenario real más detallado.

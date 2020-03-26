@@ -10,10 +10,10 @@ ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68782589"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Conmutación por error y reprotección de máquinas virtuales de Azure entre regiones
@@ -28,7 +28,7 @@ En este tutorial se describe cómo conmutar por error una máquina virtual (VM) 
 > Este tutorial describe la ruta más sencilla, con las opciones predeterminadas y la mínima personalización. Para escenarios más complejos, use los artículos de Guías de procedimientos para máquinas virtuales de Azure.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Antes de empezar, repase las [preguntas más frecuentes](site-recovery-faq.md#failover) sobre la conmutación por error.
 - Asegúrese de que ha completado una [exploración de la recuperación ante desastres](azure-to-azure-tutorial-dr-drill.md) para comprobar que todo funciona según lo previsto.

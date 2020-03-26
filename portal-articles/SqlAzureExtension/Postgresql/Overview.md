@@ -9,24 +9,24 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 6282acaf165d2f31a1a1ac525dad75ebc64a2a7c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "62113959"
 ---
 # <a name="azure-database-for-postgresql-documentation"></a>Documentación sobre Base de datos de Azure para PostgreSQL
 
 Azure Database for PostgreSQL es un servicio de base de datos relacional basado en el motor de base de datos de código abierto de PostgreSQL. Es una base de datos como servicio completamente administrada que ofrece la capacidad de manejar cargas de trabajo críticas con rendimiento predecible, gran seguridad, alta disponibilidad y escalabilidad dinámica.  Desarrolle aplicaciones con Azure Database for PostgreSQL para aprovechar las herramientas y plataformas de código abierto de su elección.  Aprenda a usar Base de datos PostgreSQL en Azure con nuestros inicios rápidos, tutoriales y ejemplos.
 
-## <a name="5-minute-quickstarts"></a>Inicio rápido en 5 minutos
+## <a name="5-minute-quickstarts"></a>Guías de inicio rápido de 5 minutos
 
 Aprenda a crear una base de datos PostgreSQL mediante:
 
 - [Azure Portal](/azure/postgresql/quickstart-create-server-database-portal)
 - [CLI de Azure](/azure/postgresql/quickstart-create-server-database-azure-cli)
 
-## <a name="step-by-step-tutorials"></a>Tutoriales detallados
+## <a name="step-by-step-tutorials"></a>Tutoriales paso a paso
 
 Obtenga información sobre cómo:
 

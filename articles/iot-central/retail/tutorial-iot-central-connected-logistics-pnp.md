@@ -8,10 +8,10 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.openlocfilehash: d7050cfdae2c726a3a5bd44b4399792a400572a3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77025527"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Tutorial: implementación y recorrido por la plantilla de aplicación de logística conectada
@@ -25,7 +25,7 @@ En este tutorial, aprenderá a:
 * Creación de una aplicación de logística conectada.
 * Recorrido por la aplicación. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * No se necesitan requisitos previos específicos para implementar esta aplicación.
 * Se recomienda tener una suscripción de Azure, aunque puede probar las opciones sin ella.

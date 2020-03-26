@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121676"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290433"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Azure Portal
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Los iconos del panel de servicio muestran el número de índices, indexadores y 
 
 ![Listas de índices, indexadores y orígenes de datos](media/search-get-started-portal/tiles-indexers-datasources.png)
 
-## <a name="create-index"></a> Creación de un índice y carga de datos
+## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> Creación de un índice y carga de datos
 
 Las consultas de búsqueda recorren en iteración un [*índice*](search-what-is-an-index.md) que contiene los datos de búsqueda, los metadatos y las construcciones adicionales que optimizan determinados comportamientos de la búsqueda.
 
@@ -132,7 +132,7 @@ Otras construcciones, como los perfiles de puntuación y las opciones de CORS, p
 
 Para saber claramente qué puede y qué no puede modificar durante el diseño del índice, tómese un minuto para ver las opciones de definición de índice. Las opciones atenuadas son un indicador de que un valor no se puede modificar o eliminar. 
 
-## <a name="query-index"></a> Realización de consultas con el Explorador de búsqueda
+## <a name="query-using-search-explorer"></a><a name="query-index"></a> Realización de consultas con el Explorador de búsqueda
 
 Más adelante, debería tener ahora un índice de búsqueda que esté preparado para la consulta con la página de consulta del [**Explorador de búsqueda**](search-explorer.md) integrada. Proporciona un cuadro de búsqueda para que pueda probar las cadenas de consulta arbitraria.
 
@@ -176,7 +176,7 @@ Puede escribir términos y frases, de forma similar a lo que podría hacer en un
 
 * El parámetro **$top=10** devuelve los 10 documentos mejor clasificados del total. De forma predeterminada, Azure Cognitive Search devuelve las 50 mayores coincidencias. Puede aumentar o disminuir la cantidad mediante **$top**.
 
-### <a name="filter-query"></a> Filtro de la consulta
+### <a name="filter-the-query"></a><a name="filter-query"></a> Filtro de la consulta
 
 Los filtros se incluyen en las solicitudes de búsqueda al anexar el parámetro **$filter**. 
 
@@ -186,7 +186,7 @@ Los filtros se incluyen en las solicitudes de búsqueda al anexar el parámetro 
 
 * La sintaxis de filtro es una construcción de OData. Para más información, consulte la [sintaxis de filtro de OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
-### <a name="facet-query"></a> Faceta de la consulta
+### <a name="facet-the-query"></a><a name="facet-query"></a> Faceta de la consulta
 
 Los filtros de faceta se incluyen en las solicitudes de búsqueda. Puede usar el parámetro de faceta para devolver un recuento agregado de los documentos que coincidan con el valor de faceta que proporcione.
 
@@ -206,7 +206,7 @@ Los filtros de faceta se incluyen en las solicitudes de búsqueda. Puede usar el
 * El campo *Rating* es un número de punto flotante de doble precisión y la agrupación será por valor preciso. Para más información sobre la agrupación por intervalo (por ejemplo, "clasificaciones de 3 estrellas", "clasificaciones de 4 estrellas", etc.), consulte [Procedimiento para implementar la navegación por facetas en Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
-### <a name="highlight-query"></a> Resaltado de los resultados de la búsqueda
+### <a name="highlight-search-results"></a><a name="highlight-query"></a> Resaltado de los resultados de la búsqueda
 
 El proceso de resaltado de referencias se refiere al formato en el texto que coincide con la palabra clave, dadas las coincidencias encontradas en un campo determinado. Si el término de búsqueda está profundamente enterrado en una descripción, puede agregar resaltado de referencias para que sea más fácil detectarlo.
 
@@ -220,7 +220,7 @@ El proceso de resaltado de referencias se refiere al formato en el texto que coi
 
 * Azure Cognitive Search admite 56 analizadores de Lucene y Microsoft. El que usa Azure Cognitive Search es el analizador de Lucene estándar.
 
-### <a name="fuzzy-search"></a> Probar la búsqueda aproximada
+### <a name="try-fuzzy-search"></a><a name="fuzzy-search"></a> Probar la búsqueda aproximada
 
 De forma predeterminada, los términos de consulta mal escritos, como *seatle* para "Seattle", no devuelven coincidencias en una búsqueda normal. El siguiente ejemplo no devuelve resultados.
 
@@ -238,7 +238,7 @@ La búsqueda aproximada y la búsqueda con caracteres comodín tienen implicacio
 
 Para más información sobre los escenarios de consulta habilitados por el analizador de consultas completo, consulte [Sintaxis de consulta de Lucene en Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-### <a name="geo-search"></a> Prueba de la búsqueda geoespacial
+### <a name="try-geospatial-search"></a><a name="geo-search"></a> Prueba de la búsqueda geoespacial
 
 Se admite la búsqueda geoespacial mediante el [tipo de dato edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en un campo que contenga coordenadas. La búsqueda geográfica es un tipo de filtro, que se especifica en la [sintaxis de filtro de OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 

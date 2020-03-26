@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
 ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68736642"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Inicio rápido: Creación de una base de datos de grafos en Azure Cosmos DB mediante PHP y Azure Portal
@@ -30,7 +30,7 @@ En esta guía de inicio rápido se muestra cómo se usa PHP y [Gremlin API](grap
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, tablas, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin suscripción de Azure, sin cargos y sin compromiso.
 
@@ -206,7 +206,7 @@ Ahora puede volver al Explorador de datos y ver los vértices que se agregan al 
 
 5. Haga clic en **Agregar propiedad** para agregar cada una de las siguientes propiedades. Tenga en cuenta que puede crear propiedades únicas para cada persona en el grafo. Solo se requiere la clave de **identificador**.
 
-    Clave | Valor | Notas
+    Clave | Value | Notas
     ----|----|----
     **id** | ashley | Identificador único del vértice. Si no se especifica un identificador, se genera uno automáticamente.
     **sexo** | mujer | 
@@ -223,7 +223,7 @@ Ahora puede volver al Explorador de datos y ver los vértices que se agregan al 
 
 9. Haga clic en **Agregar propiedad** para agregar cada una de las siguientes propiedades:
     
-    Clave | Valor | Notas
+    Clave | Value | Notas
     ----|----|----
     **id** | rakesh | Identificador único del vértice. Si no se especifica un identificador, se genera uno automáticamente.
     **sexo** | hombre | 
