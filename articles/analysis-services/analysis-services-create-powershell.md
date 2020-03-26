@@ -8,13 +8,13 @@ ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 071c44136d917874843bdf080de775ec6739937a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75442871"
 ---
-# <a name="quickstart-create-a-server---powershell"></a>Inicio rápido: Creación de un servidor: PowerShell
+# <a name="quickstart-create-a-server---powershell"></a>Inicio rápido: Creación de un servidor (PowerShell)
 
 Este inicio rápido describe el uso de PowerShell desde la línea de comandos para crear un servidor de Azure Analysis Services de su suscripción.
 
@@ -72,6 +72,6 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 En esta guía de inicio rápido aprendió a crear un servidor en la suscripción de Azure mediante PowerShell. Ahora que tiene un servidor, puede protegerlo si configura un firewall de servidor (opcional). También puede agregar un modelo de datos de ejemplo básico al servidor directamente desde el portal. Tener un modelo de ejemplo es útil al aprender cómo configurar los roles de la base de datos del modelo y probar las conexiones de cliente. Para más información, puede seguir el tutorial para agregar un modelo de ejemplo.
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Configuración del firewall del servidor: Portal](analysis-services-qs-firewall.md)      
+> [Guía de inicio rápido: Configuración del firewall del servidor: Portal](analysis-services-qs-firewall.md)      
 > [!div class="nextstepaction"]
 > [Tutorial: Incorporación de un modelo de ejemplo al servidor](analysis-services-create-sample-model.md)

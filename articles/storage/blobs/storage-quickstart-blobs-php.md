@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68726386"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferencia de objetos hacia Azure Blob Storage, y desde él, mediante PHP
 En esta guía de inicio rápido, aprenderá a usar PHP para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -42,14 +42,14 @@ Este comando clona el repositorio en la carpeta git local. Para abrir la aplicac
 ## <a name="configure-your-storage-connection-string"></a>Configuración de la cadena de conexión de almacenamiento.
 En la aplicación, debe proporcionar el nombre y la clave de la cuenta de almacenamiento para crear la instancia **BlobRestProxy** de la aplicación. Se recomienda almacenar estos identificadores dentro de una variable de entorno en la máquina local que ejecuta la aplicación. Utilice uno de los estos ejemplos dependiendo de su sistema operativo para crear la variable de entorno. Reemplace los valores **youraccountname** y **youraccountkey** con el nombre de cuenta y la clave.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export ACCOUNT_NAME=<youraccountname>
 export ACCOUNT_KEY=<youraccountkey>
 ```
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ```cmd
 setx ACCOUNT_NAME=<youraccountname>
@@ -57,7 +57,7 @@ setx ACCOUNT_KEY=<youraccountkey>
 ```
 ---
 
-## <a name="configure-your-environment"></a>Configuración del entorno
+## <a name="configure-your-environment"></a>Configurar su entorno
 Tome la carpeta de su carpeta local git y colóquela en un directorio proporcionado por su servidor PHP. Después, abra un símbolo del sistema en ese mismo directorio y escriba: `php composer.phar install`
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo

@@ -1,7 +1,7 @@
 ---
 title: ¿Qué es Microsoft Genomics?
 titleSuffix: Microsoft Genomics
-description: Aprenda a usar Microsoft Genomics para ejecutar el flujo de trabajo de BWA-GATK para el análisis del genoma.
+description: Conozca de qué forma puede Microsoft Genomics potenciar la secuenciación del genoma mediante una implementación en la nube de Burrows-Wheeler Aligner (BWA) y de Genome Analysis Toolkit (GATK).
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,11 +9,11 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: overview
 ms.date: 12/07/2017
-ms.openlocfilehash: 461e385bae3b091c72355ed27a35ae5408bda7c2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 04ecab58db822aa80ca2abba1bebaa39598498bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73498816"
 ---
 # <a name="what-is-microsoft-genomics"></a>¿Qué es Microsoft Genomics?

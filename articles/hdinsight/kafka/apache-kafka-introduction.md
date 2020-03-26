@@ -1,6 +1,6 @@
 ---
 title: 'Introducción a Apache Kafka en HDInsight: Azure'
-description: 'Aprenda sobre Apache Kafka en HDInsight: Qué es, qué hace y dónde encontrar ejemplos y obtener una introducción.'
+description: 'Información sobre Apache Kafka en HDInsight: qué es, qué hace y dónde encontrar ejemplos y obtener una introducción.'
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
 ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77672181"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Qué es Apache Kafka en Azure HDInsight
@@ -75,7 +75,7 @@ Las siguientes son tareas y patrones comunes que pueden realizarse con Kafka en 
 
 Use los vínculos siguientes para aprender a usar a Apache Kafka en HDInsight:
 
-* [Inicio rápido: Creación de Apache Kafka en HDInsight](apache-kafka-get-started.md)
+* [Guía de inicio rápido: Creación de una instancia de Apache Kafka en HDInsight](apache-kafka-get-started.md)
 
 * [Uso de Kafka con el proxy de REST](rest-proxy.md)
 

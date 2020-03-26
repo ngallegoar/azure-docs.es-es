@@ -2,15 +2,15 @@
 title: Información general
 description: Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure.
 ms.topic: overview
-ms.date: 08/29/2019
-ms.openlocfilehash: f7e11ada8bf10baa99faf08d2b4b401e3bea2d9e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/25/2020
+ms.openlocfilehash: 1e2a6959117749b4e7d08a9768b4189b97ef08bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344589"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80258148"
 ---
-# <a name="azure-resource-manager-overview"></a>Información general del Administrador de recursos de Azure
+# <a name="what-is-azure-resource-manager"></a>¿Qué es Azure Resource Manager?
 
 Azure Resource Manager es el servicio de implementación y administración para Azure. Proporciona una capa de administración que le permite crear, actualizar y eliminar recursos de su suscripción de Azure. Se usan las características de administración, como el control de acceso, la auditoría y las etiquetas, para proteger y organizar los recursos después de la implementación.
 
@@ -20,7 +20,7 @@ Para información acerca de las plantillas de Azure Resource Manager, consulte [
 
 Cuando un usuario envía una solicitud de cualquiera de las herramientas, las API o los SDK de Azure, Resource Manager recibe la solicitud. Autentica y autoriza la solicitud. Resource Manager envía la solicitud al servicio de Azure, que lleva a cabo la acción solicitada. Dado que todas las solicitudes se controlan mediante la misma API, verá resultados y funcionalidades coherentes en todas las distintas herramientas.
 
-En la imagen siguiente se muestra el rol que Azure Resource Manager desempeña en el control de solicitudes de Azure. 
+En la imagen siguiente se muestra el rol que Azure Resource Manager desempeña en el control de solicitudes de Azure.
 
 ![Modelo de solicitud de Resource Manager](./media/overview/consistent-management-layer.png)
 
@@ -102,12 +102,8 @@ Esta resistencia se aplica a los servicios que reciben las solicitudes a través
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para todas las operaciones que ofrecen los proveedores de recursos, consulte [las API REST de Azure](/rest/api/azure/).
-
 * Para más información sobre cómo mover recursos, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](move-resource-group-and-subscription.md).
 
 * Para información sobre el etiquetado de recursos, consulte [Uso de etiquetas para organizar los recursos](tag-resources.md).
 
 * Para más información sobre el bloqueo de recursos, consulte [Bloqueo de recursos para impedir cambios inesperados](lock-resources.md).
-
-* Para información sobre la creación de plantillas para implementaciones, consulte [Información general sobre la implementación de plantillas](../templates/overview.md).

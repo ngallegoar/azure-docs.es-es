@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: b-juche
 ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78163971"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>¿Qué es la jerarquía de almacenamiento de Azure NetApp Files?
@@ -28,14 +28,14 @@ Antes de crear un volumen en Azure NetApp Files, debe adquirir y configurar un g
 > [!IMPORTANT] 
 > Actualmente, Azure NetApp Files no admite la migración de recursos entre suscripciones.
 
-## <a name="azure_netapp_files_account"></a>Cuentas de NetApp
+## <a name="netapp-accounts"></a><a name="azure_netapp_files_account"></a>Cuentas de NetApp
 
 - Una cuenta de NetApp actúa como una agrupación administrativa de los grupos de capacidad constituyentes.  
 - No es lo mismo que la cuenta de almacenamiento general de Azure. 
 - Una cuenta de NetApp es regional en el ámbito.   
 - Puede tener varias cuentas de NetApp en una región, pero cada una está asociada solo a una única región.
 
-## <a name="capacity_pools"></a>Grupos de capacidad
+## <a name="capacity-pools"></a><a name="capacity_pools"></a>Grupos de capacidad
 
 - Un grupo de capacidad se mide por su capacidad aprovisionada.  
 - La capacidad se aprovisiona con las SKU fijas que adquirió (por ejemplo, una capacidad de 4 TiB).
@@ -45,7 +45,7 @@ Antes de crear un volumen en Azure NetApp Files, debe adquirir y configurar un g
   Por ejemplo, en el [Diagrama conceptual de la jerarquía de almacenamiento](#conceptual_diagram_of_storage_hierarchy) a continuación, el grupo de capacidad 1 no se puede mover de la cuenta de NetApp Este de EE. UU. a la cuenta de NetApp Oeste de EE. UU. 2.  
 - No se puede eliminar un grupo de capacidad hasta que todos los volúmenes que contiene se hayan eliminado.
 
-## <a name="volumes"></a>Volúmenes
+## <a name="volumes"></a><a name="volumes"></a>Volúmenes
 
 - Un volumen se mide según el consumo de capacidad lógica y es escalable. 
 - El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo.
@@ -54,7 +54,7 @@ Antes de crear un volumen en Azure NetApp Files, debe adquirir y configurar un g
   Por ejemplo, en el siguiente [diagrama conceptual de la jerarquía de almacenamiento](#conceptual_diagram_of_storage_hierarchy), no puede mover los volúmenes del grupo de capacidad 1 al grupo de capacidad 2.
 - Un volumen no se puede eliminar hasta que se han eliminado todas sus instantáneas.
 
-## <a name="conceptual_diagram_of_storage_hierarchy"></a>Diagrama conceptual de la jerarquía de almacenamiento 
+## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Diagrama conceptual de la jerarquía de almacenamiento 
 El ejemplo siguiente muestra las relaciones de la suscripción de Azure, las cuentas de NetApp, los grupos de capacidad y los volúmenes.   
 
 ![Diagrama conceptual de la jerarquía de almacenamiento](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)

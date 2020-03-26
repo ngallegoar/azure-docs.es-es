@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197766"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216293"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
@@ -35,8 +35,8 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 3. En la lista de resultados, elija **Key Vault**.
 4. En la sección Key Vault, elija **Crear**.
 5. En la sección **Crear Key Vault**, proporcione la siguiente información:
-    - **Name**: se requiere un nombre único. En esta guía de inicio rápido se usará **Contoso-vault2**. 
-    - **Suscripción**: Elija una suscripción.
+    - **Nombre**: se requiere un nombre único. En esta guía de inicio rápido se usará **Contoso-vault2**. 
+    - **Suscripción**: elija una suscripción.
     - En **Grupo de recursos** elija **Crear nuevo** y escriba un nombre para el grupo de recursos.
     - En el menú desplegable **Ubicación**, elija una ubicación.
     - Deje las restantes opciones con sus valores predeterminados.
@@ -44,8 +44,8 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 Tome nota de las dos propiedades siguientes:
 
-* **Nombre del almacén**: en este ejemplo es **Contoso-Vault2**. Utilizará este nombre para otros pasos.
-* **URI de almacén**: en el ejemplo es https://contoso-vault2.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+* **Nombre de almacén**: en este ejemplo es **Contoso-Vault2**. Utilizará este nombre para otros pasos.
+* **URI de almacén**: en el ejemplo, es https://contoso-vault2.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 En este momento, su cuenta de Azure es la única autorizada para realizar operaciones en este nuevo almacén.
 
@@ -59,7 +59,7 @@ Para agregar un secreto al almacén, simplemente debe realizar un par de pasos a
 2. Haga clic en **Generar o Importar**.
 3. En la pantalla **Crear un secreto**, elija los siguientes valores:
     - **Opciones de carga**: Manual.
-    - **Name**: ExamplePassword.
+    - **Nombre**: ExamplePassword.
     - **Valor**: hVFkk965BuUv
     - Deje las restantes opciones con sus valores predeterminados. Haga clic en **Crear**.
 

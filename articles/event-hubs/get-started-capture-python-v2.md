@@ -13,10 +13,10 @@ ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
 ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77187234"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capture datos de Event Hubs en Azure Storage y léalos mediante Python (azure-eventhub versión 5)
@@ -37,7 +37,7 @@ En esta guía de inicio rápido:
 > * Enviar datos al centro de eventos con un script de Python.
 > * Leer y procesar los archivos de Capture de Event Hubs con otro script de Python.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Python 2.7 y 3.5 o posterior, con PIP instalado y actualizado.  
 - Suscripción a Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.  
@@ -92,7 +92,7 @@ En esta sección, creará un script de Python que envía 200 eventos (10 disposi
     * Reemplace `EVENT HUBS NAMESPACE CONNECTION STRING` por la cadena de conexión para el espacio de nombres de Event Hubs.  
     * Reemplace `EVENT HUB NAME` por el nombre del centro de eventos.  
 5. Ejecute el script para enviar eventos al centro de eventos.  
-6. En Azure Portal, puede comprobar que el centro de eventos ha recibido los mensajes. Cambie a la vista **Mensajes** en la sección **Métricas**. Actualice la página para actualizar el gráfico. Pueden pasar unos segundos hasta que aparezca en la página que los mensajes se han recibido. 
+6. En Azure Portal, puede comprobar que el centro de eventos ha recibido los mensajes. Cambie a la vista **Mensajes** en la sección **Métricas**. Actualice la página para actualizar el gráfico. Pueden pasar unos segundos hasta que aparezca en la página que los mensajes se han recibido. 
 
     [![Comprobación de que el centro de eventos ha recibido los mensajes](./media/get-started-capture-python-v2/messages-portal.png)](./media/get-started-capture-python-v2/messages-portal.png#lightbox)
 

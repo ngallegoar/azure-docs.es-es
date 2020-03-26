@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.openlocfilehash: 4430a73f7b46a31847322e65c0aa3c95ebd385ca
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76270172"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales con Windows con una plantilla de Azure
@@ -35,7 +35,7 @@ Una plantilla define la configuración de cada tipo de recurso. Un tipo de recur
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | type                         | Tipo de recurso de Azure que se creará                            | Microsoft.Compute/virtualMachineScaleSets |
 | name                         | Nombre del conjunto de escalado                                       | myScaleSet                                |
-| ubicación                     | Ubicación donde se creará el conjunto de escalado                     | East US                                   |
+| ubicación                     | Ubicación donde se creará el conjunto de escalado                     | Este de EE. UU.                                   |
 | sku.name                     | Tamaño de VM para cada instancia de conjunto de escalado                  | Standard_A1                               |
 | sku.capacity                 | Número de instancias de VM que se crearán inicialmente           | 2                                         |
 | upgradePolicy.mode           | Modo de actualización de la instancia de VM cuando se producen cambios              | Automático                                 |

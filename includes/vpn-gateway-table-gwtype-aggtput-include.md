@@ -9,26 +9,26 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74828969"
 ---
 |**Generación<br>de<br>VPN Gateway** |**SKU**   | **Túneles<br>S2S/entre redes virtuales** | Conexiones **P2S<br> SSTP** | Conexiones **P2S<br> IKEv2/OpenVPN** | **Pruebas comparativas de rendimiento<br>agregado** | **BGP** | **Con redundancia de zona** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
-|**Generation1**|**Básico**   | Máx. 10    | Máx. 128  | No compatible  | 100 Mbps  | No compatible| Sin |
-|**Generation1**|**VpnGw1**  | Máx. 30*   | Máx. 128  | Máx. 250       | 650 MBps  | Compatible | Sin |
-|**Generation1**|**VpnGw2**  | Máx. 30*   | Máx. 128  | Máx. 500       | 1 Gbps    | Compatible | Sin |
-|**Generation1**|**VpnGw3**  | Máx. 30*   | Máx. 128  | Máx. 1000      | 1,25 Gbps | Compatible | Sin |
-|**Generation1**|**VpnGw1AZ**| Máx. 30*   | Máx. 128  | Máx. 250       | 650 MBps  | Compatible | Sí |
-|**Generation1**|**VpnGw2AZ**| Máx. 30*   | Máx. 128  | Máx. 500       | 1 Gbps    | Compatible | Sí |
+|**Generación 1**|**Basic**   | Máx. 10    | Máx. 128  | No compatible  | 100 Mbps  | No compatible| No |
+|**Generación 1**|**VpnGw1**  | Máx. 30*   | Máx. 128  | Máx. 250       | 650 MBps  | Compatible | No |
+|**Generación 1**|**VpnGw2**  | Máx. 30*   | Máx. 128  | Máx. 500       | 1 Gbps    | Compatible | No |
+|**Generación 1**|**VpnGw3**  | Máx. 30*   | Máx. 128  | Máx. 1000      | 1,25 Gbps | Compatible | No |
+|**Generación 1**|**VpnGw1AZ**| Máx. 30*   | Máx. 128  | Máx. 250       | 650 MBps  | Compatible | Sí |
+|**Generación 1**|**VpnGw2AZ**| Máx. 30*   | Máx. 128  | Máx. 500       | 1 Gbps    | Compatible | Sí |
 |**Generación 1**|**VpnGw3AZ**| Máx. 30*   | Máx. 128  | Máx. 1000      | 1,25 Gbps | Compatible | Sí |
 |        |            |            |           |                |           |           |     |
-|**Generación 2**|**VpnGw2**  | Máx. 30*   | Máx. 128  | Máx. 500       | 1,25 Gbps | Compatible | Sin |
-|**Generación 2**|**VpnGw3**  | Máx. 30*   | Máx. 128  | Máx. 1000      | 2,5 Gbps  | Compatible | Sin |
-|**Generación 2**|**VpnGw4**  | Máx. 30*   | Máx. 128  | Máx. 5000      | 5 Gbps    | Compatible | Sin |
-|**Generación 2**|**VpnGw5**  | Máx. 30*   | Máx. 128  | Máx. 10000      | 10 Gbps   | Compatible | Sin |
+|**Generación 2**|**VpnGw2**  | Máx. 30*   | Máx. 128  | Máx. 500       | 1,25 Gbps | Compatible | No |
+|**Generación 2**|**VpnGw3**  | Máx. 30*   | Máx. 128  | Máx. 1000      | 2,5 Gbps  | Compatible | No |
+|**Generación 2**|**VpnGw4**  | Máx. 30*   | Máx. 128  | Máx. 5000      | 5 Gbps    | Compatible | No |
+|**Generación 2**|**VpnGw5**  | Máx. 30*   | Máx. 128  | Máx. 10000      | 10 Gbps   | Compatible | No |
 |**Generación 2**|**VpnGw2AZ**| Máx. 30*   | Máx. 128  | Máx. 500       | 1,25 Gbps | Compatible | Sí |
 |**Generación 2**|**VpnGw3AZ**| Máx. 30*   | Máx. 128  | Máx. 1000      | 2,5 Gbps  | Compatible | Sí |
 |**Generación 2**|**VpnGw4AZ**| Máx. 30*   | Máx. 128  | Máx. 5000      | 5 Gbps    | Compatible | Sí |

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de una canalización de CI/CD para Ruby on Rails con Azure DevOps Projects'
+title: 'Guía de inicio rápido: Creación de una canalización de CI/CD para Ruby on Rails con Azure DevOps Projects'
 description: Con Azure DevOps Projects es fácil empezar a usar Azure. En pocos y rápidos pasos puede iniciar una aplicación web de Ruby en un servicio de Azure.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 5cb47cdd76d1de284c4dc6dbdfbfedd0095653ab
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70899562"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-projects"></a>Creación de una canalización de CI/CD para Ruby on Rails con Azure DevOps Projects
@@ -33,7 +33,7 @@ Si no tiene una suscripción de Azure, puede obtener una gratuita mediante [Visu
 
 Azure DevOps Projects crea una canalización de CI/CD en Azure Repos. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure en la suscripción de Azure que prefiera.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el panel izquierdo, seleccione **Crear un recurso**.
 
@@ -41,7 +41,7 @@ Azure DevOps Projects crea una canalización de CI/CD en Azure Repos. Puede crea
 
     ![El panel de DevOps Projects](_img/azure-devops-project-github/fullbrowser.png)
 
-## <a name="select-a-sample-app-and-azure-service"></a>Selección de una aplicación de ejemplo y el servicio de Azure
+## <a name="select-a-sample-app-and-azure-service"></a>Selección de una aplicación de ejemplo y un servicio de Azure
 
 1. Seleccione la aplicación de ejemplo de **Ruby**.
 

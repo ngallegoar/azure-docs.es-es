@@ -3,16 +3,16 @@ title: Acerca de Mobile Apps
 description: Obtenga información sobre las ventajas que aporta App Service a las aplicaciones móviles de la empresa.
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.tgt_pltfrm: mobile-multiple
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/25/2019
-ms.openlocfilehash: 73fdf7f09ebb5073829f9787917946e8053f8e12
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 33548f202046310b91fc79d38ac7d8fb18a8727e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461443"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79499430"
 ---
-# <a name="getting-started"> </a>Acerca de Mobile Apps en Azure App Service
+# <a name="about-mobile-apps-in-azure-app-service"></a><a name="getting-started"> </a>Acerca de Mobile Apps en Azure App Service
 
 Azure App Service es una [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) completamente administrada para desarrolladores profesionales. El servicio ofrece un amplio conjunto de funcionalidades para escenarios web, móviles y de integración. 
 
@@ -23,21 +23,21 @@ La característica Mobile Apps de Azure App Service ofrece a los desarrolladores
 ## <a name="why-mobile-apps"></a>¿Por qué Mobile Apps?
 Con la característica Mobile Apps, puede hacer lo siguiente:
 
-* **Compilar aplicaciones nativas y multiplataforma**: si va a crear aplicaciones iOS, Android y Windows nativas o aplicaciones Xamarin o Cordova (PhoneGap) multiplataforma, puede aprovechar App Service usando SDK nativos.
-* **Conectarse a los sistemas empresariales**: con la característica Mobile Apps, puede agregar el inicio de sesión corporativo en cuestión de minutos y conectarse a los recursos empresariales locales o en la nube.
-* **Crear aplicaciones de uso sin conexión con sincronización de datos**: consiga que su personal móvil sea más productivo creando aplicaciones que funcionen sin conexión y use Mobile Apps para sincronizar los datos en segundo plano cuando exista conectividad con cualquiera de los orígenes de datos empresariales o las API de software como servicio (SaaS).
-* **Enviar notificaciones push a millones de personas en cuestión de segundos**: atraiga a los clientes con notificaciones push instantáneas en cualquier dispositivo, que se personalizan según sus necesidades y que se envían en el momento oportuno.
+* **Crear aplicaciones nativas y multiplataforma**: si va a crear aplicaciones iOS, Android y Windows nativas o aplicaciones Xamarin o Cordova (PhoneGap) multiplataforma, puede aprovechar App Service usando SDK nativos.
+* **Conectarse a sus sistemas empresariales**: con la característica Mobile Apps, puede agregar el inicio de sesión corporativo en cuestión de minutos y conectarse a sus recursos locales o en la nube empresariales.
+* **Crear aplicaciones de uso sin conexión con sincronización de datos**: consiga que sus recursos móviles sean más productivos creando aplicaciones que funcionen sin conexión y utilice Mobile Apps para sincronizar los datos en segundo plano cuando exista conectividad con cualquiera de los orígenes de datos empresariales o las API de software como servicio (SaaS).
+* **Notificaciones push a millones de personas en cuestión de segundos**: atraiga a los clientes con notificaciones push instantáneas en cualquier dispositivo, que se personalizan según sus necesidades y que se envían en el momento oportuno.
 
 ## <a name="mobile-apps-features"></a>Características de Mobile Apps
 Las siguientes características son importantes para el desarrollo móvil habilitado para la nube:
 
-* **Autenticación y autorización**: compatibilidad con proveedores de identidades, como Azure Active Directory para la autenticación empresarial, y proveedores de redes sociales, como Facebook, Google, Twitter y cuentas Microsoft. Mobile Apps ofrece un servicio OAuth 2.0 para cada proveedor. También puede integrar el SDK para el proveedor de identidades para la funcionalidad específica del proveedor.
+* **Autenticación y autorización**: compatibilidad con proveedores de identidades, como Azure Active Directory para la autenticación empresarial, y proveedores de redes sociales, como Facebook, Google, Twitter y cuentas de Microsoft. Mobile Apps ofrece un servicio OAuth 2.0 para cada proveedor. También puede integrar el SDK para el proveedor de identidades para la funcionalidad específica del proveedor.
 
     Más información acerca de las [características de autenticación].
 
 * **Acceso a datos**: Mobile Apps cuenta con un origen de datos OData v3 adecuado para dispositivos móviles que está vinculado a Azure SQL Database o a un servidor SQL Server local. Como este servicio puede basarse en Entity Framework, puede integrarlo fácilmente con otros proveedores de datos NoSQL y SQL, incluidos los proveedores de [Azure Table Storage], MongoDB, [Azure Cosmos DB] y las API de SaaS, como Office 365 y Salesforce.com.
 
-* **Sincronización sin conexión**: los SDK de cliente facilitan la creación de aplicaciones móviles sólidas y con capacidad de respuesta que funcionan con un conjunto de datos sin conexión. Puede sincronizar este conjunto de datos automáticamente con los datos de back-end, incluida la compatibilidad con la resolución de conflictos.
+* **Sincronización sin conexión**: los SDK de cliente facilitan la creación de aplicaciones móviles sensibles y sólidas que funcionan con un conjunto de datos sin conexión. Puede sincronizar este conjunto de datos automáticamente con los datos de back-end, incluida la compatibilidad con la resolución de conflictos.
 
   Más información acerca de las [características de datos].
 
@@ -45,12 +45,12 @@ Las siguientes características son importantes para el desarrollo móvil habili
 
   Más información acerca de las [características de notificaciones push].
 
-* **SDK de cliente**: existe un completo conjunto de SDK de cliente que cubren el desarrollo nativo ([iOS], [Android] y [Windows]), el desarrollo multiplataforma ([Xamarin.iOS y Xamarin.Android], [Xamarin.Forms]) y el desarrollo de aplicaciones híbridas ([Apache Cordova]). Cada SDK de cliente está disponible con una licencia MIT y es de código abierto.
+* **SDK de cliente**: hay disponible un completo conjunto de SDK de cliente que cubren el desarrollo nativo ([iOS], [Android] y [Windows]), el desarrollo multiplataforma ([Xamarin.iOS y Xamarin.Android], [Xamarin.Forms]) y el desarrollo de aplicaciones híbridas ([Apache Cordova]). Cada SDK de cliente está disponible con una licencia MIT y es de código abierto.
 
 ## <a name="azure-app-service-features"></a>Características de Azure App Service
 Las siguientes características de plataforma son útiles para los sitios de producción móvil:
 
-* **Escalabilidad automática**: con App Service, puede escalar vertical u horizontalmente de forma rápida para administrar cualquier carga entrante del cliente. Seleccione manualmente el número y tamaño de las máquinas virtuales o configure el escalado automático para escalar el back-end de la aplicación móvil basado en la carga o en la programación.
+* **Escalado automático**: con App Service, puede escalar vertical u horizontalmente de forma rápida para administrar cualquier carga entrante del cliente. Seleccione manualmente el número y tamaño de las máquinas virtuales o configure el escalado automático para escalar el back-end de la aplicación móvil basado en la carga o en la programación.
 
   Descubra más acerca del [escalado automático].
 
@@ -66,7 +66,7 @@ Las siguientes características de plataforma son útiles para los sitios de pro
 
   Obtenga más información sobre las [conexiones híbridas], las [redes virtuales] y [ExpressRoute].
 
-* **Entornos aislados y dedicados**: para ejecutar aplicaciones de Azure App Service de forma segura, puede ejecutar App Service en un entorno plenamente aislado y dedicado. Este entorno es perfecto para cargas de trabajo de aplicaciones que requieren acceso de red a gran escala, con aislamiento o seguro.
+* **Entornos aislados y dedicados**: puede ejecutar App Service en un entorno plenamente aislado y dedicado para ejecutar aplicaciones de Azure App Service de forma segura. Este entorno es perfecto para cargas de trabajo de aplicaciones que requieren acceso de red a gran escala, con aislamiento o seguro.
 
   Descubra más acerca de [Entornos de App Service].
 

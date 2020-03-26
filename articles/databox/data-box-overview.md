@@ -10,11 +10,11 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: alkohli
 ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067000"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215713"
 ---
 # <a name="what-is-azure-data-box"></a>¿Qué es Azure Data Box?
 
@@ -30,7 +30,7 @@ Data Box es ideal para transferir tamaños de datos con más de 40 TB en escenar
  - **Migración única**: cuando se mueve gran cantidad de datos locales a Azure. 
      - Traslade una biblioteca multimedia de cintas sin conexión a Azure para crear una biblioteca multimedia en línea.
      - Migre la granja de máquinas virtuales, SQL Server y las aplicaciones a Azure.
-     - Traslado de los datos históricos a Azure para un análisis exhaustivo y generación de informes con HDInsight.
+     - Traslade los datos históricos a Azure para un análisis exhaustivo y generar informes con HDInsight.
 
  - **Transferencia masiva inicial**: cuando se realiza una transferencia masiva inicial con Data Box (inicialización) seguida de transferencias incrementales a través de la red. 
      - Por ejemplo, los asociados de soluciones de copia de seguridad, como Commvault y Data Box, se usan para mover la copia de seguridad histórica de gran tamaño inicial a Azure. Una vez completado el proceso, los datos incrementales se transfieren a través de la red a Azure Storage.
@@ -56,10 +56,10 @@ Data Box está pensado para mover grandes cantidades de datos a Azure sin que af
 
 El dispositivo Data Box tiene las siguientes características en esta versión.
 
-| Especificaciones                                          | DESCRIPCIÓN              |
+| Especificaciones                                          | Descripción              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | < 50 libras                |
-| Dimensiones                                              | Dispositivo: Ancho: 309 mm Alto: 430,4 mm Fondo: 502 mm |            
+| Dimensions                                              | Dispositivo: ancho 309,0 mm; alto 430,4 mm; profundidad: 502,0 mm |            
 | Espacio en bastidor                                              | 7 U cuando se coloca en el bastidor en su lado (no se puede montar en bastidor)|
 | Se necesitan cables                                         | 1 cable de alimentación (incluido) <br> 2 cables RJ45 <br> 2 cables de cobre X SFP + Twinax|
 | Capacidad de almacenamiento                                        | Dispositivo de 100 TB que tenga al menos 80 TB de capacidad utilizable tras aplicar la protección de RAID 5|
@@ -79,7 +79,7 @@ Data Box incluye los siguientes componentes:
     ![Plano frontal y trasero de Data Box](media/data-box-overview/data-box-combined3.png)
 
     
-* **Servicio Data Box**: es una extensión de Azure Portal que le permite administrar un dispositivo Data Box desde una interfaz web a la cual puede acceder desde diferentes ubicaciones geográficas. Use el servicio Data Box para realizar la administración diaria del dispositivo Data Box. Las tareas de servicio incluyen cómo crear y administrar pedidos, ver y administrar alertas y administrar recursos compartidos.  
+* **Servicio Data Box**: es una extensión de Azure Portal que le permite administrar un dispositivo Data Box desde una interfaz web a la cual puede acceder desde diferentes ubicaciones geográficas. Use el servicio Data Box para realizar la administración diaria del dispositivo Data Box. Las tareas del servicio incluyen cómo crear y administrar pedidos, ver y administrar alertas y administrar recursos compartidos.  
 
     ![Servicio Data Box en Azure Portal](media/data-box-overview/data-box-service1.png)
 

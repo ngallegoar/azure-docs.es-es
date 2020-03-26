@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: b8c6b4085f56bc12b67bf87177ba33b82c6a6db9
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "69900583"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>¿Qué es Azure Data Box Gateway?
@@ -49,7 +49,7 @@ Data Box Gateway tiene las siguientes ventajas:
 
 Data Box Gateway tiene las siguientes funcionalidades:
 
-|Capacidad |DESCRIPCIÓN  |
+|Capacidad |Descripción  |
 |---------|---------|
 |Velocidad     | Transferencia de datos y ancho de banda totalmente automatizados y altamente optimizados.|
 |Protocolos admitidos     | Compatibilidad con los protocolos estándar SMB y NFS para la ingesta de datos. <br> Para obtener más información sobre las versiones compatibles, vaya a [Requisitos del sistema de Data Box Gateway](data-box-gateway-system-requirements.md).|
@@ -64,12 +64,12 @@ Data Box Gateway tiene las siguientes funcionalidades:
 
 El dispositivo virtual Data Box Gateway tiene las siguientes especificaciones:
 
-| Especificaciones                                          | DESCRIPCIÓN              |
+| Especificaciones                                          | Descripción              |
 |---------------------------------------------------------|--------------------------|
 | Procesadores virtuales (núcleos)   | Cuatro como mínimo |
 | Memoria  |8 GB como mínimo|
 | Disponibilidad|Nodo único|
-| Discos|Disco del sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
+| Discos|Disco de sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
 | Interfaces de red |Una o varias interfaces de red virtual|
 | Protocolos de uso compartido de archivos nativos|SMB y NFS  |
 | Seguridad|Autenticación para desbloquear el acceso a datos y dispositivos <br> Cifrado de datos en proceso mediante el cifrado AES de 256 bits|
