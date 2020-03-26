@@ -4,10 +4,10 @@ description: Tutorial que muestra cómo crear una red virtual del centro de cone
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 6669e90c3d12fcf55bcb1ad69c3b275c5117a8fc
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159049"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-in-azure-by-using-terraform"></a>Tutorial: Creación de una red virtual de centro de conectividad en Azure mediante Terraform
@@ -22,7 +22,7 @@ En este tutorial se describen las tareas siguientes:
 > * Uso de Terraform para crear una puerta de enlace de red privada virtual del centro de conectividad.
 > * Use Terraform para crear conexiones de puerta de enlace locales y del centro de conectividad.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 1. [Creación de una topología de red híbrida en estrella tipo hub-and-spoke con Terraform en Azure](./terraform-hub-spoke-introduction.md).
 1. [Creación de una red virtual local con Terraform en Azure](./terraform-hub-spoke-on-prem.md).

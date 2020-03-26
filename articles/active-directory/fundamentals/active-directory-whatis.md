@@ -12,11 +12,11 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dd7b412e99526935738c2494d31a16fded7101a6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368036"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215813"
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 
@@ -57,7 +57,7 @@ Para mejorar la implementación de Azure AD, también puede agregar funcionalid
 
 - **Licencias de la característica de "Pago por uso".** También puede obtener licencias de características adicionales, como Azure Active Directory Business-to-Customer (B2C). B2C puede ayudarle a proporcionar soluciones de administración de acceso y de identidad para las aplicaciones orientadas al cliente. Para más información, consulte [Documentación de Azure Active Directory B2C](../../active-directory-b2c/index.yml).
 
-Para obtener más información sobre cómo asociar una suscripción de Azure a Azure AD, consulte [Cómo: Asociación o adición de una suscripción de Azure a Azure Active Directory](active-directory-how-subscriptions-associated-directory.md), y para obtener más información sobre cómo asignar licencias a los usuarios, consulte [Cómo asignar o quitar licencias de Azure Active Directory](license-users-groups.md).
+Para más información acerca de cómo asociar una suscripción de Azure a Azure AD, consulte [Asociación o adición de una suscripción de Azure a Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) y para más información acerca de cómo asignar licencias a usuarios, consulte [Cómo asignar o quitar licencias de Azure Active Directory](license-users-groups.md).
 
 ## <a name="terminology"></a>Terminología
 

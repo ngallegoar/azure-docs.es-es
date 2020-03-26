@@ -5,13 +5,13 @@ ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/11/2020
-ms.custom: seodec18
-ms.openlocfilehash: 28848d8b676bb5f4182a887f5efdd48c6221041a
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
+ms.openlocfilehash: 766b860e6c711107472645d84db50412aaba0e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500060"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046763"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Hospedaje de una API RESTful con CORS en Azure App Service
 
@@ -53,7 +53,7 @@ Este repositorio contiene una aplicación creada según el siguiente tutorial: [
 
 ### <a name="run-the-application"></a>Ejecución de la aplicación
 
-Ejecute los comandos siguientes para instalar los paquetes necesarios, ejecute las migraciones de bases de datos e inicie la aplicación.
+Ejecute los comandos siguientes para instalar los paquetes necesarios, ejecutar las migraciones de bases de datos e iniciar la aplicación.
 
 ```bash
 cd dotnet-core-api
@@ -73,7 +73,7 @@ Para detener ASP.NET Core en cualquier momento, presione `Ctrl+C` en el terminal
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-app-to-azure"></a>Implementación de aplicación en Azure
+## <a name="deploy-app-to-azure"></a>Implementación de la aplicación en Azure
 
 En este paso, va a implementar la aplicación .NET Core conectada a SQL Database en App Service.
 

@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: c1271d5b63fa796fe44b7a40c364953464a87539
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596670"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparación de los datos para entrenar un modelo predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar)
 
 En la primera parte de esta serie de tutoriales de tres partes, importará y preparará los datos de una base de datos de Azure SQL mediante R. Más adelante en la serie, usará estos datos para entrenar e implementar un modelo de Machine Learning predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar).
 
-En esta serie de tutoriales, imagine que posee una empresa de alquiler de esquís y quiere predecir el número de alquileres que tendrá en una fecha futura. Esta información lo ayudará a preparar las existencias, el personal y las instalaciones.
+En esta serie de tutoriales, imagine que posee una empresa de alquiler de esquís y quiere predecir el número de alquileres que tendrá en una fecha futura. Esta información le ayudará a preparar las existencias, el personal y las instalaciones.
 
 En las partes uno y dos de esta serie, va a desarrollar algunos scripts de R en RStudio para preparar los datos y entrenar un modelo de Machine Learning. Luego, en la tercera parte, ejecutará esos scripts de R en una base de datos SQL mediante procedimientos almacenados.
 
@@ -41,7 +41,7 @@ En la [tercera parte](sql-database-tutorial-predictive-model-deploy.md), aprende
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure: si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -55,7 +55,7 @@ En la [tercera parte](sql-database-tutorial-predictive-model-deploy.md), aprende
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="import-the-sample-database"></a>Importación de la base de datos de ejemplo
 
@@ -95,7 +95,7 @@ head(rentaldata);
 str(rentaldata);
 ```
 
-Verá unos resultados parecidos a estos:
+Se mostrarán resultados similares a los siguientes.
 
 ```results
    Year  Month  Day  RentalCount  WeekDay  Holiday  Snow
@@ -130,7 +130,7 @@ rentaldata$WeekDay <- factor(rentaldata$WeekDay);
 str(rentaldata);
 ```
 
-Verá unos resultados parecidos a estos:
+Se mostrarán resultados similares a los siguientes.
 
 ```results
 data.frame':      453 obs. of  7 variables:
@@ -158,7 +158,7 @@ En Azure Portal, haga lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En la primera parte de esta serie de tutoriales, realizó estos pasos:
+En la parte uno de esta serie de tutoriales, ha completado estos pasos:
 
 * Importar una base de datos de ejemplo en una base de datos de Azure SQL mediante R
 * Cargar los datos de la base de datos de Azure SQL en una trama de datos de R

@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 5743d785afb87aef6b3a89af6dc8eb18f66b164d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68854650"
 ---
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos y una tabla. 
@@ -25,7 +25,7 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
 
 2. En la página **Agregar tabla**, escriba la configuración de la nueva tabla.
 
-    Configuración|Valor sugerido|DESCRIPCIÓN
+    Configuración|Valor sugerido|Descripción
     ---|---|---
     Id. de tabla|sample-table|Identificador de la nueva tabla. Los nombres de tabla tienen los mismos requisitos de caracteres que los identificadores de base de datos. Los nombres de bases de datos deben tener entre 1 y 255 caracteres y no pueden contener `/ \ # ?` o un espacio al final.
     Throughput|400 RU|Cambie el rendimiento a 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.

@@ -16,11 +16,11 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d97323f1916ee46e6b1f8d4ca8723b950baca39c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064795"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222232"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de cambios y actualización de una máquina virtual Windows en Azure
 
@@ -115,7 +115,7 @@ Para instalar actualizaciones, programe una implementación que se ajuste a su v
 
 Para programar una nueva implementación de actualizaciones en la máquina virtual, seleccione **Programar implementación de actualizaciones**  en la parte superior de la pantalla **Administración de actualizaciones**. En la ventana **Nueva implementación de actualización**, especifique la siguiente información:
 
-| Opción | DESCRIPCIÓN |
+| Opción | Descripción |
 | --- | --- |
 | **Nombre** |proporcione un nombre único para identificar la implementación de actualizaciones. |
 |**Sistema operativo**| Seleccione **Linux** o **Windows**.|

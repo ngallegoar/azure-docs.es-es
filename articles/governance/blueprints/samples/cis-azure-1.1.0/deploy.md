@@ -4,10 +4,10 @@ description: Pasos de implementación para el ejemplo de plano técnico de CIS M
 ms.date: 10/14/2019
 ms.topic: sample
 ms.openlocfilehash: 7476addee3d31ec355c793ab7fbe1fbb732b8013
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74544520"
 ---
 # <a name="deploy-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Implementación del ejemplo de plano técnico de CIS Microsoft Azure Foundations Benchmark
@@ -91,7 +91,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
 En la tabla siguiente se proporciona una lista de los parámetros del artefacto de plano técnico:
 
-|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
+|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
 |\[Versión preliminar\]: Auditar las recomendaciones de CIS Microsoft Azure Foundations Benchmark 1.1.0 e implementar las extensiones de VM admitidas específicas.|Asignación de directiva|Lista de regiones en las que se debe habilitar Network Watcher|Lista de regiones separadas por punto y coma. Para ver una lista completa de regiones, use Get-AzLocation. Por ejemplo: eastus; eastus2|
 |\[Versión preliminar\]: Auditar las recomendaciones de CIS Microsoft Azure Foundations Benchmark 1.1.0 e implementar las extensiones de VM admitidas específicas.|Asignación de directiva|Lista de extensiones de máquina virtual aprobadas para usarse|Lista de extensiones separadas por punto y coma. Para ver una lista completa de extensiones de máquina virtual, use Get-AzVMExtensionImage. Por ejemplo: AzureDiskEncryption; IaaSAntimalware|

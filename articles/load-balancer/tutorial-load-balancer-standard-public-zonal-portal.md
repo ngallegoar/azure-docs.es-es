@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251904"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad con Standard Load Balancer mediante Azure Portal
@@ -75,7 +75,7 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 |-----------------------------|----------------------|
 | **\<nombre-de-grupo-recursos>**  | myResourceGroupZLB (seleccione el grupo de recursos existente) |
 | **\<nombre-de-red-virtual>** | myVNet          |
-| **\<nombre-de-región>**          | Oeste de Europa      |
+| **\<region-name>**          | Oeste de Europa      |
 | **\<espacio-de-direcciones-IPv4>**   | 10.0.0.0\16          |
 | **\<nombre-de-subred>**          | myBackendSubnet        |
 | **\<intervalo-de-direcciones-de-subred>** | 10.0.0.0\24          |

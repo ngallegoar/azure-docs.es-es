@@ -7,17 +7,17 @@ ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
 ms.openlocfilehash: 5d454aefaba89bef9dc9009ff442fa5543dae2ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357827"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290093"
 ---
 # <a name="what-are-durable-functions"></a>¿Qué es Durable Functions?
 
 *Durable Functions* es una extensión de [Azure Functions](../functions-overview.md) que permite escribir funciones con estado en un entorno de proceso sin servidor. La extensión permite definir flujos de trabajo con estado mediante la escritura de [*funciones del orquestador*](durable-functions-orchestrations.md) y entidades con estado mediante la escritura de [*funciones de entidad*](durable-functions-entities.md) con el modelo de programación de Azure Functions. En segundo plano, la extensión administra automáticamente el estado, los puntos de comprobación y los reinicios, lo que le permite centrarse en la lógica de negocios.
 
-## <a name="language-support"></a>
+## <a name="supported-languages"></a><a name="language-support"></a>
 
 Durable Functions admite actualmente los siguientes idiomas:
 
@@ -40,7 +40,7 @@ El caso de uso principal para Durable Functions es simplificar los requisitos de
 * [Interacción humana](#human)
 * [Agregador (entidades con estado)](#aggregator)
 
-### <a name="chaining"></a>Patrón 1: Diagrama de encadenamiento de funciones
+### <a name="pattern-1-function-chaining"></a><a name="chaining"></a>Patrón 1: Diagrama de encadenamiento de funciones
 
 En el modelo de encadenamiento de funciones, una secuencia de funciones se ejecuta en un orden específico. Con este patrón, la salida de una función se aplica a la entrada de otra función.
 
@@ -97,7 +97,7 @@ Puede usar el objeto `context.df` para invocar otras funciones por nombre, pasar
 
 ---
 
-### <a name="fan-in-out"></a>Patrón 2: distribución ramificada de entrada y salida
+### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Patrón 2: distribución ramificada de entrada y salida
 
 En el patrón de distribución ramificada de salida y entrada, se ejecutan en paralelo varias funciones y después se espera a que todas finalicen. A menudo se realiza algún trabajo de agregación en los resultados devueltos de las funciones.
 
@@ -167,7 +167,7 @@ La creación automática de puntos de control que se produce en la llamada a `yi
 > [!NOTE]
 > En raras ocasiones es posible que se produzca un bloqueo en la ventana después de que se complete una función de actividad, pero antes de que su finalización se guarde en el historial de la orquestación. Em ese caso, la función de actividad se volvería a ejecutar desde el principio en cuanto se recuperara el proceso.
 
-### <a name="async-http"></a>Patrón 3: Las API de HTTP asincrónico
+### <a name="pattern-3-async-http-apis"></a><a name="async-http"></a>Patrón 3: Las API de HTTP asincrónico
 
 El patrón de las API HTTP asincrónico soluciona el problema de coordinar el estado de las operaciones de larga duración con los clientes externos. Una forma habitual de implementar este patrón es que un punto de conexión HTTP desencadene la acción de larga duración. A continuación, el cliente se redirige a un punto de conexión de estado al que sondea para saber cuando finalice la operación.
 
@@ -206,7 +206,7 @@ La extensión Durable Functions expone las API HTTP integradas que administran o
 
 Para más información, consulte el artículo acerca de las [características de HTTP](durable-functions-http-features.md), en el que se explica cómo se pueden exponer procesos asincrónicos de larga duración a través de HTTP con la extensión Durable Functions.
 
-### <a name="monitoring"></a>Patrón 4: Supervisión
+### <a name="pattern-4-monitor"></a><a name="monitoring"></a>Patrón 4: Supervisión
 
 El patrón de supervisión hace referencia a un proceso flexible y periódico en un flujo de trabajo. Un ejemplo es el sondeo hasta que se cumplen condiciones específicas. Puede usar un [desencadenador de temporizador](../functions-bindings-timer.md) normal para solucionar un escenario simple (como un trabajo de limpieza periódico), pero el intervalo es estático y resulta más difícil administrar los ciclos de vida de las instancias. Puede usar Durable Functions para crear intervalos de periodicidad flexible, administrar el ciclo de vida de las tareas y crear varios procesos de supervisión a partir de una única orquestación.
 
@@ -280,7 +280,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Cuando se recibe una solicitud, se crea una nueva instancia de orquestación para ese identificador de trabajo. La instancia sondea un estado hasta que se cumple una condición y se cierra el bucle. Un temporizador durable controla el intervalo de sondeo. Después, se puede realizar trabajo adicional o puede finalizar la orquestación. Cuando el valor de `nextCheck` supera el de `expiryTime`, el monitor finaliza.
 
-### <a name="human"></a>Patrón 5: Interacción humana
+### <a name="pattern-5-human-interaction"></a><a name="human"></a>Patrón 5: Interacción humana
 
 Muchos procesos automatizados implican algún tipo de interacción humana. La intervención humana en un proceso automatizado es más difícil, ya que las personas no tienen la misma alta disponibilidad y capacidad de respuesta que los servicios en la nube. Los procesos automatizados pueden permitir esta interacción mediante el uso de tiempos de expiración y la lógica de compensación.
 
@@ -382,7 +382,7 @@ module.exports = async function (context) {
 
 ---
 
-### <a name="aggregator"></a>Patrón 6: Agregador (entidades con estado)
+### <a name="pattern-6-aggregator-stateful-entities"></a><a name="aggregator"></a>Patrón 6: Agregador (entidades con estado)
 
 El sexto patrón se trata de agregar datos de eventos durante un período de tiempo en una sola*entidad* direccionable. En este patrón, los datos que se agreguen pueden proceder de varios orígenes, pueden entregarse en lotes o pueden estar dispersos en largos períodos de tiempo. Es posible que el agregador tome medidas según datos de eventos a medida que llegan, y puede que los clientes externos necesiten consultar los datos agregados.
 

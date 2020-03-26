@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71121934"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Uso de R en el contexto de proceso de Spark en Azure HDInsight
@@ -22,16 +22,16 @@ En este tutorial se proporciona una introducción paso a paso al uso de las func
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Descargar datos de ejemplo en el almacenamiento local
+> * Descarga de datos de ejemplo en el almacenamiento local
 > * Copiar los datos en el almacenamiento predeterminado
 > * Configurar un conjunto de datos
-> * Crear orígenes de datos
+> * Creación de orígenes de datos
 > * Crear un contexto de proceso para Spark
 > * Ajustar un modelo lineal
 > * Usar archivos XDF compuestos
 > * Convertir XDF a CSV
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Machine Learning Services en Azure HDInsight. Vaya al artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **ML Services** como **Tipo de clúster**.
 
@@ -160,7 +160,7 @@ Este paso debería tardar unos 10 segundos.
 
 En un contexto de proceso de Spark, puede crear orígenes de datos mediante las siguientes funciones:
 
-|Función | DESCRIPCIÓN |
+|Función | Descripción |
 |---------|-------------|
 |`RxTextData` | Origen de datos de texto delimitado por comas. |
 |`RxXdfData` | Datos en formato de archivo XDF. En RevoScaleR el formato de archivo XDF se modifica para que Hadoop almacene los datos en un conjunto de archivos compuesto en lugar de en un único archivo. |

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.custom: mvc
 ms.openlocfilehash: b2ce157f0f192135ab0507e4aae4c0a282bda1ea
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76166189"
 ---
 # <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Ejecución de un simulacro de recuperación ante desastres en máquinas virtuales de Azure de una región secundaria de Azure
@@ -25,7 +25,7 @@ En este tutorial se muestra cómo ejecutar una exploración de recuperación ant
 > [!NOTE]
 > Este tutorial le ayuda a obtener los detalles de una recuperación ante desastres con un mínimo de pasos. Para más información sobre las distintas funciones relacionadas con la obtención de los detalles de recuperación ante desastres, consulte la documentación de [replicación](azure-to-azure-how-to-enable-replication.md), [redes](azure-to-azure-about-networking.md), [automatización](azure-to-azure-powershell.md) o [solución de problemas](azure-to-azure-troubleshoot-errors.md) para las máquinas virtuales de Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar con este tutorial, compruebe los elementos siguientes:
 

@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "64919001"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutorial:  Configuración de PHS como copia de seguridad de AD FS en Azure AD Connect
@@ -29,7 +29,7 @@ El siguiente tutorial le guiará a través de la configuración de la sincroniza
 >[!NOTE]
 >En caso de que no tenga acceso al servidor de Azure AD Connect o de que el servidor no tenga acceso a internet, puede ponerse en contacto con el [Soporte técnico de Microsoft](https://support.microsoft.com/en-us/contactus/) para ayudar con los cambios en Azure AD.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Este tutorial se basa en el [Tutorial: Federación de un único entorno de bosques de AD en la nube](tutorial-federation.md) y es un requisito previo para intentar este tutorial.  Si no ha completado este tutorial, hágalo antes de intentar los pasos descritos en este documento.
 
 >[!IMPORTANT]

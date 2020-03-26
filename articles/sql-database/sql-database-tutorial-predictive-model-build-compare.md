@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: 2c85a378dc219e8af1b6458344ee4dba0fa73e68
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596801"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Creación de un modelo predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar)
@@ -37,9 +37,9 @@ En la [tercera parte](sql-database-tutorial-predictive-model-deploy.md), aprende
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* En la segunda parte de este tutorial se da por hecho que ha realizado la [**primera parte** ](sql-database-tutorial-predictive-model-prepare-data.md) y que satisface sus requisitos previos.
+* En la segunda parte de este tutorial se da por hecho que ha realizado la [**primera parte**](sql-database-tutorial-predictive-model-prepare-data.md) y que satisface sus requisitos previos.
 
 ## <a name="train-two-models"></a>Entrenamiento de dos modelos
 
@@ -121,7 +121,7 @@ En Azure Portal, haga lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En la segunda parte de esta serie de tutoriales, ha hecho lo siguiente:
+En la parte dos de esta serie de tutoriales, ha completado estos pasos:
 
 * Entrenar dos modelos de aprendizaje automático
 * Hacer predicciones a partir de ambos modelos

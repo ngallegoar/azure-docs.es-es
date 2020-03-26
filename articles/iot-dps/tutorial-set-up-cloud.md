@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 925d1178ad630699cfd3d9e48677c0f029fc75af
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74976730"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: Configurar los recursos de la nube para el aprovisionamiento de dispositivos con el servicio IoT Hub Device Provisioning
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Creación de una instancia del servicio Device Provisioning y obtención del ámbito del identificador
 
@@ -47,12 +47,12 @@ Siga estos pasos para crear una nueva instancia del servicio Device Provisioning
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nombre** | Cualquier nombre único | -- | 
    | **Suscripción** | Su suscripción  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
-   | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/resource-naming) (Convenciones de nomenclatura). |
+   | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming). |
    | **Ubicación** | Cualquier ubicación válida | Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |   
 
    ![Especificación de la información básica del servicio de aprovisionamiento de dispositivos en el portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Haga clic en **Create**(Crear). Transcurridos unos instantes, se crea la instancia de Device Provisioning Service y aparece la página **Información general**.
+5. Haga clic en **Crear**. Transcurridos unos instantes, se crea la instancia de Device Provisioning Service y aparece la página **Información general**.
 
 6. En la página **Información general** de la nueva instancia del servicio, copie el valor de **Ámbito de id.** para su uso posterior. Este valor se usa para diferenciar los identificadores de registro y, además, garantiza que el identificador de registro es único.
 
@@ -112,7 +112,7 @@ Otros tutoriales de esta colección se basan en los valores de este. Si tiene pr
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Usar Azure Portal para crear un servicio IoT Hub Device Provisioning y obtener el ámbito del identificador

@@ -9,10 +9,10 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209433"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN
@@ -44,7 +44,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="openvwan"></a>Creación de una instancia de Virtual WAN
+## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Creación de una instancia de Virtual WAN
 
 Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
@@ -62,19 +62,19 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
 4. Cuando termine de rellenar los campos, haga clic en **Revisión y creación**.
 5. Una vez que se haya superado la validación, seleccione **Crear** para crear la WAN virtual.
 
-## <a name="hub"></a>Creación de un centro de conectividad virtual y una puerta de enlace
+## <a name="create-a-virtual-hub-and-gateway"></a><a name="hub"></a>Creación de un centro de conectividad virtual y una puerta de enlace
 
 Un centro de conectividad virtual es una red virtual que Virtual WAN crea y usa. Puede contener varias puertas de enlace, como VPN y ExpressRoute. En esta sección, creará una puerta de enlace de ExpressRoute para el centro de conectividad virtual. Puede crear la puerta de enlace cuando [cree un nuevo centro de conectividad virtual](#newhub), o puede crear la puerta de enlace en un [centro de conectividad ya existente](#existinghub) editándolo. 
 
 Las puertas de enlace de ExpressRoute se aprovisionan en unidades de 2 Gbps. 1 unidad de escalado = 2 Gbps con capacidad para hasta 10 unidades de escalado = 20 Gbps. El proceso completo de creación de un centro de conectividad virtual y una puerta de enlace lleva aproximadamente 30 minutos.
 
-### <a name="newhub"></a>Para crear un nuevo centro de conectividad virtual y una puerta de enlace
+### <a name="to-create-a-new-virtual-hub-and-a-gateway"></a><a name="newhub"></a>Para crear un nuevo centro de conectividad virtual y una puerta de enlace
 
 Cree un nuevo centro de conectividad virtual. Una vez que haya creado el centro de conectividad, se le cobrará por él, aunque no lo conecte a ningún sitio.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
 
-### <a name="existinghub"></a>Para crear una puerta de enlace en un centro de conectividad existente
+### <a name="to-create-a-gateway-in-an-existing-hub"></a><a name="existinghub"></a>Para crear una puerta de enlace en un centro de conectividad existente
 
 También puede crear una puerta de enlace en un centro de conectividad ya existente, editándolo.
 
@@ -90,7 +90,7 @@ Una vez que haya creado una puerta de enlace de ExpressRoute, puede ver los deta
 
 ![Ver puerta de enlace](./media/virtual-wan-expressroute-portal/viewgw.png "ver la puerta de enlace")
 
-## <a name="connectvnet"></a>Conexión de la red virtual al centro de conectividad
+## <a name="connect-your-vnet-to-the-hub"></a><a name="connectvnet"></a>Conexión de la red virtual al centro de conectividad
 
 En esta sección, creará la conexión de emparejamiento entre el centro de conectividad y una red virtual. Repita estos pasos para cada red virtual que desee conectar.
 
@@ -103,7 +103,7 @@ En esta sección, creará la conexión de emparejamiento entre el centro de cone
     * **Suscripción**: compruebe la suscripción.
     * **Red virtual**: seleccione la red virtual que quiere conectar con este concentrador. La red virtual no puede tener una puerta de enlace de red virtual ya existente (ni VPN, ni ExpressRoute).
 
-## <a name="connectcircuit"></a>Conexión del circuito a la puerta de enlace del centro de conectividad
+## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Conexión del circuito a la puerta de enlace del centro de conectividad
 
 Una vez que se crea la puerta de enlace, puede conectarle un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Los circuitos Premium de ExpressRoute que se encuentran en las ubicaciones compatibles de ExpressRoute Global Reach, pueden conectarse a una puerta de enlace de ExpressRoute de Virtual WAN.
 
@@ -116,7 +116,7 @@ En el portal, vaya a la página **Centro virtual-> Conectividad-> ExpressRoute**
 
    ![conectar los circuitos](./media/virtual-wan-expressroute-portal/cktconnect.png "conectar los circuitos")
 
-### <a name="authkey"></a>Para conectar canjeando una clave de autorización
+### <a name="to-connect-by-redeeming-an-authorization-key"></a><a name="authkey"></a>Para conectar canjeando una clave de autorización
 
 Para conectar use la clave de autorización y el URI del circuito que se le proporcionaron.
 

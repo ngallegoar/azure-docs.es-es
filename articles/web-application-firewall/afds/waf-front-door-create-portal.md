@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/07/2019
+ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 991111e01713afe48355aac44a151b98fa828c5f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186723"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475848"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutorial: Creación de una directiva de firewall de aplicaciones web en Azure Front Door mediante Azure Portal
 
@@ -25,7 +25,7 @@ En este tutorial, aprenderá a:
 > * Asociarla a un host de front-end
 > * Configurar las reglas de WAF
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para crear un perfil de Front Door siga las instrucciones que se describen en [Inicio rápido: Creación de un perfil de Front Door](../../frontdoor/quickstart-create-front-door.md). 
 
@@ -36,7 +36,7 @@ En primer lugar, en el portal, cree una directiva WAF con un conjunto de reglas 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso**> busque **WAF**> seleccione **Firewall de aplicaciones Web (versión preliminar)** > seleccione  **Crear**.
 2. En la pestaña **Datos básicos** de la página **Crear una directiva WAF**, escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y, luego, seleccione **Revisar y crear**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription            |Seleccione el nombre de la suscripción a Front Door.|
     | Resource group          |Seleccione el nombre del grupo de recursos de Front Door.|
@@ -46,7 +46,7 @@ En primer lugar, en el portal, cree una directiva WAF con un conjunto de reglas 
 
 3. En la pestaña **Asociación** de la página **Crear una directiva WAF**, seleccione **Agregar un host de front-end**, escriba la siguiente configuración y, a continuación, seleccione **Agregar**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Front Door              | Seleccione el nombre de su perfil de Front Door.|
     | Host de front-end           | Seleccione el nombre de su host de Front Door y luego seleccione **Agregar**.|

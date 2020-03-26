@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74380098"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Inicio rápido: Solicitud de la aceptación de los términos de uso antes de acceder a aplicaciones en la nube
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Inicio rápido: solicitar la aceptación de las condiciones de uso antes de acceder a aplicaciones en la nube
 
 Antes de acceder a determinadas aplicaciones en la nube de su entorno, puede obtener el consentimiento de los usuarios en forma de aceptación de las condiciones de uso (CDU). El acceso condicional de Azure Active Directory (Azure AD) proporciona:
 
@@ -31,7 +31,7 @@ En este inicio rápido se muestra cómo configurar una [directiva de acceso cond
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar el escenario en este inicio rápido, necesita:
 
@@ -82,7 +82,7 @@ En esta sección se explican los pasos necesarios para crear unas condiciones de
    1. En **Idioma**, seleccione **Inglés**.
    1. En **Requerir a los usuarios que expandan las condiciones de uso**, seleccione **Activado**.
    1. En **Exigir con plantillas de directiva de acceso condicional**, seleccione **Directiva personalizada**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ## <a name="create-your-conditional-access-policy"></a>Creación de la directiva de acceso condicional
 
@@ -93,7 +93,7 @@ En esta sección se muestra cómo crear la directiva de acceso condicional neces
 
 En la directiva, establezca:
 
-| Configuración | Valor |
+| Configuración | Value |
 | --- | --- |
 | Usuarios y grupos | Isabella Simonsen |
 | Aplicaciones de nube | Microsoft Azure Management (Administración de Microsoft Azure) |
@@ -105,7 +105,7 @@ En la directiva, establezca:
 
 1. En la página **Nuevo**, en el cuadro de texto **Nombre**, escriba **Requerir CDU para Isabella**.
 
-   ![NOMBRE](./media/require-tou/71.png)
+   ![Nombre](./media/require-tou/71.png)
 
 1. En la sección **Asignación**, haga clic en **Usuarios y grupos**.
 
@@ -146,7 +146,7 @@ En la directiva, establezca:
 
    ![Habilitar directiva](./media/require-tou/18.png)
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Evaluación de un inicio de sesión simulado
 

@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 6f4d237d5e923aab61ae34a235d2e1f759399e6d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68640911"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implementación de un modelo de agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar)
@@ -29,8 +29,8 @@ Creará un procedimiento almacenado con un script de R insertado que realiza la 
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear un procedimiento almacenado que genera el modelo
-> * Realización de la agrupación en clústeres en SQL Database
+> * Crear un procedimiento almacenado que genere el modelo
+> * Agrupación en clústeres en una base de datos SQL
 > * Uso de la información de agrupación en clústeres
 
 En la [primera parte](sql-database-tutorial-clustering-model-prepare-data.md) ha aprendido a preparar los datos de una base de datos de Azure SQL para realizar la agrupación en clústeres.
@@ -39,16 +39,16 @@ En la [segunda parte](sql-database-tutorial-clustering-model-build.md) aprendió
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* En la tercera parte de esta serie de tutoriales se da por hecho que ha completado [**la primera parte** ](sql-database-tutorial-clustering-model-prepare-data.md) y la [ **segunda parte**](sql-database-tutorial-clustering-model-build.md).
+* En la tercera parte de esta serie de tutoriales se da por hecho que ha completado [**la primera parte**](sql-database-tutorial-clustering-model-prepare-data.md) y la [**segunda parte**](sql-database-tutorial-clustering-model-build.md).
 
-## <a name="create-a-stored-procedure-that-generates-the-model"></a>Crear un procedimiento almacenado que genera el modelo
+## <a name="create-a-stored-procedure-that-generates-the-model"></a>Crear un procedimiento almacenado que genere el modelo
 
-Ejecute el siguiente script de T-SQL para crear el procedimiento almacenado. El procedimiento recrea los pasos que se desarrollaron en la primera y segunda parte de esta serie de tutoriales:
+Ejecute el siguiente script de T-SQL para crear el procedimiento almacenado. El procedimiento recrea los pasos que ha desarrollado en las partes uno y dos de esta serie de tutoriales:
 
-* clasificación de los clientes según su historial de compras y devoluciones
-* generación de cuatro clústeres de clientes mediante un algoritmo K-Means
+* clasificación de los clientes basándose en su historial de compras devoluciones
+* generación de cuatro clústeres de clientes mediante un algoritmo k-means
 
 El procedimiento almacena las asignaciones de clústeres de clientes resultantes en la tabla de la base de datos **customer_return_clusters**.
 
@@ -175,7 +175,7 @@ END;
 GO
 ```
 
-## <a name="perform-clustering-in-sql-database"></a>Realización de la agrupación en clústeres en SQL Database
+## <a name="perform-clustering-in-sql-database"></a>Agrupación en clústeres en una base de datos SQL
 
 Ahora que ha creado el procedimiento almacenado, ejecute el siguiente script para realizar la agrupación en clústeres.
 
@@ -208,7 +208,7 @@ cluster  customer  orderRatio  itemsRatio  monetaryRatio  frequency
 
 ## <a name="use-the-clustering-information"></a>Uso de la información de agrupación en clústeres
 
-Como almacenó el procedimiento de agrupación en clústeres en la base de datos, este puede realizar la agrupación de forma eficaz con los datos almacenados de cliente de la misma base de datos. Puede ejecutar el procedimiento siempre que se actualicen los datos de los clientes y usar la información actualizada de la agrupación en clústeres.
+Como ha almacenado el procedimiento de agrupación en clústeres en la base de datos, puede realizar la agrupación en clústeres de forma eficiente con los datos de cliente almacenados en la misma base de datos. Puede ejecutar el procedimiento cada vez que se actualicen los datos de clientes y usar la información de agrupación en clústeres actualizada.
 
 Suponga que desea enviar un correo electrónico promocional a los clientes del clúster 3, el grupo que tiene el comportamiento de devoluciones más activo (puede ver la descripción de los cuatro clústeres en la [segunda parte](sql-database-tutorial-clustering-model-build.md#analyze-the-results) del tutorial). El siguiente código selecciona las direcciones de correo electrónico de los clientes del clúster 3.
 
@@ -237,10 +237,10 @@ En Azure Portal, haga lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En la tercera parte de esta serie de tutoriales, ha hecho lo siguiente:
+En la parte tres de esta serie de tutoriales, ha completado estos pasos:
 
-* Crear un procedimiento almacenado que genera el modelo
-* Realización de la agrupación en clústeres en SQL Database
+* Crear un procedimiento almacenado que genere el modelo
+* Agrupación en clústeres en una base de datos SQL
 * Uso de la información de agrupación en clústeres
 
 Para más información sobre el uso de R en Azure SQL Database Machine Learning Services (versión preliminar), consulte:

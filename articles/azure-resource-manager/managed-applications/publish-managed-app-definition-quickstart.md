@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d4eb396d332327addcd85ed7badd36ef8f1d10
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5168dab7501cdb2907b3eede5877dce39e9e5c97
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647946"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473054"
 ---
-# <a name="publish-an-azure-managed-application-definition"></a>Publicación de una definición de aplicación administrada de Azure
+# <a name="quickstart-publish-an-azure-managed-application-definition"></a>Inicio rápido: Publicación de una definición de aplicación administrada de Azure
 
 En esta guía de inicio rápido se proporciona una introducción al uso de aplicaciones administradas. Agregará una definición de aplicación administrada a un catálogo interno para los usuarios de su organización. Para simplificar la introducción, ya se han creado los archivos para la aplicación administrada. Esos archivos están disponibles a través de GitHub. Aprenderá a crear esos archivos en el tutorial [Creación de la aplicación de catálogo de servicio](publish-service-catalog-app.md).
 

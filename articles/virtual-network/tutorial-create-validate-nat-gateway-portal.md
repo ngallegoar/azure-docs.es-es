@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 4baf12533bed523c81ff41a81975f5bf5b918ac2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 7c26487018b9632b5780dcd7c56ab36f286f8cac
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250818"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80059993"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Tutorial: Creación de una puerta de enlace de NAT mediante Azure Portal y prueba del servicio NAT
 
 En este tutorial, creará una puerta de enlace de NAT para proporcionar conectividad saliente a las máquinas virtuales de Azure. Para probar la puerta de enlace de NAT, implemente una máquina virtual de origen y destino. La prueba de la puerta de enlace de NAT se realizará mediante conexiones salientes a una dirección IP pública desde la máquina virtual de origen a la de destino.  Para simplificar las cosas, en este tutorial se implementan el origen y el destino en dos redes virtuales diferentes del mismo grupo de recursos.
 
->[!NOTE] 
->NAT de Azure Virtual Network está disponible como versión preliminar pública en este momento y en un conjunto limitado de [regiones](./nat-overview.md#region-availability). Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
+Si lo prefiere, puede seguir estos pasos con la [CLI de Azure](tutorial-create-validate-nat-gateway-cli.md) o [Azure PowerShell](tutorial-create-validate-nat-gateway-powershell.md) en lugar del portal.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -315,7 +314,6 @@ Revise las métricas de Azure Monitor para ver el funcionamiento del servicio NA
 - Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con la CLI de Azure](./quickstart-create-nat-gateway-cli.md).
 - Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con Azure Portal](./quickstart-create-nat-gateway-portal.md).
-- [Proporcione comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).
 
 > [!div class="nextstepaction"]
 

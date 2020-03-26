@@ -9,11 +9,11 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ms.openlocfilehash: b4278cb2e8c5152f522258a37c37acda5efbacf8
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775325"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223812"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
@@ -49,7 +49,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="openvwan"></a>Creación de una instancia de Virtual WAN
+## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Creación de una instancia de Virtual WAN
 
 Desde un explorador, vaya a Azure Portal e inicie sesión con su cuenta de Azure.
 
@@ -67,25 +67,25 @@ Desde un explorador, vaya a Azure Portal e inicie sesión con su cuenta de Azure
 4. Cuando termine de rellenar los campos, haga clic en **Revisión y creación**.
 5. Una vez que se haya superado la validación, seleccione **Crear** para crear la WAN virtual.
 
-## <a name="hub"></a>Creación de un centro de conectividad
+## <a name="create-a-hub"></a><a name="hub"></a>Creación de un centro de conectividad
 
 Un centro de conectividad es una red virtual que puede contener puertas de enlace para las funcionalidades de sitio a sitio, ExpressRoute o de punto a sitio. Cuando se crea el concentrador, se le cobrará por él, aunque no esté asociado a ningún sitio. La creación de la puerta de enlace de VPN de sitio a sitio en el centro de conectividad virtual tarda 30 minutos.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
-## <a name="site"></a>Creación de un sitio
+## <a name="create-a-site"></a><a name="site"></a>Creación de un sitio
 
 Ahora está listo para crear los sitios correspondientes a sus ubicaciones físicas. Cree tantos sitios como necesite que se correspondan con sus ubicaciones físicas. Por ejemplo, si tiene una sucursal en Nueva York, otra en Londres y otra en Los Ángeles, crearía tres sitios independientes. Estos sitios contienen los puntos de conexión de dispositivo VPN local. Puede crear hasta 1000 sitios por cada centro de conectividad virtual en una instancia de Virtual WAN. Si tiene varios centros de conectividad, puede crear 1000 sitios en cada uno de ellos. Si tiene un dispositivo CPE de asociado de Virtual WAN (link insert), consulte con su asociado para obtener información sobre su automatización de Azure. Normalmente, la automatización implica simplemente hacer clic para exportar información de una rama a gran escala en Azure y configurar la conectividad desde el CPE a la puerta de enlace de VPN de Azure Virtual WAN. Para más información, consulte la [guía de automatización de Azure para asociados de CPE](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
-## <a name="connectsites"></a>Conexión del sitio de VPN con el centro de conectividad
+## <a name="connect-the-vpn-site-to-the-hub"></a><a name="connectsites"></a>Conexión del sitio de VPN con el centro de conectividad
 
 En este paso, conectará el sitio VPN al centro de conectividad.
 
 [!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
-## <a name="vnet"></a>Conexión de la red virtual al centro de conectividad
+## <a name="connect-the-vnet-to-the-hub"></a><a name="vnet"></a>Conexión de la red virtual al centro de conectividad
 
 En este paso, creará la conexión entre una red virtual y el centro de conectividad. Repita estos pasos para cada red virtual que desee conectar.
 
@@ -99,7 +99,7 @@ En este paso, creará la conexión entre una red virtual y el centro de conectiv
     * **Red virtual**: seleccione la red virtual que quiere conectar con este concentrador. La red virtual no puede tener una puerta de enlace de red virtual ya existente.
 4. Haga clic en **Aceptar** para crear la conexión de red virtual.
 
-## <a name="device"></a>Descarga de la configuración de VPN
+## <a name="download-vpn-configuration"></a><a name="device"></a>Descarga de la configuración de VPN
 
 Use la configuración del dispositivo VPN para configurar el dispositivo VPN local.
 
@@ -251,7 +251,7 @@ Si necesita instrucciones para configurar el dispositivo, puede utilizar las que
 * Las nuevas instancias de Virtual WAN admiten IKEv1 e IKEv2.
 * Virtual WAN puede usar dispositivos VPN e instrucciones de dispositivo basados en rutas y basados en directivas.
 
-## <a name="viewwan"></a>Visualización de la instancia de Virtual WAN
+## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>Visualización de la instancia de Virtual WAN
 
 1. Vaya a la instancia de Virtual WAN.
 2. En la página **Información general**, cada punto del mapa representa un centro de conectividad. Mantenga el puntero sobre cualquier punto para ver el resumen de estado, el estado de la conexión y los bytes de entrada y salida del centro de conectividad.

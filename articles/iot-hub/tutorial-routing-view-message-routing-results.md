@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73890389"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2: Visualización de los mensajes enrutados
@@ -26,7 +26,7 @@ ms.locfileid: "73890389"
 
 Estas son las reglas de enrutamiento de mensajes que se configuraron en la parte 1 del tutorial y que se verán en funcionamiento en esta segunda parte.
 
-|Valor |Resultado|
+|Value |Resultado|
 |------|------|
 |level="storage" |Se escribe en Azure Storage.|
 |level="critical" |Es escribe en una cola de Service Bus. Una aplicación lógica recupera el mensaje de la cola y usa Office 365 para enviarlo por correo electrónico.|
@@ -40,7 +40,7 @@ La cola de Service Bus se debe usar para recibir los mensajes designados como cr
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **+ Crear un recurso**. Escriba **lógica app** en el cuadro de búsqueda y presione en Entrar. En los resultados de la búsqueda que se muestran, seleccione Logic App y seleccione **Crear** para pasar al panel **Crear aplicación lógica**. Rellene los campos.
 
-   **Nombre**: este campo es el nombre de la aplicación lógica. En este tutorial se usa **ContosoLogicApp**.
+   **Name**: este campo es el nombre de la aplicación lógica. En este tutorial se usa **ContosoLogicApp**.
 
    **Suscripción**: Seleccione su suscripción a Azure.
 

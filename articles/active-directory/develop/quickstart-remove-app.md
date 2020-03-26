@@ -13,11 +13,11 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 3cc9e4458f14a63bad7f484bc16683248895ede9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704092"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215903"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Inicio rápido: Eliminación de una aplicación registrada con la plataforma de identidad de Microsoft
 
@@ -28,7 +28,7 @@ En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 * Eliminación de una aplicación creada por el usuario o por la organización
 * Eliminación de una aplicación creada por otra organización
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe tener un inquilino que tenga las aplicaciones registradas en él. Para saber cómo agregar y registrar aplicaciones, consulte [Registro de una aplicación con la plataforma de identidad de Microsoft](quickstart-register-app.md).
 

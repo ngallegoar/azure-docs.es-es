@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
 ms.openlocfilehash: f8ff3dc71727abf9e276cccc951c4d1143f4200d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583097"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223332"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutorial: Cargar, codificar y hacer streaming de vídeos con Media Services v3
 
@@ -40,7 +40,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Si no tiene Visual Studio instalado, puede obtener [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md).<br/>Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos.
@@ -72,7 +72,7 @@ Este ejemplo realiza las acciones siguientes:
 6. Crea un **objeto StreamingLocator**.
 7. Crea direcciones URL de streaming.
 
-### <a name="a-idstart_using_dotnet-start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Uso de las API de Media Services con SDK de .NET
+### <a name="start-using-media-services-apis-with-net-sdk"></a><a id="start_using_dotnet" />Uso de las API de Media Services con SDK de .NET
 
 Para empezar a usar las API de Media Services con. NET, debe crear un objeto **AzureMediaServicesClient**. Para crear el objeto, debe proporcionar las credenciales necesarias para que el cliente se conecte a Azure mediante Azure AD. En el código que se clonó al principio del artículo, la función **GetCredentialsAsync** crea el objeto ServiceClientCredentials basándose en las credenciales proporcionadas en el archivo de configuración local.
 
@@ -153,7 +153,7 @@ Aunque el ejemplo de este tema trata del streaming, puede utilizar la misma llam
 
 ### <a name="get-streaming-urls"></a>Obtención de direcciones URL de streaming
 
-Ahora que se ha creado el objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming, como se muestra en **GetStreamingURLs**. Para crear una dirección URL, debe concatenar el nombre de host del [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) y la ruta de acceso del objeto **StreamingLocator**. En este ejemplo, se utiliza el **punto de conexión de streaming** *predeterminado*. Cuando cree su primera cuenta de Media Services, el **punto de conexión de streaming** *predeterminado* estará en estado detenido, por lo que deberá llamar a **Start**.
+Ahora que se ha creado el objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming, como se muestra en **GetStreamingURLs**. Para crear una dirección URL, debe concatenar el nombre de host del [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) y la ruta de acceso del objeto **StreamingLocator**. En este ejemplo, se usa el *punto de conexión de* **streaming predeterminado**. Cuando cree su primera cuenta de Media Services, este *punto de conexión de streaming* **predeterminado** estará en un estado detenido, por lo que deberá llamar a **Iniciar**.
 
 > [!NOTE]
 > En este método, se necesita el objeto locatorName que se utilizó al crear el objeto **StreamingLocator** del recurso de salida.
@@ -177,7 +177,7 @@ En este ejemplo se muestran las direcciones URL que pueden usarse para reproduci
 
 ## <a name="test-the-streaming-url"></a>Prueba de la URL de streaming
 
-Para probar la transmisión, este artículo usa Azure Media Player.
+Para probar el streaming, este artículo usa Azure Media Player.
 
 > [!NOTE]
 > Si el reproductor está hospedado en un sitio https, asegúrese de actualizar la dirección URL a "https".
@@ -198,7 +198,7 @@ Ejecute el siguiente comando de la CLI:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="multithreading"></a>Multithreading
+## <a name="multithreading"></a>Subprocesamiento múltiple
 
 Los SDK de Azure Media Services v3 no son seguros para subprocesos. Al desarrollar una aplicación multiproceso, debe generar y utilizar un nuevo objeto AzureMediaServicesClient por subproceso.
 

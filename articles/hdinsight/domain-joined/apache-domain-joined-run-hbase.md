@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73044641"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configuración de directivas de Apache HBase en HDInsight con Enterprise Security Package
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).
 
-* Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+* Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 * Cree un [clúster de HBase de HDInsight con Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
 
@@ -95,7 +95,7 @@ Puede usar SSH para conectarse a los clústeres de HBase y, después, usar el [s
 
 Cree una directiva de Ranger para **sales_user1** y **marketing_user1**.
 
-1. Abra la **Interfaz de usuario administrador de Ranger**. Haga clic en  **\<ClusterName > _hbase** en **HBase**.
+1. Abra la **Interfaz de usuario administrador de Ranger**. Haga clic en **\<ClusterName > _hbase** en **HBase**.
 
    ![Interfaz de usuario de Apache Ranger de HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
@@ -235,11 +235,11 @@ Según las directivas de Ranger configuradas, **sales_user1** puede ver todos lo
 
 Si no va a seguir usando esta aplicación, puede eliminar el clúster HBase que creó mediante los siguientes pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight**. 
 1. Seleccione **Clústeres de HDInsight** en **Servicios**.
 1. En la lista de clústeres de HDInsight que aparece, haga clic en el signo **...**  situado junto al clúster que ha creado para este tutorial. 
-1. Hacer clic en **Eliminar**. Haga clic en **Sí**.
+1. Haga clic en **Eliminar**. Haga clic en **Sí**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

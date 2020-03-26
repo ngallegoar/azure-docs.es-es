@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
 ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71077150"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Uso de Apache HBase in Azure HDInsight
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Usar las API de REST de HBase con Curl
 > * Comprobar el estado del clúster
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -45,7 +45,7 @@ El siguiente procedimiento usa una plantilla de Azure Resource Manager para cr
 
 2. En la hoja **Implementación personalizada**, escriba los valores siguientes:
 
-    |Propiedad |DESCRIPCIÓN |
+    |Propiedad |Descripción |
     |---|---|
     |Subscription|seleccione la suscripción de Azure que usa para crear este clúster.|
     |Resource group|cree un grupo de administración de recursos de Azure o use uno existente.|
@@ -290,7 +290,7 @@ HBase en HDInsight se incluye con una interfaz de usuario web para la supervisi�
 
    - servidores regionales
    - maestros de copia de seguridad
-   - tables
+   - tablas
    - tareas
    - atributos de software
 
@@ -298,11 +298,11 @@ HBase en HDInsight se incluye con una interfaz de usuario web para la supervisi�
 
 Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster. Puede usar el comando de HBase `disable 'Contacts'`. Si no va a seguir usando esta aplicación, puede eliminar el clúster HBase que creó mediante los siguientes pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight**.
 1. Seleccione **Clústeres de HDInsight** en **Servicios**.
 1. En la lista de clústeres de HDInsight que aparece, haga clic en el signo **...**  situado junto al clúster que ha creado para este tutorial.
-1. Hacer clic en **Eliminar**. Haga clic en **Sí**.
+1. Haga clic en **Eliminar**. Haga clic en **Sí**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

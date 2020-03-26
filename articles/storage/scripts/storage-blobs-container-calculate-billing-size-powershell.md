@@ -2,25 +2,19 @@
 title: 'Ejemplo de script de Azure PowerShell: Cálculo del tamaño total de facturación de un contenedor de blobs | Microsoft Docs'
 description: Calcule el tamaño total de un contenedor de Azure Blob Storage a efectos de facturación.
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: 02b4cfcc6d88430701f653665269532a4eb7092f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 12b32256c91dfcf93ca55eeb348cc78613ba860e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799259"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067102"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Cálculo del tamaño total de facturación de un contenedor de blobs
 
@@ -58,7 +52,7 @@ A continuación, se explica con detalle:
 
 * En los 512 bytes por identificador firmado se incluyen el nombre del identificador firmado, la hora de inicio, la hora de expiración y los permisos.
 
-### <a name="blobs"></a>Blobs
+### <a name="blobs"></a>Datos BLOB
 
 En los cálculos siguientes se muestra cómo calcular la cantidad de almacenamiento usado por blob.
 
@@ -85,7 +79,7 @@ A continuación, se explica con detalle:
 
 * 124 bytes de sobrecarga del blob, que incluye:
     - Hora de la última modificación
-    - Tamaño
+    - Size
     - Cache-Control
     - Content-Type
     - Content-Language

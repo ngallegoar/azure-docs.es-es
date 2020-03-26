@@ -10,10 +10,10 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: e892a8bfa3b4b0bb53d7a943e475d4e2a8228add
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76514143"
 ---
 ::: zone target="docs"
@@ -42,7 +42,7 @@ En este tutorial, aprenderá a:
 
 Antes de comenzar, asegúrese de que:
 
-1. Ha completado el [Tutorial: Realización de pedidos de Azure Data Box](data-box-deploy-ordered.md).
+1. Ha completado el [Tutorial: Pedido de Azure Data Box](data-box-deploy-ordered.md).
 2. Ha recibido su dispositivo Data Box y el estado del pedido en el portal se actualiza a **Delivered** (Entregado). 
     - Hay una etiqueta de envío en el bolsillo transparente adherida al dispositivo bajo la etiqueta actual. Manténgala en un lugar seguro, ya que la usará para el envío de devolución.
     - Algunas regiones de Europa pueden recibir el dispositivo empaquetado en una caja. Asegúrese de desempaquetar el dispositivo y guarde la caja para posibles devoluciones.

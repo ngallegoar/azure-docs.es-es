@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73241208"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutorial: Escritura en HDFS de Apache Hadoop desde Apache Storm en Azure HDInsight
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Visualización de datos de salida
 > * Detención de la topología
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Kit de desarrolladores de Java (JDK), versión 8](https://aka.ms/azure-jdks)
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 
 * El [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para el almacenamiento principal de clústeres. Sería `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería `wasbs://`.  Consulte también el artículo acerca de la [transferencia segura](../../storage/common/storage-require-secure-transfer.md).
 
-### <a name="example-configuration"></a>Configuración de ejemplo
+### <a name="example-configuration"></a>Ejemplo de configuración
 
 El siguiente YAML es un fragmento del archivo `resources/writetohdfs.yaml` incluido en el ejemplo. Este archivo define la topología de Storm mediante el marco [Flux](https://storm.apache.org/releases/current/flux.html) para Apache Storm.
 
@@ -112,7 +112,7 @@ Para obtener más información acerca del marco Flux, consulte [https://storm.ap
 
 De manera predeterminada, Storm en HDInsight no incluye los componentes que usa `HdfsBolt` para la comunicación con Azure Storage o Data Lake Storage en el parámetro classpath de Storm. Use la siguiente acción de script para agregar dichos componentes al directorio `extlib` de Storm en su clúster:
 
-| Propiedad | Valor |
+| Propiedad | Value |
 |---|---|
 |Tipo de script |- Personalizado|
 |URI de script de Bash |`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`|

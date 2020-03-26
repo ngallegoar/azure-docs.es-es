@@ -17,10 +17,10 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b23abcf9a39ce7f6d77bc40e7143505bc68e8b72
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72554991"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zscaler Three
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a integrar Zscaler Three con Azure Active Directory
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -95,7 +95,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 6. Además de lo anterior, la aplicación Zscaler Three espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
     
-    | NOMBRE | Atributo de origen |
+    | Nombre | Atributo de origen |
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
@@ -120,7 +120,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -148,7 +148,7 @@ En esta sección va a permitir que B. Simon acceda a Zscaler Three mediante el 
 
 2. Después de agregar la extensión al explorador, haga clic en **Configurar Zscaler Three** para ir a la aplicación Zscaler Three. Desde allí, proporcione las credenciales del administrador para iniciar sesión en Zscaler Three. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 6.
 
-    ![Configuración](common/setup-sso.png)
+    ![Configurar](common/setup-sso.png)
 
 3. Si quiere configurar Zscaler Three manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Zscaler Three como administrador y realice los pasos siguientes:
 

@@ -17,10 +17,10 @@ ms.date: 05/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3bc061cca3a2c57d2ebccb0fc09f8168c2fad253
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67163965"
 ---
 # <a name="tutorial-integrate-whatfix-with-azure-active-directory"></a>Tutorial: Integración de Whatfix con Azure Active Directory
@@ -29,11 +29,11 @@ En este tutorial, obtendrá información sobre cómo integrar Whatfix con Azure�
 
 * Controlar en Azure AD quién tiene acceso a Whatfix.
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Whatfix con sus cuentas de Azure AD.
-* Administrar sus cuentas en una ubicación central: Azure Portal.
+* Administrar las cuentas desde una ubicación central (Azure Portal).
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -42,7 +42,7 @@ Para empezar, necesita los siguientes elementos:
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, va a configurar y probar el SSO de Azure AD en un entorno de prueba. Whatfix admite el inicio de sesión único iniciado por **SP e IDP**.
+En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba. Whatfix admite el inicio de sesión único iniciado por **SP e IDP**.
 
 ## <a name="adding-whatfix-from-the-gallery"></a>Incorporación de Whatfix desde la galería
 
@@ -61,7 +61,7 @@ Configure y pruebe el SSO de Azure AD con Whatfix utilizando un usuario de prue
 
 Para configurar y probar el inicio de sesión único de Azure AD con Whatfix, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del SSO de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
 2. **[Configuración del inicio de sesión único en Whatfix](#configure-whatfix-sso)** : para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
@@ -71,7 +71,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Whatfix, e
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
-Siga estos pasos para habilitar el SSO de Azure AD en Azure Portal.
+Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Whatfix**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
@@ -109,7 +109,7 @@ En esta sección, va a crear un usuario de prueba llamado Britta Simon en Azure�
    1. En el campo **Nombre**, escriba `Britta Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `BrittaSimon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

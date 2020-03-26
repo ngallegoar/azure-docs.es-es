@@ -16,10 +16,10 @@ ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 9e807927a10399b02c2c89359c2ffffaf87ba57b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74112490"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de una máquina virtual Windows en Azure
@@ -72,7 +72,7 @@ Puede obtener los datos de diagnóstico de arranque con el comando [Get-AzureRmV
 Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
-## <a name="view-host-metrics"></a>Ver las métricas del host
+## <a name="view-host-metrics"></a>Visualización de las métricas del host
 
 Una máquina virtual Windows tiene una máquina virtual host dedicada en Azure con la que interactúa. Las métricas del host se recopilan automáticamente y se pueden ver en Azure Portal.
 
@@ -132,7 +132,7 @@ En el siguiente ejemplo se crea una alerta para el uso medio de la CPU.
 
 5. Opcionalmente, active la casilla *Enviar correo electrónico a propietarios, colaboradores y lectores* para enviar una notificación por correo electrónico. La acción predeterminada es presentar una notificación en el portal.
 
-6. Haga clic en el botón **Aceptar**.
+6. Haga clic en el botón **Aceptar** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

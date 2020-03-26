@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 5b39186a39fbd2398fb4045ba62797e321fc3284
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 8961a50490bdbf8b456e87e1c00577c2c8afd050
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249864"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240361"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Equilibrio de carga del tráfico de Internet en máquinas virtuales mediante Azure Portal
 
@@ -124,10 +124,10 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 |-----------------------------|----------------------|
 | **\<nombre-de-grupo-recursos>**  | myResourceGroupSLB (seleccione el grupo de recursos existente) |
 | **\<nombre-de-red-virtual>** | myVNet          |
-| **\<nombre-de-región>**          | Oeste de Europa      |
-| **\<espacio-de-direcciones-IPv4>**   | 10.1.0.0\16          |
+| **\<region-name>**          | Oeste de Europa      |
+| **\<espacio-de-direcciones-IPv4>**   | 10.1.0.0/16          |
 | **\<nombre-de-subred>**          | mySubnet        |
-| **\<intervalo-de-direcciones-de-subred>** | 10.1.0.0\24          |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

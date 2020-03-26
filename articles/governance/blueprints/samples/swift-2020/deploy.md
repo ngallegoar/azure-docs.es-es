@@ -4,10 +4,10 @@ description: Implemente los pasos para el ejemplo de plano técnico de la norma 
 ms.date: 09/24/2019
 ms.topic: sample
 ms.openlocfilehash: 63a3880d0092f1ed6fabb2b024d05eebb79fe58b
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74546491"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Implementación del ejemplo de plano técnico de la norma SWIFT CSP-CSCF v2020
@@ -91,7 +91,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
 En la tabla siguiente se proporciona una lista de los parámetros del artefacto de plano técnico:
 
-|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
+|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
 |\[Versión preliminar\]: Auditoría de los controles de SWIFT CSP-CSCF v2020 e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría|Asignación de directiva|Lista de tipos de recursos que deben tener los registros de diagnóstico habilitados|Lista de tipos de recursos para auditar si la opción de registro de diagnóstico no está habilitada. Los valores aceptables se pueden encontrar en [esquemas de los registros de diagnóstico de Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
 |\[Versión preliminar\]: Auditoría de los controles de SWIFT CSP-CSCF v2020 e implementación de extensiones de máquina virtual específicas para admitir los requisitos de auditoría|Asignación de directiva|Identificadores del área de trabajo conectada|Una lista separada por signos de punto y coma de los identificadores de área de trabajo a los que debe estar conectado el agente de Log Analytics|

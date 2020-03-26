@@ -4,10 +4,10 @@ description: Este patrón de Azure Policy proporciona un ejemplo de cómo usar p
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: e65767dd9cbe7b2192c21f779643289e5a7fc45e
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77170263"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Patrón de Azure Policy: propiedades field

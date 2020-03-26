@@ -13,19 +13,16 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1317ea6526a28c5d71dce1a3c25b2fd05f5e446b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 9402960927f56092e226ab81bd3e6ede0cf6a52d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271304"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202204"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Inicio rápido: Creación de una puerta de enlace de NAT con la CLI de Azure
 
 En este inicio rápido se muestra cómo usar el servicio NAT de Azure Virtual Network. Creará una puerta de enlace de NAT para proporcionar conectividad saliente para una máquina virtual en Azure. 
-
->[!NOTE] 
->NAT de Azure Virtual Network está disponible como versión preliminar pública en este momento y en un conjunto limitado de [regiones](https://azure.microsoft.com/global-infrastructure/regions/). Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -236,6 +233,5 @@ Revise las métricas de Azure Monitor para ver el funcionamiento del servicio NA
 - Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con la CLI de Azure](./quickstart-create-nat-gateway-cli.md).
 - Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Inicio rápido para la implementación de [recursos de puerta de enlace de NAT con Azure Portal](./quickstart-create-nat-gateway-portal.md).
-- [Proporcione comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).
 > [!div class="nextstepaction"]
 

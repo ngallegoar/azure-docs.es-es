@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: e740a65d453a69a987e938a5170ae8e04c7bfe40
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78249878"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configuración del enrutamiento de puerto en Azure Load Balancer mediante Azure Portal
@@ -76,10 +76,10 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 |-----------------------------|----------------------|
 | **\<nombre-de-grupo-recursos>**  | myResourceGroupLB (seleccione el grupo de recursos existente) |
 | **\<nombre-de-red-virtual>** | myVNet          |
-| **\<nombre-de-región>**          | Oeste de Europa      |
+| **\<region-name>**          | Oeste de Europa      |
 | **\<espacio-de-direcciones-IPv4>**   | 10.3.0.0\16          |
-| **\<nombre-de-subred>**          | myBackendSubnet        |
-| **\<intervalo-de-direcciones-de-subred>** | 10.3.0.0\24          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

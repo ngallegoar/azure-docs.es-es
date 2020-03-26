@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74851713"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Tutorial: Sincronización de datos entre SQL Database Edge y Azure Blob Storage mediante Azure Data Factory
@@ -195,10 +195,10 @@ Para crear una factoría de datos, siga las instrucciones que se proporcionan en
 
     2. Para especificar los valores de los parámetros del procedimiento almacenado, seleccione **Parámetro de importación** y escriba los valores siguientes para los parámetros:
 
-    |NOMBRE|type|Valor|
+    |Nombre|Tipo|Value|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
-    |TableName|Cadena|@{activity('OldWaterMark').output.firstRow.TableName}|
+    |TableName|String|@{activity('OldWaterMark').output.firstRow.TableName}|
 
 33. Para comprobar la configuración de la canalización, seleccione **Validate** (Comprobar) en la barra de herramientas. Confirme que no haya errores de comprobación. Para cerrar la ventana **Informe de comprobación de canalización**, seleccione **>>** .
 

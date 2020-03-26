@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: dbdcf2552b453fa72bfec616a02bd45afc45fb0f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: ad3b38a12020c56c31e03879b3fbcb9a8dda25f1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78272726"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79136874"
 ---
 # <a name="quickstart-use-java-and-mavengradle-to-create-and-publish-a-function-to-azure"></a>Inicio rápido: Uso de Java y Maven o Gradle para crear y publicar una función en Azure
 
@@ -136,14 +136,14 @@ Application started. Press Ctrl+C to shut down.
 
 Http Functions:
 
-    HttpTrigger-Java: [GET,POST] http://localhost:7071/api/HttpTrigger-Java
+    HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
 ...
 ```
 
 Desencadene la función desde la línea de comandos mediante cURL en una ventana de terminal nueva:
 
 ```bash
-curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
+curl -w "\n" http://localhost:7071/api/HttpExample --data AzureFunctions
 ```
 
 ```output
@@ -215,7 +215,7 @@ Ahora puede usar la dirección URL copiada para acceder a la función.
 Para comprobar la aplicación de funciones que se ejecuta en Azure mediante `cURL`, reemplace la dirección URL del ejemplo siguiente por la dirección URL que copió del portal.
 
 ```console
-curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpTrigger-Java?code=zYRohsTwBlZ68YF.... --data AzureFunctions
+curl -w "\n" https://fabrikam-functions-20190929094703749.azurewebsites.net/api/HttpExample?code=zYRohsTwBlZ68YF.... --data AzureFunctions
 ```
 
 Esto envía una solicitud POST al punto de conexión de la función con `AzureFunctions` en el cuerpo de la solicitud. Puede ver la siguiente respuesta.
