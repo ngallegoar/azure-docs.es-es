@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
 ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792508"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "60890167"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Inicio rápido: Prueba de una solución de supervisión remota basada en la nube
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Guía de inicio rápido: Prueba de una solución de supervisión remota basada en la nube
 
 En esta guía de inicio rápido se muestra cómo implementar el acelerador de soluciones de supervisión remota de Azure IoT. En esta solución basada en la nube, se usa la página **Panel** para visualizar los dispositivos simulados en un mapa y la página **Mantenimiento** para responder a una alerta de presión de un dispositivo refrigerador simulado. Puede utilizar este acelerador de soluciones como punto de partida de su propia implementación o como una herramienta de aprendizaje.
 
@@ -26,7 +26,7 @@ En este inicio rápido se implementa una versión **básica** del acelerador de 
 
 Para completar esta guía de inicio rápido, necesita una suscripción de Azure.
 
-Si no tiene ninguna, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="deploy-the-solution"></a>Implementación de la solución
 
@@ -145,4 +145,4 @@ En esta guía de inicio rápido, ha implementado el acelerador de soluciones de 
 Para más información sobre el acelerador de soluciones con dispositivos simulados, consulte el tutorial siguiente.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Supervisión de los dispositivos IoT](iot-accelerators-remote-monitoring-monitor.md)
+> [Tutorial: Supervisión de los dispositivos de IoT](iot-accelerators-remote-monitoring-monitor.md)

@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 837231ca07abcfdbd6ce932bb24bd890d91506a8
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "69541546"
 ---
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos de grafos. 
@@ -25,7 +25,7 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
 
 2. En la página **Agregar gráfico**, especifique la configuración del nuevo gráfico.
 
-    Configuración|Valor sugerido|DESCRIPCIÓN
+    Configuración|Valor sugerido|Descripción
     ---|---|---
     Identificador de base de datos|sample-database|Escriba *sample-database* como nombre de la nueva base de datos. Los nombres de bases de datos deben tener entre 1 y 255 caracteres y no pueden contener `/ \ # ?` o un espacio al final.
     Throughput|400 RU|Cambie el rendimiento a 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.

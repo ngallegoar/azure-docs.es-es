@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66474005"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial:  Integración de un único bosque de AD mediante la sincronización de hash de contraseñas (PHS)
@@ -27,7 +27,7 @@ ms.locfileid: "66474005"
 
 El siguiente tutorial le guiará a través de la creación de un entorno de identidad híbrida mediante la sincronización de hash de contraseñas.  Este entorno puede usarse para realizar pruebas o para familiarizarse con el funcionamiento de una identidad híbrida.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 A continuación, se indican los requisitos previos necesarios para completar este tutorial:
 - Un equipo con [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  Se recomienda hacer esto en un equipo con [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) o [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Un [adaptador de red externo](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que la máquina virtual se comunique con Internet.
@@ -41,7 +41,7 @@ A continuación, se indican los requisitos previos necesarios para completar est
 >
 > Puede encontrar copias de los scripts de PowerShell que se usan en este tutorial disponibles en GitHub [aquí](https://github.com/billmath/tutorial-phs).
 
-## <a name="create-a-virtual-machine"></a>de una máquina virtual
+## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 Lo primero que necesitamos hacer con el fin de poner en funcionamiento el entorno de identidad híbrida es crear una máquina virtual que se usará como nuestro servidor local de Active Directory.  Haga lo siguiente:
 
 1. Abra PowerShell ISE como administrador.
@@ -83,7 +83,7 @@ Para terminar de crear la máquina virtual, deberá finalizar la instalación de
 6. Escriba la clave de licencia y haga clic en **Siguiente**.
 7. Marque **Acepto los términos de licencia y haga clic en **Siguiente**.
 8. Seleccione **Personalizada:  instalar solo Windows (avanzado)**
-9. Haga clic en **Siguiente**
+9. Haga clic en **Siguiente**.
 10. Una vez completada la instalación, reinicie la máquina virtual, inicie sesión y ejecute las actualizaciones de Windows para asegurarse de que la versión de la máquina virtual es la más actualizada.  Instale las actualizaciones más recientes.
 
 ## <a name="install-active-directory-prerequisites"></a>Requisitos previos de la instalación de Active Directory

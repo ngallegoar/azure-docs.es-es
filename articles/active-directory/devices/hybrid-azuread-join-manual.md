@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed28b4bb8ec61455168f50058c8cdcaf9f50717d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882845"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222952"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido
 
@@ -35,12 +35,12 @@ Si tiene un entorno local de Active Directory y quiere unir sus dispositivos uni
 > * Comprobación dispositivos unidos
 > * Solución de problemas de la implementación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este tutorial se da por supuesto que está familiarizado con:
 
 * [Introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md)
-* [Planeación de la implementación de Unión a Azure Active Directory híbrido](hybrid-azuread-join-plan.md)
+* [Planeamiento de la implementación de la unión a Azure Active Directory híbrido](hybrid-azuread-join-plan.md)
 * [Control de la unión a Azure AD híbrido de los dispositivos](hybrid-azuread-join-control.md)
 
 Antes de empezar a habilitar dispositivos unidos a Azure AD híbrido en su organización, asegúrese de lo siguiente:
@@ -185,7 +185,7 @@ Cuando use AD FS, debe habilitar los siguientes puntos de conexión de WS-Trust
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> Tanto **adfs/services/trust/2005/windowstransport** como **adfs/services/trust/13/windowstransport** se deben habilitar como puntos de conexión accesibles desde la intranet y NO deben exponerse como accesible desde Proxy de aplicación web. Para más información sobre cómo deshabilitar los puntos de conexión de Windows de WS-Trust, consulte [Deshabilitar los puntos de conexión de Windows de WS-Trust en el proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Para ver qué puntos de conexión están habilitados, vaya a **Servicio** > **Puntos de conexión** en la consola de administración de AD FS.
+> Tanto **adfs/services/trust/2005/windowstransport** como **adfs/services/trust/13/windowstransport** se deben habilitar como puntos de conexión accesibles desde la intranet y NO deben exponerse como accesible desde Proxy de aplicación web. Para más información sobre cómo deshabilitar los puntos de conexión de Windows de WS-Trust, consulte [Deshabilitar los puntos de conexión de Windows de WS-Trust en el proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Para ver qué puntos de conexión están habilitados, vaya a **Servicio** > **Puntos de conexión** en la consola de administración de AD FS.
 
 > [!NOTE]
 >Si AD FS no es el servicio de federación local, siga las instrucciones de su proveedor para asegurarse de que admite puntos de conexión de WS-Trust 1.3 o 2005 y que estos se publican a través del archivo de intercambio de metadatos (MEX).
@@ -478,7 +478,7 @@ El siguiente script le ayuda con la creación de las reglas de transformación d
    Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString
    ```
 
-#### <a name="remarks"></a>Comentarios
+#### <a name="remarks"></a>Observaciones
 
 * Este script anexa las reglas a las reglas existentes. No ejecute el script dos veces porque el conjunto de reglas se agregaría dos veces. Asegúrese de que no existe ninguna regla correspondiente para estas notificaciones (en las condiciones correspondientes) antes de volver a ejecutar el script.
 * Si tiene varios nombres de dominio comprobados (como se muestra en el portal de Azure AD o mediante el cmdlet **Get-MsolDomain**), establezca el valor de **$multipleVerifiedDomainNames** en el script en **$true**. Además, asegúrese de que quita cualquier notificación **issuerid** existente que pueda haber creado Azure AD Connect o a través de otros medios. Este es un ejemplo de esta regla:
@@ -519,7 +519,7 @@ El servicio de federación local debe admitir la emisión de las notificaciones 
 
 Cuando llega una solicitud de este tipo, el servicio de federación local debe autenticar al usuario mediante la autenticación integrada de Windows. Una vez que la autenticación se haya realizado correctamente, el servicio debe emitir las dos notificaciones siguientes:
 
-   `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows``http://schemas.microsoft.com/claims/wiaormultiauthn`
+   `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows` `http://schemas.microsoft.com/claims/wiaormultiauthn`
 
 En AD FS, debe agregar una regla de transformación de emisión que atraviesa el método de autenticación. Para agregar esta regla:
 
@@ -549,7 +549,7 @@ Para registrar dispositivos de nivel inferior de Windows, debe descargar e insta
 
 ## <a name="verify-joined-devices"></a>Comprobación dispositivos unidos
 
-Para comprobar los dispositivos unidos correctamente en la organización, use el cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) del [módulo Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Para comprobar los dispositivos unidos correctamente en la organización, use el cmdlet [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) del [módulo Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 La salida de este cmdlet muestra los dispositivos que se han registrado y unido en Azure AD. Para obtener todos los dispositivos, use el parámetro **-All** y, después, fíltrelos mediante la propiedad **deviceTrustType**. Los dispositivos unidos a un dominio tienen el valor de **Unido a dominio**.
 

@@ -17,10 +17,10 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68227479"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integración de Azure Active Directory con PageDNA
@@ -35,7 +35,7 @@ La integración de PageDNA con Azure AD le proporciona las siguientes ventajas:
 
 Para más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con PageDNA, necesita los siguientes elementos:
 
@@ -56,7 +56,7 @@ PageDNA admite las siguientes características:
 
 Para configurar la integración de PageDNA en Azure AD, deberá agregar PageDNA desde Azure Marketplace a la lista de aplicaciones SaaS administradas:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com?azure-portal=true).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com?azure-portal=true).
 1. En el panel izquierdo, seleccione **Azure Active Directory**.
 
     ![Opción de Azure Active Directory](common/select-azuread.png)

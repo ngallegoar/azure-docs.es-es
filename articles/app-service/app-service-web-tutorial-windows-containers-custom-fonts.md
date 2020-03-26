@@ -3,13 +3,13 @@ title: 'Tutorial: Aplicación heredada con contenedor (versión preliminar)'
 description: Aprenda a migrar un contenedor de Windows personalizado en Azure App Service e implementar software personalizado en el contenedor.
 ms.topic: tutorial
 ms.date: 10/22/2019
-ms.custom: seodec18
-ms.openlocfilehash: 5fc65a4d3f9989ac462d7716b7652a1011281413
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671977"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046618"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migración de una aplicación de ASP.NET a Azure App Service con un contenedor de Windows (versión preliminar)
 
@@ -17,7 +17,7 @@ ms.locfileid: "74671977"
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 
@@ -45,7 +45,7 @@ En el Explorador de Windows, vaya a _custom-font-win-container-master/CustomFont
 
 Esta fuente está disponible públicamente en [Google Fonts](https://fonts.google.com/specimen/Fredericka+the+Great).
 
-### <a name="run-the-app"></a>Ejecución de la aplicación
+### <a name="run-the-app"></a>Ejecución la aplicación
 
 Abra el archivo *custom-font-win-container/CustomFontSample.sln* en Visual Studio. 
 
@@ -116,7 +116,7 @@ Configure el nuevo registro de contenedor en función de los valores sugeridos e
 |**Prefijo de DNS**| Mantenga el nombre de registro generado o cámbielo por otro nombre único. |  |
 |**Grupo de recursos**| Haga clic en **Nuevo**, escriba **myResourceGroup** y haga clic en **Aceptar**. |  |
 |**SKU**| Básica | [Planes de tarifa](https://azure.microsoft.com/pricing/details/container-registry/)|
-|**Ubicación del registro**| Europa occidental | |
+|**Ubicación del registro**| Oeste de Europa | |
 
 ![Configuración del registro de contenedor de Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
 
@@ -141,7 +141,7 @@ En la pestaña **Aspectos básicos**, configure los valores según la tabla sigu
 |**Nombre**| Escriba un nombre único. | La dirección URL de la aplicación web es `http://<app-name>.azurewebsites.net`, donde `<app-name>` es el nombre de la aplicación. |
 |**Publicar**| Contenedor de Docker | |
 |**Sistema operativo**| Windows | |
-|**Región**| Europa occidental | |
+|**Región**| Oeste de Europa | |
 |**Plan de Windows**| Seleccione **Crear nuevo**, escriba **myAppServicePlan** y haga clic en **Aceptar**. | |
 
 La pestaña **Aspectos básicos** debe tener el siguiente aspecto:

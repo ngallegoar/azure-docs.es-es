@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 09df78955de6423244c2d8ec94e1e1c06ecab257
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648742"
 ---
 # <a name="create-and-use-a-custom-provider"></a>Creación y uso de un proveedor personalizado
@@ -109,7 +109,7 @@ Después de crear un proveedor personalizado, puede usar las nuevas API de Azure
 
 ### <a name="custom-actions"></a>Acciones personalizadas
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 > [!NOTE]
 > Debe reemplazar los marcadores de posición `{subscriptionId}` y `{resourceGroupName}` por la suscripción y el grupo de recursos donde implementó el proveedor personalizado.
@@ -129,7 +129,7 @@ Parámetro | Obligatorio | Descripción
 *ids* | Sí | El identificador de recurso del recurso personalizado.
 *request-body* | No | El cuerpo de la solicitud que se enviará al punto de conexión.
 
-# <a name="templatetabtemplate"></a>[Plantilla](#tab/template)
+# <a name="template"></a>[Plantilla](#tab/template)
 
 Ninguno.
 
@@ -137,7 +137,7 @@ Ninguno.
 
 ### <a name="custom-resources"></a>Recursos personalizados
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 > [!NOTE]
 > Debe reemplazar los marcadores de posición `{subscriptionId}` y `{resourceGroupName}` por la suscripción y el grupo de recursos donde implementó el proveedor personalizado.
@@ -182,7 +182,7 @@ Parámetro | Obligatorio | Descripción
 ---|---|---
 *id* | Sí | Id. de recurso del recurso personalizado. Este identificador es una extensión del identificador de recurso del proveedor personalizado.
 
-# <a name="templatetabtemplate"></a>[Plantilla](#tab/template)
+# <a name="template"></a>[Plantilla](#tab/template)
 
 Una plantilla de Resource Manager de ejemplo:
 

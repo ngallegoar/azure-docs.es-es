@@ -9,10 +9,10 @@ ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
 ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67594010"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Crear un nuevo perfil de CDN
@@ -31,7 +31,7 @@ Un perfil de CDN es un contenedor para los puntos de conexión de CDN y especifi
 
 3. Para la configuración del perfil de CDN, utilice los valores especificados en la tabla siguiente:
    
-    | Configuración  | Valor |
+    | Configuración  | Value |
     | -------- | ----- |
     | **Nombre** | Escriba *my-cdn-profile-123* como nombre de perfil. Este nombre debe ser único globalmente; si ya está en uso, puede especificar otro diferente. |
     | **Suscripción** | Seleccione una suscripción de Azure en la lista desplegable. |

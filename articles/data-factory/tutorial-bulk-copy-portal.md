@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/27/2020
 ms.openlocfilehash: 5108335c0b5d0a51559653d51bfe6154237731f3
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78162661"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
@@ -391,8 +391,8 @@ En este tutorial, realizó los pasos siguientes:
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
-> * Cree los servicios vinculados de Azure SQL Database, Azure Synapse Analytics (anteriormente SQL DW) y Azure Storage.
-> * Cree los conjuntos de datos de Azure SQL Database y Azure Synapse Analytics (anteriormente SQL DW).
+> * Cree los servicios vinculados de Azure SQL Database, Azure Synapse Analytics (anteriormente SQL DW) y Azure Storage.
+> * Cree los conjuntos de datos de Azure SQL Database y Azure Synapse Analytics (anteriormente SQL DW).
 > * Creación de una canalización para buscar las tablas que se deben copiar y otra canalización para realizar la operación de copia real. 
 > * Inicio de la ejecución de una canalización.
 > * Supervisión de las ejecuciones de canalización y actividad.

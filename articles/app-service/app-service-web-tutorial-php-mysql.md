@@ -5,13 +5,13 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.custom: seodec18
-ms.openlocfilehash: 9375a59fedcd134a64cfa3bf8b92e33d326ee925
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: 2dcf1bef27b5d9e1a740f136361b756f59293b00
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500045"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046753"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Tutorial: Creación de una aplicación PHP y MySQL en Azure
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Crear una base de datos MySQL en Azure
 > * Conectar una aplicación PHP a MySQL
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros de diagnóstico desde Azure
 > * Administrar la aplicación en Azure Portal
@@ -183,7 +183,7 @@ Cuando se crea el servidor MySQL, la CLI de Azure muestra información similar a
     "tier": "GeneralPurpose"
   },
   "sslEnforcement": "Enabled",
-  ...   +  
+  ...    +  
   -  < Output has been truncated for readability >
 }
 ```
@@ -211,7 +211,8 @@ az mysql server firewall-rule create --name AllowLocalClient --server <mysql_ser
 En la ventana del terminal local, conéctese al servidor MySQL de Azure. Use el valor que especificó anteriormente para _&lt;mysql_server_name>_ . Cuando se le solicite una contraseña, utilice la contraseña que especificó al crear la base de datos en Azure.
 
 ```bash
-mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p<PASSWORD> --ssl-mode=REQUIRED --ssl-ca=<PATH_TO_PEM>
+
 ```
 
 ### <a name="create-a-production-database"></a>Creación de una base de datos de producción
@@ -620,7 +621,7 @@ En este tutorial, ha aprendido a:
 > [!div class="checklist"]
 > * Crear una base de datos MySQL en Azure
 > * Conectar una aplicación PHP a MySQL
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros de diagnóstico desde Azure
 > * Administrar la aplicación en Azure Portal

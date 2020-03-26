@@ -14,10 +14,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8994079cf18a9af5f5e1368761015bbd8b836bd9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74790913"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Inicio rápido: Creación de una máquina virtual Windows de SQL Server con Azure PowerShell
@@ -28,12 +28,12 @@ Esta guía de inicio rápido le ayuda a crear una máquina virtual de SQL Server
 > - Esta guía de inicio rápido describe una manera de aprovisionar y conectarse a una máquina virtual de SQL rápidamente. Para más información sobre otras opciones de Azure PowerShell para crear máquinas virtuales de SQL, consulte la [guía de aprovisionamiento de máquinas virtuales de SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 > - Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
-## <a id="subscription"></a> Obtener una suscripción de Azure
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Obtener una suscripción de Azure
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 
-## <a id="powershell"></a> Obtener Azure PowerShell
+## <a name="get-azure-powershell"></a><a id="powershell"></a> Obtener Azure PowerShell
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -170,7 +170,7 @@ Para obtener las características de máquina virtual SQL e integración del por
 
 1. Cuando se le pidan credenciales, elija introducir las de una cuenta diferente. Escriba el nombre de usuario con una barra diagonal inversa (por ejemplo, `\azureadmin`) y la contraseña que ha definido anteriormente en esta guía de inicio rápido.
 
-## <a name="connect-to-sql-server"></a>Conexión con SQL Server
+## <a name="connect-to-sql-server"></a>Conectar a SQL Server
 
 1. Después de iniciar sesión en la sesión de Escritorio remoto, inicie **SQL Server Management Studio 2017** desde el menú Inicio.
 

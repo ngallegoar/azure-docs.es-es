@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, ak
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: bfb19371ad651439c087cebd03023d48852ee2df
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156880"
 ---
 # <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: Configuración de redes kubenet en Azure Kubernetes Service (AKS) con Ansible
@@ -31,7 +31,7 @@ Para más información sobre las conexiones de red a las aplicaciones de AKS, ve
 > * Creación de un clúster de AKS
 > * Configuración de redes kubenet de Azure
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -101,7 +101,7 @@ Guarde el siguiente cuaderno de estrategias como `aks.yml`:
   register: aks
 ```
 
-Estas son algunas notas claves que se deben tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
+Estas son algunas notas importantes que hay que tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
 
 - Use el módulo `azure_rm_aks_version` para buscar la versión compatible.
 - `vnet_subnet_id` es la subred que creó en la sección anterior.
@@ -155,7 +155,7 @@ Guarde el siguiente cuaderno de estrategias como `associate.yml`.
       route_table: "{{ routetable.route_tables[0].id }}"
 ```
 
-Estas son algunas notas claves que se deben tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
+Estas son algunas notas importantes que hay que tener en cuenta al trabajar con el cuaderno de estrategias de ejemplo:
 
 - `node_resource_group` es el nombre del grupo de recursos en el que se crean los nodos de AKS.
 - `vnet_subnet_id` es la subred que creó en la sección anterior.
@@ -344,7 +344,7 @@ Guarde el siguiente código como `cleanup.yml`:
 
 En la sección `vars`, reemplace el marcador de posición `{{ resource_group_name }}` por el nombre del grupo de recursos.
 
-Ejecute el comando de estrategias con el comando `ansible-playbook`:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook cleanup.yml

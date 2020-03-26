@@ -13,10 +13,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
 ms.openlocfilehash: 53abc28a6923c2d55b3bb39defb08778485a9744
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71212450"
 ---
 # <a name="create-an-azure-notification-hub-in-the-azure-portal"></a>Creación de un centro de notificaciones de Azure en Azure Portal 
@@ -32,7 +32,7 @@ En esta sección, creará un espacio de nombres y un centro en el espacio de nom
 ## <a name="create-a-notification-hub-in-an-existing-namespace"></a>Creación de un centro de notificaciones en un espacio de nombres existente
 En esta sección, creará un centro de notificaciones en un espacio de nombres existente. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** en el menú izquierdo, busque **Notification Hub** (Centro de notificaciones), seleccione la **estrella** (`*`) junto a **Notification Hub Namespaces** (Espacios de nombres de centros de notificaciones) para añadirlo a la sección **FAVORITOS** del menú izquierdo. Seleccione **Notification Hub Namespaces** (Espacios de nombres del centros de notificaciones). 
 
       ![Azure Portal: selección de Notification Hub Namespaces](./media/create-notification-hub-portal/select-notification-hub-namespaces-all-services.png)

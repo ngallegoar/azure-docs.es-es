@@ -4,10 +4,10 @@ description: Asignación de controles de los ejemplos de planos técnicos de UK 
 ms.date: 12/04/2019
 ms.topic: sample
 ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74851373"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS.
@@ -23,7 +23,7 @@ Las asignaciones siguientes son para los controles **UK OFFICIAL** y **UK NHS**.
 
 El plano técnico ayuda a garantizar que la transferencia de información con los servicios de Azure es segura. Para ello, asigna definiciones de [Azure Policy](../../../policy/overview.md) para auditar las conexiones no seguras a las cuentas de almacenamiento y a Redis Cache.
 
-- Se deben habilitar solo las conexiones seguras a Redis Cache.
+- Solo se deben habilitar las conexiones seguras a Redis Cache
 - Se debe habilitar la transferencia segura a las cuentas de almacenamiento
 - Mostrar los resultados de las auditorías de los servidores web de Windows que no estén usando los protocolos de comunicación segura
 - Implementación de los requisitos previos para auditar los servidores web de Windows que no estén usando los protocolos de comunicación segura
@@ -39,8 +39,8 @@ Conocer dónde los recursos de Azure pueden tener configuraciones criptográfica
 - El cifrado de discos debe aplicarse en máquinas virtuales
 - Las variables de cuenta de automatización deben cifrarse
 - Se debe establecer la propiedad ClusterProtectionLevel en EncryptAndSign en los clústeres de Service Fabric
-- Se debe habilitar el Cifrado de datos transparente en bases de datos SQL
-- Implementación del Cifrado de datos transparente de SQL DB.
+- Se debe permitir el cifrado de datos transparente en bases de datos SQL
+- Implementación del cifrado de datos transparente de SQL DB
 - Exigencia de cifrado en las cuentas de Data Lake Store.
 - Ubicaciones permitidas (codificadas de forma rígida como "UK SOUTH" y "UK WEST").
 - Ubicaciones permitidas para grupos de recursos (codificadas de forma rígida como "UK SOUTH" y "UK WEST").
@@ -53,7 +53,7 @@ Este plano técnico ayuda a administrar las vulnerabilidades del sistema de info
 - Se deben instalar actualizaciones del sistema en las máquinas
 - Se deben instalar las actualizaciones del sistema en los conjuntos de escalado de máquinas virtuales
 - Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
-- Se deben corregir las vulnerabilidades en las bases de datos SQL
+- Se deben corregir las vulnerabilidades de las bases de datos SQL
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 - La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.
 - La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.
@@ -78,10 +78,10 @@ Este plano técnico ayuda a proteger los recursos del sistema de información me
 
 Azure implementa el control de acceso basado en rol (RBAC) para ayudar a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico ayuda a restringir y controlar los derechos de acceso mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con permisos de propietario y de lectura/escritura y las cuentas con permisos de propietario y de lectura/escritura que no tienen habilitada la autenticación multifactor.
 
-- MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción.
+- MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción
 - MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción
-- MFA debe estar habilitada en las cuentas con permisos de lectura en la suscripción.
-- Las cuentas externas con permisos de propietario deben quitarse de la suscripción.
+- MFA debe estar habilitada en las cuentas con permisos de lectura en la suscripción
+- Las cuentas externas con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de escritura deben quitarse de la suscripción
 - Las cuentas externas con permisos de lectura deben quitarse de la suscripción
 
@@ -89,24 +89,24 @@ Azure implementa el control de acceso basado en rol (RBAC) para ayudar a adminis
 
 Este plano técnico ayuda a restringir y controlar los derechos de acceso mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con permisos de propietario y de lectura/escritura y las cuentas con permisos de propietario y de lectura/escritura que no tienen habilitada la autenticación multifactor.
 
-- MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción.
+- MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción
 - MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción
-- MFA debe estar habilitada en las cuentas con permisos de lectura en la suscripción.
-- Las cuentas externas con permisos de propietario deben quitarse de la suscripción.
+- MFA debe estar habilitada en las cuentas con permisos de lectura en la suscripción
+- Las cuentas externas con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de escritura deben quitarse de la suscripción
-- Las cuentas externas con permisos de lectura deben quitarse de la suscripción.
+- Las cuentas externas con permisos de lectura deben quitarse de la suscripción
 
 Este plano técnico asigna definiciones de Azure Policy para auditar el uso de la autenticación de Azure Active Directory para servidores SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft.
 
-- El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server.
-- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente.
+- El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server
+- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente
 
 Este plano técnico también asigna definiciones de Azure Policy para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de Azure Policy para auditar las cuentas en desuso cuya eliminación debería considerarse.
 
-- Las cuentas en desuso deben quitarse de la suscripción.
+- Las cuentas en desuso deben quitarse de la suscripción
 - Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de propietario deben quitarse de la suscripción
-- Las cuentas externas con permisos de escritura deben quitarse de la suscripción.
+- Las cuentas externas con permisos de escritura deben quitarse de la suscripción
 
 Este plano técnico también asigna una definición de Azure Policy que audita los permisos de los archivos con contraseña de máquina virtual Linux y alerta si la configuración es incorrecta. Este diseño permite tomar medidas correctivas para garantizar que los autenticadores no están en riesgo.
 
@@ -128,11 +128,11 @@ Este plano técnico ayuda a instaurar contraseñas seguras mediante la asignaci�
 Este plano técnico también ayuda a controlar el acceso a los recursos de Azure mediante la asignación de definiciones de Azure Policy. Estas directivas auditan el uso de los tipos de recursos y las configuraciones que pueden permitir un acceso más flexible a los recursos. Conocer los recursos que infringen estas directivas ayuda a tomar medidas correctivas para garantizar que el acceso a los recursos de Azure se limita a los usuarios autorizados.
 
 - \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Linux que tengan cuentas sin contraseña
-- \[Versión preliminar\]: Implementar los requisitos para realizar una auditoría de las VM Linux que permitan conexiones remotas de cuentas sin contraseña
+- \[Versión preliminar\]: implementación de los requisitos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
 - \[Versión preliminar\]: auditoría de las máquinas virtuales Linux que tengan cuentas sin contraseña
-- \[Versión preliminar\]: Realizar una auditoría de las VM Linux que permitan conexiones remotas desde cuentas sin contraseña
+- \[Versión preliminar\]: auditoría de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
 - Se deben migrar las cuentas de almacenamiento a los nuevos recursos de Azure Resource Manager
-- Se deben migrar las máquinas virtuales a nuevos recursos de Azure Resource Manager.
+- Se deben migrar las máquinas virtuales a nuevos recursos de Azure Resource Manager
 - Auditar las máquinas virtuales que no utilizan discos administrados
 
 ## <a name="11-external-interface-protection"></a>11. Protección de la interfaz externa
@@ -156,26 +156,26 @@ Además de usar más de 25 directivas para garantizar una administración segur
 
 ## <a name="12-secure-service-administration"></a>12. Administración segura del servicio
 
-Azure implementa el control de acceso basado en rol (RBAC) para ayudar a administrar quién tiene acceso a los recursos en Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico ayuda a restringir y controlar los derechos de acceso con privilegios mediante la asignación de cinco definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con permisos de propietario y de escritura y las cuentas con permisos de propietario y de escritura que no tienen habilitada la autenticación multifactor.
+Azure implementa el control de acceso basado en rol (RBAC) para ayudar a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico ayuda a restringir y controlar los derechos de acceso con privilegios mediante la asignación de cinco definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con permisos de propietario y de escritura y las cuentas con permisos de propietario y de escritura que no tienen habilitada la autenticación multifactor.
 
 Los sistemas que se usan para la administración de un servicio en la nube tendrán acceso con privilegios elevados a ese servicio. Ponerlos en peligro conlleva un impacto significativo, lo cual incluye los medios para burlar los controles de seguridad y robar o manipular grandes volúmenes de datos. Los métodos que usen los administradores del proveedor de servicios para administrar el servicio operativo deben estar diseñados para reducir cualquier riesgo de vulneración que ponga en peligro la seguridad del servicio. Si no se pone en práctica este principio, un atacante podría contar con los medios necesarios para burlar los controles de seguridad y robar o manipular grandes volúmenes de datos.
 
-- MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción.
-- MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción.
-- Las cuentas externas con permisos de propietario deben quitarse de la suscripción.
-- Las cuentas externas con permisos de escritura deben quitarse de la suscripción.
+- MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción
+- MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción
+- Las cuentas externas con permisos de propietario deben quitarse de la suscripción
+- Las cuentas externas con permisos de escritura deben quitarse de la suscripción
 
 Este plano técnico asigna definiciones de Azure Policy para auditar el uso de la autenticación de Azure Active Directory para servidores SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft.
 
-- El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server.
-- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente.
+- El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server
+- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente
 
 Este plano técnico también asigna definiciones de Azure Policy para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas con permisos elevados. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de Azure Policy para auditar las cuentas en desuso cuya eliminación debería considerarse.
 
-- Las cuentas en desuso deben quitarse de la suscripción.
+- Las cuentas en desuso deben quitarse de la suscripción
 - Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de propietario deben quitarse de la suscripción
-- Las cuentas externas con permisos de escritura deben quitarse de la suscripción.
+- Las cuentas externas con permisos de escritura deben quitarse de la suscripción
 
 Este plano técnico también asigna una definición de Azure Policy que audita los permisos de los archivos con contraseña de máquina virtual Linux y alerta si la configuración es incorrecta. Este diseño permite tomar medidas correctivas para garantizar que los autenticadores no están en riesgo.
 
@@ -183,7 +183,7 @@ Este plano técnico también asigna una definición de Azure Policy que audita l
 
 ## <a name="13-audit-information-for-users"></a>13. Información de auditoría para los usuarios
 
-Este plano técnico permite garantizar que los eventos del sistema se registran. Para ello, se asignan definiciones de [Azure Policy](../../../policy/overview.md) que auditan las configuraciones de registro de los recursos de Azure. Una directiva asignada también audita si las máquinas virtuales no envían registros a un área de trabajo específica de Log Analytics.
+Este plano técnico ayuda a garantizar que los eventos del sistema se registran mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan las configuraciones de registro de los recursos de Azure. Una directiva asignada también audita si las máquinas virtuales no envían registros a un área de trabajo específica de Log Analytics.
 
 - La configuración de seguridad avanzada de datos debe estar habilitada en SQL Server
 - Auditar la configuración de diagnóstico

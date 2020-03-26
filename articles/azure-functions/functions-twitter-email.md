@@ -8,10 +8,10 @@ ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75768969"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 > * Conectar la aplicación lógica a la función.
 > * Enviar un correo electrónico en función de la respuesta de la función.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 + Una cuenta de [Twitter](https://twitter.com/) activa. 
 + Una cuenta de [Outlook.com](https://outlook.com/) (para enviar las notificaciones).
@@ -141,7 +141,7 @@ Ahora, tiene una función que clasifica las puntuaciones de opinión. A continua
     | ----------------- | ------------ | ------------- |
     | **Nombre** | TweetSentiment | Elija un nombre adecuado para la aplicación. |
     | **Grupos de recursos** | myResourceGroup | Elija el mismo grupo de recursos existente que antes. |
-    | **Ubicación** | East US | Elija una ubicación cercana a usted. |    
+    | **Ubicación** | Este de EE. UU. | Elija una ubicación cercana a usted. |    
 
 4. Cuando haya especificado los valores de configuración adecuados, haga clic en **Crear** para crear la aplicación lógica. 
 

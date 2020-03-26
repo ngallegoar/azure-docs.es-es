@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1a6858d5eda8227b3f7c1b90dee86f44273a258
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74846358"
 ---
 # <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Uso de detecciones de riesgo para desencadenar Multi-Factor Authentication y cambios de contraseñas
@@ -40,7 +40,7 @@ Puede encontrar más información acerca de Azure AD Identity Protection en el a
 > * Habilitación de los cambios de contraseña en función del riesgo
 > * Habilitación de la autenticación multifactor en función del riesgo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Acceso a un inquilino de Azure AD activo con al menos una licencia de prueba asignada de Azure AD Premium P2.
 * Una cuenta con privilegios de administrador global en su inquilino de Azure AD.
@@ -54,7 +54,7 @@ Habilitar directivas en función del riesgo es un proceso sencillo. Los pasos si
 
 Azure AD Identity Protection incluye una directiva predeterminada que puede ayudarle a que los usuarios registrados usen la autenticación multifactor y a identificar fácilmente el estado de registro actual. Si habilita esta directiva, no se empieza a requerir que los usuarios lleven a cabo la autenticación multifactor, pero se les pedirá que se registren previamente.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Haga clic en **Todos los servicios** y, a continuación, vaya a **Azure AD Identity Protection**.
 1. Haga clic en **Registro de MFA**.
 1. Establezca Aplicar directiva en **Activado**.

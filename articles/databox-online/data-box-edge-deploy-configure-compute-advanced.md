@@ -10,11 +10,11 @@ ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b446a3ebf92f6240d3bc02a148fbb8296efec926
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950727"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222892"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>Tutorial: Transformación de datos con Azure Data Box Edge para el flujo de implementación avanzada
 
@@ -25,7 +25,7 @@ El proceso puede configurarse para un flujo de implementación sencilla o avanza
 |                  | Implementación sencilla                                | Implementación avanzada                   |
 |------------------|--------------------------------------------------|---------------------------------------|
 | Destinado a     | Administradores de TI                                | Desarrolladores                            |
-| Type             | Usar el servicio Data Box Edge para implementar módulos      | Usar el servicio IoT Hub para implementar módulos |
+| Tipo             | Usar el servicio Data Box Edge para implementar módulos      | Usar el servicio IoT Hub para implementar módulos |
 | Módulos implementados | Single                                           | Varios módulos o módulos en cadena           |
 
 
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 > * Comprobar la transformación y la transferencia de los datos
 
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de configurar un rol de proceso en un dispositivo de Data Box Edge, asegúrese de que:
 
@@ -63,10 +63,10 @@ Para configurar el proceso en Data Box Edge, creará un recurso de IoT Hub.
 3. En la hoja **Configurar el proceso de Edge**, escriba lo siguiente:
 
    
-    |Campo  |Valor  |
+    |Campo  |Value  |
     |---------|---------|
     |IoT Hub     | Elija entre **Nuevo** o **Existente**. <br> De forma predeterminada, se usa un nivel estándar (S1) para crear un recurso de IoT. Para usar un recurso de IoT de nivel gratuito, cree uno y, a continuación, seleccione el recurso existente. <br> En cualquier caso, el recurso de IoT Hub usa la misma suscripción y el mismo grupo de recursos que utiliza el recurso de Data Box Edge.     |
-    |NOMBRE     |Escriba un nombre para el recurso de IoT Hub.         |
+    |Nombre     |Escriba un nombre para el recurso de IoT Hub.         |
 
     ![Introducción al proceso](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
@@ -130,7 +130,7 @@ En este tutorial, se realizará una implementación avanzada con dos recursos co
 
 2. En la hoja **Agregar desencadenador**, introduzca los siguientes valores.
 
-    |Campo  |Valor  |
+    |Campo  |Value  |
     |---------|---------|
     |Nombre del desencadenador     | Un nombre exclusivo para el concentrador.         |
     |Tipo de desencadenador     | Seleccione el desencadenador **Archivo**. Un desencadenador de archivo se activa cada vez que se produce un evento de archivo, por ejemplo, cuando se escribe un archivo en el recurso compartido de entrada. Por otra parte, un desencadenador programado se activa según una programación definida por el usuario. En este ejemplo, necesitamos un desencadenador de archivo.    |
@@ -181,9 +181,9 @@ En esta sección, agregará un módulo personalizado al dispositivo IoT Edge que
  
     2. Especifique la configuración para el módulo personalizado de IoT Edge. Escriba los siguientes valores.
      
-        |Campo  |Valor  |
+        |Campo  |Value  |
         |---------|---------|
-        |NOMBRE     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en un dispositivo IoT Edge asociado con Data Box Edge.        |
+        |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en un dispositivo IoT Edge asociado con Data Box Edge.        |
         |URI de imagen     | El URI de la imagen de contenedor correspondiente del módulo.        |
         |Credenciales necesarias     | Si está activada, se usa el nombre de usuario y la contraseña para recuperar los módulos con una dirección URL coincidente.        |
     
@@ -261,7 +261,7 @@ Ha completado el proceso de validación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Configurar el proceso

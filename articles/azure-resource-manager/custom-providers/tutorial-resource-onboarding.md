@@ -6,17 +6,17 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648612"
 ---
 # <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Tutorial: Incorporación de recursos con proveedores personalizados de Azure
 
 En este tutorial, va a implementar en Azure un proveedor de recursos personalizado que amplía la API de Azure Resource Manager con el tipo de recursos Microsoft.CustomProviders/associations. En el tutorial se muestra cómo ampliar los recursos existentes que se encuentran fuera del grupo de recursos donde se encuentra la instancia del proveedor personalizado. En este tutorial, el proveedor de recursos personalizado se basa en una aplicación lógica de Azure, pero puede usar cualquier punto de conexión de API público.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita saber lo siguiente:
 

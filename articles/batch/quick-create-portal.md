@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 8d725834cb2dd86163909b2ae598e61026ae4bb9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6ce0066765de3d99f8309bf568b467518f38923e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024116"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215313"
 ---
-# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Inicio rápido: Ejecución del primer trabajo de Batch en Azure Portal
+# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Inicio rápido: ejecute su primer trabajo de Batch en Azure Portal
 
 Esta guía de inicio rápido muestra cómo utilizar Azure Portal para crear una cuenta de Batch, un *grupo* de nodos de proceso (máquinas virtuales) y un *trabajo* que ejecuta *tareas* básicas en el grupo. Tras completar esta guía de inicio rápido, entenderá los conceptos clave del servicio Batch y estará listo para probar dicho servicio con cargas de trabajo más realistas y a mayor escala.
 
@@ -24,7 +24,7 @@ Esta guía de inicio rápido muestra cómo utilizar Azure Portal para crear una 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
 
-Inicie sesión en Azure Portal en https://portal.azure.com.
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-batch-account"></a>Crear una cuenta de Batch
 

@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: 15a89a03e07deb02a812e54c01e857f972681931
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "64710781"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentación sobre máquinas virtuales Windows
 
-Azure Virtual Machines proporciona una infraestructura bajo demanda, a gran escala, segura y virtualizada con Windows Server. Aprenda a crear, configurar, administrar y escalar máquinas virtuales Windows con nuestros inicios rápidos, tutoriales y ejemplos.
+Azure Virtual Machines proporciona una infraestructura bajo demanda, a gran escala, segura y virtualizada utilizando Windows Server. Aprenda a crear, configurar, administrar y escalar máquinas virtuales Windows con nuestros inicios rápidos, tutoriales y ejemplos.
 
-## <a name="5-minute-quickstarts"></a>Inicio rápido en 5 minutos
+## <a name="5-minute-quickstarts"></a>Guías de inicio rápido de 5 minutos
 
 Aprenda a implementar un servidor web IIS dentro de una máquina virtual que ejecuta Windows Server 2016:
 
@@ -27,7 +27,7 @@ Aprenda a implementar un servidor web IIS dentro de una máquina virtual que eje
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 - [CLI de Azure](/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="step-by-step-tutorials"></a>Tutoriales detallados
+## <a name="step-by-step-tutorials"></a>Tutoriales paso a paso
 
 Aprenda a implementar, administrar y supervisar máquinas virtuales Windows en Azure.
 

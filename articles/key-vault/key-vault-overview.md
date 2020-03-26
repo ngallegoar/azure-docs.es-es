@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 4e2953b107b017d032e737e2878472166c677839
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78194961"
 ---
 # <a name="what-is-azure-key-vault"></a>¿Qué es el Almacén de claves de Azure?
@@ -80,5 +80,5 @@ Key Vault se puede integrar con cuentas de almacenamiento e instancias de Event 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Inicio rápido: Creación de una instancia de Azure Key Vault mediante la CLI](quick-create-cli.md)
+- [Guía de inicio rápido: Creación de una instancia de Azure Key Vault mediante la CLI](quick-create-cli.md)
 - [Configuración de una aplicación web de Azure para que lea un secreto desde el almacén de claves](tutorial-web-application-keyvault.md)

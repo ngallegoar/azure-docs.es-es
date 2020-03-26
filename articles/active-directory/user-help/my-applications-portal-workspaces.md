@@ -13,10 +13,10 @@ ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: 1abcd22621d427244f9b0533aaea46cbf1f356ad
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77064043"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Uso de colecciones en el portal Aplicaciones
@@ -26,7 +26,7 @@ Las colecciones son diferentes vistas de las aplicaciones que se muestran en el 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Este contenido está pensado para usuarios de **Aplicaciones**. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>Este contenido está diseñado para los usuarios de **Aplicaciones**. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
 
 ## <a name="access-apps-using-collections"></a>Acceso a las aplicaciones mediante las colecciones
 
@@ -44,7 +44,7 @@ Al seleccionar y ver una colección, solo verá las aplicaciones predeterminadas
 
 Después de organizar las aplicaciones en las distintas categorías del portal **Aplicaciones**, puede:
 
-- Revisar, actualizar o revocar los permisos concedidos a las aplicaciones. Para más información, consulte [Edición o revocación de permisos de aplicación en el portal Aplicaciones](my-applications-portal-permissions-saved-accounts.md).
+- Revisar, actualizar o revocar los permisos concedidos a las aplicaciones. Para más información, vea [Edición o revocación de permisos de aplicación en el portal Aplicaciones](my-applications-portal-permissions-saved-accounts.md).
 
 ## <a name="related-articles"></a>Artículos relacionados
 

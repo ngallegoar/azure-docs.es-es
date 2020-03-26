@@ -8,17 +8,17 @@ ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73720930"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Creación de un cuaderno en Azure Cosmos DB para analizar y visualizar los datos
 
 En este artículo se describe cómo usar cuadernos de Jupyter Notebook integrados para importar datos comerciales de ejemplo en Azure Cosmos DB. Verá cómo usar los comandos magic de SQL y Azure Cosmos DB para ejecutar consultas, analizar los datos y visualizar los resultados.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Habilitar la compatibilidad con cuadernos al crear la cuenta de Azure Cosmos](enable-notebooks.md)
 

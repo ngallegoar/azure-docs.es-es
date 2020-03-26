@@ -5,20 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 03/25/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b667745094ccb6952a6b17f5b7ef0cabae4220c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1059c1d140ef0f3070c4ac6d9f02254d4605174b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476946"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80289165"
 ---
 | Resource | Límite predeterminado |
 | --- | --- |
 | Conexiones RDP simultáneas |25* |
-| Conexiones SSH simultáneas |Más de 50** |
+| Conexiones SSH simultáneas |50** |
 
 *Puede variar debido a otras sesiones de RDP en curso u otras sesiones de SSH en curso.<br>
 **Puede variar si hay conexiones RDP existentes o el uso de otras sesiones SSH en curso.

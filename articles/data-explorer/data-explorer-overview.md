@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: 02b239922f481240341225ea68d8d0ee7492c48b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044181"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "60445828"
 ---
 # <a name="what-is-azure-data-explorer"></a>¿Qué es el Explorador de datos de Azure?
 
@@ -44,11 +44,11 @@ El siguiente diagrama muestra los diferentes aspectos de trabajar con el Explora
 
 Por lo general, el trabajo en el Explorador de datos de Azure sigue este patrón:
 
-1. **Crear una base de datos:** cree un *clúster* y luego cree una o varias *bases de datos* en ese clúster. [Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer](create-cluster-database-portal.md)
+1. **Crear base de datos:** cree un *clúster* y después una o varias *bases de datos* en ese clúster. [Inicio rápido: Creación de un clúster y de la base de datos del Explorador de datos de Azure](create-cluster-database-portal.md)
 
-1. **Ingerir datos:** cargue los datos en tablas de base de datos para que pueda ejecutar consultas en ellas. [Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer](ingest-data-event-hub.md).
+1. **Ingerir datos**: cargue los datos en tablas de base de datos para que pueda ejecutar consultas en ellas. [Guía de inicio rápido: Ingesta de datos desde el centro de eventos en Azure Data Explorer](ingest-data-event-hub.md)
 
-1. **Consultar base de datos:** use nuestra aplicación web para ejecutar, revisar y compartir consultas y resultados. Está disponible en Azure Portal como aplicación independiente. Además, puede enviar consultas mediante programación (usando un SDK) o a un punto de conexión de API REST. [Inicio rápido: Consulta de datos en Azure Data Explorer](web-query-data.md)
+1. **Consultar base de datos:** use nuestra aplicación web para ejecutar, revisar y compartir las consultas y resultados. Está disponible en Azure Portal como aplicación independiente. Además, puede enviar consultas mediante programación (usando un SDK) o a un punto de conexión de API REST. [Quickstart: Query data in Azure Data Explorer](web-query-data.md) (Guía de inicio rápido: Consulta de datos en el Explorador de datos de Azure)
 
 ## <a name="query-experience"></a>Experiencia de consulta
 
@@ -70,8 +70,8 @@ Estaremos encantados de recibir sus comentarios sobre el Explorador de datos de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer](create-cluster-database-portal.md)
+[Inicio rápido: Creación de un clúster y de la base de datos del Explorador de datos de Azure](create-cluster-database-portal.md)
 
-[Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer](ingest-data-event-hub.md).
+[Guía de inicio rápido: Ingesta de datos desde el centro de eventos en Azure Data Explorer](ingest-data-event-hub.md)
 
-[Inicio rápido: Consulta de datos en Azure Data Explorer](web-query-data.md)
+[Quickstart: Query data in Azure Data Explorer](web-query-data.md) (Guía de inicio rápido: Consulta de datos en el Explorador de datos de Azure)

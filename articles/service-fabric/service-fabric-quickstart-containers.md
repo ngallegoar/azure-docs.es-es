@@ -6,10 +6,10 @@ ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 477d47fabc59c5718c449418f225d6a38838b270
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75466272"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Inicio rápido: Implementación de contenedores de Windows en Service Fabric
@@ -144,7 +144,7 @@ Todas las aplicaciones del clúster deben tener un nombre único. Si se produce 
 
 Abra un explorador y vaya a la dirección que especificó en el campo **Connection Endpoint** (Punto de conexión) en el paso anterior. Si lo desea, puede anteponer el identificador de esquema `http://` y agregar el puerto `:80` a la dirección URL. Por ejemplo, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
- Verá la página web predeterminada de IIS: ![Página web predeterminada de IIS][iis-default]
+ Debería ver la página web predeterminada de IIS: ![Página web predeterminada de IIS][iis-default]
 
 ## <a name="clean-up"></a>Limpieza
 

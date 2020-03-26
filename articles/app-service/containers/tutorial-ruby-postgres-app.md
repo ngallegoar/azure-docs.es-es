@@ -4,13 +4,13 @@ description: Aprenda a poner en funcionamiento una aplicación de Ruby para Linu
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: 6ce52b9754f69ef9c6eaf1f59062b6366670985f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: 7339bb1ec2c16e9d6c83d2cbae8810b660b60765
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524043"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80045479"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación Ruby y Postgres en Azure App Service en Linux
 
@@ -23,7 +23,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Creación de una base de datos PostgreSQL en Azure
 > * Conectar una aplicación Ruby on Rails a PostgreSQL
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros de diagnóstico desde Azure
 > * Administrar la aplicación en Azure Portal
@@ -498,7 +498,7 @@ En este tutorial, ha aprendido a:
 > [!div class="checklist"]
 > * Crear una base de datos de Postgres en Azure
 > * Conectar una aplicación Ruby on Rails a Postgres
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros de diagnóstico desde Azure
 > * Administrar la aplicación en Azure Portal

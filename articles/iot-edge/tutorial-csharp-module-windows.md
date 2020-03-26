@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 4fa3fb17f4eace8d389738fb46267a097610f175
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76760426"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desarrollo de un módulo de IoT Edge en C# para dispositivos Windows
@@ -44,7 +44,7 @@ Utilice la tabla siguiente si desea conocer las opciones para desarrollar e impl
 | **Desarrollo de Windows AMD64** | ![Desarrollo de módulos C# para WinAMD64 en VS Code](./media/tutorial-c-module/green-check.png) | ![Desarrollo de módulos C# para WinAMD64 en Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Depuración de Windows AMD64** |   | ![Depuración de módulos C# para WinAMD64 en Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar este tutorial, debe haber realizado el anterior para configurar el entorno de desarrollo, [Desarrollo de un módulo IoT Edge para un dispositivo Windows](tutorial-develop-for-windows.md). Después de completar este tutorial, ya debe tener los siguientes requisitos previos:
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: a6c1f893757baf1e6c85420b31997a5073cff684
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094596"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integración de Azure Active Directory con Percolate
@@ -36,7 +36,7 @@ Para más información acerca de la integración de aplicaciones SaaS con Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Percolate, necesita los siguientes elementos:
 
@@ -45,7 +45,7 @@ Para configurar la integración de Azure AD con Percolate, necesita los siguient
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba:
+En este tutorial configurará y probará el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Percolate admite el inicio de sesión único iniciado por SP e IDP.
 
@@ -76,16 +76,16 @@ Para habilitar el inicio de sesión único, tendrá que establecer una relación
 
 Para configurar y probar el inicio de sesión único de Azure AD con Percolate, debe hacer lo siguiente:
 
-1. **[Configure el inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** para habilitar la característica para los usuarios.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** para permitir que los usuarios utilicen esta característica.
 2. **[Configure el inicio de sesión único en Percolate](#configure-percolate-single-sign-on)** en el lado de la aplicación.
-3. **[Cree un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** para probar el inicio de sesión único de Azure AD.
-4. **[Asignar el usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** para permitir el inicio de sesión único de Azure AD del usuario.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** para probar el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** para permitir el inicio de sesión único de Azure AD para el usuario.
 5. **[Cree un usuario de prueba de Percolate](#create-a-percolate-test-user)** que esté vinculado a la representación del usuario en Azure AD.
-6. **[Pruebe el inicio de sesión único](#test-single-sign-on)** para comprobar que la configuración funciona.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** para comprobar que la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
+En esta sección habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
 Para configurar el inicio de sesión único de Azure AD con Percolate, haga lo siguiente:
 
@@ -194,7 +194,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
     ![Seleccionar Usuarios y grupos](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 

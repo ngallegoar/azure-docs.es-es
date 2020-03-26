@@ -16,10 +16,10 @@ ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 68473ff5a3faddd36bd4299dfdc882f679acd068
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79129888"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (XAML)
@@ -206,7 +206,7 @@ En esta sección se muestra cómo usar MSAL para obtener un token de Microsoft G
     }
     ```
 
-#### Obtención de un token de usuario interactivamente<a name="more-information"></a>
+#### <a name="get-a-user-token-interactively"></a>Obtención de un token de usuario interactivamente<a name="more-information"></a>
 
 El método `AcquireTokenInteractive` genera una ventana que pide al usuario que inicie sesión. Las aplicaciones suelen requerir a los usuarios que inicien sesión de forma interactiva la primera vez que acceden a un recurso protegido. Es posible que también deban iniciar sesión cuando se produce un error en una operación silenciosa para adquirir un token. Por ejemplo, si ha caducado la contraseña de usuario.
 
@@ -295,7 +295,7 @@ Para cerrar la sesión del usuario, agregue el método siguiente a *MainPage.xam
 > [!NOTE]
 > MSAL.NET usa métodos asincrónicos para adquirir tokens o manipular cuentas. Debe admitir acciones de interfaz de usuario en el subproceso de la interfaz de usuario. Este es el motivo de la llamada a `Dispatcher.RunAsync` y las precauciones para llamar a `ConfigureAwait(false)`.
 
-#### Más información acerca de cómo cerrar sesión<a name="more-information-on-sign-out"></a>
+#### <a name="more-information-about-signing-out"></a>Más información acerca de cómo cerrar sesión<a name="more-information-on-sign-out"></a>
 
 El método `SignOutButton_Click` quita al usuario de la memoria caché de usuario MSAL. Este método indica de forma eficaz a MSAL que se olvide del usuario actual. Una futura solicitud de adquisición de un token solo se realizará correctamente si es interactiva.
 
@@ -320,7 +320,7 @@ Para mostrar información básica sobre el token, agregue el método siguiente a
    }
    ```
 
-#### Más información<a name="more-information-1"></a>
+#### <a name="more-information"></a>Más información<a name="more-information-1"></a>
 
 Los identificadores de token adquiridos mediante **OpenID Connect** también contienen un pequeño subconjunto de información relativa al usuario. `DisplayBasicTokenInfo` muestra información básica incluida en el token. Esta información incluye el nombre para mostrar y el identificador del usuario. También incluye la fecha de expiración del token y la cadena que representa al propio token de acceso. Si selecciona el botón **Llamar a Microsoft Graph API** varias veces, verá que el mismo token se reutilizó para solicitudes posteriores. También puede ver que la fecha de expiración se amplía si MSAL decide que es el momento de renovar el token.
 

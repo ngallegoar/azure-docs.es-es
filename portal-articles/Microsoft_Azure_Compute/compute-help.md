@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: sewatson
 ms.openlocfilehash: 40fd16f25e46e0833b7d41d75cd9995f550a5d83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61227043"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "64727128"
 ---
 # <a name="virtual-machines-documentation"></a>Documentación de máquinas virtuales
 Las máquinas virtuales de Azure proporcionan una infraestructura virtualizada segura, a petición y a gran escala. Puede crear máquinas virtuales Windows o máquinas virtuales Linux en las que se ejecutan Red Hat, Ubuntu o cualquier otra distribución de Linux que prefiera. Para saber cómo, consulte:

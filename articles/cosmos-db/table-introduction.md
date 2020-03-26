@@ -8,13 +8,13 @@ ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
 ms.openlocfilehash: 5b2e2c51eaa878ba0ce8bc31c001575acebe6919
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967544"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214913"
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a Azure Cosmos DB: Table API
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a la API Table de Azure Cosmos DB
 
 [Azure Cosmos DB](introduction.md) proporciona Table API para aplicaciones escritas para Azure Table Storage y que necesitan funcionalidades premium como:
 
@@ -43,7 +43,7 @@ Si actualmente usa Azure Table Storage, obtendrá las siguientes ventajas al act
 | Precios | Optimizado para el almacenamiento. | Optimizado para el rendimiento. |
 | SLA | Disponibilidad del 99,9 % al 99,99 %, en función de la estrategia de replicación. | Disponibilidad de lectura del 99,999 %, disponibilidad de escritura del 99,99 % en una cuenta de una sola región y disponibilidad de escritura del 99,999 % en cuentas de varias regiones. [SLA completos](https://azure.microsoft.com/support/legal/sla/cosmos-db/) que abarcan disponibilidad, latencia, rendimiento y coherencia. |
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 Crear una cuenta de Azure Cosmos DB en [Azure Portal](https://portal.azure.com). A continuación, empezar a trabajar con nuestra [Guía de inicio rápido para la API Table mediante .NET](create-table-dotnet.md). 
 

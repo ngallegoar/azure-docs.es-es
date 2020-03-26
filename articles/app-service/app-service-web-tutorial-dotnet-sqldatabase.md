@@ -5,13 +5,13 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.custom: seodec18
-ms.openlocfilehash: 2a0b3994af48372b8ed0a3c6eaecf4289d0980c1
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, devcenter, vs-azure, seodec18
+ms.openlocfilehash: a9acb55f0a03a6ec1ba0bb6bb38c665b059b672b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671374"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80047020"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Compilación de una aplicación ASP.NET en Azure con SQL Database
 
@@ -22,16 +22,16 @@ ms.locfileid: "74671374"
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una base de datos Azure SQL Database
+> * Crear una base de datos SQL Database en Azure
 > * Conectar una aplicación ASP.NET a SQL Database
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros desde Azure a un terminal
 > * Administrar la aplicación en Azure Portal
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 
@@ -46,7 +46,7 @@ Si ya ha instalado Visual Studio, agregue las cargas de trabajo en Visual Studio
 
 El proyecto de ejemplo contiene una aplicación básica CRUD (crear, leer, actualizar, eliminar) de [ASP.NET MVC](https://www.asp.net/mvc) que usa [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
-### <a name="run-the-app"></a>Ejecución de la aplicación
+### <a name="run-the-app"></a>Ejecución la aplicación
 
 Abra el archivo *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* en Visual Studio. 
 
@@ -110,7 +110,7 @@ En el cuadro de diálogo **Configurar el plan de App Service**, configure el nue
 | Configuración  | Valor sugerido | Para obtener más información |
 | ----------------- | ------------ | ----|
 |**Plan de App Service**| myAppServicePlan | [Planes de App Service](../app-service/overview-hosting-plans.md) |
-|**Ubicación**| Europa occidental | [Regiones de Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**Ubicación**| Oeste de Europa | [Regiones de Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Tamaño**| Gratuito | [Planes de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>Creación de una instancia de SQL Server
@@ -146,7 +146,7 @@ En el cuadro de diálogo **Configurar SQL Database**:
 
 ![Configuración de SQL Database](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-El cuadro de diálogo **Create App Service** (Crear App Service) muestra los recursos que ha configurado. Haga clic en **Create**(Crear). 
+El cuadro de diálogo **Create App Service** (Crear App Service) muestra los recursos que ha configurado. Haga clic en **Crear**. 
 
 ![Se muestran los recursos que ha creado.](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -401,12 +401,12 @@ De forma predeterminada, el portal muestra la página **Información general**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
-> * Crear una base de datos Azure SQL Database
+> * Crear una base de datos SQL Database en Azure
 > * Conectar una aplicación ASP.NET a SQL Database
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros desde Azure a un terminal
 > * Administrar la aplicación en Azure Portal

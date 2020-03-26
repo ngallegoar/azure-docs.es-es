@@ -5,13 +5,13 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
-ms.custom: seodec18
-ms.openlocfilehash: 2ab67743a349c33000d4b6f8b8566ff48e5e1d24
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: 5c37d92504af78cb62cfa17057e089128ca8ad35
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500023"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046851"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Compilación de una aplicación Node.js y MongoDB en Azure
 
@@ -28,7 +28,7 @@ Temas que se abordarán:
 > [!div class="checklist"]
 > * Crear una base de datos MongoDB en Azure
 > * Conectar una aplicación Node.js a MongoDB
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros de diagnóstico desde Azure
 > * Administrar la aplicación en Azure Portal
@@ -132,7 +132,7 @@ Para MongoDB, en este tutorial se usa [Azure Cosmos DB](/azure/documentdb/). Cos
 
 En Cloud Shell, cree una cuenta de Cosmos DB con el comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
-En el siguiente comando, sustituya un nombre único de Cosmos DB por el marcador de posición *\<cosmosdb_name>* . Este nombre se usa como parte del punto de conexión de Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, por lo que el nombre debe ser único en todas las cuentas de Cosmos DB de Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guión (-), y debe tener una longitud de entre 3 y 50 caracteres.
+En el siguiente comando, sustituya un nombre único de Cosmos DB por el marcador de posición *\<cosmosdb_name>* . Este nombre se usa como parte del punto de conexión de Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, por lo que el nombre debe ser único en todas las cuentas de Cosmos DB de Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guion (-), y debe tener una longitud de entre 3 y 50 caracteres.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -240,7 +240,7 @@ Vaya a `http://localhost:8443` en un explorador. Haga clic en **Registrarse** en
 
 En el terminal, detenga Node.js escribiendo `Ctrl+C`. 
 
-## <a name="deploy-app-to-azure"></a>Implementación de aplicación en Azure
+## <a name="deploy-app-to-azure"></a>Implementación de la aplicación en Azure
 
 En este paso, implementará la aplicación Node.js conectada a MongoDB en Azure App Service.
 
@@ -497,7 +497,7 @@ De manera predeterminada, el portal muestra la página **Información general** 
 > [!div class="checklist"]
 > * Crear una base de datos MongoDB en Azure
 > * Conectar una aplicación Node.js a MongoDB
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros desde Azure a un terminal
 > * Administrar la aplicación en Azure Portal

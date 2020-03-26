@@ -5,13 +5,13 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: 9012f09f75c60ebd0b3743d030b83c0a3aa78648
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.custom: mvc, cli-validate, seodec18
+ms.openlocfilehash: 4de30b45aac9bb6b27474b1eaa0e8917760a6928
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524094"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80045610"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación de ASP.NET Core y SQL Database en Azure App Service en Linux
 
@@ -26,9 +26,9 @@ ms.locfileid: "77524094"
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una base de datos Azure SQL Database
+> * Crear una base de datos SQL Database en Azure
 > * Conectar una aplicación .NET Core a SQL Database
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros de diagnóstico desde Azure
 > * Administrar la aplicación en Azure Portal
@@ -50,7 +50,7 @@ En este paso, configurará el proyecto .NET Core local.
 
 En la ventana del terminal, use `cd` para cambiar a un directorio de trabajo.
 
-Ejecute los comandos siguientes para clonar el repositorio de ejemplo y cambia a su raíz.
+Ejecute los comandos siguientes para clonar el repositorio de ejemplo y cambiar a su raíz.
 
 ```bash
 git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
@@ -61,7 +61,7 @@ El proyecto de ejemplo contiene una aplicación básica CRUD (crear, leer, actua
 
 ### <a name="run-the-application"></a>Ejecución de la aplicación
 
-Ejecute los comandos siguientes para instalar los paquetes necesarios, ejecute las migraciones de bases de datos e inicie la aplicación.
+Ejecute los comandos siguientes para instalar los paquetes necesarios, ejecutar las migraciones de bases de datos e iniciar la aplicación.
 
 ```bash
 dotnet restore
@@ -91,7 +91,7 @@ Para SQL Database, en este tutorial se usa [Azure SQL Database](/azure/sql-datab
 
 En Cloud Shell, cree un servidor lógico de SQL Database con el comando [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
 
-Reemplace el marcador de posición *\<server-name>* por un nombre de SQL Database único. Este nombre se usa como parte del punto de conexión de SQL Database, `<server-name>.database.windows.net`, por lo que el nombre debe ser único para todos los servidores lógicos en Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guión (-), y debe tener una longitud de entre 3 y 50 caracteres. Reemplace también *\<db_username>* y *\<db_password>* por el nombre de usuario y la contraseña que prefiera. 
+Reemplace el marcador de posición *\<server-name>* por un nombre de SQL Database único. Este nombre se usa como parte del punto de conexión de SQL Database, `<server-name>.database.windows.net`, por lo que el nombre debe ser único para todos los servidores lógicos en Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guion (-), y debe tener una longitud de entre 3 y 50 caracteres. Reemplace también *\<db_username>* y *\<db_password>* por el nombre de usuario y la contraseña que prefiera. 
 
 
 ```azurecli-interactive
@@ -144,7 +144,7 @@ Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-u
 
 Esta es la cadena de conexión de la aplicación .NET Core. Cópiela para usarla más adelante.
 
-## <a name="deploy-app-to-azure"></a>Implementación de aplicación en Azure
+## <a name="deploy-app-to-azure"></a>Implementación de la aplicación en Azure
 
 En este paso, implementará la aplicación .NET Core conectada a SQL Database en App Service en Linux.
 
@@ -208,7 +208,7 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-Si este código detecta que se ejecuta en producción (lo que indica el entorno de Azure), usa la cadena de conexión que configuró para conectarse a SQL Database. Para obtener información acerca de cómo se accede a la configuración de la aplicación en App Service, consulte [Acceso a variables de entorno](configure-language-dotnetcore.md#access-environment-variables).
+Si este código detecta que se está ejecutando en producción (lo que indica el entorno de Azure), usa la cadena de conexión que configuró para conectarse a SQL Database. Para obtener información acerca de cómo se accede a la configuración de la aplicación en App Service, consulte [Acceso a variables de entorno](configure-language-dotnetcore.md#access-environment-variables).
 
 La llamada de `Database.Migrate()` le ayuda cuando se ejecuta en Azure, porque crea automáticamente las bases de datos que necesita la aplicación .NET Core según su configuración de migración.
 
@@ -394,9 +394,9 @@ De manera predeterminada, el portal muestra la página **Información general** 
 ¿Qué ha aprendido?
 
 > [!div class="checklist"]
-> * Crear una base de datos Azure SQL Database
+> * Crear una base de datos SQL Database en Azure
 > * Conectar una aplicación .NET Core a SQL Database
-> * Implementación de la aplicación en Azure
+> * Implementar la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
 > * Transmitir registros desde Azure a un terminal
 > * Administrar la aplicación en Azure Portal

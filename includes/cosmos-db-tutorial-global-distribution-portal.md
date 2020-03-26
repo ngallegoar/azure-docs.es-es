@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 12/26/2018
 ms.custom: include file
 ms.openlocfilehash: cb9899712fd023aaec41f4b6bb34357b60ecb106
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75751693"
 ---
-## <a id="addregion"></a>Incorporación de regiones a la base de datos global mediante Azure Portal
+## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Incorporación de regiones a la base de datos global mediante Azure Portal
 Azure Cosmos DB está disponible en todas las [regiones de Azure][azureregions] globales. Tras seleccionar el nivel de coherencia predeterminado para la cuenta de base de datos, puede asociar una o varias regiones (según la elección del nivel de coherencia y las necesidades de distribución global).
 
 1. En la barra izquierda de [Azure Portal](https://portal.azure.com/), haga clic en **Azure Cosmos DB**.

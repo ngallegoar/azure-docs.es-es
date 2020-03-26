@@ -9,17 +9,18 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/07/2020
-ms.openlocfilehash: 1ffa17bd0e35e3753cde3e915c0ee70d8000147a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 03/10/2020
+ms.openlocfilehash: dcaaf3c2f793e7148e1695cdfaa68c768db5fff6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083127"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215463"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatización de tareas de administración mediante trabajos de base de datos
 
-Azure SQL Database le permite crear y programar trabajos que se pueden ejecutar periódicamente en una o varias bases de datos para realizar consultas T-SQL y llevar a cabo tareas de mantenimiento. Cada trabajo registra el estado de ejecución y también reintenta automáticamente las operaciones si se produce algún error.
+Azure SQL Database le permite crear y programar trabajos que se pueden ejecutar periódicamente en una o varias bases de datos para realizar consultas T-SQL y llevar a cabo tareas de mantenimiento.
+Cada trabajo registra el estado de ejecución y también reintenta automáticamente las operaciones si se produce algún error.
 Puede definir la base de datos o los grupos de bases de datos de Azure SQL de destino donde se ejecutará el trabajo y también las programaciones para ejecutar un trabajo.
 Un trabajo gestiona la tarea de iniciar sesión en la base de datos de destino. También definirá, mantendrá y conservará los scripts de Transact-SQL que se van a ejecutar en un grupo de bases de datos de Azure SQL.
 
@@ -48,10 +49,10 @@ Las siguientes tecnologías de programación de trabajos están disponibles en A
 
 Cabe destacar un par de diferencias entre el Agente SQL (disponible de modo local y como parte de Instancia administrada de SQL Database) y el agente de trabajos elásticos de base de datos (disponible para bases de datos únicas en Azure SQL Database y bases de datos en SQL Data Warehouse).
 
-|  |Trabajos elásticos  |Agente SQL |
+| |Trabajos elásticos |Agente SQL |
 |---------|---------|---------|
-|Ámbito     |  Cualquier número de almacenamientos de datos o bases de datos de Azure SQL en la misma nube de Azure que el agente de trabajos. Los destinos pueden estar en diferentes servidores de SQL Database, suscripciones o regiones. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual en la misma instancia de SQL Server que el Agente SQL. |
-|Herramientas y API admitidas     |  Azure Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
+|Ámbito | Cualquier número de almacenamientos de datos o bases de datos de Azure SQL en la misma nube de Azure que el agente de trabajos. Los destinos pueden estar en diferentes servidores de SQL Database, suscripciones o regiones. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual en la misma instancia de SQL Server que el Agente SQL. |
+|Herramientas y API admitidas | Azure Portal, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
 
 ## <a name="sql-agent-jobs"></a>Trabajos del Agente SQL
 
@@ -106,8 +107,8 @@ EXECUTE msdb.dbo.sysmail_add_account_sp
     @email_address = '$(loginEmail)',
     @display_name = 'SQL Agent Account',
     @mailserver_name = '$(mailserver)' ,
-    @username = '$(loginEmail)' ,  
-    @password = '$(password)' 
+    @username = '$(loginEmail)' ,
+    @password = '$(password)'
 
 -- Create a Database Mail profile
 EXECUTE msdb.dbo.sysmail_add_profile_sp
@@ -125,13 +126,13 @@ También, deberá habilitar el correo electrónico de base de datos en Instancia
 
 ```sql
 GO
-EXEC sp_configure 'show advanced options', 1;  
-GO  
-RECONFIGURE;  
-GO  
-EXEC sp_configure 'Database Mail XPs', 1;  
-GO  
-RECONFIGURE 
+EXEC sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+EXEC sp_configure 'Database Mail XPs', 1;
+GO
+RECONFIGURE
 ```
 
 Puede notificar al operador que algo ha sucedido con los trabajos del Agente SQL. Un operador define la información de contacto de los responsables del mantenimiento de una o varias instancias administradas. En ocasiones, las responsabilidades del operador se asignan a una sola persona.
@@ -140,23 +141,24 @@ En sistemas con varias instancias administradas o servidores SQL, muchas persona
 Puede crear operadores mediante SSMS o el script de Transact-SQL que se muestra en el ejemplo siguiente:
 
 ```sql
-EXEC msdb.dbo.sp_add_operator 
-    @name=N'Mihajlo Pupun', 
-        @enabled=1, 
-        @email_address=N'mihajlo.pupin@contoso.com'
+EXEC msdb.dbo.sp_add_operator
+    @name=N'Mihajlo Pupun',
+    @enabled=1,
+    @email_address=N'mihajlo.pupin@contoso.com'
 ```
 
 Puede modificar cualquier trabajo y asignar el operador al que se le notificará por correo electrónico si el trabajo se completa, produce errores o se realiza correctamente mediante SSMS o el siguiente script de Transact-SQL:
 
 ```sql
-EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS', 
-        @notify_level_email=3,                        -- Options are: 1 on succeed, 2 on failure, 3 on complete
-        @notify_email_operator_name=N'Mihajlo Pupun'
+EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
+    @notify_level_email=3, -- Options are: 1 on succeed, 2 on failure, 3 on complete
+    @notify_email_operator_name=N'Mihajlo Pupun'
 ```
 
 ### <a name="sql-agent-job-limitations"></a>Limitaciones de los trabajos del Agente SQL
 
 Algunas de las características del Agente SQL que están disponibles en SQL Server no se admiten en Instancia administrada:
+
 - La configuración del Agente SQL es de solo lectura. El procedimiento `sp_set_agent_properties` no se admite en Instancia administrada.
 - La habilitación o deshabilitación del Agente SQL no se admite actualmente en Instancia administrada. El Agente SQL se ejecuta de forma continua.
 - Las notificaciones se admiten parcialmente.
@@ -180,17 +182,16 @@ La siguiente imagen muestra a un agente de trabajos que ejecuta los trabajos en 
 
 ### <a name="elastic-job-components"></a>Componentes de los trabajos elásticos
 
-|Componente  | Descripción (los detalles adicionales se encuentran debajo de la tabla) |
+|Componente | Descripción (los detalles adicionales se encuentran debajo de la tabla) |
 |---------|---------|
-|[**Agente de trabajos elásticos**](#elastic-job-agent) |  El recurso de Azure creado para ejecutar y administrar los trabajos.   |
-|[**Base de datos de trabajos**](#job-database)    |    Una base de datos de Azure SQL que el agente de trabajos utiliza para almacenar los datos relacionados con los trabajos, definiciones de trabajos, etc.      |
-|[**Grupo de destino**](#target-group)      |  El conjunto de servidores, grupos, bases de datos y mapas de particiones en los que se va a ejecutar un trabajo.       |
-|[**Trabajo**](#job)  |  Un trabajo es una unidad de trabajo que se compone de uno o varios [pasos de trabajo](#job-step). Los pasos de trabajo especifican el script de T-SQL que se va a ejecutar, así como otros detalles necesarios para ejecutar el script.  |
-
+|[**Agente de trabajos elásticos**](#elastic-job-agent) | El recurso de Azure creado para ejecutar y administrar los trabajos. |
+|[**Base de datos de trabajos**](#job-database) | Una base de datos de Azure SQL que el agente de trabajos utiliza para almacenar los datos relacionados con los trabajos, definiciones de trabajos, etc. |
+|[**Grupo de destino**](#target-group) | El conjunto de servidores, grupos, bases de datos y mapas de particiones en los que se va a ejecutar un trabajo. |
+|[**Trabajo**](#job) | Un trabajo es una unidad de trabajo que se compone de uno o varios [pasos de trabajo](#job-step). Los pasos de trabajo especifican el script de T-SQL que se va a ejecutar, así como otros detalles necesarios para ejecutar el script. |
 
 #### <a name="elastic-job-agent"></a>Agente de trabajos elásticos
 
-Un agente de trabajos elásticos es un recurso de Azure para crear, ejecutar y administrar trabajos. El agente de trabajos elásticos es un recurso de Azure que se crea en el portal ([PowerShell](elastic-jobs-powershell.md) y REST también se admiten). 
+Un agente de trabajos elásticos es un recurso de Azure para crear, ejecutar y administrar trabajos. El agente de trabajos elásticos es un recurso de Azure que se crea en el portal ([PowerShell](elastic-jobs-powershell.md) y REST también se admiten).
 
 La creación de un **agente de trabajos elásticos** requiere una base de datos SQL existente. El agente configura esta base de datos existente como la [*base de datos de trabajos*](#job-database).
 
@@ -202,24 +203,20 @@ La *base de datos de trabajos* se utiliza para definir los trabajos y realizar e
 
 En la versión preliminar actual, es necesaria una base de datos de Azure SQL (S0 o superior) para crear un agente de trabajos elásticos.
 
-La *base de datos de trabajos* no necesita ser nueva literalmente, pero debe estar vacía y pertenecer al objetivo de servicio S0 o superior. El objetivo de servicio recomendado de la *base de datos de trabajos* es S1 o superior, pero la opción óptima depende de las necesidades de rendimiento de los trabajos: el número de pasos de los trabajos, el número de destinos de los trabajos y la frecuencia con que se ejecutan los trabajos. Por ejemplo, una base de datos S0 puede ser suficiente para un agente de trabajos que ejecute pocos trabajos a la hora y cuyo destino sea inferior a diez bases de datos, pero la ejecución de un trabajo cada minuto podría no ser suficientemente rápida con una base de datos S0 y quizás sea mejor un nivel de servicio superior. 
+La *base de datos de trabajos* no necesita ser nueva literalmente, pero debe estar vacía y pertenecer al objetivo de servicio S0 o superior. El objetivo de servicio recomendado de la *base de datos de trabajos* es S1 o superior, pero la opción óptima depende de las necesidades de rendimiento de los trabajos: el número de pasos de los trabajos, el número de destinos de los trabajos y la frecuencia con que se ejecutan los trabajos. Por ejemplo, una base de datos S0 puede ser suficiente para un agente de trabajos que ejecute pocos trabajos a la hora y cuyo destino sea inferior a diez bases de datos, pero la ejecución de un trabajo cada minuto podría no ser suficientemente rápida con una base de datos S0 y quizás sea mejor un nivel de servicio superior.
 
-Si las operaciones realizadas en la base de datos de trabajos son más lentas de lo esperado, [supervise](sql-database-monitor-tune-overview.md#monitor-database-performance) el rendimiento de la base de datos y el uso de los recursos en la base de datos de trabajos durante los períodos de lentitud mediante Azure Portal o la vista de administración dinámica [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Si la utilización de un recurso, como la CPU, la E/S de datos o el registro de escritura, se aproxima al 100 % y se correlaciona con períodos de lentitud, considere la posibilidad de escalar incrementalmente la base de datos a objetivos de servicio más altos (ya sea en el [modelo de DTU](sql-database-service-tiers-dtu.md) o en el [modelo de núcleo virtual](sql-database-service-tiers-vcore.md)) hasta que el rendimiento de la base de datos mejore lo suficiente.
-
+Si las operaciones realizadas en la base de datos de trabajos son más lentas de lo esperado, [supervise](sql-database-monitor-tune-overview.md#sql-database-resource-monitoring) el rendimiento de la base de datos y el uso de los recursos en la base de datos de trabajos durante los períodos de lentitud mediante Azure Portal o la vista de administración dinámica [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Si la utilización de un recurso, como la CPU, la E/S de datos o el registro de escritura, se aproxima al 100 % y se correlaciona con períodos de lentitud, considere la posibilidad de escalar incrementalmente la base de datos a objetivos de servicio más altos (ya sea en el [modelo de DTU](sql-database-service-tiers-dtu.md) o en el [modelo de núcleo virtual](sql-database-service-tiers-vcore.md)) hasta que el rendimiento de la base de datos mejore lo suficiente.
 
 ##### <a name="job-database-permissions"></a>Permisos de la base de datos de trabajos
 
 Durante la creación del agente de trabajos, se crean un esquema, tablas y un rol llamado *jobs_reader* en la *base de datos de trabajos*. El rol se crea con los permisos siguientes y está diseñado para proporcionar a los administradores un mayor control de acceso para la supervisión de trabajos:
 
-
-|Nombre de rol  |permisos del esquema "jobs"  |permisos del esquema "jobs_internal"  |
+|Nombre de rol |permisos del esquema "jobs" |permisos del esquema "jobs_internal" |
 |---------|---------|---------|
-|**jobs_reader**     |    SELECT     |    None     |
+|**jobs_reader** | SELECT | None |
 
 > [!IMPORTANT]
 > Tenga en cuenta las implicaciones de seguridad antes de conceder acceso a la *base de datos de trabajos* como un administrador de base de datos. Un usuario malintencionado con permisos para crear o editar trabajos puede crear o modificar un trabajo que utiliza una credencial almacenada para conectarse a una base de datos bajo el control del usuario malintencionado, lo que podría permitir que el usuario malintencionado determinara la contraseña de la credencial.
-
-
 
 #### <a name="target-group"></a>Grupo de destino
 
@@ -246,7 +243,6 @@ El **Ejemplo 2** muestra un grupo de destino que contiene un servidor de Azure S
 El **Ejemplo 3** muestra un grupo de destino similar al del *Ejemplo 2*, pero se excluye específicamente una base de datos individual. La acción del paso de trabajo *no* se ejecutará en la base de datos excluida.<br>
 El **Ejemplo 4** muestra un grupo de destino que contiene un grupo elástico como destino. De forma similar al *Ejemplo 2*, el grupo se enumerará dinámicamente en tiempo de ejecución del trabajo para determinar la lista de bases de datos del grupo.
 <br><br>
-
 
 ![Ejemplos de grupo de destino](media/elastic-jobs-overview/targetgroup-examples2.png)
 
@@ -287,7 +283,7 @@ Para asegurarse de que los recursos no están sobrecargados al ejecutar trabajos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Qué es el Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) 
-- [Creación y administración de trabajos elásticos](elastic-jobs-overview.md) 
-- [Creación y administración de trabajos elásticos mediante PowerShell](elastic-jobs-powershell.md) 
-- [Creación y administración de trabajos elásticos mediante Transact-SQL (T-SQL)](elastic-jobs-tsql.md) 
+- [Qué es el Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [Creación y administración de trabajos elásticos](elastic-jobs-overview.md)
+- [Creación y administración de trabajos elásticos mediante PowerShell](elastic-jobs-powershell.md)
+- [Creación y administración de trabajos elásticos mediante Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

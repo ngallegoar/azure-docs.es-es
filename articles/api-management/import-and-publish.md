@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: apimpm
 ms.openlocfilehash: 886063dcf886d79ac960814f20b3789e8e3b6839
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78163520"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importación y publicación de la primera API 
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importación y publicación de una API de back-end
+## <a name="import-and-publish-a-backend-api"></a><a name="create-api"> </a>Importación y publicación de una API de back-end
 
 Esta sección explica cómo importar y publicar una API de back-end de especificación de OpenAPI.
  
@@ -84,7 +84,7 @@ Puede llamar a las operaciones de la API directamente desde Azure Portal, que pr
    
    El back-end responde con **200 Aceptar** y algunos datos.
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"></a><a name="next-steps"> </a>Pasos siguientes
 
 En este tutorial, ha aprendido a:
 

@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550951"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223952"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Tutorial: Establecimiento de las conexiones de red y fuente de alimentación para Azure FXT Edge Filer
 
@@ -25,7 +25,7 @@ En este tutorial, aprenderá a:
 > * Orientar los cables mediante el soporte de orientación de cables (CMA)
 > * Conectar la alimentación al dispositivo en bastidor y encenderlo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de iniciar este tutorial, se debe instalar Azure FXT Edge Filer en un bastidor de equipamiento estándar. El CMA se debe instalar en el nodo del archivador. 
 

@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 40dd7066d959b56f4554ea9d0390e8b1eb41e77f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77587573"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importación masiva de datos a la cuenta de SQL API de Azure Cosmos DB mediante el SDK para .NET
@@ -120,13 +120,13 @@ Comencemos por sobrescribir el método `Main` predeterminado y definir las varia
 
 Dentro del método `Main`, agregue el siguiente código para inicializar el objeto CosmosClient:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="CreateClient":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
 
 Una vez habilitada la ejecución en bloque, CosmosClient agrupa internamente las operaciones simultáneas en llamadas de servicio únicas. De este modo, optimiza el uso de la capacidad de proceso, ya que distribuye las llamadas de servicio entre las particiones y, por último, asigna los resultados individuales a los llamadores originales.
 
 Después, se puede crear un contenedor para almacenar todos los elementos.  Defina `/pk` como la clave de partición, 50 000 RU/s como capacidad de proceso aprovisionada y una directiva de indexación personalizada que excluya todos los campos para optimizar el proceso de escritura. Agregue el siguiente código después de la instrucción de inicialización de CosmosClient:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Initialize":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Initialize)]
 
 ## <a name="step-6-populate-a-list-of-concurrent-tasks"></a>Paso 6: Rellenado de una lista de tareas simultáneas
 
@@ -141,22 +141,22 @@ En primer lugar, agregue el paquete Bogus a la solución mediante el comando dot
 
 Establezca la definición de los elementos que desea guardar. Debe definir la clase `Item` en el archivo `Program.cs`:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Model":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Model)]
 
 A continuación, cree una función auxiliar dentro de la clase `Program`. Esta función auxiliar obtendrá el número de elementos que definió para insertar y generará datos aleatorios:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Bogus":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
 
 Lea los elementos y serialícelos en instancias de flujo mediante el uso de la clase `System.Text.Json`. Debido a la naturaleza de los datos generados automáticamente, los datos se serializan como flujos. También puede usar la instancia del elemento directamente, pero si las convierte en flujos, puede aprovechar el rendimiento de las API de flujo de CosmosClient. Por lo general, los datos se pueden usar directamente siempre y cuando se conozca la clave de partición. 
 
 
 Para convertir los datos en instancias de flujo, en el método `Main`, agregue el siguiente código justo después de crear el contenedor:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Operations":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
 
 A continuación, use los flujos de datos para crear tareas simultáneas y rellenar la lista de tareas de modo que se inserten los elementos en el contenedor. Para realizar esta operación, agregue el siguiente código a la clase `Program`:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="ConcurrentTasks":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
 
 Todas estas operaciones de punto simultáneas se ejecutarán juntas (es decir, en bloque) tal como se describe en la sección de introducción.
 

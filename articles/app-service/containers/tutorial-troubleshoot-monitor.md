@@ -6,10 +6,10 @@ ms.author: msangapu
 ms.topic: tutorial
 ms.date: 2/28/2020
 ms.openlocfilehash: d543a9364311b2cf5f0258fbf9185d27bb1bfb2f
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78399529"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Solución de problemas de una aplicación de App Service con Azure Monitor
@@ -272,7 +272,7 @@ az monitor diagnostic-settings delete --resource $resourceID -n myMonitorLogs
 > * Ha enviado registros a Log Analytics
 > * Ha utilizado consultas de registro para identificar y solucionar problemas de errores de la aplicación web
 
-## <a name="nextsteps"></a> Pasos siguientes
+## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes
 * [Consulta de registros con Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)
 * [Troubleshooting Azure App Service in Visual Studio](../troubleshoot-dotnet-visual-studio.md) (Solución de problemas de Azure App Service en Visual Studio)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) (Análisis de registros de aplicación en HDInsight)

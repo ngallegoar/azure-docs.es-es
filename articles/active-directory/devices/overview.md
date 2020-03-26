@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d593e5f27dbcd676e2b42975251778a6c48a7d79
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 594f0ed55b5ce5c31e87fd2011f3bc1522a12380
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511882"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215833"
 ---
 # <a name="what-is-a-device-identity"></a>¿Qué es una identidad de dispositivo?
 
@@ -37,16 +37,16 @@ La administración de identidades de los dispositivos es la base del [acceso con
 Para obtener un dispositivo en Azure AD, tiene varias opciones:
 
 - **Azure AD registered**
-   - Los dispositivos que están registrados en Azure AD normalmente son dispositivos móviles o de propiedad personal y en ellos se inicia sesión con una cuenta Microsoft personal u otra cuenta local.
+   - Los dispositivos que están registrados en Azure AD normalmente son dispositivos móviles o de propiedad personal y en ellos se inicia sesión con una cuenta personal de Microsoft u otra cuenta local.
       - Windows 10
       - iOS
       - Android
       - MacOS
 - **Azure AD joined**
-   - Los dispositivos que están unidos a Azure AD son propiedad de una organización y en ellos se inicia sesión con una cuenta de Azure AD que pertenece a la organización. Solo existen en la nube.
+   - Los dispositivos que están unidos a Azure AD son propiedad de una organización y en ellos se inicia sesión con una cuenta de Azure AD que pertenece a dicha organización. Solo existen en la nube.
       - Windows 10 
 - **Unido a Azure AD híbrido**
-   - Los dispositivos que están unidos a Azure AD híbridos son propiedad de una organización y en ellos se inicia sesión con una cuenta de Azure AD que pertenece a la organización. Existen en la nube y en el entorno local.
+   - Los dispositivos que están unidos a Azure AD híbridos son propiedad de una organización y en ellos se inicia sesión con una cuenta de Azure AD que pertenece a dicha organización. Existen en la nube y en el entorno local.
       - Windows 7, 8.1 o 10
       - Windows Server 2008 o versiones posteriores
 

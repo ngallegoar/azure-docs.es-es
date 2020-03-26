@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769190"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Agregar mensajes a una cola de Azure Storage con Functions
@@ -26,7 +26,7 @@ Para completar esta guía de inicio rápido:
 
 * Instale [Explorador de Microsoft Azure Storage](https://storageexplorer.com/). Se trata de una herramienta que se va a utilizar para examinar los mensajes en cola que crea el enlace de salida.
 
-## <a name="add-binding"></a>Agregar un enlace de salida
+## <a name="add-an-output-binding"></a><a name="add-binding"></a>Agregar un enlace de salida
 
 En esta sección, se va a utilizar la interfaz de usuario del portal para agregar un enlace de salida de almacenamiento en cola a la función que se ha creado anteriormente. Con este enlace podrá escribir un código mínimo para crear un mensaje en una cola. No tiene que escribir código para tareas como la apertura de una conexión de almacenamiento, la creación de una cola o la obtención de una referencia a una cola. El sistema en tiempo de ejecución de Azure Functions y el enlace de salida en cola se encargan automáticamente de esas tareas.
 
@@ -66,7 +66,7 @@ En esta sección, va a agregar código que escribe un mensaje en la cola de sali
 
 1. Actualice el código de función dependiendo del lenguaje de la función:
 
-    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+    # <a name="c"></a>[C\#](#tab/csharp)
 
     Agregue un parámetro **outputQueueItem** para la firma del método, tal como se muestra en el ejemplo siguiente.
 
@@ -84,7 +84,7 @@ En esta sección, va a agregar código que escribe un mensaje en la cola de sali
     outputQueueItem.Add("Name passed to the function: " + name);
     ```
 
-    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+    # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
     Agregue código que utilice el enlace de salida en el objeto `context.bindings` para crear un mensaje de la cola. Agregue este código antes de la instrucción `context.done`.
 

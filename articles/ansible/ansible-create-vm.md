@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 7ee17fa1ddb0c70921f8a9625944053e71ec016f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 111003718fc82683f1756276132def0aea7b7375
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201933"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239568"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Inicio rápido: Configuración de máquinas virtuales Linux en Azure con Ansible
 
@@ -220,7 +220,7 @@ Esta sección le guía en la ejecución del cuaderno de Ansible de ejemplo prese
 
 1. Cree un archivo (para que contenga el cuaderno) llamado `azure_create_complete_vm.yml` y ábralo en el editor VI como se indica a continuación:
 
-   ```azurecli-interactive
+   ```bash
    vi azure_create_complete_vm.yml
    ```
 

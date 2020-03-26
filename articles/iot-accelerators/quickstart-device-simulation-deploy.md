@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "65467890"
 ---
-# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Inicio rápido: Implementación y ejecución de una simulación de dispositivo IoT en Azure
+# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Guía de inicio rápido: Implementación y ejecución de una simulación de dispositivo IoT en Azure
 
 En esta guía de inicio rápido se muestra cómo implementar una simulación de dispositivo Azure IoT para probar la solución IoT. Después de implementar el acelerador de soluciones, se ejecuta una simulación de ejemplo para empezar a trabajar.
 
@@ -64,7 +64,7 @@ Cuando se abre por primera vez, verá el panel de la simulación de dispositivo 
 
 Al ser una simulación de ejemplo, no se puede modificar. La simulación está configurada con los siguientes valores:
 
-| Configuración             | Valor                       |
+| Configuración             | Value                       |
 | ------------------- | --------------------------- |
 | IoT Hub de destino      | Usar un centro de IoT aprovisionado previamente |
 | Modelo de dispositivo        | Camión                       |

@@ -17,10 +17,10 @@ ms.date: 12/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 785242a2cf51571a6d13b2b4691d33e46369bf94
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977906"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Citrix NetScaler (autenticación basada en Kerberos)
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a integrar Citrix NetScaler con Azure Active Direc
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -78,7 +78,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Citrix Net
 
     1. [Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user), para probar el inicio de sesión único (SSO) de Azure AD con el usuario B.Simon.
 
-    1. [Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user), para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
+    1. [Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user), para que B.Simon pueda usar el inicio de sesión único de Azure AD.
 
 1. [Configuración del inicio de sesión único de Citrix NetScaler](#configure-citrix-netscaler-sso), para configurar el inicio de sesión único (SSO) en la aplicación.
 
@@ -128,7 +128,7 @@ En esta sección va a crear un usuario de prueba llamado B.Simon en Azure Portal
 
 1. Seleccione **Nuevo usuario** en la parte superior del panel.
 
-1. En las propiedades de **usuario**, realice estos pasos:
+1. En las propiedades de **Usuario**, realice estos pasos:
 
    1. En **Nombre**, escriba `B.Simon`.  
 
@@ -189,7 +189,7 @@ Para crear un servidor virtual:
 
 Para configurar el equilibrador de carga:
 
-1. Vaya a **Traffic Management** (Administración del tráfico)  > **Load Balancing** (Equilibrio de carga)  > **Virtual Servers** (Servidores virtuales).
+1. Vaya a **Traffic Management** > **Load Balancing** > **Services** (Administración del tráfico > Equilibrio de carga > Servicios).
 
 1. Seleccione **Agregar**.
 
@@ -244,7 +244,7 @@ Para crear una directiva de autenticación:
 
     * **Name**: escriba un nombre para la directiva de autenticación.
     * **Acción**: Escriba **SAML** y seleccione **Add** (Agregar).
-    * **Expression** (Expresión):  Escriba **true**.     
+    * **Expression** (Expresión):  escriba **true**.     
     
     ![Configuración de Citrix NetScaler: panel Create Authentication Policy (Crear directiva de autenticación)](./media/citrix-netscaler-tutorial/policy01.png)
 

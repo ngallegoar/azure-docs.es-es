@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 4361cee3d07408c3abb5031d2ab18c15c92c5e0a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595814"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222812"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>Tutorial: Copia de datos a Azure Data Box Heavy mediante NFS
 
@@ -22,11 +22,11 @@ En este tutorial se describe cómo conectarse al equipo host y copiar datos desd
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Requisitos previos
+> * Prerrequisitos
 > * Conexión a un dispositivo Data Box Heavy
 > * Copia de datos a Data Box Heavy
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que:
 
@@ -156,7 +156,7 @@ Para garantizar la integridad de los datos, la suma de comprobación se calcula 
 En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Data Box Heavy, como:
 
 > [!div class="checklist"]
-> * Requisitos previos
+> * Prerrequisitos
 > * Conexión a un dispositivo Data Box Heavy
 > * Copia de datos a Data Box Heavy
 

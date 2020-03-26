@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73062547"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Adición de una aplicación de la galería a la organización de Azure AD
@@ -70,13 +70,13 @@ Azure Active Directory (Azure AD) dispone de una galería que contiene miles 
        | Configuración de propiedades de la aplicación | | | Experiencia del usuario asignado | |
        |---|---|---|---|---|
        | ¿Habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden los usuarios asignados iniciar sesión? | ¿Pueden ver los usuarios asignados la aplicación?* |
-       | Sí | Sí | Sí | Sí | Sí  |
-       | Sí | Sí | no  | Sí | no   |
-       | Sí | no  | Sí | Sí | Sí  |
-       | Sí | no  | no  | Sí | no   |
-       | no  | Sí | Sí | no  | no   |
-       | no  | Sí | no  | no  | no   |
-       | no  | no  | Sí | no  | no   |
+       | sí | sí | sí | sí | sí  |
+       | sí | sí | no  | sí | no   |
+       | sí | no  | sí | sí | sí  |
+       | sí | no  | no  | sí | no   |
+       | no  | sí | sí | no  | no   |
+       | no  | sí | no  | no  | no   |
+       | no  | no  | sí | no  | no   |
        | no  | no  | no  | no  | no   |
 
       Comportamiento para los usuarios **no asignados**:
@@ -84,13 +84,13 @@ Azure Active Directory (Azure AD) dispone de una galería que contiene miles 
        | Configuración de propiedades de la aplicación | | | Experiencia del usuario no asignado | |
        |---|---|---|---|---|
        | ¿Está habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden iniciar sesión los usuarios no asignados? | ¿Pueden ver la aplicación los usuarios no asignados?* |
-       | Sí | Sí | Sí | no  | no   |
-       | Sí | Sí | no  | no  | no   |
-       | Sí | no  | Sí | Sí | no   |
-       | Sí | no  | no  | Sí | no   |
-       | no  | Sí | Sí | no  | no   |
-       | no  | Sí | no  | no  | no   |
-       | no  | no  | Sí | no  | no   |
+       | sí | sí | sí | no  | no   |
+       | sí | sí | no  | no  | no   |
+       | sí | no  | sí | sí | no   |
+       | sí | no  | no  | sí | no   |
+       | no  | sí | sí | no  | no   |
+       | no  | sí | no  | no  | no   |
+       | no  | no  | sí | no  | no   |
        | no  | no  | no  | no  | no   |
 
      ¿*Puede el usuario ver la aplicación en el panel de acceso y el iniciador de aplicaciones de Office 365?

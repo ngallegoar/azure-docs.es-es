@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo crear su primera función de Azure
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.openlocfilehash: 1492188f72eb4a691ddceb78aa269601f192e467
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76963842"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Creación de una aplicación de función en Linux en un plan de Azure App Service
@@ -57,7 +57,7 @@ Debe tener una aplicación de función para hospedar la ejecución de las funcio
 
 Después, cree una función en la nueva Function App. Incluso después de que la aplicación de función está disponible, puede tardar unos minutos en inicializarse totalmente.
 
-## <a name="create-function"></a>Crear una función desencadenada por HTTP
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Crear una función desencadenada por HTTP
 
 En esta sección se muestra cómo crear una función en la nueva aplicación de función en el portal.
 

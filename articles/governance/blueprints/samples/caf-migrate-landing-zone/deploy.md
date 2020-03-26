@@ -4,10 +4,10 @@ description: Pasos de implementación del ejemplo de plano técnico de la zona d
 ms.date: 08/20/2019
 ms.topic: sample
 ms.openlocfilehash: da17083e8e1b27739288a9d9ac087d071ff4861c
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74545458"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implementación del ejemplo de plano técnico de la zona de aterrizaje de migración de Microsoft Cloud Adoption Framework para Azure
@@ -101,7 +101,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
 En la tabla siguiente se proporciona una lista de los parámetros del artefacto de plano técnico:
 
-|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
+|Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Descripción|
 |-|-|-|-|
 |Implementación de la zona de aterrizaje de red virtual|Plantilla de Resource Manager|IPAddress_Space|**Bloqueado**: proporcione el ejemplo de los dos primeros octetos, 10.0.|
 |Implementación de Key Vault|Plantilla de Resource Manager|KV-AccessPolicy|**Bloqueado**: grupo o identificador de objeto de usuario al que conceder permisos en Key Vault.|
