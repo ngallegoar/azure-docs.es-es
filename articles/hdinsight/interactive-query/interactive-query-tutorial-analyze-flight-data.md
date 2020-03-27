@@ -9,10 +9,10 @@ ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
 ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494163"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Interactive Query en Azure HDInsight
@@ -28,7 +28,7 @@ En este tutorial se describen las tareas siguientes:
 > * Creación de una tabla en una base de datos de Azure SQL
 > * Uso de Sqoop para exportar datos a la base de datos de Azure SQL
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Interactive Query en HDInsight. Consulte el artículo [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **Interactive Query** como **Tipo de clúster**.
 
@@ -42,7 +42,7 @@ En este tutorial se describen las tareas siguientes:
 
 2. En la página, desactive todos los campos y, a continuación, seleccione los valores siguientes:
 
-   | NOMBRE | Valor |
+   | Nombre | Value |
    | --- | --- |
    | Filter Year |2019 |
    | Filter Period |January |
