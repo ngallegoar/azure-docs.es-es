@@ -1,5 +1,5 @@
 ---
-title: 'Error no se encontraron suscripciones: inicio de sesión de Azure Portal | Microsoft Docs'
+title: 'Error de suscripciones no encontradas: inicio de sesión de Azure Portal'
 description: Proporciona la solución para un problema en el que se produce un error del tipo No se encontraron suscripciones al iniciar sesión en Azure Portal o en el Centro de cuentas de Azure.
 author: genlin
 ms.reviewer: dcscontentpm
@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 5011f0a09e33221650cf050578db5ab1d6b0a033
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 709d30d3d8563b07c73658a0a9d96748615eb899
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200629"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202886"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Error de inicio de sesión No se encontraron suscripciones en Azure Portal o en el Centro de cuentas de Azure
 

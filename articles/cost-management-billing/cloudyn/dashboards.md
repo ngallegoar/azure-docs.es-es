@@ -1,24 +1,26 @@
 ---
-title: Visualización de las métricas clave con los paneles de Cloudyn en Azure | Microsoft Docs
+title: Visualización de las métricas principales con los paneles de Cloudyn en Azure
 description: Este artículo describe cómo ver las métricas principales desde los paneles de Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 78af8f2541eb0b28d75be89612d158c889261adc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 892df9a6e0eb4d791f818eed0a78c96a829e25a0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770124"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79464230"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Vista de las métricas clave de costos con paneles
 
 Los paneles en Cloudyn proporcionan una visión general de los informes. Los paneles le permiten ver las métricas clave de costos en una sola vista. También proporcionan aspectos destacados sobre las tendencias comerciales para ayudarle a tomar decisiones empresariales importantes.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 Los paneles también se utilizan para crear vistas para los usuarios con responsabilidades diferentes en su organización, incluidos:
 

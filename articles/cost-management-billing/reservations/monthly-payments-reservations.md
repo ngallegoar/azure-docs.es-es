@@ -5,36 +5,24 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.author: banders
-ms.openlocfilehash: 77d663fa01e24acf63acd68d0b8d7cf4cc741055
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: ede60adc13dadc38e18ee5ade468e01b16523f4f
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587097"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80235739"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Compra de reservas con pagos mensuales
 
-Hasta ahora, las reservas de Azure requerían el pago por adelantado. Ahora puede pagar las reservas mensualmente. A diferencia de la compra por adelantado (importe total), la opción de pago mensual divide el costo de la reserva en partes iguales cada mes del período. El costo total de las reservas por adelantado y mensuales es el mismo y no se pagan cargos adicionales por elegir el pago mensual.
+Ahora puede pagar las reservas mensualmente. A diferencia de la compra por adelantado (importe total), la opción de pago mensual divide el costo de la reserva en partes iguales cada mes del período. El costo total de las reservas por adelantado y mensuales es el mismo y no se pagan cargos adicionales por elegir el pago mensual.
 
-El importe del pago mensual puede variar en función del tipo de cambio de su divisa en el mes en curso.
+Si la reserva se adquiere mediante un contrato de cliente de Microsoft (MCA), el importe del pago mensual puede variar en función de la tasa de cambio actual del mercado correspondiente a su moneda local.
 
-Los pagos mensuales están disponibles para:
+Los pagos mensuales están disponibles para: Databricks, reservas de SUSE Linux, planes de Red Hat y proceso de Azure Red Hat OpenShift.
 
-- Máquinas virtuales
-- Azure Storage
-- Instancias de SQL Database
-- SQL Data Warehouse
-- Cosmos DB
-- Impuesto sobre el timbre de App Service
-- Disco administrado
-- Explorador de datos de Azure
-- Azure Database for MariaDB, MySQL y PostgreSQL
-- Azure VMware Solution by CloudSimple
-
-
-Realice reservas en [Azure Portal](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
+Realice reservas en [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs).
 
 ![Ejemplo que muestra una reserva](./media/monthly-payments-reservations/purchase-reservation.png)
 
@@ -58,11 +46,11 @@ Al renovar una reserva, puede cambiar la frecuencia de facturación a mensualmen
 
 ## <a name="exchange-and-refunds"></a>Cambios y reembolsos
 
-Al igual que otras reservas, con la facturación mensual se pueden reembolsar o cambiar. Actualmente puede enviar una solicitud de soporte técnico para iniciar un cambio o reembolso de una reserva adquirida con facturación mensual.
+Al igual que otras reservas, con la facturación mensual se pueden reembolsar o cambiar. 
 
 Al cambiar una reserva pagada mensualmente, el costo total de la nueva compra debe ser mayor que los pagos restantes que se cancelan de la reserva devuelta. No hay ningún otro límite ni tarifa por los cambios. Puede cambiar una reserva pagada por adelantado para comprar una nueva que se facture mensualmente. Sin embargo, el valor de la duración de la nueva reserva debe ser mayor que el prorrateado de la reserva que se va a devolver.
 
-Si cancela una reserva de pago mensual, es posible que Microsoft aplique una cuota de cancelación del 12 % a los pagos confirmados cancelados. Sin embargo, Microsoft no cobra actualmente la penalización. Los pagos confirmados cancelados se acumulan en el límite de reembolso de 50 000 USD. Si se cobra una penalización por cancelación, el límite de reembolso no resulta afectado.
+Si cancela una reserva que se paga mensualmente, los pagos futuros cancelados se acumularán hasta el límite de reembolso de 50 000 USD.
 
 Para más información sobre los cambios y los reembolsos, consulte [Autoservicio de cambios y reembolsos de reservas de Azure](exchange-and-refund-azure-reservations.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Vinculación de una cuenta de Azure a un Id. de partner | Microsoft Docs
+title: Vinculación de una cuenta de Azure a un identificador de asociado
 description: Controle las interacciones con clientes de Azure vinculando un Id. de partner a la cuenta de usuario que utiliza para administrar los recursos del cliente.
 author: dhirajgandhi
 ms.reviewer: dhgandhi
@@ -7,18 +7,18 @@ ms.author: banders
 ms.date: 02/13/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: 761f4345c591864b8158d7216d737ac287692252
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: c3f5dd4d1b67f5b1079a56d5c3428d286fd9d77f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651396"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204807"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
-Los asociados de Microsoft proporcionan servicios que ayudan a los clientes lograr los objetivos del negocio y la misión con productos de Microsoft. Cuando actúa en nombre del cliente que administra y configura los servicios de Azure y les da soporte, los usuarios asociados deberán acceder al entorno del cliente. Mediante el vínculo de administración de socios, puede asociar su identificador de red de asociado con las credenciales usadas para la entrega del servicio.
+Los asociados de Microsoft proporcionan servicios que ayudan a los clientes lograr los objetivos del negocio y la misión con productos de Microsoft. Cuando actúa en nombre del cliente que administra y configura los servicios de Azure y les da soporte, los usuarios asociados deberán acceder al entorno del cliente. Mediante el vínculo de administración de asociados (PAL), puede asociar su identificador de red de asociado con las credenciales usadas para la entrega del servicio.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+PAL permite que Microsoft identifique y reconozca a los asociados que impulsan el éxito de los clientes de Azure. Microsoft puede atribuir la influencia y los ingresos consumidos por Azure a su organización en función de los permisos de la cuenta (rol RBAC) y el ámbito (suscripción, grupo de recursos, recurso).
 
 ## <a name="get-access-from-your-customer"></a>Obtención de acceso del cliente
 

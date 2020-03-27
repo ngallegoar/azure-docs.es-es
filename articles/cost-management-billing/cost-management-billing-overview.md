@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: c2d039dbf2ac7cfaeaad7ad038eb669337243cce
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 3314d00651fc5e0473d84710803671f2ad45f005
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970118"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474533"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>¿Qué es Administración de costos + facturación de Azure?
 
@@ -89,13 +89,13 @@ Las recomendaciones le muestran cómo optimizar y mejorar la eficiencia mediante
 
 Si usa los sistemas externos para acceder o revisar los datos de administración de costos, puede exportar los datos fácilmente desde Azure. Y puede establecer una exportación programada diariamente en formato CSV y almacenar los archivos de datos en el almacenamiento de Azure. A continuación, puede tener acceso a los datos desde el sistema externo.
 
-### <a name="consider-cloudyn"></a>Considere la posibilidad de Cloudyn
+### <a name="cloudyn-deprecation"></a>Desuso de Cloudyn
 
-[Cloudyn](./cloudyn/overview.md) es un servicio de Azure relacionado con Cost Management. Con Cloudyn, puede realizar un seguimiento de los gastos y el uso de la nube para los recursos de Azure. También admite otros proveedores de nube, como AWS y Google. Los sencillos informes del panel proporcionan ayuda con la asignación de costos, los contracargos y la visibilidad de los gastos. Actualmente, Cost Management no es compatible con la visualización ni los contracargos, ni con otros proveedores de servicios en la nube. No obstante, Cloudyn es una opción que _sí_ es compatible. Actualmente, Cost Management no admite las cuentas del Proveedor de servicios en la nube (CSP) de Microsoft, pero Cloudyn sí lo hace. Si tiene las cuentas de CSP o si quiere usar visualización y contracargo de costos, puede usar Cloudyn para administrar los costos.
-
-Vea el [vídeo de Azure Cost Management y Cloudyn](https://www.youtube.com/watch?v=PmwFWwSluh8) para obtener recomendaciones de cuándo debe usar Azure Cost Management o Cloudyn, según sus necesidades empresariales.
-
->[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
+[Cloudyn](./cloudyn/overview.md) es un servicio de Azure relacionado con Cost Management que pasará a estar en desuso a finales de 2020. Las características de Cloudyn existentes se están integrando directamente en Azure Portal siempre que es posible. En este momento no se incorporan nuevos clientes, pero se mantendrá el soporte técnico para el producto hasta que esté completamente en desuso.
+ 
+Vea el [vídeo de Azure Cost Management y Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) para saber cuándo debe usar Azure Cost Management o Cloudyn, según sus necesidades empresariales.
+ 
+>[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ### <a name="additional-azure-tools"></a>Herramientas de Azure adicionales
 

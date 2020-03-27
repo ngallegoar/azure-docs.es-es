@@ -3,21 +3,25 @@ title: 'Tutorial: Reducción de los costos de Azure con recomendaciones'
 description: Este tutorial le ayudará a reducir los costos de Azure cuando siga las recomendaciones de optimización.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 6f84b3fb75a3774dc14fd1ea045ab9cf1eeb5451
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: de558ddad37e1621c633d26fff51d1506c237577
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245407"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155926"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Optimización de los costos a partir de las recomendaciones
 
 Azure Cost Management funciona con Azure Advisor para proporcionar recomendaciones de optimización de costos. Azure Advisor le ayuda a optimizar y mejorar la eficiencia mediante la identificación de recursos inactivos e infrautilizados. Este tutorial le guiará a través de un ejemplo donde identificará los recursos de Azure infrautilizados y, a continuación, adoptará medidas para reducir los costos.
+
+Vea el vídeo [Optimización de las inversiones en la nube en Azure Cost Management](https://www.youtube.com/watch?v=cSNPoAb-TNc) para aprender a usar Advisor para optimizar los costos.
+
+>[!VIDEO https://www.youtube.com/embed/cSNPoAb-TNc]
 
 En este tutorial, aprenderá a:
 
@@ -32,7 +36,7 @@ Hay recomendaciones disponibles para varios tipos de cuenta y ámbitos de Azure.
 - Subscription
 - Resource group
 
-Si su suscripción es nueva, no podrá usar las características de Cost Management de inmediato. Para poder hacerlo deberán transcurrir un máximo de 48 horas. También debe tener máquinas virtuales activas con un mínimo de 14 días de actividad.
+Si su suscripción es nueva, no podrá usar inmediatamente las características de Cost Management. Para poder hacerlo deberán transcurrir un máximo de 48 horas. También debe tener máquinas virtuales activas con un mínimo de 14 días de actividad.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com/).

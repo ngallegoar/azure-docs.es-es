@@ -1,5 +1,5 @@
 ---
-title: Descarga de los datos de uso diario y la factura de Azure | Microsoft Docs
+title: Descarga de los datos de uso diario y facturación de Azure
 description: En este artículo se describe cómo descargar o ver los datos de uso diario y la factura de facturación de Azure.
 keywords: factura, facturación, descarga de factura, factura de Azure, uso de Azure
 author: genlin
@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: af2184d7faa2ace8ed1043eaf2aaec0d525bc937
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 629ab8a0f2af789501e6365c94f4ce7f3fd3649c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79125639"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237690"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Procedimiento para descargar las datos de uso diario y de factura de Azure
 
@@ -62,7 +62,7 @@ Las facturas se generan para cada [perfil de facturación](../understand/mca-ove
 6. En el menú contextual de descarga, seleccione **Factura**.
 
 Si no ve una factura del último período de facturación, consulte **Información adicional**. <!-- Fix this -->
-### <a name="noinvoice"></a> ¿Por qué no veo una factura para el último período de facturación?
+### <a name="why-dont-i-see-an-invoice-for-the-last-billing-period"></a><a name="noinvoice"></a> ¿Por qué no veo una factura para el último período de facturación?
 
 Pueden existir varias razones por las que no ve una factura:
 

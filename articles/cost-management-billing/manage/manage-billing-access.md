@@ -1,5 +1,5 @@
 ---
-title: Administración del acceso a la facturación de Azure | Microsoft Docs
+title: Administración del acceso a la facturación de Azure
 description: Obtenga información acerca de cómo acceder a la información de facturación de Azure para los miembros del equipo.
 author: vikramdesai01
 ms.reviewer: amberb
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 5a4d725d88ee38bb68ea3da4f3e2a6a9bfc7e201
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: e7a6f105c6c8292e8e95b388d60dd95c3548dbb5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200700"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237673"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Administración del acceso a la información de facturación de Azure
 
@@ -44,7 +44,7 @@ Para asignar los roles, consulte [Administración del acceso mediante RBAC y Azu
 ** Si es cliente de EA, un propietario de la cuenta puede asignar el rol anterior a otros usuarios de su equipo. Pero para que estos usuarios puedan ver la información de facturación, el administrador de Enterprise debe permitir la visualización de cargos del PC en Enterprise Portal.
 
 
-### <a name="opt-in"></a> Permitir que los usuarios descarguen facturas
+### <a name="allow-users-to-download-invoices"></a><a name="opt-in"></a> Permitir que los usuarios descarguen facturas
 
 Una vez que un administrador de cuenta ha asignado los roles correspondientes a otros usuarios, estos deben activar el acceso para descargar facturas en Azure Portal. Las facturas anteriores a diciembre de 2016 solo están disponibles para el administrador de cuenta.
 

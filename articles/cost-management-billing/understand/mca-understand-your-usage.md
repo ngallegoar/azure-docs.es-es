@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: ef6ef96bf248c449b318cebaba9c53f63e448855
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c6883dfd0f4c3bc11afdd68ead8c8c84729b1880
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199167"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065701"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Términos en el archivo de uso y cargos de Azure para un contrato de cliente de Microsoft
 
@@ -23,7 +23,7 @@ El archivo .csv de cargos y de uso de Azure contiene los cargos por uso diario y
 
 Para obtener el archivo de cargos y de uso de Azure, consulte [Visualización y descarga de cargos y de uso de Azure del contrato de cliente de Microsoft](download-azure-daily-usage.md). Está disponible en un formato de archivo de valores separados por comas (.csv) que se puede abrir en una aplicación de hoja de cálculo.
 
-Los cargos de uso son los cargos **mensuales** totales de una suscripción. Los cargos de uso no tienen en cuenta los créditos o descuentos.
+Los cargos de uso son los cargos **mensuales** totales de una suscripción. Los cargos por uso no tienen en cuenta créditos ni descuentos.
 
 ## <a name="changes-from-azure-ea-usage-and-charges"></a>Cambios en el uso y los cargos de Azure EA
 
@@ -88,6 +88,8 @@ meterCategory | El nombre de la categoría de clasificación del medidor. Por ej
 meterSubCategory | Nombre de la categoría de subclasificación del medidor
 meterRegion | Nombre de la región donde está disponible el medidor para el servicio. Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos.
 offer | Nombre de la oferta comprada
+PayGPrice | Precio comercial del recurso.
+PricingModel | Identificador que indica cómo se calcula el precio del medidor (valores: a petición, reserva, al contado)
 productId | Identificador único para el producto que acumula los cargos
 product | Nombre del producto que acumula los cargos
 Id. de suscripción | Identificador único para la suscripción que acumula los cargos

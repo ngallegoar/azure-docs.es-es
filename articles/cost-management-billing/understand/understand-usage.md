@@ -6,14 +6,14 @@ ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: e45ef26f3d0a4b968b601e70658c5f3680492682
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3b4a5601f18a07ba1ecd6fdd93628d671a0acad2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199031"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065637"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprenda los términos en el archivo de uso y cargos de Azure
 
@@ -23,9 +23,9 @@ En la tabla siguiente se cubren los cargos que se incluyen para cada tipo de cue
 
 Tipo de cuenta | Uso de Azure | Uso de Marketplace | Compras | Reembolsos
 --- | --- | --- | --- | ---
-Contrato Enterprise (EA) | Sí | Sí | Sí | Sin
+Contrato Enterprise (EA) | Sí | Sí | Sí | No
 Contrato de cliente de Microsoft (MCA) | Sí | Sí | Sí | Sí
-Pay-as-you-go (PAYG) | Sí | Sí | Sin | Sin
+Pay-as-you-go (PAYG) | Sí | Sí | No | No
 
 Para más información sobre los pedidos de Marketplace (también conocidos como servicios externos), consulte [Descripción de los gastos de servicios externos de Azure](understand-azure-marketplace-charges.md).
 
@@ -74,10 +74,12 @@ MeterName | All | Nombre del medidor.
 MeterRegion | All | Nombre de la ubicación del centro de datos para los servicios cuyo precio se basa en la ubicación. Véase Ubicación.
 MeterSubCategory | All | El nombre de la categoría de subclasificación del medidor.
 OfferId<sup>1</sup> | All | Nombre de la oferta comprada.
+PayGPrice | All | Precio comercial del recurso.
 PartNumber<sup>1</sup> | EA, pago por uso | Identificador que se usa para obtener los precios específicos de medidor.
 PlanName | EA, pago por uso | Nombre del plan de Marketplace.
 PreviousInvoiceId | MCA | Referencia a una factura original si este elemento de línea es un reembolso.
 PricingCurrency | MCA | Moneda que se usa cuando la clasificación se basa en precios negociados.
+PricingModel | All | Identificador que indica cómo se calcula el precio del medidor. (Valores: a petición, reserva, al contado)
 Producto | All | Nombre del producto.
 ProductId<sup>1</sup> | MCA | Identificador único del producto.
 ProductOrderId | All | Identificador único del pedido de producto.

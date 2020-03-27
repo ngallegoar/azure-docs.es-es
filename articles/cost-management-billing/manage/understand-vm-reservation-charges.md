@@ -1,17 +1,17 @@
 ---
-title: Información sobre el descuento de Azure Reserved VM Instances | Microsoft Docs
+title: Información sobre el descuento de Azure Reserved VM Instances
 description: Obtenga información sobre cómo se aplica el descuento de Azure Reserved VM Instance a las máquinas virtuales en ejecución.
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 89b1e22419564e4cc46124a9d3e6ca26f81defa0
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: ca54d5a0d196cbc39256668f21e19bdf9162dfbf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200459"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202797"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Aplicación del descuento por reserva de Azure en las máquinas virtuales
 

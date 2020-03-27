@@ -1,26 +1,28 @@
 ---
-title: Uso de los informes de Cloudyn en Azure | Microsoft Docs
+title: Uso de informes de Cloudyn en Azure
 description: En este artículo se describe el propósito de los informes de Cloudyn que se incluyen en el portal de Cloudyn para ayudarlo a usarlas de manera eficaz.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b3563e08963b0b32542dcbece2529c350981f557
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 633bf8126c1745cfd8db117966975bbf4ea2c9c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200017"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463550"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Informes disponibles en el portal de Cloudyn
 
 En este artículo se describe el propósito de los informes de Cloudyn que se incluyen en el portal de Cloudyn. También se describe cómo puede usar eficazmente los informes. La mayoría de los informes son intuitivos y tienen un aspecto uniforme. La mayor parte de las acciones que puede realizar en un informe también puede hacerlas en otros informes. Para información general sobre cómo usar los informes de Cloudyn, lo que incluye cómo personalizarlos, guardarlos o programarlos, consulte [Informes de costos](understanding-cost-reports.md).
 
 Azure Cost Management ofrece una funcionalidad similar a Cloudyn. Azure Cost Management es una solución de administración de costos de Azure nativa. Le ayuda a analizar costos, crear y administrar presupuestos, exportar datos y revisar y actuar sobre recomendaciones de optimización para ahorrar dinero. Para más información, consulte [Azure Cost Management](../cost-management-billing-overview.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="report-types"></a>Tipos de informes
 

@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Administración de costos con Cloudyn en Azure | Microsoft Docs'
+title: 'Tutorial: Administración de costos con Cloudyn en Azure'
 description: En este tutorial, aprenderá a administrar los costos utilizando informes de asignación, visualización y contracargo de costos.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: c628a30e5a49e6bf9c0938ca8cccc0f349777668
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: a492f611ed5a785ae148894baf3f24c2df773df2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769906"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474584"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Administración de costos mediante Cloudyn
 
@@ -32,7 +32,9 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Debe tener una cuenta de Azure.
 - Debe tener un registro de prueba o una suscripción de pago en Cloudyn.
@@ -46,7 +48,7 @@ Cloudyn obtiene datos de la etiqueta del grupo de recursos de Azure y propaga au
 
 Mediante el modelo de asignación de costos, puede definir categorías (etiquetas) que se aplican internamente a los recursos no categorizados (no etiquetados) para agrupar los costos y puede definir reglas para administrar los costos no etiquetados. Las reglas de asignación de costos son las instrucciones guardadas en las que los costos de un servicio se distribuyen a otro servicio. Posteriormente, esos recursos muestran las etiquetas y categorías en los informes de *asignación de costos* mediante la selección del modelo que creó.
 
-Tenga en cuenta que la información de etiqueta no aparece para esos recursos en los informes de *análisis de costos*. Además, las etiquetas aplicadas en Cloudyn mediante la asignación de costos no se envían a Azure, por lo que no las verá en Azure Portal.
+Tenga en cuenta que la información de la etiqueta no aparece para esos recursos en los informes de *análisis de costos*. Además, las etiquetas aplicadas en Cloudyn mediante la asignación de costos no se envían a Azure, por lo que no las verá en Azure Portal.
 
 Al iniciar la asignación de costos, lo primero que hay que hacer es definir el alcance mediante el uso de un modelo de costos. El modelo de costos no cambia los costos, sino que los distribuye. Al crear un modelo de costos, segmenta los datos por la entidad de costo, la cuenta o la suscripción y con varias etiquetas. Algunas de las etiquetas habituales son el código de facturación, el centro de costos o el nombre del grupo. Las etiquetas también permiten ofrecer una visualización o aplicar un contracargo de gastos a otras partes de su organización.
 

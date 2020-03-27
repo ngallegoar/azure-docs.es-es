@@ -1,17 +1,17 @@
 ---
-title: Consulta del uso de recursos de los servicios de Azure con la API REST | Microsoft Docs
+title: Revisión del uso de recursos de servicios de Azure con la API REST
 description: Aprenda a utilizar las API REST de Azure para consultar el uso de recursos por parte de los servicios de Azure.
 author: lleonard-msft
 ms.service: cost-management-billing
 ms.topic: article
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: f421ddc7cd509527053b099c7e4e538ab84b814e
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 337523c489089eeae5d669252b61cc61478ae1b3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200578"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202852"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Consulta del uso de recursos de Azure con la API REST
 

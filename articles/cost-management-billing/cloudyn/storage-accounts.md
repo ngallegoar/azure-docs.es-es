@@ -1,26 +1,28 @@
 ---
-title: Configuración de cuentas de almacenamiento para Cloudyn en Azure | Microsoft Docs
+title: Configuración de cuentas de almacenamiento para Cloudyn en Azure
 description: En este artículo se describe cómo configurar cuentas de almacenamiento de Azure y cubos de almacenamiento de AWS para Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: ec6c68d209f867ab3547e855f3cf754bc27d53c5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ROBOTS: NOINDEX
+ms.openlocfilehash: c741f303958630415d54cabc62c04430f0b8b89d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117630"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474601"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configuración de cuentas de almacenamiento para Cloudyn
 
 <!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
 Puede guardar los informes de Cloudyn en el portal de Cloudyn, en el almacenamiento de Azure o en cubos de almacenamiento de AWS. El almacenamiento de los informes en el portal de Cloudyn es gratuito. Sin embargo, guardar los informes en el almacenamiento del proveedor de servicios en la nube es opcional y puede conllevar costos adicionales. Este artículo le ayuda a configurar cuentas de almacenamiento de Azure y cubos de almacenamiento de Amazon Web Services (AWS) para almacenar los informes.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

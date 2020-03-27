@@ -1,20 +1,18 @@
 ---
-title: Descripción de los datos de Azure Cost Management | Microsoft Docs
+title: Información sobre los datos de Azure Cost Management
 description: Este artículo le ayudará a comprender mejor qué datos se incluyen en Azure Cost Management y con qué frecuencia se procesan, recopilan, muestran y cierran.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.custom: ''
-ms.openlocfilehash: ff3ed7ee65fd34ef9cd3541832f9cffc306e1aa8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2af84ccf679d28251e34f4c76ced38b0cb653a58
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245371"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203022"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
@@ -22,7 +20,7 @@ Este artículo lo ayudará a comprender mejor los datos de costo y uso de Azure 
 
 Cost Management incluye todo el uso y todas las compras, incluidas reservas y ofertas de terceros para cuentas de Contrato Enterprise (EA). Las cuentas de Contrato de cliente de Microsoft y las suscripciones individuales con tarifas de pago por uso solo incluyen el uso de los servicios de Azure y Marketplace. No se incluyen los costos de soporte técnico ni otros costos. Los costos se calculan hasta que se genera una factura y no tienen en cuenta los créditos.
 
-Si su suscripción es nueva, no podrá usar las características de Cost Management de inmediato. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
+Si su suscripción es nueva, no podrá usar inmediatamente las características de Cost Management. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
 
 ## <a name="supported-microsoft-azure-offers"></a>Ofertas compatibles de Microsoft Azure
 
@@ -165,9 +163,9 @@ Si usa las [API de Cost Management](../index.yml), Power BI o Azure Portal para
 Los costos que se muestran en Cost Management se redondean. Los costos devueltos por la API de consulta no se redondean. Por ejemplo:
 
 - Análisis de costos en Azure Portal: los cargos se redondean mediante reglas de redondeo estándar: los valores de más de 0,5 se redondean al alza; de lo contrario, los costos se redondean a la baja. El redondeo solo se produce cuando se muestran valores. El redondeo no se produce durante el procesamiento y la agregación de datos. Por ejemplo, el análisis de costos agrega costos como se indica a continuación:
-  - Cargo 1: 0,004 USD
+  -    Cargo 1: 0,004 USD
   - Carga 2: 0,004 USD
-  - Costo agregado representado: 0,004 + 0,004 = 0,008. El cargo mostrado es 0,01 USD.
+  -    Costo agregado representado: 0,004 + 0,004 = 0,008. El cargo mostrado es 0,01 USD.
 - API de consulta: los cargos se muestran con ocho posiciones decimales y no se realiza el redondeo.
 
 

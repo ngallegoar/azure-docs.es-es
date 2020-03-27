@@ -1,24 +1,23 @@
 ---
-title: Optimización de la inversión en la nube con Azure Cost Management | Microsoft Docs
+title: Optimización de la inversión en la nube con Azure Cost Management
 description: Este artículo le ayuda a obtener el máximo partido de las inversiones en la nube, reducir los costos y evaluar dónde se invierte su dinero.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 6d13bf4b2a3abd3a1552ac656a6a15fed8c7cb60
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4941c1be8fd20dfa88e3ac36bfa30af77a2b1be1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201074"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80157218"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimización de la inversión en la nube con Azure Cost Management
 
-Azure Cost Management le proporciona herramientas para planear, analizar y reducir los gastos para maximizar la inversión en la nube. Este documento le proporciona un enfoque metódico para la administración de costos y resalta las herramientas disponibles para abordar los desafíos en materia de costos de la organización. Azure facilita la creación e implementación de soluciones en la nube. Sin embargo, es importante que esas soluciones estén optimizadas para minimizar el costo para la organización. Seguir los principios descritos en este documento y el uso de las herramientas le ayudarán a asegurarse de que la organización está preparada para el éxito.
+Azure Cost Management le proporciona herramientas para planear, analizar y reducir los gastos para maximizar la inversión en la nube. Este documento le proporciona un enfoque metódico para la administración de costos y resalta las herramientas disponibles para abordar los desafíos de la organización en materia de costos. Azure facilita la creación e implementación de soluciones en la nube. Sin embargo, es importante que esas soluciones estén optimizadas para minimizar el costo para la organización. Seguir los principios descritos en este documento y el uso de las herramientas le ayudarán a asegurarse de que la organización está preparada para el éxito.
 
 ## <a name="methodology"></a>Metodología
 
@@ -116,7 +115,7 @@ Para más información, consulte la [Calculadora de precios de Azure](https://az
 
 Azure Migrate es un servicio que evalúa las cargas de trabajo actuales de la organización en los centros de datos locales. Proporciona información sobre lo que podría necesitar en una solución de reemplazo de Azure. En primer lugar, Migrate analiza las máquinas locales para determinar si la migración es factible. A continuación, recomienda el tamaño de máquina virtual en Azure para maximizar el rendimiento. Por último, también crea una estimación del costo de una solución basada en Azure.
 
-Para más información, consulte [Azure Migrate](../../site-recovery/migrate-overview.md).
+Para más información, consulte [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview).
 
 ## <a name="analyze-and-manage-your-costs"></a>Análisis y administración de los costos
 
@@ -125,6 +124,11 @@ Manténgase informado acerca de cómo evolucionan los costos de la organización
 ### <a name="organize-and-tag-your-resources"></a>Organización y etiquetado de los recursos
 
 Organice los recursos teniendo en cuenta el costo. Cuando cree las suscripciones y los grupos de recursos, piense en los equipos que son responsables de los costos asociados. Asegúrese de que los informes generados tienen en cuenta la organización. Las suscripciones y los grupos de recursos proporcionan buenos depósitos para organizar y atribuir el gasto en toda la organización. Las etiquetas proporcionan una buena forma de atribuir el costo. Puede usar las etiquetas como un filtro. Y las puede usar para agrupar por ellas al analizar los datos e investigar los costos. Los clientes con contrato Enterprise también pueden crear departamentos y colocar las suscripciones en ellos. La organización basada en el costo de Azure ayuda a que las personas relevantes de la organización sean responsables de la reducción del gasto de su equipo.
+
+Vea el vídeo [Revisión de las directivas de etiquetas con Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para conocer las herramientas disponibles para aplicar el etiquetado de recursos escalable en su organización.
+
+>[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
+
 
 ### <a name="use-cost-analysis"></a>Uso del análisis de costos
 
