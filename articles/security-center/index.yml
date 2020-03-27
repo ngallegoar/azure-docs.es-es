@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: 2896bee8f5a07a7432ca3fa2ca49caa529fdeb1e
-  ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+  ms.openlocfilehash: a1d764ce1ce332290c1bd68c5beb5f2731ae5e41
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 02/25/2020
-  ms.locfileid: "77604782"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80159309"
 landingContent:
 - title: Acerca de Security Center
   linkLists:
@@ -32,15 +32,15 @@ landingContent:
     links:
     - text: Protección de los contenedores
       url: container-security.md
-    - text: Adición de paquetes de cumplimiento dinámicos
-      url: update-regulatory-compliance-packages.md
-    - text: Integración con Windows Admin Center
-      url: windows-admin-center-integration.md
+    - text: Valoración de vulnerabilidades integrada para máquinas virtuales
+      url: built-in-vulnerability-assessment.md
+    - text: Examine los esquemas de las alertas de seguridad
+      url: alerts-schemas.md
     - text: Automatización de respuestas a alertas y recomendaciones
       url: workflow-automation.md
     - text: Exportación de alertas y recomendaciones de seguridad
       url: continuous-export.md
-    - text: Configuración de Advanced Threat Protection para Azure Key Vault
+    - text: Configuración de la protección contra amenazas en Azure Key Vault
       url: advanced-threat-protection-key-vault.md
 - title: Introducción
   linkLists:
@@ -56,8 +56,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: ¿Qué es una puntuación de seguridad?
-      url: security-center-secure-score.md
+    - text: Información acerca de la puntuación de seguridad
+      url: secure-score-security-controls.md
     - text: Corrección de recomendaciones sobre seguridad
       url: security-center-remediate-recommendations.md
     - text: Personalización de las recomendaciones de seguridad

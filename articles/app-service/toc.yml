@@ -87,6 +87,8 @@
           href: networking-features.md
         - name: Application Gateway con puntos de conexión de servicio
           href: networking/app-gateway-with-service-endpoints.md
+        - name: Punto de conexión privado
+          href: networking/private-endpoint.md
     - name: Direcciones IP de entrada y salida
       href: overview-inbound-outbound-ips.md
     - name: Integración de Virtual Network
@@ -175,6 +177,8 @@
           href: configure-ssl-certificate-in-code.md
         - name: Configuración de la autenticación mutua TLS
           href: app-service-web-configure-tls-mutual-auth.md
+        - name: Cifrado de datos del sitio
+          href: configure-encrypt-at-rest-using-cmk.md
     - name: Escalado de aplicación
       items:
         - name: Escalado vertical de la capacidad del servidor
@@ -210,7 +214,7 @@
         - name: Movimiento entre regiones
           href: manage-move-across-regions.md
         - name: Movimiento de suscripciones
-          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
+          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources'
     - name: Ejecución de tareas en segundo plano
       items:
         - name: Creación de WebJobs

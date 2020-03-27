@@ -86,6 +86,8 @@
       href: publish-apps.md
     - name: Configuración de la asociación de aplicaciones en formato .MSIX
       href: app-attach.md
+    - name: Uso de Microsoft Teams
+      href: teams-on-wvd.md
 - name: Conceptos
   items:
     - name: Entorno de Windows Virtual Desktop

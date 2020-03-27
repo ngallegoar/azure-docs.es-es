@@ -1,5 +1,5 @@
 - name: Documentación de StorSimple
-  href: index.md
+  href: index.yml
 - name: StorSimple Virtual Array
   items:
     - name: Información general
@@ -131,7 +131,7 @@
               href: storsimple-8000-limits.md
             - name: Procedimientos recomendados
               href: 'https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68'
-        - name: Instalación
+        - name: Instalar
           items:
             - name: Revisar la seguridad
               href: storsimple-8000-safety.md
@@ -159,7 +159,7 @@
               href: storsimple-adapter-for-sharepoint.md
     - name: Procedimientos
       items:
-        - name: administración
+        - name: Administrar
           items:
             - name: Uso del servicio StorSimple Manager
               href: storsimple-8000-manager-service-administration.md

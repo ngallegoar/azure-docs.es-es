@@ -92,6 +92,8 @@
   items:
     - name: Habilitación de una característica para un subconjunto de usuarios
       href: howto-feature-filters-aspnet-core.md
+    - name: Uso de etiquetas para la configuración de cada entorno
+      href: howto-labels-aspnet-core.md
     - name: Importación o exportación de datos de configuración
       href: howto-import-export-data.md
     - name: Enrutamiento de eventos a un punto de conexión personalizado

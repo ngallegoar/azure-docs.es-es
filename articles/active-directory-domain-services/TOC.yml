@@ -91,6 +91,8 @@
           href: password-policy.md
         - name: Habilitar eventos de auditoría de seguridad
           href: security-audit-events.md
+        - name: Análisis de eventos de auditoría con Azure Monitor Workbooks
+          href: use-azure-monitor-workbooks.md
     - name: Unión a dominio de máquinas virtuales
       items:
         - name: Máquina virtual Windows Server a partir de plantilla

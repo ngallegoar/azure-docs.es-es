@@ -23,23 +23,10 @@
       href: tutorial-restrict-network-access-to-resources.md
     - name: Conexión de redes virtuales
       href: tutorial-connect-virtual-networks-portal.md
-    - name: NAT
-      items:
-        - name: 'Creación de una instancia de NAT Gateway: Portal'
-          href: quickstart-create-nat-gateway-portal.md
-        - name: 'Creación de una instancia de NAT Gateway: PowerShell'
-          href: quickstart-create-nat-gateway-powershell.md
-        - name: 'Creación de una instancia de NAT Gateway: CLI'
-          href: quickstart-create-nat-gateway-cli.md
-        - name: 'Creación de una instancia de NAT Gateway: Plantilla de Resource Manager'
-          displayname: Resource Manager
-          href: quickstart-create-nat-gateway-template.md
-        - name: 'Creación y validación de una instancia de NAT Gateway: Portal'
-          href: tutorial-create-validate-nat-gateway-portal.md
-        - name: 'Creación y validación de una instancia de NAT Gateway: PowerShell'
-          href: tutorial-create-validate-nat-gateway-powershell.md
-        - name: 'Creación y validación de una instancia de NAT Gateway: CLI'
-          href: tutorial-create-validate-nat-gateway-cli.md
+    - name: Creación de una instancia de NAT Gateway
+      href: quickstart-create-nat-gateway-portal.md
+    - name: Creación y validación de una instancia de NAT Gateway
+      href: tutorial-create-validate-nat-gateway-portal.md
 - name: Ejemplos
   items:
     - name: Azure CLI
@@ -359,6 +346,19 @@
           href: move-across-regions-publicip-portal.md
         - name: 'IP públicas: PowerShell'
           href: move-across-regions-publicip-powershell.md
+    - name: NAT
+      items:
+        - name: 'Creación de una instancia de NAT Gateway: PowerShell'
+          href: quickstart-create-nat-gateway-powershell.md
+        - name: 'Creación de una instancia de NAT Gateway: CLI'
+          href: quickstart-create-nat-gateway-cli.md
+        - name: 'Creación de una instancia de NAT Gateway: Plantilla de Resource Manager'
+          displayname: Resource Manager
+          href: quickstart-create-nat-gateway-template.md
+        - name: 'Creación y validación de una instancia de NAT Gateway: PowerShell'
+          href: tutorial-create-validate-nat-gateway-powershell.md
+        - name: 'Creación y validación de una instancia de NAT Gateway: CLI'
+          href: tutorial-create-validate-nat-gateway-cli.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas de emparejamiento de redes virtuales

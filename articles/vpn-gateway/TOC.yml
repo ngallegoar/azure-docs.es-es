@@ -16,6 +16,12 @@
       href: powershell-samples.md
 - name: Conceptos
   items:
+    - name: Soporte técnico para el trabajo remoto
+      items:
+        - name: Trabajo remoto
+          href: work-remotely-support.md
+        - name: Configuraciones de NVA y trabajo remoto
+          href: nva-work-remotely-support.md
     - name: Acerca de la configuración de VPN Gateway
       href: vpn-gateway-about-vpn-gateway-settings.md
     - name: Acerca de los dispositivos VPN
@@ -150,6 +156,8 @@
               href: vpn-gateway-howto-openvpn.md
             - name: Configuración de clientes de OpenVPN
               href: vpn-gateway-howto-openvpn-clients.md
+        - name: Traslado al protocolo OpenVPN o IKEv2 desde SSTP
+          href: ikev2-openvpn-from-sstp.md
         - name: Transición a un certificado de puerta de enlace de entidad de certificación pública para P2S
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Configuración de un túnel de dispositivo VPN para los Grupos de disponibilidad AlwaysOn
@@ -217,7 +225,7 @@
           items:
             - name: Problemas de conexión de punto a sitio
               href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
-            - name: 'Problemas de conexión de punto a sitio: cliente VPN de Mac OS X'
+            - name: 'Problemas de conexión de punto a sitio: cliente VPN de macOS X'
               href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
             - name: "Punto a sitio: autenticación de Azure\_AD"
               href: troubleshoot-ad-vpn-client.md

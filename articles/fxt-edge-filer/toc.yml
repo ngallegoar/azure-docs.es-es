@@ -20,10 +20,10 @@
       href: fxt-add-storage.md
     - name: 7 - Configuración de la red en clúster
       href: fxt-configure-network.md
-- name: Guías de procedimientos
-  items:
-    - name: Agregar clientes
+    - name: 8 - Montaje de clientes
       href: fxt-mount-clients.md
+- name: Guías paso a paso
+  items:
     - name: Supervisión del hardware de Azure FXT Edge Filer
       href: fxt-monitor.md
     - name: Apagado seguro de un nodo de hardware

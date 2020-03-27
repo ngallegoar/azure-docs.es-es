@@ -19,7 +19,7 @@
               href: service-bus-quickstart-powershell.md
             - name: Azure CLI
               href: service-bus-quickstart-cli.md
-            - name: Plantilla del Administrador de recursos de Azure
+            - name: Plantilla ARM
               href: service-bus-resource-manager-namespace-queue.md
         - name: Envío y recepción de mensajes
           items:
@@ -41,7 +41,7 @@
           items:
             - name: Portal de Azure
               href: service-bus-quickstart-topics-subscriptions-portal.md
-            - name: Plantilla del Administrador de recursos de Azure
+            - name: Plantilla ARM
               href: service-bus-resource-manager-namespace-topic.md
         - name: Publicación y suscripción de mensajes
           items:
@@ -65,6 +65,8 @@
       href: service-bus-tutorial-topics-subscriptions-portal.md
     - name: 'Actualización de inventario: CLI'
       href: service-bus-tutorial-topics-subscriptions-cli.md
+    - name: Respuesta a eventos mediante Event Grid
+      href: service-bus-to-event-grid-integration-example.md
 - name: Ejemplos
   items:
     - name: Ejemplos de Service Bus
@@ -104,6 +106,8 @@
                   href: authenticate-application.md
         - name: Controles de seguridad integrados
           href: service-bus-messaging-security-controls.md
+        - name: Seguridad de las redes
+          href: network-security.md
 - name: Guías paso a paso
   items:
     - name: Migración desde las API de Azure Service Manager (clásico) hasta las API de Resource Manager
@@ -126,8 +130,6 @@
               href: message-expiration.md
             - name: Control de mensajes mediante Azure Event Grid
               href: service-bus-to-event-grid-integration-concept.md
-            - name: Ejemplos de Azure Event Grid
-              href: service-bus-to-event-grid-integration-example.md
         - name: Filtros y acciones de temas
           href: topic-filters.md
         - name: Migración de espacios de nombres de Estándar a Premium
@@ -152,10 +154,6 @@
               href: service-bus-amqp-troubleshoot.md
         - name: Características avanzadas
           items:
-            - name: Uso de firewalls
-              href: service-bus-ip-filtering.md
-            - name: Puntos de conexión de servicio de red virtual
-              href: service-bus-service-endpoints.md
             - name: Colas de mensajes fallidos
               href: service-bus-dead-letter-queues.md
             - name: Captura previa de mensajes
@@ -192,7 +190,7 @@
           href: service-bus-diagnostic-logs.md
         - name: Suspensión y reactivación de entidades de mensajería
           href: entity-suspend.md
-        - name: Utilización de plantillas del Administrador de recursos de Azure
+        - name: Uso de plantillas de Resource Manager
           href: service-bus-resource-manager-overview.md
           items:
             - name: Creación de un espacio de nombres
@@ -203,7 +201,13 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Seguridad
       items:
-        - name: Configuración de claves administradas por el cliente para el cifrado en reposo
+        - name: Configuración de firewalls
+          href: service-bus-ip-filtering.md
+        - name: Configuración de puntos de conexión de servicio de red virtual
+          href: service-bus-service-endpoints.md
+        - name: Configuración de puntos de conexión privados (versión preliminar)
+          href: private-link-service.md
+        - name: Configuración de claves administradas por el cliente
           href: configure-customer-managed-key.md
     - name: Solución de problemas
       items:

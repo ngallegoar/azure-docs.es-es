@@ -263,6 +263,8 @@
           href: search-pagination-page-layout.md
         - name: Ajuste de la relevancia (perfiles de puntuación)
           href: index-add-scoring-profiles.md
+        - name: Ajuste de la relevancia (algoritmo de similitud)
+          href: index-ranking-similarity.md
     - name: Plan
       items:
         - name: Elija un nivel

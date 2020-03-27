@@ -16,6 +16,8 @@
       href: how-to-routefilter-portal.md
 - name: Conceptos
   items:
+    - name: Trabajo remoto
+      href: work-remotely-support.md
     - name: Modelos de conectividad
       href: expressroute-connectivity-models.md
     - name: Circuitos y emparejamiento
@@ -28,7 +30,7 @@
           href: expressroute-locations.md
     - name: Acerca de las puertas de enlace de red virtual
       href: expressroute-about-virtual-network-gateways.md
-    - name: Prerequisites
+    - name: Prerrequisitos
       href: expressroute-prerequisites.md
     - name: Workflows
       href: expressroute-workflows.md

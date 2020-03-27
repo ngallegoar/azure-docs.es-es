@@ -8,7 +8,7 @@
   items:
     - name: Introducción a Advisor
       href: advisor-get-started.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
     - name: Mejora de la disponibilidad de las aplicaciones de Azure
       href: advisor-high-availability-recommendations.md
@@ -26,6 +26,10 @@
       href: permissions.md
     - name: Configuración de alertas para las recomendaciones
       href: advisor-alerts.md
+    - name: Corrección en masa para las recomendaciones
+      href: advisor-quick-fix.md
+    - name: Datos de Advisor en Azure Resource Graph
+      href: advisor-azure-resource-graph.md
 - name: Referencia
   items:
     - name: Security Center

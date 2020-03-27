@@ -1,5 +1,5 @@
 - name: Documentación de Data Lake Storage Gen1
-  href: index.md
+  href: index.yml
 - name: Cambio a la documentación de Data Lake Storage Gen2
   href: 'https://docs.microsoft.com/azure/storage/data-lake-storage/introduction'
 - name: Información general
@@ -144,7 +144,7 @@
           href: 'https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager'
         - name: Más opciones para la integración de Azure
           href: data-lake-store-integrate-with-other-services.md
-    - name: administración
+    - name: Administrar
       items:
         - name: Acceso a los registros de diagnóstico
           href: data-lake-store-diagnostic-logs.md

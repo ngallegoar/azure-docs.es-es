@@ -70,10 +70,12 @@
           href: How-To/business-continuity-plan.md
         - name: Colaborar
           href: How-To/collaborate-knowledge-base.md
+        - name: Activación del aprendizaje activo
+          href: How-To/use-active-learning.md
     - name: Administración de una base de conocimiento
       items:
         - name: Creación de una base de conocimiento
-          href: Quickstarts/create-publish-knowledge-base.md
+          href: How-To/manage-knowledge-bases.md
         - name: Selección de idioma
           href: How-To/language-knowledge-base.md
         - name: Adición de charla
@@ -85,7 +87,7 @@
           href: How-To/test-knowledge-base.md
     - name: Administración de conjuntos de QnA
       items:
-        - name: Edición de la base de conocimiento
+        - name: Edición de un conjunto de QnA
           href: How-To/edit-knowledge-base.md
         - name: Incorporación de solicitudes de seguimiento
           href: How-To/multiturn-conversation.md

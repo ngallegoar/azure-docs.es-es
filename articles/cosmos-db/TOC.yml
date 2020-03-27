@@ -549,8 +549,8 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Protección contra amenazas avanzada
-        - name: Controles de seguridad integrados
-          href: cosmos-db-security-controls.md
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: Adecuado para empresas
       items:
         - name: Copias de seguridad y restauración a petición en línea
@@ -600,7 +600,7 @@
             - name: Fuente de cambios
               href: cassandra-change-feed.md
             - name: Almacenamiento y administración de datos de Spring
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Cassandra y Spark
               items:
                 - name: Introducción
@@ -609,7 +609,7 @@
                   href: cassandra-spark-databricks.md
                 - name: Conexión mediante HDInsight
                   href: cassandra-spark-hdinsight.md
-                - name: Creación de espacio de claves y tabla
+                - name: Creación de espacios de claves y tablas
                   href: cassandra-spark-ddl-ops.md
                 - name: Insertar datos
                   href: cassandra-spark-create-ops.md
@@ -709,7 +709,7 @@
             - name: Administración de la indexación de datos
               href: mongodb-indexing.md
             - name: Almacenamiento y administración de datos de Spring
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Comandos de extensión de MongoDB
               href: mongodb-custom-commands.md
               displayName: custom commands
@@ -776,7 +776,7 @@
             - name: Visualización de datos de gráficos
               href: graph-visualization.md
             - name: Almacenamiento y administración de datos de Spring
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Administración mediante plantillas de Resource Manager
               href: manage-gremlin-with-resource-manager.md
               displayName: ARM
@@ -1073,9 +1073,9 @@
         - name: Azure Event Hubs y Azure Storage
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: Uso de Spring Boot Starter
-          href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+          href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
         - name: Guía del desarrollador de Spring Data
-          href: 'https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+          href: 'https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context'
         - name: Controlador ODBC
           href: odbc-driver.md
     - name: Migración de datos a Cosmos DB

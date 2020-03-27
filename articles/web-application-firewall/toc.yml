@@ -14,6 +14,10 @@
       items:
         - name: Firewall de aplicaciones web en Azure Front Door
           href: ./afds/afds-overview.md
+    - name: Content Delivery Network
+      items:
+        - name: "Firewall de aplicaciones web en Azure\_CDN"
+          href: ./cdn/cdn-overview.md
 - name: Tutoriales
   items:
     - name: Application Gateway
@@ -24,6 +28,10 @@
       items:
         - name: 'Configuración de la directiva WAF: Portal'
           href: ./afds/waf-front-door-create-portal.md
+    - name: Content Delivery Network
+      items:
+        - name: 'Configuración de la directiva WAF: Portal'
+          href: ./cdn/waf-cdn-create-portal.md
 - name: Ejemplos
   items:
     - name: Azure PowerShell
@@ -110,14 +118,14 @@
           href: ./afds/waf-front-door-tutorial-geo-filtering.md
         - name: Supervisión y registro
           href: ./afds/waf-front-door-monitor.md
-- name: Solución de problemas
-  items:
-    - name: Application Gateway
+    - name: Solución de problemas
       items:
-        - name: Solución de problemas de WAF
-          href: ./ag/web-application-firewall-troubleshoot.md
-        - name: Log Analytics
-          href: ./ag/log-analytics.md
+        - name: Application Gateway
+          items:
+            - name: Solución de problemas de WAF
+              href: ./ag/web-application-firewall-troubleshoot.md
+            - name: Log Analytics
+              href: ./ag/log-analytics.md
 - name: Referencia
   items:
     - name: Reglas CRS

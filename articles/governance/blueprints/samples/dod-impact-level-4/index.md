@@ -1,18 +1,18 @@
 ---
 title: Introducción al ejemplo de plano técnico de nivel 4 de impacto del DoD
 description: Introducción al ejemplo de nivel 4 de impacto del DoD. Este ejemplo de plano técnico ayuda a los clientes a evaluar controles concretos del nivel 4 de impacto del DoD.
-ms.date: 02/09/2020
+ms.date: 03/12/2020
 ms.topic: sample
-ms.openlocfilehash: faac024a0bd18f6a2f10e441ca9e44526463e435
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: a67dae5399d3e2e24c226c53f915b91e2524e735
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154614"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "79415383"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Introducción al ejemplo de plano técnico de nivel 4 de impacto del DoD
 
-El ejemplo de plano técnico del nivel 4 de impacto del Departamento de defensa (IL4 de DoD) proporciona directivas de gobernanza que usan [Azure Policy](../../../policy/overview.md) y que le ayudan a evaluar los controles específicos del nivel 4 de impacto del DoD. Este plano técnico ayuda a los clientes a implementar un conjunto básico de directivas para todas las arquitecturas implementadas en Azure que deban implementar los controles del nivel 4 de impacto del DoD.
+El ejemplo de plano técnico del nivel 4 de impacto del Departamento de defensa (IL4 de DoD) proporciona directivas de gobernanza que usan [Azure Policy](../../../policy/overview.md) y que le ayudan a evaluar los controles específicos del nivel 4 de impacto del DoD. Este plano técnico ayuda a los clientes a implementar un conjunto básico de directivas para todas las arquitecturas implementadas en Azure que deban implementar los controles del nivel 4 de impacto del DoD. Para obtener la información más reciente sobre qué nubes y servicios de Azure cumplen la autorización de nivel 4 de impacto de DoD, consulte el artículo en que se explican los [servicios de Azure por ámbito de auditoría de Federal Risk and Authorization Management Program y Department of Defense Cloud Computing Security Requirements Guide](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 ## <a name="control-mapping"></a>Asignación de controles
 

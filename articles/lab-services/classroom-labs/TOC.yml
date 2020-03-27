@@ -30,12 +30,16 @@
   items:
     - name: Guía del administrador
       href: administrator-guide.md
+    - name: Guía de configuración acelerada de cuentas de laboratorio
+      href: account-setup-guide.md
+    - name: Guía de configuración acelerada de laboratorios
+      href: setup-guide.md
     - name: 'Laboratorios educativos: tipos de clase'
       items:
         - name: Información general sobre tipos de clase
           href: class-types.md
-        - name: Aprendizaje profundo en el procesamiento natural
-          href: class-type-deep-learning-natural-processing.md
+        - name: Aprendizaje profundo en el procesamiento del lenguaje natural
+          href: class-type-deep-learning-natural-language-processing.md
         - name: Generación de scripts en shell en Linux
           href: class-type-shell-scripting-linux.md
         - name: Piratería ética
@@ -66,6 +70,8 @@
           href: how-to-configure-firewall-settings.md
         - name: Especificación de imágenes de Marketplace para laboratorios
           href: specify-marketplace-images.md
+        - name: Especificación de información de soporte técnico (propietario de cuenta de laboratorio)
+          href: lab-account-owner-support-information.md
     - name: Creación y configuración de laboratorios educativos (instructor)
       items:
         - name: Creación y administración de laboratorios educativos
@@ -87,17 +93,29 @@
         - name: Habilitación del apagado automático al desconectar
           href: how-to-enable-shutdown-disconnect.md
         - name: Habilitación de la virtualización anidada en una máquina virtual de plantilla
-          href: how-to-enable-nested-virtualization-template-vm.md
+          items:
+            - name: Introducción a la habilitación de la virtualización anidada en una máquina virtual de plantilla
+              href: how-to-enable-nested-virtualization-template-vm.md
+            - name: Habilitación de la virtualización anidada en una máquina virtual de plantilla mediante la interfaz de usuario
+              href: how-to-enable-nested-virtualization-template-vm-ui.md
+            - name: Habilitación de la virtualización anidada en una máquina virtual de plantilla mediante un script
+              href: how-to-enable-nested-virtualization-template-vm-using-script.md
         - name: Preparación de una plantilla de máquina virtual de Windows
           href: how-to-prepare-windows-template.md
+        - name: Visualización de información de soporte técnico (instructor)
+          href: lab-creator-support-information.md
     - name: Conexión a máquinas virtuales de laboratorios educativos (alumno)
       items:
         - name: Acceso a laboratorios educativos
           href: how-to-use-classroom-lab.md
         - name: Uso de la conexión de escritorio remoto para máquinas virtuales Linux
           href: how-to-use-remote-desktop-linux-student.md
+        - name: Conexión a una máquina virtual desde un equipo Mac mediante RDP
+          href: connect-virtual-machine-mac-rdp.md
         - name: Establecimiento o restablecimiento de contraseñas para máquinas virtuales
           href: how-to-set-virtual-machine-passwords-student.md
+        - name: Visualización de información de soporte técnico (alumno)
+          href: lab-user-support-information.md
 - name: Referencia
   items:
     - name: API DE REST
