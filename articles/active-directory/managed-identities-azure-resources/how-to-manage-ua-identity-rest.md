@@ -16,10 +16,10 @@ ms.date: 06/26/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39e108451e4c19e77e01b5bcc5d8dd21e86ad73a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74547429"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Crear, enumerar o eliminar una identidad administrada asignada por el usuario mediante llamadas a la API REST
@@ -30,7 +30,7 @@ Las identidades administradas para los recursos de Azure proporcionan a los serv
 
 En este artículo, aprenderá a crear, enumerar y eliminar una identidad administrada asignada por el usuario mediante CURL para hacer llamadas a la API REST.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
@@ -60,16 +60,16 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **Encabezados de solicitud**
 
-|Encabezado de solicitud  |DESCRIPCIÓN  |
+|Encabezado de solicitud  |Descripción  |
 |---------|---------|
 |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
 |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        |
 
 **Cuerpo de la solicitud**
 
-|NOMBRE  |DESCRIPCIÓN  |
+|Nombre  |Descripción  |
 |---------|---------|
-|location     | Necesario. Ubicación del recurso        |
+|ubicación     | Necesario. Ubicación del recurso        |
 
 ## <a name="list-user-assigned-managed-identities"></a>Enumerar identidades administradas asignadas por el usuario
 
@@ -83,7 +83,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
 ```
 
-|Encabezado de solicitud  |DESCRIPCIÓN  |
+|Encabezado de solicitud  |Descripción  |
 |---------|---------|
 |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
 |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        |
@@ -103,7 +103,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ```HTTP
 DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
 ```
-|Encabezado de solicitud  |DESCRIPCIÓN  |
+|Encabezado de solicitud  |Descripción  |
 |---------|---------|
 |*Content-Type*     | Necesario. Establézcalo en `application/json`.        |
 |*Autorización*     | Necesario. Establézcalo en un token de acceso `Bearer` válido.        |

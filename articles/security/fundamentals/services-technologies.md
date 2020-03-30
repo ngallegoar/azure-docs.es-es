@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
 ms.openlocfilehash: 741e6b9cad20645fdfc085623fd9492a12ac1dfc
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726558"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servicios y tecnologías de seguridad disponibles en Azure
@@ -31,7 +31,7 @@ Al evaluar las opciones del proveedor de servicios en la nube, es útil tener es
 Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Asegúrese de que consultar esta página periódicamente para mantenerse informado sobre nuestros servicios relacionados con la seguridad y las tecnologías.
 
 ## <a name="general-azure-security"></a>Seguridad general de Azure
-|Servicio|DESCRIPCIÓN|
+|Servicio|Descripción|
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](/azure/security-center/security-center-intro)| Solución de protección que proporciona administración de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida.|
 |[Azure Key Vault](/azure/key-vault/key-vault-overview)| Almacén de secretos seguro para las contraseñas, las cadenas de conexión y otra información que necesita para mantener sus aplicaciones en funcionamiento. |
@@ -41,7 +41,7 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
 
 ## <a name="storage-security"></a>Seguridad para almacenamiento
-|Servicio|DESCRIPCIÓN|
+|Servicio|Descripción|
 |------|--------|
 | [Azure&nbsp;Storage&nbsp;Service&nbsp;Encryption](/azure/storage/common/storage-service-encryption)|Característica de seguridad que permite cifrar automáticamente los datos en Azure Storage.   |
 |[Documentación de StorSimple](/azure/storsimple/storsimple-ova-overview)| Solución de almacenamiento integrada que administra las tareas de almacenamiento entre los dispositivos locales y el almacenamiento en la nube de Azure.|
@@ -54,7 +54,7 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 <!------>
 
 ## <a name="database-security"></a>Seguridad de bases de datos
-|Servicio|DESCRIPCIÓN|
+|Servicio|Descripción|
 |------|--------|
 | [Azure&nbsp;SQL&nbsp;Firewall](/azure/sql-database/sql-database-firewall-configure)|Característica de control de acceso de red que protege frente a ataques basados en red a una base de datos. |
 |[Cifrado de&nbsp;nivel de celda de&nbsp;Azure&nbsp;SQL](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| Tecnología de seguridad de base de datos que proporciona cifrado en un nivel más pormenorizado.  |
@@ -65,7 +65,7 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso
-|Servicio|DESCRIPCIÓN|
+|Servicio|Descripción|
 |------|--------|
 | [Control de acceso&nbsp;basado en&nbsp;rol de&nbsp;Azure](/azure/active-directory/role-based-access-control-configure)|Característica de control de acceso diseñada para que los usuarios accedan únicamente a los recursos necesarios en función de sus roles dentro de la organización.  |
 | [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)|Repositorio de autenticación basado en la nube que admite un directorio en la nube de varios inquilinos y varios servicios de administración de identidades en Azure.  |
@@ -74,13 +74,13 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 | [Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)| Aprovisionamiento de seguridad que utiliza diferentes formas de autenticación y comprobación antes de permitir el acceso a información protegida. |
 
 ## <a name="backup-and-disaster-recovery"></a>Copia de seguridad y recuperación ante desastres
-|Servicio|DESCRIPCIÓN|
+|Servicio|Descripción|
 |------|--------|
 | [Azure&nbsp;Backup](/azure/backup/backup-introduction-to-azure-backup)| Servicio de Azure que se usa para realizar copias de seguridad y restaurar los datos en la nube de Azure. |
 | [Azure&nbsp;Site&nbsp;Recovery](/azure/site-recovery/site-recovery-overview)|Servicio en línea que replica las cargas de trabajo que se ejecutan en máquinas físicas y virtuales desde un sitio principal a una ubicación secundaria para poder recuperar los servicios después de un error. |
 
 ## <a name="networking"></a>Redes
-|Servicio|DESCRIPCIÓN|
+|Servicio|Descripción|
 |------|--------|
 | [Grupos de&nbsp;seguridad de&nbsp;red](/azure/virtual-network/virtual-networks-nsg)| Característica de control de acceso basado en la red que utiliza una tupla de 5 elementos para permitir o denegar las decisiones.  |
 | [Acerca de VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)| Dispositivo de red que se usa como un punto de conexión VPN para permitir el acceso entre entornos locales a las redes virtuales de Azure.  |

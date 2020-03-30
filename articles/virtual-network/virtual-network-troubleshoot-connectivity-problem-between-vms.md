@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: ab3ae45081ecc481cb90af8961174e23c86e84b5
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71056818"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Solución de problemas de conectividad entre máquinas virtuales de Azure
@@ -65,11 +65,11 @@ Para más información, consulte [Incorporación de interfaces de red a máquina
 - [Nueva implementación de la máquina virtual en Windows](../virtual-machines/windows/redeploy-to-new-node.md)
 - [Nueva implementación de la máquina virtual de Linux](../virtual-machines/linux/redeploy-to-new-node.md)
 
-### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Paso 2: Compruebe si un grupo de seguridad de red o una UDR están bloqueando el tráfico de red
+### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Paso 2: Compruebe si un NSG o una UDR bloquea el tráfico de red
 
 Use [Comprobación del flujo de IP de Network Watcher](../network-watcher/network-watcher-ip-flow-verify-overview.md) y [Registro de flujo de NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) para determinar si hay un grupo de seguridad de red (NSG) o ruta definida por el usuario (UDR) que esté interfiriendo con el flujo de tráfico.
 
-### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Paso 3: Compruebe si el firewall de la máquina virtual está bloqueando el tráfico de red
+### <a name="step-3-check-whether-network-traffic-is-blocked-by-vm-firewall"></a>Paso 3: Compruebe si el firewall de la máquina virtual bloquea el tráfico de red
 
 Deshabilite el firewall y, a continuación, pruebe el resultado. Si se resuelve el problema, compruebe la configuración de firewall y, a continuación, vuelva a habilitarlo.
 
@@ -89,11 +89,11 @@ Puede usar alguno de los métodos siguientes para comprobar si la aplicación o 
 
 - Ejecute el comando **telnet** en la propia máquina virtual para probar el puerto. Si se produce un error en la prueba, la aplicación o servicio no está configurado para escuchar en ese puerto.
 
-### <a name="step-5-check-whether-the-problem-is-caused-by-snat"></a>Paso 5: Compruebe si el problema lo provoca la SNAT
+### <a name="step-5-check-whether-the-problem-is-caused-by-snat"></a>Paso 5: Compruebe si el problema lo provoca SNAT
 
 En algunos escenarios, la máquina virtual se coloca detrás de una solución de equilibrio de carga que tiene una dependencia de recursos fuera de Azure. En estos casos, si tiene problemas de conexión intermitentes, el problema puede deberse al [agotamiento de los puertos SNAT](../load-balancer/load-balancer-outbound-connections.md). Para resolver el problema, cree una dirección VIP (o ILPIP para el modelo de implementación clásico) para cada máquina virtual que esté detrás del equilibrador de carga y protéjala con un NSG o una ACL. 
 
-### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Paso 6: Compruebe si las ACL están bloqueando el tráfico de la máquina virtual clásica
+### <a name="step-6-check-whether-traffic-is-blocked-by-acls-for-the-classic-vm"></a>Paso 6: Compruebe si las ACL bloquean el tráfico de la máquina virtual clásica
 
 Una lista de control de acceso (ACL) proporciona la capacidad de permitir o denegar tráfico a un punto de conexión de la máquina virtual de forma selectiva. Para más información, consulte [Administración de la ACL en un punto de conexión](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 

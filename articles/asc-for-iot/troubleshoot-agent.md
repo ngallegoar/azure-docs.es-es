@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 7f3bd4be3ef927f73643146a457bc551ef86a450
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68600319"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Guía de solución de problemas de un agente de seguridad (Linux)
@@ -103,10 +103,10 @@ Azure Security Center for IoT agent encountered an error! Error in: {Error Code}
 2. Si es necesario, repita los procesos anteriores para forzar la detención del agente y recuperar los errores si el agente sigue produciendo algún error en el proceso de inicio. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Lea la [introducción](overview.md) del servicio Azure Security Center para IoT.
-- Obtenga más información sobre la [arquitectura](architecture.md) de Azure Security Center para IoT.
+- Lea la [introducción](overview.md) del servicio Azure Security Center para IoT
+- Obtenga más información sobre la [arquitectura](architecture.md) de Azure Security Center para IoT
 - Habilite el [servicio](quickstart-onboard-iot-hub.md) Azure Security Center para IoT
-- Lea las [preguntas frecuentes](resources-frequently-asked-questions.md) del servicio Azure Security Center para IoT.
+- Lea las [preguntas frecuentes](resources-frequently-asked-questions.md) del servicio Azure Security Center para IoT
 - Aprenda a acceder a [datos de seguridad sin procesar](how-to-security-data-access.md)
 - Obtenga información acerca de las [recomendaciones](concept-recommendations.md)
-- Obtenga información sobre las [alertas de seguridad](concept-security-alerts.md).
+- Obtenga información sobre las [alertas de seguridad](concept-security-alerts.md)

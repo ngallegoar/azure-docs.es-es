@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: d4dcf6681ade977847c204dd1237f7cd7a67775e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75418263"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Uso del SDK de runbooks gráficos en Azure Automation
@@ -115,7 +115,7 @@ Los parámetros CommandActivity e InvokeRunbookActivity deben proporcionarse com
 |PowerShellExpressionValueDescriptor     | Especifica una expresión de PowerShell de forma libre que se va a evaluar justo antes de invocar la actividad.  <br/>Se trata de una herramienta eficaz, pero no se debe abusar de su uso: la interfaz de usuario mostrará esta expresión como texto; el motor de ejecución tratará el bloque proporcionado como una caja negra y no intentará analizar su contenido, excepto para una comprobación de sintaxis básica. Cuando sea posible, se prefieren descriptores de valor más específicos.      |
 
 > [!NOTE]
-> No derive sus propios descriptores de valores de las clases proporcionadas: Azure Automation no podrá usar runbooks con tipos de descriptores de valores personalizados.
+> No derive sus propios descriptores de valor de las clases proporcionadas: Azure Automation no podrá usar runbooks con tipos de descriptores de valor personalizados.
 
 Cree instancias de los vínculos que conectan las actividades y agréguelos al runbook:
 

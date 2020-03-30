@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792209"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Administración de la simultaneidad en Azure Cognitive Search
@@ -22,7 +22,7 @@ Al administrar recursos de Azure Cognitive Search, como los índices y los oríg
 > [!Tip]
 > El código conceptual de una [solución de C# de ejemplo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) explica el funcionamiento del control de simultaneidad en Azure Cognitive Search. El código crea condiciones que invocan el control de simultaneidad. Con leer el [siguiente fragmento de código](#samplecode) probablemente sea suficiente para la mayoría de los desarrolladores pero, si quiere ejecutarlo, edite appSettings.json para agregar el nombre del servicio y una clave de API de administración. Si se indica la dirección URL de servicio `http://myservice.search.windows.net`, el nombre del servicio será `myservice`.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 La simultaneidad optimista se implementa mediante comprobaciones de condiciones de acceso en las llamadas de API que se escriben en índices, indexadores, orígenes de datos y recursos de synonymMap.
 
@@ -44,7 +44,7 @@ En el siguiente código se muestran las comprobaciones accessCondition para las 
 + Error en una actualización si el recurso ya no existe
 + Error en una actualización si la versión del recurso cambia.
 
-### <a name="sample-code-from-dotnetetagsexplainer-programhttpsgithubcomazure-samplessearch-dotnet-getting-startedtreemasterdotnetetagsexplainer"></a>Código de ejemplo del [programa DotNetETagsExplainer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)
+### <a name="sample-code-from-dotnetetagsexplainer-program"></a>Código de ejemplo del [programa DotNetETagsExplainer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer)
 
 ```
     class Program
@@ -214,7 +214,7 @@ Intente modificar cualquiera de los ejemplos siguientes para que incluyan etique
 + [Ejemplo de API REST en GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [Ejemplo de .NET SDK en GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Esta solución incluye el proyecto "DotNetEtagsExplainer", que contiene el código presentado en este artículo.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 [Encabezados de solicitud y respuesta HTTP comunes](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 [Códigos de estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)

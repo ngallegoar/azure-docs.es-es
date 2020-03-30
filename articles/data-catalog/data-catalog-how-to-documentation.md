@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: e9e9013d354585d04f205feb93a84d94c0f05905
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68950185"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Documentación de orígenes de datos en Azure Data Catalog
@@ -39,7 +39,7 @@ El nivel de documentación puede oscilar desde describir las características y 
 
 * Documentar solo un contenedor: todo el contenido está en un solo lugar, pero puede faltar información necesaria para que los usuarios tomen una decisión informada.
 * Documentar solo las tablas: el contenido es específico de ese objeto, pero los usuarios tienen varios lugares para los documentos.
-* Documentar contenedores y tablas: es el enfoque más completo, pero puede incluir un mayor mantenimiento de los documentos.
+* Documentar contenedores y tablas: el enfoque más completo, pero puede incluir un mayor mantenimiento de los documentos.
 
 ## <a name="summary"></a>Resumen
 La documentación de orígenes de datos con **Azure Data Catalog** puede crear una descripción de los recursos de datos con el detalle que sea necesario.  Mediante el uso de vínculos, puede vincular al contenido almacenado en un repositorio de contenido existente, lo que reúne los recursos de datos y los documentos existentes. Una vez que los usuarios descubran los recursos de datos adecuados, pueden tener un completo conjunto de documentación.

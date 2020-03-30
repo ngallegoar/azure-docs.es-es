@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
 ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74132954"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
@@ -56,10 +56,10 @@ Solo se pueden replicar máquinas Linux con el almacenamiento siguiente:
 Host: formación de equipos NIC | Sí 
 Host: VLAN | Sí 
 Host: IPv4 | Sí 
-Host: IPv6 | Sin 
-VM invitada: formación de equipos NIC | Sin
+Host: IPv6 | No 
+VM invitada: formación de equipos NIC | No
 VM invitada: IPv4 | Sí
-VM invitada: IPv6 | Sin
+VM invitada: IPv6 | No
 VM invitada: Windows/Linux - dirección IP estática | Sí
 VM invitada: múltiples NIC | Sí
 
@@ -82,16 +82,16 @@ Varias rutas (MPIO) | Sí
 VMDK |  N/D
 VHD/VHDX | Sí (hasta 16 discos)
 VM de 2 generación | Sí
-Disco en clúster compartido | Sin
-Disco cifrado | Sin
+Disco en clúster compartido | No
+Disco cifrado | No
 UEFI| N/D
-NFS | Sin
-SMB 3.0 | Sin
+NFS | No
+SMB 3.0 | No
 RDM | N/D
 Disco > 1 TB | Sí
 Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí
 Espacios de almacenamiento | Sí
-Agregar/quitar disco en caliente | Sin
+Agregar/quitar disco en caliente | No
 Excluir el disco | Sí
 Varias rutas (MPIO) | Sí
 
@@ -99,8 +99,8 @@ Varias rutas (MPIO) | Sí
 
 **Acción** | **Compatible**
 --- | --- 
-Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) |  Sin
-Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin
+Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) |  No
+Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | No
 
 ## <a name="azure-site-recovery-provider"></a>Proveedor de Azure Site Recovery
 

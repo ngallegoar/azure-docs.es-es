@@ -8,10 +8,10 @@ ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688795"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementación de una arquitectura de seguridad por capas con entornos de App Service
@@ -32,13 +32,13 @@ Para saber qué reglas de seguridad de red son necesarias, tiene que determinar 
 
 Puesto que los [grupos de seguridad de red (NSG)][NetworkSecurityGroups] se aplican a las subredes y App Service Environment se implementa en las subredes, las reglas contenidas en un NSG se aplican a **todas** las aplicaciones que se ejecutan en App Service Environment.  En la arquitectura de ejemplo de este artículo, una vez que un grupo de seguridad de red se aplica a la subred que contiene "apiase", todas las aplicaciones que se ejecuten en el entorno de App Service "apiase" estarán protegidas por el mismo conjunto de reglas de seguridad. 
 
-* **Determinar la dirección IP de salida de los autores de llamadas ascendentes:**  ¿Cuál es la dirección o direcciones IP de los autores de llamadas ascendentes?  Se tiene que garantizar de forma explícita el acceso de estas direcciones en el NSG.  Dado que las llamadas entre los entornos de App Service se consideran llamadas de "Internet", se tiene que permitir el acceso en el NSG correspondiente a la dirección IP saliente asignada a cada uno de los tres entornos de App Service ascendentes para la subred "apiase".   Para más información sobre cómo determinar la dirección IP de salida para las aplicaciones que se ejecutan en App Service Environment, consulte el artículo [Información general sobre la arquitectura de red][NetworkArchitecture].
+* **Determinar la dirección IP saliente de los autores de llamadas que preceden en la cadena:** ¿cuál es la dirección o direcciones IP de los autores de llamadas que preceden en la cadena?  Se tiene que garantizar de forma explícita el acceso de estas direcciones en el NSG.  Dado que las llamadas entre los entornos de App Service se consideran llamadas de "Internet", se tiene que permitir el acceso en el NSG correspondiente a la dirección IP saliente asignada a cada uno de los tres entornos de App Service ascendentes para la subred "apiase".   Para más información sobre cómo determinar la dirección IP de salida para las aplicaciones que se ejecutan en App Service Environment, consulte el artículo [Información general sobre la arquitectura de red][NetworkArchitecture].
 * **¿Tiene la aplicación de API de back-end que llamarse a sí misma?**  Un punto sutil que a veces se pasa por alto es el escenario en el que la aplicación back-end tiene que llamarse a sí misma.  Si una aplicación de API de back-end en un entorno de App Service tiene que llamarse a sí misma, también se trata como una llamada de "Internet".  En la arquitectura de ejemplo, esto requiere que se permita también el acceso desde la dirección IP saliente del entorno de App Service "apiase".
 
 ## <a name="setting-up-the-network-security-group"></a>Creación del grupo de seguridad de red
 Una vez que se conozca el conjunto de direcciones IP salientes, el siguiente paso es crear un grupo de seguridad de red.  Se pueden crear grupos de seguridad de red para las redes virtuales basadas en Resource Manager, así como para las redes virtuales clásicas.  Los ejemplos siguientes muestran la creación y configuración de un grupo de seguridad de red en una red virtual clásica mediante Powershell.
 
-Para la arquitectura del ejemplo, los entornos se encuentran en "South Central US", por lo que se crea un NSG vacío en esa región:
+Para la arquitectura del ejemplo, los entornos se encuentran en "Centro-sur de EE. UU.", por lo que se crea un NSG vacío en esa región:
 
     New-AzureNetworkSecurityGroup -Name "RestrictBackendApi" -Location "South Central US" -Label "Only allow web frontend and loopback traffic"
 

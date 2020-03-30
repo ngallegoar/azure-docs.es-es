@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: ac75be644877905c1517395c1c789b1ea16fd49c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455587"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Administrar una instancia de Azure Blockchain Service con la CLI de Azure
@@ -32,7 +32,7 @@ az resource create \
                      --properties '{ "location":"<myBlockchainLocation>", "properties": {"password":"<myStrongPassword>", "protocol":"Quorum","consortium":"<myConsortiumName>", "consortiumManagementAccountPassword":"<myConsortiumManagementAccountPassword>", "firewallRules":[{"ruleName":"<myRuleName>","startIpAddress":"<myStartIpAddress>", "endIpAddress":"<myEndIpAddress>"}]}, "sku":{"name":"<skuName>"}}'
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos donde se crean los recursos de Azure Blockchain Service. |
 | **name** | Un nombre único que identifica al miembro de cadena de bloques de Azure Blockchain Service. El nombre se usa como dirección de punto de conexión público. Por ejemplo, `myblockchainmember.blockchain.azure.com`. |
@@ -59,7 +59,7 @@ az resource update \
                      --remove properties.consortiumManagementAccountAddress
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos donde se crean los recursos de Azure Blockchain Service. |
 | **name** | Nombre que identifica al miembro de Azure Blockchain Service. |
@@ -78,7 +78,7 @@ az resource create \
                      --properties '{"location":"<myRegion>", "properties":{"password":"<myStrongPassword>", "firewallRules":[{"ruleName":"<myRuleName>", "startIpAddress":"<myStartIpAddress>", "endIpAddress":"<myEndIpAddress>"}]}}'
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos donde se crean los recursos de Azure Blockchain Service. |
 | **name** | Nombre del miembro de la cadena de bloques de Azure Blockchain Service que también incluye el nuevo nombre del nodo de transacción. |
@@ -100,7 +100,7 @@ az resource update \
                      --set properties.password='<myStrongPassword>'
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos en el que se encuentran los recursos de Azure Blockchain Service. |
 | **name** | Nombre del miembro de la cadena de bloques de Azure Blockchain Service que también incluye el nuevo nombre del nodo de transacción. |
@@ -119,7 +119,7 @@ az resource update \
                      --remove properties.consortiumManagementAccountAddress
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos donde se crean los recursos de Azure Blockchain Service. |
 | **name** | Nombre que identifica al miembro de Azure Blockchain Service. |
@@ -136,7 +136,7 @@ az resource update \
                      --remove properties.consortiumManagementAccountAddress
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos en el que se encuentran los recursos de Azure Blockchain Service. |
 | **name** | Nombre del miembro de la cadena de bloques de Azure Blockchain Service. |
@@ -156,7 +156,7 @@ az resource invoke-action \
                             --resource-type Microsoft.Blockchain/blockchainMembers
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos en el que se encuentran los recursos de Azure Blockchain Service. |
 | **name** | Nombre del miembro de la cadena de bloques de Azure Blockchain Service que también incluye el nuevo nombre del nodo de transacción. |
@@ -174,7 +174,7 @@ az resource invoke-action \
                             --request-body '{"keyName":"<keyValue>"}'
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos en el que se encuentran los recursos de Azure Blockchain Service. |
 | **name** | Nombre del miembro de la cadena de bloques de Azure Blockchain Service que también incluye el nuevo nombre del nodo de transacción. |
@@ -191,7 +191,7 @@ az resource delete \
                      --resource-type Microsoft.Blockchain/blockchainMembers
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos en el que se encuentran los recursos de Azure Blockchain Service. |
 | **name** | Nombre del miembro de la cadena de bloques de Azure Blockchain Service que también incluye el nombre del nodo de transacción que se va a eliminar. |
@@ -207,7 +207,7 @@ az resource delete \
                      --resource-type Microsoft.Blockchain/blockchainMembers
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **resource-group** | Nombre del grupo de recursos en el que se encuentran los recursos de Azure Blockchain Service. |
 | **name** | Nombre del miembro de cadena de bloques de Azure Blockchain Service que se va a eliminar. |
@@ -223,13 +223,13 @@ az role assignment create \
                             --scope /subscriptions/<subId>/resourceGroups/<groupName>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **role** | Nombre del rol de Azure AD. |
 | **assignee** | Identificador de usuario de Azure AD. Por ejemplo: `user@contoso.com` |
 | **scope** | Ámbito de la asignación de roles. Puede ser un miembro de cadena de bloques o de nodo de transacción. |
 
-**Ejemplo:**
+**Ejemplo**:
 
 Conceda acceso al nodo al usuario de Azure AD para un **miembro** de la cadena de bloques:
 
@@ -240,7 +240,7 @@ az role assignment create \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-**Ejemplo:**
+**Ejemplo**:
 
 Conceda acceso al nodo al usuario de Azure AD para un **nodo de transacción** de la cadena de bloques:
 
@@ -259,13 +259,13 @@ az role assignment create \
                             --assignee-object-id <assignee_object_id>
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **role** | Nombre del rol de Azure AD. |
 | **assignee-object-id** | Identificador de la aplicación o del grupo de Azure AD. |
 | **scope** | Ámbito de la asignación de roles. Puede ser un miembro de cadena de bloques o de nodo de transacción. |
 
-**Ejemplo:**
+**Ejemplo**:
 
 Conceda acceso al nodo para el **rol de aplicación**.
 
@@ -285,7 +285,7 @@ az role assignment delete \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/<myResourceGroup>/providers/Microsoft.Blockchain/blockchainMembers/<myMemberName>/transactionNodes/<myTransactionNode>
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |---------|-------------|
 | **role** | Nombre del rol de Azure AD. |
 | **assignee** | Identificador de usuario de Azure AD. Por ejemplo: `user@contoso.com` |

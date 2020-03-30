@@ -4,16 +4,16 @@ description: Como usuario, obtenga información sobre cómo crear y administrar 
 author: mavoge
 ms.author: mavoge
 ms.date: 10/17/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9da7efad816a466eb9d2902e36a95c5ae0fa626b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: db886006ff5b9adf3de0932951f6cce4958e8ebd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72941633"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158136"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Creación y administración de varios paneles personales
 
@@ -38,11 +38,11 @@ Si es **administrador** de la aplicación, se le ofrecerá la opción de alterna
 > [!div class="mx-imgBorder"]
 > ![Formulario "Configure Device Details" (Configurar detalles del dispositivo) con detalles de la temperatura](media/howto-create-personal-dashboards/device-details.png)
 
-Por ejemplo, puede agregar un mosaico **Telemetría** para la temperatura actual del dispositivo. Para ello:
+Por ejemplo, puede agregar un icono **Telemetría** para la temperatura actual del dispositivo. Para ello:
 1. Seleccione una **Plantilla de dispositivo**.
-1. Seleccione una **Instancia del dispositivo** para el dispositivo que quiere ver en un mosaico del panel. Verá una lista de las propiedades del dispositivo que se usan en el mosaico.
-1. Para crear el mosaico en el panel, haga clic en **Temperatura** y arrástrelo al área del panel. También puede hacer clic en la casilla situada junto a **Temperatura** y hacer clic en **Combinar**. En la captura de pantalla siguiente se muestra cómo seleccionar una plantilla de dispositivo y una instancia de dispositivo y luego crear un mosaico Telemetría de temperatura en el panel.
-1. Seleccione **Guardar** en la parte superior izquierda para guardar el mosaico en el panel.
+1. Seleccione una **Instancia del dispositivo** para el dispositivo que quiere ver en un icono del panel. Verá una lista de las propiedades del dispositivo que se usan en el icono.
+1. Para crear el icono en el panel, haga clic en **Temperatura** y arrástrelo al área del panel. También puede hacer clic en la casilla situada junto a **Temperatura** y hacer clic en **Combinar**. En la captura de pantalla siguiente se muestra cómo seleccionar una plantilla de dispositivo y una instancia de dispositivo y luego crear un icono Telemetría de temperatura en el panel.
+1. Seleccione **Guardar** en la parte superior izquierda para guardar el icono en el panel.
 
 > [!div class="mx-imgBorder"]
 > ![Pestaña "Panel" con los detalles para el mosaico Temperatura](media/howto-create-personal-dashboards/temperature-tile-edit.png)

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2019
 ms.openlocfilehash: f875d8f4603a8f51b8b8fed2438e6f3a30c87aeb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931166"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copia de datos de SAP ECC mediante Azure Data Factory
@@ -49,7 +49,7 @@ En concreto, este conector SAP ECC admite las siguientes funcionalidades:
 >[!TIP]
 >Para copiar datos de SAP ECC a través de una tabla o una vista de SAP, use el conector de [tabla de SAP](connector-sap-table.md), que es más rápido y escalable.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Por lo general, SAP ECC expone las entidades mediante servicios de OData a través de la puerta de enlace de SAP. Para usar este conector SAP ECC, necesitará lo siguiente:
 
@@ -57,11 +57,11 @@ Por lo general, SAP ECC expone las entidades mediante servicios de OData a trav�
 
 - **Activar y configurar el servicio SAP OData**. Puede activar el servicios de OData a través de TCODE SICF en cuestión de segundos. También puede configurar qué objetos se deben exponer. Para obtener más información, consulte la [guía paso a paso](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -71,13 +71,13 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado SAP ECC:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | `type` | La propiedad `type` debe establecerse en `SapEcc`. | Sí |
 | `url` | Dirección URL del servicio SAP ECC OData. | Sí |
-| `username` | Nombre de usuario usado para conectarse a SAP ECC. | Sin |
-| `password` | Contraseña de texto no cifrado que se usa para conectarse a SAP ECC. | Sin |
-| `connectVia` | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no especifica un entorno de ejecución, se usará la opción predeterminada de Azure Integration Runtime. | Sin |
+| `username` | Nombre de usuario usado para conectarse a SAP ECC. | No |
+| `password` | Contraseña de texto no cifrado que se usa para conectarse a SAP ECC. | No |
+| `connectVia` | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no especifica un entorno de ejecución, se usará la opción predeterminada de Azure Integration Runtime. | No |
 
 ### <a name="example"></a>Ejemplo
 
@@ -110,7 +110,7 @@ Para copiar datos desde SAP ECC, establezca la propiedad `type` del conjunto de 
 
 Se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | `path` | Ruta de acceso de la entidad de SAP ECC OData. | Sí |
 
@@ -143,10 +143,10 @@ Para copiar datos de SAP ECC, establezca la propiedad `type` de la sección `sou
 
 Se admiten las siguientes propiedades en la sección `source` de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | `type` | La propiedad `type` de la sección `source` de la actividad de copia debe establecerse en `SapEccSource`. | Sí |
-| `query` | Opciones de consulta de OData para filtrar los datos. Por ejemplo:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>El conector de SAP ECC copia datos de la dirección URL combinada:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Para más información, consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Sin |
+| `query` | Opciones de consulta de OData para filtrar los datos. Por ejemplo:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>El conector de SAP ECC copia datos de la dirección URL combinada:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Para más información, consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 
 ### <a name="example"></a>Ejemplo
 

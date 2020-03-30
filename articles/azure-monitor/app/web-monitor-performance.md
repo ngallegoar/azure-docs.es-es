@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670906"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234592"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Supervisar el rendimiento de aplicaciones web
 
@@ -20,7 +20,7 @@ Application Insights puede supervisar aplicaciones y servicios web Java y ASP.NE
 
 En el lado del cliente, Application Insights puede obtener datos de telemetría de páginas web y una amplia variedad de dispositivos, entre los que se incluyen iOS, Android y aplicaciones de la Tienda Windows.
 
-## <a name="setup"></a>Configuración de la supervisión de rendimiento
+## <a name="set-up-performance-monitoring"></a><a name="setup"></a>Configuración de la supervisión de rendimiento
 Si todavía no ha agregado Application Insights a un proyecto (es decir, si no dispone de ApplicationInsights.config), puede comenzar con uno de estos procedimientos:
 
 * [Aplicaciones web ASP.NET](../../azure-monitor/app/asp-net.md)
@@ -29,7 +29,7 @@ Si todavía no ha agregado Application Insights a un proyecto (es decir, si no d
 * [Aplicaciones web de Java EE](../../azure-monitor/app/java-get-started.md)
   * [Agregar supervisión de dependencias](../../azure-monitor/app/java-agent.md)
 
-## <a name="view"></a>Exploración de las métricas de rendimiento
+## <a name="exploring-performance-metrics"></a><a name="view"></a>Exploración de las métricas de rendimiento
 En el [Portal de Azure](https://portal.azure.com), busque el recurso de Application Insights que configuró para la aplicación. La hoja de información general muestra los datos de rendimiento básicos:
 
 Haga clic en cualquier gráfico para ver su contenido con mayor detalle y los resultados durante más tiempo. Por ejemplo, haga clic en el mosaico Solicitudes y seleccione un intervalo de tiempo:
@@ -43,7 +43,7 @@ Haga clic en un gráfico para elegir las métricas mostradas o para agregar un n
 > [!NOTE]
 > **Desactive todas las métricas** para ver todas las métricas disponibles. Las métricas se organizan en grupos. Cuando se selecciona un miembro de un grupo, solo aparecen los demás miembros de dicho grupo.
 
-## <a name="metrics"></a>¿Qué significa todo esto? Informes y mosaicos de rendimiento
+## <a name="what-does-it-all-mean-performance-tiles-and-reports"></a><a name="metrics"></a>¿Qué significa todo esto? Informes y mosaicos de rendimiento
 Puede obtener una gran variedad de métricas de rendimiento. Comencemos por las que aparecen de forma predeterminada en la hoja de la aplicación.
 
 ### <a name="requests"></a>Requests
@@ -96,7 +96,7 @@ Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el 
 
 *No puedo ver el botón Agregar alerta* : ¿es una cuenta de grupo a la que tiene acceso de solo lectura? Consulte con el administrador de cuenta.
 
-## <a name="diagnosis"></a>Diagnóstico de problemas
+## <a name="diagnosing-issues"></a><a name="diagnosis"></a>Diagnóstico de problemas
 Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
 * Configure las [pruebas web][availability] para recibir una alerta si el sitio web deja de funcionar o si no responde correctamente, o lo hace más lentamente de lo habitual. 
@@ -130,7 +130,7 @@ La experiencia de investigación de rendimiento muestra conclusiones significati
 ![Tres picos de duración para GET Customers/Details en un intervalo de 7 días en un periodo de tiempo](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 [Pruebas web][availability]: reciba solicitudes web en su aplicación de forma periódica desde distintos lugares del mundo.
 
 [Capture y busque seguimientos de diagnóstico][diagnostic]: inserte llamadas de seguimiento y cribe los resultados para identificar los problemas.

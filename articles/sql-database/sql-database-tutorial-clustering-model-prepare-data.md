@@ -13,16 +13,18 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: 800dbfc05c47a949bf024e9a5c671979b49ad201
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2241b69e36e3b17475dba115b8d2ae94fe2189a7
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68639976"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80345847"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparación de los datos para realizar una agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar)
 
 En la primera parte de esta serie de tres tutoriales importará y preparará los datos de una base de datos de Azure SQL mediante R. Más adelante en la serie usará estos datos para entrenar e implementar un modelo de Machine Learning de agrupación en clústeres en R con Azure SQL Database Machine Learning Services (versión preliminar).
+
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 *Agrupar en clústeres* es organizar datos en grupos, donde los miembros de un grupo son de alguna forma similares.
 Usará el algoritmo **k-means** para realizar la agrupación de clientes en clústeres en un conjunto de datos de compras y devoluciones de productos. Al agrupar los clientes en clústeres, puede centrar sus actividades de marketing de forma más eficaz al dirigirse a grupos específicos.

@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d3eb4d2faf58d1861fda9d04437f9f9530c77672
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76718487"
 ---
-# <a name="heading"></a>Proceso de datos en una máquina virtual de SQL Server en Azure
+# <a name="process-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>Proceso de datos en una máquina virtual de SQL Server en Azure
 En este documento se aborda cómo explorar datos y generar características para los datos almacenados en una VM de SQL Server en Azure. Este objetivo puede alcanzarse mediante la administración de datos usando SQL o mediante un lenguaje de programación, como Python.
 
 > [!NOTE]
@@ -26,13 +26,13 @@ En este documento se aborda cómo explorar datos y generar características para
 > 
 > 
 
-## <a name="SQL"></a>Uso de SQL
+## <a name="using-sql"></a><a name="SQL"></a>Uso de SQL
 En esta sección, se describen las siguientes tareas de tratamiento de datos mediante SQL:
 
 1. [Exploración de datos](#sql-dataexploration)
 2. [Generación de características](#sql-featuregen)
 
-### <a name="sql-dataexploration"></a>Exploración de datos
+### <a name="data-exploration"></a><a name="sql-dataexploration"></a>Exploración de datos
 A continuación se muestran algunos scripts de SQL de ejemplo que se pueden usar para explorar los almacenes de datos en SQL Server.
 
 > [!NOTE]
@@ -53,7 +53,7 @@ A continuación se muestran algunos scripts de SQL de ejemplo que se pueden usar
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
-### <a name="sql-featuregen"></a>Generación de características
+### <a name="feature-generation"></a><a name="sql-featuregen"></a>Generación de características
 En esta sección, se describen formas de generar características mediante SQL:  
 
 1. [Generación de características basadas en recuentos](#sql-countfeature)
@@ -65,7 +65,7 @@ En esta sección, se describen formas de generar características mediante SQL:
 > 
 > 
 
-### <a name="sql-countfeature"></a>Generación de características basadas en recuentos
+### <a name="count-based-feature-generation"></a><a name="sql-countfeature"></a>Generación de características basadas en recuentos
 Los ejemplos siguientes muestran dos formas de generar características de recuento. El primer método usa la suma condicional y el segundo utiliza la cláusula 'where'. Estos resultados pueden combinarse luego con la tabla original (con columnas de clave principal) para disponer de características de recuento junto con los datos originales.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
@@ -73,13 +73,13 @@ Los ejemplos siguientes muestran dos formas de generar características de recue
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
-### <a name="sql-binningfeature"></a>Generación de características de discretización
+### <a name="binning-feature-generation"></a><a name="sql-binningfeature"></a>Generación de características de discretización
 En el ejemplo siguiente se muestra cómo generar características discretizadas mediante la discretización (con cinco discretizaciones) de una columna numérica que puede usarse en su lugar como una característica:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="sql-featurerollout"></a>Implementación de las características de una sola columna
+### <a name="rolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Implementación de las características de una sola columna
 En esta sección, se muestra cómo se implementa una sola columna de una tabla para generar características adicionales. En el ejemplo se supone que hay una columna de latitud o longitud en la tabla a partir de la cual está intentando generar características.
 
 Aquí se incluye un breve manual sobre los datos de ubicación de latitud y longitud (extraído de stackoverflow [How to measure the accuracy of latitude and longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)(¿Cómo medir la precisión de la latitud y la longitud?)). Es útil comprender esta guía antes de incluir la ubicación como una o más características:
@@ -115,12 +115,12 @@ Estas características basadas en ubicación se pueden usar aún más para gener
 > 
 > 
 
-### <a name="sql-aml"></a>Conexión con Azure Machine Learning
+### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conexión con Azure Machine Learning
 La característica recién generada se puede agregar como una columna a una tabla existente o se puede almacenar en una tabla nueva y combinar con la tabla original para el aprendizaje automático. Es posible generar o tener acceso a las características si ya se han creado, mediante el módulo [Importar datos][import-data] en Azure Machine Learning, como se muestra a continuación:
 
 ![Lectores de azureml][1] 
 
-## <a name="python"></a>Uso de un lenguaje de programación como Python
+## <a name="using-a-programming-language-like-python"></a><a name="python"></a>Uso de un lenguaje de programación como Python
 Usar Python para generar explorar datos y generar características cuando los datos están en SQL Server es parecido a procesar los datos en blobs de Azure mediante Python, como se documenta en [Proceso de datos de blobs de Azure en su entorno de ciencia de datos](data-blob.md). Cargue los datos de la base de datos en una trama de datos Pandas para un mayor procesamiento. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
 
 El formato de cadena de conexión siguiente puede usarse para conectarse a una base de datos de SQL Server desde Python mediante pyodbc (reemplace servername, dbname, username y password con sus valores específicos):

@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975302"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233328"
 ---
 # <a name="symmetric-key-attestation"></a>Atestación de clave simétrica
 
@@ -46,7 +46,7 @@ Los tokens de SAS tendrán este formato:
 
 Presentamos a continuación los componentes de cada token:
 
-| Valor | DESCRIPCIÓN |
+| Value | Descripción |
 | --- | --- |
 | {signature} |Una cadena de firma HMAC-SHA256. Para las inscripciones individuales, esta firma se genera mediante la clave simétrica (principal o secundaria) para realizar el hash. Para los grupos de inscripción, se usa una clave derivada de la clave de grupo de inscripción para realizar el hash. El hash se realiza en un mensaje del formulario: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: La clave se tiene que descodificar en base64 antes de utilizarla para realizar el cálculo de HMAC-SHA256. Además, el resultado de la firma tiene que codificarse como URL. |
 | {resourceURI} |EL URI del punto de conexión de registro al que se puede acceder con este token, empezando por el identificador de ámbito para la instancia del servicio Device Provisioning. Por ejemplo: `{Scope ID}/registrations/{Registration ID}` |
@@ -114,6 +114,6 @@ Si las claves de dispositivo no se instalan en la fábrica, se debe utilizar un 
 
 Ahora que tiene un conocimiento de la atestación de clave simétrica, consulte los artículos siguientes para aprender más sobre el tema:
 
-* [Inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md)
+* [Guía de inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md)
 * [Conceptos de aprovisionamiento automático](./concepts-auto-provisioning.md)
 * [Introducción al uso del aprovisionamiento automático](./quick-setup-auto-provision.md) 

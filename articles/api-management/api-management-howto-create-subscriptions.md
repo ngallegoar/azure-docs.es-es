@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
 ms.openlocfilehash: f8b2238eb0fab9aeeb42d11b4176c0d681b5f8e5
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70073536"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Creación de suscripciones en Azure API Management
@@ -25,7 +25,7 @@ Al publicar las API mediante Azure API Management, es sencillo y frecuente prote
 
 Este artículo le guiará por los pasos necesarios para crear suscripciones en Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para aprovechar los pasos de este artículo, los requisitos previos son los siguientes:
 

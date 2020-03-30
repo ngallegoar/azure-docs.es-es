@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74184237"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualización de datos de supervisión remota con Power BI
 
 En este tutorial se ofrece orientación sobre cómo conectar los datos de la solución de supervisión remota de Cosmos DB a Power BI. Con esta conexión establecida, puede crear sus propios paneles personalizados y volver a agregarlos al panel de la solución de supervisión remota. Esta serie de tareas permite crear gráficos más especializados, además de otros listos para usar. Por tanto, puede usar este tutorial para integrarlo con otros flujos de datos o crear paneles personalizados para que se consuman fuera de la solución de supervisión remota. La creación de paneles en Power BI supone que también puede hacer que los paneles interactúen entre sí al seleccionar elementos específicos. Por ejemplo, podría disponer de un filtro para mostrar solo información sobre los camiones simulados y cada elemento del panel interactuaría para mostrar solo información simulada sobre el camión. Si desea usar una herramienta distinta a Power BI, también puede ampliar estos pasos para usar la herramienta de visualización de su elección y conectarla a la base de datos de Cosmos DB o a una base de datos personalizada, en caso de que haya configurado alguna. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Debe disponer de una solución de supervisión remota que esté en ejecución actualmente.
 - Debe acceder a [Azure Portal](https://portal.azure.com) y a la suscripción en que se ejecutan IoT Hub y la solución.
@@ -51,7 +51,7 @@ En este tutorial se ofrece orientación sobre cómo conectar los datos de la sol
   
 1. Abra la aplicación de Power BI Desktop y haga clic en "Obtener datos" en la esquina superior izquierda. 
 
-    ![Obtención de datos](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
+    ![Get Data](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
 2. Cuando se le pida que especifique los datos, elija buscar "Azure Cosmos DB" y seleccione este conector. Este conector básicamente extrae los datos directamente de la base de datos de Cosmos DB de la solución de Azure IoT.
   

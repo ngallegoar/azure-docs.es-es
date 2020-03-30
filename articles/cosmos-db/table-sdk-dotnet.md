@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 5a5305ffd388d2573d250d93131c1fed236008b7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76771628"
 ---
-# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API Table de .NET de Azure Cosmos DB: descarga y notas de la versión
+# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Table API .NET de Azure Cosmos DB: descarga y notas de la versión
 
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
@@ -39,40 +39,40 @@ ms.locfileid: "76771628"
 
 ## <a name="release-notes"></a>Notas de la versión
 
-### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+### <a name="212"></a><a name="2.1.2"/>2.1.2
 
 * Corrección de errores
 
-### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+### <a name="210"></a><a name="2.1.0"/>2.1.0
 
 * Corrección de errores
 
-### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+### <a name="200"></a><a name="2.0.0"/>2.0.0
 
 * Compatibilidad con escrituras de varias regiones agregada
 * Se corrigieron las dependencias del paquete NuGet en Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
 
-### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
+### <a name="113"></a><a name="1.1.3"/>1.1.3
 
 * Se corrigieron las dependencias de Microsoft.Azure.Storage.Common and Microsoft.Azure.DocumentDB del paquete de NuGet.
 * Correcciones de errores en la serialización de tablas cuando se configura JsonConvert.DefaultSettings.
 
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+### <a name="111"></a><a name="1.1.1"/>1.1.1
 
 * Se agregó validación para ETAG con formato incorrecto en el modo directo.
 * Se corrigió el error de consulta LINQ en modo de puerta de enlace.
 * Las API sincrónicas ahora se ejecutan en el grupo de subprocesos con SynchronizationContext.
 
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+### <a name="110"></a><a name="1.1.0"/>1.1.0
 
 * Incorporación de TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism y TableQueryContinuationTokenLimitInKb a TableRequestOptions
 * Correcciones de errores
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"/>1.0.0
 
 * Versión de disponibilidad general
 
-### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-preview
+### <a name="090-preview"></a><a name="0.1.0-preview"/>0.9.0-preview
 
 * Versión preliminar inicial
 

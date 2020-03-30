@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 365c52840d281c0f48d17aacc358e4cce513e3b4
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083091"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con cadenas de consulta: nivel premium
@@ -37,7 +37,7 @@ Azure Content Delivery Network (CDN) le permite controlar cómo se almacenan los
 
 Existen tres modos de cadena de consulta:
 
-- **standard-cache**: modo predeterminado. En este modo, el nodo de punto de presencia (POP) de CDN pasa las cadenas de consulta del solicitante al servidor de origen en la primera solicitud y almacena en caché el recurso. Todas las solicitudes posteriores del recurso que se ofrecen desde el servidor POP omiten las cadenas de consulta hasta que expira el recurso en caché.
+- **standard-cache**: este es el modo predeterminado. En este modo, el nodo de punto de presencia (POP) de CDN pasa las cadenas de consulta del solicitante al servidor de origen en la primera solicitud y almacena en caché el recurso. Todas las solicitudes posteriores del recurso que se ofrecen desde el servidor POP omiten las cadenas de consulta hasta que expira el recurso en caché.
 
     >[!IMPORTANT] 
     > Si está habilitada la autorización de token en cualquier ruta de acceso de esta cuenta, el modo de caché estándar es el único modo que se puede usar. 

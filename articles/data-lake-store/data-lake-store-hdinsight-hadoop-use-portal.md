@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 1d1368ef8ffb474c6bec1240f567f043961597fb
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838172"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231500"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Crear clústeres de HDInsight con Data Lake Storage Gen1 mediante Azure Portal
 
@@ -25,7 +25,7 @@ ms.locfileid: "73838172"
 
 Aprenda a usar Azure Portal para crear un clúster de HDInsight con una cuenta de Azure Data Lake Storage Gen1 como almacenamiento predeterminado o almacenamiento adicional. Aunque el almacenamiento adicional es opcional en el caso de los clústeres de HDInsight, se recomienda almacenar los datos empresariales en las cuentas de almacenamiento adicional.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, asegúrese de que ha cumplido los requisitos siguientes:
 
@@ -45,13 +45,13 @@ En esta sección creará un clúster de HDInsight con cuentas de Data Lake Stora
 
 Para crear un clúster de HDInsight con una cuenta de Data Lake Storage Gen1 como cuenta de almacenamiento predeterminada:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Siga [Creación de clústeres](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obtener información general sobre cómo crear clústeres de HDInsight.
 3. En la hoja **Almacenamiento**, en **Tipo de almacenamiento principal**, seleccione **Azure Data Lake Storage Gen1** y escriba la siguiente información:
 
     ![Incorporación de una entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Agregar entidad de servicio al clúster de HDInsight")
 
-    * **Selección de una cuenta de Azure Data Lake Store**: seleccione una cuenta existente de Data Lake Storage Gen1. Se necesita una cuenta existente de Data Lake Storage Gen1.  Consulte [Requisitos previos](#prerequisites).
+    * **Seleccione la cuenta de Data Lake Store**: seleccione una cuenta existente de Data Lake Storage Gen1. Se necesita una cuenta existente de Data Lake Storage Gen1.  Consulte [Requisitos previos](#prerequisites).
     * **Ruta de acceso raíz**: escriba una ruta de acceso en la que se almacenarán los archivos específicos del clúster. En la captura de pantalla, es __/clusters/myhdiadlcluster/__ , donde la carpeta __/clusters__ debe existir y el portal crea la carpeta *myhdicluster*.  *myhdicluster* es el nombre del clúster.
     * **Acceso a Data Lake Store**: configure el acceso entre la cuenta de Data Lake Storage Gen1 y el clúster de HDInsight. Para obtener instrucciones, consulte [Configure Data Lake Storage Gen1 access](#configure-data-lake-storage-gen1-access) (Configuración del acceso a Data Lake Storage Gen1).
     * **Cuentas de almacenamiento adicionales**: agregue cuentas de Azure Storage como cuentas de almacenamiento adicionales para el clúster. Para agregar más cuentas de Data Lake Storage Gen1, asigne al clúster permisos de datos en más cuentas de Data Lake Storage Gen1 al configurar una cuenta de Data Lake Storage Gen1 como tipo de almacenamiento principal. Consulte [Configuración del acceso a Data Lake Storage Gen1](#configure-data-lake-storage-gen1-access).
@@ -64,7 +64,7 @@ En las siguientes instrucciones se describe cómo crear un clúster de HDInsight
 
 Para crear un clúster de HDInsight con una cuenta de Data Lake Storage Gen1 como cuenta de almacenamiento adicional:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Siga [Creación de clústeres](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) para obtener información general sobre cómo crear clústeres de HDInsight.
 3. En la hoja **Almacenamiento**, en **Tipo de almacenamiento principal**, seleccione **Azure Storage** y escriba la siguiente información:
 
@@ -106,7 +106,7 @@ Para usar una entidad de servicio existente en Azure Portal:
 
 1. Seleccione **Acceso** para configurar el acceso a la carpeta.  Consulte [Configurar los permisos de los archivos](#configure-file-permissions).
 
-### <a name="configure-file-permissions"></a>Configurar los permisos de los archivos
+### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Configurar los permisos de los archivos
 
 La configuración varía en función de si la cuenta se usa como almacenamiento predeterminado o como cuenta de almacenamiento adicional:
 
@@ -146,7 +146,7 @@ Si usa Data Lake Storage Gen1 como almacenamiento adicional, debe asignar permis
 
 ![Asignación de permisos de entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3-1.png "Asignación de permisos de entidad de servicio al clúster de HDInsight")
 
-## <a name="verify-cluster-set-up"></a>Comprobación de la configuración del clúster
+## <a name="verify-cluster-setup"></a><a name="verify-cluster-set-up"></a>Comprobación de la configuración del clúster
 
 Una vez concluida la configuración del clúster, en la hoja del clúster, compruebe los resultados siguiendo uno de los siguientes pasos o ambos:
 
@@ -195,10 +195,10 @@ Puede usar un clúster de Spark para ejecutar trabajos de Spark en los datos que
 
 La cuenta de Data Lake Storage Gen1 se puede usar para escribir datos de una topología de Storm. Para obtener instrucciones sobre cómo posibilitar este escenario, consulte [Use Azure Data Lake Storage Gen1 with Apache Storm with HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md) (Usar Azure Data Lake Storage Gen1 con Apache Storm con HDInsight).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Usar Data Lake Storage Gen1 con clústeres de Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [PowerShell: Creación de un clúster de HDInsight para usar Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)
+* [PowerShell: Create an HDInsight cluster to use Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md) (PowerShell: crear un clúster de HDInsight para usar Data Lake Storage Gen1)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

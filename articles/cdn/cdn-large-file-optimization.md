@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 4fe72985a799595908a0ff6bceb1a73dca823c8f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593781"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimización de descarga de archivos grandes con Azure CDN
@@ -104,14 +104,14 @@ Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](
 
 La red CDN almacena en caché los fragmentos cuando se reciben. No es necesario almacenar el archivo entero en la caché de CDN. Las solicitudes posteriores para el archivo o los intervalos de bytes se sirven desde la caché de la red CDN. Si no se almacenan en caché todos los fragmentos en la red CDN, se usa la captura previa para solicitar fragmentos del origen. Esta optimización se basa en la capacidad del servidor de origen para admitir solicitudes de intervalo de bytes; si no las admite, esta optimización no es efectiva.
 
-### <a name="caching"></a>Almacenamiento en caché
+### <a name="caching"></a>Almacenamiento en memoria caché
 La optimización de archivos grandes usa tiempos de expiración de almacenamiento en caché predeterminados distintos a los de la entrega web general. Esto marca la diferencia entre el almacenamiento en caché positivo y el negativo, en función de códigos de respuesta HTTP. Si el servidor de origen especifica un tiempo de expiración a través de un encabezado Cache-Control o Expires en la respuesta, la red CDN respeta ese valor. Si no se especifica el origen y el archivo coincide con las condiciones de tipo y tamaño para este tipo de optimización, la red CDN usa los valores predeterminados para la optimización de archivos grandes. En caso contrario, la red CDN usa los valores predeterminados para la entrega web general.
 
 
 |    | Web general | Optimización de archivos grandes 
 --- | --- | --- 
-Almacenamiento en caché: Positive <br> HTTP 200, 203, 300, <br> 301, 302 y 410 | 7 días |1 día  
-Almacenamiento en caché: Negative <br> HTTP 204, 305, 404, <br> y 405 | None | 1 segundo 
+Almacenamiento en caché: positivo <br> HTTP 200, 203, 300, <br> 301, 302 y 410 | 7 días |1 día  
+Almacenamiento en caché: negativo <br> HTTP 204, 305, 404, <br> y 405 | None | 1 segundo 
 
 ### <a name="deal-with-origin-failure"></a>Tratamiento del error de origen
 
@@ -127,7 +127,7 @@ Condición | Valores
 --- | --- 
 Tipos de archivo admitidos | 3g2, 3gp, asf, avi, bz2, dmg, exe, f4v, flv, <br> gz, hdp, iso, jxr, m4v, mkv, mov, mp4, <br> mpeg, mpg, mts, pkg, qt, rm, swf, tar, <br> tgz, wdp, webm, webp, wma, wmv, zip  
 Tamaño de archivo mínimo | 10 MB 
-Tamaño de archivo máximo | 150 GB 
+Tamaño de archivo máximo | 150 GB 
 Características del servidor de origen | Debe admitir solicitudes de intervalo de bytes 
 
 ## <a name="additional-considerations"></a>Consideraciones adicionales

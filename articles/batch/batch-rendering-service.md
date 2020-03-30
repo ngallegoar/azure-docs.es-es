@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60774036"
 ---
 # <a name="rendering-using-azure"></a>Representación mediante Azure
@@ -79,7 +79,7 @@ Azure Batch se utiliza para muchas cargas de trabajo, pero las siguientes funcio
 Hay varias maneras de usar Azure Batch, que también se aplican a la representación con Azure Batch.
 
 * API:
-  * Escriba código mediante [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch) u otras API admitidas.  Los desarrolladores pueden integrar funcionalidades de Azure Batch en sus aplicaciones existentes o flujo de trabajo, ya sea en la nube o de forma local.  Por ejemplo, el [complemento Autodesk Maya](https://github.com/Azure/azure-batch-maya) utiliza la API de Python de Batch para invocar a Batch, crear y administrar grupos, enviar trabajos y tareas y supervisar el estado.
+  * Escriba código mediante [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch) u otras API admitidas.  Los desarrolladores pueden integrar funcionalidades de Azure Batch en sus aplicaciones o su flujo de trabajo existentes, independientemente de que se encuentre en la nube o de forma local.  Por ejemplo, el [complemento Autodesk Maya](https://github.com/Azure/azure-batch-maya) utiliza la API de Python de Batch para invocar a Batch, crear y administrar grupos, enviar trabajos y tareas y supervisar el estado.
 * Herramientas de línea de comandos:
   * La [línea de comandos de Azure](https://docs.microsoft.com/cli/azure/) o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) se puede usar para crear un script de uso de Batch.
   * En concreto, la compatibilidad con plantillas de la CLI de Batch facilita la creación de grupos y el envío de trabajos.
@@ -87,7 +87,7 @@ Hay varias maneras de usar Azure Batch, que también se aplican a la representac
   * [Batch Explorer](https://github.com/Azure/BatchExplorer) es una herramienta de cliente multiplataforma que también permite administrar y supervisar las cuentas de Batch, pero proporciona algunas funcionalidades más versátiles en comparación con la interfaz de usuario de Azure Portal.  Se proporciona un conjunto de plantillas de grupo y trabajo adaptadas a cada aplicación admitida y se puede usar para crear fácilmente grupos y enviar trabajos.
   * Azure Portal se puede usar para administrar y supervisar Azure Batch.
 * Complementos de aplicación cliente:
-  * Hay complementos disponibles que permiten la representación con Batch que se pueden usar directamente desde en el diseño de cliente y aplicaciones de modelado. Los complementos principalmente invocan la aplicación Batch Explorer con información contextual sobre el modelo 3D actual.
+  * Hay complementos disponibles que permiten que la representación de Batch se use directamente desde las aplicaciones de modelado y diseño del cliente. Los complementos principalmente invocan la aplicación Batch Explorer con información contextual sobre el modelo 3D actual.
   * Están disponibles los siguientes complementos:
     * [Azure Batch para Maya](https://github.com/Azure/azure-batch-maya)
     * [3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)

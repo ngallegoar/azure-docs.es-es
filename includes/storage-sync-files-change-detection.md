@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.openlocfilehash: 55456a6be938411d3c08a0eaa8fdbfb0844e7129
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72391785"
 ---
 Los cambios realizados en el recurso compartido de archivos de Azure mediante Azure Portal o SMB no se detectan y replican de forma inmediata como cambios en el punto de conexión del servidor. Azure Files aún no dispone de registros en diario o notificaciones, por lo que no hay manera de iniciar automáticamente una sesión de sincronización cuando se cambian los archivos. En Windows Server, Azure File Sync usa el [registro en diario de USN de Windows](https://msdn.microsoft.com/library/windows/desktop/aa363798.aspx) para iniciar automáticamente una sesión de sincronización cuando cambian los archivos.

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232756"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Control de versiones en Durable Functions (Azure Functions)
@@ -35,7 +35,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-Esta sencilla función toma los resultados de **Foo** y los pasa a **Bar**. Supongamos que es necesario cambiar el valor devuelto de **Foo** de `bool` a `int` para admitir una mayor variedad de valores de resultado. El resultado se parecerá al siguiente:
+Esta sencilla función toma los resultados de **Foo** y los pasa a **Bar**. Supongamos que es necesario cambiar el valor devuelto de **Foo** de `bool` a `int` para admitir una mayor variedad de valores de resultado. El resultado tiene el aspecto siguiente:
 
 ```csharp
 [FunctionName("FooBar")]
@@ -47,7 +47,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> Los ejemplos de C# anteriores tienen como destino Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+> Los ejemplos de C# anteriores tienen como destino Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 Este cambio funciona bien en todas las nuevas instancias de la función de orquestador, pero interrumpe todas las instancias en curso. Por ejemplo, considere el caso en el que una instancia de orquestación llama a una función denominada `Foo`, obtiene un valor booleano y, a continuación, establece puntos de control. Si el cambio de firma se implementa en este momento, se producirá un error en la instancia con los puntos de control inmediatamente después de que se reanude y reproduzca la llamada a `context.CallActivityAsync<int>("Foo")`. Este error se debe a que el resultado de la tabla de historial es `bool`, pero el nuevo código intenta deserializarlo en `int`.
 
@@ -85,7 +85,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 ```
 
 > [!NOTE]
-> Los ejemplos de C# anteriores tienen como destino Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
+> Los ejemplos de C# anteriores tienen como destino Durable Functions 2.x. En el caso de Durable Functions 1.x, debe usar `DurableOrchestrationContext` en lugar de `IDurableOrchestrationContext`. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
 Este cambio agrega una nueva llamada de función a **SendNotification** entre **Foo** y **Bar**. No hay ningún cambio de firma. El problema surge cuando se reanuda una instancia existente desde la llamada a **Bar**. Durante la reproducción, si la llamada original a **Foo** devolvió `true`, la reproducción del orquestador llamará a **SendNotification**, que no está en su historial de ejecución. En consecuencia, se produce un error de Durable Task Framework con la excepción `NonDeterministicOrchestrationException` porque ha encontrado una llamada a **SendNotification** cuando esperaba una llamada a **Bar**. El mismo tipo de problema puede producirse al agregar llamadas a API "durables", incluidas `CreateTimer`, `WaitForExternalEvent`, etc.
 

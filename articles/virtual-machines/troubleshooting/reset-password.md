@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 08/20/2019
 ms.author: delhan
 ms.openlocfilehash: 83751538efe4f3d3af5928caa04b265b6c867442
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71153568"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Restablecimiento de las contraseñas locales de Linux en máquinas virtuales de Azure
@@ -33,7 +33,7 @@ No puede iniciar sesión en la máquina virtual y recibe un mensaje que indica q
 > [!NOTE]
 > Los siguientes pasos no se aplican a la máquina virtual con un disco no administrado.
 
-1. Realice una instantánea del disco del sistema operativo de la máquina virtual afectada, cree un disco a partir de la instantánea y luego conecte el disco a una máquina virtual de solución de problemas. Para obtener más información, vea [Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal](troubleshoot-recovery-disks-portal-linux.md).
+1. Realice una instantánea del disco del sistema operativo de la máquina virtual afectada, cree un disco a partir de la instantánea y luego conecte el disco a una máquina virtual de solución de problemas. Para más información, consulte [Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal](troubleshoot-recovery-disks-portal-linux.md).
 
 2. Conéctese a la máquina virtual de solución de problemas mediante Escritorio remoto.
 
@@ -101,7 +101,7 @@ No puede iniciar sesión en la máquina virtual y recibe un mensaje que indica q
     umount /tempmount
     ```
 
-11. En Azure Portal, desconecte el disco de la máquina virtual de solución de problemas.
+11. En Azure Portal, desasocie el disco de la máquina virtual de solución de problemas.
 
 12. [Cambie el disco del sistema operativo de la máquina virtual afectada](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 

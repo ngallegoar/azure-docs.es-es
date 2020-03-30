@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: db2336fb79207ada24b71e0e64f0aaaab543e4da
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73241547"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configuración del entorno interactivo de PySpark para Visual Studio Code
@@ -52,12 +52,12 @@ sudo apt-get install libkrb5-dev
 sudo apt-get install python-dev
 ```
 
-Reinicie Visual Studio Code y vuelva al editor de scripts que ejecuta **HDInsight: PySpark interactivo**.
+Reinicie Visual Studio Code y vuelva al editor de scripts que ejecuta el **entorno interactivo de PySpark en HDInsight**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 ### <a name="demo"></a>Demostración
-* HDInsight para VS Code: [Vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight para VS Code: [vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Uso de Herramientas de Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md)

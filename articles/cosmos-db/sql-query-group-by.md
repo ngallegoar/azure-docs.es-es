@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tisande
 ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73819102"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Cláusula GROUP BY en Azure Cosmos DB
@@ -41,7 +41,7 @@ La cláusula GROUP BY divide los resultados de la consulta de acuerdo con los va
   
    Se permite cualquier expresión escalar, excepto para las subconsultas escalares y los agregados escalares. Cada expresión escalar debe contener al menos una referencia de propiedad. No hay ningún límite en cuanto al número de expresiones individuales o la cardinalidad de cada expresión.
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
   
   Cuando una consulta utiliza una cláusula GROUP BY, la cláusula SELECT solo puede contener el subconjunto de propiedades y las funciones del sistema incluidas en la cláusula GROUP BY. Una excepción son las [funciones del sistema de agregado](sql-query-aggregates.md), que pueden aparecer en la cláusula SELECT sin incluirse en la cláusula GROUP BY. También puede incluir siempre valores literales en la cláusula SELECT.
 

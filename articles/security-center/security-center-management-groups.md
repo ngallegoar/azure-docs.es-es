@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 734876380d22f5d4d6dae0dd375b238fd5f6ffed
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74559343"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
@@ -39,7 +39,7 @@ Para más información sobre los grupos de administración, consulte el artícul
 Puede organizar las suscripciones en grupos de administración y aplicar las directivas de gobernanza a los grupos de administración. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las directivas que se aplican al grupo de administración. Aunque los grupos de administración no son necesarios para incorporar Security Center, se recomienda crear al menos un grupo de administración para que se cree el grupo de administración raíz. Una vez creado el grupo, todas las suscripciones del inquilino de Azure AD estarán vinculadas a él. Para las instrucciones de PowerShell y otra información, consulte [Creación de grupos de administración para la administración de los recursos y la organización](../azure-resource-manager/management-groups-create.md).
 
  
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** > **Grupos de administración**.
 3. En la página principal, seleccione **Nuevo grupo de administración**. 
 
@@ -52,7 +52,7 @@ Puede organizar las suscripciones en grupos de administración y aplicar las dir
 5.  Seleccione **Guardar**.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visualización de grupos de administración en Azure Portal
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Para ver los grupos de administración, seleccione **Todos los servicios** en el menú principal de Azure.
 3. En **General**, seleccione **Grupos de administración**.
 
@@ -93,7 +93,7 @@ Para ganar visibilidad en todas las suscripciones, los administradores de inquil
 
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Asigne roles de RBAC a usuarios mediante Azure Portal: 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 1. Para ver los grupos de administración, seleccione **Todos los servicios** en el menú principal de Azure y, a continuación, seleccione **Grupo de administración**.
 1.  Seleccione un grupo de administración y haga clic en **detalles**.
 
@@ -140,7 +140,7 @@ Para ganar visibilidad en todas las suscripciones, los administradores de inquil
 ### <a name="open-or-refresh-security-center"></a>Apertura o actualización de Security Center
 Cuando tenga privilegios de acceso elevados, abra o actualice Azure Security Center para comprobar que tiene visibilidad en todas las suscripciones del inquilino de Azure AD. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 2. En el selector de suscripciones, asegúrese de seleccionar todas las suscripciones que quiere ver en Security Center.
 
     ![Captura de pantalla del selector de suscripciones](./media/security-center-management-groups/subscription-selector.png)

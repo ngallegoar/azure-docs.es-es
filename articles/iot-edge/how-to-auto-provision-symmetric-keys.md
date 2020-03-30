@@ -9,12 +9,12 @@ ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3adefbdf248deaec6170037521ab65890356d184
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: d9944308d00c9cfecbd38a6443efb49913148806
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510896"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535925"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Creación y aprovisionamiento de un dispositivo IoT Edge mediante la atestación de clave simétrica
 
@@ -175,14 +175,14 @@ La sección del archivo de configuración para el aprovisionamiento de clave sim
 provisioning:
    source: "dps"
    global_endpoint: "https://global.azure-devices-provisioning.net"
-   scope_id: "{scope_id}"
+   scope_id: "<SCOPE_ID>"
    attestation:
       method: "symmetric_key"
-      registration_id: "{registration_id}"
-      symmetric_key: "{symmetric_key}"
+      registration_id: "<REGISTRATION_ID>"
+      symmetric_key: "<SYMMETRIC_KEY>"
 ```
 
-Reemplace los valores de marcador de posición para `{scope_id}`, `{registration_id}` y `{symmetric_key}` con los datos que ha recopilado antes. Asegúrese de que la línea **provisioning:** no tiene ningún espacio en blanco delante y de que los elementos anidados muestran una sangría de dos espacios.
+Reemplace los valores de marcador de posición para `<SCOPE_ID>`, `<REGISTRATION_ID>` y `<SYMMETRIC_KEY>` con los datos que ha recopilado antes. Asegúrese de que la línea **provisioning:** no tiene ningún espacio en blanco delante y de que los elementos anidados muestran una sangría de dos espacios.
 
 ### <a name="windows-device"></a>Dispositivo Windows
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 87f16ec615c8b47c93745b33be12d3acd6d9177a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035054"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Uso de la consola serie para acceder a GRUB y al modo de usuario único
@@ -120,12 +120,12 @@ Las imágenes de Ubuntu no requieren una contraseña raíz. Si el sistema arranc
 ### <a name="grub-access-in-ubuntu"></a>Acceso a GRUB en Ubuntu
 Para acceder a GRUB, mantenga presionado "Esc" mientras arranca la máquina virtual. 
 
-De forma predeterminada, las imágenes de Ubuntu no muestran automáticamente la pantalla de GRUB. Esto se puede cambiar con las instrucciones siguientes:
+De forma predeterminada, las imágenes de Ubuntu no muestran automáticamente la pantalla de GRUB. Esto se puede cambiar con las siguientes instrucciones:
 1. Abra `/etc/default/grub.d/50-cloudimg-settings.cfg` en el editor de texto que prefiera.
 1. Cambie el valor de `GRUB_TIMEOUT` por un valor distinto de cero.
 1. Abra `/etc/default/grub` en el editor de texto que prefiera.
 1. Marque como comentario la línea `GRUB_HIDDEN_TIMEOUT=1`.
-1. Ejecute `sudo update-grub`
+1. Ejecute `sudo update-grub`:
 
 ### <a name="single-user-mode-in-ubuntu"></a>Modo de usuario único en Ubuntu
 Ubuntu le pondrá en modo de usuario único automáticamente si no puede arrancar con normalidad. Para especificar manualmente el modo de usuario único, siga estas instrucciones:

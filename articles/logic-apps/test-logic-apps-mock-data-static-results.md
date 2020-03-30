@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: b71aae91f4a065b70537a300aa0bd7016edfd4b4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790281"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Probar aplicaciones lógicas con datos simulados mediante la configuración de resultados estáticos
@@ -21,9 +21,9 @@ Al probar sus aplicaciones lógicas, podría no estar listo para llamar o tener 
 
 Por ejemplo, si se configuran resultados estáticos de la acción de envío de Outlook 365, el motor de Logic Apps devolverá únicamente los datos ficticios que se hayan especificado como resultados estáticos; no llamará a Outlook ni enviará un correo electrónico.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
+* Suscripción a Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -45,7 +45,7 @@ Por ejemplo, si se configuran resultados estáticos de la acción de envío de O
 
       Por ejemplo, estas son las propiedades obligatorias en la acción HTTP:
 
-      | Propiedad | DESCRIPCIÓN |
+      | Propiedad | Descripción |
       |----------|-------------|
       | **Estado** | Estado de la acción que se va a devolver. |
       | **Código de estado** | Código de estado específico que se va a devolver. |

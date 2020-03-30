@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
 ms.openlocfilehash: d238de30e458261a11c941c03ac127c732ca8d3d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456446"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
@@ -28,13 +28,13 @@ Un registro con replicación geográfica le proporciona las siguientes ventajas:
 >
 
 ## <a name="example-use-case"></a>Ejemplo de caso de uso
-Contoso ejecuta un sitio web de presencia pública ubicado en los Estados Unidos, Canadá y Europa. Para poder atender a estos mercados con contenido local y cercano a la red, Contoso ejecuta los clústeres de [Azure Kubernetes Service](/azure/aks/) (AKS) en el Este y Oeste de EE. UU, Centro de Canadá y Europa Occidental. La aplicación del sitio web se implementa como una imagen de Docker y utiliza el mismo código e imagen en todas las regiones. El contenido (que es local en esa región) se recupera de una base de datos que se aprovisiona de forma única en cada región. Cada implementación regional tiene su configuración única para recursos tales como la base de datos local.
+Contoso ejecuta un sitio web de presencia pública ubicado en los Estados Unidos, Canadá y Europa. Para poder atender a estos mercados con contenido local y cercano a la red, Contoso ejecuta los clústeres de [Azure Kubernetes Service](/azure/aks/) (AKS) en el Este y Oeste de EE. UU, Centro de Canadá y Oeste de Europa. La aplicación del sitio web se implementa como una imagen de Docker y utiliza el mismo código e imagen en todas las regiones. El contenido (que es local en esa región) se recupera de una base de datos que se aprovisiona de forma única en cada región. Cada implementación regional tiene su configuración única para recursos tales como la base de datos local.
 
 El equipo de desarrollo que está ubicado en Seattle (WA) usará el centro de datos del Oeste de EE. UU.
 
 ![Inserciones en varios registros](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Inserciones en varios registros*
 
-Antes de usar las características de replicación geográfica, Contoso tenía un registro basado en los Estados Unidos de la zona Oeste de EE. UU. con un registro adicional en Europa Occidental. Para dar servicio a estas regiones, el equipo de desarrollo tenía que insertar imágenes en dos registros diferentes.
+Antes de usar las características de replicación geográfica, Contoso tenía un registro basado en los Estados Unidos de la zona Oeste de EE. UU. con un registro adicional en Oeste de Europa. Para dar servicio a estas regiones, el equipo de desarrollo tenía que insertar imágenes en dos registros diferentes.
 
 ```bash
 docker push contoso.azurecr.io/public/products/web:1.2
@@ -44,8 +44,8 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 
 Entre los desafíos típicos de tener varios registros se incluyen:
 
-* Todos los clústeres del Este de EE. UU., el Oeste de EE. UU. y Canadá central extraen contenido del registro del Oeste de EE. UU., por lo que se aplican cuotas de salida cada vez que uno de esos hosts de contenedor remotos extrae imágenes de los centros de datos del Oeste de EE. UU.
-* El equipo de desarrollo debe insertar imágenes en los registros del Oeste de EE. UU. y Europa Occidental.
+* Todos los clústeres del Este de EE. UU., el Oeste de EE. UU. y Centro de Canadá extraen contenido del registro del Oeste de EE. UU., por lo que se aplican cuotas de salida cada vez que uno de esos hosts de contenedor remotos extrae imágenes de los centros de datos del Oeste de EE. UU.
+* El equipo de desarrollo debe insertar imágenes en los registros del Oeste de EE. UU. y Oeste de Europa.
 * El equipo de desarrollo debe configurar y mantener todas las implementaciones regionales con nombres de imagen que hagan referencia al registro local.
 * El acceso al registro debe configurarse para cada región.
 
@@ -112,7 +112,7 @@ Para eliminar una réplica en Azure Portal:
 
 La replicación geográfica es una característica de la [SKU Premium](container-registry-skus.md) de Azure Container Registry. Cuando replica un registro en las áreas indicadas, se aplica la tarifa del registro Premium para cada región.
 
-En el ejemplo anterior, Contoso consolidó dos registros en uno y agregó réplicas en el Este de EE. UU., Canadá central y Europa Occidental. Por ello, pagaría cuatro veces al mes la tarifa Premium y sin tener ninguna configuración o administración adicional. Ahora, cada región extrae sus imágenes de forma local, lo que mejora el rendimiento y la confiabilidad sin tener que aplicar ninguna tarifa de salida de red desde las regiones del Oeste de EE. UU., Canadá y el Este de EE. UU.
+En el ejemplo anterior, Contoso consolidó dos registros en uno y agregó réplicas en el Este de EE. UU., Centro de Canadá y Oeste de Europa. Por ello, pagaría cuatro veces al mes la tarifa Premium y sin tener ninguna configuración o administración adicional. Ahora, cada región extrae sus imágenes de forma local, lo que mejora el rendimiento y la confiabilidad sin tener que aplicar ninguna tarifa de salida de red desde las regiones del Oeste de EE. UU., Canadá y el Este de EE. UU.
 
 ## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>Solución de problemas de operaciones de inserción con registros con replicación geográfica
  

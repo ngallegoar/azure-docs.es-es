@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: c1572eddf78ca2d5f8f4e3ee9f1fe47b0d43f5aa
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190245"
 ---
 # <a name="consumption-model"></a>Modelo de consumo
 
 El servicio de enrutamiento proporciona un conjunto de parámetros para tener una descripción detallada del modelo de consumo específico del vehículo.
-Según el valor de **vehicleEngineType**, se admiten dos modelos principales de consumo: _Combustión_ y _Electric_. Es incorrecto especificar parámetros que pertenecen a diferentes modelos en la misma solicitud. Además, los parámetros del modelo de consumo no se pueden usar con los siguientes valores de **travelMode**: _bicycle_ y _pedestrian_.
+Según el valor de **vehicleEngineType**, se admiten dos modelos principales de consumo: _Combustion_ y _Electric_. Es incorrecto especificar parámetros que pertenecen a diferentes modelos en la misma solicitud. Además, los parámetros del modelo de consumo no se pueden usar con los siguientes valores de **travelMode**: _bicycle_ y _pedestrian_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Restricciones de parámetros en el modelo de consumo
 

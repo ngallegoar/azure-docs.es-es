@@ -8,10 +8,10 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f7c57a5751f2ff34abb26b7653070ce4ee5010fe
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572622"
 ---
 # <a name="manage-server-administrators"></a>Administración de administradores de servidor
@@ -53,6 +53,6 @@ Use [Actualizar](https://docs.microsoft.com/rest/api/analysisservices/servers/up
 ## <a name="next-steps"></a>Pasos siguientes 
 
 [Permisos de usuario y autenticación](analysis-services-manage-users.md)  
-[Manage database roles and users](analysis-services-database-users.md) (Administración de roles y usuarios de una base de datos)  
+[Administración de usuarios y roles de base de datos](analysis-services-database-users.md)  
 [Control de acceso basado en roles](../role-based-access-control/overview.md)  
 

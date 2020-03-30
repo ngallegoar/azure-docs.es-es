@@ -11,10 +11,10 @@ ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
 ms.openlocfilehash: 15aac35a7ebc505e76ddfd0c538c4fddb7b2d9ff
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930537"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configuración de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento
@@ -118,7 +118,7 @@ Si tiene que ejecutar muchos paquetes y lo que más le preocupa es el rendimient
 Si ya está usando un nodo de trabajo de gran potencia para ejecutar los paquetes, el hecho de aumentar **AzureSSISMaxParallelExecutionsPerNode** puede incrementar el rendimiento global de Integration Runtime. En el caso de los nodos Standard_D1_v2, se admiten ejecuciones en paralelo 1-4 por nodo. Para el resto de tipos de nodos, se admite un máximo de ejecuciones en paralelo (2 x número de núcleos, 8) por nodo. Si quiere un valor de **AzureSSISMaxParallelExecutionsPerNode** por encima del máximo admitido, puede abrir una incidencia de soporte técnico para que se incremente el valor máximo en su caso y después tiene que usar Azure Powershell para actualizar **AzureSSISMaxParallelExecutionsPerNode**.
 Puede calcular el valor apropiado en función del costo del paquete y de las siguientes configuraciones de los nodos de trabajo. Para más información, consulte [Tamaños de máquina virtual de uso general](../virtual-machines/windows/sizes-general.md).
 
-| Size             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. NIC / rendimiento de red esperado (Mbps) |
+| Size             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo del almacenamiento temporal: E/S por segundo / MBps de lectura / MBps de escritura | Rendimiento máximo por discos de datos: E/S por segundo | Nº máx. NIC / rendimiento de red esperado (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Estándar\_D1\_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2 / 2x500                         | 2 / 750                                        |
 | Estándar\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4x500                         | 2 / 1500                                       |
@@ -128,13 +128,13 @@ Puede calcular el valor apropiado en función del costo del paquete y de las sig
 | Estándar\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16x500                       | 8 / 2000                                       |
 | Estándar\_D2\_v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4 / 6 x 500                         | 2 / 1000                                       |
 | Estándar\_D4\_v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8 / 12 x 500                        | 2 / 2000                                       |
-| Estándar\_D8\_v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16 / 24 x 500                       | 4 / 4000                                       |
+| Estándar\_D8\_v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16 / 24 x 500                       | 4/4000                                       |
 | Estándar\_D16\_v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/ 48 x 500                        | 8 / 8000                                       |
 | Estándar\_D32\_v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32/ 96 x 500                       | 8 / 16000                                      |
 | Estándar\_D64\_v3| 64   | 256         | 1600                   | 96000 / 1000 / 500                                         | 32/ 192 x 500                      | 8 / 30 000                                      |
 | Estándar\_E2\_v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4 / 6 x 500                         | 2 / 1000                                       |
 | Estándar\_E4\_v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8 / 12 x 500                        | 2 / 2000                                       |
-| Estándar\_E8\_v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16 / 24 x 500                       | 4 / 4000                                       |
+| Estándar\_E8\_v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16 / 24 x 500                       | 4/4000                                       |
 | Estándar\_E16\_v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32/ 48 x 500                       | 8 / 8000                                       |
 | Estándar\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/ 96 x 500                       | 8 / 16000                                      |
 | Estándar\_E64\_v3| 64   | 432         | 1600                   | 96000 / 1000 / 500                                         | 32/ 192 x 500                      | 8 / 30 000                                      |

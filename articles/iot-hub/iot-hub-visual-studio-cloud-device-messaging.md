@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74079491"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Uso de Cloud Explorer para Visual Studio para enviar y recibir mensajes entre el dispositivo e IoT Hub
@@ -42,7 +42,7 @@ Los siguientes requisitos previos son necesarios:
 
 - Una instancia de Azure IoT Hub en su suscripción.
 
-- Microsoft Visual Studio 2017 Update 9 o posterior. En este artículo se utiliza [Visual Studio 2019](https://www.visualstudio.com/vs/).
+- Microsoft Visual Studio 2017 Update 9 o posterior. En este artículo se utiliza [Visual Studio 2019](https://www.visualstudio.com/vs/).
 
 - El componente Cloud Explorer desde el Instalador de Visual Studio, que se selecciona de forma predeterminada con la carga de trabajo de Azure.
 
@@ -50,7 +50,7 @@ Los siguientes requisitos previos son necesarios:
 
 El componente Cloud Explorer desde el Instalador de Visual Studio 2017 solo admite la supervisión de mensajes del dispositivo a la nube y de la nube al dispositivo. Para usar Visual Studio 2017, descargue e instale la versión más reciente de [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS).
 
-## <a name="sign-in-to-access-your-hub"></a>Inicio de sesión para acceder al concentrador
+## <a name="sign-in-to-access-your-hub"></a>Inicio de sesión para acceder al centro
 
 Para acceder al concentrador, siga estos pasos:
 
@@ -64,7 +64,7 @@ Para acceder al concentrador, siga estos pasos:
 
 1. Seleccione las suscripciones de Azure que quiere usar y seleccione **Aplicar**.
 
-1. Expanda la suscripción y luego **IoT Hubs**.  En cada concentrador, puede ver sus dispositivos.
+1. Expanda la suscripción y luego **IoT Hubs**.  En cada centro, puede ver sus dispositivos.
 
     ![Lista de dispositivos](media/iot-hub-visual-studio-cloud-device-messaging/hub-device-list.png)
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cc955adffbe7df5809f9c4c860877ad22df3e99b
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74158287"
 ---
 # <a name="azure-signalr-service-authentication"></a>Autenticación de Azure SignalR Service
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 
@@ -58,7 +58,7 @@ Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 
 3. Utilice la siguiente configuración para la nueva aplicación de OAuth y, a continuación, haga clic en **Register application** (Registrar aplicación):
 
-    | Nombre del valor | Valor sugerido | DESCRIPCIÓN |
+    | Nombre del valor | Valor sugerido | Descripción |
     | ------------ | --------------- | ----------- |
     | Nombre de la aplicación | *Azure SignalR Chat* | El usuario de GitHub debe ser capaz de reconocer y confiar en la aplicación con la que se autentica.   |
     | Dirección URL de la página principal | `http://localhost:5000/home` | |
@@ -347,7 +347,7 @@ En esta sección, se activará la autenticación real mediante la adición del a
 
         dotnet build
 
-3. Una vez que la compilación se compila correctamente, ejecute el siguiente comando para ejecutar la aplicación web localmente:
+3. Una vez que la compilación se complete correctamente, ejecute el siguiente comando para ejecutar la aplicación web localmente:
 
         dotnet run
 
@@ -412,7 +412,7 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
     --plan $WebAppPlan
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | -------------------- | --------------- |
 | ResourceGroupName | Este nombre de grupo de recursos se sugirió en tutoriales anteriores. Es una buena idea para mantener agrupados todos juntos los recursos de los tutoriales. Use el mismo grupo de recursos que utilizó en los tutoriales anteriores. |
 | WebAppPlan | Escriba un nombre nuevo y único del plan de App Service. |
@@ -460,7 +460,7 @@ az webapp config appsettings set --name $WebAppName \
     --settings "GitHubClientSecret=$GitHubClientSecret"
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | -------------------- | --------------- |
 | GitHubClientId | Asigne a esta variable el identificador de cliente secreto de la aplicación de OAuth de GitHub. |
 | GitHubClientSecret | Asigne a esta variable la contraseña secreta de la aplicación de OAuth de GitHub. |
@@ -495,7 +495,7 @@ az webapp deployment source config-local-git --name $WebAppName \
     --query [url] -o tsv
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 | -------------------- | --------------- |
 | DeploymentUserName | Elija un nuevo nombre de usuario de implementación. |
 | DeploymentUserPassword | Elija una contraseña para el nuevo usuario de implementación. |

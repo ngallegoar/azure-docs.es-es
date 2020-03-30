@@ -9,10 +9,10 @@ ms.date: 08/21/2019
 ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: 215d4058937ad5fded6bef7a36e873b52a1b5ae9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185344"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Configuración de una respuesta personalizada para el Firewall de aplicaciones web de Azure
@@ -50,7 +50,7 @@ New-AzResourceGroup -Name myResourceGroupWAF
 
 ## <a name="create-a-new-waf-policy-with-custom-response"></a>Creación de una directiva de WAF con respuesta personalizada 
 
-A continuación se muestra un ejemplo de creación de una directiva de WAF con el código de estado de respuesta personalizado establecido en 405 y el mensaje **You are blocked** (Se le ha bloqueado) con el comando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+A continuación se muestra un ejemplo de creación de una directiva de WAF con el código de estado de respuesta personalizado establecido en 405 y el mensaje **You are blocked** (Se le ha bloqueado) mediante [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```azurepowershell
 # WAF policy setting

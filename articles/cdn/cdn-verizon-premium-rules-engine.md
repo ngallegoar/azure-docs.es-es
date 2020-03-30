@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: aa0606eafb8fe4c517b0c18e0137058a120115ba
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082950"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Invalidación del comportamiento HTTP mediante el motor de reglas de Azure CDN de Verizon Premium
@@ -22,7 +22,7 @@ ms.locfileid: "74082950"
 
 El motor de reglas de Azure CDN le permite personalizar cómo se administran las solicitudes HTTP. Por ejemplo, puede bloquear la entrega de determinados tipos de contenido, definir una directiva de almacenamiento en caché o modificar un encabezado HTTP. En este tutorial se muestra cómo crear una regla que cambia el comportamiento de almacenamiento en caché de los recursos de CDN. Para más información sobre la sintaxis del motor de reglas, consulte la [referencia del motor de reglas de Azure CDN](cdn-verizon-premium-rules-engine-reference.md).
 
-## <a name="access"></a>Access
+## <a name="access"></a>Acceso
 
 Para acceder al motor de reglas, primero debe seleccionar **Manage** (Administrar) en la parte superior de la página **CDN profile** (Perfil de CDN) para ir a la página de administración de Azure CDN. En función de si el punto de conexión está optimizado para la aceleración de sitios dinámicos (DSA), accederá al motor de reglas con el conjunto de reglas adecuado para su tipo de punto de conexión:
 
@@ -93,7 +93,7 @@ Para acceder al motor de reglas, primero debe seleccionar **Manage** (Administra
    >
    >
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Información general de Azure CDN](cdn-overview.md)
 - [Referencia del motor de reglas](cdn-verizon-premium-rules-engine-reference.md)

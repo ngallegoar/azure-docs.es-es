@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ms.openlocfilehash: 04df30c2a97e865d23999df26768b38cb38be607
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68855553"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Uso del URI de Azure Data Lake Storage Gen2
@@ -31,7 +31,7 @@ Si la cuenta compatible con Data Lake Storage Gen2 que quiere dirigir **no está
 
 2. **Sistema de archivos**: ubicación principal que contiene los archivos y las carpetas. Es la misma que la de los contenedores del servicio de Azure Storage Blob.
 
-3. **Nombre de cuenta**: nombre dado a la cuenta de almacenamiento durante la creación.
+3. **Nombre de la cuenta**: nombre dado a la cuenta de almacenamiento durante la creación.
 
 4. **Rutas de acceso**: representación de barra diagonal delimitada (`/`) de la estructura del directorio.
 

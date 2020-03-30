@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67186256"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Apertura de puertos TCP en el firewall de Windows para la instancia predeterminada del motor de base de datos
@@ -16,7 +16,7 @@ ms.locfileid: "67186256"
 2. Una vez que haya iniciado sesión, en la pantalla Inicio, escriba **WF.msc**y presione ENTRAR.
    
     ![Iniciar el programa de firewall](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
-3. En **Firewall de Windows con seguridad avanzada**, en el panel de la izquierda, haga clic con el botón derecho en **Reglas de entrada** y, después, haga clic en **Nueva regla** en el panel de acciones.
+3. En la opción **Firewall de Windows con seguridad avanzada**del panel izquierdo, haga clic con el botón derecho en **Reglas de entrada**y, luego, haga clic en **Nueva regla** en el panel de acciones.
    
     ![Nueva regla](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
 4. En el cuadro de diálogo **Asistente para nueva regla de entrada**, en **Tipo de regla**, seleccione **Puerto** y, a continuación, haga clic en **Siguiente**.
@@ -24,14 +24,14 @@ ms.locfileid: "67186256"
    
     ![Puerto TCP 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
 6. Haga clic en **Next**.
-7. En el cuadro de diálogo **Acción**, seleccione **Permitir la conexión** y haga clic en **Siguiente**.
+7. En el cuadro de diálogo **Acción** , seleccione **Permitir la conexión**y, a continuación, haga clic en **Siguiente**.
    
     **Nota de seguridad:** si selecciona **Permitir la conexión si es segura**, puede proporcionar una mayor seguridad. Seleccione esta opción si desea configurar opciones de seguridad adicionales en el entorno.
    
     ![Permitir conexiones](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 8. En el cuadro de diálogo **Perfil**, seleccione **Público**, **Privado** y **Dominio**. A continuación, haga clic en **Siguiente**.
    
-    **Nota de seguridad:**  si se selecciona **Público**, se permite el acceso a través de Internet. Cuando sea posible, seleccione un perfil más restrictivo.
+    **Nota de seguridad**: si se selecciona **Público**, se permite el acceso a través de Internet. Cuando sea posible, seleccione un perfil más restrictivo.
    
     ![Perfil público](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 9. En el cuadro de diálogo **Nombre**, escriba el nombre y la descripción de esta regla y haga clic en **Finalizar**.
@@ -65,7 +65,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
    
     ![Seleccionar el modo de autenticación](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
 5. En el cuadro de diálogo de SQL Server Management Studio, haga clic en **Aceptar** para aceptar el requisito de reiniciar SQL Server.
-6. En el Explorador de objetos, haga clic con el botón derecho en el servidor y, a continuación, haga clic en **Reiniciar**. (También se debe reiniciar Agente SQL Server si está en ejecución).
+6. En el Explorador de objetos, haga clic con el botón derecho en el servidor y, después, haga clic en **Reiniciar**. (También se debe reiniciar Agente SQL Server si está en ejecución).
    
     ![Reinicio](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. En el cuadro de diálogo de SQL Server Management Studio, haga clic en **Sí** para indicar que desea reiniciar SQL Server.
@@ -74,7 +74,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 Para conectarse al motor de base de datos desde otro equipo, debe crear al menos un inicio de sesión para la autenticación de SQL Server.
 
 1. En el Explorador de objetos de SQL Server Management Studio, expanda la carpeta de la instancia de servidor en la que desea crear el nuevo inicio de sesión.
-2. Haga clic con el botón derecho en la carpeta **Security**, apunte a **Nuevo** y seleccione **Inicio de sesión...** .
+2. Haga clic con el botón derecho en la carpeta **Seguridad**, seleccione **Nuevo** y, después, haga clic en **Inicio de sesión...** .
    
     ![Nuevo inicio de sesión](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 3. En el cuadro de diálogo **Inicio de sesión - Nuevo**, en la página **General**, escriba el nombre del usuario nuevo en el cuadro **Nombre de inicio de sesión**.

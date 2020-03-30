@@ -16,10 +16,10 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70f2d9542082ddf7ecf1d1e7361b0ecdb14c5ef8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68963386"
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>¿Cuáles son los límites del sistema de StorSimple serie 8000?
@@ -43,7 +43,7 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 | Número máximo de conexiones iSCSI |512 | |
 | Número máximo de conexiones de iSCSI de iniciadores |512 | |
 | Número máximo de registros de control de acceso por dispositivo |64 | |
-| Número máximo de volúmenes por directiva de copia de seguridad |20 | | |
+| Número máximo de volúmenes por directiva de copia de seguridad |20 | |
 | Número máximo de copias de seguridad retenidas por programación (en directiva de copia de seguridad) |64 | |
 | Número máximo de programaciones por directiva de copia de seguridad |10 | |
 | Número máximo de instantáneas de cualquier tipo que se pueden retener por volumen |256 |Este número incluye las instantáneas locales y en la nube. |

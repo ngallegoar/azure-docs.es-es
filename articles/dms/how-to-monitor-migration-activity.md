@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77648519"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Supervisión de la actividad de migración con Azure Database Migration Service
@@ -136,7 +136,7 @@ En la tabla siguiente se describen los campos que se muestran en el progreso de 
 | **Actualizar** | Número de actualizaciones de CDC en las filas, que se aplican al destino.      |
 | **Eliminar**      | Número de eliminaciones de CDC en las filas, que se aplican al destino. |
 | **Total aplicado**      | Total de actualizaciones, inserciones y eliminaciones de CDC en las filas, que se aplican al destino. |
-| **Errores de datos** | Número de errores de datos que se han producido en esta tabla. Algunos ejemplos de errores son *511: No se puede crear una fila de tamaño %d que sea mayor que el tamaño de fila máximo permitido de %d, 8114: Error al convertir el tipo de datos %ls a %ls.*  El cliente debe consultar desde la tabla dms_apply_exceptions en el destino de Azure para ver los detalles del error.    |
+| **Errores de datos** | Número de errores de datos que se han producido en esta tabla. Algunos ejemplos de los errores son *511: Cannot create a row of size %d which is greater than the allowable maximum row size of %d, 8114: Error converting data type %ls to %ls.* (511: No se puede crear una fila de tamaño %d que sea mayor que el tamaño de fila máximo permitido de %d, 8114: Error al convertir el tipo de datos de %ls a %ls.)  El cliente debe consultar desde la tabla dms_apply_exceptions en el destino de Azure para ver los detalles del error.    |
 
 > [!NOTE]
 > Los valores de inserción, actualización, eliminación y total aplicado de CDC pueden disminuir cuando la base de datos migra totalmente o se reinicia la migración.

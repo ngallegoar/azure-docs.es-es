@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 8bca88fc63a7fc04a22d2a68adbe59259b07f50e
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185876"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Funcionamiento de la replicación de Hyper-V
@@ -30,7 +30,7 @@ Azure Migrate Server Migration es una herramienta para migrar a Azure cargas de 
 
 ## <a name="architectural-components"></a>Componentes de la arquitectura
 
-![Arquitectura](./media/hyper-v-replication-architecture/architecture.png)
+![Architecture](./media/hyper-v-replication-architecture/architecture.png)
 
 
 

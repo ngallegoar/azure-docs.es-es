@@ -1,28 +1,26 @@
 ---
 title: Protección de las instancias del conjunto de escalado de máquinas virtuales de Azure
 description: Obtenga información sobre cómo proteger instancias del conjunto de escalado de máquinas virtuales de Azure contra operaciones de reducción horizontal y conjunto de escalado.
-author: mayanknayar
+author: avirishuv
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: manayar
-ms.openlocfilehash: 071ea79f4d288e86cc5b9347f8607b4ff7190bc1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 02/26/2020
+ms.author: avverma
+ms.openlocfilehash: 021faad28fb575c4ffeb4d895ad451d8cd82b1a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275803"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227976"
 ---
-# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Protección de instancias para las instancias del conjunto de escalado de máquinas virtuales (versión preliminar)
+# <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Protección de las instancias del conjunto de escalado de máquinas virtuales de Azure
+
 Los conjuntos de escalado de máquinas virtuales de Azure permiten una mejor elasticidad para las cargas de trabajo mediante [Escalabilidad automática](virtual-machine-scale-sets-autoscale-overview.md), de manera que puede realizar configuraciones cuando la infraestructura se escala horizontalmente y cuando se reduce horizontalmente. Los conjuntos de escalado permiten administrar, configurar y actualizar de manera central una gran cantidad de máquinas virtuales mediante distintas configuraciones de [directiva de actualización](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model). Puede configurar una actualización en el modelo del conjunto de escalado y la nueva configuración se aplica automáticamente a cada instancia del conjunto de escalado si se ha configurado la directiva de actualización en Automática o Revirtiendo.
 
 Como la aplicación procesa el tráfico, puede haber situaciones en las que quiera que instancias específicas se tratan de forma distinta al resto de la instancia del conjunto de escalado. Por ejemplo, puede que determinadas instancias del conjunto de escalado realicen operaciones de larga duración y que no quiera que esas instancias se reduzcan horizontalmente hasta que finalicen las operaciones. Asimismo, puede que tenga unas cuantas instancias especializadas en el conjunto de escalado para realizar tareas adicionales o diferentes que otros miembros del conjunto de escalado. Necesita que esas máquinas virtuales "especiales" no se modifiquen con las demás instancias del conjunto de escalado. La protección de instancias proporciona los controles adicionales que permiten estos y otros escenarios para la aplicación.
 
 En este artículo se describe cómo se pueden aplicar y usar las diferentes capacidades de protección de instancias con instancias del conjunto de escalado.
-
-> [!NOTE]
->La protección de instancias se encuentra actualmente en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de vista preliminar pública que se describe a continuación. La vista preliminar de la protección de instancias solo se admite con la versión de API 2019-03-01 y en conjuntos de escalado que usan discos administrados.
 
 ## <a name="types-of-instance-protection"></a>Tipos de protección de instancias
 Los conjuntos de escalado proporcionan dos tipos de capacidades de protección de instancias:
@@ -44,6 +42,17 @@ Los conjuntos de escalado proporcionan dos tipos de capacidades de protección d
 La protección de instancias se puede aplicar a instancias del conjunto de escalado después de crear las instancias. La protección se aplica y modifica solo en el [modelo de la instancia](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view), no en el [modelo del conjunto de escalado](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
 
 Hay varias maneras de aplicar la protección contra la reducción horizontal en las instancias del conjunto de escalado, tal como se describe en los siguientes ejemplos.
+
+### <a name="azure-portal"></a>Portal de Azure
+
+Puede aplicar la protección de la reducción horizontal mediante Azure Portal a una instancia del conjunto de escalado. No se puede ajustar más de una instancia a la vez. Repita los pasos para cada instancia que quiera proteger.
+ 
+1. Vaya a un conjunto de escalado de máquinas virtuales existente.
+1. Seleccione **Instancias** en el menú de la izquierda, en **Configuración**.
+1. Seleccione el nombre de la instancia que desea proteger.
+1. Seleccione la pestaña **Directiva de protección**.
+1. En la hoja **Directiva de protección**, seleccione la opción **Proteger de la reducción horizontal**.
+1. Seleccione **Guardar**. 
 
 ### <a name="rest-api"></a>API DE REST
 
@@ -101,6 +110,17 @@ La protección de instancias se puede aplicar a instancias del conjunto de escal
 La protección de una instancia contra las acciones del conjunto de escalado también protege la instancia contra la reducción horizontal iniciada por la escalabilidad automática.
 
 Hay varias maneras de aplicar la protección contra las acciones del conjunto de escalado en las instancias del conjunto de escalado, tal como se describe en los siguientes ejemplos.
+
+### <a name="azure-portal"></a>Portal de Azure
+
+Puede aplicar la protección contra las acciones del conjunto de escalado mediante Azure Portal a una instancia del conjunto de escalado. No se puede ajustar más de una instancia a la vez. Repita los pasos para cada instancia que quiera proteger.
+ 
+1. Vaya a un conjunto de escalado de máquinas virtuales existente.
+1. Seleccione **Instancias** en el menú de la izquierda, en **Configuración**.
+1. Seleccione el nombre de la instancia que desea proteger.
+1. Seleccione la pestaña **Directiva de protección**.
+1. En la hoja **Directiva de protección**, seleccione la opción **Proteger frente a acciones del conjunto de escalado**.
+1. Seleccione **Guardar**. 
 
 ### <a name="rest-api"></a>API DE REST
 

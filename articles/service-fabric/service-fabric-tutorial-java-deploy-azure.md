@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b7754a289c06dff37aedcf8da76d35dfac4b183d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df6719cad79bdb063c2d4d74892206b6e5bbd414
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78252799"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80292034"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementación de una aplicación para Java en un clúster de Service Fabric en Azure
 
@@ -217,11 +217,11 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
     ./install.sh
     ```
 
-5. Para acceder a Service Fabric Explorer, abra su explorador favorito y escriba https://testlinuxcluster.westus.cloudapp.azure.com:19080. Seleccione del almacén de certificados el que desee usar para conectarse a este punto de conexión. En las máquinas Linux, los certificados generados que generó el script *new-service-fabric-cluster-certificate.sh* deben importarse en Chrome para que aparezca Service Fabric Explorer. En las máquinas Mac es necesario instalar el archivo PFX en la cadena de claves. Observe que la aplicación se ha instalado en el clúster.
+5. Para acceder a Service Fabric Explorer, abra su explorador favorito y escriba `https://testlinuxcluster.westus.cloudapp.azure.com:19080`. Seleccione del almacén de certificados el que desee usar para conectarse a este punto de conexión. En las máquinas Linux, los certificados generados que generó el script *new-service-fabric-cluster-certificate.sh* deben importarse en Chrome para que aparezca Service Fabric Explorer. En las máquinas Mac es necesario instalar el archivo PFX en la cadena de claves. Observe que la aplicación se ha instalado en el clúster.
 
     ![SFX con Java en Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. Para acceder a la aplicación, escriba https://testlinuxcluster.westus.cloudapp.azure.com:8080
+6. Para acceder a la aplicación, escriba `https://testlinuxcluster.westus.cloudapp.azure.com:8080`
 
     ![Aplicación de Voting con Java en Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 

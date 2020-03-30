@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4a27165d929cc9bc5f18e372f7f108887e466e43
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754054"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299369"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Guía paso a paso sobre los grupos de instancias de Azure SQL Database (versión preliminar)
 
@@ -50,7 +50,7 @@ En la tabla siguiente se muestran las operaciones disponibles relacionadas con l
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Devuelve información sobre el uso de los grupos de instancias de Azure SQL. |
 
 
-Para usar PowerShell, [instale la versión más reciente de PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core) y siga las instrucciones para [instalar el módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Para usar PowerShell, [instale la versión más reciente de PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell) y siga las instrucciones para [instalar el módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 En el caso de las operaciones relacionadas con instancias dentro de grupos e instancias únicas, use los [comandos de instancia administrada](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances) estándar, pero la propiedad de *nombre del grupo de instancias* se debe rellenar al usar estos comandos para una instancia de un grupo.
 

@@ -4,16 +4,16 @@ description: Aprenda a registrar una solicitud de soporte para problemas relacio
 services: databox
 author: alkohli
 ms.service: databox
-ms.subservice: ''
+ms.subservice: disk
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 000659793707c860de881f150e6ce07e4506c602
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240146"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80064969"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Apertura de una incidencia de soporte técnico en Azure Data Box 
 
@@ -57,7 +57,7 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
    1. En **Opciones de contacto**, especifique el método de contacto preferido (teléfono o correo electrónico) y el idioma. El tiempo de respuesta se selecciona automáticamente en función del plan de suscripción.
    2. En **Información de contacto**, proporcione su nombre, correo electrónico, contacto opcional y país o región. Active **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
-   3. Haga clic en **Create**(Crear).
+   3. Haga clic en **Crear**.
    
        ![Información de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 

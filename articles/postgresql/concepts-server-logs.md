@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844945"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236092"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registros en Azure Database for PostgreSQL con un único servidor
 Azure Database for PostgreSQL permite configurar y acceder a los registros estándar de Postgres. Los registros se pueden usar para identificar, solucionar y reparar errores de configuración y casos de rendimiento no óptimo. La información de registro que puede configurar y a la que puede acceder incluye errores, información de consultas, registros de vaciado automático, conexiones y puntos de control (no está disponible el acceso a los registros de transacciones).
@@ -108,7 +108,7 @@ En la tabla siguiente se describen los campos del tipo **PostgreSQLLogs**. En fu
 | Resource | Nombre del servidor |
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
-| errorLevel | Ejemplo de nivel de registro: LOG, ERROR, NOTICE |
+| errorLevel | Nivel de registro, ejemplo: LOG, ERROR, NOTICE |
 | Message | Mensaje de registro principal | 
 | Domain | Versión del servidor, ejemplo: postgres-10 |
 | Detail | Mensaje de registro secundario (si procede) |

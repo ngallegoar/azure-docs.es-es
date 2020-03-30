@@ -4,11 +4,11 @@ description: Obtenga información sobre los parámetros estáticos y dinámicos 
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644977"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231236"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -58,7 +58,7 @@ Un valor de parámetro definido en la definición de un plano técnico se denomi
 
 1. Haga clic en un plano técnico ya existente y, a continuación, haga clic en **Editar plano técnico** o en **+ Crear plano técnico** y rellene la información de la pestaña **Aspectos básicos**.
 
-1. Haga clic en **Siguiente: Artefactos** o haga clic en la pestaña **Artefactos**.
+1. Haga clic en **Siguiente: artefactos** o haga clic en la pestaña **Artefactos**.
 
 1. En los artefactos que se agregaron al plano técnico que tienen opciones de parámetro aparece **X of Y parameters populated** (X de Y parámetros rellenos) en la columna **Parámetros**. Haga clic en la fila del artefacto para editar los parámetros de este.
 

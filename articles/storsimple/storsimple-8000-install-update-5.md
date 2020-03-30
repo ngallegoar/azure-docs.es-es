@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126756"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232212"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalación de Update 5 en el dispositivo StorSimple
 
@@ -76,19 +76,19 @@ El método de revisión implica los tres pasos siguientes:
 
 Debe descargar e instalar las revisiones siguientes en el orden indicado y las carpetas sugeridas:
 
-| Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación |Carpeta de instalación|
+| Pedido de | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Actualización de software<br> Descargar _HcsSoftwareUpdate.exe_ y _CisMSDAgent.exe_ |Normal <br></br>Sin interrupciones |~ 25 min |FirstOrderUpdate|
 
 Si actualiza desde un dispositivo que ejecuta Update 4, basta con instalar las actualizaciones acumulativas del sistema operativo como actualizaciones de segundo orden.
 
-| Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación |Carpeta de instalación|
+| Pedido de | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
 | 2A. |KB4025336 |Paquete de actualizaciones acumulativas de SO <br> Descargar la versión R2 de Windows Server 2012 |Normal <br></br>Sin interrupciones |- |SecondOrderUpdate|
 
 Si la instalación se realiza desde un dispositivo que ejecuta Update 3 o versiones anteriores, instale los siguientes elementos además de las actualizaciones acumulativas.
 
-| Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación |Carpeta de instalación|
+| Pedido de | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
 | 2B. |KB4011841 <br> KB4011842 |Actualizaciones de firmware y controlador LSI <br> Actualización de firmware de USM (versión 3.38) |Normal <br></br>Sin interrupciones |~ 3 horas <br> (incluye 2A. + 2B. + 2C).|SecondOrderUpdate|
 | 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Paquete de actualizaciones de seguridad de SO <br> Descargar la versión R2 de Windows Server 2012 |Normal <br></br>Sin interrupciones |- |SecondOrderUpdate|
@@ -97,7 +97,7 @@ Si la instalación se realiza desde un dispositivo que ejecuta Update 3 o versio
 
 Es posible que también necesite instalar actualizaciones de firmware de disco en la parte superior de todas las actualizaciones que se muestran en las tablas anteriores. Puede comprobar si las necesita actualizaciones de firmware de disco ejecutando el cmdlet `Get-HcsFirmwareVersion` . Si ejecuta estas versiones de firmware: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, no necesita instalar estas actualizaciones.
 
-| Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación | Carpeta de instalación|
+| Pedido de | KB | Descripción | Tipo de actualización | Hora de instalación | Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Firmware del disco |Mantenimiento <br></br>Perjudicial |~30 min | ThirdOrderUpdate |
 

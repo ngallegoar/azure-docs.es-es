@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo ejecutar una prueba unitaria de Du
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74231221"
 ---
 # <a name="durable-functions-unit-testing"></a>Prueba unitaria de Durable Functions
@@ -17,7 +17,7 @@ La prueba unitaria es parte importante de las prácticas modernas de desarrollo 
 > [!NOTE]
 > En este artículo se ofrecen instrucciones sobre pruebas unitarias para aplicaciones de Durable Functions que tengan como destino Durable Functions 1.x. Todavía no se ha actualizado para tener en cuenta los cambios introducidos en Durable Functions 2.x. Para obtener más información sobre las diferencias entre versiones, vea el artículo [Versiones de Durable Functions](durable-functions-versions.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Los ejemplos que aparecen en este artículo requieren conocer los siguientes conceptos y marcos:
 

@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
 ms.openlocfilehash: de5f23bf1e8acd8a5fcd0cf8e1526f88667800c1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73827128"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Conectar Excel a una base de datos única de Azure SQL Database y crear un informe
@@ -33,7 +33,7 @@ También necesitará una copia de Excel. Este artículo usa [Microsoft Excel 201
 1. Para conectar Excel a Base de datos SQL, abra Excel y cree un libro nuevo o abra uno existente.
 2. En la barra de menús de la parte superior de la página, seleccione la pestaña **Datos**, **Obtener datos**, De Azure y luego seleccione **De Azure SQL Database**. 
 
-   ![Selección de origen de datos: Conexión de Excel a SQL Database.](./media/sql-database-connect-excel/excel_data_source.png)
+   ![Selección de origen de datos: conexión de Excel a Base de datos SQL.](./media/sql-database-connect-excel/excel_data_source.png)
 
    Se abre el Asistente para la conexión de datos.
 3. En el cuadro de diálogo **Conectar con el servidor de la base de datos**, escriba el **nombre del servidor** de SQL Database al que quiere conectarse con el formato <*nombreDeServidor*> **.database.windows.net**. Por ejemplo, **msftestserver.database.windows.net**. También puede escribir el nombre de la base de datos. Seleccione **Aceptar** para abrir la ventana de credenciales. 

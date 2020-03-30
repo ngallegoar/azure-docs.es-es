@@ -6,21 +6,15 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
+ms.date: 03/16/2020
 ms.author: dapine
-ms.openlocfilehash: 114aaa6a1e7e09756bb2d55fcdbf05507a191f22
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: ea9c6b9deed4b95402973c2b72b13c940662b29b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082207"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79486041"
 ---
 ## <a name="supported-audio-input-format"></a>Formato de entrada de audio compatible
-
-El SDK de Voz usa el formato siguiente para la entrada de audio.
-
-| Formato | Códec | Bitrate | Velocidad de muestreo     | Canales |
-|--------|-------|---------|-----------------|----------|
-| WAV    | PCM   | 16 bits  | 8 kHz o 16 kHz | 1 (mono) |
 
 [!INCLUDE [supported-audio-formats](supported-audio-formats.md)]

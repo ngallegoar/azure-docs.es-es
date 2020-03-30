@@ -9,10 +9,10 @@ ms.date: 07/30/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e4d20cd39d2a843ee1ab57a412ac668b3495fdb1
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67186139"
 ---
 >[!NOTE]
@@ -25,6 +25,6 @@ Además, los siguientes algoritmos heredados también pasarán a estar en desuso
 * 3DES (Triple algoritmo de cifrado de datos)
 * MD5 (Código hash 5)
 
-### <a name="tls1"></a>¿Cómo se habilita la compatibilidad con TLS 1.2 en Windows 7 y Windows 8.1?
+### <a name="how-do-i-enable-support-for-tls-12-in-windows-7-and-windows-81"></a><a name="tls1"></a>¿Cómo se habilita la compatibilidad con TLS 1.2 en Windows 7 y Windows 8.1?
 
 [!INCLUDE [tls 1.2](vpn-gateway-tls-include.md)]

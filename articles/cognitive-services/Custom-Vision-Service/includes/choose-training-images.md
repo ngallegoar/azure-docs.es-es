@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: ce67062f83ad10703dfb1f0ee1f3741e698fb450
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70130116"
 ---
 Como mínimo, se recomienda que use 30 imágenes por etiqueta en el conjunto de entrenamiento inicial. También conviene recopilar algunas imágenes adicionales para probar el modelo una vez que está entrenado.
@@ -20,8 +20,8 @@ Para entrenar el modelo de forma eficaz, use imágenes con variedad visual. Sele
 * background
 * estilo visual
 * sujetos individuales o grupos
-* size
-* Tipo
+* tamaño
+* type
 
 Además, asegúrese de que todas las imágenes de entrenamiento cumplen los criterios siguientes:
 * formato .jpg, .png, .bmp o .gif

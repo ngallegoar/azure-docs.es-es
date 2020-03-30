@@ -4,10 +4,10 @@ description: Los servicios administrados permiten a los proveedores de servicios
 ms.date: 01/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15814b1ca3b1b78de521033836e3614d18fd0c71
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76904319"
 ---
 # <a name="azure-delegated-resource-management"></a>Administración de recursos delegados de Azure

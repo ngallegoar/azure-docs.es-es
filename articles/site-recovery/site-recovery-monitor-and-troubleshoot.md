@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68717351"
 ---
 # <a name="monitor-site-recovery"></a>Supervisión de Site Recovery
@@ -109,12 +109,12 @@ En la **Vista de la infraestructura**, supervise los componentes de infraestruct
 
     **Escenario** | **State**  | **¿Vista disponible?**
     --- |--- | ---
-    **Replicación entre sitios locales** | Todos los estados | Sin 
+    **Replicación entre sitios locales** | Todos los estados | No 
     **Replicación de máquina virtual de Azure entre las regiones de Azure**  | Replicación habilitada/replicación inicial en curso | Sí
-    **Replicación de máquina virtual de Azure entre las regiones de Azure** | Conmutada por error/conmutación por recuperación | Sin   
+    **Replicación de máquina virtual de Azure entre las regiones de Azure** | Conmutada por error/conmutación por recuperación | No   
     **Replicación de VMware en Azure** | Replicación habilitada/replicación inicial en curso | Sí     
-    **Replicación de VMware en Azure** | Conmutada por error/conmutada por recuperación | Sin      
-    **Replicación de Hyper-V en Azure** | Conmutada por error/conmutada por recuperación | Sin
+    **Replicación de VMware en Azure** | Conmutada por error/conmutada por recuperación | No      
+    **Replicación de Hyper-V en Azure** | Conmutada por error/conmutada por recuperación | No
 
 - Para ver la vista de la infraestructura para una sola máquina de replicación, en el menú Almacén, haga clic en **Elementos replicados** y seleccione un servidor.  
 
@@ -153,13 +153,13 @@ En **Elementos replicados**, obtenga una lista de las máquinas replicadas.
 4. Haga clic en **Filtrar** para ver información basada en parámetros específicos como el estado de la replicación, o bien una directiva de replicación determinada.
 5. Haga clic con el botón derecho en una máquina para iniciar operaciones como la conmutación por error de prueba para ella o ver detalles del error específicos asociados a ella.
 6. Haga clic en una máquina para profundizar en más detalles para ella. Los detalles incluyen:
-   - **Información de replicación**: estado actual y mantenimiento de la máquina.
+   - **Información de replicación**: estado y mantenimiento actual de la máquina.
    - **RPO** (objetivo de punto de recuperación): el RPO actual de la máquina virtual y la hora a la que se calculó por última vez el RPO.
-   - **Puntos de recuperación**: puntos de recuperación disponibles más recientes de la máquina
+   - **Puntos de recuperación**: puntos de recuperación disponibles más recientes de la máquina.
    - **Preparación de la conmutación por error**: indica si se ejecutó una conmutación por error de prueba para la máquina, la versión del agente que se ejecuta en la máquina (para las máquinas que ejecutan Mobility Service) y cualquier problema de configuración.
    - **Errores**: lista de síntomas de errores de replicación observados actualmente en la máquina y posibles causas o acciones.
    - **Eventos**: una lista cronológica de eventos recientes que afectan a la máquina. Los detalles del error muestran los síntomas de errores observados actualmente, mientras que los eventos son un registro histórico de problemas que han afectado a la máquina.
-   - **Vista de la infraestructura**: muestra el estado de la infraestructura para el escenario cuando las máquinas se replican en Azure.
+   - **Vista de la infraestructura**: muestra el estado de la infraestructura para el escenario al replicarse las máquinas en Azure.
 
      ![Información general/detalles de elementos replicados de Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

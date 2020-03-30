@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
 ms.openlocfilehash: 9525f339861b5de8dc22da753f7c36dcc6eede8a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70078988"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Uso de SAP en máquinas virtuales Linux en Azure
@@ -34,7 +34,7 @@ Título: Pruebas de SAP NetWeaver en máquinas virtuales de SUSE Linux de Micros
 
 Resumen: no hay ninguna compatibilidad oficial con SAP para la ejecución de SAP NetWeaver en máquinas virtuales con Linux de Azure en este momento. Sin embargo, es posible que los clientes quieran hacer algunas pruebas o que consideren la posibilidad de ejecutar sistemas de aprendizaje o demostración SAP en máquinas virtuales con Linux en Azure siempre que no sea necesario para ponerse en contacto con el soporte de SAP. Este artículo debe ayudar a configurar las máquinas virtuales con Linux de Azure SUSE para la ejecución de SAP y ofrece algunas sugerencias básicas con el fin de evitar posibles problemas comunes.
 
-Actualizado: diciembre de 2015
+Actualización: diciembre de 2015
 
 [Este artículo se puede encontrar aquí](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

@@ -13,10 +13,10 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232102"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planeamiento de la implementación de la supervisión y los informes de Azure Active Directory
@@ -99,7 +99,7 @@ Los informes y la supervisión se usan para cumplir los requisitos empresariales
 * Conviene tenerlo para satisfacer las necesidades empresariales
 * No aplicable
 
-|Ámbito |DESCRIPCIÓN |
+|Área |Descripción |
 |-|-|
 |Retención| **Retención del registro durante más de 30 días**. Los requisitos legales o empresariales obligan a almacenar tanto los registros de auditoría como los registros de inicio de sesión de Azure AD durante más de 30 días. |
 |Análisis| **Es preciso poder realizar búsquedas en los registros**. ‎Es necesario realizar búsquedas en los registros almacenados con las herramientas de análisis. |
@@ -111,7 +111,7 @@ Los informes y la supervisión se usan para cumplir los requisitos empresariales
 
 Con la supervisión de Azure AD, puede enrutar los registros de actividad de Azure AD a un sistema que se adapte mejor a sus necesidades empresariales. Después, puede conservarlos para los informes y análisis a largo plazo para obtener información sobre su entorno e integrarlo con las herramientas SIEM.
 
-#### <a name="decision-flow-chartan-image-showing-what-is-described-in-subsequent-sectionsmediareporting-deployment-plandeploy-reporting-flow-diagrampng"></a>Diagrama de flujo de decisión![Imagen en la que se muestra lo que se describe en las secciones posteriores](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
+#### <a name="decision-flow-chartan-image-showing-what-is-described-in-subsequent-sections"></a>Diagrama de flujo de decisión![Imagen en la que se muestra lo que se describe en las secciones posteriores](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
 
 #### <a name="archive-logs-in-a-storage-account"></a>Archivo de registros en una cuenta de almacenamiento
 

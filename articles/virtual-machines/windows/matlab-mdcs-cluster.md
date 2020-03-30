@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
 ms.openlocfilehash: a2fb2479f5544b869b51e796085fcb4d0b76121a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74038137"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Creación de clústeres de MATLAB Distributed Computing Server en Máquinas virtuales de Azure
@@ -28,7 +28,7 @@ La plataforma [MATLAB](https://www.mathworks.com/products/matlab/) está optimiz
 
 Mediante el uso de máquinas virtuales de Azure, puede crear clústeres de MATLAB Distributed Computing Server, que tienen los mismos mecanismos disponibles para enviar el trabajo paralelo como clústeres locales; por ejemplo, trabajos interactivos, trabajos por lotes, tareas independientes y tareas de comunicación. El uso de Azure junto con la plataforma MATLAB tiene muchas ventajas en comparación con el aprovisionamiento y uso tradicional de hardware local: diversos tamaños de máquina virtual, creación de clústeres a petición para pagar solo por los recursos de proceso que utilice y la capacidad de probar modelos a escala.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **Equipo cliente** : necesitará un equipo cliente basado en Windows para comunicarse con Azure y el clúster de MATLAB Distributed Computing Server después de la implementación.
 * **Azure PowerShell** : consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para instalarlo en el equipo cliente.
 * **Suscripción de Azure** : si no tiene ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en un par de minutos. En los clústeres más grandes, considere la posibilidad de una suscripción de pago por uso u otras opciones de compra.

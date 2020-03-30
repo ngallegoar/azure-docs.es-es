@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447053"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota
@@ -26,7 +26,7 @@ El servicio de ejemplo de este artículo proporciona datos para una cuadrícula 
 
 En una aplicación React, un servicio normalmente interactúa con un servicio back-end. Algunos ejemplos del acelerador de soluciones de supervisión remota incluyen servicios que interactúan con el Administrador de IoT Hub y los microservicios de configuración.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar los pasos de esta guía, necesita que el software siguiente esté instalado en la máquina de desarrollo local:
 
@@ -118,4 +118,4 @@ En este artículo, aprendió sobre los recursos que tiene a su disposición para
 
 Ya ha definido un servicio, el paso siguiente consiste en [agregar una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md) que muestra los datos que devuelve el servicio.
 
-Para información más conceptual sobre el acelerador de la solución de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para información más conceptual sobre el acelerador de soluciones de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).

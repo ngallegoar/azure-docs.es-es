@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651389"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Acceso y administración de recursos de IBM DB2 mediante el uso de Azure Logic Apps
@@ -47,7 +47,7 @@ El conector de IBM DB2 admite estas operaciones de base de datos, que se asignan
 | Quitar una fila mediante DELETE | Eliminar fila |
 |||
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
@@ -82,7 +82,7 @@ Para establecer la conexión, proporcione estos detalles de conexión cuando se 
 
 | Propiedad | Obligatorio | Descripción |
 |----------|----------|-------------|
-| **Conexión mediante puerta de enlace local** | Sin | Solo se aplica a conexiones locales. |
+| **Conexión mediante puerta de enlace local** | No | Solo se aplica a conexiones locales. |
 | **Nombre de la conexión** | Sí | El nombre de la conexión; por ejemplo, "MyLogicApp-DB2-connection" |
 | **Server** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias en formato IPv4 o IPv6, seguido de dos puntos y un número de puerto TCP/IP. |
 | **Base de datos** | Sí | El nombre de la base de datos <p><p>**Nota**: Este valor es una cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM): <p>- DB2 para z/OS acepta una cadena de 16 bytes, donde la base de datos se conoce como una ubicación "IBM DB2 para z/OS". <br>- DB2 para DB2/OS acepta una cadena de 18 bytes, donde la base de datos se conoce como una base de datos relacional "IBM DB2 para i". <br>- DB2 para LUW acepta una cadena de 8 bytes. |
@@ -359,7 +359,7 @@ Expanda la acción **Eliminar fila**.
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/db2/).
+Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](https://docs.microsoft.com/connectors/db2/).
 
 > [!NOTE]
 > En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).

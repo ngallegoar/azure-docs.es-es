@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 12/18/2018
 ms.openlocfilehash: c589d9619da8b5150d0fb4752625571c48393552
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73826376"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
@@ -62,9 +62,9 @@ Por último, se consulta el almacén de análisis con **PowerBI** para resaltar 
 
 La comprensión del uso que hace cada inquilino del servicio es relevante para explorar opciones que sirvan para monetizar el servicio y mejorar el servicio a fin de ayudar a los inquilinos a tener más éxito. En este tutorial se proporcionan ejemplos básicos de los tipos de información que pueden deducirse de los datos de inquilino.
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -226,7 +226,7 @@ Ha observado las tendencias de los datos de inquilino de la aplicación de WingT
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > - Implementar una base de datos de análisis de inquilino con tablas de un esquema de estrella predefinidas

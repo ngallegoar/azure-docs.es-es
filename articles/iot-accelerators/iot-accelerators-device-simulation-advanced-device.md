@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61449060"
 ---
 # <a name="create-an-advanced-device-model"></a>Creación de un modelo de dispositivo avanzado
@@ -22,7 +22,7 @@ Esta guía de procedimientos describe los archivos JSON y JavaScript que definen
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir los pasos de esta guía de procedimientos, necesitará una instancia implementada de Simulación de dispositivo en la suscripción de Azure.
 
@@ -165,7 +165,7 @@ Los campos enumerados en el esquema pueden ser de los siguientes tipos:
 * Boolean
 * Entero
 * Double
-* Datetime
+* DateTime
 
 ### <a name="supported-methods"></a>Métodos admitidos
 
@@ -504,7 +504,7 @@ Haga clic en **+ Agregar modelos de dispositivo** en la esquina superior derecha
 
 Haga clic en **Opciones avanzadas** para abrir la pestaña del modelo de dispositivo avanzado:
 
-![Pestaña Opciones avanzadas](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
+![Pestaña Avanzadas](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
 
 Haga clic en **Examinar** y seleccione los archivos JSON y JavaScript que creó. Asegúrese de seleccionar los tres archivos. Si falta algún archivo, se produce un error de validación:
 

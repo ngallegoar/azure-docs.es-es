@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68950258"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Anotación de orígenes de datos en Azure Data Catalog
@@ -21,7 +21,7 @@ ms.locfileid: "68950258"
 
 ## <a name="annotation-and-crowdsourcing"></a>Anotación y micromecenazgo
 Todo el mundo tiene una opinión. Y eso es algo bueno.
-Data Catalog reconoce que distintos usuarios tienen diferentes perspectivas sobre los orígenes de datos empresariales y que cada una de estas perspectivas puede ser valiosa. Considere el siguiente escenario:
+Data Catalog reconoce que distintos usuarios tienen diferentes perspectivas sobre los orígenes de datos empresariales y que cada una de estas perspectivas puede ser valiosa. Considere el caso siguiente:
 
 * El administrador del sistema conoce el contrato de nivel de servicio de los servidores o servicios que hospedan el origen de datos.
 * El administrador de base de datos conoce la programación de copia de seguridad de cada base de datos y las ventanas de procesamiento de ETL permitidas.
@@ -37,7 +37,7 @@ La búsqueda de Data Catalog admite los siguientes tipos de anotaciones:
 | Anotación | Notas |
 | --- | --- |
 | Nombre descriptivo |Se pueden proporcionar nombres descriptivos en el nivel de recursos de datos para que dichos recursos de datos se entiendan con más facilidad. Los nombres descriptivos son más útiles cuando el nombre del objeto subyacente es críptico, está abreviado o no es significativo para los usuarios. |
-| DESCRIPCIÓN |Las descripciones se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Las descripciones son anotaciones de texto breve de forma libre que describen la perspectiva del usuario sobre el recurso de datos o su uso. |
+| Descripción |Las descripciones se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Las descripciones son anotaciones de texto breve de forma libre que describen la perspectiva del usuario sobre el recurso de datos o su uso. |
 | Etiquetas (etiquetas de usuario) |Las etiquetas se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Los usuarios definen las etiquetas que se pueden usar para clasificar los atributos o recursos de datos. |
 | Etiquetas (etiquetas de glosario) |Las etiquetas se pueden proporcionar en los niveles de atributos y recursos de datos o de columnas. Las etiquetas del glosario son términos de glosario definidos centralmente que pueden utilizarse para clasificar los recursos de datos o atributos mediante una taxonomía empresarial común. Para más información, vea [Configuración del glosario empresarial para el etiquetado regulado](data-catalog-how-to-business-glossary.md). |
 | Expertos |Los expertos se pueden facilitar en el nivel de recursos de datos. Los expertos identifican usuarios o grupos con perspectivas expertas sobre los datos, y pueden actuar como puntos de contacto para los usuarios que detecten los orígenes de datos registrados y tengan preguntas que no estén respondidas en las anotaciones existentes. |
@@ -60,5 +60,5 @@ Al igual que los metadatos extraídos del origen de datos durante el registro se
 ## <a name="summary"></a>Resumen
 Al registrar un origen de datos con Data Catalog, se consigue que esos datos sean detectables mediante la copia de los metadatos descriptivos y estructurales del origen de datos en el servicio Catálogo. Cuando se ha registrado un origen de datos, los usuarios pueden proporcionar anotaciones para facilitar la detección y comprensión dentro del portal de Data Catalog.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Introducción a Azure Data Catalog](data-catalog-get-started.md) para obtener información paso a paso sobre cómo anotar orígenes de datos.

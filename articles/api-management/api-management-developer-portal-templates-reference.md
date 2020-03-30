@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73176792"
 ---
 # <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores
@@ -30,7 +30,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-##  <a name="DeveloperPortalTemplates"></a>Plantillas del portal para desarrolladores  
+##  <a name="developer-portal-templates"></a><a name="DeveloperPortalTemplates"></a>Plantillas del portal para desarrolladores  
   
 -   [API](api-management-api-templates.md)  
     -   [API list](api-management-api-templates.md#APIList)  
@@ -47,17 +47,17 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 -   [Productos](api-management-product-templates.md)  
     -   [Product list](api-management-product-templates.md#ProductList)  
     -   [Producto](api-management-product-templates.md#Product)  
--   [Applications](api-management-application-templates.md)  
+-   [Aplicaciones](api-management-application-templates.md)  
     -   [Application list](api-management-application-templates.md#ProductList)  
     -   [Aplicación](api-management-application-templates.md#Application)  
 -   [Issues](api-management-issue-templates.md)  
     -   [Issue list](api-management-issue-templates.md#IssueList)  
 -   [Perfil de usuario](api-management-user-profile-templates.md)  
     -   [Perfil](api-management-user-profile-templates.md#Profile)  
-    -   [Subscriptions](api-management-user-profile-templates.md#Subscriptions)  
+    -   [Suscripciones](api-management-user-profile-templates.md#Subscriptions)  
     -   [Aplicaciones](api-management-user-profile-templates.md#Applications)  
     -   [Update account info](api-management-user-profile-templates.md#UpdateAccountInfo)  
--   [Pages](api-management-page-templates.md)  
+-   [Páginas](api-management-page-templates.md)  
     -   [Sign in](api-management-page-templates.md#SignIn)  
     -   [Sign up](api-management-page-templates.md#SignUp)  
     -   [Page not found](api-management-page-templates.md#PageNotFound)
@@ -67,4 +67,4 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 + [Referencia de plantilla](api-management-developer-portal-templates-reference.md)  
 + [Data model reference](api-management-template-data-model-reference.md)  
 + [Controles de página](api-management-page-controls.md)  
-+ [Template resources](api-management-template-resources.md)
++ [Recursos de plantilla](api-management-template-resources.md)

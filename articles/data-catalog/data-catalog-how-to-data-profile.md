@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 04ac6c2bf0137289221a4ae6ed58d5a71ad21739
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68950220"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Creación de perfiles de datos de orígenes de datos en Azure Data Catalog
@@ -88,7 +88,7 @@ Un perfil de datos del **Azure Data Catalog** muestra la información del perfil
 
 La generación de perfiles de datos proporciona estadísticas e información sobre los recursos de datos registrados para ayudar a los usuarios a determinar la idoneidad de los datos para resolver problemas empresariales. Junto con la anotación y documentación de los orígenes de datos, los perfiles de datos pueden dar a los usuarios una comprensión más profunda de los datos.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Registro de orígenes de datos](data-catalog-how-to-register.md)
 * [Introducción a Azure Data Catalog](data-catalog-get-started.md)

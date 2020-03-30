@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: b70b4810f32941938b6afe217f94e18a0f2f3523
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 43004f8c52bbec17f78ed4be024cf75224dbd179
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767133"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530247"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Administración de un servidor de Azure Database for MariaDB con Azure Portal
 En este artículo se muestra cómo administrar los servidores de Azure Database for MariaDB. Entre las tareas de administración se incluyen el escalado de proceso y almacenamiento, el restablecimiento de contraseñas de administración y la visualización de detalles del servidor.
 
 ## <a name="sign-in"></a>Iniciar sesión
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Creación de un servidor
 Vaya al [inicio rápido](quickstart-create-mariadb-server-database-using-azure-portal.md) para obtener información sobre cómo crear un servidor de Azure Database for MariaDB y empezar a trabajar con él.
@@ -103,5 +103,5 @@ Puede eliminar el servidor cuando ya no lo necesite.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información sobre [copias de seguridad y restauración del servidor](howto-restore-server-portal.md)
+- Obtenga más información sobre [copias de seguridad y restauración del servidor](howto-restore-server-portal.md).
 - Más información sobre las opciones de [supervisión y ajuste en Azure Database for MariaDB](concepts-monitoring.md)

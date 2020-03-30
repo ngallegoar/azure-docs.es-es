@@ -5,17 +5,17 @@ keywords: jenkins, plugins, azure, devops
 ms.date: 03/22/2019
 ms.topic: article
 ms.openlocfilehash: ecc8f7f7435cbb0dbc80f334f27aaca7f4cd1ed7
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74158783"
 ---
 # <a name="jenkins-plugins-for-azure"></a>Complementos de Jenkins para Azure
 
 Los siguientes complementos de Jenkins admiten varias características para su uso con Azure.
   
-| Complemento de Jenkins | DESCRIPCIÓN                                   |
+| Complemento de Jenkins | Descripción                                   |
 |------------------------------------------------------------------------------|
 | [Complemento de Azure App Service](https://plugins.jenkins.io/azure-app-service)     | Complemento de Jenkins para implementar una instancia de Azure App Service (actualmente solo admite la aplicación web). | 
 | [Complemento de Azure AD](https://plugins.jenkins.io/azure-ad)                       | Complemento de Jenkins que admite la autenticación y autorización a través de Azure Active Directory. | 

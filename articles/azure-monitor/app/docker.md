@@ -4,10 +4,10 @@ description: En Application Insights, se pueden mostrar los contadores de rendim
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669614"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Supervisar aplicaciones de Docker en Application Insights (en desuso)
@@ -54,7 +54,7 @@ Ahora que tiene un lugar donde mostrar los datos de telemetría, puede configura
 Solo es necesaria una imagen de Application Insights por cada host de Docker. Si la aplicación se implementa en varios hosts de Docker, repita el comando en todos los hosts.
 
 ## <a name="update-your-app"></a>Actualización de la aplicación
-Si la aplicación se instrumenta con el [SDK de Application Insights para Java`<TelemetryInitializers>`, agregue la siguiente línea en el archivo ApplicationInsights.xml del proyecto, en el elemento ](../../azure-monitor/app/java-get-started.md):
+Si la aplicación se instrumenta con el [SDK de Application Insights para Java](../../azure-monitor/app/java-get-started.md), agregue la siguiente línea en el archivo ApplicationInsights.xml del proyecto, en el elemento `<TelemetryInitializers>`:
 
 ```xml
 

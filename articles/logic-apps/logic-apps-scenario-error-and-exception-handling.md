@@ -8,13 +8,13 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76902703"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Escenario: Control de excepciones y registro de errores para aplicaciones lógicas
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Escenario: control de excepciones y registro de errores para aplicaciones lógicas
 
 En este escenario se describe cómo extender una aplicación lógica para controlar mejor las excepciones. Hemos usado un caso de uso real para responder a la pregunta: ¿Admite Azure Logic Apps control de excepciones y errores?
 
@@ -466,7 +466,7 @@ Llamamos a la API desde una aplicación lógica mediante la sintaxis siguiente:
  }
 ```
 
-La expresión del ejemplo de código anterior buscará el estado **Error** para *Create_NewPatientRecord*.
+La expresión del ejemplo de código anterior buscará el estado *Error* para **Create_NewPatientRecord**.
 
 ## <a name="summary"></a>Resumen
 

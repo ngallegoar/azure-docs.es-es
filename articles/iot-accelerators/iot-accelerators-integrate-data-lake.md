@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889231"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integración de la solución de supervisión remota con Azure Data Lake Store
@@ -21,7 +21,7 @@ Puede haber requisitos de análisis avanzados aparte de los que se ofrecen en la
 
 En este tema de procedimientos, usará un trabajo de Azure Stream Analytics para transmitir datos desde el centro de IoT de la solución de supervisión remota a una instancia de Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tema de procedimientos, necesitará lo siguiente:
 
@@ -38,7 +38,7 @@ Cree un grupo de consumidores dedicado en el centro de IoT de la solución de su
 > [!NOTE]
 > Las aplicaciones usan grupos de consumidores para extraer datos de Azure IoT Hub. Debe crear un grupo de consumidores para cada cinco consumidores de salida. Puede crear hasta treinta y dos grupos de consumidores.
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 
 1. En Azure Portal, haga clic en el botón **Cloud Shell**.
 
@@ -67,7 +67,7 @@ Cree un trabajo de Azure Stream Analytics para transmitir los datos desde el cen
 
 1. Asegúrese de dejar el entorno de hospedaje como valor predeterminado para la **nube**.
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
     ![Creación de un trabajo de Stream Analytics](./media/iot-accelerators-integrate-data-lake/create-stream-analytics-job.png)
 

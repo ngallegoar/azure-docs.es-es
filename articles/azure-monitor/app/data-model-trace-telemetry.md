@@ -5,13 +5,13 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 31958b26cdb8a7897cf0051af6600014c07949fd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671960"
 ---
-# <a name="trace-telemetry-application-insights-data-model"></a>Telemetría de seguimiento: Modelo de datos de Application Insights
+# <a name="trace-telemetry-application-insights-data-model"></a>Telemetría de seguimientos: modelo de datos de Application Insights
 
 La telemetría de seguimientos (en [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa instrucciones de seguimiento de estilo `printf` en las que se pueden realizar búsquedas de texto. `Log4Net`, `NLog` y las demás entradas de archivo de registro basadas en texto se convierten a instancias de este tipo. El seguimiento no tiene medidas como una extensibilidad.
 
@@ -19,7 +19,7 @@ La telemetría de seguimientos (en [Application Insights](../../azure-monitor/ap
 
 Mensaje de seguimiento.
 
-Longitud máxima: 32768 caracteres
+Longitud máxima: 32 768 caracteres
 
 ## <a name="severity-level"></a>Nivel de gravedad
 

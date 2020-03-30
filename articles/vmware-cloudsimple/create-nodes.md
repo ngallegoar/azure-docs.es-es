@@ -1,6 +1,6 @@
 ---
-title: 'Aprovisionamiento de nodos de VMware Solutions (AVS): Azure'
-description: Obtenga información sobre cómo agregar nodos a VMWare con la implementación de AVS.
+title: 'Aprovisionamiento de nodos de VMware Solution by CloudSimple: Azure'
+description: Obtenga información sobre cómo agregar nodos a VMWare con la implementación de CloudSimple.
 author: dikamath
 ms.author: dikamath
 ms.date: 08/14/2019
@@ -8,34 +8,34 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 94ca681153f1e3ccd9ff628b41a9d0e547be5802
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024813"
 ---
-# <a name="provision-nodes-for-azure-vmware-solutions-avs"></a>Aprovisionamiento de nodos de Azure VMware Solutions (AVS)
+# <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Aprovisionamiento de nodos de la Azure VMware Solution by CloudSimple
 
-Aprovisione nodos en Azure Portal. Después puede configurar la capacidad de pago por uso de su entorno de nube privada de AVS.
+Aprovisione nodos en Azure Portal. Después puede configurar la capacidad de pago por uso de su entorno de nube privada de CloudSimple.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="add-a-node-to-your-avs-private-cloud"></a>Incorporación de un nodo a la nube privada de AVS
+## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>Incorporación de un nodo a la nube privada de CloudSimple
 
 1. Seleccione **Todos los servicios**.
-2. Busque **AVS Nodes** (Nodos de AVS).
+2. Busque **Nodos CloudSimple**.
 
-   ![Buscar nodos de AVS](media/create-cloudsimple-node-search.png)
+   ![Búsqueda de los nodos CloudSimple](media/create-cloudsimple-node-search.png)
 
-3. Seleccione **AVS Nodes** (Nodos de AVS).
+3. Seleccione **Nodos CloudSimple**.
 4. Haga clic en **Agregar** para crear los nodos.
 
-    ![Agregar nodos de AVS](media/create-cloudsimple-node-add.png)
+    ![Adición de los nodos CloudSimple](media/create-cloudsimple-node-add.png)
 
-5. Seleccione la suscripción en la que quiere aprovisionar los nodos de AVS.
+5. Seleccione la suscripción en la que quiera aprovisionar los nodos CloudSimple.
 6. Seleccione el grupo de recursos de los nodos. Para agregar un nuevo grupo de recursos, haga clic en **Crear nuevo**.
 7. Escriba el prefijo para identificar los nodos.
 8. Seleccione la ubicación de los recursos de los nodos.
@@ -48,4 +48,4 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de una nube privada de AVS](create-private-cloud.md)
+* [Creación de una nube privada](create-private-cloud.md)

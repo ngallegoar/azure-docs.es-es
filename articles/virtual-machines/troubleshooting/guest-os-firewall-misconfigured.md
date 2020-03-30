@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 8f04d943e1db49beed13c183fbd06e401546fc03
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71153889"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>El firewall de SO invitado de máquina virtual de Azure no está correctamente configurado
@@ -55,7 +55,7 @@ Para habilitar el acceso a la máquina virtual (mediante RDP) o para proporciona
 
 *   Compartir archivos e impresoras (SMB de entrada): esta regla permite el acceso de recurso compartido de red como una opción de solución de problemas.
 
-*   Compartir archivos e impresoras (solicitud de eco: ICMPv4 de entrada): esta regla le permite hacer ping a la máquina virtual.
+*   Compartir archivos e impresoras (solicitud de eco - ICMPv4 de entrada): esta regla le permite hacer ping a la máquina virtual.
 
 En la instancia de acceso a la consola serie, puede consultar el estado actual de la regla de firewall.
 

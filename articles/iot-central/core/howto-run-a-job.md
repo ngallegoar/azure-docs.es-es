@@ -6,14 +6,14 @@ services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 03/03/2020
-ms.topic: conceptual
+ms.topic: how-to
 manager: peterpr
-ms.openlocfilehash: 8f982dbb10a15a1e02a62a97431cdd1b7015472c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c9d5a0daa364b09e45699e898511c28d4b4d92ce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252240"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157762"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crear y ejecutar trabajos en la aplicación de Azure IoT Central
 

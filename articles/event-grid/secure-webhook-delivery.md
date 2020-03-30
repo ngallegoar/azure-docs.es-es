@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
 ms.openlocfilehash: 074378668b0516936e11968ea8c800d3daa667bb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931556"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicación de eventos en puntos de conexión protegidos por Azure Active Directory
@@ -24,7 +24,7 @@ En este artículo se usa Azure Portal para la demostración; sin embargo, la car
 
 ## <a name="create-an-azure-ad-application"></a>Creación de una aplicación de Azure AD
 
-Empiece por crear una aplicación de Azure AD para el punto de conexión protegido. Consulte https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
+Empiece por crear una aplicación de Azure AD para el punto de conexión protegido. Vea https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
     - Configure la API protegida para que la llame una aplicación de demonio.
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Habilitación de Event Grid para que use la aplicación de Azure AD

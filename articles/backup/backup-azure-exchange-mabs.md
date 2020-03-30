@@ -5,17 +5,17 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 9e623b1bdce93c340ccd0e61f9f5145e7154beff
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78295851"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Realización de una copia de seguridad de un servidor Exchange en Azure con Azure Backup Server
 
 En este artículo se describe cómo configurar Microsoft Azure Backup Server (MABS) para realizar una copia de seguridad de un servidor Microsoft Exchange en Azure.  
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de continuar, asegúrese de que Azure Backup Server esté [instalado y preparado](backup-azure-microsoft-azure-backup.md).
 
@@ -97,11 +97,11 @@ Para instalar al agente de protección MABS en el servidor Exchange, siga estos 
 
 Para los puntos de recuperación en línea, existen cinco tipos de recuperación:
 
-* **Recuperación en la ubicación original de Exchange Server**: los datos se recuperarán en la ubicación original de Exchange Server.
-* **Recuperación en otra base de datos de Exchange Server**: los datos se recuperarán en otra base de datos en otra ubicación de Exchange Server.
-* **Recuperación en una base de datos de recuperación**: los datos se recuperarán en una base de datos de recuperación de Exchange (RDB).
-* **Copia en una carpeta de red**: los datos se recuperarán en una carpeta de red.
-* **Copia en cinta**: si tiene una biblioteca de cintas o una unidad de cinta independiente conectada y configurada en MABS, el punto de recuperación se copiará en una cinta disponible.
+* **Recuperar en ubicación original de servidor de Exchange :** los datos se recuperarán en el servidor Exchange original.
+* **Recuperar en otra base de datos en un servidor de Exchange:** los datos se recuperarán en otra base de datos de otro servidor Exchange.
+* **Recuperar en una base de datos de recuperación:** los datos se recuperarán en una base de datos de recuperación de Exchange (RDB).
+* **Copiar en una carpeta de red:** los datos se recuperarán en una carpeta de red.
+* **Copiar en cinta:** si tiene una biblioteca de cintas o una unidad de cinta independiente conectada y configurada en MABS, el punto de recuperación se copiará en una cinta libre.
 
     ![Elegir replicación en línea](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 

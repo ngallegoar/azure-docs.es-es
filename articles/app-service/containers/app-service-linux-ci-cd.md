@@ -9,10 +9,10 @@ ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: d43491de7500204ed470757a1b744017a8180b57
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687632"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Implementación continua con Web App for Containers
@@ -23,7 +23,7 @@ En este tutorial, configurará una implementación continua para una imagen de c
 
 ![Captura de pantalla del webhook ACR](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione la opción **App Service** del lado izquierdo de la página.
 3. Seleccione el nombre de la aplicación para la que quiere configurar una implementación continua.
 4. En la página **Configuración del contenedor**, seleccione **Contenedor único**
@@ -41,7 +41,7 @@ En Container Registry, haga clic en Webhooks para ver los webhooks actuales.
 
 ## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Habilitación de la implementación continua con Docker Hub (opcional)
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione la opción **App Service** del lado izquierdo de la página.
 3. Seleccione el nombre de la aplicación para la que quiere configurar una implementación continua.
 4. En la página **Configuración del contenedor**, seleccione **Contenedor único**

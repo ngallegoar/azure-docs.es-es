@@ -12,10 +12,10 @@ author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
 ms.openlocfilehash: c228f3d6591cd72845101c00188f3fc4a55be644
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087354"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database
@@ -428,7 +428,7 @@ Los siguientes procedimientos almacenados se encuentran en la [base de datos de 
 
 
 
-### <a name="sp_add_job"></a>sp_add_job
+### <a name="sp_add_job"></a><a name="sp_add_job"></a>sp_add_job
 
 Agrega un nuevo trabajo. 
   
@@ -494,7 +494,7 @@ De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden e
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
 
-### <a name="sp_update_job"></a>sp_update_job
+### <a name="sp_update_job"></a><a name="sp_update_job"></a>sp_update_job
 
 Actualiza un trabajo existente.
 
@@ -557,7 +557,7 @@ Para obtener más información acerca de los permisos de estos roles, consulte l
 
 
 
-### <a name="sp_delete_job"></a>sp_delete_job
+### <a name="sp_delete_job"></a><a name="sp_delete_job"></a>sp_delete_job
 
 Elimina un trabajo existente.
 
@@ -589,7 +589,7 @@ Para obtener más información acerca de los permisos de estos roles, consulte l
 
 
 
-### <a name="sp_add_jobstep"></a>sp_add_jobstep
+### <a name="sp_add_jobstep"></a><a name="sp_add_jobstep"></a>sp_add_jobstep
 
 Agrega un paso a un trabajo.
 
@@ -715,7 +715,7 @@ Para obtener más información acerca de los permisos de estos roles, consulte l
 
 
 
-### <a name="sp_update_jobstep"></a>sp_update_jobstep
+### <a name="sp_update_jobstep"></a><a name="sp_update_jobstep"></a>sp_update_jobstep
 
 Actualiza un paso de trabajo.
 
@@ -840,7 +840,7 @@ Para obtener más información acerca de los permisos de estos roles, consulte l
 
 
 
-### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
+### <a name="sp_delete_jobstep"></a><a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
 Quita un paso de un trabajo.
 
@@ -886,7 +886,7 @@ Para obtener más información acerca de los permisos de estos roles, consulte l
 
 
 
-### <a name="sp_start_job"></a>sp_start_job
+### <a name="sp_start_job"></a><a name="sp_start_job"></a>sp_start_job
 
 Inicia la ejecución de un trabajo.
 
@@ -917,7 +917,7 @@ De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden e
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
 
-### <a name="sp_stop_job"></a>sp_stop_job
+### <a name="sp_stop_job"></a><a name="sp_stop_job"></a>sp_stop_job
 
 Detiene una ejecución de trabajo.
 
@@ -946,7 +946,7 @@ De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden e
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
 
 
-### <a name="sp_add_target_group"></a>sp_add_target_group
+### <a name="sp_add_target_group"></a><a name="sp_add_target_group"></a>sp_add_target_group
 
 Agrega un grupo de destino.
 
@@ -977,7 +977,7 @@ De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden e
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
 
-### <a name="sp_delete_target_group"></a>sp_delete_target_group
+### <a name="sp_delete_target_group"></a><a name="sp_delete_target_group"></a>sp_delete_target_group
 
 Elimina un grupo de destino.
 
@@ -1005,7 +1005,7 @@ De forma predeterminada, los miembros del rol de servidor fijo sysadmin pueden e
 
 Para obtener más información acerca de los permisos de estos roles, consulte la sección Permisos de este documento. Solo los miembros de sysadmin pueden usar este procedimiento almacenado para editar los atributos de los trabajos que pertenecen a otros usuarios.
 
-### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
+### <a name="sp_add_target_group_member"></a><a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
 Agrega una base de datos o un grupo de bases de datos a un grupo de destino.
 
@@ -1094,7 +1094,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
+### <a name="sp_delete_target_group_member"></a><a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
 Quita un miembro de un grupo de destino.
 
@@ -1145,7 +1145,7 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a><a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 Quita los registros de historial de un trabajo.
 
@@ -1206,7 +1206,7 @@ Las siguientes vistas están disponibles en la [base de datos de trabajos](sql-d
 |[target_group_members](#target_group_members-view)     |   Muestra todos los miembros de todos los grupos de destino.      |
 
 
-### <a name="job_executions-view"></a>vista de job_executions
+### <a name="job_executions-view"></a><a name="job_executions-view"></a>vista de job_executions
 
 [jobs].[job_executions]
 
@@ -1253,7 +1253,7 @@ Muestra todos los trabajos.
 |**schedule_end_time**| datetime2(7)|   Fecha y hora en que el trabajo completó la ejecución por última vez.|
 
 
-### <a name="job_versions-view"></a>vista job_versions
+### <a name="job_versions-view"></a><a name="job_versions-view"></a>vista job_versions
 
 [jobs].[job_versions]
 
@@ -1301,13 +1301,13 @@ Muestra todos los pasos de la versión actual de cada trabajo.
 |**max_parallelism**|   int|    Número máximo de bases de datos por grupo elástico en el que se ejecutará el paso de trabajo a la vez. El valor predeterminado es NULL, lo que significa que no hay ningún límite. |
 
 
-### <a name="jobstep_versions-view"></a>vista jobstep_versions
+### <a name="jobstep_versions-view"></a><a name="jobstep_versions-view"></a>vista jobstep_versions
 
 [jobs].[jobstep_versions]
 
 Muestra todos los pasos de todas las versiones de cada trabajo. El esquema es idéntico al de [jobsteps](#jobsteps-view).
 
-### <a name="target_groups-view"></a>vista target_groups
+### <a name="target_groups-view"></a><a name="target_groups-view"></a>vista target_groups
 
 [jobs].[target_groups]
 
@@ -1318,7 +1318,7 @@ Enumera todos los grupos de destino.
 |**target_group_name**| nvarchar(128)   |Nombre del grupo de destino, una colección de bases de datos. 
 |**target_group_id**    |UNIQUEIDENTIFIER   |Identificador único del grupo de destino.
 
-### <a name="target_group_members-view"></a>Vista target_group_members
+### <a name="target_group_members-view"></a><a name="target_group_members-view"></a>Vista target_group_members
 
 [jobs].[target_group_members]
 

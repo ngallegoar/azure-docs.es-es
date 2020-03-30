@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74703208"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Pig en Azure Data Factory
@@ -39,7 +39,7 @@ ms.locfileid: "74703208"
 La actividad de Pig para HDInsight en una [canalización](data-factory-create-pipelines.md) de Data Factory ejecuta consultas de Pig en un clúster de HDInsight basado en Windows/Linux [propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o en uno [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 
 > [!NOTE] 
-> Si no está familiarizado con Azure Data Factory, vea [Introducción a Azure Data Factory](data-factory-introduction.md) y siga el tutorial sobre la [compilación de la primera canalización de datos](data-factory-build-your-first-pipeline.md) antes de leer este artículo. 
+> Si no está familiarizado con Azure Data Factory, lea [Introducción a Azure Data Factory](data-factory-introduction.md) y realice el tutorial de [compilación de la primera canalización de datos](data-factory-build-your-first-pipeline.md) antes de leer este artículo. 
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -82,17 +82,17 @@ La actividad de Pig para HDInsight en una [canalización](data-factory-create-pi
 
 ## <a name="syntax-details"></a>Detalles de la sintaxis
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | name |Nombre de la actividad |Sí |
-| description |Texto que describe para qué se usa la actividad. |Sin |
+| description |Texto que describe para qué se usa la actividad. |No |
 | type |HDinsightPig |Sí |
-| inputs |Una o varias entradas consumidas por la actividad de Pig |Sin |
+| inputs |Una o varias entradas consumidas por la actividad de Pig |No |
 | outputs |Una o varias salidas producidas por la actividad de Pig |Sí |
 | linkedServiceName |Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos |Sí |
-| script |Especifica el script de Pig en línea |Sin |
-| scriptPath |Almacena el script de Pig en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin |
-| defines |Especifique parámetros como pares de clave y valor para referencia en el script de Pig |Sin |
+| script |Especifica el script de Pig en línea |No |
+| scriptPath |Almacena el script de Pig en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |No |
+| defines |Especifique parámetros como pares de clave y valor para referencia en el script de Pig |No |
 
 ## <a name="example"></a>Ejemplo
 Veamos un ejemplo de análisis de registros de juegos en el que desea identificar el tiempo dedicado por los usuarios a los juegos de su compañía.
@@ -219,7 +219,7 @@ Para usar un script de Pig parametrizado, haga lo siguiente:
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Actividad de Hive](data-factory-hive-activity.md)
 * [Actividad MapReduce](data-factory-map-reduce.md)
 * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)

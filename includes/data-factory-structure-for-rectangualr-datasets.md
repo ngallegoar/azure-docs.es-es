@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67186985"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especificación de la definición de la estructura de los conjuntos de datos rectangulares
@@ -16,12 +16,12 @@ La sección structure de JSON de los conjuntos de datos es una sección **opcion
 
 Cada columna contiene las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | name |Nombre de la columna. |Sí |
-| type |Tipo de datos de la columna. Consulte la sección de conversiones de tipos siguiente para más detalles sobre cuándo debe especificar la información de tipo. |Sin |
-| culture |Referencia cultural basada en .NET que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. El valor predeterminado es «en-us». |Sin |
-| format |Cadena de formato que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. |Sin |
+| type |Tipo de datos de la columna. Consulte la sección de conversiones de tipos siguiente para más detalles sobre cuándo debe especificar la información de tipo. |No |
+| culture |Referencia cultural basada en .NET que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. El valor predeterminado es «en-us». |No |
+| format |Cadena de formato que se usará cuando se especifica el tipo y sea un tipo .NET Datetime o Datetimeoffset. |No |
 
 En el ejemplo siguiente se muestra el JSON de la sección structure de una tabla con tres columnas userid, name y lastlogindate.
 
@@ -50,11 +50,11 @@ Factoría de datos admite los siguientes valores de tipo basados en .NET compati
 * Int32 
 * Int64
 * Single
-* Doble
+* Double
 * Decimal
 * Byte[]
 * Bool
-* Cadena 
+* String 
 * Guid
 * Datetime
 * Datetimeoffset

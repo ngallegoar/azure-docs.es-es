@@ -1,19 +1,15 @@
 ---
 title: Seguimiento de las operaciones personalizadas con el SDK de .NET de Azure Application Insights
 description: Seguimiento de las operaciones personalizadas con el SDK de .NET de Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 7b92a386d691e15975f18de169d7924b82ec5c5f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951350"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234740"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights
 
@@ -219,8 +215,8 @@ Como las colas de Storage admiten la API de HTTP, Application Insights realiza e
 
 En este ejemplo se muestra cómo realizar un seguimiento de la operación `Enqueue`. Puede:
 
- - **Poner en correlación los reintentos (si existen)** : todos tienen un elemento primario común que es la operación `Enqueue`. En caso contrario, se realiza su seguimiento como elementos secundarios de la solicitud de entrada. Si hay varias solicitudes lógicas a la cola, podría ser difícil buscar qué llamada generó los reintentos.
- - **Poner en correlación los registros de almacenamiento (si es necesario y cuando sea necesario)** : se correlacionan con la telemetría de Application Insights.
+ - **Poner en correlación los reintentos (si existen)** : Todos tienen un elemento primario común que es la operación `Enqueue`. En caso contrario, se realiza su seguimiento como elementos secundarios de la solicitud de entrada. Si hay varias solicitudes lógicas a la cola, podría ser difícil buscar qué llamada generó los reintentos.
+ - **Poner en correlación los registros de Azure Storage (si es necesario y cuando sea necesario)** : Se hace con la telemetría de Application Insights.
 
 La operación `Enqueue` es el elemento secundario de una operación principal (por ejemplo, una solicitud HTTP de entrada). La llamada de dependencia HTTP es el elemento secundario de la operación `Enqueue` y el descendiente de la solicitud de entrada:
 
@@ -268,7 +264,7 @@ public async Task Enqueue(CloudQueue queue, string message)
 Para reducir la cantidad de telemetría que notifica la aplicación o si no quiere realizar el seguimiento de la operación `Enqueue` por otras razones, use directamente la API `Activity`:
 
 - Cree (e inicie) una nueva `Activity` en lugar de iniciar la operación de Application Insights. *No* es necesario asignar ninguna propiedad en este elemento, excepto el nombre de la operación.
-- Serialice `yourActivity.Id` en la carga del mensaje en lugar de `operation.Telemetry.Id`. También puede usar `Activity.Current.Id`.
+- Serialice `yourActivity.Id` en la carga del mensaje en lugar de `operation.Telemetry.Id`. También se puede usar `Activity.Current.Id`.
 
 
 #### <a name="dequeue"></a>Quitar de la cola
@@ -429,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 Desechar la operación provoca que la operación se detenga, por lo que puede hacerlo en lugar de llamar a `StopOperation`.
 
-*Advertencia*: En algunos casos, una excepción no controlada puede [impedir](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) la llamada a `finally`, por lo que puede que no se realice un seguimiento de las operaciones.
+*Advertencia*: en algunos casos, una excepción no controlada puede [impedir](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) la llamada a `finally`, por lo que puede que no se realice un seguimiento de las operaciones.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Seguimiento y procesamiento de operaciones paralelas
 

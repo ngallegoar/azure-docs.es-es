@@ -16,10 +16,10 @@ ms.date: 01/13/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 8119990ab4ab4a918e325976092100086a547aa4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74037492"
 ---
 # <a name="introducing-sql-server-availability-groups-on-azure-virtual-machines"></a>Presentación de SQL Server grupos de disponibilidad en máquinas virtuales de Azure
@@ -40,9 +40,9 @@ Para aumentar la redundancia y la alta disponibilidad, las máquinas virtuales d
 
 |  | Versión de Windows Server | SQL Server Version | Edición de SQL Server | Configuración de quórum WSFC | Recuperación ante desastres con varias regiones | Compatibilidad con varias subredes | Compatibilidad con un dominio de aplicación existente | Recuperación ante desastres con la misma región multizona | Compatibilidad de Dist-AG sin ningún dominio de AD | Compatibilidad de Dist-AG sin ningún clúster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [CLI de la máquina virtual de SQL](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Testigo en la nube | Sin | Sí | Sí | Sí | No | Sin |
-| [Plantillas de inicio rápido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Testigo en la nube | Sin | Sí | Sí | Sí | No | Sin |
-| [Plantilla del portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | Recurso compartido de archivos | Sin | No | No | No | No | Sin |
+| [CLI de la máquina virtual de SQL](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | Testigo en la nube | No | Sí | Sí | Sí | No | No |
+| [Plantillas de inicio rápido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | Testigo en la nube | No | Sí | Sí | Sí | No | No |
+| [Plantilla del portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | Recurso compartido de archivos | No | No | No | No | No | No |
 | [Manual](virtual-machines-windows-portal-sql-availability-group-prereq.md) | All | All | All | All | Sí | Sí | Sí | Sí | Sí | Sí |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 

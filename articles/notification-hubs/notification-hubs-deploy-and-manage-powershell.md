@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76264651"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementación y administración de Notification Hubs mediante PowerShell
@@ -94,15 +94,15 @@ Para aprovisionar un nuevo centro de notificaciones, use la [API de .NET para No
 
 En esta parte del script, configuramos cuatro variables locales.
 
-1. `$Namespace`: Establezca esta variable en el nombre del espacio de nombres donde quiera crear un centro de notificaciones.
-2. `$Path`: Establezca esta ruta de acceso en el nombre del nuevo centro de notificaciones.  Por ejemplo, "MyHub".
-3. `$WnsPackageSid`: Establezca esta variable en el SID del paquete de la aplicación de Windows desde el [Centro de desarrollo de Windows](https://developer.microsoft.com/en-us/windows).
-4. `$WnsSecretkey`: Establezca este valor en la clave secreta para la aplicación de Windows desde el [Centro de desarrollo de Windows](https://developer.microsoft.com/en-us/windows).
+1. `$Namespace`: establezca esta variable en el nombre del espacio de nombres donde quiera crear un centro de notificaciones.
+2. `$Path`: establezca esta ruta de acceso en el nombre del nuevo centro de notificaciones.  Por ejemplo, "MyHub".
+3. `$WnsPackageSid`: establezca esta variable en el SID del paquete de la aplicación de Windows desde el [Centro de desarrollo de Windows](https://developer.microsoft.com/en-us/windows).
+4. `$WnsSecretkey`: establezca este valor en la clave secreta para la aplicación de Windows desde el [Centro de desarrollo de Windows](https://developer.microsoft.com/en-us/windows).
 
 Estas variables se usan para conectar con el espacio de nombres y crear un nuevo centro de notificaciones configurado para controlar las notificaciones de los servicios de notificación de Windows (WNS) con las credenciales de WNS en una aplicación de Windows. Para información sobre cómo obtener el SID del paquete y la clave secreta, vea el tutorial [Introducción a Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
 
 - El fragmento de código de script usa el objeto `NamespaceManager` para comprobar si existe el Centro de notificaciones identificado por `$Path`.
-- Si no existe, el script crea `NotificationHubDescription` con las credenciales de WNS y lo pasa al método `CreateNotificationHub` de la clase `NamespaceManager`.
+- Si no existe, el script crea `NotificationHubDescription` con las credenciales de WNS y lo pasa al método `NamespaceManager` de la clase `CreateNotificationHub`.
 
 ``` powershell
 $Namespace = "<Enter your namespace>"

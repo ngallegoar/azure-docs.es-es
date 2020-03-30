@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
 ms.openlocfilehash: 45efaadf7d15fff290165fe831c45c0bc063db53
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73643797"
 ---
 # <a name="security-management-in-azure"></a>Administración de la seguridad en Azure
@@ -186,7 +186,7 @@ Tenga en cuenta las siguientes directrices adicionales cuando administre aplicac
 ### <a name="dos-and-donts"></a>Consejos
 No dé por sentado que si una estación de trabajo está bloqueada ya no es necesario cumplir otros requisitos de seguridad comunes. El riesgo potencial es mayor debido a los niveles de acceso con privilegios elevados que normalmente poseen las cuentas de administrador. En la tabla siguiente se muestran ejemplos de riesgos y los procedimientos de seguridad alternativos.
 
-| No | Sí |
+| Lo que debe evitar: | Lo que es necesario hacer: |
 | --- | --- |
 | No envíe por correo electrónico credenciales de acceso de administrador ni otros secretos (por ejemplo, certificados SSL o de administración) |Mantenga la confidencialidad; para ello, entregue los nombres y las contraseñas de las cuentas de palabra (pero no los almacene en buzones de voz), realice una instalación remota de los certificados de cliente y servidor (a través de una sesión cifrada), descárguelos desde un recurso compartido de red protegido o distribúyalos manualmente mediante soportes físicos extraíbles. |
 | - | Administre activamente los ciclos de vida de sus certificados de administración. |

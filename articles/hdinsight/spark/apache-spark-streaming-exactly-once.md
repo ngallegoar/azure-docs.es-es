@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.openlocfilehash: ee4f9b84e822cb370e5fe3d55fcceb9c8a9f2ab9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74228967"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creación de trabajos de Apache Spark Streaming con el procesamiento de eventos de tipo "exactamente una vez"
@@ -21,7 +21,7 @@ Las aplicaciones de procesamiento de flujos adoptan enfoques distintos en cuanto
 
 * Al menos una vez: se garantiza el procesamiento de cada mensaje, pero puede que se procese más de una vez.
 * Como máximo una vez: puede que cada mensaje se procese o no. Si se procesa un mensaje, solo se procesa una vez.
-* Exactamente una vez: se garantiza un solo procesamiento de cada mensaje.
+* Solo una vez: se garantiza un solo procesamiento de cada mensaje.
 
 En este artículo se explica cómo configurar Spark Streaming para conseguir un procesamiento del tipo "exactly-once".
 

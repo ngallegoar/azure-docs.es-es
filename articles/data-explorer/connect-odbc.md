@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.openlocfilehash: 1b2e7a79eb932f5b971dda1d5d51b650789394db
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034029"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Conexión a Azure Data Explorer con ODBC
@@ -28,7 +28,7 @@ También puede [configurar el origen de datos ODBC](#configure-the-odbc-data-sou
 
 En este artículo, aprenderá a usar el controlador ODBC para SQL Server, de manera que pueda conectarse a Azure Data Explorer desde cualquier aplicación que admita ODBC. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Necesita lo siguiente:
 

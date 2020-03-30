@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186766"
 ---
 También puede ver las métricas para supervisar el rendimiento del dispositivo y, en algunos casos, para solucionar problemas del dispositivo.
@@ -29,12 +29,12 @@ Para crear un gráfico para las métricas del dispositivo seleccionadas, siga es
 
 3. En la lista desplegable, seleccione una métrica para supervisar el dispositivo. Las métricas pueden ser **Métricas de capacidad** o **Métricas de transacciones**. Las métricas de capacidad están relacionadas con la capacidad del dispositivo. Las métricas de transacción están relacionadas con las operaciones de lectura y de escritura en Azure Storage.
 
-    |Métricas de capacidad                     |DESCRIPCIÓN  |
+    |Métricas de capacidad                     |Descripción  |
     |-------------------------------------|-------------|
     |**Capacidad disponible**               | Se refiere al tamaño de los datos que se pueden escribir en el dispositivo. En otras palabras, esta es la capacidad que puede estar disponible en el dispositivo. <br></br>Puede liberar la capacidad del dispositivo mediante la eliminación de la copia local de los archivos que tienen una copia tanto en el dispositivo como en la nube.        |
     |**Capacidad total**                   | Hace referencia al número total de bytes en el dispositivo para escribir datos. También se conoce como el tamaño total de la memoria caché local. <br></br> Ahora puede aumentar la capacidad de un dispositivo virtual existente mediante la adición de un disco de datos. Agregue un disco de datos a través de la administración del hipervisor para la VM y, después, reinicie la VM. El bloque de almacenamiento local del dispositivo de puerta de enlace se expandirá para adaptarse al disco de datos recién agregado. <br></br>Para obtener más información, vaya a [Add a hard drive for Hyper-V virtual machine](https://www.youtube.com/watch?v=EWdqUw9tTe4) (Adición de un disco duro para la máquina virtual de Hyper-V). |
     
-    |Métricas de transacciones              | DESCRIPCIÓN         |
+    |Métricas de transacciones              | Descripción         |
     |-------------------------------------|---------|
     |**Bytes cargados en la nube (dispositivo)**    | Suma de todos los bytes cargados en todos los recursos compartidos en el dispositivo        |
     |**Bytes cargados en la nube (recurso compartido)**     | Bytes cargados por recurso compartido. Puede ser: <br></br> Valor medio: suma de todos los bytes cargados por uno o varios recursos compartidos  <br></br>Valor máx.: número máximo de bytes cargados desde un recurso compartido <br></br>Valor mín.: número mínimo de bytes cargados desde un recurso compartido      |

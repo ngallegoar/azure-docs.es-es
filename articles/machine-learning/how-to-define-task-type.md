@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 11/04/2019
 ms.openlocfilehash: a58959904559cd3b2cec27762f2df93cfea72abd
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75535324"
 ---
 # <a name="how-to-define-a-machine-learning-task"></a>Definición de una tarea de aprendizaje automático 
@@ -23,7 +23,7 @@ ms.locfileid: "75535324"
 En este artículo aprenderá las tareas de aprendizaje automático compatibles y cómo definirlas para la ejecución de un experimento de aprendizaje automático automatizado (ML automatizado).
 
 
-## <a name="What is a machine learning task?"></a> ¿Qué es una tarea de aprendizaje automático?
+## <a name="what-is-a-machine-learning-task"></a><a name="What is a machine learning task?"></a> ¿Qué es una tarea de aprendizaje automático?
 
 Una tarea de aprendizaje automático representa el tipo de problema que se resuelve con la creación de un modelo predictivo. El aprendizaje automático automatizado admite tres tipos diferentes de tareas, entre las que se incluyen la clasificación, la regresión y la previsión de serie temporal.
 

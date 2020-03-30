@@ -6,10 +6,10 @@ ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: d783b61c372c7d0f8cca13106bf297ab9b55c424
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74671891"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Uso de un certificado SSL en el código en Azure App Service
@@ -20,7 +20,7 @@ Este enfoque para el uso de certificados en el código usa la funcionalidad SSL 
 
 Cuando permite que App Service administre los certificados SSL, puede mantener por separado los certificados y el código de la aplicación y proteger así la información confidencial.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar esta guía paso a paso, debe:
 
@@ -155,4 +155,4 @@ Para ver cómo se carga un certificado SSL desde un archivo en Node.js, PHP, Pyt
 * [Protección de un nombre DNS personalizado con un enlace SSL](configure-ssl-bindings.md)
 * [Aplicación de HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Aplicación de TLS 1.1 y 1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Preguntas más frecuentes: Certificados de App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Preguntas frecuentes: Certificados de App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

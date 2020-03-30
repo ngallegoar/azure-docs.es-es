@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.openlocfilehash: d17026dba26b3c1cb846d60967180c29563c425d
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74545588"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticación del acceso a recursos de Event Hubs mediante firmas de acceso compartido (SAS)
@@ -223,13 +223,13 @@ Por ejemplo, para definir reglas de autorización cuyo ámbito sea solo enviar o
 Para autenticar las aplicaciones back-end que consumen los datos generados por los productores de Event Hubs, la autenticación de tokens de Event Hubs requiere que sus clientes tengan asignados los derechos de **administración** o los privilegios de **escucha** a su espacio de nombres de Event Hubs o instancia o tema del centro de eventos. Los datos se consumen de Event Hubs mediante grupos de consumidores. Aunque la directiva SAS proporciona un ámbito granular, este ámbito solo se define en el nivel de entidad, no en el nivel de consumidor. Significa que los privilegios definidos en el nivel de espacio de nombres o en el nivel de instancia o tema de centro de eventos se aplicarán a los grupos de consumidores de esa entidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 - [Autorización del uso de SAS](authenticate-shared-access-signature.md)
 - [Autorización mediante el control de acceso basado en rol (RBAC)](authenticate-shared-access-signature.md)
 - [Más información sobre Event Hubs](event-hubs-about.md)
 
-Consulte también los siguientes artículos relacionados:
+Consulte los artículos relacionados siguientes:
 
 - [Autenticación de solicitudes a Azure Event Hubs desde una aplicación mediante Azure Active Directory](authenticate-application.md)
 - [Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Event Hubs](authenticate-managed-identity.md)

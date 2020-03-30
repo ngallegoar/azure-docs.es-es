@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71104961"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
@@ -148,7 +148,7 @@ Para obtener información acerca de cómo realizar esta operación mediante la A
 
 Los archivos y carpetas del repositorio local de Git contienen la información de configuración acerca de la instancia de servicio.
 
-| item | DESCRIPCIÓN |
+| Elemento | Descripción |
 | --- | --- |
 | carpeta raíz de la administración de API |Contiene la configuración de nivel superior para la instancia de servicio |
 | carpeta de API |Contiene la configuración para las API de la instancia de servicio |
@@ -178,7 +178,7 @@ Estos archivos se pueden crear, eliminar, editar y administrar en el sistema de 
 > * Entidades del portal de desarrolladores distintas de los estilos
 >
 
-### <a name="root-api-management-folder"></a>Carpeta raíz de la administración de API
+### <a name="root-api-management-folder"></a>carpeta raíz de la administración de API
 La carpeta raíz `api-management` contiene un archivo `configuration.json` con información de nivel superior sobre la instancia de servicio en el formato siguiente.
 
 ```json
@@ -243,7 +243,7 @@ La carpeta `policies` contiene las instrucciones de directiva para la instancia 
 ### <a name="portalstyles-folder"></a>carpeta portalStyles
 La carpeta `portalStyles` contiene la configuración y las hojas de estilo para las personalizaciones del portal para desarrolladores de la instancia de servicio.
 
-* `portalStyles\configuration.json`: contiene los nombres de las hojas de estilos usadas por el portal de desarrolladores
+* `portalStyles\configuration.json` : contiene los nombres de las hojas de estilos usadas por el portal de desarrolladores
 * `portalStyles\<style name>.css`: cada archivo `<style name>.css` contiene estilos para el portal para desarrolladores (`Preview.css` y `Production.css` de forma predeterminada).
 
 ### <a name="products-folder"></a>carpeta de productos

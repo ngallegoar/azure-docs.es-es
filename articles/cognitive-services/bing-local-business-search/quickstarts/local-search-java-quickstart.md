@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: 8ff70bea8d0e4810b6d5a0d35853077ed0a630cd
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74665192"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Inicio rápido: Envío de una consulta a Bing Local Business Search API mediante Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Guía de inicio rápido: Envío de una consulta a Bing Local Business Search API mediante Java
 
 Use esta guía de inicio rápido para empezar a enviar solicitudes a Bing Local Business Search API, que es un servicio de Azure Cognitive Services. Si bien esta aplicación sencilla está escrita en Java, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON.
 
 Esta aplicación de ejemplo obtiene los datos de respuesta local de la API para la consulta de búsqueda `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Kit de desarrollo de Java (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
@@ -53,8 +53,8 @@ El siguiente código crea una instancia de `WebRequest`, establece el encabezado
 
 Bing Local Business Search API devuelve resultados del motor de búsqueda de Bing.
 1. Descargue o instale la biblioteca gson.
-2. Cree un proyecto de Java en su IDE o editor favorito.
-3. Agregue el código que se le ha proporcionado a continuación.
+2. Cree un nuevo proyecto de Java en su IDE o editor favorito.
+3. Agregue el código que se proporciona a continuación.
 4. Reemplace el valor subscriptionKey por una clave de acceso válida para la suscripción.
 5. Ejecute el programa.
 
@@ -166,5 +166,5 @@ public class LocalSearchCls {
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Guía de inicio rápido de Local Business Search](local-quickstart.md)
-- [Guía de inicio rápido de Local Business Search con Node](local-search-node-quickstart.md)
+- [Guía de inicio rápido de Local Business Search para Node](local-search-node-quickstart.md)
 - [Guía de inicio rápido de Local Business Search para Python](local-search-python-quickstart.md)

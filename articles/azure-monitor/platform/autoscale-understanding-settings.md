@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75364312"
 ---
 # <a name="understand-autoscale-settings"></a>Información acerca de la configuración de escalado automático
@@ -113,7 +113,7 @@ Para ilustrar este esquema, se utiliza la siguiente configuración de escalado a
 
 Hay tres tipos de perfiles de escalado automático:
 
-- **Perfil normal:** el perfil más habitual. Si no es necesario escalar el recurso en función del día de la semana, o de un día determinado, puede usar un perfil normal. Luego, este perfil se puede configurar con reglas de métricas que determinen cuándo realizar un escalado horizontal y cuándo una reducción horizontal. Solo debe definir un perfil normal.
+- **Perfil normal:** el perfil más común. Si no es necesario escalar el recurso en función del día de la semana, o de un día determinado, puede usar un perfil normal. Luego, este perfil se puede configurar con reglas de métricas que determinen cuándo realizar un escalado horizontal y cuándo una reducción horizontal. Solo debe definir un perfil normal.
 
     El perfil de ejemplo que se usó anteriormente en este artículo es un ejemplo de perfil normal. También es posible establecer un perfil para escalar a un número de instancias estáticas para el recurso.
 
@@ -213,7 +213,7 @@ Hay tres tipos de perfiles de escalado automático:
 
     Por ejemplo, en la configuración anterior, "weekdayProfile" está configurado para iniciarse los lunes a las 12:00 a.m. Eso significa que este perfil comienza a ejecutarse los lunes a las 12:00 a.m. Y continúa hasta el sábado a las 12:00 a.m., cuando está programado que comience a ejecutarse "weekendProfile".
 
-    **Ejemplo 2: horario comercial**
+    **Ejemplo 2: Horas laborables**
     
     Supongamos que tiene un umbral de métrica durante las horas laborables (de 9:00 a.m. a 5:00 p.m.) y otro para todas las demás horas. La configuración sería parecida a esta:
     

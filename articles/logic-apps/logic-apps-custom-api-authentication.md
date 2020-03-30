@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191403"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Mejora de la seguridad de las llamadas a las API personalizadas desde Azure Logic Apps
@@ -40,7 +40,7 @@ Estos son los pasos generales para este método:
 
 3. Incluya los identificadores de aplicación en la definición de la aplicación lógica.
 
-#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Parte 1: Creación de una identidad de aplicación de Azure AD para la aplicación lógica
+#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Parte 1: Creación de una identidad de aplicación de Azure AD para la aplicación lógica
 
 La aplicación lógica usa esta identidad de aplicación de Azure AD para autenticarse en Azure AD. Solo tiene que establecer esta identidad una vez para el directorio. Por ejemplo, puede usar la misma identidad para todas las aplicaciones lógicas, aunque puede crear identidades únicas para cada una. Puede configurar estas identidades en Azure Portal o usar [PowerShell](#powershell).
 
@@ -107,7 +107,7 @@ Puede realizar esta tarea mediante Azure Resource Manager con PowerShell. En Pow
 
 Para más información, consulte cómo [crear una entidad de servicio con PowerShell para acceder a recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Parte 2: Creación de una identidad de aplicación de Azure AD para la aplicación web o de API
+#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Parte 2: Creación de una identidad de aplicación de Azure AD para la aplicación web o de API
 
 Si ya se ha implementado la aplicación web o de API, puede activar la autenticación y crear la identidad de aplicación en Azure Portal. En caso contrario, puede [activar la autenticación cuando implemente con una plantilla de Azure Resource Manager](#authen-deploy). 
 
@@ -181,7 +181,7 @@ Para implementar automáticamente una aplicación web en blanco y una aplicació
 
 [![Implementación en Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: Relleno de la sección de autorización en la aplicación lógica
+#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: Relleno de la sección de autorización en la aplicación lógica
 
 La plantilla anterior ya tiene esta sección de autorización configurada pero, si va a crear la aplicación lógica directamente, debe incluir la sección de autorización completa.
 

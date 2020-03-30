@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72330500"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Creación y administración de programaciones para laboratorios educativos en Azure Lab Services 
@@ -76,7 +76,7 @@ En la página **Edit scheduled event** (Editar evento programado), puede actuali
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 - [Como administrador, crear y administrar cuentas de laboratorio](how-to-manage-lab-accounts.md)
 - [Como propietario del laboratorio, crear y administrar laboratorios](how-to-manage-classroom-labs.md)

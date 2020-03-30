@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
 ms.openlocfilehash: 80ec9b2bbf10d8f500e7f9e0369faca3b9663633
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74129389"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Conectarse a orígenes de datos de Azure Databricks
 
 En este artículo se proporcionan vínculos a todos los diferentes orígenes de datos de Azure que pueden conectarse a Azure Databricks. Siga los ejemplos que se muestran en estos vínculos para extraer datos de los orígenes de datos de Azure (por ejemplo, Azure Blob Storage, Azure Event Hubs, etc.) en un clúster de Azure Databricks, y ejecutar trabajos analíticos en ellos. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Debe disponer de un área de trabajo de Azure Databricks y de un clúster de Spark. Siga las instrucciones que se muestran en [Introducción a Azure Databricks](quickstart-create-databricks-workspace-portal.md).
 

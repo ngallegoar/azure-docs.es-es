@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: ba41f4ad8014ba3e85174b7c32e11394f0068643
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773887"
 ---
 # <a name="convert-a-legacy-direct-peering-to-azure-resource-using-powershell"></a>Conversión de un emparejamiento directo heredado en un recurso de Azure mediante PowerShell
@@ -32,7 +32,7 @@ Si lo prefiere, puede completar esta guía mediante el [portal](howto-legacy-dir
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Iniciar sesión en la cuenta de Azure y seleccione la suscripción
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name= get></a>Obtener el emparejamiento directo heredado para la conversión
+### <a name="get-legacy-direct-peering-for-conversion"></a><a name= get></a>Obtener el emparejamiento directo heredado para la conversión
 A continuación se muestra un ejemplo para obtener el emparejamiento directo heredado en la ubicación de emparejamiento de Seattle.
 
 ```powershell

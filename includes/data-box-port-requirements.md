@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: 4a3925752d1af5e43d5984b06c0a68aa9faa214b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67839764"
 ---
 | N.º de puerto| Dentro o fuera | Ámbito de puerto| Obligatorio| Notas |   |

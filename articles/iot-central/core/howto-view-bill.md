@@ -4,16 +4,16 @@ description: Como administrador, aprenda a administrar su factura y a pasar del 
 author: v-krghan
 ms.author: v-krghan
 ms.date: 12/09/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 58503784f28a3ba0a6290a2209ce9fdccc14b4e4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 888b9f31b8082ac124a773cc489293b335d7d255
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023776"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157535"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>Administrar la factura en una aplicación de IoT Central
 

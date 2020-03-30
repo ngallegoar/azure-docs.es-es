@@ -9,10 +9,10 @@ ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: 257cbd0b1a68ddd2b16235e6f8dec5d5b0eb10e2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790645"
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>Codificación de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
@@ -80,7 +80,7 @@ El conector de codificación EDIFACT lleva a cabo estas tareas:
 * Genera un número de control de intercambio, un número de control de grupo y un número de control del conjunto de transacciones para cada intercambio de salida.
 * Reemplaza los separadores en los datos de carga útil.
 * Valida propiedades EDI y específicas del asociado.
-  * Validación del esquema de los elementos de datos del conjunto de transacciones con respecto al esquema de mensaje.
+  * Validación del esquema de los elementos de datos del conjunto de transacciones con respecto al esquema de mensaje
   * Validación de EDI realizada en los elementos de datos del conjunto de transacciones.
   * Validación extendida realizada en los elementos de datos del conjunto de transacciones.
 * Genera un documento XML para cada conjunto de transacciones.

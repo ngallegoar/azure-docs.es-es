@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 4b8cbc27757cf6c321ea4b3c27720a129aa27c1b
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593477"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertas en tiempo real en Microsoft Azure CDN
@@ -109,6 +109,6 @@ En este documento se explican las alertas en tiempo real en Microsoft Azure CDN.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Análisis de [estadísticas en tiempo real en Azure CDN](cdn-real-time-stats.md)
-* Mayor profundización con [Informes de HTTP avanzados en la red CDN de Microsoft Azure](cdn-advanced-http-reports.md)
+* Profundizar más con [informes de HTTP avanzados](cdn-advanced-http-reports.md)
 * Analizar [patrones de uso](cdn-analyze-usage-patterns.md)
 

@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
 ms.openlocfilehash: f7f9f6d5617ad0f9be69c47ce514d395534fd892
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672210"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configuración del nivel PremiumV2 para Azure App Service
 
 Con el nuevo plan de tarifa **PremiumV2**, se obtienen procesadores más rápidos, almacenamiento SSD y el doble de relación memoria-núcleo que con los planes de tarifa actuales. Con la ventaja de rendimiento, puede ahorrar dinero mediante la ejecución de las aplicaciones en menos instancias. En este artículo, aprenderá a crear una aplicación en el nivel **PremiumV2** o escalar verticalmente una aplicación al nivel **PremiumV2**.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para escalar verticalmente una aplicación en **PremiumV2**, debe tener una aplicación de Azure App Service que se ejecute en un plan de tarifa inferior a **PremiumV2** y esta aplicación debe ejecutarse en una implementación de App Service que admita PremiumV2.
 
@@ -68,7 +68,7 @@ Si la operación finaliza correctamente, la página de información general de l
 
 ![](media/app-service-configure-premium-tier/finished.png)
 
-### <a name="if-you-get-an-error"></a>Si recibe un error
+### <a name="if-you-get-an-error"></a>Si obtiene un mensaje de error
 
 Algunos planes de App Service no se pueden escalar verticalmente al nivel PremiumV2 si la implementación de App Service subyacente no admite PremiumV2.  Vea [Escalado vertical desde una combinación de región y grupos de recursos no admitidos](#unsupported) para obtener más información.
 
@@ -89,7 +89,7 @@ Si la aplicación se ejecuta en una implementación de App Service en la que **P
 
 Puede automatizar la creación de la aplicación en el nivel **PremiumV2** con scripts mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 El siguiente comando crea un plan de App Service en _P1V2_. También puede ejecutarlo en Cloud Shell. Las opciones para `--sku` son P1V2, _P2V2_ y _P3V2_.
 

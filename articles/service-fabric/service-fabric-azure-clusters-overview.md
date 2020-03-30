@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
 ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614679"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Introducción a los clústeres de Service Fabric en Azure
@@ -73,7 +73,7 @@ Para más información, lea [Seguridad de cliente a nodo](service-fabric-cluster
 ### <a name="role-based-access-control"></a>Control de acceso basado en roles
 El control de acceso basado en rol (RBAC) le permite asignar controles de acceso específicos en los recursos de Azure.  Puede asignar diferentes reglas de acceso a las suscripciones, los grupos de recursos y los recursos.  A menos que se reemplacen a un nivel inferior, se heredan las reglas de RBAC a lo largo de la jerarquía de recursos.  Puede asignar reglas RBAC a cualquier usuario o grupo de usuarios de su entorno AAD para que los usuarios y grupos designados puedan modificar el clúster.  Para obtener más información, lea la [introducción a RBAC en Azure](/azure/role-based-access-control/overview).
 
-Service Fabric también admite el control de acceso para limitar este a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: Rol de administrador y rol de usuario.  
+Service Fabric también admite el control de acceso para limitar este a determinadas operaciones de clúster para los diferentes grupos de usuarios. Esto ayuda a que el clúster esté más protegido. Se admiten dos tipos de control de acceso para los clientes que se conectan a un clúster: rol de administrador y usuario.  
 
 Para obtener más información, consulte [Control de acceso basado en rol (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 

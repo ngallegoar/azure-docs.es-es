@@ -9,10 +9,10 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67673513"
 ---
 *Preparación de la memoria caché*  
@@ -62,24 +62,24 @@ Realice los siguientes pasos para preparar la memoria caché
 
 1. Cree dos especificaciones de acceso con los valores que se muestran a continuación:
 
-   | NOMBRE | Tamaño de la solicitud | % aleatorio | % lectura |
+   | Nombre | Tamaño de la solicitud | % aleatorio | % lectura |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 1. Ejecute la prueba Iometer para inicializar el disco de la caché con los parámetros siguientes. Use tres subprocesos de trabajo para el volumen de destino y una profundidad de la cola de 128. Establezca la duración del “tiempo de ejecución” de la prueba en 2 horas en la pestaña "Test Setup" (Configuración de prueba).
 
-   | Escenario | Volumen de destino | NOMBRE | Duration |
+   | Escenario | Volumen de destino | Nombre | Duration |
    | --- | --- | --- | --- |
    | Inicializar caché de disco |CacheReads |RandomWrites\_1MB |2 horas |
 1. Ejecute la prueba Iometer para el preparar el disco de la caché con los parámetros siguientes. Use tres subprocesos de trabajo para el volumen de destino y una profundidad de la cola de 128. Establezca la duración del “tiempo de ejecución” de la prueba en 2 horas en la pestaña "Test Setup" (Configuración de prueba).
 
-   | Escenario | Volumen de destino | NOMBRE | Duración |
+   | Escenario | Volumen de destino | Nombre | Duration |
    | --- | --- | --- | --- |
    | Preparación de la caché de disco |CacheReads |RandomReads\_1MB |2 horas |
 
 Una vez preparado el disco de memoria caché, continúe con los escenarios de prueba que se muestran a continuación. Para ejecutar la prueba Iometer, use al menos tres subprocesos de trabajo para **cada** volumen de destino. Para cada subproceso de trabajo, seleccione el volumen de destino, establezca la profundidad de la cola y seleccione una de las especificaciones de prueba guardadas, tal como se muestra en la tabla siguiente, para ejecutar el escenario de prueba correspondiente. La tabla también muestra los resultados esperados para IOPS y rendimiento al ejecutar estas pruebas. Para todos los escenarios, se usa un tamaño pequeño de E/S de 8 KB y una profundidad de la cola alta de 128.
 
-| Escenario de prueba | Volumen de destino | NOMBRE | Resultado |
+| Escenario de prueba | Volumen de destino | Nombre | Resultado |
 | --- | --- | --- | --- |
 | Máx. IOPS de lectura |CacheReads |RandomWrites\_8K |50.000 E/S por segundo |
 | Máx. IOPS de escritura |NoCacheWrites |RandomReads\_8K |64.000 IOPS |

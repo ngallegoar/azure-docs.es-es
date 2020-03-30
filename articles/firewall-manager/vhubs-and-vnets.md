@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: b946a360ced05500a4ef89cda7c623d8ae16658e
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444869"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Opciones de arquitectura de Azure Firewall Manager
@@ -20,8 +20,8 @@ Azure Firewall Manager puede proporcionar administración de seguridad para dos 
 
 - **Centro virtual protegido**
 
-   Un [centro de Azure Virtual WAN](../virtual-wan/virtual-wan-about.md#resources) es un recurso administrado por Microsoft que permite crear fácilmente arquitecturas de tipo hub-and-spoke (centro y radio). Cuando las directivas de seguridad y enrutamiento están asociadas a un centro de ese tipo, se conoce como *[centro virtual protegido](secured-virtual-hub.md)* . 
-- **Red virtual de centro**
+   Un [centro de conectividad de Azure Virtual WAN](../virtual-wan/virtual-wan-about.md#resources) es un recurso administrado por Microsoft que permite crear fácilmente arquitecturas en estrella tipo hub-and-spoke. Cuando las directivas de seguridad y enrutamiento están asociadas a un centro de ese tipo, se conoce como *[centro virtual protegido](secured-virtual-hub.md)* . 
+- **Red virtual de centro de conectividad**
 
    Se trata de una red virtual estándar de Azure que crea y administra uno mismo. Cuando las directivas de seguridad están asociadas con este tipo de centro, se conoce como *red virtual de centro*. En este momento, solo se admite la directiva de Azure Firewall. Puede emparejar las redes virtuales de radio que contienen los servidores y servicios de carga de trabajo. También puede administrar los firewalls de redes virtuales independientes que no están emparejadas con ningún radio.
 

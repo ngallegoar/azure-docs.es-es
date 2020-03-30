@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74231252"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementación sin tiempo de inactividad en Durable Functions
@@ -25,7 +25,7 @@ Para evitar que se produzcan estos errores, tiene dos opciones:
 
 En el gráfico siguiente se comparan las tres estrategias principales para lograr una implementación sin tiempo de inactividad en Durable Functions: 
 
-| Estrategia |  Cuándo se deben usar | Ventajas | Desventajas |
+| Estrategia |  Cuándo se usa | Ventajas | Desventajas |
 | -------- | ------------ | ---- | ---- |
 | [Control de versiones](#versioning) |  En aplicaciones que no experimentan [cambios importantes](durable-functions-versioning.md) frecuentes. | Fácil de implementar. |  Mayor tamaño de la aplicación de funciones en la memoria y mayor número de funciones.<br/>Duplicación de código. |
 | [Comprobación de estado con espacio](#status-check-with-slot) | Un sistema que no tenga orquestaciones de larga ejecución que duren más de 24 horas u orquestaciones que se superpongan con frecuencia. | Base de código sencilla.<br/>No requiere una administración adicional de la aplicación de funciones. | Requiere administración adicional de la cuenta de almacenamiento o de la central de tareas.<br/>Requiere períodos de tiempo en los que no se ejecuten orquestaciones. |

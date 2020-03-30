@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
 ms.openlocfilehash: 761c464730096eba36bc7c04227745cf362e5cc6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714467"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235336"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Configuración de la agrupación en clústeres de Redis para una instancia de Azure Cache for Redis de nivel Prémium
 Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. En este artículo se describe cómo configurar la agrupación en clústeres en una instancia de Azure Cache for Redis de nivel Prémium.
@@ -24,7 +24,7 @@ Azure Cache for Redis ofrece clúster de Redis como [implementado en Redis](http
 * La capacidad de dividir automáticamente el conjunto de datos entre varios nodos. 
 * La capacidad de continuar las operaciones cuando un subconjunto de los nodos está teniendo errores o no se puede comunicar con el resto del clúster. 
 * Mayor rendimiento: el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones. 
-* Más tamaño de memoria: aumenta de manera lineal a medida que aumenta el número de particiones.  
+* Mayor tamaño de memoria: aumenta de manera lineal a medida que aumenta el número de particiones.  
 
 La agrupación en clústeres no aumenta el número de conexiones disponibles para una caché en clúster. Para más información sobre el tamaño, el rendimiento y el ancho de banda con memorias caché prémium, vea [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) (¿Qué oferta y tamaño de Azure Cache for Redis debo utilizar?).
 

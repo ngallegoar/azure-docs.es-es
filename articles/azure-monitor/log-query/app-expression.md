@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/25/2019
 ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670268"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Expresión app() de la consulta de Azure Monitor
@@ -26,7 +26,7 @@ La expresión `app` se usa en una consulta de Azure Monitor para recuperar datos
 
 ## <a name="arguments"></a>Argumentos
 
-- *Identificador*: Identifica la aplicación con uno de los formatos de la tabla siguiente.
+- *Identificador*: identifica la aplicación mediante uno de los formatos de la tabla siguiente.
 
 | Identificador | Descripción | Ejemplo
 |:---|:---|:---|

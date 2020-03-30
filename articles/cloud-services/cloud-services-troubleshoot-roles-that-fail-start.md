@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 869453d92f536a62aacc2be52598223158566ae0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71122729"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solución de problemas de roles de servicios en la nube que no se inician
@@ -69,13 +69,13 @@ Puede usar Escritorio remoto para acceder al rol y ver información más complet
 7. Escriba `IPconfig`.
 8. Anote el valor de dirección IPV4.
 9. Abra Internet Explorer.
-10. Escriba la dirección y el nombre de la aplicación web. Por ejemplo: `http://<IPV4 Address>/default.aspx`.
+10. Escriba la dirección y el nombre de la aplicación web. Por ejemplo, `http://<IPV4 Address>/default.aspx`.
 
 Si navega al sitio web, se devolverán mensajes de error más explícitos:
 
 * Error del servidor en la aplicación '/'
-* Description: Se produjo una excepción no controlada durante la ejecución de la solicitud web actual. Revise el seguimiento de la pila para obtener más información acerca del error y en donde se originó en el código.
-* Detalles de la excepción: System.IO.FIleNotFoundException: No se puede cargar el archivo o ensamblado "Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35" ni una de sus dependencias. El sistema no encuentra el archivo especificado.
+* Descripción: Se produjo una excepción no controlada durante la ejecución de la solicitud web actual. Revise el seguimiento de la pila para obtener más información acerca del error y en donde se originó en el código.
+* Detalles de la excepción: System.IO.FIleNotFoundException: No se puede cargar el archivo o ensamblado ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ ni una de sus dependencias. El sistema no encuentra el archivo especificado.
 
 Por ejemplo:
 

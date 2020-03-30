@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
 ms.openlocfilehash: 317b6e8aa799b7982e9897c6a504d6092491c7ec
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74196361"
 ---
 # <a name="scale-migration-of-vms"></a>Migración de VM a escala 
@@ -25,7 +25,7 @@ Los scripts de Site Recovery están disponibles para su descarga en el repositor
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 Antes de comenzar, siga estos pasos:
 - Asegúrese de que se ha creado el almacén de Site Recovery en su suscripción de Azure
 - Asegúrese de que el servidor de configuración y el servidor de procesos están instalados en el entorno de origen y el almacén es capaz de detectar el entorno

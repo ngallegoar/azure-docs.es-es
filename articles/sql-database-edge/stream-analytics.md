@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: 21a8bb6953fd879b17816361f536596571678697
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74384159"
 ---
 # <a name="using-sql-database-dac-packages-and-stream-analytics-jobs-with-sql-database-edge"></a>Uso de paquetes DAC de SQL Database y trabajos de Stream Analytics con SQL Database Edge | Microsoft Docs
@@ -34,7 +34,7 @@ Azure SQL Database Edge expone dos parámetros opcionales mediante la opción `m
 }
 ```
 
-|Campo | DESCRIPCIÓN |
+|Campo | Descripción |
 |------|-------------|
 | SqlPackage | El URI de Azure Blob Storage del archivo *.zip que contiene el paquete DAC de SQL Database.
 | ASAJobInfo | El URI de Azure Blob Storage para el trabajo de Edge de ASA. Para más información, consulte [Publicación de un trabajo de Edge de ASA para SQL Database Edge](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
@@ -97,7 +97,7 @@ Azure SQL Database Edge tiene una implementación nativa del tiempo de ejecució
 
     **Salida**. Seleccione SQL Database como salida. Seleccione **Indicar manualmente la configuración de Base de datos SQL**. Proporcione los detalles de configuración de la base de datos y la tabla.
 
-    |Campo      | DESCRIPCIÓN |
+    |Campo      | Descripción |
     |---------------|-------------|
     |Alias de salida | Nombre del alias de salida.|
     |Base de datos | El nombre de la base de datos SQL. Debe ser un nombre de base de datos válido que exista en la instancia de SQL Database Edge.|

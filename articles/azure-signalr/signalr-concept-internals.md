@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 62afa5ee6993aa1bb3c7b5926e5320ab1fa510a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74157601"
 ---
 # <a name="azure-signalr-service-internals"></a>Aspectos internos de Azure SignalR Service
@@ -25,7 +25,7 @@ En el diagrama siguiente se describe la arquitectura típica cuando se usa Signa
 
 También se habla de las diferencias de la aplicación de SignalR para ASP.NET Core autohospedada.
 
-![Arquitectura](./media/signalr-concept-internals/arch.png)
+![Architecture](./media/signalr-concept-internals/arch.png)
 
 ## <a name="server-connections"></a>Conexiones con el servidor
 

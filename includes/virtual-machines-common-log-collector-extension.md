@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74085278"
 ---
 El diagnóstico de problemas con un servicio en la nube de Microsoft Azure requiere la recopilación de archivos de registro del servicio en máquinas virtuales cuando se producen los problemas. Puede usar la extensión AzureLogCollector a petición para realizar una recopilación única de registros provenientes de una o más máquinas virtuales del servicio en la nube (desde roles web y roles de trabajo) y transferir los archivos recopilados a una cuenta de almacenamiento de Azure, sin iniciar sesión de manera remota en ninguna de las máquinas virtuales.
@@ -31,12 +31,12 @@ Existen dos modos de recopilación que dependen de los tipos de archivos que se 
 
 En ambos modos de recopilación, pueden especificarse carpetas de recopilación de datos adicionales mediante una colección de la estructura siguiente:
 
-* **Nombre**: el nombre de la colección, usado como el nombre de la subcarpeta dentro del archivo ZIP con los archivos recopilados.
-* **Ubicación**: la ruta de acceso a la carpeta en la máquina virtual donde se encuentran los archivos que se van a recopilar.
+* **Name**: el nombre de la colección, que se usará como el nombre de la subcarpeta dentro del archivo zip con los archivos recopilados.
+* **Location**: la ruta de acceso a la carpeta en la máquina virtual donde se encuentran los archivos que se van a recopilar.
 * **SearchPattern**: el patrón de los nombres de archivos que se van a recopilar. El valor predeterminado es "\*"
 * **Recursive**: si los archivos que se van a recopilar están ubicados de forma recursiva en la ubicación especificada.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
@@ -181,10 +181,10 @@ param (
 * **Roles**: una lista de roles, como "WebRole1" o "WorkerRole1".
 * **Instances**: una lista de los nombres de instancias de rol separados por coma. Use la cadena comodín ("*") para todas las instancias de rol.
 * **Slot**: nombre de la ranura. “Production” o “Staging”.
-* **Modo**: Modo de recopilación. “Full” o “GA”.
+* **Mode**: modo de recopilación. “Full” o “GA”.
 * **StorageAccountName**: nombre de la cuenta de almacenamiento de Azure para almacenar los datos recopilados.
-* **StorageAccountKey**: nombre de la cuenta de Azure Storage.
-* **AdditionalDataLocationList**: una lista de la estructura siguiente:
+* **StorageAccountKey**: nombre de la clave de la cuenta de almacenamiento de Azure.
+* **AdditionalDataLocationList**: lista de la siguiente estructura:
 
   ```powershell
   {
@@ -260,11 +260,11 @@ param (
 ```
 
 * **ServiceName**: el nombre del servicio en la nube.
-* **VMName**: el nombre de la máquina virtual.
-* **Modo**: Modo de recopilación. “Full” o “GA”.
+* **VMName**: nombre de la máquina virtual.
+* **Mode**: modo de recopilación. “Full” o “GA”.
 * **StorageAccountName**: nombre de la cuenta de almacenamiento de Azure para almacenar los datos recopilados.
-* **StorageAccountKey**: nombre de la cuenta de Azure Storage.
-* **AdditionalDataLocationList**: una lista de la estructura siguiente:
+* **StorageAccountKey**: nombre de la clave de la cuenta de almacenamiento de Azure.
+* **AdditionalDataLocationList**: lista de la siguiente estructura:
 
   ```
   {

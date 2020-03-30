@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: aab93204c850223756f28a56ea550f912e28e0d2
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69996767"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Referencia del motor de reglas de Azure CDN de Verizon Premium
@@ -51,24 +51,24 @@ Se usa un símbolo de porcentaje para indicar la codificación de direcciones UR
 
 El texto que se interpreta como un valor comodín asigna un significado adicional a los caracteres especiales. En la tabla siguiente se describe cómo se interpreta el siguiente conjunto de caracteres:
 
-Character | DESCRIPCIÓN
+Carácter | Descripción
 ----------|------------
 \ | Se usa una barra diagonal inversa para el escape de cualquier carácter especificado en esta tabla. Debe especificarse una barra diagonal inversa directamente antes del carácter especial al que debe aplicarse el escape.<br/>Por ejemplo, la sintaxis siguiente aplica el escape a un asterisco: `\*`
 % | Se usa un símbolo de porcentaje para indicar la codificación de direcciones URL (p. ej., `%20`).
 \* | Un asterisco es un carácter comodín que representa uno o más caracteres.
-Espacio | Un carácter de espacio indica que una condición de coincidencia debe cumplirse mediante uno de los patrones o valores especificados.
+Space | Un carácter de espacio indica que una condición de coincidencia debe cumplirse mediante uno de los patrones o valores especificados.
 'valor' | Las comillas simples no tienen un significado especial. Sin embargo, se utiliza un conjunto de comillas simples para indicar que un valor debe tratarse como un valor literal. Puede usarse de las siguientes maneras:<br><br/>- Permite que se cumpla una condición de coincidencia siempre que el valor especificado coincida con cualquier parte del valor de comparación.  Por ejemplo, `'ma'` coincidiría con cualquiera de las siguientes cadenas: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template.**ma**p<br /><br />- Permite a un carácter especial que se especifique como un carácter literal. Por ejemplo, puede especificar un carácter de espacio literal mediante la inclusión de un carácter de espacio entre un conjunto de comillas simples (es decir, `' '` o `'sample value'`).<br/>- Permite que se especifique un valor en blanco. Especifique un valor en blanco mediante la especificación de un conjunto de comillas simples (es decir, '').<br /><br/>**Importante:**<br/>-Si el valor especificado no contiene un carácter comodín, entonces se considera automáticamente un valor literal, lo que significa que no es necesario especificar un juego de comillas simples.<br/>- Si una barra diagonal inversa no aplica el escape a otro carácter de esta tabla, se omite cuando se especifique dentro de un conjunto de comillas simples.<br/>- Otra manera de especificar un carácter especial como un carácter literal es aplicarle el escape con una barra diagonal inversa (es decir, `\`).
 
 ### <a name="regular-expressions"></a>Expresiones regulares
 
 Las expresiones regulares definen un patrón que se busca dentro de un valor de texto. La notación de expresiones regulares define significados concretos en una variedad de símbolos. La tabla siguiente indica cómo se tratan los caracteres especiales mediante las condiciones de coincidencia y funciones que admiten expresiones regulares.
 
-Carácter especial | DESCRIPCIÓN
+Carácter especial | Descripción
 ------------------|------------
 \ | Una barra diagonal inversa aplica el escape al carácter que le sigue, lo que hace que ese carácter se trate como un valor literal en lugar de tomar el significado de su expresión regular. Por ejemplo, la sintaxis siguiente aplica el escape a un asterisco: `\*`
-% | El significado de un símbolo de porcentaje depende de su uso.<br/><br/> `%{HTTPVariable}`: esta sintaxis identifica una variable HTTP.<br/>`%{HTTPVariable%Pattern}`: esta sintaxis utiliza un símbolo de porcentaje para identificar una variable HTTP y se usa como delimitador.<br />`\%`: El escape de un símbolo de porcentaje permite que se use como valor literal o para indicar la codificación de la dirección URL (p. ej., `\%20`).
+% | El significado de un símbolo de porcentaje depende de su uso.<br/><br/> `%{HTTPVariable}`: esta sintaxis identifica una variable HTTP.<br/>`%{HTTPVariable%Pattern}`: esta sintaxis utiliza un símbolo de porcentaje para identificar una variable HTTP y se usa como delimitador.<br />`\%`: el escape de un símbolo de porcentaje permite que se use como valor literal o para indicar la codificación de la dirección URL (p. ej., `\%20`).
 \* | Un asterisco permite que el carácter anterior coincida con cero o más veces.
-Espacio | Normalmente, un carácter de espacio se trata como un carácter literal.
+Space | Normalmente, un carácter de espacio se trata como un carácter literal.
 'valor' | Las comillas simples se tratan como caracteres literales. Un conjunto de comillas simples no tiene un significado especial.
 
 Coincidencias de coincidencia y características que admiten expresiones regulares, excepto los patrones definidos por las expresiones compatibles con Perl.

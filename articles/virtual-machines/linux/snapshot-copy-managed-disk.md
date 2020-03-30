@@ -15,10 +15,10 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 15696469ca3861586617e9f418f8a55a7ea90467
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034796"
 ---
 # <a name="create-a-snapshot"></a>Crear una instantánea 
@@ -63,14 +63,14 @@ az snapshot list \
 
 ## <a name="use-azure-portal"></a>Usar Azure Portal 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la parte superior izquierda, haga clic en **Crear un recurso** y busque **instantánea**. Seleccione **Instantánea** desde los resultados de búsqueda.
 3. En la hoja **Instantánea**, haga clic en **Crear**.
 4. Escriba un **nombre** para la instantánea.
 5. Seleccione un valor de grupo de recursos existente o escriba el nombre para crear uno. 
 7. Como **disco de origen**, seleccione el disco administrado para la instantánea.
 8. Seleccione el **tipo de cuenta** que se usará para almacenar la instantánea. Use **HDD estándar**, a menos que necesite almacenarla en un disco SSD de alto rendimiento.
-9. Haga clic en **Create**(Crear).
+9. Haga clic en **Crear**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

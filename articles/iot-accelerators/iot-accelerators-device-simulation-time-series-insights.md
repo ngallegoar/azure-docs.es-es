@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889339"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use Time Series Insights para visualizar los datos de telemetría que se envíen desde el acelerador de soluciones de simulación de dispositivos
 
 El acelerador de soluciones de simulación de dispositivos le permite generar datos de telemetría desde dispositivos simulados para probar sus soluciones de IoT. En esta guía se muestra cómo visualizar y analizar los datos de telemetría simulados mediante un entorno de Time Series Insights.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Recuerde que para completar los pasos de esta guía paso a paso, necesita una suscripción activa a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -55,7 +55,7 @@ Los pasos siguientes utilizan la CLI de Azure en Azure Cloud Shell para crear el
 
 [Azure Time Series Insights](../../articles/time-series-insights/time-series-insights-overview.md) es un servicio de análisis, almacenamiento y visualización totalmente administrado que permite administrar los datos de serie temporal a escala de IoT en la nube. Para crear un entorno de Time Series Insights:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Seleccione **Crear un recurso** > **Internet de las cosas** > **Time Series Insights**.
 
@@ -63,7 +63,7 @@ Los pasos siguientes utilizan la CLI de Azure en Azure Cloud Shell para crear el
 
 1. Para crear un entorno de Time Series Insights en el mismo grupo de recursos que su acelerador de soluciones, use los valores de la tabla siguiente:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre del entorno | En la captura de pantalla siguiente se usa el nombre **Contoso-TSI**. Elija un nombre exclusivo de su elección al completar este paso. |
     | Subscription | Seleccione la suscripción de Azure en el menú desplegable. |
@@ -77,7 +77,7 @@ Los pasos siguientes utilizan la CLI de Azure en Azure Cloud Shell para crear el
     > [!NOTE]
     > Agregar el entorno de Time Series Insights al mismo grupo de recursos que el acelerador de soluciones significa que se eliminará cuando elimine el acelerador de soluciones.
 
-1. Haga clic en **Create**(Crear). El entorno puede tardar unos minutos en crearse.
+1. Haga clic en **Crear**. El entorno puede tardar unos minutos en crearse.
 
 ## <a name="create-event-source"></a>Creación de un origen de eventos
 
@@ -95,7 +95,7 @@ Cree un origen del evento para conectarlo a IoT Hub. Asegúrese de utilizar el g
 
 1. Para configurar el centro de IoT como un nuevo origen del evento, use los valores de la tabla siguiente:
 
-    | Configuración | Valor |
+    | Configuración | Value |
     | ------- | ----- |
     | Nombre de origen de eventos | En la captura de pantalla siguiente se usa el nombre **contoso-iot-hub**. Use un nombre exclusivo de su elección al completar este paso. |
     | Source | **IoT Hub** |
@@ -110,7 +110,7 @@ Cree un origen del evento para conectarlo a IoT Hub. Asegúrese de utilizar el g
 
     ![Creación de un origen del evento](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
 
-1. Haga clic en **Create**(Crear).
+1. Haga clic en **Crear**.
 
 > [!NOTE]
 > También puede [conceder acceso a usuarios adicionales](../../articles/time-series-insights/time-series-insights-data-access.md#grant-data-access) al explorador de Time Series Insights.

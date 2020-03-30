@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
 ms.openlocfilehash: 4ea18ee23d845b2d16209b23de14dc3cd70aaa59
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74133153"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionamiento y catalogación de nuevos inquilinos en una aplicación SaaS con una base de datos de Azure SQL multiinquilino con particiones
@@ -61,7 +61,7 @@ Usar un catálogo permite cambiar el nombre o la ubicación de una base de datos
 
 El catálogo también puede indicar si un inquilino está sin conexión debido a operaciones de mantenimiento u otras acciones. Y el catálogo se puede ampliar para almacenar metadatos de inquilino o base de datos adicionales, como los siguientes elementos:
 - El nivel de servicio o la edición de una base de datos.
-- La versión del esquema de base de datos.
+- La versión del esquema de la base de datos.
 - El nombre del inquilino y su SLA (Acuerdo de Nivel de Servicio).
 - Información para permitir la administración de aplicaciones, el soporte técnico al cliente o los procesos de DevOps.
 
@@ -122,7 +122,7 @@ En este tutorial, aprenderá a:
 > * Aprovisionar un lote de inquilinos en bases de datos multiinquilino y en bases de datos de un único inquilino
 > * Registrar una asignación de inquilino y base de datos en un catálogo
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -142,12 +142,12 @@ En esta sección, verá una lista de las acciones principales de aprovisionamien
 
 A continuación se muestran los elementos clave del flujo de trabajo de aprovisionamiento que recorre:
 
-- **Cálculo de la nueva clave de inquilino**: Para crear la clave de inquilino a partir del nombre del inquilino se utiliza una función hash.
-- **Comprobación de si ya existe la clave de inquilino**: El catálogo se comprueba para garantizar que todavía no se registró la clave.
-- **Inicialización del inquilino en la base de datos de inquilino predeterminada**: La base de datos de inquilino se actualiza para agregar la información del inquilino nuevo.
-- **Registro del inquilino en el catálogo**: la asignación entre la clave de inquilino nueva y la base de datos tenants1 existente se agrega al catálogo.
-- **Incorporación del nombre del inquilino a una tabla de extensión de catálogo**: El nombre de la ubicación se agrega a la tabla Inquilinos del catálogo.  Esta adición muestra cómo la base de datos de catálogo puede ampliarse para admitir datos adicionales específicos de la aplicación.
-- **Apertura de la página Eventos para el inquilino nuevo**: La página de eventos de *Bushwillow Blues* se abre en el explorador.
+- **Calcular la nueva clave de inquilino**: se usa una función hash para crear la clave del inquilino a partir del nombre del inquilino.
+- **Comprobar si ya existe la clave de inquilino**: se comprueba el catálogo para asegurarse de que la clave no se haya registrado aún.
+- **Inicializar el inquilino de la base de datos de inquilinos predeterminada**: la base de datos de inquilinos se actualiza para agregar la información del nuevo inquilino.
+- **Registrar el inquilino en el catálogo**: la asignación entre la clave de inquilino nueva y la base de datos tenants1 existente se agrega al catálogo.
+- **Agregar el nombre del inquilino a una tabla de extensión de catálogo**: el nombre de ubicación se agrega a la tabla de inquilinos del catálogo.  Esta adición muestra cómo la base de datos de catálogo puede ampliarse para admitir datos adicionales específicos de la aplicación.
+- **Abrir la página de eventos para el nuevo inquilino**: la página de eventos *Bushwillow Blues* se abre en el explorador.
 
    ![events](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
@@ -160,7 +160,7 @@ Para comprender cómo la aplicación Wingtip implementa el aprovisionamiento de 
    - **$VenueType** = **blues**, uno de los tipos de ubicación predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minúsculas, sin espacios).
    - **$DemoScenario** = **1**, para aprovisionar un inquilino en una base de datos compartida con otros inquilinos.
 
-2. Agregue un punto de interrupción colocando el cursor en cualquier lugar de la línea 38, que dice: *Nuevo inquilino '* y, a continuación, presione **F9**.
+2. Agregue un punto de interrupción colocando el cursor en cualquier lugar de la línea 38, que dice: *New-Tenant `* y presione **F9**.
 
    ![punto de interrupción](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -180,14 +180,14 @@ Para obtener más información sobre cómo depurar scripts de PowerShell, consul
 
 A continuación se muestran los elementos clave del flujo de trabajo que recorre mientras se hace seguimiento del script:
 
-- **Cálculo de la nueva clave de inquilino**: Para crear la clave de inquilino a partir del nombre del inquilino se utiliza una función hash.
-- **Comprobación de si ya existe la clave de inquilino**: El catálogo se comprueba para garantizar que todavía no se registró la clave.
-- **Creación de una base de datos de inquilino nueva**: La base de datos se crea al copiar la base de datos *basetenantdb* con una plantilla de Resource Manager.  El nombre de la base de datos nueva se basa en el nombre del inquilino.
-- **Incorporación de la base de datos al catálogo**: La base de datos de inquilino nueva se registra como una partición en el catálogo.
-- **Inicialización del inquilino en la base de datos de inquilino predeterminada**: La base de datos de inquilino se actualiza para agregar la información del inquilino nuevo.
-- **Registro del inquilino en el catálogo**: la asignación entre la clave de inquilino nueva y la base de datos *sequoiasoccer* existente se agrega al catálogo.
-- **El nombre del inquilino se agrega al catálogo**: El nombre de la ubicación se agrega a la tabla de extensión Inquilinos del catálogo.
-- **Apertura de la página Eventos para el inquilino nuevo**: La página de eventos de *Sequoia Soccer* se abre en el explorador.
+- **Calcular la nueva clave de inquilino**: se usa una función hash para crear la clave del inquilino a partir del nombre del inquilino.
+- **Comprobar si ya existe la clave de inquilino**: se comprueba el catálogo para asegurarse de que la clave no se haya registrado aún.
+- **Crear una nueva base de datos de inquilinos**: la base de datos se crea mediante la copia de la base de datos *basetenantdb* con una plantilla de Resource Manager.  El nombre de la base de datos nueva se basa en el nombre del inquilino.
+- **Agregar la base de datos al catálogo**: la nueva base de datos de inquilinos se registra como una partición en el catálogo.
+- **Inicializar el inquilino de la base de datos de inquilinos predeterminada**: la base de datos de inquilinos se actualiza para agregar la información del nuevo inquilino.
+- **Registrar el inquilino en el catálogo**: la asignación entre la clave de inquilino nueva y la base de datos *sequoiasoccer* se agrega al catálogo.
+- **El nombre del inquilino se agrega al catálogo**: el nombre de la ubicación se agrega a la tabla de extensión de los inquilinos del catálogo.
+- **Abrir la página de eventos del nuevo inquilino**: se abre la página de eventos *Sequoia Soccer* en el explorador.
 
    ![events](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 

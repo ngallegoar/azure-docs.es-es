@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
 ms.openlocfilehash: e728d0ef8f52927687d56bd1d4c64f03c53ef401
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73947676"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Introducción a la identidad de módulo y a los módulos gemelos de IoT Hub (.NET)
@@ -31,7 +31,7 @@ Al final de este tutorial tendrá dos aplicaciones de consola de .NET:
 > [!NOTE]
 > Para más información acerca de los diversos SDK que puede usar para crear ambas aplicaciones para que se ejecuten en dispositivos y en el back-end de la solución, consulte el artículo de los [SDK de Azure IoT Hub](iot-hub-devguide-sdks.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Visual Studio.
 
@@ -53,7 +53,7 @@ Al final de este tutorial tendrá dos aplicaciones de consola de .NET:
 
 En esta sección se crea una aplicación de consola .NET en el dispositivo simulado que actualiza las propiedades notificadas del módulo gemelo.
 
-Antes de comenzar, obtenga la cadena de conexión del módulo. Inicie sesión en el [Azure Portal](https://portal.azure.com/). Vaya al centro y seleccione **Dispositivos IoT**. Busque **MyFirstDevice**. Seleccione **myFirstDevice** para abrirlo y, a continuación, seleccione **myFirstModule** para abrirlo. En **Detalles de identidad de módulo**, copie la **Cadena de conexión (clave principal)** cuando sea necesario en el procedimiento siguiente.
+Antes de comenzar, obtenga la cadena de conexión del módulo. Inicie sesión en [Azure Portal](https://portal.azure.com/). Vaya al centro y seleccione **Dispositivos IoT**. Busque **MyFirstDevice**. Seleccione **myFirstDevice** para abrirlo y, a continuación, seleccione **myFirstModule** para abrirlo. En **Detalles de identidad de módulo**, copie la **Cadena de conexión (clave principal)** cuando sea necesario en el procedimiento siguiente.
 
    ![Detalles del módulo en Azure Portal](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 

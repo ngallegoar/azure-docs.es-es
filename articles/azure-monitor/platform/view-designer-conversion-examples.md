@@ -7,11 +7,11 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: b50d8cfa4731c487997e2bf431a9c71eff08f5d1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658734"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234144"
 ---
 # <a name="view-designer-conversion-examples"></a>Ejemplos de conversión del diseñador de vistas
 

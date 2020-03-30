@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
 ms.openlocfilehash: c192ba73da0cfaf1832b6a1e572bd71b250a976b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168364"
 ---
 # <a name="add-an-email-action"></a>Adición de una acción de correo electrónico
@@ -81,7 +81,7 @@ Siga estos pasos para agregar una acción de correo electrónico cuando cree una
 
 Ahora está habilitada la regla con una acción de correo electrónico. Cada vez que se desencadena la acción, se envía un nuevo correo electrónico a los destinatarios.
 
-## Inicio de sesión en Outlook <a name="outlook"></a>
+## <a name="sign-in-to-outlook"></a>Inicio de sesión en Outlook <a name="outlook"></a>
 
 La primera vez que habilite una acción de correo electrónico en el acelerador de soluciones, debe iniciar sesión con Outlook. Esta acción configura la cuenta de correo electrónico que envía las notificaciones por correo.
 
@@ -138,7 +138,7 @@ Los pasos siguientes le ayudarán a iniciar sesión y a configurar las acciones 
 
    ![Inicio de sesión de Outlook correcto](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
-## Personalización del HTML del correo electrónico <a name="htmledit"></a>
+## <a name="customize-the-email-html"></a>Personalización del HTML del correo electrónico <a name="htmledit"></a>
 
 El acelerador de soluciones de supervisión remota incluye de fábrica una plantilla HTML básica para los correos electrónicos de las acciones. La plantilla de correo electrónico utiliza los valores de la configuración de las acciones de correo electrónico. Este es un ejemplo de correo electrónico:
 

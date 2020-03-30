@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: 3bb0b9fb8b268c3e036ffb365eb8d5b80a241269
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77372059"
 ---
 La biblioteca cliente de predicción de Language Understanding (LUIS) para .NET puede usarse con los siguientes fines:
@@ -23,7 +23,7 @@ La biblioteca cliente de predicción de Language Understanding (LUIS) para .NET 
 
 [Documentación de referencia](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Runtime) | [Paquete (NuGet) del entorno de ejecución de predicción](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) | [Ejemplos de C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/LanguageUnderstanding/predict-with-sdk-3x)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Cuenta de portal de Language Understanding (LUIS): [cree una de forma gratuita](https://www.luis.ai).
 * La versión actual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
