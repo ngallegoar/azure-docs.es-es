@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 96aa7517a3418ab30b0b6a1736eea950ecf4a731
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 913a2b26f67773d9fafbc0a8430d121fbabb97cd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533800"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053455"
 ---
 # <a name="add-contributors-to-your-app"></a>Adición de colaboradores a su aplicación
 
@@ -41,7 +41,7 @@ Ha migrado si su experiencia de creación de LUIS está asociada a un recurso de
 
     Cuando se encuentre el correo electrónico del usuario, seleccione la cuenta y **Guardar**. 
 
-    Si tiene problemas con esta asignación de roles, revise [Asignaciones de roles de Azure](../../role-based-access-control/role-assignments-portal.md) y [Solución de problemas del control de acceso de Azure](../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments).
+    Si tiene problemas con esta asignación de roles, revise [Asignaciones de roles de Azure](../../role-based-access-control/role-assignments-portal.md) y [Solución de problemas del control de acceso de Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
 ## <a name="add-collaborator-to-luis-app"></a>Adición de un colaborador a la aplicación de LUIS
 

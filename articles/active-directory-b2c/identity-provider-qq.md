@@ -11,10 +11,10 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: b0f15124c64e5cca54112987d486ddadaca79452
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187994"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de QQ mediante Azure Active Directory B2C
@@ -49,7 +49,7 @@ Para usar una cuenta de QQ como proveedor de identidades en Azure Active Direc
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-1. En Azure Portal, busque y seleccione **Azure AD B2C**.
+1. En Azure Portal, busque y seleccione **Azure AD B2C**.
 1. Seleccione **Proveedores de identidades** y luego **QQ (versión preliminar)** .
 1. Escriba un **nombre**. Por ejemplo, *QQ*.
 1. En **Id. de cliente**, escriba el identificador de aplicación de QQ que ha creado anteriormente.

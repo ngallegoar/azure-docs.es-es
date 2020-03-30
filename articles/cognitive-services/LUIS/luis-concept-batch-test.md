@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487732"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218826"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Pruebas por lotes con 1 000 expresiones en el portal de LUIS
 
@@ -110,7 +110,7 @@ LUIS realiza un seguimiento del estado de la última prueba de cada conjunto de 
 
 <a name="sections-of-the-results-chart"></a>
 
-## <a name="batch-test-results"></a>Resultados de pruebas por lotes
+## <a name="batch-test-results"></a>Resultados de la prueba por lotes
 
 El resultado de las pruebas por lotes es un gráfico de dispersión, que se conoce como una matriz de error. Este gráfico es una comparación de cuatro vías de las expresiones del archivo por lotes y de las intenciones y las entidades de predicción del modelo actual. 
 

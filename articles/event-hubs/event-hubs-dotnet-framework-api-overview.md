@@ -9,16 +9,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: f67351fa38543504d63dbf8d86c9537feea24a4f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b14759ed39037bfa172366a2ed8f8ca089786ec6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312624"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79137618"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Introducción a las API de .NET Framework de Event Hubs
 
-Este artículo resume algunas de las principales [API de cliente de .NET Framework](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) de Azure Event Hubs. Existen dos categorías: API de administración y de tiempo de ejecución. Las API de tiempo de ejecución están compuestas por todas las operaciones necesarias para enviar y recibir un mensaje. Las operaciones de administración le permiten administrar un estado de entidad de Event Hubs mediante la creación, actualización y eliminación de entidades.
+Este artículo resume algunas de las principales [API de cliente de .NET Framework](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) de Azure Event Hubs. Existen dos categorías: API de administración y de tiempo de ejecución. Las API de tiempo de ejecución están compuestas por todas las operaciones necesarias para enviar y recibir un mensaje. Las operaciones de administración le permiten administrar un estado de entidad de Event Hubs mediante la creación, actualización y eliminación de entidades.
 
 Los [escenarios de supervisión](event-hubs-metrics-azure-monitor.md) abarcan la administración y el entorno de tiempo de ejecución. Para obtener documentación de referencia detallada sobre las API de .NET, consulte las referencias [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.NET Standard](/dotnet/api/microsoft.azure.eventhubs) y [API de EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
 

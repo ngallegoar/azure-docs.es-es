@@ -1,7 +1,7 @@
 ---
-title: 'Implementación de un modelo de Custom Speech: servicio de voz'
+title: 'Implementación de un modelo de Habla personalizada: Servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: En este documento, aprenderá a crear e implementar un punto de conexión mediante el portal de Custom Speech.
+description: En este documento, aprenderá a crear e implementar un punto de conexión mediante el portal de Habla personalizada.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: e41653e4644b09cc357510223e5ee86c3806ae2c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806120"
 ---
 # <a name="deploy-a-custom-model"></a>Implementación de un modelo personalizado
 
-Después de haber cargado e inspeccionar los datos y de haber evaluado y entrenado un modelo personalizado, puede implementar un punto de conexión personalizado para usar con sus productos, herramientas y aplicaciones. En este documento, aprenderá a crear e implementar un punto de conexión mediante el [portal de Custom Speech](https://speech.microsoft.com/customspeech).
+Después de haber cargado e inspeccionar los datos y de haber evaluado y entrenado un modelo personalizado, puede implementar un punto de conexión personalizado para usar con sus productos, herramientas y aplicaciones. En este documento, aprenderá a crear e implementar un punto de conexión mediante el [portal de Habla personalizada](https://speech.microsoft.com/customspeech).
 
 ## <a name="create-a-custom-endpoint"></a>Creación de un punto de conexión personalizado
 
-Para crear un punto de conexión personalizado, inicie sesión en el [portal de Custom Speech](https://speech.microsoft.com/customspeech) y seleccione **Implementaciones** en el menú Custom Speech de la parte superior de la página. Si se trata de la primera ejecución, observará que no aparece ningún punto de conexión en la tabla. Después de crear un punto de conexión, usará esta página para realizar el seguimiento de cada punto de conexión implementado.
+Para crear un punto de conexión personalizado, inicie sesión en el [portal de Habla personalizada](https://speech.microsoft.com/customspeech) y seleccione **Implementaciones** en el menú Habla personalizada de la parte superior de la página. Si se trata de la primera ejecución, observará que no aparece ningún punto de conexión en la tabla. Después de crear un punto de conexión, usará esta página para realizar el seguimiento de cada punto de conexión implementado.
 
 A continuación, seleccione **Agregar punto de conexión** y escriba un **nombre** y una **descripción** para el punto de conexión personalizado. Luego, seleccione el modelo personalizado que le gustaría asociar a este punto de conexión. Desde esta página, también puede habilitar el registro. El registro le permite supervisar el tráfico del punto de conexión. Si está deshabilitado, no se almacenará el tráfico.
 

@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75446781"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migración del área de trabajo y los proyectos de Microsoft Translator Hub a Custom Translator
@@ -80,9 +80,9 @@ Para migrar un área de trabajo:
 
 4. En la siguiente página, seleccione cualquiera de estas dos opciones:
 
-    a. Solo los entrenamientos implementados: si selecciona esta opción se migrarán solo los sistemas implementados y los documentos relacionados.
+    a. Solo los aprendizajes implementados: si selecciona esta opción se migrarán solo los sistemas implementados y los documentos relacionados.
 
-    b. Todos los entrenamientos correctos: si selecciona esta opción se migrarán todos los entrenamientos y los documentos relacionados.
+    b. Todos los aprendizajes correctos: si selecciona esta opción se migrarán todos los aprendizajes correctos y los documentos relacionados.
 
     c. Escriba el identificador del área de trabajo de destino en Custom Translator.
 
@@ -104,13 +104,13 @@ Para ver el historial de migraciones realice estos pasos:
 
 La página Historial de migraciones muestra la siguiente información como resumen para cualquier migración que solicite.
 
-1. Migrado por: nombre y correo electrónico del usuario que envió esta solicitud de migración
+1. Migrada por: nombre y correo electrónico del usuario que envió esta solicitud de migración
 
-2. Migrado el: marca de fecha y hora de la migración
+2. Fecha de migración: marca de fecha y hora de la migración
 
 3. Proyectos: número de proyectos para los que se solicitó la migración en comparación con el número de proyectos que se migraron correctamente.
 
-4. Entrenamientos: número de entrenamientos para los que se solicitó la migración en comparación con el número de entrenamientos que se migraron correctamente.
+4. Aprendizajes: número de aprendizajes para los que se solicitó la migración en comparación con el número de aprendizajes que se migraron correctamente.
 
 5. Documentos: número de documentos para los que se solicitó la migración en comparación con el número de documentos que se migraron correctamente.
 

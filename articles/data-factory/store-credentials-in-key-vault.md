@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jingwang
 ms.openlocfilehash: 1418205843fefc76db4e73832736b308d0cc79a3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76122617"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Almacenamiento de credenciales en Azure Key Vault
@@ -42,7 +42,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Ke
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **AzureKeyVault**. | Sí |
+| type | La propiedad type debe establecerse en **AzureKeyVault**. | Sí |
 | baseUrl | Especifique la dirección URL de Azure Key Vault. | Sí |
 
 **Uso de la IU de creación:**
@@ -75,7 +75,7 @@ Al configurar un campo en un servicio vinculado que hace referencia a un secreto
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del campo debe establecerse en: **AzureKeyVaultSecret**. | Sí |
+| type | La propiedad type del campo debe establecerse en **AzureKeyVaultSecret**. | Sí |
 | secretName | Nombre del secreto en Azure Key Vault. | Sí |
 | secretVersion | Versión del secreto en Azure Key Vault.<br/>Si no se especifica, siempre se usa la versión más reciente del secreto.<br/>Si se especifica, se usa la versión dada.| No |
 | store | Hace referencia a un servicio vinculado de Azure Key Vault que se usa para almacenar las credenciales. | Sí |

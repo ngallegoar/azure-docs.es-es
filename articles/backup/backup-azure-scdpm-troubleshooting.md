@@ -4,10 +4,10 @@ description: En este artículo, descubra soluciones para problemas que puede enc
 ms.topic: troubleshooting
 ms.date: 01/30/2019
 ms.openlocfilehash: bcb30fa7eb3e05099761fc751b09a9fb16134e34
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75664747"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Solución de problemas de System Center Data Protection Manager
@@ -16,7 +16,7 @@ En este artículo se describen soluciones para problemas que puede encontrar al 
 
 Para obtener las notas de versión más recientes de System Center Data Protection Manager, consulte la [documentación de System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Puede aprender más sobre la compatibilidad para Data Protection Manager en [esta matriz](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
-## <a name="error-replica-is-inconsistent"></a>Error: La réplica es incoherente
+## <a name="error-replica-is-inconsistent"></a>Error: La réplica no es coherente
 
 Una réplica puede ser incoherente por las razones siguientes:
 
@@ -38,7 +38,7 @@ Para resolver este problema, realice las acciones siguientes:
 - Asegúrese de que el disco es correcto y que hay suficiente espacio para la réplica.
 - Asegúrese de que no se ejecutan trabajos de copia de seguridad duplicados simultáneamente.
 
-## <a name="error-online-recovery-point-creation-failed"></a>Error: No se pudo crear el punto de recuperación en línea
+## <a name="error-online-recovery-point-creation-failed"></a>Error: Error en la creación de punto de recuperación en línea
 
 Para resolver este problema, realice las acciones siguientes:
 
@@ -50,7 +50,7 @@ Para resolver este problema, realice las acciones siguientes:
 - Asegúrese de que la réplica está presente, de que no falta.
 - Asegúrese de que la réplica tiene espacio suficiente para crear el diario de números de secuencias actualizadas (USN).
 
-## <a name="error-unable-to-configure-protection"></a>Error: No se puede configurar la protección.
+## <a name="error-unable-to-configure-protection"></a>Error: No se pudo configurar la protección
 
 Este error se produce cuando el servidor Data Protection Manager no puede ponerse en contacto con el servidor protegido.
 

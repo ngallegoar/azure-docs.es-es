@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: f84c6329c2a4dd0a9ad9e81f3700c9e31de95a2a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68883425"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Obtener conclusiones acerca de una imagen con Bing Image Search API
@@ -216,10 +216,10 @@ El campo `region` identifica el área de la imagen donde Bing reconoció la enti
 
 Los valores del rectángulo están relacionadas con el ancho y alto de la imagen original, y se encuentran dentro de un intervalo entre 0.0 y 1.0. Por ejemplo, si la imagen es de 300 x 200 y la esquina superior izquierda está en el punto (10, 20) y la esquina inferior derecha, en el punto (290, 150), el rectángulo normalizado es:  
 
--   Izquierda: 10 / 300 = 0,03333...  
--   Arriba:  20 / 200 = 0,1  
--   Derecha: 290 / 300 = 0,9667...  
--   Abajo: 150 / 200 = 0,75  
+-   Left: 10 / 300 = 0.03333...  
+-   Top:  20 / 200 = 0.1  
+-   Right: 290 / 300 = 0.9667...  
+-   Bottom: 150 / 200 = 0.75  
 
 Puede usar la región que devuelve Bing en las llamadas subsiguientes a la conclusión. Por ejemplo, para obtener imágenes visualmente similares de la entidad reconocida. Para más información, consulte Recortar imágenes para usarlas con imágenes visualmente similares o módulos de reconocimiento de entidades. A continuación se muestra la asignación entre los campos de región y los parámetros de consulta que usaría para recortar las imágenes.  
 

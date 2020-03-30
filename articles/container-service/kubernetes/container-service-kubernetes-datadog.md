@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: c8ed146a224ec4225a7a0e85c76227fb1dc71b0b
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 1f3f70c30ab397bd549a2f3305a738274ee4f64f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271047"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371178"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(EN DESUSO) Supervisión de un clúster de Azure Container Service con DataDog
 
@@ -25,8 +25,8 @@ También se da por supuesto que tiene la CLI de Azure `az` y las herramientas de
 
 Puede probar si tiene la herramienta `az` instalada mediante la ejecución de:
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 Si no tiene la herramienta `az` instalada, se ofrecen instrucciones [aquí](https://github.com/azure/azure-cli#installation).
@@ -34,13 +34,13 @@ Si no tiene la herramienta `az` instalada, se ofrecen instrucciones [aquí](http
 Puede probar si tiene la herramienta `kubectl` instalada mediante la ejecución de:
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 Si no tiene la herramienta `kubectl` instalada, puede ejecutar:
 
-```console
-$ az acs kubernetes install-cli
+```azurecli
+az acs kubernetes install-cli
 ```
 
 ## <a name="datadog"></a>Datadog

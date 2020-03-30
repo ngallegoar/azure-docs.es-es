@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 3873b25394f91ce1c1601c348de2098198ba7fdd
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74765490"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análisis de series temporales en Azure Data Explorer
@@ -80,8 +80,8 @@ Cuando se ha creado un conjunto de series temporales, Azure Data Explorer admite
 
 El filtrado es una práctica común en el procesamiento de señales y muy útil para tareas de procesamiento de series temporales (por ejemplo, suavizar una señal con ruido o detectar cambios).
 - Hay dos funciones de filtrado genéricas:
-    - [`series_fir()`](/azure/kusto/query/series-firfunction): aplicación de filtro FIR. Se utiliza para el cálculo simple de la media acumulada y la diferenciación de las series temporales para la detección de cambios.
-    - [`series_iir()`](/azure/kusto/query/series-iirfunction): aplicación de filtro IIR. Se utiliza para el suavizado exponencial y la suma acumulativa.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction): Aplicación de filtro FIR. Se utiliza para el cálculo simple de la media acumulada y la diferenciación de las series temporales para la detección de cambios.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction): Aplicación de filtro IIR. Se utiliza para el suavizado exponencial y la suma acumulativa.
 - `Extend` la serie temporal establecida mediante la adición de una nueva serie de media acumulada de intervalos de tamaño 5 (denominada *ma_num*) a la consulta:
 
 **\[** [**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA5WPQavCMBCE7/6KOSYQ4fXgSfobPDx517C2q4bXpLLZQBV/vKkFQTx5WRh25tvZgRUxJK9ooWPuaCAxPcfRR/pnn1kC5wZ35BIjSbjxbDf7EPlXKV6s3a6GmUHTVwya3hkf9tUds1wvEqnEthtLUmPR85HKoO0PxoQXBSFBKJ3YPP9xSyWH5mxxuGKX/1gqlCfl1Neln5EL3R+DmCodhC9MahqHjXVQKbxMW5NScyzQerA7k+gDa1tswzsBAAA=) **\]**
@@ -196,7 +196,7 @@ demo_many_series1
 
 |   |   |   |   |   |   |
 | --- | --- | --- | --- | --- | --- |
-|   | TIMESTAMP | Loc | anonOp | DB | DataRead |
+|   | timestamp | Loc | anonOp | DB | DataRead |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 262 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 241 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | -865998331941149874 | 262 | 279862 |
@@ -290,4 +290,4 @@ Estas funcionalidades avanzadas, combinadas con el rápido rendimiento de Azure 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga información sobre la [detección y previsión de anomalías de series temporales](/azure/data-explorer/anomaly-detection) en Azure Data Explorer.
-* Obtenga información sobre las [funcionalidades de aprendizaje automático](/azure/data-explorer/machine-learning-clustering) en Azure Data Explorer.
+* Obtenga información sobre las [capacidades de aprendizaje automático](/azure/data-explorer/machine-learning-clustering) en Azure Data Explorer.

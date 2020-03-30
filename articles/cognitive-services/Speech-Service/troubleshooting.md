@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74815416"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Solución de problemas del SDK de voz
@@ -25,7 +25,7 @@ En este artículo se proporciona información para ayudarle a resolver los probl
 
 Puede que el punto de conexión sea incorrecto para su región o servicio. Compruebe el URI para asegurarse de que sea correcto.
 
-Además, puede que haya un problema con la clave de suscripción o el token de autorización. Para más información, consulte la siguiente sección.
+Además, puede que haya un problema con la clave de suscripción o el token de autorización. Para obtener más información, vea la próxima sección.
 
 ## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Error: HTTP 403 Prohibido o HTTP 401 No autorizado
 

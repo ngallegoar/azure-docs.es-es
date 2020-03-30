@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 16909e0a5d59b0ae019d91aad00e0168b0c5f433
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773903"
 ---
 1. En la página **Create a Peering** (Crear un emparejamiento), en **Aspectos básicos**, rellene los campos como se muestra a continuación.
@@ -37,7 +37,7 @@ ms.locfileid: "75773903"
     > Si desea agregar conexiones de emparejamiento adicionales con Microsoft en la ubicación de **metro** seleccionada, puede hacerlo con el botón **Crear nuevo**. Consulte [Creación o modificación de un emparejamiento directo mediante el portal](../howto-direct-portal.md) para obtener más información.
     >
 
-1. Haga clic en **Revisar y crear**. Observe cómo el portal ejecuta una validación básica de la información especificada. Esta información se muestra en una cinta en la parte superior, con el texto *Ejecutando la validación final...* .
+1. Haga clic en **Revisar y crear**. Observe que el portal ejecuta una validación básica de la información especificada. Esta información se muestra en una cinta en la parte superior, con el texto *Ejecutando la validación final...* .
 
     > [!div class="mx-imgBorder"]
     > ![Pestaña Validación del emparejamiento](../media/setup-direct-review-tab-validation.png)

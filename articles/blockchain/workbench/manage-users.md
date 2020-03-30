@@ -5,17 +5,17 @@ ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 573ec477a3e75beb91f90da0545fb7d4c0f9bf39
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74324703"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227380"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Administración de usuarios en Azure Blockchain Workbench
 
 Azure Blockchain Workbench incluye administración de usuarios para las personas y organizaciones que forman parte del consorcio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Se requiere una implementación de Blockchain Workbench. Consulte [Implementación de Azure Blockchain Workbench](deploy.md) para detalles acerca de la implementación.
 
@@ -25,7 +25,7 @@ Azure Blockchain Workbench usa Azure Active Directory (Azure AD) para la autenti
 
 Los usuarios de Blockchain Workbench deben existir en el inquilino de Azure AD antes de que se les pueda asignar a aplicaciones y roles. Para agregar usuarios a Azure AD, siga estos pasos:
 
-1.  Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1.  Inicie sesión en [Azure Portal](https://portal.azure.com).
 2.  Seleccione su cuenta en la esquina superior derecha y cambie al inquilino de Azure AD asociado a Azure Blockchain Workbench.
 3.  Seleccione **Azure Active Directory > Usuarios**. Verá una lista de los usuarios del directorio.
 4.  Para agregar usuarios al directorio, seleccione **Nuevo usuario**. Para usuarios externos, seleccione **Nuevo usuario invitado**.
@@ -42,7 +42,7 @@ Una vez que los usuarios se han agregado al directorio, el siguiente paso es ele
 
 Para agregar usuarios al grupo **Administrador** en el directorio de Azure AD:
 
-1.  Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1.  Inicie sesión en [Azure Portal](https://portal.azure.com).
 2.  Seleccione su cuenta en la esquina superior derecha para comprobar que se encuentra en el inquilino de Azure AD asociado a Blockchain Workbench.
 3.  Seleccione **Azure Active Directory > Aplicaciones empresariales**.
 4.  Seleccione la aplicación cliente de Azure AD para Blockchain Workbench

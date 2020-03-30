@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: lewlu
 ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76169813"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migración de los datos de caras a una suscripción de Face distinta
@@ -41,7 +41,7 @@ Esta guía utiliza una aplicación de consola sencilla para ejecutar la migraci�
 
 ## <a name="create-face-clients"></a>Creación de clientes de Face
 
-En el método **Main** de *Program.cs*, cree dos instancias de [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) para las suscripciones de origen y destino. En este ejemplo, usamos una suscripción de Face de la región de Asia Oriental como origen y una suscripción de Oeste de EE. UU. como destino. Este ejemplo muestra cómo migrar datos de una región de Azure a otra. 
+En el método **Main** de *Program.cs*, cree dos instancias de [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) para las suscripciones de origen y destino. En este ejemplo, usamos una suscripción de Face de la región de Este de Asia como origen y una suscripción de Oeste de EE. UU. como destino. Este ejemplo muestra cómo migrar datos de una región de Azure a otra. 
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

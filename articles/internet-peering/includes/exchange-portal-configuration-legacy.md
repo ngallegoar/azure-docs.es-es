@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 7d7b9f847cdcc4ab4b1ff065425eebe07fb4d888
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773947"
 ---
 1. En la página **Create a Peering** (Crear un emparejamiento), en **Aspectos básicos**, rellene los campos como se muestra a continuación.
@@ -22,7 +22,7 @@ ms.locfileid: "75773947"
 
     * En **Tipo de emparejamiento**, seleccione *Exchange*.
     * Seleccione **SKU** como *Gratis Básico*.
-    * Elija la ubicación de **metro** donde desea convertir el emparejamiento a un recurso de Azure. Si tiene conexiones de emparejamiento con Microsoft en la ubicación de **metro** seleccionada que no se han convertido a un recurso de Azure, dichas conexiones aparecerán en la sección **Conexiones de emparejamiento** como se muestra a continuación. Ahora puede convertir estas conexiones de emparejamiento en un recurso de Azure.
+    * Elija la ubicación de **Metro** donde desea convertir el emparejamiento a un recurso de Azure. Si tiene conexiones de emparejamiento con Microsoft en la ubicación de **metro** seleccionada que no se han convertido a un recurso de Azure, dichas conexiones aparecerán en la sección **Conexiones de emparejamiento** como se muestra a continuación. Ahora puede convertir estas conexiones de emparejamiento en un recurso de Azure.
 
         > [!div class="mx-imgBorder"]
         > ![Configuración de emparejamiento: Exchange: conexiones heredadas](../media/setup-exchange-legacy-conf-tab.png)

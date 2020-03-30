@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Detección de caras en una imagen mediante la API REST y PHP'
+title: 'Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y PHP'
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido se muestra cómo detectar caras en una imagen mediante la API REST de Face con PHP.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 0f76ec4ce1072b247be7f46610d37190cd282a22
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169735"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y PHP
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y PHP
 
 En esta guía de inicio rápido, usará la API de REST de Azure Face con PHP para detectar caras humanas en una imagen.
 

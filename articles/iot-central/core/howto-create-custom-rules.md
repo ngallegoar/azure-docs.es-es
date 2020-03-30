@@ -4,17 +4,17 @@ description: Como desarrollador de soluciones, configure una aplicación de IoT 
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/02/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 541cbc0c34a691f51c1a3a53f71920379c447f5d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0e161cf83662df671b8cfb100ddc12c3b3e7359f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022450"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158153"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Extensión de Azure IoT Central con reglas personalizadas mediante Stream Analytics, Azure Functions y SendGrid
 
@@ -231,10 +231,10 @@ Después de unos minutos, la dirección de correo electrónico de **destino** re
 ```txt
 The following device(s) have stopped sending telemetry:
 
-Device ID   Time
-test-device-1   2019-05-02T14:23:39.527Z
-test-device-2   2019-05-02T14:23:50.717Z
-test-device-3   2019-05-02T14:24:28.919Z
+Device ID    Time
+test-device-1    2019-05-02T14:23:39.527Z
+test-device-2    2019-05-02T14:23:50.717Z
+test-device-3    2019-05-02T14:24:28.919Z
 ```
 
 ## <a name="add-stream-analytics-query"></a>Incorporación de una consulta de Stream Analytics

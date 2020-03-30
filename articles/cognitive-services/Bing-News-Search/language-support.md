@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384986"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218878"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Compatibilidad de idiomas y regiones para Bing News Search API
 
@@ -37,20 +37,20 @@ Para obtener una lista de códigos de país que puede especificar en el parámet
 |Austria|Alemán|de-AT|
 |Suiza|Alemán|de-CH|
 |Alemania|Alemán|de-DE|
-|Australia|English|en-AU|
-|Canadá|English|en-CA|
-|Reino Unido|English|en-GB|
-|Indonesia|English|en-ID|
-|Irlanda|English|en-IE|
-|India|English|en-IN|
-|Malasia|English|en-MY|
-|Nueva Zelanda|English|en-NZ|
-|República de Filipinas|English|en-PH|
-|Singapur|English|en-SG|
-|Estados Unidos|English|en-US|
-|English|general|en-WW|
-|English|general|en-XA|
-|Sudáfrica|English|en-ZA|
+|Australia|Inglés|en-AU|
+|Canadá|Inglés|en-CA|
+|Reino Unido|Inglés|en-GB|
+|Indonesia|Inglés|en-ID|
+|Irlanda|Inglés|en-IE|
+|India|Inglés|en-IN|
+|Malasia|Inglés|en-MY|
+|Nueva Zelanda|Inglés|en-NZ|
+|República de Filipinas|Inglés|en-PH|
+|Singapur|Inglés|en-SG|
+|Estados Unidos|Inglés|es-ES|
+|Inglés|general|en-WW|
+|Inglés|general|en-XA|
+|Sudáfrica|Inglés|en-ZA|
 |Argentina|Español|es-AR|
 |Chile|Español|es-CL|
 |España|Español|es-ES|
@@ -84,10 +84,10 @@ Para obtener una lista de códigos de país que puede especificar en el parámet
 |---------------------|--------------|-----------------|
 |Dinamarca|Danés|da-DK|
 |Alemania|Alemán|de-DE|
-|Australia|English|en-AU|
-|Reino Unido|English|en-GB|
-|Estados Unidos|English|en-US|
-|English|general|en-WW|
+|Australia|Inglés|en-AU|
+|Reino Unido|Inglés|en-GB|
+|Estados Unidos|Inglés|es-ES|
+|Inglés|general|en-WW|
 |Chile|Español|es-CL|
 |México|Español|es-MX|
 |Estados Unidos|Español|es-US|
@@ -106,11 +106,11 @@ Para obtener una lista de códigos de país que puede especificar en el parámet
 |País/región|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Alemania|Alemán|de-DE|
-|Australia|English|en-AU|
-|Reino Unido|English|en-GB|
-|Estados Unidos|English|en-US|
-|Canadá|English|en-CA|
-|India|English|en-IN|
+|Australia|Inglés|en-AU|
+|Reino Unido|Inglés|en-GB|
+|Estados Unidos|Inglés|es-ES|
+|Canadá|Inglés|en-CA|
+|India|Inglés|en-IN|
 |Francia|Francés|fr-FR|
 |Canadá|Francés|fr-CA|
 |Brasil|Portugués|pt-BR|
@@ -137,7 +137,7 @@ Los códigos de país o región siguientes se pueden especificar en el parámetr
 |Alemania|DE|  
 |RAE de Hong Kong|HK|  
 |India|IN|  
-|Indonesia|ID|  
+|Indonesia|id|  
 |Italia|IT|  
 |Japón|JP|  
 |Corea|KR|  
@@ -145,7 +145,7 @@ Los códigos de país o región siguientes se pueden especificar en el parámetr
 |México|MX|  
 |Países Bajos|NL|  
 |Nueva Zelanda|NZ|  
-|Noruega|NO|  
+|Noruega|No|  
 |República Popular China|CN|  
 |Polonia|PL|  
 |Portugal|PT|  

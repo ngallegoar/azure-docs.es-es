@@ -10,11 +10,11 @@ ms.service: automation
 ms.subservice: update-management
 manager: carmonm
 ms.openlocfilehash: e60ba71607b99f0ea97e0725ffdd0740f3e9c579
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769836"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235416"
 ---
 # <a name="understand-and-resolve-linux-hybrid-runbook-worker-health-for-update-management"></a>Explicación y corrección del estado de Linux Hybrid Runbook Worker para Update Management
 
@@ -122,7 +122,7 @@ Esta comprobación verifica que la máquina tenga acceso a los puntos de conexi�
 
 Esta comprobación verifica que la máquina tenga acceso a los puntos de conexión necesarios para el agente de Log Analytics.
 
-## <a name="troubleshoot-offline"></a>Solución de problemas sin conexión
+## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Solución de problemas sin conexión
 
 Puede utilizar el solucionador de problemas sin conexión en un Hybrid Runbook Worker mediante la ejecución local del script. El script de python [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) puede encontrarse en el centro de scripts. En el ejemplo siguiente se muestra un ejemplo del resultado de este script:
 

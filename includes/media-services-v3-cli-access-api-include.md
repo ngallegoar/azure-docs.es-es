@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 58e9156091702718dccd75eb4a57e5b6d8c1f073
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9d8de8826fc3dfcc2360eb3b6c82b3ff8d65d845
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896343"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79461238"
 ---
-## <a name="access-the-media-services-api"></a>Acceso a la API de Media Services
+### <a name="access-the-media-services-api"></a>Acceso a la API de Media Services
 
 Debe usar la autenticación de la entidad de servicio de Azure AD para conectarse a las API de Azure Media Services. El siguiente comando crea una aplicación de Azure AD y asocia una entidad de servicio a la cuenta. Debe usar los valores devueltos para configurar la aplicación.
 

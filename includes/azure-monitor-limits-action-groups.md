@@ -9,13 +9,13 @@ ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 2922a1fb92f3df07429d3463b8bf639f336776af
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67305331"
 ---
-| Recurso | Límite predeterminado | Límite máximo |
+| Resource | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Inserción de aplicación de Azure | 10 acciones de aplicación de Azure por grupo de acciones. | Llame al soporte técnico. |
 | Email | 1000 acciones de correo electrónico en un grupo de acciones.<br>no más de 100 mensajes de correo electrónico en una hora.<br>Consulte también el artículo [sobre las limitaciones de velocidad](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Llame al soporte técnico. |

@@ -9,10 +9,10 @@ ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 922ac7eb6cb9676af65700a6a2fe7fbae35a0dc5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186848"
 ---
 Los pasos de esta tarea usan una red virtual que se basa en los valores de la siguiente lista de referencia de configuración. En esta lista también se enumeran nombres y valores de configuración adicionales. No se utiliza esta lista directamente en ninguno de los pasos, aunque se agregan variables basadas en los valores que aparecen en ella. Puede copiar la lista para utilizarla como referencia y reemplazar los valores por los suyos propios.
@@ -24,7 +24,7 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 * Espacio de direcciones de subred 1 = "192.168.1.0/24"
 * Nombre de subred de puerta de enlace: "GatewaySubnet" (siempre debe asignar a las subredes de puerta de enlace el nombre *GatewaySubnet*).
 * Espacio de direcciones de subred de puerta de enlace = "192.168.200.0/26"
-* Región = "East US"
+* Región = "Este de EE. UU."
 * Nombre de puerta de enlace = "GW"
 * Nombre de IP de puerta de enlace = "GWIP"
 * Nombre de configuración de IP de puerta de enlace = "gwipconf"

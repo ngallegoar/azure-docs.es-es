@@ -4,11 +4,11 @@ description: Se debe publicar una base de conocimiento. Una vez publicada, se co
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: cb777aa16fada50811cce1bbf49f28662c62b49b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843327"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219070"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consulta a una base de conocimiento para obtener respuestas
 

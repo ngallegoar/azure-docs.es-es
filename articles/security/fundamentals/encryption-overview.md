@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5d8fd578c5539c83e37a232d8425ad8bdf22129b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804045"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125061"
 ---
 # <a name="azure-encryption-overview"></a>Información general del cifrado de Azure
 
@@ -53,9 +53,9 @@ Los tres modelos de cifrado del servidor ofrecen características de administrac
 
 - **Claves administradas del servicio**: proporcionan una combinación de control y comodidad con una sobrecarga reducida.
 
-- **Claves administradas del cliente**: le permiten controlar las claves, incluyendo la con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
+- **Claves administradas por el cliente**: le permiten controlar las claves, con compatibilidad con Bring Your Own Keys (BYOK), o generar claves nuevas.
 
-- **Claves administradas del servicio en el hardware que controla el cliente**: le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
+- **Claves administradas del servicio en el hardware controlado por el cliente**: le permiten administrar las claves en el repositorio de su propiedad, fuera del control de Microsoft. Esta característica se denomina Host Your Own Key (HYOK). Sin embargo, la configuración es compleja y la mayoría de los servicios de Azure no son compatibles con este modelo.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -79,7 +79,7 @@ Para obtener más información acerca de la biblioteca cliente de Azure Storage 
 
 Cuando se usa el cifrado de cliente con Key Vault, los datos se cifran con una clave de cifrado de contenido (CEK) simétrica única generada por el SDK de cliente de Azure Storage. La CEK se cifra mediante una clave de cifrado de claves (KEK), que puede ser una clave simétrica o un par de claves asimétricas. Puede administrarla de forma local o almacenarla en Key Vault. A continuación, se cargan los datos cifrados en Azure Storage.
 
-Para obtener más información acerca del cifrado del lado cliente con Key Vault e iniciar las instrucciones sobre los procedimientos, consulte [Tutorial: cifrado y descifrado de blobs en Azure Storage mediante Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
+Para obtener más información acerca del cifrado de cliente con Key Vault e iniciar las instrucciones sobre procedimientos, vea [Tutorial: Cifrado y descifrado de blobs en Azure Storage con Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Por último, también puede usar la biblioteca cliente de Azure Storage para Java para realizar el cifrado de cliente antes de cargar datos en Azure Storage y descifrar los datos cuando se descargan en el cliente. Esta biblioteca también admite la integración con [Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de las claves de la cuenta de almacenamiento.
 
@@ -89,7 +89,7 @@ Por último, también puede usar la biblioteca cliente de Azure Storage para Jav
 
 #### <a name="transparent-data-encryption"></a>Cifrado de datos transparente
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) se utiliza para cifrar archivos de datos de [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) y [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en tiempo real, con una clave de cifrado de base de datos (DEK) que se almacena en el registro de arranque de base de datos para la disponibilidad durante la recuperación.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) se utiliza para cifrar archivos de datos de [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) y [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en tiempo real, con una clave de cifrado de base de datos (DEK) que se almacena en el registro de arranque de base de datos para la disponibilidad durante la recuperación.
 
 TDE protege los archivos de registro y los datos con los algoritmos de cifrado de AES y el estándar de cifrado de datos triple (3DES). El cifrado del archivo de base de datos se realiza en el nivel de página. Las páginas en una base de datos cifrada se cifran antes de que se escriban en disco y se descifran cuando se leen en la memoria. TDE ahora está habilitado de forma predeterminada en las bases de datos de Azure SQL recién creadas.
 
@@ -173,7 +173,7 @@ Para obtener más información acerca de las conexiones VPN de punto a sitio par
 
 [Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificación: Azure Portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
 
-[Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificado: PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+[Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificados: PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="site-to-site-vpns"></a>VPN de sitio a sitio 
 

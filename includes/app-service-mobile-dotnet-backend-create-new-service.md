@@ -9,13 +9,13 @@ ms.date: 06/20/2019
 ms.author: crdun
 ms.custom: include file
 ms.openlocfilehash: 72a69359d412a7560472fbb73ec525ab5d4a4fce
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67325802"
 ---
-1. Inicie sesión en el [Azure Portal].
+1. Inicie sesión en [Azure Portal].
 
 2. Haga clic en **Crear un recurso**.
 
@@ -39,7 +39,7 @@ ms.locfileid: "67325802"
 
 12. En **Grupo de recursos**, seleccione un grupo de recursos existente _o_ cree uno nuevo (con el mismo nombre que su aplicación).
 
-13. Haga clic en **Create**(Crear). Espere unos minutos para que se implemente el servicio correctamente antes de continuar. Observe el icono de notificaciones (campana) en el encabezado del portal para las actualizaciones de estado.
+13. Haga clic en **Crear**. Espere unos minutos para que se implemente el servicio correctamente antes de continuar. Observe el icono de notificaciones (campana) en el encabezado del portal para las actualizaciones de estado.
 
 14. Una vez completada la implementación, haga clic en la sección **Detalles de implementación** y seleccione el recurso de tipo **Microsoft.Web/sites**. Navegará a la aplicación web de App Service que acaba de crear. 
 

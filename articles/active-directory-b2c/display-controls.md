@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188739"
 ---
 # <a name="display-controls"></a>Controles de visualización
@@ -30,7 +30,7 @@ En la imagen siguiente se muestra una página de registro de aserción automáti
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
  En la sección [Metadatos](self-asserted-technical-profile.md#metadata) de un [perfil técnico de aserción automática](self-asserted-technical-profile.md), el elemento [ContentDefinition](contentdefinitions.md) al que se hace referencia debe tener `DataUri` establecido en la versión 2.0.0 o superior del contrato de página. Por ejemplo:
 

@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b7a8f7136d0899ab3afe04bce2d25bc2e7f8d3e2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981728"
 ---
 # <a name="pricing-guidance-for-azure-sql-server-vms"></a>Guía de precios para máquinas virtuales con Azure SQL Server
@@ -93,7 +93,7 @@ Para crear una máquina virtual de Azure con SQL Server 2017 con alguna de est
 > [!NOTE]
 > Ahora es posible cambiar del modelo de licencias de pago por uso a traiga su propia licencia (BYOL) y viceversa. Para más información, consulte [Modificación del modelo de licencia para una máquina virtual de SQL en Azure](virtual-machines-windows-sql-ahb.md). 
 
-## <a id="byol"></a> Traiga su propia licencia (BYOL)
+## <a name="bring-your-own-license-byol"></a><a id="byol"></a> Traiga su propia licencia (BYOL)
 
 **Traiga su propia licencia de SQL Server a través de License Mobility**, que también se conoce como **BYOL**, consiste en usar una licencia por volumen existente de SQL Server con Software Assurance en una máquina virtual de Azure. Si se trata de una máquina virtual con SQL Server con licencia BYOL, solo se carga el costo de la ejecución de la máquina virtual, no el relativo a la licencia de SQL Server, puesto que ya ha adquirido licencias y Software Assurance a través de un programa de licencias por volumen.
 
@@ -133,7 +133,7 @@ Para crear una máquina virtual de Azure de SQL Server 2017 con alguna de estas 
 
 Para evitar costos innecesarios, elija un tamaño de máquina virtual óptimo y considere la posibilidad de realizar apagados intermitentes para cargas de trabajo continuas.
 
-### <a id="machinesize"></a> Selección del tamaño adecuado de VM
+### <a name="correctly-size-your-vm"></a><a id="machinesize"></a> Selección del tamaño adecuado de VM
 
 El costo de las licencias de SQL Server está directamente relacionado con el número de vCPU. Elija un tamaño de memoria virtual que coincida con sus necesidades previstas de CPU, memoria, almacenamiento y ancho de banda de E/S. Para obtener una lista completa de opciones de tamaño de máquinas, vea [Tamaños de las máquinas virtuales Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) y [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

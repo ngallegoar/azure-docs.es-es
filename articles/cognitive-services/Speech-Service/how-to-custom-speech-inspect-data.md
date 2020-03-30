@@ -1,7 +1,7 @@
 ---
-title: 'Inspección de la calidad de los datos de Custom Speech: servicio de voz'
+title: 'Inspección de la calidad de los datos de Habla personalizada: Servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Custom Speech proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto.
+description: Habla personalizada proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 60b415f69800885f37ee53cc4f090098f5ebf1f1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806086"
 ---
-# <a name="inspect-custom-speech-data"></a>Inspección de los datos de Custom Speech
+# <a name="inspect-custom-speech-data"></a>Inspección de los datos de Habla personalizada
 
 > [!NOTE]
-> En esta página se supone que ha leído [Preparación de los datos de Custom Speech](how-to-custom-speech-test-data.md) y que ha cargado un conjunto de datos para su inspección.
+> En esta página se supone que ha leído [Preparación de los datos de Habla personalizada](how-to-custom-speech-test-data.md) y que ha cargado un conjunto de datos para su inspección.
 
-Custom Speech proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Desde el [portal de Custom Speech](https://speech.microsoft.com/customspeech), puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto. Esta herramienta le permite inspeccionar rápidamente la calidad del modelo de voz a texto de línea de base de Microsoft o de un modelo personalizado entrenado sin tener que transcribir los datos de audio.
+Habla personalizada proporciona herramientas que le permiten inspeccionar visualmente la calidad del reconocimiento de un modelo mediante la comparación de los datos de audio con el resultado de reconocimiento correspondiente. Desde el [portal de Habla personalizada](https://speech.microsoft.com/customspeech), puede reproducir el audio cargado y determinar si el resultado de reconocimiento proporcionada es correcto. Esta herramienta le permite inspeccionar rápidamente la calidad del modelo de voz a texto de línea de base de Microsoft o de un modelo personalizado entrenado sin tener que transcribir los datos de audio.
 
 En este documento, aprenderá a inspeccionar visualmente la calidad de un modelo con los datos de entrenamiento cargados previamente.
 
@@ -32,12 +32,12 @@ En esta página, aprenderá a inspeccionar visualmente la calidad del modelo de 
 
 Para crear una prueba, siga estas instrucciones:
 
-1. Inicie sesión en el [portal de Custom Speech](https://speech.microsoft.com/customspeech).
-2. Vaya a **Speech-to-text > Custom Speech > Testing** (Conversión de voz a texto > Custom Speech > Pruebas).
+1. Inicie sesión en el [portal de Habla personalizada](https://speech.microsoft.com/customspeech).
+2. Vaya a **Speech-to-text &gt; Custom Speech &gt; Testing** (Conversión de voz a texto &gt; Habla personalizada &gt; Pruebas).
 3. Haga clic en **Add test** (Agregar prueba).
 4. Seleccione **Inspect quality (Audio-only data)** (Inspeccionar la calidad [solo datos de audio]). Asigne un nombre y una descripción a la prueba y seleccione el conjunto de datos de audio.
 5. Puede seleccionar hasta dos modelos para probar.
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 
 Después de que la prueba se ha creado correctamente, puede comparar los modelos en paralelo.
 
@@ -59,4 +59,4 @@ La inspección de las pruebas de calidad es útil para validar si la calidad de 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Preparación de los datos de prueba para Custom Speech](how-to-custom-speech-test-data.md)
+- [Preparación de los datos de prueba para Habla personalizada](how-to-custom-speech-test-data.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66390161"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Compatibilidad de idiomas y regiones de Bing Spell Check API
@@ -23,7 +23,7 @@ Bing Spell Check API admite estos idiomas (solo en modo `spell`).
 
 Tenga en cuenta que, para que funcione con otro idioma distinto de `en-US`, es necesario definir `mkt` y `Accept-Language` o `setLang` según se describe en la [referencia sobre Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference).
 
-| Idioma    | Código de idioma |
+| Idioma    | Código de lenguaje |
 |:----------- |:-------------:|
 | Árabe      | `ar`          |
 | Chino (República Popular China)     | `zh-CN`          |
@@ -41,7 +41,7 @@ Tenga en cuenta que, para que funcione con otro idioma distinto de `en-US`, es n
 | Inglés (Filipinas)     | `en-PH`          |
 | Inglés (Sudáfrica)    | `en-ZA`          |
 | Inglés (Reino Unido)    | `en-GB`          |
-| Inglés (Estados Unidos)    | `en-US`          |
+| Spanish (Traditional Sort) - Spain    | `en-US`          |
 | Finés     | `fi`          |
 | Francés (Bélgica)     | `fr-BE`          |
 | Francés (Canadá)     | `fr-CA`          |
@@ -66,7 +66,7 @@ Tenga en cuenta que, para que funcione con otro idioma distinto de `en-US`, es n
 | Sueco     | `sv`          |
 | Turco     | `tr`          |
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Página de documentación de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
 - [Página de producto de Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

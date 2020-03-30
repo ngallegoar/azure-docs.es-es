@@ -9,21 +9,21 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76748805"
 ---
 En este artículo se proporciona el siguiente nivel de detalle para proteger la infraestructura de Internet de las cosas (IoT) basada en IoT de Azure. Incluye vínculos a detalles de niveles de implementación para configurar e implementar cada componente. También se proporcionan comparaciones y opciones entre diversos métodos que compiten entre sí.
 
 La protección de la implementación de IoT de Azure se puede dividir en las siguientes tres áreas de seguridad:
 
-* **Seguridad de los dispositivos**: la protección del dispositivo IoT mientras se implementa en su entorno natural.
+* **Seguridad del dispositivo**: la protección del dispositivo de IoT mientras se implementa en su entorno natural.
 
-* **Seguridad de la conexión**: garantía de que todos los datos transmitidos entre el dispositivo IoT e IoT Hub son confidenciales y a prueba de manipulaciones.
+* **Seguridad de la conexión**: asegurar que todos los datos transmitidos entre el dispositivo IoT e IoT Hub son confidenciales y a prueba de manipulaciones.
 
-* **Seguridad en la nube**: proporcionar un medio de proteger los datos mientras se trasladan a la nube y se almacenan allí.
+* **Seguridad de la nube**: proporcionar un medio de proteger los datos mientras se trasladan a la nube y se almacenan allí.
 
 ![Tres áreas de seguridad](./media/iot-secure-your-deployment/overview.png)
 
@@ -53,7 +53,7 @@ Cada instancia de IoT Hub tiene un [Registro de identidad](../articles/iot-hub/i
 
 * AMQP: seguridad basada en notificaciones SASL PLAIN y AMQP (`{policyName}@sas.root.{iothubName}` con tokens en el nivel de IoT Hub, `{deviceId}` con tokens con ámbito de dispositivo).
 
-* MQTT: el paquete CONNECT usa `{deviceId}` como `{ClientId}`, `{IoThubhostname}/{deviceId}` en el campo de **nombre de usuario** y un token SAS en el campo de **contraseña**.
+* MQTT: el paquete CONNECT usa `{deviceId}` como `{ClientId}`, `{IoThubhostname}/{deviceId}` en el campo de **Nombre de usuario** y un token SAS en el campo de **contraseña**.
 
 * HTTP: el token válido está en el encabezado de la solicitud de autorización.
 
@@ -103,11 +103,11 @@ Los datos consumidos por Azure IoT Hub se pueden usar en una gran variedad de se
 
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): procesamiento de transmisiones en tiempo real en la nube que permite desarrollar e implementar rápidamente una solución de análisis de bajo costo para desvelar datos detallados en tiempo real de dispositivos, sensores, infraestructura y aplicaciones. Los datos de este servicio completamente administrado se pueden escalar a cualquier volumen, sin dejar de obtener alto rendimiento, baja latencia y resistencia.
 
-* [Azure App Services](https://azure.microsoft.com/services/app-service/): plataforma en la nube que sirve para crear sólidas aplicaciones web y móviles desde las que se puede obtener acceso a datos desde cualquier lugar, ya sea en la nube o desde la infraestructura local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
+* [Azure App Service](https://azure.microsoft.com/services/app-service/): plataforma en la nube que sirve para crear sólidas aplicaciones web y móviles desde las que se puede acceder a datos en cualquier lugar, ya sea en la nube o desde la infraestructura local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
 
 * [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): la característica Logic Apps de Azure App Service sirve para integrar la solución de IoT con los sistemas de línea de negocio existentes y para automatizar los procesos de flujo de trabajo. Logic Apps permite a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Logic Apps ofrece conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
 
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/): almacenamiento en la nube confiable y económico para los datos que los dispositivos envían a la nube.
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/): almacenamiento en la nube de confianza y económico para los datos que los dispositivos envían a la nube.
 
 ## <a name="conclusion"></a>Conclusión
 

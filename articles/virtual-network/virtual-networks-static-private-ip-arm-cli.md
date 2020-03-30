@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: kumud
 ms.openlocfilehash: f4643aae0b28861f4ddb99d8dace749e62f930b8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78199485"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configuración de direcciones IP privadas para una máquina virtual mediante la CLI de Azure
@@ -65,8 +65,8 @@ Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de un
     }
     ```
 
-   * `--resource-group`: nombre del grupo de recursos en el que se creará la dirección IP pública.
-   * `--name`: Nombre de la dirección IP pública.
+   * `--resource-group`: nombre del grupo de recursos en el que se creará la dirección IP pública.
+   * `--name`: nombre de la dirección IP pública.
    * `--location`: región de Azure donde se va a crear la dirección IP pública.
 
 3. Ejecute el comando [azure network nic create](/cli/azure/network/nic) para crear una NIC con una dirección IP privada estática. En la lista que se muestra en la salida se explican los parámetros utilizados. 
@@ -117,7 +117,7 @@ Para crear una máquina virtual denominada *DNS01* en la subred *FrontEnd* de un
     
     Parámetros:
 
-    * `--private-ip-address`: Dirección IP privada estática para la NIC.
+    * `--private-ip-address`: dirección IP privada estática para la NIC.
     * `--vnet-name`: nombre de la red virtual en la que se va a crear la NIC.
     * `--subnet`: nombre de la subred en la que se va a crear la NIC.
 

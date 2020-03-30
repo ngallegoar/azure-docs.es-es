@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186825"
 ---
-## <a name="create-client"></a>Creación de conexiones de cliente
+## <a name="create-a-client-connection"></a><a name="create-client"></a>Creación de conexiones de cliente
 Cree una conexión de cliente mediante la generación de un objeto `WindowsAzure.MobileServiceClient` .  Sustituya `appUrl` por la dirección URL de la aplicación móvil.
 
 ```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-## <a name="table-reference"></a>Trabajo con tablas
+## <a name="work-with-tables"></a><a name="table-reference"></a>Trabajo con tablas
 Para acceder a los datos o actualizarlos, cree una referencia a la tabla de back-end. Reemplace `tableName` por el nombre de la tabla.
 
 ```javascript
@@ -35,7 +35,7 @@ Una vez que disponga de una referencia de tabla, podrá realizar más operacione
 * [Modificación de datos](#modifying)
 * [Eliminación de datos](#deleting)
 
-### <a name="querying"></a>Instrucciones: Consulta de una referencia de tabla
+### <a name="how-to-query-a-table-reference"></a><a name="querying"></a>Consulta de una referencia de tabla
 Una vez que tiene una referencia de tabla, puede utilizarla para consultar datos en el servidor.  Las consultas se realizan en un lenguaje "similar a LINQ".
 Para devolver todos los datos de la tabla, utilice el código siguiente:
 
@@ -69,7 +69,7 @@ Se llama a la función success con los resultados.  No use `for (var i in result
 
 Para más información sobre la sintaxis de Query, consulte la [documentación del objeto Query].
 
-#### <a name="table-filter"></a>Filtrado de datos en el servidor
+#### <a name="filtering-data-on-the-server"></a><a name="table-filter"></a>Filtrado de datos en el servidor
 Puede usar una cláusula `where` en la referencia de tabla:
 
 ```javascript
@@ -92,7 +92,7 @@ table
     .then(success, failure);
 ```
 
-#### <a name="table-paging"></a>Paginación mediante datos
+#### <a name="paging-through-data"></a><a name="table-paging"></a>Paginación mediante datos
 Utilice los métodos `take()` y `skip()`.  Por ejemplo, si desea dividir la tabla en registros de 100 filas:
 
 ```javascript
@@ -120,7 +120,7 @@ El método `.includeTotalCount()` se utiliza para agregar un campo totalCount al
 
 A continuación, puede usar la variable de páginas y algunos botones de la interfaz de usuario para proporcionar una lista de páginas; utilice `loadPage()` para cargar los nuevos registros de cada página.  Implemente el almacenamiento en caché para acelerar el acceso a los registros que ya se han cargado.
 
-#### <a name="sorting-data"></a>Instrucciones: Devolución de los datos ordenados
+#### <a name="how-to-return-sorted-data"></a><a name="sorting-data"></a>Devolución de los datos ordenados
 Utilice los métodos de consulta `.orderBy()` o `.orderByDescending()`:
 
 ```javascript
@@ -132,7 +132,7 @@ table
 
 Para más información sobre el objeto Query, consulte la [documentación del objeto Query].
 
-### <a name="inserting"></a>Instrucciones: Insertar datos
+### <a name="how-to-insert-data"></a><a name="inserting"></a>Inserción de datos
 Cree un objeto de JavaScript con la fecha adecuada y llame a `table.insert()` de manera asincrónica:
 
 ```javascript
@@ -152,7 +152,7 @@ Tras la inserción correcta, el elemento insertado se devuelve con los campos ad
 
 El SDK del servidor de Node.js para Azure Mobile Apps admite el esquema dinámico con fines de desarrollo.  El esquema dinámico permite agregar columnas a la tabla al especificarlas en una operación de inserción o actualización.  Se recomienda desactivar el esquema dinámico antes de pasar la aplicación a producción.
 
-### <a name="modifying"></a>Instrucciones: Modificación de los datos
+### <a name="how-to-modify-data"></a><a name="modifying"></a>Modificación de datos
 De forma similar al método `.insert()`, debe crear un objeto Update y luego llamar a `.update()`.  El objeto Update debe contener el identificador del registro que se va a actualizar, que se obtiene al leer el registro o al llamar a `.insert()`.
 
 ```javascript
@@ -168,7 +168,7 @@ table
     }, failure);
 ```
 
-### <a name="deleting"></a>Instrucciones: Eliminación de datos
+### <a name="how-to-delete-data"></a><a name="deleting"></a>Eliminación de datos
 Para eliminar un registro, llame al método `.del()`.  Pase el identificador de una referencia de objeto:
 
 ```javascript

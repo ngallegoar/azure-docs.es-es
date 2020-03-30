@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67186775"
 ---
 1. [Conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface).
@@ -45,7 +45,7 @@ ms.locfileid: "67186775"
 
     Esta es una tabla que resume alguna de la información importante del dispositivo:
     
-    | Parámetro                             | DESCRIPCIÓN                                                                                                                                                  |   |
+    | Parámetro                             | Descripción                                                                                                                                                  |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     | FriendlyName                   | El nombre descriptivo del dispositivo, tal y como se configuró mediante la interfaz de usuario web local durante la implementación del dispositivo. El nombre descriptivo predeterminado es el número de serie del dispositivo.  |   |
     | SerialNumber                   | El número de serie del dispositivo es un número único asignado en la fábrica.                                                                             |   |

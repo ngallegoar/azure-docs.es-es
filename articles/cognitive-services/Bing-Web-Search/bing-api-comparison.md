@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
 ms.openlocfilehash: 82b1f13562a49284059c25bcbd39a33daf949dcc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74775547"
 ---
 # <a name="what-are-the-bing-search-apis"></a>¿Qué son las versiones de Bing Search API?
@@ -31,7 +31,7 @@ Considere el uso de Bing Web Search API en aplicaciones que necesitan buscar tod
 
 Las siguientes API de búsqueda de Bing devuelven contenido específico de la web, como imágenes, noticias, negocios locales y vídeos.
 
-| API de Bing | DESCRIPCIÓN |
+| API de Bing | Descripción |
 | -- | -- |
 | [Entity Search](../Bing-Entities-Search/overview.md) | Bing Entity Search API devuelve resultados de búsqueda que contienen entidades, que pueden ser personas, lugares o cosas. En función de la consulta, la API devolverá una o más entidades que satisfagan la consulta de búsqueda. La consulta de búsqueda puede incluir personas importantes, negocios locales, puntos de referencia, destinos y mucho más. |
 | [Image Search](../Bing-Image-Search/overview.md) | Bing Image Search API le permite buscar y encontrar imágenes estáticas y animadas de alta calidad, de forma parecida a [Bing.com/images](https://www.Bing.com/images). Puede refinar las búsquedas para incluir o excluir imágenes por atributo, como tamaño, color, licencia y novedad. También puede buscar imágenes populares, cargar imágenes para obtener conclusiones sobre ellas y mostrar vistas previas en miniatura. |
@@ -48,7 +48,7 @@ La creación de una instancia de búsqueda personalizada con [Bing Custom Search
 
 Las siguientes versiones de Bing Search API le permiten mejorar la experiencia de búsqueda ya que se pueden combinar con otras API de búsqueda de Bing.
 
-| API | DESCRIPCIÓN |
+| API | Descripción |
 | -- | -- |
 | [Bing Autosuggest](../Bing-Autosuggest/get-suggested-search-terms.md) | Mejore la experiencia de búsqueda de la aplicación con Bing Autosuggest API gracias a que las búsquedas sugeridas se devuelven en tiempo real.  |
 | [Bing Statistics](bing-web-stats.md) | Bing Statistics proporciona análisis de las versiones de Bing Search API que usa la aplicación. Algunos de los análisis disponibles incluyen el volumen de llamadas, las cadenas de consulta principales y la distribución geográfica. |

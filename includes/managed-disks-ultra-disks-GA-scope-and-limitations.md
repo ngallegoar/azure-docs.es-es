@@ -9,21 +9,21 @@ ms.date: 11/18/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b819264895e35c6ef4fe9dc5263444dcac17eaa2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74935905"
 ---
 Por ahora, los discos Ultra tienen limitaciones adicionales, como se indica a continuación:
 
 - Se admiten en las siguientes regiones, con un número variable de zonas de disponibilidad por región:
     - Este de EE. UU. 2
-    - East US
+    - Este de EE. UU.
     - Oeste de EE. UU. 2
-    - Sudeste Asiático
-    - Europa del Norte
-    - Europa occidental
+    - Sudeste de Asia
+    - Norte de Europa
+    - Oeste de Europa
     - Sur de Reino Unido 2 
 - Solo se podrán usar con las zonas de disponibilidad (los conjuntos de disponibilidad y las implementaciones de máquinas virtuales únicas fuera de las zonas no tendrán la capacidad de adjuntar un disco Ultra).
 - Solo se admiten en las siguientes series de máquinas virtuales:

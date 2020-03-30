@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67673515"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configuración de la aplicación para obtener acceso a Azure Storage
 Hay dos maneras para autenticar una aplicación para tener acceso a los servicios de almacenamiento:
 
-* Clave compartida: la clave compartida solo se usa para realizar pruebas
-* Firma de acceso compartido (SAS): use SAS para las aplicaciones de producción
+* Clave compartida: la clave compartida solo se usa para realizar pruebas.
+* Firma de acceso compartido (SAS): SAS para aplicaciones de producción.
 
 ### <a name="shared-key"></a>Clave compartida
 La autenticación de clave compartida significa que la aplicación usará el nombre y la clave de la cuenta para tener acceso a los servicios de almacenamiento. Con el fin de mostrar rápidamente cómo usar esta biblioteca, emplearemos la autenticación de clave compartida en esta introducción.
@@ -49,5 +49,5 @@ El siguiente ejemplo muestra cómo usar el Explorador de Microsoft Azure Storage
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Como puede ver, cuando usa una SAS, no expone su clave de cuenta en la aplicación. Para obtener más información sobre SAS y los procedimientos de uso recomendados, consulte [Firmas de acceso compartido: Descripción del modelo SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Como puede ver, cuando usa una SAS, no expone su clave de cuenta en la aplicación. Para más información sobre SAS y los procedimientos de uso recomendados, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 12/30/2019
 ms.author: diberry
 ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75552005"
 ---
 # <a name="machine-learned-entity"></a>Entidad de aprendizaje automático
@@ -36,7 +36,7 @@ Las expresiones de ejemplo incluyen:
 
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 Dado que una entidad aprendida automáticamente puede tener muchos subcomponentes con restricciones y descriptores, esto solo es un ejemplo. Debe tenerse en cuenta la posibilidad de una guía para lo que devolverá la entidad.
 
@@ -341,7 +341,7 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
     }
 }
 ```
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 Esta entidad no está disponible en el tiempo de ejecución de predicción V2.
 * * *

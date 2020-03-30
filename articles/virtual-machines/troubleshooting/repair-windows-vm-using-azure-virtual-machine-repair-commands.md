@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 6bda8cb831e84a56c889ed40109954551a34c113
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 2055558ef80a641084a7cf9d299281497d282936
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796170"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060670"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparación de una máquina virtual Windows mediante los comandos de reparación de máquinas virtuales de Azure
 
@@ -62,31 +62,31 @@ Para documentación e instrucciones adicionales, consulte [az vm repair](https:/
 
 2. Si es la primera vez que usa los comandos `az vm repair`, agregue la extensión de la CLI vm-repair.
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az extension add -n vm-repair
    ```
 
    Si ha usado anteriormente los comandos `az vm repair`, aplique las actualizaciones a la extensión vm-repair.
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az extension update -n vm-repair
    ```
 
 3. Ejecute `az vm repair create`. Este comando creará una copia del disco del sistema operativo para la máquina virtual no funcional, creará una máquina virtual de reparación y conectará el disco.
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
 4. Ejecute `az vm repair run`. Este comando ejecutará el script de reparación especificado en el disco conectado a través de la máquina virtual de reparación.
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id 2 --verbose
    ```
 
 5. Ejecute `az vm repair restore`. Este comando cambiará el disco del sistema operativo que se reparó por el disco del sistema operativo original de la máquina virtual.
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose
    ```
 
@@ -94,9 +94,9 @@ Para documentación e instrucciones adicionales, consulte [az vm repair](https:/
 
 En el ejemplo siguiente se habilita la extensión de diagnóstico en la máquina virtual denominada ``myVMDeployed`` en el grupo de recursos ``myResourceGroup``:
 
-CLI de Azure
+Azure CLI
 
-```azurepowershell-interactive
+```azurecli-interactive
 az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGroup --storage https://mystor.blob.core.windows.net/
 ```
 

@@ -9,13 +9,13 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76159194"
 ---
-## <a name="os-config"></a>Incorporación de direcciones IP a un sistema operativo de la máquina virtual
+## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Incorporación de direcciones IP a un sistema operativo de la máquina virtual
 
 Conéctese e inicie sesión en una máquina virtual que creó con múltiples direcciones IP privadas. Debe agregar manualmente todas las direcciones IP privadas (incluida la principal) que ha agregado a la máquina virtual. Complete los pasos siguientes para el sistema operativo de su máquina virtual.
 
@@ -27,11 +27,11 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
 4. Haga doble clic en el Protocolo de Internet versión 4 (IPv4).
 5. Seleccione **Usar la siguiente dirección IP** y escriba los valores siguientes:
 
-    * **Dirección IP**: escriba la dirección IP privada *principal*
-    * **Máscara de subred**: establezca este valor en función de la subred. Por ejemplo, si la subred es una subred /24, la máscara de subred es 255.255.255.0.
+    * **Dirección IP**: escriba la dirección IP privada *principal* .
+    * **Máscara de subred**: establezca este valor en función de su subred. Por ejemplo, si la subred es una subred /24, la máscara de subred es 255.255.255.0.
     * **Puerta de enlace predeterminada**: la primera dirección IP de la subred. Si la subred es 10.0.0.1/24, la dirección IP de la puerta de enlace es 10.0.0.0/24.
     * Seleccione **Usar las siguientes direcciones de servidor DNS** y escriba los valores siguientes:
-        * **Servidor DNS preferido**: escriba 168.63.129.16 si no usa un servidor DNS propio.  Si usa su propio servidor DNS, escriba la dirección IP de su servidor.
+        * **Servidor DNS preferido:** escriba 168.63.129.16 si no usa su propio servidor DNS.  Si usa su propio servidor DNS, escriba la dirección IP de su servidor.
     * Seleccione el botón **Avanzadas** y agregue más direcciones IP. Agregue cada una de las direcciones IP privadas secundarias, que agregó a la interfaz de red de Azure en un paso anterior, a la interfaz de red de Windows que se asigna a la dirección IP principal asignada a la interfaz de red de Azure.
 
         No asigne manualmente la dirección IP pública asignada a una máquina virtual de Azure en el sistema operativo de la máquina virtual. Al establecer manualmente la dirección IP privada en el sistema operativo, asegúrese de que sea la misma que la asignada a la [interfaz de red](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings) de Azure; de lo contrario, perderá la conectividad a la máquina virtual. Más información sobre la configuración de la [dirección IP privada](../articles/virtual-network/virtual-network-network-interface-addresses.md#private). Nunca debe asignar una dirección IP pública de Azure dentro del sistema operativo.

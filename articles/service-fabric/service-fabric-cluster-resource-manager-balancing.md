@@ -5,11 +5,11 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f56717c086f005b1155988e2041ff2e717e047f2
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 8e170c27923d2bb091c4121e350809b85e4c48a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79081699"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrio del clúster de Service Fabric
@@ -76,7 +76,7 @@ Ahora, Cluster Resource Manager solo realiza estas acciones una a una, de forma 
 
 Por ejemplo, cuando los nodos no funcionan pueden provocar que todos los dominios dejen de funcionar a la vez. Tos estos errores se capturan durante la siguiente actualización de estado después de *PLBRefreshGap*. Las correcciones se determinan durante las siguientes ejecuciones de selección de ubicación, comprobación de restricciones y equilibrio. De forma predeterminada, Cluster Resource Manager no realiza exámenes durante las horas de cambios en el clúster e intenta abordar todos los cambios al mismo tiempo. Hacerlo produciría ráfagas de fragmentos.
 
-Cluster Resource Manager también necesita información adicional para determinar si el clúster está desequilibrado. Para ello contamos con dos elementos de configuración: *BalancingThresholds* y *ActivityThresholds*.
+Cluster Resource Manager también necesita información adicional para determinar si el clúster está desequilibrado. Para ello se cuenta con dos elementos de configuración: *BalancingThresholds* y *ActivityThresholds*.
 
 ## <a name="balancing-thresholds"></a>Umbrales de equilibrio
 Un umbral de equilibrio es el control principal para la activación del reequilibrado. El umbral de equilibrio de una métrica es una _proporción_. Si la carga de una métrica en el nodo más cargado dividida entre la cantidad de carga en el nodo menos cargado supera el valor de *BalancingThreshold* de la métrica, el clúster está desequilibrado. Como resultado, se activa el equilibrado durante la próxima comprobación de Cluster Resource Manager. El temporizador *MinLoadBalancingInterval* determina la frecuencia con la que Cluster Resource Manager debe comprobar si es necesario realizar el reequilibrado. La comprobación no significa que suceda nada. 
@@ -185,7 +185,7 @@ Aunque, a veces, se mueve un servicio que no estaba desequilibrado (recuerde la 
 - Service3 informa de las métricas Metric3 y Metric4.
 - Service4 informa de la Metric99. 
 
-Seguramente puede ver adónde queremos llegar: Hay una cadena. En realidad no tenemos cuatro servicios independientes, sino tres servicios que están relacionados y uno que va por su cuenta.
+Seguramente puede ver adónde queremos llegar: hay una cadena. En realidad no tenemos cuatro servicios independientes, sino tres servicios que están relacionados y uno que va por su cuenta.
 
 <center>
 
@@ -205,7 +205,6 @@ Cluster Resource Manager averigua automáticamente qué servicios están relacio
 * Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para más información sobre las métricas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
 * El costo del movimiento es una forma de señalizar al Administrador de recursos de clúster que determinados servicios son más caros de mover que otros. Para más información sobre el coste del movimiento, consulte [este artículo](service-fabric-cluster-resource-manager-movement-cost.md)
 * El Administrador de recursos de clúster presenta varias limitaciones que se pueden configurar para ralentizar la renovación del clúster. Aunque no son normalmente necesarias, si las necesita, puede encontrar información sobre ellas [aquí](service-fabric-cluster-resource-manager-advanced-throttling.md)
-* Cluster Resource Manager puede reconocer y controlar la agrupación en subclústeres (una situación que a veces surge cuando se usan restricciones de selección de ubicación y de equilibrio). Para más información sobre cómo la agrupación en subclústeres puede afectar al equilibrio y cómo puede controlarlo, consulte [esta información](service-fabric-cluster-resource-manager-subclustering.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

@@ -12,12 +12,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: c5005f6438a53215054c6152722d1449aa593b4f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 56975cebbfe4f6dd6452c850c338d431faea27bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160923"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050496"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Procedimientos recomendados y recomendaciones de la plataforma de identidad de Microsoft
 
@@ -56,7 +56,7 @@ Utilice la siguiente lista de comprobación para asegurarse de que su aplicació
 
 |   |   |
 |---|---|
-| ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Administrar los URI de redirección: <ul><li>Mantenga la propiedad de todos los URI de redireccionamiento y mantenga actualizados los registros DNS de los mismos.</li><li>No utilice caracteres comodín (*) en los URI.</li><li>Para las aplicaciones web, asegúrese de que todos los URI son seguros y están cifrados (por ejemplo, mediante esquemas de https).</li><li>Para los clientes públicos, utilice los URI de redireccionamiento específicos de la plataforma si es aplicable (sobre todo para iOS y Android). En caso contrario, use el URI de redireccionamiento con una gran cantidad de aleatoriedad para evitar conflictos cuando llame de nuevo a la aplicación.</li><li>Si se utiliza la aplicación desde un agente web aislado, puede usar https://login.microsoftonline.com/common/oauth2/nativeclient.</li><li>Revise y recorte todos los identificadores URI de redirección que no se usen o que sean innecesarios de manera regular.</li></ul> |
+| ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Administrar los URI de redirección: <ul><li>Mantenga la propiedad de todos los URI de redireccionamiento y mantenga actualizados los registros DNS de los mismos.</li><li>No utilice caracteres comodín (*) en los URI.</li><li>Para las aplicaciones web, asegúrese de que todos los URI son seguros y están cifrados (por ejemplo, mediante esquemas de https).</li><li>Para los clientes públicos, utilice los URI de redireccionamiento específicos de la plataforma si es aplicable (sobre todo para iOS y Android). En caso contrario, use el URI de redireccionamiento con una gran cantidad de aleatoriedad para evitar conflictos cuando llame de nuevo a la aplicación.</li><li>Si se utiliza la aplicación desde un agente web aislado, puede usar `https://login.microsoftonline.com/common/oauth2/nativeclient`.</li><li>Revise y recorte todos los identificadores URI de redirección que no se usen o que sean innecesarios de manera regular.</li></ul> |
 | ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Si la aplicación se registra en un directorio, minimice y supervise manualmente la lista de propietarios del registro de aplicaciones. |
 | ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | No habilite la compatibilidad con el [flujo de concesión implícita de OAuth2](v2-oauth2-implicit-grant-flow.md) a menos que se requiera de forma explícita. Más información sobre el escenario válido [aquí](v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Prescindir del nombre de usuario/contraseña. No use el [flujo de credenciales de la contraseña de propietario del recurso (ROPC)](v2-oauth-ropc.md), que controla directamente las contraseñas de usuario. Este flujo requiere un alto grado de confianza y exposición del usuario, por lo que solo se debería usar cuando no se puedan usar otros flujos más seguros. Este flujo todavía es necesario en algunos escenarios (como DevOps), pero tenga en cuenta que su uso impondrá restricciones a la aplicación.  Para conocer enfoques más modernos, lea [Flujos de autenticación y escenarios de aplicaciones](authentication-flows-app-scenarios.md).|

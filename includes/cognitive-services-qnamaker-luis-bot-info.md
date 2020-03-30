@@ -11,17 +11,17 @@ ms.custom: include file
 ms.date: 06/24/2019
 ms.author: diberry
 ms.openlocfilehash: f69502907e2dd3c5b3c64634b1b11e10af5397f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67438427"
 ---
 ## <a name="more-information-about-bots"></a>Más información sobre los bots
 
 Para obtener más información sobre cómo usar este servicio con los bots, comience con los siguientes recursos:
 
-|Recurso|Propósito|
+|Resource|Propósito|
 |--|--|
 |[Azure Bot Service](https://dev.botframework.com/)|Azure Bot Service proporciona un servicio web hospedado en la nube completo con un punto de conexión de bot. El servicio usa [Bot Framework](https://github.com/Microsoft/botframework), que está disponible en varios idiomas.|
 |[Bot Framework](https://github.com/Microsoft/botframework)|Microsoft Bot Framework es una plataforma completa para crear experiencias de IA de conversación de nivel empresarial.|

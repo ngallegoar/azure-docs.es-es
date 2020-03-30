@@ -13,10 +13,10 @@ ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: 2936b94d7ba791b1a4e5a9b95aca3ca3ecdb5904
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66383430"
 ---
 # <a name="get-trending-images-from-the-web"></a>Obtención de imágenes populares de la web
@@ -90,7 +90,7 @@ La respuesta contiene un objeto[TrendingImages](https://docs.microsoft.com/rest/
 
 Cada icono contiene una imagen y opciones para obtener imágenes relacionadas. Para obtener las imágenes relacionadas, puede usar la consulta `text` para llamar a [Image Search API](./search-the-web.md) y mostrar las imágenes relacionadas por su cuenta. O bien, puede usar la dirección URL en `webSearchUrl` para llevar al usuario a la página de resultados de búsqueda de imágenes de Bing, que contiene las imágenes relacionadas.
 
-Si llama a Image Search API para obtener las imágenes relacionadas, establezca el parámetro de consulta [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) en el identificador del campo `id`. Al especificar el identificador, se garantiza que la respuesta contiene la imagen (es la primera imagen de la respuesta) y sus imágenes relacionadas. Además, establezca el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) en el texto del campo `text` del objeto `query`.
+Si llama a Image Search API para obtener las imágenes relacionadas, establezca el parámetro de consulta [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) en el identificador del campo `id`. Al especificar el identificador, se garantiza que la respuesta contiene la imagen (es la primera imagen de la respuesta) y sus imágenes relacionadas. Además, establezca el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) en el texto del campo `query` del objeto `text`.
 
 En el ejemplo siguiente se muestra cómo usar el identificador de la imagen para obtener las imágenes relacionadas de Mr. Smith en la respuesta anterior de Trending Images API.
 

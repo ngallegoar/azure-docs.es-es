@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760392"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspensión y reactivación de entidades de mensajería (deshabilitar)
@@ -40,10 +40,10 @@ El portal solo permite deshabilitar completamente las colas. También puede desh
 
 Los estados que se pueden establecer para una cola son:
 
--   **Activa**: la cola está activa.
--   **Disabled**: la cola se ha suspendido.
--   **SendDisabled**: la cola se suspende parcialmente y se permite la recepción.
--   **ReceiveDisabled**: la cola se suspende parcialmente y se permite el envío.
+-   **Activo**: la cola está activa.
+-   **Deshabilitado**: la cola se ha suspendido.
+-   **SendDisabled**: la cola se suspende parcialmente, y se permite la recepción.
+-   **ReceiveDisabled**: la cola se suspende parcialmente, y se permite el envío.
 
 En las suscripciones y los temas, solo se pueden establecer los estados **Activo** y **Deshabilitado**.
 

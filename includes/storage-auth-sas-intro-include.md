@@ -9,10 +9,10 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: aec1faa4de1149f08fb6fbc1cc5bf3aa2ab6becd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75371790"
 ---
 Una firma de acceso compartido (SAS) le permite conceder acceso limitado a los contenedores y blobs de la cuenta de almacenamiento. Cuando crea una SAS, especifica sus restricciones, incluidos los recursos de Azure Storage a los que puede acceder un cliente, los permisos que tiene en esos recursos y el tiempo durante el cual la SAS es válida.

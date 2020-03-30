@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595769"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218630"
 ---
 # <a name="how-to-manage-settings"></a>Cómo administrar la configuración
 
@@ -53,7 +53,7 @@ Si no tiene una suscripción, siga los pasos a continuación:
 
 ## <a name="manage-your-workspace"></a>Administración del área de trabajo
 
-Un área de trabajo es un área de trabajo para crear y compilar el sistema de traducción personalizada. Un área de trabajo puede contener varios proyectos, modelos y documentos.
+Un área de trabajo es un área para crear y compilar el sistema de traducción personalizada. Un área de trabajo puede contener varios proyectos, modelos y documentos.
 
 Si una parte distinta del trabajo debe compartirse con personas distintas, puede resultar útil crear varias áreas de trabajo.
 

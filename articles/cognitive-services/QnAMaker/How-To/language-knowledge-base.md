@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: a818d84bf3df712190ccc6c1721c26933a9fbcdb
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 38701e8bbef1c5d78eca2242105e81fe7261c0f6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73793935"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219038"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Compatibilidad de idioma del contenido de la base de conocimiento para QnA Maker
 
-El idioma del servicio se selecciona al crear la primera base de conocimiento en el recurso. Todas las bases de conocimiento adicionales del recurso deben estar en el mismo idioma. 
+El idioma del servicio se selecciona al crear la primera base de conocimiento en el recurso. Todas las bases de conocimiento adicionales del recurso deben estar en el mismo idioma.
 
 El idioma determina la relevancia de los resultados que QnA Maker proporciona en respuesta a las consultas de los usuarios.
 
@@ -29,25 +29,25 @@ QnA Maker le permite seleccionar el idioma del servicio QnA al crear la primera 
 
 La creación de bases de conocimiento en distintos idiomas en un recurso afecta negativamente a la relevancia de los resultados que QnA Maker proporciona en respuesta a las consultas de los usuarios.
 
-Consulte una lista de los [idiomas compatibles](../overview/language-support.md#languages-supported) y cómo afectan [a la coincidencia y relevancia](#query-matching-and-relevance). 
+Consulte una lista de los [idiomas compatibles](../overview/language-support.md#languages-supported) y cómo afectan [a la coincidencia y relevancia](#query-matching-and-relevance).
 
 ## <a name="select-language-when-creating-first-knowledge-base"></a>Selección del idioma al crear la primera base de conocimiento
 
-La selección del idioma forma parte de los pasos necesarios para crear la primera base de conocimiento en un recurso. 
+La selección del idioma forma parte de los pasos necesarios para crear la primera base de conocimiento en un recurso.
 
 ![Captura de pantalla del portal de QnA Maker, donde se selecciona el idioma de la primera base de conocimiento](../media/language-support/select-language-when-creating-knowledge-base.png)
 
 ## <a name="query-matching-and-relevance"></a>Coincidencia y relevancia de las consultas
-QnA Maker depende de los [analizadores de idioma de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/language-support) para proporcionar resultados. 
+QnA Maker depende de los [analizadores de idioma de Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/language-support) para proporcionar resultados.
 
-Aunque las funcionalidades de Azure Cognitive Search están en el mismo nivel que los idiomas admitidos, QnA Maker tiene un clasificador adicional que está por encima de los resultados de búsqueda de Azure. En este modelo de clasificador, se usan características semánticas y basadas en palabras especiales en los siguientes idiomas. 
+Aunque las funcionalidades de Azure Cognitive Search están en el mismo nivel que los idiomas admitidos, QnA Maker tiene un clasificador adicional que está por encima de los resultados de búsqueda de Azure. En este modelo de clasificador, se usan características semánticas y basadas en palabras especiales en los siguientes idiomas.
 
 |Idiomas con un clasificador adicional|
 |--|
 |Chino|
 |Checo|
 |Neerlandés|
-|English|
+|Inglés|
 |Francés|
 |Alemán|
 |Húngaro|
@@ -65,10 +65,10 @@ Esta clasificación adicional es un elemento de trabajo interno del clasificador
 
 Puede comprobar el idioma del recurso de QnA Maker desde la página de configuración del servicio de QnA Maker.
 
-![Captura de pantalla de la página Configuración del servicio del portal de QnA Maker](../media/language-support/language-knowledge-base.png) 
+![Captura de pantalla de la página Configuración del servicio del portal de QnA Maker](../media/language-support/language-knowledge-base.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Crear un bot QnA con Azure Bot Service](../Tutorials/create-qna-bot.md)
+> [Migración de una base de conocimiento](../Tutorials/migrate-knowledge-base.md)

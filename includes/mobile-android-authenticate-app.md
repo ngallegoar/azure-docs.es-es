@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187002"
 ---
 1. Abra el proyecto en Android Studio.
@@ -62,7 +62,7 @@ ms.locfileid: "67187002"
     Con este código, se crea un método para administrar el proceso de autenticación de Google. Aparece un cuadro de diálogo que muestra el identificador del usuario autenticado. Solo puede continuar si la autenticación es correcta.
 
     > [!NOTE]
-    > Si usa un proveedor de identidades que no sea Google, cambie el valor que ha usado con el método **login** por uno de los valores siguientes: _MicrosoftAccount_, _Facebook_, _Twitter_ o _windowsazureactivedirectory_.
+    > Si usa un proveedor de identidades que no sea Google, cambie el valor pasado al método **login** a uno de los siguientes: _MicrosoftAccount_, _Facebook_, _Twitter_ o _windowsazureactivedirectory_.
 
 4. En el método **onCreate**, agregue la siguiente línea de código después del código que crea una instancia del objeto `MobileServiceClient`.
 

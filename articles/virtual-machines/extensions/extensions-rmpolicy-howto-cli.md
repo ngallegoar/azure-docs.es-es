@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 113736198f40510981c80909c862282fa07ac68d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3c660f7e05af43c2aad6f7283e32cfc1d85571ab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073773"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066825"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Uso de Azure Policy para restringir la instalación de extensiones en VM Linux
 
@@ -28,17 +28,17 @@ En este tutorial se usa la CLI dentro de Azure Cloud Shell, que se actualiza con
 
 ## <a name="create-a-rules-file"></a>Creación de un archivo de reglas
 
-Para restringir qué extensiones se pueden instalar, debe tener una [regla](../../governance/policy/concepts/definition-structure.md#policy-rule) para proporcionar la lógica para identificar la extensión.
+Para restringir qué extensiones se pueden instalar, debe tener una [regla](../../governance/policy/concepts/definition-structure.md#policy-rule) que proporcione la lógica para identificar la extensión.
 
 En este ejemplo se muestra cómo denegar la instalación de extensiones publicadas por "Microsoft.OSTCExtensions" mediante la creación de un archivo de reglas en Azure Cloud Shell. Sin embargo, si está trabajando en la CLI localmente, también puede crear un archivo local y reemplazar la ruta de acceso (~/clouddrive) por la ruta de acceso al archivo local de su máquina.
 
 En el [Bash Cloud Shell](https://shell.azure.com/bash), escriba:
 
-```azurecli-interactive 
+```bash
 vim ~/clouddrive/azurepolicy.rules.json
 ```
 
-Copie y pegue el archivo .json siguiente en el archivo.
+Copie y pegue el siguiente archivo .json en el archivo.
 
 ```json
 {
@@ -75,11 +75,11 @@ En este ejemplo se muestra cómo crear un archivo de parámetros para VM Linux e
 
 En el [Bash Cloud Shell](https://shell.azure.com/bash), escriba:
 
-```azurecli-interactive
+```bash
 vim ~/clouddrive/azurepolicy.parameters.json
 ```
 
-Copie y pegue el archivo .json siguiente en el archivo.
+Copie y pegue el siguiente archivo .json en el archivo.
 
 ```json
 {
@@ -98,7 +98,7 @@ Al acabar, pulse la tecla **Esc** y escriba **:wq** para guardar y cerrar el arc
 
 ## <a name="create-the-policy"></a>Creación de la directiva
 
-Una definición de directiva es un objeto que se usa para almacenar la configuración que le gustaría utilizar. La definición de directiva utiliza las reglas y los archivos de parámetros para definir la directiva. Cree la definición de directiva mediante la [creación de la definición de directivas az](/cli/azure/role/assignment?view=azure-cli-latest).
+Una definición de directiva es un objeto que se usa para almacenar la configuración que le gustaría utilizar. En esta definición se incluyen las reglas y los archivos de parámetros. Cree la definición de directiva mediante la [creación de la definición de directivas az](/cli/azure/role/assignment?view=azure-cli-latest).
 
 En este ejemplo, las reglas y los parámetros son los archivos creados y almacenados como archivos .json en Cloud Shell.
 

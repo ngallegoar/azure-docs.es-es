@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
 ms.openlocfilehash: 40ca1dbf981c5a9025cf5a0bac6b007709d69a77
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76934572"
 ---
 # <a name="specify-a-face-detection-model"></a>Especificación de un modelo de detección de caras

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931729"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228152"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple
 ## <a name="overview"></a>Información general
@@ -27,7 +27,7 @@ Puede usar los nodos en el panel **Ámbito** de Administrador de instantáneas S
 
 ![Dispositivos conectados](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
 
-**Figura 1: Dispositivo conectado a StorSimple Snapshot Manager** 
+**Ilustración 1: Dispositivo conectado a Administrador de instantáneas StorSimple** 
 
 Dependiendo de su selección de **Vista**, el panel **Resultados** muestra la siguiente información sobre cada dispositivo. Para obtener más información acerca de cómo configurar una vista, vaya a [Menú Ver](storsimple-use-snapshot-manager.md#view-menu).
 
@@ -204,7 +204,7 @@ Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (
    2. En la ventana **Servicios**, seleccione **Microsoft StorSimple Management Service**.
    3. En el panel derecho, en **Microsoft StorSimple Management Service**, haga clic en **Reiniciar el servicio**.
 4. Inicie Administrador de instantáneas StorSimple.
-5. Para configurar el nuevo dispositivo de StorSimple, complete el procedimiento del paso 2: Conecte un dispositivo de StorSimple en [Implementar StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+5. Para configurar el nuevo dispositivo StorSimple, complete los pasos que encontrará en Paso 2: Conexión a un dispositivo StorSimple en [Implementación del Administrador de instantáneas StorSimple](storsimple-snapshot-manager-deployment.md).
 6. Haga clic con el botón derecho en el nodo de nivel superior en el panel **Ámbito** (StorSimple Snapshot Manager en el ejemplo) y, luego, haga clic en **Alternar vista de importaciones**. 
 7. Aparece un mensaje cuando los grupos de volúmenes importados y las copias de seguridad son visibles en Administrador de instantáneas StorSimple. Haga clic en **OK**.
 

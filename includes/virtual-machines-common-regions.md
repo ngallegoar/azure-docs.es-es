@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76021095"
 ---
 Es importante saber cómo y donde operan las máquinas virtuales (VM) en Azure, así como las opciones para maximizar el rendimiento, la disponibilidad y la redundancia. Este artículo proporciona una visión general de las características de disponibilidad y redundancia de Azure.
@@ -21,16 +21,16 @@ Es importante saber cómo y donde operan las máquinas virtuales (VM) en Azure, 
 ## <a name="what-are-azure-regions"></a>¿Cuáles son las regiones de Azure?
 Azure funciona en varios centros de datos del mundo. Estos centros de datos se agrupan en regiones geográficas, proporcionándole flexibilidad al elegir dónde crear sus aplicaciones. 
 
-Los recursos de Azure se crean en regiones geográficas definidas como 'Oeste de EE. UU.', 'Europa del Norte' o 'Sudeste Asiático'. Puede revisar la [lista de regiones y sus ubicaciones](https://azure.microsoft.com/regions/). En cada región existen varios centros de datos que proporcionan redundancia y disponibilidad. Este enfoque proporciona flexibilidad al diseñar aplicaciones para crear máquinas virtuales más cercanas a los usuarios y satisfacer cualquier propósito legal, de cumplimiento normativo o fiscal.
+Los recursos de Azure se crean en regiones geográficas definidas como 'Oeste de EE. UU.', 'Norte de Europa' o 'Sudeste de Asia'. Puede revisar la [lista de regiones y sus ubicaciones](https://azure.microsoft.com/regions/). En cada región existen varios centros de datos que proporcionan redundancia y disponibilidad. Este enfoque proporciona flexibilidad al diseñar aplicaciones para crear máquinas virtuales más cercanas a los usuarios y satisfacer cualquier propósito legal, de cumplimiento normativo o fiscal.
 
 ## <a name="special-azure-regions"></a>Regiones de Azure especiales
 Azure tiene algunas regiones especiales que se pueden usar al crear las aplicaciones, en lo referente al cumplimiento normativo o a aspectos legales. Entre dichas regiones se incluyen:
 
-* **Virginia Gob. EE. UU.** e **Iowa Gob. EE. UU.**
+* **US Gov Virginia** e **US Gov Iowa**
   * Una instancia física y lógica con aislamiento de red de Azure para asociados y agencias de la administración pública de EE. UU., operada por personal estadounidense seleccionado con rigor. Incluye certificaciones de cumplimiento adicionales como [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) y [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Más información sobre [Azure Government](https://azure.microsoft.com/features/gov/).
-* **China (Este)** y **China (Norte)**
+* **Este de China** y **Norte de China**
   * Estas regiones están disponibles gracias a una exclusiva asociación entre Microsoft y 21Vianet, por el cual Microsoft no mantiene directamente los centros de datos. Obtenga más información sobre [Azure China 21Vianet](https://www.windowsazure.cn/).
-* **Centro de Alemania** y **Noreste de Alemania**
+* **Сentro de Alemania** y **Nordeste de Alemania**
   * Estas regiones están disponibles mediante un modelo de administrador de datos con el cual los datos del cliente permanecen en Alemania bajo el control de T-Systems, una empresa perteneciente a Deutsche Telekom que actúa como administrador de datos en Alemania.
 
 ## <a name="region-pairs"></a>Pares de región
@@ -44,9 +44,9 @@ Entre los ejemplos de pares de región se incluyen:
 
 | Principal | Secundario |
 |:--- |:--- |
-| Oeste de EE. UU. |East US |
-| Europa del Norte |Europa occidental |
-| Sudeste asiático |Asia oriental |
+| Oeste de EE. UU. |Este de EE. UU. |
+| Norte de Europa |Oeste de Europa |
+| Sudeste de Asia |Este de Asia |
 
 Puede consultar en su totalidad la [lista de pares regionales aquí](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 

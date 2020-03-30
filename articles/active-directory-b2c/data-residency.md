@@ -12,13 +12,13 @@ ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 3df0f581d0d2a1e5ca02202b4eeaede5a1dd5362
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188858"
 ---
-# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidad de región y residencia de datos
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidad en regiones y residencia de datos
 
 La disponibilidad en regiones y residencia de datos son dos conceptos muy diferentes que se aplican de forma diferente a Azure AD B2C del resto de Azure. En este artículo se explican las diferencias entre estos dos conceptos y se compara cómo se aplican a Azure frente a Azure AD B2C.
 
@@ -52,7 +52,7 @@ Los datos residen en **Europa** para los países o regiones siguientes:
 
 Los datos residen en **Asia Pacifico** para los países o regiones siguientes:
 
-> Afganistán, RAE de Hong Kong, India, Indonesia, Japón, Corea, Malasia, Filipinas, Singapur, Sri Lanka, Taiwán y Tailandia.
+> Afganistán, Hong Kong RAE, India, Indonesia, Japón, Corea, Malasia, Filipinas, Singapur, Sri Lanka, Taiwán y Tailandia.
 
 Los países o regiones siguientes están a punto de agregarse a la lista. De momento, todavía puede usar Azure AD B2C escogiendo cualquiera de los países o regiones anteriores.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722142"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Supervisar la entrega de mensajes de Event Grid 
@@ -37,8 +37,8 @@ Para las suscripciones, las métricas son:
 
 * **Entrega realizada**: el evento se entregó correctamente al punto de conexión de la suscripción y se recibió una respuesta 2xx.
 * **Entrega no realizada**: el evento se envió al punto de conexión de la suscripción, pero se recibió una respuesta 4xx o 5xx.
-* **Eventos expirados**: no se entregó el evento y se enviaron todos los reintentos. Se descartó el evento.
-* **Eventos coincidentes**: la suscripción a eventos coincide con el evento del tema.
+* **Expired Events (Eventos expirados)** : no se entregó el evento y se enviaron todos los reintentos. Se descartó el evento.
+* **Matched Events (Eventos coincidentes)** : la suscripción a eventos coincide con el evento del tema.
 
 ## <a name="event-subscription-status"></a>Estado de la suscripción a eventos
 

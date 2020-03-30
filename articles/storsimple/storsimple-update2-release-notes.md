@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: twooley
 ms.openlocfilehash: 4e57fffd2f74ae1b14f51537c92299607f193ad5
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934060"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Notas de la versión de la actualización 2 de la serie StorSimple 8000
@@ -53,12 +53,12 @@ La actualización 2 presenta las siguientes características nuevas.
   * Mejoras de enrutamiento con métricas fijas para bloques habilitados para la nube.
   * Reintento en línea de recursos con errores antes de una conmutación por error.
   * Nuevas alertas para errores de servicio.
-* **Mejoras en las actualizaciones**: en la actualización 1.2 y versiones anteriores, se actualizó la serie 8000 de StorSimple a través de dos canales: Windows Update para agrupación en clústeres, iSCSI y otros; y Microsoft Update para archivos binarios y firmware.
+* **Mejoras en las actualizaciones** : en la actualización 1.2 y en las versiones anteriores, la serie StorSimple 8000 se ha actualizado a través de dos canales: Windows Update para la agrupación en clústeres, iSCSI, y así sucesivamente, y Microsoft Update para los archivos binarios y el firmware.
     La actualización 2 usa Microsoft Update para todos los paquetes de actualizaciones. Esto debería reducir el tiempo de la aplicación de revisiones o de la realización de conmutaciones por error. 
 * **Actualizaciones de firmware** : se incluyen las siguientes actualizaciones del firmware:
   
   * LSI: versión del producto 2.00.72.10 lsi_sas2.sys
-  * Solo SSD (sin actualizaciones de HDD): XMGG, XGEG, KZ50, F6C2 y VR08
+  * SSD solo (ninguna actualización de la unidad de disco duro): XMGG, XGEG, KZ50, F6C2 y VR08
 * **Soporte técnico proactivo** : la actualización 2 permite a Microsoft extraer información de diagnóstico adicional del dispositivo. Cuando nuestro equipo de operaciones identifica dispositivos que están teniendo problemas, estamos mejor equipados para recopilar información del dispositivo y diagnosticar problemas. **Al aceptar la actualización 2, nos permite proporcionar este soporte técnico proactivo**.    
 
 ## <a name="issues-fixed-in-update-2"></a>Problemas corregidos en la actualización 2
@@ -83,7 +83,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 6 |Proxy web |Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo. |Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md). |Sí |No |
 | 7 |Proxy web |Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo. | |Sí |No |
 | 8 |Latencia alta de la nube y alta carga de trabajo de E/S |Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube (del orden de segundos) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo». |Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación. |Sí |No |
-| 9 |Azure PowerShell |Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. |Encapsule el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sí |Sí |
+| 9 |Azure PowerShell |Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. |Escriba el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait**. |Sí |Sí |
 | 10 |Migración |Cuando se pasan varios contenedores de volúmenes para la migración, el ETA de la copia de seguridad más reciente solo es preciso en el primer contenedor de volúmenes. Además, la migración paralela se iniciará después de que se hayan migrado las cuatro primeras copias de seguridad del primer contenedor de volúmenes. |Se recomienda migrar los contenedores de volúmenes de uno en uno. |Sí |No |
 | 11 |Migración |Después de la restauración, los volúmenes no se agregan a la directiva de copia de seguridad ni al grupo de discos virtuales. |Para crear copias de seguridad, será preciso agregar estos volúmenes a una directiva de copia de seguridad. |Sí |Sí |
 | 12 |Migración |Una vez completada la migración, el dispositivo de las series 5000/7000 no debe tener acceso a los contenedores de datos migrados. |Cuando la migración finaliza y se envía, se recomienda eliminar los contenedores de datos migrados. |Sí |No |

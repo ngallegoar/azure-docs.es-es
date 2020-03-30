@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: bdd33d85ee0aac4808c343af088d4db1a0dc963e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: eed839c277156046ff9b7d97c6e87636a0822889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767779"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299335"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Habilitación del ajuste automático para supervisar las consultas y mejorar el rendimiento de la carga de trabajo
 
@@ -33,6 +33,13 @@ El ajuste automático puede habilitarse en el servidor o el nivel de base de dat
 ## <a name="enable-automatic-tuning-on-server"></a>Habilitación del ajuste automático en servidor
 
 En el nivel de servidor, puede optar por heredar la configuración de ajuste automático de "Valores predeterminados de Azure" o no heredarla. Los valores predeterminados de Azure son FORCE_LAST_GOOD_PLAN (habilitado), CREATE_INDEX (habilitado) y DROP_INDEX (deshabilitado).
+
+> [!IMPORTANT]
+> A partir de marzo de 2020, los cambios en los valores predeterminados de Azure para el ajuste automático tendrán efecto de la manera siguiente:
+>
+> - Los nuevos valores predeterminados de Azure serán FORCE_LAST_GOOD_PLAN = habilitado, CREATE_INDEX = deshabilitado y DROP_INDEX = deshabilitado.
+> - Los servidores existentes que no tengan preferencias de ajuste automático se configurarán automáticamente para HEREDAR los nuevos valores predeterminados de Azure. Esto se aplica a todos los clientes que tienen actualmente la configuración del servidor para el ajuste automático en un estado indefinido.
+> - Los servidores creados se configurarán automáticamente para HEREDAR con los nuevos valores predeterminados de Azure (a diferencia de antes en que la configuración de ajuste automático se encontraba en un estado indefinido tras la creación de un servidor).
 
 ### <a name="azure-portal"></a>Portal de Azure
 
