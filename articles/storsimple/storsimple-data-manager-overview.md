@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67876100"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Introducción a la solución StorSimple Data Manager
@@ -47,13 +47,13 @@ Puede utilizar Data Manager con Azure Functions, Azure Automation y Azure Data F
 
 StorSimple Data Manager está disponible en las siguientes 7 regiones:
 
- - Sudeste asiático
- - Este de EE. UU
+ - Sudeste de Asia
+ - Este de EE. UU.
  - Oeste de EE. UU.
  - Oeste de EE. UU. 2
- - Centro occidental de EE.UU.
- - Europa del Norte
- - Europa occidental
+ - Centro-Oeste de EE. UU.
+ - Norte de Europa
+ - Oeste de Europa
 
 Sin embargo, StorSimple Data Manager se puede usar para transformar datos en las siguientes regiones. 
 

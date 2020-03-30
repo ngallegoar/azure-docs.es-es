@@ -1,19 +1,18 @@
 ---
 title: Configuración de la administración de clientes potenciales en Marketo | Azure Marketplace
 description: Configure la administración de clientes potenciales en Marketo para clientes de Azure Marketplace.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: evansma
-ms.openlocfilehash: 8d13e8c3aeabf6d3fdea80ffddbae47b80adc139
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 35d57d117f6308863965ffd789c0e28bedd0f301
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812135"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281517"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Configuración de la administración de clientes potenciales en Marketo
 
@@ -75,5 +74,5 @@ Cuando esté listo para configurar la información de administración de cliente
 4. Proporcione el **id. de servidor**, el **id. de cuenta de Munching** y el **id. de formulario**.
 
     >[!Note]
-    >Debe terminar de configurar el resto de partes de la oferta y publicarla para poder recibir clientes potenciales de la oferta. 
+    >Debe terminar de configurar el resto de las partes de la oferta y publicarla para poder recibir clientes potenciales para la oferta. 
 

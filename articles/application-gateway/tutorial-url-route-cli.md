@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68688173"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Redirección del tráfico web en función de la dirección URL mediante la CLI de Azure
@@ -21,7 +21,7 @@ Como administrador de IT que administra el tráfico web, desea ayudar a los clie
 
 ![Ejemplo de enrutamiento de direcciones URL](./media/tutorial-url-route-cli/scenario.png)
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un grupo de recursos para los recursos de red que necesitará
@@ -98,7 +98,7 @@ az network application-gateway create \
  La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Después de crear la puerta de enlace de aplicaciones, podrá ver estas nuevas características:
 
 
-|Característica  |DESCRIPCIÓN  |
+|Característica  |Descripción  |
 |---------|---------|
 |appGatewayBackendPool     |Una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.|
 |appGatewayBackendHttpSettings     |Especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.|

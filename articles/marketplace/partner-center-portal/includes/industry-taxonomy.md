@@ -1,26 +1,20 @@
 ---
 title: archivo de inclusión
 description: archivo de inclusión para taxonomía del sector
-services: commercial marketplace
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
-manager: evansma
-editor: ''
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 09/20/2019
-ms.author: v-qiwe
 ms.custom: include file
-ms.openlocfilehash: 144540b3d50c217f74608cedb546b80ab7ba222b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 19fac46fae2ae938c4ed00967171067ec9f67435
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825545"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277262"
 ---
 Opcionalmente, puede seleccionar hasta dos sectores y segmentos verticales en cada sector. Estas categorías se usan para mostrar la oferta, cuando el sector y los segmentos verticales se usan en filtros de búsqueda y se aplican en el escaparate.  Si la oferta está dirigida a un sector o segmento vertical específico, asegúrese de describir cómo la oferta es compatible con los sectores o los segmentos verticales seleccionados en la descripción de la oferta.  En caso contrario, si la oferta no es específica del sector, no realice una selección y deje esta sección en blanco.
 
