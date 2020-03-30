@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: pafarley
 ms.openlocfilehash: 0be77dc1ac249c37f9b59078451d8fbe35f17458
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72754251"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Definición y uso de los flujos de trabajo de moderación
 
-En esta guía, aprenderá a configurar y usar [flujos de trabajo](../review-api.md#workflows) en el sitio web de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com). Los flujos de trabajo son filtros personalizados basados en la nube que puede usar para controlar el contenido de forma más eficaz. Los flujos de trabajo pueden conectarse a una variedad de servicios para filtrar el contenido de maneras diferentes y, a continuación, realizar la acción apropiada. En esta guía se muestra cómo usar el conector de Content Moderator (que se incluye de forma predeterminada) para filtrar el contenido y configurar revisiones humanas en un escenario típico de moderación.
+En esta guía, aprenderá a configurar y usar [flujos de trabajo](../review-api.md#workflows) en el sitio web de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com). Los flujos de trabajo son filtros personalizados basados en la nube que puede usar para controlar el contenido de forma más eficaz. Los flujos de trabajo pueden conectarse a diversos servicios para filtrar el contenido de maneras diferentes y luego realizar la acción apropiada. En esta guía se muestra cómo usar el conector de Content Moderator (que se incluye de forma predeterminada) para filtrar el contenido y configurar revisiones humanas en un escenario típico de moderación.
 
 ## <a name="create-a-new-workflow"></a>Creación de un área de trabajo
 

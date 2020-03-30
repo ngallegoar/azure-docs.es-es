@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
 ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73647688"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nombres de subdominios personalizados para Cognitive Services
@@ -75,28 +75,28 @@ Sí. Esta es una lista de puntos de conexión regionales que puede usar con los 
 | | Sur de Brasil | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Centro de Canadá | `https://canadacentral.api.cognitive.microsoft.com` |
 | | Centro de EE. UU. | `https://centralus.api.cognitive.microsoft.com` |
-| | Asia oriental | `https://eastasia.api.cognitive.microsoft.com` |
-| | East US | `https://eastus.api.cognitive.microsoft.com` |
+| | Este de Asia | `https://eastasia.api.cognitive.microsoft.com` |
+| | Este de EE. UU. | `https://eastus.api.cognitive.microsoft.com` |
 | | Este de EE. UU. 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | Centro de Francia | `https://francecentral.api.cognitive.microsoft.com` |
 | | India central | `https://centralindia.api.cognitive.microsoft.com` |
-| | Este de Japón | `https://japaneast.api.cognitive.microsoft.com` |
-| | Corea Central | `https://koreacentral.api.cognitive.microsoft.com` |
+| | Japón Oriental | `https://japaneast.api.cognitive.microsoft.com` |
+| | Centro de Corea del Sur | `https://koreacentral.api.cognitive.microsoft.com` |
 | | Centro-Norte de EE. UU | `https://northcentralus.api.cognitive.microsoft.com` |
-| | Europa del Norte | `https://northeurope.api.cognitive.microsoft.com` |
+| | Norte de Europa | `https://northeurope.api.cognitive.microsoft.com` |
 | | Norte de Sudáfrica | `https://southafricanorth.api.cognitive.microsoft.com` |
-| | Centro-Sur de EE. UU | `https://southcentralus.api.cognitive.microsoft.com` |
-| | Sudeste asiático | `https://southeastasia.api.cognitive.microsoft.com` |
+| | Centro-sur de EE. UU. | `https://southcentralus.api.cognitive.microsoft.com` |
+| | Sudeste de Asia | `https://southeastasia.api.cognitive.microsoft.com` |
 | | Sur de Reino Unido 2 | `https://uksouth.api.cognitive.microsoft.com` |
-| | Centro occidental de EE.UU. | `https://westcentralus.api.cognitive.microsoft.com` |
-| | Europa occidental | `https://westeurope.api.cognitive.microsoft.com` |
+| | Centro-Oeste de EE. UU. | `https://westcentralus.api.cognitive.microsoft.com` |
+| | Oeste de Europa | `https://westeurope.api.cognitive.microsoft.com` |
 | | Oeste de EE. UU. | `https://westus.api.cognitive.microsoft.com` |
 | | Oeste de EE. UU. 2 | `https://westus2.api.cognitive.microsoft.com` |
-| Gobierno de EE. UU. | Gobierno de EE. UU. - Virginia | `https://virginia.api.cognitive.microsoft.us` |
+| US Gov | US Gov - Virginia | `https://virginia.api.cognitive.microsoft.us` |
 | China | Este de China 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Norte de China | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [¿Qué es Cognitive Services?](Welcome.md)
 * [Autenticación](authentication.md)

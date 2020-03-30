@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 05/29/2019
 ms.author: pafarley
 ms.openlocfilehash: 7fc46d06b68dca074da060b4866186a6242ffad2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72757377"
 ---
 # <a name="content-moderator-api-reference"></a>Referencia de API de Content Moderator
@@ -28,7 +28,7 @@ Puede empezar a trabajar con las API de Azure Content Moderator de las siguiente
 
 Puede usar las siguientes API de Content Moderator para configurar los flujos de trabajo posteriores a la moderación.
 
-| DESCRIPCIÓN | Referencia |
+| Descripción | Referencia |
 | -------------------- |-------------|
 | **Image Moderation API**<br /><br />Examine imágenes y detecte posible contenido para adultos o explícito mediante etiquetas, puntuaciones de confianza y otra información extraída. <br /><br />Use esta información para publicar, rechazar o revisar el contenido del flujo de trabajo posterior a la moderación. <br /><br />| [Referencia de Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Referencia de Image Moderation API")   |
 | **Text Moderation API**<br /><br />Examine contenido de texto. Las blasfemias y los datos personales se devuelven. <br /><br />Use esta información para publicar, rechazar o revisar el contenido del flujo de trabajo posterior a la moderación.<br /><br /> | [Referencia de Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Referencia de Text Moderation API")   |
@@ -39,7 +39,7 @@ Puede usar las siguientes API de Content Moderator para configurar los flujos de
 
 Review APIs tienen los siguientes componentes:
 
-| DESCRIPCIÓN | Referencia |
+| Descripción | Referencia |
 | -------------------- |-------------|
 | **Trabajos**<br /><br /> Inicie flujos de trabajo de examen y revisión para el contenido de imagen y texto. Un trabajo de moderación examina el contenido mediante Image Moderation API y Text Moderation API. Los trabajos de moderación usan los flujos de trabajo definidos y predeterminados para generar revisiones. <br /><br />Después de que un moderador humano ha revisado las etiquetas asignadas automáticamente y los datos de predicción y de que ha enviado una decisión de moderación de contenido, Review API envía toda la información al punto de conexión de API.<br /><br /> | [Referencia de trabajos](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5 "Referencia de trabajos")   |
 | **Revisiones**<br /><br />Use la herramienta de revisión para crear directamente revisiones de texto o imagen para moderadores humanos.<br /><br /> Después de que un moderador humano ha revisado las etiquetas asignadas automáticamente y los datos de predicción y de que ha enviado una decisión de moderación de contenido, Review API envía toda la información al punto de conexión de API.<br /><br /> | [Referencia de revisiones](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 "Referencia de revisiones")   |

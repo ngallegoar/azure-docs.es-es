@@ -1,18 +1,18 @@
 ---
 title: Incorporación de autenticación a las aplicaciones móviles con Visual Studio App Center y servicios de Azure
 description: Conozca los servicios de Visual Studio App Center que ayudan a configurar la autenticación de usuarios y a permitir que las aplicaciones móviles se autentiquen con cuentas de redes sociales, Azure Active Directory y autenticación personalizada.
-author: elamalani
+author: codemillmatt
 ms.assetid: 34a8a070-2222-4faf-9090-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 261c12e63f8f348e1673dbc46c89c614caf3283b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 820005bca008ea3bdb59659c815da3ec36beb0d4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78296361"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241052"
 ---
 # <a name="add-authentication-and-manage-user-identities-in-your-mobile-apps"></a>Incorporación de autenticación y administración de identidades de usuario en las aplicaciones móviles
 
@@ -37,7 +37,7 @@ Use los servicios siguientes para permitir la autenticación de usuarios en las 
 - Compatibilidad con las plataformas iOS, Android, Xamarin y React Native.
 
 **Referencias**
-- [Registro con Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
+- [Registro con Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
 - [Introducción a App Center Auth](/appcenter/auth/)
 
 ## <a name="azure-active-directory-b2c"></a>Azure Active Directory B2C

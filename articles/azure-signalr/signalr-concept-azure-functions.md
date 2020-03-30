@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74157609"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Creación de aplicaciones en tiempo real con Azure Functions y Azure SignalR Service
@@ -42,7 +42,7 @@ Estos son algunos escenarios comunes de la mensajería sin servidor en tiempo re
 * Actualizar datos en una aplicación cuando se actualicen documentos en Cosmos DB.
 * Enviar notificaciones en aplicación cuando se creen nuevos pedidos en Salesforce.
 
-## <a name="signalr-service-bindings-for-azure-functions"></a>Enlaces de SignalR Service en Azure Functions
+## <a name="signalr-service-bindings-for-azure-functions"></a>Enlaces de SignalR Service para Azure Functions
 
 Los enlaces de SignalR Service para Azure Functions permiten que una aplicación de Azure Functions publique mensajes en los clientes conectados a SignalR Service. Los clientes pueden conectarse al servicio mediante un SDK de cliente de SignalR que esté disponible en .NET, JavaScript y Java (tendrá más lenguajes disponibles en breve).
 

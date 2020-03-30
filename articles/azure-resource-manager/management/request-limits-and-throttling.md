@@ -2,14 +2,14 @@
 title: Límites y limitación de solicitudes
 description: En este artículo se describe cómo usar la limitación con las solicitudes de Azure Resource Manager cuando se han alcanzado los límites de suscripción.
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: eabc621ce02d4f30c5efb5bcef2635ea0e8dbcb2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944051"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239354"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
 
@@ -65,10 +65,6 @@ Para comprobar las instancias de máquina virtual dentro de un conjunto de escal
 ### <a name="azure-resource-graph-throttling"></a>Regulación de Azure Resource Graph
 
 [Azure Resource Graph](../../governance/resource-graph/overview.md) limita el número de solicitudes para sus operaciones. Los pasos descritos en este artículo para determinar las solicitudes restantes y sobre cómo responder cuando se alcanza el límite también se aplican a Resource Graph. Sin embargo, Resource Graph establece su límite y frecuencia de restablecimiento propios. Para más información, consulte [Encabezados de limitación de Resource Graph](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
-
-## <a name="request-increase"></a>Solicitud de aumento
-
-A veces, se pueden aumentar los límites de regulación. Para ver si se pueden aumentar los límites de regulación para su escenario, cree una solicitud de soporte técnico. Se evaluarán los detalles del patrón de llamada.
 
 ## <a name="error-code"></a>Código de error
 

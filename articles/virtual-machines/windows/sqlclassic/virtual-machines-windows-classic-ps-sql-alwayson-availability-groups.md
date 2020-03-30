@@ -15,22 +15,22 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978156"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configuración de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure con PowerShell
 > [!div class="op_single_selector"]
-> * [Clásica: UI](../classic/portal-sql-alwayson-availability-groups.md)
-> * [Clásica: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [Portal de Azure clásico: interfaz de usuario](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Portal de Azure clásico: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 Antes de comenzar, considere que ahora puede completar esta tarea en un modelo de Azure Resource Manager. Se recomienda el modelo de Azure Resource Manager para las implementaciones nuevas. Consulte [Grupos de disponibilidad de SQL Server AlwaysOn en máquinas virtuales de Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> Se recomienda que las implementaciones más recientes usen el modelo Resource Manager. Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/management/deployment-models.md). Este artículo trata del modelo de implementación clásico.
+> Se recomienda que las implementaciones más recientes usen el modelo Resource Manager. Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../../../azure-resource-manager/management/deployment-models.md). Este artículo trata del modelo de implementación clásico.
 
 Las máquinas virtuales (VM) de Azure pueden ayudar a los administradores de bases de datos a disminuir el costo de un sistema de alta disponibilidad de SQL Server. En este tutorial se muestra cómo implementar un grupo de disponibilidad mediante SQL Server AlwaysOn de extremo a extremo dentro de un entorno de Azure. Al final del tutorial, la solución SQL Server AlwaysOn en Azure constará de los siguientes elementos:
 
@@ -238,7 +238,7 @@ El servidor de controlador de dominio ya está aprovisionado correctamente. A co
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    El GUID especificado anteriormente es el GUID para el tipo de objeto del equipo. La cuenta **CORP\Install** necesita los permisos **Leer todas las propiedades** y **Crear objetos de equipo** para crear los objetos de Active Directory para el clúster de conmutación por error. El permiso **Leer todas las propiedades** ya se concede a CORP\Install de forma predeterminada, por lo que no es necesario concederlo explícitamente. Para más información sobre los permisos necesarios para crear el clúster de conmutación por error, consulte [Guía paso a paso de clústeres de conmutación por error: Configuración de cuentas en Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    El GUID especificado anteriormente es el GUID para el tipo de objeto del equipo. La cuenta **CORP\Install** necesita los permisos **Leer todas las propiedades** y **Crear objetos de equipo** para crear los objetos de Active Directory para el clúster de conmutación por error. El permiso **Leer todas las propiedades** ya se concede a CORP\Install de forma predeterminada, por lo que no es necesario concederlo explícitamente. Para más información sobre los permisos necesarios para crear el clúster de conmutación por error, consulte [Guía paso a paso de clústeres de conmutación por error: configurar cuentas en Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
     Ahora que terminó de configurar Active Directory y los objetos de usuario, creará dos máquinas virtuales de SQL Server y las unirá a este dominio.
 
@@ -387,7 +387,7 @@ En esta sección, deberá modificar los tres servidores que usará en el clúste
   * Modificar cualquier grupo de disponibilidad
   * Conectar SQL
   * Ver estado del servidor
-* ContosoSQL1 y ContosoSQL2 solamente: el protocolo **TCP** ya está habilitado en la máquina virtual con SQL Server. Sin embargo, tendrá que abrir el firewall para el acceso remoto de SQL Server.
+* ContosoSQL1 y ContosoSQL2 solamente: el protocolo **TCP** ya está habilitado en la VM con SQL Server. Sin embargo, tendrá que abrir el firewall para el acceso remoto de SQL Server.
 
 De este modo, estará listo para comenzar. A partir de **ContosoQuorum**, siga los pasos que se indican a continuación:
 

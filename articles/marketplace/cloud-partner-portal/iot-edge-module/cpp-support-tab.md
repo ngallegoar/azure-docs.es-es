@@ -1,23 +1,22 @@
 ---
 title: Soporte técnico para un módulo Azure IoT Edge | Azure Marketplace
 description: Opciones de soporte técnico de un módulo IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: fe8ff895990471107cfaa229f7b4ced28b477afa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 439de17ef9eb9c0c2c264884652236d47600b8ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813522"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286513"
 ---
 # <a name="iot-edge-module-support-tab"></a>Pestaña Soporte técnico de los módulos IoT Edge
 
-Use la pestaña **Soporte técnico** de la página **Nueva oferta** para proporcionar recursos técnicos y de soporte técnico a los usuarios en relación con la oferta.  Las siguientes áreas de entrada se proporcionan en el formulario de soporte técnico: **Contacto de ingeniería**, **Asistencia al cliente** y **Direcciones URL de soporte técnico**. Un asterisco (*) junto al nombre del campo indica que es obligatorio.
+Use la pestaña **Soporte técnico** de la página **Nueva oferta** para proporcionar recursos técnicos y de soporte técnico a los usuarios en relación con la oferta.  En el formulario Soporte se proporcionan las siguientes áreas de entrada: **Contacto de ingeniería**, **Soporte al cliente** y **Direcciones URL de soporte técnico**. Un asterisco (*) junto al nombre del campo indica que es obligatorio.
 
 ![Pestaña Soporte técnico en el formulario Nueva oferta de Módulos IoT Edge](./media/iot-edge-module-support-tab.png)
 
@@ -36,7 +35,7 @@ En la tabla siguiente se describen los campos del formulario y la entrada necesa
 | **Correo electrónico\***                 | Dirección de correo electrónico de soporte técnico al cliente                                            |
 | **Teléfono\***                 | Número de teléfono de soporte técnico al cliente                                            |
 | ***Direcciones URL de soporte técnico***  | *Sitios de soporte técnico que Microsoft va a usar cuando los clientes abran incidencias de soporte técnico* |
-| **Azure público**          | Dirección URL del sitio de soporte técnico de Internet público                                         |
+| **Public Azure** (Azure público)          | Dirección URL del sitio de soporte técnico de Internet público                                         |
 | **Azure Government Cloud (Nube de Azure Government)**| Dirección URL del sitio de soporte técnico de la nube de Government                                        |
 |   |   |
 

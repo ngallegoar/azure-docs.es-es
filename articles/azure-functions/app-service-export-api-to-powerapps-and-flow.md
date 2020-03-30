@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.reviewer: sunayv
 ms.openlocfilehash: 632818bf82e41e6be0a96d30cc1c4fa631718a3b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74233071"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportación de una API hospedada en Azure a PowerApps y Microsoft Flow
@@ -62,7 +62,7 @@ Para completar la exportación en la modalidad **Rápida**, siga estos pasos:
 
 2. Use la configuración que se especifica en la tabla.
 
-    |Configuración|DESCRIPCIÓN|
+    |Configuración|Descripción|
     |--------|------------|
     |**Entorno**|Seleccione el entorno en que se debe guardar el conector personalizado. Para obtener más información, consulte [Información general sobre los entornos](https://powerapps.microsoft.com/tutorials/environments-overview/).|
     |**Nombre de la API personalizada**|Escriba un nombre, el cual verán PowerApps y Microsoft Flow en su lista de conectores.|
@@ -107,7 +107,7 @@ Para importar la definición de la API en PowerApps y Microsoft Flow, siga estos
 
 4. En la ficha **General**, revise la información que procede de la definición de OpenAPI.
 
-5. En la pestaña **Seguridad**, si se le pide que proporcione detalles de autenticación, escriba los valores adecuados para el tipo de autenticación. Haga clic en **Continue**.
+5. En la pestaña **Seguridad**, si se le pide que proporcione detalles de autenticación, escriba los valores adecuados para el tipo de autenticación. Haga clic en **Continuar**.
 
     ![Pestaña Seguridad](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
 
@@ -140,7 +140,7 @@ PowerApps y Microsoft Flow admiten una colección de proveedores de identidad qu
 ``` 
 Durante la exportación, proporcione los valores de configuración que permiten a PowerApps y Microsoft Flow autenticar a los usuarios.
 
-En esta sección se describen los tipos de autenticación admitidos en el modo **Rápido**: clave de API, Azure Active Directory y OAuth 2.0 genérico. PowerApps y Microsoft Flow también admiten la autenticación básica y OAuth 2.0 para servicios específicos como Dropbox, Facebook y SalesForce.
+En esta sección se describen los tipos de autenticación admitidos en la modalidad **Rápida**: clave de API, Azure Active Directory y OAuth 2.0 genérico. PowerApps y Microsoft Flow también admiten la autenticación básica y OAuth 2.0 para servicios específicos como Dropbox, Facebook y SalesForce.
 
 ### <a name="api-key"></a>Clave de API
 Cuando se usa una clave de API, a los usuarios de su conector se les pide que proporcionen la clave cuando creen una conexión. Especifique un nombre para la clave de API para ayudarlos a entender qué clave necesitan. En el ejemplo anterior, se utiliza el nombre `API Key (contact meganb@contoso.com)` para que los usuarios sepan dónde obtener información acerca de la clave de API. En Azure Functions, la clave es normalmente una de las claves de host, que abarcan varias funciones en una aplicación de función.
