@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943134"
 ---
-# <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicación web de una sola página
+# <a name="tutorial-single-page-web-app"></a>Tutorial: aplicación web de una sola página
 
 Bing Entity Search API le permite buscar en Internet información acerca de *entidades* y *lugares.* Puede solicitar cualquier tipo de resultado, o ambos, en una consulta determinada. Las definiciones de lugares y entidades se proporcionan a continuación.
 
@@ -56,7 +56,7 @@ En este tutorial, solo se describen determinadas partes del código fuente. El c
 > [!NOTE]
 > Este tutorial es bastante similar al [tutorial de la aplicación Bing Web Search de una sola página](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), pero solo se centra en los resultados de búsqueda de imágenes.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir con el tutorial, necesita claves de suscripción para Bing Search API y Bing Maps API. Si no las tiene, puede utilizar una [clave de prueba](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) y una [ clave básica de Bing Maps](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
@@ -71,7 +71,7 @@ Al igual que cualquier aplicación web de una sola página, la aplicación del t
 
 Este tutorial no profundiza en la mayor parte de HTML o CSS, ya que es sencillo.
 
-El código HTML contiene el formulario de búsqueda en que el usuario escribe una consulta y elige las opciones de búsqueda. El formulario está conectado al código JavaScript que realmente realiza la búsqueda mediante el atributo `onsubmit` de la etiqueta `<form>`:
+El código HTML contiene el formulario de búsqueda en que el usuario escribe una consulta y elige las opciones de búsqueda. El formulario está conectado al código JavaScript que realmente realiza la búsqueda mediante el atributo `<form>` de la etiqueta `onsubmit`:
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">

@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186278"
 ---
 ## <a name="update-resources"></a>Actualización de recursos
@@ -20,12 +20,12 @@ ms.locfileid: "67186278"
 Existen algunas limitaciones en lo que se puede actualizar. Se pueden actualizar los siguientes elementos: 
 
 Galería de imágenes compartidas:
-- DESCRIPCIÓN
+- Descripción
 
 Definición de la imagen:
 - vCPU recomendadas:
 - Memoria recomendada
-- DESCRIPCIÓN
+- Descripción
 - Fecha final del ciclo de vida
 
 Versión de la imagen:

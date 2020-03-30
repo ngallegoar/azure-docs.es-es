@@ -5,10 +5,10 @@ ms.author: estfan
 ms.topic: include
 ms.date: 11/08/2019
 ms.openlocfilehash: ea0ae1b1527aa1f527c8ac8fbcd3b4e4f6b6fe2f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789210"
 ---
 * Si está usando Azure SQL Database, siga los pasos que se indican en [Conexión a Azure SQL Database](#connect-azure-sql-db).
@@ -38,7 +38,7 @@ Cuando el desencadenador o la acción de SQL le pidan la información de conexi�
 
 <a name="connect-sql-server"></a>
 
-### <a name="connect-to-sql-server"></a>Conexión con SQL Server
+### <a name="connect-to-sql-server"></a>Conectar a SQL Server
 
 Cuando el desencadenador o la acción de SQL le pidan la información de conexión, siga estos pasos (sirven tanto para desencadenadores como para acciones): En los escenarios en los que es necesario instalar la [puerta de enlace de datos local](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install) en un equipo local y [crear el recurso de puerta de enlace de datos de Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection), asegúrese de completar estos requisitos primero. De lo contrario, no aparecerá su recurso en la lista de puertas de enlace al crear la conexión.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: a440f702058abc25bb360111418c451d59c3ab1b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789647"
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Get started with the MailChimp connector (Introducción al conector MailChimp)
@@ -24,9 +24,9 @@ Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creaci
 
 Para crear aplicaciones lógicas con MailChimp, primero debe crear una **conexión** y, después, especificar los detalles de las siguientes propiedades:
 
-| Propiedad | Obligatorio | DESCRIPCIÓN |
+| Propiedad | Obligatorio | Descripción |
 | --- | --- | --- |
-| Se necesita el cifrado de tokens |Sí |Proporcionar las credenciales de MailChimp |
+| Token |Sí |Proporcionar las credenciales de MailChimp |
 
 > [!INCLUDE [Steps to create a connection to MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 

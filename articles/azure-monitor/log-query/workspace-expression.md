@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75364958"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Expresión workspace() en consultas de registro de Azure Monitor
@@ -24,7 +24,7 @@ La expresión `workspace` se usa en una consulta de Azure Monitor para recuperar
 
 ## <a name="arguments"></a>Argumentos
 
-- *Identificador*: Identifica el área de trabajo mediante uno de los formatos de la tabla siguiente.
+- *Identificador*: identifica el área de trabajo mediante uno de los formatos de la tabla siguiente.
 
 | Identificador | Descripción | Ejemplo
 |:---|:---|:---|

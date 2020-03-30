@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75434753"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Cómo aprovisionar para el multiinquilinato 
@@ -20,7 +20,7 @@ Las directivas de asignación definidas por el servicio de aprovisionamiento adm
 
 * **Geolocalización o geolatencia**: puesto que un dispositivo se mueve entre ubicaciones, la latencia de red se mejora mediante su aprovisionamiento en el centro de IoT más cercano a cada ubicación. En este escenario, se selecciona un grupo de centros de IoT, que abarcan varias regiones, para las inscripciones. La directiva de asignación **Latencia más baja** está seleccionada para estas inscripciones. Esta directiva hace que Device Provisioning Service evalúe la latencia del dispositivo y determine el centro de IoT más cercano del grupo de centros de IOT. 
 
-* **Servicios multiinquilino**: puede que los dispositivos que se usan en una solución de IoT se tengan que asignar a un centro de IoT o un grupo de centros de IoT específicos. La solución puede requerir que todos los dispositivos de un inquilino determinado se comuniquen con un grupo específico de centros de IoT. En algunos casos, un inquilino puede tener centros de IoT y requerir que los dispositivos se asignen a sus centros.
+* **Multiinquilinato**: puede que los dispositivos que se usan en una solución de IoT se tengan que asignar a un centro de IoT o un grupo de centros de IoT específicos. La solución puede requerir que todos los dispositivos de un inquilino determinado se comuniquen con un grupo específico de centros de IoT. En algunos casos, un inquilino puede tener centros de IoT y requerir que los dispositivos se asignen a sus centros.
 
 Es habitual combinar estos dos escenarios. Por ejemplo, una solución de IoT multiinquilino normalmente asignará los dispositivos de los inquilinos mediante un grupo de centros de IoT repartidos en regiones. Estos dispositivos de los inquilinos se pueden asignar al centro de IoT de ese grupo que tiene la menor latencia según la ubicación geográfica.
 
@@ -91,13 +91,13 @@ Para que sea más sencillo, en este artículo se usa la [atestación de clave si
 
 3. En **Agregar grupo de inscripciones**, escriba la siguiente información y haga clic en el botón **Guardar**.
 
-    **Nombre de grupo**: Escriba **contoso-us-devices**.
+    **Nombre del grupo**: escriba **contoso-us-devices**.
 
-    **Tipo de atestación**: seleccione **Clave simétrica**.
+    **Tipo de atestación**: seleccione **clave simétrica**.
 
-    **Generar claves automáticamente**: ya debe estar activada esta casilla.
+    **Generar claves automáticamente**: esta casilla ya debe estar seleccionada.
 
-    **Seleccione cómo desea asignar los dispositivos a los centros**: Seleccione **Latencia más baja**.
+    **Seleccione cómo quiere asignar los dispositivos a los centros**: seleccione **Latencia más baja**.
 
     ![Agregar grupo de inscripción multiinquilino para la atestación de clave simétrica](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 

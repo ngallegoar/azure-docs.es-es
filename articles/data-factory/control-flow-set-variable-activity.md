@@ -12,10 +12,10 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.openlocfilehash: 88500ecbc56b34551a0cbd3ca94727ba4bbcda9f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930641"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Actividad de establecimiento de variables en Azure Data Factory
@@ -24,13 +24,13 @@ Utilice la actividad de establecimiento de variables para establecer el valor de
 
 ## <a name="type-properties"></a>Propiedades de tipo
 
-Propiedad | DESCRIPCIÓN | Obligatorio
+Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
-Nombre | Nombre de la actividad en la canalización | Sí
+name | Nombre de la actividad en la canalización | Sí
 description | Texto que describe para qué se usa la actividad | no
-Tipo | El tipo de actividad es SetVariable | Sí
-value | Cadena literal o valor del objeto de expresión usado para establecer la variable especificada | Sí
-variableName | Nombre de la variable que se establecerá en esta actividad | Sí
+type | El tipo de actividad es SetVariable | sí
+value | Cadena literal o valor del objeto de expresión usado para establecer la variable especificada | sí
+variableName | Nombre de la variable que se establecerá en esta actividad | sí
 
 
 ## <a name="next-steps"></a>Pasos siguientes

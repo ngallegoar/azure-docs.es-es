@@ -1,5 +1,5 @@
 ---
-title: 'Sincronización de Azure AD Connect: Interfaz de usuario de Synchronization Service Manager | Microsoft Docs'
+title: 'Sincronización de Azure AD Connect: interfaz de usuario de Synchronization Service Manager | Microsoft Docs'
 description: Conozca Synchronization Service Manager para Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3a03b2320caa7facc04f589993907ab9b3a7703
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60381542"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Introducción a la interfaz de usuario de Azure AD Connect Synchronization Service Manager

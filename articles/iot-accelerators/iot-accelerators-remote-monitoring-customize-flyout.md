@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447121"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de un control flotante personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota
@@ -24,7 +24,7 @@ En este artículo se muestra cómo agregar un nuevo control flotante en una pagi
 
 El control flotante de ejemplo de este artículo se muestra en la página con la cuadrícula que el artículo de procedimientos [Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md) muestra cómo agregar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar los pasos de esta guía, necesita que el software siguiente esté instalado en la máquina de desarrollo local:
 
@@ -37,7 +37,7 @@ Debe completar los pasos descritos en los artículos siguientes antes de continu
 
 - [Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-page.md).
 - [Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-service.md)
-- [Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md)
+- [Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md)
 
 ## <a name="add-a-flyout"></a>Agregar un control flotante
 

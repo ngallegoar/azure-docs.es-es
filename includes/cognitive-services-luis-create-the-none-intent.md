@@ -11,10 +11,10 @@ ms.custom: include file
 ms.date: 12/21/2018
 ms.author: diberry
 ms.openlocfilehash: 355fe134939b26c51d6e03368f782845628a6b96
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186623"
 ---
 La aplicación cliente debe saber si una expresión no es significativa o adecuada para la aplicación. La intención **None** se agrega a cada aplicación como parte del proceso de creación para determinar si la aplicación cliente no puede responder a una expresión.

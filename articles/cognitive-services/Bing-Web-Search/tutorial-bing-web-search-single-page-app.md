@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación una aplicación web de una sola página (Bing Web Search API)'
+title: 'Tutorial: Crear una aplicación web de una sola página - Bing Web Search API'
 titleSuffix: Azure Cognitive Services
 description: Esta aplicación de una página muestra cómo se puede usar Bing Web Search API para recuperar, analizar y mostrar los resultados de la búsqueda pertinentes en una aplicación de una página.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943876"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Creación de una aplicación de una sola página mediante Bing Web Search API
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Crear una aplicación de una sola página con Bing Web Search API
 
 Esta aplicación de una página muestra cómo recuperar, analizar y mostrar los resultados de la búsqueda desde Bing Web Search API. El tutorial usa código HTML y CSS reutilizable y se centra en el código de JavaScript. Los archivos HTML, CSS y JS están disponibles en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) con instrucciones de inicio rápido.
 
@@ -32,7 +32,7 @@ Esta aplicación de ejemplo puede:
 
 Para usar esta aplicación, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con Bing Search API. Si no tiene una cuenta, puede usar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) para obtener una clave de suscripción.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 A continuación se detalla lo que necesitará para ejecutar la aplicación:
 

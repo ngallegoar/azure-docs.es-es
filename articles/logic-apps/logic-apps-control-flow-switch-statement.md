@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74793239"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Crear instrucciones switch que controlen las acciones de los flujos de trabajo en función de valores específicos en Azure Logic Apps
@@ -23,9 +23,9 @@ Por ejemplo, imagine que desea una aplicación lógica que lleve a cabo pasos di
 > Al igual que todos los lenguajes de programación, la instrucción switch solo admite los operadores de igualdad. Utilice una [instrucción condicional](../logic-apps/logic-apps-control-flow-conditional-statement.md) si necesita otros operadores relacionales, como "mayor que".
 > Para garantizar el comportamiento de ejecución determinístico, los casos tienen que contener un valor único y estático en lugar de expresiones o tokens dinámicos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * Para seguir el ejemplo de este artículo, [cree una aplicación lógica de ejemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) con una cuenta de Outlook.com o de Office 365 Outlook.
 
@@ -63,7 +63,7 @@ Por ejemplo, imagine que desea una aplicación lógica que lleve a cabo pasos di
 
 1. Agregue estas acciones a los casos correspondientes:
 
-   | Case nº | **SelectedOption** | . |
+   | Case nº | **SelectedOption** | Acción |
    |--------|--------------------|--------|
    | Caso 1 | **Aprobar** | Agregar la acción de Outlook **Enviar un correo electrónico** para enviar detalles sobre el elemento RSS únicamente cuando el aprobador ha seleccionado **Aprobar**. |
    | Caso 2 | **Rechazar** | Agregar la acción de Outlook **Enviar un correo electrónico** para notificar a otros aprobadores que el elemento RSS se ha rechazado. |
@@ -110,7 +110,7 @@ Ahora que ha creado una aplicación lógica mediante una instrucción switch, ec
 }
 ```
 
-| Etiqueta | DESCRIPCIÓN |
+| Etiqueta | Descripción |
 |-------|-------------|
 | `"Switch"`         | El nombre de la instrucción switch, que puede cambiar para mejorar la legibilidad |
 | `"type": "Switch"` | Especifica que la acción es una instrucción switch |

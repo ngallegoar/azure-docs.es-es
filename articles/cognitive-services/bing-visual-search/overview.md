@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
 ms.openlocfilehash: 52e3e65fb4f42530373decca547674a28a60f759
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446654"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>¿Qué es Bing Visual Search API?
@@ -57,7 +57,7 @@ Bing Visual Search API es un servicio web RESTful, por lo que resulta muy fácil
 Primero, pruebe la [demostración interactiva](https://azure.microsoft.com/services/cognitive-services/bing-visual-search/) de Bing Visual Search API.
 Esta demostración muestra cómo puede personalizar rápidamente una consulta de búsqueda y explorar la Web en busca de imágenes.
 
-Para empezar a trabajar rápidamente con la primera solicitud, consulte los artículos de inicio rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Para empezar a trabajar rápidamente con la primera solicitud, consulte las guías de inicio rápido de [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
 ## <a name="see-also"></a>Consulte también
 

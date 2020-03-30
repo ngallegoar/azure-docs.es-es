@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 8580bafd4d68ef6567b09fefcaa01c682ae2cafe
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74968806"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configuración de una directiva de autorización de claves de contenido
@@ -82,7 +82,7 @@ Puede hacer clic en el botón **Importar directiva xml** y proporcionar un archi
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 188f5c6cfbb4650ad1ff767955d064f8e0c3cb70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60756753"
 ---
 # <a name="monitor-your-azure-data-box-edge"></a>Supervisión de Azure Data Box Edge
 
 En este artículo se describe cómo supervisar Azure Data Box Edge. Para supervisar el dispositivo, puede usar Azure Portal o la interfaz de usuario web local. Use Azure Portal para ver los eventos de dispositivo, configurar y administrar las alertas, y ver las métricas. Use la interfaz de usuario web local en el dispositivo físico para ver el estado del hardware de los distintos componentes del dispositivo.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Ver los eventos de dispositivo y las alertas correspondientes
 > * Ver el estado del hardware de los componentes del dispositivo
-> * Ver las métricas de transacciones y de capacidad del dispositivo
+> * Ver las métricas de transacción y de capacidad del dispositivo
 > * Configurar y administrar las alertas
 
 ## <a name="view-device-events"></a>Ver los eventos de dispositivo

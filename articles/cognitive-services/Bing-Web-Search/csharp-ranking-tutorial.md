@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
 ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75382334"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilación de un cliente de búsqueda de aplicación de consola en C#
@@ -224,8 +224,8 @@ Antes de mostrar cómo visualizar los resultados en orden de clasificación, ech
 El objeto JSON `rankingResponse` ([documentación](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) describe el orden de presentación adecuado de los resultados de la búsqueda. Incluye uno o varios de los grupos clasificados por orden de prioridad siguientes:
 
 - `pole`: los resultados de la búsqueda para obtener el tratamiento más visible (por ejemplo, se muestran por encima de la línea principal y la barra lateral).
-- `mainline`: Los resultados de la búsqueda se muestran en la línea principal.
-- `sidebar`: los resultados de la búsqueda que se muestran en la barra lateral. Si no hay ninguna barra lateral, los resultados se muestran debajo de la línea principal.
+- `mainline`: los resultados de la búsqueda se muestran en la línea principal.
+- `sidebar`: los resultados de la búsqueda se muestran en la barra lateral. Si no hay ninguna barra lateral, los resultados se muestran debajo de la línea principal.
 
 El código JSON de respuesta de clasificación puede incluir uno o varios de los grupos.
 

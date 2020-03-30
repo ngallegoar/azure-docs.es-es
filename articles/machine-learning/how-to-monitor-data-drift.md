@@ -11,10 +11,10 @@ ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
 ms.openlocfilehash: d1da7309b296b57db0c28d5b52fe91efa86709c8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75534240"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detección del desfase de datos (versión preliminar) en modelos implementados en Azure Kubernetes Service (AKS)

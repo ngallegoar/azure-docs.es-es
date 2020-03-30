@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: beb69edc57b5a13db0f6d2e5e1536804f3472aff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75421917"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reenvío del estado de un trabajo y de transmisiones de trabajos de Automation a registros de Azure Monitor
@@ -92,7 +92,7 @@ Diagnósticos de Azure Automation crea dos tipos de registros en Azure Monitor y
 | Caller_s |La persona que inicia la operación. Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados. |
 | Tenant_g | GUID que identifica al inquilino para el llamador. |
 | JobId_g |GUID que es el identificador del trabajo de Runbook. |
-| ResultType |El estado del trabajo de Runbook. Los valores posibles son:<br>- New<br>- Created<br>Started<br>Stopped<br>Suspended<br>Con error<br>Completado |
+| ResultType |El estado del trabajo de Runbook. Los valores posibles son:<br>- New<br>- Created<br>Started<br>{1}Stopped{2}<br>Suspended<br>Con error<br>Completado |
 | Category | Clasificación del tipo de datos. Para Automation, el valor será JobLogs. |
 | OperationName | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job. |
 | Resource | Nombre de la cuenta de Automation |
@@ -140,7 +140,7 @@ Uno de los principales clientes pregunta por la capacidad para enviar un correo 
 Para crear una regla de alertas, lo primero es crear una búsqueda de registros de los registros del trabajo del runbook que deben invocar la alerta. Haga clic en el botón **Alerta** para crear y configurar la regla de alerta.
 
 1. En la página de información general del área de trabajo de Log Analytics, haga clic en **Ver registros**.
-2. Cree una consulta de búsqueda de registros para la alerta; para ello, escriba la siguiente búsqueda en el campo de la consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  También puede agrupar por RunbookName, para lo que debe usar: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. Cree una consulta de búsqueda de registros para la alerta escribiendo la siguiente búsqueda en el campo de consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`. También puede agrupar por el valor de RunbookName mediante: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`.
 
    Si configura registros de más de una cuenta de Automation o suscripción a su área de trabajo, puede agrupar las alertas por suscripción o cuenta de Automation. El nombre de la cuenta de Automation puede encontrarse en el campo Recurso en la búsqueda de JobLogs.
 3. Para abrir la pantalla **Crear regla**, haga clic en **+ Nueva regla de alertas** en la parte superior de la página. Para más información sobre las opciones para configurar la alerta, consulte [Alertas de registro en Azure](../azure-monitor/platform/alerts-unified-log.md).

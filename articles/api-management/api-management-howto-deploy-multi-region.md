@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
 ms.openlocfilehash: 5c71f37741de06b8633e7eafaae2f29823214f74
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442664"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Implementación de una instancia del servicio Azure API Management en varias regiones de Azure
@@ -31,7 +31,7 @@ Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="add-region"> </a>Implementación de una instancia del servicio Administración de API en una nueva región
+## <a name="deploy-an-api-management-service-instance-to-a-new-region"></a><a name="add-region"> </a>Implementación de una instancia del servicio Administración de API en una nueva región
 
 > [!NOTE]
 > Si todavía no ha creado una instancia del servicio API Management, consulte [Creación de una instancia del servicio API Management][create an api management service instance].
@@ -52,7 +52,7 @@ Haga clic en **Agregar** para colocar la selección en la tabla de ubicaciones.
 
 Repita este proceso hasta que haya configurado todas las ubicaciones y haga clic en **Guardar** en la barra de herramientas para iniciar el proceso de implementación.
 
-## <a name="remove-region"> </a>Eliminación de una instancia de servicio de API Management de una ubicación
+## <a name="delete-an-api-management-service-instance-from-a-location"></a><a name="remove-region"> </a>Eliminación de una instancia de servicio de API Management de una ubicación
 
 En Azure Portal, vaya a la página de **escala y precios** de su instancia de servicio de API Management.
 
@@ -62,7 +62,7 @@ Para la ubicación que desee eliminar, abra el menú contextual mediante el bot�
 
 Confirme la eliminación y haga clic en **Guardar** para aplicar los cambios.
 
-## <a name="route-backend"> </a>Enrutamiento de las llamadas API a servicios regionales back-end
+## <a name="route-api-calls-to-regional-backend-services"></a><a name="route-backend"> </a>Enrutamiento de las llamadas API a servicios regionales back-end
 
 Azure API Management incluye solo una dirección URL del servicio back-end. Aunque hay instancias de Azure API Management en varias regiones, la puerta de enlace de API sigue reenviando las solicitudes al mismo servicio back-end, que se implementa en una única región. En este caso, la ganancia de rendimiento procederá solo de las respuestas en caché a la solicitud en Azure API Management de una región específica, pero también puede generar una latencia alta al ponerse en contacto con el back-end de todo el mundo.
 
@@ -76,7 +76,7 @@ Para aprovechar completamente la distribución geográfica de su sistema, debe t
 
 4. Use `set-backend` en combinación con directivas `choose` condicionales para construir una directiva de enrutamiento adecuada en la sección `<inbound> </inbound>` del archivo.
 
-    Por ejemplo, el siguiente archivo XML sería válido para las regiones Oeste de Estados Unidos y Asia oriental:
+    Por ejemplo, el siguiente archivo XML sería válido para las regiones Oeste de EE. UU. y Este de Asia:
 
     ```xml
     <policies>
@@ -109,7 +109,7 @@ Para aprovechar completamente la distribución geográfica de su sistema, debe t
 > [!TIP]
 > También puede adelantar sus servicios de back-end con [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), dirigir las llamadas de las API a Traffic Manager y dejar que resuelva el enrutamiento automáticamente.
 
-## <a name="custom-routing"> </a>Uso del enrutamiento personalizado a puertas de enlace regionales de API Management
+## <a name="use-custom-routing-to-api-management-regional-gateways"></a><a name="custom-routing"> </a>Uso del enrutamiento personalizado a puertas de enlace regionales de API Management
 
 API Management enruta las solicitudes a una _puerta de enlace_ regional en función de la [latencia más baja](../traffic-manager/traffic-manager-routing-methods.md#performance). Aunque no es posible invalidar esta configuración en API Management, puede usar su propia instancia de Traffic Manager con reglas de enrutamiento personalizadas.
 

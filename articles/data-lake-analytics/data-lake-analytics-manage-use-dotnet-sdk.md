@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: 0a10af73d754596e9b5bb34b2974d7f1647d06f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60617714"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Administración de Azure Data Lake Analytics mediante una aplicación .NET
@@ -22,7 +22,7 @@ ms.locfileid: "60617714"
 
 En este artículo se describe cómo administrar cuentas, orígenes de datos, usuarios y trabajos de Azure Data Lake Analytics con una aplicación escrita mediante el SDK de Azure .NET. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con Visual C++ instalado**.
 * **SDK de Microsoft Azure para .NET versión 2.5 o posterior**.  Instálelo usando el [instalador de plataforma web](https://www.microsoft.com/web/downloads/platform.aspx).
@@ -123,7 +123,7 @@ graphClient.TenantID = domain;
 
 ## <a name="manage-accounts"></a>Administrar cuentas
 
-### <a name="create-an-azure-resource-group"></a>Crear un grupo de recursos de Azure
+### <a name="create-an-azure-resource-group"></a>Creación de un grupo de recursos de Azure
 
 Si aún no ha creado ninguno, debe tener un grupo de recursos de Azure para crear los componentes de Data Lake Analytics. Necesita las credenciales de autenticación, el identificador de la suscripción y una ubicación. El código siguiente muestra cómo crear un grupo de recursos:
 

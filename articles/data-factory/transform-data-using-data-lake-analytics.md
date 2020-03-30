@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: 257c71f7994b889540ec8cc5d0f384f3f8894f4d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74913270"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformación de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que se usa:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-usql-activity.md)
 > * [Versión actual](transform-data-using-data-lake-analytics.md)
 
@@ -34,13 +34,13 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 
 En la siguiente tabla se ofrecen descripciones de las propiedades genéricas que se usan en la definición de JSON. 
 
-| Propiedad                 | DESCRIPCIÓN                              | Obligatorio                                 |
+| Propiedad                 | Descripción                              | Obligatorio                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. | Sí                                      |
 | **accountName**          | Nombre de la cuenta de Análisis de Azure Data Lake  | Sí                                      |
-| **dataLakeAnalyticsUri** | Identificador URI de Análisis de Azure Data Lake.           | Sin                                       |
-| **subscriptionId**       | Identificador de suscripción de Azure                    | Sin                                       |
-| **resourceGroupName**    | Nombre del grupo de recursos de Azure                | Sin                                       |
+| **dataLakeAnalyticsUri** | Identificador URI de Análisis de Azure Data Lake.           | No                                       |
+| **subscriptionId**       | Identificador de suscripción de Azure                    | No                                       |
+| **resourceGroupName**    | Nombre del grupo de recursos de Azure                | No                                       |
 
 ### <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
 El servicio vinculado de Azure Data Lake Analytics requiere una autenticación de entidad de servicio para conectarse al servicio Azure Data Lake Analytics. Para usar la autenticación de la entidad de servicio, registre una entidad de aplicación en Azure Active Directory (Azure AD) y concédale acceso a Data Lake Analytics y al almacén de Data Lake Store que utiliza. Consulte [Autenticación entre servicios](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) para ver los pasos detallados. Anote los siguientes valores; los usará para definir el servicio vinculado:
@@ -53,13 +53,13 @@ Conceda permiso de entidad de seguridad de servicio a su instancia de Azure Data
 
 Para usar la autenticación de la entidad de servicio, especifique las siguientes propiedades:
 
-| Propiedad                | DESCRIPCIÓN                              | Obligatorio |
+| Propiedad                | Descripción                              | Obligatorio |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Especifique el id. de cliente de la aplicación.     | Sí      |
 | **servicePrincipalKey** | Especifique la clave de la aplicación.           | Sí      |
 | **tenant**              | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí      |
 
-**Ejemplo: Autenticación de entidad de servicio**
+**Ejemplo: autenticación de la entidad de servicio**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -117,19 +117,19 @@ El siguiente fragmento JSON define una canalización con una actividad U-SQL de 
 
 En la tabla siguiente se describen los nombres y descripciones de las propiedades que son específicas de esta actividad. 
 
-| Propiedad            | DESCRIPCIÓN                              | Obligatorio |
+| Propiedad            | Descripción                              | Obligatorio |
 | :------------------ | :--------------------------------------- | :------- |
-| Nombre                | Nombre de la actividad en la canalización     | Sí      |
-| description         | Texto que describe para qué se usa la actividad.  | Sin       |
-| Tipo                | Para la actividad U-SQL de Data Lake Analytics, el tipo de actividad es **DataLakeAnalyticsU-SQL**. | Sí      |
+| name                | Nombre de la actividad en la canalización     | Sí      |
+| description         | Texto que describe para qué se usa la actividad.  | No       |
+| type                | Para la actividad U-SQL de Data Lake Analytics, el tipo de actividad es **DataLakeAnalyticsU-SQL**. | Sí      |
 | linkedServiceName   | Servicio vinculado a Azure Data Lake Analytics. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  |Sí       |
 | scriptPath          | Ruta de acceso a la carpeta que contiene el script U-SQL. El nombre del archivo distingue mayúsculas de minúsculas. | Sí      |
 | scriptLinkedService | Servicio vinculado que vincula la instancia de **Azure Data Lake Store** o **Azure Storage** que contiene el script a la factoría de datos. | Sí      |
-| degreeOfParallelism | Número máximo de nodos que se usará de forma simultánea para ejecutar el trabajo. | Sin       |
-| priority            | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | Sin       |
-| parameters          | Parámetros para pasar el script de U-SQL.    | Sin       |
-| runtimeVersion      | Versión en tiempo de ejecución del motor de U-SQL que se usará. | Sin       |
-| compilationMode     | <p>Modo de compilación de U-SQL. Debe ser uno de los valores siguientes: **Semantic:** solo realiza comprobaciones semánticas y comprobaciones de integridad necesarias. **Full:** realiza la compilación completa (comprobación de sintaxis, optimización, generación de código, etc.), **SingleBox:** realiza la compilación completa, con la opción TargetType establecida en SingleBox. Si no se especifica ningún valor para esta propiedad, el servidor determina el modo de compilación óptimo. | Sin |
+| degreeOfParallelism | Número máximo de nodos que se usará de forma simultánea para ejecutar el trabajo. | No       |
+| priority            | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | No       |
+| parámetros          | Parámetros para pasar el script de U-SQL.    | No       |
+| runtimeVersion      | Versión en tiempo de ejecución del motor de U-SQL que se usará. | No       |
+| compilationMode     | <p>Modo de compilación de U-SQL. Debe ser uno de estos valores: **Semántico:** solo realiza comprobaciones de semántica y comprobaciones de integridad necesarias, **Completo:** realiza la compilación completa, incluida la comprobación de sintaxis, optimización, generación de código, etc., **SingleBox:** realiza la compilación completa, con la opción TargetType establecida en SingleBox. Si no se especifica ningún valor para esta propiedad, el servidor determina el modo de compilación óptimo. | No |
 
 Para ver la definición del script, consulte [SearchLogProcessing.txt](#sample-u-sql-script). 
 
@@ -190,7 +190,7 @@ En este caso, los archivos de entrada se siguen tomando de la carpeta /datalake/
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
-* [Actividad Hive](transform-data-using-hadoop-hive.md)
+* [Actividad de Hive](transform-data-using-hadoop-hive.md)
 * [Actividad de Pig](transform-data-using-hadoop-pig.md)
 * [Actividad de MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)

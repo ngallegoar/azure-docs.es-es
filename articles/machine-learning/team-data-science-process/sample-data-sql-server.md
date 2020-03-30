@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 71a2ec9dc4d644fb8739db3817e2cd1d09913da7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76717649"
 ---
-# <a name="heading"></a>Muestreo de datos en SQL Server en Azure
+# <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Muestreo de datos en SQL Server en Azure
 
 En este artículo se trata cómo realizar una muestra de datos almacenados en SQL Server en Azure con SQL o con el lenguaje de programación Python. También se muestra cómo mover los datos de muestra a Azure Machine Learning guardándolos en un archivo, cargándolos en un blob de Azure y leyéndolos en Azure Machine Learning Studio.
 
@@ -34,7 +34,7 @@ Si el conjunto de datos que pretende analizar es grande, es recomendable reducir
 
 Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="SQL"></a>Uso de SQL
+## <a name="using-sql"></a><a name="SQL"></a>Uso de SQL
 En esta sección se describen varios métodos con SQL para realizar un muestreo aleatorio simple con los datos de la base de datos. Elija un método basado en el tamaño de los datos y su distribución.
 
 Los dos elementos siguientes muestran cómo utilizar `newid` en SQL Server para realizar el muestreo. El método que elija depende de lo aleatoria que desee que sea la muestra (se supone que pk_id en el código de ejemplo siguiente es una clave principal generada automáticamente).
@@ -59,12 +59,12 @@ Tablesample se puede usar igualmente para el muestreo de datos. Esta opción pod
 > 
 > 
 
-### <a name="sql-aml"></a>Conexión con Azure Machine Learning
+### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conexión con Azure Machine Learning
 Puede utilizar directamente las consultas de ejemplo anteriores en el módulo para [importar datos][import-data] de Azure Machine Learning para reducir los datos sobre la marcha y usarlos en un experimento de Azure Machine Learning. Aquí se muestra una captura de pantalla con el uso del módulo del lector para leer los datos de muestreo:
 
 ![lector sql][1]
 
-## <a name="python"></a>Uso del lenguaje de programación Python
+## <a name="using-the-python-programming-language"></a><a name="python"></a>Uso del lenguaje de programación Python
 En esta sección se muestra cómo usar la [biblioteca pyodbc](https://code.google.com/p/pyodbc/) para establecer una conexión de ODBC a una base de datos de SQL Server en Python. La cadena de conexión de la base de datos se muestra a continuación: (reemplace servername, dbname, username y password por su configuración):
 
     #Set up the SQL Azure connection
@@ -80,7 +80,7 @@ La biblioteca [Pandas](https://pandas.pydata.org/) en Python ofrece un amplio co
 
 Ahora puede trabajar con los datos de muestreo en la trama de datos de Pandas. 
 
-### <a name="python-aml"></a>Conexión con Azure Machine Learning
+### <a name="connecting-to-azure-machine-learning"></a><a name="python-aml"></a>Conexión con Azure Machine Learning
 Puede usar el siguiente código de ejemplo para guardar los datos muestreados reducidos en un archivo y cargarlos en un blob de Azure. Los datos en el blob pueden leerse directamente en un experimento de Azure Machine Learning mediante el módulo de [importar datos][import-data]. Los pasos son los siguientes: 
 
 1. Escribir la trama de datos de Pandas en un archivo local

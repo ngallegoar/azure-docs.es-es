@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2019
 ms.author: kumud
 ms.openlocfilehash: 1c27af30f97ea967d170b2cccaefb2e95f8fedaf
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900741"
 ---
 # <a name="dissociate-a-public-ip-address-from-an-azure-vm"></a>Desasociación de una dirección IP pública de una máquina virtual de Azure 
@@ -27,7 +27,7 @@ Para disociar una dirección IP pública de una máquina virtual, puede usar [Az
 
 ## <a name="azure-portal"></a>Portal de Azure
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Busque o vaya a la máquina virtual de la que desea disociar la dirección IP pública y selecciónela.
 3. En la página de la máquina virtual, seleccione **Información general** y, después, la dirección IP pública, como se muestra en la imagen siguiente:
 
@@ -39,7 +39,7 @@ Para disociar una dirección IP pública de una máquina virtual, puede usar [Az
 
 5. En **Desasociar dirección IP pública**, seleccione **Sí**.
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Instale la [CLI de Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) o use Azure Cloud Shell. Azure Cloud Shell es un shell de Bash gratuito que se puede ejecutar directamente en Azure Portal. Tiene la CLI de Azure preinstalada y configurada para utilizarla con la cuenta. Seleccione el botón **Probar** en los comandos siguientes de la CLI. Al seleccionar **Probar**, se invoca una instancia de Cloud Shell con la que puede iniciar sesión en la cuenta de Azure.
 

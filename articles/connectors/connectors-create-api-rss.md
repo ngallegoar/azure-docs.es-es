@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789348"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Administración de fuentes RSS mediante Azure Logic Apps
@@ -25,9 +25,9 @@ RSS (Rich Site Summary), también llamado Really Simple Syndication, es un forma
 
 Puede utilizar un desencadenador RSS que obtiene respuestas de una fuente RSS y hace que la salida esté disponible para otras acciones. Puede usar una acción de RSS en las aplicaciones lógicas para realizar una tarea con la fuente RSS. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * La dirección URL de una fuente RSS
 

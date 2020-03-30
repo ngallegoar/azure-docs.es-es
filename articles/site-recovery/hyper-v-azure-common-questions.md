@@ -4,10 +4,10 @@ description: En este artículo se resumen preguntas comunes sobre la configuraci
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75498195"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Preguntas comunes: recuperación ante desastres de Hyper-V a Azure
@@ -222,7 +222,7 @@ Una vez que la infraestructura local está activa y ejecutándose, puede conmuta
 
 1. Puede iniciar una conmutación por error planeada desde Azure en el sitio local con un par de opciones diferentes:
 
-    - Minimizar el tiempo de inactividad: si usa esta opción, Site Recovery sincroniza los datos antes de la conmutación por error. Comprueba si hay bloques de datos que han cambiado y los descarga en el sitio local, mientras la máquina virtual de Azure se sigue ejecutando, lo que minimiza el tiempo de inactividad. Cuando especifica manualmente que la conmutación por error se debe completar, la máquina virtual de Azure se apaga, los cambios de deferencias finales se copian y se inicia la conmutación por error.
+    - Minimizar el tiempo de inactividad: si usa esta opción Site Recovery sincroniza los datos antes de la conmutación por error. Comprueba si hay bloques de datos que han cambiado y los descarga en el sitio local, mientras la máquina virtual de Azure se sigue ejecutando, lo que minimiza el tiempo de inactividad. Cuando especifica manualmente que la conmutación por error se debe completar, la máquina virtual de Azure se apaga, los cambios de deferencias finales se copian y se inicia la conmutación por error.
     - Descarga completa: con esta opción, los datos se sincronizan durante la conmutación por error. Esta opción descarga todo el disco. Es más rápido porque no se calculan las sumas de comprobación, pero hay más tiempo de inactividad. Utilice esta opción si ha ejecutado la réplica de máquinas virtuales de Azure durante algún tiempo, o si se ha eliminado la máquina virtual local.
 
 2. Puede seleccionar conmutar por recuperación en la misma máquina virtual o en otra alternativa. Puede especificar que Site Recovery deba crear la máquina virtual si aún no existe.

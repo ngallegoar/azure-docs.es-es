@@ -4,10 +4,10 @@ description: En este artículo se describe cómo puede detener la supervisión d
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.openlocfilehash: eff5203aeedd3c7ad283b55ba12f0e45a556460d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250729"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure con Azure Monitor para contenedores

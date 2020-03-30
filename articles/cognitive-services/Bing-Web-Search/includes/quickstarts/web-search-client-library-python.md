@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 019abc79091527b105238ef83bfca1913fae600b
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925778"
 ---
 La biblioteca cliente de Bing Web Search facilita la integración de Bing Web Search en la aplicación de Python. En esta guía de inicio rápido, aprenderá a enviar una solicitud, recibir una respuesta JSON, y filtrar y analizar los resultados.
@@ -20,7 +20,7 @@ La biblioteca cliente de Bing Web Search facilita la integración de Bing Web Se
 ¿Desea ver el código ahora mismo? En GitHub se encuentran disponibles ejemplos de [bibliotecas cliente de Bing Search para Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/search).
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 El SDK de Bing Web Search es compatible con Python 2.7, 3.3, 3.4, 3.5 y 3.6. Se recomienda usar un entorno virtual para esta guía de inicio rápido.
 
 * Python 2.7, 3.3, 3.4, 3.5 o 3.6

@@ -14,15 +14,15 @@ ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
 ms.openlocfilehash: e13149ba802f0f8b9a565e0aabd86ae05167f18b
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78208830"
 ---
 # <a name="supported-platforms"></a>Plataformas compatibles 
 
-## Máquinas virtuales/servidores <a name="vm-server"></a>
+## <a name="virtual-machines--servers"></a>Máquinas virtuales/servidores <a name="vm-server"></a>
 
 Security Center admite máquinas virtuales/servidores en diferentes tipos de entornos híbridos:
 
@@ -38,7 +38,7 @@ En el caso de un entorno de Azure activado en una suscripción de Azure, Azure S
 
 En las secciones siguientes se enumeran los sistemas operativos de servidor admitidos en los que se puede ejecutar el [agente de log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent), utilizado por Azure Security Center.
 
-### Sistemas operativos Windows Server <a name="os-windows"></a>
+### <a name="windows-server-operating-systems"></a>Sistemas operativos Windows Server <a name="os-windows"></a>
 
 |SO|Compatible con Azure Security Center|Compatibilidad para la integración con Microsoft Defender ATP|
 |:---|:-:|:-:|
@@ -49,17 +49,17 @@ En las secciones siguientes se enumeran los sistemas operativos de servidor admi
 
 Para obtener más información acerca de las características admitidas para los sistemas operativos Windows, enumerados anteriormente, consulte [Características compatibles con máquinas virtuales y servidores](security-center-services.md#vm-server-features).
 
-### Sistemas operativos Windows <a name="os-windows (non-server)"></a>
+### <a name="windows-operating-systems"></a>Sistemas operativos Windows <a name="os-windows (non-server)"></a>
 
 Azure Security Center se integra con servicios de Azure para supervisar y proteger las máquinas virtuales Windows.
 
-### Sistemas operativos Linux <a name="os-linux"></a>
+### <a name="linux-operating-systems"></a>Sistemas operativos Linux <a name="os-linux"></a>
 
 64 bits
 
 * CentOS 6 y 7
 * Amazon Linux 2017.09
-* Oracle Linux 6 y Oracle Linux 7
+* Oracle Linux 6 y Oracle Linux 7
 * Red Hat Enterprise Linux Server 6 y 7
 * Debian GNU/Linux 8 y 9
 * Ubuntu Linux 14.04 LTS, 16.04 LTS y 18.04 LTS
@@ -77,11 +77,11 @@ Azure Security Center se integra con servicios de Azure para supervisar y proteg
 
 Para obtener más información acerca de las características admitidas para los sistemas operativos Linux, enumerados anteriormente, consulte [Características compatibles con máquinas virtuales y servidores](security-center-services.md#vm-server-features).
 
-### Servicios de máquinas virtuales administradas <a name="virtual-machine"></a>
+### <a name="managed-virtual-machine-services"></a>Servicios de máquinas virtuales administradas <a name="virtual-machine"></a>
 
 También se crean máquinas virtuales en una suscripción de cliente como parte de algunos servicios administrados de Azure, como Azure Kubernetes (AKS), Azure Databricks, etc. Estas máquinas virtuales también se detectan por Azure Security Center, y el agente de Log Analytics se puede instalar y configurar según los [sistemas operativos Windows/Linux](#os-windows) admitidos, que se indican más arriba.
 
-### Cloud Services <a name="cloud-services"></a>
+### <a name="cloud-services"></a>Cloud Services <a name="cloud-services"></a>
 
 También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de trabajo y web de servicios en la nube que se ejecutan en espacios de producción. Para más información sobre Cloud Services, consulte la [información general sobre Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 

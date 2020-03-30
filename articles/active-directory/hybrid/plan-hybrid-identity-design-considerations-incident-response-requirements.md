@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 52b5e37c29e4b3df3f171f683266b5d0a3e0c95d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109277"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de respuesta a incidentes para su solución de identidad híbrida
@@ -67,6 +67,6 @@ Durante la fase de control de daños y reducción de riesgos, es importante redu
 ## <a name="next-steps"></a>Pasos siguientes
 [Definición de la estrategia de protección de datos](plan-hybrid-identity-design-considerations-data-protection-strategy.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

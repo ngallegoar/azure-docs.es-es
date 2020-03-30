@@ -4,10 +4,10 @@ description: Use Azure Resource Manager para mover los recursos de implementaci�
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 78b9769a31fa0c96c12e18d05cb9c484aa52a1d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75476618"
 ---
 # <a name="move-guidance-for-classic-deployment-model-resources"></a>Guía para mover los recursos del modelo de implementación clásica

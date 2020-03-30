@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 70eb81b6d13c57a7ebc131244c7aa318cb2b2fd4
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74871268"
 ---
 # <a name="azure-cosmos-db-sql-query-execution"></a>Ejecución de consultas SQL en Azure Cosmos DB
 
-Cualquier lenguaje capaz de hacer solicitudes HTTP/HTTPS puede llamar a la API de REST de Cosmos DB. Cosmos DB también ofrece bibliotecas de programación para los lenguajes de programación .NET, Node.js, JavaScript y Python. La API REST y las bibliotecas admiten consultas con SQL, y el SDK de .NET también admite [consultas LINQ](sql-query-linq-to-sql.md).
+Cualquier lenguaje capaz de hacer solicitudes HTTP/HTTPS puede llamar a la API REST de Cosmos DB. Cosmos DB también ofrece bibliotecas de programación para los lenguajes de programación .NET, Node.js, JavaScript y Python. La API REST y las bibliotecas admiten consultas con SQL, y el SDK de .NET también admite [consultas LINQ](sql-query-linq-to-sql.md).
 
 En los ejemplos siguientes se muestra cómo crear una consulta y enviarla a una cuenta de la base de datos de Cosmos.
 
-## <a id="REST-API"></a>API DE REST
+## <a name="rest-api"></a><a id="REST-API"></a>API DE REST
 
 Cosmos DB ofrece un modelo de programación RESTful sobre HTTP. El modelo de recursos consta de un conjunto de recursos en una cuenta de base de datos, que una suscripción a Azure aprovisiona. La cuenta de base de datos consta de un conjunto de *bases de datos*, cada una de las cuales puede contener varios *contenedores* que, a su vez, contienen *elementos*, funciones definidas por el usuario y otros tipos de recursos. Cada recurso de Cosmos DB es direccionable mediante un URI lógico y estable. Un conjunto de recursos se denomina *fuente*. 
 
@@ -147,9 +147,9 @@ Si los resultados de una consulta no caben en una sola página, la API REST devu
 
 Si una consulta tiene una función de agregación como COUNT, la página de consulta puede devolver un valor parcialmente agregado sobre una sola página de resultados. Los clientes deben realizar una agregación de segundo nivel con estos resultados para generar los resultados finales. Por ejemplo, sume los recuentos devueltos en las páginas individuales para devolver el recuento total.
 
-Para administrar la directiva de coherencia de datos para las consultas, use el encabezado `x-ms-consistency-level` como en todas las solicitudes de la API REST. La coherencia de sesión también requiere devolver el último encabezado de cookie `x-ms-session-token` en la solicitud de la consulta. La directiva de indexación del contenedor consultado también puede afectar a la coherencia de los resultados de la consulta. En el caso de los contenedores, con la configuración de la directiva de indexación predeterminada, el índice siempre está actualizado con el contenido del elemento, y los resultados de la consulta coinciden con la coherencia elegida para los datos. Para más información, consulte [Niveles de coherencia de Azure Cosmos DB][consistency-levels].
+Para administrar la directiva de coherencia de datos para las consultas, use el encabezado `x-ms-consistency-level` como en todas las solicitudes de la API REST. La coherencia de sesión también requiere devolver el último encabezado de cookie `x-ms-session-token` en la solicitud de la consulta. La directiva de indexación del contenedor consultado también puede afectar a la coherencia de los resultados de la consulta. En el caso de los contenedores, con la configuración de la directiva de indexación predeterminada, el índice siempre está actualizado con el contenido del elemento y los resultados de la consulta coinciden con la coherencia elegida para los datos. Para más información, consulte [Niveles de coherencia de Azure Cosmos DB][consistency-levels].
 
-Si la directiva de indexación configurada en el contenedor no puede admitir la consulta especificada, el servidor de Azure Cosmos DB devuelve el error 400 "Solicitud incorrecta". Este mensaje de error se devuelve para las consultas donde las rutas de acceso se han excluido explícitamente de la indexación. Puede especificar el encabezado `x-ms-documentdb-query-enable-scan` para permitir que la consulta realice un examen si algún índice no está disponible.
+Si la directiva de indexación configurada en el contenedor no puede admitir la consulta especificada, el servidor de Azure Cosmos DB devuelve el error 400 "Solicitud incorrecta". Este mensaje de error se devuelve para las consultas donde las rutas de acceso se han excluido explícitamente de la indexación. Puede especificar el encabezado `x-ms-documentdb-query-enable-scan` para permitir que la consulta realice un examen si algún índice no está disponible.
 
 Puede obtener métricas detalladas sobre la ejecución de consultas si establece el encabezado `x-ms-documentdb-populatequerymetrics` en `true`. Para más información, vea [SQL query metrics for Azure Cosmos DB](sql-api-query-metrics.md) (Métricas de consulta de SQL para la API de Azure Cosmos DB).
 
@@ -247,9 +247,9 @@ Puede controlar expresamente la paginación creando `IDocumentQueryable` mediant
 
 Para obtener más ejemplos de .NET con consultas, consulte los [ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3) en GitHub.
 
-## <a id="JavaScript-server-side-API"></a>API del servidor de JavaScript
+## <a name="javascript-server-side-api"></a><a id="JavaScript-server-side-API"></a>API del servidor de JavaScript
 
-Azure Cosmos DB proporciona un modelo de programación para [ejecutar la lógica de aplicación basada en JavaScript](stored-procedures-triggers-udfs.md) directamente en contenedores mediante desencadenadores y procedimientos almacenados. La lógica de JavaScript registrada a nivel de contenedor puede emitir operaciones de base de datos en los elementos del contenedor especificado, encapsulados en transacciones ACID ambientales.
+Azure Cosmos DB proporciona un modelo de programación para [ejecutar la lógica de aplicación basada en JavaScript](stored-procedures-triggers-udfs.md) directamente en contenedores mediante desencadenadores y procedimientos almacenados. La lógica de JavaScript registrada en los contenedores puede emitir operaciones de base de datos en los elementos del contenedor especificado, encapsulados en transacciones ACID ambientales.
 
 En el ejemplo siguiente se muestra cómo usar `queryDocuments` en la API del servidor de JavaScript para hacer consultas a partir de desencadenadores y procedimientos almacenados:
 

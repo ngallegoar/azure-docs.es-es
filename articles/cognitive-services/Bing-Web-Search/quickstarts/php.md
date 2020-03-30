@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Realizar una búsqueda con PHP: Bing Web Search API'
+title: 'Inicio rápido: Realizar una búsqueda con PHP - Bing Web Search API'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía de inicio rápido para enviar solicitudes a la API de REST Bing Web Search mediante PHP y reciba una respuesta JSON.
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169722"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Inicio rápido: Uso de PHP para llamar a Bing Web Search API  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Guía de inicio rápido: Uso de PHP para llamar a Bing Web Search API  
 
 Use este inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON. Esta aplicación de Node.js envía una solicitud de búsqueda a la API y muestra la respuesta. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 

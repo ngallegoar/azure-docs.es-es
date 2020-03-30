@@ -8,10 +8,10 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: b251096915506c3c7a4eebf45b6a03e24779a3d8
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277799"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(EN DESUSO) Administrar un clúster DC/OS de Azure Container Service mediante la interfaz de usuario web de Marathon
@@ -34,7 +34,7 @@ Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado 
 >
 
 ## <a name="explore-the-dcos-ui"></a>Exploración de la interfaz de usuario de DC/OS
-Acceda a http:\//localhost/ con un túnel de Secure Shell (SSH) [establecido](../container-service-connect.md). Con ello, se cargará la interfaz de usuario web de DC/OS y aparecerá información acerca del clúster, como los recursos usados, los agentes activos y los servicios en ejecución.
+Acceda a http:[/localhost/ con un túnel de Secure Shell (SSH) ](../container-service-connect.md)establecido\/. Con ello, se cargará la interfaz de usuario web de DC/OS y aparecerá información acerca del clúster, como los recursos usados, los agentes activos y los servicios en ejecución.
 
 ![Interfaz de usuario de DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 

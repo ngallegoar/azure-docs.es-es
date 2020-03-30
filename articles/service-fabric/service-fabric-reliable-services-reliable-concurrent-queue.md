@@ -4,10 +4,10 @@ description: ReliableConcurrentQueue es una cola de alto rendimiento que permite
 ms.topic: conceptual
 ms.date: 5/1/2017
 ms.openlocfilehash: a7115db8259fde0e87e53557ecef730f8e82d2fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75462728"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introducción a ReliableConcurrentQueue en Azure Service Fabric
@@ -21,7 +21,7 @@ La cola simultánea confiable es una cola asincrónica, transaccional y replicad
 | bool TryDequeue(out T result)  | Task< ConditionalValue < T > > TryDequeueAsync(ITransaction tx)  |
 | int Count()                    | long Count()                                                     |
 
-## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>Comparación con la [cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx)
+## <a name="comparison-with-reliable-queue"></a>Comparación con la [cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 
 La cola simultánea confiable se ofrece como una alternativa a la [cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx). Debe usarse en aquellos casos en que no se requiere la ordenación FIFO estricta, ya que para garantizar FIFO se requiere un compromiso con la simultaneidad.  [La cola confiable](https://msdn.microsoft.com/library/azure/dn971527.aspx) usa bloqueos para aplicar la ordenación FIFO, y como máximo permite poner en cola una transacción y quitar de cola una transacción a la vez. En comparación, la cola simultánea confiable relaja la restricción de ordenación y permite que cualquier número de transacciones simultáneas intercalen las operaciones de puesta en cola y eliminación de la cola. Aunque se ofrece la ordenación de mejor esfuerzo, la ordenación relativa de dos valores nunca se puede garantizar en una cola simultánea confiable.
 
@@ -99,7 +99,7 @@ Supongamos que las tareas se completaron correctamente, que se ejecutaron en par
 A continuación, se muestran algunos fragmentos de código para usar TryDequeueAsync, seguido de los resultados previstos. Supongamos que la cola ya se rellenó con los siguientes elementos:
 > 10, 20, 30, 40, 50, 60
 
-- *Caso 1: Tarea para quitar de la cola única*
+- *Caso 1: Tarea de quitar de la cola única*
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -114,7 +114,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 Supongamos que la tarea se completó correctamente y que no hubo ninguna transacción simultánea que modificara la cola. Puesto que no puede realizarse ninguna inferencia acerca del orden de los elementos de la cola, cualquiera de los tres elementos se puede quitar de la cola, en cualquier orden. La cola intentará mantener los elementos en el orden original (en cola), pero es posible que deba reordenarlos debido a las operaciones simultáneas o errores.  
 
-- *Caso 2: Tarea de quitar de la cola paralela*
+- *Caso 2: Tarea de eliminación de la cola paralela*
 
 ```
 // Parallel Task 1
@@ -142,7 +142,7 @@ Supongamos que las tareas se completaron correctamente, que se ejecutaron en par
 
 El mismo elemento *no* aparecerá en ambas listas. Por lo tanto, si dequeue1 tiene *10*, *30*, dequeue2 tendrá *20*, *40*.
 
-- *Caso 3: Ordenación de eliminación de la cola con anulación de transacción*
+- *Caso 3: Ordenación de eliminación de la cola con anulación de transacción*
 
 Al anular una transacción con eliminaciones de la cola en marcha, se vuelven a colocar los elementos al principio de la cola. No se garantiza el orden en el que los elementos se vuelven a colocar al principio de la cola. Veamos el código siguiente:
 

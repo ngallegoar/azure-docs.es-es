@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
 ms.openlocfilehash: 99bf1068042eb7ab0c43e2a683ca7116d2e426f3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442498"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>Autorización de solicitudes mediante el autorizador externo
