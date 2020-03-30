@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: f5939251729905d349b79a94411cf87e3873b279
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 8bacadd8941131f608411e61cc15c120c1b2bc60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742077"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458161"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Implementación con Terraform de Bash en Azure Cloud Shell
-Este artículo le guía en la creación de un grupo de recursos con el [proveedor de AzureRM de Terraform](https://www.terraform.io/docs/providers/azurerm/index.html). 
+Este artículo le guía en la creación de un grupo de recursos con el [proveedor de AzureRM de Terraform](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-[Terraform de Hashicorp](https://www.terraform.io/) es una herramienta de código abierto que codifica las API en archivos de configuración declarativos que se pueden compartir entre los miembros del equipo para editarlos, revisarlos y controlar sus versiones. El proveedor de Microsoft AzureRM se usa para interactuar con los recursos admitidos por Azure Resource Manager mediante las API de AzureRM. 
+[Terraform de Hashicorp](https://www.terraform.io/) es una herramienta de código abierto que codifica las API en archivos de configuración declarativos que se pueden compartir entre los miembros del equipo para editarlos, revisarlos y controlar sus versiones. El proveedor de Microsoft AzureRM se usa para interactuar con los recursos admitidos por Azure Resource Manager mediante las API de AzureRM.
 
 ## <a name="automatic-authentication"></a>Autenticación automática
 Terraform se instala en Bash en Cloud Shell de forma predeterminada. Además, Cloud Shell autentica automáticamente la suscripción predeterminada de la CLI de Azure para implementar los recursos mediante los módulos de Azure de Terraform.
@@ -147,7 +147,7 @@ El [comando terraform apply](https://www.terraform.io/docs/commands/apply.html) 
 ### <a name="verify-deployment-with-azure-cli"></a>Comprobación de la implementación con la CLI de Azure
 Ejecute `az group show -n myRgName` para comprobar que el recurso se ha aprovisionado correctamente.
 
-```azcliinteractive
+```azurecli-interactive
 az group show -n myRgName
 ```
 

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 10/24/2019
 ms.author: diberry
 ms.openlocfilehash: dccf034b6497651db70b6cc09fff3f1b1d645a1b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73506803"
 ---
 # <a name="batch-testing-tsv-format"></a>Pruebas por lotes de formato TSV
@@ -53,7 +53,7 @@ Utilice la siguiente información para comprender e implementar el formato TSV p
 |KBID|Identificador de KB que se encuentra en la página de publicación.|
 |Pregunta|Pregunta tal como se especificó en el archivo de entrada.|
 |Respuesta|Respuesta principal de Knowledge Base.|
-|Id. de respuesta|Identificador de la respuesta.|
+|Identificador de la respuesta.|Identificador de la respuesta.|
 |Score|Puntuación de predicción para la respuesta. |
 |Etiquetas de metadatos|Asociadas a la respuesta devuelta.|
 |Identificador de respuesta esperado|Opcional (solo cuando se proporciona el identificador de respuesta esperado).|

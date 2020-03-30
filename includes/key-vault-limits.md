@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 2d16febd4676ca7ba763eb7bc6dcecda4608ebb5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74224578"
 ---
 #### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transacciones clave (n.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup>):
 
 |Tipo de clave|Clave HSM<br>Clave CREATE|Clave HSM<br>Las restantes transacciones|Clave de software<br>Clave CREATE|Clave de software<br>Las restantes transacciones|
 |:---|---:|---:|---:|---:|
-|2048 bits de RSA|5|1000|10|2\.000|
+|2048 bits de RSA|5|1,000|10|2\.000|
 |3072 bits de RSA|5|250|10|500|
 |4096 bits de RSA|5|125|10|250|
-|ECC P-256|5|1000|10|2\.000|
-|ECC P-384|5|1000|10|2\.000|
-|ECC P-521|5|1000|10|2\.000|
-|ECC SECP256K1|5|1000|10|2\.000|
+|ECC P-256|5|1,000|10|2\.000|
+|ECC P-384|5|1,000|10|2\.000|
+|ECC P-521|5|1,000|10|2\.000|
+|ECC SECP256K1|5|1,000|10|2\.000|
 
 > [!NOTE]
 > En la tabla anterior, vemos que para las claves de software de 2048 bits RSA, se permiten 2000 transacciones GET cada 10 segundos. Para las claves HSM de 2048 bits RSA, se permiten 1000 transacciones GET cada 10 segundos.

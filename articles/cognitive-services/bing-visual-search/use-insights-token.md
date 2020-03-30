@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.openlocfilehash: 251197c456ece4fe2dbbe264219d52f3502b7492
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67341718"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Uso de un token de información para obtener los detalles de una imagen
@@ -65,7 +65,7 @@ Para ver ejemplos que usan el token de información, consulte [C#](#use-with-c) 
 ### <a name="c-prerequisites"></a>Requisitos previos de C#
 
 - Cualquier versión de [Visual Studio 2019](https://www.visualstudio.com/downloads/) para obtener este código que se ejecuta en Windows.
-- Una suscripción de Azure. Para este inicio rápido, puede usar una clave de suscripción de [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una clave de suscripción de pago.
+- Suscripción a Azure. Para este inicio rápido, puede usar una clave de suscripción de [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una clave de suscripción de pago.
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 

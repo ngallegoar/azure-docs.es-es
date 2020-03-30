@@ -5,17 +5,17 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 675ad278cb8bdc0ced4eff3bd77572f44c9808fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68857496"
 ---
 En esta sección, se actualiza el código del proyecto de back-end de Mobile Apps existente con el objetivo de enviar una notificación push cada vez que se agrega un nuevo elemento. Este proceso funciona con la característica de [plantillas](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) de Azure Notification Hubs, que permite inserciones multiplataforma. Los diversos clientes se registran para recibir notificaciones push mediante plantillas, y una solo notificación push puede acceder a todas las plataformas de cliente.
 
 Elija uno de los procedimientos siguientes que se ajuste al tipo de proyecto de back-end&mdash;: [back-end de .NET](#dotnet) o [back-end de Node.js](#nodejs).
 
-### <a name="dotnet"></a>Proyecto de back-end de .NET
+### <a name="net-back-end-project"></a><a name="dotnet"></a>Proyecto de back-end de .NET
 
 1. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor. A continuación, seleccione **Administrar paquetes NuGet**. Busque `Microsoft.Azure.NotificationHubs` y, después, seleccione **Instalar**. Este proceso instala la biblioteca de Notification Hubs para enviar notificaciones desde el back-end.
 2. En el proyecto de servidor, abra **Controladores** > **TodoItemController.cs**. Luego, agregue las siguientes instrucciones using:
@@ -68,7 +68,7 @@ Elija uno de los procedimientos siguientes que se ajuste al tipo de proyecto de 
 
 4. Vuelva a publicar el proyecto de servidor.
 
-### <a name="nodejs"></a>Proyecto de back-end de Node.js
+### <a name="nodejs-back-end-project"></a><a name="nodejs"></a>Proyecto de back-end de Node.js
 
 1. Configure el proyecto de back-end.
 2. Reemplace el código existente en el archivo todoitem.js por el siguiente:

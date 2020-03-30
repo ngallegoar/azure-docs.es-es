@@ -8,11 +8,11 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 684b30a24e049722cb531cbc84e3a2cd90912ec8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932634"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228280"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Adición o eliminación de un punto de conexión de servidor de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -21,7 +21,7 @@ Un *punto de conexión de servidor* representa una ubicación específica en un 
 
 Para más información sobre cómo implementar Azure File Sync de un extremo a otro, vea [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para crear un punto de conexión de servidor, primero debe asegurarse de que se cumplen los criterios siguientes: 
 - El servidor tiene instalado el agente de Azure File Sync y se ha registrado. Puede encontrar instrucciones para instalar el agente de Azure File Sync en el artículo [Registro y cancelación del registro de un servidor con Azure File Sync](storage-sync-files-server-registration.md). 
 - Asegúrese de que se ha implementado un servicio de sincronización de almacenamiento. Para más información sobre cómo implementar un servicio de sincronización de almacenamiento, vea [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync). 
@@ -35,9 +35,9 @@ Para agregar un punto de conexión de servidor, vaya al grupo de sincronización
 
 La siguiente información es necesaria en **Agregar punto de conexión del servidor**:
 
-- **Servidor registrado**: el nombre del servidor o el clúster en el que crear el punto de conexión de servidor.
-- **Ruta de acceso**: la ruta de acceso de la instancia de Windows Server que se va a sincronizar como parte del grupo de sincronización.
-- **Nube por niveles**: un conmutador para habilitar o deshabilitar la nube por niveles. Cuando está habilitada, la característica de niveles de nube *apilará* los archivos en los recursos compartidos de archivos de Azure. Esto convierte los recursos compartidos de archivos locales en una caché, en lugar de en una copia completa del conjunto de datos, para ayudarlo a administrar la eficiencia del espacio en su servidor.
+- **Servidor registrado**: nombre del servidor o el clúster en el que crear el punto de conexión de servidor.
+- **Ruta de acceso**: ruta de acceso del servidor de Windows Server que se va a sincronizar como parte del grupo de sincronización.
+- **Niveles de la nube**: un conmutador para habilitar o deshabilitar los niveles de la nube. Cuando está habilitada, la característica de niveles de nube *apilará* los archivos en los recursos compartidos de archivos de Azure. Esto convierte los recursos compartidos de archivos locales en una caché, en lugar de en una copia completa del conjunto de datos, para ayudarlo a administrar la eficiencia del espacio en su servidor.
 - **Espacio disponible del volumen**: cantidad de espacio libre que se reserva en el volumen en el que reside el punto de conexión de servidor. Por ejemplo, si el espacio disponible del volumen se establece en el 50 % en un volumen con un único punto de conexión de servidor, casi la mitad de la cantidad de datos se coloca en niveles en Azure Files. Con independencia de si la característica de niveles en la nube está habilitada, el recurso compartido de archivos de Azure siempre tiene una copia completa de los datos en el grupo de sincronización.
 
 Seleccione **Crear** para agregar el punto de conexión de servidor. Los archivos de un espacio de nombres de un grupo de sincronización se mantienen ahora sincronizados. 

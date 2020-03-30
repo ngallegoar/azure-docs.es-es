@@ -10,10 +10,10 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74671685"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la implementación en Web Apps en Azure
@@ -33,7 +33,7 @@ Para obtener más información, vea cómo [implementar la aplicación en App Ser
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Veo un mensaje de error al intentar implementar desde Visual Studio. ¿Cómo se resuelve este problema?
 
-Si ve el mensaje siguiente, es posible que esté usando una versión anterior del SDK: “Error during deployment for resource 'YourResourceName' in resource group 'YourResourceGroup': MissingRegistrationForLocation: The subscription is not registered for the resource type 'components' in the location 'Central US'. Vuelva a registrar este proveedor a fin de obtener acceso a esta ubicación". 
+Si ve el mensaje siguiente, es posible que esté usando una versión antigua del SDK: "Error durante la implementación para el recurso 'YourResourceName' del grupo de recursos 'YourResourceGroup': MissingRegistrationForLocation. La suscripción no está registrada para el tipo de recurso 'componentes' en la ubicación 'Centro de EE. UU.'. Vuelva a registrar este proveedor a fin de obtener acceso a esta ubicación". 
 
 Para resolver este error, actualice al [SDK más reciente](https://azure.microsoft.com/downloads/). Si ve este mensaje y tiene el SDK más reciente, envíe una solicitud de soporte técnico.
 
@@ -68,8 +68,8 @@ Para solucionar problemas de FTP:
 
 1. Compruebe que el nombre de host y las credenciales que ha especificado sean correctos. Para obtener información detallada sobre los distintos tipos de credenciales y cómo usarlas, vea [Deployment credentials](https://github.com/projectkudu/kudu/wiki/Deployment-credentials) (Credenciales de implementación).
 2. Compruebe que los puertos FTP no estén bloqueados por un firewall. Los puertos deben tener estos valores de configuración:
-    * Puerto de conexión de control de FTP: 21
-    * Puerto de conexión de datos de FTP: 989, 10001-10300
+    * Puerto de conexión de control FTP: 21
+    * Puerto de conexión de datos FTP: 989, 10001-10300
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>¿Cómo publico mi código en App Service?
 

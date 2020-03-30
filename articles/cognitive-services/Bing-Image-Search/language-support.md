@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68881917"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Compatibilidad de idiomas y regiones para Bing Image Search API
@@ -57,7 +57,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 |México|MX|
 |Países Bajos|NL|
 |Nueva Zelanda|NZ|
-|Noruega|NO|
+|Noruega|No|
 |China|CN|
 |Polonia|PL|
 |Portugal|PT|
@@ -79,12 +79,12 @@ También puede especificar el país o región utilizando el parámetro de consul
 |País/región|Idioma|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Español|es-AR|
-|Australia|English|en-AU|
+|Australia|Inglés|en-AU|
 |Austria|Alemán|de-AT|
 |Bélgica|Neerlandés|nl-BE|
 |Bélgica|Francés|fr-BE|
 |Brasil|Portugués|pt-BR|
-|Canadá|English|en-CA|
+|Canadá|Inglés|en-CA|
 |Canadá|Francés|fr-CA|
 |Chile|Español|es-CL|
 |Dinamarca|Danés|da-DK|
@@ -92,30 +92,30 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Francia|Francés|fr-FR|
 |Alemania|Alemán|de-DE|
 |RAE de Hong Kong|Chino tradicional|zh-HK|
-|India|English|en-IN|
-|Indonesia|English|en-ID|
+|India|Inglés|en-IN|
+|Indonesia|Inglés|en-ID|
 |Italia|Italiano|it-IT|
 |Japón|Japonés|ja-JP|
 |Corea|Coreano|ko-KR|
-|Malasia|English|en-MY|
+|Malasia|Inglés|en-MY|
 |México|Español|es-MX|
 |Países Bajos|Neerlandés|nl-NL|
-|Nueva Zelanda|English|en-NZ|
+|Nueva Zelanda|Inglés|en-NZ|
 |China|Chino|zh-CN|
 |Polonia|Polaco|pl-PL|
 |Portugal|Portugués|pt-PT|
-|Filipinas|English|en-PH|
+|Filipinas|Inglés|en-PH|
 |Rusia|Ruso|ru-RU|
 |Arabia Saudí|Árabe|ar-SA|
-|Sudáfrica|English|en-ZA|
+|Sudáfrica|Inglés|en-ZA|
 |España|Español|es-ES|
 |Suecia|Sueco|sv-SE|
 |Suiza|Francés|fr-CH|
 |Suiza|Alemán|de-CH|
 |Taiwán|Chino tradicional|zh-TW|
 |Turquía|Turco|tr-TR|
-|Reino Unido|English|en-GB|
-|Estados Unidos|English|en-US|
+|Reino Unido|Inglés|en-GB|
+|Estados Unidos|Inglés|es-ES|
 |Estados Unidos|Español|es-US|
 
 ## <a name="next-steps"></a>Pasos siguientes

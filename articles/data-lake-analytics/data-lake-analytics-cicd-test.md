@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 08/30/2019
 ms.openlocfilehash: d568a267952a22d2e7a6b7acb6d54cf41f803367
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70913959"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Prueba del código de Azure Data Lake Analytics
@@ -110,7 +110,7 @@ Después de llamar a las funciones de UDO, puede comprobar los valores schema y 
 
 Después de compilar el proyecto, seleccione **Probar** > **Windows** > **TestExplorer**. Puede ejecutar casos de prueba desde el **Explorador de pruebas**. Como alternativa, haga clic con el botón derecho en el archivo .cs de la prueba unitaria y seleccione **Ejecutar pruebas**.
 
-## Ejecución de casos de prueba en Azure Pipelines<a name="run-test-cases-in-azure-devops"></a>
+## <a name="run-test-cases-in-azure-pipelines"></a>Ejecución de casos de prueba en Azure Pipelines<a name="run-test-cases-in-azure-devops"></a>
 
 Tanto los **proyectos de prueba para el script de U-SQL** como los **proyectos de prueba de UDO de C#** heredan los proyectos de prueba unitaria de C#. La [tarea de prueba de Visual Studio](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts) en Azure Pipelines puede ejecutar estos casos de prueba.
 

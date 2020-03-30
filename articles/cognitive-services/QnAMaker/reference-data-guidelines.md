@@ -4,10 +4,10 @@ description: Comprenda cómo se usan los tipos de direcciones URL para importar 
 ms.topic: reference
 ms.date: 01/02/2020
 ms.openlocfilehash: 6560a43a6fbcf9fbd2ce021d782f00f916442bfd
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651802"
 ---
 # <a name="import-and-export-data-reference"></a>Referencia de importación y exportación de datos

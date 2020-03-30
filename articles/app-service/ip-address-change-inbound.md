@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 999511c4759ee761f028a61fbfaa0310ac93d9b4
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672414"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Preparación de un cambio de dirección IP de entrada
@@ -17,13 +17,13 @@ Si recibe una notificación indicándole que se van a cambiar las direcciones IP
 
 ## <a name="determine-if-you-have-to-do-anything"></a>Determinar si es necesario realizar alguna acción por su parte
 
-* Opción 1: Si la aplicación de App Service no tiene un dominio personalizado, no se requiere ninguna acción.
+* Opción 1: si la aplicación de App Service no tiene un dominio personalizado, no se requiere ninguna acción.
 
-* Opción 2: Si solo se configura un registro CNAME (registro DNS que apunta a un URI) en el portal de registro de dominios (proveedor de DNS de terceros o Azure DNS), no se requiere ninguna acción.
+* Opción 2: si solo se configura un registro CNAME (registro DNS que apunta a un URI) en el portal de registro de dominios (proveedor de DNS de terceros o Azure DNS), no se requiere ninguna acción.
 
-* Opción 3: Si se configura un registro A (registro DNS que apunta directamente a la dirección IP) en el portal de registro de dominios (proveedor de DNS de terceros o Azure DNS), reemplace la dirección IP existente por una nueva. Para encontrar la nueva dirección IP, siga las instrucciones de la sección siguiente.
+* Opción 3: si se configura un registro A (registro DNS que apunta directamente a la dirección IP) en el portal de registro de dominios (proveedor de DNS de terceros o Azure DNS), reemplace la dirección IP existente por una nueva. Para encontrar la nueva dirección IP, siga las instrucciones de la sección siguiente.
 
-* Opción 4: Si la aplicación está detrás de un equilibrador de carga, filtro de direcciones IP o cualquier otro mecanismo de IP que requiera una dirección IP de la aplicación, reemplace la dirección IP existente por una nueva. Para encontrar la nueva dirección IP, siga las instrucciones de la sección siguiente.
+* Opción 4: si la aplicación está detrás de un equilibrador de carga, filtro de direcciones IP o cualquier otro mecanismo de IP que requiera una dirección IP de la aplicación, reemplace la dirección IP existente por una nueva. Para encontrar la nueva dirección IP, siga las instrucciones de la sección siguiente.
 
 ## <a name="find-the-new-inbound-ip-address-in-the-azure-portal"></a>Busque la nueva dirección IP de entrada en Azure Portal
 

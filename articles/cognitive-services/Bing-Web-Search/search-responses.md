@@ -12,10 +12,10 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74110619"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos y estructura de las respuestas de Bing Web Search API  
@@ -290,13 +290,13 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 Una expresión matemática puede contener los siguientes símbolos:
 
-|Símbolo|DESCRIPCIÓN|
+|Símbolo|Descripción|
 |------------|-----------------|
 |+|Suma|
 |-|Resta|
 |/|División|
 |*|Multiplicación|
-|^|Potencia|
+|^|Power|
 |!|Factorial|
 |.|Decimal|
 |()|Agrupación de precedencia|
@@ -304,17 +304,17 @@ Una expresión matemática puede contener los siguientes símbolos:
 
 Una expresión matemática puede contener las siguientes constantes:
 
-|Símbolo|DESCRIPCIÓN|
+|Símbolo|Descripción|
 |------------|-----------------|
 |Pi|3.14159...|
-|Degree|Grado|
+|Grado|Grado|
 |i|Número imaginario|
 |e|e, 2.71828...|
 |GoldenRatio|Proporción áurea, 1.61803...|
 
 Una expresión matemática puede contener las siguientes funciones:
 
-|Símbolo|DESCRIPCIÓN|
+|Símbolo|Descripción|
 |------------|-----------------|
 |Sort|Raíz cuadrada|
 |Sen[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funciones trigonométricas (con argumentos en radianes)|
@@ -477,6 +477,6 @@ A continuación se muestra cómo utiliza Bing la sugerencia ortográfica.
 
 * Revisión de la documentación de [limitación de solicitudes](throttling-requests.md).  
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Consulte también  
 
 * [Referencia de Bing Web Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

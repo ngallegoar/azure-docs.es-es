@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: kgremban
 ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929701"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233196"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente
 
@@ -343,9 +343,9 @@ IoT Hub anota este registro cuando le llega un mensaje que contiene propiedades 
 
 En este caso, no se calcula `durationMs` dado que es posible que el reloj de IoT Hub no esté sincronizado con el reloj del dispositivo y, por tanto, el cálculo de la duración puede ser engañoso. Se recomienda escribir la lógica mediante las marcas de tiempo de la sección `properties` para capturar los picos en la latencia de dispositivo a nube.
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Integer | Tamaño del mensaje de dispositivo a nube en bytes. |
+| **messageSize** | Entero | Tamaño del mensaje de dispositivo a nube en bytes. |
 | **deviceId** | Cadena de caracteres alfanuméricos ASCII de 7 bits. | Identidad del dispositivo |
 | **callerLocalTimeUtc** | Marca de tiempo UTC | Hora de creación del mensaje según el reloj local del dispositivo. |
 | **calleeLocalTimeUtc** | Marca de tiempo UTC | Hora de llegada del mensaje a la puerta de enlace de IoT Hub según el reloj del lado de servicio de IoT Hub. |
@@ -377,10 +377,10 @@ IoT Hub anota este registro cuando un mensaje que contiene propiedades de seguim
 
 En la sección `properties`, este registro contiene información adicional sobre la entrada de mensajes.
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Cadena | Verdadero o falso, indica si está habilitado el enrutamiento de mensajes en IoT Hub. |
-| **parentSpanId** | Cadena | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes D2C. |
+| **isRoutingEnabled** | String | Verdadero o falso, indica si está habilitado el enrutamiento de mensajes en IoT Hub. |
+| **parentSpanId** | String | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes D2C. |
 
 ##### <a name="iot-hub-egress-logs"></a>Registros de salida de IoT Hub
 
@@ -409,11 +409,11 @@ IoT Hub anota este registro cuando está habilitado el [enrutamiento](iot-hub-de
 
 En la sección `properties`, este registro contiene información adicional sobre la entrada de mensajes.
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | Cadena | Nombre del punto de conexión de enrutamiento. |
-| **endpointType** | Cadena | Tipo del punto de conexión de enrutamiento. |
-| **parentSpanId** | Cadena | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes de entrada de IoT Hub. |
+| **endpointName** | String | Nombre del punto de conexión de enrutamiento. |
+| **endpointType** | String | Tipo del punto de conexión de enrutamiento. |
+| **parentSpanId** | String | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes de entrada de IoT Hub. |
 
 #### <a name="configurations"></a>Configurations
 
@@ -540,7 +540,7 @@ Azure IoT Hub indica el estado de mantenimiento a nivel regional. Si una interru
 
 Para comprobar el mantenimiento de los recursos de IoT Hub, siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Vaya a **Estado del servicio** > **Resource Health**.
 

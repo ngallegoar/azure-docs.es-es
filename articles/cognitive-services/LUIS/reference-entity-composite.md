@@ -11,15 +11,15 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71695167"
 ---
 # <a name="composite-entity"></a>Entidad compuesta 
 
-Una entidad compuesta consta de otras entidades, como las entidades precompiladas, expresiones simples y regulares, y entidades de lista. Las entidades independientes forman una entidad completa. 
+Una entidad compuesta consta de otras entidades, como las entidades pregeneradas, expresiones simples y regulares, y entidades de lista. Las entidades independientes forman una entidad completa. 
 
 **Esta entidad es la opción ideal cuando los datos:**
 
@@ -41,7 +41,7 @@ Fíjese en que `2`, el número, y `cairo`, el valor de ToLocation, contienen pal
 
 ![Entidad compuesta](./media/luis-concept-data-extraction/composite-entity.png)
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 Las entidades compuestas se devuelven en una matriz `compositeEntities` y todas las entidades dentro de la composición también se devuelven en la matriz `entities`:
 
@@ -89,9 +89,9 @@ Las entidades compuestas se devuelven en una matriz `compositeEntities` y todas 
   ]
 ```    
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
-Este es el valor JSON si se establece `verbose=false` en la cadena de consulta:
+Este es el valor JSON si `verbose=false` se establece en la cadena de consulta:
 
 ```json
 "entities": {
@@ -108,7 +108,7 @@ Este es el valor JSON si se establece `verbose=false` en la cadena de consulta:
 }
 ```
 
-Este es el valor JSON si se establece `verbose=true` en la cadena de consulta:
+Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 
 ```json
 "entities": {
@@ -172,7 +172,7 @@ Este es el valor JSON si se establece `verbose=true` en la cadena de consulta:
 * * * 
 
 
-|Objeto de datos|Nombre de entidad|Valor|
+|Objeto de datos|Nombre de entidad|Value|
 |--|--|--|
 |Entidad creada previamente de número|"builtin.number"|"2"|
 |Entidad precompilada: GeographyV2|"Location::ToLocation"|"cairo"|

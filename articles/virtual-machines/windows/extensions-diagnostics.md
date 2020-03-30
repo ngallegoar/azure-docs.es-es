@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
 ms.openlocfilehash: d4ba3e8bbdad72f10c630a056f988ec83e9b1a68
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471625"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensión de Azure Diagnostics para máquinas virtuales de Windows
@@ -25,7 +25,7 @@ ms.locfileid: "77471625"
 
 La extensión de máquinas virtuales de Azure Diagnostics le permite recopilar datos de supervisión como, por ejemplo, contadores de rendimiento y registros de eventos, de la máquina virtual Windows. Puede especificar de forma granular qué datos desea recopilar y dónde desea que estos vayan como, por ejemplo, a una cuenta de Azure Storage o a una instancia de Azure Event Hubs. También puede usar estos datos para generar gráficos en Azure Portal o crear alertas de métricas.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="operating-system"></a>Sistema operativo
 

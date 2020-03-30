@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68594894"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Uso del método TransformText
 
 > [!NOTE]
-> Este método está obsoleto. No está disponible en la versión 3.0 de Translator Text API.
+> Este método es desusado. No está disponible en la versión 3.0 de Translator Text API.
 
 El método TransformText es una función de normalización de texto para los medios sociales, que devuelve una forma normalizada de la entrada. El método se puede utilizar como un paso de preprocesamiento de traducción automática u otras aplicaciones que esperan un texto de entrada limpio que no se encuentra normalmente en el contenido de los medios sociales o generado por el usuario. La función actualmente solo funciona con texto en inglés.
 
@@ -28,9 +28,9 @@ El método es un servicio RESTful que usa GET a través de HTTP. Admite la seria
 
 ## <a name="parameters"></a>Parámetros
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |:---|:---|
-| Encabezado de autorización | **Obligatorio** Encabezado HTTP utilizado para identificar la aplicación. Usar la clave: "Autorización" y el valor: "Portador" + " " + token de acceso. Para obtener más información, vaya aquí.|
+| Encabezado de autorización | **Obligatorio** Encabezado HTTP utilizado para identificar la aplicación. Clave de uso: "autorización" y el valor: "Portador" + " " + token de acceso. Para obtener más información, vaya aquí.|
 | language | **Obligatorio** Una cadena que representa el código de idioma. Este parámetro solo admite inglés con **en** como nombre del idioma.|
 | category | **Opcional** Una cadena que contiene la categoría o el dominio de la traducción. Este parámetro admite solo la opción predeterminada **general**.|
 | sentence | **Necesario** Una frase que desee corregir. |

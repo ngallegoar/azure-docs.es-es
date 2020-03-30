@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 37917e0ed663675677f1d0452b5796120ca2694e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75466856"
 ---
 ### <a name="azure-storage-linked-service"></a>Servicio vinculado de Azure Storage
@@ -19,7 +19,7 @@ El servicio vinculado de **Azure Storage** le permite vincular una cuenta de Azu
 | type |La propiedad type debe establecerse en: **AzureStorage** |Sí |
 | connectionString |Especifique la información necesaria para conectarse a Almacenamiento de Azure para la propiedad connectionString. |Sí |
 
-Para obtener más información sobre cómo recuperar las claves de acceso de la cuenta de almacenamiento, consulte [Administración de claves de acceso de la cuenta de almacenamiento](../articles/storage/common/storage-account-keys-manage.md).
+Para más información sobre cómo recuperar las claves de acceso de las cuentas de almacenamiento, consulte [Administración de claves de acceso de cuentas de almacenamiento](../articles/storage/common/storage-account-keys-manage.md).
 
 **Ejemplo**:  
 

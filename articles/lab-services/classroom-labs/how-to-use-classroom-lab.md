@@ -10,16 +10,16 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
-ms.date: 09/19/2019
+ms.date: 03/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 2ac9e8b8d0635eceb7d4f85ad867b102f7d064f5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585126"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501920"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Acceso a un laboratorio de clase en Azure Lab Services
 En este artículo se describe cómo registrarse en un laboratorio educativo, ver todos los laboratorios a los que puede acceder, iniciar o detener una máquina virtual en el laboratorio y conectarse a la máquina virtual. 
@@ -60,29 +60,6 @@ En este artículo se describe cómo registrarse en un laboratorio educativo, ver
     3. Puede usar **SSH** o **RDP** (si está habilitado) para conectarse a máquinas virtuales **Linux**. Para más información, consulte el artículo sobre la [Habilitación de la conexión a Escritorio remoto para máquinas Linux](how-to-enable-remote-desktop-linux.md). 
     1. Si usa un **equipo Mac** para conectarse a la máquina virtual del laboratorio, siga las instrucciones de la sección siguiente. 
 
-## <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Conexión a una máquina virtual mediante RDP en un equipo Mac
-En esta sección se muestra cómo un alumno puede conectarse a una máquina virtual desde un equipo Mac mediante RDP.
-
-### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>Paso 1: Instalar Escritorio remoto de Microsoft en un equipo Mac
-1. Abra App Store en el equipo Mac y busque **Escritorio remoto de Microsoft**.
-
-    ![Escritorio remoto de Microsoft](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
-1. Instale la versión más reciente de Escritorio remoto de Microsoft. 
-
-### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>Paso 2: Acceder a la máquina virtual desde el equipo Mac con RDP
-1. Abra el archivo **RDP** que se descarga en el equipo con **Escritorio remoto de Microsoft** instalado. Debe empezar a conectarse a la máquina virtual. 
-
-    ![Conexión con una máquina virtual](../media/how-to-use-classroom-lab/connect-linux-vm.png)
-1. Seleccione **Continuar** si recibe la advertencia siguiente. 
-
-    ![Advertencia de certificado](../media/how-to-use-classroom-lab/certificate-error.png)
-1. Debería ver la máquina virtual. 
-
-    > [!NOTE]
-    > El ejemplo siguiente es para una máquina virtual Linux de CentOS. 
-
-    ![máquina virtual](../media/how-to-use-classroom-lab/vm-ui.png)
-
 ## <a name="progress-bar"></a>Barra de progreso 
 La barra de progreso del icono muestra el número de horas usadas en relación con el número de [horas de cuota](how-to-configure-student-usage.md#set-quotas-for-users) que tiene asignadas. Este tiempo es el tiempo adicional que se le asigna además del tiempo programado para el laboratorio. El color de la barra de progreso y el texto en la barra de progreso varía según los siguientes escenarios:
 
@@ -111,7 +88,7 @@ Después de registrarse en los laboratorios, puede ver todos los laboratorios ed
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 - [Como administrador, crear y administrar cuentas de laboratorio](how-to-manage-lab-accounts.md)
 - [Como propietario del laboratorio, crear y administrar laboratorios](how-to-manage-classroom-labs.md)

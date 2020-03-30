@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: b4be79338db71ad83204fae971da0b77885a8070
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74280923"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Procedimientos recomendados para crear aplicaciones de Language Understanding (LUIS)
@@ -36,7 +36,7 @@ No expanda las expresiones hasta que el conjunto actual de expresiones de ejempl
 ## <a name="do-and-dont"></a>Qué se debe hacer y qué no
 En la lista siguiente, se incluyen los procedimientos recomendados para las aplicaciones de LUIS:
 
-|Sí|No|
+|Lo que es necesario hacer:|Lo que debe evitar:|
 |--|--|
 |[Definir diferentes intenciones](#do-define-distinct-intents)<br>[Agregar descriptores a intenciones](#do-add-descriptors-to-intents) |[Agregar varias expresiones de ejemplo a las intenciones](#dont-add-many-example-utterances-to-intents)<br>[Usar unas pocas entidades sencillas](#dont-use-few-or-simple-entities) |
 |[Buscar un punto óptimo entre ser demasiado genérico y demasiado específico para cada intención](#do-find-sweet-spot-for-intents)|[Usar LUIS como una plataforma de aprendizaje](#dont-use-luis-as-a-training-platform)|
@@ -141,7 +141,7 @@ Esta es la intención de reserva, que indica todo lo que está fuera de la aplic
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Aprovechar la característica de sugerencia para un aprendizaje activo
 
-Use la **revisión de las expresiones del punto de conexión** del [aprendizaje activo](luis-how-to-review-endpoint-utterances.md) de forma habitual, en lugar de agregar más expresiones de ejemplo a las intenciones. Dado que la aplicación recibe de forma constante expresiones de punto de conexión, esta lista crece y cambia.
+Use la [revisión de las expresiones del punto de conexión](luis-how-to-review-endpoint-utterances.md) del **aprendizaje activo** de forma habitual, en lugar de agregar más expresiones de ejemplo a las intenciones. Dado que la aplicación recibe de forma constante expresiones de punto de conexión, esta lista crece y cambia.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Supervisar el rendimiento de la aplicación
 

@@ -9,10 +9,10 @@ ms.date: 07/30/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: b248bbb526baf355faf2564358884fd83422b037
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77565099"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md) admite la autenticación basada en identidades mediante el Bloque de mensajes del servidor (SMB) con [Azure Active Directory Domain Services (Azure AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (versión preliminar) y [Azure AD Domain Services (Azure AD DS)](../articles/active-directory-domain-services/overview.md) (disponibilidad general). En este artículo se describe el modo en que Azure Files puede aprovechar los servicios de dominio, ya sea de forma local o en Azure, para admitir el acceso basado en identidad a Azure Files a través de SMB. Esto le permite reemplazar fácilmente los servidores de archivos existentes por Azure Files y seguir usando el servicio de directorio existente, mientras se mantiene un acceso de usuario sin problemas a los recursos compartidos. 

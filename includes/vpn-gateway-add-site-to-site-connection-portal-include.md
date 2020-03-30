@@ -9,10 +9,10 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5149973fe63f867b49e55c970779c005e12536b9
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68780155"
 ---
 1. Abra la página de la puerta de enlace de red virtual. Hay varias formas de navegar. Para navegar a la puerta de enlace, vaya a **Nombre de la red virtual -> Información general -> Dispositivos conectados -> Nombre de la puerta de enlace**.
@@ -21,10 +21,10 @@ ms.locfileid: "68780155"
    ![Creación de una conexión de sitio a sitio](./media/vpn-gateway-add-site-to-site-connection-portal-include/configure-site-to-site-connection.png)
 3. En la página **Agregar conexión**, configure los valores de la conexión.
 
-   - **Nombre:** asigne un nombre a la conexión.
-   - **Tipo de conexión**: seleccione **Sitio a sitio (IPSec)** .
-   - **Puerta de enlace de red virtual:** el valor es fijo porque se conecta desde esta puerta de enlace.
-   - **Puerta de enlace de red local:** haga clic en **Elegir una puerta de enlace de red local** y seleccione la puerta de enlace de red local que quiere utilizar.
+   - **Nombre**: asigne un nombre a la conexión.
+   - **Tipo de conexión:** seleccione **Sitio a sitio (IPSec)** .
+   - **Puerta de enlace de red virtual:**  el valor es fijo porque se conecta desde esta puerta de enlace.
+   - **Puerta de enlace de red local:** haga clic en **Elegir una puerta de enlace de red local** y seleccione la puerta de enlace de red local que desea utilizar.
    - **Clave compartida:** este valor debe ser el mismo que el que usa para el dispositivo VPN local. En el ejemplo se usa "abc123", pero puede (y debería) utilizar algo más complejo. Lo importante es que el valor que especifique aquí debe ser el mismo que el que se especificó al configurar el dispositivo VPN.
    - Los restantes valores de **Suscripción**, **Grupo de recursos** y **Ubicación** son fijos.
 

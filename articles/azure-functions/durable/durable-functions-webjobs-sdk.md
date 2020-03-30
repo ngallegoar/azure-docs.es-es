@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: d8dd0c86fbc520d0bd3ef6034891bd9871774b4a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232739"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Procedimiento para ejecutar Durable Functions como WebJobs
@@ -21,7 +21,7 @@ En la versión 3.x del SDK de WebJobs, el host es una implementación de `IHost`
 
 El ejemplo de encadenamiento de Durable Functions está disponible en la versión 2.x del SDK de WebJobs: descargue o clone el [repositorio de Durable Functions](https://github.com/azure/azure-functions-durable-extension/) y vaya a la carpeta *samples\\webjobssdk\\chaining*.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este artículo se supone que está familiarizado con los conceptos básicos del SDK de WebJobs, el desarrollo de bibliotecas de clase de C# para Azure Functions y Durable Functions. Si necesita una presentación de estos temas, consulte los siguientes recursos:
 
@@ -31,7 +31,7 @@ En este artículo se supone que está familiarizado con los conceptos básicos d
 
 Para completar los pasos de este artículo:
 
-* [Instale Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) con la carga de trabajo de **desarrollo de Azure**.
+* [Instale Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/) con la carga de trabajo de **desarrollo de Azure**.
 
   Si ya tiene Visual Studio pero no tiene esa carga de trabajo, agréguela mediante la selección de **Herramientas** > **Obtener herramientas y características**.
 

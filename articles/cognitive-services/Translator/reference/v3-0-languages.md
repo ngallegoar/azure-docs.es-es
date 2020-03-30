@@ -11,13 +11,13 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73835832"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Lenguajes
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Idiomas
 
 Obtiene el conjunto de idiomas admitidos actualmente por otras operaciones de Translator Text API. 
 
@@ -34,7 +34,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 
 <table width="100%">
   <th width="20%">Parámetro de consulta</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>api-version</td>
     <td><em>Parámetro obligatorio</em>.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
@@ -49,7 +49,7 @@ Los encabezados de solicitud son:
 
 <table width="100%">
   <th width="20%">encabezados</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>Accept-Language</td>
     <td>*Encabezado de solicitud opcional*.<br/>Idioma que se usará para las cadenas de la interfaz de usuario. Algunos de los campos de la respuesta son nombres de idiomas o regiones. Utilice este parámetro para definir el idioma en que se devolverán los nombres. El idioma se especifica al proporcionar una etiqueta de idioma BCP 47 con el formato correcto. Por ejemplo, utilice el valor `fr` para solicitar nombres en francés o utilice el valor `zh-Hant` para solicitar nombres en chino tradicional.<br/>Los nombres se proporcionan en inglés cuando no se especifica un idioma de destino o cuando la localización no está disponible.
@@ -57,7 +57,7 @@ Los encabezados de solicitud son:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Encabezado de solicitud opcional*.<br/>GUI generado por el cliente para identificar de forma única la solicitud.</td>
+    <td>*Encabezado de solicitud opcional*.<br/>GUID generado por el cliente para identificar de forma única la solicitud.</td>
   </tr>
 </table> 
 
@@ -230,7 +230,7 @@ La lista de idiomas admitidos no cambiará con frecuencia. Para ahorrar ancho de
 
 <table width="100%">
   <th width="20%">encabezados</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>ETag</td>
     <td>Valor actual de la etiqueta de entidad para los grupos de idiomas admitidos solicitados. Para mejorar la eficacia de solicitudes posteriores, el cliente puede enviar el valor `ETag` en un campo de encabezado `If-None-Match`.
@@ -248,10 +248,10 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
 
 <table width="100%">
   <th width="20%">Código de estado</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>200</td>
-    <td>Correcta.</td>
+    <td>Correcto.</td>
   </tr>
   <tr>
     <td>304</td>

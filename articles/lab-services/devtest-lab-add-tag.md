@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/13/2019
 ms.author: spelluru
 ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72302803"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Agregar etiquetas a un laboratorio de Azure DevTest Labs
@@ -28,7 +28,7 @@ Puede crear etiquetas personalizadas y aplicarlas a los recursos de DevTest Labs
 Estos son los recursos en los que se pueden usar etiquetas:
 
 * Máquinas virtuales de Compute
-* Tarjetas de red
+* NIC
 * Direcciones IP
 * Equilibradores de carga
 * Cuentas de almacenamiento
@@ -40,7 +40,7 @@ Cada etiqueta se compone de un par **nombre**/**valor**. Por ejemplo, se podría
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Pasos para administrar etiquetas en un laboratorio existente
 
-1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si es necesario, seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista. Puede que su laboratorio ya aparezca en el panel, en **Todos los recursos**.
 1. En la lista de laboratorios, seleccione aquel en el que quiera agregar o administrar etiquetas.
 1. En el área **Introducción** del laboratorio, seleccione **Configuración y directivas**.

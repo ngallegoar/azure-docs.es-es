@@ -12,11 +12,11 @@ ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901211"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219066"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adición de una charla a la base de conocimiento
 
@@ -46,7 +46,7 @@ Los conjuntos de datos de charlas se admiten en los siguientes idiomas:
 |Idioma|
 |--|
 |Chino|
-|English|
+|Inglés|
 |Francés|
 |Alemania|
 |Italiano|

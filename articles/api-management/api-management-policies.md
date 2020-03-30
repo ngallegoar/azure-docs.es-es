@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: 2b6e056fbfb134f0b1218b4281b9f971a0e24202
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71219474"
 ---
 # <a name="api-management-policies"></a>Directivas de administración de API
@@ -26,7 +26,7 @@ En esta sección se proporciona una referencia para las siguientes directivas de
   
  Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de API Management, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control](api-management-advanced-policies.md#choose) y [Establecer variable](api-management-advanced-policies.md#set-variable) se basan en expresiones de directiva. Para más información, consulte [Directivas avanzadas](api-management-advanced-policies.md#AdvancedPolicies) y [Expresiones de directiva](api-management-policy-expressions.md).  
   
-##  <a name="ProxyPolicies"></a> Directivas  
+##  <a name="policies"></a><a name="ProxyPolicies"></a> Directivas  
   
 -   [Directivas de restricción de acceso](api-management-access-restriction-policies.md#AccessRestrictionPolicies)  
     -   [Activar encabezado HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) : aplica la existencia o el valor de un encabezado HTTP.  
@@ -76,7 +76,7 @@ En esta sección se proporciona una referencia para las siguientes directivas de
     -   [Establecer encabezado HTTP](api-management-transformation-policies.md#SetHTTPheader) : asigna un valor a un encabezado de respuesta o de solicitud existente o agrega un nuevo encabezado de este tipo.  
     -   [Establecer el parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) : agrega, reemplaza el valor o elimina el parámetro de la cadena de consulta de la solicitud.  
     -   [URL de reescritura](api-management-transformation-policies.md#RewriteURL) : convierte una URL de solicitud de su forma pública a la forma esperada por el servicio web.  
-    -   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) (Transformar XML mediante una XSLT): aplica una transformación de XSL al XML del cuerpo de la solicitud o respuesta.  
+    -   [Transformar XML mediante una XSLT](api-management-transformation-policies.md#XSLTransform): aplica una transformación de XSL al XML del cuerpo de la solicitud o respuesta.  
 
 
 

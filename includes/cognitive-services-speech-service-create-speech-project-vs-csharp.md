@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/30/2019
 ms.author: wolfma
 ms.openlocfilehash: c7332177795a45331749225e0f3dc3856e28a6a2
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71327057"
 ---
 Para crear un proyecto de Visual Studio para el desarrollo de Windows, debe crear el proyecto, configurar Visual Studio para el desarrollo de escritorio de .NET, instalar el SDK de Voz y elegir la arquitectura de destino.

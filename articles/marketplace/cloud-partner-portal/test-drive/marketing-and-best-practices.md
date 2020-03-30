@@ -1,30 +1,28 @@
 ---
 title: Procedimientos recomendados de marketing para la versión de prueba | Azure Marketplace
 description: Procedimientos recomendados de marketing para la versión de prueba para anunciantes
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 177b4bd804ad878c8f983eefcd54399d1a72ba19
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 3520e2c16f9a0c891db0d641fa7c9b811cac7b10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824541"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278253"
 ---
 <a name="test-drive-marketing-and-best-practices"></a>Marketing y procedimientos recomendados para la versión de prueba
 =======================================
 
 Versión de prueba, de Azure Marketplace, es una excelente herramienta para los vendedores y es recomendable que la incorpore a sus esfuerzos de comercialización al empezar. Tenemos varios procedimientos recomendados a la hora de publicar que le ayudarán a generar más clientes potenciales desde la versión de prueba:
 
-- **Página de referencia**: Publique una página en su sitio web que hable acerca de la versión de prueba de Azure y publique varios vínculos de referencia que dirijan el tráfico a la versión de prueba.
-- **Redes sociales**: Cree una programación en la que publique noticias en sus redes sociales sobre la versión de prueba a intervalos regulares.
+- **Página de referencia**: Publique una página en su sitio web que hable acerca de la versión de prueba de Azure y publique varios vínculos de referencia que dirijan el tráfico a la versión de prueba
+- **Redes sociales**: Cree una programación en la que publique noticias en sus redes sociales sobre la versión de prueba a intervalos regulares
 - **Blogs**: Escriba una entrada de blog sobre la versión de prueba de Azure. Destaque las características y ventajas que obtendrá el usuario al experimentar la solución de forma gratuita y en muy poco tiempo. Asegúrese de agregar vínculos a la página de la versión de prueba de Azure en varios lugares de la copia del blog. Este es un vínculo a una entrada de blog de ejemplo sobre la versión de prueba de Azure. Mejor aún. Publique los vínculos a la entrada de blog en sus redes sociales.
-- **Promoción de correo electrónico**: Informe a los clientes potenciales que han interactuado con su marca a través de otros canales por correo electrónico para informarles acerca de la versión de prueba y animarles a probarla gratuitamente.
+- **Promoción por correo electrónico**: Informe a los clientes potenciales que han interactuado con su marca a través de otros canales por correo electrónico para informarles acerca de la versión de prueba y animarles a probarla gratuitamente.
 - **Aprendizaje y herramientas de ventas**: Prepare una sesión de aprendizaje con sus equipos de ventas para realizar una demostración de la versión de prueba y proporcione algunos medios para involucrar a sus clientes potenciales y reales en ella. El personal de ventas puede preparar una demostración para varios contactos de una empresa y, después, enviarles a cada uno de ellos el vínculo a la versión de prueba para que ellos mismos la prueben.
 - **Ferias comerciales y conferencias**: Consiga un stand en algún evento del sector al que asistan posibles clientes. Configure varios equipos portátiles en el stand y haga que se ejecuten las versiones de prueba para que los clientes puedan probarlas en el stand. A continuación, hábleles acerca del producto durante su experiencia y con posterioridad a esta.
 

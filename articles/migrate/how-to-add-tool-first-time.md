@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 319d97d96bd054aed90079777e2ff83d0e308e5e
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185950"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Incorporación de una herramienta de evaluación y migración por primera vez
@@ -45,9 +45,9 @@ Configure un nuevo proyecto de Azure Migrate en una suscripción de Azure y agre
 
    **Geografía** | **Región de ubicación del almacenamiento**
     --- | ---
-    Asia   | Sudeste Asiático o Asia Oriental
+    Asia   | Sudeste de Asia o Este de Asia
     Europa | Norte de Europa y Oeste de Europa
-    Japón  | Este de Japón u Oeste de Japón
+    Japón  | Japón Oriental u Japón Occidental
     Reino Unido | Sur de Reino Unido u Oeste de Reino Unido
     Estados Unidos | Centro de EE. UU. u Oeste de EE. UU. 2
     Canadá | Centro de Canadá

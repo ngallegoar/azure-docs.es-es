@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111440"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218918"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Búsqueda de vídeos con Bing Video Search API
 
@@ -144,7 +144,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Expansión de la consulta
 
-Si Bing puede expandir la consulta para restringir la búsqueda original, el objeto [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene el campo `queryExpansions`. Por ejemplo, si la consulta fuera *Cleaning Gutters*, las consultas expandidas podrían ser: Gutter Cleaning **Tools**, Cleaning Gutters **From the Ground**, Gutter Cleaning **Machine** y **Easy** Gutter Cleaning.
+Si Bing puede expandir la consulta para restringir la búsqueda original, el objeto [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene el campo `queryExpansions`. Por ejemplo, si la consulta fuese *Limpieza de canalones*, las consultas expandidas podrían ser: **herramientas** de limpieza de canalones, limpieza de canalones **desde cero**, **máquina** de limpieza de canalones y limpieza de canalones **fácil**.
 
 En el ejemplo siguiente se muestran las consultas expandidas para *Limpieza de canalones*.
 

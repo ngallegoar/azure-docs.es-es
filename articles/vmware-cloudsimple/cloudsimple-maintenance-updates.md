@@ -1,7 +1,7 @@
 ---
-title: 'Azure VMware Solutions (AVS): mantenimiento y actualizaciones de AVS'
-description: Describe el proceso del servicio de AVS para las operaciones de mantenimiento y las actualizaciones programadas
-titleSuffix: Azure VMware Solutions (AVS)
+title: Mantenimiento y actualizaciones de CloudSimple
+titleSuffix: Azure VMware Solution by CloudSimple
+description: Describe el proceso de servicio de CloudSimple para las operaciones de mantenimiento y las actualizaciones programadas
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bf5937183fc20579ecd21aca8543a0a78d4b9ff3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025034"
 ---
-# <a name="avs-maintenance-and-updates"></a>Mantenimiento y actualizaciones de AVS
+# <a name="cloudsimple-maintenance-and-updates"></a>Mantenimiento y actualizaciones de CloudSimple
 
-El entorno de nube privada de AVS está diseñado para no tener ningún único punto de error.
+El entorno de nube privada está diseñado para no tener un único punto de error.
 
 * Los clústeres de ESXi están configurados con la alta disponibilidad de vSphere. Los clústeres tienen un tamaño para tener al menos un nodo de repuesto para proporcionar resistencia.
 * vSAN, que requiere al menos tres nodos para proteger frente a un único error, proporciona almacenamiento principal redundante. vSAN puede configurarse para proporcionar mayor resistencia para clústeres más grandes.
@@ -26,14 +26,14 @@ El entorno de nube privada de AVS está diseñado para no tener ningún único p
 * Los hosts de ESXi tienen ventiladores y NIC redundantes.
 * Los conmutadores TOR y de tallo se configuran en pares de alta disponibilidad para proporcionar resistencia.
 
-AVS supervisa continuamente la actividad y la disponibilidad de las VM siguientes y proporciona los SLA de disponibilidad:
+CloudSimple supervisa continuamente la actividad y la disponibilidad de las máquinas virtuales siguientes y proporciona los SLA de disponibilidad:
 
 * Hosts de ESXi
 * vCenter
 * PSC
 * NSX Manager
 
-AVS también supervisa continuamente si hay errores en los elementos siguientes:
+CloudSimple también supervisa continuamente si hay errores en los elementos siguientes:
 
 * Discos duros
 * Puertos de NIC física
@@ -45,7 +45,7 @@ AVS también supervisa continuamente si hay errores en los elementos siguientes:
 
 Si se produce un error en un disco o nodo, se agrega automáticamente un nodo nuevo al clúster de VMware afectado para que recupere su estado inmediatamente.
 
-AVS crea copias de seguridad de estos elementos de VMware en las nubes privadas de AVS, los mantiene y los actualiza:
+CloudSimple crea copias de seguridad de estos elementos de VMware en las nubes privadas, los mantiene y los actualiza:
 
 * ESXi
 * Servicios de plataforma de vCenter
@@ -55,7 +55,7 @@ AVS crea copias de seguridad de estos elementos de VMware en las nubes privadas 
 
 ## <a name="back-up-and-restore"></a>Copia de seguridad y restauración
 
-La copia de seguridad de AVS incluye lo siguiente:
+La copia de seguridad de CloudSimple incluye:
 
 * Copias de seguridad incrementales nocturnas de las reglas de vCenter, PSC y DVS.
 * API nativas de vCenter para crear una copia de seguridad de los componentes en el nivel de aplicación.
@@ -66,15 +66,15 @@ Puede abrir una [solicitud de soporte técnico](https://portal.azure.com/#blade/
 
 ## <a name="maintenance"></a>Mantenimiento
 
-AVS realiza varios tipos de mantenimiento planeado.
+CloudSimple realiza varios tipos de mantenimiento planeado.
 
 ### <a name="backendinternal-maintenance"></a>Mantenimiento de back-end o interno
 
-Normalmente, este tipo de mantenimiento implica volver a configurar los recursos físicos o instalar revisiones de software. No afecta al consumo normal de los recursos sujetos a mantenimiento. Con NIC redundantes en cada bastidor físico, el tráfico de red normal y las operaciones de nube privada de AVS no se ven afectados. Es posible que observe un impacto en el rendimiento solo si su organización prevé utilizar el ancho de banda redundante completo durante el intervalo de mantenimiento.
+Normalmente, este tipo de mantenimiento implica volver a configurar los recursos físicos o instalar revisiones de software. No afecta al consumo normal de los recursos sujetos a mantenimiento. Con NIC redundantes en cada bastidor físico, el tráfico de red normal y las operaciones de nube privada no se ven afectados. Es posible que observe un impacto en el rendimiento solo si su organización prevé utilizar el ancho de banda redundante completo durante el intervalo de mantenimiento.
 
-### <a name="avs-portal-maintenance"></a>Mantenimiento del portal de AVS
+### <a name="cloudsimple-portal-maintenance"></a>Mantenimiento del portal de CloudSimple
 
-Al actualizar el plano de control o la infraestructura de AVS, se requiere cierto tiempo de inactividad limitado. Actualmente, la frecuencia de los intervalos de mantenimiento puede ser mensual. Se espera que la frecuencia se reduzca con el tiempo. AVS proporciona una notificación de mantenimiento del portal y acorta el intervalo tanto como sea posible. Durante un intervalo de mantenimiento del portal, los servicios siguientes seguirán funcionando sin ningún impacto:
+Al actualizar el plano de control o la infraestructura de CloudSimple, se requiere cierto tiempo de inactividad limitado. Actualmente, la frecuencia de los intervalos de mantenimiento puede ser mensual. Se espera que la frecuencia se reduzca con el tiempo. CloudSimple proporciona una notificación de mantenimiento del portal y acorta el intervalo tanto como sea posible. Durante un intervalo de mantenimiento del portal, los servicios siguientes seguirán funcionando sin ningún impacto:
 
 * Las aplicaciones y el plano de administración de VMware
 * El acceso a vCenter
@@ -83,7 +83,7 @@ Al actualizar el plano de control o la infraestructura de AVS, se requiere ciert
 
 ### <a name="vmware-infrastructure-maintenance"></a>Mantenimiento de la infraestructura de VMware
 
-En ocasiones, es necesario realizar cambios en la configuración de la infraestructura de VMware. En la actualidad, estos intervalos se pueden producir cada 1 o 2 meses, pero se espera que la frecuencia se reduzca con el tiempo. Normalmente, este tipo de mantenimiento se puede realizar sin interrumpir el consumo normal de los servicios de AVS. Durante un intervalo de mantenimiento de VMware, los servicios siguientes seguirán funcionando sin ningún impacto:
+En ocasiones, es necesario realizar cambios en la configuración de la infraestructura de VMware.  En la actualidad, estos intervalos se pueden producir cada 1 o 2 meses, pero se espera que la frecuencia se reduzca con el tiempo. Normalmente, este tipo de mantenimiento se puede realizar sin interrumpir el consumo normal de los servicios de CloudSimple. Durante un intervalo de mantenimiento de VMware, los servicios siguientes seguirán funcionando sin ningún impacto:
 
 * Las aplicaciones y el plano de administración de VMware
 * El acceso a vCenter
@@ -92,7 +92,7 @@ En ocasiones, es necesario realizar cambios en la configuración de la infraestr
 
 ## <a name="updates-and-upgrades"></a>Actualizaciones
 
-AVS es responsable de la administración del ciclo de vida del software de VMware (ESXi, vCenter, PSC y NSX) en la nube privada de AVS.
+CloudSimple es responsable de la administración del ciclo de vida del software de VMware (ESXi, vCenter, PSC y NSX) en la nube privada.
 
 Entre las actualizaciones de software se incluyen las siguientes:
 
@@ -100,9 +100,9 @@ Entre las actualizaciones de software se incluyen las siguientes:
 * **Actualizaciones**. Cambio de versión secundaria de un componente de la pila de VMware.
 * **Actualizaciones**. Cambio de versión principal de un componente de la pila de VMware.
 
-AVS prueba una revisión de seguridad crítica en cuanto está disponible desde VMware. Según el SLA, AVS implementa la revisión de seguridad en los entornos de nube privada de AVS en el plazo de una semana.
+CloudSimple prueba una revisión de seguridad crítica en cuanto esté disponible desde VMware. Según el SLA, CloudSimple implementa la revisión de seguridad en los entornos de nube privada en el plazo de una semana.
 
-AVS proporciona actualizaciones de mantenimiento trimestrales para los componentes de software de VMware. Cuando hay una nueva versión principal disponible del software de VMware, AVS trabaja con los clientes para coordinar una ventana de mantenimiento adecuada para la actualización.
+CloudSimple proporciona actualizaciones de mantenimiento trimestrales para los componentes de software de VMware. Cuando hay una nueva versión principal disponible del software de VMware, CloudSimple trabaja con los clientes para coordinar una ventana de mantenimiento adecuada para la actualización.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

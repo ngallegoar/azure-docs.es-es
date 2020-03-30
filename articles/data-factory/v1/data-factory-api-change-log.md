@@ -13,10 +13,10 @@ ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
 ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74979009"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory: registro de cambios de la API de .NET
@@ -78,7 +78,7 @@ Incorporación de características:
   * Habilita el uso de PolyBase para copiar datos de SQL Data Warehouse.
 
 ## <a name="version-461"></a>Versión 4.6.1
-### <a name="bug-fixes"></a>Corrección de errores
+### <a name="bug-fixes"></a>Correcciones de errores
 * Corrige la solicitud HTTP para enumerar las ventanas de la actividad.
   * Quita el nombre del grupo de recursos y el nombre de la factoría de datos de la carga de la solicitud.
 
@@ -116,7 +116,7 @@ Incorporación de características:
 
 ## <a name="version-420"></a>Versión 4.2.0
 ### <a name="feature-additions"></a>Incorporación de características
-* Se ha agregado el siguiente tipo de actividad: [AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx). Para más información acerca de la actividad, consulte [Actualización de modelos mediante la actividad de recursos de actualización](data-factory-azure-ml-batch-execution-activity.md).
+* Se ha agregado el nuevo tipo de actividad siguiente: [AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx). Para más información acerca de la actividad, consulte [Actualización de modelos mediante la actividad de recursos de actualización](data-factory-azure-ml-batch-execution-activity.md).
 * Se ha agregado una nueva propiedad opcional [updateResourceEndpoint](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.updateresourceendpoint.aspx) a la [clase AzureMLLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.aspx).
 * Se han agregado las propiedades [LongRunningOperationInitialTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationinitialtimeout.aspx) y [LongRunningOperationRetryTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationretrytimeout.aspx) a la clase [DataFactoryManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.aspx).
 * Permita la configuración de los tiempos de espera para las llamadas de cliente al servicio de Factoría de datos.
@@ -135,7 +135,7 @@ Incorporación de características:
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>Versión 4.0.1
-### <a name="breaking-changes"></a>Cambios drásticos
+### <a name="breaking-changes"></a>Últimos cambios
 Las siguientes clases se han cambiado de nombre. Los nuevos nombres eran los nombres de clases originales antes de la versión 4.0.0.
 
 | Nombre en 4.0.0 | Nombre en 4.0.1 |
@@ -148,7 +148,7 @@ Las siguientes clases se han cambiado de nombre. Los nuevos nombres eran los nom
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>Versión 4.0.0
-### <a name="breaking-changes"></a>Cambios drásticos
+### <a name="breaking-changes"></a>Últimos cambios
 * Las siguientes clases o interfaces se han cambiado de nombre.
 
 | Nombre anterior | Nombre nuevo |
@@ -182,4 +182,4 @@ Las siguientes clases se han cambiado de nombre. Los nuevos nombres eran los nom
 
 ### <a name="feature-additions"></a>Incorporación de características
 * La clase [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) admite dos nuevas propiedades, **SliceIdentifierColumnName** y **SqlWriterCleanupScript**, para permitir la copia idempotente en Azure SQL Data Warehouse. Consulte el artículo sobre [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) para obtener más información acerca de estas propiedades.
-* Actualmente, se admite la ejecución de procedimientos almacenados en orígenes de Azure SQL Database y Azure SQL Data Warehouse como parte de la actividad de copia. Las clases [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) y [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) tienen las siguientes propiedades: **SqlReaderStoredProcedureName** y **StoredProcedureParameters**. Para más información acerca de estas propiedades, consulte los artículos acerca de [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) y [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) en Azure.com.  
+* Actualmente, se admite la ejecución de procedimientos almacenados en orígenes de Azure SQL Database y Azure SQL Data Warehouse como parte de la actividad de copia. Para ello, las clases [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) y [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) tienen las siguientes propiedades: **SqlReaderStoredProcedureName** y **StoredProcedureParameters**. Para más información acerca de estas propiedades, consulte los artículos acerca de [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) y [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) en Azure.com.  

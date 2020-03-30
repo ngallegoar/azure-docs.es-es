@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
 ms.openlocfilehash: 164e5a8c107f445b376d26f9be7db92a7983b0d3
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73743082"
 ---
 # <a name="face-recognition-concepts"></a>Conceptos del reconocimiento facial
@@ -25,7 +25,7 @@ En este artículo se explican los conceptos de las operaciones de reconocimiento
 
 Las operaciones de reconocimiento usan principalmente las siguientes estructuras de datos. Estos objetos se almacenan en la nube y se puede hacer referencia a ellos por sus cadenas de identificador. Las cadenas de identificador siempre son únicas dentro de una suscripción. Se pueden duplicar los campos de nombre.
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |:--|:--|
 |DetectedFace| Esta representación facial única se recupera mediante la operación de [detección de caras](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md). Su identificador expira 24 horas después de su creación.|
 |PersistedFace| Cuando se agregan objetos DetectedFace a un grupo, como FaceList o Person, se convierten en objetos PersistedFace. Se pueden [recuperar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) en cualquier momento y no caducan.|

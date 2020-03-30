@@ -9,15 +9,15 @@ ms.date: 09/25/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 5104c3b4446a8d3747ce7cc1648ef05dd117eb3d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74013795"
 ---
 Explorador de Storage 1.10.0 permite a los usuarios cargar, descargar y copiar discos administrados, así como crear instantáneas. Debido a estas capacidades adicionales, puede usar Explorador de Storage para migrar datos desde una ubicación local a Azure y migrar datos entre regiones de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este artículo, necesitará lo siguiente:
 - Una suscripción de Azure

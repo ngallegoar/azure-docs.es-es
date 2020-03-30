@@ -1,19 +1,18 @@
 ---
 title: Recuperación de una API de oferta específica | Azure Marketplace
 description: La API recupera la oferta especificada en el espacio de nombres del anunciante.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 030fb221b9227acf9c5dcda8797b106e51f56d64
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: a83b664bb770a88f3c4c13a672655e736a46ca75
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827348"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280463"
 ---
 <a name="retrieve-a-specific-offer"></a>Recuperación de una oferta específica
 =========================
@@ -41,9 +40,9 @@ También puede recuperar una versión concreta de la oferta o recuperar la ofert
 
 | **Nombre**    | **Descripción**                                                                          | **Tipo de datos** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId. Por ejemplo, Contoso.                                                        | Cadena        |
-| offerId     | GUID que identifica de manera única la oferta.                                                 | Cadena        |
-| version     | Versión de la oferta que se va a recuperar. De forma predeterminada, se recupera la versión más reciente de la oferta. | Integer       |
+| publisherId | publisherId. Por ejemplo, Contoso.                                                        | String        |
+| offerId     | GUID que identifica de manera única la oferta.                                                 | String        |
+| version     | Versión de la oferta que se va a recuperar. De forma predeterminada, se recupera la versión más reciente de la oferta. | Entero       |
 | slotId      | El espacio del que se va a recuperar la oferta. Puede ser uno de estos:      <br/>  - `Draft` (valor predeterminado), recupera la versión de la oferta que está actualmente en modo borrador.  <br/>  -  `Preview` recupera la versión de la oferta que está actualmente en la etapa de versión preliminar.     <br/>  -  `Production` recupera la versión de la oferta que está actualmente en la fase de producción.          |      enum |
 | api-version | Última versión de la API.                                                                    | Date          |
 |  |  |  |
@@ -174,7 +173,7 @@ También puede recuperar una versión concreta de la oferta o recuperar la ofert
 |  offerTypeId    | Identifica el tipo de oferta                                                                                                    |
 |  publisherId    | Identificador único del anunciante                                                                                              |
 |  status         | Estado de la oferta. Para obtener la lista de valores posibles, consulte la sección [Estado de la oferta](#offer-status) a continuación.                                  |
-|  Id             | GUID que identifica de manera única la oferta                                                                                         |
+|  Identificador             | GUID que identifica de manera única la oferta                                                                                         |
 |  version        | Versión actual de la oferta. El cliente no puede modificar la propiedad de versión. Se incrementa después de cada publicación.    |
 |  definición     | Definición real de la carga de trabajo                                                                                               |
 |  changedTime    | Fecha y hora UTC en la que se modificó por última vez la oferta                                                                                   |
@@ -200,7 +199,7 @@ También puede recuperar una versión concreta de la oferta o recuperar la ofert
 |  NotStarted                 | La oferta es nueva y no se ha iniciado.              |
 |  WaitingForPublisherReview  | La oferta está esperando la aprobación del anunciante.      |
 |  En ejecución                    | Se está procesando el envío de la oferta.          |
-|  Succeeded                  | Se terminó de procesar el envío de la oferta.    |
+|  Correcto                  | Se terminó de procesar el envío de la oferta.    |
 |  Canceled                   | Se canceló el envío de la oferta.                |
 |  Con error                     | Error en el envío de la oferta.                      |
 |  |  |

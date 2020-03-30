@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 545772a28a67310b12eb55cd1fb14e8d12a95a58
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68500811"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guía de actualización de Spell Check API
 
 Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de Bing Spell Check API. Utilice esta guía para identificar las partes de la aplicación que se deben actualizar para usar la versión 7.
 
-## <a name="breaking-changes"></a>Cambios drásticos
+## <a name="breaking-changes"></a>Últimos cambios
 
 ### <a name="endpoints"></a>Puntos de conexión
 
@@ -38,7 +38,7 @@ Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de
 
 - Se han reemplazado los códigos de error v5 por los posibles valores de `code` y `subCode` siguientes.  
   
-|Código|Subcódigo|DESCRIPCIÓN
+|Código|Subcódigo|Descripción
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing devuelve ServerError cada vez que se produce alguna de las condiciones del subcódigo. La respuesta incluye estos errores si el código de estado HTTP es 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|Bing devuelve InvalidRequest siempre que alguna parte de la solicitud no es válida. Por ejemplo, si falta un parámetro necesario o un valor de parámetro no es válido.<br/><br/>Si el error es ParameterMissing o ParameterInvalidValue, el código de estado HTTP es 400.<br/><br/>Si el error es HttpNotAllowed, el código de estado HTTP es 410.

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: b-juche
 ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299208"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234112"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registro en Azure NetApp Files
 
@@ -28,7 +28,7 @@ ms.locfileid: "66299208"
 
 En este artículo, obtendrá información sobre cómo registrarse en Azure NetApp Files para comenzar a usar el servicio.
 
-## <a name="waitlist"></a>Envío de una solicitud de lista de espera para acceder al servicio
+## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>Envío de una solicitud de lista de espera para acceder al servicio
 
 1. Envíe una solicitud de lista de espera para acceder al servicio de Azure NetApp File a través de la [página de envío de lista de espera de Azure NetApp Files](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
 
@@ -36,7 +36,7 @@ En este artículo, obtendrá información sobre cómo registrarse en Azure NetAp
 
 2. Antes de continuar con otras tareas, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files. 
 
-## <a name="resource-provider"></a>Registro del proveedor de recursos de NetApp
+## <a name="register-the-netapp-resource-provider"></a><a name="resource-provider"></a>Registro del proveedor de recursos de NetApp
 
 Para usar el servicio, debe registrar el proveedor de recursos de Azure para Azure NetApp Files.
 

@@ -11,12 +11,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 01/30/2020
-ms.openlocfilehash: 49b384e9e2d9b77179a0154bf2d96524c064c2ca
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d987171d41bd6d80bab4cce91ef9ecec1f0dc7a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960349"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247187"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para una canalización de ingesta de datos
 
@@ -28,7 +28,7 @@ Considere el siguiente flujo de trabajo de ingesta de datos:
 
 ![data-ingestion-pipeline](media/how-to-cicd-data-ingestion/data-ingestion-pipeline.png)
 
-En este enfoque, los datos de entrenamiento se almacenan en Azure Blob Storage. Una canalización de Azure Data Factory captura los datos de un contenedor de blobs de entrada, los transforma y los guarda en el contenedor de blobs de salida. Este contenedor actúa como [almacenamiento de datos](https://docs.microsoft.com/azure/machine-learning/concept-data#access-data-in-storage) para Azure Machine Learning Service. Una vez preparados los datos, la canalización de Data Factory invoca una canalización de Machine Learning de entrenamiento para entrenar un modelo. En este ejemplo concreto, un cuaderno de Python, que se ejecuta en un clúster de Azure Databricks, realiza la transformación de datos. 
+En este enfoque, los datos de entrenamiento se almacenan en Azure Blob Storage. Una canalización de Azure Data Factory captura los datos de un contenedor de blobs de entrada, los transforma y los guarda en el contenedor de blobs de salida. Este contenedor actúa como [almacenamiento de datos](concept-data.md) para Azure Machine Learning Service. Una vez preparados los datos, la canalización de Data Factory invoca una canalización de Machine Learning de entrenamiento para entrenar un modelo. En este ejemplo concreto, un cuaderno de Python, que se ejecuta en un clúster de Azure Databricks, realiza la transformación de datos. 
 
 ## <a name="what-we-are-building"></a>Lo que se va a crear
 

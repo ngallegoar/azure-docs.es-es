@@ -11,13 +11,13 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837280"
 ---
-# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterar
+# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: transliteración
 
 Convierte el texto en un idioma de un script a otro.
 
@@ -35,7 +35,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 
 <table width="100%">
   <th width="20%">Parámetro de consulta</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>api-version</td>
     <td>*Parámetro obligatorio*.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
@@ -58,7 +58,7 @@ Los encabezados de solicitud incluyen lo siguiente:
 
 <table width="100%">
   <th width="20%">encabezados</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>Encabezados de autenticación</td>
     <td><em>Encabezado de solicitud obligatorio</em>.<br/>Consulte las <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opciones disponibles para la autenticación</a>.</td>
@@ -98,9 +98,9 @@ Se aplican las siguientes limitaciones:
 
 Una respuesta correcta es una matriz JSON, que cuenta con un resultado para cada elemento en la matriz de entrada. Un objeto del resultado incluye las siguientes propiedades:
 
-  * `text`: cadena que es el resultado de convertir la cadena de entrada en el script de salida.
+  * `text`: es una cadena que es el resultado de convertir la cadena de entrada al script de salida.
   
-  * `script`: cadena que especifica el script que se usa en la salida.
+  * `script`: es una cadena que especifica el script que se usa en la salida.
 
 Un ejemplo de respuesta JSON es:
 
@@ -115,7 +115,7 @@ Un ejemplo de respuesta JSON es:
 
 <table width="100%">
   <th width="20%">encabezados</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valor generado por el servicio para identificar la solicitud. Se usa para solucionar problemas.</td>
@@ -128,10 +128,10 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
 
 <table width="100%">
   <th width="20%">Código de estado</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>200</td>
-    <td>Correcta.</td>
+    <td>Correcto.</td>
   </tr>
   <tr>
     <td>400</td>

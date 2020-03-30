@@ -4,14 +4,14 @@ description: Aprenda a usar Azure Portal o la CLI para crear, ver y administrar 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 02/16/2020
+ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5452f67a9da9a71a72c9387bc3e62d6735929984
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664718"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79369393"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas mediante Azure Monitor
 
@@ -23,7 +23,7 @@ Puede obtener más información acerca del funcionamiento de las alertas de mét
 
 En el siguiente procedimiento se describe cómo crear una regla de alertas de métricas en Azure Portal:
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en **Monitor**. La hoja Monitor consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Monitor**. La hoja {1}Monitor{2} consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
 
 2. Haga clic en **Alertas** y, a continuación, en **+ Nueva regla de alertas**.
 
@@ -136,7 +136,7 @@ En las secciones anteriores se describía cómo crear, ver y administrar las reg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de alertas de métricas con plantillas de Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
+- [Creación de alertas de métricas con plantillas de Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md).
 - [Comprender cómo funcionan las alertas de métricas](alerts-metric-overview.md).
 - [Cómo funcionan las alertas de métricas con la condición de umbrales dinámicos](alerts-dynamic-thresholds.md).
 - [Comprender el esquema de webhook para las alertas de métricas](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

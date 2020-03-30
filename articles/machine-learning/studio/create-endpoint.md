@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 96f5eb84f356089124708738f8a9e56b031c76bf
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 980ed1e54de30ec8a2dc0c1fdac6546d31f48a00
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168832"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218199"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Creación de puntos de conexión para los servicios web de Azure Machine Learning Studio (clásico) implementados
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 > [!NOTE]
 > En este tema se describen técnicas que se aplican a un servicio web de Machine Learning **Clásico**.
@@ -37,7 +39,7 @@ Puede agregar un punto de conexión a un servicio web mediante el portal de serv
 3. Haga clic en **Nueva**.
 4. Escriba un nombre y una descripción para el nuevo punto de conexión. Los nombres de los puntos de conexión deben tener 24 caracteres o menos y deben estar formados por letras en minúsculas o números. Seleccione el nivel de registro y si los datos de ejemplo están habilitados. Para más información sobre los registros, vea [Habilitar el registro para los servicios web de Machine Learning](web-services-logging.md).
 
-## <a id="scaling"></a> Escalado de un servicio web mediante la incorporación de puntos de conexión adicionales
+## <a name="scale-a-web-service-by-adding-additional-endpoints"></a><a id="scaling"></a> Escalado de un servicio web mediante la incorporación de puntos de conexión adicionales
 
 De manera predeterminada, cada servicio web publicado está configurado para admitir 20 solicitudes simultáneas y 200 solicitudes simultáneas como máximo. Azure Machine Learning Studio (clásico) optimiza automáticamente este valor con el fin de brindar el mejor rendimiento al servicio web, por lo que se omite el valor del portal.
 

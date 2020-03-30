@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74672373"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migración de un nombre de DNS activo a Azure App Service
@@ -21,7 +21,7 @@ Cuando se migra un sitio activo y su nombre de dominio DNS para App Service, ese
 
 Si no le preocupa el tiempo de inactividad en la resolución DNS, vea [Asignar un nombre DNS personalizado a Azure App Service](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este procedimiento:
 
@@ -40,7 +40,7 @@ Cuando finalmente migre el nombre DNS personalizado del sitio antiguo a la aplic
 
 ### <a name="create-domain-verification-record"></a>Creación de un registro de comprobación de dominio
 
-Para comprobar la propiedad de dominio, agregue un registro TXT. El registro TXT se asigna desde _awverify.&lt; subdominio >_ a  _&lt;nombreaplic >. azurewebsites.net_. 
+Para comprobar la propiedad de dominio, agregue un registro TXT. El registro TXT se asigna desde _awverify.&lt; subdominio >_ a _&lt;nombreaplic >. azurewebsites.net_. 
 
 El registro TXT que necesita depende en el registro DNS que desea migrar. Para obtener ejemplos, vea la tabla siguiente (`@` normalmente representa el dominio raíz):
 
@@ -111,9 +111,9 @@ En la página de registros DNS del proveedor de dominios, seleccione el registro
 
 Para el ejemplo de dominio raíz de `contoso.com`, reasigne el registro A o CNAME como los ejemplos de la siguiente tabla: 
 
-| Ejemplo de FQDN | Tipo de registro | Host | Valor |
+| Ejemplo de FQDN | Tipo de registro | Host | Value |
 | - | - | - | - |
-| contoso.com (raíz) | Una | `@` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
+| contoso.com (raíz) | Un | `@` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
 | www\.contoso.com (sub) | CNAME | `www` | _&lt;nombreaplic&gt;.azurewebsites.net_ |
 | \*.contoso.com (comodín) | CNAME | _\*_ | _&lt;nombreaplic&gt;.azurewebsites.net_ |
 

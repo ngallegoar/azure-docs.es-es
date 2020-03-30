@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: c1b48ae8191e2e5313d9037c791eca73c8a55691
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191384"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Mejora de la seguridad de los mensajes B2B mediante certificados
@@ -64,7 +64,7 @@ Para usar un *certificado privado* en las aplicaciones lógicas con funcionalida
 Después de definir las propiedades en los [contratos](logic-apps-enterprise-integration-agreements.md) que cree, el certificado estará disponible para que pueda proteger los mensajes B2B.
 
 > [!NOTE]
-> En el caso de los certificados privados, asegúrese de agregar un certificado público correspondiente que aparezca en la opción **Enviar y recibir** del [contrato de AS2](logic-apps-enterprise-integration-as2.md) para la firma y el cifrado de mensajes.
+> En el caso de los certificados privados, asegúrese de agregar un certificado público correspondiente que aparezca en la opción [Enviar y recibir](logic-apps-enterprise-integration-as2.md) del **contrato de AS2** para la firma y el cifrado de mensajes.
 
 1. [Añada la clave privada a Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) y especifique un **nombre de clave**.
    

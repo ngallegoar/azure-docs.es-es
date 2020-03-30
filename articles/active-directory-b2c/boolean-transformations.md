@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/03/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e470ea65085bf71f0052567d5bf367661852d1cb
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: ea3b273070702144d5296d07cb8712da044819a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268016"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471972"
 ---
 # <a name="boolean-claims-transformations"></a>Transformaciones de notificaciones booleanas
 
@@ -66,7 +66,7 @@ Comprueba que los valores booleanos de dos notificaciones son iguales y lanza un
 | inputClaim | inputClaim | boolean | ClaimType que se va a afirmar. |
 | InputParameter |valueToCompareTo | boolean | El valor que se va a comparar (true o false). |
 
-La transformación de notificaciones **AssertBooleanClaimIsEqualToValue** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autoafirmado](self-asserted-technical-profile.md). Los metadatos de un perfil técnico autoafirmado **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controlan el mensaje de error que el perfil técnico presenta al usuario.
+La transformación de notificaciones **AssertBooleanClaimIsEqualToValue** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autoafirmado](self-asserted-technical-profile.md). Los metadatos de un perfil técnico autoafirmado **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controlan el mensaje de error que el perfil técnico presenta al usuario. Los mensajes de error se pueden [localizar](localization-string-ids.md#claims-transformations-error-messages).
 
 ![Ejecución de AssertStringClaimsAreEqual](./media/boolean-transformations/assert-execution.png)
 
@@ -112,7 +112,7 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
 - Notificaciones de entrada:
     - **inputClaim**: false
     - **valueToCompareTo**: true
-- Resultado: aparece un error
+- Resultado: error emitido
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 

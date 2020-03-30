@@ -7,12 +7,12 @@ ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 3eec39e975b1e782eafe16205623c625f462a865
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: de6bb3fe0879a69467283e93a04a355876a02cba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209416"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246694"
 ---
 # <a name="how-to-transfer-a-payload-between-device-and-dps"></a>Transferencia de una carga útil entre un dispositivo y DPS
 A veces, DPS necesita más datos de los dispositivos a fin de aprovisionarlos adecuadamente en la instancia correcta de IoT Hub, y el dispositivo necesita proporcionar los datos. A la inversa, DPS puede devolver datos al dispositivo para facilitar la lógica del cliente. 
@@ -30,7 +30,6 @@ Cuando su dispositivo envía una [llamada de dispositivo de registro](https://do
            “endorsementKey”: “stuff”, 
            “storageRootKey”: “things” 
        }, 
-       “interfaces”: “TODO: get how interfaces are reported by devices from PnP folks.”, 
        “payload”: “your additional data goes here. It can be nested JSON.” 
     } 
    ```

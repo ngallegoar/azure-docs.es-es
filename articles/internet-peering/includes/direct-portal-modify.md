@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: d9ff01cf0180dae7f75d9753ba889d0caddad937
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773987"
 ---
 En esta sección se describe cómo realizar las siguientes operaciones de modificación para el emparejamiento directo:
 
 ### <a name="add-direct-peering-connections"></a>Adición de conexiones de emparejamiento directo
-1. Haga clic en el botón **Agregar conexiones** en la parte superior y configure una nueva conexión de emparejamiento.
+1. Haga clic en el botón **+ Agregar conexiones** en la parte superior y configure una nueva conexión de emparejamiento.
     > [!div class="mx-imgBorder"]
     > ![Vista de recurso de emparejamiento](../media/setup-direct-modify-addconnection.png)
 1. Rellene el formulario de **conexión de emparejamiento directo** y haga clic en **Guardar**. Para obtener ayuda con la configuración de una conexión de emparejamiento, revise los pasos descritos en la sección anterior "Creación y aprovisionamiento de un emparejamiento directo" anteriormente.

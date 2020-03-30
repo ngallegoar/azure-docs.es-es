@@ -1,19 +1,18 @@
 ---
 title: Introducción a la publicación de ofertas de módulos Azure IoT Edge | Azure Marketplace
 description: Introducción al proceso de publicación de una oferta de módulo IoT Edge en Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: pabutler
-ms.openlocfilehash: 97df9a61d15e0d90e81f42cef327aea23873ffa0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 6b44d9fd0bdd6e4b41013373472b5882a7ca1434
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814325"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286598"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>Introducción a la publicación de ofertas de módulos IoT Edge
 

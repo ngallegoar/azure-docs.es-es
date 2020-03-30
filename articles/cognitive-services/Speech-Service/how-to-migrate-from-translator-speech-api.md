@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
 ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77560905"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migración de Translator Speech API al servicio de voz
@@ -44,7 +44,7 @@ Use este artículo para migrar las aplicaciones de Microsoft Translator Speech A
 | Resultados parciales                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Información de control de tiempo                                       | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                 |
 | Id. de correlación                                    | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
-| Modelos de voz personalizados                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | El servicio de voz ofrece modelos de voz personalizados que le permiten personalizar el reconocimiento de voz con el vocabulario único de su organización.                                                                                                                                           |
+| Modelos de voz personalizados                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | El Servicio de voz ofrece modelos de voz personalizados que le permiten personalizar el reconocimiento de voz con el vocabulario único de su organización.                                                                                                                                           |
 | Modelos de traducción personalizados                         | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Si se suscribe a Microsoft Translator Text API, podrá utilizar [Traductor personalizado](https://www.microsoft.com/translator/business/customization/), lo que le permitirá emplear sus propios datos para conseguir traducciones más precisas.                                                 |
 
 ## <a name="migration-strategies"></a>Estrategias de migración
@@ -62,7 +62,7 @@ Si su organización o usted tienen aplicaciones en desarrollo o producción que 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Prueba gratuita del servicio de voz](get-started.md)
-* [Inicio rápido: Reconocimiento de voz en una aplicación de UWP mediante el SDK de Voz](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Inicio rápido: Reconocimiento de voz en una aplicación para UWP mediante el SDK de Voz](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Consulte también
 

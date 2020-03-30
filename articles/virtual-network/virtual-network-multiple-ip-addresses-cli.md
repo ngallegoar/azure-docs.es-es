@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: kumud
-ms.openlocfilehash: b99e5e6809a909184d775c70b56c249c11734cb9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 144f30463adb3dfbce1717e06548baccc8286f8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646615"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240236"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Asignación de varias direcciones IP a máquinas virtuales mediante la CLI de Azure
 
@@ -28,7 +28,7 @@ En este artículo se describe cómo crear una máquina virtual con el modelo de 
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
+## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
 
 En los pasos siguientes se explica cómo crear una máquina virtual de ejemplo con varias direcciones IP, tal y como se describe en el escenario. Cambie los valores de variable de "" y los tipos de direcciones IP según sea necesario para la implementación. 
 
@@ -164,7 +164,7 @@ Después de crear la máquina virtual, escriba el comando `az network nic show -
 
 Agregue al sistema operativo de la máquina virtual la dirección IP privada siguiendo las instrucciones de la sección [Incorporación de direcciones IP a un sistema operativo de la VM](#os-config) de este artículo.
 
-## <a name="add"></a>Incorporación de direcciones IP a una VM
+## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Incorporación de direcciones IP a una VM
 
 Puede agregar más direcciones IP públicas y privadas a una interfaz de red de Azure existente completando los pasos siguientes. Los ejemplos se crean en el [escenario](#scenario) descrito en este artículo.
 
@@ -176,7 +176,7 @@ Puede agregar más direcciones IP públicas y privadas a una interfaz de red de 
     
     Para agregar una dirección IP privada a una NIC, debe crear una configuración de IP mediante el comando siguiente. La dirección IP estática debe ser una dirección no utilizada para la subred.
 
-    ```bash
+    ```azurecli
     az network nic ip-config create \
     --resource-group myResourceGroup \
     --nic-name myNic1 \
@@ -196,7 +196,7 @@ Puede agregar más direcciones IP públicas y privadas a una interfaz de red de 
     
         Siempre que agregue una dirección IP pública en una nueva configuración de IP, también debe agregar una dirección IP privada, porque todas las configuraciones de IP deben tener una dirección IP privada. Puede agregar un recurso de dirección IP pública existente o crear uno nuevo. Para crear uno nuevo, escriba el comando siguiente:
     
-        ```bash
+        ```azurecli
         az network public-ip create \
         --resource-group myResourceGroup \
         --location westcentralus \
@@ -206,7 +206,7 @@ Puede agregar más direcciones IP públicas y privadas a una interfaz de red de 
 
         Para crear una nueva configuración de IP con una dirección IP privada estática y el recurso de dirección IP pública *myPublicIP3*, escriba el comando siguiente:
 
-        ```bash
+        ```azurecli
         az network nic ip-config create \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -217,7 +217,7 @@ Puede agregar más direcciones IP públicas y privadas a una interfaz de red de 
 
     - **Asocie el recurso a una configuración de IP existente**. Solo se puede asociar un recurso de dirección IP pública a una configuración de IP que ya no tiene asociado uno. Puede determinar si una configuración de IP tiene una dirección IP pública asociada escribiendo el comando siguiente:
 
-        ```bash
+        ```azurecli
         az network nic ip-config list \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -234,7 +234,7 @@ Puede agregar más direcciones IP públicas y privadas a una interfaz de red de 
 
         Puesto que la columna **PublicIpAddressId** para *IpConfig-3* está en blanco en la salida, ningún recurso de dirección IP pública está asociado actualmente a ella. Puede agregar un recurso de dirección IP pública existente a IpConfig-3 o escribir el siguiente comando para crear uno:
 
-        ```bash
+        ```azurecli
         az network public-ip create \
         --resource-group  myResourceGroup
         --location westcentralus \
@@ -245,7 +245,7 @@ Puede agregar más direcciones IP públicas y privadas a una interfaz de red de 
     
         Escriba el siguiente comando para asociar el recurso de dirección IP pública a la configuración de IP existente llamada *IPConfig-3*:
     
-        ```bash
+        ```azurecli
         az network nic ip-config update \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -255,7 +255,7 @@ Puede agregar más direcciones IP públicas y privadas a una interfaz de red de 
 
 3. Vea las direcciones IP privadas y los identificadores de los recursos de dirección IP pública asignados a la NIC escribiendo el siguiente comando:
 
-    ```bash
+    ```azurecli
     az network nic ip-config list \
     --resource-group myResourceGroup \
     --nic-name myNic1 \

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: d23eabdacc57a3f5a10d9e3b132a6daac42fbd4d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 8f41fe1005e96b428337bc73b9d468962a079596
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772159"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527833"
 ---
 # <a name="security-in-azure-database-for-mariadb"></a>Seguridad en Azure Database for MariaDB
 
@@ -38,7 +38,7 @@ Las reglas de firewall de IP otorgan acceso a los servidores según la direcci�
 Los puntos de conexión de servicio de red virtual amplían la conectividad de la red virtual a través de la red troncal de Azure. Cuando se usan reglas de red virtual, el servidor de Azure Database for MariaDB se puede habilitar para permitir conexiones desde subredes seleccionadas en una red virtual. Para obtener más información, consulte la [información general sobre los puntos de conexión de servicio de red virtual](concepts-data-access-security-vnet.md).
 
 
-## <a name="access-management"></a>administración de acceso
+## <a name="access-management"></a>Administración de acceso
 
 Al crear el servidor de Azure Database for MariaDB, se deben proporcionar las credenciales de un usuario administrador. Este administrador se puede usar para crear más usuarios de MariaDB.
 

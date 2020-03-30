@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
 ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73481727"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Cómo navegar por los resultados desde Bing Search API
@@ -44,7 +44,7 @@ Para navegar por los resultados disponibles, use los parámetros de consulta `co
 > * La paginación con las API Bing Video Search, Bing Image Search y Bing News Search solo se aplica a las búsquedas generales en vídeos (`/video/search`), noticias (`/news/search`) e imágenes (`/image/search`). No se admite la navegación por temas populares y categorías.  
 > * El campo `TotalEstimatedMatches` es una estimación del número total de resultados de búsqueda de la consulta actual. Al establecer los parámetros `count` y `offset`, esta estimación puede cambiar.
 
-| Parámetro | DESCRIPCIÓN                                                                                                                                                                |
+| Parámetro | Descripción                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `count`   | Especifica el número de resultados que se devolverán en la respuesta. Tenga en cuenta que el valor predeterminado de `count` y el número máximo de resultados que puede solicitar varía en función de la API. Estos valores se pueden encontrar en la documentación de referencia en [Pasos siguientes](#next-steps). |
 | `offset`  | Especifica el número de resultados que se van a omitir. `offset` está basado en cero y debe ser menor que (`totalEstimatedMatches` - `count`).                                           |

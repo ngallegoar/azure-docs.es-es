@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.openlocfilehash: 201bb40e5024442587f5508886da7e844f35be40
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74148391"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Uso de funciones definidas por el usuario (UDF) de Python con Apache Hive y Apache Pig en HDInsight
 
 Aprenda a usar funciones definidas por el usuario (UDF) de Python con Apache Hive y Apache Pig en Apache Hadoop en Azure HDInsight.
 
-## <a name="python"></a>Python en HDInsight
+## <a name="python-on-hdinsight"></a><a name="python"></a>Python en HDInsight
 
 Python 2.7 se instala de forma predeterminada en HDInsight 3.0 y posteriores. Apache Hive puede usarse con esta versión de Python para el procesamiento de streaming. El procesamiento de streaming utiliza STDOUT y STDIN para pasar datos entre Hive y UDF.
 
 HDInsight incluye también Jython, que es una implementación de Python escrita en Java. Jython se ejecuta directamente en la Máquina virtual Java y no utiliza streaming. Jython es el intérprete de Python recomendado cuando se usa Python con Pig.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Un clúster de Hadoop en HDInsight**. Consulte [Introducción a HDInsight en Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **Un cliente SSH**. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -52,7 +52,7 @@ No se requiere acción alguna si la cuenta de almacenamiento utilizada es de tip
 > * Usar `scp` para cargar los archivos de Cloud Shell a HDInsight.
 > * Usar `ssh` de Cloud Shell para conectarse a HDInsight y ejecutar los ejemplos.
 
-## <a name="hivepython"></a>UDF de Apache Hive
+## <a name="apache-hive-udf"></a><a name="hivepython"></a>UDF de Apache Hive
 
 Python se puede usar como UDF desde Hive a través de la instrucción `TRANSFORM` de HiveQL. Por ejemplo, el siguiente archivo HiveQL invoca el archivo `hiveudf.py` almacenado en la cuenta de Azure Storage predeterminada para el clúster.
 
@@ -287,7 +287,7 @@ La salida del trabajo de **Hive** debe parecerse al siguiente ejemplo:
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-## <a name="pigpython"></a>UDF de Apache Pig
+## <a name="apache-pig-udf"></a><a name="pigpython"></a>UDF de Apache Pig
 
 Un script de Python se puede usar como UDF desde Pig a través de la instrucción `GENERATE`. Puede ejecutar el script mediante Jython o C Python.
 
@@ -555,7 +555,7 @@ La salida del trabajo de **Pig** debe parecerse a los datos siguientes:
     ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
     ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a><a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="errors-when-running-jobs"></a>Errores en la ejecución de trabajos
 
@@ -582,7 +582,7 @@ La información de error (STDERR) y el resultado del trabajo (STDOUT) también s
 | Hive |/HivePython/stderr<p>/HivePython/stdout |
 | Pig |/PigPython/stderr<p>/PigPython/stdout |
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 
 Si necesita cargar módulos de Python que no se proporcionan de forma predeterminada, consulte [How to deploy a module to Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) (Implementación de un módulo en HDInsight de Azure).
 

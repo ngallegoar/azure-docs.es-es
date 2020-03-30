@@ -1,19 +1,18 @@
 ---
 title: Publicación de una oferta de aplicación de Azure | Azure Marketplace
 description: Describe el proceso y los pasos de publicación de una oferta de aplicación de Azure en Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 0005760a16f5109ca3555df5c5c5137facc84c40
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9f89e31c2d17ef74971d2057ba58e9572e92184c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826159"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280106"
 ---
 # <a name="publish-azure-application-offer"></a>Publicación de una oferta de aplicación de Azure
 
@@ -28,7 +27,7 @@ El diagrama siguiente muestra los pasos principales del proceso de publicación 
 
 En la siguiente tabla se enumera y se describe cada paso de publicación, y se incluye una estimación de tiempo para completar cada paso.  Los tiempos, estimados en días, se definen como los hábiles, fines de semana y festivos excluidos.
 
-|  **Paso de publicación**           | **Hora**    | **Descripción**                                                            |
+|  **Paso de publicación**           | **Time**    | **Descripción**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar requisitos previos         | <15 min    | Se validan la información y la configuración de la oferta.                        |
 | Validar la configuración de los ingresos influidos | <15 min  | Se comprueba la atribución de uso de recursos de Azure para la oferta.             |

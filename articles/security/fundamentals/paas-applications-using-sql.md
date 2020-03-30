@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: f7d993799fed637fbec55afc8f06d90c8fc6910f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c73f585e3102618cea378716491f9354810a6db8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726775"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125010"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Procedimientos recomendados para proteger bases de datos PaaS en Azure
 
-En este artículo se presenta una colección de procedimientos recomendados de seguridad de [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) y [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) para proteger las aplicaciones web y móviles de plataforma como servicio (PaaS). Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
+En este artículo se presenta una colección de procedimientos recomendados de seguridad de [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) y [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) para proteger las aplicaciones web y móviles de plataforma como servicio (PaaS). Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
 
 Azure SQL Database y SQL Data Warehouse proporcionan un servicio de base de datos relacional para aplicaciones basadas en Internet. Se van a considerar los servicios que ayudan a proteger las aplicaciones y los datos al utilizar Azure SQL Database y SQL Data Warehouse en una implementación de PaaS:
 
@@ -53,7 +53,7 @@ La [autenticación de Azure Active Directory](../../active-directory/develop/aut
 Para obtener más información sobre la autenticación de Azure AD, vea:
 
 - [Uso de la autenticación de Azure Active Directory para autenticación con SQL Database, Instancia administrada o SQL Data Warehouse](../../sql-database/sql-database-aad-authentication.md)
-- [Autenticación a Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Autenticación a Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Token-based authentication support for Azure SQL DB using Azure AD authentication](../../sql-database/sql-database-aad-authentication.md) (Compatibilidad de la autenticación basada en tokens para Azure SQL DB mediante la autenticación de Azure AD)
 
 > [!NOTE]
@@ -68,7 +68,7 @@ Las restricciones de direcciones IP de origen predeterminadas de SQL Database pe
 
 Para obtener más información sobre las restricciones de IP y el firewall de Azure SQL, vea:
 
-- [Control de acceso a Azure SQL Database y SQL Data Warehouse](../../sql-database/sql-database-control-access.md)
+- [Control de acceso a Azure SQL Database y SQL Data Warehouse](../../sql-database/sql-database-manage-logins.md)
 - [Reglas de firewall de Azure SQL Database y SQL Data Warehouse](../../sql-database/sql-database-firewall-configure.md)
 
 

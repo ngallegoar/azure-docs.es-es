@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
 ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073611"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226820"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Administración de usuarios administrativos, SSH y comprobación o reparación de discos en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure
 ## <a name="overview"></a>Información general
@@ -31,7 +31,7 @@ En este artículo se muestra cómo usar la extensión VMAccess de Azure para com
 > [!NOTE]
 > Si utiliza la extensión VMAccess para restablecer la contraseña de la máquina virtual después de instalar la extensión de inicio de sesión de AAD, tendrá que volver a ejecutar esta última extensión para habilitar del nuevo el inicio de sesión de AAD en la máquina.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 ### <a name="operating-system"></a>Sistema operativo
 
 La extensión de acceso a la máquina virtual puede ejecutarse en estas distribuciones de Linux:
@@ -66,7 +66,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **NOTA:** El comando `az vm user update` anexa el nuevo texto de clave pública al archivo `~/.ssh/authorized_keys` para el usuario administrador de la máquina virtual. Esto no reemplaza ni quita las claves SSH existentes. Esta acción no quitará las claves anteriores establecidas en el momento de la implementación ni las actualizaciones posteriores a través de la extensión VMAccess.
+> **Nota:** El comando `az vm user update` anexa el nuevo texto de clave pública al archivo `~/.ssh/authorized_keys` para el usuario administrador de la VM. Esto no reemplaza ni quita las claves SSH existentes. Esta acción no quitará las claves anteriores establecidas en el momento de la implementación ni las actualizaciones posteriores a través de la extensión VMAccess.
 
 ## <a name="reset-password"></a>Restablecimiento de contraseña
 En el ejemplo siguiente se restablece la contraseña del usuario `azureuser` en la máquina virtual denominada "`myVM`":

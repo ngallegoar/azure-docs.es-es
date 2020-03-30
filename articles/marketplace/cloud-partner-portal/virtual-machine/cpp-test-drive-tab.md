@@ -1,19 +1,18 @@
 ---
 title: Pestaña Versión de prueba de máquina virtual en Cloud Partner Portal para Azure Marketplace
 description: Se describe la pestaña Versión de prueba que se usa en la creación de una oferta de máquina virtual de Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 94ebbcca50916f1675ab990a4b45f3b90e069104
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d4fc8762e25825b21637b16b751d57a0dcbf369e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808869"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288808"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Pestaña Versión de prueba de máquina virtual
 
@@ -29,7 +28,7 @@ Para habilitar esta característica, en la pestaña **Versión de prueba**, haga
 En la tabla siguiente se describen la finalidad y el contenido de estos campos.  Los campos obligatorios se indican con un asterisco (*).
 
 
-|    Campo                  |       DESCRIPCIÓN                                                            |
+|    Campo                  |       Descripción                                                            |
 |  ---------                |     ---------------                                                          |
 |  *Detalles*   |  |
 | **Descripción\***           | Proporciona una introducción del escenario de versión de prueba. Este texto se mostrará al usuario durante el aprovisionamiento de la versión de prueba. Este campo admite HTML básico, si quiere proporcionar contenido con formato.  |

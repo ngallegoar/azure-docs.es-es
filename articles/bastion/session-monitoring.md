@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: f56a724174b81966642b2870360014597436eade
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76981096"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Supervisión y administración de sesiones de Azure Bastion
 
 Cuando el servicio Bastion se aprovisiona e implementa en la red virtual, puede usarlo para conectarse sin problemas a cualquier máquina virtual de esta red virtual. A medida que los usuarios se conectan a las cargas de trabajo, se Azure Bastion se puede usar para supervisar las sesiones remotas y realizar acciones de administración rápidas. La supervisión de sesiones de Azure Bastion le permite ver qué usuarios están conectados a las máquinas virtuales. Muestra la dirección IP desde la que se conectó el usuario, cuánto tiempo ha estado conectado y cuándo se conectaron. La experiencia de administración de sesiones le permite seleccionar una sesión en curso y forzar su desconexión o eliminar una sesión para desconectar al usuario de la sesión en curso.
 
-## <a name="monitor"></a>Supervisión de sesiones remotas
+## <a name="monitor-remote-sessions"></a><a name="monitor"></a>Supervisión de sesiones remotas
 
 1. En [Azure Portal](https://portal.azure.com), navegue hasta el recurso de Azure Bastion y seleccione **Sesiones** en la página de Azure Bastion.
 
@@ -34,7 +34,7 @@ Cuando el servicio Bastion se aprovisiona e implementa en la red virtual, puede 
 > Habilite el puerto 4443 para el tráfico entrante desde el administrador de puertas de enlace para que la supervisión de sesiones funcione.
 >
 
-## <a name="view"></a>Eliminar o forzar la desconexión de una sesión remota en curso
+## <a name="delete-or-force-disconnect-an-ongoing-remote-session"></a><a name="view"></a>Eliminar o forzar la desconexión de una sesión remota en curso
 
 Puede seleccionar un conjunto de sesiones y forzar su desconexión. Los siguientes pasos le mostrarán cómo eliminar sesiones remotas:
 

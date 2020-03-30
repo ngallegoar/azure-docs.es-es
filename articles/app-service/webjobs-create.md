@@ -9,11 +9,11 @@ ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 ms.openlocfilehash: 4c568c95a5dbc1799a765c95a2b224de53dfbe9f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684207"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235676"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Ejecución de tareas en segundo plano con WebJobs en Azure App Service
 
@@ -42,7 +42,7 @@ En la tabla siguiente se describen las diferencias entre los WebJobs *continuo* 
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
-## <a name="acceptablefiles"></a>Tipos de archivo admitidos para scripts o programas
+## <a name="supported-file-types-for-scripts-or-programs"></a><a name="acceptablefiles"></a>Tipos de archivo admitidos para scripts o programas
 
 Se admiten los tipos de archivo siguientes:
 
@@ -54,7 +54,7 @@ Se admiten los tipos de archivo siguientes:
 * .js (con Node.js)
 * .jar (con Java)
 
-## <a name="CreateContinuous"></a> Creación de un WebJob continuo
+## <a name="create-a-continuous-webjob"></a><a name="CreateContinuous"></a> Creación de un WebJob continuo
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -75,7 +75,7 @@ when making changes in one don't forget the other two.
 
    ![Página Agregar WebJob](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Configuración      | Valor de ejemplo   | DESCRIPCIÓN  |
+   | Configuración      | Valor de ejemplo   | Descripción  |
    | ------------ | ----------------- | ------------ |
    | **Nombre** | myContinuousWebJob | Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales salvo "-" y "_". |
    | **Carga de archivos** | ConsoleApp.zip | Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script. Los tipos de archivo de script o de archivo ejecutable compatibles aparecen en la sección [Tipos de archivo admitidos](#acceptablefiles). |
@@ -92,7 +92,7 @@ when making changes in one don't forget the other two.
 
     ![Detención de un WebJob continuo](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="CreateOnDemand"></a> Creación de un WebJob desencadenado de manera manual
+## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Creación de un WebJob desencadenado de manera manual
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -113,7 +113,7 @@ when making changes in one don't forget the other two.
 
    ![Página Agregar WebJob](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Configuración      | Valor de ejemplo   | DESCRIPCIÓN  |
+   | Configuración      | Valor de ejemplo   | Descripción  |
    | ------------ | ----------------- | ------------ |
    | **Nombre** | myTriggeredWebJob | Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales salvo "-" y "_".|
    | **Carga de archivos** | ConsoleApp.zip | Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script. Los tipos de archivo de script o de archivo ejecutable compatibles aparecen en la sección [Tipos de archivo admitidos](#acceptablefiles). |
@@ -130,7 +130,7 @@ when making changes in one don't forget the other two.
    
     ![Ejecución de WebJobs](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="CreateScheduledCRON"></a> Creación de un WebJob programado
+## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a> Creación de un WebJob programado
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -151,7 +151,7 @@ when making changes in one don't forget the other two.
 
    ![Página Agregar WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Configuración      | Valor de ejemplo   | DESCRIPCIÓN  |
+   | Configuración      | Valor de ejemplo   | Descripción  |
    | ------------ | ----------------- | ------------ |
    | **Nombre** | myScheduledWebJob | Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales salvo "-" y "_". |
    | **Carga de archivos** | ConsoleApp.zip | Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script. Los tipos de archivo de script o de archivo ejecutable compatibles aparecen en la sección [Tipos de archivo admitidos](#acceptablefiles). |
@@ -179,7 +179,7 @@ Para más información, consulte [Programar un trabajo Web desencadenado](webjob
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="ViewJobHistory"></a> Visualización del historial de trabajos
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> Visualización del historial de trabajos
 
 1. Seleccione el WebJob cuyo historial desea ver y, luego, seleccione el botón **Registros**.
    
@@ -201,6 +201,6 @@ Para más información, consulte [Programar un trabajo Web desencadenado](webjob
    
     ![Lista de WebJobs el panel del historial](./media/web-sites-create-web-jobs/webjobslist.png)
    
-## <a name="NextSteps"></a> Pasos siguientes
+## <a name="next-steps"></a><a name="NextSteps"></a> Pasos siguientes
 
 El SDK de Azure WebJobs se puede usar con WebJobs para simplificar muchas tareas de programación. Para obtener más información, consulte [¿Qué es el SDK de Webjobs?](https://github.com/Azure/azure-webjobs-sdk/wiki)

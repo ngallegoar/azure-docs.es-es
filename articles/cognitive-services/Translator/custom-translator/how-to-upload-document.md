@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73647378"
 ---
 # <a name="upload-a-document"></a>Cargar un documento
@@ -38,24 +38,24 @@ Desde el portal de [Custom Translator](https://portal.customtranslator.azure.ai)
     a.  Tipo de documento:
 
     -  Aprendizaje: estos documentos se usarán para el conjunto de aprendizaje.
-    -  Optimización: estos documentos se usarán para el conjunto de optimización.
-    -  Prueba: estos documentos se usarán para el conjunto de pruebas.
+    -  Ajuste: estos documentos se usarán para el conjunto de ajuste.
+    -  Pruebas: estos documentos se usarán para el conjunto de pruebas.
     -  Diccionario de frases: estos documentos se usarán para el diccionario de frases.
-    -  Diccionario de oraciones: estos documentos se usarán para el diccionario de oraciones.
+    -  Diccionario de oraciones: estos documentos se usarán para el diccionario de oraciones
 
     b.  Par de idiomas
 
-    c.  Override document if exists (Reemplazar el documento si existe): active esta casilla si quiere sobrescribir los documentos existentes con el mismo nombre.
+    c.  Override document if exists (Reemplazar el documento si ya existe): active esta casilla si desea sobrescribir los documentos existentes con el mismo nombre.
 
     d.  Rellene la sección correspondiente para los datos en paralelo o los datos combinados.
 
     -  Datos en paralelo:
-        -  Archivo de origen: seleccione el archivo en el idioma de origen del equipo local.
-        -  Archivo de destino: seleccione el archivo en el idioma de destino del equipo local.
+        -  Archivo de origen: seleccione el archivo en el idioma de origen desde el equipo local.
+        -  Archivo de destino: seleccione el archivo en el idioma de destino desde el equipo local.
         -  Nombre del documento: solo se usa si está cargando archivos paralelos.
 
     - Datos combinados:
-        -  Archivo combinado: seleccione el archivo combinado del equipo local. El archivo combinado tiene las oraciones tanto en el idioma de origen como en el de destino. La [convención de nomenclatura](document-formats-naming-convention.md) es importante para los archivos combinados.
+        -  Archivo combinado: seleccione el archivo combinado desde el equipo local. El archivo combinado tiene las oraciones tanto en el idioma de origen como en el de destino. La [convención de nomenclatura](document-formats-naming-convention.md) es importante para los archivos combinados.
 
     e.  Haga clic en Cargar
 

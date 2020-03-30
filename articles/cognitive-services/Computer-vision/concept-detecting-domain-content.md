@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68946335"
 ---
 # <a name="detect-domain-specific-content"></a>Detectar contenido específico del dominio
@@ -100,7 +100,7 @@ La siguiente respuesta JSON muestra el modo en que el análisis específico del 
 
 Actualmente, Computer Vision admite los siguientes modelos específicos de dominio:
 
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 |------|-------------|
 | celebrities | Reconocimiento de celebridades, compatible con imágenes clasificadas en la categoría `people_`. |
 | landmarks | Reconocimiento de puntos de referencia, compatible con imágenes clasificadas en las categorías `outdoor_` o `building_`. |

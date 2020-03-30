@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e1b513344b6ea16c25d829939e64cd5ca1063c87
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c9bf1cf0564655c932e066e5b74225382375e9c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838888"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235415"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuales de una plantilla de Azure Resource Manager
 
@@ -155,7 +155,7 @@ En este ejemplo se muestra una sección de recursos típica de una plantilla par
 
 Cuando se implementan recursos mediante una plantilla, tendrá que especificar una versión de la API que se utilizará. En el ejemplo, se muestra el recurso de máquina virtual con este elemento apiVersion:
 
-```
+```json
 "apiVersion": "2016-04-30-preview",
 ```
 
@@ -172,7 +172,7 @@ Aproveche estas oportunidades para obtener las últimas versiones de API:
 
 Los [parámetros](../../resource-group-authoring-templates.md) facilitan la tarea de especificar valores para la plantilla cuando la ejecuta. Esta sección de parámetros se utiliza en el ejemplo:
 
-```        
+```json
 "parameters": {
   "adminUsername": { "type": "string" },
   "adminPassword": { "type": "securestring" },
@@ -184,7 +184,7 @@ Al implementar la plantilla de ejemplo, escriba valores para el nombre y la cont
 
 Las [variables](../../resource-group-authoring-templates.md) facilitan la tarea de establecer valores en la plantilla que se usan varias veces en ella o que cambian con el tiempo. Esta sección de variables se utiliza en el ejemplo:
 
-```
+```json
 "variables": { 
   "storageName": "mystore1",
   "accountid": "[concat('/subscriptions/', subscription().subscriptionId, 
@@ -221,7 +221,7 @@ Al implementar la plantilla de ejemplo, los valores de las variables se utilizan
 
 Si necesita más de una máquina virtual para la aplicación, puede utilizar un elemento de copia en una plantilla. Este elemento opcional recorre en bucle la creación del número de máquinas virtuales que especificó como un parámetro:
 
-```
+```json
 "copy": {
   "name": "virtualMachineLoop", 
   "count": "[parameters('numberOfInstances')]"
@@ -230,7 +230,7 @@ Si necesita más de una máquina virtual para la aplicación, puede utilizar un 
 
 Además, tenga en cuenta en el ejemplo se utiliza el índice de bucle al especificar algunos de los valores para el recurso. Por ejemplo, si ha especificado un recuento de las tres instancias, los nombres de los discos del SO son "myOSDisk1", "myOSDisk2" y "myOSDisk3":
 
-```
+```json
 "osDisk": { 
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
@@ -245,7 +245,7 @@ Además, tenga en cuenta en el ejemplo se utiliza el índice de bucle al especif
 
 Tenga en cuenta que la creación de un bucle para un recurso de la plantilla puede requerir que se utilice dicho bucle al crear otros recursos o acceder a ellos. Por ejemplo, varias máquinas virtuales no pueden usar la misma interfaz de red; por tanto, si recorre en bucle la creación de tres máquinas virtuales, también debe hacerlo con la generación de las tres interfaces de red. Al asignar una interfaz de red a una máquina virtual, el índice de bucle se utiliza para identificarlo:
 
-```
+```json
 "networkInterfaces": [ { 
   "id": "[resourceId('Microsoft.Network/networkInterfaces',
     concat('myNIC', copyindex()))]" 
@@ -256,7 +256,7 @@ Tenga en cuenta que la creación de un bucle para un recurso de la plantilla pue
 
 La mayoría de los recursos dependen de otros para que funcionen correctamente. Las máquinas virtuales deben estar asociadas con una red virtual y, para tal fin, necesita una interfaz de red. El elemento [dependsOn](../../resource-group-define-dependencies.md) se utiliza para asegurarse de que la interfaz de red está lista para usarse antes de que se creen las máquinas virtuales:
 
-```
+```json
 "dependsOn": [
   "[concat('Microsoft.Network/networkInterfaces/', 'myNIC', copyindex())]" 
 ],
@@ -266,7 +266,7 @@ Resource Manager implementa en paralelo todos los recursos que no dependan de ot
 
 ¿Cómo puede saber si se requiere una dependencia? Examine los valores establecidos en la plantilla. Si un elemento de la definición de máquina virtual apunta a otro recurso que se implementa en la misma plantilla, necesita una dependencia. Por ejemplo, la máquina virtual de ejemplo define un perfil de red:
 
-```
+```json
 "networkProfile": { 
   "networkInterfaces": [ { 
     "id": "[resourceId('Microsoft.Network/networkInterfaces',
@@ -281,7 +281,7 @@ Para establecer esta propiedad, debe existir la interfaz de red. Por lo tanto, n
 
 Al definir un recurso de máquina virtual, se utilizan varios elementos de perfil. Algunos son necesarios y otros, opcionales. Por ejemplo, los elementos hardwareProfile, osProfile, storageProfile y networkProfile son necesarios, pero diagnosticsProfile es opcional. Estos perfiles definen opciones como:
    
-- [Tamaño](sizes.md)
+- [size](sizes.md)
 - [Nombre](/azure/architecture/best-practices/resource-naming) y credenciales
 - [Configuración del sistema operativo](cli-ps-findimage.md) y disco
 - [Interfaz de red](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
@@ -295,7 +295,7 @@ En Azure, los archivos de VHD pueden representar [discos o imágenes](managed-di
 
 Cuando se crea una máquina virtual, debe decidir qué sistema operativo usar. El elemento imageReference se utiliza para definir el sistema operativo de una nueva máquina virtual. En el ejemplo se muestra una definición de un sistema operativo Windows Server:
 
-```
+```json
 "imageReference": { 
   "publisher": "MicrosoftWindowsServer", 
   "offer": "WindowsServer", 
@@ -306,7 +306,7 @@ Cuando se crea una máquina virtual, debe decidir qué sistema operativo usar. E
 
 Si desea crear un sistema operativo Linux, puede usar esta definición:
 
-```
+```json
 "imageReference": {
   "publisher": "Canonical",
   "offer": "UbuntuServer",
@@ -317,7 +317,7 @@ Si desea crear un sistema operativo Linux, puede usar esta definición:
 
 Los valores de configuración del disco del SO se asignan con el elemento osDisk. En el ejemplo se define un nuevo disco administrado con el modo de almacenamiento en caché establecido en **ReadWrite** y que se va a crear el disco de un [imagen de plataforma](cli-ps-findimage.md):
 
-```
+```json
 "osDisk": { 
   "name": "[concat('myOSDisk', copyindex())]",
   "caching": "ReadWrite", 
@@ -329,7 +329,7 @@ Los valores de configuración del disco del SO se asignan con el elemento osDisk
 
 Si desea crear máquinas virtuales a partir de discos existentes, quite los elementos imageReference y osProfile, y defina esta configuración de disco:
 
-```
+```json
 "osDisk": { 
   "osType": "Windows",
   "managedDisk": { 
@@ -344,7 +344,7 @@ Si desea crear máquinas virtuales a partir de discos existentes, quite los elem
 
 Si desea crear una máquina virtual a partir de una imagen personalizada, cambie el elemento imageReference y defina esta configuración de disco:
 
-```
+```json
 "storageProfile": { 
   "imageReference": {
     "id": "[resourceId('Microsoft.Compute/images', 'myImage')]"
@@ -362,7 +362,7 @@ Si desea crear una máquina virtual a partir de una imagen personalizada, cambie
 
 Si lo desea, puede agregar discos de datos a las máquinas virtuales. El [número de discos](sizes.md) depende del tamaño del disco de sistema operativo que utilice. Con el tamaño de las máquinas virtuales establecido en Standard_DS1_v2, el número máximo de discos de datos que podría agregarse a es 2. En el ejemplo, se agrega un disco administrado a cada máquina virtual:
 
-```
+```json
 "dataDisks": [
   {
     "name": "[concat('myDataDisk', copyindex())]",
@@ -378,7 +378,7 @@ Si lo desea, puede agregar discos de datos a las máquinas virtuales. El [númer
 
 Aunque las [extensiones](extensions-features.md) son un recurso independiente, están estrechamente relacionadas con las máquinas virtuales. Las extensiones pueden agregar como un recurso secundario de la máquina virtual o como uno independiente. El ejemplo muestra la [extensión de diagnóstico](extensions-diagnostics-template.md) que se agrega a las máquinas virtuales:
 
-```
+```json
 { 
   "name": "Microsoft.Insights.VMDiagnosticsSettings", 
   "type": "extensions", 
@@ -413,7 +413,7 @@ Este recurso de extensión usa la variable storageName y las variables de diagn�
 
 Existen muchas extensiones que se pueden instalar en una máquina virtual, pero la más útil es probablemente la de [script personalizado](extensions-customscript.md). En el ejemplo, un script de PowerShell denominado "start.ps1" se ejecuta en cada máquina virtual cuando se inicia por primera vez:
 
-```
+```json
 {
   "name": "MyCustomScriptExtension",
   "type": "extensions",

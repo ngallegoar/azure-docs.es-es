@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2167a17d5d388c97ad357398c4ac2676e43be5a4
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76989457"
 ---
 # <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Habilitación y uso de registros de diagnóstico de Azure Bastion
 
 A medida que los usuarios se conectan a las cargas de trabajo mediante Azure Bastion, Bastion puede registrar los diagnósticos de las sesiones remotas. Después, puede usar los diagnósticos para ver qué usuarios se han conectado a las distintas cargas de trabajo, en qué momento, desde dónde y otros datos de registro relevantes. Para poder usar los diagnósticos, debe habilitar los registros de diagnóstico en Azure Bastion. Este artículo le ayuda a habilitar los registros de diagnóstico y a ver los registros.
 
-## <a name="enable"></a>Habilitación del registro de diagnóstico
+## <a name="enable-the-diagnostics-log"></a><a name="enable"></a>Habilitación del registro de diagnóstico
 
 1. En [Azure Portal](https://portal.azure.com), navegue hasta el recurso Azure Bastion y seleccione **Configuración de diagnóstico** en la página de Azure Bastion.
 
@@ -33,7 +33,7 @@ A medida que los usuarios se conectan a las cargas de trabajo mediante Azure Bas
 
    ![Configuración de ejemplo](./media/diagnostic-logs/4example-settings.png)
 
-## <a name="view"></a>Ver registro de diagnóstico
+## <a name="view-diagnostics-log"></a><a name="view"></a>Ver registro de diagnóstico
 
 Para acceder a los registros de diagnóstico, puede usar directamente la cuenta de almacenamiento que especificó al habilitar la configuración de diagnóstico.
 

@@ -1,19 +1,18 @@
 ---
 title: Requisitos previos de ofertas de contenedor de Azure | Azure Marketplace
 description: Requisitos previos para la publicación de un contenedor de Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: 2c4e5520a2055fafee586fc369c21acfa36037c6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: db2300ae827677f8902e420b136acec3da694c8d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823129"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280021"
 ---
 # <a name="container-publishing-prerequisites"></a>Requisitos previos de publicación de contenedores
 
@@ -29,7 +28,7 @@ Para publicar una nueva imagen de contenedor, se deben cumplir los siguientes re
 - Tenga los metadatos del contenedor listos para su uso. Por ejemplo, algunos de estos:
   - Un título
   - Una descripción (en formato HTML)
-  - Una imagen de logotipo (en formato PNG) y en estos tamaños de imagen fijos: 40x40 px, 90x90 px, 115x 115 px y 255x115 px.
+  - Una imagen de logotipo (en formato PNG) y en estos tamaños de imagen fijos: 40x40 px, 90 x 90 px, 115 x 115 px y 255 x 115 px.
 - Informes de *Términos de uso* y *directiva de privacidad*
 - Documentación de soluciones de Container
 - Contactos de soporte técnico

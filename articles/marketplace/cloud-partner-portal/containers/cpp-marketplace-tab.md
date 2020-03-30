@@ -1,19 +1,18 @@
 ---
 title: Configuración de Marketplace para una imagen de contenedor de Azure | Azure Marketplace
 description: Configure Marketplace para un contenedor de Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 8d7c930f3adcfb4b4d092cc909bf4468ced3271f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: e272a95c5eb7d00b7c2169acb820ec8e4e8d9614
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823206"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280055"
 ---
 # <a name="container-marketplace-tab"></a>Pestaña de Marketplace de contenedor
 
@@ -27,7 +26,7 @@ En esta sección, se escribe la información general sobre la oferta de Azure Ma
 
 En la tabla siguiente se describen la finalidad y el contenido de estos campos. Los campos obligatorios se indican con un asterisco (*).
 
-|    Campo                  |       DESCRIPCIÓN                                                            |
+|    Campo                  |       Descripción                                                            |
 |  ---------                |     ---------------                                                          |
 | **Título\***                 | Título de la oferta. Se muestra de forma destacada en Marketplace.  La longitud máxima es de 50 caracteres. |
 | **Resumen\***               | Breve resumen de la oferta. La longitud máxima es de 100 caracteres. |

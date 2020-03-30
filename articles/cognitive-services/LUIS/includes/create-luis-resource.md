@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: dapine
 ms.openlocfilehash: a765ac27936da9da5a2f41464c17491e3561f44b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73465934"
 ---
 ## <a name="create-a-luis-resource"></a>Creación de un recurso de LUIS
@@ -21,9 +21,9 @@ ms.locfileid: "73465934"
 1. Haga clic en [Crear **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne).
 1. Establezca todas las opciones de configuración necesarias:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |--|--|
-    |NOMBRE|Nombre que quiera (2-64 caracteres).|
+    |Nombre|Nombre que quiera (2-64 caracteres).|
     |Subscription|Seleccione una suscripción adecuada.|
     |Location|Seleccione cualquier ubicación disponible cercana.|
     |Nivel de precios|`F0`: el plan de tarifa mínimo.|

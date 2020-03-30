@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 876026b5399631728331c4a9e67482a34f9d0b2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a5140da32eb6fce03131a42bfa90e71e64552431
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225551"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218798"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Uso de las claves de recursos de creación y de tiempo de ejecución
 
@@ -35,7 +35,7 @@ Al iniciar sesión en el portal de LUIS, puede continuar usando:
 
 ## <a name="sign-in-to-luis-portal-and-begin-authoring"></a>Inicio de sesión en el portal de LUIS y comience el proceso de creación
 
-1. Inicie sesión en el [portal de LUIS](https://www.luis.ai) y acepte los términos de uso.
+1. Inicie sesión en el [portal de LUIS](https://www.luis.ai) y acepte las condiciones de uso.
 1. Inicie la aplicación LUIS seleccionando el tipo de clave de creación de LUIS que quiera usar: la clave de evaluación gratuita o la nueva clave de creación de LUIS de Azure. 
 
     ![Elección de un tipo de recurso de creación de Language Understanding](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
@@ -58,10 +58,10 @@ Cuando esté listo para publicar el punto de conexión de predicción, cree y as
 
     ![Creación del recurso de reconocimiento del lenguaje](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-    |NOMBRE|Propósito|
+    |Nombre|Propósito|
     |--|--|
     |Nombre del recurso| Es el nombre personalizado que elija, que se usa como parte de la dirección URL para las consultas de punto de conexión de creación y predicción.|
-    |Nombre de la suscripción| Es la suscripción que se facturará por el recurso.|
+    |Nombre de suscripción| Es la suscripción que se facturará por el recurso.|
     |Resource group| Es el nombre del grupo de recursos personalizado que elija o cree. Los grupos de recursos le permiten agrupar los recursos de Azure para el acceso y la administración en la misma región.|
     |Creación de la ubicación|Es la región asociada al modelo.|
     |Creación del plan de tarifa|El plan de tarifa determina el número máximo de transacciones por segundo y mes.|
@@ -81,7 +81,7 @@ Recurso: `kind`:
 
 1. Inicie sesión en la CLI de Azure.
 
-    ```console
+    ```azurecli
     az login
     ```
 
@@ -89,13 +89,13 @@ Recurso: `kind`:
 
 1. Cree un **recurso de creación de LUIS**, de tipo `LUIS.Authoring`, llamado `my-luis-authoring-resource` en el grupo de recursos _existente_ denominado `my-resource-group` en la región `westus`. 
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
 1. Cree un **recurso de punto de conexión de predicción de LUIS**, de tipo `LUIS`, llamado `my-luis-prediction-resource` en el grupo de recursos _existente_ denominado `my-resource-group` en la región `westus`. Si quiere un rendimiento superior al del nivel gratuito, cambie `F0` por `S0`. Más información sobre [planes de tarifa y rendimiento](luis-boundaries.md#key-limits).
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
@@ -134,7 +134,7 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
 
     Esta API POST requiere la siguiente configuración:
 
-    |Encabezado|Valor|
+    |Encabezado|Value|
     |--|--|
     |`Authorization`|El valor de `Authorization` es `Bearer {token}`. Tenga en cuenta que el valor del token debe ir precedido de la palabra `Bearer` y un espacio.| 
     |`Ocp-Apim-Subscription-Key`|Su clave de creación.|
@@ -145,7 +145,7 @@ Para fines de automatización, como una canalización de CI/CD, puede automatiza
 
     Esta API POST requiere la siguiente configuración:
 
-    |type|Configuración|Valor|
+    |Tipo|Configuración|Value|
     |--|--|--|
     |Encabezado|`Authorization`|El valor de `Authorization` es `Bearer {token}`. Tenga en cuenta que el valor del token debe ir precedido de la palabra `Bearer` y un espacio.|
     |Encabezado|`Ocp-Apim-Subscription-Key`|Su clave de creación.|

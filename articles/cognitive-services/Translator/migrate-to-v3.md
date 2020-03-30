@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837305"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migrar Translator Text API V2 a V3
@@ -22,7 +22,7 @@ ms.locfileid: "73837305"
 > [!NOTE]
 > V2 quedó en desuso el 30 de abril de 2018. Migre sus aplicaciones a V3 para aprovechar la nueva funcionalidad disponible exclusivamente en V3.
 > 
-> Microsoft Translator Hub se retirará el 17 de mayo de 2019. [Ver información y fechas de migración importantes](https://www.microsoft.com/translator/business/hub/).  
+> Microsoft Translator Hub se retirará el 17 de mayo de 2019. [Ver información importante y fechas de migración](https://www.microsoft.com/translator/business/hub/).  
 
 El equipo de Microsoft Translator ha lanzado la versión 3 (V3) de Translator Text API. En esta versión se incluyen nuevas características, métodos en desuso y un nuevo formato para enviar y recibir datos del servicio Microsoft Translator. Este documento proporciona información para cambiar las aplicaciones para que usen V3. 
 
@@ -61,7 +61,7 @@ La siguiente lista de métodos V2 y V3 identifica los métodos V3 y las API que 
 
 Microsoft Translator Text Translation V2 aceptaba y devolvía datos en formato XML. En V3, todos los datos que se envían y se reciben mediante la API están en formato JSON. XML ya no se aceptará ni devolverá datos en V3.
 
-Este cambio afectará a varios aspectos de una aplicación escrita para la versión V2 de Text Translation API. Por ejemplo: la API de idiomas devuelve información sobre el idioma que se usará en la traducción de texto, la transliteración y los dos métodos de diccionario. Puede solicitar toda la información del idioma para todos los métodos en una sola llamada o solicitarlos individualmente.
+Este cambio afectará a varios aspectos de una aplicación escrita para la versión V2 de Text Translation API. Por ejemplo, la API de idiomas devuelve información del idioma que se usará en la traducción de texto, la transliteración y los dos métodos de diccionario. Puede solicitar toda la información del idioma para todos los métodos en una sola llamada o solicitarlos individualmente.
 
 El método de idiomas no requiere autenticación; si hace clic en el siguiente vínculo podrá ver toda la información de idioma para V3 en JSON:
 
@@ -110,7 +110,7 @@ Global
 
 > [!NOTE]
 > 
-> Microsoft Translator Hub se retirará el 17 de mayo de 2019. [Ver información y fechas de migración importantes](https://www.microsoft.com/translator/business/hub/).   
+> Microsoft Translator Hub se retirará el 17 de mayo de 2019. [Ver información importante y fechas de migración](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 usa la traducción automática neuronal por defecto. Por lo tanto, no puede utilizarse con Microsoft Translator Hub. Translator Hub solo admite traducción automática estadística heredada. La personalización de la traducción neuronal está disponible si usa el Traductor personalizado. [Obtenga más información sobre cómo personalizar la traducción automática neuronal](custom-translator/overview.md)
 
@@ -118,8 +118,8 @@ La traducción neuronal con Text API V3 no admite el uso de categorías estánda
 
 | |Punto de conexión|    Compatible con el procesador GDPR|  Utiliza Translator Hub| Utiliza Traductor personalizado (versión preliminar)|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator Text API versión 2| api.microsofttranslator.com|    Sin  |Sí    |Sin|
-|Translator Text API versión 3| api.cognitive.microsofttranslator.com|  Sí|    Sin| Sí|
+|Translator Text API versión 2| api.microsofttranslator.com|    No  |Sí    |No|
+|Translator Text API versión 3| api.cognitive.microsofttranslator.com|  Sí|    No| Sí|
 
 **Translator Text API versión 3**
 * Está disponible con carácter general y es totalmente compatible.

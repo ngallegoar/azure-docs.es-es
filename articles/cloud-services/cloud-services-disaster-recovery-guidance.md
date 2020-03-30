@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
 ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77157514"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Qué hacer en caso de una interrupción del servicio de Azure que afecte a Azure Cloud Services
@@ -47,10 +47,10 @@ Para más información sobre cómo crear e implementar una aplicación de servic
 En función de los orígenes de datos de la aplicación, es posible que deba comprobar los procedimientos de recuperación para el origen de datos de su aplicación.
 
 * Para los orígenes de datos de Azure Storage, consulte [Redundancia de Azure Storage](../storage/common/storage-redundancy.md) a fin de ver las opciones disponibles según el modelo de redundancia elegido para su aplicación.
-* Para ver los orígenes de SQL Database, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con SQL Database](../sql-database/sql-database-business-continuity.md) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
+* Para los orígenes de SQL Database, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la SQL Database](../sql-database/sql-database-business-continuity.md) a fin de ver las opciones disponibles según el modelo de replicación elegido para su aplicación.
 
 
-## <a name="option-3-wait-for-recovery"></a>Opción 3: Espera para la recuperación
+## <a name="option-3-wait-for-recovery"></a>Opción 3: espera a la recuperación
 En este caso, no se requiere ninguna acción por su parte, pero el servicio no estará disponible hasta que se restaure la región. El estado actual del servicio se puede ver en el [panel de estado de los servicios de Azure](https://azure.microsoft.com/status/).
 
 ## <a name="next-steps"></a>Pasos siguientes

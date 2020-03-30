@@ -1,19 +1,18 @@
 ---
 title: Paseo por Azure Cloud Partner Portal | Azure Marketplace
 description: Información general de la experiencia de usuario en Cloud Partner Portal para Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: pabutler
-ms.openlocfilehash: 85ddf2e2141ad77321710ad03e4d7f67572f3688
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 53378be9b72792b320699341e4b6b16b20217687
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821463"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278321"
 ---
 # <a name="cloud-partner-portal-tour"></a>Paseo por Cloud Partner Portal
 

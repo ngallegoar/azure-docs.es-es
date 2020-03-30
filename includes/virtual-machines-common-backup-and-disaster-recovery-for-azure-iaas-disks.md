@@ -9,10 +9,10 @@ ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77179125"
 ---
 En este artículo se explica cómo planear la copia de seguridad y recuperación ante desastres (DR) de discos y máquinas virtuales (VM) IaaS en Azure. En este documento se tratan los discos administrados y los no administrados.
@@ -168,7 +168,7 @@ Para más información, consulte las instrucciones para [usar Azure Portal para 
 
 También puede usar PowerShell para [crear una máquina virtual a partir de discos restaurados](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="alternative-solution-consistent-snapshots"></a>Soluciones alternativas: Instantáneas coherentes
+## <a name="alternative-solution-consistent-snapshots"></a>Solución alternativa: instantáneas coherentes
 
 Si no puede usar Azure Backup, puede implementar su propio mecanismo de copia de seguridad con instantáneas. Resulta complicado crear las instantáneas coherentes para todos los discos usados que usa una máquina virtual y luego replicar esas instantáneas en otra región. Por esta razón, Azure considera mejor opción usar el servicio Backup que compilar una solución personalizada.
 

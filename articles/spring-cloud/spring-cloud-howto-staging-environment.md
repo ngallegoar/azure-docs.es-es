@@ -6,18 +6,18 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 5612a514ed89f73453f3751b34263b0beeea1c59
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 2e29f6a75b303518ac34ecf9b570bd7638cf0c3a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138143"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471037"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configuración de un entorno de ensayo en Azure Spring Cloud
 
 En este artículo se aborda cómo configurar una implementación de ensayo con el patrón de implementación azul-verde en Azure Spring Cloud. La implementación azul/verde es un patrón de entrega continua de Azure DevOps que se basa en mantener una versión existente (azul) activa mientras se implementa una nueva (verde). En este artículo se muestra cómo llevar la implementación de ensayo a producción sin cambiar directamente la implementación de producción.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 En este artículo se da por hecho que ya ha implementado la aplicación PiggyMetrics, para lo que ha usado el [tutorial en el que se explica cómo iniciar una aplicación en Azure Spring Cloud](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics consta de tres aplicaciones: "gateway", "account-service" y "auth-service".  
 
@@ -44,7 +44,7 @@ Vaya a la instancia de servicio en Azure Portal y seleccione **Administración d
 
 1. En el entorno de desarrollo local, realice una pequeña modificación en la aplicación de puerta de enlace de PiggyMetrics. Por ejemplo, cambie el color en el archivo *gateway/src/main/resources/static/css/launch.css*. Hacerlo le permitirá diferenciar fácilmente las dos implementaciones. Para compilar el paquete jar, ejecute el siguiente comando: 
 
-    ```azurecli
+    ```console
     mvn clean package
     ```
 

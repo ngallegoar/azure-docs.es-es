@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73890860"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementación del comportamiento de modelo del dispositivo
@@ -25,7 +25,7 @@ El artículo [Descripción del esquema de modelo del dispositivo](iot-accelerato
 > [!NOTE]
 > Los comportamientos del modelo del dispositivo son solo para dispositivos simulados que se hospedan en el servicio de simulación del dispositivo. Si desea crear un dispositivo real, consulte [Conexión del dispositivo al acelerador de soluciones de supervisión remota](iot-accelerators-connecting-devices.md).
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 >[!div class="checklist"]
 > * Controlar el estado de un dispositivo simulado

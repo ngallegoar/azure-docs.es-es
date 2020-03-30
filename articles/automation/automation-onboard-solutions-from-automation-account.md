@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: f61fdedcd3c910ef5d09685fea00473a83b321f1
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cf82dddf281e8e6f1348884702e32330dee4781b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834281"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235532"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
@@ -22,7 +22,7 @@ Inicie sesión en Azure en https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Habilitar soluciones
 
-Vaya a la cuenta de Automation y seleccione **Inventory** o **Change Tracking** en **ADMINISTRACIÓN DE CONFIGURACIÓN**.
+Vaya a la cuenta de Automation y seleccione **Inventory** o **Change Tracking** en **Administración de configuración**.
 
 Para habilitar la solución, elija el área de trabajo de Log Analytics y la cuenta de Automation y haga clic en **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
 
@@ -35,17 +35,17 @@ Para habilitar la solución, elija el área de trabajo de Log Analytics y la cue
 
 La solución Change Tracking e Inventario permite realizar un [control de cambios](automation-vm-change-tracking.md) e [inventario](automation-vm-inventory.md) en sus máquinas virtuales. En este paso, se habilita la solución en una máquina virtual.
 
-Cuando se complete la notificación de que se ha incorporado la solución de control de cambios e inventario, haga clic en **Administración de actualizaciones** en **Administración de configuración**.
+Cuando se complete la notificación de que se han incorporado las soluciones Change Tracking e Inventory, seleccione **Update Management** en **Administración de configuración**.
 
-La solución Administración de actualizaciones permite administrar las actualizaciones y las revisiones para las máquinas virtuales Windows de Azure. Puede evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar si las actualizaciones se aplicaron correctamente en la máquina virtual. Esta acción activa la solución en la máquina virtual.
+La solución Update Management permite administrar las actualizaciones y las revisiones para las máquinas virtuales de Azure e híbridas. Puede evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar si las actualizaciones se aplicaron correctamente en dichas máquinas.
 
-Seleccione **Update management** en **UPDATE MANAGEMENT**. El área de trabajo de Log Analytics seleccionada es la misma área de trabajo que se usa en el paso anterior. Haga clic en **Habilitar** para incorporar la solución Administración de actualizaciones. La solución tarda hasta 15 minutos en habilitarse.
+En la página Habilitar solución, el área de trabajo de Log Analytics seleccionada es la misma área de trabajo que se usa en el paso anterior. Haga clic en **Habilitar** para incorporar la solución Update Management. La solución tarda hasta 15 minutos en habilitarse.
 
 ![Incorporación de la solución de actualización](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
 ## <a name="scope-configuration"></a>Configuración de ámbito
 
-Cada solución utiliza una configuración de ámbito en el área de trabajo para definir los equipos de destino que obtendrán la solución. La configuración de ámbito es un grupo de una o más búsquedas guardadas que se utiliza para limitar el ámbito de la solución a equipos específicos. Para tener acceso a las configuraciones de ámbito, en la cuenta de Automation, en **Recursos relacionados**, seleccione **Área de trabajo**. A continuación, en el área de trabajo, en **Orígenes de datos del área de trabajo**, seleccione **Configuraciones de ámbito**.
+Cada solución utiliza una configuración de ámbito en el área de trabajo para definir los equipos de destino que obtendrán la solución. La configuración de ámbito es un grupo de una o más búsquedas guardadas que se utiliza para limitar el ámbito de la solución a equipos específicos. Para acceder a las Configuraciones de ámbito, en la cuenta de Automation, debajo de **Recursos relacionados**, seleccione **Área de trabajo**. A continuación, en el área de trabajo, en **Orígenes de datos del área de trabajo**, seleccione **Configuraciones de ámbito**.
 
 Si el área de trabajo seleccionada no dispone aún de las soluciones Update Management ni Change Tracking, se crearán las siguientes configuraciones de ámbito:
 
@@ -72,7 +72,7 @@ Seleccione cualquier búsqueda guardada para ver la consulta utilizada para rell
 
 ## <a name="onboard-azure-vms"></a>Incorporar máquinas virtuales de Azure
 
-Desde la cuenta de Automation, seleccione **Inventory** o **Change Tracking** en **ADMINISTRACIÓN DE CONFIGURACIÓN** o **Update management** en **UPDATE MANAGEMENT**.
+Desde la cuenta de Automation, seleccione **Inventory** o **Change Tracking** en **Administración de configuración**, o bien **Update Management** debajo de **Update Management**.
 
 Haga clic en **+ Agregar máquinas virtuales de Azure** y seleccione una o varias máquinas virtuales en la lista. Las máquinas virtuales que no se pueden habilitar se atenúan y no se pueden seleccionar. Las VM de Azure pueden existir en cualquier región independientemente de la ubicación de la cuenta de Automation. En la página **Habilitar la administración de actualizaciones**, haga clic en **Habilitar**. Esta operación agrega las máquinas virtuales seleccionadas a la búsqueda guardada de los grupos de equipos de la solución.
 
@@ -80,13 +80,13 @@ Haga clic en **+ Agregar máquinas virtuales de Azure** y seleccione una o varia
 
 ## <a name="onboard-a-non-azure-machine"></a>Incorporación de una máquina que no es de Azure
 
-Las máquinas que no estén en Azure se deben agregar manualmente. Desde la cuenta de Automation, seleccione **Inventory** o **Change Tracking** en **ADMINISTRACIÓN DE CONFIGURACIÓN** o **Update management** en **UPDATE MANAGEMENT**.
+Las máquinas que no estén en Azure se deben agregar manualmente. Desde la cuenta de Automation, seleccione **Inventory** o **Change Tracking** en **Administración de configuración**, o bien **Update Management** debajo de **Update Management**.
 
 Haga clic en **Agregar un equipo que no es de Azure**. Esta operación abre una nueva ventana del explorador con las [instrucciones acerca de cómo instalar y configurar Microsoft Monitoring Agent en la máquina](../azure-monitor/platform/log-analytics-agent.md) para que esta pueda empezar a enviar notificaciones a la solución. Si está incorporando una máquina administrada actualmente por System Center Operations Manager, no se necesita un nuevo agente, ya que la información del área de trabajo se agrega al agente existente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Incorporación de máquinas en el área de trabajo
 
-Las máquinas instaladas manualmente o las máquinas que ya envían notificaciones al área de trabajo deben agregarse a Azure Automation para poder habilitar la solución. Desde la cuenta de Automation, seleccione **Inventory** o **Change Tracking** en **ADMINISTRACIÓN DE CONFIGURACIÓN** o **Update management** en **UPDATE MANAGEMENT**.
+Las máquinas instaladas manualmente o las máquinas que ya envían notificaciones al área de trabajo deben agregarse a Azure Automation para poder habilitar la solución. Desde la cuenta de Automation, seleccione **Inventory** o **Change Tracking** en **Administración de configuración**, o bien **Update Management** debajo de **Update Management**.
 
 Seleccione **Administrar máquinas**. Esta operación abrirá la página **Administrar máquinas**. Esta página permite habilitar la solución en un conjunto seleccionado de máquinas, en todas los máquinas disponibles o habilitar la solución para todas las máquinas actuales y habilitarlo en todas las máquinas futuras. Es posible que, si previamente seleccionó la opción **Habilitar en todas las máquinas disponibles y futuras**, el botón **Administrar máquinas** esté atenuado.
 
@@ -133,9 +133,9 @@ Después de quitar estas soluciones, puede seguir los pasos que se indican a con
 
 Si ha usado la solución de administración de actualizaciones, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
 
-* Programaciones de actualizaciones: cada una tendrá nombres que coinciden con las implementaciones de las actualizaciones que ha creado.
+* Programaciones de actualización: cada una tendrá nombres que coinciden con las implementaciones de actualizaciones que ha creado.
 
-* Los grupos de Hybrid Worker que se han creado para la solución: cada uno de ellos se llamará de forma similar a machine1.contoso.com_9ceb8108 - 26 c 9-4051-b6b3-227600d715c8).
+* Los grupos de Hybrid Worker que se han creado para la solución: cada uno de ellos se llamará de forma similar a machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
 
 Si ha usado la solución Start and Stop VMs during off-hours, también puede quitar los siguientes elementos, que ya no serán necesarios después de quitar la solución.
 

@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: c8ef481fe277d6451923da828f0e7473354c24cf
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903019"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231684"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="AdvancedPolicies"></a> Directivas avanzadas
+## <a name="advanced-policies"></a><a name="AdvancedPolicies"></a> Directivas avanzadas
 
 -   [Flujo de control](api-management-advanced-policies.md#choose): aplica condicionalmente instrucciones de directiva basadas en los resultados de la evaluación de [expresiones](api-management-policy-expressions.md) booleanas.
 -   [Reenviar solicitud](#ForwardRequest) : reenvía la solicitud al servicio back-end.
@@ -41,11 +41,11 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   [Trace](#Trace): agrega seguimientos personalizados a la salida de la [inspección de la API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), a la telemetría de Application Insights y a los registros de diagnóstico.
 -   [Wait](#Wait) (Esperar): espera a que se completen las directivas adjuntas [Send request](api-management-advanced-policies.md#SendRequest) (Enviar solicitud), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) (Obtener el valor de caché) o [Control flow](api-management-advanced-policies.md#choose) (Flujo de control) antes de continuar.
 
-## <a name="choose"></a> Flujo de control
+## <a name="control-flow"></a><a name="choose"></a> Flujo de control
 
 La directiva `choose` aplica las declaraciones de directiva adjuntas en función del resultado de la evaluación de las expresiones booleanas, de forma similar a una estructura if-then-else o de conmutador en un lenguaje de programación.
 
-### <a name="ChoosePolicyStatement"></a> Declaración de la directiva
+### <a name="policy-statement"></a><a name="ChoosePolicyStatement"></a> Declaración de la directiva
 
 ```xml
 <choose>
@@ -65,11 +65,11 @@ La directiva de flujo de control debe contener al menos un elemento `<when/>`. E
 
 ### <a name="examples"></a>Ejemplos
 
-#### <a name="ChooseExample"></a> Ejemplo
+#### <a name="example"></a><a name="ChooseExample"></a> Ejemplo
 
 En el ejemplo siguiente se muestra una directiva [set-variable](api-management-advanced-policies.md#set-variable) y dos directivas de flujo de control.
 
-La directiva de establecimiento de variable se encuentra en la sección de entrada y crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana `isMobile` que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
+La directiva de establecimiento de variable se encuentra en la sección de entrada y crea una variable de `isMobile`contexto[ booleana ](api-management-policy-expressions.md#ContextVariables) que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
 
 La primera directiva de flujo de control se encuentra también en la sección de entrada y aplica condicionalmente una de las dos directivas de [establecimiento del parámetro de cadena de consulta](api-management-transformation-policies.md#SetQueryStringParameter) dependiendo del valor de la variable de contexto `isMobile`.
 
@@ -106,7 +106,7 @@ La segunda directiva de flujo de control se encuentra en la sección de salida y
 
 #### <a name="example"></a>Ejemplo
 
-En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos de la respuesta recibida del servicio back-end al usar el producto `Starter`. Para ver una demostración de la configuración y el uso de esta directiva, consulte el [Episodio 177 de Cloud Cover: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Más características de API Management con Vlad Vinogradsky) y avance hasta el minuto 34:30. Empiece en el minuto 31:50 para ver una introducción a la [API de previsión de Dark Sky](https://developer.forecast.io/) empleada en esta demostración.
+En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos de la respuesta recibida del servicio back-end al usar el producto `Starter`. Para ver una demostración de la configuración y el uso de esta directiva, vea [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Episodio 177 de Cloud Cover: más características API Management con Vlad Vinogradsky) y avance al minuto 34:30. Empiece en el minuto 31:50 para ver una introducción a la [API de previsión de Dark Sky](https://developer.forecast.io/) empleada en esta demostración.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -138,7 +138,7 @@ En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos d
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | condition="Constante booleana &#124; Constante booleana" | La expresión o constante booleana que se evalúa cuando se evalúa la declaración de la directiva `when` que la contiene. | Sí      |
 
-### <a name="ChooseUsage"></a> Uso
+### <a name="usage"></a><a name="ChooseUsage"></a> Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -146,7 +146,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="ForwardRequest"></a> Reenvío de solicitud
+## <a name="forward-request"></a><a name="ForwardRequest"></a> Reenvío de solicitud
 
 La directiva `forward-request` reenvía la solicitud entrante al servicio back-end especificado en el [contexto](api-management-policy-expressions.md#ContextVariables) de la solicitud. La dirección URL del servicio back-end se especifica en la [configuración](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) de la API y se puede cambiar mediante la directiva de [establecimiento del servicio back-end](api-management-transformation-policies.md).
 
@@ -264,11 +264,11 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 -   **Secciones de la directiva:** back-end
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="LimitConcurrency"></a> Limitar la simultaneidad
+## <a name="limit-concurrency"></a><a name="LimitConcurrency"></a> Limitar la simultaneidad
 
 La directiva `limit-concurrency` evita que las directivas delimitadas ejecuten en un momento dado un número de solicitudes mayor que el especificado. Al superar ese número, las nuevas solicitudes producirán un error inmediatamente con el código de estado de 429 Demasiadas solicitudes.
 
-### <a name="LimitConcurrencyStatement"></a> Declaración de la directiva
+### <a name="policy-statement"></a><a name="LimitConcurrencyStatement"></a> Declaración de la directiva
 
 ```xml
 <limit-concurrency key="expression" max-count="number">
@@ -315,7 +315,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="log-to-eventhub"></a>Registro en centro de eventos
+## <a name="log-to-event-hub"></a><a name="log-to-eventhub"></a>Registro en centro de eventos
 
 La directiva `log-to-eventhub` envía mensajes en el formato especificado a un centro de eventos definido por una entidad del registrador. Como su nombre indica, la directiva se usa para guardar información de contexto de respuesta o solicitud que se ha seleccionado para su análisis en línea o sin conexión.
 
@@ -369,7 +369,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="mock-response"></a> Similar respuesta
+## <a name="mock-response"></a><a name="mock-response"></a> Similar respuesta
 
 `mock-response`, como el nombre indica, se utiliza para simular las API y las operaciones. Se anula la ejecución de la canalización normal y devuelve una respuesta simulada al llamador. La directiva siempre trata de devolver las respuestas de mayor fidelidad. Prefiere ejemplos de contenido de respuesta, siempre que estén disponibles. Genera las respuestas de ejemplo a partir de esquemas, cuando se proporcionan esquemas y no ejemplos. Si no se encuentran ni ejemplos ni esquemas, se devuelven las respuestas sin contenido.
 
@@ -413,7 +413,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="Retry"></a> Reintento
+## <a name="retry"></a><a name="Retry"></a> Reintento
 
 La directiva `retry` ejecuta sus directivas secundarias una vez y después vuelve a tratar de ejecutarla hasta que el elemento `condition` del reintento pasa a ser `false` o se agota el número correspondiente al elemento `count` del reintento.
 
@@ -481,7 +481,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="ReturnResponse"></a> Devolución de respuesta
+## <a name="return-response"></a><a name="ReturnResponse"></a> Devolución de respuesta
 
 La directiva `return-response` anula la ejecución de la canalización y devuelve una respuesta personalizada o predeterminada al autor de la llamada. La respuesta predeterminada es `200 OK` sin cuerpo. La respuesta personalizada se puede especificar mediante declaraciones de directiva o variable de contexto. Cuando se especifican ambas, las declaraciones de la directiva modifican la respuesta que se encuentra en la variable de contexto antes de devolverla al autor de la llamada.
 
@@ -531,7 +531,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="SendOneWayRequest"></a> Envío de solicitud unidireccional
+## <a name="send-one-way-request"></a><a name="SendOneWayRequest"></a> Envío de solicitud unidireccional
 
 La directiva `send-one-way-request` envía la solicitud proporcionada a la dirección URL especificada sin esperar una respuesta.
 
@@ -605,7 +605,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="SendRequest"></a> Envío de solicitud
+## <a name="send-request"></a><a name="SendRequest"></a> Envío de solicitud
 
 La directiva `send-request` envía la solicitud proporcionada a la dirección URL que se ha especificado, aunque no espera más del valor de tiempo de espera establecido.
 
@@ -692,7 +692,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="SetHttpProxy"></a> Establecer proxy HTTP
+## <a name="set-http-proxy"></a><a name="SetHttpProxy"></a> Establecer proxy HTTP
 
 La directiva `proxy` le permite enrutar las solicitudes reenviadas a los back-ends a través de un proxy HTTP. Solo se admite HTTP (no HTTPS) entre la puerta de enlace y el proxy. Solo autenticación básica y NTLM.
 
@@ -734,7 +734,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="SetRequestMethod"></a> Establecimiento de método de solicitud
+## <a name="set-request-method"></a><a name="SetRequestMethod"></a> Establecimiento de método de solicitud
 
 La directiva `set-method` le permite cambiar el método de solicitud de HTTP para una solicitud.
 
@@ -789,7 +789,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="SetStatus"></a> Establecimiento de código de estado
+## <a name="set-status-code"></a><a name="SetStatus"></a> Establecimiento de código de estado
 
 La directiva `set-status` establece el código de estado HTTP en el valor especificado.
 
@@ -838,19 +838,19 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 -   **Secciones de la directiva:** saliente, back-end y en caso de error
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="set-variable"></a> Establecimiento de variable
+## <a name="set-variable"></a><a name="set-variable"></a> Establecimiento de variable
 
 La directiva `set-variable` declara una variable de [contexto](api-management-policy-expressions.md#ContextVariables) y le asigna un valor que se especifica mediante una [expresión](api-management-policy-expressions.md) o un literal de cadena. Si la expresión contiene un valor literal, se convertirá en una cadena y el tipo del valor será `System.String`.
 
-### <a name="set-variablePolicyStatement"></a> Declaración de la directiva
+### <a name="policy-statement"></a><a name="set-variablePolicyStatement"></a> Declaración de la directiva
 
 ```xml
 <set-variable name="variable name" value="Expression | String literal" />
 ```
 
-### <a name="set-variableExample"></a> Ejemplo
+### <a name="example"></a><a name="set-variableExample"></a> Ejemplo
 
-En el ejemplo siguiente se muestra una directiva de establecimiento de variable en la sección de entrada. Esta directiva de establecimiento de variable crea una variable de [contexto](api-management-policy-expressions.md#ContextVariables) booleana de `isMobile` que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
+En el ejemplo siguiente se muestra una directiva de establecimiento de variable en la sección de entrada. Esta directiva de establecimiento de variable crea una variable de `isMobile`contexto[ booleana de ](api-management-policy-expressions.md#ContextVariables) que se establece en true si el encabezado de la solicitud `User-Agent` contiene el texto `iPad` o `iPhone`.
 
 ```xml
 <set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
@@ -876,7 +876,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-### <a name="set-variableAllowedTypes"></a> Tipos permitidos
+### <a name="allowed-types"></a><a name="set-variableAllowedTypes"></a> Tipos permitidos
 
 Las expresiones usadas en la directiva `set-variable` deben devolver uno de los siguientes tipos básicos.
 
@@ -912,7 +912,7 @@ Las expresiones usadas en la directiva `set-variable` deben devolver uno de los 
 -   System.Char?
 -   System.DateTime?
 
-## <a name="Trace"></a> Seguimiento
+## <a name="trace"></a><a name="Trace"></a> Seguimiento
 
 La directiva `trace` agrega un seguimiento personalizado a la salida de la inspección de la API, a los datos de telemetría de Application Insights o a los registros de diagnóstico.
 
@@ -931,7 +931,7 @@ La directiva `trace` agrega un seguimiento personalizado a la salida de la inspe
 
 ```
 
-### <a name="traceExample"></a> Ejemplo
+### <a name="example"></a><a name="traceExample"></a> Ejemplo
 
 ```xml
 <trace source="PetStore API" severity="verbose">
@@ -965,7 +965,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="Wait"></a> Espera
+## <a name="wait"></a><a name="Wait"></a> Espera
 
 La directiva `wait` ejecuta sus directivas secundarias inmediatas en paralelo y espera a que se completen todas o una de ellas para finalizar. La directiva de espera puede tener las directivas de [envío de solicitud](api-management-advanced-policies.md#SendRequest), [obtención del valor de caché](api-management-caching-policies.md#GetFromCacheByKey) y [flujo de control](api-management-advanced-policies.md#choose) como directivas secundarias inmediatas.
 

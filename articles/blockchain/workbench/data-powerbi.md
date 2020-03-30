@@ -5,10 +5,10 @@ ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: mmercuri
 ms.openlocfilehash: 6e1f160c3563a280548c74ebe84f30bf08945c3f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74324793"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Usar datos de Azure Blockchain Workbench con Microsoft Power BI
@@ -17,7 +17,7 @@ Microsoft Power BI ofrece la posibilidad de generar fácilmente informes eficace
 
 En este artículo se incluye un tutorial paso a paso sobre cómo conectarse a la base de datos de SQL de Azure Blockchain Workbench desde Power BI Desktop, crear un informe e implementar este en powerbi.com.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Descargue [Power BI Desktop](https://aka.ms/pbidesktopstore).
 
@@ -26,7 +26,7 @@ En este artículo se incluye un tutorial paso a paso sobre cómo conectarse a la
 1.  Abra Power BI Desktop.
 2.  Seleccione **Obtener datos**.
 
-    ![Obtener los datos](./media/data-powerbi/get-data.png)
+    ![Obtener datos](./media/data-powerbi/get-data.png)
 3.  Seleccione **SQL Server** de la lista de tipos de orígenes de datos.
 
 4.  Proporcione el nombre del servidor y la base de datos en el cuadro de diálogo. Especifique si desea importar los datos o realizar una **DirectQuery**. Seleccione **Aceptar**.

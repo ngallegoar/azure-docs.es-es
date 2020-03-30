@@ -1,6 +1,6 @@
 ---
-title: 'Azure VMware Solutions (AVS): configuración de una puerta de enlace de VPN'
-description: Describe cómo configurar la puerta de enlace de VPN de punto a sitio y la puerta de enlace de VPN de sitio a sitio y cómo crear conexiones entre la red local y la nube privada de AVS.
+title: 'Azure VMware Solution by CloudSimple: configuración de una puerta de enlace de VPN'
+description: Describe cómo configurar la puerta de enlace de VPN de punto a sitio y la puerta de enlace de VPN de sitio a sitio y cómo crear conexiones entre la red local y la nube privada de CloudSimple.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,37 +8,37 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8731f7a9ff7f2cab7516e43c62ddc1aac2668168
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a8b7e238333196381524d189904871fe5933c906
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016772"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235784"
 ---
-# <a name="set-up-vpn-gateways-on-avs-network"></a>Configuración de puertas de enlace de VPN en la red de AVS
+# <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>Configuración de puertas de enlace de VPN en la red de CloudSimple
 
-Las puertas de enlace de VPN le permiten conectarse a la red de AVS desde la red local y desde un equipo cliente de forma remota. Una conexión VPN entre la red local y la red de AVS proporciona acceso a vCenter y a cargas de trabajo en la nube privada de AVS. AVS admite puertas de enlace de VPN de sitio a sitio y de punto a sitio.
+Las puertas de enlace de VPN le permiten conectarse a la red de CloudSimple desde la red local y desde un equipo cliente de forma remota. Una conexión VPN entre la red local y la red de CloudSimple proporciona acceso a vCenter y a cargas de trabajo en la nube privada. CloudSimple admite puertas de enlace de VPN de sitio a sitio y de punto a sitio.
 
 ## <a name="vpn-gateway-types"></a>Tipos de puertas de enlace de VPN
 
-* La conexión **VPN de sitio a sitio** le permite configurar las cargas de trabajo de la nube privada de AVS para acceder a los servicios locales. También puede usar Active Directory local como origen de identidad para autenticarse en el servidor vCenter de la nube privada de AVS. Actualmente, solo se admite el tipo de **VPN basada en directivas**.
-* Una conexión **VPN de punto a sitio** es la manera más sencilla de conectarse a la nube privada de AVS desde su equipo. Use la conectividad VPN de punto a sitio si se conecta a la nube privada de AVS de forma remota. Para obtener información sobre cómo instalar un cliente para una conexión VPN de punto a sitio, consulte [Configuración de una conexión VPN a la nube privada de AVS](set-up-vpn.md).
+* La conexión **VPN de sitio a sitio** le permite configurar las cargas de trabajo de la nube privada para acceder a los servicios locales. También puede usar Active Directory local como origen de identidad para autenticarse en el servidor vCenter de la nube privada.  Actualmente, solo se admite el tipo de **VPN basada en directivas**.
+* La conexión **VPN de punto a sitio** es la manera más sencilla de conectarse a la nube privada desde su equipo. Use la conectividad VPN de punto a sitio si se conecta a la nube privada de forma remota. Para obtener información sobre cómo instalar un cliente para una conexión VPN de punto a sitio, consulte [Configuración de una conexión VPN a la nube privada](set-up-vpn.md).
 
 En una región, puede crear una puerta de enlace de VPN de punto a sitio y una puerta de enlace de VPN de sitio a sitio.
 
 ## <a name="automatic-addition-of-vlansubnets"></a>Adición automática de VLAN/subredes
 
-Las puertas de enlace de VPN de AVS proporcionan directivas para agregar VLAN/subredes a las puertas de enlace de VPN. Las directivas permiten especificar diferentes reglas para las VLAN/subredes de administración y las VLAN/subredes definidas por el usuario. Las reglas para las VLAN/subredes de administración se aplican a todas las nubes privadas de AVS nuevas que cree. Las reglas para las VLAN/subredes definidas por el usuario permiten agregar automáticamente nuevas VLAN/subredes a nubes privadas de AVS nuevas o existentes para una puerta de enlace de VPN de sitio a sitio. Deberá definir la directiva para cada conexión.
+Las puertas de enlace de VPN de CloudSimple proporcionan directivas para agregar VLAN/subredes a las puertas de enlace de VPN.  Las directivas permiten especificar diferentes reglas para las VLAN/subredes de administración y las VLAN/subredes definidas por el usuario.  Las reglas para las VLAN/subredes de administración se aplican a todas las nubes privadas nuevas que cree.  Las reglas para las VLAN/subredes definidas por el usuario permiten agregar automáticamente nuevas VLAN/subredes a nubes privadas nuevas o existentes para una puerta de enlace de VPN de sitio a sitio. Deberá definir la directiva para cada conexión.
 
 Las directivas sobre la adición de VLAN/subredes a puertas de enlace de VPN se aplican tanto a puertas de enlace de VPN de sitio a sitio como a puertas de enlace de VPN de punto a sitio.
 
 ## <a name="automatic-addition-of-users"></a>Adición automática de usuarios
 
-Una puerta de enlace de VPN de punto a sitio permite definir una directiva de adición automática para los nuevos usuarios. De forma predeterminada, todos los propietarios y colaboradores de la suscripción tienen acceso al portal de AVS. Los usuarios solo se crean cuando se inicia el portal de AVS por primera vez. La selección de reglas para **agregar automáticamente** permite a cualquier usuario nuevo acceder a la red de AVS mediante una conexión VPN de punto a sitio.
+Una puerta de enlace de VPN de punto a sitio permite definir una directiva de adición automática para los nuevos usuarios. De forma predeterminada, todos los propietarios y colaboradores de la suscripción tienen acceso al portal de CloudSimple.  Los usuarios solo se crean cuando se inicia el portal de CloudSimple por primera vez.  La selección de reglas de **Automatically add** (Agregar automáticamente) permite a cualquier usuario nuevo acceder a la red de CloudSimple mediante una conexión VPN de punto a sitio.
 
 ## <a name="set-up-a-site-to-site-vpn-gateway"></a>Configuración de una puerta de enlace de VPN de sitio a sitio
 
-1. [Acceda al portal de AVS](access-cloudsimple-portal.md) y seleccione **Red**.
+1. [Acceda](access-cloudsimple-portal.md) al portal de CloudSimple y seleccione **Network** (Red).
 2. Seleccione **VPN Gateway** (Puerta de enlace de VPN).
 3. Haga clic en **New VPN Gateway** (Nueva puerta de enlace de VPN).
 
@@ -48,7 +48,7 @@ Una puerta de enlace de VPN de punto a sitio permite definir una directiva de ad
 
     * Seleccione **Site-to-Site VPN** (VPN de sitio a sitio) como el tipo de puerta de enlace.
     * Escriba un nombre para identificar la puerta de enlace.
-    * Seleccione la ubicación de Azure en que se va a implementar el servicio de AVS.
+    * Seleccione la ubicación de Azure en que se va a implementar el servicio de CloudSimple.
     * Opcionalmente, habilite la alta disponibilidad.
 
     ![Creación de una puerta de enlace de VPN de sitio a sitio](media/create-vpn-gateway-s2s.png)
@@ -60,16 +60,16 @@ Una puerta de enlace de VPN de punto a sitio permite definir una directiva de ad
 
     * Escriba un nombre para identificar la conexión.
     * Para la IP del mismo nivel, escriba la dirección IP pública de la puerta de enlace de VPN local.
-    * Escriba el identificador del mismo nivel de la puerta de enlace de VPN local. El identificador del mismo nivel suele ser la dirección IP pública de la puerta de enlace de VPN local. Si ha configurado un identificador específico en la puerta de enlace, escriba el identificador.
-    * Copie la clave compartida que se usará para la conexión desde la puerta de enlace de VPN local. Para cambiar la clave compartida predeterminada y especificar una nueva, haga clic en el icono de edición.
-    * En **Prefijos locales**, escriba los prefijos CIDR locales que tendrán acceso a la red de AVS. Puede agregar varios prefijos CIDR al crear la conexión.
+    * Escriba el identificador del mismo nivel de la puerta de enlace de VPN local.  El identificador del mismo nivel suele ser la dirección IP pública de la puerta de enlace de VPN local.  Si ha configurado un identificador específico en la puerta de enlace, escriba el identificador.
+    * Copie la clave compartida que se usará para la conexión desde la puerta de enlace de VPN local.  Para cambiar la clave compartida predeterminada y especificar una nueva, haga clic en el icono de edición.
+    * En **On-Premises Prefixes** (Prefijos locales), escriba los prefijos CIDR locales que tendrán acceso a la red de CloudSimple.  Puede agregar varios prefijos CIDR al crear la conexión.
 
     ![Creación de una conexión de puerta de enlace de VPN de sitio a sitio](media/create-vpn-gateway-s2s-connection.png)
 
-6. Habilite las VLAN/subredes de la red de nube privada de AVS a las que se tendrá acceso desde la red local y haga clic en **Siguiente**.
+6. Habilite las VLAN/subredes de la red de nube privada a las que se tendrá acceso desde la red local y haga clic en **Siguiente**.
 
-    * Para agregar una VLAN/subred de administración, habilite **Add management VLANs/Subnets of AVS Private Clouds** (Agregar VLAN y subredes de administración de nubes privadas de AVS). La subred de administración es necesaria para subredes de vMotion y vSAN.
-    * Para agregar subredes de vMotion, habilite **Add vMotion network of AVS Private Clouds** (Agregar red de vMotion de nubes privadas de AVS).
+    * Para agregar una VLAN/subred de administración, habilite **Add management VLANs/Subnets of Private Clouds** (Agregar VLAN y subredes de administración de nubes privadas).  La subred de administración es necesaria para subredes de vMotion y vSAN.
+    * Para agregar subredes de vMotion, habilite **Add vMotion network of Private Clouds** (Agregar red de vMotion de nubes privadas).
     * Para agregar subredes de vSAN, habilite **Add vSAN subnet of Private Clouds** (Agregar subred de vSAN de nubes privadas).
     * Seleccione o anule la selección de VLAN específicas.
 
@@ -81,7 +81,7 @@ Una puerta de enlace de VPN de punto a sitio permite definir una directiva de ad
 
 ## <a name="create-point-to-site-vpn-gateway"></a>Creación de puerta de enlace de VPN de punto a sitio
 
-1. [Acceda al portal de AVS](access-cloudsimple-portal.md) y seleccione **Red**.
+1. [Acceda](access-cloudsimple-portal.md) al portal de CloudSimple y seleccione **Network** (Red).
 2. Seleccione **VPN Gateway** (Puerta de enlace de VPN).
 3. Haga clic en **New VPN Gateway** (Nueva puerta de enlace de VPN).
 
@@ -91,18 +91,18 @@ Una puerta de enlace de VPN de punto a sitio permite definir una directiva de ad
 
     * Seleccione **Point-to-Site VPN** (VPN de punto a sitio) como el tipo de puerta de enlace.
     * Escriba un nombre para identificar la puerta de enlace.
-    * Seleccione la ubicación de Azure en que se va a implementar el servicio de AVS.
-    * Especifique la subred de cliente para la puerta de enlace de punto a sitio. Cuando se conecte, se proporcionarán direcciones DHCP desde la subred de cliente.
+    * Seleccione la ubicación de Azure en que se va a implementar el servicio de CloudSimple.
+    * Especifique la subred de cliente para la puerta de enlace de punto a sitio.  Cuando se conecte, se proporcionarán direcciones DHCP desde la subred de cliente.
 
 5. En **Connection/User** (Conexión/Usuario), especifique la configuración que se indica a continuación y haga clic en **Next** (Siguiente).
 
-    * Para permitir automáticamente que todos los usuarios actuales y futuros tengan acceso a la nube privada a través de la puerta de enlace de punto a sitio, seleccione **Agregar automáticamente todos los usuarios**. Al seleccionar esta opción, se seleccionan automáticamente todos los usuarios de la lista de usuarios. Para invalidar la opción automática, anule la selección de usuarios individuales en la lista.
+    * Para permitir automáticamente que todos los usuarios actuales y futuros tengan acceso a la nube privada a través de la puerta de enlace de punto a sitio, seleccione **Automatically add all users** (Agregar automáticamente a todos los usuarios). Al seleccionar esta opción, se seleccionan automáticamente todos los usuarios de la lista de usuarios. Para invalidar la opción automática, anule la selección de usuarios individuales en la lista.
     * Para seleccionar usuarios individuales, haga clic en las casillas de verificación de la lista de usuarios.
 
 6. En la sección VLANs/Subnets (VLAN/Subredes) se pueden especificar las VLAN y las subredes de administración y de usuario para la puerta de enlace y las conexiones.
 
     * Las opciones de **Automatically add** (Agregar automáticamente) establecen la directiva global para la puerta de enlace. La configuración se aplica a la puerta de enlace actual. Se puede invalidar la configuración en el área **Select** (Seleccionar).
-    * Seleccione **Add management VLANs/Subnets of AVS Private Clouds** (Agregar VLAN y subredes de administración de nubes privadas de AVS). 
+    * Seleccione **Add management VLANs/Subnets of Private Clouds** (Agregar VLAN y subredes de administración de nubes privadas). 
     * Para agregar todas las VLAN y subredes definidas por el usuario, haga clic en **Add user-defined VLANs/Subnets** (Agregar VLAN y subredes definidas por el usuario).
     * La configuración de **Select** (seleccionar) invalida la configuración global en **Automatically add** (Agregar automáticamente).
 
@@ -111,9 +111,9 @@ Una puerta de enlace de VPN de punto a sitio permite definir una directiva de ad
 
 ### <a name="client-subnet-and-protocols-for-point-to-site-vpn-gateway"></a>Subred de cliente y protocolos de puerta de enlace de VPN de punto a sitio
 
-La puerta de enlace de VPN de punto a sitio permite conexiones TCP y UDP. Elija el protocolo que se usará al conectarse desde el equipo seleccionando la configuración TCP o UDP.
+La puerta de enlace de VPN de punto a sitio permite conexiones TCP y UDP.  Elija el protocolo que se usará al conectarse desde el equipo seleccionando la configuración TCP o UDP.
 
-La subred de cliente configurada se usa para los clientes TCP y UDP. El prefijo CIDR se divide en dos subredes, una para TCP y otra para clientes UDP. Elija la máscara de prefijo en función del número de usuarios de VPN que se conectarán simultáneamente. 
+La subred de cliente configurada se usa para los clientes TCP y UDP.  El prefijo CIDR se divide en dos subredes, una para TCP y otra para clientes UDP. Elija la máscara de prefijo en función del número de usuarios de VPN que se conectarán simultáneamente.  
 
 En la tabla siguiente se muestra el número de conexiones de cliente simultáneas para la máscara de prefijo.
 
@@ -122,4 +122,4 @@ En la tabla siguiente se muestra el número de conexiones de cliente simultánea
 | Número de conexiones TCP simultáneas | 124 | 60 | 28 | 12 | 4 |
 | Número de conexiones UDP simultáneas | 124 | 60 | 28 | 12 | 4 |
 
-Para conectarse mediante VPN de punto a sitio, consulte [Conexión a AVS mediante VPN de punto a sitio](set-up-vpn.md#connect-to-avs-using-point-to-site-vpn).
+Para conectarse mediante VPN de punto a sitio, consulte [Conexión a CloudSimple mediante VPN de punto a sitio](set-up-vpn.md#connect-to-cloudsimple-using-point-to-site-vpn).

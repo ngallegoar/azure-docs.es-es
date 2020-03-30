@@ -4,14 +4,14 @@ description: Inserción y extracción de artefactos de Open Container Initiative
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 03/11/2020
 ms.author: stevelas
-ms.openlocfilehash: cb58a7ed51ae15d33ffdbb616c9b32ef03bcbfb7
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456259"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371059"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Inserción y extracción de un artefacto de OCI con un registro de contenedor de Azure
 
@@ -19,7 +19,7 @@ Puede usar un registro de contenedor de Azure para almacenar y administrar [arte
 
 Para demostrar esta funcionalidad, en este artículo se muestra cómo usar la herramienta [Registro de OCI como almacenamiento (ORAS)](https://github.com/deislabs/oras) para insertar un artefacto de ejemplo, un archivo de texto, en un registro de contenedor de Azure. A continuación, se extrae el artefacto del registro. Puede administrar una variedad de artefactos de OCI en un registro de contenedor de Azure mediante diferentes herramientas de línea de comandos adecuadas para cada artefacto.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Registro de contenedor de Azure**: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md).
 * **Herramienta ORAS**: descargue e instale una versión actual de ORAS para su sistema operativo desde el [repositorio de GitHub](https://github.com/deislabs/oras/releases). La herramienta se presenta como un tarball comprimido (archivo `.tar.gz`). Extraiga e instale el archivo mediante los procedimientos estándar para su sistema operativo.
@@ -66,10 +66,20 @@ echo "Here is an artifact!" > artifact.txt
 
 Use el comando `oras push` para insertar este archivo de texto en el registro. En el ejemplo siguiente se inserta el archivo de texto de ejemplo en el repositorio `samples/artifact`. El registro se identifica con el nombre de registro completo *myregistry.azurecr.io* (todo en minúsculas). El artefacto se etiqueta `1.0`. El artefacto tiene un tipo no definido de forma predeterminada, identificado por la cadena del *tipo de medio* que sigue al nombre de archivo `artifact.txt`. Consulte [Artefactos de OCI](https://github.com/opencontainers/artifacts) para tipos adicionales. 
 
+**Linux**
+
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
     --manifest-config /dev/null:application/vnd.unknown.config.v1+json \
     ./artifact.txt:application/vnd.unknown.layer.v1+txt
+```
+
+**Windows**
+
+```cmd
+.\oras.exe push myregistry.azurecr.io/samples/artifact:1.0 ^
+    --manifest-config NUL:application/vnd.unknown.config.v1+json ^
+    .\artifact.txt:application/vnd.unknown.layer.v1+txt
 ```
 
 La salida de una inserción correcta es similar a la siguiente:

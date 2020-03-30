@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 55ee4c7498dcda3060d4e4221711793b80132bdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426720"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502291"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementación de características de nivel de servicio en el servicio de actor
 
@@ -143,7 +143,7 @@ public class Program
 
 ## <a name="implement-actor-backup-and-restore"></a>Implementación de la copia de seguridad y la restauración de actores
 
-Un servicio de actor personalizado puede exponer un método para crear una copia de seguridad de los datos de actor mediante el uso del agente de escucha remoto que ya se encuentra presente en `ActorService`: Para obtener un ejemplo, vea [Actores de copia de seguridad y restauración](service-fabric-reliable-actors-backup-and-restore.md).
+Un servicio de actor personalizado puede exponer un método para crear una copia de seguridad de los datos de actor mediante el uso del agente de escucha remoto que ya se encuentra presente en `ActorService`: Para obtener un ejemplo, vea [Actores de copia de seguridad y restauración](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
 
 ## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Actor que usa una pila de comunicación remota V2 (compatible con interfaz)
 

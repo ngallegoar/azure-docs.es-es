@@ -11,13 +11,13 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837295"
 ---
-# <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: Detect
+# <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: Detección
 
 Identifica el idioma de un fragmento de texto.
 
@@ -35,7 +35,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 
 <table width="100%">
   <th width="20%">Parámetro de consulta</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>api-version</td>
     <td>*Parámetro obligatorio*.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
@@ -46,7 +46,7 @@ Los encabezados de solicitud incluyen lo siguiente:
 
 <table width="100%">
   <th width="20%">encabezados</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>Encabezados de autenticación</td>
     <td><em>Encabezado de solicitud obligatorio</em>.<br/>Consulte las <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opciones disponibles para la autenticación</a>.</td>
@@ -85,15 +85,15 @@ Se aplican las siguientes limitaciones:
 
 Una respuesta correcta es una matriz JSON con un resultado para cada cadena en la matriz de entrada. Un objeto del resultado incluye las siguientes propiedades:
 
-  * `language`: Código del idioma detectado.
+  * `language`: código del idioma detectado.
 
-  * `score`: valor flotante que indica la confianza en el resultado. La puntuación varía entre cero y uno, y una puntuación baja indica una confianza baja.
+  * `score`: un valor flotante que indica la confianza en el resultado. La puntuación varía entre cero y uno, y una puntuación baja indica una confianza baja.
 
-  * `isTranslationSupported`: Valor booleano que tiene el valor "true" si el idioma detectado es uno de los idiomas admitidos para la traducción de texto.
+  * `isTranslationSupported`: un valor booleano que tiene el valor "true" si el idioma detectado es uno de los idiomas admitidos para la traducción de texto.
 
-  * `isTransliterationSupported`: Valor booleano que tiene el valor "true" si el idioma detectado es uno de los idiomas admitidos para la transliteración.
+  * `isTransliterationSupported`: un valor booleano que tiene el valor "true" si el idioma detectado es uno de los idiomas admitidos para la transliteración.
   
-  * `alternatives`: Matriz de otros idiomas posibles. Cada elemento de la matriz es otro objeto con las mismas propiedades enumeradas anteriormente: `language`, `score`, `isTranslationSupported` y `isTransliterationSupported`.
+  * `alternatives`: una matriz de otros idiomas posibles. Cada elemento de la matriz es otro objeto con las mismas propiedades enumeradas anteriormente: `language`, `score`, `isTranslationSupported` y `isTransliterationSupported`.
 
 Un ejemplo de respuesta JSON es:
 
@@ -126,7 +126,7 @@ Un ejemplo de respuesta JSON es:
 
 <table width="100%">
   <th width="20%">encabezados</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valor generado por el servicio para identificar la solicitud. Se usa para solucionar problemas.</td>
@@ -139,10 +139,10 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
 
 <table width="100%">
   <th width="20%">Código de estado</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>200</td>
-    <td>Correcta.</td>
+    <td>Correcto.</td>
   </tr>
   <tr>
     <td>400</td>

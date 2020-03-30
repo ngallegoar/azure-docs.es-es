@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 7130ed43183d64b00f8f5ef1697b9a3b456ad396
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72931669"
 ---
 # <a name="create-video-reviews-using-net"></a>Creación de revisiones de vídeo con .NET
@@ -27,7 +27,7 @@ En este artículo se proporciona información y ejemplos de código que le ayuda
 - Obtención del estado y los detalles de la revisión
 - Publicar la revisión
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Inicie sesión o cree una cuenta en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 - En este artículo se da por supuesto que ha [moderado el vídeo (consulte la guía de inicio rápido)](video-moderation-api.md) y que tiene los datos de respuesta. Se necesita para crear revisiones basadas en fotogramas para moderadores humanos.
@@ -59,7 +59,7 @@ Para los fotogramas de vídeo (imágenes), utilice las siguientes imágenes:
 | :---: | :---: | :---: |
 [Fotograma 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Fotograma 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Fotograma 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
 
-## <a name="create-your-visual-studio-project"></a>Creación del proyecto de Visual Studio
+## <a name="create-your-visual-studio-project"></a>Crear un proyecto de Visual Studio
 
 1. Agregue un nuevo proyecto de **Aplicación de consola (.NET Framework)** a la solución.
 
@@ -76,7 +76,7 @@ Instale los siguientes paquetes NuGet para el proyecto TermLists.
 - Microsoft.Rest.ClientRuntime.Azure
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Actualización de las instrucciones using del programa
+### <a name="update-the-programs-using-statements"></a>Actualizar las instrucciones using del programa
 
 Modifique las instrucciones using de la siguiente manera.
 
@@ -294,7 +294,7 @@ static void AddFrame(ContentModeratorClient client, string review_id, string url
 ## <a name="get-video-frames-for-video-review"></a>Obtención de los fotogramas de vídeo para la revisión de vídeo
 
 Puede obtener los fotogramas de vídeo para una revisión de vídeo con **ContentModeratorClient.Reviews.GetVideoFrames**. **GetVideoFrames** tiene los siguientes parámetros requeridos:
-1. Nombre del equipo Content Moderator.
+1. El nombre del equipo de Content Moderator.
 1. Identificador de revisión de vídeo que **CreateVideoReviews** devuelve.
 1. Índice en base cero del primer fotograma de vídeo que se va a obtener.
 1. Número de fotogramas que se va a obtener.
@@ -322,7 +322,7 @@ static void GetFrames(ContentModeratorClient client, string review_id)
 ## <a name="get-video-review-information"></a>Obtención de la información de revisión de vídeo
 
 La información de una revisión de vídeo se obtiene con **ContentModeratorClient.Reviews.GetReview**. **GetReview** tiene los siguientes parámetros requeridos:
-1. Nombre del equipo Content Moderator.
+1. El nombre del equipo de Content Moderator.
 1. Identificador de revisión de vídeo que **CreateVideoReviews** devuelve.
 
 Agregue la siguiente definición de método al espacio de nombres VideoReviews, clase Program.
@@ -404,7 +404,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="run-the-program-and-review-the-output"></a>Ejecución del programa y revisión de la salida
+## <a name="run-the-program-and-review-the-output"></a>Ejecutar el programa y revisar la salida
 Al ejecutar la aplicación, verá una salida en las siguientes líneas:
 
 ```json

@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: 4cd8d0901ce23fb227bb6919dee18f5aa3d063ed
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77089047"
 ---
 La versión 3 de Text Analytics API le permite elegir la versión del modelo más actual para los datos. Use el parámetro opcional `model-version` para seleccionar la versión del modelo que desee para sus solicitudes. Si no se especifica este parámetro, la API usará de forma predeterminada `latest`, la versión estable más reciente. Aunque puede usar la versión más reciente del modelo en cualquier solicitud, solo se actualizan algunas características en cada versión. En la tabla siguiente se describen las características que se han actualizado en cada versión del modelo:

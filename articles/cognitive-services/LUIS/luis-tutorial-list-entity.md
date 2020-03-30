@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
 ms.openlocfilehash: f3c99856eaffc454754618a1eac34630b985a77e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73499472"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Use una entidad de lista para aumentar la detección de entidades 
@@ -22,18 +22,18 @@ En este artículo se muestra el uso de una [entidad de lista](luis-concept-entit
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una entidad de lista 
 > * Agregar valores y sinónimos normalizados
 > * Validar una identificación de entidad mejorada
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 > [!div class="checklist"]
 > * Versión de [Node.js](https://nodejs.org) más reciente.
-> * [Aplicación HomeAutomation LUIS](luis-get-started-create-app.md). Si no ha creado la aplicación Automatización de dispositivos del hogar, cree una aplicación nueva y agregue el dominio creado previamente **HomeAutomation**. Entrene y publique la aplicación. 
+> * [Aplicación de LUIS HomeAutomation](luis-get-started-create-app.md). Si no ha creado la aplicación Automatización de dispositivos del hogar, cree una aplicación nueva y agregue el dominio creado previamente **HomeAutomation**. Entrene y publique la aplicación. 
 > * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (si se consulta muchas veces), id. de aplicación, id. de versión y [region](luis-reference-regions.md) para la aplicación LUIS.
 
 > [!Tip]
@@ -48,7 +48,7 @@ Un sistema que tiene muchos nombres en las diferentes culturas y demografías es
 
 Lo idóneo es que las siguientes expresiones se resuelvan en la entidad creada previamente **HomeAutomation.Device**:
 
-|#|Expresión|Entidad identificada|de la aplicación|
+|#|expresión|Entidad identificada|score|
 |--|--|--|--|
 |1|turn on the ac|HomeAutomation.Device: "ac"|0.8748562|
 |2|turn up the heat|HomeAutomation.Device: "heat"|0.784990132|
@@ -214,7 +214,7 @@ El dispositivo específico **Thermostat** se identifica con una consulta orienta
 
 Pruebe las otras dos expresiones para ver que también se devuelven como termostato. 
 
-|#|Expresión|Entidad|Tipo|value|
+|#|expresión|Entidad|type|value|
 |--|--|--|--|--|
 |1|turn on the ac| ac | DevicesList | Thermostat|
 |2|turn up the heat|heat| DevicesList |Thermostat|

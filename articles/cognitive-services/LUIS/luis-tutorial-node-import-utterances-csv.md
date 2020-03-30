@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
 ms.openlocfilehash: ef5f6967b7ad9500672d00d93dd8acaca99e5948
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73499462"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Compilar una aplicación de LUIS mediante programación con Node.js
@@ -24,7 +24,7 @@ LUIS proporciona una API de programación que hace lo mismo que el sitio web de 
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Inicie sesión en el sitio web de [LUIS](luis-reference-regions.md) y busque la [clave de creación](luis-concept-keys.md#authoring-key) en la configuración de la cuenta. Esta clave se usa para llamar a las API de creación.
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -139,14 +139,14 @@ const LUIS_appCulture = "en-us";
 const LUIS_versionId = "0.1";
 ```
 
-### <a name="run-the-script"></a>Ejecute el script
+### <a name="run-the-script"></a>Ejecute el script.
 Ejecute el script desde un terminal o línea de comandos con Node.js.
 
 ```console
 > node index.js
 ```
 
-o
+or
 
 ```console
 > npm start

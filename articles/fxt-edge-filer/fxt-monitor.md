@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: 3f422339af2040ad81c585c0e193e6cb3667b135
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72254871"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Supervisión del estado del hardware de Azure FXT Edge Filer
@@ -60,7 +60,7 @@ Los indicadores de estado de la izquierda muestran una luz ámbar fija si hay un
 
 Si sigue teniendo el error después de intentar estas soluciones, [póngase en contacto con el soporte técnico](fxt-support-ticket.md) para obtener ayuda. 
 
-| Icono | DESCRIPCIÓN | Condición de error | Posibles soluciones |
+| Icono | Descripción | Condición de error | Posibles soluciones |
 |----------------|---------------|--------------------|----------------------|
 | ![icono de la unidad](media/fxt-monitor/fxt-hd-icon.jpg) | Estado de la unidad | Error de la unidad | Compruebe el Registro de eventos del sistema para determinar si la unidad tiene un error, o bien <br>Ejecute la prueba de diagnóstico en línea correspondiente; reinicie el sistema y ejecute los diagnósticos insertados (ePSA), o bien <br>Si las unidades están configuradas en una matriz RAID, reinicie el sistema e introduzca el programa de utilidad de configuración del adaptador de host |
 |![icono de temperatura](media/fxt-monitor/fxt-temp-icon.jpg) | Estado de la temperatura | Error térmico: por ejemplo, un ventilador ha fallado o la temperatura ambiente está fuera del intervalo | Compruebe las siguientes condiciones tratables: <br>Falta un ventilador o bien se ha estropeado <br>Se ha quitado la cobertura del sistema, la tapa del aire, la protección del módulo de memoria o el soporte de relleno trasero <br>La temperatura ambiente es demasiado alta <br>El flujo de aire externo está obstruido |
