@@ -64,7 +64,7 @@ La estimación durante una reducción horizontal está diseñada para evitar sit
 Nuestra recomendación es establecer un margen suficiente entre el escalado horizontal y en los umbrales. Por ejemplo, echemos un vistazo a esta siguiente combinación de reglas, que es mejor.
 
 * Aumentar las instancias en 1 cuando el porcentaje de CPU > = 80
-* Disminuir las instancias en 1 cuando el porcentaje de CPU > = 60
+* Disminuir las instancias en 1 cuando el porcentaje de CPU < = 60
 
 En este caso  
 
