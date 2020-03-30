@@ -15,11 +15,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357769"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236392"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
@@ -46,11 +46,11 @@ Los siguientes términos se utilizan en este artículo:
 
 -  *Alias*: el nombre para una configuración de recuperación ante desastres que ha configurado. El alias proporciona una sola cadena de conexión estable de nombre de dominio completo (FQDN). Las aplicaciones usan esta cadena de conexión de alias para conectarse a un espacio de nombres. 
 
--  *Espacio de nombres principal o secundario*: los espacio de nombres que corresponden al alias. El espacio de nombres principal es "activo" y recibe mensajes (puede ser un espacio de nombres ya existente o uno nuevo). El espacio de nombres secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio de código de la aplicación o cadena de conexión. Para asegurarse de que solo el espacio de nombres activo recibe mensajes, tiene que utilizar el alias. 
+-  *Espacio de nombres principal o secundario*: los espacios de nombres que corresponden al alias. El espacio de nombres principal es "activo" y recibe mensajes (puede ser un espacio de nombres ya existente o uno nuevo). El espacio de nombres secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio de código de la aplicación o cadena de conexión. Para asegurarse de que solo el espacio de nombres activo recibe mensajes, tiene que utilizar el alias. 
 
 -  *Metadatos*: entidades como centros de eventos y grupos de consumidores; y sus propiedades del servicio que están asociadas con el espacio de nombres. Tenga en cuenta que solo las entidades y sus valores se replican automáticamente. No se replican los mensajes ni los eventos. 
 
--  *Conmutación por error*: el proceso de activación del espacio de nombres secundario.
+-  *Conmutación por error*: El proceso de activación del espacio de nombres secundario.
 
 ## <a name="supported-namespace-pairs"></a>Pares de espacios de nombres admitidos
 Se admiten las siguientes combinaciones de espacios de nombres principales y secundarios:  
@@ -60,7 +60,7 @@ Se admiten las siguientes combinaciones de espacios de nombres principales y sec
 | Estándar | Estándar | Sí | 
 | Estándar | Dedicado | Sí | 
 | Dedicado | Dedicado | Sí | 
-| Dedicado | Estándar | Sin | 
+| Dedicado | Estándar | No | 
 
 > [!NOTE]
 > No se pueden emparejar espacios de nombres que se encuentran en el mismo clúster dedicado. Puede emparejar espacios de nombres que se encuentran en clústeres independientes. 

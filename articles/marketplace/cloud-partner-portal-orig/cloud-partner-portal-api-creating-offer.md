@@ -1,19 +1,18 @@
 ---
 title: Crear o modificar una oferta | Azure Marketplace
 description: API para crear una oferta o actualizar una oferta existente.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: bfb9cfbe2c63caafef8487015f42a05b98afa29c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 681e71fae161100c8804f95980b9e9567dcf1863
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819713"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288621"
 ---
 <a name="create-or-modify-an-offer"></a>Creación o modificación de una oferta
 =========================
@@ -28,8 +27,8 @@ Esta llamada actualiza una oferta específica dentro del espacio de nombres del 
 
 |  **Nombre**         |  **Descripción**                      |  **Tipo de datos**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identificador del publicador, por ejemplo `contoso`. |   Cadena |
-| offerId           |  Identificador de la oferta.                     |   Cadena        |
+| publisherId       |  Identificador del publicador, por ejemplo `contoso`. |   String |
+| offerId           |  Identificador de la oferta.                     |   String        |
 | api-version       |  La versión más reciente de la API            |   Date           |
 |  |  |  |
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: a9a1c1718fb95a6ace3700af043134072d582473
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663052"
 ---
 # <a name="views-in-management-solutions-preview"></a>Vistas de soluciones de administración (versión preliminar)
@@ -25,7 +25,7 @@ Las [soluciones de administración](solutions.md) incluirán normalmente una o v
 >
 >
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](solutions-creating.md) y la estructura de un archivo de solución.
 
 ## <a name="overview"></a>Información general
@@ -89,8 +89,8 @@ Todos los recursos de Log Analytics definidos en una plantilla de Resource Manag
 | Versión del área de trabajo | Versión de API | Consultar |
 |:---|:---|:---|
 | v1 (heredado)   | 2015-11-01-preview | Formato heredado.<br> Ejemplo: Type=Event EventLevelName = Error  |
-| v2 (actualizado) | 2015-11-01-preview | Formato heredado.  Convertido al formato actualizado en la instalación.<br> Ejemplo: Type=Event EventLevelName = Error<br>Convertido a: Event &#124; where EventLevelName == "Error"  |
-| v2 (actualizado) | 2017-03-03-preview | Formato de actualización. <br>Ejemplo: Event &#124; where EventLevelName == "Error"  |
+| v2 (actualizado) | 2015-11-01-preview | Formato heredado.  Convertido al formato actualizado en la instalación.<br> Ejemplo: Type=Event EventLevelName = Error<br>Convertido a: Event &#124; donde EventLevelName == "Error"  |
+| v2 (actualizado) | 2017-03-03-preview | Formato de actualización. <br>Ejemplo: Event &#124; donde EventLevelName == "Error"  |
 
 
 ## <a name="add-the-view-details"></a>Agregar los detalles de la vista

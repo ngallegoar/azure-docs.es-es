@@ -13,16 +13,18 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
-ms.openlocfilehash: c1271d5b63fa796fe44b7a40c364953464a87539
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 505f58f13a7186948a228fefe872d74fb98eba33
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68596670"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80345769"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparación de los datos para entrenar un modelo predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar)
 
 En la primera parte de esta serie de tutoriales de tres partes, importará y preparará los datos de una base de datos de Azure SQL mediante R. Más adelante en la serie, usará estos datos para entrenar e implementar un modelo de Machine Learning predictivo en R con Azure SQL Database Machine Learning Services (versión preliminar).
+
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 En esta serie de tutoriales, imagine que posee una empresa de alquiler de esquís y quiere predecir el número de alquileres que tendrá en una fecha futura. Esta información le ayudará a preparar las existencias, el personal y las instalaciones.
 

@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121750"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229624"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
 

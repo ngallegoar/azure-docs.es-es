@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535178"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229792"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Seguimiento y registro de eventos para Azure Data Box y Azure Data Box Heavy
 

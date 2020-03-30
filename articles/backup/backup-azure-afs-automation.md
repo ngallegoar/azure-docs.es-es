@@ -4,11 +4,11 @@ description: En este artículo se aprende a realizar copias de seguridad de Azur
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120510"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233952"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Copia de seguridad de Azure Files con PowerShell
 
@@ -35,7 +35,7 @@ En el diagrama siguiente, se resume la jerarquía de objetos.
 
 ![Jerarquía de objetos de Recovery Services](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-Revise la [referencia de cmdlet](/powershell/module/az.recoveryservices) de **Az.RecoveryServices** en la biblioteca de Azure.
+Revise la **referencia de cmdlet** de [Az.RecoveryServices](/powershell/module/az.recoveryservices) en la biblioteca de Azure.
 
 ## <a name="set-up-and-install"></a>Configuración e instalación
 

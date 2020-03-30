@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
 ms.openlocfilehash: 9042ed8ddbb698192e638fa7538f74561574c262
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77668237"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Integración del esquema común de alertas con Logic Apps
@@ -20,7 +20,7 @@ En este artículo se muestra cómo crear una aplicación lógica que aprovecha e
 El [esquema común de alerta](https://aka.ms/commonAlertSchemaDocs) proporciona un esquema JSON estandarizado y extensible a través de todos los diferentes tipos de alerta. El esquema común de alerta es especialmente útil cuando se aprovecha mediante programación: con webhooks, runbooks y aplicaciones lógicas. En este artículo, se muestra cómo se puede crear una única aplicación lógica para controlar todas las alertas. Los mismos principios se pueden aplicar a otros métodos de programación. La aplicación lógica descrita en este artículo crea variables bien definidas para los [campos "esenciales"](alerts-common-schema-definitions.md#essentials)y también se describe cómo puede controlar la lógica específica del [tipos de alerta](alerts-common-schema-definitions.md#alert-context).
 
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Prerequisites 
 
 En este artículo se supone que el lector está familiarizado con los conceptos siguientes: 
 * Configuración de reglas de alerta ([métrica](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric), [registro](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log), [registro de actividad](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log))
@@ -31,7 +31,7 @@ En este artículo se supone que el lector está familiarizado con los conceptos 
 
 1. Siga los [pasos para crear la aplicación lógica](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
 
-1.  Seleccione el desencadenador: **Cuando se recibe una solicitud HTTP**.
+1.  Seleccione el desencadenador **Cuando se recibe una solicitud HTTP**.
 
     ![Desencadenadores de aplicación lógica](media/action-groups-logic-app/logic-app-triggers.png "Desencadenadores de aplicación lógica")
 

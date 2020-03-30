@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f61319a1d2a5d5599a4745979f3c5abc0a713ac7
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 9ce6440989cbf962c474de2a6c90db4c485bf4a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128139"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292323"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creación de un grupo host con una plantilla de Azure Resource Manager
 
@@ -43,7 +43,7 @@ Si va a realizar la implementación en una suscripción de proveedor de solucion
 
 1. Desplácese hacia abajo, haga clic con el botón derecho en **Implementar en Azure** y, después, seleccione **Copy Link Location** (Copiar ubicación del vínculo).
 2. Abra un editor de texto como el Bloc de notas y pegue el vínculo ahí.
-3. Justo después de "https://portal.azure.com/" y antes de la almohadilla (#), escriba una arroba (@) seguida del nombre de dominio del inquilino. Este es un ejemplo del formato que debe usar: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
+3. Justo después de "https://portal.azure.com/" y antes de la almohadilla (#), escriba una arroba (@) seguida del nombre de dominio del inquilino. Este es un ejemplo del formato que debe usar: `https://portal.azure.com/@Contoso.onmicrosoft.com#create/`.
 4. Inicie sesión en el Azure Portal como un usuario con permisos de administrador o colaborador en la suscripción del proveedor de soluciones en la nube.
 5. Pegue el vínculo que ha copiado en el editor de texto en la barra de direcciones.
 

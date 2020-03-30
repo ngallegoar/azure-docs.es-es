@@ -1,19 +1,18 @@
 ---
 title: Creación de una oferta de aplicación de Power BI | Azure Marketplace
 description: Cómo crear una oferta de aplicación de Power BI para Microsoft AppSource Marketplace.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: pabutler
-ms.openlocfilehash: e0ee26672697517556a2f639b533a1217712d03d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ee3501e7feec77c842f3784f6c2820af05637e6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822697"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286394"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creación de una oferta de aplicación de Power BI
 
@@ -21,7 +20,7 @@ En este artículo se enumeran los pasos necesarios para crear una oferta de apli
 
 Los grupos de recursos se describen en la siguiente tabla:
 
-|   Grupo de recursos      | DESCRIPCIÓN                                                                         |
+|   Grupo de recursos      | Descripción                                                                         |
 | ----------------   | ----------------                                                                    |
 | Configuración de oferta     | Identificaciones principales y nombre de la oferta.                                      |
 | Información técnica     | Dirección URL del instalador usado para instalar la aplicación en el área de trabajo de Power BI del cliente. Para más información sobre cómo generar esta dirección URL, consulte la [documentación de la aplicación de Power BI](https://go.microsoft.com/fwlink/?linkid=2028636). |

@@ -10,16 +10,16 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 04c6d4c74a82ccfbcbb0faecb0dca5ec495f6663
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672871"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Análisis de registros de sitios web mediante Azure Data Lake Analytics
 Aprenda a analizar registros de sitios web mediante Análisis de Data Lake, especialmente en lo que se refiere a averiguar qué sitios de referencia presentaban errores cuando intentaron visitar el sitio web.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **Visual Studio 2015 o Visual Studio 2013**.
 * **[Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs)** .
 
@@ -32,7 +32,7 @@ Aprenda a analizar registros de sitios web mediante Análisis de Data Lake, espe
 * **Una cuenta de Análisis de Data Lake.**  Consulte [Creación de una cuenta de Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 * **Instale los datos de ejemplo.** En Azure Portal, abra su cuenta de Data Lake Analytics, haga clic en **Scripts de ejemplo** en el menú izquierdo y, luego, haga clic en **Copiar datos de muestra**. 
 
-## <a name="connect-to-azure"></a>Conexión a Azure
+## <a name="connect-to-azure"></a>Conexión con Azure
 Para poder crear y probar cualquier script U-SQL, primero debe conectarse a Azure.
 
 **Para conectarse a Análisis de Data Lake**
@@ -168,7 +168,7 @@ Puede agregar operadores de suma definidos por el usuario a la aplicación.  Par
 3. Haga doble clic en **UnsuccessfulResponses.log**.
 4. También puede hacer doble clic en el archivo de salida en la vista de gráfico del trabajo para ir directamente a la salida.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 Para empezar a trabajar con Análisis de Data Lake usando diferentes herramientas, consulte:
 
 * [Introducción a Data Lake Analytics mediante Azure Portal](data-lake-analytics-get-started-portal.md)

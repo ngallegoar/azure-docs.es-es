@@ -9,10 +9,10 @@ ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 7fb85f179f1e1e1ac873fc7d6d937b34c1d48ada
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71316587"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Supervisión de trabajos en Azure Data Lake Analytics mediante Azure Portal
@@ -44,7 +44,7 @@ ms.locfileid: "71316587"
     "/ Samples/Data/SearchLog.tsv"
 8. Haga clic en **Enviar trabajo**.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Información general de Análisis de Azure Data Lake](data-lake-analytics-overview.md)
 * [Introducción a Análisis de Azure Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Administración de Azure Data Lake Analytics con Azure Portal](data-lake-analytics-manage-use-portal.md)

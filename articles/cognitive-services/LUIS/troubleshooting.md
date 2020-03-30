@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: a2472064720af0a25568a2f173b971898b1f2e25
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123115"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218702"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -241,9 +241,9 @@ Si utiliza el registro para el análisis de predicción, no capture las expresio
 
 ### <a name="can-i-delete-data-from-luis"></a>¿Puedo eliminar datos de LUIS?
 
-* Siempre puede eliminar expresiones de ejemplo que se usaron para entrenar a LUIS. Si elimina una expresión de ejemplo desde la aplicación de LUIS, se elimina del servicio web de LUIS y no está disponible para su exportación.
-* Puede eliminar expresiones de la lista de expresiones de usuario que LUIS sugiere en la página **Review endpoint utterances** (Revisar expresiones de punto de conexión). Eliminar la expresiones de esta lista evita que se sugieran, pero no las elimina de los registros.
-* Si elimina una cuenta, se eliminan todas las aplicaciones, incluso las expresiones de ejemplo y los registros. Los datos se conservan en los servidores durante 60 días antes de eliminarse permanentemente.
+* Siempre puede eliminar expresiones de ejemplo que se usaron para entrenar a LUIS. Si elimina una expresión de ejemplo desde la aplicación de LUIS, se eliminará del servicio web de LUIS y no estará disponible para la exportación.
+* Puede eliminar expresiones de la lista de expresiones de usuario que LUIS sugiere en la página **Review endpoint utterances** (Revisar expresiones de punto de conexión). La eliminación de las expresiones de esta lista evita que se sugieran, pero no las elimina de los registros.
+* Si elimina una cuenta, se eliminarán todas las aplicaciones, incluso las expresiones de ejemplo y los registros. Los datos se conservan en los servidores durante 60 días antes de eliminarse permanentemente.
 
 ### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>¿Cómo administra Microsoft los datos que envío a LUIS?
 

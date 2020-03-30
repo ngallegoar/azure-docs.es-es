@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793549"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236844"
 ---
 # <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Funcionamiento de la búsqueda de texto completo en Azure Cognitive Search
 
@@ -31,7 +31,7 @@ Una vez reformulada, la ejecución de la consulta tiene cuatro fases:
 1. Consulta de análisis 
 2. Análisis léxico 
 3. Recuperación de documentos 
-4. Puntuación 
+4. Puntuaciones 
 
 El diagrama siguiente muestra los componentes que se utilizan para procesar una solicitud de búsqueda. 
 
@@ -42,7 +42,7 @@ El diagrama siguiente muestra los componentes que se utilizan para procesar una 
 |----------------|------------------------|
 |**Analizadores de consulta** | Separe los términos de consulta de los operadores de consulta y cree la estructura de consulta (un árbol de consulta) que enviar al motor de búsqueda. |
 |**Analizadores** | Realice un análisis léxico sobre los términos de consulta. Este proceso puede implicar la transformación, eliminación o expansión de los términos de consulta. |
-|**Índice** | Una estructura de datos eficiente usada para almacenar y organizar términos que pueden buscarse extraídos de documentos indexados. |
+|**Index** | Una estructura de datos eficiente usada para almacenar y organizar términos que pueden buscarse extraídos de documentos indexados. |
 |**Motor de búsqueda** | Recupera y puntúa los documentos coincidentes en función del contenido del índice invertido. |
 
 ## <a name="anatomy-of-a-search-request"></a>Anatomía de una solicitud de búsqueda
@@ -72,7 +72,7 @@ Para esta solicitud, el motor de búsqueda realiza lo siguiente:
 La mayor parte de este artículo es sobre el procesamiento de la *consulta de búsqueda*: `"Spacious, air-condition* +\"Ocean view\""`. El filtrado y la ordenación están fuera del ámbito. Para más información, consulte la [Documentación de referencia de API de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
-## <a name="stage-1-query-parsing"></a>Fase 1 Consulta de análisis 
+## <a name="stage-1-query-parsing"></a>Fase 1: Consulta de análisis 
 
 Como se mencionó anteriormente, la cadena de consulta es la primera línea de la solicitud: 
 
@@ -287,9 +287,9 @@ Para el campo **descripción**, el índice es el siguiente:
 | espacioso | 1
 | el | 1, 2
 | to | 1
-| view | 1, 2, 3
+| ver | 1, 2, 3
 | paseo | 1
-| por | 3
+| con | 3
 
 
 **Coincidencia de términos de consulta con términos indexados**
@@ -391,7 +391,7 @@ En este artículo se ha analizado la búsqueda de texto completo en el contexto 
 
 + [Configurar los analizadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para un procesamiento mínimo o especializado en campos específicos.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

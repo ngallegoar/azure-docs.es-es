@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 96a4afff3e58bfa1ebf661909f380aa525fea76e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6c8ceeaf49d8ebfa15a83118e8b518190f6ff85e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820136"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241073"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implementación del módulo y las dependencias de OPC Twin desde cero
 
@@ -109,7 +109,7 @@ Todos los módulos se implementan mediante un manifiesto de implementación.  A 
 
 La manera más fácil de implementar los módulos en un dispositivo de puerta de enlace de Azure IoT Edge es a través de Azure Portal.  
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 1. Implementación de las [dependencias](howto-opc-twin-deploy-dependencies.md) de OPC Twin y obtención del archivo `.env` resultante. Anote la instancia de `hub name` implementada en la variable `PCS_IOTHUBREACT_HUB_NAME` del archivo `.env` resultante.
 
@@ -176,7 +176,7 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
 
 ## <a name="deploying-using-azure-cli"></a>Implementación con la CLI de Azure
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 1. Instale la versión más reciente de la [interfaz de la línea de comandos de Azure (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) desde [aquí](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -186,7 +186,7 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
 
 2. Utilice el siguiente comando para aplicar la configuración a un dispositivo IoT Edge:
 
-   ```bash
+   ```azurecli
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content ./deployment.json
    ```
 
@@ -195,7 +195,7 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
 
 3. Una vez que los módulos se han implementado en el dispositivo, puede verlos todos con el siguiente comando:
 
-   ```bash
+   ```azurecli
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 

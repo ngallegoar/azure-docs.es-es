@@ -11,10 +11,10 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: ff4c33aea3d3ce604f44c38e6e3856242388b0e9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77371723"
 ---
 La biblioteca cliente de predicción de Language Understanding (LUIS) para Python puede usarse con los siguientes fines:
@@ -24,7 +24,7 @@ La biblioteca cliente de predicción de Language Understanding (LUIS) para Pytho
 
 [Documentación de referencia](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Prediction runtime Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [Ejemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Cuenta de portal de Language Understanding (LUIS): [cree una de forma gratuita](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)

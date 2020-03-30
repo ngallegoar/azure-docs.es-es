@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 432b8855ffb9542a1e052c8c97b52bcddeb5c824
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 36a77d49b507d3d0158d1b4b492d0141350de50f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934733"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240635"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Administración de clústeres de Apache Hadoop en HDInsight con el SDK de .NET
 
@@ -175,7 +175,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
     El siguiente es un ejemplo de cómo usar el comando CLI para volver a equilibrar la topología de Storm:
     
 
-    ```cli
+    ```console
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors

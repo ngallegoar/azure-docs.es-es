@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: dapine
 ms.openlocfilehash: d2818336de2b3d4d810932cefb21edd95b8cf733
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70966680"
 ---
 Para ejecutar el contenedor *Detección de idioma*, ejecute el siguiente comando `docker run`.

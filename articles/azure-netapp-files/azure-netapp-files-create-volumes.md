@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/01/2019
 ms.author: b-juche
 ms.openlocfilehash: 9e8817f802ca1d73ca0f6bfa2b32b1b14b37d7da
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773558"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234120"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creación de un volumen de NFS para Azure NetApp Files
 
@@ -86,7 +86,7 @@ Debe haber una subred delegada en Azure NetApp Files.
         
         Si no ha delegado una subred, haga clic en **Crear nuevo** en el volumen de creación de un volumen. A continuación, en la página de creación de la subred, especifique la información de la subred y seleccione **Microsoft.NetApp/volumes** para delegar la subred para Azure NetApp Files. En cada red virtual, solo puede delegarse una subred a Azure NetApp Files.   
  
-        ![Creación de un volumen](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![Crear un volumen](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Creación de una subred](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 

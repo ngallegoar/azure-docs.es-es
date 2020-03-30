@@ -9,15 +9,15 @@ ms.date: 08/06/2019
 ms.author: mbullwin
 ms.custom: include file
 ms.openlocfilehash: 14e2bd4af2616e9dd33fe8267de132ab6c0f1cfe
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "69982603"
 ---
 Hay algunos límites en el número de métricas y eventos por aplicación; es decir, por clave de instrumentación. Los límites dependen del [plan de precios](https://azure.microsoft.com/pricing/details/application-insights/) que elija.
 
-| Recurso | Límite predeterminado | Nota:
+| Resource | Límite predeterminado | Nota:
 | --- | --- | --- |
 | Total de datos por día | 100 GB | Se pueden reducir los datos si se establece un límite. Si necesita más datos, puede aumentar el límite en el portal, hasta 1000 GB. Para capacidades mayores de 1000 GB, envíe un correo electrónico a AIDataCap@microsoft.com.
 | Limitaciones | 32 000 eventos por segundo | El límite se mide por minuto.
@@ -27,7 +27,7 @@ Hay algunos límites en el número de métricas y eventos por aplicación; es de
 | Número máximo de elementos de telemetría por lote | 64 K |
 | Longitud de nombres de propiedades y métricas | 150 | Consulte [esquemas de tipos](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | Longitud de cadena del valor de propiedad | 8192  | Consulte [esquemas de tipos](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
-| Longitud del mensaje de seguimiento y excepción | 32 768  | Consulte [esquemas de tipos](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
+| Longitud del mensaje de seguimiento y excepción | 32 768  | Consulte [esquemas de tipos](https://github.com/microsoft/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond).
 | Número de [pruebas de disponibilidad](../articles/azure-monitor/app/monitor-web-app-availability.md) por aplicación | 100 |
 | Retención de datos del [generador de perfiles](../articles/azure-monitor/app/profiler.md) | 5 días |
 | Datos enviados por día del [generador de perfiles](../articles/azure-monitor/app/profiler.md) | 10 GB |

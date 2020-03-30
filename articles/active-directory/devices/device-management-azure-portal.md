@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c8e94a1b15ad8cd55019f9351c82f58130e472d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420606"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230476"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Administración de identidades de dispositivos con Azure Portal
 
@@ -29,15 +29,10 @@ Este artículo:
 
 ## <a name="manage-device-identities"></a>Administración de identidades de dispositivo
 
-El portal de Azure AD conforma una ubicación central desde la que pueden administrarse las identidades de los dispositivos. Para obtener esta ubicación, use un [vínculo directo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) o siga los pasos que se detallan en el manual:
+El portal de Azure AD conforma una ubicación central desde la que pueden administrarse las identidades de los dispositivos. Para obtener esta ubicación, use un [vínculo directo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) o:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
-
-2. Busque y seleccione **Azure Active Directory** o selecciónelo en la página **Inicio**.
-
-3. En la sección **Administrar**, haga clic en **Dispositivos**.
-
-   ![Configuración de dispositivo](./media/device-management-azure-portal/74.png)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Vaya a **Azure Active Directory** > **Dispositivos**.
 
 La página **Dispositivos** le permitirá:
 
@@ -50,9 +45,7 @@ La página **Dispositivos** le permitirá:
 
 Para poder administrar las identidades de dispositivos en Azure Portal, los dispositivos deben estar [registrados o unidos](overview.md) a Azure AD. Como administrador, puede ajustar el proceso de registro y unión de dispositivos al configurar los valores del dispositivo.
 
-![Configuración de dispositivo](./media/device-management-azure-portal/22.png)
-
-La página de configuración del dispositivo le permite configurar:
+La página de configuración del dispositivo le permite configurar las opciones relacionadas con las identidades de dispositivo:
 
 ![Administración de un dispositivo de Intune](./media/device-management-azure-portal/21.png)
 
@@ -81,12 +74,7 @@ Esta opción es una capacidad Premium disponible en productos como Azure AD Prem
 Tiene dos opciones para buscar dispositivos registrados y unidos:
 
 - **Todos los dispositivos** en la sección **Administrar** de la página **Dispositivos**.  
-
-   ![Todos los dispositivos](./media/device-management-azure-portal/41.png)
-
 - **Dispositivos** en la sección **Administrar** de la página **Usuarios**.
-
-   ![Todos los dispositivos](./media/device-management-azure-portal/43.png)
 
 Con ambas opciones, puede ir a una vista que:
 
@@ -131,7 +119,7 @@ Para habilitar o deshabilitar un dispositivo, tiene dos opciones:
 
    ![Administración de un dispositivo de Intune](./media/device-management-azure-portal/32.png)
 
-**Comentarios:**
+**Observaciones**:
 
 - Para poder habilitar o deshabilitar un dispositivo, tiene que ser administrador global o administrador de dispositivos en la nube de Azure AD. 
 - Cuando se deshabilita un dispositivo, ya no puede autenticarse correctamente con Azure AD, lo que evita que pueda acceder a los recursos de Azure AD que están protegidos por la entidad emisora de certificados de dispositivo o mediante las credenciales de WH4B.
@@ -149,7 +137,7 @@ Para eliminar un dispositivo, tiene dos opciones:
 
    ![Eliminar un dispositivo](./media/device-management-azure-portal/34.png)
 
-**Comentarios:**
+**Observaciones**:
 
 - Para eliminar un dispositivo, debe ser administrador global o administrador de Intune en Azure AD.
 - La eliminación de un dispositivo:
@@ -193,9 +181,7 @@ Las actividades de un dispositivo están disponibles a través de los registros 
 
 El punto de entrada a los datos de auditoría está en **Registros de auditoría**, que se encuentra en la sección **Actividad** de la página **Dispositivos**.
 
-![Registros de auditoría](./media/device-management-azure-portal/61.png)
-
-Un registro de auditoría tiene una vista de lista predeterminada que muestra:
+El registro de auditoría tiene una vista de lista predeterminada que muestra:
 
 - La fecha y hora de la repetición
 - Los destinos

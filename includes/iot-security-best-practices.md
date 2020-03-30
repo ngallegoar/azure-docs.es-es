@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4fdb891d668d99644d8a9ed9c15d158e65d53ba5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793117"
 ---
 La protección de una infraestructura de Internet de las cosas precisa de una estrategia de seguridad rigurosa y detallada. La eficacia de esta estrategia se basa en la protección de los datos en la nube, la protección de la integridad de los datos en su tránsito por la red pública de Internet y el aprovisionamiento de dispositivos de forma segura. Cada capa genera mayor garantía de seguridad en toda la infraestructura.
@@ -21,9 +21,9 @@ La protección de una infraestructura de Internet de las cosas precisa de una es
 
 Esta estrategia de seguridad detallada puede desarrollarse y ejecutarse con la participación activa de diversas personas implicadas en la fabricación, el desarrollo y la implementación de infraestructura y dispositivos IoT. A continuación verá una descripción de alto nivel de estos participantes.
 
-* **Integrador o fabricante de hardware de IoT**: habitualmente, estos actores son los fabricantes del hardware de IoT implementado, integradores que ensamblan hardware de diversos fabricantes o proveedores que proporcionan hardware para una implementación de IoT que fabrican o integran otros proveedores.
+* **Integrador/fabricante de hardware de IoT**: habitualmente, estos actores son los fabricantes del hardware de IoT implementado, integradores que ensamblan hardware de diversos fabricantes o proveedores que proporcionan hardware para una implementación de IoT que fabrican o integran otros proveedores.
 
-* **Desarrollador de soluciones de IoT**: el desarrollo de soluciones de IoT suelen realizarlo los desarrolladores de soluciones. Este desarrollador puede formar parte de un equipo interno o ejercer como integrador de sistemas especializado en esta actividad. El desarrollador de soluciones de IoT puede desarrollar diversos componentes de la solución de IoT desde cero, integrar varios componentes de serie o de código abierto o adoptar aceleradores de soluciones mediante adaptaciones menores.
+* **Desarrollador de soluciones de IoT**: el desarrollo de soluciones de IoT suelen realizarlo los desarrollador de soluciones. Este desarrollador puede formar parte de un equipo interno o ejercer como integrador de sistemas especializado en esta actividad. El desarrollador de soluciones de IoT puede desarrollar diversos componentes de la solución de IoT desde cero, integrar varios componentes de serie o de código abierto o adoptar aceleradores de soluciones mediante adaptaciones menores.
 
 * **Implementador de soluciones de IoT**: una vez que se desarrolla una solución de IoT, es preciso implementarla sobre el terreno. Este proceso implica la implementación de hardware, la interconexión de dispositivos y la implementación de soluciones en dispositivos de hardware o en la nube.
 
@@ -41,7 +41,7 @@ Estos son los procedimientos recomendados para los fabricantes de hardware de Io
 
 * **Basarse en hardware seguro**: si COGS lo permite, cree características de seguridad como el almacenamiento seguro y cifrado, o la funcionalidad de arranque basada en el Módulo de plataforma segura (TPM). Estas características crean dispositivos más seguros y ayudan a proteger la infraestructura de IoT general.
 
-* **Hacer que las actualizaciones sean seguras**: las actualizaciones del firmware son inevitables durante la vigencia del dispositivo. La creación de dispositivos con rutas de acceso seguras para las actualizaciones y la garantía criptográfica de la versión del firmware permitirá la protección del dispositivo durante y después de las actualizaciones.
+* **Aplicar las actualizaciones de manera segura**: las actualizaciones del firmware son inevitables durante la vigencia del dispositivo. La creación de dispositivos con rutas de acceso seguras para las actualizaciones y la garantía criptográfica de la versión del firmware permitirá la protección del dispositivo durante y después de las actualizaciones.
 
 ## <a name="iot-solution-developer"></a>Desarrollador de soluciones de IoT
 
@@ -49,7 +49,7 @@ Estos son los procedimientos recomendados para los desarrolladores de soluciones
 
 * **Seguir una metodología de desarrollo de software seguro**: el desarrollo de software seguro requiere pensar bien la seguridad, desde la concepción del proyecto hasta su implementación, prueba y desarrollo. Esta metodología influye en la elección de plataformas, idiomas y herramientas. El Ciclo de vida de desarrollo de seguridad de Microsoft proporciona un enfoque paso a paso para la creación de software seguro.
 
-* **Elegir software de código abierto con cuidado**: el software de código abierto ofrece una oportunidad para desarrollar soluciones con rapidez. Al elegir software de código abierto, tenga en cuenta el nivel de actividad de la comunidad para cada componente de código abierto. Una comunidad activa garantiza la compatibilidad con el software; se detectarán problemas, a los que se hará frente. La otra opción es que no se admita un proyecto de software de código abierto complejo e inactivo, y así es probable es que no se detecten problemas.
+* **Elegir software de código abierto con cuidado**: el software de código abierto brinda la oportunidad de desarrollar soluciones con rapidez. Al elegir software de código abierto, tenga en cuenta el nivel de actividad de la comunidad para cada componente de código abierto. Una comunidad activa garantiza la compatibilidad con el software; se detectarán problemas, a los que se hará frente. La otra opción es que no se admita un proyecto de software de código abierto complejo e inactivo, y así es probable es que no se detecten problemas.
 
 * **Integrar con cuidado**: muchas de las brechas de seguridad del software aparecen en el límite de las bibliotecas y las API. Es posible que la funcionalidad que puede no requerirse para la implementación actual siga estando disponible a través de un nivel de API. Para garantizar la seguridad general, asegúrese de comprobar que no existen errores de seguridad en todas las interfaces de los componentes que se están integrando.
 
@@ -57,7 +57,7 @@ Estos son los procedimientos recomendados para los desarrolladores de soluciones
 
 A continuación se muestran los procedimientos recomendados para los implementadores de soluciones de IoT:
 
-* **Implementar hardware de forma segura**: las implementaciones de IoT pueden requerir la implementación de hardware en ubicaciones no seguras; por ejemplo, en espacios públicos o configuraciones regionales no supervisadas. En este tipo de situaciones, asegúrese de que la implementación de hardware sea lo más resistente posible a las manipulaciones. Si hay puertos USB o de otro tipo disponibles en el hardware, asegúrese de que estos se tratan de forma segura. Muchos vectores de ataques pueden usarlos como punto de entrada.
+* **Implementar hardware de forma segura**: las implementaciones de IoT pueden requerir la implementación de hardware en ubicaciones no seguras, por ejemplo, espacios públicos o configuraciones regionales no supervisadas. En este tipo de situaciones, asegúrese de que la implementación de hardware sea lo más resistente posible a las manipulaciones. Si hay puertos USB o de otro tipo disponibles en el hardware, asegúrese de que estos se tratan de forma segura. Muchos vectores de ataques pueden usarlos como punto de entrada.
 
 * **Mantener seguras las claves de autenticación**: durante la implementación, cada dispositivo requiere identificadores de dispositivo y claves de autenticación asociadas generadas por el servicio en la nube. Mantenga seguras estas claves físicamente incluso después de la implementación. Un dispositivo malintencionado puede usar cualquier clave en peligro para su enmascaramiento como dispositivo existente.
 

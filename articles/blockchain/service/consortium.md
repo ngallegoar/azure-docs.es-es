@@ -5,11 +5,11 @@ ms.date: 11/21/2019
 ms.topic: conceptual
 ms.reviewer: zeyadr
 ms.openlocfilehash: 7b8885ba08d35db20d1eb7e75141cb173913b386
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455735"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225976"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Consorcio de Azure Blockchain Service
 
@@ -31,11 +31,11 @@ Con la administración de consorcios en Azure Blockchain Service, puede administ
 
 Los participantes de un consorcio pueden ser individuos u organizaciones y se les puede asignar un rol de usuario o de administrador. En la tabla siguiente se muestran las diferencias de alto nivel entre los dos roles:
 
-| . | Rol de usuario | Rol de administrador
+| Acción | Rol de usuario | Rol de administrador
 |--------|:----:|:------------:|
 | Crear nuevo miembro | Sí | Sí |
-| Invitar nuevos miembros | Sin | Sí |
-| Establecer o cambiar el rol de participante miembro | Sin | Sí |
+| Invitar nuevos miembros | No | Sí |
+| Establecer o cambiar el rol de participante miembro | No | Sí |
 | Cambiar el nombre para mostrar del miembro | Solo para el propio miembro | Solo para el propio miembro |
 | Eliminación de miembros | Solo para el propio miembro | Sí |
 | Participar en transacciones de cadenas de bloques | Sí | Sí |
