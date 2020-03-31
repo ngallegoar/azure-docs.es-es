@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74091254"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Solución de problemas de detección de vCenter Server
@@ -46,8 +46,8 @@ En general, el proxy se usa para comunicarse con las redes públicas; por ejempl
 
 Cuando se encuentra este problema, se producen las situaciones siguientes:
 
-- No se puede acceder a vCenter Server \<vCenter> debido al error: El servidor remoto devolvió un error: (503) Servidor no disponible
-- No se puede acceder a vCenter Server \<vCenter> debido al error: El servidor remoto devolvió un error: No se puede conectar al servidor remoto.
+- No se puede acceder a vCenter Server \<vCenter> debido al error: Error en el servidor remoto: (503) Servidor no disponible
+- No se puede acceder a vCenter Server \<vCenter> debido al error: Error en el servidor remoto: No se puede conectar al servidor remoto.
 - No se puede conectar al servidor vCenter/ESXi.
 
 Para resolver el problema:

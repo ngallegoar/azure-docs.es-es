@@ -10,10 +10,10 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66156440"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Administración de Análisis de Azure Data Lake mediante Azure PowerShell
@@ -21,15 +21,15 @@ ms.locfileid: "66156440"
 
 En este artículo se describe cómo administrar cuentas, orígenes de datos, usuarios y trabajos de Azure Data Lake Analytics mediante Azure PowerShell.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para usar PowerShell con Data Lake Analytics, recopile la siguiente información: 
 
-* **Id. de suscripción**: el identificador de la suscripción de Azure que contiene su cuenta de Data Lake Analytics.
+* **Identificador de suscripción**: el identificador de la suscripción de Azure que contiene su cuenta de Data Lake Analytics.
 * **Grupo de recursos**: el nombre del grupo de recursos de Azure que contiene la cuenta de Data Lake Analytics.
-* **Nombre de la cuenta de Data Lake Analytics**: nombre de la cuenta de Data Lake Analytics.
+* **Nombre de la cuenta de Data Lake Analytics**: el nombre de la cuenta de Data Lake Analytics.
 * **Nombre de la cuenta predeterminada de Data Lake Store**: cada cuenta de Data Lake Analytics tiene una cuenta de Data Lake Store predeterminada.
 * **Ubicación**: la ubicación de la cuenta de Data Lake Analytics como "Este de EE. UU. 2" u otras ubicaciones admitidas.
 
@@ -122,7 +122,7 @@ Test-AdlAnalyticsAccount -Name $adla
 Actualmente, Azure Data Lake Analytics admite los siguientes orígenes de datos:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/common/storage-introduction.md)
+* [Almacenamiento de Azure](../storage/common/storage-introduction.md)
 
 Cada cuenta de Data Lake Analytics tiene una cuenta de Data Lake Store predeterminada. La cuenta predeterminada de Almacén de Data Lake sirve para almacenar los registros de auditoría y de metadatos de trabajos. 
 
@@ -245,7 +245,7 @@ Use el parámetro `-Result` para detectar si los trabajos finalizados se han rea
 * Cancelado
 * Con error
 * None
-* Succeeded
+* Correcto
 
 ``` powershell
 # List Successful jobs.
@@ -553,7 +553,7 @@ foreach ($sub in $subs)
 
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>Creación de una cuenta de Data Lake Analytics mediante una plantilla
 
-También puede usar una plantilla del grupo de recursos de Azure mediante el siguiente ejemplo: [Crear una cuenta de Data Lake Analytics mediante una plantilla](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
+También puede usar una plantilla de Grupo de recursos de Azure con el siguiente ejemplo: [Creación de una cuenta de Data Lake Analytics mediante una plantilla](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)

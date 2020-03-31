@@ -14,10 +14,10 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 9f817880f938f5d03024e3aacd9b84817a5ac721
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77138297"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Adición de asignaciones de roles mediante RBAC de Azure y plantillas de Azure Resource Manager
@@ -361,7 +361,7 @@ A continuación se muestra un ejemplo de la asignación del rol de colaborador a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
+- [Guía de inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 - [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 - [Creación de grupos de recursos y otros recursos en el nivel de suscripción](../azure-resource-manager/templates/deploy-to-subscription.md)
 - [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

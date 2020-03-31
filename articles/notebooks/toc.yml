@@ -46,5 +46,3 @@
       href: access-data-resources-jupyter-notebooks.md
     - name: Uso de Data Science Virtual Machine
       href: use-data-science-virtual-machine.md
-    - name: Uso de Azure Machine Learning
-      href: use-machine-learning-services-jupyter-notebooks.md

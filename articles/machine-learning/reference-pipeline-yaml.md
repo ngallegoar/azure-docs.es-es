@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: 474a184b24ca3318a33adb89b25640939a814474
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a677aaa891e21f4c9eeda02eebcb94e9d79a55ad
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771639"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79368832"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definición de canalizaciones de aprendizaje automático en YAML
 
@@ -32,7 +32,7 @@ En la tabla siguiente se muestra lo que se admite y no se admite actualmente al 
 | DataTransferStep | Sí |
 | AutoMLStep | No |
 | HyperDriveStep | No |
-| ModuleStep | No |
+| ModuleStep | Sí |
 | MPIStep | No |
 | EstimatorStep | No |
 

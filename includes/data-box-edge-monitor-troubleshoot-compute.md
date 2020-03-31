@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f3bb391dceb1948820d00c0d09229f2c106ffc0b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68601380"
 ---
 En un dispositivo de Data Box Edge que tenga el rol de proceso configurado, está disponible un subconjunto de comandos de Docker para supervisar o solucionar problemas de los módulos. Para ver una lista de comandos disponibles, [conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface) y utilice la función `dkrdbe`.
@@ -37,7 +37,7 @@ Commands:
 ```
 En la tabla siguiente se proporciona una breve descripción de los comandos disponibles para `dkrdbe`:
 
-|command  |DESCRIPCIÓN |
+|command  |Descripción |
 |---------|---------|
 |`image`     | Administrar imágenes. Para quitar imágenes sin usar, utilice: `dkrdbe image prune -a -f`       |
 |`images`     | Lista de imágenes         |

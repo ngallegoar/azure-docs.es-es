@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082556"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparación de la asignación de red para la recuperación ante desastres de las máquinas virtuales de Hyper-V en Azure
@@ -88,7 +88,7 @@ Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
 
 Según esta configuración, cuando selecciona la red de máquinas virtuales de destino, en la siguiente tabla se muestran las opciones que estarán disponibles.
 
-**Selección** | **Nube protegida** | **Proteger nube** | **Red de destino disponible**
+**Select** | **Nube protegida** | **Proteger nube** | **Red de destino disponible**
 ---|---|---|---
 VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Disponible
  | GoldCloud1 | GoldCloud2 | Disponible

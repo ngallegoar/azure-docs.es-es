@@ -5,17 +5,17 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 34de38e91d47457d215c7ebf65d04ed2dbae5324
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74224355"
 ---
 En la tabla siguiente se enumeran los límites asociados a los diferentes niveles de servicio (S1, S2, S3 y F1). Para información sobre el costo de cada *unidad* en cada nivel, consulte los [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Resource | S1 Estándar | S2 Estándar | S3 Estándar | F1 Gratis |
 | --- | --- | --- | --- | --- |
-| Mensajes por día |400.000 |6\.000.000 |300.000.000 |8\.000 |
+| Mensajes por día |400.000 |6\.000.000 |300.000.000 |8,000 |
 | Unidades máximas |200 |200 |10 |1 |
 
 > [!NOTE]
@@ -30,7 +30,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | Cantidad máxima de Centros de IoT de pago por suscripción a Azure |100 |
 | Cantidad máxima de Centros de IoT gratis por suscripción a Azure |1 |
 | Número máximo de caracteres incluido en un identificador de dispositivo | 128 |
-| Número máximo de identidades del dispositivo<br/> devueltas en una sola llamada |1000 |
+| Número máximo de identidades del dispositivo<br/> devueltas en una sola llamada |1,000 |
 | Retención máxima de mensajes de IoT Hub para los mensajes de dispositivo a la nube |7 días |
 | Tamaño máximo de mensaje del dispositivo a la nube |256 KB |
 | Tamaño máximo de lote de dispositivo a la nube |AMQP y HTTP: 256 KB para todo el lote <br/>MQTT: 256 KB por cada mensaje |

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73161515"
 ---
 # <a name="security-frame-session-management"></a>Marco de seguridad: Administración de sesiones
@@ -33,12 +33,12 @@ ms.locfileid: "73161515"
 | **Aplicación web** | <ul><li>[Las aplicaciones disponibles a través de HTTPS deben usar cookies seguras](#https-secure-cookies)</li><li>[Todas las aplicaciones basadas en HTTP deben especificar HTTP solo para la definición de cookies](#cookie-definition)</li><li>[Mitigue el riesgo de ataques de falsificación de solicitud entre sitios (CSRF) en páginas web ASP.NET](#csrf-asp)</li><li>[Configure la sesión para la duración de la inactividad](#inactivity-lifetime)</li><li>[Implemente el cierre de sesión correcto desde la aplicación](#proper-app-logout)</li></ul> |
 | **API web** | <ul><li>[Mitigue el riesgo de ataques de falsificación de solicitud entre sitios (CSRF) en las API web de ASP.NET](#csrf-api)</li></ul> |
 
-## <a id="logout-adal"></a>Implemente el cierre de sesión correcto mediante métodos ADAL cuando use Azure AD
+## <a name="implement-proper-logout-using-adal-methods-when-using-azure-ad"></a><a id="logout-adal"></a>Implemente el cierre de sesión correcto mediante métodos ADAL cuando use Azure AD
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -68,34 +68,34 @@ También debe destruir la sesión del usuario llamando al método Session.Abando
         } 
 ```
 
-## <a id="finite-tokens"></a>Use duraciones finitas para los tokens de SaS generados
+## <a name="use-finite-lifetimes-for-generated-sas-tokens"></a><a id="finite-tokens"></a>Use duraciones finitas para los tokens de SaS generados
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
 | **Pasos** | Los tokens de SaS generados para la autenticación en Azure IoT Hub deben tener un período finito de expiración. Mantenga las duraciones de los tokens de SaS en un mínimo para limitar el período de tiempo que se pueden reproducir en caso de que los tokens se vean en peligro.|
 
-## <a id="resource-tokens"></a>Use duraciones mínimas de token para los tokens de recursos generados
+## <a name="use-minimum-token-lifetimes-for-generated-resource-tokens"></a><a id="resource-tokens"></a>Use duraciones mínimas de token para los tokens de recursos generados
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure DocumentDB | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
 | **Pasos** | Reduzca el intervalo de tiempo del token de recurso a un valor mínimo necesario. Los tokens de recursos tienen un intervalo de tiempo válido predeterminado de 1 hora.|
 
-## <a id="wsfederation-logout"></a>Implemente el cierre de sesión correcto mediante métodos WsFederation cuando use ADFS
+## <a name="implement-proper-logout-using-wsfederation-methods-when-using-adfs"></a><a id="wsfederation-logout"></a>Implemente el cierre de sesión correcto mediante métodos WsFederation cuando use ADFS
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | ADFS | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -139,23 +139,23 @@ También debe destruir la sesión del usuario llamando al método Session.Abando
         }
 ```
 
-## <a id="proper-logout"></a>Implemente el cierre de sesión correcto cuando use Identity Server
+## <a name="implement-proper-logout-when-using-identity-server"></a><a id="proper-logout"></a>Implemente el cierre de sesión correcto cuando use Identity Server
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Identity Server | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [IdentityServer3-Federated Signout](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) (Cierre de sesión federado en IdentityServer3) |
 | **Pasos** | IdentityServer admite la capacidad de federación con proveedores de identidades externos. Cuando un usuario cierra sesión en un proveedor de identidades precedente, según el protocolo que se use, podría ser posible recibir una notificación cuando el usuario cierre la sesión. Esto permite, a su vez, que IdentityServer notifique a sus clientes para que también cierren la sesión del usuario. Consulte la documentación en la sección Referencias para ver los detalles de la implementación.|
 
-## <a id="https-secure-cookies"></a>Las aplicaciones disponibles a través de HTTPS deben usar cookies seguras
+## <a name="applications-available-over-https-must-use-secure-cookies"></a><a id="https-secure-cookies"></a>Las aplicaciones disponibles a través de HTTPS deben usar cookies seguras
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | EnvironmentType - OnPrem |
 | **Referencias**              | [httpCookies (Elemento, Esquema de configuración de ASP.NET)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [Propiedad HttpCookie.Secure](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
@@ -174,7 +174,7 @@ La configuración se aplica incluso si se usa HTTP para tener acceso a la aplica
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Formularios Web Forms, MVC5 |
 | **Atributos**              | EnvironmentType - OnPrem |
 | **Referencias**              | N/D  |
@@ -191,12 +191,12 @@ La configuración se aplica incluso si se usa HTTP para tener acceso a la aplica
   </system.identityModel.services>
 ```
 
-## <a id="cookie-definition"></a>Todas las aplicaciones basadas en HTTP deben especificar HTTP solo para la definición de cookies
+## <a name="all-http-based-application-should-specify-http-only-for-cookie-definition"></a><a id="cookie-definition"></a>Todas las aplicaciones basadas en HTTP deben especificar HTTP solo para la definición de cookies
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Atributo de cookie segura](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
@@ -217,7 +217,7 @@ Todas las aplicaciones basadas en HTTP que usen cookies deben especificar HttpOn
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Formularios Web Forms |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Propiedad FormsAuthentication.RequireSSL](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
@@ -234,7 +234,7 @@ En el ejemplo de código siguiente, se establece el atributo requireSSL en el ar
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | MVC5 |
 | **Atributos**              | EnvironmentType - OnPrem |
 | **Referencias**              | [Windows Identity Foundation (WIF) Configuration – Part II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) (Configuración de Windows Identity Foundation: parte II) |
@@ -254,12 +254,12 @@ En el siguiente ejemplo se muestra la configuración correcta:
 </federatedAuthentication>
 ```
 
-## <a id="csrf-asp"></a>Mitigue el riesgo de ataques de falsificación de solicitud entre sitios (CSRF) en páginas web ASP.NET
+## <a name="mitigate-against-cross-site-request-forgery-csrf-attacks-on-aspnet-web-pages"></a><a id="csrf-asp"></a>Mitigue el riesgo de ataques de falsificación de solicitud entre sitios (CSRF) en páginas web ASP.NET
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -268,7 +268,7 @@ En el siguiente ejemplo se muestra la configuración correcta:
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [XSRF/CSRF Prevention in ASP.NET MVC and Web Pages](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) (Prevención de XSRF y CSRF en ASP.NET MVC y Web Pages) |
@@ -354,7 +354,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Formularios Web Forms |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Cómo aprovechar las ventajas de las características integradas de ASP.NET para rechazar los ataques a través de Internet](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
@@ -369,12 +369,12 @@ void Page_Init (object sender, EventArgs e) {
 }
 ```
 
-## <a id="inactivity-lifetime"></a>Configure la sesión para la duración de la inactividad
+## <a name="set-up-session-for-inactivity-lifetime"></a><a id="inactivity-lifetime"></a>Configure la sesión para la duración de la inactividad
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Propiedad HttpSessionState.Timeout](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
@@ -389,12 +389,12 @@ void Page_Init (object sender, EventArgs e) {
 </configuration>
 ```
 
-## <a id="threat-detection"></a>Habilitamiento de la detección de amenazas en Azure SQL
+## <a name="enable-threat-detection-on-azure-sql"></a><a id="threat-detection"></a>Habilitamiento de la detección de amenazas en Azure SQL
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Formularios Web Forms |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Elemento forms para authentication (Esquema de configuración de ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
@@ -409,7 +409,7 @@ void Page_Init (object sender, EventArgs e) {
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Formularios Web Forms, MVC5 |
 | **Atributos**              | EnvironmentType - OnPrem |
 | **Referencias**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
@@ -439,23 +439,23 @@ Además, la duración del token de notificación SAML emitido por ADFS se debe e
 Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName @("Active Directory") -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
-## <a id="proper-app-logout"></a>Implemente el cierre de sesión correcto desde la aplicación
+## <a name="implement-proper-logout-from-the-application"></a><a id="proper-app-logout"></a>Implemente el cierre de sesión correcto desde la aplicación
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
 | **Pasos** | Realice el cierre de sesión correctamente desde la aplicación, cuando el usuario presione el botón de cierre de sesión. Al cerrar la sesión, la aplicación debe destruir la sesión del usuario y también restablecer y anular el valor de la cookie de la sesión, así como restablecer y anular el valor de la cookie de autenticación. Además, cuando hay varias sesiones asociadas a una sola identidad de usuario, se deben finalizar colectivamente en el lado servidor cuando se agote el tiempo de espera o se produzca el cierre de sesión. Por último, asegúrese de que la funcionalidad de cierre de sesión esté disponible en todas las páginas. |
 
-## <a id="csrf-api"></a>Mitigue el riesgo de ataques de falsificación de solicitud entre sitios (CSRF) en las API web de ASP.NET
+## <a name="mitigate-against-cross-site-request-forgery-csrf-attacks-on-aspnet-web-apis"></a><a id="csrf-api"></a>Mitigue el riesgo de ataques de falsificación de solicitud entre sitios (CSRF) en las API web de ASP.NET
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
@@ -464,7 +464,7 @@ Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET Web API](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) (Prevención de ataques de falsificación de solicitud entre sitios [CSRF] en ASP.NET Web API) |
@@ -551,7 +551,7 @@ Filtro de autorización que comprueba que:
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | MVC5, MVC6 |
 | **Atributos**              | Proveedor de identidades; ADFS, Proveedor de identidades; Azure AD |
 | **Referencias**              | [Secure a Web API with Individual Accounts and Local Login in ASP.NET Web API 2.2](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) (Protección de una API web con cuentas individuales e inicio de sesión local en ASP.NET Web API 2.2) |

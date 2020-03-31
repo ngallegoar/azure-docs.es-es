@@ -15,11 +15,11 @@ ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: deb337d989a3658e909cefa7a9ab028e37792562
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918383"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224608"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Conexión a una máquina virtual de SQL Server en Azure
 
@@ -91,7 +91,7 @@ Si configuró DNS en la red virtual, puede conectarse a la instancia de SQL Serv
 Server=mysqlvm;Integrated Security=true
 ```
 
-## <a id="change"></a> Cambio de la configuración de conectividad SQL
+## <a name="change-sql-connectivity-settings"></a><a id="change"></a> Cambio de la configuración de conectividad SQL
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -111,7 +111,7 @@ Puede cambiar la configuración de conectividad de la máquina virtual de SQL Se
 
    ![Notificación de actualización de la VM con SQL](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
 
-## <a id="manualtcp"></a> Habilitación de TCP/IP para las ediciones Developer y Express
+## <a name="enable-tcpip-for-developer-and-express-editions"></a><a id="manualtcp"></a> Habilitación de TCP/IP para las ediciones Developer y Express
 
 Al cambiar la configuración de conectividad de SQL Server, Azure no habilita automáticamente el protocolo TCP/IP para las ediciones Developer y Express de SQL Server. En los pasos siguientes se explica cómo habilitar manualmente TCP/IP para que pueda conectarse de forma remota mediante una dirección IP.
 
@@ -129,7 +129,7 @@ En los pasos siguientes se muestra cómo crear una etiqueta opcional de DNS para
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
-## <a id="manual"></a> Configuración manual y solución de problemas
+## <a name="manual-configuration-and-troubleshooting"></a><a id="manual"></a> Configuración manual y solución de problemas
 
 Aunque el portal proporciona opciones para configurar automáticamente la conectividad, es útil saber cómo configurarla manualmente. Comprender los requisitos también puede ayudar a solucionar problemas.
 

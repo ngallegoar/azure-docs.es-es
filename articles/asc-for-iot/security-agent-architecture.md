@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 998aeab197931a75579fc39b28e3a248b85fc57b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68596914"
 ---
 # <a name="security-agent-reference-architecture"></a>Arquitectura de referencia del agente de seguridad
@@ -47,7 +47,7 @@ Los agentes de seguridad de Azure Security Center para IoT se desarrollan como p
 
 Azure Security Center para IoT ofrece diferentes instaladores de agente de 32 y 64 bits de Windows, y lo mismo para 32 bits y 64 bits de Linux. Asegúrese de que tiene el instalador de agente correcto para cada uno de los dispositivos, según la siguiente tabla:
 
-| Arquitectura | Linux | Windows |    Detalles|
+| Architecture | Linux | Windows |    Detalles|
 |----------|----------------------------------------------|-------------|-------------------------------------------|
 | 32 bits  | C  | C#  ||
 | 64 bits  | C# o C           | C#      | Se recomienda usar el agente de C para dispositivos con recursos de dispositivo mínimos o más restringidos.|

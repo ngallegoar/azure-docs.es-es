@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.openlocfilehash: 4445f6e9b72380b66f3282d50871b4283f7fc7fa
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75966737"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Ejemplo de uso: implementación continua en máquinas virtuales con Automation State Configuration y Chocolatey
@@ -65,7 +65,7 @@ New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-
 New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
 ```
 
-Puede colocar su cuenta de Automation en cualquiera de las siguientes regiones (o ubicaciones): Este de EE. UU. 2, Centro-sur de EE. UU., US Gov Virginia, Europa Occidental, Sudeste Asiático, Japón Oriental, Centro de la India y Sudeste de Australia, Centro de Canadá, Europa del Norte.
+Puede colocar su cuenta de Automation en cualquiera de las siguientes regiones (o ubicaciones): Este de EE. UU. 2, Centro-sur de EE. UU., US Gov Virginia, Oeste de Europa, Sudeste de Asia, Este de Japón, Centro de la India y Sudeste de Australia, Centro de Canadá, Norte de Europa.
 
 ## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Paso 2: Ajustes de la extensión de máquina virtual en la plantilla de Resource Manager
 

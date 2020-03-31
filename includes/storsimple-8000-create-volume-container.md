@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 467af776af95cf035121250fdcadd2fee65d9805
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67186360"
 ---
 #### <a name="to-create-a-volume-container"></a>Para crear un contenedor de volúmenes
@@ -31,7 +31,7 @@ ms.locfileid: "67186360"
       Si tiene a su disposición información sobre el uso del ancho de banda, es posible que pueda asignar ancho de banda en función de una programación especificando **Seleccionar una plantilla de ancho de banda**. Para conocer el procedimiento paso a paso, vaya a [Agregar una plantilla de ancho de banda](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template).
 
       ![Hoja Contenedor de volúmenes](./media/storsimple-8000-create-volume-container/createvolumecontainer6b.png)
-   7. Haga clic en **Create**(Crear).
+   7. Haga clic en **Crear**.
 
         ![Hoja Contenedor de volúmenes](./media/storsimple-8000-create-volume-container/createvolumecontainer6.png)
    

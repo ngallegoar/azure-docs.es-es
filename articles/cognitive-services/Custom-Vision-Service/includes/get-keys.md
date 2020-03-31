@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: pafarley
 ms.openlocfilehash: fa13d9bdf73b87597d4eb01830ec2c76538521fe
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73800113"
 ---
 ## <a name="get-the-training-and-prediction-keys"></a>Obtención de las claves de entrenamiento y predicción
@@ -17,5 +17,5 @@ El proyecto necesita un conjunto válido de claves de suscripción para interact
 
 ![Imagen de la interfaz de usuario de claves](../media/csharp-tutorial/training-prediction-keys.png)
 
-O, también, para obtener estas claves y este identificador en [Azure Portal](https://www.portal.azure.com), consulte los recursos de entrenamiento y predicción de Custom Vision y vaya a la pestaña __Claves__. En ella encontrará la clave de entrenamiento y la de predicción. Vaya a la pestaña __Propiedades__ del recurso de predicción para obtener el identificador del recurso de predicción.
+También puede obtener estas claves y este identificador en [Azure Portal](https://www.portal.azure.com) viendo los recursos de entrenamiento y predicción de Custom Vision y navegando a la pestaña __Claves__. En ella encontrará la clave de entrenamiento y la clave de predicción. Vaya a la pestaña __Propiedades__ del recurso de predicción para obtener el identificador del recurso de predicción.
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 840049265d3b6e4d2fddd794646bfd5691aab9a1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083984"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Introducción a la compatibilidad multiinquilino con la recuperación ante desastres de máquinas virtuales de VMware en Azure (CSP)
@@ -76,7 +76,7 @@ Configure el servidor de configuración con una cuenta que tenga asignado un rol
 2. Asigne los siguientes permisos a este rol:
 
    * **Almacén de datos**: asignar espacio, examinar almacén de datos, operaciones de archivo de bajo nivel, quitar archivo, actualizar archivos de máquina virtual
-   * **Red**: asignación de red
+   * **Network** (Red): asignación de red
    * **Recursos**: asignar máquina virtual al grupo de recursos, migrar máquina virtual apagada, migrar máquina virtual encendida
    * **Tareas**: crear tarea, actualizar tarea
    * **Configuración de VM**: All
@@ -89,7 +89,7 @@ Configure el servidor de configuración con una cuenta que tenga asignado un rol
 
 3. Asigne niveles de acceso a la cuenta de vCenter (usada en el servidor de configuración del inquilino) para distintos objetos, de la manera siguiente:
 
->| Object | Role | Comentarios |
+>| Object | Role | Observaciones |
 >| --- | --- | --- |
 >| vCenter | Solo lectura | Solo es necesario para permitir el acceso a vCenter y administrar diferentes objetos. Este permiso se puede quitar si la cuenta nunca se va a proporcionar a un inquilino ni se va a usar para las operaciones de administración en vCenter. |
 >| Centro de datos | Azure_Site_Recovery |  |

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: ac843fa5440f7ba085d33cd897bcd4a1722f77ac
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773631"
 ---
 # <a name="enable-peering-service-on-a-direct-peering-using-powershell"></a>Habilitación de Peering Service en un emparejamiento directo mediante PowerShell
@@ -32,10 +32,10 @@ Si lo prefiere, puede completar esta guía mediante el [portal](howto-peering-se
 
 ## <a name="enable-peering-service-on-a-direct-peering"></a>Habilitación de Peering Service en un emparejamiento directo
 
-### <a name= get></a>Visualización de un emparejamiento directo
+### <a name="view-direct-peering"></a><a name= get></a>Visualización de un emparejamiento directo
 [!INCLUDE [peering-direct-get](./includes/direct-powershell-get.md)]
 
-### <a name= get></a>Habilitación del emparejamiento directo para Peering Service
+### <a name="enable-the-direct-peering-for-peering-service"></a><a name= get></a>Habilitación del emparejamiento directo para Peering Service
 
 Después de obtener el emparejamiento directo en el paso anterior, habilítelo para Peering Service.
 [!INCLUDE [peering-direct-modify](./includes/peering-service-direct-powershell.md)]

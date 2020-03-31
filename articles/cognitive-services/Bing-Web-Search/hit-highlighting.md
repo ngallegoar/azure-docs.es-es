@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
 ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68854006"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Uso de marcadores de decoración para resaltar texto
@@ -36,7 +36,7 @@ Antes de mostrar la cadena en la interfaz de usuario, reemplace los caracteres U
 
 Bing ofrece la opción de usar caracteres Unicode o etiquetas HTML como marcadores. Para especificar los marcadores que se van a usar, incluya el parámetro de consulta [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat): 
 
-| Valor             | Marcador                       |
+| Value             | Marcador                       |
 |-------------------|------------------------------|
 | `textFormat=Raw`  | Caracteres Unicode (valor predeterminado) |
 | `textFormat=HTML` | Caracteres HTML              |
@@ -51,7 +51,7 @@ Si la solicitud no hubiese especificado decoraciones, el campo `expression` cont
 
 Si `textDecorations` es `true`, Bing puede incluir los siguientes marcadores en las cadenas de presentación de las respuestas. Si no hay ninguna etiqueta HTML equivalente, la celda correspondiente de la tabla aparece vacía.
 
-|Unicode|HTML|DESCRIPCIÓN
+|Unicode|HTML|Descripción
 |-|-|-
 |U+E000|\<b&gt;|Marca el principio del término de la consulta (resaltado de aciertos)
 |U+E001|\</b&gt;|Marca el final del término de la consulta

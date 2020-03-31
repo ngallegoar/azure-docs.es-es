@@ -15,10 +15,10 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87da43100c7494937ddc842e0f903ba3a360959e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022885"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Detección de recursos de Azure para su administración en Privileged Identity Management
@@ -29,7 +29,7 @@ La primera vez que se configura Privileged Identity Management para recursos de 
 
 ## <a name="discover-resources"></a>Detección de recursos
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Abra **Azure AD Privileged Identity Management**.
 
@@ -66,5 +66,5 @@ La primera vez que se configura Privileged Identity Management para recursos de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de las opciones del rol de recursos de Azure en Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Configuración de las opciones de rol de recursos de Azure en Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
 - [Asignación de roles de recursos de Azure en Privileged Identity Management](pim-resource-roles-assign-roles.md)

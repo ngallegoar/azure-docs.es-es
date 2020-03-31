@@ -16,10 +16,10 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 82b5e1d9753fbb65fd81f24b06016d302457144e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76834100"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>API web que llama a API web: Configuración del código
@@ -28,7 +28,7 @@ Una vez registrada su API web, puede configurar el código de la aplicación.
 
 El código que usa para configurar su API web para que llame a las API web de bajada se basa en el código usado para proteger una API web. Para más información, consulte [API web protegida: configuración de la aplicación](scenario-protected-web-api-app-configuration.md).
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 ## <a name="code-subscribed-to-ontokenvalidated"></a>Código suscrito a OnTokenValidated
 
@@ -144,7 +144,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
      }
 }
 ```
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 El flujo "en nombre de" (OBO) se usa para obtener un token para llamar a la API web de nivel inferior. En este flujo, la API web recibe un token de portador con permisos delegados de usuario de la aplicación cliente y, a continuación, intercambia este token por otro token de acceso para llamar a la API web de nivel inferior.
 
@@ -213,7 +213,7 @@ class MsalAuthHelper {
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 El flujo "en nombre de" (OBO) se usa para obtener un token para llamar a la API web de nivel inferior. En este flujo, la API web recibe un token de portador con permisos delegados de usuario de la aplicación cliente y, a continuación, intercambia este token por otro token de acceso para llamar a la API web de nivel inferior.
 

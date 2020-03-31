@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/16/2019
 ms.author: victorh
 ms.openlocfilehash: 4c50c4ce344a51a70f6849beb7c5d9d18a2b401d
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471642"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configuración del Firewall de aplicaciones web V2 en Application Gateway con una regla personalizada con Azure PowerShell
@@ -27,7 +27,7 @@ Para ver más ejemplos de reglas personalizadas, consulte [Creación y uso de re
 
 Si quiere ejecutar la instancia de Azure PowerShell de este artículo en un script continuo que puede copiar, pegar y ejecutar, consulte [Ejemplos de Azure PowerShell con Azure Application Gateway](powershell-samples.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="azure-powershell-module"></a>Módulo de Azure PowerShell
 

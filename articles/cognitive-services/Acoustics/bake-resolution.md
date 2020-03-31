@@ -12,16 +12,16 @@ ms.date: 04/05/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: d8eb3b2cbaf7b4e842d8338eefde756f6d381111
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68854349"
 ---
 # <a name="project-acoustics-bake-resolution"></a>Resolución de la simulación mediante "bake" de Project Acoustics
 En esta información general conceptual se describe la diferencia entre las resoluciones gruesas y finas al realizar la simulación acústica mediante "bake". Elija esta opción durante el paso de sondeos del flujo de trabajo de simulación mediante "bake".
 
-## <a name="Coarse-vs-Fine-Resolution"></a>Resolución gruesa frente a fina
+## <a name="coarse-vs-fine-resolution"></a><a name="Coarse-vs-Fine-Resolution"></a>Resolución gruesa frente a fina
 
 La única diferencia entre la configuración de resolución gruesa y la fina es la frecuencia con la que se realiza la simulación. La fina usa una frecuencia el doble de alta que la gruesa. Esta elección tiene una serie de implicaciones sobre la simulación acústica:
 

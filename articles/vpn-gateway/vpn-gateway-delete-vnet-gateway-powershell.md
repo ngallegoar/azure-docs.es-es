@@ -8,10 +8,10 @@ ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: conceptual
 ms.openlocfilehash: f351f14796ec736bd5525f139a518c9a0dd3d19f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162113"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell
@@ -56,7 +56,7 @@ Si tiene varias suscripciones, seleccione la que quera usar.
 Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="S2S"></a>Eliminación de una VPN de sitio a sitio
+## <a name="delete-a-site-to-site-vpn-gateway"></a><a name="S2S"></a>Eliminación de una VPN de sitio a sitio
 
 Para eliminar una puerta de enlace de red virtual correspondiente a una configuración de S2S, primero debe eliminar cada recurso que pertenece a la puerta de enlace de red virtual. Los recursos deben eliminarse en un orden determinado debido a las dependencias. Cuando se trabaja con los ejemplos siguientes, deben especificarse algunos de los valores, mientras que otros son un resultado de salida. Los siguientes valores específicos de los ejemplos se utilizan para fines de demostración:
 
@@ -139,7 +139,7 @@ $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-Az
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="v2v"></a>Eliminación de una puerta de enlace VPN de red virtual a red virtual
+## <a name="delete-a-vnet-to-vnet-vpn-gateway"></a><a name="v2v"></a>Eliminación de una puerta de enlace VPN de red virtual a red virtual
 
 Para eliminar una puerta de enlace de red virtual correspondiente a una configuración de V2V, primero debe eliminar cada recurso que pertenece a la puerta de enlace de red virtual. Los recursos deben eliminarse en un orden determinado debido a las dependencias. Cuando se trabaja con los ejemplos siguientes, deben especificarse algunos de los valores, mientras que otros son un resultado de salida. Los siguientes valores específicos de los ejemplos se utilizan para fines de demostración:
 
@@ -227,7 +227,7 @@ $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-Az
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="deletep2s"></a>Eliminación de una puerta de enlace VPN de sitio a sitio
+## <a name="delete-a-point-to-site-vpn-gateway"></a><a name="deletep2s"></a>Eliminación de una puerta de enlace VPN de sitio a sitio
 
 Para eliminar una puerta de enlace de red virtual correspondiente a una configuración de P2S, primero debe eliminar cada recurso que pertenece a la puerta de enlace de red virtual. Los recursos deben eliminarse en un orden determinado debido a las dependencias. Cuando se trabaja con los ejemplos siguientes, deben especificarse algunos de los valores, mientras que otros son un resultado de salida. Los siguientes valores específicos de los ejemplos se utilizan para fines de demostración:
 
@@ -286,7 +286,7 @@ $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-Az
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="delete"></a>Eliminación de una puerta de enlace VPN mediante la eliminación del grupo de recursos
+## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="delete"></a>Eliminación de una puerta de enlace VPN mediante la eliminación del grupo de recursos
 
 Si no desea mantener ninguno de los recursos del grupo, sino que desea empezar de nuevo, puede eliminar dicho grupo al completo. Se trata de una forma rápida de quitarlos todos. Los siguientes pasos se aplican solo al modelo de implementación de Resource Manager.
 

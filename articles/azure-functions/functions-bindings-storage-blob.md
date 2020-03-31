@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462316"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235088"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Introducción a los enlaces de Azure Blob Storage para Azure Functions
 
@@ -24,15 +24,15 @@ Azure Functions se integra con [Azure Storage](https://docs.microsoft.com/azure/
 
 ## <a name="add-to-your-functions-app"></a>Adición a la aplicación de Functions
 
-### <a name="functions-2x-and-higher"></a>Functions 2.x y superior
+### <a name="functions-2x-and-higher"></a>Functions 2.x y superiores
 
-Para trabajar con el desencadenador y los enlaces es necesario hacer referencia al paquete adecuado. En las bibliotecas de clases de .NET se usa el paquete de NuGet, mientras que en los demás tipos de aplicaciones se emplea el conjunto de extensiones.
+Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia al paquete adecuado. En las bibliotecas de clases de .NET se usa el paquete NuGet, mientras que en los demás tipos de aplicaciones se emplea el conjunto de extensiones.
 
 | Idioma                                        | Agregar mediante...                                   | Observaciones 
 |-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Instalación del [Paquete NuGet], versión 3.x | |
-| Script de C#, Java, JavaScript, Python, PowerShell | Registro del [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) con Visual Studio Code. |
-| Script de C# (solo en línea en Azure Portal)         | Adición de un enlace                            | Para actualizar extensiones de enlace existentes sin tener que volver a publicar la aplicación de funciones, consulte [Actualización de las extensiones]. |
+| C#                                              | Instalación del [paquete NuGet], versión 3.x | |
+| Script de C#, Java, JavaScript, Python, PowerShell | Registro de [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) con Visual Studio Code. |
+| Script de C# (solo en línea en Azure Portal)         | Adición de un enlace                            | Para actualizar extensiones de enlace existentes sin tener que volver a publicar la aplicación de funciones, vea [Actualización de las extensiones]. |
 
 [core tools]: ./functions-run-local.md
 [conjunto de extensiones]: ./functions-bindings-register.md#extension-bundles
@@ -42,7 +42,7 @@ Para trabajar con el desencadenador y los enlaces es necesario hacer referencia 
 
 ### <a name="functions-1x"></a>Functions 1.x
 
-Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paquete de NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x.
+Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x.
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
