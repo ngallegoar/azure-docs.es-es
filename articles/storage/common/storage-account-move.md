@@ -10,10 +10,10 @@ ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73838701"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Traslado de una cuenta de Azure Storage a otra región
@@ -31,7 +31,7 @@ En este artículo, aprenderá a:
 > * Mover datos a la cuenta de almacenamiento nueva.
 > * Eliminar los recursos en la región de origen.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Asegúrese de que los servicios y las características que usa su cuenta se admitan en la región de destino.
 
@@ -47,11 +47,11 @@ Para empezar, exporte y luego modifique una plantilla de Resource Manager.
 
 Esta plantilla contiene la configuración que describe la cuenta de almacenamiento. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para exportar una plantilla mediante Azure Portal:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Seleccione **Todos los recursos** y seleccione su cuenta de almacenamiento.
 
@@ -63,7 +63,7 @@ Para exportar una plantilla mediante Azure Portal:
 
    Este archivo ZIP contiene los archivos .json que componen la plantilla y los scripts para implementar la plantilla.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para exportar una plantilla mediante PowerShell:
 
@@ -97,7 +97,7 @@ Para exportar una plantilla mediante PowerShell:
 
 Para modificar la plantilla, cambie el nombre y la región de la cuenta de almacenamiento.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para implementar la plantilla con Azure Portal:
 
@@ -139,7 +139,7 @@ Para implementar la plantilla con Azure Portal:
     ```
     Para obtener los códigos de ubicación de la región, consulte [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/).  El código de una región es el nombre de la región sin espacios, **Centro de EE. UU.**  = **centralus**.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para implementar la plantilla con PowerShell:
 
@@ -180,7 +180,7 @@ Para implementar la plantilla con PowerShell:
 
 Implemente la plantilla para crear una nueva cuenta de almacenamiento en la región de destino. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Guarde el archivo **template.json**.
 
@@ -194,7 +194,7 @@ Implemente la plantilla para crear una nueva cuenta de almacenamiento en la regi
 
 3. Active la casilla **Acepto los términos y condiciones indicados anteriormente** y haga clic en el botón **Select Purchase** (Seleccionar compra).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Obtenga el identificador de suscripción donde quiere implementar la IP pública de destino con [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
 
@@ -264,7 +264,7 @@ Después de la implementación, si quiere empezar de nuevo, puede eliminar la cu
 
 Para confirmar los cambios y completar el traslado de una cuenta de almacenamiento, elimine la cuenta de almacenamiento de origen.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para quitar una cuenta de almacenamiento mediante Azure Portal:
 
@@ -274,7 +274,7 @@ Para quitar una cuenta de almacenamiento mediante Azure Portal:
 
 3. Seleccione **Eliminar** y confirme.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para quitar el grupo de recursos y sus recursos asociados, incluida la nueva cuenta de almacenamiento, use el comando [Remove-AzStorageAccount](/powershell/module/az.resources/remove-azstorageaccount):
 

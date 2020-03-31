@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 9dc4909db5560be6eb082dbad85d4b2d42113bdd
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e82d82dac833f7455e3d83d7e11c0c57c4eea816
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828693"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80238800"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Vista previa: Creación de una máquina virtual Windows con Azure Image Builder
 
@@ -28,7 +28,7 @@ Se usará una plantilla .json de ejemplo para configurar la imagen. El archivo .
 
 
 > [!IMPORTANT]
-> Azure Image Builder se encuentra actualmente en versión preliminar pública.
+> Actualmente, el generador de imágenes de Azure se encuentra en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -210,6 +210,7 @@ Debería ver estos dos directorios creados durante la personalización de la ima
 Cuando haya terminado, elimine los recursos.
 
 ### <a name="delete-the-image-builder-template"></a>Eliminar la plantilla de Image Builder
+
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
@@ -218,6 +219,7 @@ az resource delete \
 ```
 
 ### <a name="delete-the-image-resource-group"></a>Eliminar el grupo de recursos de imagen
+
 ```azurecli-interactive
 az group delete -n $imageResourceGroup
 ```

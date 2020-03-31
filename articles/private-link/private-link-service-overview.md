@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 97515b308323452e88cf6fd8a517c1f169c9ba6f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587420"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236072"
 ---
 # <a name="what-is-azure-private-link-service"></a>¿Qué es el servicio Azure Private Link?
 
@@ -112,7 +112,7 @@ Detalles del TLV personalizado:
 |  |4        |UINT32 (4 bytes) que representan el LINKID del punto de conexión privado. Codificado en formato little endian.|
 
  > [!NOTE]
- > El proveedor de servicios es responsable de asegurarse de que el servicio que está detrás del equilibrador de carga estándar está configurado para analizar el encabezado del protocolo de proxy según la [especificación](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) cuando el protocolo de proxy está habilitado en el servicio de vínculo privado. Se producirá un error en la solicitud si la configuración del protocolo de proxy está habilitada en el servicio de vínculo privado y el servicio no está configurado para analizar el encabezado. Del mismo modo, se producirá un error en la solicitud si el servicio espera un encabezado de protocolo de proxy mientras la configuración no está habilitada en el servicio de vínculo privado. Una vez habilitada la configuración del protocolo de proxy, el encabezado del protocolo de proxy también se incluirá en los sondeos de estado HTTP/TCP desde el host hasta las máquinas virtuales de back-end, aunque no haya información del cliente en el encabezado. 
+ > El proveedor de servicios es responsable de asegurarse de que el servicio que está detrás del equilibrador de carga estándar está configurado para analizar el encabezado del protocolo de proxy según la [especificación](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) cuando el protocolo de proxy está habilitado en el servicio de vínculo privado. Se producirá un error en la solicitud si la configuración del protocolo de proxy está habilitada en el servicio de vínculo privado pero el servicio del proveedor de servicios no está configurado para analizar el encabezado. Del mismo modo, se producirá un error en la solicitud si el servicio del proveedor de servicios espera un encabezado de protocolo de proxy mientras la configuración no está habilitada en el servicio de vínculo privado. Una vez habilitada la configuración del protocolo de proxy, el encabezado del protocolo de proxy también se incluirá en los sondeos de estado HTTP/TCP desde el host hasta las máquinas virtuales de back-end, aunque no haya información del cliente en el encabezado. 
 
 ## <a name="limitations"></a>Limitaciones
 

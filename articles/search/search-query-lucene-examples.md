@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 745be21c2a7a09a09fdbbfd57a305d09a4fac3ed
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793443"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Uso de la sintaxis de búsqueda "completa" de Lucene (consultas avanzadas en Azure Cognitive Search)
@@ -139,7 +139,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
   ![Respuesta de ejemplo de Postman](media/search-query-lucene-examples/intrafieldfilter.png)
 
-Puede definir una operación de búsqueda clasificada por campos con la sintaxis **fieldName:searchExpression**, donde la expresión de búsqueda puede ser una sola palabra o una frase, o una expresión más compleja entre paréntesis, opcionalmente con operadores booleanos. Estos son algunos ejemplos:
+Puede definir una operación de búsqueda clasificada por campos con la sintaxis **fieldName:searchExpression**, donde la expresión de búsqueda puede ser una sola palabra o una frase, o una expresión más compleja entre paréntesis, opcionalmente con operadores booleanos. A continuación se muestran algunos ejemplos:
 
 - `business_title:(senior NOT junior)`
 - `state:("New York" OR "New Jersey")`

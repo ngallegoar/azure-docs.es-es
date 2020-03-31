@@ -1,19 +1,18 @@
 ---
 title: Panel Calificaciones y opiniones de los análisis de Marketplace comercial del Centro de partners
 description: Obtenga información sobre cómo acceder a una vista consolidada de los comentarios de los clientes para sus ofertas en Azure Marketplace y AppSource.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: dedf2aa429414b6a6a03d70f1f8e355c6629d83e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2995cd2a97329aa8b7947145150c6a3501346fdb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475114"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275669"
 ---
 # <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Panel Calificaciones y opiniones de los análisis de Marketplace comercial
 

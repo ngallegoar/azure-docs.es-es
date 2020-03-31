@@ -9,13 +9,13 @@ ms.date: 02/18/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e950d194ab48cec1a70c7bd17617332cb858a55d
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77485677"
 ---
-## <a name="tenant"></a>1. Cree un inquilino Azure AD
+## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Cree un inquilino Azure AD
 
 Cree un inquilino de Azure AD con los pasos del artículo [Crear un nuevo inquilino](../articles/active-directory/fundamentals/active-directory-access-create-new-tenant.md):
 
@@ -26,14 +26,14 @@ Cree un inquilino de Azure AD con los pasos del artículo [Crear un nuevo inquil
 
    ![Nuevo inquilino Azure AD](./media/openvpn-azure-ad-tenant-multi-app/new-tenant.png)
 
-## <a name="users"></a>2. Creación de usuarios inquilinos
+## <a name="2-create-tenant-users"></a><a name="users"></a>2. Creación de usuarios inquilinos
 
 En este paso, creará dos usuarios inquilinos de Azure AD: una cuenta de administrador global y una cuenta de usuario principal. La cuenta de usuario principal se usa como cuenta de inserción maestra (cuenta de servicio). Al crear una cuenta de usuario de inquilino Azure AD, ajuste el rol de directorio para el tipo de usuario que desea crear. Siga los pasos descritos en [este artículo](../articles/active-directory/fundamentals/add-users-azure-active-directory.md) para crear al menos dos usuarios para su inquilino de Azure AD. Asegúrese de cambiar el **rol de directorio** para crear los tipos de cuenta:
 
 * Administrador global
 * Usuario
 
-## <a name="register-client"></a>3. Registro del cliente VPN
+## <a name="3-register-the-vpn-client"></a><a name="register-client"></a>3. Registro del cliente VPN
 
 Registre el cliente VPN en el inquilino de Azure AD.
 
@@ -83,7 +83,7 @@ Registre el cliente VPN en el inquilino de Azure AD.
 
      ![VPN de Azure](./media/openvpn-azure-ad-tenant-multi-app/azure-vpn.png)
 
-## <a name="register-apps"></a>4. Registro de aplicaciones adicionales
+## <a name="4-register-additional-applications"></a><a name="register-apps"></a>4. Registro de aplicaciones adicionales
 
 En este paso, debe registrar aplicaciones adicionales para varios usuarios y grupos.
 
@@ -124,7 +124,7 @@ En este paso, debe registrar aplicaciones adicionales para varios usuarios y gru
 
 10. Repita los pasos de esta sección ([Registro de aplicaciones adicionales](#register-apps)) para crear tantas aplicaciones como sea necesario para su requisito de seguridad. Cada aplicación se asociará a una puerta de enlace de VPN y puede tener un conjunto diferente de usuarios. Solo se puede asociar una aplicación a una puerta de enlace.
 
-## <a name="assign-users"></a>5. Asignar usuarios a aplicaciones
+## <a name="5-assign-users-to-applications"></a><a name="assign-users"></a>5. Asignar usuarios a aplicaciones
 
 Asigne los usuarios a las aplicaciones.
 

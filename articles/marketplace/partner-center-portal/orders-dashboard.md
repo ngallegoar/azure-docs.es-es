@@ -1,19 +1,18 @@
 ---
 title: Panel Pedidos del Centro de partners de los análisis de Marketplace comercial
 description: Obtenga información sobre cómo acceder a informes analíticos sobre los pedidos de ofertas de Marketplace en un formato gráfico y descargable.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: bf4b48fafa5b877053abe653b569cf27eb50d57b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d0db6553a774a69bb8a55538cbd2b4a333be9316
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475318"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281415"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Panel Pedidos de los análisis de Marketplace comercial
 
@@ -131,4 +130,4 @@ Puede seleccionar varios filtros para representar el gráfico para los criterios
 - Para obtener información detallada sobre los clientes, incluidas las tendencias de crecimiento, vea [Panel Clientes de los análisis de Marketplace comercial](./customer-dashboard.md).
 - Para obtener una lista de las solicitudes de descarga de los últimos 30 días, vea [Panel Descargas de los análisis de Marketplace comercial](./downloads-dashboard.md).
 - Para obtener una vista consolidada de comentarios de clientes de las ofertas de Azure Marketplace y AppSource, consulte [Panel Valoraciones y opiniones de los análisis de Marketplace comercial](./ratings-reviews.md).
-- Para ver las preguntas más frecuentes sobre los análisis de Marketplace comercial y obtener un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología de los análisis de Marketplace comercial](./faq-terminology.md).
+- Para consultar las preguntas más frecuentes sobre los análisis de Marketplace comercial y obtener un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología de los análisis de Marketplace comercial](./faq-terminology.md).

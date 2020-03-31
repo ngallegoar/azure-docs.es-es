@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113276"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Cognitive Search
@@ -42,7 +42,7 @@ Hay algunos [planes de tarifas](https://azure.microsoft.com/pricing/details/sear
 | Número máximo de réplicas por servicio |3 |12 |12 |12 |12 |
 | Número máximo de particiones por servicio |1 |12 |12 |12 |3 |
 | Número máximo de unidades de búsqueda (réplicas * particiones) por servicio |3 |36 |36 |36 |36 (3 particiones como máximo) |
-| Almacenamiento máximo por servicio |2 GB |< 300 GB |1,2 TB |2,4 TB |600 GB |
+| Almacenamiento máximo por servicio |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
 | Almacenamiento máximo por partición |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Número máximo de índices por servicio |5 |50 |200 |200 |3000 (1000 índices/partición como máximo) |
 

@@ -9,16 +9,18 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 892f8bb24da00f1bd5827725f40fdc4359be0937
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906552"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370481"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage
 
 Puede asignar un dominio personalizado a un punto de conexión del servicio de blobs o a un punto de conexión de un [sitio web estático](storage-blob-static-website.md). 
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > Esta asignación solo funciona para subdominios (por ejemplo: `www.contoso.com`). Si desea que su punto de conexión web esté disponible en el dominio raíz (por ejemplo: `contoso.com`), tendrá que usar Azure CDN. Para obtener instrucciones, consulte la sección [Asignación de un dominio personalizado con HTTPS habilitado](#enable-https) de este artículo. Dado que va a ir a esa sección de este artículo para activar el dominio raíz de su dominio personalizado, el paso de dicha sección para habilitar el HTTPS es opcional. 
@@ -231,7 +233,7 @@ Por ejemplo, para acceder a un formulario web del contenedor *myforms* en el sub
 
 Para quitar una asignación de dominio personalizado, anule el registro del dominio personalizado. Realice uno de los siguientes procedimientos.
 
-#### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para quitar la configuración del dominio personalizado, haga lo siguiente:
 
@@ -246,7 +248,7 @@ Para quitar la configuración del dominio personalizado, haga lo siguiente:
 
 Una vez que se haya quitado correctamente el dominio personalizado, verá una notificación del portal que indica que la cuenta de almacenamiento se actualizó correctamente
 
-#### <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+#### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para quitar un registro de dominio personalizado, use el comando de la CLI [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) y especifique una cadena vacía (`""`) para el valor del argumento `--custom-domain`.
 
@@ -268,7 +270,7 @@ Para quitar un registro de dominio personalizado, use el comando de la CLI [az s
       --custom-domain ""
   ```
 
-#### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

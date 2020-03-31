@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: a354f8031c26ca86876dc6f3a2092610226cc84b
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75834568"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configuración de una conexión de puerta de enlace de VPN de red virtual a red virtual mediante la CLI de Azure
@@ -31,7 +31,7 @@ Los pasos descritos en este artículo se aplican al modelo de implementación de
 >
 >
 
-## <a name="about"></a>Acerca de la conexión de redes virtuales
+## <a name="about-connecting-vnets"></a><a name="about"></a>Acerca de la conexión de redes virtuales
 
 Hay varias formas de conectar redes virtuales. Las siguientes secciones describen distintas formas de conectar redes virtuales.
 
@@ -47,7 +47,7 @@ Si puntualmente trabaja con una configuración de red complicada, puede que pref
 
 Puede que desee considerar conectar sus redes virtuales mediante el emparejamiento de VNET. El emparejamiento de VNET no utiliza una puerta de enlace de VPN y tiene distintas restricciones. Además, [los precios del emparejamiento de VNET](https://azure.microsoft.com/pricing/details/virtual-network) se calculan de forma diferente que los [precios de VPN Gateway entre redes virtuales](https://azure.microsoft.com/pricing/details/vpn-gateway). Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
 
-## <a name="why"></a>¿Por qué crear una conexión de red virtual a red virtual?
+## <a name="why-create-a-vnet-to-vnet-connection"></a><a name="why"></a>¿Por qué crear una conexión de red virtual a red virtual?
 
 Puede que desee conectar redes virtuales con una conexión entre redes virtuales por las siguientes razones:
 
@@ -61,7 +61,7 @@ Puede que desee conectar redes virtuales con una conexión entre redes virtuales
 
 Se puede combinar la comunicación entre redes virtuales con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales.
 
-## <a name="steps"></a>¿Qué instrucciones para la conexión entre redes virtuales debo seguir?
+## <a name="which-vnet-to-vnet-steps-should-i-use"></a><a name="steps"></a>¿Qué instrucciones para la conexión entre redes virtuales debo seguir?
 
 En este artículo, verá dos conjuntos de pasos diferentes de la conexión entre redes virtuales. Un conjunto de pasos para las [redes virtuales que residen en la misma suscripción](#samesub) y otro para las [redes virtuales que residen en suscripciones diferentes](#difsub). 
 
@@ -76,13 +76,13 @@ Para este ejercicio, puede combinar las configuraciones, o bien elegir con la qu
   ![diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
 
-## <a name="samesub"></a>Conexión de redes virtuales que están en la misma suscripción
+## <a name="connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Conexión de redes virtuales que están en la misma suscripción
 
 ### <a name="before-you-begin"></a>Antes de empezar
 
 Antes de empezar, instale la versión más reciente de los comandos de la CLI (2.0 o posteriores). Para obtener más información sobre la instalación de los comandos de la CLI, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-### <a name="Plan"></a>Planeamiento de los intervalos de direcciones IP
+### <a name="plan-your-ip-address-ranges"></a><a name="Plan"></a>Planeamiento de los intervalos de direcciones IP
 
 En los pasos siguientes, se crean dos redes virtuales junto con sus subredes de puerta de enlace y configuraciones correspondientes. Luego, se crea una conexión VPN entre las dos redes virtuales. Es importante planear los intervalos de direcciones IP para la configuración de red. Tenga en cuenta que hay que asegurarse de que ninguno de los intervalos de VNet o intervalos de red local se solapen. En estos ejemplos, no se incluye ningún servidor DNS. Si desea disponer de resolución de nombres en las redes virtuales, consulte [Resolución de nombres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -92,7 +92,7 @@ En los ejemplos usamos los siguientes valores:
 
 * Nombre de la red virtual: TestVNet1
 * Grupo de recursos: TestRG1
-* Ubicación: East US
+* Ubicación: Este de EE. UU.
 * TestVNet1: 10.11.0.0/16 y 10.12.0.0/16
 * front-end: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
@@ -117,11 +117,11 @@ En los ejemplos usamos los siguientes valores:
 * VPNType: RouteBased
 * Conexión: VNet4toVNet1
 
-### <a name="Connect"></a>Paso 1: Conexión a la suscripción
+### <a name="step-1---connect-to-your-subscription"></a><a name="Connect"></a>Paso 1: Conexión a la suscripción
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-numbers-include.md)]
 
-### <a name="TestVNet1"></a>Paso 2: Creación y configuración de TestVNet1
+### <a name="step-2---create-and-configure-testvnet1"></a><a name="TestVNet1"></a>Paso 2: Creación y configuración de TestVNet1
 
 1. Cree un grupo de recursos.
 
@@ -159,7 +159,7 @@ En los ejemplos usamos los siguientes valores:
    az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
    ```
 
-### <a name="TestVNet4"></a>Paso 3: Creación y configuración de TestVNet4
+### <a name="step-3---create-and-configure-testvnet4"></a><a name="TestVNet4"></a>Paso 3: Creación y configuración de TestVNet4
 
 1. Cree un grupo de recursos.
 
@@ -194,11 +194,11 @@ En los ejemplos usamos los siguientes valores:
    az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
    ```
 
-### <a name="createconnect"></a>Paso 4: Creación de las conexiones
+### <a name="step-4---create-the-connections"></a><a name="createconnect"></a>Paso 4: Creación de las conexiones
 
 Ahora tiene dos redes virtuales con puertas de enlace de VPN. El siguiente paso consiste en crear conexiones de puerta de enlace de VPN entre las puertas de enlace de red virtual. Si usó los ejemplos anteriores, las puertas de enlace de red virtual se encuentran en grupos de recursos distintos. Cuando las puertas de enlace están en grupos de recursos distintos, debe identificar y especificar los identificadores de recursos para cada puerta de enlace al establecer una conexión. Si sus redes virtuales están en el mismo grupo de recursos, puede usar el [segundo conjunto de instrucciones](#samerg) porque no es necesario especificar los identificadores de recursos.
 
-### <a name="diffrg"></a>Conexión de redes virtuales que residen en grupos de recursos distintos
+### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a><a name="diffrg"></a>Conexión de redes virtuales que residen en grupos de recursos distintos
 
 1. Obtenga el id. de recurso de VNet1GW de la salida del comando siguiente:
 
@@ -249,7 +249,7 @@ Ahora tiene dos redes virtuales con puertas de enlace de VPN. El siguiente paso 
    ```
 5. Compruebe las conexiones. Consulte [Comprobación de las conexiones](#verify).
 
-### <a name="samerg"></a>Para conectar redes virtuales que residen en el mismo grupo de recursos
+### <a name="to-connect-vnets-that-reside-in-the-same-resource-group"></a><a name="samerg"></a>Para conectar redes virtuales que residen en el mismo grupo de recursos
 
 1. Cree la conexión de TestVNet1 a TestVNet4. En este paso, creará la conexión de TestVNet1 a TestVNet4. Tenga en cuenta que los grupos de recursos son iguales en los ejemplos. También verá una clave compartida a la que se hace referencia en los ejemplos. Puede usar sus propios valores para la clave compartida, pero esta debe coincidir en ambas conexiones. Se tardará unos momentos en terminar de crear la conexión.
 
@@ -263,15 +263,15 @@ Ahora tiene dos redes virtuales con puertas de enlace de VPN. El siguiente paso 
    ```
 3. Compruebe las conexiones. Consulte [Comprobación de las conexiones](#verify).
 
-## <a name="difsub"></a>Conexión de redes virtuales que están en suscripciones diferentes
+## <a name="connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>Conexión de redes virtuales que están en suscripciones diferentes
 
 En este escenario, se conectan TestVNet1 y TestVNet5. Las redes virtuales residen en suscripciones distintas. Las suscripciones no necesitan estar asociadas con el mismo inquilino de Active Directory. Los pasos para esta configuración permiten agregar una conexión de red virtual a red virtual adicional para poder conectar TestVNet1 a TestVNet5.
 
-### <a name="TestVNet1diff"></a>Paso 5: Creación y configuración de TestVNet1
+### <a name="step-5---create-and-configure-testvnet1"></a><a name="TestVNet1diff"></a>Paso 5: Creación y configuración de TestVNet1
 
 Estas instrucciones son una continuación de los pasos descritos en las secciones anteriores. Tiene que completar el [paso 1](#Connect) y el [paso 2](#TestVNet1) para crear y configurar TestVNet1 y VPN Gateway para TestVNet1. Para esta configuración, no se necesita crear TestVNet4 de la sección anterior, aunque, si la creó, no entrará en conflicto con estos pasos. Cuando haya completado el paso 1 y el 2, continúe con el paso 6 (a continuación).
 
-### <a name="verifyranges"></a>Paso 6: Comprobación de los intervalos de direcciones IP
+### <a name="step-6---verify-the-ip-address-ranges"></a><a name="verifyranges"></a>Paso 6: Comprobación de los intervalos de direcciones IP
 
 Cuando cree conexiones adicionales, es importante asegurarse de que el espacio de direcciones IP de la red virtual nueva no se solape con ninguno de los demás intervalos de redes virtuales o de puertas de enlace de red local. En este ejercicio, use los siguientes valores para TestVNet5:
 
@@ -279,7 +279,7 @@ Cuando cree conexiones adicionales, es importante asegurarse de que el espacio d
 
 * Nombre de la red virtual: TestVNet5
 * Grupo de recursos: TestRG5
-* Ubicación: Este de Japón
+* Ubicación: Japón Oriental
 * TestVNet5: 10.51.0.0/16 y 10.52.0.0/16
 * front-end: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
@@ -290,7 +290,7 @@ Cuando cree conexiones adicionales, es importante asegurarse de que el espacio d
 * Conexión: VNet5toVNet1
 * ConnectionType: VNet2VNet
 
-### <a name="TestVNet5"></a>Paso 7: Creación y configuración de TestVNet5
+### <a name="step-7---create-and-configure-testvnet5"></a><a name="TestVNet5"></a>Paso 7: Creación y configuración de TestVNet5
 
 Este paso debe realizarse en el contexto de la nueva suscripción, Suscripción 5. Es posible que esta parte la realice el administrador de otra organización que posea la suscripción. Para cambiar entre suscripciones, use `az account list --all` para obtener una lista de las suscripciones disponibles para su cuenta y después use `az account set --subscription <subscriptionID>` para cambiar a la suscripción que desea usar.
 
@@ -329,7 +329,7 @@ Este paso debe realizarse en el contexto de la nueva suscripción, Suscripción 
    az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
    ```
 
-### <a name="connections5"></a>Paso 8: Creación de las conexiones
+### <a name="step-8---create-the-connections"></a><a name="connections5"></a>Paso 8: Creación de las conexiones
 
 Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]** y **[Suscripción 5]** , ya que las puertas de enlace están en suscripciones diferentes. Para cambiar entre suscripciones, use `az account list --all` para obtener una lista de las suscripciones disponibles para su cuenta y después use `az account set --subscription <subscriptionID>` para cambiar a la suscripción que desea usar.
 
@@ -367,12 +367,12 @@ Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]**
    az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l japaneast --shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
    ```
 
-## <a name="verify"></a>Comprobación de las conexiones
+## <a name="verify-the-connections"></a><a name="verify"></a>Comprobación de las conexiones
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
-## <a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
+## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes

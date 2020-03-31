@@ -9,18 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: ed5fc923c82fb0d0e4004e18159d943564c6f55e
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045823"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060192"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutorial: Configuración de un grupo de disponibilidad en Azure SQL Server VM manualmente
 
@@ -32,7 +32,7 @@ El diagrama muestra lo que va a crear en el tutorial.
 
 ![Grupo de disponibilidad](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En el tutorial se da por supuesto que tiene conocimientos básicos de grupos de disponibilidad de SQL Server AlwaysOn. Para más información, consulte [Información general de los grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -55,7 +55,7 @@ Antes de comenzar con este tutorial, debe completar los requisitos de [Finalizac
   > Muchos de los pasos proporcionados en este tutorial ahora se pueden automatizar con la [CLI de máquina virtual de SQL de Azure](virtual-machines-windows-sql-availability-group-cli.md) y las [plantillas de inicio rápido de Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
-<!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
+<!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
 ## <a name="create-the-cluster"></a>Creación del clúster
@@ -95,7 +95,7 @@ Una vez completados los requisitos previos, el primer paso es crear un clúster 
 
 4. En la sección **Recursos principales de clúster**, haga clic con el botón derecho en el nombre del clúster y haga clic en **Poner en línea**. Después espere hasta que ambos recursos estén en línea. Cuando el recurso de nombre de clúster está en línea, actualiza el servidor DC con una nueva cuenta de equipo de AD. Use esta cuenta de AD para ejecutar más tarde el servicio de clúster del grupo de disponibilidad.
 
-### <a name="addNode"></a>Agregar el otro servidor SQL Server al clúster
+### <a name="add-the-other-sql-server-to-cluster"></a><a name="addNode"></a>Agregar el otro servidor SQL Server al clúster
 
 Agregue el otro servidor SQL Server al clúster.
 
@@ -228,7 +228,7 @@ Repeat these steps on the second SQL Server.
 7. En el **Explorador de objetos**, haga clic con el botón derecho en **Bases de datos** y luego en **Nueva base de datos**.
 8. En **Nombre de base de datos**, escriba **MyDB1** y después haga clic en **Aceptar**.
 
-### <a name="backupshare"></a> Creación de un recurso compartido de copia de seguridad
+### <a name="create-a-backup-share"></a><a name="backupshare"></a> Creación de un recurso compartido de copia de seguridad
 
 1. En el primer servidor SQL Server, en **Administrador del servidor**, haga clic en **Herramientas**. Abra **Administración de equipos**.
 
@@ -476,7 +476,7 @@ La dirección IP de WSFC también debe estar en el equilibrador de carga.
 
 1. Haga clic en **Aceptar** para configurar las reglas de equilibrio de carga.
 
-## <a name="configure-listener"></a> Configuración del agente de escucha
+## <a name="configure-the-listener"></a><a name="configure-listener"></a> Configuración del agente de escucha
 
 El siguiente paso es configurar un agente de escucha del grupo de disponibilidad en el clúster de conmutación por error.
 

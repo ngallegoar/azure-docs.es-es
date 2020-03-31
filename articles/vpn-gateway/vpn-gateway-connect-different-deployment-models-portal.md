@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
 ms.openlocfilehash: 5e64cb2db2bd16a881334779a1c6f1ef19296da2
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152030"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
@@ -28,7 +28,7 @@ La conexión de una red virtual clásica a una red virtual de Resource Manager e
 
 Si aún no tiene una puerta de enlace de red virtual y no desea crear una, considere la posibilidad de conectar sus redes virtuales mediante Emparejamiento de VNET. El emparejamiento de VNET no usa VPN Gateway. Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="before"></a>Antes de empezar
+### <a name="before-you-begin"></a><a name="before"></a>Antes de empezar
 
 
 
@@ -36,7 +36,7 @@ Si aún no tiene una puerta de enlace de red virtual y no desea crear una, consi
 * Compruebe que los intervalos de direcciones de las redes virtuales no se superponen entre sí ni con alguno de los intervalos de otras conexiones con las que puedan estar conectadas las puertas de enlace.
 * Instale los cmdlets de PowerShell más recientes para Resource Manager y Service Management (clásico). En este artículo se usan Azure Portal y PowerShell. PowerShell es necesario para crear la conexión desde la red virtual clásica a la red virtual de Resource Manager. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). 
 
-### <a name="values"></a>Configuración de ejemplo
+### <a name="example-settings"></a><a name="values"></a>Configuración de ejemplo
 
 Puede usar estos valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo.
 
@@ -69,7 +69,7 @@ Ubicación = Este de EE. UU. <br>
 Red virtual = RMVNet <br> (asocie la puerta de enlace de VPN a esta red virtual) Configuración de la primera dirección IP = rmgwpip <br> (dirección IP pública de la puerta de enlace) Puerta de enlace de red local = ClassicVNetLocal <br>
 Nombre de conexión = RMtoClassic
 
-### <a name="connectoverview"></a>Información general sobre la conexión
+### <a name="connection-overview"></a><a name="connectoverview"></a>Información general sobre la conexión
 
 Para esta configuración se crea una conexión de puerta de enlace VPN a través de un túnel VPN de IPsec/IKE entre las redes virtuales. Asegúrese de que ninguno de los intervalos de red virtual se superponga con otro o con cualquiera de las redes locales a las que se conectan.
 
@@ -80,11 +80,11 @@ En la tabla siguiente se muestra un ejemplo de cómo se definen los sitios local
 | ClassicVNet |(10.0.0.0/24) |Oeste de EE. UU. | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Este de EE. UU. |ClassicVNetLocal (10.0.0.0/24) |
 
-## <a name="classicvnet"></a>Sección 1: Configuración de la red virtual clásica
+## <a name="section-1---configure-the-classic-vnet-settings"></a><a name="classicvnet"></a>Sección 1: Configuración de la red virtual clásica
 
 En esta sección se crea la red virtual clásica, la red local (sitio local) y la puerta de enlace de red virtual. Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos o use los valores de [ejemplo](#values).
 
-### 1. <a name="classicvnet"></a>Creación de una red virtual clásica
+### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a>Creación de una red virtual clásica
 
 Si no tiene una red virtual clásica y lleva a cabo estos pasos como ejercicio, puede crear una red virtual según [este artículo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y los valores de configuración de [ejemplo](#values) indicados anteriormente.
 
@@ -96,7 +96,7 @@ Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puert
 4. En la lista de resultados, busque "Virtual Network" y haga clic en esa opción para abrir la página Virtual Network. 
 5. En la página de red virtual, seleccione "Clásica" para crear una red virtual clásica. Si aquí usa el valor predeterminado, generará en su lugar una red virtual de Resource Manager.
 
-### 2. <a name="local"></a>Configuración del sitio local
+### <a name="2-configure-the-local-site"></a>2. <a name="local"></a>Configuración del sitio local
 
 1. Vaya a **Todos los recursos** y ubique **ClassicVNet** en la lista.
 2. Haga clic en **Puerta de enlace** en la sección **Configuración** del menú y, a continuación, haga clic en el banner para crear una puerta de enlace.
@@ -108,7 +108,7 @@ Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puert
 7. Para **Client Address Space** (Espacio de direcciones de clientes), use los [valores](#connectoverview) de los espacios de direcciones IP de red virtual para la red virtual de Resource Manager. Este valor se usa para especificar los espacios de direcciones a fin de enrutar a la red virtual de Resource Manager. En el ejemplo usamos 192.168.0.0/16, el intervalo de direcciones de RMVNet.
 8. Haga clic en **Aceptar** para guardar los valores y volver a la página **Nueva conexión de VPN**.
 
-### <a name="classicgw"></a>3. Creación de la puerta de enlace de red virtual
+### <a name="3-create-the-virtual-network-gateway"></a><a name="classicgw"></a>3. Creación de la puerta de enlace de red virtual
 
 1. En la página **Nueva conexión VPN**, active la casilla **Crear puerta de enlace inmediatamente**.
 2. Haga clic en **Configuración de puerta de enlace opcional** para abrir la página **Configuración de puerta de enlace**.
@@ -120,7 +120,7 @@ Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puert
 6. Compruebe que el **Tipo de enrutamiento** sea **Dinámico** y haga clic en **Aceptar** para volver a la página **Nueva conexión de VPN**.
 7. En la página **Nueva conexión de VPN**, haga clic en **Aceptar** para empezar a crear la puerta de enlace de VPN. Una puerta de enlace VPN puede tardar hasta 45 minutos en completarse.
 
-### <a name="ip"></a>4. Copia de la dirección IP pública de la puerta de enlace de la red virtual
+### <a name="4-copy-the-virtual-network-gateway-public-ip-address"></a><a name="ip"></a>4. Copia de la dirección IP pública de la puerta de enlace de la red virtual
 
 Una vez que se haya creado la puerta de enlace de la red virtual, puede ver la dirección IP de la puerta de enlace. 
 
@@ -128,7 +128,7 @@ Una vez que se haya creado la puerta de enlace de la red virtual, puede ver la d
 2. Haga clic en **Conexiones de VPN** para abrir la página de conexiones. En la página de conexiones de VPN, puede ver la dirección IP pública. Se trata de la dirección IP pública asignada a la puerta de enlace de red virtual. Anote la dirección IP. Se usa en pasos posteriores al trabajar con las opciones de configuración de puerta de enlace de red local de Resource Manager. 
 3. Puede ver el estado de las conexiones de puerta de enlace. Observe que el sitio de red local que creó aparece como "Conectando". El estado cambiará una vez creadas las conexiones. Puede cerrar esta página cuando termine de ver el estado.
 
-## <a name="rmvnet"></a>Sección 2: Configuración de redes virtuales de Resource Manager
+## <a name="section-2---configure-the-resource-manager-vnet-settings"></a><a name="rmvnet"></a>Sección 2: Configuración de redes virtuales de Resource Manager
 
 En esta sección se crea la puerta de enlace de red virtual y la puerta de enlace de red local para la red de Resource Manager. Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos o use los valores de [ejemplo](#values).
 
@@ -145,7 +145,7 @@ En esta sección se crea la puerta de enlace de red virtual y la puerta de enlac
 
 Si no tiene una red virtual de Resource Manager y va a ejecutar estos pasos como ejercicio, cree una red virtual con los pasos que se indican en [Creación de una red virtual](../virtual-network/quick-create-portal.md) y use los valores de ejemplo.
 
-### <a name="creategw"></a>2. Creación de una puerta de enlace de red virtual
+### <a name="2-create-a-virtual-network-gateway"></a><a name="creategw"></a>2. Creación de una puerta de enlace de red virtual
 
 En este paso, se crea la puerta de enlace para la red virtual. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada.
 
@@ -166,7 +166,7 @@ En este paso, se crea la puerta de enlace para la red virtual. La creación de u
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="createlng"></a>3. Creación de una puerta de enlace de red local
+### <a name="3-create-a-local-network-gateway"></a><a name="createlng"></a>3. Creación de una puerta de enlace de red local
 
 **Valores de ejemplo:** Puerta de enlace de red local = LocalRedVClásica
 
@@ -179,7 +179,7 @@ La puerta de enlace de red local especifica el intervalo de direcciones y la dir
 
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 
-## <a name="modifylng"></a>Sección 3: modificación de la configuración del sitio local de la red virtual clásica
+## <a name="section-3---modify-the-classic-vnet-local-site-settings"></a><a name="modifylng"></a>Sección 3: modificación de la configuración del sitio local de la red virtual clásica
 
 En esta sección se reemplaza la dirección IP de marcador de posición que usó al especificar la configuración del sitio local con la dirección IP de puerta de enlace VPN de Resource Manager. Esta sección utiliza los cmdlets de PowerShell (SM) clásicos.
 
@@ -199,7 +199,7 @@ En esta sección se reemplaza la dirección IP de marcador de posición que usó
    ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Dirección IP de la puerta de enlace")
 7. Haga clic en **Aceptar** para actualizar la dirección IP.
 
-## <a name="RMtoclassic"></a>Sección 4: Creación de conexión de red virtual de Resource Manager a red virtual clásica
+## <a name="section-4---create-resource-manager-to-classic-connection"></a><a name="RMtoclassic"></a>Sección 4: Creación de conexión de red virtual de Resource Manager a red virtual clásica
 
 En estos pasos se configura la conexión desde la red virtual de Resource Manager a la red virtual clásica con Azure Portal.
 
@@ -214,7 +214,7 @@ En estos pasos se configura la conexión desde la red virtual de Resource Manage
 9. Cree una **clave compartida**. Esta clave se usa también en la conexión que crea desde la red virtual clásica a la red virtual de Resource Manager. Puede generar la clave o inventar una. En el ejemplo usamos "abc123", pero puede (y debe) usar un valor más complejo.
 10. Haga clic en **Aceptar** para crear la conexión.
 
-## <a name="classictoRM"></a>Sección 5: Creación de conexión de red virtual clásica a red virtual de Resource Manager
+## <a name="section-5---create-classic-to-resource-manager-connection"></a><a name="classictoRM"></a>Sección 5: Creación de conexión de red virtual clásica a red virtual de Resource Manager
 
 En estos pasos se configura la conexión desde la red virtual clásica a la red virtual de Resource Manager. Estos pasos requieren PowerShell. Esta conexión no se puede crear en el portal. Asegúrese de que ha descargado e instalado los cmdlets de PowerShell tanto del modelo clásico (SM) como del modelo de Resource Manager (RM).
 
@@ -284,7 +284,7 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
 ```
 
-## <a name="verify"></a>Sección 6: Comprobación de las conexiones
+## <a name="section-6---verify-your-connections"></a><a name="verify"></a>Sección 6: Comprobación de las conexiones
 
 Puede comprobar las conexiones mediante Azure Portal o PowerShell. Al comprobar, es posible que necesite esperar un minuto o dos mientras se crea la conexión. Cuando una conexión se realiza correctamente, el estado de conectividad cambia de "Conectando" a "Conectado".
 
@@ -296,6 +296,6 @@ Puede comprobar las conexiones mediante Azure Portal o PowerShell. Al comprobar,
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 
-## <a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
+## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

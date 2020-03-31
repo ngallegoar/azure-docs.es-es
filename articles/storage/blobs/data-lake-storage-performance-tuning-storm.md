@@ -1,5 +1,5 @@
 ---
-title: 'Ajustar el rendimiento: Storm, HDInsight y Azure Data Lake Storage Gen2 | Microsoft Docs'
+title: 'Ajustar rendimiento: Storm, HDInsight y Azure Data Lake Storage Gen2 | Microsoft Docs'
 description: Directrices para la optimización del rendimiento de Storm en Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,17 +9,17 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 125c583512f6bae34c2dd3c3dd76a1b96a181ac1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74327903"
 ---
-# <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar el rendimiento: Storm, HDInsight y Azure Data Lake Storage Gen2
+# <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar rendimiento: Storm, HDInsight y Azure Data Lake Storage Gen2
 
 Esta guía le ayuda a comprender los factores que se deben tener en cuenta al optimizar el rendimiento de una topología de Azure Storm. Por ejemplo, es importante comprender las características del trabajo realizado por los spouts y los bolts (si el trabajo hace un uso intensivo de memoria o E/S). En este artículo se describen varias directrices de optimización del rendimiento y se incluyen soluciones a problemas comunes.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Azure Data Lake Storage Gen2**. Para obtener instrucciones sobre cómo crear una, consulte [Guía de inicio rápido: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).

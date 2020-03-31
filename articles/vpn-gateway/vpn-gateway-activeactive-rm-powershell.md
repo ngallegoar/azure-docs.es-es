@@ -9,11 +9,11 @@ ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
 ms.openlocfilehash: ec3697208434eb971e47136416f2c2cc541b5cea
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152081"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225060"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configuración de conexiones VPN S2S activo-activo con Azure VPN Gateway
 
@@ -40,7 +40,7 @@ Puede combinar todos estos elementos para crear una red más compleja de alta di
 >   * VpnGw1, VpnGw2, VpnGw3
 >   * Alto rendimiento (para SKU heredadas anteriores)
 
-## <a name ="aagateway"></a>Parte 1: Creación y configuración de puertas de enlace VPN activo-activo
+## <a name="part-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>Parte 1: Creación y configuración de puertas de enlace VPN activo-activo
 Los pasos a continuación configurarán Azure VPN Gateway en modos activo-activo. Las diferencias clave entre las puertas de enlace activo-activo y activo-en espera:
 
 * Tiene que crear dos configuraciones de IP de puerta de enlace con dos direcciones IP públicas
@@ -157,7 +157,7 @@ El orden de las direcciones IP públicas para las instancias de puerta de enlace
 
 Una vez creada la puerta de enlace, puede usarla para establecer conexión activo-activo entre entornos locales o de red virtual a red virtual. Las siguientes secciones lo guiarán por los pasos necesarios para completar el ejercicio.
 
-## <a name ="aacrossprem"></a>Parte 2: Establecimiento de una conexión activo-activo entre entornos locales
+## <a name="part-2---establish-an-active-active-cross-premises-connection"></a><a name ="aacrossprem"></a>Parte 2: Establecimiento de una conexión activo-activo entre entornos locales
 Para establecer una conexión entre locales, debe crear una puerta de enlace de red local para representar el dispositivo VPN local y una conexión para conectarse a la puerta de enlace de VPN de Azure con la puerta de enlace de red local. En este ejemplo, la instancia de Azure VPN Gateway está en modo activo-activo. Como resultado, aunque hay solo un dispositivo VPN local (puerta de enlace de red local) y un recurso de conexión, ambas instancias de Azure VPN Gateway establecerán túneles VPN de S2S con el dispositivo local.
 
 Antes de continuar, asegúrese de que ha completado la [parte 1](#aagateway) de este ejercicio.
@@ -272,7 +272,7 @@ Una vez que se establece la conexión (túneles), tendrá dos dispositivos VPN r
 
 ![redundancia-dual-entre entornos locales](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
-## <a name ="aav2v"></a>Parte 3: Establecimiento de una conexión activo-activo de red virtual a red virtual
+## <a name="part-3---establish-an-active-active-vnet-to-vnet-connection"></a><a name ="aav2v"></a>Parte 3: Establecimiento de una conexión activo-activo de red virtual a red virtual
 En esta sección se crea una conexión de red virtual a red virtual activo-activo con BGP. 
 
 Las instrucciones que siguen son continuación de los pasos anteriores ya explicados. Tiene que completar la [Parte 1](#aagateway) para crear y configurar TestVNet1 y VPN Gateway con BGP. 
@@ -368,7 +368,7 @@ Después de completar estos pasos, la conexión se establecerá en unos minutos 
 
 ![activo-activo-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 
-## <a name ="aaupdate"></a>Actualización de una instancia de VPN Gateway existente
+## <a name="update-an-existing-vpn-gateway"></a><a name ="aaupdate"></a>Actualización de una instancia de VPN Gateway existente
 
 En esta sección, le ayudamos a cambiar una instancia de Azure VPN Gateway existente de activo-en espera a modo activo-activo o viceversa.
 

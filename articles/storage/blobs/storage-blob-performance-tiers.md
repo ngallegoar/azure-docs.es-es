@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74270218"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveles de rendimiento para el almacenamiento de blobs en bloques
@@ -26,7 +26,7 @@ El almacenamiento de blobs en bloques de Azure ofrece dos niveles de rendimiento
 
 Las siguientes consideraciones se aplican a los distintos niveles de rendimiento:
 
-| Ámbito |Rendimiento Estándar  |Rendimiento Premium  |
+| Área |Rendimiento Estándar  |Rendimiento Premium  |
 |---------|---------|---------|
 |Disponibilidad en regiones     |   Todas las regiones      | En [regiones seleccionadas](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
 |[Tipos de cuenta de almacenamiento](../common/storage-account-overview.md#types-of-storage-accounts) admitidos     |     Uso general v2, BlobStorage y uso general v1    |    BlockBlobStorage     |

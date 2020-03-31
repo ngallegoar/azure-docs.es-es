@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 03/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: c74f703927999bf35dd2d8292b8fa0a6d3c55065
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: b1e6305d142530ab19849f61f12a122d0c6434aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77459793"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059296"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Cifrado de ExpressRoute: IPsec sobre ExpressRoute para Virtual WAN
 
@@ -58,7 +58,7 @@ En ambos ejemplos, Azure enviará tráfico a 10.0.1.0/24 a través de la conexi�
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## <a name="openvwan"></a>1. Creación de una red virtual WAN y un concentrador con puertas de enlace
+## <a name="1-create-a-virtual-wan-and-hub-with-gateways"></a><a name="openvwan"></a>1. Creación de una red virtual WAN y un concentrador con puertas de enlace
 
 Antes de continuar deben estar en vigor los siguientes recursos de Azure y las configuraciones locales correspondientes:
 
@@ -67,7 +67,7 @@ Antes de continuar deben estar en vigor los siguientes recursos de Azure y las c
 
 Para conocer los pasos que hay que seguir para crear una red de área extensa virtual de Azure y un centro de conectividad con una asociación de ExpressRoute, consulte [Creación de una asociación de ExpressRoute mediante Azure Virtual WAN](virtual-wan-expressroute-portal.md). Para conocer los pasos que deben seguirse para crear una puerta de enlace de VPN en la red de área extensa virtual, consulte [Creación de una conexión de sitio a sitio mediante Azure Virtual WAN](virtual-wan-site-to-site-portal.md).
 
-## <a name="site"></a>2. Creación de un sitio para la red local
+## <a name="2-create-a-site-for-the-on-premises-network"></a><a name="site"></a>2. Creación de un sitio para la red local
 
 El recurso del sitio es el mismo que el de los sitios VPN que no son de ExpressRoute para una red de área extensa virtual. La dirección IP del dispositivo VPN local ahora puede ser una dirección IP privada o una dirección IP pública de la red local a la que se puede acceder mediante el emparejamiento privado de ExpressRoute creado en el paso 1.
 
@@ -99,7 +99,7 @@ El recurso del sitio es el mismo que el de los sitios VPN que no son de ExpressR
 
 1. Seleccione **Siguiente: Revisar + Crear >** para comprobar los valores de configuración y crear el sitio VPN. Si seleccionó **Centros de conectividad** para conectarse, la conexión se establecerá entre la red local y la puerta de enlace de VPN del centro de conectividad.
 
-## <a name="hub"></a>3. Actualización de la configuración de conexión VPN para usar ExpressRoute
+## <a name="3-update-the-vpn-connection-setting-to-use-expressroute"></a><a name="hub"></a>3. Actualización de la configuración de conexión VPN para usar ExpressRoute
 
 Después de crear el sitio VPN y conectarlo al centro de conectividad, use estos pasos para configurar la conexión para que use el emparejamiento privado de ExpressRoute:
 
@@ -114,7 +114,7 @@ Después de crear el sitio VPN y conectarlo al centro de conectividad, use estos
 
 Después de guardar los cambios, la puerta de enlace de VPN del centro de conectividad usará las direcciones IP privadas en la puerta de enlace de VPN para establecer las conexiones IPsec/IKE con el dispositivo VPN local a través de ExpressRoute.
 
-## <a name="associate"></a>4. Obtención de las direcciones IP privadas de puerta de enlace de VPN del centro de conectividad
+## <a name="4-get-the-private-ip-addresses-for-the-hub-vpn-gateway"></a><a name="associate"></a>4. Obtención de las direcciones IP privadas de puerta de enlace de VPN del centro de conectividad
 
 Descargue la configuración del dispositivo VPN para obtener las direcciones IP privadas de la puerta de enlace de VPN del centro de conectividad. Estas direcciones son necesarias para configurar el dispositivo VPN local.
 
@@ -219,22 +219,17 @@ Si necesita instrucciones para configurar el dispositivo, puede utilizar las que
 * Una red de área extensa virtual nueva puede admitir IKEv1 e IKEv2.
 * Una red de área extensa virtual solo puede usar dispositivos VPN basados en rutas e instrucciones de los dispositivos.
 
-## <a name="viewwan"></a>5. Visualizar la instancia de Virtual WAN
+## <a name="5-view-your-virtual-wan"></a><a name="viewwan"></a>5. Visualizar la instancia de Virtual WAN
 
 1. Vaya a la red de área extensa virtual.
-1. En la página **Información general**, cada punto del mapa representa un centro de conectividad. Mantenga el mouse sobre cualquier punto para ver el resumen de estado del centro de conectividad.
+1. En la página **Información general**, cada punto del mapa representa un centro de conectividad.
 1. En la sección **Centros y conexiones**, puede ver el centro de conectividad, sitio, región y el estado de la conexión VPN. También puede ver los bytes que entran y salen.
 
-## <a name="viewhealth"></a>6. Visualización del estado de los recursos
-
-1. Vaya a su red de área extensa.
-1. En la sección **Soporte técnico y solución de problemas**, seleccione **Estado** y visualice el recurso.
-
-## <a name="connectmon"></a>7. Supervisar una conexión
+## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. Supervisar una conexión
 
 Cree una conexión para supervisar la comunicación entre una máquina virtual de Azure y un sitio remoto. Para información acerca de cómo configurar una supervisión de conexión, consulte [Supervisar la comunicación de red](~/articles/network-watcher/connection-monitor.md). El campo de origen es la dirección IP de la máquina virtual en Azure y la IP de destino es la dirección IP del sitio.
 
-## <a name="cleanup"></a>8. Limpieza de recursos
+## <a name="8-clean-up-resources"></a><a name="cleanup"></a>8. Limpieza de recursos
 
 Cuando ya no necesite estos recursos, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Ejecute el siguiente comando de PowerShell y reemplace `myResourceGroup` con el nombre del grupo de recursos:
 

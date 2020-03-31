@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8a4bb9d2ac7b8124fa9b1e00f3ecceda4f4a4cdf
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152965"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Creación de una instancia de VPN Gateway basada en rutas mediante PowerShell
@@ -34,7 +34,7 @@ Cree un grupo de recursos de Azure con [New-AzResourceGroup](/powershell/module/
 New-AzResourceGroup -Name TestRG1 -Location EastUS
 ```
 
-## <a name="vnet"></a>Creación de una red virtual
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creación de una red virtual
 
 Cree una red virtual con [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). En el siguiente ejemplo se crea una red virtual denominada **VNet1** en la ubicación **EastUS**:
 
@@ -62,7 +62,7 @@ Establezca la configuración de la subred para la red virtual mediante el cmdlet
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="gwsubnet"></a>Incorporación de una subred de puerta de enlace
+## <a name="add-a-gateway-subnet"></a><a name="gwsubnet"></a>Incorporación de una subred de puerta de enlace
 
 La subred de puerta de enlace contiene las direcciones IP reservadas que usan los servicios de puerta de enlace de la red virtual. Utilice los siguientes ejemplos para agregar una subred de puerta de enlace:
 
@@ -84,7 +84,7 @@ Establezca la configuración de la subred para la red virtual mediante el cmdlet
 $vnet | Set-AzVirtualNetwork
 ```
 
-## <a name="PublicIP"></a>Solicitud de una dirección IP pública
+## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>Solicitud de una dirección IP pública
 
 Una instancia de VPN Gateway debe tener una dirección IP pública asignada de forma dinámica. Cuando crea una conexión a una instancia de VPN Gateway, esta es la dirección IP que especifica. Utilice el siguiente ejemplo para solicitar una dirección IP pública:
 
@@ -92,7 +92,7 @@ Una instancia de VPN Gateway debe tener una dirección IP pública asignada de f
 $gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
-## <a name="GatewayIPConfig"></a>Creación de la configuración de direcciones IP de la puerta de enlace
+## <a name="create-the-gateway-ip-address-configuration"></a><a name="GatewayIPConfig"></a>Creación de la configuración de direcciones IP de la puerta de enlace
 
 La configuración de puerta de enlace define la subred y la dirección IP pública. Use el ejemplo siguiente para crear la configuración de la puerta de enlace:
 
@@ -101,7 +101,7 @@ $vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
-## <a name="CreateGateway"></a>Creación de la puerta de enlace de VPN
+## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Creación de la puerta de enlace de VPN
 
 Una instancia de VPN Gateway puede tardar 45 minutos o más en crearse. Una vez completada la puerta de enlace, puede crear una conexión entre su red virtual y otra red virtual. O bien, cree una conexión entre su red virtual y una ubicación local. Cree una puerta de enlace de VPN mediante el cmdlet [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway).
 
@@ -111,7 +111,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-## <a name="viewgw"></a>Visualización de VPN Gateway
+## <a name="view-the-vpn-gateway"></a><a name="viewgw"></a>Visualización de VPN Gateway
 
 Puede ver la instancia de VPN Gateway mediante el cmdlet [Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway).
 
@@ -164,7 +164,7 @@ BgpSettings            : {
      
 ```
 
-## <a name="viewgwpip"></a>Visualización de la dirección IP pública
+## <a name="view-the-public-ip-address"></a><a name="viewgwpip"></a>Visualización de la dirección IP pública
 
 Para ver la dirección IP pública de su instancia de VPN Gateway, utilice el cmdlet [Get-AzPublicIpAddress](/powershell/module/az.network/Get-azPublicIpAddress).
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
 ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064978"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitectura de red de tránsito global y Virtual WAN
@@ -33,7 +33,7 @@ En este modelo, una radio puede ser:
 
 En la figura 1 se muestra la vista lógica de la red de tránsito global donde los usuarios, los sitios físicos y las redes virtuales distribuidos geográficamente están interconectados a través de un centro de redes hospedado en la nube. Esta arquitectura permite la conectividad de tránsito de un salto lógico entre los puntos de conexión de red.
 
-## <a name="globalnetworktransit"></a>Red de tránsito global con Virtual WAN
+## <a name="global-transit-network-with-virtual-wan"></a><a name="globalnetworktransit"></a>Red de tránsito global con Virtual WAN
 
 Azure Virtual WAN es un servicio de redes en la nube administrado de Microsoft. Microsoft hospeda y administra todos los componentes de red que conforman este servicio. Para más información sobre Virtual WAN, consulte el artículo de [información general sobre Virtual WAN](virtual-wan-about.md).
 
@@ -47,7 +47,7 @@ En la arquitectura de Azure Virtual WAN, los centros WAN virtuales se aprovision
 
 Puede establecer una WAN virtual mediante la creación de un centro único de Virtual WAN en la región con el mayor número de radios (sucursales, redes virtuales, usuarios) y, luego, la conexión con el centro de radios que están en otras regiones. Esta es una buena opción cuando la superficie de una empresa está principalmente en una región con algunos radios remotos.  
   
-## <a name="hubtohub"></a>Conectividad de centro a centro
+## <a name="hub-to-hub-connectivity"></a><a name="hubtohub"></a>Conectividad de centro a centro
 
 La superficie en la nube empresarial puede abarcar varias regiones en la nube y resulta óptimo (en términos de latencia) tener acceso a la nube desde una región más cercana a su sitio físico y a los usuarios. Uno de los principios clave de la arquitectura de red de tránsito global es habilitar la conectividad entre regiones entre todos los puntos de conexión de red locales y en la nube. Esto significa que el tráfico de una sucursal que está conectada a la nube en una región puede llegar a otra sucursal o a una red virtual en otra región mediante la conectividad de centro a centro que permite la [red global de Azure](https://azure.microsoft.com/global-infrastructure/global-network/).
 
@@ -59,7 +59,7 @@ Cuando se habilitan varios centros en una sola WAN virtual, estos se interconect
 
 Además, todos los centros que son parte de la misma WAN virtual se pueden asociar con distintas directivas de seguridad y acceso regionales. Para obtener más información, consulte [control de seguridad y directivas](#security) más adelante en este artículo.
 
-## <a name="anytoany"></a>Conectividad universal
+## <a name="any-to-any-connectivity"></a><a name="anytoany"></a>Conectividad universal
 
 La arquitectura de red de tránsito global permite la conectividad universal a través de centros de WAN virtuales. Esta arquitectura elimina o disminuye la necesidad de la conectividad de malla parcial o de malla completa entre radios, que son más complejos de crear y mantener. Además, el enrutamiento de control entre las redes radiales y las redes de malla es más fácil de configurar y mantener.
 
@@ -111,7 +111,7 @@ La ruta de usuario remoto a sucursal permite que los usuarios remotos que usan u
 
 El tránsito de red virtual a red virtual permite que las redes virtuales se conecten entre sí para interconectar aplicaciones de varios niveles implementadas en varias redes virtuales. Opcionalmente, puede conectar redes virtuales entre sí mediante el emparejamiento de red virtual. Esta opción puede ser adecuada para algunos escenarios en los que no es necesario el tránsito a través del centro de WAN virtual.
 
-## <a name="security"></a>Seguridad y control de directivas
+## <a name="security-and-policy-control"></a><a name="security"></a>Seguridad y control de directivas
 
 Los centros de Azure Virtual WAN interconectan todos los puntos de conexión de red a través de la red híbrida y pueden ver todo el tráfico de red de tránsito. Los centros de Virtual WAN se pueden convertir en centros virtuales protegidos si implementa Azure Firewall dentro de los centros de Virtual WAN para habilitar la seguridad, el acceso y el control de directivas basados en la nube. Azure Firewall Manager puede realizar la orquestación de Azure Firewall en los centros de WAN virtual.
 

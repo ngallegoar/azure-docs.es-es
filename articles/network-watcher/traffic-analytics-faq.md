@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
 ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840628"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
@@ -81,11 +81,11 @@ Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes re
 - Sur de Reino Unido 2
 - Este de Australia
 - Sudeste de Australia 
-- Asia oriental
-- Sudeste asiático
+- Este de Asia
+- Sudeste de Asia
 - Centro de Corea del Sur
 - Centro de la India
-- India del Sur
+- Sur de la India
 - Japón Oriental
 - Japón Occidental
 - US Gov - Virginia
@@ -108,8 +108,8 @@ El área de trabajo de Log Analytics debe existir en las siguientes regiones:
 - Sur de Reino Unido 2
 - Este de Australia
 - Sudeste de Australia
-- Asia oriental
-- Sudeste asiático 
+- Este de Asia
+- Sudeste de Asia 
 - Centro de Corea del Sur
 - Centro de la India
 - Japón Oriental

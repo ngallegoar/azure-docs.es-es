@@ -10,10 +10,10 @@ ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
 ms.openlocfilehash: a89439f49dd53f09d5cd40be0bf2e4981e9235d4
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77201392"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso de Azure Storage con una solución de integración continua Hudson

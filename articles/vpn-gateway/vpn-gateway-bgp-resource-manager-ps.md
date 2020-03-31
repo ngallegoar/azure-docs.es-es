@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.openlocfilehash: 78147a96d6d9e92c2602b6a83cbed743cf2abf37
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152047"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Configuración de BGP para Azure VPN Gateway con PowerShell
@@ -38,7 +38,7 @@ Cada parte de las instrucciones constituye un bloque de creación básico para h
 
 Puede combinar estos elementos juntos para crear una red de tránsito más compleja y de saltos múltiples que satisfaga sus necesidades.
 
-## <a name ="enablebgp"></a>Parte 1: Configurar BGP en Azure VPN Gateway
+## <a name="part-1---configure-bgp-on-the-azure-vpn-gateway"></a><a name ="enablebgp"></a>Parte 1: Configurar BGP en Azure VPN Gateway
 Los siguientes pasos de configuración permiten establecer los parámetros BGP de Azure VPN Gateway como se muestra en el diagrama siguiente:
 
 ![Puerta de enlace de BGP](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
@@ -135,7 +135,7 @@ $vnet1gw.BgpSettingsText
 
 Una vez creada la puerta de enlace, puede usar esta puerta de enlace para establecer conexión entre locales o conexión de red virtual a red virtual con BGP. Las siguientes secciones lo guiarán por los pasos necesarios para completar el ejercicio.
 
-## <a name ="crossprembbgp"></a>Parte 2: Establecer una conexión entre locales con BGP
+## <a name="part-2---establish-a-cross-premises-connection-with-bgp"></a><a name ="crossprembbgp"></a>Parte 2: Establecer una conexión entre locales con BGP
 
 Para establecer una conexión entre locales, debe crear una puerta de enlace de red local para representar el dispositivo VPN local y una conexión para conectarse a VPN Gateway con la puerta de enlace de red local. Aunque hay artículos que lo guiarán a través de estos pasos, este contiene las propiedades adicionales necesarias para especificar los parámetros de configuración de BGP.
 
@@ -209,7 +209,7 @@ En el ejemplo siguiente se enumeran los parámetros que deberá especificar en l
 
 La conexión se establece después de unos minutos y se iniciará la sesión de emparejamiento BGP una vez establecida la conexión IPsec.
 
-## <a name ="v2vbgp"></a>Parte 3: Establecer una conexión de red virtual a red virtual con BGP
+## <a name="part-3---establish-a-vnet-to-vnet-connection-with-bgp"></a><a name ="v2vbgp"></a>Parte 3: Establecer una conexión de red virtual a red virtual con BGP
 
 En esta sección se agrega una conexión de red virtual a red virtual con BGP, tal como se muestra en el diagrama siguiente:
 

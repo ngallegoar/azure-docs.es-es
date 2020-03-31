@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113829"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225320"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Sugerencias para el enriquecimiento con IA en Azure Cognitive Search
 
@@ -94,7 +94,7 @@ El tiempo máximo de ejecución varía según el nivel: varios minutos en el niv
 En cuanto a los indexadores programados, la indexación se reanuda según la programación del último documento válido conocido. Al usar una programación recurrente, el indexador puede abrirse camino a través de las imágenes pendientes durante una serie de horas o días, hasta que se procesen todas aquellas imágenes que no estén procesadas. Para más información acerca de la sintaxis de programación, consulte [Paso 3: Cree un indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) o consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 > [!NOTE]
-> Si un indexador se establece en una programación determinada pero se produce repetidamente un error en el mismo documento una y otra vez cada vez se ejecuta, el indexador comenzará a ejecutarse en un intervalo menos frecuente (hasta un máximo de al menos una vez cada 24 horas) hasta que vuelva a avanzar correctamente.  Si cree que solucionó el problema que hacía que el indizador que se bloqueara en un punto determinado, puede realizar una ejecución a petición del indizador y, si avanza correctamente, el indizador volverá a su intervalo de programación establecido.
+> Si un indexador se establece en una programación determinada pero se produce repetidamente un error en el mismo documento una y otra vez cada vez se ejecuta, el indexador comenzará a ejecutarse en un intervalo menos frecuente (hasta un máximo de al menos una vez cada 24 horas) hasta que vuelva a avanzar correctamente.  Si cree que solucionó el problema que hacía que el indexador se bloqueara en un punto determinado, puede realizar una ejecución a petición del indexador y, si avanza correctamente, el indexador volverá a su intervalo de programación establecido.
 
 Si realiza una indexación basada en el portal (tal como se describe en la guía de inicio rápido), la elección de la opción del indexador "ejecutar una vez" limita el procesamiento a 1 hora (`"maxRunTime": "PT1H"`). Es posible que quiera extender el período de procesamiento para que sea algo más largo.
 
@@ -103,10 +103,10 @@ Si realiza una indexación basada en el portal (tal como se describe en la guía
 Para realizar una [indexación paralela](search-howto-large-index.md), coloque los datos en varios contenedores o carpetas virtuales múltiples dentro del mismo contenedor. A continuación, cree varios pares de orígenes de datos e indexadores. Todos los indexadores pueden usar el mismo conjunto de aptitudes y escribir en el mismo índice de búsqueda de destino, por lo que la aplicación de búsqueda no necesita conocer esta partición.
 Para obtener más información, consulte [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets) (Indexar grandes conjuntos de datos).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 + [Inicio rápido: Cree una canalización de enriquecimiento con IA en el portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Obtenga información sobre las API REST de enriquecimiento con IA](cognitive-search-tutorial-blob.md)
 + [Especificar las credenciales de origen de datos.](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexar grandes conjuntos de datos](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
-+ [Cómo definir un conjunto de aptitudes](cognitive-search-defining-skillset.md)
++ [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Asignar campos enriquecidos a un índice](cognitive-search-output-field-mapping.md)

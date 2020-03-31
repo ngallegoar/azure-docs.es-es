@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019
 ms.openlocfilehash: 533e2b9e50a92cce1419da521d8cebc4955e4df6
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74462113"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Principales diferencias entre Machine Learning Services de Azure SQL Database (versión preliminar) y SQL Server
@@ -45,7 +45,7 @@ La instalación y administración de paquetes de R funciona de forma distinta pa
 
 Si usa RODBC en Azure SQL Database, después no puede escribir en una tabla temporal, ya sea que se haya creado dentro o fuera de la sesión de `sp_execute_external_script`. La solución alternativa es usar [RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata) y [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (con overwrite=FALSE y append="rows") para escribir en una tabla temporal global creada antes de la consulta `sp_execute_external_script`.
 
-## <a name="resource-governance"></a>Gobernanza de recursos
+## <a name="resource-governance"></a>Regulación de recursos
 
 No es posible limitar los recursos de R a través de [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) ni de grupos de recursos externos.
 

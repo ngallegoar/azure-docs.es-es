@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-ms.date: 01/15/2019
-ms.openlocfilehash: 6dfc0a59ab4150173196fae82d90eca4880d5364
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/17/2020
+ms.openlocfilehash: 50b832baa9253f47b5f10980ae1764c9425ed4d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818891"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476956"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configuración de una red virtual para Instancia administrada de Azure SQL Database
 
@@ -38,7 +38,7 @@ Si uno de los casos siguientes se aplica a usted, puede validar y modificar la r
 Si desea crear una instancia administrada en una subred existente, es aconsejable usar el siguiente script de PowerShell para preparar la subred:
 
 ```powershell
-$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
+$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/delegate-subnet'
 
 $parameters = @{
     subscriptionId = '<subscriptionId>'
@@ -47,7 +47,7 @@ $parameters = @{
     subnetName = '<subnetName>'
     }
 
-Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
+Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/delegateSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
 
 El script prepara la subred en tres pasos:

@@ -8,10 +8,10 @@ ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68699397"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desarrollo para Azure Files con Python
@@ -72,7 +72,7 @@ En el siguiente código de ejemplo, puede usar un objeto `FileService` para crea
 file_service.create_share('myshare')
 ```
 
-## <a name="create-a-directory"></a>Creación de directorios
+## <a name="create-a-directory"></a>Creación de un directorio
 También puede organizar el almacenamiento colocando archivos dentro de los subdirectorios en lugar de mantenerlos a todos en el directorio raíz. Azure Files permite crear tantos directorios como permita su cuenta. El código siguiente creará un subdirectorio denominado **sampledir** bajo el directorio raíz.
 
 ```python

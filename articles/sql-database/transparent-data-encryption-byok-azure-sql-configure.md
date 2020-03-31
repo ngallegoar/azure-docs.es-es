@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 87a9db7d320a7d5b35234899c59884bcf2bf4b60
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 81927575b99604e71f7b0920bc3a448f7796f565
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721683"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067185"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y CLI: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
 
@@ -36,7 +36,7 @@ En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrad
    - No deshabilitado
    - Poder realizar las operaciones *get*, *wrap key*, *unwrap key*
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para obtener instrucciones sobre la instalación del módulo Az, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). Para los cmdlets concretos, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
 
@@ -119,7 +119,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName>  
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para instalar la versión 2.0 o posterior de la interfaz de la línea de comandos necesaria y conectar con la suscripción a Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -127,7 +127,7 @@ Para obtener información específica sobre Key Vault, consulte [Administración
 
 ## <a name="assign-an-azure-ad-identity-to-your-server"></a>Asignar una identidad de Azure AD al servidor
 
-```powershell
+```azurecli
 # create server (with identity) and database
 az sql server create --name <servername> --resource-group <rgname>  --location <location> --admin-user <user> --admin-password <password> --assign-identity
 az sql db create --name <dbname> --server <servername> --resource-group <rgname>
@@ -138,7 +138,7 @@ az sql db create --name <dbname> --server <servername> --resource-group <rgname>
 
 ## <a name="grant-key-vault-permissions-to-your-server"></a>Conceder permisos de Key Vault al servidor
 
-```powershell
+```azurecli
 # create key vault, key and grant permission
 az keyvault create --name <kvname> --resource-group <rgname> --location <location> --enable-soft-delete true
 az keyvault key create --name <keyname> --vault-name <kvname> --protection software
@@ -150,7 +150,7 @@ az keyvault set-policy --name <kvname>  --object-id <objectid> --resource-group 
 
 ## <a name="add-the-key-vault-key-to-the-server-and-set-the-tde-protector"></a>Agregar la clave de Key Vault al servidor y establecer el protector de TDE
 
-```powershell
+```azurecli
 # add server key and update encryption protector
 az sql server key create --server <servername> --resource-group <rgname> --kid <keyID>
 az sql server tde-key set --server <servername> --server-key-type AzureKeyVault  --resource-group <rgname> --kid <keyID>
@@ -161,7 +161,7 @@ az sql server tde-key set --server <servername> --server-key-type AzureKeyVault 
 
 ## <a name="turn-on-tde"></a>Activar TDE
 
-```powershell
+```azurecli
 # enable encryption
 az sql db tde set --database <dbname> --server <servername> --resource-group <rgname> --status Enabled
 ```
@@ -170,7 +170,7 @@ Ahora, la base de datos o el almacén de datos tienen TDE habilitado con una cla
 
 ## <a name="check-the-encryption-state-and-encryption-activity"></a>Comprobar el estado de cifrado y la actividad de cifrado
 
-```powershell
+```azurecli
 # get encryption scan progress
 az sql db tde list-activity --database <dbname> --server <servername> --resource-group <rgname>  
 
@@ -182,13 +182,13 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 ## <a name="useful-powershell-cmdlets"></a>Cmdlets de PowerShell útiles
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 - Utilice el cmdlet [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) para desactivar TDE.
 
    ```powershell
    Set-AzSqlDatabaseTransparentDataEncryption -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName> `
-      -DatabaseName <DatabaseName> -State "Disabled”
+      -DatabaseName <DatabaseName> -State "Disabled"
    ```
 
 - Utilice el cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para devolver la lista de claves de Key Vault agregadas al servidor.
@@ -205,7 +205,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
    Remove-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 - Para obtener la configuración general de la base de datos, vea [az sql](/cli/azure/sql).
 
@@ -221,13 +221,13 @@ Compruebe lo siguiente si se produce un problema:
 
 - Si no se encuentra el almacén de claves, asegúrese de que está en la suscripción correcta.
 
-   # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+   # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell
    Get-AzSubscription -SubscriptionId <SubscriptionId>
    ```
 
-   # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+   # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
    ```powershell
    az account show - s <SubscriptionId>

@@ -8,12 +8,12 @@ ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 11/9/2017
-ms.openlocfilehash: 618b677ee836327e8ed4ab7798ab35d92b364c98
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6a872e749bae6bd29dbf73d4946e631af1660a39
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76272539"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531046"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso de grandes conjuntos de escalado de máquinas virtuales
 Ahora puede crear [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure con una capacidad de hasta 1000 máquinas virtuales. En este documento, un _conjunto de escalado de máquinas virtuales grande_ se define como un conjunto de escalado capaz de escalar a más de 100 máquinas virtuales. Esta funcionalidad se establece con una propiedad de conjunto de escalado (_singlePlacementGroup=False_). 
@@ -45,16 +45,19 @@ Al crear un conjunto de escalado en Azure Portal, simplemente especifique un val
 
 Puede crear un conjunto de escalado de máquinas virtuales de gran tamaño con el comando _az vmss create_ de la [CLI de Azure](https://github.com/Azure/azure-cli). Este comando establece valores predeterminados inteligentes, como el tamaño de la subred, en función del argumento _instance-count_:
 
-```bash
+```azurecli
 az group create -l southcentralus -n biginfra
 az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
 ```
+
 Los valores predeterminados del comando _vmss create_ incluyen determinados valores de configuración que se aplicarán si no los especifica. Para ver las opciones disponibles que puede invalidar, pruebe lo siguiente:
-```bash
+
+```azurecli
 az vmss create --help
 ```
 
 Si para crear un conjunto de escalado grande va a utilizar una plantilla de Azure Resource Manager, asegúrese de que la plantilla crea un conjunto de escalado basado en Azure Managed Disks. Puede establecer la propiedad _singlePlacementGroup_ en _false_ en la sección _properties_ del recurso _Microsoft.Compute/virtualMAchineScaleSets_. El siguiente fragmento JSON muestra el principio de una plantilla de conjunto de escalado, incluida la capacidad de 1000 máquinas virtuales y la configuración _"singlePlacementGroup" : false_:
+
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -71,6 +74,7 @@ Si para crear un conjunto de escalado grande va a utilizar una plantilla de Azur
       "mode": "Automatic"
     }
 ```
+
 Para ver un ejemplo completo de una plantilla de conjunto de escalado de gran tamaño, consulte [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Conversión de un conjunto de escalado existente para incluir varios grupos de selección de ubicación

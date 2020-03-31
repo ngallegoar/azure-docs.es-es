@@ -8,10 +8,10 @@ ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ac09f9b59bc6f47adc9311cc910352c1a0d73b5d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68699281"
 ---
 # <a name="monitor-azure-file-sync"></a>Supervisión de Azure File Sync
@@ -34,15 +34,15 @@ Para ver las métricas de Azure File Sync en Azure Monitor, seleccione el tipo d
 
 Las siguientes métricas para Azure File Sync están disponibles en Azure Monitor:
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de métrica | Descripción |
 |-|-|
-| Bytes sincronizados | Tamaño de los datos transferidos (carga y descarga).<br><br>Unidad: Bytes<br>Tipo de agregación: Suma<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
-| Recuperación de niveles de la nube | Tamaño de los datos que se recuperan.<br><br>**Nota**: esta métrica se eliminará en el futuro. Use la métrica del tamaño de recuperación de nube por niveles para supervisar el tamaño de los datos que se recuperan.<br><br>Unidad: Bytes<br>Tipo de agregación: Suma<br>Dimensión aplicable: Nombre del servidor |
-| Tamaño de recuperación de nube por niveles | Tamaño de los datos que se recuperan.<br><br>Unidad: Bytes<br>Tipo de agregación: Suma<br>Dimensión aplicable: nombre del servidor, nombre del grupo de sincronización |
-| Tamaño de recuperación de nube por niveles por aplicación | Tamaño de los datos recuperados por aplicación<br><br>Unidad: Bytes<br>Tipo de agregación: Suma<br>Dimensión aplicable: nombre de la aplicación, nombre del servidor, nombre del grupo de sincronización |
-| Rendimiento de recuperación de nube por niveles | Tamaño del rendimiento de recuperación de datos.<br><br>Unidad: Bytes<br>Tipo de agregación: Suma<br>Dimensión aplicable: nombre del servidor, nombre del grupo de sincronización |
-| Archivos que no se están sincronizando | Recuento de archivos que no se pueden sincronizar.<br><br>Unidad: Count<br>Tipo de agregación: Suma<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
-| Archivos sincronizados | Recuento de los ficheros transferidos (carga y descarga).<br><br>Unidad: Count<br>Tipo de agregación: Suma<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
+| Bytes sincronizados | Tamaño de los datos transferidos (carga y descarga).<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
+| Recuperación de niveles de la nube | Tamaño de los datos que se recuperan.<br><br>**Nota**: esta métrica se eliminará en el futuro. Use la métrica del tamaño de recuperación de nube por niveles para supervisar el tamaño de los datos que se recuperan.<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensión aplicable: Nombre del servidor |
+| Tamaño de recuperación de nube por niveles | Tamaño de los datos que se recuperan.<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensión aplicable: nombre del servidor, nombre del grupo de sincronización |
+| Tamaño de recuperación de nube por niveles por aplicación | Tamaño de los datos recuperados por aplicación<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensión aplicable: nombre de la aplicación, nombre del servidor, nombre del grupo de sincronización |
+| Rendimiento de recuperación de nube por niveles | Tamaño del rendimiento de recuperación de datos.<br><br>Unidad: Bytes<br>Tipo de agregación: Sum<br>Dimensión aplicable: nombre del servidor, nombre del grupo de sincronización |
+| Archivos que no se están sincronizando | Recuento de archivos que no se pueden sincronizar.<br><br>Unidad: Count<br>Tipo de agregación: Sum<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
+| Archivos sincronizados | Recuento de los ficheros transferidos (carga y descarga).<br><br>Unidad: Count<br>Tipo de agregación: Sum<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
 | Estado en línea del servidor | Recuento de latidos recibido del servidor.<br><br>Unidad: Count<br>Tipo de agregación: Máxima<br>Dimensión aplicable: Nombre del servidor |
 | Sync session result (Resultado de la sesión de sincronización) | Resultado de la sesión de sincronización (1 = sesión de sincronización correcta; 0 = sesión de sincronización con errores)<br><br>Unidad: Count<br>Tipos de agregación: Máxima<br>Dimensiones aplicables: Nombre de punto de conexión del servidor, dirección de sincronización, nombre del grupo de sincronización |
 
@@ -79,10 +79,10 @@ Para ver el estado del servidor registrado y del punto de conexión del servidor
 
 - Los siguientes gráficos de métricas están visibles en el portal del Servicio de sincronización de almacenamiento:
 
-  | Nombre de métrica | DESCRIPCIÓN | Nombre de la hoja |
+  | Nombre de métrica | Descripción | Nombre de la hoja |
   |-|-|-|
   | Bytes sincronizados | Tamaño de los datos transferidos (carga y descarga) | Grupo de sincronización,punto de conexión de servidor |
-  | Recuperación de niveles de la nube | Tamaño de los datos que se recuperan | Servidores registrados |
+  | Recuperación de niveles de la nube | El tamaño de los datos que se recuperan | Servidores registrados |
   | Archivos que no se están sincronizando | Recuento de archivos que no se pueden sincronizar | Punto de conexión de servidor |
   | Archivos sincronizados | Recuento de los ficheros transferidos (carga y descarga) | Grupo de sincronización,punto de conexión de servidor |
   | Estado en línea del servidor | Recuento de latidos recibido del servidor | Servidores registrados |
@@ -117,18 +117,18 @@ Estado de la nube por niveles:
 
 - Para supervisar la actividad por niveles en un servidor, use los id. de eventos 9003, 9016 y 9029 en el registro de Eventos de telemetría, ubicado en el Visor de eventos en *Applications and Services\Microsoft\FileSync\Agent*.
 
-  - El identificador de evento 9003 proporciona una distribución de errores para un punto de conexión de servidor. Por ejemplo:  Recuento total de errores y ErrorCode. Se registra un evento por código de error.
-  - El identificador de evento 9016 proporciona resultados de conversión en fantasma para un volumen. Por ejemplo:  el porcentaje de espacio libre, el Número de archivos reflejados en la sesión y el Número de archivos no reflejados.
-  - El id. de evento 9029 proporciona información de la sesión de conversión en fantasma para el punto de conexión de un servidor. Por ejemplo:  el Número de archivos que se han intentado en la sesión, el Número de archivos organizados en niveles de la sesión y el Número de archivos ya organizados en niveles.
+  - El identificador de evento 9003 proporciona una distribución de errores para un punto de conexión de servidor. Por ejemplo: Recuento total de errores y ErrorCode. Se registra un evento por código de error.
+  - El identificador de evento 9016 proporciona resultados de conversión en fantasma para un volumen. Por ejemplo: el porcentaje de espacio libre, el Número de archivos reflejados en la sesión y el Número de archivos no reflejados.
+  - El id. de evento 9029 proporciona información de la sesión de conversión en fantasma para el punto de conexión de un servidor. Por ejemplo: el Número de archivos que se han intentado en la sesión, el Número de archivos organizados en niveles de la sesión y el Número de archivos ya organizados en niveles.
   
 - Para supervisar la actividad de recuperación en un servidor, use los id. de evento 9005, 9006, 9009 y 9059 en el registro de Eventos de telemetría, ubicado en el Visor de eventos en *Applications and Services\Microsoft\FileSync\Agent*.
 
-  - El identificador de evento 9005 proporciona confiabilidad de recuperación a un punto de conexión de servidor. Por ejemplo:  el Total de archivos únicos a los que se puede acceder y el Total de archivos únicos con acceso erróneo.
-  - El identificador de evento 9006 proporciona una distribución de errores de recuperación a un punto de conexión de servidor. Por ejemplo:  Total de solicitudes con error y ErrorCode. Se registra un evento por código de error.
-  - El id. de evento 9009 proporciona información de la sesión de recuperación para un punto de conexión de servidor. Por ejemplo:  DurationSeconds, CountFilesRecallSucceeded y CountFilesRecallFailed.
-  - El id. de evento 9059 proporciona una distribución de recuperación de aplicación para un punto de conexión de servidor. Por ejemplo:  ShareId, Nombre de la aplicación y TotalEgressNetworkBytes.
+  - El identificador de evento 9005 proporciona confiabilidad de recuperación a un punto de conexión de servidor. Por ejemplo: el Total de archivos únicos a los que se puede acceder y el Total de archivos únicos con acceso erróneo.
+  - El identificador de evento 9006 proporciona una distribución de errores de recuperación a un punto de conexión de servidor. Por ejemplo: Total de solicitudes con error y ErrorCode. Se registra un evento por código de error.
+  - El id. de evento 9009 proporciona información de la sesión de recuperación para un punto de conexión de servidor. Por ejemplo: DurationSeconds, CountFilesRecallSucceeded y CountFilesRecallFailed.
+  - El id. de evento 9059 proporciona una distribución de recuperación de aplicación para un punto de conexión de servidor. Por ejemplo: ShareId, Nombre de la aplicación y TotalEgressNetworkBytes.
 
-### <a name="performance-counters"></a>contadores de rendimiento
+### <a name="performance-counters"></a>Contadores de rendimiento
 
 Use los contadores de rendimiento de Azure File Sync en el servidor para supervisar la actividad de sincronización.
 
@@ -136,7 +136,7 @@ Para ver los contadores de rendimiento de Azure File Sync en el servidor, abra e
 
 Los siguientes contadores de rendimiento para Azure File Sync están disponibles en el Monitor de rendimiento:
 
-| Objeto de rendimiento\Nombre del contador | DESCRIPCIÓN |
+| Objeto de rendimiento\Nombre del contador | Descripción |
 |-|-|
 | AFS Bytes Transferred\Downloaded Bytes/sec (Bytes descargados/s) | Número de bytes descargados por segundo. |
 | AFS Bytes Transferred\Uploaded Bytes/sec (Bytes cargados/s) | Número de bytes cargados por segundo. |

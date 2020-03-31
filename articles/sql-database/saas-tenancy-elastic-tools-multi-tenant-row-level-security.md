@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: a5fe5d6d4076c5d82d33737d05bb95ede0a89c00
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822034"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398339"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 
@@ -36,7 +36,7 @@ El objetivo es usar las API de [enrutamiento dependiente de los datos](sql-datab
 
 ## <a name="download-the-sample-project"></a>Descarga del proyecto de ejemplo
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 - Uso de Visual Studio (2012 o posterior)
 - Creación de tres bases de datos de Azure SQL
@@ -253,7 +253,7 @@ GO
 ```
 
 > [!TIP]
-> En un proyecto complejo, es posible que deba agregar el predicado a cientos de tablas, lo que puede resultar muy tedioso. Hay un procedimiento almacenado auxiliar que genera una directiva de seguridad y agrega un predicado a todas las tablas de un esquema. Para más información, consulte la entrada de blog [Apply Row-Level Security to all tables – helper script (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script)(Aplicación de la seguridad de nivel de fila a todas las tablas - script auxiliar).
+> En un proyecto complejo, es posible que deba agregar el predicado a cientos de tablas, lo que puede resultar muy tedioso. Hay un procedimiento almacenado auxiliar que genera una directiva de seguridad y agrega un predicado a todas las tablas de un esquema. Para más información, consulte la entrada de blog [Apply Row-Level Security to all tables – helper script (blog)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360)(Aplicación de la seguridad de nivel de fila a todas las tablas - script auxiliar).
 
 Ahora, si vuelve a ejecutar la aplicación de ejemplo, los inquilinos ven solamente las filas que les pertenecen. Además, la aplicación no puede insertar filas que pertenezcan a inquilinos que no sea el que está conectado en ese momento a la base de datos de la partición ni puede actualizar el valor de TenantId en las filas visibles. Si la aplicación intenta realizar cualquiera de las dos acciones, se genera una excepción DbUpdateException.
 
@@ -352,7 +352,7 @@ Las herramientas de base de datos elásticas y la seguridad de nivel de fila pue
 - [¿Qué es un grupo elástico de Azure?](sql-database-elastic-pool.md)
 - [Escalado horizontal con Azure SQL Database](sql-database-elastic-scale-introduction.md)
 - [Modelos de diseño para las aplicaciones SaaS multiinquilino con Azure SQL Database](saas-tenancy-app-design-patterns.md)
-- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Autenticación en aplicaciones multiinquilino con Azure AD y OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Aplicación Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características

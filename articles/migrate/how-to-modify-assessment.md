@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: 2cfac978b0a5af20e9e2fa1e32a7361488f20fbe
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68234268"
 ---
 # <a name="customize-an-assessment"></a>Personalización de una evaluación
@@ -25,7 +25,7 @@ Puede usar la herramienta de evaluación de servidores de Azure Migrate para cre
 
 Se pueden ejecutar dos tipos de evaluaciones mediante Azure Migrate Server Assessment.
 
-**Valoración** | **Detalles** | **Datos**
+**Valoración** | **Detalles** | **Data**
 --- | --- | ---
 **Basada en el rendimiento** | Evaluaciones basadas en los datos de rendimiento recopilados | **Tamaño de máquina virtual recomendado**: se basa en los datos de uso de la CPU y de la memoria.<br/><br/> **Tipo de disco recomendado (disco administrado estándar o Premium**): se basa en IOPS y en el rendimiento de los discos locales.
 **Como local** | Evaluaciones que se basan en el tamaño local. | **Tamaño de máquina virtual recomendado**: se basa en el tamaño de la máquina virtual local<br/><br> **Tipo de disco recomendado**: se basa en el valor del tipo de almacenamiento que se selecciona para la evaluación.
@@ -39,7 +39,7 @@ Una evaluación realizada en la herramienta de evaluación de servidores de Azur
 
 **Propiedad** | **Detalles**
 --- | ---
-**Ubicación de destino** | La ubicación de Azure a la que desea realizar la migración.<br/> La herramienta de evaluación de servidores admite actualmente estas regiones de destino: Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, India central, Centro de EE. UU., Este de China, Norte de China, Asia Oriental, Este de EE. UU., Este de EE. UU. 2, Centro de Alemania, Noreste de Alemania, Japón Oriental, Japón Occidental, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Europa del Norte, Centro y sur de EE. UU., Sudeste Asiático, India del Sur, Sur del Reino Unido, Oeste del Reino Unido, US Gov Arizona, US Gov Texas, US Gov Virginia, Centro occidental de EE. UU., Europa Occidental, India occidental, Oeste de EE. UU. y Oeste de EE. UU. 2.
+**Ubicación de destino** | La ubicación de Azure a la que desea realizar la migración.<br/> La herramienta de evaluación de servidores admite actualmente estas regiones de destino: Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de la India, Centro de EE. UU., Este de China, Norte de China, Este de Asia, Este de EE. UU., Este de EE. UU. 2, Сentro de Alemania, Nordeste de Alemania, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro y sur de EE. UU., Sudeste de Asia, Sur de la India, Sur de Reino Unido, Oeste del Reino Unido, US Gov Arizona, US Gov Texas, US Gov Virginia, Centro-oeste de EE. UU., Oeste de Europa, Oeste de la India, Oeste de EE. UU. y Oeste de EE. UU. 2.
 **Tipo de almacenamiento** | Puede usar esta propiedad para especificar el tipo de discos a los que desea migrar en Azure.<br/><br/> Para los tamaños locales, puede especificar el tipo de almacenamiento de destino como discos administrados prémium, discos administrados SSD estándar o discos administrados HDD estándar. Para tamaños según el rendimiento, puede especificar el tipo de disco de destino como Automático, discos administrados premium, discos administrados HDD estándar o discos administrados SSD estándar.<br/><br/> Cuando se especifica el tipo de almacenamiento como automático, la recomendación de disco se realiza basándose en los datos de rendimiento de los discos (IOPS y rendimiento). Si especifica el tipo de almacenamiento como prémium o estándar, la evaluación recomendará una SKU de disco dentro del tipo de almacenamiento seleccionado. Si desea conseguir un Acuerdo de Nivel de Servicio de máquina virtual de instancia única del 99,9 %, es posible que desee especificar el tipo de almacenamiento como discos administrados premium. Esto garantiza que todos los discos de la evaluación se recomienden como discos administrados prémium. Azure
 **Instancias reservadas (RI)** | Esta propiedad le ayuda a especificar si tiene [instancias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) en Azure, entonces, las estimaciones de costos en la evaluación se realizan teniendo en cuenta los descuentos de instancias reservadas. Las instancias reservadas solo se admiten actualmente para la oferta de pago por uso en Azure Migrate.
 **Criterio de ajuste de tamaño** | El criterio que se debe utilizar para ajustar el tamaño de las máquinas virtuales para Azure. Puede hacer un ajuste de tamaño *según el rendimiento* o puede ajustar el tamaño de las máquinas virtuales *como en el entorno local*, sin tener en cuenta el historial de rendimiento.

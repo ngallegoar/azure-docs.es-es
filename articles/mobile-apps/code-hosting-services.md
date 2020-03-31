@@ -1,18 +1,18 @@
 ---
 title: Hospedaje del código fuente de la aplicación móvil en la nube con GitHub y Azure DevOps
 description: Conozca los servicios de Microsoft para hospedar el código de la aplicación móvil en la nube.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2222-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 8662b9f77614339ff514fa4fcf97dc1ee8fc7417
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 66d8980ab53010af0703d789fbe791c60a32052d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454481"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240959"
 ---
 # <a name="cloud-hosted-source-code-management-services"></a>Servicios de administración del código fuente hospedados en la nube
 Si tiene equipos de desarrollo con varios miembros que trabajan con el mismo código base, debe encontrar un lugar adecuado para hospedar el código. Almacenar los datos en la nube y tener un repositorio centralizado permite a todo el mundo cargar, editar y administrar los archivos de código. También pueden interactuar con otros desarrolladores en proyectos. El código puede estar accesible de inmediato con independencia de dónde se encuentre, siempre que tenga conexión a Internet.

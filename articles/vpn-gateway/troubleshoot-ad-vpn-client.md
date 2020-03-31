@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 8871e92f0911c4d3cbcc1772bef1daeb5c70b5d7
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74151977"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Solución de problemas de un cliente VPN de autenticación Azure AD
 
 Este artículo le ayuda a solucionar problemas de un cliente VPN para conectarse a una red virtual con una VPN de punto a sitio y la autenticación Azure Active Directory.
 
-## <a name="status"></a>Ver Registro de estado
+## <a name="view-status-log"></a><a name="status"></a>Ver Registro de estado
 
 Vea el registro de estado para ver los mensajes de error.
 
@@ -28,7 +28,7 @@ Vea el registro de estado para ver los mensajes de error.
 2. Compruebe los registros en busca de errores que puedan indicar el problema.
 3. Los mensajes de error se muestran en rojo.
 
-## <a name="clear"></a>Borrar información de inicio de sesión
+## <a name="clear-sign-in-information"></a><a name="clear"></a>Borrar información de inicio de sesión
 
 Borrar información de inicio de sesión.
 
@@ -39,7 +39,7 @@ Borrar información de inicio de sesión.
 3. Intente conectarse.
 4. Si la conexión sigue sin funcionar, continúe con siguiente sección.
 
-## <a name="diagnostics"></a>Ejecución de diagnósticos
+## <a name="run-diagnostics"></a><a name="diagnostics"></a>Ejecución de diagnósticos
 
 Ejecutar diagnósticos en el cliente VPN.
 
@@ -55,7 +55,7 @@ Ejecutar diagnósticos en el cliente VPN.
 3. Si se produce un error en alguna de las pruebas, póngase en contacto con el administrador de red para resolver el problema.
 4. En la sección siguiente se muestra cómo recopilar los registros, si es necesario.
 
-## <a name="logfiles"></a>Recopilar archivos de registro del cliente
+## <a name="collect-client-log-files"></a><a name="logfiles"></a>Recopilar archivos de registro del cliente
 
 Recopilar archivos de registro del cliente VPN. Los archivos de registro se pueden enviar al soporte técnico o al administrador a través de un método de su elección. Por ejemplo, correo electrónico.
 

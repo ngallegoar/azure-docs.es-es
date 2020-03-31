@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
 ms.openlocfilehash: 7505420cc31fe751ecc0c114a89fea0734cbc6cf
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162414"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Configurar OpenVPN para VPN Gateway de punto a sitio de Azure
@@ -20,14 +20,14 @@ En este artículo le ayudamos a configurar el **protocolo OpenVPN®** en Azure V
 
 
 
-## <a name="vnet"></a>1. Configuración de una VPN de punto a sitio
+## <a name="1-create-a-point-to-site-vpn"></a><a name="vnet"></a>1. Configuración de una VPN de punto a sitio
 
 Si no dispone de un entorno de punto a sitio funcionando, siga las instrucciones para crear uno. Consulte [Creación de una VPN de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para crear y configurar una puerta de enlace de VPN de punto a sitio con autenticación de certificados nativos de Azure. 
 
 > [!IMPORTANT]
 > La SKU de nivel Básico no es compatible con OpenVPN.
 
-## <a name="enable"></a>2. Habilitación de OpenVPN en la puerta de enlace
+## <a name="2-enable-openvpn-on-the-gateway"></a><a name="enable"></a>2. Habilitación de OpenVPN en la puerta de enlace
 
 Habilite OpenVPN en la puerta de enlace. Asegúrese de que la puerta de enlace ya está configurada para conexiones de punto a sitio (IKEv2 o SSTP) antes de ejecutar los comandos siguientes:
 

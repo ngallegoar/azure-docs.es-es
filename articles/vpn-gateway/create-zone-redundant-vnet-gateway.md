@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d8c6b68a38d4b60cf7a3194e6a5ded8804cc416f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77150219"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Crear una puerta de enlace de red virtual con redundancia de zona en Azure Availability Zones
@@ -23,7 +23,7 @@ Puede implementar puertas de enlace de VPN Gateway y ExpressRoute en Azure Avail
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-## <a name="variables"></a>1. Declaración de las variables
+## <a name="1-declare-your-variables"></a><a name="variables"></a>1. Declaración de las variables
 
 Declare las variables que desea utilizar. Use el ejemplo siguiente y sustituya los valores por los suyos propios cuando sea necesario. Si cierra la sesión de PowerShell/Cloud Shell en cualquier momento durante el ejercicio, copie y pegue los valores de nuevo para volver a declarar las variables. Cuando especifique la ubicación, compruebe que se admite la región que especifique. Para más información, consulte las [preguntas más frecuentes](#faq).
 
@@ -43,7 +43,7 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="configure"></a>2. Crear la red virtual
+## <a name="2-create-the-virtual-network"></a><a name="configure"></a>2. Crear la red virtual
 
 Cree un grupo de recursos.
 
@@ -59,7 +59,7 @@ $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPr
 $vnet = New-AzVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNet1Prefix -Subnet $fesub1,$besub1
 ```
 
-## <a name="gwsub"></a>3. Adición de la subred de puerta de enlace
+## <a name="3-add-the-gateway-subnet"></a><a name="gwsub"></a>3. Adición de la subred de puerta de enlace
 
 La subred de puerta de enlace contiene las direcciones IP reservadas que usan los servicios de puerta de enlace de la red virtual. Utilice los siguientes ejemplos para agregar y establecer una subred de puerta de enlace:
 
@@ -75,11 +75,11 @@ Establezca la configuración de subred de puerta de enlace para la red virtual.
 ```azurepowershell-interactive
 $getvnet | Set-AzVirtualNetwork
 ```
-## <a name="publicip"></a>4. Solicitar una dirección IP pública
+## <a name="4-request-a-public-ip-address"></a><a name="publicip"></a>4. Solicitar una dirección IP pública
  
 En este paso, seleccione las instrucciones que se aplican a la puerta de enlace que desea crear. La selección de las zonas para la implementación de las puertas de enlace depende de las zonas especificadas para la dirección IP pública.
 
-### <a name="ipzoneredundant"></a>Para las puertas de enlace con redundancia de zona
+### <a name="for-zone-redundant-gateways"></a><a name="ipzoneredundant"></a>Para las puertas de enlace con redundancia de zona
 
 Solicite una dirección IP pública con una SKU de IP pública **Estándar** y no especifique ninguna zona. En este caso, la dirección IP pública Estándar creada será una IP pública con redundancia de zona.   
 
@@ -87,7 +87,7 @@ Solicite una dirección IP pública con una SKU de IP pública **Estándar** y n
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="ipzonalgw"></a>Para las puertas de enlace zonales
+### <a name="for-zonal-gateways"></a><a name="ipzonalgw"></a>Para las puertas de enlace zonales
 
 Solicite una dirección IP pública con una SKU de IP pública **Estándar**. Especifique la zona (1, 2 ó 3). Todas las instancias de puerta de enlace se implementarán en esta zona.
 
@@ -95,14 +95,14 @@ Solicite una dirección IP pública con una SKU de IP pública **Estándar**. Es
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
 ```
 
-### <a name="ipregionalgw"></a>Para las puertas de enlace regionales
+### <a name="for-regional-gateways"></a><a name="ipregionalgw"></a>Para las puertas de enlace regionales
 
 Solicite una dirección IP pública con una SKU de IP pública **Básica**. En este caso, la puerta de enlace se implementa como una puerta de enlace regional y no se agrega redundancia de zona a la puerta de enlace. Las instancias de puerta de enlace se crean en las zonas respectivas.
 
 ```azurepowershell-interactive
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
 ```
-## <a name="gwipconfig"></a>5. Creación de la configuración de IP
+## <a name="5-create-the-ip-configuration"></a><a name="gwipconfig"></a>5. Creación de la configuración de IP
 
 ```azurepowershell-interactive
 $getvnet = Get-AzVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
@@ -110,7 +110,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -Name $GwSubnet1 -VirtualNetwork $get
 $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subnet -PublicIpAddress $pip1
 ```
 
-## <a name="gwconfig"></a>6. Creación de la puerta de enlace
+## <a name="6-create-the-gateway"></a><a name="gwconfig"></a>6. Creación de la puerta de enlace
 
 Cree la puerta de enlace de red virtual.
 
@@ -126,7 +126,7 @@ New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 
 New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1AZ
 ```
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a><a name="faq"></a>P+F
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>¿Qué cambiará cuando proceda a implementar estas SKU nuevas?
 

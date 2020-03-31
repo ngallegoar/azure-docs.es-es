@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 89f367e866c1a794f4359c76b8b8a8a9cfefd50d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76273803"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Uso de la nueva autenticación de StorSimple
@@ -41,7 +41,7 @@ Si utiliza la matriz virtual de StorSimple, asegúrese de que la siguiente direc
 | Patrón de URL                         | Nube | Componente o funcionalidad         |
 |------------------------------------|-------|---------------------------------|
 | `https://login.windows.net`        | Azure Public |Servicio de autenticación de AAD      |
-| `https://login.microsoftonline.us` | Gobierno de Estados Unidos |Servicio de autenticación de AAD      |
+| `https://login.microsoftonline.us` | US Gov |Servicio de autenticación de AAD      |
 
 Para obtener una lista completa de patrones de direcciones URL para matrices virtuales de StorSimple, vaya a [Patrones de URL para reglas de firewall](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).
 

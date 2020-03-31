@@ -1,19 +1,18 @@
 ---
 title: Administración de una cuenta de Marketplace comercial en el Centro de partners
 description: Aprenda a administrar una cuenta de Marketplace comercial en el Centro de partners.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 7b7a3a0a87996358436df9f7ee4a266574c0b7db
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6d3952c38703d8102a45c4117e3c59e3fa464957
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927081"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275822"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Administración de la cuenta de Marketplace comercial en el Centro de partners
 

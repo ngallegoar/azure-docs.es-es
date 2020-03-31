@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: c3b06289ba6ce98d4307a8255981ecdba069fdfa
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905397"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Incorporación de un origen del evento de centro de eventos al entorno de Time Series Insights
@@ -25,7 +25,7 @@ Este artículo describe cómo usar Azure Portal para agregar un origen de evento
 > [!NOTE]
 > Los pasos que se describen en este artículo son válidos tanto en entornos de Time Series Insights con disponibilidad general como en entornos en versión preliminar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Cree un entorno de Time Series Insights según lo explicado en [Creación de un entorno de Azure Time Series Insights: Creación de un entorno de Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 - Cree un centro de eventos. Lea [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md).

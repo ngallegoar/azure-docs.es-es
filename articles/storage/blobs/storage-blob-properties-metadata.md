@@ -8,16 +8,16 @@ ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 395210c582ba7f5e8170a96a46e2816336e33b2d
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: b4abd7e29dec67ddc1be50a2a6703da2a25551d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77624029"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79137669"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Administración de propiedades y metadatos de blobs con .NET
 
-Además de los datos que contienen, los blobs admiten propiedades del sistema y metadatos definidos por el usuario. En este artículo se muestra cómo administrar propiedades del sistema y metadatos definidos por el usuario con la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client).
+Además de los datos que contienen, los blobs admiten propiedades del sistema y metadatos definidos por el usuario. En este artículo se muestra cómo administrar propiedades del sistema y metadatos definidos por el usuario con la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-properties-and-metadata"></a>Acerca de las propiedades y los metadatos
 

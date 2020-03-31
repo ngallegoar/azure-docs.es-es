@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: c74b819893133116b8ac6905988f3fe11220ed95
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770074"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Solución de problemas de conexión a Azure Database for PostgreSQL (único servidor)
@@ -47,7 +47,7 @@ Los errores transitorios se producen cuando se realiza el mantenimiento, el sist
 Si la aplicación no se puede conectar a Azure Database for PostgreSQL de forma persistente, normalmente indica un problema con uno de los siguientes elementos:
 
 * Configuración del firewall de servidor: Asegúrese de que el firewall del servidor de Azure Database for PostgreSQL esté configurado para permitir conexiones desde el cliente, incluidas puertas de enlace y servidores proxy.
-* Configuración del firewall del cliente: El firewall en el cliente debe permitir las conexiones con el servidor de base de datos. Las direcciones IP y los puertos del servidor se deben permitir, así como los nombres de aplicación como PostgreSQL en algunos firewalls.
+* Configuración del firewall del cliente: El firewall en el cliente debe permitir las conexiones con el servidor de bases de datos. Las direcciones IP y los puertos del servidor se deben permitir, así como los nombres de aplicación como PostgreSQL en algunos firewalls.
 * Error del usuario: Es posible que haya escrito incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión o un sufijo *\@nombreServidor*que falte en el nombre de usuario.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Pasos para resolver los problemas de conectividad persistentes

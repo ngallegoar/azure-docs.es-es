@@ -9,16 +9,16 @@ ms.date: 08/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 1cff950f2c420651ffa09ffe76a0d1389da84c10
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1495ed55c24a0f94b911d60d1db0f32940ea134a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457470"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79137065"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Obtención del tipo de cuenta de almacenamiento y el nombre de SKU con .NET
 
-En este artículo se muestra cómo obtener el tipo de cuenta de Azure Storage y el nombre de SKU de un blob mediante la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client).
+En este artículo se muestra cómo obtener el tipo de cuenta de Azure Storage y el nombre de SKU de un blob mediante la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 La información de la cuenta está disponible en las versiones del servicio a partir de la versión 2018-03-28.
 

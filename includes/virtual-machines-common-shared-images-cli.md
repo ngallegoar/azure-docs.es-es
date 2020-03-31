@@ -9,15 +9,15 @@ ms.date: 05/21/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 57736a3cd553e83294d5290867e261b626cb035f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66814865"
 ---
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para completar el ejemplo de este artículo, debe tener una imagen administrada existente de una VM generalizada. Para más información, consulte [Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con la CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Si la imagen administrada contiene un disco de datos, el tamaño de este no puede ser mayor de 1 TB.
+Para completar el ejemplo de este artículo, debe tener una imagen administrada existente de una VM generalizada. Para más información, consulte el [Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con la CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Si la imagen administrada contiene un disco de datos, el tamaño del disco de datos no puede ser mayor de 1 TB.
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 

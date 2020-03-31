@@ -2,19 +2,19 @@
 title: 'Uso de Azure Queue Storage v2.1 desde Python: Azure Storage'
 description: Aprenda a usar Azure Queue service v2.1 desde Python para crear y eliminar colas e insertar, obtener y eliminar mensajes.
 author: mhopkins-msft
-ms.service: storage
 ms.author: mhopkins
 ms.date: 09/17/2019
+ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-october2019
-ms.openlocfilehash: 7812b62e2de3181ae1a901241a977e37f855704b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: ca0831fd7554058d21e315b67d6965579af1d38b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268039"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060912"
 ---
 # <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Uso de Azure Queue Storage v2.1 desde Python
 

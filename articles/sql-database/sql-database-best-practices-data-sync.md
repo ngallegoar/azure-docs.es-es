@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75771690"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedimientos recomendados para SQL Data Sync 
@@ -27,7 +27,7 @@ Para obtener información general acerca de SQL Data Sync, consulte [Sincronizac
 > [!IMPORTANT]
 > Azure SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
 
-## <a name="security-and-reliability"></a>Seguridad y fiabilidad
+## <a name="security-and-reliability"></a><a name="security-and-reliability"></a>Seguridad y fiabilidad
 
 ### <a name="client-agent"></a>Agente cliente
 
@@ -52,7 +52,7 @@ Azure SQL Database solo admite un único conjunto de credenciales. Para realizar
 
 ## <a name="setup"></a>Configurar
 
-### <a name="database-considerations-and-constraints"></a> Restricciones y consideraciones de la base de datos
+### <a name="database-considerations-and-constraints"></a><a name="database-considerations-and-constraints"></a> Restricciones y consideraciones de la base de datos
 
 #### <a name="sql-database-instance-size"></a>Tamaño de la instancia de SQL Database
 
@@ -61,7 +61,7 @@ Al crear una nueva instancia de SQL Database, establezca el tamaño máximo de f
 > [!IMPORTANT]
 > SQL Data Sync almacena metadatos adicionales con cada base de datos. No olvide tener en cuenta estos metadatos al calcular el espacio necesario. La cantidad de sobrecarga adicional guarda relación con la cantidad de tráfico y con el ancho de las tablas (por ejemplo, las tablas estrechas necesitan más sobrecarga).
 
-### <a name="table-considerations-and-constraints"></a> Restricciones y consideraciones de la tabla
+### <a name="table-considerations-and-constraints"></a><a name="table-considerations-and-constraints"></a> Restricciones y consideraciones de la tabla
 
 #### <a name="selecting-tables"></a>Selección de tablas
 
@@ -77,7 +77,7 @@ Antes de usar SQL Data Sync en producción, compruebe el rendimiento de la sincr
 
 Las tablas vacías ofrecen el mejor rendimiento en el momento de la inicialización. Si la tabla de destino está vacía, las sincronización de datos utiliza la inserción masiva para cargar los datos. En caso contrario, la sincronización de datos realiza una comparación fila a fila y la inserción para comprobar si hay conflictos. Aunque, si el rendimiento no es un problema, puede configurar la sincronización entre tablas que ya contengan datos.
 
-### <a name="provisioning-destination-databases"></a> Aprovisionamiento de bases de datos de destino
+### <a name="provisioning-destination-databases"></a><a name="provisioning-destination-databases"></a> Aprovisionamiento de bases de datos de destino
 
 SQL Data Sync permite aprovisionar automáticamente la base de datos básica.
 
@@ -101,7 +101,7 @@ SQL Data Sync tiene las siguientes limitaciones de aprovisionamiento automático
 -   Use la funcionalidad de aprovisionamiento automático de SQL Data Sync solo cuando vaya a probar el servicio.  
 -   Para entornos de producción, aprovisione el esquema de base de datos.
 
-### <a name="locate-hub"></a> Dónde encontrar la base de datos central
+### <a name="where-to-locate-the-hub-database"></a><a name="locate-hub"></a> Dónde encontrar la base de datos central
 
 #### <a name="enterprise-to-cloud-scenario"></a>Escenario de empresa a la nube
 
@@ -118,7 +118,7 @@ Aplique las instrucciones anteriores a configuraciones de grupos de sincronizaci
 
 ## <a name="sync"></a>Sync
 
-### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Evitar una sincronización inicial lenta y costosa
+### <a name="avoid-slow-and-costly-initial-sync"></a><a name="avoid-a-slow-and-costly-initial-synchronization"></a> Evitar una sincronización inicial lenta y costosa
 
 En esta sección se describe la sincronización inicial de un grupo de sincronización. Obtenga información sobre cómo ayudar a evitar que una sincronización inicial tarde más tiempo y sea más costosa de lo necesario.
 
@@ -132,13 +132,13 @@ Si las bases de datos están en distintos centros de datos, cada fila debe despl
 
 Si es posible, comience con datos en una sola base de datos del grupo de sincronización.
 
-### <a name="design-to-avoid-synchronization-loops"></a> Diseño para evitar bucles de sincronización
+### <a name="design-to-avoid-sync-loops"></a><a name="design-to-avoid-synchronization-loops"></a> Diseño para evitar bucles de sincronización
 
 Un bucle de sincronización se produce cuando hay referencias circulares dentro de un grupo de sincronización. En ese caso, cada cambio realizado en una base de datos resulta interminable y se replica de forma circular a través de las bases de datos del grupo de sincronización.   
 
 Asegúrese de evitar los bucles de sincronización, ya que causan una degradación del rendimiento y podrían aumentar significativamente los costos.
 
-### <a name="handling-changes-that-fail-to-propagate"></a> Cambios que no se propagan
+### <a name="changes-that-fail-to-propagate"></a><a name="handling-changes-that-fail-to-propagate"></a> Cambios que no se propagan
 
 #### <a name="reasons-that-changes-fail-to-propagate"></a>Razones por las que los cambios no se propagan
 
@@ -164,7 +164,7 @@ Supervise el estado del grupo de sincronización y la base de datos con regulari
 
 ## <a name="maintenance"></a>Mantenimiento
 
-### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Evitar bases de datos y grupos de sincronización obsoletos
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> Evitar bases de datos y grupos de sincronización obsoletos
 
 Un grupo de sincronización o una base de datos de un grupo de sincronización pueden llegar a estar obsoletos. Cuando el estado de un grupo de sincronización es **obsoleto**, deja de funcionar. Cuando el estado de la base de datos es **obsoleto**, se pueden perder datos. Es mejor evitar esta situación en lugar de intentar recuperarse de este error.
 
@@ -189,7 +189,7 @@ Para impedir grupos de sincronización obsoletos, haga lo siguiente:
 -   Actualice los valores de la clave externa para incluir los valores incluidos en las filas con errores.
 -   Actualice los valores de datos en la fila con errores para que sean compatibles con el esquema o con las claves externas de la base de datos de destino.
 
-### <a name="avoid-deprovisioning-issues"></a> Evitar problemas de cancelación del aprovisionamiento
+### <a name="avoid-deprovisioning-issues"></a><a name="avoid-deprovisioning-issues"></a> Evitar problemas de cancelación del aprovisionamiento
 
 En determinadas circunstancias, anular el registro de una base de datos con un agente cliente puede provocar errores de sincronización.
 
@@ -210,7 +210,7 @@ Para recuperarse de esta situación:
 2. Vuelva a agregar la base de datos a cada uno de los grupos de sincronización de los que la ha quitado.  
 3. Implemente cada grupo de sincronización afectado (esta acción aprovisiona la base de datos).  
 
-### <a name="modifying-your-sync-group"></a> Modificación de un grupo de sincronización
+### <a name="modifying-a-sync-group"></a><a name="modifying-your-sync-group"></a> Modificación de un grupo de sincronización
 
 No intente quitar una base de datos de un grupo de sincronización para después editar el grupo de sincronización sin implementar primero uno de los cambios.
 

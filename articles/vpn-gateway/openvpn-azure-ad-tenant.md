@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: alzam
 ms.openlocfilehash: f4092f651a3058c8a2e738c81d9db7e296386bfa
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402902"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory para conexiones del protocolo P2S OpenVPN
@@ -23,7 +23,7 @@ Al conectarse a la red virtual, puede usar la autenticación basada en certifica
 >
 
 
-## <a name="tenant"></a>1. Comprobación del inquilino de Azure AD
+## <a name="1-verify-azure-ad-tenant"></a><a name="tenant"></a>1. Comprobación del inquilino de Azure AD
 
 Compruebe que tiene un inquilino de Azure AD. Si no tiene ningún inquilino de Azure AD, para crearlo siga los pasos del artículo [Creación de un nuevo inquilino](../active-directory/fundamentals/active-directory-access-create-new-tenant.md):
 
@@ -34,7 +34,7 @@ Ejemplo:
 
    ![Nuevo inquilino Azure AD](./media/openvpn-create-azure-ad-tenant/newtenant.png)
 
-## <a name="users"></a>2. Crear usuario de inquilino Azure AD
+## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. Crear usuario de inquilino Azure AD
 
 El inquilino de Azure AD necesita las siguientes cuentas: una cuenta de administrador global y una cuenta de usuario maestro. La cuenta de usuario principal se usa como cuenta de inserción maestra (cuenta de servicio). Al crear una cuenta de usuario de inquilino Azure AD, ajuste el rol de directorio para el tipo de usuario que desea crear.
 
@@ -43,7 +43,7 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
 * Administrador global
 * Usuario
 
-## <a name="enable-authentication"></a>3. Habilitación de la autenticación de Azure AD
+## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. Habilitación de la autenticación de Azure AD
 
 1. Busque el ID. de directorio del directorio que desea utilizar para la autenticación. Aparece en la sección propiedades de la página Active Directory.
 

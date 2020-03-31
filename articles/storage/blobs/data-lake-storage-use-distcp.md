@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543656"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228412"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Uso de DistCp para copiar datos entre Azure Storage Blob y Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ Puede usar [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.h
 
 DistCp proporciona una variedad de parámetros de línea de comandos y se recomienda encarecidamente leer este artículo para optimizar el uso de la herramienta. En este artículo se explica la funcionalidad básica, al mismo tiempo que se centra en su uso para copiar datos a una cuenta con el espacio de nombres jerárquico habilitado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta existente de Azure Storage sin las funcionalidades de Data Lake Storage Gen2 habilitadas, como el espacio de nombres jerárquico**.
@@ -73,7 +73,7 @@ A continuación hay algunas instrucciones que puede usar.
 
 * **Paso 1: Determinar la memoria total disponible para la cola de aplicación YARN "predeterminada"** : el primer paso consiste en determinar la memoria disponible para la cola de aplicación YARN "predeterminada". Esta información está disponible en el portal de Ambari asociado con el clúster. Vaya a YARN y haga clic en la pestaña de configuración para ver la memoria YARN disponible para la cola de aplicación "predeterminada". Se trata de la memoria total disponible para el trabajo DistCp (que es realmente un trabajo de MapReduce).
 
-* **Paso 2: Cálculo del número de mapeadores**: el valor de **m** es igual al cociente de la memoria de YARN total dividido por el tamaño del contenedor de YARN. La información del tamaño de contenedor de YARN está también disponible en el portal del Ambari. Vaya a YARN y examine la pestaña de configuración. En esta ventana se muestra el tamaño del contenedor de YARN. La ecuación para llegar al número de asignadores (**m**) es
+* **Paso 2: Cálculo del número de mapeadores**: el valor de **m** es igual al cociente de la memoria de YARN total dividido por el tamaño del contenedor de YARN. La información del tamaño de contenedor de YARN está también disponible en el portal del Ambari. Vaya a YARN y vea la pestaña Configs (Configuraciones). En esta ventana se muestra el tamaño del contenedor de YARN. La ecuación para llegar al número de asignadores (**m**) es
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 

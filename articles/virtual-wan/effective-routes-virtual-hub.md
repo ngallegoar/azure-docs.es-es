@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1173da81736661048d1e4e12d9919bc2aadf73ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73511213"
 ---
 # <a name="view-effective-routes-of-a-virtual-hub"></a>Vista de las rutas eficaces de un centro de conectividad virtual
 
 Puede ver todas las rutas del centro de conectividad virtual WAN en Azure Portal. Para ver las rutas, vaya al centro de conectividad virtual y, luego seleccione **Cálculo de ruta -> Ver rutas eficaces**.
 
-## <a name="understand"></a>Reconocimiento de rutas
+## <a name="understanding-routes"></a><a name="understand"></a>Reconocimiento de rutas
 
 El ejemplo siguiente puede ayudarle a reconocer mejor cómo aparece el cálculo de ruta del Virtual WAN.
 
@@ -30,13 +30,13 @@ En este ejemplo, también se supone que la rama 1 del Oeste de Europa está cone
 
 ![diagrama](./media/effective-routes-virtual-hub/diagram.png)
 
-## <a name="view"></a>Vista de las rutas eficaces
+## <a name="view-effective-routes"></a><a name="view"></a>Vista de las rutas eficaces
 
 Al seleccionar "Ver rutas eficaces" en el portal, se genera el resultado que se muestra en la [tabla de rutas del centro de conectividad](#routetable) para el Este de EE. UU.
 
 Para ponerlo en perspectiva, la primera línea implica que el centro de conectividad del Este de EE. UU. haya aprendido la ruta de 10.20.1.0/24 (rama 1) debido a la conexión VPN *Tipo del próximo salto* ("Próximo salto" puerta de enlace VPN Instancia0 IP 10.1.0.6, Instancia1 IP 10.1.0.7). *Origen de ruta* señala el identificador de recurso. *La ruta de acceso del sistema autónomo (AS)* indica la ruta del sistema autónomo (AS) para la rama 1.
 
-### <a name="routetable"></a>Tabla de rutas del centro de conectividad
+### <a name="hub-route-table"></a><a name="routetable"></a>Tabla de rutas del centro de conectividad
 
 Use la barra de desplazamiento de la parte inferior de la tabla para ver la "ruta de acceso del sistema autónomo (AS)".
 
@@ -55,13 +55,13 @@ Use la barra de desplazamiento de la parte inferior de la tabla para ver la "rut
 > Si los centros de conectividad del Este de EE. UU. y el Oeste de Europa no se comunican entre sí en la topología de ejemplo, la ruta aprendida (10.9.0.0/16) no existirá. Los centros de conectividad solo anuncian las redes que están conectadas directamente a ellos.
 >
 
-## <a name="additional"></a>Información adicional
+## <a name="additional-information"></a><a name="additional"></a>Información adicional
 
-### <a name="abouthubroute"></a>Sobre las tablas de rutas del centro de conectividad
+### <a name="about-the-hub-route-table"></a><a name="abouthubroute"></a>Sobre las tablas de rutas del centro de conectividad
 
 puede crear una ruta del centro virtual y aplicarla a la tabla de rutas del centro virtual. Puede aplicar varias rutas a la tabla de rutas del concentrador virtual. Esto le permite establecer una ruta para la red virtual destino a través de una dirección IP (normalmente, la aplicación virtual de red (NVA) en una red virtual de radios). Para más información sobre NVA, consulte [Enrutamiento del tráfico desde un centro de conectividad virtual hacia un NVA](virtual-wan-route-table-portal.md).
 
-### <a name="aboutdefaultroute"></a> Sobre la ruta predeterminada (0.0.0.0/0)
+### <a name="about-default-route-00000"></a><a name="aboutdefaultroute"></a> Sobre la ruta predeterminada (0.0.0.0/0)
 
 Un centro de conectividad virtual tiene la capacidad de propagar una ruta predeterminada aprendida en una red virtual, una VPN de sitio a sitio y una conexión de ExpressRoute si la marca está "habilitada" en la conexión. Esta marca está visible cuando se edita una conexión de red virtual, una conexión VPN o una conexión ExpressRoute. 'EnableInternetSecurity' siempre es falso de forma predeterminada en las conexiones de red virtual del centro de conectividad, ExpressRoute y VPN.
 

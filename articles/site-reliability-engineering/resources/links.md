@@ -7,12 +7,12 @@ ms.service: site-reliability-engineering
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: dnb
-ms.openlocfilehash: be6e00ba0d20d11f75954d3b9c6b056160a5016b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: a891b580b5cb62d111e5d8a6980f4f547345deb6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599545"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471258"
 ---
 # <a name="sources-for-site-reliability-engineering-information"></a>Orígenes de información de ingeniería de confiabilidad de sitios
 
@@ -23,7 +23,7 @@ Hay muchos orígenes para la información de ingeniería de confiabilidad de sit
 Estas son algunas listas de vínculos seleccionados para SRE y temas relacionados con SRE:
 
 * [Awesome Site Reliability Engineering](https://github.com/dastergon/awesome-sre)
-* [Awesome Site Reliability Engineering Tools](https://github.com/squadcastHQ/awesome-sre-tools)
+* [Awesome Site Reliability Engineering Tools](https://github.com/SquadcastHub/awesome-sre-tools)
 * [The Patterns of Scalable, Reliable, and Performant Large-Scale Systems](http://awesome-scalability.com)
 * [awesome-distributed-systems](https://github.com/theanalyst/awesome-distributed-systems)
 * [Awesome Consensus](https://github.com/dgryski/awesome-consensus)

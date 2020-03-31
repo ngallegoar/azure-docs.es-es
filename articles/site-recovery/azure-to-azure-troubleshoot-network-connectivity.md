@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 08/05/2019
-ms.openlocfilehash: d55f06669a538c2f26f3a1d2da0d96a73529f76e
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: b082e1aca094dcb335a7268e4c116376d756fd3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941466"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292022"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solución de problemas de conectividad de red de máquinas virtuales de Azure en Azure
 
@@ -27,7 +27,7 @@ login.microsoftonline.com | Se requiere para la autorización y la autenticació
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividad saliente para direcciones URL o intervalos IP de Site Recovery (código de error 151037 o 151072)
 
-## <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: no se pudo registrar la máquina virtual de Azure en Site Recovery (151195) </br>
+## <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a><a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema 1: no se pudo registrar la máquina virtual de Azure en Site Recovery (151195) </br>
 - **Causa posible** </br>
   - No se puede establecer la conexión con los puntos de conexión de Site Recovery por un error de resolución de DNS.
   - Normalmente, este problema se produce al volver a establecer la protección tras una conmutación por error de la máquina virtual y no se puede acceder al servidor DNS desde la región de recuperación ante desastres (DR).
@@ -92,7 +92,7 @@ Estas reglas son necesarias para que la replicación se pueda habilitar de la re
   - No se puede establecer conexión con los puntos de conexión del servicio Azure Site Recovery.
 
 - **Resolución**
-  - Azure Site Recovery necesita tener acceso a [intervalos de IP de Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) en función de la región. Asegúrese de que los intervalos de IP están accesibles desde la máquina virtual.
+  - Azure Site Recovery necesita tener acceso a [intervalos de IP de Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-using-service-tags) en función de la región. Asegúrese de que los intervalos de IP están accesibles desde la máquina virtual.
 
 
 ## <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: error de replicación A2A cuando el tráfico de red pasa por el servidor proxy local (151072)
@@ -112,7 +112,7 @@ Estas reglas son necesarias para que la replicación se pueda habilitar de la re
   4. El agente de Mobility Service de Azure Site Recovery solo admite ***servidores proxy no autenticados***.
 
 ### <a name="fix-the-problem"></a>Corrección del problema
-Para permitir [las direcciones URL necesarias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o los [intervalos IP necesarios](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga los pasos del [documento de instrucciones para redes](site-recovery-azure-to-azure-networking-guidance.md).
+Para permitir [las direcciones URL necesarias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o los [intervalos IP necesarios](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), siga los pasos del [documento de instrucciones para redes](site-recovery-azure-to-azure-networking-guidance.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

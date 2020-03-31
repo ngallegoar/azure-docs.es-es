@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
 ms.openlocfilehash: 2a6650cac975c575415a329361da00d4fbfcaa9d
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68965114"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida
@@ -46,7 +46,7 @@ En la tabla siguiente se describen algunas de las ventajas principales que propo
 | Administración simplificada del almacenamiento |Proporciona herramientas de administración del sistema para configurar y administrar datos almacenados localmente, en un servidor remoto y en la nube. Además, puede administrar copias de seguridad y restaurar funciones desde un complemento de Microsoft Management Console (MMC).|
 | Mejor recuperación ante desastres y cumplimiento normativo |No requiere tiempo de recuperación extendido. En lugar de eso, restaura los datos según sea necesario. Esto significa que las operaciones normales pueden seguir con un mínimo de interrupción. Además, puede configurar directivas para especificar programaciones de copias de seguridad y retención de datos. |
 | Movilidad de datos |Es posible tener acceso a los datos cargados a los servicios en la nube de Microsoft Azure desde otros sitios para fines de recuperación y migración. Además, puede usar StorSimple para configurar StorSimple Cloud Appliances en máquinas virtuales (VM) que se ejecutan en Microsoft Azure. Luego, las máquinas virtuales pueden utilizar dispositivos virtuales para obtener acceso a los datos almacenados para fines de prueba o recuperación. |
-| Continuidad del negocio |Permite a los usuarios de la serie 5000-7000 de StorSimple migrar sus datos a un dispositivo StorSimple de la serie 8000. |
+| Continuidad empresarial |Permite a los usuarios de la serie 5000-7000 de StorSimple migrar sus datos a un dispositivo StorSimple de la serie 8000. |
 | Disponibilidad en el Portal de administración de Azure |StorSimple ya está disponible en el Portal de Azure Government. Para obtener más información, consulte [Implementación del dispositivo StorSimple local en el Portal de Government](storsimple-8000-deployment-walkthrough-gov-u2.md). |
 | Disponibilidad y protección de datos |La serie 8000 de StorSimple admite el almacenamiento con redundancia de zona (ZRS), además del almacenamiento con redundancia local (LRS) y del almacenamiento con redundancia geográfica (GRS). Para obtener información detallada sobre ZRS, consulte [este artículo sobre las opciones de redundancia de Azure Storage](https://azure.microsoft.com/documentation/articles/storage-redundancy/) . |
 | Compatibilidad para las aplicaciones críticas |StorSimple le permite identificar los volúmenes apropiados como anclados localmente, lo que a su vez garantiza que los datos que requieren las aplicaciones críticas no están organizados en capas en la nube. Los volúmenes anclados localmente no están sujetos a las latencias de la nube ni a los problemas de conectividad. Para más información sobre los volúmenes anclados localmente, consulte [Usar el servicio de Administrador de StorSimple para administrar volúmenes (Update 2)](storsimple-8000-manage-volumes-u2.md). |
@@ -229,7 +229,7 @@ Las cargas de trabajo siguientes no son compatibles con dispositivos de la serie
 * VDI
 * Oracle
 * SAP
-* Big Data
+* Macrodatos
 * Distribución de contenido
 * Arranque desde SCSI
 
@@ -258,7 +258,7 @@ A continuación se muestra una lista de otro software que se usa con StorSimple 
 Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que revise los siguientes términos y definiciones.
 
 ### <a name="key-terms-and-definitions"></a>Términos clave y definiciones
-| Término (acrónimo o abreviatura) | DESCRIPCIÓN |
+| Término (acrónimo o abreviatura) | Descripción |
 | --- | --- |
 | registros de control de acceso (ACR) |Un registro asociado a un volumen en el dispositivo de Microsoft Azure StorSimple que determina qué hosts pueden conectarse a él. La determinación está basada en el Nombre calificado iSCSI (IQN) de los hosts (contenidos en el ACR) que se conectan al dispositivo StorSimple. |
 | AES-256 |Un algoritmo Estándar de cifrado avanzado (AES) de 256 bits para cifrar los datos cuando se desplaza hacia y desde la nube. |

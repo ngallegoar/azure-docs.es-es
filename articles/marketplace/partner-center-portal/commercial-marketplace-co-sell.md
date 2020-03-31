@@ -1,19 +1,18 @@
 ---
 title: Opción de venta conjunta en el Centro de partners | Azure Marketplace
 description: Los equipos de ventas de Microsoft usarán la información que proporciona en la pestaña de venta conjunta de su oferta para obtener más información sobre su solución al evaluar su idoneidad para las necesidades de los clientes.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 5f5f98b908ce54624a5d73a2ed74b2e9ea8966ff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b0b38b767495b1a06405f0d41222b73baee8d53
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431952"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277080"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opción de venta conjunta en el Centro de partners
 
@@ -24,7 +23,7 @@ La opción de venta conjunta del Centro de partners está actualmente disponible
 | **Tipo de oferta** | **Página Venta conjunta disponible en el Centro de partners** |
 |    -----------------------    |    -----------------------------  |
 | Software como servicio (SaaS) |     Disponibilidad general en febrero de 2020      |
-| Dynamics 365 for Customer Engagement y PowerApps      |     Ahora disponible      |
+| Dynamics 365 for Customer Engagement y Power Apps      |     Ahora disponible      |
 | Dynamics 365 for Operations     |     Ahora disponible       |
 | Dynamics 365 Business Central      |  Disponibilidad general en febrero de 2020     |
 | Aplicación de Azure     |     Disponibilidad general en febrero de 2020     |
@@ -32,7 +31,7 @@ La opción de venta conjunta del Centro de partners está actualmente disponible
 | Contenedor de Azure     |     Por confirmar       |
 | Servicio de consultoría      |     Por confirmar       |
 | Módulo IoT Edge      |     Por confirmar       |
-| Aplicación del servicio Power BI     |     Por confirmar       |
+| Aplicación de servicio Power BI     |     Por confirmar       |
 |  |
 
 ## <a name="listing"></a>Listado

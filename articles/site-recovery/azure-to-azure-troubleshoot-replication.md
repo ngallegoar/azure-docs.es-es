@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.openlocfilehash: e5e52c6e8560c7369054cfc9fcf2ba4c405671e0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 67b68cc8a1db4a058675dc51fb3805093c455908
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190806"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276672"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solución de problemas de replicación en recuperación ante desastres de VM de Azure
 
@@ -23,7 +23,7 @@ Id. del error: 153007
 
 En las secciones siguientes se describen las causas y las soluciones.
 
-## <a name="high-data-change-rate-on-the-source-virtal-machine"></a>Velocidad de cambio elevada en los datos de la máquina virtual de origen
+## <a name="high-data-change-rate-on-the-source-virtual-machine"></a><a name="high-data-change-rate-on-the-source-virtal-machine"></a>Velocidad de cambio elevada en los datos de la máquina virtual de origen
 
 Azure Site Recovery crea un evento si la frecuencia de cambio de datos en la máquina virtual de origen supera los límites admitidos. Para comprobar si el problema se debe una elevada renovación, vaya a **Elementos replicados** > **Máquina virtual** > **Events -last 72 hours** (Eventos: últimas 72 horas).
 Debería ver el evento "Frecuencia de cambio de datos superior a los límites admitidos":
@@ -42,12 +42,12 @@ Hay dos límites que se deben tener en cuenta: la frecuencia de modificación de
 
 **Destino de almacenamiento de la replicación** | **Tamaño medio de E/S de disco de origen** |**Actividad de datos media de disco de origen** | **Actividad de datos total por día de disco de datos de origen**
 ---|---|---|---
-Standard Storage | 8 KB | 2 MB/s | 168 GB por disco
-Disco Premium P10 o P15 | 8 KB  | 2 MB/s | 168 GB por disco
-Disco Premium P10 o P15 | 16 KB | 4 MB/s |  336 GB por disco
+Standard Storage | 8 KB    | 2 MB/s | 168 GB por disco
+Disco Premium P10 o P15 | 8 KB    | 2 MB/s | 168 GB por disco
+Disco Premium P10 o P15 | 16 KB | 4 MB/s |    336 GB por disco
 Disco Premium P10 o P15 | 32 KB, o más | 8 MB/s | 672 GB por disco
 Disco Premium P20, P30, P40 o P50 | 8 KB    | 5 MB/s | 421 GB por disco
-Disco Premium P20, P30, P40 o P50 | 16 KB, o más |10 MB/s | 842 GB por disco
+Disco Premium P20, P30, P40 o P50 | 16 KB, o más |20 MB/s | 1684 GB por disco
 
 ### <a name="solution"></a>Solución
 
@@ -69,7 +69,7 @@ Un pico en la frecuencia de cambio de los datos puede proceder de una ráfaga de
     1. Es posible que vea un mensaje emergente en **Información general** que indica que se ha generado una dirección URL de SAS. Seleccione este mensaje emergente y cancele la exportación. Omita este paso si no aparece el mensaje emergente.
     1. En cuanto se revoque la dirección URL de SAS, vaya a **Configuración** en el disco administrado. Aumente el tamaño para que Site Recovery admita la frecuencia de renovación observada en el disco de origen.
 
-## <a name="Network-connectivity-problem"></a>Problemas de conectividad de red
+## <a name="network-connectivity-problems"></a><a name="Network-connectivity-problem"></a>Problemas de conectividad de red
 
 ### <a name="network-latency-to-a-cache-storage-account"></a>Latencia de red en la cuenta de almacenamiento en caché
 
@@ -98,7 +98,7 @@ A continuación se muestran algunos de los problemas más comunes.
 
 #### <a name="known-issue-in-sql-server-2016-and-2017"></a>Incidencia conocida en SQL Server 2016 y 2017
 
-**Solución:** Consulte el artículo [Se produce un error al realizar una copia de seguridad de una máquina virtual con una copia de seguridad de base que no es un componente en SQL Server 2016 y 2017](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component).
+**Solución:** Consulte el artículo [Se produce un error al realizar una copia de seguridad de una máquina virtual con una copia de seguridad de base que no es un componente en SQL Server 2016 y 2017](https://support.microsoft.com/en-us/help/4508218/cumulative-update-16-for-sql-server-2017).
 
 #### <a name="youre-using-azure-storage-spaces-direct-configuration"></a>Está usando la configuración de Espacios de almacenamiento directo de Azure
 

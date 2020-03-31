@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 1f13efeb5c2ebcb8b23dea6f9ae997039972f089
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 997aa9d96f2f52331865fd15d97443d74bb8bc1f
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428319"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80398014"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
@@ -179,7 +179,7 @@ A partir de la versión 3.0, se muestra una ventana de consola cuando se inicia 
 
 Para ver la lista de opciones, escriba `/help` en el símbolo del sistema.
 
-| Opción | DESCRIPCIÓN | Get-Help | Argumentos |
+| Opción | Descripción | Get-Help | Argumentos |
 | --- | --- | --- | --- |
 | **Iniciar** |Inicia el emulador de almacenamiento. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess*: inicia el emulador en el proceso actual en lugar de crear un nuevo proceso. |
 | **Detención** |Detiene el emulador de almacenamiento. |`AzureStorageEmulator.exe stop` | |
@@ -325,6 +325,6 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Evaluación del emulador de almacenamiento de código abierto multiplataforma [Azurite](https://github.com/arafato/azurite), mantenido por la comunidad. 
+* Evaluación del emulador de almacenamiento de código abierto multiplataforma [Azurite](https://github.com/azure/azurite), mantenido por la comunidad. 
 * [Ejemplos de Azure Storage mediante .NET](../storage-samples-dotnet.md) contiene vínculos a varios ejemplos de código que puede usar al desarrollar su aplicación.
 * Puede usar el [Explorador de Microsoft Azure Storage](https://storageexplorer.com) para trabajar con recursos de su cuenta de nube de Storage y del emulador de almacenamiento.

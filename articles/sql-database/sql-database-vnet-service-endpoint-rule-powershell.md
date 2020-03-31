@@ -4,7 +4,6 @@ description: Proporciona scripts de PowerShell para crear y administrar puntos d
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: conceptual
 author: rohitnayakmsft
@@ -12,16 +11,16 @@ ms.author: rohitna
 ms.reviewer: genemi, vanto
 ms.date: 03/12/2019
 tags: azure-synapse
-ms.openlocfilehash: f61403ef50af209fdc6e811191d31ccc83f8da73
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1e8ec394eab1df0aebe394b8acebc74c7ed49e9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191885"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124702"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Creación de una regla de red virtual y un punto de conexión de servicio virtual para SQL
 
-Las *reglas de red virtual* son una característica de firewall que controla si el servidor de bases de datos únicas y del grupo elástico de Azure [SQL Database](sql-database-technical-overview.md) o de las bases de datos de [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas de redes virtuales.
+Las *reglas de red virtual* son una característica de firewall que controla si el servidor de bases de datos únicas y del grupo elástico de Azure [SQL Database](sql-database-technical-overview.md) o de las bases de datos de [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas de redes virtuales.
 
 > [!IMPORTANT]
 > Este artículo se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como al almacenamiento de datos de Azure Synapse que se crean en el servidor de Azure SQL. Para simplificar, se usa SQL Database cuando se hace referencia tanto a SQL Database como a Azure Synapse. En cambio, este artículo *no* se aplica a la implementación de la **instancia administrada** de Azure SQL Database, ya que no tiene un punto de conexión de servicio asociado a ella.

@@ -12,21 +12,21 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
 ms.openlocfilehash: 4b1c1a963b065411f1a0ab84141bdf1835930ebb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74973550"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de datos públicos para pruebas y prototipos
 
 Consulte la siguiente lista de conjuntos de datos públicos que puede usar para crear prototipos y probar soluciones y servicios de análisis y de almacenamiento.
 
-## <a name="us-government-and-agency-data"></a>Datos de agencias y el Gobierno de Estados Unidos
+## <a name="us-government-and-agency-data"></a>EE. UU. el Gobierno de Estados Unidos
 
 | Origen de datos | Acerca de los datos | Acerca de los archivos |
 |---|---|---|
-| [Datos del Gobierno de EE. UU.](https://catalog.data.gov/dataset) | Más de 250 000 conjuntos de datos que abarcan campos como: agricultura, clima, productos de consumo, ecosistemas, educación, energía, finanzas, salud, gobierno local, fabricación, marítimo, océano, seguridad pública y ciencia e investigación de Estados Unidos. | Archivos de varios tamaños y en diversos formatos, incluido HTML, XML, CSV, JSON, Excel y muchos otros. Puede filtrar los conjuntos de datos disponibles por formato de archivo. |
+| [Datos del US Gov](https://catalog.data.gov/dataset) | Más de 250 000 conjuntos de datos que abarcan campos como: agricultura, clima, productos de consumo, ecosistemas, educación, energía, finanzas, salud, gobierno local, fabricación, marítimo, océano, seguridad pública y ciencia e investigación de Estados Unidos. | Archivos de varios tamaños y en diversos formatos, incluido HTML, XML, CSV, JSON, Excel y muchos otros. Puede filtrar los conjuntos de datos disponibles por formato de archivo. |
 | [Datos del censo de EE. UU.](https://www.census.gov/data.html) | Datos estadísticos sobre la población de Estados Unidos. | Los conjuntos de datos están en distintos formatos. |
 | [Datos de ciencias de la tierra de NASA](https://earthdata.nasa.gov/) | Más de 32 000 colecciones de datos que abarcan campos como: agricultura, atmósfera, biósfera, clima, criósfera, dimensiones humanas, hidrósfera, superficie de tierra, océanos, interacciones de la tierra y el sol, y mucho más. | Los conjuntos de datos están en distintos formatos. |
 | [Retrasos de vuelos de aerolíneas y otros datos de transporte](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "La Oficina de estadísticas de transporte (Bureau of Transportation Statistics, BTS) del Departamento de Transporte (DOT) de Estados Unidos realiza un seguimiento de la puntualidad de los vuelos nacionales operados por las grandes líneas aéreas. En unas tablas publicadas en este sitio web ... se incluye información resumida sobre el número de vuelos puntuales, retrasados, cancelados y desviados". | Los archivos están en formato CSV. |

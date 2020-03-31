@@ -1,6 +1,6 @@
 ---
-title: 'Azure VMware Solutions (AVS): administración de máquinas virtuales de la nube privada de AVS en Azure'
-description: Se describe cómo administrar máquinas virtuales de la nube privada de AVS en Azure Portal, por ejemplo, agregar discos, cambiar la capacidad de la máquina virtual y agregar interfaces de red.
+title: 'Azure VMware Solution by CloudSimple: administración de máquinas virtuales de nube privada de Azure'
+description: Se describe cómo administrar máquinas virtuales de la nube privada de CloudSimple en Azure Portal, por ejemplo, agregar discos, cambiar la capacidad de la máquina virtual y agregar interfaces de red.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0cce1dc7ff3935a3174d4e96b553a5485950df73
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77015004"
 ---
-# <a name="manage-your-avs-private-cloud-virtual-machines-in-azure"></a>Administración de las máquinas virtuales de la nube privada de AVS en Azure
+# <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Administración de las máquinas virtuales de la nube privada de CloudSimple en Azure
 
-Para administrar las máquinas virtuales que [creó para la nube privada de AVS](azure-create-vm.md), inicie sesión en [Azure Portal](https://portal.azure.com). Busque y seleccione la máquina virtual (busque en **Todos los servicios** o **Máquinas virtuales** en el menú lateral).
+Para administrar las máquinas virtuales que [creó para la nube privada de CloudSimple](azure-create-vm.md), inicie sesión en [Azure Portal](https://portal.azure.com). Busque y seleccione la máquina virtual (busque en **Todos los servicios** o **Máquinas virtuales** en el menú lateral).
 
 ## <a name="control-virtual-machine-operation"></a>Control del funcionamiento de la máquina virtual
 
@@ -56,7 +56,7 @@ Para agregar un disco de máquina virtual, abra la página **Disks** (Discos) de
    | Nombre | Escriba un nombre para identificar el disco.  |
    | Size | Seleccione uno de los tamaños disponibles.  |
    | SCSI Controller (Controladora SCSI) | Seleccione una controladora SCSI. Las controladoras disponibles varían según los distintos sistemas operativos admitidos.  |
-   | Mode | Determina cómo participa el disco en las instantáneas. Elija una de estas opciones: <br> - Independent persistent (Independiente persistente): todos los datos escritos en el disco se escriben de forma permanente.<br> - Independent non-persistent (Independiente no persistente): los cambios escritos en el disco se descartan cuando se apaga o restablece la máquina virtual. Este modo le permite reiniciar siempre la máquina virtual en el mismo estado. Para más información, consulte la [documentación de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
+   | Mode | Determina cómo participa el disco en las instantáneas. Elija una de estas opciones: <br> - Independent persistent (Independiente persistente): todos los datos escritos en el disco se escriben de forma permanente.<br> - Independent non-persistent (Independiente no persistente): los cambios escritos en el disco se descartan cuando se apaga o restablece la máquina virtual.  Este modo le permite reiniciar siempre la máquina virtual en el mismo estado. Para más información, consulte la [documentación de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
 Para eliminar un disco, selecciónelo y haga clic en **Delete** (Eliminar).
 
@@ -77,7 +77,7 @@ Para agregar una interfaz, haga clic en **Add network interface** (Agregar inter
    | Control | Descripción |
    | ------------ | ------------- |
    | Nombre | Escriba un nombre para identificar la interfaz.  |
-   | Red | Seleccione de la lista de redes configuradas en la instancia de vSphere de la nube privada de AVS.  |
+   | Red | Seleccione de la lista de redes configuradas en la nube privada de vSphere.  |
    | Adapter (Adaptador) | Seleccione un adaptador de vSphere en la lista de tipos disponibles configurados para la máquina virtual. Para más información, consulte el artículo de la base de conocimiento de VMware [Elegir un adaptador de red para la máquina virtual](https://kb.vmware.com/s/article/1001805). |
    | Power on at Boot (Encender al arrancar) | Elija si quiere habilitar el hardware de NIC al arrancar la máquina virtual. El valor predeterminado es **Habilitar**. |
 

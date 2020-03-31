@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 08/20/2019
 ms.openlocfilehash: 1ee2efbb8aebfc2f1a94c89edef6166898946d8a
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74422532"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
@@ -78,7 +78,7 @@ Un grupo de sincronización tiene las siguientes propiedades:
 | | Sincronización de datos | Replicación transaccional |
 |---|---|---|
 | Ventajas | - Compatibilidad activo-activo<br/>- Bidireccional entre el entorno local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración |
-| Desventajas | - 5 minutos o más de latencia<br/>- Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde una base de datos única ni agrupada de Azure SQL Database<br/>- Alto costo de mantenimiento |
+| Inconvenientes | - 5 minutos o más de latencia<br/>- Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde una base de datos única ni agrupada de Azure SQL Database<br/>- Alto costo de mantenimiento |
 
 ## <a name="get-started-with-sql-data-sync"></a>Introducción a SQL Data Sync
 
@@ -112,7 +112,7 @@ Data Sync usa desencadenadores de inserción, actualización y eliminación para
 
 El aprovisionamiento y desaprovisionamiento durante la creación, actualización y eliminación de grupos de sincronización pueden afectar también al rendimiento de la base de datos.
 
-## <a name="sync-req-lim"></a> Requisitos y limitaciones
+## <a name="requirements-and-limitations"></a><a name="sync-req-lim"></a> Requisitos y limitaciones
 
 ### <a name="general-requirements"></a>Requisitos generales
 
@@ -146,7 +146,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 
 Data Sync no puede sincronizar las columnas de solo lectura o generadas por el sistema. Por ejemplo:
 
-- Columnas calculadas.
+- Columnas calculadas
 - Columnas generadas por el sistema para tablas temporales.
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Limitaciones de las dimensiones de la base de datos y del servicio

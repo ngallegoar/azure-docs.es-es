@@ -2,18 +2,17 @@
 title: Creación de una cuenta de Marketplace comercial en el Centro de partners
 description: Aprenda a crear una cuenta de Marketplace comercial en el Centro de partners.
 author: qianw211
-manager: evansma
-ms.author: evansma
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 03/10/2020
-ms.openlocfilehash: 59f37585dfea08e9343cf052f680fd6e9531852b
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 82caf46905c0b76deae524d8b172d70b436361d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968819"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281364"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creación de una cuenta de Marketplace comercial en el Centro de partners
 

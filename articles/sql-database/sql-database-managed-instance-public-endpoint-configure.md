@@ -11,11 +11,11 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
 ms.openlocfilehash: 1acd7d6a3b203997e3acd8d7959b1572e09845f3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227994"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228604"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurar un punto de conexión público en una instancia administrada de Azure SQL Database
 
@@ -92,7 +92,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Seleccione la pestaña **Reglas de seguridad de entrada** y **agregue** una regla que tenga mayor prioridad que la regla **deny_all_inbound** con la siguiente configuración: </br> </br>
 
-    |Configuración  |Valor sugerido  |DESCRIPCIÓN  |
+    |Configuración  |Valor sugerido  |Descripción  |
     |---------|---------|---------|
     |**Origen**     |Cualquier dirección IP o etiqueta de servicio         |<ul><li>En servicios de Azure como Power BI, seleccione la etiqueta de servicio en la nube de Azure.</li> <li>En su equipo o máquina virtual de Azure, use la dirección IP de NAT.</li></ul> |
     |**Intervalos de puertos de origen**     |*         |Deje esta opción en * (cualquiera), puesto que los puertos de origen suelen asignarse de forma dinámica y, por lo tanto, son impredecibles. |

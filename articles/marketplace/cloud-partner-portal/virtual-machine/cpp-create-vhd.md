@@ -1,19 +1,18 @@
 ---
 title: Creación de un disco duro virtual compatible con Azure para Azure Marketplace
 description: Se explica cómo crear un disco duro virtual para una oferta de máquina virtual en Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: pabutler
-ms.openlocfilehash: 37fecb8100ec40ace02960a4f3390420a8bfc735
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2014a775edd4e24f5d302d863d0b69d83009b8a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816816"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277997"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Creación de un disco duro virtual compatible con Azure
 

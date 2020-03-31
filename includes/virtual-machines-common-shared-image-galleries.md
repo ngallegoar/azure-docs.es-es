@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: a028a0b5d79b2c79f1da336f033d3e8cac21a2e2
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: a477114bda7d138a6860d21f2fad75e27d968833
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77474244"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80117081"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes administradas. Las galerías de imágenes compartidas proporcionan:
 
@@ -151,7 +151,7 @@ Dado que la galería de imágenes compartidas, la definición de la imagen y la 
 | Compartido con el usuario     | Galería de imágenes compartidas | Definición de imágenes | Versión de la imagen |
 |----------------------|----------------------|--------------|----------------------|
 | Galería de imágenes compartidas | Sí                  | Sí          | Sí                  |
-| Definición de imágenes     | Sin                   | Sí          | Sí                  |
+| Definición de imágenes     | No                   | Sí          | Sí                  |
 
 Se recomienda el uso compartido en el nivel de la galería para una mejor experiencia. No se recomienda compartir las versiones individuales de la imagen. Para más información, consulte [Administración del acceso a los recursos de Azure mediante RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -231,7 +231,7 @@ Para enumerar todos los recursos de Shared Image Gallery en las suscripciones a 
  
    Para enumerar todos los recursos de la galería de imágenes compartidas mediante las suscripciones para las que tiene permiso, use el comando siguiente en la CLI de Azure:
 
-   ```bash
+   ```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
    ```
 

@@ -9,10 +9,10 @@ ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844401"
 ---
 # <a name="coarse-relocalization"></a>Relocalización general
@@ -37,7 +37,7 @@ En general, su aplicación tendrá que adquirir permisos específicos del dispos
 
 Comencemos por crear un proveedor de huellas digitales de sensor y hacer que la sesión sea consciente de ello:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 // Create the sensor fingerprint provider
@@ -50,7 +50,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.LocationProvider = sensorProvider;
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 // Create the sensor fingerprint provider
@@ -64,7 +64,7 @@ cloudSpatialAnchorSession = [[ASACloudSpatialAnchorSession alloc] init];
 cloudSpatialAnchorSession.locationProvider = sensorProvider;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 // Create the sensor fingerprint provider
@@ -78,7 +78,7 @@ cloudSpatialAnchorSession = ASACloudSpatialAnchorSession()
 cloudSpatialAnchorSession!.locationProvider = sensorProvider
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 // Create the sensor fingerprint provider
@@ -91,7 +91,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Create the sensor fingerprint provider
@@ -105,7 +105,7 @@ cloudSpatialAnchorSession = std::make_shared<CloudSpatialAnchorSession>();
 cloudSpatialAnchorSession->LocationProvider(sensorProvider);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 ```cpp
 // Create the sensor fingerprint provider
 PlatformLocationProvider sensorProvider = PlatformLocationProvider();
@@ -132,41 +132,41 @@ A continuación, deberá decidir qué sensores desea usar para la relocalizació
 
 Supongamos que la aplicación ya tiene permiso para acceder a la posición GPS del dispositivo, usted puede configurar los Spatial Anchors de Azure para usarlos:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.GeoLocationEnabled = true;
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.geoLocationEnabled = true;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let sensors = locationProvider?.sensors
 sensors.geoLocationEnabled = true
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->GeoLocationEnabled(true);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors()
@@ -188,7 +188,7 @@ En general, tanto el sistema operativo del dispositivo como los Spatial Anchors 
 
 Si tiene previsto usar el proveedor de huellas digitales del sensor fuera de una sesión de delimitador, asegúrese de iniciarlo antes de solicitar las estimaciones del sensor. Por ejemplo, el código siguiente se encargará de actualizar la posición del dispositivo en el mapa en tiempo real:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 // Game about to start, start tracking the sensors
@@ -211,7 +211,7 @@ while (m_isRunning)
 sensorProvider.Stop();
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 // Game about to start, start tracking the sensors
@@ -231,7 +231,7 @@ while (m_isRunning)
 [sensorProvider stop];
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 // Game about to start, start tracking the sensors
@@ -252,7 +252,7 @@ while m_isRunning
 sensorProvider?.stop()
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 // Game about to start, start tracking the sensors
@@ -272,7 +272,7 @@ while (m_isRunning)
 sensorProvider.stop();
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -292,7 +292,7 @@ while (m_isRunning)
 sensorProvider->Stop();
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 // Game about to start, start tracking the sensors
@@ -318,41 +318,41 @@ sensorProvider.Stop();
 
 Supongamos que la aplicación ya tiene permiso para acceder al estado de WiFi del dispositivo, usted puede configurar los Spatial Anchors de Azure para usarlos:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.WifiEnabled = true;
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.wifiEnabled = true;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let sensors = locationProvider?.sensors
 sensors.wifiEnabled = true
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->WifiEnabled(true);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors()
@@ -376,41 +376,41 @@ Los Spatial Anchors de Azure intentarán crear un mapa de intensidad de señal W
 
 Supongamos que la aplicación ya tiene permiso para acceder al estado de Bluetooth del dispositivo, usted puede configurar los Spatial Anchors de Azure para usarlos:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.BluetoothEnabled = true;
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.bluetoothEnabled = true;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let sensors = locationProvider?.sensors
 sensors.bluetoothEnabled = true
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->BluetoothEnabled(true);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 SensorCapabilities sensors = sensorProvider.Sensors();
@@ -425,7 +425,7 @@ Las balizas suelen ser dispositivos versátiles en los que se puede configurar t
 * implementarlos, normalmente en un patrón normal, como una cuadrícula.
 * Pasar la lista de UUID de baliza única al proveedor de huellas digitales del sensor:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
@@ -436,7 +436,7 @@ sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
 };
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 NSArray *uuids = @[@"22e38f1a-c1b3-452b-b5ce-fdb0f39535c1", @"a63819b9-8b7b-436d-88ec-ea5d8db2acb0"];
@@ -445,7 +445,7 @@ ASASensorCapabilities *sensors = locationProvider.sensors;
 sensors.knownBeaconProximityUuids = uuids;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let uuids = [String]()
@@ -456,7 +456,7 @@ let sensors = locationProvider?.sensors
 sensors.knownBeaconProximityUuids = uuids
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 String uuids[] = new String[2];
@@ -467,7 +467,7 @@ SensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 std::vector<std::string> uuids;
@@ -478,7 +478,7 @@ const std::shared_ptr<SensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->KnownBeaconProximityUuids(uuids);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 std::vector<winrt::hstring> uuids;
@@ -499,7 +499,7 @@ Una vez que haya creado los delimitadores con los datos del sensor asociados, pu
 
 Para que las consultas utilicen los datos del sensor, empiece por crear un criterio de proximidad de dispositivo:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
@@ -514,7 +514,7 @@ anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.NearDevice = nearDeviceCriteria;
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 ASANearDeviceCriteria *nearDeviceCriteria = [[ASANearDeviceCriteria alloc] init];
@@ -529,7 +529,7 @@ ASAAnchorLocateCriteria *anchorLocateCriteria = [[ASAAnchorLocateCriteria alloc]
 anchorLocateCriteria.nearDevice = nearDeviceCriteria;
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let nearDeviceCriteria = ASANearDeviceCriteria()!
@@ -544,7 +544,7 @@ let anchorLocateCriteria = ASAAnchorLocateCriteria()!
 anchorLocateCriteria.nearDevice = nearDeviceCriteria
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
@@ -559,7 +559,7 @@ AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
@@ -574,7 +574,7 @@ auto anchorLocateCriteria = std::make_shared<AnchorLocateCriteria>();
 anchorLocateCriteria->NearDevice(nearDeviceCriteria);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 NearDeviceCriteria nearDeviceCriteria = NearDeviceCriteria();
@@ -598,37 +598,37 @@ Tenga en cuenta que los valores grandes de `MaxResultCount` pueden afectar de ma
 
 Por último, debe indicar a la sesión que use la búsqueda basada en sensor:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 ```
 
-# <a name="objctabobjc"></a>[ObjC](#tab/objc)
+# <a name="objc"></a>[ObjC](#tab/objc)
 
 ```objc
 [cloudSpatialAnchorSession createWatcher:anchorLocateCriteria];
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```java
 cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-ndktabcpp"></a>[C++ NDK](#tab/cpp)
+# <a name="c-ndk"></a>[C++ NDK](#tab/cpp)
 
 ```cpp
 cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);
 ```
 
-# <a name="c-winrttabcppwinrt"></a>[C++ WinRT](#tab/cppwinrt)
+# <a name="c-winrt"></a>[C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);

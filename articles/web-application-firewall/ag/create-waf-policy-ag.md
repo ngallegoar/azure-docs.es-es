@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
 ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77086982"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Cree directivas del Firewall de aplicaciones web para Application Gateway
@@ -69,7 +69,7 @@ Para crear una regla personalizada, seleccione **Agregar regla personalizada** d
 
 [ ![Editar regla personalizada](../media/create-waf-policy-ag/edit-custom-rule.png) ](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
-## <a name="migrate"></a>Migrar la configuración de WAF a una directiva de WAF
+## <a name="migrate-your-waf-config-to-a-waf-policy"></a><a name="migrate"></a>Migrar la configuración de WAF a una directiva de WAF
 
 Si tiene un WAF existente, es posible que haya observado algunos cambios en el portal. En primer lugar, debe identificar el tipo de Directiva que ha habilitado en el WAF. Hay tres estados posibles:
 

@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 222c893f06d9adf77f8a8124af18bc03c5d20bdf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72821429"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Visualización del estado de los trabajos de Azure Import/Export
@@ -28,7 +28,7 @@ Puede realizar el seguimiento del estado de sus trabajos de importación y expor
 
 Verá uno de los siguientes estados de trabajo en función de la fase del proceso en que se encuentre la unidad.
 
-| Estado del trabajo | DESCRIPCIÓN |
+| Estado del trabajo | Descripción |
 |:--- |:--- |
 | Creating | Cuando se crea un trabajo, su estado se establece en **Creating**. Mientras el trabajo se encuentra en el estado **Creating**, el servicio Import/Export asume que las unidades no se han enviado al centro de datos. Un trabajo puede permanecer en este estado hasta un máximo de dos semanas, pasado este tiempo el servicio lo elimina de forma automáticamente. |
 | Envío | Después de enviar el paquete, debe actualizar la información de seguimiento en Azure Portal.  Esto cambia el estado del trabajo a **Shipping**. El trabajo permanecerá en el estado **Shipping** durante un máximo de dos semanas. 
@@ -44,7 +44,7 @@ En la tabla siguiente se describe el ciclo de vida de una unidad individual dura
 
 En la tabla siguiente se describe cada estado por el que puede pasar una unidad de un trabajo.
 
-| Estado de la unidad | DESCRIPCIÓN |
+| Estado de la unidad | Descripción |
 |:--- |:--- |
 | Specified | Para un trabajo de importación, cuando se crea el trabajo desde Azure Portal, el estado inicial de una unidad es **Specified**. Para un trabajo de exportación, ya que cuando se crea el trabajo no se especifica ninguna unidad, el estado inicial de la unidad es **Received**. |
 | Received | La unidad cambia al estado **Received** cuando el servicio Import/Export ha procesado las unidades recibidas de la empresa remitente para un trabajo de importación. Para un trabajo de exportación, el estado inicial de la unidad es **Received**. |

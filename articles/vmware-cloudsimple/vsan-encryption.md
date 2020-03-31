@@ -1,6 +1,6 @@
 ---
-title: 'Azure VMware Solutions (AVS): configuración del cifrado de vSAN para la nube privada de AVS'
-description: Describe cómo configurar la característica de cifrado de software de vSAN para que la nube privada de AVS pueda trabajar con un servidor de administración de claves que se ejecuta en la red virtual de Azure.
+title: 'Azure VMware Solution by CloudSimple: configuración del cifrado de vSAN para una nube privada'
+description: Describe cómo configurar la característica de cifrado de software de vSAN para que la nube privada de CloudSimple pueda trabajar con un servidor de administración de claves que se ejecuta en la red virtual de Azure.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/19/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 056c05701a3915610fb17a7e8c04feb743e38286
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77020648"
 ---
-# <a name="configure-vsan-encryption-for-avs-private-cloud"></a>Configuración del cifrado de vSAN para la nube privada de AVS
+# <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Configuración del cifrado de vSAN para la nube privada de CloudSimple
 
-Puede configurar la característica de cifrado de software de vSAN para que la nube privada de AVS pueda trabajar con un servidor de administración de claves que se ejecuta en la red virtual de Azure.
+Puede configurar la característica de cifrado de software de vSAN para que la nube privada de CloudSimple pueda trabajar con un servidor de administración de claves que se ejecuta en la red virtual de Azure.
 
 VMware requiere el uso de una herramienta externa de servidor de administración de claves (KMS) de terceros que cumple con el protocolo KMIP 1.1 cuando se usa el cifrado de vSAN. Puede aprovechar cualquier servidor de administración de claves compatible que esté certificado por VMware y que esté disponible para Azure.
 
@@ -27,11 +27,11 @@ Esta solución de KMS necesita que:
 
 * Instale, configure y administre una herramienta de KMS de terceros con certificación de VMware en la red virtual de Azure.
 * Proporcione sus propias licencias para la herramienta de KMS.
-* Configure y administre el cifrado de vSAN en la nube privada de AVS mediante la herramienta de KMS de terceros que se ejecuta en la red virtual de Azure.
+* Configure y administre el cifrado de vSAN en la nube privada mediante la herramienta de KMS de terceros que se ejecuta en la red virtual de Azure.
 
 ## <a name="kms-deployment-scenario"></a>Escenario de implementación de KMS
 
-El clúster de servidores de KMS se ejecuta en la red virtual de Azure y es accesible mediante IP desde la instancia de vCenter de la nube privada de AVS a través de la conexión de Azure ExpressRoute configurada.
+El clúster de servidores de KMS se ejecuta en la red virtual de Azure y es accesible mediante IP desde el vCenter de la nube privada a través de la conexión de Azure ExpressRoute configurada.
 
 ![Clúster de /media/KMS en una red virtual de Azure](media/vsan-kms-cluster.png)
 
@@ -40,8 +40,8 @@ El clúster de servidores de KMS se ejecuta en la red virtual de Azure y es acce
 El proceso de implementación consta de los siguientes pasos:
 
 1. [Comprobación de que se cumplen los requisitos previos](#verify-prerequisites-are-met)
-2. [Portal de AVS: Obtención de información de emparejamiento de ExpressRoute](#avs-portal-obtain-expressroute-peering-information)
-3. [Azure Portal: conexión de la red virtual a la nube privada de AVS](#azure-portal-connect-your-virtual-network-to-the-avs-private-cloud)
+2. [Portal de CloudSimple: Obtención de información de emparejamiento de ExpressRoute](#cloudsimple-portal-obtain-expressroute-peering-information)
+3. [Azure Portal: Conexión de la red virtual a la nube privada](#azure-portal-connect-your-virtual-network-to-your-private-cloud)
 4. [Azure Portal: Implementación de un clúster de HyTrust KeyControl en la red virtual](#azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network)
 5. [Interfaz de usuario web de HyTrust: Configuración del servidor de KMIP](#hytrust-webui-configure-the-kmip-server)
 6. [Interfaz de usuario de vCenter: Configuración del cifrado de vSAN para que use el clúster de KMS en la red virtual de Azure](#vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network)
@@ -54,17 +54,17 @@ Compruebe lo siguiente antes de la implementación:
 * El proveedor seleccionado admite que se ejecute una versión de la herramienta en Azure.
 * La versión de Azure de la herramienta de KMS es compatible con KMIP 1.1.
 * Ya se ha creado una instancia de Azure Resource Manager y una red virtual.
-* Ya se ha creado una nube privada de AVS.
+* Ya se ha creado una nube privada de CloudSimple.
 
-### <a name="avs-portal-obtain-expressroute-peering-information"></a>Portal de AVS: Obtención de información de emparejamiento de ExpressRoute
+### <a name="cloudsimple-portal-obtain-expressroute-peering-information"></a>Portal de CloudSimple: Obtención de información de emparejamiento de ExpressRoute
 
-Para continuar con la instalación, necesita la clave de autorización y el identificador URI del circuito del mismo nivel para ExpressRoute además de acceso a su suscripción de Azure. Esta información está disponible en la página Conexión de Virtual Network en el portal de AVS. Para obtener instrucciones, consulte [Configuración de una conexión de red virtual a la nube privada de AVS](virtual-network-connection.md). Si tiene algún problema para obtener la información, [abra una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Para continuar con la instalación, necesita la clave de autorización y el identificador URI del circuito del mismo nivel para ExpressRoute además de acceso a su suscripción de Azure. Esta información está disponible en la página Virtual Network Connection en el portal de CloudSimple. Para obtener instrucciones, consulte [Configuración de una conexión de red virtual a la nube privada](virtual-network-connection.md). Si tiene algún problema para obtener la información, [abra una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### <a name="azure-portal-connect-your-virtual-network-to-the-avs-private-cloud"></a>Azure Portal: conexión de la red virtual a la nube privada de AVS
+### <a name="azure-portal-connect-your-virtual-network-to-your-private-cloud"></a>Azure Portal: Conexión de la red virtual a la nube privada
 
 1. Cree una puerta de enlace de red virtual para la red virtual siguiendo las instrucciones que se encuentran en [Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
-2. Vincule la red virtual al circuito de ExpressRoute de AVS siguiendo las instrucciones de [Conexión de una red virtual con un circuito de ExpressRoute mediante el portal](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
-3. Use la información del circuito de ExpressRoute que recibió en el correo electrónico de bienvenida de AVS para vincular la red virtual al circuito de ExpressRoute de AVS en Azure.
+2. Vincule la red virtual al circuito de ExpressRoute de CloudSimple siguiendo las instrucciones de [Conexión de una red virtual con un circuito de ExpressRoute mediante el portal](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
+3. Use la información del circuito de ExpressRoute que recibió en el correo electrónico de bienvenida de CloudSimple para vincular la red virtual al circuito de ExpressRoute para CloudSimple en Azure.
 4. Escriba la clave de autorización y el identificador URI de circuito del mismo nivel, asigne un nombre a la conexión y haga clic en **Aceptar**.
 
 ![Proporcionar el identificador URI del circuito del mismo nivel de CloudSimple al crear la red virtual](media/vsan-azureportal01.png) 
@@ -75,7 +75,7 @@ Para implementar un clúster de HyTrust KeyControl en la instancia de Azure Reso
 
 1. Cree un grupo de seguridad de red de Azure (nsg-hytrust) con las reglas de entrada especificadas siguiendo las instrucciones de la documentación de HyTrust.
 2. Genere un par de claves SSH en Azure.
-3. Implemente el nodo de KeyControl inicial de la imagen en Azure Marketplace. Use la clave pública del par de claves que se generó y seleccione **nsg-hytrust** como el grupo de seguridad de red para el nodo de KeyControl.
+3. Implemente el nodo de KeyControl inicial de la imagen en Azure Marketplace.  Use la clave pública del par de claves que se generó y seleccione **nsg-hytrust** como el grupo de seguridad de red para el nodo de KeyControl.
 4. Convierta la dirección IP privada de KeyControl en una dirección IP estática.
 5. Conéctese mediante SSH a la máquina virtual de KeyControl mediante su dirección IP pública y la clave privada del par de claves mencionado anteriormente.
 6. Cuando se le solicite en el shell de SSH, seleccione `No` para establecer el nodo como el nodo inicial de KeyControl.

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
 ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252598"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Conexión privada a una cuenta de Azure Cosmos con Azure Private Link
@@ -33,11 +33,11 @@ En esta sección, tendrá que reemplazar los siguientes parámetros de los pasos
 
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroup|
+| **\<nombre-de-grupo-recursos>**  | myResourceGroup|
 | **\<virtual-network-name>** | myVirtualNetwork         |
 | **\<region-name>**          | Centro-Oeste de EE. UU.     |
-| **\<IPv4-address-space>**   | 10.1.0.0\16          |
-| **\<subnet-name>**          | mySubnet        |
+| **\<espacio-de-direcciones-IPv4>**   | 10.1.0.0\16          |
+| **\<nombre-de-subred>**          | mySubnet        |
 | **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]

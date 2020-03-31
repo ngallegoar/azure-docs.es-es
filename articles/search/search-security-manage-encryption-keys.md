@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76899949"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado en reposo de contenido de Azure Cognitive Search mediante claves administradas por el cliente en Azure Key Vault
@@ -28,7 +28,7 @@ No es necesario que las claves estén en el mismo Key Vault. Un solo servicio de
 > [!IMPORTANT] 
 > Esta característica está disponible en la [API de REST, versión 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) y el [SDK de .NET, versión 8.0-preview](search-dotnet-sdk-migration-version-9.md). Actualmente no se admite la configuración de claves de cifrado administradas por el cliente en Azure Portal. El servicio de búsqueda debe crearse después de enero de 2019 y no puede ser un servicio gratuito (compartido).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este ejemplo se usan los servicios siguientes. 
 
@@ -211,7 +211,7 @@ Ahora puede enviar la solicitud de creación del mapa de sinónimos y, a continu
 > Aunque **encryptionKey** no se puede agregar a los índices ni a los mapas de sinónimos existentes de Azure Cognitive Search, se puede actualizar si se proporcionan diferentes valores para cualquiera de los tres datos del almacén de claves (por ejemplo, la actualización de la versión de la clave). Al cambiar a una nueva clave o a una nueva versión de clave de Key Vault, el índice o el mapa de sinónimos de Azure Cognitive Search que usen la clave deben actualizarse primero para utilizar la nueva versión o clave **antes** de eliminar las anteriores. Si no lo hace, el índice o el mapa de sinónimos quedarán inutilizables, ya que no podrá descifrar el contenido una vez que se pierda el acceso a la clave.   
 > La restauración de los permisos de acceso al almacén de claves en un momento posterior restaurará el acceso al contenido.
 
-## <a name="aad-app"></a> Avanzado: Uso de una aplicación de Azure Active Directory administrada externamente
+## <a name="advanced-use-an-externally-managed-azure-active-directory-application"></a><a name="aad-app"></a> Avanzado: Uso de una aplicación de Azure Active Directory administrada externamente
 
 Cuando una identidad administrada no es posible, puede crear una aplicación de Azure Active Directory con una entidad de seguridad para el servicio de Azure Cognitive Search. En concreto, una identidad administrada no es viable en estas condiciones:
 

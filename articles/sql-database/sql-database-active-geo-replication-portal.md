@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348877"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228688"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configuración de replicación geográfica activa para Azure SQL Database en Azure Portal e inicio de la conmutación por error
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo configurar la [replicación geográfica activ
 
 Para información sobre los grupos de conmutación por error automática con bases de datos únicas y agrupadas, consulte [Procedimientos recomendados para usar grupos de conmutación por error con bases de datos únicas y agrupadas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Para información sobre los grupos de conmutación por error automática con instancias administradas, consulte [Procedimientos recomendados para usar grupos de conmutación por error con instancias administradas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la replicación geográfica activa mediante Azure Portal, necesita el siguiente recurso:
 

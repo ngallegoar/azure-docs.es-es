@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: eebe66ca038b31f23ca864b107816b8cf761b29c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75860554"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante PowerShell
@@ -28,7 +28,7 @@ Los pasos descritos en este artículo se aplican al modelo de implementación de
 > * [Conexión de diferentes modelos de implementación - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Conexión de diferentes modelos de implementación - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 
-## <a name="about"></a>Acerca de la conexión de redes virtuales
+## <a name="about-connecting-vnets"></a><a name="about"></a>Acerca de la conexión de redes virtuales
 
 Hay varias formas de conectar redes virtuales. Las siguientes secciones describen distintas formas de conectar redes virtuales.
 
@@ -44,7 +44,7 @@ Si puntualmente trabaja con una configuración de red complicada, puede que pref
 
 Puede que desee considerar conectar sus redes virtuales mediante el emparejamiento de VNET. El emparejamiento de VNET no utiliza una puerta de enlace de VPN y tiene distintas restricciones. Además, [los precios del emparejamiento de VNET](https://azure.microsoft.com/pricing/details/virtual-network) se calculan de forma diferente que los [precios de VPN Gateway entre redes virtuales](https://azure.microsoft.com/pricing/details/vpn-gateway). Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
 
-## <a name="why"></a>¿Por qué crear una conexión de red virtual a red virtual?
+## <a name="why-create-a-vnet-to-vnet-connection"></a><a name="why"></a>¿Por qué crear una conexión de red virtual a red virtual?
 
 Puede que desee conectar redes virtuales con una conexión entre redes virtuales por las siguientes razones:
 
@@ -58,7 +58,7 @@ Puede que desee conectar redes virtuales con una conexión entre redes virtuales
 
 Se puede combinar la comunicación entre redes virtuales con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales.
 
-## <a name="steps"></a>¿Qué instrucciones para la conexión entre redes virtuales debo seguir?
+## <a name="which-vnet-to-vnet-steps-should-i-use"></a><a name="steps"></a>¿Qué instrucciones para la conexión entre redes virtuales debo seguir?
 
 En este artículo, verá dos conjuntos de pasos diferentes. Un conjunto de pasos para las [redes virtuales que residen en la misma suscripción](#samesub) y otro para las [redes virtuales que residen en suscripciones diferentes](#difsub).
 La principal diferencia entre ambos conjuntos es que debe utilizar sesiones de PowerShell independientes al configurar las conexiones de redes virtuales que residen en distintas suscripciones. 
@@ -73,7 +73,7 @@ Para este ejercicio, puede combinar las configuraciones, o bien elegir con la qu
 
   ![diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-## <a name="samesub"></a>Conexión de redes virtuales que están en la misma suscripción
+## <a name="how-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Conexión de redes virtuales que están en la misma suscripción
 
 ### <a name="before-you-begin"></a>Antes de empezar
 
@@ -83,7 +83,7 @@ Para este ejercicio, puede combinar las configuraciones, o bien elegir con la qu
 
 * Si prefiere instalar la versión más reciente del módulo Azure PowerShell localmente, consulte el artículo de [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
-### <a name="Step1"></a>Paso 1: Planeamiento de los intervalos de direcciones IP
+### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Paso 1: Planeamiento de los intervalos de direcciones IP
 
 En los pasos siguientes, se crean dos redes virtuales junto con sus subredes de puerta de enlace y configuraciones correspondientes. Luego, se crea una conexión VPN entre las dos redes virtuales. Es importante planear los intervalos de direcciones IP para la configuración de red. Tenga en cuenta que hay que asegurarse de que ninguno de los intervalos de VNet o intervalos de red local se solapen. En estos ejemplos, no se incluye ningún servidor DNS. Si desea disponer de resolución de nombres en las redes virtuales, consulte [Resolución de nombres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -93,7 +93,7 @@ En los ejemplos usamos los siguientes valores:
 
 * Nombre de la red virtual: TestVNet1
 * Grupo de recursos: TestRG1
-* Ubicación: East US
+* Ubicación: Este de EE. UU.
 * TestVNet1: 10.11.0.0/16 y 10.12.0.0/16
 * front-end: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
@@ -121,7 +121,7 @@ En los ejemplos usamos los siguientes valores:
 * ConnectionType: VNet2VNet
 
 
-### <a name="Step2"></a>Paso 2: Creación y configuración de TestVNet1
+### <a name="step-2---create-and-configure-testvnet1"></a><a name="Step2"></a>Paso 2: Creación y configuración de TestVNet1
 
 1. Compruebe la configuración de la suscripción.
 
@@ -292,7 +292,7 @@ Espere hasta que se hayan completado ambas puertas de enlace. Reinicie la sesió
    ```
 4. Compruebe la conexión. Consulte la sección [Comprobación de la conexión](#verify).
 
-## <a name="difsub"></a>Conexión de redes virtuales que están en suscripciones diferentes
+## <a name="how-to-connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>Conexión de redes virtuales que están en suscripciones diferentes
 
 En este escenario, se conectan TestVNet1 y TestVNet5. TestVNet1 y TestVNet5 residen en suscripciones diferentes. Las suscripciones no necesitan estar asociadas con el mismo inquilino de Active Directory.
 
@@ -312,7 +312,7 @@ Es importante asegurarse de que el espacio de direcciones IP de la red virtual n
 
 * Nombre de la red virtual: TestVNet5
 * Grupo de recursos: TestRG5
-* Ubicación: Este de Japón
+* Ubicación: Japón Oriental
 * TestVNet5: 10.51.0.0/16 y 10.52.0.0/16
 * front-end: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
@@ -471,13 +471,13 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
    New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
 
-## <a name="verify"></a>Comprobación de una conexión
+## <a name="how-to-verify-a-connection"></a><a name="verify"></a>Comprobación de una conexión
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
+## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 

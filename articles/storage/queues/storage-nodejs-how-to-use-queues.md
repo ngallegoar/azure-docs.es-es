@@ -2,19 +2,19 @@
 title: 'Uso de Azure Queue Storage de Node.js: Azure Storage'
 description: Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Node.js.
 author: mhopkins-msft
-ms.service: storage
 ms.author: mhopkins
 ms.date: 12/08/2016
+ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 9eee7f6b321a5ba660e1a0a5a48771c599746bcb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 7abcad03678131668700f5d2c64b9c971081cb89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673081"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060934"
 ---
 # <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Uso de Azure Queue service para crear y eliminar colas de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -242,7 +242,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 Para borrar todos los mensajes de una cola sin eliminarla, use **clearMessages**.
 
-## <a name="how-to-work-with-shared-access-signatures"></a>Procedimientos para: Trabajo con firmas de acceso compartido
+## <a name="how-to-work-with-shared-access-signatures"></a>Procedimientos: Trabajo con firmas de acceso compartido
 Las firmas de acceso compartido (SAS) constituyen una manera segura de ofrecer acceso granular a las colas sin proporcionar el nombre o las claves de su cuenta de almacenamiento. Las SAS se usan con frecuencia para proporcionar acceso limitado a sus colas, por ejemplo, para permitir que una aplicación móvil envíe mensajes.
 
 Una aplicación de confianza, como un servicio basado en la nube, genera una SAS mediante el valor de **generateSharedAccessSignature** del elemento **QueueService**, y lo proporciona a una aplicación en la que no se confía o en la que se confía parcialmente. Por ejemplo, una aplicación móvil. La SAS se genera usando una directiva que describe las fechas de inicio y de finalización durante las cuales la SAS es válida, junto con el nivel de acceso otorgado al titular de la SAS.

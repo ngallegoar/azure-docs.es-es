@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8aa4fe143c78d2053ce8c48e4866a5522057aa0c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063028"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migración a Azure Virtual WAN
@@ -57,7 +57,7 @@ El equipo de redes se ha encargado de ofrecer un modelo de red global que puede 
   - **De red virtual a concentrador a concentrador a red virtual**: las redes virtuales radiales de las distintas regiones deben ser capaces de comunicarse entre sí.
 - Proporcionar la capacidad de los usuarios móviles de Contoso (portátil y teléfono) de acceder a los recursos de la empresa mientras no se encuentren en la red corporativa.
 
-## <a name="architecture"></a>Arquitectura de Azure Virtual WAN
+## <a name="azure-virtual-wan-architecture"></a><a name="architecture"></a>Arquitectura de Azure Virtual WAN
 
 En la figura siguiente se muestra una vista de alto nivel de la topología de destino actualizada con Azure Virtual WAN para cumplir los requisitos detallados en la sección anterior.
 

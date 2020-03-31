@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: 8c76333d5a2be8a2c589dbe54389b023fef34854
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252531"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Conexión privada a una cuenta de almacenamiento mediante el punto de conexión privado de Azure
@@ -38,11 +38,11 @@ En los pasos de esta sección, tendrá que reemplazar los siguientes parámetros
 | Parámetro                   | Value                |
 |-----------------------------|----------------------|
 | **\<nombre-de-grupo-recursos>**  | myResourceGroup |
-| **\<nombre-de-red-virtual>** | myVirtualNetwork          |
-| **\<nombre-de-región>**          | Centro-Oeste de EE. UU.      |
+| **\<virtual-network-name>** | myVirtualNetwork          |
+| **\<region-name>**          | Centro-Oeste de EE. UU.      |
 | **\<espacio-de-direcciones-IPv4>**   | 10.1.0.0\16          |
 | **\<nombre-de-subred>**          | mySubnet        |
-| **\<intervalo-de-direcciones-de-subred>** | 10.1.0.0\24          |
+| **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 

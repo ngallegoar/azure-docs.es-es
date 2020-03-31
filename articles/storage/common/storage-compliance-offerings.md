@@ -9,10 +9,10 @@ ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61483441"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de cumplimiento de Azure Storage
@@ -34,7 +34,7 @@ Puede buscar en las ofertas de cumplimiento de Azure Storage para asegurarse de 
 * [ISO 9001](https://www.microsoft.com/trustcenter/compliance/iso-9001)
 * [WCAG 2.0](https://www.microsoft.com/trustcenter/compliance/accessibility#WCAG-2-0)
 
-## <a name="us-government"></a>Gobierno de Estados Unidos
+## <a name="us-government"></a>US Gov
 
 * [DoD DISA L2, L4, L5](https://www.microsoft.com/trustcenter/compliance/disa)
 * [DoE 10 CFR Sección 810](https://aka.ms/AzureCompliance)

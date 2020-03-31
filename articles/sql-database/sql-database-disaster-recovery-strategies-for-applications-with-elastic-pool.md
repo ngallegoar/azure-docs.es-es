@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
 ms.openlocfilehash: 4eeaa187142a6d0d97b12f685ebc455f3844606f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825869"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estrategias de recuperación ante desastres para aplicaciones que usan grupos elásticos de SQL Database
@@ -47,7 +47,7 @@ En el caso de una interrupción en la región primaria, en el diagrama siguiente
 
 En este momento, la aplicación vuelve a estar conectada en la región de recuperación ante desastres, pero algunos clientes experimentarán una demora al tener acceso a sus datos.
 
-![Ilustración 2](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-2.png)
+![Figura 2](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-2.png)
 
 Si la interrupción fue temporal, es posible que Azure recupere la región primaria antes de que todas las restauraciones de bases de datos se completen en la región de recuperación ante desastres. En este caso, organice el regreso de la aplicación a la región primaria. El proceso realizará los pasos que se muestran en el diagrama siguiente.
 
@@ -61,7 +61,7 @@ Si la interrupción fue temporal, es posible que Azure recupere la región prima
 
 En este momento la aplicación estará en línea en la región primaria con todas las bases de datos de inquilino disponibles en el grupo principal.
 
-![Ilustración 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
+![Figura 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
 
 La principal **ventaja** de esta estrategia es el bajo costo continuo para la redundancia de nivel de datos. Las copias de seguridad las realiza automáticamente el servicio SQL Database sin necesidad de reescritura de aplicación y sin costo adicional.  El costo se contrae solo cuando se restauran las bases de datos elásticas. El **inconveniente** es que la recuperación completa de todas las bases de datos de inquilino tarda mucho tiempo. El tiempo dependerá del número total de restauraciones que se inicien en la región de recuperación ante desastres y del tamaño general de las bases de datos de inquilino. Aunque si se priorizan algunas restauraciones de inquilinos sobre otras, estará compitiendo con todas las demás restauraciones que se inicien en la misma región, ya que el servicio arbitrará y se limitará para minimizar la repercusión global en las bases de datos de los clientes existentes. Además, la recuperación de las bases de datos de inquilino no podrá iniciarse hasta que se cree el nuevo grupo elástico en la región de recuperación ante desastres.
 
@@ -71,7 +71,7 @@ Tengo una aplicación de SaaS desarrollada con ofertas de servicio en capas y di
 
 Para admitir este escenario, separe los inquilinos de versiones de prueba de los inquilinos de versiones de pago, colocándolos en grupos elásticos independientes. Los clientes de versiones de prueba tienen menos eDTU o núcleos virtuales por inquilino y un Acuerdo de Nivel de Servicio menor con un tiempo de recuperación mayor. Los clientes de versiones de pago se encuentran en un grupo con más eDTU o núcleos virtuales por inquilino y un Acuerdo de Nivel de Servicio superior. Para garantizar el menor tiempo de recuperación, las bases de datos de inquilino de los clientes de versiones de pago deben replicarse geográficamente. En el siguiente diagrama se ilustra esta configuración.
 
-![Ilustración 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
+![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
 Al igual que en el primer escenario, las bases de datos de administración estarán bastante activas, por tanto puede utilizar una base de datos única de replicación geográfica para ello (1). Esto garantiza un rendimiento predecible para las nuevas suscripciones de cliente, actualizaciones del perfil y otras operaciones de administración. La región en la que residen los principales de las bases de datos de administración será la región primaria y la región en la que residen los secundarios de las bases de datos de administración será la región de recuperación ante desastres.
 
@@ -79,7 +79,7 @@ Las bases de datos de inquilino de los clientes con versiones de pago tienen bas
 
 En el caso de una interrupción en la región principal, en el diagrama siguiente se muestran los pasos de recuperación para volver a conectar la aplicación.
 
-![Ilustración 5.](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
+![Figura 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
 * Realice inmediatamente una conmutación por error en las bases de datos de administración en la región de recuperación ante desastres (3).
 * Cambie la cadena de conexión de la aplicación para que apunte a la región de recuperación ante desastres. Ahora todas las cuentas nuevas y las bases de datos de inquilino se crean en la región de recuperación ante desastres. Los clientes de versiones de prueba existentes verán que sus datos no están disponibles temporalmente.
@@ -115,7 +115,7 @@ Para este escenario, use tres grupos elásticos independientes. Aprovisione dos 
 
 Para garantizar el menor tiempo de recuperación durante las interrupciones en las bases de datos de inquilino de los clientes de versiones de pago, deben replicarse geográficamente con el 50 % de las bases de datos principales en cada una de las dos regiones. De forma similar, cada región tiene el 50 % de las bases de datos secundarias. De este modo si una región está sin conexión, solo el 50 % de las bases de datos de los clientes de versiones de pago se ven afectados y tienen que realizar la conmutación por error. Las otras bases de datos permanecen intactas. Esta configuración se ilustra en el diagrama siguiente:
 
-![Ilustración 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
+![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
 Al igual que en los escenarios anteriores, las bases de datos de administración están bastante activas, por tanto debe configurarlas como bases de datos únicas de replicación geográfica (1). Esto garantiza un rendimiento predecible para las nuevas suscripciones de cliente, actualizaciones del perfil y otras operaciones de administración. La región A es la región primaria de las bases de datos de administración y la región B se usa para la recuperación de las bases de datos de administración.
 
@@ -123,7 +123,7 @@ Las bases de datos de inquilino de los clientes de versiones de pago también se
 
 El siguiente diagrama ilustra los pasos de recuperación que hay que llevar a cabo si se produce una interrupción en la región A.
 
-![Ilustración 5.](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
+![Figura 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
 * Realice inmediatamente una conmutación por error en las bases de datos de administración en la región B (3).
 * Cambie la cadena de conexión de la aplicación para que señale a las bases de datos de administración de la región B. Modifique las bases de datos de administración para asegurarse de que las nuevas cuentas y bases de datos de inquilino se crearán en la región B y que las bases de datos de inquilino existentes se encontrarán allí también. Los clientes de versiones de prueba existentes verán que sus datos no están disponibles temporalmente.

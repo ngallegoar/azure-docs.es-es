@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: manayar
-ms.openlocfilehash: 222f26febb7b14c627307295a8cdd68a17694d03
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 74195e83e17140b67ac060e1791c580e90e720f6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275896"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534446"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -162,7 +162,7 @@ Para más información, consulte el artículo sobre la [creación o actualizaci�
 ### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>¿Cómo uso certificados autofirmados aprovisionados para clústeres de Azure Service Fabric?
 Para el último ejemplo, utilice la siguiente instrucción de la CLI de Azure en el shell de Azure, lea la documentación de ejemplo del módulo de la CLI de Service Fabrics, que se imprimirá en stdout:
 
-```bash
+```azurecli
 az sf cluster create -h
 ```
 
@@ -331,7 +331,7 @@ Desde la perspectiva del cumplimiento, los conjuntos de escalado de máquinas vi
 
 Para más información, consulte el [Centro de confianza de Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>¿Las [identidades administradas para los recursos de Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funcionan con los conjuntos de escalado de máquinas virtuales?
+### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>¿Las [identidades administradas para los recursos de Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funcionan con los conjuntos de escalado de máquinas virtuales?
 
 Sí. Puede ver algunas plantillas MSI de ejemplo en las plantillas de inicio rápido de Azure para  [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) y [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
@@ -521,6 +521,7 @@ Para implementar un conjunto de escalado de máquinas virtuales en una red virtu
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>¿Puedo usar conjuntos de escalado con redes aceleradas?
 
 Sí. Para usar las redes aceleradas, establezca enableAcceleratedNetworking en true en los ajustes de networkInterfaceConfigurations de su conjunto de escalado. Por ejemplo
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -540,6 +541,7 @@ Sí. Para usar las redes aceleradas, establezca enableAcceleratedNetworking en t
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>¿Cómo puedo configurar los servidores DNS usados por un conjunto de escalado?
 
 Para crear un conjunto de escalado de máquina virtual con una configuración de DNS personalizada, agregue un paquete JSON dnsSettings a la sección de networkInterfaceConfigurations del conjunto de escalado. Ejemplo:
+
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -639,9 +641,11 @@ Sí, puede usar la operación de restablecimiento de la imagen inicial para rest
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>¿Es posible integrar conjuntos de escalado con los registros de Azure Monitor?
 
 Sí, puede hacerlo instalando la extensión de Azure Monitor en las máquinas virtuales del conjunto de escalado. A continuación se ofrece un ejemplo de CLI de Azure:
-```
+
+```azurecli
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
+
 Puede encontrar los elementos workspaceId y workspaceKey requeridos en el área de trabajo de Log Analytics de Azure Portal. En la página Información general, haga clic en el icono Configuración. Haga clic en la pestaña Orígenes conectados en la parte superior.
 
 > [!NOTE]

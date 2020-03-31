@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: c09727e8d92a449b41124eae6ad8381d66cb2619
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113309"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Conexión e indexación de contenido de Azure SQL Database mediante un indizador de Azure Cognitive Search
@@ -39,8 +39,8 @@ Un único indexador solo puede consumir una tabla o vista, pero puede crear vari
 Puede instalar y configurar un indexador de SQL de Azure mediante:
 
 * El asistente para importar datos en [Azure Portal](https://portal.azure.com)
-* [SDK para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) de Búsqueda cognitiva de Azure
-* [API de REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) de Búsqueda cognitiva de Azure
+* [SDK para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) de Azure Cognitive Search
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) de Azure Cognitive Search
 
 En este artículo, usaremos la API de REST para crear **indexadores** y **orígenes de datos**.
 
@@ -157,7 +157,7 @@ También puede disponer que el indizador se ejecute periódicamente según una p
 
 El parámetro **interval** es obligatorio. El intervalo se refiere al tiempo entre el inicio de dos ejecuciones consecutivas de indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
-Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Búsqueda cognitiva de Azure](search-howto-schedule-indexers.md).
+Para más información sobre cómo definir las programaciones del indexador, consulte [Programación de indexadores para Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 

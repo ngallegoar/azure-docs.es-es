@@ -1,6 +1,6 @@
 ---
-title: 'Azure VMware Solution (AVS): extensión de una red de Capa 2 en el entorno local a la nube privada de AVS'
-description: Describe cómo configurar una VPN de Capa 2 entre NSX-T en una nube privada de AVS y un cliente de NSX Edge independiente local.
+title: 'Azure VMware Solution by CloudSimple: extensión de una red de Capa 2 en el entorno local a la nube privada'
+description: Se describe cómo configurar una VPN de Capa 2 entre NSX-T en una nube privada de CloudSimple y un cliente de NSX Edge independiente local.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/19/2019
@@ -8,29 +8,29 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d4e25074203ddcc016f54842f25f52017c6137f0
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 2ddfa9611143d5c3f823539e018c8afc885c6a46
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77083215"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migración de cargas de trabajo mediante redes extendidas de Capa 2
 
-En esta guía, aprenderá a usar la VPN de Capa 2 (L2VPN) para extender una red de Capa 2 desde el entorno local a la nube privada de AVS. Esta solución permite la migración de cargas de trabajo que se ejecutan en el entorno de VMware local a la nube privada de AVS en Azure en el mismo espacio de direcciones de subred sin tener que volver a crear las direcciones IP de las cargas de trabajo.
+En esta guía, aprenderá a usar la VPN de Capa 2 (L2VPN) para extender una red de Capa 2 desde el entorno local a la nube privada de CloudSimple. Esta solución permite la migración de cargas de trabajo que se ejecutan en el entorno de VMware local a la nube privada de Azure en el mismo espacio de direcciones de subred sin tener que volver a crear las direcciones IP de las cargas de trabajo.
 
 La extensión basada en L2VPN de redes de Capa 2 puede funcionar con o sin redes basadas en NSX en el entorno de VMware local. Si no tiene redes basadas en NSX para cargas de trabajo locales, puede utilizar una puerta de enlace de servicios de NSX Edge independiente.
 
 > [!NOTE]
-> En esta guía se describe el escenario en el que los centros de datos de nube privada de AVS y local se conectan a través de VPN de sitio a sitio.
+> En esta guía se describe el escenario en el que los centros de datos de nube privada y local se conectan a través de VPN de sitio a sitio.
 
 ## <a name="deployment-scenario"></a>Escenario de implementación
 
-Para extender la red local mediante L2VPN, debe configurar un servidor de L2VPN (enrutador de nivel 0 de NSX-T de destino) y un cliente L2VPN (cliente independiente de origen). 
+Para extender la red local mediante L2VPN, debe configurar un servidor de L2VPN (enrutador de nivel 0 de NSX-T de destino) y un cliente L2VPN (cliente independiente de origen).  
 
-En este escenario de implementación, la nube privada de AVS se conecta al entorno local mediante un túnel VPN de sitio a sitio que permite a las subredes de vMotion y de administración locales comunicarse con las subredes de vMotion y de administración de la nube privada de AVS. Esta disposición es necesaria para Cross vCenter vMotion (xVC-vMotion). Un enrutador de nivel 0 de NSX-T se implementa como un servidor de L2VPN en la nube privada de AVS.
+En este escenario de implementación, la nube privada se conecta al entorno local mediante un túnel VPN de sitio a sitio que permite a las subredes de vMotion y de administración locales comunicarse con las subredes de vMotion y de administración de la nube privada. Esta disposición es necesaria para Cross vCenter vMotion (xVC-vMotion). Un enrutador de nivel 0 de NSX-T se implementa como un servidor de L2VPN en la nube privada.
 
-NSX Edge independiente se implementa en el entorno local como un cliente L2VPN y, posteriormente, se empareja con el servidor de L2VPN. Se crea un punto de conexión de túnel GRE en cada lado y se configura para "extender" la red de Capa 2 local a la nube privada de AVS. Esta configuración se describe en la siguiente ilustración.
+NSX Edge independiente se implementa en el entorno local como un cliente L2VPN y, posteriormente, se empareja con el servidor de L2VPN. Se crea un punto de conexión de túnel GRE en cada lado y se configura para "extender" la red de Capa 2 local a la nube privada. Esta configuración se describe en la siguiente ilustración.
 
 ![Escenario de implementación](media/l2vpn-deployment-scenario.png)
 
@@ -42,18 +42,18 @@ Compruebe que se ha implementado lo siguiente antes de implementar y configurar 
 
 * La versión local de vSphere es 6.7U1+ o 6.5P03+.
 * La licencia de vSphere local se encuentra en el nivel Enterprise Plus (del conmutador distribuido de vSphere).
-* Identifique la red de Capa 2 de la carga de trabajo que se va a extender a la nube privada de AVS.
+* Identifique la red de Capa 2 de la carga de trabajo que se va a extender a la nube privada.
 * Identifique una red de Capa 2 en el entorno local para implementar el dispositivo cliente L2VPN.
-* [Ya se ha creado una nube privada de AVS](create-private-cloud.md).
-* La versión del dispositivo de Edge de NSX-T independiente es compatible con la versión del administrador de NSX-T (NSX-T 2.3.0) que se usa en el entorno de nube privada de AVS.
+* [Ya se ha creado una nube privada](create-private-cloud.md).
+* La versión del dispositivo de Edge de NSX-T independiente es compatible con la versión del administrador de NSX-T (NSX-T 2.3.0) que se usa en el entorno de nube privada.
 * Se ha creado un grupo de puertos de tronco en el entorno local de vCenter con las transmisiones falsificadas habilitadas.
 * Se ha reservado una dirección IP pública para su uso en la dirección IP de vínculo superior del cliente independiente de NSX-T, y NAT 1:1 está lista para la traducción entre las dos direcciones.
-* El reenvío de DNS está configurado en los servidores DNS locales para que el dominio az.cloudsimple.io apunte a los servidores DNS de la nube privada de AVS.
+* El reenvío de DNS está configurado en los servidores DNS locales para que el dominio az.cloudsimple.io apunte a los servidores DNS de la nube privada.
 * La latencia de RTT es menor o igual que 150 ms, según sea necesario para que vMotion funcione en los dos sitios.
 
 ## <a name="limitations-and-considerations"></a>Limitaciones y consideraciones
 
-En la tabla siguiente se enumeran las versiones de vSphere compatibles y los tipos de adaptadores de red. 
+En la tabla siguiente se enumeran las versiones de vSphere compatibles y los tipos de adaptadores de red.  
 
 | Versión de vSphere | Tipo de vSwitch de origen | Controlador de NIC virtual | Tipo de vSwitch de destino | Se admite? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
@@ -64,7 +64,7 @@ En la tabla siguiente se enumeran las versiones de vSphere compatibles y los tip
 
 A partir de la versión de VMware NSX-T 2.3:
 
-* El conmutador lógico en el lado de la nube privada de AVS que se extiende al entorno local a través de L2VPN no se puede enrutar al mismo tiempo. El conmutador lógico extendido no puede estar conectado a un enrutador lógico.
+* El conmutador lógico en el lado de la nube privada que se extiende al entorno local a través de L2VPN no se puede enrutar al mismo tiempo. El conmutador lógico extendido no puede estar conectado a un enrutador lógico.
 * Las VPN de IPSEC basadas en enrutamiento y L2VPN solo se pueden configurar mediante llamadas API.
 
 Para obtener más información, consulte [Redes privadas virtuales](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58.html#GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58__section_44B4972B5F12453B90625D98F86D5704) en la documentación de VMware.
@@ -88,7 +88,7 @@ Para obtener más información, consulte [Redes privadas virtuales](https://docs
 | VLAN | 472 |
 | CIDR| 10.250.3.0/24 |
 
-### <a name="avs-private-cloud-ip-schema-for-nsx-t-tier0-router-l2-vpn-serve"></a>Esquema IP de la nube privada de AVS para el enrutador de nivel 0 de NSX-T (servicio de VPN de Capa 2)
+### <a name="private-cloud-ip-schema-for-nsx-t-tier0-router-l2-vpn-serve"></a>Esquema IP de la nube privada para el enrutador de nivel 0 de NSX-T (servicio de VPN de Capa 2)
 
 | **Elemento** | **Valor** |
 |------------|-----------------|
@@ -97,7 +97,7 @@ Para obtener más información, consulte [Redes privadas virtuales](https://docs
 | Conmutador lógico (extendido) | Stretch_LS |
 | Interfaz de bucle invertido (dirección IP de NAT) | 104.40.21.81 |
 
-### <a name="avs-private-cloud-network-to-be-mapped-to-the-stretched-network"></a>Red en la nube privada de AVS que se va a asignar a la red extendida
+### <a name="private-cloud-network-to-be-mapped-to-the-stretched-network"></a>Red en la nube privada que se va a asignar a la red extendida
 
 | **Elemento** | **Valor** |
 |------------|-----------------|
@@ -116,7 +116,7 @@ En los pasos siguientes se muestra cómo capturar el identificador del enrutador
 
     ![IP de administración de notas](media/l2vpn-fetch02.png)
 
-3. Abra una sesión de SSH en la dirección IP de administración de la VM de Edge. Ejecute el comando ```get logical-router``` con el nombre de usuario **admin** y la contraseña **AVS 123!** .
+3. Abra una sesión de SSH en la dirección IP de administración de la VM de Edge. Ejecute el comando ```get logical-router``` con el nombre de usuario de **administrador** y la contraseña **CloudSimple 123!** .
 
     ![obtención de la salida del enrutador lógico](media/l2vpn-fetch03.png)
 
@@ -126,7 +126,7 @@ En los pasos siguientes se muestra cómo capturar el identificador del enrutador
 
     ![Creación de un servidor lógico](media/l2vpn-fetch04.png)
 
-6. Adjunte el modificador ficticio al enrutador de nivel 1 con una dirección IP local de vínculo o cualquier subred no superpuesta desde el entorno local o la nube privada de AVS. Consulte [Agregar un puerto de vínculo inferior en un enrutador lógico de nivel 1](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-E7EA867C-604C-4224-B61D-2A8EF41CB7A6.html) en la documentación de VMware.
+6. Adjunte el modificador ficticio al enrutador de nivel 1 con una dirección IP local de vínculo o cualquier subred no superpuesta desde el entorno local o la nube privada. Consulte [Agregar un puerto de vínculo inferior en un enrutador lógico de nivel 1](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-E7EA867C-604C-4224-B61D-2A8EF41CB7A6.html) en la documentación de VMware.
 
     ![Asociación de un conmutador ficticio](media/l2vpn-fetch05.png)
 
@@ -148,7 +148,7 @@ Para establecer una instancia de VPN basada en rutas de IPsec entre el enrutador
 
 ### <a name="allow-udp-5004500-for-ipsec"></a>Permitir UDP 500/4500 para IPsec
 
-1. [Cree una dirección IP pública](public-ips.md) para la interfaz de bucle invertido de NSX-T de nivel 0 en el portal de AVS.
+1. [Cree una dirección IP pública](public-ips.md) para la interfaz de bucle invertido de NSX-T de nivel 0 en el portal de CloudSimple.
 
 2. [Cree una tabla de firewall](firewall.md) con reglas con estado que permitan el tráfico de entrada UDP 500/4500 y adjunten la tabla de firewall a la subred HostTransport de NSX-T.
 
@@ -173,9 +173,9 @@ Para establecer una instancia de VPN basada en rutas de IPsec entre el enrutador
 
 ## <a name="configure-a-route-based-vpn-on-the-nsx-t-tier0-router"></a>Configuración de una VPN basada en rutas en el enrutador de nivel 0 de NSX-T
 
-Use la plantilla siguiente para rellenar todos los detalles de configuración de una VPN basada en rutas en el enrutador de nivel 0 de NSX-T. El UUID de cada llamada POST es necesario en las llamadas POST posteriores. Las direcciones IP de las interfaces de bucle invertido y de túnel para L2VPN deben ser únicas y no superponerse con las redes locales o en la nube privada de AVS.
+Use la plantilla siguiente para rellenar todos los detalles de configuración de una VPN basada en rutas en el enrutador de nivel 0 de NSX-T. El UUID de cada llamada POST es necesario en las llamadas POST posteriores. Las direcciones IP de las interfaces de bucle invertido y de túnel para L2VPN deben ser únicas y no superponerse con las redes locales o en la nube privada.
 
-Las direcciones IP elegidas para las interfaces de bucle invertido y de túnel para L2VPN deben ser únicas y no superponerse con las redes locales o en la nube privada de AVS. La red de la interfaz de bucle invertido siempre debe ser /32.
+Las direcciones IP elegidas para las interfaces de bucle invertido y de túnel para L2VPN deben ser únicas y no superponerse con las redes locales o de la nube privada. La red de la interfaz de bucle invertido siempre debe ser /32.
 
 ```
 Loopback interface ip : 192.168.254.254/32
@@ -422,7 +422,7 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
 
 ## <a name="deploy-the-nsx-t-standalone-client-on-premises"></a>Implementación del cliente independiente de NSX-T (local)
 
-Antes de la implementación, compruebe que las reglas de firewall local permiten el tráfico entrante y saliente de UDP 500/4500 desde y hacia la dirección IP pública de AVS que se ha reservado anteriormente para la interfaz de bucle invertido del enrutador de nivel 0 de NSX-T. 
+Antes de la implementación, compruebe que las reglas de firewall local permiten el tráfico entrante y saliente de UDP 500/4500 desde y hacia la dirección IP pública de CloudSimple que se ha reservado anteriormente para la interfaz de bucle invertido del enrutador de nivel 0 de NSX-T. 
 
 1. [Descargue OVF del cliente de NSX Edge independiente](https://my.vmware.com/group/vmware/details?productId=673&rPId=33945&downloadGroup=NSX-T-230) y extraiga los archivos del conjunto descargado en una carpeta.
 
@@ -448,14 +448,14 @@ Antes de la implementación, compruebe que las reglas de firewall local permiten
 
     Expanda L2T:
 
-    * **Dirección del mismo nivel**. Escriba la dirección IP reservada en el portal de Azure AVS para la interfaz de bucle invertido de nivel 0 de NSX-T.
+    * **Dirección del mismo nivel**. Escriba la dirección IP reservada en el portal de Azure CloudSimple para la interfaz de bucle invertido de nivel 0 de NSX-T.
     * **Código del mismo nivel**. Pegue el código del mismo nivel obtenido en el último paso de la implementación del servidor de L2VPN.
     * **Subinterfaces de VLAN (identificador de túnel)** . Escriba el identificador de VLAN que se va a expandir. Entre paréntesis (), escriba el identificador de túnel que se configuró previamente.
 
     Expanda la interfaz de vínculo superior:
 
     * **Dirección IP de DNS**. Escriba la dirección IP del DNS local.
-    * **Puerta de enlace predeterminada**. Escriba la puerta de enlace predeterminada de la VLAN que actuará como puerta de enlace predeterminada para este cliente.
+    * **Puerta de enlace predeterminada**.  Escriba la puerta de enlace predeterminada de la VLAN que actuará como puerta de enlace predeterminada para este cliente.
     * **Dirección IP**. Escriba la dirección IP de vínculo superior del cliente independiente.
     * **Longitud del prefijo**. Escriba la longitud del prefijo de la VLAN o subred de vínculo superior.
     * **Contraseña del usuario raíz, administrador de CLI o de habilitación**. Establezca la contraseña de la cuenta raíz, del administrador o de habilitación.

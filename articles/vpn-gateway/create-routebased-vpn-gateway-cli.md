@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1f0cc1d63f8560399d1d71c8d010c37bd2c5e387
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 121790fce220874babedf67cd72471caa7e92ae6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778760"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241100"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Creación de una instancia de VPN Gateway basada en rutas mediante la CLI
 
@@ -29,15 +29,15 @@ Si decide instalar y usar la CLI localmente, para este artículo es preciso que 
 Cree un grupo de recursos con el comando [az group create](/cli/azure/group). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="vnet"></a>Creación de una red virtual
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creación de una red virtual
 
 Cree una red virtual con el comando [az network vnet create](/cli/azure/network/vnet). En el siguiente ejemplo se crea una red virtual denominada **VNet1** en la ubicación **EastUS**:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network vnet create \
   -n VNet1 \
   -g TestRG1 \
@@ -47,11 +47,11 @@ az network vnet create \
   --subnet-prefix 10.1.0.0/24
 ```
 
-## <a name="gwsubnet"></a>Incorporación de una subred de puerta de enlace
+## <a name="add-a-gateway-subnet"></a><a name="gwsubnet"></a>Incorporación de una subred de puerta de enlace
 
 La subred de puerta de enlace contiene las direcciones IP reservadas que usan los servicios de puerta de enlace de la red virtual. Utilice los siguientes ejemplos para agregar una subred de puerta de enlace:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
@@ -59,7 +59,7 @@ az network vnet subnet create \
   --address-prefix 10.1.255.0/27 
 ```
 
-## <a name="PublicIP"></a>Solicitud de una dirección IP pública
+## <a name="request-a-public-ip-address"></a><a name="PublicIP"></a>Solicitud de una dirección IP pública
 
 Una instancia de VPN Gateway debe tener una dirección IP pública asignada de forma dinámica. La dirección IP pública se asignará a la instancia de VPN Gateway creada para la red virtual. Utilice el siguiente ejemplo para solicitar una dirección IP pública:
 
@@ -70,7 +70,7 @@ az network public-ip create \
   --allocation-method Dynamic 
 ```
 
-## <a name="CreateGateway"></a>Creación de la puerta de enlace de VPN
+## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Creación de la puerta de enlace de VPN
 
 Cree la puerta de enlace VPN con el comando [az network vnet-gateway create](/cli/azure/group).
 
@@ -91,7 +91,7 @@ az network vnet-gateway create \
 
 Una instancia de VPN Gateway puede tardar 45 minutos o más en crearse.
 
-## <a name="viewgw"></a>Visualización de VPN Gateway
+## <a name="view-the-vpn-gateway"></a><a name="viewgw"></a>Visualización de VPN Gateway
 
 ```azurecli-interactive
 az network vnet-gateway show \
@@ -101,7 +101,7 @@ az network vnet-gateway show \
 
 La respuesta será similar a la siguiente:
 
-```
+```output
 {
   "activeActive": false,
   "bgpSettings": null,
@@ -159,7 +159,7 @@ El valor asociado al campo **ipAddress** es la dirección IP pública de la puer
 
 Respuesta de ejemplo:
 
-```
+```output
 {
   "dnsSettings": null,
   "etag": "W/\"a12d4d03-b27a-46cc-b222-8d9364b8166a\"",
@@ -170,6 +170,7 @@ Respuesta de ejemplo:
     "etag": null,
     "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
 ```
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando ya no necesite los recursos que ha creado, use [az group delete](/cli/azure/group) para eliminar el grupo de recursos. Se eliminarán el grupo de recursos y todos los recursos que contiene.

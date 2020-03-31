@@ -17,11 +17,11 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e50733c843dfd21e35572f00fc6690e1e84aba97
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77617370"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235888"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un disco compartido para una instancia de ASCS/SCS de SAP en Azure
 
@@ -165,7 +165,7 @@ No hay ninguna consideración especial cuando distintos servicios de DBMS intera
 >
 >
 
-## <a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>Instalación de SAP con una instancia de ASCS/SCS de alta disponibilidad
+## <a name="install-sap-with-a-high-availability-ascsscs-instance"></a><a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>Instalación de SAP con una instancia de ASCS/SCS de alta disponibilidad
 
 > [!IMPORTANT]
 > Asegúrese de no colocar el archivo de paginación en los volúmenes reflejados de SIOS DataKeeper. DataKeeper no admite los volúmenes reflejados. Puede dejar el archivo de paginación en la unidad temporal D de una máquina virtual de Azure, que es la opción predeterminada. Si todavía no se encuentra ahí, mueva el archivo de paginación de Windows a la unidad D de la máquina virtual de Azure.
@@ -180,7 +180,7 @@ Para instalar SAP con una instancia de ASCS/SCS de alta disponibilidad, siga est
 * Añada un puerto de sondeo.
 * Abra el puerto de sondeo de firewall de Windows.
 
-### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Creación de un nombre de host virtual para la instancia de ASCS/SCS de SAP en clúster
+### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a><a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>Creación de un nombre de host virtual para la instancia de ASCS/SCS de SAP en clúster
 
 1. En el Administrador de DNS de Windows, cree una entrada de DNS para el nombre de host virtual de la instancia de ASCS/SCS.
 
@@ -201,7 +201,7 @@ Para instalar SAP con una instancia de ASCS/SCS de alta disponibilidad, siga est
 
    _**Ilustración 2:** Nuevo nombre virtual y dirección TCP/IP para la configuración del clúster de ASCS/SCS de SAP_
 
-### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Instalación del primer nodo de clúster de SAP
+### <a name="install-the-sap-first-cluster-node"></a><a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Instalación del primer nodo de clúster de SAP
 
 1. Ejecute la opción de primer nodo del clúster en el nodo de clúster A, por ejemplo, en el host pr1-ascs-0*.
 2. Para mantener los puertos predeterminados para el equilibrador de carga interno de Azure, seleccione:
@@ -219,7 +219,7 @@ Luego, realice unos pasos que no se describen en la documentación de instalaci�
 >
 >
 
-### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modificación del perfil SAP de la instancia de ASCS/SCS
+### <a name="modify-the-sap-profile-of-the-ascsscs-instance"></a><a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modificación del perfil SAP de la instancia de ASCS/SCS
 
 En primer lugar, añada un nuevo parámetro de perfil. El parámetro de perfil evita el cierre de las conexiones entre los procesos de trabajo de SAP y el servidor de puesta en cola cuando lleven inactivas demasiado tiempo. El escenario del problema se menciona en [Incorporación de entradas del Registro en ambos nodos del clúster usados para la instancia de ASCS/SCS de SAP][sap-ha-guide-8.11]. En esa sección, también se presentan dos cambios para algunos parámetros básicos de la conexión TCP/IP. En el segundo paso, es necesario configurar el servidor de puesta en cola para enviar una señal `keep_alive` de forma que las conexiones no alcancen el umbral de inactividad del equilibrador de carga interno de Azure.
 
@@ -240,7 +240,7 @@ Para modificar el perfil SAP de la instancia de ASCS/SCS, siga estos pasos:
 
 2. Para aplicar los cambios, reinicie la instancia de ASCS/SCS de SAP.
 
-### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Incorporación de un puerto de sondeo
+### <a name="add-a-probe-port"></a><a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Incorporación de un puerto de sondeo
 
 Use la funcionalidad de sondeo del equilibrador de carga interno para que toda la configuración del clúster funcione con Azure Load Balancer. Habitualmente, el equilibrador de carga interno de Azure distribuye la carga de trabajo entrante de manera equitativa entre las máquinas virtuales que participan.
 
@@ -340,7 +340,7 @@ Para agregar un puerto de sondeo, siga estos pasos:
 
    _**Ilustración 4:** Sondeo del puerto de clúster después de establecer el valor nuevo_
 
-### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Apertura del puerto de sondeo de Firewall de Windows
+### <a name="open-the-windows-firewall-probe-port"></a><a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Apertura del puerto de sondeo de Firewall de Windows
 
 Abra el puerto de sondeo de firewall de Windows en ambos nodos del clúster. El siguiente script permite abrir un puerto de sondeo de firewall de Windows. Actualice las variables de PowerShell de su entorno.
 
@@ -352,15 +352,15 @@ Abra el puerto de sondeo de firewall de Windows en ambos nodos del clúster. El 
 
 **ProbePort** está establecido en **62000**. Ahora puede tener acceso al recurso compartido de archivos \\\ascsha-clsap\sapmnt desde otros hosts, como ascsha-dbas.
 
-## <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Instalación de la instancia de base de datos
+## <a name="install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Instalación de la instancia de base de datos
 
 Para instalar la instancia de base de datos, siga el proceso que se describe en la documentación de instalación de SAP.
 
-## <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> Instalación del segundo nodo del clúster
+## <a name="install-the-second-cluster-node"></a><a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> Instalación del segundo nodo del clúster
 
 Para instalar el segundo clúster, siga los pasos que se describen en la guía de instalación de SAP.
 
-## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Cambio del tipo de inicio del servicio de Windows para la instancia de ERS de SAP
+## <a name="change-the-start-type-of-the-sap-ers-windows-service-instance"></a><a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Cambio del tipo de inicio del servicio de Windows para la instancia de ERS de SAP
 
 Cambie el tipo de inicio del servicio o servicios de Windows de ERS de SAP a **Automático (inicio retrasado)** en ambos nodos del clúster.
 
@@ -368,11 +368,11 @@ Cambie el tipo de inicio del servicio o servicios de Windows de ERS de SAP a **A
 
 _**Ilustración 5:** Cambio del tipo de servicio de la instancia de ERS de SAP a automático retrasado_
 
-## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> Instalación del servidor de aplicaciones principal de SAP
+## <a name="install-the-sap-primary-application-server"></a><a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> Instalación del servidor de aplicaciones principal de SAP
 
 Instale la instancia del servidor de aplicaciones principal (PAS) \<SID\>-di-0 en la máquina virtual que designó para hospedar el PAS. No hay ninguna dependencia en Azure. No hay ninguna configuración específica de DataKeeper.
 
-## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Instalación del servidor de aplicaciones adicional de SAP
+## <a name="install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Instalación del servidor de aplicaciones adicional de SAP
 
 Instale un servidor de aplicaciones adicional (AAS) de SAP en todas las máquinas virtuales que designó para hospedar una instancia de servidores de aplicaciones de SAP. Por ejemplo, en \<SID\>-di-1 a \<SID\>-di-&lt;n&gt;.
 
@@ -381,10 +381,10 @@ Instale un servidor de aplicaciones adicional (AAS) de SAP en todas las máquina
 >
 
 
-## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Prueba de la conmutación por error de la instancia de ASCS/SCS de SAP y de la replicación de SIOS
+## <a name="test-the-sap-ascsscs-instance-failover-and-sios-replication"></a><a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Prueba de la conmutación por error de la instancia de ASCS/SCS de SAP y de la replicación de SIOS
 Es fácil probar y supervisar la conmutación por error de la instancia de ASCS/SCS de SAP y la replicación de disco de SIOS mediante el uso del Administrador de clústeres de conmutación por error, la interfaz de usuario de SIOS DataKeeper y la herramienta de configuración.
 
-### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> La instancia de ASCS/SCS de SAP se ejecuta en el nodo de clúster A
+### <a name="sap-ascsscs-instance-is-running-on-cluster-node-a"></a><a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> La instancia de ASCS/SCS de SAP se ejecuta en el nodo de clúster A
 
 El grupo de clústeres SAP PR1 se ejecuta en el nodo de clúster A. Por ejemplo, en pr1-ascs-0. Asigne la unidad de disco compartido S, que forma parte del grupo de clústeres SAP PR1, al nodo de clúster A. La instancia de ASCS/SCS también usa la unidad de disco S. 
 
@@ -398,7 +398,7 @@ En la interfaz de usuario de SIOS DataKeeper y la herramienta de configuración,
 
 _**Figura 7:** En SIOS DataKeeper, replique el volumen local desde el nodo de clústeres A al nodo de clústeres B_
 
-### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Conmutación por error del nodo A al nodo B
+### <a name="failover-from-node-a-to-node-b"></a><a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Conmutación por error del nodo A al nodo B
 
 1. Elija una de estas opciones para iniciar una conmutación por error del grupo de clústeres \<SID\> de SAP desde el nodo del clúster A al nodo del clúster B:
    - Administrador de clústeres de conmutación por error  

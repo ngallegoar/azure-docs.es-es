@@ -1,5 +1,5 @@
 ---
-title: 'Ajustar el rendimiento: MapReduce, HDInsight y Azure Data Lake Storage Gen2 | Microsoft Docs'
+title: 'Ajustar rendimiento: MapReduce, HDInsight y Azure Data Lake Storage Gen2 | Microsoft Docs'
 description: Guía para la optimización del rendimiento de MapReduce de Azure Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,21 +9,21 @@ ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: a3ea6858355d6cb921f629bf36134d96371f6244
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74327925"
 ---
-# <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar el rendimiento: MapReduce, HDInsight y Azure Data Lake Storage Gen2
+# <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar rendimiento: MapReduce, HDInsight y Azure Data Lake Storage Gen2
 
 Esta guía le ayuda a comprender los factores que se deben tener en cuenta al optimizar el rendimiento de los trabajos de MapReduce. En este artículo se describen varias directrices de optimización del rendimiento.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Azure Data Lake Storage Gen2**. Para obtener instrucciones sobre cómo crear una, consulte [Guía de inicio rápido: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
-* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen2. Consulte [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
+* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen2. Consulte [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) (Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight)
 * **Uso de MapReduce en HDInsight**.  Para más información, consulte [Uso de MapReduce en Hadoop en HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce).
 * **Guía para la optimización del rendimiento en Data Lake Storage Gen2**.  Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento en Data Lake Storage Gen2](data-lake-storage-performance-tuning-guidance.md).
 
@@ -55,7 +55,7 @@ El tamaño de la memoria para las tareas de asignación y reducción dependerá 
 
 **Paso 3: Determinación de la memoria de YARN total**
 
-Para optimizar mapreduce.job.maps/mapreduce.job.reduces, debería considerar la cantidad de memoria YARN total disponible para su uso.  Esta información está disponible en Ambari.  Vaya a YARN y examine la pestaña de configuración.  En esta ventana se muestra el tamaño de la memoria de YARN.  Para obtener la memoria de YARN total, debe multiplicar la memoria de YARN por el número de nodos que tiene en el clúster.
+Para optimizar mapreduce.job.maps/mapreduce.job.reduces, debería considerar la cantidad de memoria YARN total disponible para su uso.  Esta información está disponible en Ambari.  Vaya a YARN y vea la pestaña Configs (Configuraciones).  En esta ventana se muestra el tamaño de la memoria de YARN.  Para obtener la memoria de YARN total, debe multiplicar la memoria de YARN por el número de nodos que tiene en el clúster.
 
     Total YARN memory = nodes * YARN memory per node
 

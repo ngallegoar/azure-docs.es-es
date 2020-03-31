@@ -1,19 +1,18 @@
 ---
 title: Atribución de uso de los clientes y asociados de Azure | Azure Marketplace
 description: Información general sobre cómo hacer seguimiento del uso del cliente de las soluciones de Azure Marketplace
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 9/23/2019
-ms.author: pabutler
-ms.openlocfilehash: c745a37805862b77e7893788d9d089c8447ae465
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.author: dsindona
+ms.openlocfilehash: 348633ffc91bc25a226b05743a18d2c87533a01d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302872"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280650"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 

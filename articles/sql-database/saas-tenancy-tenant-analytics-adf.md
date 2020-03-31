@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 4791cd3a6b6f72c5d9ee4ca828d66b0d361f356c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73816781"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Exploración del análisis de SaaS con Azure SQL Database, SQL Data Warehouse, Data Factory y Power BI
@@ -62,9 +62,9 @@ Por último, se consultan las tablas de un esquema de estrella. Los resultados d
 
 En este tutorial se proporcionan ejemplos básicos de la información que puede deducirse de los datos de Wingtip Tickets. Entender la manera en que los lugares utilizan este servicio puede hacer que el proveedor de Wingtip Tickets considere distintos planes de servicio para lugares más o menos activos, por ejemplo. 
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 > [!NOTE]
 > En este tutorial se usan características de Azure Data Factory que están actualmente en una versión preliminar limitada (parametrización de servicio vinculado). Si desea seguir este tutorial, indique su identificador de suscripción [aquí](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Le enviaremos la confirmación tan pronto como se haya habilitado la suscripción.
@@ -86,14 +86,14 @@ En este tutorial se explora el análisis de los datos de venta de entradas. En e
 ### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Implementación de SQL Data Warehouse, Data Factory y Blob Storage 
 En la aplicación Wingtip Tickets, los datos transaccionales de los inquilinos se distribuyen en muchas bases de datos. Azure Data Factory (ADF) se usa para coordinar la extracción, la carga y la transformación (ETL) de estos datos en el almacenamiento de datos. Para cargar datos en SQL Data Warehouse de forma más eficaz, ADF extrae los datos en archivos de blob intermedios y usa [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) para cargar los datos en el almacenamiento de datos.   
 
-En este paso se implementan los recursos adicionales para el tutorial: una instancia de SQL Data Warehouse denominada _tenantanalytics_, una de Azure Data Factory denominada _dbtodwload-\<usuario\>_  y una cuenta de almacenamiento de Azure denominada_wingtipstaging\<usuario\>_ . La cuenta de almacenamiento se usa para almacenar temporalmente los archivos de datos extraídos como blobs antes de que se carguen en el almacenamiento de datos. En este paso también se implementa el esquema de almacenamiento de datos y se definen las canalizaciones de ADF que orquestan el proceso de extracción, carga y transformación.
+En este paso se implementan los recursos adicionales para el tutorial: una instancia de SQL Data Warehouse denominada _tenantanalytics_, una de Azure Data Factory denominada _dbtodwload-\<usuario\>_ y una cuenta de almacenamiento de Azure denominada_wingtipstaging\<usuario\>_ . La cuenta de almacenamiento se usa para almacenar temporalmente los archivos de datos extraídos como blobs antes de que se carguen en el almacenamiento de datos. En este paso también se implementa el esquema de almacenamiento de datos y se definen las canalizaciones de ADF que orquestan el proceso de extracción, carga y transformación.
 1. En PowerShell ISE, abra *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* y defina:
     - **$DemoScenario** = **2** Implementación del almacenamiento de datos de análisis de inquilinos, del almacenamiento en blobs y la factoría de datos 
 1. Presione **F5** para ejecutar el script de demostración e implementar los recursos de Azure. 
 
 Ahora, revise los recursos de Azure que ha implementado:
 #### <a name="tenant-databases-and-analytics-store"></a>Bases de datos de inquilinos y almacén de análisis
-Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectarse a los servidores **tenants1-dpt-&lt;usuario&gt;**  y **catalog-dpt-&lt;usuario&gt;** . Reemplace &lt;usuario&gt; por el valor usado al implementar la aplicación. Utilice el inicio de sesión = *developer* y la contraseña = *P\@ssword1*. Consulte el [tutorial de introducción](saas-dbpertenant-wingtip-app-overview.md) para obtener más orientación.
+Use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectarse a los servidores **tenants1-dpt-&lt;usuario&gt;** y **catalog-dpt-&lt;usuario&gt;** . Reemplace &lt;usuario&gt; por el valor usado al implementar la aplicación. Utilice el inicio de sesión = *developer* y la contraseña = *P\@ssword1*. Consulte el [tutorial de introducción](saas-dbpertenant-wingtip-app-overview.md) para obtener más orientación.
 
 ![Conexión al servidor de SQL Database desde SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -194,7 +194,7 @@ Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteri
 
     ![Inicio de sesión en Power BI](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Seleccione **Base de datos** en el panel izquierdo y escriba el nombre de usuario = *developer* y la contraseña = *P\@ssword1*. Haga clic en **Conectar**.  
+5. Seleccione **Base de datos** en el panel izquierdo y escriba los valores de user name = *developer* y password = *P\@ssword1*. Haga clic en **Conectar**.  
 
     ![Inicio de sesión en la base de datos](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -248,7 +248,7 @@ En el ejemplo de Wingtip Tickets anterior se detectó que las ventas de entradas
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Implementar una instancia de SQL Data Warehouse que se rellena con esquema de estrella para el análisis de los inquilinos.

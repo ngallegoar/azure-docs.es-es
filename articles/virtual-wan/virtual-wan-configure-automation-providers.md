@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: cherylmc
 ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190413"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Directrices de automatización para asociados de Virtual WAN
@@ -20,7 +20,7 @@ Este artículo le ayudará a comprender cómo configurar el entorno de automatiz
 
 Un dispositivo de la rama (un dispositivo VPN de cliente en el entorno local o SDWAN CPE) normalmente usa un panel de dispositivo o controlador para aprovisionarse. Los administradores de la solución SD-WAN a menudo pueden utilizar una consola de administración para aprovisionar previamente un dispositivo antes de conectarse a la red. Este dispositivo compatible con VPN obtiene su lógica de plan de control de un controlador. El controlador de dispositivo VPN o SD-WAN puede usar las API de Azure para automatizar la conectividad a Azure Virtual WAN. Este tipo de conexión requiere que el dispositivo local tenga una dirección IP pública asignada.
 
-## <a name ="before"></a>Antes de iniciar la automatización
+## <a name="before-you-begin-automating"></a><a name ="before"></a>Antes de iniciar la automatización
 
 * Compruebe que el dispositivo es compatible con IPsec IKEv1 o IKEv2. Consulte las [directivas predeterminadas](#default).
 * Vea las [API REST](#additional) que usa para automatizar la conectividad a Azure Virtual WAN.
@@ -31,14 +31,14 @@ Un dispositivo de la rama (un dispositivo VPN de cliente en el entorno local o S
   * Carga del dispositivo de la rama en Azure Virtual WAN
   * Descarga de la configuración de Azure y configuración de la conectividad del dispositivo de la rama en Azure Virtual WAN
 
-### <a name ="additional"></a>Información adicional
+### <a name="additional-information"></a><a name ="additional"></a>Información adicional
 
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs) para automatizar la creación de un centro virtual
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpngateways) para automatizar Azure VPN Gateway para Virtual WAN
 * [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) para conectar un sitio VPN a un centro de conectividad de VPN de Azure
 * [Directivas IPsec predeterminadas](#default)
 
-## <a name ="ae"></a>Experiencia del cliente
+## <a name="customer-experience"></a><a name ="ae"></a>Experiencia del cliente
 
 Comprenda la experiencia esperada del cliente conjuntamente con Azure Virtual WAN.
 
@@ -50,9 +50,9 @@ Comprenda la experiencia esperada del cliente conjuntamente con Azure Virtual WA
   6. Al final de este paso de la solución, el usuario tendrá una conexión directa de sitio a sitio entre el dispositivo de la rama y el concentrador virtual. También puede configurar conexiones adicionales en otros concentradores. Cada conexión es un túnel activo-activo. El cliente puede utilizar otro ISP para cada uno de los vínculos del túnel.
   7. Considere la posibilidad de proporcionar funcionalidades de supervisión y solución de problemas en la interfaz de administración de CPE. Entre los escenarios típicos se incluyen "el cliente no puede acceder a los recursos de Azure debido a un problema de CPE", "mostrar los parámetros de IPsec en el lado de CPE", etc.
 
-## <a name ="understand"></a>Detalles de automatización
+## <a name="automation-details"></a><a name ="understand"></a>Detalles de automatización
 
-###  <a name="access"></a>Control de acceso
+###  <a name="access-control"></a><a name="access"></a>Control de acceso
 
 Los clientes deben poder configurar el control de acceso adecuado para la red Virtual WAN en la interfaz de usuario del dispositivo. Se recomienda usar una entidad de servicio de Azure. El acceso basado en la entidad de servicio proporciona la autenticación adecuada de controlador de dispositivo para cargar la información de rama. Para obtener más información, consulte [Create service principal](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) (Creación de una entidad de servicio). Aunque esta funcionalidad no se incluye con la oferta de Azure Virtual WAN, a continuación se indican los pasos típicos para configurar el acceso en Azure, tras los cuales se especifican los detalles pertinentes en el panel de administración de dispositivos.
 
@@ -61,11 +61,11 @@ Los clientes deben poder configurar el control de acceso adecuado para la red Vi
 * Obtención del identificador de inquilino
 * Asignación de la aplicación al rol "Colaborador"
 
-###  <a name="branch"></a>Cargar la información del dispositivo de la rama
+###  <a name="upload-branch-device-information"></a><a name="branch"></a>Cargar la información del dispositivo de la rama
 
 Debe diseñar la experiencia del usuario para cargar la información de la rama (sitio local) en Azure. Las [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) de VPNSite se pueden usar para crear la información del sitio en Virtual WAN. Puede proporcionar todos los dispositivos VPN o SDWAN de la rama o seleccionar las personalizaciones de dispositivo según corresponda.
 
-### <a name="device"></a>Conectividad y descarga de la configuración del dispositivo
+### <a name="device-configuration-download-and-connectivity"></a><a name="device"></a>Conectividad y descarga de la configuración del dispositivo
 
 Este paso implica la descarga de la configuración de Azure y la configuración de la conectividad del dispositivo de la rama en Azure Virtual WAN. En este paso, un cliente que no está usando un proveedor podría descargar la configuración de Azure manualmente y aplicarla a su dispositivo SDWAN o VPN local. Como proveedor, debería automatizar este paso. Para más información, vea las [API REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) de descarga. El controlador del dispositivo puede llamar a la API REST "GetVpnConfiguration" para descargar la configuración de Azure.
 
@@ -74,7 +74,7 @@ Este paso implica la descarga de la configuración de Azure y la configuración 
   * Si las redes virtuales de Azure están conectadas al concentrador virtual, aparecen como ConnectedSubnets.
   * La conectividad de VPN usa la configuración basada en rutas y admite los protocolos IKEv1 e IKEv2.
 
-## <a name="devicefile"></a>Archivo de configuración del dispositivo
+## <a name="device-configuration-file"></a><a name="devicefile"></a>Archivo de configuración del dispositivo
 
 El archivo de configuración de dispositivo contiene la configuración que se debe usar al configurar el dispositivo VPN local. Cuando visualice este archivo, tenga en cuenta la siguiente información:
 
@@ -204,7 +204,7 @@ El archivo de configuración de dispositivo contiene la configuración que se de
    }
   ```
 
-## <a name="default"></a>Detalles acerca de la conectividad
+## <a name="connectivity-details"></a><a name="default"></a>Detalles acerca de la conectividad
 
 La configuración de su dispositivo VPN o SDWAN local debe coincidir o contener los siguientes algoritmos y parámetros que se especifican en la directiva de IPsec o IKE de Azure.
 
@@ -215,11 +215,11 @@ La configuración de su dispositivo VPN o SDWAN local debe coincidir o contener 
 * Algoritmo de integridad de IPsec
 * Grupo PFS
 
-### <a name="default"></a>Directivas predeterminadas para la conectividad de IPsec
+### <a name="default-policies-for-ipsec-connectivity"></a><a name="default"></a>Directivas predeterminadas para la conectividad de IPsec
 
 [!INCLUDE [IPsec Default](../../includes/virtual-wan-ipsec-include.md)]
 
-### <a name="custom"></a>Directivas personalizadas de conectividad de IPsec
+### <a name="custom-policies-for-ipsec-connectivity"></a><a name="custom"></a>Directivas personalizadas de conectividad de IPsec
 
 [!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 

@@ -4,10 +4,10 @@ description: Obtenga notificaciones personalizadas sobre los eventos del estado 
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77654076"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Envío de alertas de Azure Service Health con PageDuty mediante webhooks

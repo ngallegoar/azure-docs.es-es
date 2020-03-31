@@ -9,18 +9,18 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 921ea148c12a23ece47688a26743e1195caf52f4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 6cf19292c3675382789ca25af7f9b7f69e9066fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003791"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228376"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Información general
-La [Biblioteca de cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en Azure Storage, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
+La [Biblioteca de cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet) permite tanto el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en Azure Storage, como el descifrado de datos mientras estos se descargan al cliente. Asimismo, la biblioteca también admite la integración con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
 
 Para ver un tutorial paso a paso que le guíe por el proceso de cifrado de blobs mediante el cifrado de cliente y Azure Key Vault, consulte [Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
@@ -51,7 +51,7 @@ El descifrado mediante la técnica de sobres funciona de la siguiente manera:
 ## <a name="encryption-mechanism"></a>Mecanismo de cifrado
 La biblioteca de cliente de almacenamiento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para cifrar los datos del usuario. En concreto, emplea el modo [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Cada servicio funciona de forma ligeramente diferente, por lo que describiremos aquí cada uno de ellos.
 
-### <a name="blobs"></a>Blobs
+### <a name="blobs"></a>Datos BLOB
 La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. Precisamente, se admite el cifrado cuando los usuarios emplean los métodos **UploadFrom** u **OpenWrite**. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas.
 
 Durante el cifrado, la biblioteca de cliente generará un vector de inicialización (IV) aleatorio de 16 bytes, junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes, y realiza el cifrado de sobres de los datos de blob con esta información. Posteriormente, la CEK encapsulada y algunos metadatos de cifrado adicionales se almacenan como metadatos de blob junto con el objeto blob cifrado en el servicio.

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: twooley
 ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931626"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228140"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Uso de Administrador de instantáneas StorSimple para ver y administrar volúmenes
 ## <a name="overview"></a>Información general
@@ -130,7 +130,7 @@ Use el procedimiento siguiente para volver a examinar los volúmenes conectados 
 ## <a name="configure-and-back-up-a-basic-volume"></a>Configuración y copia de seguridad de un volumen básico
 Utilice el siguiente procedimiento para configurar una copia de seguridad de un volumen básico e iniciar inmediatamente una copia de seguridad o crear una directiva de copias de seguridad programadas.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 Antes de empezar:
 
 * Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementación del dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
@@ -158,7 +158,7 @@ Complete los pasos siguientes para configurar la copia de seguridad de un volume
 * Paso 1: Uso de Administración de discos para crear un volumen reflejado dinámico. 
 * Paso 2: Uso de Snapshot Manager de StorSimple para configurar la copia de seguridad.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 Antes de empezar:
 
 * Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementación del dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).

@@ -1,19 +1,18 @@
 ---
 title: Publicación de una oferta de aplicación de Power BI | Azure Marketplace
 description: Publique una oferta de aplicación de Power BI en Microsoft AppSource Marketplace.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pabutler
-ms.openlocfilehash: 324be960bd2d22623763ca3e24b99be92ff04174
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 89d437fe74d209e0dc04ffc590a1e32426b28732
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826032"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275873"
 ---
 # <a name="publish-a-power-bi-app-offer"></a>Publicación de una oferta de aplicación de Power BI
 
@@ -28,7 +27,7 @@ Estos son los pasos principales del proceso de publicación:
 
 En esta tabla se describe cada paso y se proporciona su tiempo de finalización estimado:
 
-|   Paso de publicación            |   Hora     |   DESCRIPCIÓN                                                                  |
+|   Paso de publicación            |   Time     |   Descripción                                                                  |
 | --------------------         |------------| ----------------                                                               |
 | Validar requisitos previos       | 15 minutos     | Se validan la información y la configuración de la oferta.                            |
 | Certificación                | 1-7 días   | El equipo de certificación de Power BI analiza su oferta. El equipo ejecuta la aplicación de Power BI a través de una prueba de verificación manual al instalar la aplicación a través de la dirección URL de instalación proporcionada. Las validaciones principales se realizan como parte del proceso de certificación de la aplicación (que se describe más adelante en este documento).         |

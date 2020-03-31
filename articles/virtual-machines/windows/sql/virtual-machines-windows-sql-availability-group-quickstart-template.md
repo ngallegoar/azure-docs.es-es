@@ -16,16 +16,16 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: edf810dfc975eebaf261eac7b89106c9e29c759c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022381"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-an-azure-vm"></a>Uso de las plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure
 En este artículo se describe cómo usar las plantillas de inicio rápido de Azure para automatizar parcialmente la implementación de una configuración de grupo de disponibilidad Always On para máquinas virtuales con SQL Server en Azure. Son dos las plantillas de inicio rápido de Azure que se usan en este proceso: 
 
-   | Plantilla | DESCRIPCIÓN |
+   | Plantilla | Descripción |
    | --- | --- |
    | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Crea el clúster de conmutación por error de Windows y une a él las máquinas virtuales con SQL Server. |
    | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Crea la escucha de grupo de disponibilidad y configura el equilibrador de carga interno. Esta plantilla solo se puede usar si se creó el clúster de conmutación por error de Windows con la plantilla **101-sql-vm-ag-setup**. |
@@ -34,7 +34,7 @@ En este artículo se describe cómo usar las plantillas de inicio rápido de Azu
 Otras partes de la configuración del grupo de disponibilidad deben realizarse manualmente, como la creación del grupo de disponibilidad y del equilibrador de carga interno. En este artículo se proporciona la secuencia de pasos manuales y automatizados.
  
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerrequisitos 
 Para automatizar la configuración de un grupo de disponibilidad Always On mediante plantillas de inicio rápido, debe cumplir los siguientes requisitos previos: 
 - Una [suscripción de Azure](https://azure.microsoft.com/free/).
 - Un grupo de recursos con un controlador de dominio. 
@@ -44,7 +44,7 @@ Para automatizar la configuración de un grupo de disponibilidad Always On medi
 ## <a name="permissions"></a>Permisos
 Los siguientes permisos son necesarios para configurar el grupo de disponibilidad Always On mediante las plantillas de inicio rápido de Azure: 
 
-- Una cuenta de usuario de dominio existente que tenga el permiso **Create Computer Object** en el dominio.  Por ejemplo, una cuenta de administrador de dominio normalmente tiene permisos suficientes (como account@domain.com). _Esta cuenta también debe formar parte del grupo de administradores local en cada máquina virtual para crear el clúster._
+- Una cuenta de usuario de dominio existente que tenga el permiso **Crear objeto de equipo** en el dominio.  Por ejemplo, una cuenta de administrador de dominio normalmente tiene permisos suficientes (como account@domain.com). _Esta cuenta también debe formar parte del grupo de administradores local en cada máquina virtual para crear el clúster._
 - La cuenta de usuario del dominio que controla el servicio SQL Server. 
 
 
@@ -58,7 +58,7 @@ La adición de las VM con SQL Server al grupo de recursos *SqlVirtualMachineGrou
 
    En la tabla siguiente se muestran los valores necesarios para la plantilla: 
 
-   | **Campo** | Valor |
+   | **Campo** | Value |
    | --- | --- |
    | **Suscripción** |  La suscripción donde se encuentran sus máquinas virtuales con SQL Server. |
    |**Grupos de recursos** | El grupo de recursos donde residen sus máquinas virtuales con SQL Server. | 
@@ -66,7 +66,7 @@ La adición de las VM con SQL Server al grupo de recursos *SqlVirtualMachineGrou
    | **Existing Vm List** (Lista de máquinas virtuales existentes) | Las máquinas virtuales con SQL Server que quiere que participen en el grupo de disponibilidad y que, por lo tanto, formen parte de este nuevo clúster. Separe estos valores con una coma y un espacio (por ejemplo: *SQLVM1, SQLVM2*). |
    | **SQL Server Version** (Versión de SQL Server) | La versión de SQL Server de las máquinas virtuales con SQL Server. Selecciónela en la lista desplegable. Actualmente, solo se admiten imágenes de SQL Server 2016 y SQL Server 2017. |
    | **Existing Fully Qualified Domain Name** (Nombre de dominio completo existente) | El FQDN existente del dominio en el que residen sus máquinas virtuales con SQL Server. |
-   | **Existing Domain Account** (Cuenta de dominio existente) | Una cuenta de usuario de dominio existente que tenga el permiso **Create Computer Object** en el dominio cuando el [CNO](/windows-server/failover-clustering/prestage-cluster-adds) se crea durante la implementación de la plantilla. Por ejemplo, una cuenta de administrador de dominio normalmente tiene permisos suficientes (p. ej.: account@domain.com). *Esta cuenta también debe formar parte del grupo de administradores local en cada máquina virtual para crear el clúster.*| 
+   | **Existing Domain Account** (Cuenta de dominio existente) | Una cuenta de usuario de dominio existente que tenga el permiso **Create Computer Object** en el dominio cuando el [CNO](/windows-server/failover-clustering/prestage-cluster-adds) se crea durante la implementación de la plantilla. Por ejemplo, una cuenta de administrador de dominio normalmente tiene permisos suficientes (como account@domain.com). *Esta cuenta también debe formar parte del grupo de administradores local en cada máquina virtual para crear el clúster.*| 
    | **Domain Account Password** (Contraseña de la cuenta de dominio) | La contraseña de la cuenta de usuario de dominio mencionada anteriormente. | 
    | **Existing Sql Service Account** (Cuenta del servicio SQL existente) | La cuenta de usuario de dominio que controla el [servicio SQL Server](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) durante la implementación del grupo de disponibilidad (p. ej.: account@domain.com). |
    | **Sql Service Password** (Contraseña del servicio SQL) | La contraseña usada por la cuenta de usuario del dominio que controla el servicio SQL Server. |
@@ -83,13 +83,13 @@ La adición de las VM con SQL Server al grupo de recursos *SqlVirtualMachineGrou
 
 
 ## <a name="step-2-manually-create-the-availability-group"></a>Paso 2: Crear el grupo de disponibilidad de forma manual 
-Cree el grupo de disponibilidad manualmente del modo habitual, ya sea mediante [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) o [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
+Cree el grupo de disponibilidad manualmente del modo habitual, ya sea mediante [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) o [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
 >[!IMPORTANT]
 > *No* cree un cliente de escucha en este momento porque lo hace automáticamente la plantilla de inicio rápido **101-sql-vm-aglistener-setup** en el paso 4. 
 
 ## <a name="step-3-manually-create-the-internal-load-balancer"></a>Paso 3: Crear el equilibrador de carga interno de forma manual
-La escucha de grupo de disponibilidad Always On requiere una instancia interna de Azure Load Balancer. El equilibrador de carga interno proporciona una dirección IP "flotante" para el cliente de escucha de grupo de disponibilidad, que permite conmutar por error y volver a conectarse de manera más rápida. Si las máquinas virtuales con SQL Server de un grupo de disponibilidad forman parte del mismo conjunto de disponibilidad, puede usar un equilibrador de carga básico. De lo contrario, debe usar uno estándar. 
+El cliente de escucha de grupo de disponibilidad Always On requiere una instancia interna de Azure Load Balancer. El equilibrador de carga interno proporciona una dirección IP "flotante" para el cliente de escucha de grupo de disponibilidad, que permite conmutar por error y volver a conectarse de manera más rápida. Si las máquinas virtuales con SQL Server de un grupo de disponibilidad forman parte del mismo conjunto de disponibilidad, puede usar un equilibrador de carga básico. De lo contrario, debe usar uno estándar. 
 
 > [!IMPORTANT]
 > El equilibrador de carga interno debe estar en la misma red virtual que las instancias de máquina virtual con SQL Server. 
@@ -102,7 +102,7 @@ Solo tiene que crear el equilibrador de carga interno. En el paso 4, la plantil
 4. En la hoja **Load Balancer**, haga clic en **Crear**.
 5. En el cuadro de diálogo **Crear equilibrador de carga**, configure el equilibrador de carga tal y como se explica a continuación:
 
-   | Configuración | Valor |
+   | Configuración | Value |
    | --- | --- |
    | **Nombre** |Escriba un nombre de texto que represente el equilibrador de carga. Por ejemplo, **sqlLB**. |
    | **Tipo** |**Internas**: en la mayoría de las implementaciones se usa un equilibrador de carga interno que permite que las aplicaciones dentro de la misma red virtual se conecten al grupo de disponibilidad.  </br> **Externas**: permite que las aplicaciones se conecten al grupo de disponibilidad mediante una conexión a Internet pública. |
@@ -119,7 +119,7 @@ Solo tiene que crear el equilibrador de carga interno. En el paso 4, la plantil
 
 
 >[!IMPORTANT]
-> El recurso de IP pública de cada máquina virtual con SQL Server debe tener una SKU estándar para que sea compatible con el equilibrador de carga estándar. Para determinar la SKU del recurso de IP pública de la máquina virtual, vaya a **Grupo de recursos**, seleccione su recurso **Dirección IP pública** para la máquina virtual con SQL Server y busque el valor que aparece debajo de **SKU** en el panel **Información general**. 
+> El recurso de IP pública de cada máquina virtual con SQL Server debe tener una SKU estándar para que sea compatible con el equilibrador de carga estándar. Para determinar la SKU del recurso de IP pública de la máquina virtual, vaya a **Grupo de recursos**, seleccione su recurso **Dirección IP pública** para la máquina virtual con SQL Server y busque el valor que aparece debajo de **SKU** en el panel **Información general**. 
 
 ## <a name="step-4-create-the-availability-group-listener-and-configure-the-internal-load-balancer-by-using-the-quickstart-template"></a>Paso 4: Crear la escucha de grupo de disponibilidad y configurar el equilibrador de carga interno mediante la plantilla de inicio rápido
 
@@ -140,7 +140,7 @@ Para configurar el equilibrador de carga interno y crear la escucha de grupo de 
 
    En la tabla siguiente se muestran los valores necesarios para la plantilla: 
 
-   | **Campo** | Valor |
+   | **Campo** | Value |
    | --- | --- |
    |**Grupos de recursos** | El grupo de recursos donde residen sus máquinas virtuales con SQL Server y el grupo de disponibilidad. | 
    |**Failover Cluster Name** (Nombre del clúster de conmutación por error) | El nombre del clúster al que se han unido sus máquinas virtuales con SQL Server. |
@@ -160,10 +160,10 @@ Para configurar el equilibrador de carga interno y crear la escucha de grupo de 
 >[!NOTE]
 >Si la implementación genera errores a mitad del proceso, deberá [quitar el cliente de escucha recién creado](#remove-the-availability-group-listener) de forma manual mediante PowerShell antes de volver a implementar la plantilla de inicio rápido **101-sql-vm-aglistener-setup**. 
 
-## <a name="remove-the-availability-group-listener"></a>Eliminación de la escucha de grupo de disponibilidad
-Si posteriormente necesita quitar la escucha de grupo de disponibilidad configurada por la plantilla, debe pasar por el proveedor de recursos de máquina virtual con SQL. Puesto que el cliente de escucha se registra mediante este proveedor de recursos, no basta con eliminarlo mediante SQL Server Management Studio. 
+## <a name="remove-the-availability-group-listener"></a>Eliminación del cliente de escucha de grupo de disponibilidad
+Si posteriormente necesita quitar la escucha de grupo de disponibilidad configurada por la plantilla, debe pasar por el proveedor de recursos de máquina virtual con SQL. Puesto que el cliente de escucha se registra mediante el proveedor de recursos de máquina virtual con SQL, no basta con eliminarlo mediante SQL Server Management Studio. 
 
-El mejor método consiste en eliminarlo a través del proveedor de recursos de máquina virtual con SQL mediante el siguiente fragmento de código en PowerShell. Al hacerlo, se quitan los metadatos del agente de escucha de grupo de disponibilidad del proveedor de recursos de la máquina virtual con SQL. También elimina físicamente el cliente de escucha del grupo de disponibilidad. 
+El mejor método consiste en eliminarlo a través del proveedor de recursos de máquina virtual con SQL mediante el siguiente fragmento de código en PowerShell. Al hacerlo, se quitan los metadatos del cliente de escucha de grupo de disponibilidad del proveedor de recursos de máquina virtual con SQL. También elimina físicamente el cliente de escucha de grupo de disponibilidad. 
 
 ```PowerShell
 # Remove the availability group listener

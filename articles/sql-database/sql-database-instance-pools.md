@@ -12,11 +12,11 @@ ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
 ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587403"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228620"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>¿Qué son los grupos de instancias de SQL Database (versión preliminar)?
 

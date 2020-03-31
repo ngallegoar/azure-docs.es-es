@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ff3409fad12e54be5ac00ead3ca44c1f24bb0af8
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 0d081a8cec088f4743bd0dc7d3cc37a9fade61d1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268306"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80117145"
 ---
 Los discos Ultra de Azure ofrecen un alto rendimiento, IOPS elevadas y un almacenamiento en disco coherente y de baja latencia para máquinas virtuales IaaS de Azure. En esta nueva oferta se proporciona un rendimiento exclusivo que se encuentra en los mismos niveles de disponibilidad que nuestras ofertas de discos existentes. Una ventaja importante de los discos Ultra es la posibilidad de cambiar dinámicamente el rendimiento del disco SSD junto con sus cargas de trabajo sin tener que reiniciar las máquinas virtuales. Además, los discos Ultra son adecuados para cargas de trabajo con grandes cantidades de datos, como SAP HANA, bases de datos de nivel superior y cargas de trabajo que admitan muchas transacciones.
 
@@ -27,7 +27,7 @@ Para aprovechar los discos Ultra, debe determinar en qué zona de disponibilidad
 
 CLI:
 
-```bash
+```azurecli
 $subscription = "<yourSubID>"
 # example value is southeastasia
 $region = "<yourLocation>"
@@ -180,7 +180,7 @@ az disk create `
 
 Como alternativa, si la máquina virtual existente se encuentra en una región o zona de disponibilidad que puede usar discos Ultra, puede usar este tipo de discos sin tener que crear una nueva máquina virtual.
 
-```bash
+```azurecli
 $rgName = "<yourResourceGroupName>"
 $vmName = "<yourVMName>"
 $diskName = "<yourDiskName>"

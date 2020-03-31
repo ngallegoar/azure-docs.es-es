@@ -9,10 +9,10 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68847160"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Inicio rápido: Enrutamiento de eventos de almacenamiento a un punto de conexión web con PowerShell
@@ -23,9 +23,9 @@ Por lo general, se envían eventos a un punto de conexión que procesa los datos
 
 Cuando haya terminado, verá que los datos del evento se han enviado a la aplicación web.
 
-![Visualización de los resultados](./media/storage-blob-event-quickstart-powershell/view-results.png)
+![Vista de resultados](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

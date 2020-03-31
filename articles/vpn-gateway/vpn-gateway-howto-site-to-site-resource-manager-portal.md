@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 857b50a04466f43a25cf80d7930cfb4639dc9d65
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301967"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224996"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creación de una conexión de sitio a sitio mediante Azure Portal
 
@@ -39,7 +39,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 * Compruebe que tiene una dirección IPv4 pública externa para el dispositivo VPN.
 * Si no está familiarizado con los intervalos de direcciones IP ubicados en la red local, necesita trabajar con alguien que pueda proporcionarle estos detalles. Al crear esta configuración, debe especificar los prefijos del intervalo de direcciones IP al que Azure enrutará la ubicación local. Ninguna de las subredes de la red local puede superponerse con las subredes de la red virtual a la que desea conectarse. 
 
-### <a name="values"></a>Valores del ejemplo
+### <a name="example-values"></a><a name="values"></a>Valores del ejemplo
 
 Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo. Para más información sobre la configuración de VPN Gateway en general, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
@@ -59,11 +59,11 @@ Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos
 * **Nombre de la conexión:** VNet1toSite1
 * **Clave compartida:** En este ejemplo, se usa abc123. Sin embargo, puede usar cualquiera compatible con el hardware VPN. Lo importante es que los valores coincidan en ambos lados de la conexión.
 
-## <a name="CreatVNet"></a>1. Creación de una red virtual
+## <a name="1-create-a-virtual-network"></a><a name="CreatVNet"></a>1. Creación de una red virtual
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="VNetGateway"></a>2. Creación de la puerta de enlace VPN
+## <a name="2-create-the-vpn-gateway"></a><a name="VNetGateway"></a>2. Creación de la puerta de enlace VPN
 
 En este paso, se crea la puerta de enlace para la red virtual. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada.
 
@@ -84,7 +84,7 @@ En este paso, se crea la puerta de enlace para la red virtual. La creación de u
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 
-## <a name="LocalNetworkGateway"></a>3. Creación de la puerta de enlace de red local
+## <a name="3-create-the-local-network-gateway"></a><a name="LocalNetworkGateway"></a>3. Creación de la puerta de enlace de red local
 
 La puerta de enlace de red local suele hacer referencia a la ubicación local. Asigne al sitio un nombre al que Azure pueda hacer referencia y, luego, especifique la dirección IP del dispositivo VPN local con la que creará una conexión. Especifique también los prefijos de dirección IP que se enrutarán a través de la puerta de enlace VPN al dispositivo VPN. Los prefijos de dirección que especifique son los prefijos que se encuentran en la red local. Si la red local cambia o necesita cambiar la dirección IP pública del dispositivo VPN, puede actualizar fácilmente los valores más adelante.
 
@@ -97,7 +97,7 @@ La puerta de enlace de red local suele hacer referencia a la ubicación local. A
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 
-## <a name="VPNDevice"></a>4. Configurar el dispositivo VPN
+## <a name="4-configure-your-vpn-device"></a><a name="VPNDevice"></a>4. Configurar el dispositivo VPN
 
 Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. En este paso, se configura el dispositivo VPN. Al configurar el dispositivo VPN, necesita lo siguiente:
 
@@ -106,29 +106,29 @@ Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. En
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
-## <a name="CreateConnection"></a>5. Creación de la conexión VPN
+## <a name="5-create-the-vpn-connection"></a><a name="CreateConnection"></a>5. Creación de la conexión VPN
 
 Creación de la conexión VPN de sitio a sitio entre la puerta de enlace de la red virtual y el dispositivo VPN local.
 
 [!INCLUDE [Add a site-to-site connection](../../includes/vpn-gateway-add-site-to-site-connection-portal-include.md)]
 
-## <a name="VerifyConnection"></a>6. Comprobación de la conexión VPN
+## <a name="6-verify-the-vpn-connection"></a><a name="VerifyConnection"></a>6. Comprobación de la conexión VPN
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 
-## <a name="connectVM"></a>Conexión a una máquina virtual
+## <a name="to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Conexión a una máquina virtual
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="reset"></a>Procedimientos para restablecer una puerta de enlace de VPN
+## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>Procedimientos para restablecer una puerta de enlace de VPN
 
 Restablecer una puerta de enlace de VPN de Azure es útil si se pierde la conectividad VPN entre locales en uno o varios túneles VPN de sitio a sitio. En esta situación, todos tus dispositivos VPN locales funcionan correctamente, pero no pueden establecer túneles IPsec con las Puertas de enlace de VPN de Azure. Para conocer los pasos, consulte [Restablecimiento de una puerta de enlace de VPN](vpn-gateway-resetgw-classic.md).
 
-## <a name="resize"></a>Procedimientos para cambiar la SKU de una puerta de enlace (cambiar el tamaño de una puerta de enlace)
+## <a name="how-to-change-a-gateway-sku-resize-a-gateway"></a><a name="resize"></a>Procedimientos para cambiar la SKU de una puerta de enlace (cambiar el tamaño de una puerta de enlace)
 
 Para que conocer los pasos para cambiar la SKU de una puerta de enlace, consulte [SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-## <a name="addconnect"></a>Procedimiento para agregar una conexión adicional a una puerta de enlace VPN
+## <a name="how-to-add-an-additional-connection-to-a-vpn-gateway"></a><a name="addconnect"></a>Procedimiento para agregar una conexión adicional a una puerta de enlace VPN
 
 Puede agregar conexiones adicionales, siempre que ninguno de los espacios de direcciones se superpongan entre las conexiones.
 

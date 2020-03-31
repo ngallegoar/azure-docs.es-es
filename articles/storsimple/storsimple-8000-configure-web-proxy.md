@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65204249"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurar el proxy web para el dispositivo StorSimple
@@ -86,7 +86,7 @@ El proxy web ya está habilitado. Puede omitir el paso en el que se [habilita el
 Una forma alternativa de configurar los valores de proxy web es mediante los cmdlets de Windows PowerShell para StorSimple. Lleve a cabo los siguientes pasos para configurar el proxy web.
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>Para configurar el proxy web mediante los cmdlets
-1. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**. Cuando se le solicite, proporcione la **contraseña de administrador del dispositivo**. La contraseña predeterminada es `Password1`.
+1. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**. Cuando se le solicite, proporcione la **contraseña de administrador de dispositivo**. La contraseña predeterminada es `Password1`.
 2. En el símbolo del sistema, escriba:
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
@@ -108,7 +108,7 @@ El proxy web está deshabilitado de manera predeterminada. Después de configura
 Lleve a cabo los siguientes pasos en Windows PowerShell para StorSimple para habilitar el proxy web en el dispositivo:
 
 #### <a name="to-enable-web-proxy"></a>Para habilitar el proxy web
-1. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**. Cuando se le solicite, proporcione la **contraseña de administrador del dispositivo**. La contraseña predeterminada es `Password1`.
+1. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**. Cuando se le solicite, proporcione la **contraseña de administrador de dispositivo**. La contraseña predeterminada es `Password1`.
 2. En el símbolo del sistema, escriba:
    
     `Enable-HcsWebProxy`

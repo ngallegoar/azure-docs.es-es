@@ -10,10 +10,10 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 5fa515515c06466e121a5c0ee925fd4d14245363
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74895238"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Administración del almacenamiento en las nubes independientes mediante PowerShell
@@ -63,7 +63,7 @@ La siguiente tabla muestra las ubicaciones devueltas para la nube de Alemania.
 |Location | Display Name (Nombre para mostrar) |
 |----|----|
 | `germanycentral` | Centro de Alemania|
-| `germanynortheast` | Noreste de Alemania |
+| `germanynortheast` | Nordeste de Alemania |
 
 
 ## <a name="endpoint-suffix"></a>Sufijo de punto de conexión
@@ -84,7 +84,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Este comando devuelve los siguientes resultados.
 
-| Name| StorageEndpointSuffix|
+| Nombre| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -99,9 +99,9 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 Los resultados son similares a los valores siguientes:
 
-|Nombre de propiedad|Valor|
+|Nombre de propiedad|Value|
 |----|----|
-| NOMBRE | `AzureGermanCloud` |
+| Nombre | `AzureGermanCloud` |
 | EnableAdfsAuthentication | `False` |
 | ActiveDirectoryServiceEndpointResourceI | `http://management.core.cloudapi.de/` |
 | GalleryURL | `https://gallery.cloudapi.de/` |
@@ -111,7 +111,7 @@ Los resultados son similares a los valores siguientes:
 | ResourceManagerUrl | `http://management.microsoftazure.de/` |
 | SqlDatabaseDnsSuffix | `.database.cloudapi.de` |
 | **StorageEndpointSuffix** | `core.cloudapi.de` |
-| ... | ... |
+| … | … |
 Para recuperar solo la propiedad del sufijo de punto de conexión de almacenamiento, recupere la nube específica y pida solo esa propiedad.
 
 ```powershell

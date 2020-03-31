@@ -8,10 +8,10 @@ ms.date: 10/23/2018
 ms.author: cherylmc
 ms.topic: conceptual
 ms.openlocfilehash: fba213be2de3b747d3ba962674a03c0bc7df3ed5
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75863672"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminación de una puerta de enlace de red virtual mediante el portal
@@ -55,7 +55,7 @@ En este punto, se elimina la puerta de enlace de red virtual. Los pasos siguient
 2. En la hoja **Subredes**, haga clic en el elemento **GatewaySubnet** y después en **Eliminar**. 
 3. Haga clic en **Sí** para confirmar que desea eliminar la subred de la puerta de enlace.
 
-## <a name="deleterg"></a>Eliminación de una puerta de enlace VPN mediante la eliminación del grupo de recursos
+## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="deleterg"></a>Eliminación de una puerta de enlace VPN mediante la eliminación del grupo de recursos
 
 Si no desea mantener ninguno de los recursos del grupo, sino que desea empezar de nuevo, puede eliminar dicho grupo al completo. Se trata de una forma rápida de quitarlos todos. Los siguientes pasos se aplican solo al modelo de implementación de Resource Manager.
 

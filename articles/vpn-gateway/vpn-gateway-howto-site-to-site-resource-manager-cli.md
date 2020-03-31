@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: 6d28a5a37be2947ea6cc7019d2b3cc73932c60d6
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75779134"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Creación de una red virtual con una conexión VPN de sitio a sitio mediante la CLI
@@ -43,7 +43,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
  
   [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-### <a name="example"></a>Valores del ejemplo
+### <a name="example-values"></a><a name="example"></a>Valores del ejemplo
 
 Puede usar los siguientes valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo:
 
@@ -68,13 +68,13 @@ GatewayType             = Vpn 
 ConnectionName          = VNet1toSite2
 ```
 
-## <a name="Login"></a>1. su suscripción
+## <a name="1-connect-to-your-subscription"></a><a name="Login"></a>1. su suscripción
 
 Si decide ejecutar la CLI de forma local, conéctese a su suscripción. Si está usando Azure Cloud Shell en el explorador, no necesita conectarse a su suscripción. Se conectará automáticamente en Azure Cloud Shell. Sin embargo, es posible que quiera comprobar si está usando la suscripción correcta después de conectarse.
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## <a name="rg"></a>2. Crear un grupo de recursos
+## <a name="2-create-a-resource-group"></a><a name="rg"></a>2. Crear un grupo de recursos
 
 En el ejemplo siguiente se crea un grupo de recursos con el nombre 'TestRG1' en la ubicación 'eastus'. Si ya tiene un grupo de recursos en la región que desea crear la red virtual, puede utilizarlo.
 
@@ -82,7 +82,7 @@ En el ejemplo siguiente se crea un grupo de recursos con el nombre 'TestRG1' en 
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="VNet"></a>3. Creación de una red virtual
+## <a name="3-create-a-virtual-network"></a><a name="VNet"></a>3. Creación de una red virtual
 
 Si aún no tiene una red virtual, créela con el comando [az network vnet create](/cli/azure/network/vnet). Al crear una red virtual, compruebe que los espacios de direcciones especificados no se superponen con los espacios de direcciones que existen en la red local.
 
@@ -97,7 +97,7 @@ El siguiente ejemplo crea una red virtual denominada 'TestVNet1' y una subred ll
 az network vnet create --name TestVNet1 --resource-group TestRG1 --address-prefix 10.11.0.0/16 --location eastus --subnet-name Subnet1 --subnet-prefix 10.11.0.0/24
 ```
 
-## 4. <a name="gwsub"></a>Creación de la subred de la puerta de enlace
+## <a name="4-create-the-gateway-subnet"></a>4. <a name="gwsub"></a>Creación de la subred de la puerta de enlace
 
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
@@ -110,7 +110,7 @@ az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubn
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="localnet"></a>5. Creación de la puerta de enlace de red local
+## <a name="5-create-the-local-network-gateway"></a><a name="localnet"></a>5. Creación de la puerta de enlace de red local
 
 La puerta de enlace de red local suele hacer referencia a la ubicación local. Asigne al sitio un nombre al que Azure pueda hacer referencia y, luego, especifique la dirección IP del dispositivo VPN local con la que creará una conexión. Especifique también los prefijos de dirección IP que se enrutarán a través de la puerta de enlace VPN al dispositivo VPN. Los prefijos de dirección que especifique son los prefijos que se encuentran en la red local. Puede actualizar fácilmente estos prefijos si cambia su red local.
 
@@ -125,7 +125,7 @@ Use el comando [az network local-gateway create](/cli/azure/network/local-gatewa
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
-## <a name="PublicIP"></a>6. Solicite una dirección IP pública
+## <a name="6-request-a-public-ip-address"></a><a name="PublicIP"></a>6. Solicite una dirección IP pública
 
 Una puerta de enlace VPN debe tener una dirección IP pública. Primero se solicita el recurso de la dirección IP y, después, se hace referencia a él al crear la puerta de enlace de red virtual. La dirección IP se asigna dinámicamente al recurso cuando se crea la puerta de enlace VPN. Actualmente, VPN Gateway solo admite la asignación de direcciones IP públicas *dinámicas*. No se puede solicitar una asignación de direcciones IP públicas estáticas. Sin embargo, esto no significa que la dirección IP cambia después de que se ha asignado a una puerta de enlace VPN. La única vez que la dirección IP pública cambia es cuando la puerta de enlace se elimina y se vuelve a crear. No cambia cuando se cambia el tamaño, se restablece o se realizan actualizaciones u otras operaciones de mantenimiento interno de una puerta de enlace VPN.
 
@@ -135,7 +135,7 @@ Use el comando [az network public-ip create](/cli/azure/network/public-ip) para 
 az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocation-method Dynamic
 ```
 
-## <a name="CreateGateway"></a>7. Creación de la puerta de enlace VPN
+## <a name="7-create-the-vpn-gateway"></a><a name="CreateGateway"></a>7. Creación de la puerta de enlace VPN
 
 Cree la puerta de enlace VPN de la red virtual. Crear una puerta de enlace VPN puede tardar 45 minutos o más en completarse.
 
@@ -151,7 +151,7 @@ Cree la puerta de enlace VPN con el comando [az network vnet-gateway create](/cl
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWIP --resource-group TestRG1 --vnet TestVNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait 
 ```
 
-## <a name="VPNDevice"></a>8. Configurar el dispositivo VPN
+## <a name="8-configure-your-vpn-device"></a><a name="VPNDevice"></a>8. Configurar el dispositivo VPN
 
 Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. En este paso, se configura el dispositivo VPN. Al configurar el dispositivo VPN, necesita lo siguiente:
 
@@ -166,7 +166,7 @@ Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. En
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 
-## <a name="CreateConnection"></a>9. Creación de la conexión VPN
+## <a name="9-create-the-vpn-connection"></a><a name="CreateConnection"></a>9. Creación de la conexión VPN
 
 Creación de la conexión VPN de sitio a sitio entre la puerta de enlace de la red virtual y el dispositivo VPN local. Preste especial atención al valor de la clave compartida, que debe coincidir con el valor de la clave compartida configurada para el dispositivo VPN.
 
@@ -178,17 +178,17 @@ az network vpn-connection create --name VNet1toSite2 --resource-group TestRG1 --
 
 Pasado un momento, se establecerá la conexión.
 
-## <a name="toverify"></a>10. Comprobación de la conexión VPN
+## <a name="10-verify-the-vpn-connection"></a><a name="toverify"></a>10. Comprobación de la conexión VPN
 
 [!INCLUDE [verify connection](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 Si desea usar otro método para comprobar la conexión, consulte [Comprobación de una conexión de VPN Gateway](vpn-gateway-verify-connection-resource-manager.md).
 
-## <a name="connectVM"></a>Conexión a una máquina virtual
+## <a name="to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Conexión a una máquina virtual
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="tasks"></a>Tareas comunes
+## <a name="common-tasks"></a><a name="tasks"></a>Tareas comunes
 
 Esta sección contiene comandos comunes que son útiles al trabajar con configuraciones de sitio a sitio. Para obtener la lista completa de los comandos de red de la CLI, consulte [Azure CLI - Networking](/cli/azure/network) (CLI de Azure - Redes).
 

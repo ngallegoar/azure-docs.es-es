@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 01/22/2020
-ms.openlocfilehash: 267779afc749fccba41935741630a759576d6e77
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 03/11/2020
+ms.openlocfilehash: 38d44f5a2ce22de15cb14ea5aa7a9ca1ea7c03cf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515027"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481072"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 
@@ -102,6 +102,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Tamaño máximo de datos de TempDB (GB)|32|64|96|128|160|192|
 |Tipo de almacenamiento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |Número máx. de IOPS de datos *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Velocidad de registro máx. (Mbps)|100 |100 |100 |100 |100 |100 |
 |Latencia de E/S (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -126,6 +127,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Tamaño máximo de datos de TempDB (GB)|224|256|288|320|512|768|
 |Tipo de almacenamiento| [Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |Número máx. de IOPS de datos *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Velocidad de registro máx. (Mbps)|100 |100 |100 |100 |100 |100 |
 |Latencia de E/S (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1400|1600|1800|2000|3200|4800|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -154,6 +156,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Tamaño máximo de datos de TempDB (GB)|64|128|192|256|320|384|448|
 |Tipo de almacenamiento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |Número máx. de IOPS de datos *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Velocidad de registro máx. (Mbps)|100 |100 |100 |100 |100 |100 |100 |
 |Latencia de E/S (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|1400|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -180,6 +183,7 @@ El [nivel de proceso sin servidor](sql-database-serverless.md) está actualmente
 |Tamaño máximo de datos de TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Tipo de almacenamiento| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |[Nota 1](#notes) |
 |Número máx. de IOPS de datos *|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Velocidad de registro máx. (Mbps)|100 |100 |100 |100 |100 |100 |100 |
 |Latencia de E/S (aproximada)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|[Nota 3](#notes)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1600|1800|2000|2400|3200|4000|8000|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|

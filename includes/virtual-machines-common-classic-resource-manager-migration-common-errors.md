@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: tanmaygore
-ms.openlocfilehash: 3632e12f5e58f8cadefb1e666cf4014026e24358
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 7b5318ad7902f323a8af27d2cc5a7975e3c315e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057027"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80117207"
 ---
 En este artículo se catalogan los errores y las soluciones más comunes durante la migración de recursos de IaaS del modelo de implementación clásica a la pila de Azure Resource Manager.
 
@@ -164,13 +164,15 @@ Update-AzureVM       b0ad3d4c-4v68-45vb-xxc1-134fd010d0f8 Succeeded
 Después de completar el proceso de migración, puede que desee mover la máquina virtual a otra suscripción. Sin embargo, si tiene un certificado de clave en la máquina virtual que hace referencia a un recurso de Key Vault, el movimiento actualmente no se admite. Estas instrucciones le permiten solucionar el problema. 
 
 #### <a name="powershell"></a>PowerShell
+
 ```powershell
 $vm = Get-AzVM -ResourceGroupName "MyRG" -Name "MyVM"
 Remove-AzVMSecret -VM $vm
 Update-AzVM -ResourceGroupName "MyRG" -VM $vm
 ```
+
 #### <a name="azure-cli"></a>Azure CLI
 
-```bash
+```azurecli
 az vm update -g "myrg" -n "myvm" --set osProfile.Secrets=[]
 ```

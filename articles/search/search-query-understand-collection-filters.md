@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113072"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Uso de los filtros de colección de OData en Azure Cognitive Search
@@ -101,7 +101,7 @@ Cómo se almacena `Rooms/Description` para la búsqueda de texto completo:
 | room | 1, 2 |
 | estándar | 1 |
 | suite | 1 |
-| view | 1 |
+| ver | 1 |
 
 Por tanto, a diferencia del filtro anterior, que básicamente dice "comparar los documentos donde para una habitación `Type` es igual a "Deluxe Room" (habitación deluxe) y **esa misma habitación** tiene un valor `BaseRate` menor que 100", la consulta de búsqueda dice "comparar documentos donde `Rooms/Type` tiene el término "deluxe" y `Rooms/Description` tiene la frase "city view". En el último caso no hay ningún concepto de habitación individual cuyos campos se puedan poner en correlación.
 

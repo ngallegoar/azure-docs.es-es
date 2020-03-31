@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
 ms.openlocfilehash: cffde2a677650387dffd19733e082ff7002ccb55
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68228979"
 ---
 # <a name="create-an-assessment"></a>Crear una evaluación
 
 En este artículo se describe cómo crear una evaluación para máquinas virtuales locales de VMware o de Hyper-V con Azure Migrate: Server Assessment.
 
-[Azure Migrate](migrate-services-overview.md) le ayuda a migrar a Azure. Azure Migrate proporciona un centro principal para realizar el seguimiento de la detección, evaluación y migración de infraestructuras, aplicaciones y datos locales a Azure. El centro proporciona herramientas de Azure para la evaluación y migración, así como ofertas de proveedores de software independientes (ISV) externos. 
+[Azure Migrate](migrate-services-overview.md) le ayuda a migrar a Azure. Azure Migrate proporciona un centro principal para realizar el seguimiento de la detección, valoración y migración de infraestructuras, aplicaciones y datos locales a Azure. El centro proporciona herramientas de Azure para la valoración y migración, así como ofertas de proveedores de software independientes (ISV) externos. 
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -27,12 +27,12 @@ En este artículo se describe cómo crear una evaluación para máquinas virtual
 
 
 ## <a name="assessment-overview"></a>Introducción a la valoración
-Con Azure Migrate: Server Assessment se pueden crear dos tipos de evaluaciones.
+Con Azure Migrate: Server Assessment se pueden crear dos Server Assessment.
 
-**Valoración** | **Detalles** | **Datos**
+**Valoración** | **Detalles** | **Data**
 --- | --- | ---
 **Basada en el rendimiento** | Evaluaciones basadas en los datos de rendimiento recopilados | **Tamaño de máquina virtual recomendado**: se basa en los datos de uso de la CPU y de la memoria.<br/><br/> **Tipo de disco recomendado (disco administrado estándar o Premium**): se basa en IOPS y en el rendimiento de los discos locales.
-**Como local** | Evaluaciones que se basan en el tamaño local. | **Tamaño de máquina virtual recomendado**: se basa en el tamaño de la máquina virtual local.<br/><br> **Tipo de disco recomendado**: se basa en el valor del tipo de almacenamiento que se selecciona para la evaluación.
+**Como local** | Evaluaciones que se basan en el tamaño local. | **Tamaño de máquina virtual recomendado**: se basa en el tamaño de la máquina virtual local<br/><br> **Tipo de disco recomendado**: se basa en el valor del tipo de almacenamiento que se selecciona para la evaluación.
 
 [Más información](concepts-assessment-calculation.md) sobre las evaluaciones.
 
@@ -43,7 +43,7 @@ Las evaluaciones se realizan como se indica a continuación:
 1. Consulte los [procedimientos recomendados](best-practices-assessment.md) para crear evaluaciones.
 2. En la pestaña **Servidores**, en el icono **Azure Migrate: Server Assessment**, haga clic en **Evaluar**.
 
-    ![Evaluación](./media/how-to-create-assessment/assess.png)
+    ![Evaluar](./media/how-to-create-assessment/assess.png)
 
 2. En **Evaluar los servidores**, especifique el nombre de la evaluación.
 3. Haga clic en **View all** (Ver todo) para revisar la configuración de la valoración.

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68965290"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
@@ -119,7 +119,7 @@ En esta sección se enumeran las especificaciones relacionadas con el entorno de
 
 | Revestimiento | Intervalo de temperatura ambiente | Humedad relativa del ambiente | Temperatura máxima de termómetro húmedo |
 | --- | --- | --- | --- |
-| Operativo |5 °C - 35 °C (41 °F - 95 °F) |20% - 80% sin condensación |28 °C (82 °F) |
+| Operativos |5 °C - 35 °C (41 °F - 95 °F) |20% - 80% sin condensación |28 °C (82 °F) |
 | No operativo |-40 °C - 70 °C (40 °F - 158 °F) |5% - 100% sin condensación |29 °C (84 °F) |
 
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Flujo de aire, altitud, golpes, vibraciones, orientación, seguridad y CEM

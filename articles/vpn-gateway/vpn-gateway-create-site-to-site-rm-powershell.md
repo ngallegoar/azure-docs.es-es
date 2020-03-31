@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: d1693a6165aa31b221b6901e2e1c8b2955a3dfb3
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76045698"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Creación de una red virtual con una conexión VPN de sitio a sitio mediante PowerShell
@@ -31,7 +31,7 @@ Se utiliza una conexión de puerta de enlace VPN de sitio a sitio para conectar 
 
 ![Diagrama de la conexión entre locales de VPN Gateway de sitio a sitio](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## <a name="before"></a>Antes de empezar
+## <a name="before-you-begin"></a><a name="before"></a>Antes de empezar
 
 Antes de comenzar con la configuración, compruebe que se cumplen los criterios siguientes:
 
@@ -43,7 +43,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-### <a name="example"></a>Valores del ejemplo
+### <a name="example-values"></a><a name="example"></a>Valores del ejemplo
 
 Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo.
 
@@ -69,7 +69,7 @@ ConnectionName          = VNet1toSite1
 
 ```
 
-## <a name="VNet"></a>1. Creación de una red virtual y una puerta de enlace
+## <a name="1-create-a-virtual-network-and-a-gateway-subnet"></a><a name="VNet"></a>1. Creación de una red virtual y una puerta de enlace
 
 Si no tiene una red virtual, créela. Al crear una red virtual, compruebe que los espacios de direcciones especificados no se superponen con los espacios de direcciones que existen en la red local. 
 
@@ -84,7 +84,7 @@ Si no tiene una red virtual, créela. Al crear una red virtual, compruebe que lo
 
 [!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="vnet"></a>Creación de una red virtual y una subred de puerta de enlace
+### <a name="create-a-virtual-network-and-a-gateway-subnet"></a><a name="vnet"></a>Creación de una red virtual y una subred de puerta de enlace
 
 Este ejemplo crea una red virtual y una subred de la puerta de enlace. Si ya tiene una red virtual que necesite agregar a una subred de puerta de enlace, consulte [Para agregar una subred de puerta de enlace a una red virtual que ya ha creado](#gatewaysubnet).
 
@@ -109,7 +109,7 @@ Cree la red virtual.
    -Location 'East US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
    ```
 
-### <a name="gatewaysubnet"></a>Para agregar una subred de puerta de enlace a una red virtual que ya ha creado
+### <a name="to-add-a-gateway-subnet-to-a-virtual-network-you-have-already-created"></a><a name="gatewaysubnet"></a>Para agregar una subred de puerta de enlace a una red virtual que ya ha creado
 
 Use los pasos de esta sección si ya tiene una red virtual, aunque deberá agregar una subred de puerta de enlace.
 
@@ -129,7 +129,7 @@ Use los pasos de esta sección si ya tiene una red virtual, aunque deberá agreg
    Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
 
-## 2. <a name="localnet"></a>Creación de la puerta de enlace de red local
+## <a name="2-create-the-local-network-gateway"></a>2. <a name="localnet"></a>Creación de la puerta de enlace de red local
 
 La puerta de enlace de red local (LNG) suele hacer referencia a la ubicación local. No es lo mismo que una puerta de enlace de red. Asigne al sitio un nombre al que Azure pueda hacer referencia y, luego, especifique la dirección IP del dispositivo VPN local con la que creará una conexión. Especifique también los prefijos de dirección IP que se enrutarán a través de la puerta de enlace VPN al dispositivo VPN. Los prefijos de dirección que especifique son los prefijos que se encuentran en la red local. Puede actualizar fácilmente estos prefijos si cambia su red local.
 
@@ -156,7 +156,7 @@ Para modificar los prefijos de dirección IP de su puerta de enlace de red local
 
 A veces los prefijos de la puerta de enlace de red local cambian. Los pasos necesarios para modificar los prefijos de las direcciones IP dependen de si creó una conexión de puerta de enlace de VPN. Consulte la sección [Para modificar los prefijos de dirección IP de una puerta de enlace de red local](#modify) de este artículo.
 
-## <a name="PublicIP"></a>3. Solicite una dirección IP pública
+## <a name="3-request-a-public-ip-address"></a><a name="PublicIP"></a>3. Solicite una dirección IP pública
 
 Una puerta de enlace VPN debe tener una dirección IP pública. Primero se solicita el recurso de la dirección IP y, después, se hace referencia a él al crear la puerta de enlace de red virtual. La dirección IP se asigna dinámicamente al recurso cuando se crea la puerta de enlace VPN. 
 
@@ -168,7 +168,7 @@ Solicite una dirección IP pública que se asignará a la puerta de enlace VPN d
 $gwpip= New-AzPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
-## <a name="GatewayIPConfig"></a>4. Creación de la configuración de direccionamiento IP de la puerta de enlace
+## <a name="4-create-the-gateway-ip-addressing-configuration"></a><a name="GatewayIPConfig"></a>4. Creación de la configuración de direccionamiento IP de la puerta de enlace
 
 La configuración de puerta de enlace define la subred ("GatewaySubnet") y la dirección IP pública que se van a usar. Use el ejemplo siguiente para crear la configuración de la puerta de enlace:
 
@@ -178,7 +178,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
 
-## <a name="CreateGateway"></a>5. Creación de la puerta de enlace VPN
+## <a name="5-create-the-vpn-gateway"></a><a name="CreateGateway"></a>5. Creación de la puerta de enlace VPN
 
 Cree la puerta de enlace VPN de la red virtual.
 
@@ -196,7 +196,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 
 Después de ejecutar este comando, la configuración de la puerta de enlace puede tardar hasta 45 minutos en completarse.
 
-## <a name="ConfigureVPNDevice"></a>6. Configurar el dispositivo VPN
+## <a name="6-configure-your-vpn-device"></a><a name="ConfigureVPNDevice"></a>6. Configurar el dispositivo VPN
 
 Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. En este paso, se configura el dispositivo VPN. Para configurar el dispositivo VPN, necesita los elementos siguientes:
 
@@ -210,7 +210,7 @@ Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. En
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 
-## <a name="CreateConnection"></a>7. Creación de la conexión VPN
+## <a name="7-create-the-vpn-connection"></a><a name="CreateConnection"></a>7. Creación de la conexión VPN
 
 Ahora va a crear la conexión VPN de sitio a sitio entre la puerta de enlace de red virtual y el dispositivo VPN. Asegúrese de reemplazar los valores por los suyos. La clave compartida debe coincidir con el valor usado para la configuración del dispositivo VPN. Tenga en cuenta que el valor de '-ConnectionType' para la configuración sitio a sitio es **IPsec**.
 
@@ -229,28 +229,28 @@ Ahora va a crear la conexión VPN de sitio a sitio entre la puerta de enlace de 
 
 Pasado un momento, se establecerá la conexión.
 
-## <a name="toverify"></a>8. Comprobación de la conexión VPN
+## <a name="8-verify-the-vpn-connection"></a><a name="toverify"></a>8. Comprobación de la conexión VPN
 
 Hay varias maneras diferentes de comprobar la conexión VPN.
 
 [!INCLUDE [Verify connection](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="connectVM"></a>Conexión a una máquina virtual
+## <a name="to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Conexión a una máquina virtual
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
 
-## <a name="modify"></a>Para modificar los prefijos de dirección IP de una puerta de enlace de red local
+## <a name="to-modify-ip-address-prefixes-for-a-local-network-gateway"></a><a name="modify"></a>Para modificar los prefijos de dirección IP de una puerta de enlace de red local
 
 Si cambian los prefijos de las direcciones IP que desea enrutar a una ubicación local, puede modificar la puerta de enlace de red local. Se proporcionan dos conjuntos de instrucciones: Las instrucciones que elija dependen de si ya se ha creado la conexión de la puerta de enlace. Al usar estos ejemplos, modifique los valores para que coincidan con su entorno.
 
 [!INCLUDE [Modify prefixes](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
-## <a name="modifygwipaddress"></a>Para modificar la dirección IP de una puerta de enlace de red local
+## <a name="to-modify-the-gateway-ip-address-for-a-local-network-gateway"></a><a name="modifygwipaddress"></a>Para modificar la dirección IP de una puerta de enlace de red local
 
 [!INCLUDE [Modify gateway IP address](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
-## <a name="deleteconnection"></a>Para eliminar una conexión de puerta de enlace
+## <a name="to-delete-a-gateway-connection"></a><a name="deleteconnection"></a>Para eliminar una conexión de puerta de enlace
 
 Si no conoce el nombre de la conexión, puede encontrarlo mediante el cmdlet "Get-AzVirtualNetworkGatewayConnection".
 

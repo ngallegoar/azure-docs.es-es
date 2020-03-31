@@ -5,15 +5,15 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: dd9c3f972a2b598c0c03db2cb80986c08900c609
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abcef61d478eccb4e979b60eb845ac8d398a49f9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511605"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79135877"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Configure una directiva de WAF de filtrado geográfico para Front Door
 
@@ -21,7 +21,7 @@ En este tutorial se muestra cómo usar Azure PowerShell para crear una directiva
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar a configurar una directiva de filtrado geográfico, configure el entorno de PowerShell y crear un perfil de Front Door.
 ### <a name="set-up-your-powershell-environment"></a>Configuración del entorno de PowerShell

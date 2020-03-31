@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
 ms.openlocfilehash: 42a07ac00fd8a26918164f6547bf57c2b021d14c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75863621"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Configuración de BGP en Azure VPN Gateway con la CLI
@@ -39,7 +39,7 @@ Cada una de estas tres secciones constituye un bloque de creación básico para 
 
 Puede combinar estas secciones para crear una red de tránsito más compleja y de saltos múltiples que satisfaga sus necesidades.
 
-## <a name ="enablebgp"></a>Habilitar BGP para VPN Gateway
+## <a name="enable-bgp-for-your-vpn-gateway"></a><a name ="enablebgp"></a>Habilitar BGP para VPN Gateway
 
 Esta sección es necesaria antes de realizar alguno de los pasos de las otras dos secciones de configuración. Los siguientes pasos de configuración permiten establecer los parámetros BGP de Azure VPN Gateway como se muestra en el diagrama siguiente:
 
@@ -51,7 +51,7 @@ Instale la versión más reciente de los comandos de la CLI (2.0 o posteriores).
 
 ### <a name="step-1-create-and-configure-testvnet1"></a>Paso 1: Creación y configuración de TestVNet1
 
-#### <a name="Login"></a>1. su suscripción
+#### <a name="1-connect-to-your-subscription"></a><a name="Login"></a>1. su suscripción
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
@@ -118,7 +118,7 @@ az network vnet-gateway list -g TestBGPRG1 
 
 Después de crear la puerta de enlace, puede usarla para establecer una conexión entre locales o una conexión de red virtual a red virtual con BGP.
 
-## <a name ="crossprembgp"></a>Establecer una conexión entre locales con BGP
+## <a name="establish-a-cross-premises-connection-with-bgp"></a><a name ="crossprembgp"></a>Establecer una conexión entre locales con BGP
 
 Para establecer una conexión entre locales, debe crear una puerta de enlace de red local para representar el dispositivo VPN local. A continuación, conecte Azure VPN Gateway con la puerta de enlace de red local. Aunque estos pasos son similares a la creación de otras conexiones, incluyen propiedades adicionales para especificar los parámetros de configuración de BGP.
 
@@ -210,7 +210,7 @@ eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your 
 
 Después de unos minutos, la conexión debería haberse establecido. Se inicia la sesión de emparejamiento de BGP después de establecer la conexión IPsec.
 
-## <a name ="v2vbgp"></a>Establecer una conexión de red virtual a red virtual con BGP
+## <a name="establish-a-vnet-to-vnet-connection-with-bgp"></a><a name ="v2vbgp"></a>Establecer una conexión de red virtual a red virtual con BGP
 
 En esta sección se agrega una conexión de red virtual a red virtual con BGP, tal como se muestra en el diagrama siguiente: 
 

@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 6863f4bbfc6aabc4e7bf4314ad26dd4590d31362
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603504"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendaciones de corrección en Azure Security Center
 
 Las recomendaciones ofrecen sugerencias sobre cómo proteger mejor los recursos. Para implementar una recomendación, siga los pasos de corrección proporcionados en la recomendación.
 
-## Pasos de corrección <a name="remediation-steps"></a>
+## <a name="remediation-steps"></a>Pasos de corrección <a name="remediation-steps"></a>
 
 Después de revisar todas las recomendaciones, decida cuál se corrige primero. Se recomienda usar el [impacto de la puntuación segura](security-center-recommendations.md#monitor-recommendations) para ayudarle a priorizar qué hacer primero.
 
@@ -36,7 +36,7 @@ Después de revisar todas las recomendaciones, decida cuál se corrige primero. 
 
 1. Una vez completada, aparece una notificación que le informa si la corrección se ha realizado correctamente.
 
-## Solución por corrección rápida<a name="one-click"></a>
+## <a name="quick-fix-remediation"></a>Solución por corrección rápida<a name="one-click"></a>
 
 La corrección rápida le permite solucionar rápidamente una recomendación en varios recursos. Solo está disponible para recomendaciones específicas. La corrección rápida simplifica el proceso y permite mejorar rápidamente la puntuación de seguridad e incrementar la seguridad de su entorno.
 
@@ -65,7 +65,7 @@ Para implementar la solución por corrección rápida:
 
 1. Una vez completada, aparece una notificación que le informa si la corrección se ha realizado correctamente.
 
-## Registro de la corrección rápida en el registro de actividad <a name="activity-log"></a>
+## <a name="quick-fix-remediation-logging-in-the-activity-log"></a>Registro de la corrección rápida en el registro de actividad <a name="activity-log"></a>
 
 La operación de corrección usa una implementación de plantilla o una llamada API REST PATCH para aplicar la configuración en el recurso. Estas operaciones se registran en el [registro de actividad de Azure](../azure-resource-manager/management/view-activity-logs.md).
 

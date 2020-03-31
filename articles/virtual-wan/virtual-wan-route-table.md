@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ms.openlocfilehash: a55e1453fe7fe4d135286b22dabf58d434762581
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645113"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Creación de una tabla de rutas de concentrador virtual para dirigir el tráfico a un dispositivo virtual de red
@@ -43,7 +43,7 @@ Compruebe que se cumplen los criterios siguientes:
 5. Compruebe haber creado 2 redes virtuales. Se usarán como redes virtuales de radio. En este artículo, los espacios de direcciones de red virtual de radio son 10.0.2.0/24 y 10.0.3.0/24. Si necesita más información sobre cómo crear una red virtual, consulte [Creación de una red virtual mediante PowerShell](../virtual-network/quick-create-powershell.md).
 6. Asegúrese de que no haya ninguna puerta de enlace de red virtual en las redes virtuales.
 
-## <a name="signin"></a>1. Iniciar sesión
+## <a name="1-sign-in"></a><a name="signin"></a>1. Iniciar sesión
 
 Asegúrese de instalar la versión más reciente de los cmdlets de PowerShell de Resource Manager. Para más información sobre cómo instalar los cmdlets de PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps). Esto es importante porque las versiones anteriores de los cmdlets no contienen los valores actuales que necesita para este ejercicio.
 
@@ -63,7 +63,7 @@ Asegúrese de instalar la versión más reciente de los cmdlets de PowerShell de
    Select-AzSubscription -SubscriptionName "Name of subscription"
    ```
 
-## <a name="rg"></a>2. Crear recursos
+## <a name="2-create-resources"></a><a name="rg"></a>2. Crear recursos
 
 1. Cree un grupo de recursos.
 
@@ -81,7 +81,7 @@ Asegúrese de instalar la versión más reciente de los cmdlets de PowerShell de
    New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24" -Location "West US"
    ```
 
-## <a name="connections"></a>3. Crear conexiones
+## <a name="3-create-connections"></a><a name="connections"></a>3. Crear conexiones
 
 Cree conexiones de red virtual de concentrador desde la red virtual de radios indirectos y la red virtual perimetral al concentrador virtual.
 
@@ -95,7 +95,7 @@ Cree conexiones de red virtual de concentrador desde la red virtual de radios in
   New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
-## <a name="route"></a>4. Crear una ruta de concentrador virtual
+## <a name="4-create-a-virtual-hub-route"></a><a name="route"></a>4. Crear una ruta de concentrador virtual
 
 En este artículo, los espacios de direcciones de red virtual de radios indirectos son 10.0.2.0/24 y 10.0.3.0/24, y la dirección IP privada de la interfaz de red de la red virtual perimetral es 10.0.4.5.
 
@@ -103,7 +103,7 @@ En este artículo, los espacios de direcciones de red virtual de radios indirect
 $route1 = New-AzVirtualHubRoute -AddressPrefix @("10.0.2.0/24", "10.0.3.0/24") -NextHopIpAddress "10.0.4.5"
 ```
 
-## <a name="applyroute"></a>5. Crear una tabla de rutas de concentrador virtual
+## <a name="5-create-a-virtual-hub-route-table"></a><a name="applyroute"></a>5. Crear una tabla de rutas de concentrador virtual
 
 Cree una tabla de rutas de concentrador virtual y, a continuación, aplíquele la ruta creada.
  
@@ -111,7 +111,7 @@ Cree una tabla de rutas de concentrador virtual y, a continuación, aplíquele l
 $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 ```
 
-## <a name="commit"></a>6. Confirmación de los cambios
+## <a name="6-commit-the-changes"></a><a name="commit"></a>6. Confirmación de los cambios
 
 Confirme los cambios en el concentrador virtual.
 

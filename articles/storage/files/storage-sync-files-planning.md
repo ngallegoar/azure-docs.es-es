@@ -8,18 +8,18 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598262"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228284"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
-[Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en la caché recursos compartidos de archivos de Azure locales mediante Azure File Sync. La opción de implementación que elija cambia todo aquello que debe tener en cuenta a la hora de planear la implementación. 
+[Azure Files](storage-files-introduction.md) se puede implementar de dos formas principales: montando directamente los recursos compartidos de archivos de Azure sin servidor o almacenando en la caché recursos compartidos de archivos de Azure locales mediante Azure File Sync. La opción de implementación que elija cambiará todo aquello que debe tener en cuenta a la hora de planear la implementación. 
 
-- **Montaje directo de un recurso compartido de archivos de Azure**: como Azure Files proporciona acceso SMB, puede montar recursos compartidos de archivos locales o en la nube mediante el cliente SMB estándar disponible en Windows, macOS y Linux. Como los recursos compartidos de archivos de Azure no tienen servidor, la implementación en escenarios de producción no requiere la administración de un servidor de archivos o un dispositivo NAS, lo que significa que no tiene que aplicar revisiones de software ni intercambiar discos físicos. 
+- **Montaje directo de un recurso compartido de archivos de Azure**: dado que Azure Files proporciona acceso SMB, puede montar recursos compartidos de archivos de Azure locales o en la nube mediante el cliente SMB estándar disponible en Windows, macOS y Linux. Dado que los recursos compartidos de archivos de Azure no tienen servidor, la implementación en escenarios de producción no requiere la administración de un servidor de archivos o un dispositivo NAS, lo que significa que no tiene que aplicar revisiones de software ni intercambiar discos físicos. 
 
-- **Almacenar recursos compartidos de archivos de Azure local con Azure File Sync**: Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma una instancia de Windows Server local (o en la nube) en una caché rápida de su recurso compartido de archivos de Azure. 
+- **Almacenamiento en caché de recursos compartidos de archivos de Azure localmente con Azure File Sync**: Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma una instancia de Windows Server local (o en la nube) en una caché rápida de su recurso compartido de archivos de Azure. 
 
 En este artículo se abordan principalmente las consideraciones relativas a la implementación de Azure File Sync. Para planear una implementación de recursos compartidos de archivos de Azure para que los monte directamente cliente local o en la nube, consulte [Planeamiento de una implementación de Azure Files](storage-files-planning.md).
 

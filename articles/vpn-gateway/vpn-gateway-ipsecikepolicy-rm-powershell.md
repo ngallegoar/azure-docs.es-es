@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: yushwang
 ms.openlocfilehash: eaca48fc354f1cf37635e9729b04eaaaa882ba1c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161909"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
@@ -21,7 +21,7 @@ Este artículo le guiará por los pasos para configurar una directiva de IPsec o
 
 
 
-## <a name="about"></a>Acerca de los parámetros de la directiva de IPsec e IKE para Azure VPN gateway
+## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a><a name="about"></a>Acerca de los parámetros de la directiva de IPsec e IKE para Azure VPN gateway
 El protocolo IPsec e IKE estándar admite una gran variedad de algoritmos criptográficos en diversas combinaciones. En [About cryptographic requirements and Azure VPN gateways](vpn-gateway-about-compliance-crypto.md) (Acerca de los requisitos de cifrado y las puertas de enlace de VPN de Azure) se describe la manera en que esto puede ayudar a garantizar que la conectividad entre locales y de red virtual a red virtual satisface los requisitos de cumplimiento o seguridad.
 
 En este artículo se proporcionan instrucciones para crear y configurar una directiva de IPsec o IKE y aplicarla a una conexión nueva o existente:
@@ -40,7 +40,7 @@ En este artículo se proporcionan instrucciones para crear y configurar una dire
 > 3. Es preciso especificar todos los algoritmos y parámetros de IKE (modo principal) e IPsec (modo rápido). No se permite la especificación de una directiva parcial.
 > 4. Consulte las especificaciones del proveedor de dispositivos VPN para asegurarse de que los dispositivos VPN locales admiten la directiva. No se pueden establecer conexiones de sitio a sitio o de red virtual a red virtual si las directivas son incompatibles.
 
-## <a name ="workflow"></a>Parte 1: flujo de trabajo para crear y establecer una directiva de IPsec o IKE
+## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a><a name ="workflow"></a>Parte 1: flujo de trabajo para crear y establecer una directiva de IPsec o IKE
 En esta sección se describe el flujo de trabajo para crear y actualizar una directiva de IPsec o IKE en una conexión VPN de sitio a sitio o de red virtual a red virtual:
 1. Crear una red virtual y una puerta de enlace de VPN
 2. Crear una puerta de enlace de red local para la conexión entre locales, u otra red virtual y puerta de enlace para la conexión de red virtual a red virtual
@@ -52,7 +52,7 @@ Las instrucciones incluidas en este artículo le ayudan a instalar y configurar 
 
 ![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
-## <a name ="params"></a>Parte 2: algoritmos criptográficos y niveles de clave admitidos
+## <a name="part-2---supported-cryptographic-algorithms--key-strengths"></a><a name ="params"></a>Parte 2: algoritmos criptográficos y niveles de clave admitidos
 
 En la tabla siguiente se enumeran los algoritmos criptográficos y los niveles de las claves admitidos que pueden configurar los clientes:
 
@@ -107,7 +107,7 @@ En la tabla siguiente se muestran los grupos Diffie-Hellman admitidos en la dire
 
 Consulte [RFC3526](https://tools.ietf.org/html/rfc3526) y [RFC5114](https://tools.ietf.org/html/rfc5114) para ver información más detallada.
 
-## <a name ="crossprem"></a>Parte 3: crear una conexión VPN de sitio a sitio con una directiva de IPsec o IKE
+## <a name="part-3---create-a-new-s2s-vpn-connection-with-ipsecike-policy"></a><a name ="crossprem"></a>Parte 3: crear una conexión VPN de sitio a sitio con una directiva de IPsec o IKE
 
 En esta sección se describen los pasos necesarios para crear una conexión VPN de sitio a sitio con una directiva de IPsec o IKE. Con los pasos siguientes crea la conexión como se muestra en el diagrama:
 
@@ -115,12 +115,12 @@ En esta sección se describen los pasos necesarios para crear una conexión VPN 
 
 Consulte [Creación de una conexión VPN de sitio a sitio](vpn-gateway-create-site-to-site-rm-powershell.md) para obtener instrucciones detalladas sobre cómo crear una conexión VPN de sitio a sitio.
 
-### <a name="before"></a>Antes de empezar
+### <a name="before-you-begin"></a><a name="before"></a>Antes de empezar
 
 * Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Instale los cmdlets de PowerShell de Azure Resource Manager. Vea [Información general sobre Azure PowerShell](/powershell/azure/overview) para obtener más información sobre la instalación de los cmdlets de PowerShell.
 
-### <a name="createvnet1"></a>Paso 1: Creación de la red virtual, VPN Gateway y la puerta de enlace de red local
+### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>Paso 1: Creación de la red virtual, VPN Gateway y la puerta de enlace de red local
 
 #### <a name="1-declare-your-variables"></a>1. Declaración de las variables
 
@@ -184,7 +184,7 @@ New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Lo
 New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
 
-### <a name="s2sconnection"></a>Paso 2: Creación de una conexión VPN de sitio a sitio con una directiva IPsec/IKE
+### <a name="step-2---create-a-s2s-vpn-connection-with-an-ipsecike-policy"></a><a name="s2sconnection"></a>Paso 2: Creación de una conexión VPN de sitio a sitio con una directiva IPsec/IKE
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. Cree una directiva IPsec/IKE.
 
@@ -216,7 +216,7 @@ Opcionalmente, puede agregar "-UsePolicyBasedTrafficSelectors $True" al cmdlet p
 > Una vez que se haya especificado una directiva de IPsec o IKE en una conexión, la puerta de enlace de VPN de Azure solo enviará o aceptará la propuesta de IPsec o IKE con los algoritmos criptográficos y los niveles de clave especificados en esa conexión en particular. Asegúrese de que el dispositivo VPN local para la conexión usa o acepta la combinación de directivas exacta. En caso contrario, no se establecerá el túnel VPN de sitio a sitio.
 
 
-## <a name ="vnet2vnet"></a>Parte 4: crear una conexión de red virtual a red virtual con una directiva de IPsec o IKE
+## <a name="part-4---create-a-new-vnet-to-vnet-connection-with-ipsecike-policy"></a><a name ="vnet2vnet"></a>Parte 4: crear una conexión de red virtual a red virtual con una directiva de IPsec o IKE
 
 Los pasos necesarios para crear una conexión de red virtual a red virtual con una directiva de IPsec o IKE son similares a los pasos para crear una conexión VPN de sitio a sitio. Con los scripts de ejemplo siguientes crea la conexión como se muestra en el diagrama:
 
@@ -224,7 +224,7 @@ Los pasos necesarios para crear una conexión de red virtual a red virtual con u
 
 Consulte [Creación de una conexión de red virtual a red virtual](vpn-gateway-vnet-vnet-rm-ps.md) para conocer los pasos detallados para crear una conexión de red virtual a red virtual. Tiene que completar la [parte 3](#crossprem) para crear y configurar TestVNet1 y VPN Gateway.
 
-### <a name="createvnet2"></a>Paso 1: Creación de la segunda red virtual y VPN Gateway
+### <a name="step-1---create-the-second-virtual-network-and-vpn-gateway"></a><a name="createvnet2"></a>Paso 1: Creación de la segunda red virtual y VPN Gateway
 
 #### <a name="1-declare-your-variables"></a>1. Declaración de las variables
 
@@ -304,7 +304,7 @@ Después de completar estos pasos, la conexión se establecerá al cabo de unos 
 ![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
-## <a name ="managepolicy"></a>Parte 5: actualizar una directiva de IPsec o IKE para una conexión
+## <a name="part-5---update-ipsecike-policy-for-a-connection"></a><a name ="managepolicy"></a>Parte 5: actualizar una directiva de IPsec o IKE para una conexión
 
 En la última sección se muestra cómo administrar la directiva de IPsec o IKE para una conexión existente de sitio a sitio o de red virtual a red virtual. En el ejercicio siguiente se explica cómo se realizan las siguientes operaciones en una conexión:
 

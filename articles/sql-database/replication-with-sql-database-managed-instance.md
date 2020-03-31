@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 7356f627c8a85cb89f3900e1af84d5e0a7d4be17
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096206"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79299080"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configuración de la replicación en una base de datos de instancia administrada de Azure SQL Database
 
@@ -42,7 +42,6 @@ La replicación transaccional está disponible en versión preliminar pública e
 
 Para configurar una instancia administrada de forma que funcione como un publicador o distribuidor, deben darse las siguientes condiciones:
 
-- La instancia administrada no debe participar actualmente en una relación de replicación geográfica.
 - La instancia administrada del publicador se encuentra en la misma red virtual que el distribuidor y el suscriptor o se ha establecido el [emparejamiento de red virtual](../virtual-network/tutorial-connect-virtual-networks-powershell.md) entre las redes virtuales de las tres entidades. 
 - La conectividad usa la autenticación de SQL entre los participantes de la replicación.
 - Un recurso compartido de cuenta de Azure Storage para el directorio de trabajo de replicación.

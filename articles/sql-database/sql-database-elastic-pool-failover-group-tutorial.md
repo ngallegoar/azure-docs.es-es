@@ -12,11 +12,11 @@ ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
 ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552566"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232548"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: Adición de un grupo elástico de Azure SQL Database a un grupo de conmutación por error
 
@@ -28,7 +28,7 @@ Configure un grupo de conmutación por error para un grupo elástico de Azure SQ
 > - Crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) para dos grupos elásticos entre dos servidores lógicos de SQL Server.
 > - Probar la conmutación por error.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos: 
 
@@ -43,7 +43,7 @@ Para completar este tutorial, asegúrese de disponer de los siguientes elementos
 En este paso, creará un grupo elástico y le agregará la base de datos única. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Cree el grupo elástico mediante Azure Portal. 
 
@@ -71,7 +71,7 @@ Cree el grupo elástico mediante Azure Portal.
 1. Seleccione **Revisar y crear** para revisar la configuración del grupo elástico y después seleccione **Crear** para crear el grupo elástico. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Cree los grupos elásticos y el servidor secundario con PowerShell. 
 
    ```powershell-interactive
@@ -129,7 +129,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 En este paso, va a crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) entre un servidor de Azure SQL Server existente y uno nuevo en otra región. A continuación, agregue el grupo elástico al grupo de conmutación por error. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Cree el grupo de conmutación por error mediante Azure Portal. 
 
@@ -163,7 +163,7 @@ Cree el grupo de conmutación por error mediante Azure Portal.
 1. Elija **Seleccionar** para aplicar la configuración del grupo elástico al grupo de conmutación por error y, después, seleccione **Crear** para crear el grupo de conmutación por error. Al agregar el grupo elástico al grupo de conmutación por error, se iniciará automáticamente el proceso de replicación geográfica.
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Cree el grupo de conmutación por error mediante PowerShell. 
 
@@ -252,7 +252,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 En este paso, se producirá un error en el grupo de conmutación por error en el servidor secundario y, a continuación, se realizará la conmutación por recuperación mediante Azure Portal. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Pruebe la conmutación por error de su grupo de conmutación por error mediante Azure Portal. 
 
@@ -276,7 +276,7 @@ Pruebe la conmutación por error de su grupo de conmutación por error mediante 
 1. Seleccionar de nuevo **Conmutación por error** para que el grupo de conmutación por error vuelva a la configuración original. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pruebe la conmutación por error de su grupo de conmutación por error mediante PowerShell. 
 
@@ -357,7 +357,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 Limpie los recursos mediante la eliminación del grupo de recursos. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 
 1. Vaya a su grupo de recursos en [Azure Portal](https://portal.azure.com).
@@ -365,7 +365,7 @@ Limpie los recursos mediante la eliminación del grupo de recursos.
 1. En la nueva ventana, escriba el nombre del grupo de recursos, `myResourceGroup`, y luego seleccione **Eliminar** para eliminar el grupo de recursos. 
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Limpie sus recursos mediante PowerShell. 
 
@@ -392,7 +392,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de PowerShell:
 
 ## <a name="full-script"></a>Script completo
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 
@@ -414,7 +414,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos. | 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 No hay scripts disponibles para Azure Portal.
 
 ---

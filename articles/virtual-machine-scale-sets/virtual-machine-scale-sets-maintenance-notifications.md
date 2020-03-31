@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: shants
-ms.openlocfilehash: 8d8c32c2a2f3e31c1b7f4645fe61abf2d5d0e014
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 53ebb7c4710c5455ef90701dc7e94f1b846a874a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275774"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062700"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificaciones de mantenimiento planeado de conjuntos de escalado de máquinas virtuales
 
@@ -146,7 +146,7 @@ Puede ver la información de mantenimiento planeado con el cmdlet [az vmss list-
  
 La información de mantenimiento se devuelve solo si hay mantenimiento planeado. Si no está programado ningún mantenimiento que afecte a la instancia de máquina virtual, el comando no devuelve ninguna información de mantenimiento. 
 
-```azure-cli
+```azurecli
 az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
@@ -166,7 +166,7 @@ Las siguientes propiedades se devuelven en **MaintenanceRedeployStatus** para ca
 
 La siguiente llamada inicia el mantenimiento en una instancia de máquina virtual si `IsCustomerInitiatedMaintenanceAllowed` está establecido en **true**:
 
-```azure-cli
+```azurecli
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 ```
 

@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: c718daa4bc99bffd6fcfeb084299bed6682fe884
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75780756"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Cómo migrar una base de datos de SQLite a Azure SQL Database sin servidor
@@ -23,7 +23,7 @@ Azure SQL Database sin servidor es un nivel de proceso para las bases de datos �
 
 Una vez que haya realizado los pasos que aparecen a continuación, la base de datos se habrá migrado a Azure SQL Database sin servidor, lo que le permitirá poner la base de datos a disposición de otros usuarios o aplicaciones en la nube y pagar solo por lo que use, con cambios mínimos en el código de la aplicación.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 - Una suscripción a Azure.
 - La base de datos de SQLite2 o SQLite3 que quiere migrar.
 - Un entorno de Windows.

@@ -9,10 +9,10 @@ ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76748983"
 ---
 En este artículo proporciona una visión general de las características de disponibilidad de las máquinas virtuales (VM) de Azure.

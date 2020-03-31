@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: yushwang
 ms.openlocfilehash: f4caa9160280b0f65f84bed36b5209d08d7f7c11
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894694"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235764"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
 
@@ -29,7 +29,7 @@ Para configurar una conexión VPN entre locales de sitio a sitio (S2S) mediante 
   * Enrutamiento dinámico = RouteBased
 * Las especificaciones de VPN Gateway HighPerformance y VPN Gateway RouteBased son las mismas, a menos que se indique lo contrario. Por ejemplo, los dispositivos VPN validados que son compatibles con las puertas de enlace de VPN RouteBased también son compatibles con las puertas de enlace de VPN HighPerformance.
 
-## <a name="devicetable"></a>Dispositivos VPN validados y guías de configuración de dispositivos
+## <a name="validated-vpn-devices-and-device-configuration-guides"></a><a name="devicetable"></a>Dispositivos VPN validados y guías de configuración de dispositivos
 
 En colaboración con proveedores de dispositivos, hemos validado un conjunto de dispositivos VPN estándar. Todos los dispositivos de las familias de dispositivos en la lista siguiente deben trabajar con puertas de enlace de VPN. Consulte la información [acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype) para entender el tipo de VPN utilizado (PolicyBased o RouteBased) para la solución VPN Gateway que desea configurar.
 
@@ -75,7 +75,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 >
 > (\*\*) Los enrutadores de la serie ISR 7200 solo admiten VPN basadas en directivas.
 
-## <a name="configscripts"></a>Descarga de los scripts de configuración de dispositivos VPN desde Azure
+## <a name="download-vpn-device-configuration-scripts-from-azure"></a><a name="configscripts"></a>Descarga de los scripts de configuración de dispositivos VPN desde Azure
 
 Para determinados dispositivos, puede descargar los scripts de configuración directamente desde Azure. Para más información y las instrucciones de descarga, consulte [Descarga de scripts de configuración de dispositivos VPN para conexiones VPN S2S](vpn-gateway-download-vpndevicescript.md).
 
@@ -83,11 +83,11 @@ Para determinados dispositivos, puede descargar los scripts de configuración di
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
-## <a name="additionaldevices"></a>Dispositivos VPN no validados
+## <a name="non-validated-vpn-devices"></a><a name="additionaldevices"></a>Dispositivos VPN no validados
 
 Si el dispositivo no aparece en la tabla de dispositivos VPN validados, es posible que todavía funcione con una conexión de sitio a sitio. Póngase en contacto con el fabricante del dispositivo para obtener instrucciones adicionales de soporte técnico y configuración.
 
-## <a name="editing"></a>Edición de ejemplos de configuración de dispositivos
+## <a name="editing-device-configuration-samples"></a><a name="editing"></a>Edición de ejemplos de configuración de dispositivos
 
 Después de descargar el ejemplo de configuración del dispositivo VPN proporcionado, deberá reemplazar algunos de los valores para reflejar la configuración de su entorno.
 
@@ -110,7 +110,7 @@ Después de descargar el ejemplo de configuración del dispositivo VPN proporcio
 | &lt;SP_AzureGatewayIpAddress&gt; |Esta información es específica de la red virtual y se encuentra en el Portal de administración como **Dirección IP de puerta de enlace**. |
 | &lt;SP_PresharedKey&gt; |Esta información es específica de la red virtual y se encuentra en el Portal de administración, en Administrar clave. |
 
-## <a name="ipsec"></a>Parámetros de IPsec/IKE
+## <a name="ipsecike-parameters"></a><a name="ipsec"></a>Parámetros de IPsec/IKE
 
 > [!IMPORTANT]
 > 1. Las tablas siguientes contienen las combinaciones de algoritmos y parámetros que usan las puertas de enlace de VPN de Azure en la configuración predeterminada. Para puertas de enlace de VPN basadas en enrutamiento creadas mediante el modelo de implementación de Azure Resource Management, puede especificar una directiva personalizada en cada conexión individual. Consulte [Configuración de directiva IPsec/IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para obtener instrucciones detalladas.
@@ -146,7 +146,7 @@ En las tablas siguientes:
 | Dead Peer Detection (DPD)     |No compatible  |Compatible                                    |
 
 
-### <a name ="RouteBasedOffers"></a>Ofertas de asociación de seguridad de IPsec (SA de modo rápido de IKE) de VPN del tipo routebased
+### <a name="routebased-vpn-ipsec-security-association-ike-quick-mode-sa-offers"></a><a name ="RouteBasedOffers"></a>Ofertas de asociación de seguridad de IPsec (SA de modo rápido de IKE) de VPN del tipo routebased
 
 En la tabla siguiente se enumeran las ofertas de SA de IPsec (modo rápido de IKE). Las ofertas se enumeran en el orden de preferencia en el que se presentan o se aceptan.
 
@@ -195,7 +195,7 @@ En la tabla siguiente se enumeran las ofertas de SA de IPsec (modo rápido de IK
 * Puede especificar el cifrado IPsec ESP NULL con puertas de enlace de VPN RouteBased y HighPerformance. El cifrado basado en null no proporciona protección de datos en tránsito, solo se debe usar al máximo rendimiento y es necesaria la mínima latencia. Los clientes pueden elegir usarlo en escenarios de comunicación entre redes virtuales o cuando se aplique el cifrado en otra parte de la solución.
 * Para conectividad entre locales a través de Internet, use la configuración de la puerta de enlace de VPN de Azure predeterminada con los algoritmos de cifrado y hash de las tablas anteriores para garantizar la seguridad de su comunicación crítica.
 
-## <a name="known"></a>Problemas conocidos de compatibilidad de dispositivos
+## <a name="known-device-compatibility-issues"></a><a name="known"></a>Problemas conocidos de compatibilidad de dispositivos
 
 > [!IMPORTANT]
 > Estos son los problemas conocidos de compatibilidad entre dispositivos VPN de terceros y puertas de enlace de VPN de Azure. El equipo de Azure está trabajando activamente con los proveedores para solucionar los problemas enumerados aquí. Una vez que se resuelvan, esta página se actualizará con la información más reciente. Consúltela periódicamente.

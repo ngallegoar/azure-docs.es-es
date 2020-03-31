@@ -16,10 +16,10 @@ ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: db877c96167fc011c1a8bd52cc1d0b63260007c9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74066251"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Creación de una galería de imágenes compartidas con Azure PowerShell 
@@ -32,7 +32,7 @@ La galería es un recurso de nivel superior que proporciona control de acceso ba
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos. En este artículo, usaremos o crearemos los siguientes elementos:
 
-| Resource | DESCRIPCIÓN|
+| Resource | Descripción|
 |----------|------------|
 | **Imagen administrada** | Se trata de una imagen básica que se puede usar por sí sola o para crear una **versión de imagen** de una galería de imágenes. Las imágenes administradas se crean desde máquinas virtuales generalizadas. Una imagen administrada es un tipo de VHD especial que se puede usar para crear varias máquinas virtuales y que ahora se puede usar para crear versiones de imágenes compartidas. |
 | **Galería de imágenes** | Al igual que Azure Marketplace, una **galería de imágenes** es un repositorio para administrar y compartir imágenes, pero usted puede controlar quién tiene acceso. |
@@ -54,7 +54,7 @@ Al trabajar en este artículo, reemplace los nombres de grupo de recursos y máq
 
 Una vez que la versión de la imagen se completa, puede crear una o varias VM nuevas. Mediante el uso del cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). 
 
-Este ejemplo crea una máquina virtual llamada *myVMfromImage* en *myResourceGroup* en el centro de datos *Centro y Sur de EE. UU.*
+Este ejemplo crea una máquina virtual llamada *myVMfromImage* en *myResourceGroup* en el centro de datos *Centro-sur de EE. UU.*
 
 
 ```azurepowershell-interactive
