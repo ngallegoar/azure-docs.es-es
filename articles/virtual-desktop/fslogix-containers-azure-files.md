@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 1dc5d54fa24217c91e14a8f37e092888b2bb6474
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127884"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Contenedores de perfiles de FSLogix y archivos de Azure
@@ -49,11 +49,11 @@ La siguiente tabla muestra las ventajas y limitaciones de las tecnologías de pe
 
 | Technology | Configuración moderna | Configuración de Win32 | Configuración del SO | Datos de usuario | Compatible con SKU del servidor | Almacenamiento de back-end en Azure | Almacenamiento de back-end local | Compatibilidad con versiones | Tiempo de inicio de sesión posterior |Notas|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Discos de perfil de usuario (UPD)** | Sí | Sí | Sí | Sí | Sí | Sin | Sí | Win 7+ | Sí | |
-| **Perfil de usuario móvil (RUP), modo de mantenimiento** | Sin | Sí | Sí | Sí | Sí| Sin | Sí | Win 7+ | Sin | |
-| **Enterprise State Roaming (ESR)** | Sí | Sin | Sí | Sin | Vea las notas | Sí | Sin | Windows 10 | Sin | Funciones en la SKU del servidor, pero sin interfaz de usuario de soporte |
-| **User Experience Virtualization (UE-V)** | Sí | Sí | Sí | Sin | Sí | Sin | Sí | Win 7+ | Sin |  |
-| **Archivos en la nube de OneDrive** | Sin | Sin | Sin | Sí | Vea las notas | Vea las notas  | Vea las notas | Win 10 RS3 | Sin | No probado en la SKU del servidor. El almacenamiento de back-end en Azure depende del cliente de sincronización. El almacenamiento de back-end local necesita un cliente de sincronización. |
+| **Discos de perfil de usuario (UPD)** | Sí | Sí | Sí | Sí | Sí | No | Sí | Win 7+ | Sí | |
+| **Perfil de usuario móvil (RUP), modo de mantenimiento** | No | Sí | Sí | Sí | Sí| No | Sí | Win 7+ | No | |
+| **Enterprise State Roaming (ESR)** | Sí | No | Sí | No | Vea las notas | Sí | No | Windows 10 | No | Funciones en la SKU del servidor, pero sin interfaz de usuario de soporte |
+| **User Experience Virtualization (UE-V)** | Sí | Sí | Sí | No | Sí | No | Sí | Win 7+ | No |  |
+| **Archivos en la nube de OneDrive** | No | No | No | Sí | Vea las notas | Vea las notas  | Vea las notas | Win 10 RS3 | No | No probado en la SKU del servidor. El almacenamiento de back-end en Azure depende del cliente de sincronización. El almacenamiento de back-end local necesita un cliente de sincronización. |
 
 #### <a name="performance"></a>Rendimiento
 

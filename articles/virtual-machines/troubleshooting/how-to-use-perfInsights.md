@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058174"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226748"
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights
 
@@ -76,7 +76,7 @@ En este escenario se ejecuta una captura especial del contador de rendimiento ju
 | E/S         | Solicitudes de datos por segundo             |
 |              | Solicitudes de lectura por segundo             |
 |              | Solicitudes de escritura por segundo            |
-| Latency      | Media de solicitud de datos por segundo         |
+| Latencia      | Media de solicitud de datos por segundo         |
 |              | Media de lectura por segundo                 |
 |              | Media de escritura por segundo                |
 | Tamaño de E/S      | Prom. de bytes/solicitud de datos       |
@@ -115,8 +115,8 @@ Se recopila información acerca de la máquina virtual Windows, la configuració
 | Información del controlador del filtro                | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Salida de netstat                    | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Network configuration (Configuración de red)             | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
-| Configuración del firewall            | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
-| Configuración de SQL Server          | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
+| Configuración de firewall            | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
+| Configuración de SQL Server          | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Seguimientos de diagnóstico de rendimiento *  | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Seguimiento de contadores de rendimiento **      |                            |                                    | Sí                      |                      | Sí                  |
 | Seguimiento del contador de SMB **              |                            |                                    |                          | Sí                  |                      |

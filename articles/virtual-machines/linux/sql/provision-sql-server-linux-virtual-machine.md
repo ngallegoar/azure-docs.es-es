@@ -5,18 +5,18 @@ services: virtual-machines-linux
 author: MashaMSFT
 manager: craigg
 ms.date: 10/22/2019
-ms.topic: conceptual
 tags: azure-service-management
+ms.topic: conceptual
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 85d2396a05e7496b56bd83bd834150aa6d864c62
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 43ba4eed4dcfd6d8e86c21f1ee5214108c44a8c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882700"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060231"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Linux con SQL Server en Azure Portal
 
@@ -33,13 +33,13 @@ En este tutorial, aprenderá a:
 * [Cambiar la contraseña de SA](#password)
 * [Realizar la configuración para conexiones remotas](#remote)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
-## <a id="create"></a>Creación de una máquina virtual Linux con SQL Server instalado
+## <a name="create-a-linux-vm-with-sql-server-installed"></a><a id="create"></a>Creación de una máquina virtual Linux con SQL Server instalado
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. En el panel izquierdo, seleccione **Crear un recurso**.
 
@@ -70,7 +70,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     ![Ventana Fundamentos](./media/provision-sql-server-linux-virtual-machine/basics.png)
 
 1. En **Nombre de la máquina virtual**, escriba un nombre para la nueva máquina virtual Linux.
-1. Luego, escriba o seleccione estos valores:
+1. Luego, escriba o seleccione los valores siguientes:
    * **Región**: Seleccione la región de Azure adecuada para usted.
    * **Opciones de disponibilidad**: Elija la mejor opción de disponibilidad y redundancia para sus aplicaciones y datos.
    * **Cambiar el tamaño**: Seleccione esta opción para elegir un tamaño de máquina y, cuando termine, elija **Seleccionar**. Para más información acerca de los tamaños de máquina virtual, consulte [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
@@ -101,7 +101,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 1. Seleccione **Revisar + crear**.
 1. En el panel **Revisar + crear**, seleccione **Crear**.
 
-## <a id="connect"></a>Conexión a la máquina virtual Linux
+## <a name="connect-to-the-linux-vm"></a><a id="connect"></a>Conexión a la máquina virtual Linux
 
 Si ya utiliza un shell de BASH, conéctese a la máquina virtual de Azure mediante el comando **ssh**. En el siguiente comando, reemplace el nombre de usuario y la dirección IP de la máquina virtual para conectarse a su máquina virtual Linux.
 
@@ -128,7 +128,7 @@ Para más información acerca de cómo conectarse a máquinas virtuales Linux, c
 > [!Note]
 > Si ve una alerta de seguridad de PuTTY que indique que la clave de host del servidor no se almacena en la caché del registro, elija entre las opciones siguientes. Si confía en este host, seleccione **Sí** para agregar la clave a la caché de PuTTY y siga conectándose. Si quiere conectarse solo una vez, sin agregar la clave a la caché, seleccione **No**. Si no confía en este host, seleccione **Cancelar** para abandonar la conexión.
 
-## <a id="password"></a>Cambio de la contraseña de SA
+## <a name="change-the-sa-password"></a><a id="password"></a> Cambio de la contraseña de SA
 
 La máquina virtual nueva instala SQL Server con una contraseña de SA aleatoria. Restablezca esta contraseña antes de conectarse a SQL Server con el inicio de sesión de SA.
 
@@ -143,7 +143,7 @@ La máquina virtual nueva instala SQL Server con una contraseña de SA aleatoria
 
    Escriba una nueva contraseña de SA y la confirmación de contraseña cuando se le solicite.
 
-1. Reinicie el servicio de SQL Server.
+1. Reinicie el servicio SQL Server.
 
    ```bash
    sudo systemctl start mssql-server
@@ -153,7 +153,7 @@ La máquina virtual nueva instala SQL Server con una contraseña de SA aleatoria
 
 De manera predeterminada se instalan varios [paquetes](sql-server-linux-virtual-machines-overview.md#packages) de SQL Server, entre los que se incluye el paquete de herramientas de línea de comandos de SQL Server. El paquete de herramientas contiene las herramientas **sqlcmd** y **bcp**. Para mayor comodidad, puede agregar la ruta de acceso de herramientas, `/opt/mssql-tools/bin/`, a su variable de entorno **PATH**.
 
-1. Ejecute los siguientes comandos para modificar **PATH** tanto para sesiones de inicio de sesión como para sesiones interactivas o no de inicio de sesión:
+1. Ejecute los comandos siguientes para modificar la variable **PATH**, tanto para las sesiones de inicio de sesión como para las sesiones interactivas o sin inicio de sesión:
 
    ```bash
    echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
@@ -161,7 +161,7 @@ De manera predeterminada se instalan varios [paquetes](sql-server-linux-virtual-
    source ~/.bashrc
    ```
 
-## <a id="remote"></a>Configuración para conexiones remotas
+## <a name="configure-for-remote-connections"></a><a id="remote"></a>Configuración para conexiones remotas
 
 Si necesita conectarse remotamente a SQL Server en la máquina virtual de Azure, debe configurar una regla de entrada en el grupo de seguridad de red. La regla permite el tráfico en el puerto en el que SQL Server escucha (valor predeterminado de 1433). Los pasos siguientes muestran cómo usar Azure Portal para este paso.
 

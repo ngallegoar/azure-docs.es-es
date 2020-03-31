@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Creación de una geovalla y seguimiento de dispositivos en un mapa | Microsoft Azure Maps'
 description: Aprenderá a configurar una geovalla y a realizar un seguimiento de los dispositivos en relación con la geovalla mediante el servicio espacial de Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e0e918a2508bb65de176b030a73598e221aff676
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 126829f12d71e40511c26e781cb191988c1d031e
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370190"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333865"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -150,13 +150,13 @@ Una vez instalada la aplicación Postman, siga estos pasos para cargar la geoval
    }
    ```
 
-5. Haga clic en Send (Enviar) y revise el encabezado de la respuesta. Tras una solicitud correcta, el encabezado **Location** (Ubicación) contendrá el identificador URI de estado. El identificador URI de estado tendrá el siguiente formato. 
+5. Haga clic en Send (Enviar) y revise el encabezado de la respuesta. Tras una solicitud correcta, el encabezado **Location** (Ubicación) contendrá el identificador URI de estado. El identificador URI de estado tendrá el siguiente formato. El valor de uploadStatusId no está entre { }. Es una práctica común usar { } para mostrar los valores que el usuario debe especificar o los valores que son diferentes para usuarios diferentes.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Copie el identificador URI de estado y anexe la clave de suscripción. El formato del identificador URI de estado debe ser como el siguiente. Tenga en cuenta que, en el formato siguiente, cambiaría {subscription-key}, incluidas las llaves { }, por su clave de suscripción.
+6. Copie el identificador URI de estado y anexe la clave de suscripción. El formato del identificador URI de estado debe ser como el siguiente. Tenga en cuenta que, en el formato siguiente, debería cambiar {subscription-key}, sin incluir las llaves { }, por su clave de suscripción.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -166,7 +166,8 @@ Una vez instalada la aplicación Postman, siga estos pasos para cargar la geoval
 
    ```JSON
    {
-    "udid" : "{udId}"
+    "status": "Succeeded",
+    "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udId}?api-version=1.0"
    }
    ```
 

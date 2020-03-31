@@ -9,10 +9,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 30d99c3f4767eb50361f7074c0d508fcf309faca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61488487"
 ---
 # <a name="run-micro-focus-enterprise-server-40-in-a-docker-container-on-azure"></a>Ejecución de Micro Focus Enterprise Server 4.0 en un contenedor de Docker en Azure
@@ -23,11 +23,11 @@ Docker agrega portabilidad y aislamiento a las aplicaciones. Por ejemplo, puede 
 
 En este tutorial se instala la máquina virtual (VM) **Windows 2016 Datacenter con Containers** de Azure Marketplace. Esta máquina virtual incluye **Docker 18.09.0**. Los pasos siguientes muestran cómo implementar el contenedor, ejecutarlo y, a continuación, conectarse a él con un emulador 3270.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, revise estos requisitos previos:
 
-- Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 - El software de Micro Focus y una licencia válida (o licencia de prueba). Si es un cliente existente de Micro Focus, póngase en contacto con su representante de Micro Focus. En caso contrario, [solicite una versión de evaluación](https://www.microfocus.com/products/enterprise-suite/enterprise-server/trial/).
 
@@ -93,7 +93,7 @@ En este momento, la máquina virtual está ejecutándose y conectada a través d
 > [!IMPORTANT]
 > Crear la imagen de Docker correspondiente es un proceso de dos pasos. En primer lugar, cree la imagen base Enterprise Server 4.0. A continuación, cree otra imagen para la plataforma x64. Aunque puede crear una imagen x86 (de 32 bits), use la de 64 bits.
 
-1. Abra el símbolo del sistema.
+1. Abra un símbolo del sistema.
 
 2. Compruebe que Docker está instalado. En el símbolo del sistema, escriba:
 

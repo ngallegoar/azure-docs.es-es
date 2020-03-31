@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
 ms.openlocfilehash: 2aa175d97787d82aae062a95ed519f35ff65816b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75982258"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Descripción de uso de máquinas virtuales de Azure
@@ -81,32 +81,32 @@ El nombre de región que se rellenó en el campo Ubicación de recurso en los de
 |    centralus             |    Centro de EE. UU.                            |
 |    chinaeast             |    Este de China                            |
 |    chinanorth            |    Norte de China                           |
-|    eastasia              |    Asia oriental                             |
-|    estado                |    East US                               |
+|    eastasia              |    Este de Asia                             |
+|    estado                |    Este de EE. UU.                               |
 |    eastus2               |    Este de EE. UU. 2                             |
 |    GermanyCentral        |    Centro de Alemania                            |
-|    GermanyNortheast      |    Nordeste de Alemania                          |
+|    GermanyNortheast      |    Norte de Alemania                          |
 |    japaneast             |    Este de Japón                               |
 |    japanwest             |    Oeste de Japón                               |
 |    KoreaCentral          |    Centro de Corea del Sur                            |
 |    KoreaSouth            |    Sur de Corea del Sur                              |
 |    northcentralus        |    Centro-Norte de EE. UU                      |
-|    northeurope           |    Europa del Norte                          |
-|    southcentralus        |    Centro-Sur de EE. UU                      |
-|    southeastasia         |    Sudeste asiático                        |
+|    northeurope           |    Norte de Europa                          |
+|    southcentralus        |    Centro-sur de EE. UU.                      |
+|    southeastasia         |    Sudeste de Asia                        |
 |    SouthIndia            |    India meridional                              |
 |    UKNorth               |    Norte de Reino Unido                              |
 |    uksouth               |    Sur de Reino Unido 2                              |
-|    UKSouth2              |    Sur del Reino Unido 2                            |
+|    UKSouth2              |    Sur de Reino Unido 2                            |
 |    ukwest                |    Oeste de Reino Unido                               |
-|    USDoDCentral          |    Departamento de Defensa de EE. UU. Centro                        |
-|    USDoDEast             |    Departamento de Defensa de EE. UU. Este                           |
-|    USGovArizona          |    Gov (US): Arizona                         |
+|    USDoDCentral          |    US DoD (centro)                        |
+|    USDoDEast             |    US DoD (este)                           |
+|    USGovArizona          |    USGov: Arizona                         |
 |    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    Gov (US): Texas                           |
+|    USGovTexas            |    USGov: Texas                           |
 |    usgovvirginia         |    USGov Virginia                        |
 |    westcentralus         |    Centro-oeste de EE. UU.                       |
-|    westeurope            |    Europa occidental                           |
+|    westeurope            |    Oeste de Europa                           |
 |    WestIndia             |    India occidental                               |
 |    westus                |    Oeste de EE. UU.                               |
 |    westus2               |    Oeste de EE. UU. 2                             |

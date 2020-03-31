@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 50ab4b0f1e676ffcba0ce69ab6aa957e4c77ab88
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058149"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solución de errores de eliminación de recursos de almacenamiento
@@ -42,7 +42,7 @@ Intente eliminar de nuevo la cuenta de almacenamiento, el contenedor o el blob u
 ## <a name="step-1-identify-blob-attached-to-a-vm"></a>Paso 1: Identificación del blob asociado a una máquina virtual
 
 ### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>Escenario 1: Eliminación de un blob: identificación de la máquina virtual asociada
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el menú Concentrador, seleccione **Todos los recursos**. Vaya a la cuenta de almacenamiento, en **Blob service** seleccione **Contenedores** y navegue hasta el blob que se va a eliminar.
 3. Si el **estado de concesión** del blob es **Concedido**, haga clic con el botón derecho y seleccione **Editar metadatos** para abrir el panel de metadatos del blob. 
 
@@ -59,7 +59,7 @@ Intente eliminar de nuevo la cuenta de almacenamiento, el contenedor o el blob u
 > Si **MicrosoftAzureCompute_VMName** y **MicrosoftAzureCompute_DiskType** no aparecen en los metadatos de blob, indica que el blob se ha concedido explícitamente y no está asociado a una máquina virtual. Los blobs concedidos no se pueden eliminar sin romper primero la concesión. Para interrumpir la concesión, haga clic con el botón derecho en el blob y seleccione **Interrumpir concesión**. Los blobs concedidos que no están asociados a una máquina virtual impiden la eliminación del blob pero no impiden la eliminación del contenedor o de la cuenta de almacenamiento.
 
 ### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>Escenario 2: Eliminación de un contenedor: identificación de todos los blobs de un contenedor que están asociados a máquinas virtuales
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el menú Concentrador, seleccione **Todos los recursos**. Vaya a la cuenta de almacenamiento, en **Blob service** seleccione **Contenedores** y busque el contenedor que se va a eliminar.
 3. Haga clic para abrir el contenedor y se mostrará la lista de blobs que contiene. Identifique todos los blobs con Tipo de blob = **Blob en páginas** y Estado de concesión = **Concedido** de esta lista. Siga el Escenario 1 para identificar la máquina virtual asociada a cada uno de estos blobs.
 
@@ -68,7 +68,7 @@ Intente eliminar de nuevo la cuenta de almacenamiento, el contenedor o el blob u
 4. Siga el [paso 2](#step-2-delete-vm-to-detach-os-disk) y el [paso 3](#step-3-detach-data-disk-from-the-vm) para eliminar máquinas virtuales con **OSDisk** y desasociar **DataDisk**. 
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Escenario 3: Eliminación de la cuenta de almacenamiento: identificación de todos los blobs de una cuenta de almacenamiento que están asociados a máquinas virtuales
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el menú Concentrador, seleccione **Todos los recursos**. Vaya a la cuenta de almacenamiento y, en **Blob service**, seleccione **Blobs**.
 3. En el panel **Contenedores**, identifique todos los contenedores donde **Estado de concesión** sea **Concedido** y siga el [escenario 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) con cada contenedor **Concedido**.
 4. Siga el [paso 2](#step-2-delete-vm-to-detach-os-disk) y el [paso 3](#step-3-detach-data-disk-from-the-vm) para eliminar máquinas virtuales con **OSDisk** y desasociar **DataDisk**. 
@@ -76,7 +76,7 @@ Intente eliminar de nuevo la cuenta de almacenamiento, el contenedor o el blob u
 ## <a name="step-2-delete-vm-to-detach-os-disk"></a>Paso 2: Eliminación de la máquina virtual para desasociar el disco del sistema operativo
 Si el disco duro virtual es un disco del sistema operativo, debe eliminar la máquina virtual antes de eliminar el disco duro virtual asociado. No será necesaria ninguna acción adicional en los discos asociados a la misma máquina virtual una vez finalizados estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el menú del concentrador, haga clic en **Máquinas virtuales**.
 3. Seleccione la máquina virtual a la que está conectado el disco duro virtual.
 4. Asegúrese de que no haya nada usando activamente la máquina virtual y de que ya no la necesite.
@@ -86,7 +86,7 @@ Si el disco duro virtual es un disco del sistema operativo, debe eliminar la má
 ## <a name="step-3-detach-data-disk-from-the-vm"></a>Paso 3: Desasociación del disco de datos de la máquina virtual
 Si el disco duro virtual es un disco de datos, desasócielo de la máquina virtual para quitar la concesión:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el menú del concentrador, haga clic en **Máquinas virtuales**.
 3. Seleccione la máquina virtual a la que está conectado el disco duro virtual.
 4. Seleccione **Discos** en el panel **Detalles de máquina virtual**.

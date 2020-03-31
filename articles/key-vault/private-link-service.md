@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.date: 03/08/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 6a5cc5bbdb56e308d79b8eb2c8db546184cedb39
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 53036a43cbb0fe3c3a1e61f7124fe7dcbef228f3
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080350"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388940"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integración de Key Vault con Azure Private Link
 
@@ -23,7 +23,7 @@ Para más información, consulte [¿Qué es Azure Private Link?](../private-link
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para integrar un almacén de claves con Azure Private Link (versión preliminar), necesitará lo siguiente:
+Para integrar un almacén de claves con Azure Private Link, necesitará lo siguiente:
 
 - Un almacén de claves.
 - Una red virtual de Azure.
@@ -46,7 +46,7 @@ Puede crear rápidamente un almacén de claves si sigue los pasos descritos en [
 
 Después de configurar los aspectos básicos del almacén de claves, seleccione la pestaña Redes y siga estos pasos:
 
-1. Seleccione el botón de radio Punto de conexión privado (versión preliminar) en la pestaña Redes.
+1. Seleccione el botón de radio Punto de conexión privado en la pestaña Redes.
 1. Haga clic en el botón "+ Agregar" para agregar un punto de conexión privado.
 
     ![Imagen](./media/private-link-service-1.png)
@@ -57,7 +57,7 @@ Después de configurar los aspectos básicos del almacén de claves, seleccione 
 1. Deje la opción "Integrate with the private zone DNS" (Integrar con el DNS de la zona privada) sin cambios.  
 1. Seleccione "Aceptar".
 
-    ![Imagen](./media/private-link-service-2.png)
+    ![Imagen](./media/private-link-service-8.png)
  
 Ahora podrá ver el punto de conexión privado configurado. Y tendrá la opción de eliminarlo y de editarlo. Seleccione el botón "Revisar y crear" y cree el almacén de claves. La implementación puede tardar entre 5 y 10 minutos en completarse. 
 
@@ -69,7 +69,7 @@ Si ya tiene un almacén de claves, puede crear una conexión de vínculo privado
 1. En la barra de búsqueda, escriba "almacenes de claves".
 1. En la lista, seleccione el almacén de claves al que desea agregar un punto de conexión privado.
 1. Seleccione la pestaña "Redes" en Configuración.
-1. Seleccione la pestaña Conexiones de puntos de conexión privadas (versión preliminar) en la parte superior de la página.
+1. Seleccione la pestaña Conexiones de puntos de conexión privadas en la parte superior de la página.
 1. Seleccione el botón "+ Punto de conexión privado" en la parte superior de la página.
 
     ![Imagen](./media/private-link-service-3.png) ![Image](./media/private-link-service-4.png)
@@ -100,6 +100,10 @@ az provider register -n Microsoft.KeyVault
 ### <a name="create-a-new-key-vault"></a>Creación de una instancia de Key Vault
 ```console
 az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION}
+```
+### <a name="turn-on-key-vault-firewall"></a>Activación del firewall de Key Vault
+```console
+az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION} --default-action deny
 ```
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 ```console
@@ -220,9 +224,9 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitaciones y consideraciones de diseño
 
-**Precios**: Para más información sobre los precios, consulte [Precios de Azure Private Link (versión preliminar)](https://azure.microsoft.com/pricing/details/private-link/).
+**Precios**: Para más información sobre los precios, consulte [Precios de Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitaciones**:  El punto de conexión privado para Azure Key Vault está en versión preliminar pública. Esta característica está disponible en todas las regiones públicas de Azure.
+**Limitaciones**:  El punto de conexión privado para Azure Key Vault solo está disponible en regiones públicas de Azure.
 
 **Número máximo de puntos de conexión privados por almacén de claves**: 64.
 
@@ -232,5 +236,5 @@ Para más información, consulte [Servicio Azure Private Link: Limitaciones](../
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre el [servicio Azure Private Link](../private-link/private-link-service-overview.md).
+- Más información sobre [Azure Private Link](../private-link/private-link-service-overview.md).
 - Más información sobre [Azure Key Vault](key-vault-overview.md)

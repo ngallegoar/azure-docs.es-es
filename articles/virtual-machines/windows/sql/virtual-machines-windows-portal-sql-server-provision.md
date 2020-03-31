@@ -16,11 +16,11 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 1fdf776570b6f10a363fb98dfe343387d86219d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350904"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226644"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Windows con SQL Server en Azure Portal
 
@@ -33,7 +33,7 @@ Use esta guía para crear su propia VM con SQL Server. O bien úsela como refere
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a id="select"></a> Imágenes de la galería de máquinas virtuales de SQL Server
+## <a name="sql-server-virtual-machine-gallery-images"></a><a id="select"></a> Imágenes de la galería de máquinas virtuales de SQL Server
 
 Cuando crea una máquina virtual de SQL Server, puede seleccionar una de varias imágenes configuradas previamente en la galería de máquinas virtuales. Los pasos siguientes muestran cómo seleccionar una de las imágenes de SQL Server 2017.
 
@@ -254,9 +254,9 @@ En la pestaña **Revisar y crear**, revise el resumen y seleccione **Crear** par
 Puede supervisar la implementación desde Azure Portal. En el botón **Notificaciones** de la parte superior de la pantalla, se muestra el estado básico de la implementación.
 
 > [!NOTE]
-> Para darle una idea de los tiempos de implementación, se implementó una máquina virtual de SQL en la región este de Estados Unidos con la configuración predeterminada. Esta implementación de prueba tardó aproximadamente 12 minutos en completarse. Pero podría experimentar un tiempo de implementación más rápido o más lento en función de su región y de la configuración seleccionada.
+> Para darle una idea de los tiempos de implementación, se implementó una máquina virtual de SQL en la región Este de EE. UU. con la configuración predeterminada. Esta implementación de prueba tardó aproximadamente 12 minutos en completarse. Pero podría experimentar un tiempo de implementación más rápido o más lento en función de su región y de la configuración seleccionada.
 
-## <a id="remotedesktop"></a>Apertura de la máquina virtual con Escritorio remoto
+## <a name="open-the-vm-with-remote-desktop"></a><a id="remotedesktop"></a>Apertura de la máquina virtual con Escritorio remoto
 
 Use los pasos siguientes para conectarse a la máquina virtual de SQL Server con Escritorio remoto:
 
@@ -266,7 +266,7 @@ Después de conectarse a la máquina virtual de SQL Server, puede iniciar SQL Se
 
 El acceso a la máquina le permite cambiar directamente la máquina y la configuración de SQL Server según sus necesidades. Por ejemplo, podría configurar el firewall o cambiar la configuración de SQL Server.
 
-## <a id="connect"></a> Conexión remota a SQL Server
+## <a name="connect-to-sql-server-remotely"></a><a id="connect"></a> Conexión remota a SQL Server
 
 En este tutorial, seleccionó el acceso **Público** para la máquina virtual y **Autenticación de SQL Server**. Estos valores configuran automáticamente la máquina virtual para permitir conexiones de SQL Server desde cualquier cliente a través de Internet (suponiendo que tengan el inicio de sesión SQL correcto).
 

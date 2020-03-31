@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 0429bf4968f457e201491db3df16f0004f216f30
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6823514e284f75f0580578dcabaa1b1bdcbe2f59
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023283"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239838"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Crear un emparejamiento de redes virtuales de Azure: diferentes modelos de implementación y suscripciones
 
@@ -38,7 +38,7 @@ Al crear un emparejamiento de redes virtuales entre redes virtuales que se encue
 
 Puede usar [Azure Portal](#portal), la [interfaz de la línea de comandos](#cli) (CLI) de Azure o Azure [PowerShell](#powershell) para crear un emparejamiento de redes virtuales. Haga clic en cualquiera de los vínculos anteriores de herramientas para ir directamente a los pasos para crear un emparejamiento de redes virtuales con la herramienta de su preferencia.
 
-## <a name="portal"></a>Creación de emparejamiento: Azure Portal
+## <a name="create-peering---azure-portal"></a><a name="portal"></a>Creación de emparejamiento: Azure Portal
 
 En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones puede usar la misma cuenta para todos los pasos, y omitir los pasos para cerrar sesión en el portal y para asignar a otro usuario permisos para las redes virtuales.
 
@@ -93,7 +93,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
 24. **Opcional**: Si bien este tutorial no aborda la creación de máquinas virtuales, puede crear una máquina virtual en cada red virtual y conectar de una máquina virtual a la otra para así validar la conectividad.
 25. **Opcional**: para eliminar los recursos que crea en este tutorial, complete los pasos que aparecen en la sección [Eliminación de recursos](#delete-portal) de este artículo.
 
-## <a name="cli"></a>Creación de emparejamiento: CLI de Azure
+## <a name="create-peering---azure-cli"></a><a name="cli"></a>Creación de emparejamiento: CLI de Azure
 
 En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones, puede usar la misma cuenta para todos los pasos, omitir los pasos para cerrar sesión en Azure y quitar las líneas del script que crean las asignaciones de roles de usuario. Reemplace UserA@azure.com y UserB@azure.com en todos los scripts siguientes por los nombres de usuario que está usando para UserA y UserB. Complete los pasos siguientes mediante la CLI de Azure clásica y la CLI de Azure. Puede completar los pasos desde Azure Cloud Shell. Para ello solo tiene que seleccionar el botón **Try it** (Pruébelo) en cualquiera de los pasos siguientes o instalar la [CLI clásica](/cli/azure/install-classic-cli) y la [CLI](/cli/azure/install-azure-cli), y ejecutar los comandos en el equipo local.
 
@@ -101,9 +101,10 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
 2. Ejecute la CLI clásica en modo de Administración de servicios escribiendo el comando `azure config mode asm`.
 3. Escriba el siguiente comando de la CLI clásica para crear la red virtual (clásica):
 
-    ```azurecli
+    ```console
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
+
 4. Los pasos restantes tienen que realizarse mediante un shell de bash con la CLI de Azure (no la CLI clásica).
 5. Copie el script siguiente en un editor de texto del equipo. Reemplace `<SubscriptionB-Id>` con el Id. de suscripción. Si no conoce el Id. de suscripción, escriba el comando `az account show`. El valor de **id** en la salida es el identificador de la suscripción. Copie el script modificado, péguelo en la sesión de la CLI y, después, presione `Enter`.
 
@@ -170,6 +171,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
       --vnet-name myVnetA \
       --output table
     ```
+
     La salida muestra **Conectado** en la columna **PeeringState**.
 
     Los recursos de Azure que cree en cualquiera de las redes virtuales ahora se pueden comunicar entre sí mediante sus direcciones IP. Si usa la resolución de nombres predeterminada de Azure para las redes virtuales, los recursos de las redes virtuales no pueden resolver nombres entre las redes virtuales. Si desea resolver nombres entre las redes virtuales de un emparejamiento, debe crear su propio servidor DNS. Obtenga información sobre cómo configurar la [resolución de nombres mediante su propio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
@@ -177,7 +179,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
 10. **Opcional**: Si bien este tutorial no aborda la creación de máquinas virtuales, puede crear una máquina virtual en cada red virtual y conectar de una máquina virtual a la otra para así validar la conectividad.
 11. **Opcional**: para eliminar los recursos creados en este tutorial, complete los pasos de la sección [Eliminar recursos](#delete-cli) de este artículo.
 
-## <a name="powershell"></a>Creación de emparejamiento: PowerShell
+## <a name="create-peering---powershell"></a><a name="powershell"></a>Creación de emparejamiento: PowerShell
 
 En este tutorial se usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones, puede usar la misma cuenta para todos los pasos, omitir los pasos para cerrar sesión en Azure y quitar las líneas del script que crean las asignaciones de roles de usuario. Reemplace UserA@azure.com y UserB@azure.com en todos los scripts siguientes por los nombres de usuario que está usando para UserA y UserB. 
 
@@ -204,8 +206,8 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
 
 5. Inicie sesión en la suscripción de UserB como UserB para usar los comandos de Resource Manager escribiendo el comando `Connect-AzAccount`.
 6. Asigne los permisos de UserA a la red virtual B. Copie el script siguiente en un editor de texto en su PC y reemplace `<SubscriptionB-id>` con el Id. de suscripción B. Si no conoce el Id. de suscripción, escriba el comando `Get-AzSubscription` para verlo. El valor de **id** en la salida devuelta es el identificador de la suscripción. Azure creó la red virtual (clásica) que creó en el paso 4 en un grupo de recursos denominado *Default-Networking*. Para ejecutar el script, copie el script modificado, péguelo en PowerShell y pulse `Enter`.
-    
-    ```powershell 
+
+    ```powershell
     New-AzRoleAssignment `
       -SignInName UserA@azure.com `
       -RoleDefinitionName "Classic Network Contributor" `
@@ -267,10 +269,10 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
 12. **Opcional**: Si bien este tutorial no aborda la creación de máquinas virtuales, puede crear una máquina virtual en cada red virtual y conectar de una máquina virtual a la otra para así validar la conectividad.
 13. **Opcional**: para eliminar los recursos creados en este tutorial, complete los pasos de la sección [Eliminar recursos](#delete-powershell) de este artículo.
 
-## <a name="delete"></a>Eliminación de recursos
+## <a name="delete-resources"></a><a name="delete"></a>Eliminación de recursos
 Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos que creó en el tutorial, para no incurrir en gastos de uso. Al eliminar un grupo de recursos se eliminan también todos los recursos contenidos en el mismo.
 
-### <a name="delete-portal"></a>Azure Portal
+### <a name="azure-portal"></a><a name="delete-portal"></a>Azure Portal
 
 1. En el cuadro de búsqueda del portal, escriba **myResourceGroupA**. En los resultados de la búsqueda, haga clic en **myResourceGroupA**.
 2. En la hoja **myResourceGroupA**, haga clic en el icono **Eliminar**.
@@ -279,7 +281,7 @@ Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos
 5. En la hoja **myVnetB**, haga clic en **Eliminar**.
 6. Para confirmar la eliminación, haga clic en **Sí** en el cuadro **Eliminar red virtual**.
 
-### <a name="delete-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a name="delete-cli"></a>Azure CLI
 
 1. Inicie sesión en Azure con la CLI para eliminar la red virtual (Resource Manager) con el siguiente comando:
 
@@ -289,13 +291,13 @@ Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos
 
 2. Inicie sesión en Azure con la CLI clásica para eliminar la red virtual (clásica) con los siguientes comandos:
 
-   ```azurecli-interactive
+   ```console
    azure config mode asm
 
    azure network vnet delete --vnet myVnetB --quiet
    ```
 
-### <a name="delete-powershell"></a>PowerShell
+### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
 
 1. En el símbolo del sistema de PowerShell, escriba el siguiente comando para eliminar la red virtual (Resource Manager):
 

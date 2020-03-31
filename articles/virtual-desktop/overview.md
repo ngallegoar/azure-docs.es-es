@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a32ee682490c5930b8c48d069087020c4763dcb
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e62b3c551f41bca0055f35cf6bf62c59d921c73b
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127757"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80294831"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
 
@@ -123,11 +123,32 @@ Para obtener un rendimiento óptimo, asegúrese de que la red cumple los requisi
 
 Los clientes de Escritorio remoto siguientes admiten Windows Virtual Desktop:
 
-* [Windows](connect-windows-7-and-10.md)
+* [Escritorio de Windows](connect-windows-7-and-10.md)
 * [Web](connect-web.md)
-* [Mac](connect-macos.md)
+* [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android (versión preliminar)](connect-android.md)
+
+> [!IMPORTANT]
+> Windows Virtual Desktop no es compatible con el cliente de Conexión de RemoteApp y Escritorio (RADC) ni con el cliente de Conexión a Escritorio remoto (MSTSC).
+
+> [!IMPORTANT]
+> Windows Virtual Desktop no es compatible actualmente con el cliente de Escritorio remoto de la tienda Windows. La compatibilidad con este cliente se agregará en una versión futura.
+
+Los clientes de Escritorio remoto deben tener acceso a las siguientes direcciones URL:
+
+|Dirección|Puerto de salida|Propósito|Cliente(s)|
+|---|---|---|---|
+|*.wvd.microsoft.com|Puerto TCP 443|Tráfico de servicio|All|
+|*.servicebus.windows.net|Puerto TCP 443|Solución de problemas de los datos|All|
+|go.microsoft.com|Puerto TCP 443|Microsoft FWLinks|All|
+|aka.ms|Puerto TCP 443|Acortador de direcciones URL de Microsoft|All|
+|docs.microsoft.com|Puerto TCP 443|Documentación|All|
+|privacy.microsoft.com|Puerto TCP 443|Declaración de privacidad|All|
+|query.prod.cms.rt.microsoft.com|Puerto TCP 443|Actualizaciones de clientes|Escritorio de Windows|
+
+>[!IMPORTANT]
+>Para conseguir una experiencia de cliente confiable, es esencial abrir estas direcciones URL. No se admite el bloqueo del acceso a estas direcciones URL y afectará a la funcionalidad del servicio. Estas direcciones URL solo se corresponden con sitios y recursos de cliente y no incluyen direcciones URL para otros servicios como Azure Active Directory.
 
 ## <a name="supported-virtual-machine-os-images"></a>Imágenes de SO de máquinas virtuales admitidas
 
@@ -147,13 +168,13 @@ Las opciones de automatización y de implementación disponibles dependen del si
 |Sistema operativo|Galería de imágenes de Azure|Implementación manual de la máquina virtual|Integración de la plantilla de Azure Resource Manager|Aprovisionamiento de grupos host en Azure Marketplace|Actualizaciones del agente de Windows Virtual Desktop|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
 |Sesión múltiple de Windows 10, versión 1903|Sí|Sí|Sí|Sí|Automático|
-|Sesión múltiple de Windows 10, versión 1809|Sí|Sí|Sin|Sin|Automático|
+|Sesión múltiple de Windows 10, versión 1809|Sí|Sí|No|No|Automático|
 |Windows 10 Enterprise, versión 1903|Sí|Sí|Sí|Sí|Automático|
-|Windows 10 Enterprise, versión 1809|Sí|Sí|Sin|Sin|Automático|
-|Windows 7 Enterprise|Sí|Sí|Sin|Sin|Manual|
-|Windows Server 2019|Sí|Sí|Sin|Sin|Automático|
+|Windows 10 Enterprise, versión 1809|Sí|Sí|No|No|Automático|
+|Windows 7 Enterprise|Sí|Sí|No|No|Manual|
+|Windows Server 2019|Sí|Sí|No|No|Automático|
 |Windows Server 2016|Sí|Sí|Sí|Sí|Automático|
-|Windows Server 2012 R2|Sí|Sí|Sin|Sin|Automático|
+|Windows Server 2012 R2|Sí|Sí|No|No|Automático|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

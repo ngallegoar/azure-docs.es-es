@@ -7,12 +7,12 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-ms.openlocfilehash: 15a3b39b1466ffec87971b8f054ca916567d89d7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0d36d7db4d85ece8de77040925c535305951562b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944955"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066684"
 ---
 # <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Vista previa: Crear una máquina virtual Linux con Azure Image Builder
 
@@ -64,7 +64,7 @@ az provider register -n Microsoft.Storage
 Usaremos algunos datos de forma repetida, por lo que crearemos diversas variables para almacenar esa información.
 
 
-```azurecli-interactive
+```console
 # Resource group name - we are using myImageBuilderRG in this example
 imageResourceGroup=myImageBuilerRGLinux
 # Datacenter location - we are using West US 2 in this example
@@ -77,7 +77,7 @@ runOutputName=aibLinux
 
 Cree una variable para el id. de suscripción. Puede obtenerlo mediante `az account show | grep id`.
 
-```azurecli-interactive
+```console
 subscriptionID=<Your subscription ID>
 ```
 
@@ -104,7 +104,7 @@ az role assignment create \
 
 Se ha creado una plantilla de configuración de imagen de muestra con parámetros para que pueda usarla. Descargue el archivo .json de muestra y configúrelo con las variables que estableció anteriormente.
 
-```azurecli-interactive
+```bash
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateLinux.json
@@ -116,7 +116,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 
 Puede modificar este archivo .json de ejemplo según sea necesario. Por ejemplo, puede aumentar el valor de `buildTimeoutInMinutes` para realizar compilaciones más largas. Puede editar el archivo en Cloud Shell mediante un editor de texto como `vi`.
 
-```azurecli-interactive
+```bash
 vi helloImageTemplateLinux.json
 ```
 
@@ -188,13 +188,13 @@ az vm create \
 
 Obtenga la dirección IP de la salida de la creación de la máquina virtual y úsela para conectarse mediante SSH a la máquina virtual.
 
-```azurecli-interactive
+```bash
 ssh azureuser@<pubIp>
 ```
 
 Verá que la imagen se ha personalizado con un mensaje del día en cuanto se ha establecido la conexión SSH.
 
-```console
+```output
 
 *******************************************************
 **            This VM was built from the:            **
@@ -209,7 +209,7 @@ Escriba `exit` cuando haya terminado para cerrar la conexión SSH.
 
 En la plantilla de generador de imágenes, en "Propiedades", verá la imagen de origen, el script de personalización que ejecuta y dónde se distribuye.
 
-```azurecli-interactive
+```bash
 cat helloImageTemplateLinux.json
 ```
 
@@ -230,7 +230,7 @@ az resource delete \
 
 Elimine el grupo de recursos de la imagen.
 
-```bash
+```azurecli
 az group delete -n $imageResourceGroup
 ```
 

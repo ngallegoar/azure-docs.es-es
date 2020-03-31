@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 760ec8a945ab88b63dde2de75f5354818facf4f2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74225257"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>Obtención de métricas de utilización de Load Balancer con la API de REST
@@ -35,14 +35,14 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Los siguientes encabezados son obligatorios: 
 
-|Encabezado de solicitud|DESCRIPCIÓN|  
+|Encabezado de solicitud|Descripción|  
 |--------------------|-----------------|  
 |*Content-Type:*|Necesario. Establézcalo en `application/json`.|  
 |*Authorization:*|Necesario. Establézcalo en un [token de acceso](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` válido. |  
 
 ### <a name="uri-parameters"></a>Parámetros del identificador URI
 
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 | :--- | :---------- |
 | subscriptionId | El id. de suscripción que identifica una suscripción de Azure. Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | Nombre del grupo de recursos que contiene el recurso. Puede obtener este valor en la API de Azure Resource Manager, la CLI o en Azure Portal. |

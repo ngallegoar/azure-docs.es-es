@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: bf4c7e9fc623ad7dc74b6da943232d5c558d43a4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 698fab470cdc8b8d04fa4319fd71c31b58d1c5a3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920270"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066890"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -149,7 +149,7 @@ La configuración pública se envía en texto no cifrado a la máquina virtual d
 
 CustomScript (versión 1.10 en adelante) admite la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descargar archivos de las direcciones URL proporcionadas en el valor "fileUris". Permite a CustomScript acceder a blobs o contenedores privados de Azure Storage sin que el usuario tenga que enviar secretos como tokens de SAS o claves de cuenta de almacenamiento.
 
-Para usar esta característica, el usuario debe agregar una identidad [asignada por el sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) o[asignada por el usuario](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) a la máquina virtual o VMSS donde se espera que se ejecute CustomScript y [conceder a la identidad administrada acceso al contenedor de Azure Storage o al blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Para usar esta característica, el usuario debe agregar una identidad [asignada por el sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) o[asignada por el usuario](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) a la máquina virtual o VMSS donde se espera que se ejecute CustomScript y [conceder a la identidad administrada acceso al contenedor de Azure Storage o al blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 
 Para usar la identidad asignada por el sistema en la máquina virtual/VMSS de destino, establezca el campo "managedidentity" a un objeto JSON vacío. 
 
