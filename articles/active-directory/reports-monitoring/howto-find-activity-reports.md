@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008206"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
@@ -149,13 +149,13 @@ Puede acceder a los informes acerca de las detecciones de riesgos observadas en 
 
 Descargue los registros de actividad (auditoría o inicios de sesión) y no veo todos los registros del tiempo que elegí. ¿Por qué? 
 
- ![Informes](./media/troubleshoot-missing-data-download/01.png)
+ ![Notificación](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Causa
 
 Al descargar los registros de actividad en Azure Portal, limitamos la escala a 250 000 registros, con el más reciente primero. 
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Puede sacar provecho de la [API de creación de informes de Azure AD](concept-reporting-api.md) para capturar hasta un millones de registros en cualquier momento dado.
 
@@ -165,7 +165,7 @@ Puede sacar provecho de la [API de creación de informes de Azure AD](concept-re
 
 Realice algunas acciones en Azure Portal y esperaba ver los registros de auditoría de dichas acciones en la hoja `Activity logs > Audit Logs`, pero no los encuentro.
 
- ![Informes](./media/troubleshoot-missing-audit-data/01.png)
+ ![Notificación](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>Causa
 
@@ -176,7 +176,7 @@ Las acciones no aparecen inmediatamente en los registro de actividad. En la tabl
 | Auditoría de directorio | &nbsp; | 2 minutos | 5 minutos |
 | Actividad de inicio de sesión | &nbsp; | 2 minutos | 5 minutos | 
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el registro. Si no ve los registros incluso después de dos horas, [cree una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y la examinaremos.
 
@@ -186,7 +186,7 @@ Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el regi
 
 Hace poco he iniciado sesión en Azure Portal y esperaba ver los registros de inicio de sesión de dichas acciones en la hoja `Activity logs > Sign-ins`, pero no los encuentro.
 
- ![Informes](./media/troubleshoot-missing-audit-data/02.png)
+ ![Notificación](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Causa
 
@@ -197,7 +197,7 @@ Las acciones no aparecen inmediatamente en los registro de actividad. En la tabl
 | Auditoría de directorio | &nbsp; | 2 minutos | 5 minutos |
 | Actividad de inicio de sesión | &nbsp; | 2 minutos | 5 minutos | 
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el registro. Si no ve los registros incluso después de dos horas, [cree una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y la examinaremos.
 
@@ -207,7 +207,7 @@ Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el regi
 
 No puedo ver más de 30 días de datos de inicio de sesión y auditoría en Azure Portal. ¿Por qué? 
 
- ![Informes](./media/troubleshoot-missing-audit-data/03.png)
+ ![Notificación](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Causa
 
@@ -220,7 +220,7 @@ En función de su licencia, las acciones de Azure Active Directory almacenan los
 
 Para más información, consulte [Directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).  
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Tiene dos opciones para conservar los datos durante más de 30 días. Puede usar las [API de generación de informes de Azure AD](concept-reporting-api.md) para recuperar los datos mediante programación y almacenarlos en una base de datos. Como alternativa, puede integrar los registros de auditoría en un sistema SIEM de terceros como Splunk o SumoLogic.
 

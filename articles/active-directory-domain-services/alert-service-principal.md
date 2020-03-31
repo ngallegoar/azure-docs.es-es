@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
 ms.openlocfilehash: 175bfe63176b78c5aeafc7147c46dd5ab1110325
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71257962"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas de entidades de servicio en Azure Active Directory Domain Services
@@ -40,7 +40,7 @@ Para comprobar qué entidad de servicio falta y debe volver a crearse, complete 
 1. Seleccione **Aplicaciones empresariales**. En el menú desplegable **Tipo de aplicación**, seleccione *Todas las aplicaciones* y **Aplicar**.
 1. Busque cada uno de los identificadores de la aplicación. Si no se encuentra ninguna aplicación existente, siga los pasos de la *Resolución* para crear la entidad de servicio o volver a registrar el espacio de nombres.
 
-    | Identificador de aplicación | Resolución |
+    | Identificador de aplicación | Solución |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Volver a crear una entidad de servicio que falta](#recreate-a-missing-service-principal) |
     | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Volver a realizar el registro en el espacio de nombres de Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
@@ -85,7 +85,7 @@ El estado del dominio administrado de Azure AD DS se actualiza automáticament
 
 Azure AD DS sincroniza automáticamente las cuentas de usuario y las credenciales de Azure AD. Si hay un problema con la aplicación de Azure AD utilizada para este proceso, se producirá un error en la sincronización de credenciales entre Azure AD DS y Azure AD.
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Para volver a crear la aplicación de Azure AD utilizada para la sincronización de credenciales, use Azure AD PowerShell para completar los pasos siguientes. Para más información, consulte [Instalación de Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 

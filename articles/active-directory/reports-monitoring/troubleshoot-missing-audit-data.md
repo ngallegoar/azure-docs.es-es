@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c335a4d30846f7c1b4dbd6b6aedc4d100a9b43a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014282"
 ---
 # <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Solución de problemas: Faltan datos en los registros de actividad de Azure Active Directory 
@@ -32,7 +32,7 @@ ms.locfileid: "74014282"
 
 Realice algunas acciones en Azure Portal y esperaba ver los registros de auditoría de dichas acciones en la hoja `Activity logs > Audit Logs`, pero no los encuentro.
 
- ![Informes](./media/troubleshoot-missing-audit-data/01.png)
+ ![Notificación](./media/troubleshoot-missing-audit-data/01.png)
  
 ### <a name="cause"></a>Causa
 
@@ -43,7 +43,7 @@ Las acciones no aparecen inmediatamente en los registro de actividad. En la tabl
 | Auditoría de directorio | &nbsp; | 2 minutos | 5 minutos |
 | Actividad de inicio de sesión | &nbsp; | 2 minutos | 5 minutos | 
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el registro. Si no ve los registros incluso después de dos horas, [cree una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y la examinaremos.
 
@@ -53,7 +53,7 @@ Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el regi
 
 Hace poco he iniciado sesión en Azure Portal y esperaba ver los registros de inicio de sesión de dichas acciones en la hoja `Activity logs > Sign-ins`, pero no los encuentro.
 
- ![Informes](./media/troubleshoot-missing-audit-data/02.png)
+ ![Notificación](./media/troubleshoot-missing-audit-data/02.png)
  
 ### <a name="cause"></a>Causa
 
@@ -64,7 +64,7 @@ Las acciones no aparecen inmediatamente en los registro de actividad. En la tabl
 | Auditoría de directorio | &nbsp; | 2 minutos | 5 minutos |
 | Actividad de inicio de sesión | &nbsp; | 2 minutos | 5 minutos | 
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el registro. Si no ve los registros incluso después de dos horas, [cree una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y la examinaremos.
 
@@ -74,7 +74,7 @@ Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el regi
 
 No puedo ver más de 30 días de datos de inicio de sesión y auditoría en Azure Portal. ¿Por qué? 
 
- ![Informes](./media/troubleshoot-missing-audit-data/03.png)
+ ![Notificación](./media/troubleshoot-missing-audit-data/03.png)
 
 ### <a name="cause"></a>Causa
 
@@ -87,7 +87,7 @@ En función de su licencia, las acciones de Azure Active Directory almacenan los
 
 Para más información, consulte [Directivas de retención de informes de Azure Active Directory](reference-reports-data-retention.md).  
 
-### <a name="resolution"></a>Resolución
+### <a name="resolution"></a>Solución
 
 Tiene dos opciones para conservar los datos durante más de 30 días. Puede usar las [API de generación de informes de Azure AD](concept-reporting-api.md) para recuperar los datos mediante programación y almacenarlos en una base de datos. Como alternativa, puede integrar los registros de auditoría en un sistema SIEM de terceros como Splunk o SumoLogic.
 

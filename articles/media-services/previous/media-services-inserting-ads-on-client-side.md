@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 274ee09ae98dd229b255e58261f462e322be9f89
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77565747"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserción de anuncios en el lado cliente
@@ -31,7 +31,7 @@ Para obtener información acerca de la compatibilidad con anuncios y subtítulos
 > 
 > 
 
-## <a id="insert_ads_into_media"></a>Inserción de anuncios en contenido multimedia
+## <a name="inserting-ads-into-your-media"></a><a id="insert_ads_into_media"></a>Inserción de anuncios en contenido multimedia
 Azure Media Services admite la inserción de anuncios mediante la plataforma de Windows Media: Player Frameworks. Player framework con compatibilidad con anuncios está disponible para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada marco de trabajo de reproductor contiene código de ejemplo que muestra cómo implementar una aplicación de reproductor. Hay tres tipos diferentes de anuncios que se pueden insertar en el archivo multimedia:
 
 * **Lineales** : anuncios de fotograma completo que pausan el vídeo principal.

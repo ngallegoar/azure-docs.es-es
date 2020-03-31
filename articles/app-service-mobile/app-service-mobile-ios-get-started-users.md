@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: fd7860053e8c04ca9d5e355a721afd834835a441
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459030"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Incorporación de la autenticación a la aplicación iOS
@@ -18,10 +18,10 @@ ms.locfileid: "77459030"
 
 En este tutorial podrá agregar la autenticación al proyecto de [inicio rápido de iOS] mediante un proveedor de identidades compatible. Este tutorial está basado en el tutorial de [inicio rápido de iOS] , que debe completar primero.
 
-## <a name="register"></a>Registro de la aplicación para la autenticación y configuración de App Service
+## <a name="register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Registro de la aplicación para la autenticación y configuración de App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adición de la aplicación a las direcciones URL de redirección externa permitidas
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Adición de la aplicación a las direcciones URL de redirección externa permitidas
 
 La autenticación segura requiere que se defina un nuevo esquema de dirección URL para la aplicación.  Esto permite que el sistema de autenticación se redirija a la aplicación una vez completado el proceso de autenticación.  En este tutorial, se usará el esquema de dirección URL _appname_.  Sin embargo, puede utilizar cualquier otro esquema de dirección URL que elija.  Debe ser único para la aplicación móvil.  Para habilitar la redirección en el lado de servidor:
 
@@ -39,12 +39,12 @@ La autenticación segura requiere que se defina un nuevo esquema de dirección U
 
 7. Haga clic en **Save**(Guardar).
 
-## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 En Xcode, presione **Ejecutar** para iniciar la aplicación. Se genera una excepción porque la aplicación intenta acceder al back-end como usuario sin autenticar, pero la tabla *TodoItem* ahora requiere autenticación.
 
-## <a name="add-authentication"></a>Incorporación de autenticación a la aplicación
+## <a name="add-authentication-to-app"></a><a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 **Objective-C**:
 
 1. En el Mac, abra *QSTodoListViewController.m* en Xcode y agregue el siguiente método:

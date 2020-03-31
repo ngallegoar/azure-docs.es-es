@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
 ms.openlocfilehash: 9829e713f19ab9755e9dc79d676446c8048e09b3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75751187"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registros de diagnóstico de un grupo de seguridad de red

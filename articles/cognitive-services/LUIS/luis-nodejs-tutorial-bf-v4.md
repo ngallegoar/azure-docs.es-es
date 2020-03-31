@@ -4,10 +4,10 @@ description: Use Node.js para crear un bot de chat que se integre con Language U
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.openlocfilehash: 3ce12176957412a5599ced8b043f553969194efb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987854"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: Uso de un bot de aplicación web habilitado con Language Understanding en Node.js
@@ -22,7 +22,7 @@ Use Node.js para crear un bot de chat que se integre con Language Understanding 
 > * Iniciar el emulador y el bot localmente en el equipo.
 > * Ver los resultados de expresiones del bot.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Bot Emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)

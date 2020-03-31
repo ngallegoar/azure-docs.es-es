@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
 ms.openlocfilehash: c110a4e0429ba52e01c472097a2241f91d504cf5
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616203"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementación de SAP S/4HANA o BW/4HANA en Azure

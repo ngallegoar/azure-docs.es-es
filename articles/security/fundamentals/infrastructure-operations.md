@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/30/2019
 ms.author: terrylan
 ms.openlocfilehash: d41fe409b4a44a4c2af3670d76dd3a83a300feae
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727128"
 ---
 # <a name="management-and-operation-of-the-azure-production-network"></a>Administración y funcionamiento de la red de producción de Azure    
@@ -51,7 +51,7 @@ La base de usuarios de la red corporativa incluye personal de soporte técnico d
 El acceso a las aplicaciones internas de Azure se controla mediante la autenticación con Servicios de federación de Active Directory (AD FS). AD FS es un servicio hospedado por Microsoft Information Technology que proporciona autenticación de los usuarios de la red corporativa a través de la aplicación de un token seguro y notificaciones de usuario. AD FS permite que las aplicaciones internas de Azure autentiquen usuarios en el dominio de Microsoft Corporate Active Directory. Para acceder a la red de producción desde el entorno de la red corporativa, los usuarios deben autenticarse mediante la autenticación multifactor.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
+Para más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
 
 - [Instalaciones de Azure, entornos locales y seguridad física](physical-security.md)
 - [Disponibilidad de la infraestructura de Azure](infrastructure-availability.md)

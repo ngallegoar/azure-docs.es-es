@@ -4,10 +4,10 @@ description: Establezca atributos para una imagen de contenedor o un repositorio
 ms.topic: article
 ms.date: 09/30/2019
 ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659703"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloqueo de una imagen de contenedor en una instancia de Azure Container Registry

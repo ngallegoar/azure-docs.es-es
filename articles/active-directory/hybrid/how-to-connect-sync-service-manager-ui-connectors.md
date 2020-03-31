@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60384193"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230108"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso de conectores con Sync Service Manager de Azure AD Connect
 
@@ -31,17 +31,17 @@ ms.locfileid: "60384193"
 La pestaña Conectores se usa para administrar todos los sistemas a los que está conectado el motor de sincronización.
 
 ## <a name="connector-actions"></a>Acciones del conector
-| . | Comentario |
+| Acción | Comentario |
 | --- | --- |
-| Crear |No usar. Para conectarse a los bosques de AD adicionales, use el Asistente para instalación. |
-| Properties (Propiedades) |Se usa para el filtrado por dominio y unidad organizativa. |
+| Crear |No debe usarse. Para conectarse a los bosques de AD adicionales, use el Asistente para instalación. |
+| Propiedades |Se usa para el filtrado por dominio y unidad organizativa. |
 | [Eliminar](#delete) |Se usa para eliminar los datos en el espacio del conector o eliminar la conexión a un bosque. |
 | [Configurar perfiles de ejecución](#configure-run-profiles) |A excepción del filtrado de dominio, no es necesario configurar ninguna otra opción. Puede utilizar esta acción para ver los perfiles de ejecución ya configurados. |
 | Ejecute |Se usa para iniciar una ejecución única de un perfil. |
 | Stop |Detiene un conector que esté ejecutando un perfil. |
-| Exportar conector |No usar. |
-| Importar conector |No usar. |
-| Actualizar conector |No usar. |
+| Exportar conector |No debe usarse. |
+| Importar conector |No debe usarse. |
+| Actualizar conector |No debe usarse. |
 | Actualizar esquema |Actualiza el esquema en caché. Es preferible usar la opción en el Asistente para la instalación, ya que también actualizará las reglas de sincronización. |
 | [Espacio del conector de búsqueda](#search-connector-space) |Se usa para buscar objetos y realizar un seguimiento de un objeto y sus datos por el sistema. |
 

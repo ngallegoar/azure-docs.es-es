@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: b8fad566b54ab645660011ad3188394b6f8190b0
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68728071"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Marco de seguridad: Administración de excepciones: mitigaciones 
@@ -29,12 +29,12 @@ ms.locfileid: "68728071"
 | **API web** | <ul><li>[Asegúrese de que se realiza un control adecuado de las excepciones en ASP.NET Web API](#exception)</li></ul> |
 | **Aplicación web** | <ul><li>[No exponga detalles de seguridad en los mensajes de error](#messages)</li><li>[Implemente una página de control de errores predeterminado](#default)</li><li>[Establezca el método de implementación como deployment retail en IIS](#deployment)</li><li>[Las excepciones deben generar un error con seguridad](#fail)</li></ul> |
 
-## <a id="servicedebug"></a>WCF: no incluya el nodo serviceDebug en el archivo de configuración
+## <a name="wcf--do-not-include-servicedebug-node-in-configuration-file"></a><a id="servicedebug"></a>WCF: no incluya el nodo serviceDebug en el archivo de configuración
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
@@ -53,23 +53,23 @@ El siguiente archivo de configuración incluye la etiqueta `<serviceDebug>`:
 ```
 Deshabilite la información de depuración en el servicio. Puede hacerlo eliminando la etiqueta `<serviceDebug>` del archivo de configuración de la aplicación. 
 
-## <a id="servicemetadata"></a>WCF: no incluya el nodo serviceMetadata en el archivo de configuración
+## <a name="wcf--do-not-include-servicemetadata-node-in-configuration-file"></a><a id="servicemetadata"></a>WCF: no incluya el nodo serviceMetadata en el archivo de configuración
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Genérico, .NET Framework 3 |
 | **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Pasos** | Exponer públicamente información acerca de un servicio puede proporcionar a los atacantes valiosos detalles sobre cómo podrían aprovechar el servicio. La etiqueta `<serviceMetadata>` habilita la característica de publicación de metadatos. Los metadatos del servicio pueden contener información confidencial que no debe estar accesible públicamente. Como mínimo, permita solo a los usuarios de confianza acceder a los metadatos, y asegúrese de que no se expone información innecesaria. Mejor aún, deshabilite completamente la capacidad de publicar los metadatos. Una configuración segura de WCF no contendrá la etiqueta `<serviceMetadata>`. |
 
-## <a id="exception"></a>Asegúrese de que se realiza un tratamiento adecuado de las excepciones en ASP.NET Web API
+## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>Asegúrese de que se realiza un tratamiento adecuado de las excepciones en ASP.NET Web API
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | MVC 5, MVC 6 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Exception Handling in ASP.NET Web API](https://www.asp.net/web-api/overview/error-handling/exception-handling) (Control de excepciones en ASP.NET Web API), [Model Validation in ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) (Validación de modelos en ASP.NET Web API) |
@@ -182,29 +182,29 @@ public HttpResponseMessage PostProduct(Product item)
 
 Compruebe los vínculos en la sección de referencias para obtener información más detallada acerca del control de excepciones y la validación del modelo en ASP.NET Web API. 
 
-## <a id="messages"></a>No exponga detalles de seguridad en los mensajes de error
+## <a name="do-not-expose-security-details-in-error-messages"></a><a id="messages"></a>No exponga detalles de seguridad en los mensajes de error
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
 | **Pasos** | <p>Los mensajes de error genéricos se proporcionan directamente al usuario sin necesidad de incluir datos confidenciales de la aplicación. Ejemplos de datos confidenciales incluyen:</p><ul><li>Nombres de servidor</li><li>Cadenas de conexión</li><li>Nombres de usuario</li><li>Contraseñas</li><li>Procedimientos SQL</li><li>Detalles de errores SQL dinámicos</li><li>Seguimiento de la pila y líneas de código</li><li>Variables almacenadas en memoria</li><li>Ubicaciones de unidad y carpeta</li><li>Puntos de instalación de aplicación</li><li>Valores de la configuración de host</li><li>Otros detalles de la aplicación interna</li></ul><p>La captura de todos los errores dentro de una aplicación y el envío de mensajes de error genéricos, así como la habilitación de errores personalizados dentro de IIS, le ayudará a evitar la divulgación de información. La base de datos de SQL Server y el control de excepciones de .NET, entre otras arquitecturas de control de errores, son especialmente detallados y muy útiles para la evaluación del perfil de una aplicación por parte de un usuario malintencionado. No muestre directamente el contenido de una clase derivada de la clase de excepción de .NET, y asegúrese de que tiene un control de excepciones adecuado para que una excepción inesperada no se presente directamente al usuario.</p><ul><li>Proporcione directamente al usuario mensajes de error genéricos que condensen y alejen los detalles específicos que se encuentra directamente en el mensaje de excepción o error</li><li>No muestre el contenido de una clase de excepción de .NET directamente al usuario</li><li>Capture todos los mensajes de error, y si es necesario informe al usuario a través de un mensaje de error genérico enviado a la aplicación cliente</li><li>No exponga el contenido de la clase Exception directamente al usuario, especialmente el valor devuelto de `.ToString()`, o los valores de las propiedades del mensaje o el seguimiento de la pila. Registre esta información de forma segura y muestre un mensaje más inocuo al usuario</li></ul>|
 
-## <a id="default"></a>Implemente una página de control de errores predeterminado
+## <a name="implement-default-error-handling-page"></a><a id="default"></a>Implemente una página de control de errores predeterminado
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Modificar configuración de páginas de errores ASP.NET (Cuadro de diálogo)](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
 | **Pasos** | <p>Cuando se produce un error en una aplicación ASP.NET que provoca un error 1.x 500 o HTTP 500 Error interno del servidor, o la configuración de una característica (por ejemplo, el filtrado de solicitudes) impide que se muestre una página, se generará un mensaje de error. Los administradores pueden elegir si la aplicación debe mostrar un mensaje descriptivo al cliente, un mensaje de error detallado al cliente o un mensaje de error detallado solamente al host local. La etiqueta `<customErrors>` en el archivo web.config tiene tres modos:</p><ul><li>**On:** especifica que los errores personalizados están habilitados. Si no se especifica ningún atributo defaultRedirect, los usuarios verán un error genérico. Los errores personalizados se muestran a los clientes remotos y al host local</li><li>**Off:** especifica que los errores personalizados están deshabilitados. Los errores detallados de ASP.NET se muestran a los clientes remotos y al host local</li><li>**RemoteOnly:** especifica que los errores personalizados se muestran solo a los clientes remotos y que los errores de ASP.NET se muestran al host local. Este es el valor predeterminado</li></ul><p>Abra el archivo `web.config` de la aplicación o el sitio y asegúrese de que la etiqueta tiene definido `<customErrors mode="RemoteOnly" />` o `<customErrors mode="On" />`.</p>|
 
-## <a id="deployment"></a>Establezca el método de implementación como deployment retail en IIS
+## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Establezca el método de implementación como deployment retail en IIS
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -215,12 +215,12 @@ Compruebe los vínculos en la sección de referencias para obtener información 
 | **Referencias**              | [deployment (Elemento, Esquema de configuración de ASP.NET)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
 | **Pasos** | <p>El conmutador `<deployment retail>` está diseñado para su uso en servidores IIS de producción. Este conmutador se usa para ayudar a las aplicaciones a ejecutarse con el mejor rendimiento y las mínimas fugas de información de seguridad posibles, esto se consigue deshabilitando la capacidad de la aplicación para generar el resultado de un seguimiento en una página y para mostrar mensajes de error detallados a los usuarios finales, y deshabilitando también el conmutador de depuración.</p><p>A menudo, los conmutadores y opciones que están enfocadas hacia en el desarrollador, como los errores de solicitud de seguimiento y depuración, se habilitan durante el desarrollo activo. Se recomienda que el método de implementación en cualquier servidor de producción se establezca como deployment retail. Abra el archivo machine.config y asegúrese de que `<deployment retail="true" />` permanece establecido en True.</p>|
 
-## <a id="fail"></a>Las excepciones deben generar un error con seguridad
+## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Las excepciones deben generar un error con seguridad
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
+| **Fase de SDL**               | Build |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Fail securely](https://www.owasp.org/index.php/Fail_securely) (Control seguro de los errores) |

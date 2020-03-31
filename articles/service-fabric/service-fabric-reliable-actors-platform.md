@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
 ms.openlocfilehash: 92c717fa2c82dd147acd3c28333e37ccf8dd2e89
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75349243"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236648"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Uso de la plataforma Service Fabric por parte de actores confiables
 En este artículo se explica cómo funciona Reliable Actors en la plataforma de Azure Service Fabric. Reliable Actors se ejecuta en un marco de trabajo que se hospeda en la implementación de un servicio de confianza con estado llamado *servicio de actor*. El servicio de actor contiene todos los componentes necesarios para administrar el ciclo de vida y el envío de mensajes de sus actores:

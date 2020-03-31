@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 79abaade22fc107fa4c848607ff48232eeeb58ad
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823762"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (vista previa)
@@ -28,7 +28,7 @@ Para un inicio rápido, consulte [Informes de bases de datos escaladas horizonta
 
 Para bases de datos no particionadas, consulte [Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)](sql-database-elastic-query-vertical-partitioning.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Cree un mapa de particiones con una biblioteca de cliente de bases de datos elásticas. Consulte [Administración de asignaciones particionadas](sql-database-elastic-scale-shard-map-management.md). También puede usar la aplicación de ejemplo en [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
 * También puede consultar [Migración de bases de datos existentes a bases de datos de escalado horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
@@ -134,7 +134,7 @@ Para eliminar tablas externas:
 
     DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
 
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
 
 La cláusula DATA\_SOURCE define el origen de datos externo (un mapa de particiones) que se usa para la tabla externa.  
 

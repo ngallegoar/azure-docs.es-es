@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: dd2ae2159c43da6a049d67cae739f111eba682c9
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74534466"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronizar la hora en las máquinas virtuales de Windows en Azure

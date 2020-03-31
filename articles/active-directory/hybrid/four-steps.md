@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d3eb98f543e17981be0d5b9ab08fa4e146659b47
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74206778"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
@@ -109,7 +109,7 @@ Para proporcionar alta disponibilidad en caso de que el servidor principal de Az
 > [!TIP]
 > Azure AD Connect se actualiza de forma periódica. Por lo tanto, se recomienda mantener actualizado el servidor de ensayo para aprovechar las mejoras de rendimiento, corregir errores y hacer uso de las nuevas funcionalidades que proporciona cada nueva versión.
 
-### <a name="enable-cloud-authentication"></a>Habilitación de la autenticación en la nube
+### <a name="enable-cloud-authentication"></a>Habilitar la autenticación en la nube
 
 Las organizaciones con una instancia local de Active Directory deben extender su directorio a Azure AD con Azure AD Connect y configurar el método de autenticación adecuado. La [elección del método de autenticación correcto](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) para su organización es el primer paso en su viaje para mover las aplicaciones a la nube. Este componente es esencial puesto que controla el acceso a todos los datos y recursos de la nube.
 
@@ -137,7 +137,7 @@ El [autoservicio de restablecimiento de contraseña (SSPR)](https://docs.microso
 
 De forma predeterminada, Azure AD desbloquea las cuentas cuando se realiza un restablecimiento de contraseña. Sin embargo, cuando habilite la [integración local](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#on-premises-integration) de Azure AD Connect, también tendrá la opción de separar esas dos operaciones, de forma que los usuarios desbloqueen su cuenta sin tener que restablecer la contraseña.
 
-### <a name="ensure-all-users-are-registered-for-mfa-and-sspr"></a>Garantía de que todos los usuarios están registrados en MFA y SSPR
+### <a name="ensure-all-users-are-registered-for-mfa-and-sspr"></a>Garantizar que todos los usuarios están registrados en MFA y SSPR
 
 Azure proporciona informes que puede usarlos usted y su organización para asegurarse de que los usuarios se registren en MFA y SSPR. Puede que los usuarios que aún no se hayan registrado necesiten instrucciones para realizar el proceso.
 
@@ -188,7 +188,7 @@ Para más información, lea [Supervisión de AD FS mediante Azure AD Connect He
 
 ![Azure Monitor](./media/four-steps/image1.png)
 
-### <a name="create-custom-dashboards-for-your-leadership-and-your-day-to-day"></a>Creación de paneles personalizados para el personal directivo y sus ocupaciones diarias
+### <a name="create-custom-dashboards-for-your-leadership-and-your-day-to-day"></a>Crear paneles personalizados para el personal directivo y sus ocupaciones diarias
 
 Las organizaciones que no tienen una solución SIEM pueden descargar el [paquete de contenido de Power BI](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-power-bi-content-pack) para Azure AD. El paquete de contenido de Power BI incluye informes pregenerados para ayudarle a comprender cómo los usuarios adoptan y usan características de Azure AD, lo que permite extraer conclusiones sobre todas las actividades dentro del directorio. También puede crear su propio [panel personalizado](https://docs.microsoft.com/power-bi/service-dashboards) y compartirlo con su equipo de dirección para informar sobre las actividades diarias. Los paneles son una excelente manera de supervisar el negocio y ver todas las métricas más importantes de un vistazo. Las visualizaciones de un panel pueden proceder de uno o varios conjuntos de datos subyacentes o de uno o varios informes subyacentes. En un panel se combinan datos locales y en la nube, de forma que se obtiene una vista consolidada con independencia de donde residan los datos.
 
@@ -202,7 +202,7 @@ Si no observa una reducción de las llamadas de soporte técnico, se recomienda 
 
 *"En nuestro recorrido por la transformación digital, necesitábamos un proveedor confiable de administración de identidades y acceso para facilitar la integración completa pero segura entre nosotros, los asociados y los proveedores de servicios en la nube, con la finalidad de obtener un ecosistema eficaz; Azure AD fue la mejor opción ya que nos ofrecía las funcionalidades y la visibilidad necesarias que nos permitían detectar los riesgos y responder a ellos".* --- [Aramex Yazan Almasri, director de seguridad de la información global en Aramex](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en)
 
-### <a name="monitor-your-usage-of-apps-to-drive-insights"></a>Supervisión del uso de aplicaciones para extraer conclusiones
+### <a name="monitor-your-usage-of-apps-to-drive-insights"></a>Supervisar el uso de aplicaciones para extraer conclusiones
 
 Además de detectar la TI en la sombra, la supervisión del uso de las aplicaciones en la organización mediante [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) puede ayudarles a medida que se mueve a la nube para aprovechar la promesa de las aplicaciones de esta plataforma. También, le puede permitir tener el control de sus recursos gracias a la visibilidad mejorada sobre la actividad y al aumento de la protección de datos críticos en todas las aplicaciones en la nube. Supervisar el uso de las aplicaciones en su organización mediante MCAS puede ayudarle a responder a las preguntas siguientes:
 
@@ -229,7 +229,7 @@ Se recomienda imprimir la lista de comprobación siguiente como referencia cuand
 
 ### <a name="today"></a>Hoy
 
-|¿Ha acabado?|item|
+|¿Ha acabado?|Elemento|
 |:-|:-|
 ||Poner a prueba el autoservicio de restablecimiento de contraseña (SSPR) para un grupo|
 ||Supervisar los componentes híbridos mediante Azure AD Connect Health|
@@ -239,7 +239,7 @@ Se recomienda imprimir la lista de comprobación siguiente como referencia cuand
 
 ### <a name="next-two-weeks"></a>Próximas dos semanas
 
-|¿Ha acabado?|item|
+|¿Ha acabado?|Elemento|
 |:-|:-|
 ||Poner una aplicación a disposición de los usuarios|
 ||Poner a prueba el aprovisionamiento de Azure AD para una aplicación SaaS de su elección|
@@ -249,16 +249,16 @@ Se recomienda imprimir la lista de comprobación siguiente como referencia cuand
 
 ### <a name="next-month"></a>Próximo mes
 
-|¿Ha acabado?|item|
+|¿Ha acabado?|Elemento|
 |:-|:-|
-||Supervisión del uso de aplicaciones para extraer conclusiones|
+||Supervisar el uso de aplicaciones para extraer conclusiones|
 ||Poner aprueba el acceso remoto seguro a las aplicaciones|
 ||Garantizar que todos los usuarios están registrados en MFA y SSPR|
 ||Habilitar la autenticación en la nube|
 
 ### <a name="next-three-months"></a>Tres próximos meses
 
-|¿Ha acabado?|item|
+|¿Ha acabado?|Elemento|
 |:-|:-|
 ||Habilitar el autoservicio de administración de aplicaciones|
 ||Habilitar la administración de grupos de autoservicio|

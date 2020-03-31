@@ -4,11 +4,11 @@ description: Establecer una línea de comandos para reemplazar el punto de entra
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533401"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225824"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Establecimiento de la línea de comandos en una instancia de contenedor para invalidar la operación de línea de comandos predeterminada
 
@@ -52,7 +52,7 @@ La sintaxis de la línea de comandos varía según la herramienta o la API de Az
 
 ### <a name="examples"></a>Ejemplos
 
-|    |  CLI de Azure   | Portal | Plantilla | 
+|    |  Azure CLI   | Portal | Plantilla | 
 | ---- | ---- | --- | --- |
 | Comando único | `--command-line "python myscript.py arg1 arg2"` | **Invalidación del comando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | Varios comandos | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Invalidación del comando**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |

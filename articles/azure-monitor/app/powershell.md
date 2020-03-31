@@ -1,18 +1,14 @@
 ---
 title: Automatización de Azure Application Insights con PowerShell | Microsoft Docs
 description: Automatice la creación y administración de recursos, alertas y pruebas de disponibilidad en PowerShell mediante una plantilla de Azure Resource Manager.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 82b406d6f2d9f9dc4464472108c8136c7b65c67a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9494b659b5b4357f3190c45d8cc72c4e130f0ecc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977834"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234672"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Administración de recursos de Application Insights mediante PowerShell
 
@@ -132,7 +128,7 @@ Cree un nuevo archivo .json. Vamos a llamarlo `template1.json` en este ejemplo. 
             },
             "dailyQuotaResetTime": {
                 "type": "int",
-                "defaultValue": 24,
+                "defaultValue": 0,
                 "metadata": {
                     "description": "Enter daily quota reset hour in UTC (0 to 23). Values outside the range will get a random reset hour."
                 }
@@ -324,16 +320,30 @@ Para obtener las propiedades de límite diario, use el cmdlet [Set-AzApplication
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-Para establecer las propiedades de límite diario, use el mismo cmdlet. Por ejemplo, para establecer el límite en 300 GB/día: 
+Para establecer las propiedades de límite diario, use el mismo cmdlet. Por ejemplo, para establecer el límite en 300 GB/día:
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
 ```
 
+También puede usar [ARMClient](https://github.com/projectkudu/ARMClient) para obtener y establecer parámetros de límite diarios.  Para obtener los valores actuales, use:
+
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+```
+
+## <a name="set-the-daily-cap-reset-time"></a>Establecimiento del tiempo de restablecimiento del límite diario
+
+Para establecer el tiempo de restablecimiento del límite diario, puede usar [ARMClient](https://github.com/projectkudu/ARMClient). Este es un ejemplo de uso de `ARMClient`, para establecer el tiempo de restablecimiento en una hora nueva (en este ejemplo 12:00 UTC):
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
+```
+
 <a id="price"></a>
 ## <a name="set-the-pricing-plan"></a>Establecimiento del plan de precios 
 
-Para obtener el plan de precios actual, use el cmdlet [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan): 
+Para obtener el plan de precios actual, use el cmdlet [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan):
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -354,10 +364,27 @@ También puede establecer el plan de precios de un recurso de Application Insigh
                -appName myApp
 ```
 
+`priceCode` se define como:
+
 |priceCode|plan|
 |---|---|
 |1|Por GB (anteriormente denominado plan Básico)|
 |2|Por nodo (anteriormente denominado plan Enterprise)|
+
+Por último, puede usar [ARMClient](https://github.com/projectkudu/ARMClient) para obtener y establecer planes de precios y parámetros de límite diarios.  Para obtener los valores actuales, use:
+
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+```
+
+Y puede establecer todos estos parámetros mediante:
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+"{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'Cap':200,'ResetTime':12,'StopSendNotificationWhenHitCap':true,'WarningThreshold':90,'StopSendNotificationWhenHitThreshold':true}}"
+```
+
+De este modo, establecerá el límite diario en 200 GB/día, configurará el tiempo de restablecimiento del límite diario en 12:00 UTC, enviará mensajes de correo electrónico cuando se alcance el límite y se cumpla el nivel de advertencia, y establecerá el umbral de advertencia en el 90 % del límite.  
 
 ## <a name="add-a-metric-alert"></a>Agregar una alerta de métrica
 

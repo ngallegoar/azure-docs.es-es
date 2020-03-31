@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
 ms.openlocfilehash: 48a825f31a1c5f2eab2fbb71b6f030b8acb5617d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77668390"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solución Alert Management en Azure Log Analytics
@@ -47,8 +47,8 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 | Origen conectado | Soporte técnico | Descripción |
 |:--- |:--- |:--- |
-| [Agentes de Windows](agent-windows.md) | Sin |Los agentes directos de Windows no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Windows. |
-| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Sin |Los agentes directos de Linux no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Linux.  Las alertas de Nagios y Zabbix se recopilan desde los servidores que requieren el agente de Linux. |
+| [Agentes de Windows](agent-windows.md) | No |Los agentes directos de Windows no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Windows. |
+| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No |Los agentes directos de Linux no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Linux.  Las alertas de Nagios y Zabbix se recopilan desde los servidores que requieren el agente de Linux. |
 | [Grupo de administración de System Center Operations](../../azure-monitor/platform/om-agents.md) |Sí |Las alertas que se generan en agentes de Operations Manager se entregan al grupo de administración y luego se reenvían a Log Analytics.<br><br>No se requiere ninguna conexión directa entre los agentes de Operations Manager y Log Analytics. Los datos de alerta se reenvían desde el grupo de administración al repositorio de Log Analytics. |
 
 

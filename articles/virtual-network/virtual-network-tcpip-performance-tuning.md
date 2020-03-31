@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68297785"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Optimización del rendimiento de TCP/IP para máquinas virtuales de Azure
@@ -265,7 +265,7 @@ El escalado en la recepción (RSS) es una tecnología del controlador de red que
 
 Para obtener el mejor rendimiento cuando se habilitan las redes aceleradas en una máquina virtual, deberá habilitar RSS. RSS también puede proporcionar ventajas en máquinas virtuales que no usan redes aceleradas. Para obtener información general sobre cómo determinar si RSS está habilitado y cómo habilitarlo, consulte [Optimización del rendimiento de red para máquinas virtuales de Azure](https://aka.ms/FastVM).
 
-### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT y TIME_WAIT assassination
+### <a name="tcp-time_wait-and-time_wait-assassination"></a>TCP TIME_WAIT y TIME_WAIT assassination
 
 TCP TIME_WAIT es otra configuración común que afecta al rendimiento de la red y la aplicación. En máquinas virtuales ocupadas que abren y cierran muchos sockets, sea como clientes o como servidores (Dirección IP de origen:Puerto de origen + Dirección IP de destino:Puerto de destino) durante el funcionamiento normal de TCP, un socket determinado puede acabar en un estado TIME_WAIT durante mucho tiempo. El estado TIME_WAIT está pensado para permitir que los datos adicionales se entreguen en un socket antes de cerrarlo. Por lo que las pilas TCP/IP generalmente impiden la reutilización de un socket mediante la eliminación del paquete TCP SYN del cliente de forma silenciosa.
 

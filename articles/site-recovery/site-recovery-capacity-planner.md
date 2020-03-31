@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 843d5da26d6791cea880e5dfb654fe27b74f5d9f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73936042"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planeamiento de la capacidad para la recuperación ante desastres de máquinas virtuales de Hyper-V 
@@ -47,7 +47,7 @@ Puede ejecutar la herramienta de dos modos distintos:
 
 2. En **Select a planner type** (Seleccione un tipo de planeador), seleccione **Quick Planner** (Planificador rápido) en el cuadro de lista.
 
-   ![Primeros pasos](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Introducción](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. En la hoja de cálculo **Capacity Planner**, escriba la información que necesite. Rellene todos los campos rodeados por un círculo rojo de la captura de pantalla siguiente:
 

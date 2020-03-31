@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 99efe375fad142963214b09df24be70bc3bc9d99
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77131612"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Información general de streaming en vivo con Media Services
@@ -137,7 +137,7 @@ Usted es responsable de detener sus canales cuando haya terminado con el canal. 
 >
 >
 
-### <a id="states"></a>Estados del canal y cómo se asignan al modo de facturación
+### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Estados del canal y cómo se asignan al modo de facturación
 El estado actual de un canal. Los valores posibles son:
 
 * **Detenido**. Este es el estado inicial del canal después de su creación (a menos que seleccionara el inicio automático en el portal.) No se produce ninguna facturación en este estado. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.

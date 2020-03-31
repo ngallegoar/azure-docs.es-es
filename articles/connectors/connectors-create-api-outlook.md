@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 8d3b180b6f1e9dc4ec4b09dd81786cc81e8588da
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75707193"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-by-using-azure-logic-apps"></a>Administración del correo electrónico, los calendarios y los contactos en Outlook.com con Azure Logic Apps
@@ -27,7 +27,7 @@ Puede usar cualquier desencadenador para iniciar el flujo de trabajo (por ejempl
 > [!NOTE]
 > Para automatizar las tareas de una cuenta profesional de Microsoft como @fabrikam.onmicrosoft.com, use el [conector de Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una [cuenta de Outlook.com](https://outlook.live.com/owa/)
 

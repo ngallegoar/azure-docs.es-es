@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68423921"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Uso de la clasificación para mostrar resultados de Entity Search  
@@ -24,7 +24,7 @@ Cada respuesta de Entity Search incluye una respuesta [RankingResponse](https://
 Dentro de cada grupo, la matriz [Elementos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) identifica el orden en que debe aparecer el contenido. Cada elemento ofrece dos formas de identificar el resultado dentro de una respuesta.  
  
 
-|Campo | DESCRIPCIÓN  |
+|Campo | Descripción  |
 |---------|---------|
 |`answerType` y `resultIndex` | `answerType` identifica la respuesta (como Entidad o Lugar) y `resultIndex` identifica un resultado dentro de una respuesta (por ejemplo, una entidad). El índice comienza en 0.|
 |`value`    | `value` contiene un identificador que coincide con el identificador de una respuesta o de un resultado dentro de una respuesta. La respuesta o los resultados contienen el identificador, pero no ambos. |

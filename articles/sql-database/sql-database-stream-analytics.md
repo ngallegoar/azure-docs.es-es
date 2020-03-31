@@ -12,10 +12,10 @@ ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: d233d3c98cc495e4b9e84142781f5eb9faa7eec8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820836"
 ---
 # <a name="stream-data-by-using-azure-sql-database-stream-analytics-integration-preview"></a>Transmisión de datos mediante la integración de Stream Analytics en Azure SQL Database (versión preliminar)
@@ -31,18 +31,18 @@ Ahora los usuarios pueden ingerir, procesar, ver y analizar datos de transmisió
 - Facilidad de uso adicional con vista previa de los datos: obtenga una vista previa de los datos entrantes desde el origen de eventos (Event Hub o IoT Hub) en el contexto de la tabla seleccionada 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar los pasos de este artículo, necesitará los siguientes recursos:
 
-- Una suscripción de Azure. Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/). 
+- Suscripción a Azure. Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/). 
 - Una base de datos SQL. Para más información, vea [Creación de una base de datos única en Azure SQL Database](sql-database-single-database-get-started.md).
 - Una regla de firewall que permita que el equipo se conecte al servidor de Azure SQL. Para más información, vea [Creación de una regla de firewall de nivel de servidor](sql-database-server-level-firewall-rule.md).
 
 
 ## <a name="configure-stream-analytics-integration"></a>Configuración de la integración de Stream Analytics
 
-1. Inicie sesión en el Portal de Azure. 
+1. Inicie sesión en Azure Portal. 
 2. Vaya a la base de datos SQL en la que quiera ingerir los datos de transmisión. Seleccione **Stream Analytics (versión preliminar)** . 
 
     ![Stream Analytics](media/sql-database-stream-analytics/stream-analytics.png)

@@ -5,11 +5,11 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
 ms.openlocfilehash: 03c22a7a23f1579a846746f21ce048b3425399c3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977033"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233836"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Configuración de cadena de bloques Data Manager con Azure Portal
 
@@ -20,29 +20,29 @@ Para configurar una instancia de cadena de bloques Data Manager, puede:
 * Crear una instancia de cadena de bloques Data Manager para un nodo de transacción de la cadena de bloques de Azure Blockchain Service
 * Agregue sus aplicaciones de cadena de bloques
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Realizar el tutorial [Quickstart: Creación de un miembro de cadena de bloques mediante Azure Portal](create-member.md) o [Inicio rápido: Creación de un miembro de cadena de bloques de Azure Blockchain Service mediante la CLI de Azure](create-member-cli.md)
-* Crear un [tema Event Grid](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
+* Crear un [tema de Event Grid](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Más información sobre [Controladores de eventos en Azure Event Grid](../../event-grid/event-handlers.md)
 
 ## <a name="create-instance"></a>Crear instancia
 
-Una instancia de cadena de bloques Data Manager conecta y supervisa un nodo de transacción de la cadena de bloques de Azure Blockchain Service. Solo los usuarios con acceso al nodo de transacción pueden crear una conexión. Una instancia captura todos los datos de transacciones y bloques sin procesar del nodo de transacción.
+Una instancia de Blockchain Data Manager conecta y supervisa un nodo de transacción de Azure Blockchain Service. Solo los usuarios con acceso al nodo de transacción pueden crear una conexión. Una instancia captura todos los datos de transacciones y bloques sin procesar del nodo de transacción.
 
 Una conexión saliente envía datos de la cadena de bloques a Azure Event Grid. Configura una conexión saliente única cuando crea la instancia. La cadena de bloques Data Manager admite varias conexiones salientes de tema Event Grid para cualquier instancia de cadena de bloques Data Manager determinada. Puede enviar datos de la cadena de bloques a un único destino o enviar datos de la cadena de bloques a varios destinos. Para agregar otro destino, solo tiene que agregar conexiones salientes adicionales a la instancia.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-1. Vaya al miembro de la cadena de bloques de Azure Blockchain Service que quiere conectar con la cadena de bloques Data Manager. Seleccione  **la cadena de bloques Data Manager**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Vaya al miembro de la cadena de bloques de Azure Blockchain Service que quiere conectar con la cadena de bloques Data Manager. Seleccione **Blockchain Data Manager**.
 1. Seleccione **Agregar**.
 
     ![Agregar Blockchain Data Manager](./media/data-manager-portal/add-instance.png)
 
     Escriba la siguiente información:
 
-    Configuración | DESCRIPCIÓN
+    Configuración | Descripción
     --------|------------
-    NOMBRE | Escriba un nombre único para una cadena de bloques Data Manager conectada. El nombre de la cadena de bloques Data Manager puede contener letras minúsculas y números y tener una longitud máxima de 20 caracteres.
+    Nombre | Escriba un nombre único para una instancia conectada de Blockchain Data Manager. El nombre de la cadena de bloques Data Manager puede contener letras minúsculas y números y tener una longitud máxima de 20 caracteres.
     Nodo de transacción | Elija un nodo de transacción. Solo se muestran los nodos de transacción a los que tiene acceso de lectura.
     Nombre de conexión | Escriba un nombre único de la conexión saliente donde se envían los datos de la transacción de la cadena de bloques.
     Punto de conexión de Event Grid | Elija un tema de Event Grid en la misma suscripción que la instancia de la cadena de bloques Data Manager.
@@ -76,7 +76,7 @@ La ABI del contrato define las interfaces del contrato inteligente. Describe có
 
     La ABI del contrato se copia en el portapapeles.
 
-1. Guarde la matriz **abi** como archivo JSON. Por ejemplo, *abi.json*. Usará este archivo en un paso posterior.
+1. Guarde la matriz **abi** como archivo JSON. Por ejemplo, *abi.json*. Lo usará en un paso posterior.
 
 Blockchain Data Manager requiere el código de bytes implementado para el contrato inteligente. El código de bytes implementado es diferente del código de bytes del contrato inteligente. Puede usar la extensión del kit de desarrollo de Azure Blockchain para copiar el código de bytes en el portapapeles.
 
@@ -106,11 +106,11 @@ Blockchain Data Manager requiere que una dirección URL pueda acceder a la ABI d
 
 1. Cree un nuevo contenedor para la cuenta de almacenamiento. Seleccione **Contenedores > Contenedor**.
 
-    ![Cree un contenedor de una cuenta de almacenamiento](./media/data-manager-portal/create-container.png)
+    ![Crear un contenedor de cuenta de almacenamiento](./media/data-manager-portal/create-container.png)
 
-    | Campo | DESCRIPCIÓN |
+    | Campo | Descripción |
     |-------|-------------|
-    | NOMBRE  | Nombre del contenedor. Por ejemplo, *smartcontract* |
+    | Nombre  | Nombre del contenedor. Por ejemplo, *smartcontract* |
     | Nivel de acceso público | Elija *Privado (sin acceso anónimo)* |
 
 1. Seleccione **Aceptar** para crear el contenedor.
@@ -132,11 +132,11 @@ Para cada blob, genere una firma de acceso compartido.
     ![Generación de un token de SAS](./media/data-manager-portal/generate-sas.png)
 
 1. Copie la **dirección URL de SAS de blob** y guárdela en la siguiente sección.
-1. Repita los pasos para [generar una dirección URL](#generate-url) para el de código de bytes JSON blob.
+1. Repita los pasos para [generar una dirección URL](#generate-url) para el blob JSON del código de bytes.
 
 ### <a name="add-application-to-instance"></a>Agregar aplicación a instancia
 
-1. Seleccione la instancia de la cadena de bloques Data Manager en la lista de instancias.
+1. Seleccione la instancia de Blockchain Data Manager en la lista de instancias.
 1. Seleccione **Blockchain applications** (aplicaciones de cadena de bloques).
 1. Seleccione **Agregar**.
 
@@ -144,9 +144,9 @@ Para cada blob, genere una firma de acceso compartido.
 
     Escriba el nombre de la aplicación de cadena de bloques y las direcciones URL de la ABI del contrato inteligente y los códigos de bytes.
 
-    Configuración | DESCRIPCIÓN
+    Configuración | Descripción
     --------|------------
-    NOMBRE | Escriba un nombre único para la aplicación de cadena de bloques de la que se va a realizar el seguimiento.
+    Nombre | Escriba un nombre único para la aplicación de cadena de bloques de la que se va a realizar el seguimiento.
     ABI del contrato | Ruta de acceso URL al archivo ABI del contrato. Para más información, consulte [Crear una dirección URL de la ABI del contrato y el código de bytes](#create-contract-abi-and-bytecode-url).
     Código de bytes del contrato | Ruta de acceso URL al archivo de código de bytes. Para más información, consulte [Crear una dirección URL de la ABI del contrato y el código de bytes](#create-contract-abi-and-bytecode-url).
 

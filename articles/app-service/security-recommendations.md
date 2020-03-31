@@ -8,10 +8,10 @@ ms.date: 06/17/2019
 ms.author: barclayn
 ms.custom: security-recommendations
 ms.openlocfilehash: e3f901fd78436b42729607d38f0ddb533f31cd30
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74684123"
 ---
 # <a name="security-recommendations-for-app-service"></a>Recomendaciones de seguridad para App Service
@@ -33,7 +33,7 @@ Este artículo contiene recomendaciones de seguridad para Azure App Service. La 
 | Protección de los recursos de back-end con acceso autenticado | Puede usar la identidad del usuario o usar una identidad de aplicación para autenticarse en un recurso de back-end. Si decide usar una identidad de aplicación use una [identidad administrada](overview-managed-identity.md).
 | Requerir autenticación de certificados de clientes | La autenticación de certificados de clientes mejora la seguridad al permitir conexiones solo de los clientes que se pueden autenticar con los certificados que proporciona. |
 
-## <a name="data-protection"></a>Protección de datos
+## <a name="data-protection"></a>Protección de los datos
 
 | Recomendación | Comentarios |
 |-|-|

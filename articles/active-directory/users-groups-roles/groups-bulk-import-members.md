@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ff4234d9fd28e655e868108e37b09c5afe2767c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72517132"
 ---
 # <a name="bulk-import-group-members-preview-in-azure-active-directory"></a>Importación masiva de los miembros del grupo (versión preliminar) en Azure Active Directory
@@ -26,8 +26,8 @@ Mediante el portal de Azure Active Directory (Azure AD), puede agregar una gran 
 
 ## <a name="to-bulk-import-group-members"></a>Para importar de forma masiva miembros de grupo
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador de usuarios en la organización. Los propietarios de grupos también pueden importar de forma masiva miembros de los grupos que poseen.
-1. En Azure AD, seleccione **Grupos** > **Todos los grupos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador de usuarios en la organización. Los propietarios de grupos también pueden importar de forma masiva miembros de los grupos que poseen.
+1. En Azure AD, seleccione **Grupos** > **Todos los grupos**.
 1. Abra el grupo al que va a agregar miembros y luego seleccione **Miembros**.
 1. En la página **Miembros**, seleccione **Importar miembros**.
 1. En la página **Importación masiva de los miembros del grupo (versión preliminar)** , seleccione **Descargar** para obtener la plantilla del archivo CSV con las propiedades de miembro de grupo requeridas.
@@ -45,7 +45,7 @@ Mediante el portal de Azure Active Directory (Azure AD), puede agregar una gran 
 
 ## <a name="check-import-status"></a>Comprobación del estado de importación
 
-Puede ver el estado de todas las solicitudes masivas pendientes en la **Resultados de la operación masiva (versión preliminar)** .
+Puede ver el estado de todas las solicitudes masivas pendientes en la página de **resultados de la operación masiva (versión preliminar)** .
 
    ![La página de resultados de la operación masiva muestra el estado de la solicitud masiva](./media/groups-bulk-import-members/bulk-center.png)
 

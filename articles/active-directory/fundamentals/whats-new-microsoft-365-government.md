@@ -14,10 +14,10 @@ ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77425551"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novedades de Azure Active Directory en Microsoft 365 Government

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: chrisgre
-ms.openlocfilehash: 381f550f6d64dee3c7649a040c1e24b7c9d42f2c
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 748f3e09fd03a6f37954c8dfaf4b6ae9144384bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78669421"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235599"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Administración automática de dispositivos y módulos IoT mediante la CLI de Azure
 
@@ -122,7 +122,7 @@ Debe configurar los dispositivos de destino creando una configuración que tenga
 
 Use el comando siguiente para crear una configuración:
 
-```cli
+```azurecli
    az iot hub configuration create --config-id [configuration id] \
      --labels [labels] --content [file path] --hub-name [hub name] \
      --target-condition [target query] --priority [int] \
@@ -147,7 +147,7 @@ Use el comando siguiente para crear una configuración:
 
 Use los comandos siguientes para ver el contenido de una configuración:
 
-```cli
+```azurecli
 az iot hub configuration show --config-id [configuration id] \
   --hub-name [hub name]
 ```
@@ -166,7 +166,7 @@ Revise la configuración en la ventana de comandos. La propiedad **metrics** en
 
 Puede mostrar una lista de identificadores de dispositivo, identificadores de módulo u objetos para cada una de las métricas mediante el siguiente comando:
 
-```cli
+```azurecli
 az iot hub configuration show-metric --config-id [configuration id] \
    --metric-id [metric id] --hub-name [hub name] --metric-type [type] 
 ```
@@ -193,7 +193,7 @@ Si actualiza la condición de destino, se producen las siguientes actualizacione
 
 Use los comandos siguientes para actualizar una configuración:
 
-```cli
+```azurecli
 az iot hub configuration update --config-id [configuration id] \
    --hub-name [hub name] --set [property1.property2='value']
 ```
@@ -216,10 +216,11 @@ Al eliminar una configuración, los dispositivos o módulos gemelos adoptan la c
 
 Use los comandos siguientes para eliminar una configuración:
 
-```cli
+```azurecli
 az iot hub configuration delete --config-id [configuration id] \
    --hub-name [hub name] 
 ```
+
 * --**config-id**: el nombre de la configuración que está en IoT Hub.
 
 * --**hub-name**: el nombre de la instancia de IoT Hub en la que está la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.

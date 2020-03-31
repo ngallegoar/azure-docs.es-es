@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
 ms.openlocfilehash: a583e32cbc3d58d5dfc5616335b2f38ad20fac14
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74234397"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Conceptos y características del bosque de recursos en Azure Active Directory Domain Services
@@ -67,7 +67,7 @@ Puede extender las confianzas de dominio disponibles en un bosque a otro, median
 
 La transitividad de las confianzas de bosque se limita a los dos bosques asociados. La confianza de bosque no se extiende a otros bosques de confianza de cualquiera de los asociados.
 
-![Diagrama de la confianza de bosque desde Azure AD DS a un entorno de AD DS local](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
+![Diagrama de la confianza de bosque desde Azure AD DS a un entorno local de AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
 Puede crear diferentes configuraciones de confianza de dominio y de bosque en función de la estructura de Active Directory de la organización. Azure AD DS solo admite la confianza de bosque unidireccional. En esta configuración, los recursos de Azure AD DS pueden confiar en todos los dominios de un bosque local.
 

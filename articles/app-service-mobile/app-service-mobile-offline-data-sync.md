@@ -7,10 +7,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.openlocfilehash: 0cc4309fa57a29997bdd2f650634efd0723e6965
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458756"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronización de datos sin conexión en Azure Mobile Apps
@@ -55,7 +55,7 @@ Un *contexto de sincronización* está asociado a un objeto de cliente móvil (c
 
 Un almacén local se asocia con el contexto de sincronización mediante un método de inicialización como `IMobileServicesSyncContext.InitializeAsync(localstore)` en el [SDK de cliente de .NET].
 
-## <a name="how-sync-works"></a>Funcionamiento de la sincronización sin conexión
+## <a name="how-offline-synchronization-works"></a><a name="how-sync-works"></a>Funcionamiento de la sincronización sin conexión
 Al usar tablas de sincronización, el código de cliente determina el momento en que se sincronizan los cambios locales con un back-end de Azure Mobile App. No se envía nada al back-end hasta que hay una llamada a los cambios locales de *inserción* . De forma similar, el almacén local se rellena con datos nuevos solo cuando hay una llamada a los datos de *extracción* .
 
 * **Push**: la inserción es una operación en el contexto de sincronización que envía todos los cambios CUD realizados desde la última inserción. Tenga en cuenta que no es posible enviar solo los cambios de una tabla individual porque las operaciones se podrían enviar desordenadas. La inserción ejecuta una serie de llamadas REST al back-end de Azure Mobile App, que a su vez, modifica la base de datos del servidor.

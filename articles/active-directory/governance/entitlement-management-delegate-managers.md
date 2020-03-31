@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: efdc61b82a19cc5d370d6069e8c9dcd3ce5e8ae5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73174357"
 ---
 # <a name="delegate-access-governance-to-access-package-managers-in-azure-ad-entitlement-management"></a>Delegación de la gobernanza del acceso en administradores de paquetes de acceso en la administración de derechos de Azure AD

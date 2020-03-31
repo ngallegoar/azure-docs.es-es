@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
 ms.openlocfilehash: 1b91a39e1297d8952da67a4f8d3b8568cefe04ce
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73620560"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante la CLI de Azure
@@ -110,7 +110,7 @@ Si el grupo de recursos y la instantánea de origen no están en la misma regió
 Ahora ya tiene una copia del disco del sistema operativo original. Puede montar este nuevo disco en otra máquina virtual Windows con el fin de solucionar problemas.
 
 ## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>Conexión del nuevo disco duro virtual a otra máquina virtual
-Para los pasos siguientes, se usa otra máquina virtual con el fin de solucionar problemas. Conecte el disco a esta máquina virtual de solución de problemas para examinar y modificar el contenido del disco. Este proceso permite corregir los errores de configuración o revisar otros archivos de registro de la aplicación o del sistema.
+Para los pasos siguientes, se usa otra máquina virtual con el fin de solucionar problemas. Conecte el disco a esta máquina virtual de solución de problemas para examinar y modificar el contenido del disco. Este proceso permite corregir los errores de configuración o revisar otros archivos de registro de la aplicación o el sistema.
 
 Este script asocia el disco `myNewOSDisk` a la máquina virtual `MyTroubleshootVM`:
 

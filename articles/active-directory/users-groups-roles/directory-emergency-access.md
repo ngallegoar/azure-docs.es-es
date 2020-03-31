@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74028128"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
@@ -72,7 +72,7 @@ Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y
 
 Las organizaciones deben supervisar la actividad de registro de auditoría e inicio de sesión de las cuentas de emergencia y desencadenar el envío de notificaciones a otros administradores. Al supervisar la actividad en las cuentas de emergencia, puede comprobar que estas cuentas solo se usen para pruebas o emergencias reales. Puede usar Azure Log Analytics para supervisar los registros de inicio de sesión y desencadenar alertas por SMS y correo electrónico a los administradores cuando las cuentas de emergencia inicien sesión.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 1. [Envíe registros de inicio de sesión de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) a Azure Monitor.
 

@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: ee365d37a957350fa8a68da0f34149d3210d6238
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970617"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Habilitación de Azure Disk Encryption con Azure AD en máquinas virtuales Linux (versión anterior)
@@ -36,7 +36,7 @@ Tome una [instantánea](snapshot-copy-managed-disk.md), realice una copia de seg
 
  
 
-## <a name="bkmk_RunningLinux"> </a> Habilitación del cifrado en una máquina virtual IaaS de Linux existente o en ejecución
+## <a name="enable-encryption-on-an-existing-or-running-iaas-linux-vm"></a><a name="bkmk_RunningLinux"> </a> Habilitación del cifrado en una máquina virtual IaaS de Linux existente o en ejecución
 
 En este escenario, puede habilitar el cifrado mediante la plantilla de Azure Resource Manager, los cmdlets de PowerShell o los comandos de la CLI. 
 
@@ -46,7 +46,7 @@ En este escenario, puede habilitar el cifrado mediante la plantilla de Azure Re
 >Cifrar o deshabilitar el cifrado puede provocar el reinicio de la máquina virtual. 
 >
 
-### <a name="bkmk_RunningLinuxCLI"> </a>Habilitación del cifrado en una máquina virtual Linux existente o en ejecución mediante la CLI de Azure 
+### <a name="enable-encryption-on-an-existing-or-running-linux-vm-by-using-the-azure-cli"></a><a name="bkmk_RunningLinuxCLI"> </a>Habilitación del cifrado en una máquina virtual Linux existente o en ejecución mediante la CLI de Azure 
 Puede habilitar el cifrado de disco en el disco duro virtual cifrado mediante la instalación y el uso de la herramienta de la línea de comandos [CLI de Azure 2.0](/cli/azure). Se puede usar en el explorador con [Azure Cloud Shell](../../cloud-shell/overview.md), o lo puede instalar en el equipo local y usarlo en cualquier sesión de PowerShell. Para habilitar el cifrado en máquinas virtuales IaaS de Linux existentes o en ejecución en Azure, use los siguientes comandos:
 
 Use el comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) para habilitar el cifrado en una máquina virtual IaaS en ejecución en Azure.
@@ -78,7 +78,7 @@ Use el comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encrypti
          az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type DATA
      ```
 
-### <a name="bkmk_RunningLinuxPSH"> </a> Habilitación del cifrado en una máquina virtual Linux existente o en ejecución mediante PowerShell
+### <a name="enable-encryption-on-an-existing-or-running-linux-vm-by-using-powershell"></a><a name="bkmk_RunningLinuxPSH"> </a> Habilitación del cifrado en una máquina virtual Linux existente o en ejecución mediante PowerShell
 Use el cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) para habilitar el cifrado en una máquina virtual IaaS en ejecución en Azure. Tome una [instantánea](snapshot-copy-managed-disk.md) o realice una copia de seguridad de la máquina virtual con [Azure Backup](../../backup/backup-azure-vms-encryption.md) antes de cifrar los discos. El parámetro - skipVmBackup ya está especificado en los scripts de PowerShell para cifrar una máquina virtual que ejecuta Linux.
 
 - **Cifrado de una máquina virtual en ejecución mediante un secreto de cliente:** el siguiente script inicializa las variables y ejecuta el cmdlet Set-AzVMDiskEncryptionExtension. El grupo de recursos, la máquina virtual, el almacén de claves, la aplicación de Azure AD y el secreto de cliente deben haberse creado ya como requisitos previos. Reemplace MyVirtualMachineResourceGroup, MyKeyVaultResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID y My-AAD-client-secret por sus propios valores. Modifique el parámetro -VolumeType para especificar qué discos está cifrando.
@@ -132,7 +132,7 @@ Use el cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/se
      ```
 
 
-### <a name="bkmk_RunningLinux"> </a> Habilitación del cifrado en una máquina virtual IaaS de Linux existente o en ejecución con una plantilla
+### <a name="enable-encryption-on-an-existing-or-running-iaas-linux-vm-with-a-template"></a><a name="bkmk_RunningLinux"> </a> Habilitación del cifrado en una máquina virtual IaaS de Linux existente o en ejecución con una plantilla
 
 Puede habilitar el cifrado de disco en una máquina virtual IaaS con Linux existente o en ejecución en Azure mediante la [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm).
 
@@ -155,7 +155,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 
 
 
-## <a name="bkmk_EFA"> </a>Uso de la característica EncryptFormatAll para discos de datos en máquinas virtuales IaaS de Linux
+## <a name="use-the-encryptformatall-feature-for-data-disks-on-linux-iaas-vms"></a><a name="bkmk_EFA"> </a>Uso de la característica EncryptFormatAll para discos de datos en máquinas virtuales IaaS de Linux
 El parámetro EncryptFormatAll reduce el tiempo que se tarda en cifrar los discos de datos de Linux. Las particiones que cumplen determinados criterios se formatean (con su actual sistema de archivos). Luego, se vuelven a montar donde estaban antes de la ejecución del comando. Si quiere excluir un disco de datos que cumple los criterios, puede desmontarlo antes de ejecutar el comando.
 
  Después de ejecutar este comando, se formatean las unidades que se han montado anteriormente. Luego se inicia la capa de cifrado sobre la unidad ahora vacía. Cuando se selecciona esta opción, también se cifra el disco de recursos efímero asociado a la máquina virtual. Si la unidad efímera se restablece, la solución Azure Disk Encryption la vuelve a formatear y a cifrar para la máquina virtual en la próxima oportunidad.
@@ -164,7 +164,7 @@ El parámetro EncryptFormatAll reduce el tiempo que se tarda en cifrar los disco
 > EncryptFormatAll no debe usarse cuando hay datos necesarios en los volúmenes de datos de una máquina virtual. Para excluir discos del cifrado, puede desmontarlos. Pruebe primero el parámetro EncryptFormatAll en una VM de prueba para entender el parámetro de característica y su implicación antes de probarlo en la VM de producción. La opción EncryptFormatAll formatea el disco de datos, por lo que todos los datos que contiene se pierden. Antes de continuar, compruebe que los discos que quiere excluir estén desmontados correctamente. </br></br>
  >Si establece este parámetro mientras actualiza la configuración de cifrado, podría provocar un reinicio antes del cifrado real. En este caso, también quiere quitar el disco que no quiere que se formatee a partir del archivo fstab. De igual forma, debe agregar la partición que quiere cifrar formateada al archivo fstab antes de iniciar la operación de cifrado. 
 
-### <a name="bkmk_EFACriteria"> </a>Criterios de EncryptFormatAll
+### <a name="encryptformatall-criteria"></a><a name="bkmk_EFACriteria"> </a>Criterios de EncryptFormatAll
 El parámetro recorre todas las particiones y las cifra siempre que cumplan *todos* los criterios siguientes: 
 - No es una partición raíz, de arranque o del sistema operativo
 - Ya no está cifrada
@@ -175,7 +175,7 @@ El parámetro recorre todas las particiones y las cifra siempre que cumplan *tod
 
 Cifre los discos que componen el volumen LVM o RAID en lugar de los volúmenes LVM o RAID.
 
-### <a name="bkmk_EFATemplate"> </a> Uso del parámetro EncryptFormatAll con una plantilla
+### <a name="use-the-encryptformatall-parameter-with-a-template"></a><a name="bkmk_EFATemplate"> </a> Uso del parámetro EncryptFormatAll con una plantilla
 Para usar la opción EncryptFormatAll, use cualquier plantilla de Azure Resource Manager ya existente que cifre una máquina virtual Linux y cambie el campo **EncryptionOperation** del recurso AzureDiskEncryption.
 
 1. Por ejemplo, use la [plantilla de Resource Manager para cifrar una máquina virtual IaaS de Linux en ejecución](https://github.com/vermashi/azure-quickstart-templates/tree/encrypt-format-running-linux-vm/201-encrypt-running-linux-vm). 
@@ -184,7 +184,7 @@ Para usar la opción EncryptFormatAll, use cualquier plantilla de Azure Resource
 4. Seleccione la suscripción, el grupo de recursos, la ubicación del grupo de recursos, otros parámetros, los términos legales y el contrato. Seleccione **Crear** para habilitar el cifrado en la máquina virtual IaaS existente o en ejecución.
 
 
-### <a name="bkmk_EFAPSH"> </a>Uso del parámetro EncryptFormatAll con un cmdlet de PowerShell
+### <a name="use-the-encryptformatall-parameter-with-a-powershell-cmdlet"></a><a name="bkmk_EFAPSH"> </a>Uso del parámetro EncryptFormatAll con un cmdlet de PowerShell
 Use el cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) con el parámetro EncryptFormatAll.
 
 **Cifrado de una máquina virtual en ejecución mediante un secreto de cliente y EncryptFormatAll:** por ejemplo, el siguiente script inicializa las variables y ejecuta el cmdlet Set-AzVMDiskEncryptionExtension con el parámetro EncryptFormatAll. El grupo de recursos, la máquina virtual, el almacén de claves, la aplicación de Azure AD y el secreto de cliente deben haberse creado ya como requisitos previos. Reemplace MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM, MySecureVault, My-AAD-client-ID y My-AAD-client-secret por sus propios valores.
@@ -203,7 +203,7 @@ Use el cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/se
    ```
 
 
-### <a name="bkmk_EFALVM"> </a>Uso del parámetro EncryptFormatAll con el Administrador de volúmenes lógicos (LVM) 
+### <a name="use-the-encryptformatall-parameter-with-logical-volume-manager-lvm"></a><a name="bkmk_EFALVM"> </a>Uso del parámetro EncryptFormatAll con el Administrador de volúmenes lógicos (LVM) 
 Se recomienda una configuración LVM-on-crypt. En todos los ejemplos siguientes, reemplace la ruta de acceso de dispositivo y los puntos de montaje por lo que se adapte a su caso de uso. Esta configuración se puede realizar de la manera siguiente:
 
 - Agregue los discos de datos que componen la máquina virtual.
@@ -230,7 +230,7 @@ Se recomienda una configuración LVM-on-crypt. En todos los ejemplos siguientes,
 
 
 
-## <a name="bkmk_VHDpre"> </a>Nuevas máquinas virtuales IaaS creadas a partir de discos duros virtuales cifrados por el cliente y claves de cifrado
+## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a><a name="bkmk_VHDpre"> </a>Nuevas máquinas virtuales IaaS creadas a partir de discos duros virtuales cifrados por el cliente y claves de cifrado
 En este escenario, se puede habilitar el cifrado mediante la plantilla de Resource Manager, cmdlets de PowerShell o comandos de la CLI. Las siguientes secciones explican con más detalle la plantilla de Resource Manager y los comandos de la CLI. 
 
 Use las instrucciones del apéndice para preparar imágenes previamente cifradas que se pueden usar en Azure. Una vez creada la imagen, puede seguir los pasos de la sección siguiente para crear una VM cifrada de Azure.
@@ -244,7 +244,7 @@ Use las instrucciones del apéndice para preparar imágenes previamente cifradas
 
 
 
-### <a name="bkmk_VHDprePSH"> </a> Uso de Azure PowerShell para cifrar máquinas virtuales IaaS con discos duros virtuales previamente cifrados 
+### <a name="use-azure-powershell-to-encrypt-iaas-vms-with-pre-encrypted-vhds"></a><a name="bkmk_VHDprePSH"> </a> Uso de Azure PowerShell para cifrar máquinas virtuales IaaS con discos duros virtuales previamente cifrados 
 Puede habilitar el cifrado de disco en el disco duro virtual cifrado mediante el cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples) de PowerShell. En el ejemplo siguiente se ofrecen algunos parámetros comunes. 
 
 ```powershell

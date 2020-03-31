@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614611"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229344"
 ---
 # <a name="replicas-and-instances"></a>Réplicas e instancias 
 En este artículo se ofrece información general del ciclo de vida de réplicas de servicios con estado e instancias de servicios sin estado.

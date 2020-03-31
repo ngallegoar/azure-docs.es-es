@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671654"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Generación de perfiles de aplicaciones de producción en Azure con Application Insights
@@ -53,39 +53,39 @@ Profiler de servicio de Microsoft usa una combinación de método de muestreo e 
 
 La pila de llamadas que se muestra en la vista de escala de tiempo es el resultado del muestreo y la instrumentación. Como cada muestra captura la pila de llamadas completa del subproceso, incluye código de Microsoft .NET Framework y de otros marcos a los que se haga referencia.
 
-### <a id="jitnewobj"></a>Asignación de objetos (clr!JIT\_New o clr!JIT\_Newarr1)
+### <a name="object-allocation-clrjit_new-or-clrjit_newarr1"></a><a id="jitnewobj"></a>Asignación de objetos (clr!JIT\_New o clr!JIT\_Newarr1)
 
 **clr!JIT\_New** y **clr!JIT\_Newarr1** son funciones auxiliares de .NET Framework que asignan memoria desde un montón administrado. **clr!JIT\_New** se invoca cuando se asigna un objeto. **clr!JIT\_Newarr1** se invoca cuando se asigna una matriz de objetos. Estas dos funciones suelen ser rápidas y tardan relativamente poco tiempo. Si **clr!JIT\_New** o **clr!JIT\_Newarr1** tardan mucho tiempo en la escala de tiempo, significa que el código podría estar asignando muchos objetos y consumiendo una importante cantidad de memoria.
 
-### <a id="theprestub"></a>Código de carga (clr!ThePreStub)
+### <a name="loading-code-clrtheprestub"></a><a id="theprestub"></a>Código de carga (clr!ThePreStub)
 
 **clr!ThePreStub** es una función auxiliar de .NET Framework que prepara el código para ejecutarse por primera vez. Esta ejecución suele incluir, pero sin limitarse a ello, la compilación JIT (Just-In-Time). Para cada método de C#, se debe invocar **clr!ThePreStub** una vez como máximo durante un proceso.
 
 Si **clr!ThePreStub** tarda mucho tiempo con una solicitud, significa que la solicitud es la primera que ejecuta ese método. El entorno en tiempo de ejecución de .NET Framework tarda un tiempo considerable en cargar el primer método. Podría plantearse la posibilidad de usar un proceso de preparación que ejecute esa parte del código antes de que los usuarios accedan a él, o bien ejecutar el Generador de imágenes nativo (ngen.exe) en sus ensamblados.
 
-### <a id="lockcontention"></a>Contención de bloqueo (clr!JITutil\_MonContention o clr!JITutil\_MonEnterWorker)
+### <a name="lock-contention-clrjitutil_moncontention-or-clrjitutil_monenterworker"></a><a id="lockcontention"></a>Contención de bloqueo (clr!JITutil\_MonContention o clr!JITutil\_MonEnterWorker)
 
 **clr!JITutil\_MonContention** o **clr!JITutil\_MonEnterWorker** indican que el subproceso actual está a la espera de que se libere un bloqueo. Este texto se muestra normalmente al ejecutar una instrucción **LOCK** de C#, al invocar el método **Monitor.Enter** o al invocar un método con el atributo **MethodImplOptions.Synchronized**. La contención de bloqueo se produce normalmente cuando un subproceso _A_ adquiere un bloqueo y un subproceso _B_ intenta adquirir el mismo bloqueo antes de que el subproceso _A_ lo libere.
 
-### <a id="ngencold"></a>Código de carga ([COLD])
+### <a name="loading-code-cold"></a><a id="ngencold"></a>Código de carga ([COLD])
 
 Si el nombre del método contiene **[COLD]** , por ejemplo, **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, significa que el entorno en tiempo de ejecución de .NET Framework es la primera vez que ejecuta código que no está optimizado mediante la [optimización guiada por perfiles](/cpp/build/profile-guided-optimizations). Para cada método, debe presentarse como máximo una vez durante el proceso.
 
 Si el código de carga tarda una cantidad de tiempo considerable con una solicitud, significa que la solicitud es la primera en ejecutar la parte no optimizada del método. Considere la posibilidad de usar un proceso de preparación que ejecute esa parte del código antes de que los usuarios accedan e él.
 
-### <a id="httpclientsend"></a>Envío de una solicitud HTTP
+### <a name="send-http-request"></a><a id="httpclientsend"></a>Envío de una solicitud HTTP
 
 Métodos como **HttpClient.Send** indican que el código está esperando a que finalice una solicitud HTTP.
 
-### <a id="sqlcommand"></a>Operación de base de datos
+### <a name="database-operation"></a><a id="sqlcommand"></a>Operación de base de datos
 
 Métodos como **SqlCommand.Execute** indican que el código está a la espera de que finalice una operación de base de datos.
 
-### <a id="await"></a>Espera (AWAIT\_TIME)
+### <a name="waiting-await_time"></a><a id="await"></a>Espera (AWAIT\_TIME)
 
 **AWAIT\_TIME** indica que el código está a la espera de que finalice otra tarea. Este retraso sucede normalmente con la instrucción **AWAIT** de C#. Cuando el código efectúa una instrucción **AWAIT** de C#, el subproceso se desenreda y devuelve el control al grupo de subprocesos, y no hay ningún subproceso bloqueado a la espera de que finalice **AWAIT**. Pero, lógicamente, el subproceso que realizó **AWAIT** está "bloqueado" a la espera de que finalice la operación. La instrucción **AWAIT\_TIME** indica el tiempo de bloqueo a la espera de que finalice la tarea.
 
-### <a id="block"></a>Tiempo de bloqueo
+### <a name="blocked-time"></a><a id="block"></a>Tiempo de bloqueo
 
 **BLOCKED_TIME** indica que el código está a la espera de que otro recurso esté disponible. Por ejemplo, podría estar esperando un objeto de sincronización, a que un subproceso esté disponible o a que termine una solicitud.
 
@@ -93,19 +93,19 @@ Métodos como **SqlCommand.Execute** indican que el código está a la espera de
 
 .NET Framework emite eventos ETW y pasa identificadores de actividad entre subprocesos para que se pueda realizar un seguimiento de las llamadas asincrónicas entre subprocesos. Tanto al código no administrado (código nativo) como a algunos estilos anteriores les faltan estos eventos e identificadores de actividad, de modo que el generador de perfiles no puede informar sobre qué subproceso y qué funciones se ejecutan en el subproceso. Esto se etiqueta como "Async no administrada" en la pila de llamadas. Si descarga el archivo ETW, es posible que pueda usar [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) para obtener más información sobre lo que sucede.
 
-### <a id="cpu"></a>Tiempo de CPU
+### <a name="cpu-time"></a><a id="cpu"></a>Tiempo de CPU
 
 La CPU está ocupada ejecutando las instrucciones.
 
-### <a id="disk"></a>Tiempo de disco
+### <a name="disk-time"></a><a id="disk"></a>Tiempo de disco
 
 La aplicación está ejecutando operaciones de disco.
 
-### <a id="network"></a>Tiempo de red
+### <a name="network-time"></a><a id="network"></a>Tiempo de red
 
 La aplicación está ejecutando operaciones de red.
 
-### <a id="when"></a>Columna Cuándo
+### <a name="when-column"></a><a id="when"></a>Columna Cuándo
 
 La columna **Cuándo** es una visualización de cómo varían con el tiempo las muestras INCLUSIVAS recopiladas para un nodo. El intervalo total de la solicitud se divide en 32 depósitos de tiempo. Las muestras inclusivas para ese nodo se acumulan en esos 32 depósitos. Cada depósito se representa con una barra. El alto de la barra representa un valor escalado. En el caso de nodos marcados **CPU_TIME** o **BLOCKED_TIME**, o cuando existe una relación obvia de consumo de un recurso (por ejemplo, CPU, disco o subproceso), la barra representa el consumo de uno de esos recursos durante el depósito. Para estas métricas, puede obtener un valor superior al 100 % si consume varios recursos. Por ejemplo, si por término medio usa dos CPU a lo largo de un intervalo, consigue el 200 %.
 

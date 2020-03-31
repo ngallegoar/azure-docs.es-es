@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: f66a23c0562ec9f1987bd119a45b7b767f2dfe46
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671637"
 ---
 # <a name="configure-application-insights-profiler"></a>Configuración de Application Insights Profiler
@@ -68,7 +68,7 @@ Seguimiento | Número de seguimientos que se adjuntaron a solicitudes individual
 % de CPU | Porcentaje de la CPU que se estaba usando mientras se ejecutaba Profiler.
 % de memoria | Porcentaje de memoria que se estaba usando mientras se ejecutaba Profiler.
 
-## <a id="profileondemand"></a> Usar pruebas de rendimiento web para generar tráfico en la aplicación
+## <a name="use-web-performance-tests-to-generate-traffic-to-your-application"></a><a id="profileondemand"></a> Usar pruebas de rendimiento web para generar tráfico en la aplicación
 
 Profiler se puede desencadenar manualmente con un solo clic. Imagine que está ejecutando una prueba de rendimiento web. Necesitará realizar seguimientos que le ayuden a saber si la aplicación web funciona correctamente en condiciones de carga. Poder control el momento en que se capturan los seguimientos es fundamental, ya que sabe cuándo se va a ejecutar la prueba de carga. Sin embargo, con el intervalo de muestreo aleatorio es posible que se lo pierda.
 

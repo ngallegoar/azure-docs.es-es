@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953294"
 ---
 # <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Ejecución de Deployment Planner para la recuperación ante desastres de VMware
@@ -65,7 +65,7 @@ Una vez que tenga la lista de máquinas virtuales cuyo perfil se va a generar, p
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Nombre de parámetro | DESCRIPCIÓN |
+| Nombre de parámetro | Descripción |
 |---|---|
 | -Operation | Inicio de la generación de perfiles |
 | -Server | El nombre de dominio completo o la dirección IP del servidor vCenter/host de vSphere ESXi de cuyas máquinas virtuales se va a generar el perfil.|
@@ -145,7 +145,7 @@ Una vez que se completa la generación de perfiles, se puede ejecutar la herrami
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Nombre de parámetro | DESCRIPCIÓN |
+|Nombre de parámetro | Descripción |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  El nombre de dominio completo o la dirección IP del servidor vCenter o vSphere (use el mismo nombre o dirección IP que utilizó en la generación de perfiles) en el que se encuentran las máquinas virtuales con perfiles cuyo informe va a generar. Tenga en cuenta que si usó un servidor vCenter en el momento de la generación de perfiles, no puede usar un servidor de vSphere para la generación de informes, y viceversa.|
@@ -206,7 +206,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Ejemplo 7: Generación de un informe para la región de Azure de India del Sur con la rupia india y el identificador de oferta específico
+#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Ejemplo 7: Generación de un informe para la región de Azure de Sur de la India con la rupia india y el identificador de oferta específico
 
 Tenga en cuenta que el identificador de suscripción es necesario para generar el informe de costos en una moneda específica.
 ```
@@ -257,7 +257,7 @@ Abra una consola de línea de comandos y vaya a la carpeta de la herramienta de 
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Nombre de parámetro | DESCRIPCIÓN |
+|Nombre de parámetro | Descripción |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Especifique el tipo de virtualización (Hyper-V o VMware).|

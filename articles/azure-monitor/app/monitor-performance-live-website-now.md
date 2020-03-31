@@ -4,10 +4,10 @@ description: Supervise el rendimiento de un sitio web sin volver a implementarlo
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670056"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Adjuntar sin código de Application Insights
@@ -43,10 +43,10 @@ A continuación hay un resumen de lo que se obtiene por cada vía:
 | [Excepciones más detalladas](../../azure-monitor/app/asp-net-exceptions.md) | |Sí |
 | [Diagnósticos de dependencia](../../azure-monitor/app/asp-net-dependencies.md) |En .NET 4.6 +, pero con menos detalle |Sí, detalles completos: códigos de resultado, texto de comandos SQL, verbo HTTP|
 | [Contadores de rendimiento del sistema](../../azure-monitor/app/performance-counters.md) |Sí |Sí |
-| [API para la telemetría personalizada][api] |Sí |Sin |
-| [Integración del registro de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md) |Sí |Sin |
-| [Datos de usuario y página](../../azure-monitor/app/javascript.md) |Sí |Sin |
-| Es necesario volver a compilar el código |Sí | Sin |
+| [API para la telemetría personalizada][api] |Sí |No |
+| [Integración del registro de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md) |Sí |No |
+| [Datos de usuario y página](../../azure-monitor/app/javascript.md) |Sí |No |
+| Es necesario volver a compilar el código |Sí | No |
 
 
 
@@ -84,7 +84,7 @@ Si desea volver a publicar sin agregar Application Insights al código, tenga en
 4. Restablezca las modificaciones realizadas en el archivo .config.
 
 
-## <a name="troubleshoot"></a>Solución de problemas
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solución de problemas
 
 ### <a name="confirm-a-valid-installation"></a>Confirmación de una instalación válida 
 
@@ -247,7 +247,7 @@ Encuentre las aplicaciones en supervisión:
 
 * Permite descargar el SDK más reciente de Application Insights en el servidor.
 
-## <a name="questions"></a>Preguntas acerca del Monitor de estado
+## <a name="questions-about-status-monitor"></a><a name="questions"></a>Preguntas acerca del Monitor de estado
 
 ### <a name="what-is-status-monitor"></a>¿Qué es el Monitor de estado?
 
@@ -304,13 +304,13 @@ En el caso de las aplicaciones ya instrumentadas en el momento de la compilació
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="download"></a>Descarga del Monitor de estado
+## <a name="download-status-monitor"></a><a name="download"></a>Descarga del Monitor de estado
 
 - Use el nuevo [Módulo de PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
 - Descargue y ejecute el [instalador del Monitor de estado](https://go.microsoft.com/fwlink/?LinkId=506648)
 - O ejecute el [Instalador de plataforma web](https://www.microsoft.com/web/downloads/platform.aspx) y busque ahí el Monitor de estado de Application Insights.
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 
 Vea la telemetría:
 

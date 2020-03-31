@@ -3,12 +3,12 @@ title: Introducción a las versiones de tiempo de ejecución de Azure Functions
 description: Azure Functions admite varias versiones del runtime. Conozca las diferencias entre ellas y cómo elegir la más adecuada en su caso.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 21722d66129224038df20a0a1ef2bff989221224
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 21a7b25087efd5d4adf2154c935636c263df9afd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539508"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234880"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
@@ -36,7 +36,7 @@ Los lenguajes experimentales de la versión 1.x de Azure Functions no pueden ut
 
 Para más información, consulte [Lenguajes admitidos](supported-languages.md).
 
-## <a name="creating-1x-apps"></a>Ejecución en una versión específica
+## <a name="run-on-a-specific-version"></a><a name="creating-1x-apps"></a>Ejecución en una versión específica
 
 De forma predeterminada, las aplicaciones de funciones que se crean en Azure Portal y en la CLI de Azure se establecen en la versión 3.x. Puede modificar esta versión según sea necesario. Solo puede cambiar la versión del entorno en tiempo de ejecución a 1.x después de crear la aplicación de funciones, pero antes de agregar funciones.  Se permite el desplazamiento entre 2.x y 3.x incluso con aplicaciones que tienen funciones, pero se recomienda probar primero en una aplicación nueva.
 
@@ -58,7 +58,7 @@ Se han quitado, actualizado o reemplazado algunas características después de l
 
 En la versión 2.x se han realizado los siguientes cambios:
 
-* Las claves para llamar a los puntos de conexión HTTP siempre se almacenan cifradas en Azure Blob Storage. En la versión 1.x, se almacenaban en Azure File Storage de manera predeterminada. Al actualizar una aplicación de la versión 1.x a la versión 2.x, los secretos existentes que se encuentran en el almacenamiento de archivos se restablecen.
+* Las claves para llamar a los puntos de conexión HTTP siempre se almacenan cifradas en Azure Blob Storage. En la versión 1.x, se almacenaban en Azure File Storage de manera predeterminada. Al actualizar una aplicación de la versión 1.x a la versión 2.x, los secretos existentes que se encuentran en el almacenamiento de archivos se restablecen.
 
 * La versión 2.x del entorno de ejecución no incluye compatibilidad integrada con proveedores de webhooks. Este cambio se realizó para mejorar el rendimiento. Todavía puede usar desencadenadores HTTP como puntos de conexión para los webhooks.
 

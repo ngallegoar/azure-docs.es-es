@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 9/5/2019
 ms.author: eamono
 ms.openlocfilehash: 36fc4c873dccfe9fa814bddccd829ed04207f095
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74226932"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Administración de entornos híbridos con PowerShell en Azure Functions y conexiones híbridas de App Service
@@ -62,7 +62,7 @@ La característica Conexiones híbridas de App Service solo está disponible en
 
     ![Aplicación de función de PowerShell Core](./media/functions-hybrid-powershell/create-function-powershell-app.png)  
 
-    | Configuración      | Valor sugerido  | DESCRIPCIÓN                                        |
+    | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nombre de la aplicación** | Nombre único globalmente | Nombre que identifica la nueva Function App. Los caracteres válidos son `a-z`, `0-9` y `-`.  | 
     | **Suscripción** | Su suscripción | Suscripción en la que se creará esta nueva aplicación de función. |

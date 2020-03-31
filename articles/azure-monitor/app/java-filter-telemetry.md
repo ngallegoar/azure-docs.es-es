@@ -4,10 +4,10 @@ description: Reduzca el tráfico de telemetría mediante el filtrado de los even
 ms.topic: conceptual
 ms.date: 3/14/2019
 ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659924"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrado de telemetría en la aplicación web de Java

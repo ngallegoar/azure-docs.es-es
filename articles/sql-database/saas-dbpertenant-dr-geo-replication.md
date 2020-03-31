@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 0668ccf5ceb972dd120e4e3f37be6d879a12d0a7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73811715"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperación ante desastres para una aplicación SaaS multiinquilino mediante la replicación geográfica de las bases de datos
@@ -51,7 +51,7 @@ Un plan de recuperación ante desastres basado en la replicación geográfica co
 
 Todas las partes deben evaluarse cuidadosamente, especialmente si se trabaja a escala. En general, el plan debe lograr varios objetivos:
 
-* Configuración
+* Configurar
     * Establecer y mantener un entorno con una imagen reflejada en la región de recuperación. Al crear los grupos elásticos y replicar alguna base de datos en este entorno de recuperación, se reserva la capacidad en la región de recuperación. En el mantenimiento del entorno se incluye la replicación de las nuevas bases de datos de inquilino a medida que se aprovisionen.  
 * Recuperación
     * Si se usa un entorno de recuperación de escala reducida para minimizar los costos diarios, los grupos y las bases de datos deben escalarse verticalmente para que tengan una capacidad operativa completa en la región de recuperación
@@ -74,7 +74,7 @@ En este tutorial, estos desafíos se abordan con las características de Azure S
 ## <a name="get-the-disaster-recovery-scripts"></a>Obtención de los scripts de recuperación ante desastres 
 
 > [!IMPORTANT]
-> Al igual que todos los scripts de administración de Wingtip Tickets, los scripts de recuperación ante desastres tienen fines de ejemplo únicamente y no deben usarse en producción. 
+> Al igual que todos los scripts de administración de Wingtip vales, los scripts de recuperación ante desastres tienen una calidad de muestra y no para usarse en producción. 
 
 Los scripts de recuperación ante desastres de este tutorial y el código fuente de la aplicación Wingtip están disponibles en GitHub, en el [repositorio de Wingtip Tickets SaaS Database Per Tenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/). Consulte en las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) los pasos para descargar y desbloquear los scripts de administración de Wingtip Tickets.
 
@@ -118,7 +118,7 @@ En esta tarea, se inicia un proceso para sincronizar la configuración de los se
 Deje la ventana de PowerShell ejecutándose en segundo plano y continúe con el resto del tutorial. 
 
 > [!Note]
-> El proceso de sincronización conecta con el catálogo mediante un alias DNS. Este alias se modifica durante la restauración y la repatriación para que apunte al catálogo activo. El proceso de sincronización mantiene actualizado el catálogo con los cambios realizados en la configuración de bases de datos o grupos en la región de recuperación.  Durante la repatriación, estos cambios se aplican a los recursos equivalentes en la región original.
+> El proceso de sincronización conecta con el catálogo mediante un alias DNS. Este alias se modifica durante la restauración y la repatriación para que apunte al catálogo activo. El proceso de sincronización mantiene actualizado el catálogo con los cambios de configuración de las bases de datos o los grupos que se han realizado en la región de recuperación.  Durante la repatriación, estos cambios se aplican a los recursos equivalentes en la región original.
 
 ## <a name="create-secondary-database-replicas-in-the-recovery-region"></a>Creación de réplicas de base de datos secundarias en la región de recuperación
 
@@ -178,7 +178,7 @@ El script de recuperación realiza las siguientes tareas:
 
 ### <a name="run-the-script-to-fail-over-to-the-recovery-region"></a>Ejecución del script para conmutar por error a la región de recuperación
 
-Supongamos ahora que hay una interrupción en la región en la que la aplicación está implementada y se ejecuta el script de recuperación:
+Ahora suponga que hay una interrupción en la región en la que la aplicación se implementa y ejecuta el script de recuperación:
 
 1. En *PowerShell ISE*, abra el script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 y establezca los siguientes valores:
     * **$DemoScenario = 3**, recuperar la aplicación en una región de recuperación mediante la conmutación por error a las réplicas
@@ -219,7 +219,7 @@ Incluso antes de que todas las bases de datos de inquilino existentes hayan real
 3. La página de eventos de Hawthorn Hall se abre en el explorador cuando finaliza. Observe en el pie de página que la base de datos de Hawthorn Hall se aprovisiona en la región de recuperación.
     ![Página de eventos de Hawthorn Hall](media/saas-dbpertenant-dr-geo-replication/hawthornhallevents.png) 
 
-4. En el explorador, actualice la página del centro de eventos de Wingtip Tickets y verá Hawthorn Hall incluido. 
+4. En el explorador, actualice la página del centro de eventos de Wingtip Tickets y verá a Hawthorn Hall incluido. 
     * Si ha aprovisionado a Hawthorn Hall sin esperar a la restauración de los otros inquilinos, es posible que estos todavía estén sin conexión.
 
 
@@ -279,7 +279,7 @@ Ahora imaginemos que la interrupción se resuelve y ejecuta el script de repatri
 
 1. En *PowerShell ISE*, en el script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1.
 
-2. Verifique que el proceso de sincronización del catálogo aún se está ejecutando en la instancia de PowerShell.  Si es necesario, reinícielo estableciendo:
+2. verifique que el proceso de sincronización del catálogo aún se está ejecutando en su instancia de PowerShell.  Si es necesario, reinícielo estableciendo:
     * **$DemoScenario = 1**, iniciar la sincronización de la información de configuración del servidor de inquilino, el grupo y la base de datos en el catálogo
     * Presione **F5** para ejecutar el script.
 

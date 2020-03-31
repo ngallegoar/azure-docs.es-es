@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e01fb23bbf1720f7d8df9c269373c1b8dc3ec75c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034802"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Uso de claves SSH con Windows en Azure
@@ -43,7 +43,7 @@ Otros clientes SSH de Windows comunes que puede instalar se encuentran de forma 
 
 Asimismo, puede usar las utilidades SSH disponibles en Bash en [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-* Acceda a Cloud Shell en el explorador web en [ https://shell.azure.com ](https://shell.azure.com) o en [Azure Portal](https://portal.azure.com). 
+* Acceda a Cloud Shell en el explorador web en [https://shell.azure.com](https://shell.azure.com) o en [Azure Portal](https://portal.azure.com). 
 * Acceda a Cloud Shell como terminal desde Visual Studio Code mediante la instalación de la [extensión Cuenta de Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## <a name="create-an-ssh-key-pair"></a>Creación de un par de claves SSH
@@ -97,7 +97,7 @@ En el siguiente ejemplo se muestra cómo se copia y pega esta clave pública en 
 Una manera de establecer una conexión SSH a la máquina virtual Linux desde Windows es usar un cliente SSH. Este es el método que se prefiere si tiene un cliente SSH instalado en el sistema Windows o si usa herramientas SSH en Bash en Azure Cloud Shell. Si prefiere una herramienta basada en GUI, puede conectarse con PuTTY.  
 
 ### <a name="use-an-ssh-client"></a>Uso de un cliente SSH
-Con la clave pública implementada en la VM de Azure y la clave privada en el sistema local, ejecute SSH en la máquina virtual con la dirección IP o el nombre DNS de la máquina virtual. Reemplace *azureuser* y *myvm.westus.cloudapp.azure.com* en el siguiente comando con el nombre de usuario administrador y el nombre de dominio completo (o dirección IP):
+Con la clave pública implementada en la VM de Azure y la clave privada en su sistema local, aplique SSH en la VM con la dirección IP o nombre DNS de la VM. Reemplace *azureuser* y *myvm.westus.cloudapp.azure.com* en el siguiente comando con el nombre de usuario administrador y el nombre de dominio completo (o dirección IP):
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com

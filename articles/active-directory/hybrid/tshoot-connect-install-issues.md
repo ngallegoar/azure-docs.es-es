@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e75ad29c5b4a76de5317991995f132c6cb53bbe3
-ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70211851"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>Solución de problemas: Problemas de instalación en Azure AD Connect

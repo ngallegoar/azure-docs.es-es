@@ -5,10 +5,10 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
 ms.openlocfilehash: a8061aad6d6a1513de70e7c2bc57aa109c666611
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455929"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configuración de la cadena de bloques Data Manager con la CLI de Azure
@@ -20,14 +20,14 @@ Para configurar una instancia de cadena de bloques Data Manager, puede:
 * Crear una instancia del Administrador de la cadena de bloques
 * Crear una entrada a un nodo de transacción de Azure Blockchain Service
 * Crear una salida para un tema Azure Event Grid
-* Agregue una aplicación Blockchain
+* Agregar una aplicación de cadena de bloques
 * Iniciar una instancia
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Instale el [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) más reciente y con la sesión iniciada`az login`.
 * Realizar el tutorial [Quickstart: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service](connect-vscode.md)
-* Crear un [tema Event Grid](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
+* Crear un [tema de Event Grid](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Más información sobre [Controladores de eventos en Azure Event Grid](../../event-grid/event-handlers.md)
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
@@ -40,7 +40,7 @@ Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se req
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](https://docs.microsoft.com/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Para crear un grupo de recursos, use el comando [az group create](https://docs.microsoft.com/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli-interactive
 az group create --name myRG --location eastus
@@ -59,10 +59,10 @@ az resource create \
                    --properties <watcher resource properties>
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |-----------|-------------|
 | resource-group | Nombre del grupo de recursos donde se creará la instancia de la cadena de bloques Data Manager. |
-| Nombre | Nombre de la instancia de la cadena de bloques Data Manager. |
+| name | Nombre de la instancia de la cadena de bloques Data Manager. |
 | tipo de recurso | El tipo de recurso de una instancia de la cadena de bloques Data Manager es **Microsoft.blockchain/watchers**. |
 | is-full-object | Indica que las propiedades contienen opciones para el recurso de monitor. |
 | properties | Cadena con formato JSON que contiene las propiedades del recurso de monitor. Se puede pasar como una cadena o un archivo.  |
@@ -79,9 +79,9 @@ Ejemplo de configuración de JSON para crear una instancia del administrador de 
 }
 ```
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 |---------|-------------|
-| location | Región en la que se creará el recurso de monitor |
+| ubicación | Región en la que se creará el recurso de monitor |
 | properties | Propiedades que se establecen al crear el recurso de monitor |
 
 Cree una instancia de la cadena de bloques de Data Manager denominada *mywatcher* con una cadena JSON para la configuración.
@@ -121,10 +121,10 @@ az resource create \
                    --properties <input resource properties>
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |-----------|-------------|
 | resource-group | Nombre del grupo de recursos donde se creará el recurso de entrada. |
-| Nombre | Nombre de la entrada. |
+| name | Nombre de la entrada. |
 | espacio de nombres | Use el espacio de nombres del proveedor **Microsoft.Blockchain**. |
 | tipo de recurso | El tipo de recurso para una entrada de la cadena de bloques Data Manager es **entradas**. |
 | primario | Ruta de acceso al monitor al que está asociada la entrada. Por ejemplo, **monitor/mi monitor**. |
@@ -147,9 +147,9 @@ Ejemplo de JSON de configuración para crear un recurso de entrada en la región
 }
 ```
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 |---------|-------------|
-| location | Región en la que se va a crear el recurso de entrada. |
+| ubicación | Región en la que se va a crear el recurso de entrada. |
 | inputType | Tipo de libro de contabilidad del miembro Azure Blockchain Service. Actualmente, se admite **Ethereum**. |
 | resourceId | Nodo de transacción al que está conectada la entrada. Reemplace \<ID. de suscripción\>, \<Grupo de recursos\> y \<miembro de Blockchain\> con los valores para el recurso de nodo de transacción. La entrada se conecta al nodo de transacción predeterminado para el miembro Azure Blockchain Service. |
 
@@ -193,10 +193,10 @@ az resource create \
                    --properties <output resource properties>
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |-----------|-------------|
 | resource-group | Nombre del grupo de recursos donde se creará el recurso de entrada. |
-| Nombre | Nombre de la salida. |
+| name | Nombre de la salida. |
 | espacio de nombres | Use el espacio de nombres del proveedor **Microsoft.Blockchain**. |
 | tipo de recurso | El tipo de recurso para una salida de la cadena de bloques Data Manager es **salidas**. |
 | primario | Ruta de acceso al monitor al que está asociada la salida. Por ejemplo, **monitor/mi monitor**. |
@@ -219,9 +219,9 @@ Ejemplo de JSON de configuración para crear un recurso de salida en la región 
 }
 ```
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 |---------|-------------|
-| location | Región en la que se va a crear el recurso de salida. |
+| ubicación | Región en la que se va a crear el recurso de salida. |
 | outputType | Tipo de salida. Actualmente, se admite **EventGrid**. |
 | resourceId | Recurso al que está conectada la salida. Reemplace \<ID. de suscripción\>, \<\>Grupo de recursos y \<miembro de Blockchain\> con los valores del recurso de Event Grid. |
 
@@ -270,10 +270,10 @@ az resource create \
                    --properties <Application resource properties>
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |-----------|-------------|
 | resource-group | Nombre del grupo de recursos donde se creará el recurso de entrada. |
-| Nombre | Nombre de la aplicación. |
+| name | Nombre de la aplicación. |
 | espacio de nombres | Use el espacio de nombres del proveedor **Microsoft.Blockchain**. |
 | tipo de recurso | El tipo de recurso de una aplicación de cadena de bloques Data Manager es **artefactos**. |
 | primario | Ruta de acceso al monitor al que está asociada la aplicación. Por ejemplo, **monitor/mi monitor**. |
@@ -301,9 +301,9 @@ Ejemplo de JSON de configuración para crear un recurso de aplicación en la reg
 }
 ```
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 |---------|-------------|
-| location | Región en la que se va a crear el recurso de aplicación. |
+| ubicación | Región en la que se va a crear el recurso de aplicación. |
 | artifactType | Tipo de aplicación. Actualmente, se admite **EthereumSmartContract**. |
 | abiFileUrl | Dirección URL para el archivo JSON de la ABI del contrato inteligente. Para más información sobre cómo obtener la ABI de contrato y crear una dirección URL, vea [obtener contrato ABI y código de bytes](data-manager-portal.md#get-contract-abi-and-bytecode) y [crear contrato de la dirección URL de la ABI y el código de bytes](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
 | bytecodeFileUrl | Dirección URL del archivo JSON del código de bytes implementado del contrato inteligente. Para más información sobre cómo obtener el código de bytes implementado del contrato inteligente y cómo crear una dirección URL, consulte [Obtener la ABI del contrato y el código de bytes](data-manager-portal.md#get-contract-abi-and-bytecode) y [Obtener la ABI del contrato y una dirección URL del código de bytes](data-manager-portal.md#create-contract-abi-and-bytecode-url). Nota: Blockchain Data Manager requiere el **código de bytes implementado**. |
@@ -345,7 +345,7 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |-----------|-------------|
 | action | Use **iniciar** para ejecutar el monitor. |
 | ids | Identificador de recurso de monitor. Reemplace \<ID. de suscripción\>, \<Grupo de recursos\>, y el \<Nombre de monitor\> por los valores del recurso de monitor.|
@@ -370,7 +370,7 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |-----------|-------------|
 | action | Use **detener** para detener el monitor. |
 | ids | Nombre del monitor. Reemplace \<ID. de suscripción\>, \<Grupo de recursos\>, y el \<Nombre de monitor\> por los valores del recurso de monitor. |
@@ -396,10 +396,10 @@ az resource delete \
                    --resource-type Microsoft.Blockchain/watchers
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |-----------|-------------|
 | resource-group | Nombre del grupo de recursos del monitor que se va a eliminar. |
-| Nombre | Nombre del monitor que se va a eliminar. |
+| name | Nombre del monitor que se va a eliminar. |
 | tipo de recurso | El tipo de recurso de un monitor de cadena de bloques Data Manager es **Microsoft.blockchain/watchers**. |
 
 ### <a name="delete-instance-example"></a>Ejemplo de eliminación de instancia

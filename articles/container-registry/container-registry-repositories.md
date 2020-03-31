@@ -4,17 +4,17 @@ description: Use Azure Portal para ver los repositorios de Azure Container Regis
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456299"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visualización de los repositorios de registros de contenedor en Azure Portal
 
 Azure Container Registry permite almacenar imágenes de contenedor Docker en repositorios. Mediante el almacenamiento de imágenes en repositorios, puede almacenar grupos de imágenes (o versiones de imágenes) en entornos aislados. Puede especificar estos repositorios al insertar imágenes en el registro y ver el contenido en Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Registro de contenedor**: cree un registro de contenedor en la suscripción a Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md).
 * **CLI de Docker**: instale [Docker][docker-install] en el equipo local, lo que proporciona la interfaz de la línea de comandos de Docker.

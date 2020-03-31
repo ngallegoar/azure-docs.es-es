@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 931865803328189d89c0fbae15caa801c3f7f7c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60455237"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227796"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Solución de problemas de un objeto que no se está sincronizando con Azure Active Directory
 
@@ -54,7 +54,7 @@ el proceso de sincronización realiza los pasos siguientes:
 
 5. **Exportar a Azure AD:** después de la sincronización, los objetos se exportan desde el espacio conector de Azure AD a Azure AD.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Para encontrar los errores, examine varios sitios en el orden siguiente:
 
@@ -79,7 +79,7 @@ La columna **Estado** contiene la información más importante, puesto que muest
 | stopped-error-limit |Se han generado más de 5000 errores. La ejecución se ha detenido automáticamente debido al elevado número de errores. |
 | completed-\*-errors |La ejecución finaliza, pero hay errores (menos de 5000) que deben investigarse. |
 | completed-\*-warnings |La ejecución finalizó, pero algunos datos no tienen el estado esperado. Si se producen errores, este mensaje suele ser únicamente un síntoma. No investigue las advertencias hasta que haya resuelto los errores. |
-| Correcto |No hay ningún problema. |
+| success |No hay ningún problema. |
 
 Cuando seleccione una fila, la parte inferior de la pestaña **Operaciones** se actualizará para mostrar los detalles de la ejecución. En el lado izquierdo de esta área, es posible que tenga una lista denominada **Paso nº**. Esta lista solo aparecerá si tiene varios dominios en el bosque; cada dominio estará representado por un paso. El nombre de dominio puede encontrarse bajo el encabezado **Partición**. En el encabezado **Synchronization Statistics**(Estadísticas de sincronización) puede encontrar más información sobre el número de cambios que se han procesado. Seleccione los vínculos para obtener una lista de los objetos modificados. Si hay objetos con errores, estos se mostrarán en el encabezado **Errores de sincronización**.
 
@@ -151,7 +151,7 @@ En la vista previa puede inspeccionar el objeto y ver qué regla se aplicó para
 
 ![Captura de pantalla de la página Vista previa en la que se muestra Import Attribute Flow (Importar flujo de atributo)](./media/tshoot-connect-object-not-syncing/previewresult.png)
 
-### <a name="log"></a>Registro
+### <a name="log"></a>Log
 Junto al botón **Vista previa**, seleccione el botón **Registro** para abrir la página **Registro**. Aquí puede ver el estado y el historial de la sincronización de contraseñas. Para más información, consulte [Solución de problemas de sincronización de hash de contraseñas con la sincronización de Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Propiedades de objetos del metaverso

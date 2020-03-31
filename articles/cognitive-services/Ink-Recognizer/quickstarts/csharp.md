@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 1cf519d8d8c25877b49bf14aefd1c0be3afa8023
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: c24d055f1904453d2f512a278f00e23c6fea1d9b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137890"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371379"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Inicio rápido: Reconocimiento de la entrada de lápiz digital con la API REST Ink Recognizer y C#
 
@@ -39,7 +39,7 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
         3. Busque `Newtonsoft.Json` e instale el paquete.
 - Si usa Linux o MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
 
-- Los datos de trazo de entrada de lápiz para este inicio rápido se pueden encontrar en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
+- Los datos de trazo de entrada de lápiz para este inicio rápido se pueden encontrar en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Vision/InkRecognition/quickstart/example-ink-strokes.json).
 
 ### <a name="create-an-ink-recognizer-resource"></a>Creación de un recurso de Ink Recognizer
 
@@ -90,7 +90,7 @@ Cree una función llamada `LoadJson()` para cargar el archivo JSON de datos de e
 
 ## <a name="run-the-application-and-view-the-response"></a>Ejecución de la aplicación y visualización de la respuesta
 
-Ejecute la aplicación. Se devuelve una respuesta correcta en formato JSON. También puede encontrar la respuesta JSON en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
+Ejecute la aplicación. Se devuelve una respuesta correcta en formato JSON. También puede encontrar la respuesta JSON en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Vision/InkRecognition/quickstart/example-response.json).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

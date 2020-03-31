@@ -1,7 +1,7 @@
 ---
 title: 'Creación de un modelo de inquilino (versión preliminar): servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: Genere automáticamente un modelo de inquilino compatible y seguro (Custom Speech con datos de Office 365) que use los datos de Office 365 para ofrecer un reconocimiento de voz óptimo para términos específicos de una organización.
+description: Genere automáticamente un modelo de inquilino compatible y seguro (Habla personalizada con datos de Office 365) que use los datos de Office 365 para ofrecer un reconocimiento de voz óptimo para términos específicos de una organización.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: erhopf
 ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77469024"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Creación de un modelo de inquilino (versión preliminar)
 
-Tenant Model (Custom Speech con datos de Office 365) es un servicio de participación para clientes empresariales de Office 365 que genera automáticamente un modelo de reconocimiento de voz personalizado a partir de los datos de Office 365 de su organización. El modelo está optimizado para términos técnicos, jerga y nombres de personas, y todo ello de forma segura y compatible.
+Tenant Model (Habla personalizada con datos de Office 365) es un servicio de participación para clientes empresariales de Office 365 que genera automáticamente un modelo de reconocimiento de voz personalizado a partir de los datos de Office 365 de su organización. El modelo está optimizado para términos técnicos, jerga y nombres de personas, y todo ello de forma segura y compatible.
 
 > [!IMPORTANT]
 > Si su organización se inscribe mediante el servicio Tenant Model, el servicio de voz puede acceder al modelo de lenguaje de su organización. El modelo se genera a partir de documentos y correos electrónicos de grupos públicos de Office 365, que puede ver cualquier usuario de la organización. El administrador de Office 365 de la organización puede activar o desactivar el uso del modelo de lenguaje en toda la organización desde el portal de administración de Office 365.

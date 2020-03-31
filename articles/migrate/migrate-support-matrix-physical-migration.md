@@ -4,11 +4,11 @@ description: Obtenga más información sobre la compatibilidad para la migració
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: e55cf6dddbc8dafd33b444e4a0dbe378d807aea1
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030931"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232724"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de compatibilidad para la migración de servidores físicos
 

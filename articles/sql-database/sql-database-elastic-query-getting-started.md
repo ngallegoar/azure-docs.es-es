@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
 ms.openlocfilehash: bad52b364dc83994e7985fc80b1b9f9e7f50481e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823772"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)
@@ -26,7 +26,7 @@ Si tiene una base de datos, consulte [Conversión de bases de datos existentes p
 
 Para comprender los objetos SQL necesarios para realizar consultas, consulte [Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)](sql-database-elastic-query-horizontal-partitioning.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Descargue [Introducción al ejemplo de herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 

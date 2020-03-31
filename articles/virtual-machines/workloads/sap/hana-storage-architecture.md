@@ -14,10 +14,10 @@ ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a12c454906d6c6ff702b7f635a91361bbe3994c1
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616887"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitectura de almacenamiento de SAP HANA (instancias grandes)

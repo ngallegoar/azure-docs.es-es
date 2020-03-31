@@ -4,10 +4,10 @@ description: C처mo usar identidades administradas en el c처digo de una aplicaci�
 ms.topic: article
 ms.date: 10/09/2019
 ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610325"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>C처mo usar la identidad administrada de una aplicaci처n de Service Fabric para acceder a los servicios de Azure (versi처n preliminar)

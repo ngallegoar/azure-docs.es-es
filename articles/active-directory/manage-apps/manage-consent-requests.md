@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0451fe18629a572c9b49f14924bfa50293f42a2b
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77367848"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento

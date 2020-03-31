@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4780786f0caea2c211b6b93fb0736feaade8de80
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74274829"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acceso remoto a aplicaciones locales mediante Azure Active Directory Application Proxy 
@@ -59,7 +59,7 @@ En el siguiente diagrama se muestra cómo funcionan conjuntamente Azure AD y App
 5. El conector envía la solicitud a la aplicación local.  
 6. La respuesta se envía al usuario través del conector y el servicio Application Proxy.
 
-| Componente | DESCRIPCIÓN |
+| Componente | Descripción |
 | --------- | ----------- |
 | Punto de conexión  | El punto de conexión es una dirección URL o un [portal de usuario final](end-user-experiences.md). Los usuarios pueden acceder a aplicaciones fuera de la red mediante el acceso a una dirección URL externa. Los usuarios dentro de la red pueden acceder a la aplicación a través de una dirección URL o un portal del usuario final. Cuando los usuarios usan uno de estos puntos de conexión, se autentican en Azure AD y, luego, se enrutan a través del conector a la aplicación local.|
 | Azure AD | Azure AD realiza la autenticación mediante el directorio de inquilino almacenado en la nube. |

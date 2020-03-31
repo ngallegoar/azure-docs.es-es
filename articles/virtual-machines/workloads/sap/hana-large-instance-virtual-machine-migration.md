@@ -14,10 +14,10 @@ ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fd1267711871b3e55f1a6229e46ae27b360322f6
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617041"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>Migración de SAP HANA en instancias grandes de Azure a máquinas virtuales de Azure
@@ -51,14 +51,14 @@ En la tabla siguiente se resumen los modelos de implementación comunes con clie
 | --- | --- | --- | --- |
 | 1 | [Nodo único con un SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-one-sid) | Sí | - |
 | 2 | [Nodo único con MCOS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-mcos) | Sí | - |
-| 3 | [Nodo único con DR mediante replicación de almacenamiento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-storage-replication) | Sin | La replicación de almacenamiento no está disponible con la plataforma virtual de Azure, cambie la solución actual de DR a HSR o copia de seguridad/restauración. |
-| 4 | [Nodo único con DR (multipropósito) mediante replicación de almacenamiento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication) | Sin | La replicación de almacenamiento no está disponible con la plataforma virtual de Azure, cambie la solución actual de DR a HSR o copia de seguridad/restauración. |
+| 3 | [Nodo único con DR mediante replicación de almacenamiento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-storage-replication) | No | La replicación de almacenamiento no está disponible con la plataforma virtual de Azure, cambie la solución actual de DR a HSR o copia de seguridad/restauración. |
+| 4 | [Nodo único con DR (multipropósito) mediante replicación de almacenamiento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-multipurpose-using-storage-replication) | No | La replicación de almacenamiento no está disponible con la plataforma virtual de Azure, cambie la solución actual de DR a HSR o copia de seguridad/restauración. |
 | 5 | [HSR con STONITH para alta disponibilidad](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#hsr-with-stonith-for-high-availability) | Sí | Sin ningún SBD preconfigurado para las VM de destino.  Seleccione e implemente una solución de STONITH.  Opciones posibles: Agente de barreras de Azure (compatible con [RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker), [SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)), SBD |
-| 6 | [Alta disponibilidad con HSR, DR con replicación de almacenamiento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-with-hsr-and-dr-with-storage-replication) | Sin | Reemplace la replicación de almacenamiento para las necesidades de DR con HSR o copia de seguridad/restauración. |
+| 6 | [Alta disponibilidad con HSR, DR con replicación de almacenamiento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-with-hsr-and-dr-with-storage-replication) | No | Reemplace la replicación de almacenamiento para las necesidades de DR con HSR o copia de seguridad/restauración. |
 | 7 | [Conmutación por error automática de host (1+1)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#host-auto-failover-11) | Sí | Use ANF el almacenamiento compartido con VM de Azure. |
 | 8 | [Escalabilidad horizontal con espera](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-standby) | Sí | BW/4HANA con VM M128s, M416s, M416ms con ANF para almacenamiento únicamente. |
 | 9 | [Escalabilidad horizontal sin espera](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-without-standby) | Sí | BW/4HANA con VM M128s, M416s, M416ms (con o sin usar ANF para almacenamiento). |
-| 10 | [Escalabilidad horizontal con DR mediante replicación de almacenamiento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-storage-replication) | Sin | Reemplace la replicación de almacenamiento para las necesidades de DR con HSR o copia de seguridad/restauración. |
+| 10 | [Escalabilidad horizontal con DR mediante replicación de almacenamiento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#scale-out-with-dr-using-storage-replication) | No | Reemplace la replicación de almacenamiento para las necesidades de DR con HSR o copia de seguridad/restauración. |
 | 11 | [Nodo único con DR mediante HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-with-dr-using-hsr) | Sí | - |
 | 12 | [HSR de nodo único a DR (optimizado para costo)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#single-node-hsr-to-dr-cost-optimized) | Sí | - |
 | 13 | [Alta disponibilidad y DR con HSR](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario#high-availability-and-disaster-recovery-with-hsr) | Sí | - |

@@ -16,10 +16,10 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73161198"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guía del administrador de Jira y Confluence de Atlassian para Azure Active Directory
@@ -28,7 +28,7 @@ ms.locfileid: "73161198"
 
 El complemento de inicio de sesión único (SSO) de Azure Active Directory (Azure AD) permite a los clientes de Microsoft Azure AD usar su cuenta profesional o educativa para iniciar sesión en Atlassian Jira y en los productos basados en Confluence Server. Implementa el SSO basado en SAML 2.0.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Cuando los usuarios deseen iniciar sesión en la aplicación Confluence o Atlassian Jira, verán el botón **Login with Azure AD** (Iniciar sesión con Azure AD) en la página de inicio de sesión. Cuando se selecciona, deben iniciar sesión mediante la página de inicio de sesión de la organización de Azure AD (es decir, su cuenta profesional o educativa).
 
@@ -54,7 +54,7 @@ Los administradores de Jira y Confluence pueden usar el complemento para habilit
 * Jira o Confluence también están disponibles fuera de la red de la empresa.
 * El complemento funciona solo con las versiones locales de Jira y Confluence.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de instalar el complemento, tenga en cuenta la siguiente información:
 
@@ -139,7 +139,7 @@ En la imagen siguiente se muestra la pantalla de configuración tanto en Jira co
 
 * **Enable Single Signout** (Habilitar cierre de sesión único): Selección que hay que hacer si quiere cerrar la sesión de Azure AD cuando un usuario cierra la sesión de Jira o Confluence.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 * **Recibe varios errores de certificados**: Inicie sesión en Azure AD y quite los distintos certificados disponibles en la aplicación. Asegúrese de que haya solo un certificado.
 

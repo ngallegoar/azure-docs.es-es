@@ -15,10 +15,10 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77160073"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Aplicación de página única: Adquisición de un token para llamar a una API
@@ -42,7 +42,7 @@ Al crear la solicitud de token de acceso, puede establecer los ámbitos de API q
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>Adquisición de un token con una ventana emergente
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 En el código siguiente se combina el patrón descrito anteriormente con los métodos de una experiencia de ventana emergente:
 
@@ -69,7 +69,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-# <a name="angulartabangular"></a>[Angular](#tab/angular)
+# <a name="angular"></a>[Angular](#tab/angular)
 
 El contenedor MSAL Angular proporciona el interceptor HTTP, que adquiere de forma automática y silenciosa los tokens de acceso y los asocia a las solicitudes HTTP de las API.
 
@@ -115,7 +115,7 @@ Como alternativa, también puede adquirir tokens de forma explícita mediante lo
 
 ## <a name="acquire-a-token-with-a-redirect"></a>Adquisición de un token con una redirección
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 El siguiente patrón es como se describió anteriormente, pero se muestra con un método de redirección para adquirir tokens de manera interactiva. Como se mencionó anteriormente, tendrá que registrar la devolución de llamada de redirección.
 
@@ -173,7 +173,7 @@ myMSALObj.acquireTokenPopup(request);
 
 Para más información, consulte [Notificaciones opcionales](active-directory-optional-claims.md).
 
-# <a name="angulartabangular"></a>[Angular](#tab/angular)
+# <a name="angular"></a>[Angular](#tab/angular)
 
 Este código es igual al que se ha descrito anteriormente.
 

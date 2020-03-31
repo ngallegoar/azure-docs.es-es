@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
 ms.openlocfilehash: 1688fe848beb62731391bf4399a0dabec5265320
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484730"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235176"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registro de las extensiones de enlace de Azure Functions
 
@@ -31,7 +31,7 @@ En la tabla siguiente se indica cuándo y cómo registrar los enlaces.
 |Biblioteca de clases de C# con Visual Studio|[Uso de herramientas NuGet](#vs)|[Uso de herramientas NuGet](#vs)|
 |Biblioteca de clases de C# con Visual Studio Code|N/D|[Uso de la CLI de .NET Core](#vs-code)|
 
-## <a name="extension-bundles"></a>Agrupaciones de extensiones para el desarrollo local
+## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Agrupaciones de extensiones para el desarrollo local
 
 Las agrupaciones de extensiones son una tecnología de implementación que permite agregar un conjunto compatible de extensiones de enlace de Functions a la aplicación de función. Al compilar la aplicación, se agrega un conjunto predefinido de extensiones. Los paquetes de extensiones definidos en una agrupación son compatibles entre sí, lo cual le ayuda a evitar conflictos entre ellos. Las agrupaciones de extensiones se habilitan en el archivo host.json de la aplicación.  
 
@@ -47,7 +47,7 @@ Para usar agrupaciones de extensiones, actualice el archivo *host.json* para que
 
 <a name="local-csharp"></a>
 
-## <a name="vs"></a> Biblioteca de clases de C\# con Visual Studio
+## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a> Biblioteca de clases de C\# con Visual Studio
 
 En **Visual Studio**, puede instalar paquetes desde la Consola del Administrador de paquetes mediante el comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), tal como se muestra en el ejemplo siguiente:
 
@@ -61,7 +61,7 @@ Reemplace `<TARGET_VERSION>` en el ejemplo con una versión específica del paqu
 
 Si usa `Install-Package` para hacer referencia a un enlace, no es necesario usar [agrupaciones de extensiones](#extension-bundles). Este enfoque es específico de las bibliotecas de clases compiladas en Visual Studio.
 
-## <a name="vs-code"></a> Biblioteca de clases de C# con Visual Studio Code
+## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> Biblioteca de clases de C# con Visual Studio Code
 
 En **Visual Studio Code**, instale paquetes para un proyecto de biblioteca de clases de C# desde el símbolo del sistema mediante el comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) de la CLI de .NET Core. En el ejemplo siguiente se muestra cómo agregar un enlace:
 

@@ -4,11 +4,11 @@ description: En este artículo, aprenderá a preparar las copias de seguridad de
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753954"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233928"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparación para realizar copias de seguridad de las cargas de trabajo en Azure con System Center DPM
 

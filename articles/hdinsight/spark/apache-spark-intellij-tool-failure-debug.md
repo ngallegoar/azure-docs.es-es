@@ -10,17 +10,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73494592"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Error de depuración de trabajos de Spark con Azure Toolkit for IntelliJ (versión preliminar)
 
 En este artículo se proporcionan instrucciones paso a paso sobre cómo usar las herramientas de HDInsight de [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) para ejecutar aplicaciones de **depuración de errores de Spark**.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Kit de desarrollo de Oracle Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). En este tutorial se usa la versión 8.0.202 de Java.
   
@@ -46,7 +46,7 @@ Cree un proyecto de Spark 2.3.2 para continuar con la depuración de errores; us
 
    c. Seleccione **Next** (Siguiente).
 
-2. En la ventana **New Project** (Nuevo proyecto), siga estos pasos:
+2. En la ventana **Nuevo proyecto**, siga estos pasos:
 
    ![Selección de versión de Spark en nuevo proyecto de IntelliJ](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
 
@@ -114,7 +114,7 @@ Si se produce un error al enviar el trabajo, puede descargar el perfil de trabaj
 
 1. Después de la depuración, si el proyecto se completa de forma correcta, puede volver a enviar el trabajo con error al clúster de Spark en HDInsight.
 
-## <a name="seealso"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="seealso"></a>Pasos siguientes
 
 * [Información general: Depuración de aplicaciones de Apache Spark](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 
@@ -141,12 +141,12 @@ Si se produce un error al enviar el trabajo, puede descargar el perfil de trabaj
 * [Uso de Azure Toolkit for IntelliJ para depurar de forma remota aplicaciones de Apache Spark mediante VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Uso de las herramientas de HDInsight de Azure Toolkit for Eclipse con el fin de crear aplicaciones Apache Spark](../hdinsight-apache-spark-eclipse-tool-plugin.md)
-* [Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en HDInsight](apache-spark-zeppelin-notebook.md)
+* [Uso de cuadernos de Apache Zeppelin con un clúster de Apache Spark en HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels para Jupyter Notebook en clústeres Azure Spark en Azure HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Administración de recursos
+### <a name="manage-resources"></a>Administrar recursos
 
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](apache-spark-job-debugging.md)

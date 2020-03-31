@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
 ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77168457"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre el servicio Speech to Text
@@ -82,7 +82,7 @@ Si ha adaptado e implementado un modelo con la línea de base V1.0, esa implemen
 **R.** : Si envía cada canal por separado (cada uno en un archivo propio), se le cobrará por la duración de cada archivo. Si envía un solo archivo con cada canal multiplexado juntos, se le cobrará por la duración del archivo individual. Para más información sobre los precios, vea la [página de precios de Azure Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
-> Si tiene más dudas sobre la privacidad que le impidan usar el servicio Voz personalizado, póngase en contacto con uno de los canales de soporte técnico.
+> Si tiene más dudas sobre la privacidad que le impidan usar el servicio Habla personalizada, póngase en contacto con uno de los canales de soporte técnico.
 
 ## <a name="increasing-concurrency"></a>Aumento de la simultaneidad
 
@@ -96,7 +96,7 @@ Para aumentar la simultaneidad de un ***modelo personalizado***, se necesita la 
 
 - La región donde se implementa el modelo,
 - el identificador del punto de conexión del modelo implementado:
-  - Inicie sesión en el [portal de Custom Speech](https://aka.ms/customspeech),
+  - Inicie sesión en el [portal de Habla personalizada](https://aka.ms/customspeech),
   - inicie sesión (si es necesario),
   - seleccione el proyecto y la implementación,
   - seleccione el punto de conexión para el que necesita el aumento de simultaneidad,
@@ -183,7 +183,7 @@ or
 
 **R.** : La carga de una lista de palabras las agregará al vocabulario, pero no enseñará al sistema cómo se usan normalmente. Al proporcionar expresiones completas o parciales (oraciones o frases que es probable que digan los usuarios), el modelo de lenguaje puede aprender las palabras nuevas y cómo se usan. El modelo de lenguaje personalizado es bueno no solo para agregar palabras nuevas al sistema, sino también para ajustar la probabilidad de palabras conocidas para la aplicación. Al proporcionar expresiones completas se ayuda al sistema a aprender mejor.
 
-## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modelo de inquilino (Custom Speech con datos de Office 365)
+## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modelo de inquilino (Habla personalizada con datos de Office 365)
 
 **P: ¿Qué información se incluye en el modelo de inquilino y cómo se crea?**
 

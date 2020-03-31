@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: a916645f153f73a98e7fc5d4046bdf557e8acf2b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823530"
 ---
 # <a name="split-merge-security-configuration"></a>Configuración de seguridad de división y combinación
@@ -441,7 +441,7 @@ En el **asistente para exportar certificados**:
 7. Escriba una contraseña segura y confírmela.
 8. Haga clic en **Next**.
 9. Escriba o busque un nombre de archivo donde almacenar el certificado (use una extensión .PFX).
-10. Haga clic en **Siguiente**.
+10. Haga clic en **Next**.
 11. Haga clic en **Finalizar**
 12. Haga clic en **OK**.
 

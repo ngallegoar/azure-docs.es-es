@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 984b03288b8dae644fc04a2cd78fb03a2e027f62
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e69a03cd142fdbcc5864ee38a4843e1c2e44a124
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722210"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477160"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Ejecutar tareas de ciencia de datos: exploración, modelado e implementación
 
@@ -26,7 +26,7 @@ Entre las tareas de ciencia de datos habituales se incluyen la implementación, 
 - [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
 
-## 1. <a name='DataQualityReportUtility-1'></a> Exploración 
+## <a name="1--exploration"></a>1. <a name='DataQualityReportUtility-1'></a> Exploración 
 
 Un científico de datos puede realizar la exploración y los informes de diversas formas: mediante bibliotecas y paquetes disponibles para Python (matplotlib por ejemplo) o con R (ggplot o lattice por ejemplo). Los científicos de datos pueden personalizar dicho código para satisfacer las necesidades de exploración de datos para escenarios específicos. Las necesidades de lidiar con datos estructurados son distintas que en el caso de los datos no estructurados, como texto o imágenes. 
 
@@ -41,7 +41,7 @@ Esta utilidad de R basado en marcado o en bloc de notas Python proporciona una h
 En este momento, la herramienta solo funciona en tramas de datos en memoria. Se necesita un archivo YAML para especificar los parámetros del conjunto de datos que se van a explorar. Para más información, consulte [IDEAR en utilidades de ciencia de datos de TDSP](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
 
-## 2. <a name='ModelingUtility-2'></a> Modelado
+## <a name="2--modeling"></a>2. <a name='ModelingUtility-2'></a> Modelado
 
 Hay diversos kits de herramientas y paquetes para entrenar modelos en diversos idiomas. Los científicos de datos no deben tener reparos en usar aquellos con los cuales se sientan cómodos, siempre que se cumplan las consideraciones de rendimiento relacionadas con la precisión y la latencia para los escenarios de producción y los casos de uso empresariales pertinentes.
 
@@ -74,11 +74,11 @@ Para más información, consulte la [utilidad de modelado y servicio de informes
 Tras la creación de varios modelos, suele ser necesario tener un sistema para registrar y administrar los modelos. Normalmente, necesita una combinación de scripts o API y una base de datos back-end o un sistema de control de versiones. Algunas opciones que puede tener en cuenta para estas tareas de administración son:
 
 1. [Azure Machine Learning: servicio Administración de modelos](../index.yml)
-2. [ModelDB de MIT](https://mitdbg.github.io/modeldb/) 
+2. [ModelDB de MIT](http://modeldb.csail.mit.edu:3000/projects) 
 3. [SQL Server como sistema de administración de modelos](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
-## 3. <a name='Deployment-3'></a> Implementación
+## <a name="3--deployment"></a>3. <a name='Deployment-3'></a> Implementación
 
 La implementación de producción permite que un modelo desempeñe un rol activo en una empresa. Las predicciones a partir de un modelo implementado pueden usarse en las decisiones empresariales.
 

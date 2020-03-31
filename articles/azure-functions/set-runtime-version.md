@@ -4,10 +4,10 @@ description: Azure Functions admite varias versiones del runtime. Obtenga inform
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 5a71338b1b9735d7e7494dc2667bd7addf5d4a53
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77151962"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions
@@ -49,7 +49,7 @@ Puede cambiar la versión del entorno en tiempo de ejecución que la aplicación
 > [!NOTE]
 > Azure Portal no permite cambiar la versión del entorno en tiempo de ejecución para una aplicación de función que ya contiene funciones.
 
-### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Desde la CLI de Azure
+### <a name="from-the-azure-cli"></a><a name="view-and-update-the-runtime-version-using-azure-cli"></a>Desde la CLI de Azure
 
 `FUNCTIONS_EXTENSION_VERSION` también se puede visualizar y establecer desde la CLI de Azure.
 

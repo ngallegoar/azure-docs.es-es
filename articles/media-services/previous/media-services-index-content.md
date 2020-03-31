@@ -16,10 +16,10 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 7ccc2d5956b44a8cd85f19e0905539c32f58bc5e
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164005"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indización de archivos multimedia con el Indizador multimedia de Azure
@@ -142,7 +142,7 @@ Si no se especifica ningún archivo de configuración, el archivo multimedia se 
 ```
 
 <!-- __ -->
-### <a id="output_files"></a>Archivos de salida
+### <a name="output-files"></a><a id="output_files"></a>Archivos de salida
 De forma predeterminada, el trabajo de indización genera los siguientes archivos de salida. Los archivos se almacenan en el primer recurso de salida.
 
 Cuando hay más de un archivo multimedia de entrada, Indexer genera un archivo de manifiesto para las salidas del trabajo denominado "JobResult.txt". Para cada archivo de elementos multimedia de entrada, los archivos de palabras clave, TTML y WebVTT resultantes se numeran secuencialmente y se les asigna un nombre usando el "Alias".
@@ -240,7 +240,7 @@ Si no se indizan correctamente todos los archivos multimedia de entrada, el trab
 
 Se generan las mismas salidas (como trabajos realizados correctamente). Puede consultar el archivo de manifiesto de salida para ver qué archivos de entrada son erróneos, según los valores de columna Error. En el caso de los archivos de entrada erróneos, no se generarán los archivos de palabras clave, TTML y WebVTT resultantes.
 
-### <a id="preset"></a> Valores predefinidos de tarea para Azure Media Indexer
+### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a> Valores predefinidos de tarea para Azure Media Indexer
 Para personalizar el procesamiento de Azure Media Indexer, puede proporcionar valores predefinidos de tarea junto con la tarea.  A continuación se describe el formato de este xml de configuración.
 
 | Nombre | Necesario | Descripción |
@@ -249,7 +249,7 @@ Para personalizar el procesamiento de Azure Media Indexer, puede proporcionar va
 | **metadata** |false |Metadatos de los archivos de recurso especificados usados para la adaptación de vocabulario.  Resulta útil para preparar el indexador para reconocer palabras de vocabulario no estándar tales como nombres propios.<br/>`<metadata key="..." value="..."/>` <br/><br/>Puede proporcionar **valores** para **claves** predefinidas. Actualmente se admiten las siguientes claves:<br/><br/>"title" y "description", que se usan para que la adaptación de vocabulario ajuste el modelo de lenguaje a su trabajo y mejorar así la precisión del reconocimiento de voz.  Los valores se incluyen en las búsquedas de Internet para encontrar documentos de texto relevantes para el contexto, y el contenido se usa para aumentar el diccionario interno durante el tiempo que dura la tarea de indexación.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
 | **features** <br/><br/> Agregado en la versión 1.2. Actualmente solo se admite la característica de reconocimiento de voz ("ASR"). |false |La característica de reconocimiento de voz tiene las siguientes claves de configuración:<table><tr><th><p>Clave</p></th>        <th><p>Descripción</p></th><th><p>Valor de ejemplo</p></th></tr><tr><td><p>Idioma</p></td><td><p>El lenguaje natural que se reconocerá en el archivo multimedia.</p></td><td><p>Inglés, español</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>Una lista separada con punto y coma de los formatos de subtítulo de salida que desee (si existen)</p></td><td><p>ttml;webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Una marca booleana que especifica si se requiere un archivo XML de palabras clave o no.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Una marca booleana que especifica si se debe o no forzar leyendas completas (independientemente del nivel de confianza).  </p><p>El valor predeterminado es false, en cuyo caso las palabras y frases que tienen un nivel de confianza de un 50% menos se omite en las salidas de la leyenda final y se reemplazan por puntos suspensivos ("...").  Los puntos suspensivos son útiles para el control de calidad de las leyendas y la auditoría.</p></td><td><p>True; False. </p></td></tr></table> |
 
-### <a id="error_codes"></a>Códigos de error
+### <a name="error-codes"></a><a id="error_codes"></a>Códigos de error
 En caso de error, Azure Media Indexer debe notificar uno de los siguientes códigos de error:
 
 | Código | Nombre | Razones posibles |
@@ -265,7 +265,7 @@ En caso de error, Azure Media Indexer debe notificar uno de los siguientes códi
 | 4000 |Indización de lote parcialmente correcta |Algunos de los archivos multimedia de entrada no se pudieron indizar. Para obtener más información, consulte <a href="#output_files">Archivos de salida</a>. |
 | Otros |Errores internos |Póngase en contacto con el equipo de soporte técnico. indexer@microsoft.com |
 
-## <a id="supported_languages"></a>Idiomas admitidos
+## <a name="supported-languages"></a><a id="supported_languages"></a>Idiomas admitidos
 Actualmente, se admiten los idiomas inglés y español.  
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services

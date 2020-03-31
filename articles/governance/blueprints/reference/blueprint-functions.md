@@ -4,11 +4,11 @@ description: Describe las funciones disponibles que se pueden utilizar con artef
 ms.date: 12/09/2019
 ms.topic: reference
 ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970897"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236148"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funciones para usar con Azure Blueprints
 
@@ -34,7 +34,7 @@ Devuelve un objeto de propiedades rellenadas con los resultados de los artefacto
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | artifactName |Sí |string |El nombre de un artefacto de plano técnico. |
 
@@ -106,13 +106,13 @@ Un artefacto de plantilla de Resource Manager con el identificador _myTemplateA
 
 Algunos ejemplos de recuperación de datos de la plantilla _myTemplateArtifact_ son los siguientes:
 
-| Expression | Tipo | Valor |
+| Expression | Tipo | Value |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Cadena | "first" |
-|`[artifacts("myTemplateArtifact").outputs.myString]` | Cadena | "my string value" |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "my string value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Cadena | "my value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "my value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
@@ -123,16 +123,16 @@ Combina varios valores de cadena y devuelve la cadena concatenada.
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | string1 |Sí |string |El primer valor para la concatenación. |
-| argumentos adicionales |Sin |string |Valores adicionales en orden secuencial para la concatenación |
+| argumentos adicionales |No |string |Valores adicionales en orden secuencial para la concatenación |
 
 ### <a name="return-value"></a>Valor devuelto
 
 Una cadena de valores concatenados.
 
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
 
 La función de Azure Blueprints difiere de la función de la plantilla de Azure Resource Manager en que solo funciona con cadenas.
 
@@ -140,7 +140,7 @@ La función de Azure Blueprints difiere de la función de la plantilla de Azure
 
 `concat(parameters('organizationName'), '-vm')`
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>parámetros
 
 `parameters(parameterName)`
 
@@ -148,7 +148,7 @@ Devuelve un valor de parámetro de plano técnico. El nombre del parámetro espe
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sí |string |El nombre del parámetro que se va a devolver. |
 
@@ -156,7 +156,7 @@ Devuelve un valor de parámetro de plano técnico. El nombre del parámetro espe
 
 El valor del parámetro del plano técnico o del artefacto de plano técnico especificado.
 
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
 
 La función de Azure Blueprints difiere de la función de la plantilla de Azure Resource Manager en que solo funciona con parámetros de plano técnico.
 
@@ -216,7 +216,7 @@ El objeto devuelto está en el formato siguiente:
 }
 ```
 
-### <a name="remarks"></a>Comentarios
+### <a name="remarks"></a>Observaciones
 
 La función de Azure Blueprints difiere de la función de la plantilla de Azure Resource Manager. La función `resourceGroup()` no se puede usar en un artefacto de nivel de suscripción ni en la definición del plano técnico. Solo puede usarse en artefactos de plano técnico que forman parte de un artefacto del grupo de recursos.
 
@@ -269,7 +269,7 @@ Devuelve un objeto que representa el artefacto del grupo de recursos especificad
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
 | placeholderName |Sí |string |El nombre de marcador de posición del artefacto del grupo de recursos que se va a devolver. |
 

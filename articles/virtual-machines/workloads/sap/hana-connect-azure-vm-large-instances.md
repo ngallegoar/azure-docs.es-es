@@ -16,10 +16,10 @@ ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fb6f88fbfcbd539603e435b11661c428d54f3c34
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74224724"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Conexión de las máquinas virtuales de Azure a HANA Instancias grandes

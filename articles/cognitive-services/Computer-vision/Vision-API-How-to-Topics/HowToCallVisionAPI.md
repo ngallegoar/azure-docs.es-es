@@ -12,10 +12,10 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72177059"
 ---
 # <a name="call-the-computer-vision-api"></a>Llamada a Computer Vision API
@@ -25,7 +25,7 @@ En este artículo se muestra cómo llamar a la API Computer Vision mediante la A
 - Obtención de etiquetas, descripciones y categorías
 - Obtención de información específica de dominio o "celebridades"
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una dirección URL de la imagen o ruta de acceso a la imagen almacenada localmente
 - Métodos de entrada admitidos: archivos binarios de imagen raw en forma de application/octet-stream o URL de imagen
@@ -177,7 +177,7 @@ Este es un ejemplo:
 }
 ```
 
-Campo | type | Contenido
+Campo | Tipo | Contenido
 ------|------|------|
 Etiquetas  | `object` | Objeto de nivel superior de una matriz de etiquetas
 tags[].Name | `string`  | Palabra clave del clasificador de etiquetas
@@ -239,7 +239,7 @@ Para modelos específicos del dominio con la opción 2 (Análisis mejorado), el 
 
 El campo de categorías es una lista de una o varias de las [86 categorías](../Category-Taxonomy.md) de la taxonomía original. Las categorías que terminan con un guión bajo coincidirán con esa categoría y sus elementos secundarios (por ejemplo, "people_" o "people_group", para el modelo de celebridades).
 
-Campo   | type  | Contenido
+Campo   | Tipo  | Contenido
 ------|------|------|
 categories | `object`   | Objeto de nivel superior
 categories[].name    | `string` | Nombre de la lista de taxonomía de 86 categorías

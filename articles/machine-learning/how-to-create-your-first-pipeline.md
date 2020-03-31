@@ -12,11 +12,11 @@ author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2f62be94c901b383e34608508baa87ea37c893af
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580723"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237048"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -174,7 +174,7 @@ else:
     print(compute_target.status.serialize())
 ```
 
-### <a id="databricks"></a>Azure Databricks
+### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
 Azure Databricks es un entorno basado en Apache Spark de la nube de Azure. Se puede usar como destino de proceso con una canalización de Azure Machine Learning.
 
@@ -227,7 +227,7 @@ except ComputeTargetException:
 
 Para consultar un ejemplo más detallado, vea un [cuaderno de ejemplo](https://aka.ms/pl-databricks) en GitHub.
 
-### <a id="adla"></a>Azure Data Lake Analytics
+### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics
 
 Azure Data Lake Analytics es una plataforma de análisis de macrodatos de la nube de Azure. Se puede usar como destino de proceso con una canalización de Azure Machine Learning.
 
@@ -280,7 +280,7 @@ Para consultar un ejemplo más detallado, vea un [cuaderno de ejemplo](https://a
 > [!TIP]
 > Las canalizaciones de Azure Machine Learning solo pueden trabajar con datos almacenados en el almacén de datos predeterminado de la cuenta de Data Lake Analytics. Si los datos con los que necesita trabajar están en un almacén no predeterminado, puede usar [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) para copiar los datos antes del entrenamiento.
 
-## <a id="steps"></a>Construir los pasos de la canalización
+## <a name="construct-your-pipeline-steps"></a><a id="steps"></a>Construir los pasos de la canalización
 
 Después de crear y adjuntar un destino de proceso al área de trabajo, está listo para definir un paso de la canalización. Hay muchos pasos integrados disponibles a través del SDK de Azure Machine Learning. El más básico de estos pasos es [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), que ejecuta un script de Python en un destino de proceso específico.
 

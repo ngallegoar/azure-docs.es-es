@@ -4,11 +4,11 @@ description: Describe la definición de asignación de directiva utilizada por A
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78354981"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231416"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -62,7 +62,7 @@ Esta propiedad tiene los siguientes valores:
 |Mode |Valor JSON |Tipo |Corregir manualmente |Entrada de registro de actividad |Descripción |
 |-|-|-|-|-|-|
 |habilitado |Valor predeterminado |string |Sí |Sí |El efecto de la directiva se aplica durante la creación o actualización de recursos. |
-|Disabled |DoNotEnforce |string |Sí |Sin | El efecto de la directiva no se aplica durante la creación o actualización de recursos. |
+|Disabled |DoNotEnforce |string |Sí |No | El efecto de la directiva no se aplica durante la creación o actualización de recursos. |
 
 Si **enforcementMode** no se especifica en una definición de directiva o iniciativa, se usa el valor _Default_. [Las tareas de corrección](../how-to/remediate-resources.md) se pueden iniciar para las directivas [deployIfNotExists](./effects.md#deployifnotexists), incluso cuando **enforcementMode** está establecido en _DoNotEnforce_.
 

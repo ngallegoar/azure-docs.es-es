@@ -4,10 +4,10 @@ description: Enumera los tipos de recursos de Azure que se usan para ampliar las
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: c14cf6fec2da11534a7358599c79961a3258470b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76515286"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que amplían las capacidades de otros recursos

@@ -7,17 +7,17 @@ ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769275"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalización de un punto de conexión HTTP en Azure Functions
 
 En este artículo, aprenderá cómo Azure Functions permite crear API de gran escalabilidad. Azure Functions incluye una colección de enlaces y desencadenadores HTTP integrados que facilitan la creación de un punto de conexión en diversos lenguajes, como Node.js, C# y muchos más. En este artículo, va a personalizar un desencadenador HTTP para administrar acciones específicas en el diseño de la API. También va a prepararse para ampliar su API integrándola con Servidores proxy de Azure Functions y configurando API simuladas. Todo esto se logra en un entorno de proceso sin servidor de Functions, por lo que no tiene que preocuparse de escalar los recursos; puede centrarse simplemente en la lógica de la API.
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 

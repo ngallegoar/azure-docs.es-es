@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: dapine
 ms.openlocfilehash: 5b1a5ac4867379457d161d07f4f4f2fc2d8ee6c3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77119602"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Inicio rápido: Obtención de una clave de punto de conexión de LUIS.

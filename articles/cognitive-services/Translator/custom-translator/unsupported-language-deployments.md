@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
 ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837445"
 ---
 # <a name="unsupported-language-deployments"></a>Implementaciones en lenguajes no compatibles
@@ -25,7 +25,7 @@ Con la próxima retirada de Microsoft Translator Hub, Microsoft anulará la impl
 
 Ahora tenemos un proceso que le permite implementar sus modelos no compatibles a través de Traductor personalizado.  Este proceso le permite continuar traduciendo contenido mediante la API V3 más reciente.  Estos modelos se hospedarán hasta que decida anular su implementación o el par de idiomas esté disponible en Traductor personalizado.  En este artículo se explica el proceso de implementación de modelos con pares de idiomas no compatibles.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para que sus modelos sean candidatos para la implementación, deben cumplir los siguientes criterios:
 * El proyecto que incluye el modelo debe haber migrado de la instancia de Hub a Traductor personalizado mediante la herramienta de migración.  [Aquí](how-to-migrate.md) encontrará el proceso de migración de proyectos y áreas de trabajo.
@@ -45,7 +45,7 @@ Después del envío, el modelo dejará de estar disponible en la pestaña **Unre
 
 ![Migración desde Microsoft Translator Hub](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 
-## <a name="whats-next"></a>Pasos siguientes
+## <a name="whats-next"></a>¿Qué sigue?
 
 Los modelos que seleccionó para la implementación se guardarán una vez que se retire la instancia de Hub y se anule la implementación de todos los modelos.  Hasta el 24 de mayo podrá enviar solicitudes de implementación de modelos no compatibles.  Implementaremos dichos modelos el 15 de junio, momento en el que se podrá tener acceso a ellos a través de la API de Translator V3.  Además, estarán disponibles a través de la API V2 hasta el 1 de julio.  
 

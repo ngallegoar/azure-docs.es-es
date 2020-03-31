@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
 ms.openlocfilehash: 6bcb65912627356215769ccc8380ee1a7404f6f7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185956"
 ---
 # <a name="add-migration-tools"></a>Incorporación de herramientas de migración

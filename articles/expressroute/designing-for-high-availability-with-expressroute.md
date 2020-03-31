@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4c3c6ae5fbdd91e6e44438be7fef2a3a91564a34
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076676"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Diseño de alta disponibilidad con ExpressRoute

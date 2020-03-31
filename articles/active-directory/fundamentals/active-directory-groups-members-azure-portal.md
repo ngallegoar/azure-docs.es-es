@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c83c57be63ae9e2a4d4113accaefe8a2c2b525
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561956"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Incorporación o eliminación de los miembros de un grupo mediante Azure Active Directory
@@ -25,7 +25,7 @@ Con Azure Active Directory, puede seguir agregando y quitando miembros del grupo
 
 ## <a name="to-add-group-members"></a>Para agregar miembros al grupo
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global del directorio.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global para el directorio.
 
 2. Seleccione **Azure Active Directory** y después seleccione **Grupos**.
 
@@ -57,7 +57,7 @@ Con Azure Active Directory, puede seguir agregando y quitando miembros del grupo
 
 - [Visualización de grupos y miembros](active-directory-groups-view-azure-portal.md)
 
-- [Editar la configuración del grupo](active-directory-groups-settings-azure-portal.md)
+- [Edición de la configuración de un grupo](active-directory-groups-settings-azure-portal.md)
 
 - [Administrar el acceso a los recursos mediante grupos](active-directory-manage-groups.md)
 

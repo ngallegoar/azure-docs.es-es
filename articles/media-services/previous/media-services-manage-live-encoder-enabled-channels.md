@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: a32624c37cd8ca7fbef9e38ca61de9369791dd25
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162538"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
@@ -57,7 +57,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal a los es
 Para hacer que el canal deje de facturarle, tendrá que detener el canal a través de la API o en Azure Portal.
 Usted es responsable de detener sus canales cuando haya terminado con el canal de codificación en directo.  Si no se detiene un canal de codificación, la facturación continuará.
 
-### <a id="states"></a>Estados del canal y cómo se asignan al modo de facturación
+### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Estados del canal y cómo se asignan al modo de facturación
 El estado actual de un canal. Los valores posibles son:
 
 * **Detenido**. Este es el estado inicial del canal después de su creación (a menos que seleccionara el inicio automático en el portal.) No se produce ninguna facturación en este estado. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
@@ -85,7 +85,7 @@ El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde 
 
 ![Flujo de trabajo activo][live-overview]
 
-## <a id="scenario"></a>Escenario común de streaming en vivo
+## <a name="common-live-streaming-scenario"></a><a id="scenario"></a>Escenario común de streaming en vivo
 A continuación se indican los pasos generales para crear aplicaciones comunes de streaming en vivo.
 
 > [!NOTE]
@@ -123,14 +123,14 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 > 
 > 
 
-## <a id="channel"></a>Configuraciones de entrada de canal (ingesta)
-### <a id="Ingest_Protocols"></a>Protocolo de streaming de ingesta
+## <a name="channels-input-ingest-configurations"></a><a id="channel"></a>Configuraciones de entrada de canal (ingesta)
+### <a name="ingest-streaming-protocol"></a><a id="Ingest_Protocols"></a>Protocolo de streaming de ingesta
 Si el **Tipo de codificador** está establecido en **Estándar**, las opciones válidas son:
 
 * **RTMP**
 * **MP4 fragmentado** de una sola velocidad de bits (Smooth Streaming)
 
-#### <a id="single_bitrate_RTMP"></a>RTMP de una sola velocidad de bits
+#### <a name="single-bitrate-rtmp"></a><a id="single_bitrate_RTMP"></a>RTMP de una sola velocidad de bits
 Consideraciones:
 
 * La secuencia de entrada no puede contener vídeo de varias velocidades de bits.
@@ -210,7 +210,7 @@ Se recomienda enviar una secuencia de transporte de un solo programa (SPTS). Si 
 #### <a name="language"></a>Idioma
 El identificador de idioma de la secuencia de audio, conforme a ISO 639-2, por ejemplo, ENG. Si no aparece, el valor predeterminado es UND (sin definir).
 
-### <a id="preset"></a>Valor preestablecido del sistema
+### <a name="system-preset"></a><a id="preset"></a>Valor preestablecido del sistema
 Especifica el valor preestablecido que usará el codificador en directo dentro de este canal. Actualmente, el único valor permitido es **Default720p** (valor predeterminado).
 
 **Default720p** codificará el vídeo en las 6 capas siguientes.
@@ -262,7 +262,7 @@ La duración de la pizarra en segundos. Para iniciar la pizarra, este debe ser u
 ### <a name="insert-slate-on-ad-marker"></a>Insertar pizarra en marcador de anuncio
 Cuando está establecido en true, este valor configura el codificador en directo para insertar una imagen de pizarra durante una pausa de anuncio. El valor predeterminado es true. 
 
-### <a id="default_slate"></a>Identificador de activo de activo de tableta táctil predeterminado
+### <a name="default-slate-asset-id"></a><a id="default_slate"></a>Identificador de activo de activo de tableta táctil predeterminado
 
 Opcional. Especifica el identificador del recurso de Media Services que contiene la imagen de pizarra. El valor predeterminado es null. 
 
@@ -299,7 +299,7 @@ Si desea conservar el contenido archivado, pero no hacerlo disponible para la tr
 ## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Obtención de una vista previa en miniatura de una fuente directa
 Si Live Encoding está habilitado, puede obtener una vista previa de la fuente directa cuando llega al canal. Esta puede ser una herramienta muy valiosa para comprobar si la fuente directa llega realmente al canal. 
 
-## <a id="states"></a>Estados del canal y cómo se asignan los estados al modo de facturación
+## <a name="channel-states-and-how-states-map-to-the-billing-mode"></a><a id="states"></a>Estados del canal y cómo se asignan los estados al modo de facturación
 El estado actual de un canal. Los valores posibles son:
 
 * **Detenido**. Este es el estado inicial del canal después de su creación. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
@@ -322,7 +322,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 > 
 > 
 
-## <a id="Considerations"></a>Consideraciones
+## <a name="considerations"></a><a id="Considerations"></a>Consideraciones
 * Cuando un canal de tipo de codificación **estándar** experimenta una pérdida de origen de entrada/fuente de contribución, la compensa reemplazando el audio y vídeo de origen por una careta de error y silencio. El canal continuará emitiendo una careta hasta que se reanude la fuente de contribución/entrada. Se recomienda no dejar un canal en directo en este estado durante más de dos horas. A partir de este momento, no se garantiza el comportamiento del canal en la reconexión de entrada, ni su comportamiento en respuesta a un comando de restablecimiento. Tendrá que detener el canal, eliminarlo y crear uno nuevo.
 * No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada.
 * Cada vez que vuelva a configurar el codificador en directo, llame al método **Restablecer** en el canal. Antes de restablecer el canal, debe detener el programa. Después de restablecer el canal, reinicie el programa.

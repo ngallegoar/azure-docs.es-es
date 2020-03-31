@@ -8,10 +8,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: 618033e24236d26601fafaf7b0678ee83ec973e8
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77650178"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualización de registros y métricas de Azure Cognitive Search con Power BI

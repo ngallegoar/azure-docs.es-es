@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
 ms.openlocfilehash: e5ed60ea59dc8cf19b8f9ca7e96777dbc6980171
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906057"
 ---
 # <a name="azure-database-security-overview"></a>Introducción a la seguridad de base de datos de Azure
@@ -69,7 +69,7 @@ En la cadena de conexión de la aplicación, debe especificar los parámetros pa
 
 Puede tomar varias precauciones para mantener la base de datos protegida. Por ejemplo, puede diseñar un sistema seguro, cifrar recursos confidenciales y compilar un firewall para los servidores de bases de datos. Aún así, en caso de que se roben medios físicos (como unidades o cintas de copias de seguridad), un usuario malintencionado puede restaurar o exponer la base de datos y examinar los datos.
 
-Una solución consiste en cifrar los datos confidenciales en la base de datos y proteger las claves que se usan para cifrar los datos con un certificado. Con ello se impide que cualquiera que no disponga de las claves use los datos, pero este tipo de protección debe planificarse.
+Una solución consiste en cifrar los datos confidenciales en la base de datos y usar un certificado para proteger las claves que se utilizan para cifrarlos. Con ello se impide que cualquiera que no disponga de las claves use los datos, pero este tipo de protección debe planificarse.
 
 Para solucionar este problema, SQL Server y SQL Database admiten el [cifrado de datos transparente](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). El cifrado de datos transparente cifra los archivos de datos de SQL Server y SQL Database, conocidos como datos de cifrado en reposo.
 
@@ -77,7 +77,7 @@ Asimismo, el cifrado de datos transparente le ayuda a protegerse contra la amena
 
 El cifrado de datos transparente se encarga de cifrar el almacenamiento de toda una base de datos mediante una clave simétrica denominada clave de cifrado de base de datos. En SQL Database, la clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor de SQL Database.
 
-Si una base de datos está en una relación de Geo-DR, está protegida por una clave diferente en cada servidor. Si hay dos bases de datos conectadas al mismo servidor, comparten el mismo certificado integrado. Microsoft alterna automáticamente estos certificados al menos cada 90 días. 
+Si una base de datos está en una relación de Geo-DR, está protegida por una clave diferente en cada servidor. Si hay dos bases de datos conectadas al mismo servidor, compartirán el mismo certificado integrado. Microsoft gira automáticamente estos certificados al menos cada 90 días. 
 
 Para obtener más información, consulte [Cifrado de datos transparente](/sql/relational-databases/security/encryption/transparent-data-encryption-tde).
 
@@ -144,7 +144,7 @@ En otro ejemplo, se puede definir una máscara de datos adecuada para proteger l
 
 El [enmascaramiento dinámico de datos de SQL Database](/azure/sql-database/sql-database-dynamic-data-masking-get-started) limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. El enmascaramiento de datos dinámicos se admite con la versión V12 de Azure SQL Database.
 
-El [enmascaramiento dinámico de datos](/sql/relational-databases/security/dynamic-data-masking) ayuda a impedir el acceso no autorizado a datos confidenciales permitiéndole designar la cantidad de los datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación. Es una característica de seguridad basada en directivas que oculta los datos confidenciales en el conjunto de resultados de una consulta sobre los campos designados de la base de datos, aunque que los datos de la base de datos no cambian.
+El [enmascaramiento dinámico de datos](/sql/relational-databases/security/dynamic-data-masking) ayuda a impedir el acceso no autorizado a datos confidenciales permitiéndole designar la cantidad de los datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación. Se trata de una característica de protección de datos que oculta la información confidencial del conjunto de resultados de una consulta de campos designados de una base de datos, sin modificar los datos de esta última.
 
 > [!Note]
 > El enmascaramiento de datos dinámicos puede configurarse mediante el administrador de Base de datos de Azure, el administrador del servidor o los roles de autoridad de seguridad.
@@ -155,7 +155,7 @@ Otro requisito de seguridad habitual de las bases de datos multiinquilino es la 
 
 ![La característica de seguridad de nivel de fila permite al usuario obtener acceso a las filas de una tabla a través de una aplicación cliente](./media/database-security-overview/azure-database-fig4.png)
 
-La lógica de restricción de acceso está en el nivel de la base de datos, en lugar de encontrarse en otro nivel de la aplicación lejos de los datos. El sistema de base de datos aplica las restricciones de acceso cada vez que se intenta acceder a los datos desde cualquier nivel. Esto hace que el sistema de seguridad resulte más sólido y confiable al reducir el área expuesta del sistema de seguridad.
+La lógica de la restricción de acceso está ubicada en el nivel de base de datos en lugar de estar alejado de los datos en otro nivel de aplicación. El sistema de base de datos aplica las restricciones de acceso cada vez que se intenta acceder a los datos desde cualquier nivel. Esto hace que el sistema de seguridad resulte más sólido y confiable al reducir el área expuesta del sistema de seguridad.
 
 La característica de seguridad de nivel de fila introduce el control de acceso basado en predicados. Ofrece una evaluación flexible y centralizada que puede tener en cuenta los metadatos o cualquier otro criterio que el administrador determine como adecuado. El predicado se usa como criterio para determinar si el usuario tiene el acceso adecuado a los datos en función de los atributos de usuario. El control de acceso basado en etiquetas se puede implementar mediante el control de acceso basado en predicados.
 
@@ -189,7 +189,7 @@ La [protección avanzada contra amenazas en Azure SQL Database](/azure/sql-datab
 SQL Advanced Threat Protection (ATP) proporciona un conjunto de funcionalidades avanzadas de seguridad de SQL, entre las que se incluyen Clasificación y detección de datos, Evaluación de vulnerabilidad y Detección de amenazas. 
 
 - [Clasificación y detección de datos](/azure/sql-database/sql-database-data-discovery-and-classification):
-- [Evaluación de vulnerabilidades](/azure/sql-database/sql-vulnerability-assessment):  
+- [Evaluación de vulnerabilidad](/azure/sql-database/sql-vulnerability-assessment)  
 - [Detección de amenazas](/azure/sql-database/sql-database-threat-detection)
 
 [Advanced Threat Protection para Azure Database for PostgreSQL](/azure/postgresql/concepts-data-access-and-security-threat-protection) proporciona una nueva capa de seguridad, que le permite detectar posibles amenazas y responder a ellas cuando se producen, gracias a que proporciona alertas de seguridad sobre actividades anómalas. Los usuarios reciben una alerta sobre actividades sospechosas en las bases de datos, posibles puntos vulnerables, así como sobre patrones anómalos de consulta y acceso a las bases de datos. Advanced Threat Protection para Azure Database for PostgreSQL integra sus alertas con Azure Security Center. Los tipos de alerta incluyen:

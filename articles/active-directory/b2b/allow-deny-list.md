@@ -13,10 +13,10 @@ ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74273419"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir o bloquear invitaciones a usuarios B2B procedentes de determinadas organizaciones
@@ -41,7 +41,7 @@ Este es el escenario más típico, donde su organización quiere trabajar con ca
 
 Para agregar una lista de denegación:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Azure Active Directory** > **Usuarios** > **Configuración de usuario**.
 3. En **Usuarios externos**, seleccione **Administrar la configuración de colaboración externa**.
 4. En **Restricciones de colaboración**, seleccione **Deny invitations to the specified domains** (Denegar invitaciones a los dominios especificados).
@@ -62,7 +62,7 @@ Si desea usar una lista de permitidos, asegúrese de dedicar tiempo a evaluar ex
 
 Para agregar una lista de permitidos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Azure Active Directory** > **Usuarios** > **Configuración de usuario**.
 3. En **Usuarios externos**, seleccione **Administrar la configuración de colaboración externa**.
 4. En **Restricciones de colaboración**, seleccione **Allow invitations only to the specified domains (most restrictive)** (Permitir invitaciones solo a los dominios especificados [más restrictivo]).

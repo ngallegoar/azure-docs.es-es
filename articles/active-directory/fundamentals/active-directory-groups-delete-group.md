@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bdba55e0655a13e65e403f5da73fcb69db5dbca5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561905"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Eliminación de un grupo con Azure Active Directory
@@ -30,13 +30,13 @@ Puede eliminar un grupo de Azure Active Directory (Azure AD) por infinidad de mo
 - Ya no necesita el grupo.
 
 ## <a name="to-delete-a-group"></a>Para eliminar un grupo
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global del directorio.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global para el directorio.
 
 2. Seleccione **Azure Active Directory** y después seleccione **Grupos**.
 
 3. En la página **Grupos - Todos los grupos**, busque y seleccione el grupo que quiere eliminar. Para estos pasos, vamos a usar **MDM policy - East**.
 
-    ![Página Grupos - Todos los grupos, el nombre del grupo resaltado](media/active-directory-groups-delete-group/group-all-groups-screen.png)
+    ![Página Grupos - Todos los grupos, con el nombre del grupo resaltado](media/active-directory-groups-delete-group/group-all-groups-screen.png)
 
 4. En la página **Información general de MDM policy - East**, seleccione **Eliminar**.
 

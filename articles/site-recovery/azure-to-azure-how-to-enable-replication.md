@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
 ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75973689"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicación de máquinas virtuales de Azure en otra región de Azure
@@ -26,7 +26,7 @@ Se deben cumplir los requisitos previos y debería haber creado un almacén de R
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
-Habilite la replicación. En este procedimiento se supone que la región principal de Azure es Asia Pacífico, y la secundaria es Asia Suroriental.
+Habilite la replicación. En este procedimiento se supone que la región principal de Azure es Asia Pacífico, y la secundaria es Sudeste de Asia.
 
 1. En el almacén, haga clic en **+ Replicar**.
 2. Especifique los siguientes campos:

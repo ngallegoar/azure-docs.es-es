@@ -12,10 +12,10 @@ ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
 ms.openlocfilehash: c49535ad11139ac5145d4f283374bf9cc6d71f52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72025795"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Descripción y solución de los problemas de los conectores de CORS en Azure Active Directory Application Proxy
@@ -114,7 +114,7 @@ Puede cambiar la aplicación para admitir CORS agregando el encabezado Access-Co
 
 Algunos problemas de CORS no se pueden resolver, por ejemplo, cuando la aplicación se redirige a *login.microsoftonline.com* para autenticarse y expira el token de acceso. Luego, la llamada de CORS produce un error. Una solución alternativa para este escenario es ampliar la duración del token de acceso, para evitar que expire durante la sesión de un usuario. Para más información sobre cómo hacerlo, consulte [Vigencia de tokens configurable en Azure AD](../develop/active-directory-configurable-token-lifetimes.md).
 
-## <a name="see-also"></a>Otras referencias
-- [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md) 
+## <a name="see-also"></a>Consulte también
+- [Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory](application-proxy-add-on-premises-application.md) 
 - [Planear una implementación de Azure AD Application Proxy](application-proxy-deployment-plan.md) 
 - [Acceso remoto a aplicaciones locales mediante Azure Active Directory Application Proxy](application-proxy.md) 

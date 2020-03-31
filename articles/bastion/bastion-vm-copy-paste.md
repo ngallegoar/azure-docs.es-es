@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0aaf816cdfe7d42fd345eb4f010cf47b1615f462
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76989542"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiado y pegado entre máquinas virtuales: Azure Bastion
@@ -24,7 +24,7 @@ En exploradores que admiten el acceso avanzado de la API de Portapapeles, puede 
 
 Solo se admiten operaciones de copiado y pegado de texto. En operaciones de copiado y pegado directo, es posible que el explorador le pida acceso al Portapapeles al inicializar la sesión de Bastion. Pulse **Permitir** para que la página web puede acceder al Portapapeles.
 
-## <a name="to"></a>Copiado en una sesión remota
+## <a name="copy-to-a-remote-session"></a><a name="to"></a>Copiado en una sesión remota
 
 Después de conectarse a la máquina virtual mediante [Azure Portal](https://portal.azure.com), complete los siguientes pasos:
 
@@ -39,7 +39,7 @@ Después de conectarse a la máquina virtual mediante [Azure Portal](https://por
 
    ![pegar](./media/bastion-vm-manage/local.png)
 
-## <a name="from"></a>Copiado desde una sesión remota
+## <a name="copy-from-a-remote-session"></a><a name="from"></a>Copiado desde una sesión remota
 
 Después de conectarse a la máquina virtual mediante [Azure Portal](https://portal.azure.com), complete los siguientes pasos:
 

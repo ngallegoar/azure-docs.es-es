@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: a645049665bc1d51efa94a879b9d2e4e5529282f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73904589"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de MapReduce en HDInsight y Azure Data Lake Storage Gen1
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
@@ -27,7 +27,7 @@ ms.locfileid: "73904589"
 
 Al ejecutar trabajos de MapReduce, estos son los parámetros más importantes que se pueden configurar para aumentar el rendimiento en Data Lake Storage Gen1:
 
-|Parámetro      | DESCRIPCIÓN  |
+|Parámetro      | Descripción  |
 |---------|---------|
 |`Mapreduce.map.memory.mb`  |  Cantidad de memoria que se va a asignar a cada asignador.  |
 |`Mapreduce.job.maps`     |  Número de tareas de asignación por trabajo.  |

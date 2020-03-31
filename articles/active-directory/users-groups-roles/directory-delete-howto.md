@@ -15,10 +15,10 @@ ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73961813"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Eliminación de un directorio en Azure Active Directory
@@ -56,7 +56,7 @@ Al configurar el directorio de Azure AD, es posible que también activara suscri
 
 Para saber qué se puede esperar cuando una suscripción de Office 365 de prueba expira (exceptuando el caso de licencias por volumen, el contrato para empresas o de CSP o asociados de pago), consulte la tabla siguiente. Para obtener más información sobre la retención de datos de Office 365 y el ciclo de vida de la suscripción, consulte [¿Qué pasa con mis datos y mi acceso cuando termina mi suscripción de Office 365 para empresas?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
-Estado de la suscripción | Datos | Acceso a datos
+Estado de la suscripción | data | Acceso a datos
 ----- | ----- | -----
 Activo (30 días para evaluación) | Datos accesibles a todos | Los usuarios tienen acceso normal a los archivos o aplicaciones de Office 365<br>Los administradores tienen acceso normal al centro de administración y los recursos de Microsoft 365 
 Expirado (30 días) | Datos accesibles a todos| Los usuarios tienen acceso normal a los archivos o aplicaciones de Office 365<br>Los administradores tienen acceso normal al centro de administración y los recursos de Microsoft 365
@@ -110,7 +110,7 @@ Para obtener más información sobre los productos y servicios de registro de au
 
 Para saber qué se puede esperar cuando una suscripción de Office 365 de prueba expira (exceptuando el caso de licencias por volumen, el contrato para empresas o de CSP o asociados de pago), consulte la tabla siguiente. Para obtener más información sobre la retención de datos de Office 365 y el ciclo de vida de la suscripción, consulte [¿Qué pasa con mis datos y mi acceso cuando termina mi suscripción de Office 365 para empresas?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
-Estado del producto | Datos | Acceso a datos
+Estado del producto | data | Acceso a datos
 ------------- | ---- | --------------
 Activo (30 días para evaluación) | Datos accesibles a todos | Los usuarios disponen de acceso normal a aplicaciones, archivos y productos de registro de autoservicio.<br>Los administradores tienen acceso normal al centro de administración y los recursos de Microsoft 365
 Deleted | Datos eliminados | Los usuarios no disponen de acceso a aplicaciones, archivos y productos de registro de autoservicio.<br>Los administradores pueden tener acceso al centro de administración de Microsoft 365 para adquirir y administrar otras suscripciones

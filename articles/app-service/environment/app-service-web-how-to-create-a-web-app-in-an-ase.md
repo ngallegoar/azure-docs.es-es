@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356145"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231692"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creación de una aplicación web en una instancia de App Service Environment v1
 
@@ -57,7 +57,7 @@ En este tutorial se supone que ha creado un entorno de App Service. Si no es as�
     Si su ASE utiliza una VIP interna, en la dirección URL de una aplicación en ASE está: [*sitename*]. [*subdominio especificado durante la creación de ASE*]   
     Después de seleccionar ASP durante la creación de ASE, verá la actualización del subdominio debajo de **Nombre**
 
-## <a name="createplan"></a> Creación de un plan de App Service
+## <a name="create-an-app-service-plan"></a><a name="createplan"></a> Creación de un plan de App Service
 Cuando crea un plan de App Service en un entorno de App Service, sus opciones de trabajo son diferentes dado que no hay trabajos compartidos en un ASE.  Los trabajos que tiene que usar son los que el administrador ha asignado al ASE.  Esto significa que para crear un nuevo plan, el número de trabajos asignados al grupo de trabajo del ASE debe ser superior al número total de instancias en todos los planes que ya existen en ese grupo de trabajo.  Si no tiene suficientes trabajos en su grupo de trabajo del ASE para crear su plan, deberá trabajar con el administrador del ASE para agregarlos.
 
 Otra diferencia con los planes de App Service hospedados en un entorno de App Service es la ausencia de selección de precios.  Cuando tiene un entorno de App Service, paga por los recursos de proceso que usa el sistema y no se le cobra adicionalmente por los planes de ese entorno.  Normalmente, cuando crea un plan de App Service, selecciona el plan de precios que determina su facturación.  Un entorno de App Service es esencialmente una ubicación privada donde puede crear contenido.  Se paga por el entorno y no pro hospedar el contenido.

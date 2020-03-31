@@ -4,10 +4,10 @@ description: Recupere los datos que protegió en un almacén de Recovery Service
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.openlocfilehash: 2a89697899fc244848854978de4b25e79ef6f184
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74173498"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperación de datos de Azure Backup Server

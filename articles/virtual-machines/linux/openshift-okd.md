@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
 ms.openlocfilehash: 6ecae09b0efbc0e35e591b31dbb54fb49ce101b3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035400"
 ---
 # <a name="deploy-okd-in-azure"></a>Implementación de OKD en Azure

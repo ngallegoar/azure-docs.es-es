@@ -5,10 +5,10 @@ ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74173003"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure
@@ -67,7 +67,7 @@ Los scripts anteriores invocan las API nativas de la aplicación, que ponen en m
 
 6. Ahora ya está configurado el marco de trabajo del script. Si ya está configurada la copia de seguridad de la máquina virtual, la copia de seguridad siguiente invoca los scripts y desencadena la copia de seguridad coherente con la aplicación. Si la copia de seguridad de la máquina virtual no está configurada, hágalo siguiendo las instrucciones descritas en [Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Asegúrese de que agrega el registro adecuado al escribir el script anterior y el posterior y revise los registros de script para corregir cualquier problema. Si sigue teniendo problemas para ejecutar los scripts, consulte la tabla siguiente para más información.
 

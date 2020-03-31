@@ -17,11 +17,11 @@ ms.date: 03/24/2017
 ms.author: kumud
 ms.reviewer: annahar
 ms.openlocfilehash: a8bd4e4779d94cfc22ac7726c9746fe755764033
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647329"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235808"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Asignación de varias direcciones IP a máquinas virtuales mediante PowerShell
 
@@ -33,7 +33,7 @@ En este artículo se describe cómo crear una máquina virtual (VM) con el model
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
+## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
 
 En los pasos siguientes se explica cómo crear una VM de ejemplo con varias direcciones IP, tal como se describe en el escenario. Cambie los valores de variable según sea necesario para la implementación.
 
@@ -195,7 +195,7 @@ En los pasos siguientes se explica cómo crear una VM de ejemplo con varias dire
 
 10. Agregue al sistema operativo de la máquina virtual la dirección IP privada siguiendo las instrucciones de la sección [Incorporación de direcciones IP a un sistema operativo de la VM](#os-config) de este artículo. No agregue las direcciones IP públicas al sistema operativo.
 
-## <a name="add"></a>Incorporación de direcciones IP a una VM
+## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Incorporación de direcciones IP a una VM
 
 Puede agregar direcciones IP públicas y privadas a una interfaz de red de Azure mediante los pasos que se indican a continuación. En los ejemplos de las secciones siguientes se da por sentado que ya tiene una máquina virtual con las tres configuraciones de IP descritas en el [escenario](#scenario) de este artículo, pero no es necesario que lo haga.
 

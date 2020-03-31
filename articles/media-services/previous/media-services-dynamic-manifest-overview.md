@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1234263fa800a17d0a5c235df54ca2751e3094bb
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69015848"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros y manifiestos dinámicos
@@ -98,7 +98,7 @@ Para obtener más información sobre cómo entregar el contenido y crear URL de 
 > 
 > 
 
-### <a id="filters"></a>Filtros
+### <a name="filters"></a><a id="filters"></a>Filtros
 Hay dos tipos de filtros de activos: 
 
 * Filtros globales (se pueden aplicar a cualquier activo de la cuenta de Azure Media Services, tienen una duración de la cuenta) y 
@@ -106,7 +106,7 @@ Hay dos tipos de filtros de activos:
 
 Los tipos de filtros globales y locales tienen exactamente las mismas propiedades. La diferencia principal entre los dos es para qué escenarios es más adecuado cada tipo de filtro. Los filtros globales suelen ser adecuados para los perfiles de dispositivos (filtrado de representaciones) donde los filtros locales podrían usarse para recortar un activo específico.
 
-## <a id="scenarios"></a>Escenarios comunes
+## <a name="common-scenarios"></a><a id="scenarios"></a>Escenarios comunes
 Tal y como se mencionó anteriormente, cuando entrega contenido a los clientes (transmisión de eventos en directo o vídeo bajo demanda), su objetivo es proporcionar un vídeo de alta calidad a diferentes dispositivos en condiciones de red variables. Pueden darse también otros requisitos que obliguen a filtrar los recursos y a utilizar **manifiestos dinámicos**. En las secciones siguientes se ofrece una breve introducción a los diferentes escenarios de filtrado.
 
 * Especifique solo un subconjunto de representaciones de audio y vídeo que pueden controlar determinados dispositivos (en lugar de todas las representaciones asociadas al activo). 
@@ -195,7 +195,7 @@ Para más información, consulte [este blog](https://azure.microsoft.com/blog/az
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general de entrega de contenido a los clientes](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png

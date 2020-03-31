@@ -4,10 +4,10 @@ description: Supervisión extendida del rendimiento y el uso de su sitio web de 
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.openlocfilehash: b29618179d22eac97a07bf41906465aba1fd7929
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77657034"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones detectadas y tiempos de ejecución del método en aplicaciones web de Java

@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72298747"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
@@ -45,7 +45,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Además de **string**, el parámetro puede ser una matriz de bytes, un objeto **CloudQueueMessage** o un objeto POCO que defina.
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Mensajes en cola POCO [(objeto CRL estándar](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-object-queue-messages"></a>Mensajes en cola POCO [(objeto CRL estándar](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 En el ejemplo siguiente, el mensaje de cola contiene JSON para un objeto **BlobInformation** que incluye una propiedad **BlobName**. El SDK automáticamente deserializa el objeto.
 
 ```csharp
@@ -89,7 +89,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Tipos con los que funciona el atributo QueueTrigger
 Puede usar **QueueTrigger** con los tipos siguientes:
 
-* **cadena**
+* **string**
 * Un tipo de POCO serializado como JSON
 * **byte[]**
 * **CloudQueueMessage**
@@ -202,7 +202,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Mensajes en cola POCO [(objeto CRL estándar](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-object-queue-messages"></a>Mensajes en cola POCO [(objeto CRL estándar](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Para crear un mensaje en cola que contiene un objeto POCO en lugar de una cadena, pase el tipo POCO como un parámetro de salida al constructor de atributo **Queue** .
 
 ```csharp
@@ -297,7 +297,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Mensajes en cola POCO [(objeto CRL estándar](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
+### <a name="poco-plain-old-clr-object-queue-messages"></a>Mensajes en cola POCO [(objeto CRL estándar](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
 Para un objeto POCO almacenado como JSON en el mensaje de la cola, puede usar marcadores de posición que asignen nombre a propiedades del objeto en el parámetro **blobPath** del atributo **Queue**. También puede utilizar nombres de propiedad de metadatos de cola como marcadores de posición. Consulte [Obtener metadatos de cola o de mensaje en cola](#get-queue-or-queue-message-metadata).
 
 El ejemplo siguiente copia un blob a un blob nuevo con una extensión distinta. El mensaje de la cola es un objeto **BlobInformation** que incluye las propiedades **BlobName** y **BlobNameWithoutExtension**. Los nombres de propiedad se usan como marcadores de posición en la ruta de acceso del blob para los atributos **Blob** .
@@ -395,7 +395,7 @@ Puede usar el tipo **JobHostConfiguration** para establecer las opciones de conf
 * Definir la configuración **QueueTrigger** como el número máximo de eliminaciones de la cola.
 * Obtener nombres de cola a partir de la configuración.
 
-### <a name="set-sdk-connection-strings-in-code"></a>Establecimiento de cadenas de conexión del SDK en código
+### <a name="set-sdk-connection-strings-in-code"></a>Establecer cadenas de conexión de SDK en el código
 Configurar las cadenas de conexión de SDK en el código permite utilizar sus propios nombres de cadena de conexión en archivos de configuración o las variables de entorno, como se muestra en el ejemplo siguiente.
 
 ```csharp

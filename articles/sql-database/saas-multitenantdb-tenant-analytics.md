@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 09/19/2018
 ms.openlocfilehash: 067afd09f942b8062825553a3cf90f715e8d3938
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822147"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación multiinquilino
@@ -63,9 +63,9 @@ Por último, se consultan las tablas de un esquema de estrella. Los resultados d
 
 Saber con qué coherencia cada inquilino usa el servicio brinda una oportunidad para crear planes de servicio destinados a satisfacer sus necesidades. En este tutorial se proporcionan ejemplos básicos de información que puede deducirse de los datos de inquilino.
 
-## <a name="setup"></a>Configuración
+## <a name="setup"></a>Configurar
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -227,7 +227,7 @@ Ha observado las tendencias de los datos de inquilino de la aplicación SaaS de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > - Implementar una base de datos de análisis de inquilino con tablas de un esquema de estrella predefinidas

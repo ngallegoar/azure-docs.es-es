@@ -7,10 +7,10 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: ad58ee158a2e1842c1b41db281bdd9f04b9b2ca4
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461511"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>Incorporación de notificaciones push a la aplicación iOS
@@ -25,11 +25,11 @@ Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el p
 
 El [simulador de iOS no admite notificaciones de inserción](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Necesita un dispositivo de iOS físico y una [suscripción de Apple Developer Program](https://developer.apple.com/programs/ios/).
 
-## <a name="configure-hub"></a>Configurar el Centro de notificaciones
+## <a name="configure-notification-hub"></a><a name="configure-hub"></a>Configurar el Centro de notificaciones
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a id="register"></a>Registro de aplicaciones para notificaciones push
+## <a name="register-app-for-push-notifications"></a><a id="register"></a>Registro de aplicaciones para notificaciones push
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
@@ -37,19 +37,19 @@ El [simulador de iOS no admite notificaciones de inserción](https://developer.a
 
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-## <a id="update-server"></a>Actualizar el back-end para enviar notificaciones de inserción
+## <a name="update-backend-to-send-push-notifications"></a><a id="update-server"></a>Actualizar el back-end para enviar notificaciones de inserción
 
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a id="add-push"></a>Agregar notificaciones push a la aplicación
+## <a name="add-push-notifications-to-app"></a><a id="add-push"></a>Agregar notificaciones push a la aplicación
 
 [!INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
-## <a id="test"></a>Probar notificaciones de inserción
+## <a name="test-push-notifications"></a><a id="test"></a>Probar notificaciones de inserción
 
 [!INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
-## <a id="more"></a>Más
+## <a name="more"></a><a id="more"></a>Más
 
 * : las plantillas proporcionan flexibilidad para enviar inserciones multiplataforma e inserciones localizadas. [Uso de la biblioteca de cliente de iOS para Azure Mobile Apps](app-service-mobile-ios-how-to-use-client-library.md#templates) muestra cómo registrar plantillas.
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 91689a32a128584aade8081905e3d1aa3ecb0a97
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823575"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciales usadas para acceder a la biblioteca de cliente de Elastic Database
@@ -72,7 +72,7 @@ En este ejemplo, el elemento **smmUserConnectionString** contiene la cadena de c
 
 Al igual que con las credenciales de administración, no use valores que tengan el formato "username@server". En su lugar, use aquellos que tengan el formato "username".  Tenga en cuenta también que la cadena de conexión no contiene un nombre de servidor y de base de datos. Esto se debe a que la llamada **OpenConnectionForKey** dirige automáticamente la conexión a la partición correcta según la clave. Por lo tanto, no se proporcionan ni el nombre de la base de datos ni el del servidor.
 
-## <a name="see-also"></a>Consulte, asimismo,
+## <a name="see-also"></a>Consulte también
 
 [Administración de bases de datos e inicios de sesión en Azure SQL Database](sql-database-manage-logins.md)
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 27691d8fab3e7c8ccd60351dc0be83898ff984ed
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73622423"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Redes aceleradas con recuperación ante desastres de máquinas virtuales de Azure
@@ -24,7 +24,7 @@ Las redes aceleradas habilitan la virtualización de E/S de raíz única (SR-IOV
 
 Azure Site Recovery le permite usar las ventajas de las redes aceleradas para las máquinas virtuales que se conmutan por error a otra región de Azure. En este artículo se describe la habilitación de las redes aceleradas para las máquinas virtuales de Azure replicadas con Azure Site Recovery.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que comprende:
 -   La [arquitectura de replicación](azure-to-azure-architecture.md) de máquinas virtuales de Azure
@@ -35,7 +35,7 @@ Antes de comenzar, asegúrese de que comprende:
 
 Azure Site Recovery admite la habilitación de las redes aceleradas para las máquinas virtuales replicadas únicamente si la de origen las tiene habilitadas. Si la máquina virtual de origen no tiene las redes aceleradas habilitadas, puede aprender a habilitarlas en las máquinas virtuales Windows [aquí](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
 
-### <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 Se admiten las siguientes distribuciones de fábrica desde la galería de Azure:
 * **Windows Server 2016 Datacenter**
 * **Windows Server 2012 R2 Datacenter**
@@ -51,7 +51,7 @@ Para más información sobre las instancias de máquinas virtuales, consulte [Ta
 
 Azure Site Recovery admite la habilitación de las redes aceleradas para las máquinas virtuales replicadas únicamente si la de origen las tiene habilitadas. Si la máquina virtual de origen no tiene las redes aceleradas habilitadas, puede aprender a habilitarlas en las máquinas virtuales Linux [aquí](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-### <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 Se admiten las siguientes distribuciones de fábrica desde la galería de Azure:
 * **Ubuntu 16.04**
 * **SLES 12 SP3**

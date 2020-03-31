@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 58697cc535357710c6889f05060b5e04e129ae7d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77084883"
 ---
 # <a name="logging-in-msal-applications"></a>Inicio de sesión en aplicaciones de MSAL
@@ -39,7 +39,7 @@ De forma predeterminada, el registrador de MSAL no captura datos personales u or
 
 Para obtener más información sobre el registro de MSAL en un lenguaje determinado, elija la pestaña que coincida con su lenguaje:
 
-## <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+## <a name="net"></a>[.NET](#tab/dotnet)
 
 ## <a name="logging-in-msalnet"></a>Registro en MSAL.NET
 
@@ -80,7 +80,7 @@ class Program
  }
  ```
 
-## <a name="androidtabandroid"></a>[Android](#tab/android)
+## <a name="android"></a>[Android](#tab/android)
 
 ## <a name="logging-in-msal-for-android-using-java"></a>Registro en MSAL para Android con Java
 
@@ -124,7 +124,7 @@ De forma predeterminada, el registro se deshabilita en logcat. Para habilitar la
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
-## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
  Puede habilitar el registro en MSAL.js (JavaScript) si pasa un objeto de registrador durante la configuración para crear una instancia de `UserAgentApplication`. El objeto de registrador tiene las siguientes propiedades:
 
@@ -156,7 +156,7 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-## <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+## <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ## <a name="msal-for-ios-and-macos-logging-objc"></a>Registro de MSAL para iOS y macOS: ObjC
 
@@ -234,7 +234,7 @@ Por ejemplo:
 
 Proporcionar los identificadores de correlación y las marcas de tiempo son útiles para el seguimiento de problemas. La información del identificador de correlación y las marcas de tiempo está disponible en el mensaje de registro. El único lugar confiable para recuperarlos es en los mensajes de registro de MSAL.
 
-## <a name="swifttabswift"></a>[Swift](#tab/swift)
+## <a name="swift"></a>[Swift](#tab/swift)
 
 ## <a name="msal-for-ios-and-macos-logging-swift"></a>Registro de MSAL para iOS y macOS: Swift
 
@@ -311,7 +311,7 @@ Por ejemplo:
 
 Proporcionar los identificadores de correlación y las marcas de tiempo son útiles para el seguimiento de problemas. La información del identificador de correlación y las marcas de tiempo está disponible en el mensaje de registro. El único lugar confiable para recuperarlos es en los mensajes de registro de MSAL.
 
-## <a name="javatabjava"></a>[Java](#tab/java)
+## <a name="java"></a>[Java](#tab/java)
 
 ## <a name="msal-for-java-logging"></a>Registro en MSAL para Java
 
@@ -361,7 +361,7 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
         .build();
 ```
 
-## <a name="pythontabpython"></a>[Python](#tab/python)
+## <a name="python"></a>[Python](#tab/python)
 
 ## <a name="msal-for-python-logging"></a>Registro de MSAL para Python
 

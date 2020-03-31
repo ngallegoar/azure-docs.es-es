@@ -15,10 +15,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b4fdbbd4d71a9c97259678413cd9e59ee8aeae6b
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69032670"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Restablecimiento de la contraseña de un usuario con Azure Active Directory
@@ -59,7 +59,7 @@ Después de restablecer la contraseña del usuario, puede realizar los siguiente
 
 - [Asignación de roles a usuarios](active-directory-users-assign-role-azure-portal.md)
 
-- [Adiciones o cambios a la información del perfil](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information](active-directory-users-profile-azure-portal.md) (Incorporación o modificación de la información del perfil)
 
 - [Creación de un grupo básico e incorporación de miembros](active-directory-groups-create-azure-portal.md)
 

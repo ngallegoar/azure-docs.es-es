@@ -18,17 +18,17 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 1d0cf65bb39dbda2b7451c50629ff8949c5507cb
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185534"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Restricción del acceso a la red a los recursos de PaaS mediante puntos de conexión de servicio de red virtual mediante PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Los puntos de conexión de servicio de red virtual permiten que el acceso de la red a algunos recursos de servicio de Azure esté restringido a una subred de la red virtual. También se puede quitar el acceso de Internet a los recursos. Los puntos de conexión de servicio proporcionan a la red virtual conexión directa con los servicios de Azure compatibles, de modo que se puede usar el espacio de direcciones privadas de la red virtual para acceder a los servicios de Azure. El tráfico destinado a los recursos de Azure a través de los puntos de conexión de servicio siempre se mantiene en la red troncal de Microsoft Azure. En este artículo, aprenderá a:
+Los puntos de conexión de servicio de red virtual permiten que el acceso de la red a algunos recursos de servicio de Azure esté restringido a una subred de la red virtual. También se puede quitar el acceso de Internet a los recursos. Los puntos de conexión de servicio proporcionan a la red virtual conexión directa con los servicios de Azure compatibles, de modo que se puede usar el espacio de direcciones privadas de la red virtual para acceder a los servicios de Azure. El tráfico destinado a los recursos de Azure a través de los puntos de conexión de servicio siempre se mantiene en la red troncal de Microsoft Azure. En este artículo aprenderá a:
 
 * Crear una red virtual con una subred
 * Agregar una subred y habilitar un punto de conexión de servicio
@@ -166,7 +166,7 @@ Set-AzVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="restrict-network-access-to-a-resource"></a>Restricción del acceso a la red a un recurso
+## <a name="restrict-network-access-to-a-resource"></a>Restricción del acceso de la red a un recurso
 
 Los pasos que deben seguirse para restringir el acceso de la red a los recursos creados con servicios de Azure habilitados para puntos de conexión de servicio varían en función del servicio. Consulte en la documentación de cada servicio concreto los pasos necesarios para dicho servicio. Como ejemplo, de aquí en adelante se explican los pasos necesarios para restringir el acceso de red en una cuenta de Azure Storage.
 
@@ -364,7 +364,7 @@ Get-AzStorageFile `
   -Context $storageContext
 ```
 
-Se deniega el acceso y se recibe el error *Get-AzStorageFile: El servidor remoto devolvió un error: 403 Prohibido. Código de estado HTTP: 403 - Mensaje de error HTTP: This request is not authorized to perform this operation* (Esta solicitud no está autorizada para realizar esta operación) porque el equipo no está en la subred *Private* de la red virtual *MyVirtualNetwork*.
+Se deniega el acceso y se recibe el error *Get-AzStorageFile: Error en el servidor remoto: 403 Prohibido. Código de estado HTTP: 403 - Mensaje de error HTTP: This request is not authorized to perform this operation* (Esta solicitud no está autorizada para realizar esta operación) porque el equipo no está en la subred *Private* de la red virtual *MyVirtualNetwork*.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

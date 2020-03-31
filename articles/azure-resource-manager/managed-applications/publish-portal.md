@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 05302d92f2304be35a7b88fac6fabfc17b13c63e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75649588"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicación de una aplicación de catálogo de servicios mediante Azure Portal
 
 Puede usar Azure Portal para publicar [aplicaciones administradas](overview.md) que están diseñadas para los miembros de su organización. Por ejemplo, un departamento de TI puede publicar aplicaciones administradas que garantizan el cumplimiento de los estándares de la organización. Estas aplicaciones administradas están disponibles a través del catálogo de servicios y no en Azure Marketplace.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 A la hora de publicar una aplicación administrada, debe especificar una identidad para administrar los recursos. Es recomendable que especifique un grupo de usuarios de Azure Active Directory. Para crear un grupo de usuarios de Azure Active Directory, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). 
 

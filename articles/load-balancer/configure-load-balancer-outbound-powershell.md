@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: allensu
 ms.openlocfilehash: 5fd68f4559420ca688b3f4d6f6d66ee52db5191e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74225437"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-azure-powershell"></a>Configuración del equilibrio de carga y las reglas de salida en Standard Load Balancer mediante Azure PowerShell

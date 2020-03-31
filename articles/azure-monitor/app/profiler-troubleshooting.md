@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: f284d4dfbe550c357f81c01fa0a66aa9878b6c1e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671569"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solución de problemas de activación o visualización de Application Insights Profiler
@@ -20,7 +20,7 @@ ms.locfileid: "77671569"
 * Todavía no se admite la generación de perfiles para aplicaciones de ASP.NET Core 3.x.
   * Si necesita tener Profiler activado, una solución alternativa es usar [Application Insights Profiler para ASP.NET Core](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore). El generador de perfiles se etiqueta para Linux, pero también funciona con las aplicaciones de .NET Core 3.0 y versiones posteriores en Windows. Para obtener más detalles, consulte [Versiones compatibles](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore#supported-versions).
 
-## <a id="troubleshooting"></a>Solución general de problemas
+## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Solución general de problemas
 
 ### <a name="profiles-are-uploaded-only-if-there-are-requests-to-your-application-while-profiler-is-running"></a>Los perfiles solo se cargan si hay solicitudes en la aplicación mientras se ejecuta Profiler
 
@@ -52,7 +52,7 @@ Profiler escribe mensajes de seguimiento y eventos personalizados en el recurso 
 * Asegúrese de que no haya servidores proxy ni un firewall que bloqueen el acceso a https://gateway.azureserviceprofiler.net.
 * No se admite Profiler en planes de App Service gratuitos o compartidos. Si usa uno de estos planes, intente escalar verticalmente a uno de los planes básicos y Profiler debería empezar a funcionar.
 
-### <a id="double-counting"></a>Doble recuento de subprocesos paralelos
+### <a name="double-counting-in-parallel-threads"></a><a id="double-counting"></a>Doble recuento de subprocesos paralelos
 
 En algunos casos, la métrica de tiempo total del visor de la pila es mayor que la duración de la solicitud.
 

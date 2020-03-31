@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 21654a3b325e8b8f0a3e49ee64b7624c8540d0d5
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461086"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Enlaces de Azure Event Grid para Azure Functions
@@ -32,14 +32,14 @@ El código de esta referencia tiene como valor predeterminado la sintaxis de .NE
 
 ## <a name="add-to-your-functions-app"></a>Adición a la aplicación de Functions
 
-### <a name="functions-2x-and-higher"></a>Functions 2.x y superior
+### <a name="functions-2x-and-higher"></a>Functions 2.x y superiores
 
-Para trabajar con el desencadenador y los enlaces es necesario hacer referencia al paquete adecuado. En las bibliotecas de clases de .NET se usa el paquete NuGet, mientras que en los demás tipos de aplicaciones se emplea el conjunto de extensiones.
+Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia al paquete adecuado. En las bibliotecas de clases de .NET se usa el paquete NuGet, mientras que en los demás tipos de aplicaciones se emplea el conjunto de extensiones.
 
 | Idioma                                        | Agregar mediante...                                   | Observaciones 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalación del [paquete NuGet], versión 3.x | |
-| Script de C#, Java, JavaScript, Python, PowerShell | Registro del [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) con Visual Studio Code. |
+| Script de C#, Java, JavaScript, Python, PowerShell | Registro de [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) con Visual Studio Code. |
 | Script de C# (solo en línea en Azure Portal)         | Adición de un enlace                            | Para actualizar extensiones de enlace existentes sin tener que volver a publicar la aplicación de funciones, vea [Actualización de las extensiones]. |
 
 [core tools]: ./functions-run-local.md
@@ -50,7 +50,7 @@ Para trabajar con el desencadenador y los enlaces es necesario hacer referencia 
 
 ### <a name="functions-1x"></a>Functions 1.x
 
-Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x.
+Las aplicaciones de Functions 1.x tienen automáticamente una referencia al paquete NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 2.x.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ejecución de una función cuando se envía un evento de Event Grid](./functions-bindings-event-grid-trigger.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: cherylmc
 ms.openlocfilehash: 6ec60dc313c8a4374637adf38ea0e5a7d4ed964b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77597358"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Conexión a una máquina virtual Windows con Azure Bastion
@@ -38,7 +38,7 @@ Para conectarse a la máquina virtual Windows, debe tener abiertos los siguiente
 
 * Puertos de entrada: RDP (3389)
 
-## <a name="rdp"></a>Conexión
+## <a name="connect"></a><a name="rdp"></a>Conexión
 
 1. Abra [Azure Portal](https://portal.azure.com). Vaya a la máquina virtual a la que quiere conectarse, luego haga clic en **Conectar** y seleccione **Bastion** en la lista desplegable.
 

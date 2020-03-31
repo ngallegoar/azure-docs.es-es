@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ms.openlocfilehash: 7ad748aa9a5b45af10121648a668344548484cf7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74226736"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instalación de la versión preliminar 2 del Sistema en tiempo de ejecución de Azure Functions
@@ -25,7 +25,7 @@ Si desea instalar la versión preliminar 2 del Sistema en tiempo de ejecución d
 1. Complete la configuración de la versión preliminar 2 del Sistema en tiempo de ejecución de Azure Functions.
 1. Creación de la primera función en la versión preliminar del Sistema en tiempo de ejecución de Azure Functions
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de instalar la versión preliminar del Sistema en tiempo de ejecución de Azure Functions, debe tener los siguientes recursos disponibles:
 
@@ -75,7 +75,7 @@ Para completar la instalación del Sistema en tiempo de ejecución de Azure Func
 
     ![Configuración de la base de datos en la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][8]
 
-1. Haga clic en la pestaña **Credenciales**.  En esta pantalla debe crear dos credenciales que usará con un recurso compartido de archivos para hospedar todas las aplicaciones de función.  Especifique la información correspondiente en **User name** (Nombre de usuario) y **Password** (Contraseña) para el **propietario del recurso compartido de archivos** y para el **usuario del recurso compartido de archivos**, y haga clic en **Apply** (Aplicar).
+1. Haga clic en la pestaña **Credenciales** .  En esta pantalla debe crear dos credenciales que usará con un recurso compartido de archivos para hospedar todas las aplicaciones de función.  Especifique la información correspondiente en **User name** (Nombre de usuario) y **Password** (Contraseña) para el **propietario del recurso compartido de archivos** y para el **usuario del recurso compartido de archivos**, y haga clic en **Apply** (Aplicar).
 
     ![Credenciales en la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][9]
 

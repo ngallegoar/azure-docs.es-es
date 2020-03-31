@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73748556"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solución de problemas del servidor de configuración
@@ -100,7 +100,7 @@ Configuración | Detalles
 Uso | UnifiedAgentConfigurator.exe  /CSEndPoint <dirección IP del servidor de configuración\> /PassphraseFilePath <ruta de acceso del archivo de frase de contraseña\>
 Registros de configuración del agente | Se encuentran en %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Parámetro obligatorio. Especifique la dirección IP del servidor de configuración. Use una dirección IP válida.
-/PassphraseFilePath |  Obligatorio. La ubicación de la frase de contraseña. Use cualquier ruta de acceso de archivo local o UNC válida.
+/PassphraseFilePath |  Mandatory. La ubicación de la frase de contraseña. Use cualquier ruta de acceso de archivo local o UNC válida.
 
 ### <a name="if-the-source-machine-runs-linux"></a>Si la máquina de origen ejecuta Linux
 
@@ -114,7 +114,7 @@ Configuración | Detalles
 --- | ---
 Uso | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <dirección IP del servidor de configuración\> -P <ruta de acceso del archivo de frase de contraseña\>
 -i | Parámetro obligatorio. Especifique la dirección IP del servidor de configuración. Use una dirección IP válida.
--P |  Obligatorio. La ruta de acceso completa del archivo en que se guarda la frase de contraseña. Uso de cualquier carpeta válida.
+-P |  Mandatory. La ruta de acceso completa del archivo en que se guarda la frase de contraseña. Uso de cualquier carpeta válida.
 
 ## <a name="unable-to-configure-the-configuration-server"></a>No se puede configurar el servidor de configuración
 
@@ -191,7 +191,7 @@ No tiene permisos suficientes para crear una aplicación en Azure Active Directo
 Para resolver el problema, inicie sesión en Azure Portal y realice una de las siguientes acciones:
 
 - Solicite el rol de desarrollador de aplicaciones en AAD. Para obtener más información sobre los distintos roles de desarrollador de aplicaciones, consulte [Permisos de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Compruebe que la marca de que el **usuario puede crear la aplicación** se establece en *True* en AAD. Para obtener más información, consulte [Instrucciones: portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Compruebe que la marca de que el **usuario puede crear la aplicación** se establece en *True* en AAD. Para más información, vea: [Cómo: portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>El destino maestro o el servidor de procesos no puede comunicarse con el servidor de configuración 
 

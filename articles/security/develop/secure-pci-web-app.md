@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/22/2019
 ms.author: terrylan
 ms.openlocfilehash: 4fe612db65d985be2f1f1c81d03c3ee735c03889
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69992392"
 ---
 # <a name="develop-a-secure-infrastructure-for-a-pci-app"></a>Desarrollo de una infraestructura segura para una aplicación PCI
@@ -94,7 +94,7 @@ Por ejemplo, la inyección de SQL en la salida del modelo de amenazas anterior s
 Los desarrolladores mejoran la seguridad general del sistema mediante la mitigación de cada una de las amenazas de la salida del modelo de amenazas.
 
 ## <a name="deployment"></a>Implementación
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 Para poner en marcha la aplicación, debe instalar estas herramientas:
 
 - Un editor de código para modificar y ver el código de la aplicación. [Visual Studio Code](https://code.visualstudio.com/) es una opción de código abierto.
@@ -118,7 +118,7 @@ Hay muchas maneras de implementar aplicaciones en Azure, entre las que se incluy
 
 - Plantillas del Administrador de recursos de Azure
 - PowerShell
-- CLI de Azure
+- Azure CLI
 - Portal de Azure
 - Azure DevOps
 
@@ -148,7 +148,7 @@ La configuración de NSG para App Service Environment debe realizarse como se mu
 
 cada subred está asociada a su grupo de seguridad de red correspondiente.
 
-### <a name="config"></a>Configuración
+### <a name="config"></a>Config
 Las subredes se configuran como se muestra en la imagen siguiente.
  ![Config](./media/secure-pci-web-app/config.png) (Configuración).
 

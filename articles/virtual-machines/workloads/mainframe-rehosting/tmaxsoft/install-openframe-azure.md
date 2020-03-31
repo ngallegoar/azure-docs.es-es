@@ -9,10 +9,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.openlocfilehash: 1ad6e52c421d9cfec4640d3a330b5507d6ed3e9b
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72436050"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalación TmaxSoft OpenFrame en Azure
@@ -51,7 +51,7 @@ Otros componentes de OpenFrame obligatorios:
 - PROTRIEVE, una solución que ejecuta el lenguaje CA-Easytrieve del sistema central.
 - OFMiner, una solución que analiza los recursos de los sistemas centrales y después los migra a Azure.
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 La ilustración siguiente proporciona información general sobre los componentes de la arquitectura OpenFrame 7.0 en este tutorial:
 
@@ -64,7 +64,7 @@ En la tabla siguiente se enumeran los requisitos para la instalación en Azure.
 
 <table>
 <thead>
-    <tr><th>Requisito</th><th>DESCRIPCIÓN</th></tr>
+    <tr><th>Requisito</th><th>Descripción</th></tr>
 </thead>
 <tbody>
 <tr><td>Distribuciones de Linux admitidas en Azure
@@ -96,7 +96,7 @@ Eclipse para Windows: una plataforma de desarrollo compatible con TmaxSoft<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Tendrá que dedicar unos días para ensamblar todo el software necesario y completar todos los procesos manuales.
 
@@ -1167,7 +1167,7 @@ OSC es el entorno de OpenFrame similar al CICS de IBM que admite transacciones O
      Cuando haya finalizado, se mostrará el mensaje que indica que la instalación ha finalizado.
 
 4. Compruebe que el perfil de bash se actualiza con las variables de OSC.
-5. Revise el archivo OpenFrame\_OSC7\_0\_Fix2\_InstallLog.log. Debe tener un aspecto similar al siguiente:
+5. Revise el archivo OpenFrame\_OSC7\_0\_Fix2\_InstallLog.log. Debe tener el siguiente aspecto:
 
      ```
      Summary 

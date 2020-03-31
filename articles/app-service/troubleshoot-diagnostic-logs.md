@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
 ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358214"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236084"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -191,7 +191,7 @@ En la tabla siguiente se muestran las descripciones y los tipos de registros adm
 | AppServiceFileAuditLogs | TBA | Sí | Cambios de archivos a través de FTP y KUDU |
 | AppServiceAppLogs | TBA | Java SE y Tomcat | Registros de aplicación |
 
-## <a name="nextsteps"></a> Pasos siguientes
+## <a name="next-steps"></a><a name="nextsteps"></a> Pasos siguientes
 * [Consulta de registros con Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Control de Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md) (Solución de problemas de Azure App Service en Visual Studio)

@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 61fc64e140af091b5ff3f631398daf901557791b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663035"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
@@ -167,7 +167,7 @@ En las tablas siguientes se describen las propiedades para los recursos de acci�
 |:--|:--|:--|
 | `type` | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
 | `name` | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
-| `description` | Sin | Descripción opcional de la alerta. |
+| `description` | No | Descripción opcional de la alerta. |
 | `severity` | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
 
 #### <a name="threshold"></a>Umbral
@@ -203,8 +203,8 @@ Para los usuarios que han extendido sus alertas a Azure, ahora una programación
 | Nombre del elemento | Obligatorio | Descripción |
 |:--|:--|:--|
 | AzNsNotification | Sí | El identificador de recurso del grupo de acciones de Azure que se asociará con la alerta para realizar las acciones necesarias cuando se cumplan los criterios de alerta. |
-| CustomEmailSubject | Sin | Línea de asunto personalizada del correo enviado a todas las direcciones especificadas en el grupo de acciones asociado. |
-| CustomWebhookPayload | Sin | Carga personalizada para enviarse a todos los puntos de conexión de webhook definidos en el grupo de acciones asociadas. El formato depende de lo que espera el webhook y debe ser un valor JSON serializado válido. |
+| CustomEmailSubject | No | Línea de asunto personalizada del correo enviado a todas las direcciones especificadas en el grupo de acciones asociado. |
+| CustomWebhookPayload | No | Carga personalizada para enviarse a todos los puntos de conexión de webhook definidos en el grupo de acciones asociadas. El formato depende de lo que espera el webhook y debe ser un valor JSON serializado válido. |
 
 ## <a name="sample"></a>Muestra
 

@@ -14,10 +14,10 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0bf65f69d9dcaf6de2236c98b56b58ec7e021099
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74025408"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integración de conexiones de cuentas de LinkedIn en Azure Active Directory
@@ -67,7 +67,7 @@ Hemos sustituido la opción "Seleccionados" que especifica una lista de usuarios
 ### <a name="get-the-current-list-of-selected-users"></a>Obtener la lista actual de usuarios seleccionados
 
 1. Inicie sesión en Microsoft 365 con la cuenta de administrador.
-1. Vaya a https://linkedinselectedusermigration.azurewebsites.net/. Verá la lista de usuarios que están seleccionados para las conexiones de cuentas de LinkedIn.
+1. Ir a https://linkedinselectedusermigration.azurewebsites.net/. Verá la lista de usuarios que están seleccionados para las conexiones de cuentas de LinkedIn.
 1. Exporte la lista a un archivo CSV.
 
 ### <a name="move-the-currently-selected-individual-users-to-a-group"></a>Mover los usuarios individuales seleccionados actualmente a un grupo

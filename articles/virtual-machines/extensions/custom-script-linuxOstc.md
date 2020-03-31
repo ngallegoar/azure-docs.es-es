@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: b7dbabf5be8b1f223f6e39f294b9d7022b83c4f8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a3eae08510e57227b91deeeb7a7a608a6652cb4a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073176"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535415"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 1 con máquinas virtuales Linux
 
@@ -72,7 +72,7 @@ Si el script se encuentra en un servidor local, puede que aún necesite que haya
 * Si tiene un script que provocará un reinicio, instale las aplicaciones y ejecute los scripts, etc. Debe programar el reinicio de un trabajo de Cron o usar herramientas como DSC, o extensiones de Chef o Puppet.
 * La extensión solo ejecutará un script una vez, si desea ejecutar un script en cada inicio, puede usar [cloud-init image](../linux/using-cloud-init.md) y usar un módulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). Como alternativa, puede usar el script para crear una unidad de servicio de Systemd.
 * Si desea programar cuándo se ejecutará un script, debe utilizar la extensión para crear un trabajo de Cron.
-* Cuando el script se esté ejecutando, solo verá un estado de extensión 'en transición' desde Azure Portal o la CLI. Si desea actualizaciones de estado más frecuentes de un script en ejecución, debe crear su propia solución.
+* Cuando el script se esté ejecutando, solo verá un estado de extensión "en transición" desde Azure Portal o la CLI. Si quiere recibir actualizaciones de estado más frecuentes de un script en ejecución, debe crear su propia solución.
 * La extensión de script personalizada no admite de forma nativa servidores proxy, pero puede usar una herramienta de transferencia de archivos que admita servidores proxy en el script, como *Curl*.
 * Tenga en cuenta las ubicaciones de directorio no predeterminadas en las que se puedan basar los scripts o comandos y aplique lógica para controlarlas.
 
@@ -118,7 +118,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 
 ### <a name="property-values"></a>Valores de propiedad
 
-| NOMBRE | Valor / ejemplo | Tipo de datos |
+| Nombre | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | string |
@@ -136,7 +136,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 * `enableInternalDNSCheck`: (opcional, bool) el valor predeterminado es True; se establece en False para deshabilitar la comprobación de DNS.
 * `commandToExecute`: (opcional, cadena) script de punto de entrada que se va a ejecutar
 * `storageAccountName`: (opcional, cadena) nombre de la cuenta de almacenamiento
-* `storageAccountKey`: (opcional, cadena) clave de acceso de la cuenta de almacenamiento
+* `storageAccountKey` (opcional, cadena): clave de acceso de la cuenta de almacenamiento.
 
 Los valores siguientes se pueden establecer en la configuración pública o protegida; no establezca estos valores en la configuración tanto pública como protegida.
 
@@ -182,7 +182,7 @@ Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Reso
 >[!NOTE]
 >Los nombres de propiedad distinguen entre mayúsculas y minúsculas. Para evitar problemas de implementación, use los nombres como se muestran aquí.
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Cuando se usa la CLI de Azure para ejecutar la extensión de script personalizado, cree un archivo o archivos de configuración. Como mínimo, debe tener "commandToExecute".
 
@@ -258,7 +258,7 @@ az vm extension set
   --protected-settings ./protected-config.json
 ```
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Cuando la extensión de script personalizado se ejecuta, el script se crea o se descarga en un directorio similar al del ejemplo siguiente. La salida del comando se guarda también en este directorio, en los archivos `stdout` y `stderr`.
 
@@ -274,7 +274,7 @@ Para solucionar problemas, primero compruebe el registro del agente de Linux, as
 
 Debe buscar la ejecución de la extensión, tendrá un aspecto parecido al siguiente:
 
-```text
+```output
 2018/04/26 15:29:44.835067 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Target handler state: enabled
 2018/04/26 15:29:44.867625 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] [Enable] current handler state is: notinstalled
 2018/04/26 15:29:44.959605 INFO Event: name=Microsoft.OSTCExtensions.CustomScriptForLinux, op=Download, message=Download succeeded, duration=59
@@ -305,7 +305,7 @@ El paso siguiente consiste en comprobar el archivo de registro. Este es el forma
 
 Debe buscar la ejecución individual, que tendrá un aspecto parecido al siguiente:
 
-```text
+```output
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] sequence number is 0
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] setting file path is/var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2/config/0.settings
@@ -347,7 +347,7 @@ az vm extension list -g myResourceGroup --vm-name myVM
 
 La salida tendrá un aspecto similar al siguiente:
 
-```azurecli
+```output
 Name                  ProvisioningState    Publisher                   Version  AutoUpgradeMinorVersion
 --------------------  -------------------  ------------------------  ---------  -------------------------
 CustomScriptForLinux  Succeeded            Microsoft.OSTCExtensions        1.5  True

@@ -1,19 +1,18 @@
 ---
 title: Creación de recursos técnicos de imagen de contenedor de Azure | Azure Marketplace
 description: Cree los recursos técnicos para un contenedor de Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: 6aae1957a3dcc58339eb4f3c9e250513843ceb18
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 71b3ec4bf505c333e5eca170e1f5e808ab51f41a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819046"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280072"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Preparación de los recursos técnicos de contenedor
 

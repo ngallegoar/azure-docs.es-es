@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d384ea4749e2d0bc7edf8df7ac0508566f2f76b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72517093"
 ---
 # <a name="bulk-remove-group-members-preview-in-azure-active-directory"></a>Eliminación masiva de miembros de un grupo (versión preliminar) en Azure Active Directory
@@ -26,8 +26,8 @@ Mediante el portal de Azure Active Directory (Azure AD), puede quitar una gran c
 
 ## <a name="to-bulk-remove-group-members"></a>Para quitar miembros de un grupo de forma masiva
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador de usuarios en la organización. Los propietarios de grupos también pueden quitar de forma masiva miembros de los grupos que poseen.
-1. En Azure AD, seleccione **Grupos** > **Todos los grupos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador de usuarios en la organización. Los propietarios de grupos también pueden quitar de forma masiva miembros de los grupos que poseen.
+1. En Azure AD, seleccione **Grupos** > **Todos los grupos**.
 1. Abra el grupo del que va a quitar miembros y luego seleccione **Miembros**.
 1. En la página **Miembros**, seleccione **Quitar miembros**.
 1. En la página **Eliminación masiva de los miembros del grupo**, seleccione **Descargar** para obtener la plantilla del archivo CSV con las propiedades de miembro de grupo requeridas.
@@ -45,7 +45,7 @@ Mediante el portal de Azure Active Directory (Azure AD), puede quitar una gran c
 
 ## <a name="check-removal-status"></a>Comprobación del estado de eliminación
 
-Puede ver el estado de todas las solicitudes masivas pendientes en la **Resultados de la operación masiva (versión preliminar)** .
+Puede ver el estado de todas las solicitudes masivas pendientes en la página de **resultados de la operación masiva (versión preliminar)** .
 
    ![La página de resultados de la operación masiva muestra el estado de la solicitud masiva](./media/groups-bulk-remove-members/bulk-center.png)
 

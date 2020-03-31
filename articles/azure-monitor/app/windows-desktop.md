@@ -4,10 +4,10 @@ description: Analice el uso y el rendimiento de la aplicación de escritorio de 
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670838"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Supervisión del uso y el rendimiento en las aplicaciones de escritorio de Windows clásicas
@@ -30,7 +30,7 @@ Las aplicaciones hospedadas en el entorno local, en Azure y en otras nubes puede
 5. [Use la API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar telemetría.
 6. Ejecute la aplicación y vea la telemetría en el recurso que creó en Azure Portal.
 
-## <a name="telemetry"></a>Ejemplo de código
+## <a name="example-code"></a><a name="telemetry"></a>Ejemplo de código
 ```csharp
 using Microsoft.ApplicationInsights;
 

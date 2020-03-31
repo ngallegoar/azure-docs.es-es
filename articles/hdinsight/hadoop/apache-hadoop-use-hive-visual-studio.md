@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 27ab13481525819eb1435f4c9ac256a21acd21fb
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687795"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Ejecución de las consultas de Apache Hive mediante las herramientas de Data Lake para Visual Studio
 
 Aprenda a usar las herramientas de Data Lake para Visual Studio a fin de realizar consultas en Apache Hive. Las herramientas de Data Lake permiten crear, enviar y supervisar fácilmente consultas de Hive en Apache Hadoop en Azure HDInsight.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Apache Hadoop en HDInsight. Para más información sobre la creación de este elemento, consulte [Creación de clústeres de Apache Hadoop en Azure HDInsight con plantillas de Resource Manager](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -29,7 +29,7 @@ Aprenda a usar las herramientas de Data Lake para Visual Studio a fin de realiza
 
 ## <a name="run-apache-hive-queries-using-the-visual-studio"></a>Ejecución de consultas de Apache Hive con Visual Studio
 
-Para crear y ejecutar consultas de Hive, tiene dos opciones:
+Para crear y ejecutar consultas de Hive tiene dos opciones:
 
 * Crear consultas ad hoc.
 * Crear una aplicación de Hive.
@@ -100,7 +100,7 @@ Para ejecutar una consulta de Hive creando una aplicación de Hive, siga estos p
         >
         > La eliminación de una tabla externa **no** elimina los datos, solamente la definición de tabla.
 
-    * `ROW FORMAT`: indica cómo se da formato a los datos de Hive. En este caso, los campos de cada registro se separan mediante un espacio.
+    * `ROW FORMAT`: indica a Hive cómo se da formato a los datos. En este caso, los campos de cada registro se separan mediante un espacio.
 
     * `STORED AS TEXTFILE LOCATION`: indica a Hive que los datos deben almacenarse en el directorio *example/data* como texto.
 

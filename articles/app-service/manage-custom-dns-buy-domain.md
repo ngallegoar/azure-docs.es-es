@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
 ms.openlocfilehash: afb40d0f3681bc02351e43166fccfaafe7741128
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023419"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229564"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar un nombre de dominio personalizado para Azure App Service
 
@@ -18,7 +18,7 @@ Los dominios de App Service son dominios de nivel superior que se administran di
 
 Para Azure Virtual Machines o Azure Storage, vea [Assign App Service domain to Azure VM or Azure Storage](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage) (Asignación del dominio de App Service a Azure Virtual Machines o Azure Storage). Para Cloud Services, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 

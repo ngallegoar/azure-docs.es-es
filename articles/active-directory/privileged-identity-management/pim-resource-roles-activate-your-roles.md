@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d35c81f7bb478d91bd207327ea37c80aa1778142
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74023145"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Active mis roles de recursos de Azure en Privileged Identity Management
@@ -32,7 +32,7 @@ Este artículo es para los miembros que necesitan activar su rol de recurso de A
 
 Cuando necesite asumir un rol de recurso de Azure, puede solicitar la activación mediante la opción de navegación **Mis roles** en Privileged Identity Management.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Abra **Azure AD Privileged Identity Management**. Para información sobre cómo agregar el icono de Privileged Identity Management en el panel, consulte [Primer uso de PIM](pim-getting-started.md).
 

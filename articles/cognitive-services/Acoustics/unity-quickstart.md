@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: fabdd221ef99414eae0156babbd76dedb1f0745d
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72243018"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Inicio rápido de Project Acoustics con Unity
@@ -38,9 +38,9 @@ Importe el paquete de ejemplo en un nuevo proyecto de Unity.
 
 1. Elija **ProjectAcoustics.unitypackage**.
 
-1. Seleccione el botón **Importar** para integrar el paquete de Unity en el proyecto.  
+1. Seleccione el botón **Import** (Importar) para integrar el paquete de Unity en el proyecto.  
   
-    ![Cuadro de diálogo Importar paquete de Unity](media/import-dialog.png)  
+    ![Cuadro de diálogo Unity Import Package (Importar paquete de Unity)](media/import-dialog.png)  
 
 Para importar el paquete en un proyecto existente, consulte [Integración con Unitiy](unity-integration.md) para pasos adicionales y notas.
 
@@ -50,7 +50,7 @@ Para importar el paquete en un proyecto existente, consulte [Integración con Un
 ## <a name="restart-unity"></a>Reinicio de Unity
 La parte de elaboración del kit de herramientas de elementos acústicos requiere la versión del entorno de ejecución de scripting .NET 4.*x*. La importación del paquete actualiza la configuración del reproductor de Unity. Reinicie Unity para que esta configuración surta efecto. Para comprobar que la configuración ha surtido efecto, abra la configuración de **Reproductor**:
 
-![Menú de configuración del proyecto de Unity](media/player-settings.png)  
+![Menú Project Settings (Configuración del proyecto) de Unity](media/player-settings.png)  
 
 ![Panel de configuración del reproductor de Unity con la versión .NET 4.x seleccionada](media/net45.png)  
 

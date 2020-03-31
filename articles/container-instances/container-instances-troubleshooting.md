@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.custom: mvc
 ms.openlocfilehash: 07cdbfb27aaf9076e726ebda861ed24996e10135
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533393"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
@@ -26,7 +26,7 @@ Al definir la especificación de contenedor, ciertos parámetros requieren tener
 | --- | --- | --- | --- | --- | --- |
 | Nombre del grupo de contenedores | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nombre del contenedor | 1-64 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Puertos del contenedor | Entre 1 y 65 535 |Integer |Un número entero comprendido entre 1 y 65 535 |`<port-number>` |`443` |
+| Puertos del contenedor | Entre 1 y 65 535 |Entero |Un número entero comprendido entre 1 y 65 535 |`<port-number>` |`443` |
 | Etiqueta de nombre DNS | 5-63 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion en cualquier lugar, excepto el primer o último carácter |`<name>` |`frontend-site1` |
 | Variable de entorno | 1-63 |No distingue mayúsculas de minúsculas |Caracteres alfanuméricos y guion bajo (_) en cualquier lugar, excepto el primer o último carácter |`<name>` |`MY_VARIABLE` |
 | Nombre del volumen | 5-63 |No distingue mayúsculas de minúsculas |Letras minúsculas, números y guiones en cualquier lugar, excepto el primer o último carácter. No puede contener dos guiones consecutivos. |`<name>` |`batch-output-volume` |

@@ -11,10 +11,10 @@ ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
 ms.openlocfilehash: fe35dc4c22f3852934cde0d6f33084b56266d514
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73807702"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
@@ -28,17 +28,17 @@ Se enviará un aviso a los clientes por correo electrónico y en Azure Portal co
 La primera ronda de migración del tráfico a las puertas de enlace más recientes está programada para el **14 de octubre de 2019** en las siguientes regiones:
 - Sur de Brasil
 - Oeste de EE. UU.
-- Europa occidental
-- East US
+- Oeste de Europa
+- Este de EE. UU.
 - Centro de EE. UU.
 - Sudeste de Asia
-- Centro-Sur de EE. UU
-- Europa del Norte
+- Centro-sur de EE. UU.
+- Norte de Europa
 - Centro-Norte de EE. UU
-- Oeste de Japón
-- Este de Japón
+- Japón Occidental
+- Japón Oriental
 - Este de EE. UU. 2
-- Asia oriental
+- Este de Asia
 
 La migración del tráfico cambiará la dirección IP pública que DNS resuelve para su instancia de SQL Database.
 Se verá afectado en los siguientes casos:

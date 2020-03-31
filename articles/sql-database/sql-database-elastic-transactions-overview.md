@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 3ca3e9074f28d66068d49b80915e98600759d9be
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68568280"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Introducción sobre las transacciones de base de datos elástica con Base de datos SQL de Azure
@@ -26,7 +26,7 @@ De forma local, este escenario requiere normalmente la ejecución del Coordinado
 
   ![Transacciones distribuidas con Azure SQL Database mediante transacciones de base de datos elástica ][1]
 
-## <a name="common-scenarios"></a>Escenarios comunes
+## <a name="common-scenarios"></a>Escenarios frecuentes
 
 Las transacciones de base de datos elástica para SQL Database permiten a las aplicaciones realizar cambios atómicos en los datos almacenados en varias instancias de SQL Database diferentes. La versión preliminar se centra en las experiencias de desarrollo del lado cliente en C# y. NET. Para más adelante está prevista una experiencia en el lado servidor mediante T-SQL.  
 Las transacciones de base de datos elástica están orientadas a los siguientes escenarios:
@@ -127,7 +127,7 @@ Tenga en cuenta que el instalador de .NET 4.6.1 puede requerir más espacio de a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 Se admiten transacciones de la base de datos elástica entre diferentes servidores de SQL Database en Azure SQL Database. Cuando las transacciones cruzan los límites del servidor de SQL Database, los servidores implicados en primer lugar deben involucrarse en una relación de comunicación mutua. Una vez que se ha establecido la relación de comunicación, cualquier base de datos ubicada en uno de los dos servidores puede participar en transacciones elásticas con bases de datos desde el otro servidor. En el caso de las transacciones distribuidas en más de dos servidores de SQL Database, debe existir una relación de comunicación para cualquier par de servidores de SQL Database.
 

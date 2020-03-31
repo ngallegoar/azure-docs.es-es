@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756167"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236036"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 Azure permite ejecutar aplicaciones y máquinas virtuales (VM) en una infraestructura física compartida. Una de las motivaciones económicas principales para ejecutar aplicaciones en un entorno de nube es la capacidad de distribuir el costo de los recursos compartidos entre varios clientes. Esta práctica de multiinquilino mejora la eficiencia al multiplexar los recursos entre los distintos clientes a un bajo costo. Lamentablemente, también presenta el riesgo del uso compartido de servidores físicos y otros recursos de infraestructura al ejecutar aplicaciones confidenciales y máquinas virtuales que pueden pertenecer a un usuario arbitrario y potencialmente malintencionado.

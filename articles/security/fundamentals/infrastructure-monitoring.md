@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: af9c157b4644156edc6dcdb1b53c141263576500
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727149"
 ---
 # <a name="azure-infrastructure-monitoring"></a>Supervisión de la infraestructura de Azure   
@@ -50,7 +50,7 @@ Si Microsoft detecta cualquier acceso no autorizado a los datos de un cliente al
 Se ha establecido un marco de administración de incidentes con roles definidos y responsabilidades asignadas. El equipo de administración de incidentes de seguridad de Azure es responsable de administrar los incidentes de seguridad, solicitando la implicación de equipos especialistas en los casos que sea necesario. Los responsables de operaciones de Azure están encargados de supervisar la investigación y resolución de los incidentes de seguridad y privacidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
+Para más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
 
 - [Instalaciones de Azure, entornos locales y seguridad física](physical-security.md)
 - [Disponibilidad de la infraestructura de Azure](infrastructure-availability.md)

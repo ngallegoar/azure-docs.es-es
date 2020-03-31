@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
 ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74110344"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>Preguntas más frecuentes sobre los asistentes de voz
@@ -25,7 +25,7 @@ Si no encuentra respuestas a sus preguntas en este documento, [consulte otras op
 
 **P: ¿Qué es un asistente de voz?**
 
-**R:** Como Cortana, un asistente de voz es una solución que escucha las expresiones habladas de un usuario, analiza el contenido de esas expresiones en busca de significado, realiza una o varias acciones en respuesta a la intención de la expresión y, a continuación, proporciona una respuesta al usuario que a menudo incluye un componente hablado. Se trata de una experiencia de "conversación" para interactuar con un sistema. Los autores del asistente de voz crean una aplicación en el dispositivo mediante `DialogServiceConnector` en el SDK de Voz para comunicarse con un asistente creado mediante [comandos personalizados (versión preliminar)](custom-commands.md) o el canal de [Direct Line Speech](direct-line-speech.md) de Bot Framework. Estos asistentes pueden usar palabras clave personalizadas, conversaciones personalizadas y voz personalizada para proporcionar una experiencia adaptada a su marca o producto.
+**R:** Como Cortana, un asistente de voz es una solución que escucha las expresiones habladas de un usuario, analiza el contenido de esas expresiones en busca de significado, realiza una o varias acciones en respuesta a la intención de la expresión y, a continuación, proporciona una respuesta al usuario que a menudo incluye un componente hablado. Se trata de una experiencia de "conversación" para interactuar con un sistema. Los autores del asistente de voz crean una aplicación en el dispositivo mediante `DialogServiceConnector` en el SDK de Voz para comunicarse con un asistente creado mediante [comandos personalizados (versión preliminar)](custom-commands.md) o el canal de [Direct Line Speech](direct-line-speech.md) de Bot Framework. Estos asistentes pueden usar palabras clave personalizadas, conversaciones personalizadas y habla personalizada para proporcionar una experiencia adaptada a su marca o producto.
 
 **P: ¿Debo usar comandos personalizados (versión preliminar) o Direct Line Speech? ¿Cuál es la diferencia?**
 

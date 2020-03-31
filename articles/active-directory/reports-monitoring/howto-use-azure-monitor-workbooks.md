@@ -15,10 +15,10 @@ ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014375"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Uso de los libros de Azure Monitor en informes de Azure Active Directory
@@ -54,7 +54,7 @@ Este artículo:
  
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para utilizar los libros de Monitor, necesita:
 
@@ -81,7 +81,7 @@ Debe estar en uno de los roles siguientes y tener [acceso al área de trabajo su
 
 Para acceder a los libros:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Vaya a **Azure Active Directory** > **Supervisión** > **Libros**. 
 
@@ -105,7 +105,7 @@ Este libro muestra las siguientes tendencias de inicio de sesión:
 
 Puede filtrar cada tendencia por las siguientes categorías:
 
-- Intervalo de tiempo
+- Intervalo de horas
 
 - Aplicaciones
 
@@ -139,7 +139,7 @@ Este libro muestra las siguientes tendencias de inicio de sesión:
 
 Puede filtrar cada tendencia por las siguientes categorías:
 
-- Intervalo de tiempo
+- Intervalo de horas
 
 - Aplicaciones
 
@@ -163,7 +163,7 @@ Para tener acceso al libro para los inicios de sesión por [directivas de acceso
 
 Este libro muestra las tendencias para los inicios de sesión deshabilitados. Puede filtrar cada tendencia por las siguientes categorías:
 
-- Intervalo de tiempo
+- Intervalo de horas
 
 - Aplicaciones
 
@@ -183,7 +183,7 @@ Para los inicios de sesión deshabilitados, obtendrá un desglose por el estado 
 
 Los libros contienen consultas del registro de inicio de sesión que pueden ayudar a los administradores de TI a supervisar el impacto de las directivas de acceso condicional en el inquilino. Tiene la capacidad de informar sobre el número de usuarios a los que se les habría concedido o denegado el acceso. El libro contiene información sobre cuántos usuarios habrían omitido las directivas de acceso condicional en función de los atributos de los usuarios en el momento del inicio de sesión. Contiene detalles por condición, para que el impacto de una directiva se pueda contextualizar por condición, incluidas la plataforma del dispositivo, el estado del dispositivo, la aplicación cliente, el riesgo de inicio de sesión, la ubicación y la aplicación.
 
-### <a name="instructions"></a>Instrucciones 
+### <a name="instructions"></a>Instructions 
 Para acceder al libro con la información de acceso condicional, seleccione el libro **Información de acceso condicional** en la sección Acceso condicional. Este libro muestra el impacto esperado de cada directiva de acceso condicional en el inquilino. Seleccione una o varias directivas de acceso condicional en la lista desplegable y restrinja el ámbito del libro; para ello, aplique los siguientes filtros: 
 
 - **Intervalo de tiempo**
@@ -236,7 +236,7 @@ Este libro muestra las siguientes tendencias de inicios de sesión deshabilitado
 
 Puede filtrar cada tendencia por las siguientes categorías:
 
-- Intervalo de tiempo
+- Intervalo de horas
 
 - Aplicaciones
 
@@ -276,7 +276,7 @@ Este libro muestra las siguientes tendencias de inicio de sesión:
 
 Puede filtrar cada tendencia por las siguientes categorías:
 
-- Intervalo de tiempo
+- Intervalo de horas
 
 - Aplicaciones
 
