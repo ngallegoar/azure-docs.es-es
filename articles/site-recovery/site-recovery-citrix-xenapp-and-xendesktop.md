@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 29fbe5389da924a2ecc660aa5ce5c4bb0a0902b6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74084554"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configuración de la recuperación ante desastres para una implementación de XenApp y XenDesktop de Citrix de niveles múltiples
@@ -26,7 +26,7 @@ Una buena solución de recuperación ante desastres debería permitir que se pud
 En este documento se proporcionan instrucciones detalladas para crear una solución de recuperación ante desastres para las implementaciones locales de XenApp de Citrix en plataformas Hyper-V y VMware vSphere. Además, se describe cómo realizar una conmutación por error de prueba (obtención de detalles de recuperación ante desastres) y una conmutación por error no planeada en Azure con los planes de recuperación, las configuraciones admitidas y los requisitos previos.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, no olvide informarse sobre las cuestione siguientes:
 

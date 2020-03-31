@@ -12,16 +12,16 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a47f30cf00624faf098c8b605534cf355eacadee
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718538"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227196"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Server
 En este tutorial, se describe el proceso de creación e implementación de un modelo de Machine Learning con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
 
-## <a name="dataset"></a>Descripción del conjunto de datos NYC Taxi Trip
+## <a name="nyc-taxi-trips-dataset-description"></a><a name="dataset"></a>Descripción del conjunto de datos NYC Taxi Trip
 El conjunto de datos NYC Taxi Trips consiste en aproximadamente 20 GB de archivos de valores separados por comas (CSV) comprimidos (aproximadamente 48 GB sin comprimir), que incluyen más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. El registro de cada carrera incluye la hora y la ubicación de recogida y llegada, el número de licencia del taxista anonimizado y el número de placa (identificador único del taxi). Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
 
 1. El archivo CSV 'trip_data' contiene información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración de las carreras y la longitud del recorrido. Estos son algunos registros de ejemplo:
@@ -43,7 +43,7 @@ El conjunto de datos NYC Taxi Trips consiste en aproximadamente 20 GB de archiv
 
 La clave única para unir trip\_data and trip\_fare se compone de los campos: medallion, hack\_licence and pickup\_datetime.
 
-## <a name="mltasks"></a>Ejemplos de tareas de predicción
+## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Ejemplos de tareas de predicción
 Se formularán tres problemas de predicción basados en *tip\_amount*, a saber:
 
 * Clasificación binaria: Permite predecir si se pagó o no una propina tras una carrera; es decir, un valor de *tip\_amount* mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
@@ -56,7 +56,7 @@ Se formularán tres problemas de predicción basados en *tip\_amount*, a saber:
         Class 4 : tip_amount > $20
 * Tarea de regresión: Permite predecir el importe de la propina pagada por una carrera.  
 
-## <a name="setup"></a>Configuración del entorno de ciencia de datos de Azure para análisis avanzado
+## <a name="setting-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Configuración del entorno de ciencia de datos de Azure para análisis avanzado
 Como puede ver en la guía [Planear su entorno de ciencia de datos de aprendizaje automático de Azure](plan-your-environment.md) , existen varias opciones para trabajar con el conjunto de datos NYC Taxi Trips en Azure:
 
 * Trabajar con los datos en blobs de Azure y, a continuación, modelar en Azure Machine Learning.
@@ -81,7 +81,7 @@ Para configurar el entorno de ciencia de datos de Azure:
 
 Teniendo en cuenta el tamaño del conjunto de datos, la ubicación del origen de datos y el entorno de destino de Azure seleccionado, este escenario es similar a [Escenario \#5: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino](plan-sample-scenarios.md#largelocaltodb).
 
-## <a name="getdata"></a>Obtener los datos del origen público
+## <a name="get-the-data-from-public-source"></a><a name="getdata"></a>Obtener los datos del origen público
 Para obtener el conjunto de datos [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) de su ubicación pública, puede usar cualquiera de los métodos descritos en [Mover datos hacia y desde Azure Blob Storage](move-azure-blob.md) para copiar los datos en su nueva máquina virtual.
 
 Para copiar los datos mediante AzCopy:
@@ -95,7 +95,7 @@ Para copiar los datos mediante AzCopy:
     Cuando se complete la operación AzCopy, debe haber un total de 24 archivos CSV comprimidos (12 para trip\_data y 12 para trip\_fare) en la carpeta de datos.
 4. Descomprima los archivos descargados. Observe la carpeta donde se encuentran los archivos sin comprimir. Se hará referencia a esta carpeta como <path\_to\_data\_files\>.
 
-## <a name="dbload"></a>Importación masiva de datos en una base de datos de SQL Server
+## <a name="bulk-import-data-into-sql-server-database"></a><a name="dbload"></a>Importación masiva de datos en una base de datos de SQL Server
 Para mejorar tanto el rendimiento de la carga y transferencia de grandes cantidades de datos a una instancia de SQL Database y las consultas posteriores, utilice *tablas y vistas con particiones*. En esta sección, se seguirán las instrucciones que se describen en [Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL](parallel-load-sql-partitioned-tables.md) para crear una nueva base de datos y cargar los datos en tablas con particiones en paralelo.
 
 1. Con la sesión iniciada en la máquina virtual, inicie **SQL Server Management Studio**.
@@ -136,7 +136,7 @@ Para mejorar tanto el rendimiento de la carga y transferencia de grandes cantida
 11. En **SQL Server Management Studio**, explore el script de ejemplo proporcionado, **sample\_queries.sql**. Para ejecutar cualquiera de las consultas de ejemplo, resalte las líneas de la consulta y haga clic en **Ejecutar** en la barra de herramientas.
 12. Los datos de NYC Taxi Trips se cargan en dos tablas distintas. Para mejorar las operaciones de combinación, se recomienda la indexación de las tablas. El script de ejemplo **create\_partitioned\_index.sql** crea índices con particiones en la clave de combinación compuesta **medallion, hack\_license y pickup\_datetime**.
 
-## <a name="dbexplore"></a>Exploración de datos e ingeniería de características en SQL Server
+## <a name="data-exploration-and-feature-engineering-in-sql-server"></a><a name="dbexplore"></a>Exploración de datos e ingeniería de características en SQL Server
 En esta sección, se llevará a cabo la exploración de datos y la generación de características mediante la ejecución de consultas SQL directamente en **SQL Server Management Studio** con la base de datos de SQL Server creada anteriormente. Se proporciona un script de ejemplo llamado **sample\_queries.sql** en la carpeta **Scripts de ejemplo**. Modifique el script para cambiar el nombre de la base de datos, en caso de que no sea el predeterminado: **TaxiNYC**.
 
 En este ejercicio, se hará lo siguiente:
@@ -251,7 +251,7 @@ La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, 
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 
-## <a name="ipnb"></a>Exploración de datos e ingeniería de características en el Bloc de notas de IPython
+## <a name="data-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>Exploración de datos e ingeniería de características en el Bloc de notas de IPython
 En esta sección, se llevará a cabo la exploración de datos y la generación de características con consultas Pyhton y SQL en la base de datos de SQL Server creada anteriormente. Se proporciona un bloc de notas de IPython de ejemplo llamado **machine-Learning-data-science-process-sql-story.ipynb** en la carpeta **Blocs de notas de IPython de ejemplo**. Este bloc de notas también está disponible en [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
 Al trabajar con macrodatos, siga la secuencia recomendada:
@@ -550,7 +550,7 @@ Ya está todo listo para pasar a la creación del modelo y la implementación de
 2. Clasificación con múltiples clases: permite predecir el rango de la propina dada, según las clases definidas anteriormente.
 3. Tarea de regresión: Permite predecir el importe de la propina pagada por una carrera.  
 
-## <a name="mlmodel"></a>Creación de modelos en Azure Machine Learning
+## <a name="building-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Creación de modelos en Azure Machine Learning
 Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de Azure Machine Learning. Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md).
 
 1. Para empezar a usar Azure Machine Learning, consulte [¿Qué es Microsoft Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
@@ -592,7 +592,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 > 
 > 
 
-## <a name="mldeploy"></a>Implementación de modelos en Azure Machine Learning
+## <a name="deploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Implementación de modelos en Azure Machine Learning
 Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para más información sobre la implementación de servicios web Azure Machine Learning, vea [Implementar un servicio web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 
 Para implementar un nuevo servicio web, deberá:

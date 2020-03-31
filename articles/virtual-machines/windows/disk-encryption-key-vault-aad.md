@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 5a42b1e0dc82b3340bbebe176c71cb1754d00664
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72246001"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224672"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Creación y configuración de un almacén de claves para Azure Disk Encryption con Azure AD (versión anterior)
 
@@ -40,7 +40,7 @@ Azure Disk Encryption se integra con [Azure Key Vault](https://azure.microsoft.c
 
 
 >[!WARNING]
->Con el fin de garantizar que los secretos de cifrado no traspasen los límites regionales, Azure Disk Encryption necesita Key Vault y las máquinas virtuales para ubicarse conjuntamente en la misma región. Cree y use una instancia de Key Vault que se encuentre en la misma región que la máquina virtual que se va a cifrar. 
+>Con el fin de garantizar que los secretos de cifrado no traspasen los límites regionales, Azure Disk Encryption necesita que Key Vault y las máquinas virtuales estén ubicadas conjuntamente en la misma región. Cree y use una instancia de Key Vault que se encuentre en la misma región que la máquina virtual que se va a cifrar. 
 
 
 ### <a name="create-a-key-vault-with-powershell"></a>Creación de un almacén de claves con PowerShell

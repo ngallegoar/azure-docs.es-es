@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75498113"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228916"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Reprotección desde Azure a un entorno local
 
@@ -26,7 +26,7 @@ Tras la [conmutación por error](site-recovery-failover.md) de máquinas virtual
 4. Si va a reproteger máquinas virtuales agrupadas en un grupo de replicación para asegurar la coherencia de varias máquinas virtuales, asegúrese de que todas tienen el mismo sistema operativo (Windows o Linux) y de que el servidor de destino maestro que va a implementar tiene el mismo tipo de sistema operativo. Todas las máquinas virtuales de un grupo de replicación deben usar el mismo servidor de destino maestro.
 5. Abra [los puertos necesarios](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) para realizar la conmutación por recuperación.
 6. Asegúrese de que vCenter Server esté conectado antes de realizar la conmutación por recuperación. En caso contrario, se producirá un error al desconectar los discos y conectarlos a la máquina virtual.
-7. Si una instancia de vCenter Server administra las máquinas virtuales a las que quiere conmutar por recuperación, asegúrese de tener los permisos necesarios. Si realiza la detección de usuarios de solo lectura de vCenter y protege las máquinas virtuales, la protección se ejecutará correctamente y la conmutación por error funcionará. Sin embargo, durante la reprotección, se produce un error de conmutación por error porque no se pueden detectar los almacenes de datos y no aparecen durante la reprotección. Para solucionar este problema, puede actualizar las credenciales de vCenter con la [cuenta o permisos adecuados](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) y volver a intentar el trabajo. 
+7. Si una instancia de vCenter Server administra las máquinas virtuales a las que quiere conmutar por recuperación, asegúrese de tener los permisos necesarios. Si realiza la detección de usuarios de solo lectura de vCenter y protege las máquinas virtuales, la protección se ejecutará correctamente y la conmutación por error funcionará. Sin embargo, durante la reprotección, se produce un error de conmutación por error porque no se pueden detectar los almacenes de datos y no aparecen durante la reprotección. Para solucionar este problema, puede actualizar las credenciales de vCenter con la [cuenta o los permisos adecuados](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) y volver a intentar el trabajo. 
 8. Si ha usado una plantilla para crear las máquinas virtuales, asegúrese de que cada una tenga su propio UUID para los discos. Si el UUID de la VM local entra en conflicto con el UUID del servidor de destino maestro porque ambos se crearon a partir de la misma plantilla, se produce un error de reprotección. En este caso, implemente desde una plantilla diferente.
 9. Si va a conmutar por recuperación en una instancia de vCenter Server alternativa, asegúrese de que se detectan tanto el nuevo vCenter Server como el servidor de destino maestro. Normalmente, si no se detectaron, significa que los almacenes de datos no son accesibles o visibles en **Reproteger**.
 10. Compruebe los siguientes escenarios en los que no se puede realizar la conmutación por recuperación:

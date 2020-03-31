@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
 ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225409"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227160"
 ---
 # <a name="filters"></a>Filtros
 
@@ -47,7 +47,7 @@ En función del escenario, se decide qué tipo de filtro es el más adecuado (fi
 
 Utilice las siguientes propiedades para describir los filtros. 
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
 |firstQuality|La velocidad de bits de primera calidad del filtro.|
 |presentationTimeRange|El intervalo de tiempo de la presentación. Esta propiedad se utiliza para filtrar los puntos de inicio y de fin del manifiesto, la duración de la ventana de presentación y la posición de inicio activa. <br/>Para más información, consulte [PresentationTimeRange](#presentationtimerange).|
@@ -57,7 +57,7 @@ Utilice las siguientes propiedades para describir los filtros.
 
 Utilice esta propiedad con los **filtros de recursos**. No se recomienda establecer la propiedad con los **filtros de cuenta**.
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
 |**endTimestamp**|Se aplica al vídeo bajo demanda (VoD).<br/>Para la presentación de streaming en vivo, se ignora silenciosamente y se aplica cuando la presentación termina y la secuencia se convierte en VoD.<br/>Se trata de un valor largo que representa un punto final absoluto de la presentación, redondeado al siguiente inicio del grupo de imágenes más cercano. La unidad es la escala temporal, por lo que un valor endTimestamp de 1800000000 sería de 3 minutos.<br/>Use startTimestamp y endTimestamp para recortar los fragmentos que estarán en la lista de reproducción (manifiesto).<br/>Por ejemplo, startTimestamp=40000000 y endTimestamp=100000000 usando la escala temporal predeterminada generarán una lista de reproducción que contiene fragmentos de entre 4 y 10 segundos de la presentación de VoD. Si un fragmento sobrepasa el límite, se incluirá todo el fragmento en el manifiesto.|
 |**forceEndTimestamp**|Solo se aplica a streaming en vivo.<br/>Indica si la propiedad endTimestamp debe estar presente. Si el valor true, se debe especificar el valor de endTimestamp o se devolverá un código de solicitud incorrecta.<br/>Valores permitidos: false, true.|
@@ -72,7 +72,7 @@ Se especifica una lista de condiciones de propiedad de pista de filtro (FilterTr
 
 Las condiciones de la propiedad de la pista del filtro describen tipos de pista, valores (descritos en la siguiente tabla) y operaciones (Equal, NotEqual). 
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
 |**Bitrate**|Utilice la velocidad de bits de la pista para filtrar.<br/><br/>El valor recomendado es un rango de velocidades de bits, en bits por segundo. Por ejemplo, "0-2427000".<br/><br/>Nota: aunque puede utilizar un valor de velocidad de bits específico, como 250000 (bits por segundo), no se recomienda este enfoque, ya que las velocidades de bits exactas pueden fluctuar de un recurso a otro.|
 |**FourCC**|Utilice el valor FourCC de la pista para filtrar.<br/><br/>El valor es el primer elemento de formato de códecs, según se especifica en [RFC 6381](https://tools.ietf.org/html/rfc6381). Actualmente se admiten los siguientes códecs: <br/>Para vídeo: "avc1", "hev1", "hvc1"<br/>Para audio: "mp4a", "ec-3"<br/><br/>Para determinar los valores de FourCC para las pistas de un recurso, obtenga y examine el archivo de manifiesto.|

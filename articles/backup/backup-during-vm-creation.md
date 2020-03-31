@@ -4,11 +4,11 @@ description: Describe cómo habilitar la copia de seguridad al crear una VM de A
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449903"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226048"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar copia de seguridad al crear una máquina virtual de Azure
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ae8c7c43ecbf9bc625e1e46be3e2c71c8d57b6f7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720102"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Exploración de los datos de una máquina virtual de SQL Server en Azure
@@ -29,7 +29,7 @@ Esta tarea constituye un paso del [proceso de ciencia de datos en equipos](overv
 > 
 > 
 
-## <a name="sql-dataexploration"></a>Exploración de los datos de SQL con scripts de SQL
+## <a name="explore-sql-data-with-sql-scripts"></a><a name="sql-dataexploration"></a>Exploración de los datos de SQL con scripts de SQL
 A continuación se muestran algunos scripts de SQL de ejemplo que se pueden usar para explorar los almacenes de datos en SQL Server.
 
 1. Obtener el número de observaciones por día
@@ -50,7 +50,7 @@ A continuación se muestran algunos scripts de SQL de ejemplo que se pueden usar
 > 
 > 
 
-## <a name="python"></a>Exploración de los datos de SQL con Python
+## <a name="explore-sql-data-with-python"></a><a name="python"></a>Exploración de los datos de SQL con Python
 Usar Python para generar explorar datos y generar características cuando los datos están en SQL Server es parecido a procesar los datos en Blob de Azure mediante Python, como se documenta en [Proceso de datos de Blob de Azure en su entorno de ciencia de datos](data-blob.md). Cargue los datos desde la base de datos en una trama de datos de Pandas y, a continuación, se pueden procesar aún más. Se documenta el proceso de conexión a la base de datos y carga de los datos en la trama de datos de esta sección.
 
 El formato de cadena de conexión siguiente puede usarse para conectarse a una base de datos de SQL Server desde Python mediante pyodbc (reemplace servername, dbname, username y password con sus valores específicos):

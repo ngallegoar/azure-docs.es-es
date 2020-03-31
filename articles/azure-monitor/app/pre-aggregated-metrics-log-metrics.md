@@ -7,11 +7,11 @@ ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 65abc9c7153aaf2973d5927400e27467066098f9
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669767"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234660"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas agregadas previamente y basadas en registros en Application Insights
 

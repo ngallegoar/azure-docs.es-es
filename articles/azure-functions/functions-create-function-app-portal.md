@@ -4,12 +4,12 @@ description: Cree una nueva aplicación de funciones en Azure desde el portal.
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 74eaa6837f362c849277a761da3ae79c3a8ac353
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 086a543e75d083094d4dfa789e71afaba5da6d6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230785"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79368798"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Creación de una instancia de Function App desde Azure Portal
 
@@ -18,10 +18,6 @@ En este tema se muestra cómo usar Azure Functions para crear una aplicación de
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
-
-Cuando cree una instancia de Function App, brinde un **nombre de aplicación** válido, que solo puede incluir letras, números y guiones. El carácter de subrayado ( **_** ) no se permite.
-
-Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. 
 
 Después de crear la instancia de Function App, puede crear funciones individuales en uno o más lenguajes distintos. Cree funciones [a través del portal](functions-create-first-azure-function.md#create-function), la [implementación continua](functions-continuous-deployment.md) o mediante la [carga con FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
 

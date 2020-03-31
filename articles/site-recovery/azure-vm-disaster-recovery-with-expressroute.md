@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954080"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integración de ExpressRoute con la recuperación ante desastres en máquinas virtuales de Azure
@@ -85,7 +85,7 @@ Normalmente, las implementaciones empresariales tienen cargas de trabajo reparti
 
 ![Del entorno local a Azure con ExpressRoute antes de la conmutación por error](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
-- **Región**. Las aplicaciones se implementan en la región de Asia oriental de Azure.
+- **Región**. Las aplicaciones se implementan en la región de Este de Asia de Azure.
 - **Redes virtuales de radio**. Las aplicaciones se implementan en dos redes virtuales de radio:
     - **vNet1 de origen**: 10.1.0.0/24.
     - **vNet2 de origen**: 10.2.0.0/24.
@@ -182,7 +182,7 @@ En nuestro ejemplo, estamos usando la topología siguiente:
 
 - Dos circuitos ExpressRoute en dos ubicaciones de emparejamiento diferentes.
 - Conserve las direcciones IP privadas para las máquinas virtuales de Azure después de la conmutación por error.
-- La región de recuperación de destino es el Sudeste Asiático de Azure.
+- La región de recuperación de destino es el Sudeste de Asia de Azure.
 - Se establece una conexión secundaria a un circuito ExpressRoute mediante un servidor perimetral asociado en Singapur.
 
 En el caso de una topología sencilla que use un único circuito ExpressRoute, con la misma dirección IP después de la conmutación por error, [revise este artículo](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover).

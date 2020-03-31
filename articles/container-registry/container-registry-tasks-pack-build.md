@@ -4,10 +4,10 @@ description: Use el comando az acr pack build para compilar una imagen de conten
 ms.topic: article
 ms.date: 10/24/2019
 ms.openlocfilehash: c42bde6bbab5973094302a2d41f004d7600bdf9e
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79087079"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Compilación e inserción de una imagen desde una aplicación mediante una instancia de Cloud Native Buildpacks

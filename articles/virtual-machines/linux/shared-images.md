@@ -17,10 +17,10 @@ ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
 ms.openlocfilehash: de1afa2367afcb78e8ca68e518acc93e33f61c43
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034961"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Creación de una galería de imágenes compartidas con la CLI de Azure
@@ -33,7 +33,7 @@ La galería es un recurso de nivel superior que proporciona control de acceso ba
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos. En este artículo, usaremos o crearemos los siguientes elementos:
 
-| Resource | DESCRIPCIÓN|
+| Resource | Descripción|
 |----------|------------|
 | **Imagen administrada** | Se trata de una imagen básica que se puede usar por sí sola o para crear una **versión de imagen** de una galería de imágenes. Las imágenes administradas se crean desde máquinas virtuales generalizadas. Una imagen administrada es un tipo de VHD especial que se puede usar para crear varias máquinas virtuales y que ahora se puede usar para crear versiones de imágenes compartidas. |
 | **Galería de imágenes** | Al igual que Azure Marketplace, una **galería de imágenes** es un repositorio para administrar y compartir imágenes, pero usted puede controlar quién tiene acceso. |
@@ -63,7 +63,7 @@ También puede usar una versión específica con el identificador de la versión
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Azure Image Builder (versión preliminar)](image-builder-overview.md)puede ayudar a automatizar la creación de la versión de imagen, incluso lo puede usar para actualizar y [crear una versión de imagen nueva a partir de una versión de imagen existente](image-builder-gallery-update-image-version.md). 
+[Azure Image Builder (versión preliminar)](image-builder-overview.md) puede ayudar a automatizar la creación de versiones de la imagen, incluso se puede usar para actualizar y [crear una nueva versión de la imagen a partir de una versión de imagen existente](image-builder-gallery-update-image-version.md). 
 
 Puede crear también recursos de Shared Image Gallery con plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
 

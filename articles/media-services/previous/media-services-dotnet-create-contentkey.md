@@ -1,6 +1,6 @@
 ---
 title: Creación de claves de contenido con .NET
-description: En este artículo se muestra cómo crear claves de contenido que proporcionen un acceso seguro a los recursos.
+description: En este artículo se muestra cómo crear claves de contenido que proporcionen acceso seguro a los recursos.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: aebd6dee9314d6e5641988767c024790b6b721f4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887704"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227064"
 ---
 # <a name="create-contentkeys-with-net"></a>Creación de claves de contenido con .NET 
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ Uno de los valores que debe configurar al crear una clave de contenido es el tip
     }
 ```
 
-## <a id="envelope_contentkey"></a>Crear ContentKey de tipo de sobre
+## <a name="create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Crear ContentKey de tipo de sobre
 El siguiente fragmento de código crea una clave de contenido del tipo de cifrado de sobre. A continuación, asocia la clave con el recurso especificado.
 
 ```csharp
@@ -108,7 +108,7 @@ call
 ```
 
 
-## <a id="common_contentkey"></a>Crear ContentKey de tipo común
+## <a name="create-common-type-contentkey"></a><a id="common_contentkey"></a>Crear ContentKey de tipo común
 El fragmento de código siguiente crea una clave de contenido del tipo de cifrado común. A continuación, asocia la clave con el recurso especificado.
 
 ```csharp

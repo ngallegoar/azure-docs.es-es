@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c2c2d1a9affe13d485bfeef52c781ed259b53bc8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70100126"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
@@ -228,7 +228,7 @@ Después de que se instala y configura el entorno de Azure, el siguiente paso es
 ## <a name="additional-reading"></a>Lecturas adicionales
 
 - [Configuración de ASM de Oracle](configure-oracle-asm.md)
-- [Configuración de la protección de datos de Oracle](configure-oracle-dataguard.md)
+- [Configuración de Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configuración de Oracle Golden Gate](configure-oracle-golden-gate.md)
 - [Copia de seguridad y recuperación de Oracle](oracle-backup-recovery.md)
 

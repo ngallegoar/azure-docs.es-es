@@ -1,31 +1,41 @@
 ---
 title: Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure
 description: Aprenda a habilitar la notificación de finalización para las instancias de conjunto de escalado de máquinas virtuales de Azure.
-author: shandilvarun
+author: avirishuv
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.author: vashan
-ms.openlocfilehash: a1b1e07fa0622ae25d8086ec65827816ec52a5ce
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 02/26/2020
+ms.author: avverma
+ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271751"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226940"
 ---
-# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure (versión preliminar)
-Las instancias de conjunto de escalado pueden optar por recibir notificaciones de finalización de instancias y establecer un tiempo de espera de retraso predefinido para la operación de finalización. La notificación de finalización se envía mediante Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), que proporciona notificaciones y retrasa las operaciones importantes, como reinicios o reimplementaciones. La versión preliminar de la solución agrega otro evento, Terminate, a la lista de Scheduled Events, y el retraso asociado de este evento dependerá del límite del retraso especificado por los usuarios en su configuración del modelo del conjunto de escalado.
+# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure
+Las instancias de conjunto de escalado pueden optar por recibir notificaciones de finalización de instancias y establecer un tiempo de espera de retraso predefinido para la operación de finalización. La notificación de finalización se envía mediante Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), que proporciona notificaciones y retrasa las operaciones importantes, como reinicios o reimplementaciones. La solución agrega otro evento, Terminate, a la lista de Scheduled Events, y el retraso asociado de este evento dependerá del límite del retraso especificado por los usuarios en su configuración del modelo del conjunto de escalado.
 
 Una vez inscritas en la característica, las instancias de conjunto de escalado no tienen que esperar a que expire el tiempo de espera especificado antes de que se elimine la instancia. Después de recibir una notificación de finalización, se puede optar por eliminar la instancia en cualquier momento antes de que expire el tiempo de espera de finalización.
 
-> [!IMPORTANT]
-> La notificación de finalización de las instancias de conjunto de escalado se encuentra actualmente en versión preliminar pública. No es necesario ningún procedimiento de participación para usar la funcionalidad de versión preliminar pública que se describe a continuación.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="enable-terminate-notifications"></a>Habilitar notificaciones de finalización
 Hay varias maneras de habilitar las notificaciones de terminación en las instancias de conjunto de escalado, tal como se describe en los siguientes ejemplos.
+
+### <a name="azure-portal"></a>Portal de Azure
+
+Los pasos siguientes habilitan la notificación de finalización al crear un nuevo conjunto de escalado. 
+
+1. Vaya a **Conjuntos de escalado de máquinas virtuales**.
+1. Seleccione **+ Agregar** para crear un nuevo conjunto de escalado.
+1. Vaya a la pestaña **Administración** (Administración). 
+1. Busque la sección **Finalización de la instancia**.
+1. En **Instance termination notification** (Notificación de finalización de la instancia), seleccione **Activado**.
+1. En **Retraso de la finalización (minutos)** , establezca el tiempo de espera predeterminado deseado.
+1. Cuando haya terminado de crear el nuevo conjunto de escalado, seleccione el botón **Revisar y crear**. 
+
+> [!NOTE]
+> No puede establecer las notificaciones de finalización en conjuntos de escalado existentes en Azure Portal
 
 ### <a name="rest-api"></a>API DE REST
 
@@ -59,22 +69,19 @@ Después de habilitar *scheduledEventsProfile* en el modelo del conjunto de esca
 >Las notificaciones de finalización de las instancias del conjunto de escalado solo se pueden habilitar con la versión 2019-03-01 o posteriores de la API.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Al crear un nuevo conjunto de escalado, puede habilitar las notificaciones de finalización en el conjunto de escalado mediante el cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss).
+Al crear un nuevo conjunto de escalado, puede habilitar las notificaciones de finalización en el conjunto de escalado mediante el cmdlet [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
+
+Este script de ejemplo le guía por la creación de un conjunto de escalado y los recursos asociados mediante el archivo de configuración: [Creación de un conjunto de escalado de máquinas virtuales completo](./scripts/powershell-sample-create-complete-scale-set.md) Puede proporcionar la notificación de finalización de configuración mediante la adición de los parámetros *TerminateScheduledEvents* y *TerminateScheduledEventNotBeforeTimeoutInMinutes* al objeto de configuración para crear el conjunto de escalado. En el ejemplo siguiente se habilita la característica con tiempo de espera de retraso de 10 minutos.
 
 ```azurepowershell-interactive
-New-AzVmss `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
-  -VMScaleSetName "myScaleSet" `
-  -VirtualNetworkName "myVnet" `
-  -SubnetName "mySubnet" `
-  -PublicIpAddressName "myPublicIPAddress" `
-  -LoadBalancerName "myLoadBalancer" `
+New-AzVmssConfig `
+  -Location "VMSSLocation" `
+  -SkuCapacity 2 `
+  -SkuName "Standard_DS2" `
   -UpgradePolicyMode "Automatic" `
-  -TerminateScheduledEvents
+  -TerminateScheduledEvents $true `
+  -TerminateScheduledEventNotBeforeTimeoutInMinutes 10
 ```
-
-En el ejemplo anterior se crea un nuevo conjunto de escalado con las notificaciones de finalización habilitadas con un tiempo de espera predeterminado de 5 minutos. Al crear un nuevo conjunto de escalado, el parámetro *TerminateScheduledEvents* no requiere ningún valor. Para cambiar el valor de tiempo de espera, especifique el tiempo de espera deseado mediante el parámetro *TerminateScheduledEventNotBeforeTimeoutInMinutes*.
 
 Use el cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para habilitar las notificaciones de finalización en un conjunto de escalado existente.
 
@@ -89,6 +96,33 @@ En el ejemplo anterior se habilitan las notificaciones de finalización en un co
 
 Después de habilitar los eventos programados en el modelo del conjunto de escalado y establecer el valor de tiempo de espera, actualice las instancias individuales al [modelo más reciente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para que se reflejen los cambios.
 
+### <a name="azure-cli-20"></a>CLI de Azure 2.0
+
+En el ejemplo siguiente se habilita la notificación de finalización al crear un nuevo conjunto de escalado.
+
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
+az vmss create \
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --image UbuntuLTS \
+  --admin-username <azureuser> \
+  --generate-ssh-keys \
+  --terminate-notification-time 10
+```
+
+En el ejemplo anterior se crea primero un grupo de recursos y, después, se crea un nuevo conjunto de escalado con las notificaciones de finalización habilitadas para un tiempo de espera predeterminado de 10 minutos.
+
+En el ejemplo siguiente se habilita la notificación de finalización en un conjunto de escalado existente.
+
+```azurecli-interactive
+az vmss update \  
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --enable-terminate-notification true \
+  --terminate-notification-time 10
+```
+
 ## <a name="get-terminate-notifications"></a>Obtención de notificaciones de finalización
 
 Las notificaciones de finalización se entregan mediante [Scheduled Events](../virtual-machines/windows/scheduled-events.md), que pertenece a Azure Metadata Service. Azure Metadata Service expone información sobre la ejecución de máquinas virtuales mediante un punto de conexión de REST accesible desde la propia máquina virtual. La información se encuentra disponible a través de una dirección IP no enrutable, de modo que no se expone fuera de la máquina virtual.
@@ -100,7 +134,7 @@ Scheduled Events se deshabilitará para el conjunto de escalado si las instancia
 ### <a name="endpoint-discovery"></a>Detección de punto de conexión
 En el caso de las máquinas virtuales con red virtual habilitada, el servicio de metadatos está disponible desde una dirección IP no enrutable estática, 169.254.169.254.
 
-El punto de conexión completo de la versión más reciente de Scheduled Events para esta versión preliminar es:
+El punto de conexión completo de la versión más reciente de Scheduled Events es:
 > "http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01"
 
 ### <a name="query-response"></a>Respuesta de la consulta
@@ -122,7 +156,7 @@ En caso de que haya eventos programados, la respuesta contiene una matriz de eve
     ]
 }
 ```
-DocumentIncarnation es una etiqueta de entidad y proporciona una manera fácil de inspeccionar si la carga de eventos ha cambiado desde la última consulta.
+*DocumentIncarnation* es una etiqueta de entidad y proporciona una manera fácil de inspeccionar si la carga de los eventos ha cambiado desde la última consulta.
 
 Para más información sobre cada uno de los campos anteriores, consulte la documentación de Scheduled Events para [Windows](../virtual-machines/windows/scheduled-events.md#event-properties) y [Linux](../virtual-machines/linux/scheduled-events.md#event-properties).
 
@@ -154,7 +188,7 @@ También puede hacer referencia a los scripts de ejemplo para consultar y respon
 
 ## <a name="troubleshoot"></a>Solución de problemas
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>Error al habilitar scheduledEventsProfile
-Si recibe un error "BadRequest" con un mensaje de error que indica que "no se pudo encontrar el miembro "scheduledEventsProfile" en el objeto de tipo VirtualMachineProfile", compruebe la versión de API usada para las operaciones del conjunto de escalado. Se requiere la versión **2019-03-01** o una posterior de Compute API para esta versión preliminar.
+Si recibe un error "BadRequest" con un mensaje de error que indica que "no se pudo encontrar el miembro "scheduledEventsProfile" en el objeto de tipo VirtualMachineProfile", compruebe la versión de API usada para las operaciones del conjunto de escalado. Se requiere Compute API versión **2019-03-01** o superior. 
 
 ### <a name="failure-to-get-terminate-events"></a>Error al obtener los eventos de finalización
 Si no obtiene ningún evento de **finalización** a través de Scheduled Events, compruebe la versión de API que se usa para obtener los eventos. Se requiere Metadata Service API versión **2019-01-01** u otra posterior para los eventos de finalización.

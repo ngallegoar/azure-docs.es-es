@@ -10,14 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: e3668718e27a3dcb545428637b34de51ec621c60
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: b7b8606f7f15f8d6fdd66681a1c7ade60ff506f3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169054"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217779"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Uso de los conjuntos de datos de ejemplo en Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 [top]: #machine-learning-sample-datasets
 
 Cuando se crea un área de trabajo en Azure Machine Learning Studio (clásico), de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de ejemplo. Los modelos de ejemplo de la [Galería de Azure AI](https://gallery.azure.ai/) utilizan muchos de estos conjuntos de datos de ejemplo. Otros se incluyen como ejemplos de distintos tipos de datos que se usan normalmente en el aprendizaje automático.

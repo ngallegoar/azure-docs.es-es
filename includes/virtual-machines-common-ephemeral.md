@@ -9,10 +9,10 @@ ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d848b92da5d4181832adff8499b3531d020c30c9
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78155396"
 ---
 Los discos del sistema operativo efímeros se crean en el almacenamiento local de la máquina virtual y no se guardan en la instancia remota de Azure Storage. Estos discos están indicados para cargas de trabajo sin estado, donde las aplicaciones toleran errores de máquinas virtuales individuales, pero tienen más en cuenta el tiempo de implementación de las máquinas virtuales o el restablecimiento de la imagen inicial de dichas máquinas. Con los discos del sistema operativo efímeros, observará una latencia de lectura y escritura inferior en el disco del sistema operativo y un restablecimiento más rápido de la imagen inicial de la máquina virtual. 
@@ -38,7 +38,7 @@ Principales diferencias entre discos del sistema operativo efímeros y persisten
 | Regiones admitidas              | Todas las regiones                                                                                  | Todas las regiones                              |
 | Persistencia de los datos            | Los datos del disco del sistema operativo escritos en un disco del sistema operativo se almacenan en Azure Storage.                                  | Los datos escritos en un disco del sistema operativo se almacenan en el almacenamiento de máquina virtual local y no se conservan en Azure Storage. |
 | Estado detenido (desasignado)      | Las máquinas virtuales y las instancias del conjunto de escalado pueden estar detenidas (desasignadas) y reiniciarse a partir de este estado. | Las máquinas virtuales y las instancias del conjunto de escalado no pueden estar detenidas (desasignadas).                                  |
-| Compatibilidad con discos del sistema operativo especializados | Sí                                                                                          | Sin                                                                                 |
+| Compatibilidad con discos del sistema operativo especializados | Sí                                                                                          | No                                                                                 |
 | Cambio de tamaño del disco del sistema operativo              | Se admite durante la creación de la máquina virtual y después de que esta se detiene (desasigna).                                | Se admite solo durante la creación de la máquina virtual                                                  |
 | Cambio a un nuevo tamaño de máquina virtual   | Se conservan los datos del disco del sistema operativo                                                                    | Se eliminan los datos del disco del sistema operativo, se vuelve a aprovisionar el sistema operativo.                                      |
 

@@ -8,11 +8,11 @@ ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
 ms.openlocfilehash: 921a05c4dc6c1d5cfa663ac71b469573b8f1925b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77667047"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234544"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Supervisión de instancias de Azure SQL Database con Azure SQL Analytics (versión preliminar)
 
@@ -34,10 +34,10 @@ Azure SQL Analytics es una solución de supervisión solo en la nube que admite 
 | Origen conectado | Compatible | Descripción |
 | --- | --- | --- |
 | [Configuración de diagnóstico](../platform/diagnostic-settings.md) | **Sí** | Azure envía directamente los datos de métricas y registros de Azure a los registros de Azure Monitor. |
-| [Cuenta de Almacenamiento de Azure](../platform/collect-azure-metrics-logs.md) | Sin | Azure Monitor no lee los datos de una cuenta de almacenamiento. |
-| [Agentes de Windows](../platform/agent-windows.md) | Sin | Azure SQL Analytics no utiliza agentes directos de Windows. |
-| [Agentes de Linux](../learn/quick-collect-linux-computer.md) | Sin | Azure SQL Analytics no utiliza agentes directos de Linux. |
-| [Grupo de administración de System Center Operations](../platform/om-agents.md) | Sin | Azure SQL Analytics no utiliza ninguna conexión directa entre el agente de Operations Manager y Azure Monitor. |
+| [Cuenta de Almacenamiento de Azure](../platform/collect-azure-metrics-logs.md) | No | Azure Monitor no lee los datos de una cuenta de almacenamiento. |
+| [Agentes de Windows](../platform/agent-windows.md) | No | Azure SQL Analytics no utiliza agentes directos de Windows. |
+| [Agentes de Linux](../learn/quick-collect-linux-computer.md) | No | Azure SQL Analytics no utiliza agentes directos de Linux. |
+| [Grupo de administración de System Center Operations](../platform/om-agents.md) | No | Azure SQL Analytics no utiliza ninguna conexión directa entre el agente de Operations Manager y Azure Monitor. |
 
 ## <a name="azure-sql-analytics-options"></a>Opciones de Azure SQL Analytics
 
@@ -48,9 +48,9 @@ La siguiente tabla describe opciones compatibles para dos versiones del panel de
 | Recurso por tipo | Perspectiva que considera todos los recursos supervisados. | Sí | Sí |
 | Información detallada | Proporciona un informe detallado jerárquico del rendimiento de Intelligent Insights. | Sí | Sí |
 | Errors | Ofrece un informe detallado jerárquico de los errores de SQL que se produjeron en las bases de datos. | Sí | Sí |
-| Tiempos de expiración | Ofrece un informe detallado jerárquico de los tiempos de expiración de SQL que se produjeron en las bases de datos. | Sí | Sin |
-| Bloqueos | Ofrece un informe detallado jerárquico de los bloqueos de SQL que se produjeron en las bases de datos. | Sí | Sin |
-| Esperas de la base de datos | Ofrece un informe detallado jerárquico de las estadísticas de espera de SQL en el nivel de base de datos. Incluye resúmenes del tiempo de espera total y el tiempo de espera por tipo de espera. |Sí | Sin |
+| Tiempos de expiración | Ofrece un informe detallado jerárquico de los tiempos de expiración de SQL que se produjeron en las bases de datos. | Sí | No |
+| Bloqueos | Ofrece un informe detallado jerárquico de los bloqueos de SQL que se produjeron en las bases de datos. | Sí | No |
+| Esperas de la base de datos | Ofrece un informe detallado jerárquico de las estadísticas de espera de SQL en el nivel de base de datos. Incluye resúmenes del tiempo de espera total y el tiempo de espera por tipo de espera. |Sí | No |
 | Duración de la consulta | Ofrece un informe detallado jerárquico de las estadísticas de ejecución de consulta, como la duración de la consulta, el uso de CPU, el uso de E/S de datos y el uso de E/S de registro. | Sí | Sí |
 | Esperas de consulta | Ofrece un informe detallado jerárquico de las estadísticas de espera de consulta por categoría de espera. | Sí | Sí |
 

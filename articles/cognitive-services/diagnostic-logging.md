@@ -1,5 +1,5 @@
 ---
-title: Registro de diagnósticos
+title: Registro de diagnóstico
 titleSuffix: Azure Cognitive Services
 description: Esta guía proporciona instrucciones paso a paso para habilitar el registro de diagnóstico para un servicio de Azure Cognitive Services. Estos registros proporcionan datos exhaustivos y frecuentes sobre el funcionamiento de un recurso que se utilizan para la identificación y depuración del problema.
 services: cognitive-services
@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
 ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71827897"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Habilitación del registro de diagnóstico para Azure Cognitive Services
 
 Esta guía proporciona instrucciones paso a paso para habilitar el registro de diagnóstico para un servicio de Azure Cognitive Services. Estos registros proporcionan datos exhaustivos y frecuentes sobre el funcionamiento de un recurso que se utilizan para la identificación y depuración del problema. Antes de continuar, debe tener una cuenta de Azure con una suscripción a al menos un servicio de Cognitive Services, como [Bing Web Search](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview), [Servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview) o [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para habilitar el registro de diagnóstico, necesitará un lugar donde almacenar los datos de registro. En este tutorial se utiliza Azure Storage y Log Analytics.
 

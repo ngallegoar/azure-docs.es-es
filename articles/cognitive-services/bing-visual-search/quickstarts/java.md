@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: fe323fc27062ad1bee9abdfaf3408430e28523a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446632"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API de REST Bing Visual Search y Java
 
 Use este inicio rápido para realizar la primera llamada a Bing Visual Search API y ver los resultados. Esta aplicación de Java carga una imagen en la API y muestra la información que se devuelve. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Kit de desarrollo de Java (JDK) 7 u 8](https://aka.ms/azure-jdks)
 * La [biblioteca Java para Gson](https://github.com/google/gson)

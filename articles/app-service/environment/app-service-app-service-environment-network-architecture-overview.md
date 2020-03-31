@@ -8,11 +8,11 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687344"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224816"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Información general sobre la arquitectura de red de los entornos de App Service
 Las instancias de App Service Environment siempre se crean dentro de una subred de una [red virtual][virtualnetwork]; las aplicaciones que se ejecutan en App Service Environment pueden comunicarse con puntos de conexión privados ubicados dentro de la misma topología de red virtual.  Puesto que los clientes pueden bloquear partes de su infraestructura de red virtual, es importante conocer los tipos de flujos de comunicación de red que se producen con un entorno de App Service.

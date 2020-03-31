@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74007702"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latencias de informes de Azure Active Directory
@@ -59,18 +59,18 @@ Hay dos tipos de informes de seguridad:
 
 La tabla siguiente enumera la información de latencia para los informes de seguridad.
 
-| Informe | Mínima | Media | Máxima |
+| Informe | Mínima | Average | Máxima |
 | :-- | --- | --- | --- |
 | Usuarios en riesgo          | 5 minutos   | 15 minutos  | 2 horas  |
 | Inicios de sesión no seguros         | 5 minutos   | 15 minutos  | 2 horas  |
 
 ## <a name="risk-detections"></a>Detecciones de riesgo
 
-Azure AD emplea algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro llamado **detección de riesgo**.
+Azure AD emplea algoritmos y heurística de aprendizaje automático adaptable para detectar acciones sospechosas que están relacionadas con las cuentas de usuario. Cada acción sospechosa detectada se almacena en un registro llamado **detección de riesgos**.
 
 La tabla siguiente enumera la información de latencia para detecciones de riesgo.
 
-| Informe | Mínima | Media | Máxima |
+| Informe | Mínima | Average | Máxima |
 | :-- | --- | --- | --- |
 | Inicios de sesión desde direcciones IP anónimas |5 minutos |15 minutos |2 horas |
 | Inicios de sesión desde ubicaciones desconocidas |5 minutos |15 minutos |2 horas |

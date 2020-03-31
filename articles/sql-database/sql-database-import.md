@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 8d147248245ca06c145c68ee8ca9cfd02015aa9c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 05698596f966f879da1affc58af0122d08d519ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929167"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228628"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Inicio rápido: Importación de un archivo BACPAC en una base de datos de Azure SQL Database
 
@@ -34,7 +34,7 @@ Vea este vídeo para ver cómo importar desde un archivo BACPAC en Azure Portal 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
 
-[Azure Portal](https://portal.azure.com) *solo* admite la creación de una base de datos única en Azure SQL Database y *solo* desde un archivo BACPAC almacenado en Azure Blob Storage.
+[Azure Portal](https://portal.azure.com)*solo* admite la creación de una base de datos única en Azure SQL Database y *solo* desde un archivo BACPAC almacenado en Azure Blob Storage.
 
 Actualmente no se admite la migración de una base de datos a una [instancia administrada](sql-database-managed-instance.md) desde un archivo BACPAC mediante Azure PowerShell. Use SQL Server Management Studio o SQLPackage en su lugar.
 
@@ -80,7 +80,7 @@ Este ejemplo muestra cómo importar una base de datos con SqlPackage con Autenti
 sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.database.windows.net /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## <a name="using-powershell"></a>Con PowerShell
+## <a name="using-powershell"></a>Usar PowerShell
 
 > [!NOTE]
 > Las [instancias administradas](sql-database-managed-instance.md) no admiten actualmente la migración de una base de datos a una base de datos de instancia desde un archivo BACPAC mediante Azure PowerShell. Para importar en una instancia administrada, utilice SQL Server Management Studio o SQLPackage.
@@ -88,10 +88,10 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!NOTE]
 > Los equipos que procesan las solicitudes de importación o exportación que se envían a través del portal o Powershell deben almacenar el archivo bacpac, así como los archivos temporales generados por Data-Tier Application Framework (DacFX). El espacio en disco necesario varía considerablemente entre las bases de datos del mismo tamaño y puede tardar hasta 3 veces el tamaño de la base de datos. Los equipos que ejecutan la solicitud de importación o exportación solo tienen 450 GB de espacio en disco local. Como resultado, en algunas solicitudes se puede producir el error "No hay suficiente espacio en el disco". En este caso, la solución alternativa es ejecutar sqlpackage.exe en un equipo con suficiente espacio en disco local. Al importar o exportar bases de datos superiores a 150 GB, use SqlPackage para evitar este problema.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información acerca la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
+> El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 Use el cmdlet [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) para enviar una solicitud de importación de base de datos al servicio Azure SQL Database. En función del tamaño de la base de datos, la importación puede tardar en completarse.
 
@@ -123,18 +123,18 @@ while ($importStatus.Status -eq "InProgress") {
 $importStatus
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Use el comando [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) para enviar una solicitud de importación de base de datos al servicio Azure SQL Database. En función del tamaño de la base de datos, la importación puede tardar en completarse.
 
-```azure-cli
+```azurecli
 # get the storage account key
-az storage account keys list --resource-group "<resourceGroupName>" --account-name "<storageAccountName>"
+az storage account keys list --resource-group "<resourceGroup>" --account-name "<storageAccount>"
 
-az sql db import --resource-group "<resourceGroupName>" --server "<serverName>" --name "<databaseName>" `
+az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "<database>" `
     --storage-key-type "StorageAccessKey" --storage-key "<storageAccountKey>" `
     --storage-uri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
-    -u "<userId>" -p $(ConvertTo-SecureString -String "<password>" -AsPlainText -Force)
+    -u "<userId>" -p "<password>"
 ```
 
 * * *

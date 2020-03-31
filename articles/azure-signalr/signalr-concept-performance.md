@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74157670"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guía de rendimiento para Azure SignalR Service
@@ -122,14 +122,14 @@ Cada nivel tiene su propio ancho de banda entrante y saliente máximo. No se gar
 
 |       Eco                        | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| Conexiones                       | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
+| Conexiones                       | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
 | **Ancho de banda entrante** | **2 MBps**    | **4 MBps**    | **10 MBps**   | **20 MBps**    | **40 MBps**    | **100 MBps**   | **200 MBps**    |
 | Ancho de banda saliente | 2 MBps   | 4 MBps   | 10 MBps  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
 
 
 |     Difusión             | Unidad1 | Unidad2 | Unidad5  | Unidad10 | Unidad20 | Unidad50  | Unidad100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Conexiones               | 1000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000  | 100 000 |
+| Conexiones               | 1,000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000  | 100 000 |
 | Ancho de banda entrante  | 4 Kbps   | 4 Kbps   | 4 Kbps    | 4 Kbps    | 4 Kbps    | 4 Kbps     | 4 Kbps    |
 | **Ancho de banda saliente** | **4 MBps**    | **8 MBps**    | **20 MBps**    | **40 MBps**    | **80 MBps**    | **200 MBps**    | **400 MBps**   |
 
@@ -160,7 +160,7 @@ En la tabla siguiente se muestra un caso de uso real de **difusión**. Sin embar
 | Difusión  | Tamaño del mensaje | Mensajes entrantes por segundo | Conexiones | Intervalos de envío |
 |---|---------------------|--------------------------|-------------|-------------------------|
 | 1 | 20 KB                | 1                        | 100 000     | 5 segundos                      |
-| 2 | 256 KB               | 1                        | 8\.000       | 5 segundos                      |
+| 2 | 256 KB               | 1                        | 8,000       | 5 segundos                      |
 
 La siguiente fórmula es fácil de deducir basándose en la fórmula anterior:
 
@@ -213,8 +213,8 @@ El comportamiento de **eco** determina que el ancho de banda entrante máximo es
 
 |       Eco                        | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| Conexiones                       | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
-| Mensajes entrantes y salientes por segundo | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
+| Conexiones                       | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
+| Mensajes entrantes y salientes por segundo | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
 | Ancho de banda entrante y saliente | 2 MBps   | 4 MBps   | 10 MBps  | 20 MBps   | 40 MBps   | 100 MBps  | 200 MBps   |
 
 En este caso de uso, cada cliente invoca el centro definido en el servidor de aplicaciones. El centro simplemente llama al método definido en el cliente original. Este centro es el más ligero para **eco**.
@@ -231,7 +231,7 @@ Incluso para este centro sencillo, la presión del tráfico en el servidor de ap
 
 |    Eco          | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Conexiones      | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
+| Conexiones      | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
 | Número de servidores de aplicaciones | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -249,7 +249,7 @@ En la tabla siguiente se proporciona un resumen de las conexiones de cliente, n�
 
 |     Difusión             | Unidad1 | Unidad2 | Unidad5  | Unidad10 | Unidad20 | Unidad50  | Unidad100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Conexiones               | 1000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000  | 100 000 |
+| Conexiones               | 1,000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000  | 100 000 |
 | Mensajes entrantes por segundo  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | Mensajes salientes por segundo | 2\.000 | 4\.000 | 10 000 | 20.000 | 40.000 | 100 000 | 200 000 |
 | Ancho de banda entrante  | 4 Kbps   | 4 Kbps   | 4 Kbps    | 4 Kbps    | 4 Kbps    | 4 Kbps     | 4 Kbps     |
@@ -259,7 +259,7 @@ Los clientes de difusión que publican mensajes son no más que cuatro. Necesita
 
 |   Difusión      | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Conexiones      | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
+| Conexiones      | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
 | Número de servidores de aplicaciones | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -269,7 +269,7 @@ Los clientes de difusión que publican mensajes son no más que cuatro. Necesita
 
 #### <a name="send-to-group"></a>Enviar al grupo
 
-El caso de uso de **enviar al grupo** tiene un patrón de tráfico similar a **difusión**. La diferencia es que después de que los clientes establezcan conexiones WebSocket a Azure SignalR Service, deben unirse a grupos antes de poder enviar un mensaje a un grupo específico. En el siguiente diagrama se muestra este flujo de tráfico.
+El caso de uso de **enviar al grupo** tiene un patrón de tráfico similar a **difusión**. La diferencia es que después de que los clientes establezcan conexiones WebSocket a Azure SignalR Service, deben unirse a grupos antes de poder enviar un mensaje a un grupo específico. En el diagrama siguiente se muestra este flujo de tráfico.
 
 ![Tráfico para el caso de uso de enviar a grupo](./media/signalr-concept-performance/sendtogroup.png)
 
@@ -287,10 +287,10 @@ El coste de enrutamiento es importante para enviar mensajes a muchos grupos pequ
 
 |   Enviar a un grupo pequeño     | Unidad1 | Unidad2 | Unidad5  | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |---------------------------|-------|-------|--------|--------|--------|--------|---------|
-| Conexiones               | 1000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000 | 100 000
+| Conexiones               | 1,000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000 | 100 000
 | Número de miembros del grupo        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
-| Número de grupos               | 100   | 200   | 500    | 1000  | 2\.000  | 5\.000  | 10 000 
-| Mensajes entrantes por segundo  | 200   | 400   | 1000  | 2500  | 4\.000  | 7000  | 7000   |
+| Número de grupos               | 100   | 200   | 500    | 1,000  | 2\.000  | 5\.000  | 10 000 
+| Mensajes entrantes por segundo  | 200   | 400   | 1,000  | 2500  | 4\.000  | 7000  | 7000   |
 | Ancho de banda entrante  | 400 Kbps  | 800 Kbps  | 2 MBps     | 5 MBps     | 8 MBps     | 14 Mbps    | 14 Mbps     |
 | Mensajes salientes por segundo | 2\.000 | 4\.000 | 10 000 | 25 000 | 40.000 | 70 000 | 70 000  |
 | Ancho de banda saliente | 4 MBps    | 8 MBps    | 20 MBps    | 50 Mbps     | 80 MBps    | 140 MBps   | 140 MBps    |
@@ -299,7 +299,7 @@ Muchas de conexiones de cliente llaman al centro, por lo que el número de servi
 
 |  Enviar a un grupo pequeño   | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Conexiones      | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
+| Conexiones      | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
 | Número de servidores de aplicaciones | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -311,8 +311,8 @@ Para **enviar a grupo grande**, el ancho de banda saliente se convierte en el cu
 
 |    Enviar a grupo grande      | Unidad1 | Unidad2 | Unidad5  | Unidad10 | Unidad20 | Unidad50  | Unidad100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Conexiones               | 1000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000  | 100 000
-| Número de miembros del grupo        | 100   | 200   | 500    | 1000  | 2\.000  | 5\.000   | 10 000 
+| Conexiones               | 1,000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000  | 100 000
+| Número de miembros del grupo        | 100   | 200   | 500    | 1,000  | 2\.000  | 5\.000   | 10 000 
 | Número de grupos               | 10    | 10    | 10     | 10     | 10     | 10      | 10
 | Mensajes entrantes por segundo  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
 | Ancho de banda entrante  | 80 Kbps   | 40 KBps   | 40 KBps    | 20 Kbps    | 40 KBps    | 40 KBps     | 40 KBps     |
@@ -323,7 +323,7 @@ El número de conexiones de envío 40 como máximo. La carga en el servidor de a
 
 |  Enviar a grupo grande  | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Conexiones      | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
+| Conexiones      | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
 | Número de servidores de aplicaciones | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -345,15 +345,15 @@ En la tabla siguiente se proporciona un resumen estadístico después de varias 
 
 |   Enviar a conexión   | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50          | Unidad100         |
 |------------------------------------|-------|-------|-------|--------|--------|-----------------|-----------------|
-| Conexiones                        | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000          | 100 000         |
-| Mensajes entrantes y salientes por segundo | 1000 | 2\.000 | 5\.000 | 8\.000  | 9000  | 20.000 | 20.000 |
+| Conexiones                        | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000          | 100 000         |
+| Mensajes entrantes y salientes por segundo | 1,000 | 2\.000 | 5\.000 | 8,000  | 9000  | 20.000 | 20.000 |
 | Ancho de banda entrante y saliente | 2 MBps    | 4 MBps    | 10 MBps   | 16 MBps    | 18 Mbps    | 40 MBps       | 40 MBps       |
 
 En este caso de uso se requiere una carga elevada en el servidor de aplicaciones. Consulta en la tabla siguiente el número de servidores de aplicaciones sugerido.
 
 |  Enviar a conexión  | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Conexiones      | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
+| Conexiones      | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
 | Número de servidores de aplicaciones | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -369,21 +369,21 @@ En la tabla siguiente se proporciona el número de aplicaciones web sugerido par
 
 |   Eco           | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Conexiones      | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
+| Conexiones      | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
 | Número de servidores de aplicaciones | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 En la tabla siguiente se proporciona el número de aplicaciones web sugerido para **difusión** de ASP.NET SignalR.
 
 |  Difusión       | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Conexiones      | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
+| Conexiones      | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
 | Número de servidores de aplicaciones | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 En la tabla siguiente se proporciona el número de aplicaciones web sugerido para **enviar a grupo pequeño** de ASP.NET SignalR.
 
 |  Enviar a un grupo pequeño     | Unidad1 | Unidad2 | Unidad5 | Unidad10 | Unidad20 | Unidad50 | Unidad100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Conexiones      | 1000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
+| Conexiones      | 1,000 | 2\.000 | 5\.000 | 10 000 | 20.000 | 50.000 | 100 000 |
 | Número de servidores de aplicaciones | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 ### <a name="serverless-mode"></a>Modo sin servidor
@@ -397,7 +397,7 @@ Todos los clientes establecen conexiones WebSocket con Azure SignalR Service. Lu
 
 |   Difusión a través de la API de REST     | Unidad1 | Unidad2 | Unidad5  | Unidad10 | Unidad20 | Unidad50  | Unidad100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Conexiones               | 1000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000  | 100 000 |
+| Conexiones               | 1,000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000  | 100 000 |
 | Mensajes entrantes por segundo  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | Mensajes salientes por segundo | 2\.000 | 4\.000 | 10 000 | 20.000 | 40.000 | 100 000 | 200 000 |
 | Ancho de banda entrante  | 4 Kbps    | 4 Kbps    | 4 Kbps     | 4 Kbps     | 4 Kbps     | 4 Kbps      | 4 Kbps      |
@@ -408,7 +408,7 @@ El banco de pruebas asigna nombres de usuario a todos los clientes antes de esto
 
 |   Enviar al usuario a través de la API de REST | Unidad1 | Unidad2 | Unidad5  | Unidad10 | Unidad20 | Unidad50  | Unidad100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Conexiones               | 1000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000  | 100 000 |
+| Conexiones               | 1,000 | 2\.000 | 5\.000  | 10 000 | 20.000 | 50.000  | 100 000 |
 | Mensajes entrantes por segundo  | 300   | 600   | 900    | 1300  | 2\.000  | 10 000  | 18 000  |
 | Mensajes salientes por segundo | 300   | 600   | 900    | 1300  | 2\.000  | 10 000  | 18 000 |
 | Ancho de banda entrante  | 600 KBps  | 1,2 MBps  | 1,8 MBps   | 2,6 MBps   | 4 MBps     | 10 MBps     | 36 MBps    |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887108"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227028"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
 
@@ -51,7 +51,7 @@ El siguiente diagrama representa un flujo de trabajo de streaming en vivo que us
 
 ![Flujo de trabajo activo][live-overview]
 
-## <a id="scenario"></a>Escenario típico de streaming en vivo
+## <a name="common-live-streaming-scenario"></a><a id="scenario"></a>Escenario típico de streaming en vivo
 En los pasos siguientes se describen las tareas que intervienen en la creación de aplicaciones típicas de streaming en vivo.
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador en vivo local que genera una transmisión de RTMP o MP4 fragmentado de velocidad de bits múltiple (Smooth Streaming) de salida. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824).
@@ -83,9 +83,9 @@ En los pasos siguientes se describen las tareas que intervienen en la creación 
 
 10. Elimine el programa (y, opcionalmente, también el recurso).     
 
-## <a id="channel"></a>Descripción de un canal y sus componentes relacionados
-### <a id="channel_input"></a>Configuraciones de entrada de canal (introducción)
-#### <a id="ingest_protocols"></a>Protocolo de streaming de ingesta
+## <a name="description-of-a-channel-and-its-related-components"></a><a id="channel"></a>Descripción de un canal y sus componentes relacionados
+### <a name="channel-input-ingest-configurations"></a><a id="channel_input"></a>Configuraciones de entrada de canal (introducción)
+#### <a name="ingest-streaming-protocol"></a><a id="ingest_protocols"></a>Protocolo de streaming de ingesta
 Media Services admite la ingesta de fuentes en vivo mediante MP4 fragmentado y RTMP de velocidad de bits múltiple como protocolos de streaming. Al seleccionar el protocolo de streaming de ingesta RTMP, se crean dos puntos de conexión de ingesta (entrada) para el canal:
 
 * **URL principal**: especifica la dirección URL completa del extremo de introducción RTMP principal del canal.
@@ -114,7 +114,7 @@ Puede obtener las direcciones URL de ingesta al crear el canal. Para obtener est
 
 Tiene la opción de ingerir una transmisión en vivo de MP4 fragmentado (Smooth Streaming) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS. Actualmente, no se puede consumir RTMP a través de SSL.
 
-#### <a id="keyframe_interval"></a>Intervalo de fotogramas clave
+#### <a name="keyframe-interval"></a><a id="keyframe_interval"></a>Intervalo de fotogramas clave
 Cuando se usa un codificador en vivo local para generar una transmisión de velocidad de bits múltiple, el intervalo de fotogramas clave especifica la duración de grupo de imágenes (GOP) tal como la usa el codificador externo. Una vez que el canal recibe esta transmisión de entrada, puede entregar su transmisión en vivo a las aplicaciones de reproducción del cliente en cualquiera de estos formatos: Smooth Streaming, Streaming adaptable dinámico a través de HTTP (DASH) y HTTP Live Streaming (HLS). Cuando se realiza el streaming en vivo, HLS siempre se empaqueta dinámicamente. De forma predeterminada, Media Services calcula automáticamente la proporción de empaquetado por segmento HLS (fragmentos por segmento) según el intervalo de fotogramas clave que se recibe del codificador en vivo.
 
 En la tabla siguiente se muestra cómo se calcula la duración de los segmentos:
@@ -173,12 +173,12 @@ Para eliminar contenido archivado, detenga y elimine el programa y, a continuaci
 
 Incluso después de detener y eliminar el programa, los usuarios podrán transmitir el contenido archivado como un vídeo a petición, hasta que elimine el recurso. Si desea conservar el contenido archivado, pero no hacerlo disponible para streaming, elimine el localizador de streaming.
 
-## <a id="states"></a>Estados de los canales y facturación
+## <a name="channel-states-and-billing"></a><a id="states"></a>Estados de los canales y facturación
 Los valores posibles para el estado actual de un canal incluyen:
 
-* **Stopped**: este es el estado inicial del canal después de su creación. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
+* **Detenido**: este es el estado inicial del canal después de su creación. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
 * **Starting**: el canal se está iniciando. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el canal vuelve al estado **Stopped** (Detenido).
-* **Running**: el canal puede procesar transmisiones en vivo.
+* **En ejecución**: el canal puede procesar transmisiones en vivo.
 * **Stopping**: el canal se está deteniendo. No se permiten actualizaciones ni streaming durante este estado.
 * **Deleting**: el canal se está eliminando. No se permiten actualizaciones ni streaming durante este estado.
 
@@ -189,9 +189,9 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 | **Starting** (iniciándose) |**Starting** (iniciándose) |No (estado transitorio) |
 | **Ejecución** |**Ready** (Listo) (sin programas en ejecución)<p><p>or<p>**Streaming** (al menos un programa en ejecución) |Sí |
 | **Stopping** (Deteniéndose) |**Stopping** (Deteniéndose) |No (estado transitorio) |
-| **Stopped** |**Stopped** |Sin |
+| **Stopped** |**Stopped** |No |
 
-## <a id="cc_and_ads"></a>Subtítulos e inserción de anuncios
+## <a name="closed-captioning-and-ad-insertion"></a><a id="cc_and_ads"></a>Subtítulos e inserción de anuncios
 En la siguiente tabla se muestran los estándares de subtítulos e inserción de anuncios compatibles.
 
 | Estándar | Notas |
@@ -200,7 +200,7 @@ En la siguiente tabla se muestran los estándares de subtítulos e inserción de
 | TTML dentro de .ismt (pistas de texto Smooth Streaming) |El empaquetado dinámico de Media Services permite a los clientes transmitir contenido de cualquiera de los siguientes formatos: DASH, HLS o Smooth Streaming. Sin embargo, si ingiere MP4 fragmentado (Smooth Streaming) con subtítulos dentro de .ismt (pistas de texto Smooth Streaming), solo podrá entregar la transmisión a clientes de Smooth Streaming. |
 | SCTE-35 |Sistema de señalización digital utilizado para poner en cola la inserción de publicidad. Los receptores descendentes usan la señal para unir la publicidad a la secuencia por el tiempo asignado. SCTE-35 se debe enviar como una pista dispersa en la secuencia de entrada.<p><p>En la actualidad, el único formato de transmisión de entrada admitido con señales de publicidad es el formato MP4 fragmentado (Smooth Streaming). El único formato de salida admitido también es Smooth Streaming. |
 
-## <a id="considerations"></a>Consideraciones
+## <a name="considerations"></a><a id="considerations"></a>Consideraciones
 Cuando se usa un codificador en vivo local para enviar una transmisión de velocidad de bits múltiple en un canal, se aplican las siguientes restricciones:
 
 * Asegúrese de que tiene suficiente conectividad a Internet disponible para enviar datos a los puntos de ingesta.

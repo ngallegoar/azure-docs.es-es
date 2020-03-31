@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: 4b8cfed883ffef780de2e82e3f309e97bcb5515c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356406"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235400"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Solución de problemas de tiempos de expiración de Redis Cache
 

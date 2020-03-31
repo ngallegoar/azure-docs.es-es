@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
 ms.openlocfilehash: c0d1829c52041446b4feb43d8af262265e2680fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822187"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Ejecución de consultas de análisis ad hoc entre varias bases de datos de Azure SQL
@@ -40,7 +40,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 ## <a name="ad-hoc-reporting-pattern"></a>Patrón de notificación ad hoc
 
-![Patrón de notificación ad hoc](media/saas-multitenantdb-adhoc-reporting/adhocreportingpattern_shardedmultitenantDB.png)
+![patrón de notificación ad hoc](media/saas-multitenantdb-adhoc-reporting/adhocreportingpattern_shardedmultitenantDB.png)
 
 Las aplicaciones SaaS pueden analizar la ingente cantidad de datos del inquilino que se almacenan de forma centralizada en la nube. Los análisis muestran información sobre el funcionamiento y el uso de la aplicación. Esta información puede guiarle en el desarrollo de características, mejoras de facilidad de uso y otras inversiones en sus aplicaciones y servicios.
 
@@ -138,7 +138,7 @@ Al inspeccionar el plan de ejecución, mantenga el mouse sobre los iconos de pla
 
    Esta consulta hace una combinación y una agregación un poco más complejas. Es importante tener en cuenta que la mayor parte del procesamiento se realiza de forma remota y, una vez más, se devuelven solo las filas que se necesitan, una única fila para el recuento total diario de ventas de entradas de cada ubicación.
 
-   ![query](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
+   ![Query](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

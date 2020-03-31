@@ -5,10 +5,10 @@ ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: ad121d605e521704597471b446fa79cb43dfccc7
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255847"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configuración de una aplicación de PHP en Linux para Azure App Service
@@ -41,7 +41,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="customize-build-automation"></a>Personalización de la automatización de compilaciones
 
-Si implementa la aplicación mediante el uso de paquetes Git o zip con la automatización de compilaciones activada, App Service genera pasos de automatización a través de la siguiente secuencia:
+Si implementa la aplicación utilizando paquetes Git o zip con la automatización de compilaciones activada, la automatización de compilaciones de App Service se ejecutará en este orden:
 
 1. Ejecute el script personalizado si lo especifica `PRE_BUILD_SCRIPT_PATH`.
 1. Ejecute `php composer.phar install`.
@@ -112,7 +112,7 @@ Si necesita hacer cambios en su instalación de PHP, puede cambiar cualquiera de
 > La mejor forma de ver la versión de PHP y la configuración de *php.ini* actual consiste en llamar a [phpinfo()](https://php.net/manual/function.phpinfo.php) en la aplicación.
 >
 
-### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalización de las directivas que no son de PHP_INI_SYSTEM
+### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalización de las directivas que no son de PHP_INI_SYSTEM
 
 Para personalizar las directivas PHP_INI_USER, PHP_INI_PERDIR y PHP_INI_ALL (consulte las [directivas de php.ini](https://www.php.net/manual/ini.list.php)), agregue un archivo *.htaccess* al directorio raíz de la aplicación.
 
@@ -132,7 +132,7 @@ Vuelva a implementar la aplicación con los cambios y reiníciela. Si la impleme
 
 Como alternativa al uso de *.htaccess*, puede usar [ini_set()](https://www.php.net/manual/function.ini-set.php) en la aplicación para personalizar estas directivas que no son de PHP_INI_SYSTEM.
 
-### <a name="customize-php_ini_system-directives"></a>Personalización de las directivas de PHP_INI_SYSTEM
+### <a name="customize-php_ini_system-directives"></a><a name="customize-php_ini_system-directives"></a>Personalización de las directivas de PHP_INI_SYSTEM
 
 Para personalizar las directivas de PHP_INI_SYSTEM (consulte [directivas de php.ini](https://www.php.net/manual/ini.list.php)), no puede usar el enfoque *.htaccess*. App Service proporciona un mecanismo diferente mediante la configuración de la aplicación `PHP_INI_SCAN_DIR`.
 

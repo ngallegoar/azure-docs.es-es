@@ -4,10 +4,10 @@ description: En este artículo, aprenda a configurar Microsoft Azure Backup Ser
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 03211e1147f96429a8406c4c95654161ed2bf308
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172306"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Copia de seguridad de SQL Server en Azure Stack

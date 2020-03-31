@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: 53280bc90f629d93ff8a045c80f34a73970b43f6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74171626"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Acciones en el motor de reglas estándar de Azure CDN
 
-En el [motor de reglas estándar](cdn-standard-rules-engine.md) de Azure Content Delivery Network (Azure CDN), una regla consta de una o varias condiciones de coincidencia y una acción. En este artículo se muestran descripciones detalladas de las acciones que puede usar en el motor de reglas estándar de Azure CDN.
+En el [motor de reglas estándar](cdn-standard-rules-engine.md) de Azure Content Delivery Network (Azure CDN), una regla consta de una o varias condiciones de coincidencia y una acción. En este artículo se muestran descripciones detalladas de las acciones que puede usar en el motor de reglas estándar de Azure CDN.
 
 La segunda parte de una regla es una acción. Una acción define el comportamiento que se aplica al tipo de solicitud que identifica una condición de coincidencia o un conjunto de condiciones de coincidencia.
 
@@ -30,7 +30,7 @@ Use esta acción para sobrescribir el valor de período de vida (TTL) del punto 
 
 #### <a name="required-fields"></a>Campos obligatorios
 
-Comportamiento de la caché |  DESCRIPCIÓN              
+Comportamiento de la caché |  Descripción              
 ---------------|----------------
 Omitir caché | Cuando esta opción está seleccionada y la regla coincide, el contenido no se almacena en caché.
 Invalidar | Cuando esta opción está seleccionada y la regla coincide, el valor de TTL devuelto desde el origen se sobrescribe con el valor especificado en la acción.
@@ -38,7 +38,7 @@ Establecer si falta | Cuando esta opción está seleccionada y la regla coincide
 
 #### <a name="additional-fields"></a>Campos adicionales
 
-Days (Días) | Horas | Minutos | Segundos
+Días | Horas | Minutos | Segundos
 -----|-------|---------|--------
 Int | Int | Int | Int 
 
@@ -48,7 +48,7 @@ Use esta acción para modificar la clave de caché en función de las cadenas de
 
 #### <a name="required-fields"></a>Campos obligatorios
 
-Comportamiento | DESCRIPCIÓN
+Comportamiento | Descripción
 ---------|------------
 Include | Cuando esta opción está seleccionada y la regla coincide, las cadenas de consulta especificadas en los parámetros se incluyen al generar la clave de caché. 
 Almacenar en caché todas las URL únicas | Cuando esta opción está seleccionada y la regla coincide, cada dirección URL única tiene su propia clave de caché. 
@@ -61,11 +61,11 @@ Use esta acción para modificar los encabezados presentes en las solicitudes env
 
 #### <a name="required-fields"></a>Campos obligatorios
 
-. | Nombre del encabezado HTTP | Valor
+Acción | Nombre del encabezado HTTP | Value
 -------|------------------|------
-Append | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la solicitud con el valor especificado. Si el encabezado ya está presente, este valor se anexa al valor existente. | Cadena
-Sobrescribir | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la solicitud con el valor especificado. Si el encabezado ya está presente, el valor especificado sobrescribe el valor existente. | Cadena
-Eliminar | Cuando esta opción está seleccionada, la regla coincide y el encabezado especificado en la regla está presente, el encabezado se elimina de la solicitud. | Cadena
+Append | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la solicitud con el valor especificado. Si el encabezado ya está presente, este valor se anexa al valor existente. | String
+Sobrescribir | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la solicitud con el valor especificado. Si el encabezado ya está presente, el valor especificado sobrescribe el valor existente. | String
+Eliminar | Cuando esta opción está seleccionada, la regla coincide y el encabezado especificado en la regla está presente, el encabezado se elimina de la solicitud. | String
 
 ### <a name="modify-response-header"></a>Modificación del encabezado de respuesta
 
@@ -73,11 +73,11 @@ Use esta acción para modificar los encabezados presentes en las respuestas devu
 
 #### <a name="required-fields"></a>Campos obligatorios
 
-. | Nombre del encabezado HTTP | Valor
+Acción | Nombre del encabezado HTTP | Value
 -------|------------------|------
-Append | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la respuesta con el **Valor** especificado. Si el encabezado ya está presente, el **Valor** se anexa al valor existente. | Cadena
-Sobrescribir | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la respuesta con el **Valor** especificado. Si el encabezado ya está presente, el **Valor** sobrescribe el valor existente. | Cadena
-Eliminar | Cuando esta opción está seleccionada, la regla coincide y el encabezado especificado en la regla está presente, el encabezado se elimina de la respuesta. | Cadena
+Append | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la respuesta con el **Valor** especificado. Si el encabezado ya está presente, el **Valor** se anexa al valor existente. | String
+Sobrescribir | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la respuesta con el **Valor** especificado. Si el encabezado ya está presente, el **Valor** sobrescribe el valor existente. | String
+Eliminar | Cuando esta opción está seleccionada, la regla coincide y el encabezado especificado en la regla está presente, el encabezado se elimina de la respuesta. | String
 
 ### <a name="url-redirect"></a>Redirección de direcciones URL
 
@@ -85,11 +85,11 @@ Use esta acción para redirigir a los clientes a una nueva dirección URL.
 
 #### <a name="required-fields"></a>Campos obligatorios
 
-Campo | DESCRIPCIÓN 
+Campo | Descripción 
 ------|------------
-type | Seleccione el tipo de respuesta que se devuelva al solicitante: Encontrado (302), Movido (301), Redireccionamiento temporal (307) y Redirección permanente (308).
+Tipo | Seleccione el tipo de respuesta que se devuelva al solicitante: Encontrado (302), Movido (301), Redireccionamiento temporal (307) y Redirección permanente (308).
 Protocolo | Confrontar solicitud, HTTP, HTTPS.
-Nombre de host. | Seleccione el nombre de host al que desea que se redirija la solicitud. Déjelo en blanco para conservar el host entrante.
+Hostname | Seleccione el nombre de host al que desea que se redirija la solicitud. Déjelo en blanco para conservar el host entrante.
 Path | Defina la ruta de acceso que se va a usar en la redirección. Déjelo en blanco para conservar la ruta de acceso entrante.  
 Cadena de consulta | Defina la cadena de consulta utilizada en la redirección. Déjelo en blanco para conservar la cadena de consulta entrante. 
 Fragmento | Defina el fragmento que se va a usar en la redirección. Déjelo en blanco para conservar el fragmento entrante. 
@@ -102,7 +102,7 @@ Use esta acción para reescribir la ruta de acceso de una solicitud en camino ha
 
 #### <a name="required-fields"></a>Campos obligatorios
 
-Campo | DESCRIPCIÓN 
+Campo | Descripción 
 ------|------------
 Patrón de origen | Defina el patrón de origen en la ruta de acceso URL que se va a reemplazar. Actualmente, el patrón de origen usa una coincidencia basada en el prefijo. Para una coincidencia con todas las ruta de acceso de las direcciones URL, use una barra ( **/** ) como valor de patrón de origen.
 Destination | Defina la ruta de acceso de destino que se va a usar en la reescritura. La ruta de acceso de destino sobrescribe el patrón de origen.

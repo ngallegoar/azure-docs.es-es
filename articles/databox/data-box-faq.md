@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 73256aef19a03c4c971be5fc9e69f988ef5a831a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75438627"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas más frecuentes
@@ -53,7 +53,7 @@ A. Data Box tiene una capacidad bruta de 100 TB y una capacidad utilizable de 80
 A.  Para obtener información sobre los países o regiones en los que está disponible Data Box, vaya a la sección de [disponibilidad por región](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>Q. ¿En qué regiones puedo almacenar datos con Data Box?
-A. Data Box se admite en todas las regiones de Estados Unidos, Europa Occidental, Europa del Norte, Francia, Reino Unido, Japón, Australia y Canadá. Para más información, vaya a [Disponibilidad por región](data-box-overview.md#region-availability).
+A. Data Box se admite en todas las regiones de Estados Unidos, Oeste de Europa, Norte de Europa, Francia, Reino Unido, Japón, Australia y Canadá. Para más información, vaya a [Disponibilidad por región](data-box-overview.md#region-availability).
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>Q. ¿Con quién debo ponerme en contacto si surge algún problema con Data Box?
 A. Si surge algún problema con Data Box, póngase en contacto con el [soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md).

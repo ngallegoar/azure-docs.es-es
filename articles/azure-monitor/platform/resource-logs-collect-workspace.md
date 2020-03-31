@@ -8,11 +8,11 @@ ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 36bd464624118b7671a3879bcc1d34114bba9ce3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659006"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226276"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilación de registros de plataforma de Azure en el área de trabajo de Log Analytics en Azure Monitor
 Los [registros de plataforma](platform-logs-overview.md) en Azure, incluidos los registros de recurso y los registros de actividad de Azure, proporcionan información detallada de diagnóstico y auditoría para los recursos de Azure y la plataforma de Azure de la que dependen. En este artículo se describe la recopilación de registros de recurso en un área de trabajo de Log Analytics que permita el análisis con otros datos de supervisión recopilados en los registros de Azure Monitor mediante consultas de registro eficaces y también el aprovechamiento de otras características de Azure Monitor, como las alertas y las visualizaciones. 

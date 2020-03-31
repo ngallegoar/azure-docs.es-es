@@ -4,11 +4,11 @@ description: Supervisión de los roles web y de trabajo de manera eficaz con App
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655844"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234768"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 [Application Insights][start] puede supervisar las [aplicaciones de Azure Cloud Service](https://azure.microsoft.com/services/cloud-services/) para comprobar la disponibilidad, el rendimiento, los errores y el uso al combinar datos de los SDK de Application Insights con datos de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de los servicios en la nube. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
@@ -94,7 +94,7 @@ Esto tiene el efecto de insertar las claves de instrumentación de Application I
 
 Si quiere modificar el nivel de la información de diagnóstico enviada a Application Insights, puede hacerlo [editando los archivos *.cscfg* directamente](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
-## <a name="sdk"></a>Instalación del SDK en cada proyecto
+## <a name="install-the-sdk-in-each-project"></a><a name="sdk"></a>Instalación del SDK en cada proyecto
 Con esta opción, puede agregar telemetría de negocio personalizada a cualquier rol. La opción proporciona un análisis más detallado de cómo la aplicación se usa y se comporta.
 
 En Visual Studio, configure el SDK de Application Insights para cada proyecto de aplicación en la nube.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895829"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232780"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Uso del cifrado dinámico AES-128 y el servicio de entrega de claves
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Realice estos pasos generales cuando cifre los recursos con AES, mediante el ser
 
 5. [Configuración de la directiva de entrega para un recurso](media-services-protect-with-aes128.md#configure_asset_delivery_policy). La configuración de directiva de entrega incluye la dirección URL de adquisición de claves y un vector de inicialización (IV). (AES-128 requiere el mismo vector de inicialización para cifrado y descifrado). La configuración también incluye el protocolo de entrega (por ejemplo, MPEG-DASH, HSL, Smooth Streaming o todos) y el tipo de cifrado dinámico (por ejemplo, cifrado Envelope o cifrado no dinámico).
 
-    Puede aplicar una directiva diferente a cada protocolo en el mismo recurso. Por ejemplo, puede aplicar cifrado PlayReady a Smooth/DASH y AES Envelope a HLS. Los protocolos que no están definidos en una directiva de entrega se bloquean del streaming. (Por ejemplo, si agrega una directiva única que especifica que solo HLS es el protocolo). La excepción se produce en el caso de que no haya definido ninguna directiva de entrega de recursos. En tal caso, todos los protocolos están habilitados sin cifrar.
+    Puede aplicar una directiva diferente a cada protocolo en el mismo recurso. Por ejemplo, puede aplicar cifrado PlayReady a Smooth/DASH y un sobre AES a HLS. Los protocolos que no están definidos en una directiva de entrega se bloquean del streaming. (Por ejemplo, si agrega una directiva única que especifica que solo HLS es el protocolo). La excepción se produce en el caso de que no haya definido ninguna directiva de entrega de recursos. En tal caso, todos los protocolos están habilitados sin cifrar.
 
 6. [Cree un localizador OnDemand](media-services-protect-with-aes128.md#create_locator) para obtener una dirección URL de streaming.
 
@@ -74,13 +74,13 @@ El resto de este artículo proporciona explicaciones, ejemplos de código y vín
 ## <a name="current-limitations"></a>Limitaciones actuales
 Si agrega o actualiza la directiva de entrega de recursos, debe eliminar un localizador existente y crear uno nuevo.
 
-## <a id="create_asset"></a>Creación de un recurso y carga de los archivos en el recurso
+## <a name="create-an-asset-and-upload-files-into-the-asset"></a><a id="create_asset"></a>Creación de un recurso y carga de los archivos en el recurso
 Para administrar, codificar y transmitir vídeos, primero debe cargar el contenido en Media Services. Una vez cargado, el contenido se almacena de forma segura en la nube para su posterior procesamiento y streaming. 
 
 Para más información, consulte [Carga de archivos en una cuenta de Media Services](media-services-dotnet-upload-files.md).
 
-## <a id="encode_asset"></a>Codificación del recurso que contiene el archivo para el conjunto de MP4 de velocidad de bits adaptable
-Con el cifrado dinámico, crea un recurso que contenga un conjunto de archivos MP4 o archivos de origen Smooth Streaming, de múltiples velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o fragmento, el servidor de streaming a petición se asegura de que reciba la secuencia en el protocolo que se ha seleccionado. Después, solo debe almacenar y pagar los archivos en un solo formato de almacenamiento. Media Services crea y publica la respuesta adecuada en función de las solicitudes de un cliente. Para más información, consulte [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
+## <a name="encode-the-asset-that-contains-the-file-to-the-adaptive-bitrate-mp4-set"></a><a id="encode_asset"></a>Codificación del recurso que contiene el archivo para el conjunto de MP4 de velocidad de bits adaptable
+Con el cifrado dinámico, crea un recurso que contiene un conjunto de archivos MP4 o archivos de origen Smooth Streaming, de múltiples velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o fragmento, el servidor de streaming a petición se asegura de que reciba la secuencia en el protocolo que se ha seleccionado. Después, solo debe almacenar y pagar los archivos en un solo formato de almacenamiento. Media Services crea y publica la respuesta adecuada en función de las solicitudes de un cliente. Para más información, consulte [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
 >[!NOTE]
 >Cuando se crea la cuenta de Media Services, se agrega un punto de conexión de streaming predeterminado a la cuenta en estado Detenido. Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado En ejecución. 
@@ -89,17 +89,17 @@ Con el cifrado dinámico, crea un recurso que contenga un conjunto de archivos M
 
 Para obtener instrucciones acerca de cómo codificar, consulte [Codificación de un recurso mediante Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
+## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
 En Media Services, la clave de contenido contiene la clave con la que desea cifrar un recurso.
 
 Para más información, consulte [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido
+## <a name="configure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido
 Media Services admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. Debe configurar la directiva de autorización de claves de contenido. El cliente (reproductor) debe cumplir la directiva antes de que se pueda entregar la clave al cliente. La directiva de autorización de clave de acceso puede tener una o más restricciones de autorización, ya sea abrir, restricción de token o restricción de IP.
 
 Para más información, consulte [Configuración de la directiva de autorización de claves de contenido](media-services-dotnet-configure-content-key-auth-policy.md).
 
-## <a id="configure_asset_delivery_policy"></a>Configuración de una directiva de entrega de recursos
+## <a name="configure-an-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configuración de una directiva de entrega de recursos
 Configure la directiva de entrega de sus recursos. Algunos de los elementos que incluye la configuración de la directiva de entrega de recursos son los siguientes:
 
 * La dirección URL de adquisición de clave. 
@@ -109,7 +109,7 @@ Configure la directiva de entrega de sus recursos. Algunos de los elementos que 
 
 Para más información, consulte [Configuración de una directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Creación de un localizador de streaming a petición para obtener una URL de streaming
+## <a name="create-an-ondemand-streaming-locator-to-get-a-streaming-url"></a><a id="create_locator"></a>Creación de un localizador de streaming a petición para obtener una URL de streaming
 Debe suministrar al usuario la URL de streaming para Smooth Streaming, DASH o HLS.
 
 > [!NOTE]
@@ -137,7 +137,7 @@ Obtenga un token de prueba basado en la restricción de token que se usó para l
 
 Puede usar [Azure Media Services Player](https://aka.ms/azuremediaplayer) para probar la secuencia.
 
-## <a id="client_request"></a>Cómo el cliente puede solicitar una clave al servicio de entrega de claves
+## <a name="how-can-your-client-request-a-key-from-the-key-delivery-service"></a><a id="client_request"></a>Cómo el cliente puede solicitar una clave al servicio de entrega de claves
 En el paso anterior, creó la URL que apunta a un archivo de manifiesto. El cliente debe extraer la información necesaria de los archivos de manifiesto de streaming para realizar una solicitud al servicio de entrega de claves.
 
 ### <a name="manifest-files"></a>Archivos de manifiesto
@@ -246,7 +246,7 @@ El código siguiente muestra cómo enviar una solicitud al servicio de entrega d
     <add key="Audience" value="urn:test"/>
     ```
 
-### <a id="example"></a>Ejemplo
+### <a name="example"></a><a id="example"></a>Ejemplo
 
 Sobrescriba el código del archivo Program.cs con el código mostrado en esta sección.
  

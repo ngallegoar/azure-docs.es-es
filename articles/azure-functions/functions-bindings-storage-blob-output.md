@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: c6e15c9a99a78f0f3637f718b35462fe49fd5ee6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201981"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235092"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Enlace de salida de Azure Blob Storage para Azure Functions
 
@@ -399,5 +399,5 @@ El atributo `@BlobOutput` da acceso al blob que desencadenó la función. Si uti
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Ejecución de una función cuando cambian los datos de Azure Blob Storage](./functions-bindings-storage-blob-trigger.md)
+- [Ejecución de una función cuando cambian los datos de Blob Storage](./functions-bindings-storage-blob-trigger.md)
 - [Lectura de datos de Azure Blob Storage cuando se ejecuta una función](./functions-bindings-storage-blob-input.md)

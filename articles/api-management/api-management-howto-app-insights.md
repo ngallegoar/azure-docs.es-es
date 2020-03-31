@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442708"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
 Azure API Management le permite una integración sencilla con Azure Application Insights, un servicio extensible para desarrolladores web que compilan y administran aplicaciones en varias plataformas. En esta guía, verá todos los pasos para dicha integración; además, se describen las estrategias para reducir el impacto en el rendimiento en la instancia de servicio de API Management.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir esta guía, debe tener una instancia de Azure API Management. Si no tiene una, complete antes el [tutorial](get-started-create-service-instance.md).
 

@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622207"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228880"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configuración del entorno de origen para la replicación de VMware en Azure
 
 En este artículo se describe cómo configurar el entorno local de origen para replicar máquinas virtuales de VMware en Azure. Este artículo incluye los pasos para seleccionar el escenario de replicación, configurar una máquina local como el servidor de configuración de Site Recovery y detectar automáticamente las máquinas virtuales locales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se supone que ya ha seguido estos pasos:
 
@@ -33,7 +33,7 @@ En este artículo se supone que ya ha seguido estos pasos:
 2. En **Introducción**, seleccione Site Recovery. Luego, seleccione **Preparar infraestructura**.
 3. En **Objetivo de protección** >  **¿Dónde están ubicadas las máquinas?** , seleccione **Local**.
 4. En **¿A dónde quiere replicar las máquinas?** , seleccione **En Azure**.
-5. En **¿Las máquinas están virtualizadas?** , seleccione **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor). Después seleccione **Aceptar**.
+5. En **¿Las máquinas están virtualizadas?** , seleccione **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor). Después, seleccione **Aceptar**.
 
 ## <a name="set-up-the-configuration-server"></a>Configuración del servidor de configuración
 
@@ -69,7 +69,7 @@ Para que la replicación se realice sin problema alguno y para evitar problemas 
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - Directorio de instalación del servidor de Site Recovery. Por ejemplo:  E:\Program Files (x86)\Microsoft Azure Site Recovery
+  - Directorio de instalación del servidor de Site Recovery. Por ejemplo: E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Si el software antivirus está activo en el servidor de procesos o destino maestro de la escalabilidad horizontal
 

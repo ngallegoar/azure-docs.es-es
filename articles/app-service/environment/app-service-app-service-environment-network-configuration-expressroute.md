@@ -8,11 +8,11 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688744"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224824"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalles de configuración de red para entornos de App Service para PowerApps con Azure ExpressRoute
 
@@ -85,7 +85,7 @@ Para aprender a crear y configurar rutas definidas por el usuario, consulte [Enr
 
 Esta sección muestra un ejemplo de configuración de UDR para App Service Environment.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 * Instale Azure PowerShell desde la [página de descargas de Azure][AzureDownloads]. Elija una descarga con una fecha de junio de 2015 u otra posterior. En **Herramientas de línea de comandos** > **Windows PowerShell**, seleccione **Instalar** para instalar los cmdlets de PowerShell más recientes.
 

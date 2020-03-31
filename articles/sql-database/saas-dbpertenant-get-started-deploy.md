@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 31f712f80ee2492e4bbaec99bd093d46f9d04e6d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823993"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con SQL Database
@@ -36,7 +36,7 @@ En este tutorial, obtendrá información:
 
 Una [serie de tutoriales relacionados](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) ofrece la posibilidad de explorar varios patrones de diseño y administración de SaaS. Los tutoriales se basan en esta implementación inicial. Cuando use los tutoriales, podrá examinar los scripts que se proporcionan para ver cómo se implementan los distintos patrones de SaaS. Los scripts muestran cómo las características de SQL Database simplifican el desarrollo de aplicaciones de SaaS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, asegúrese de que Azure PowerShell está instalado. Para más información, consulte el artículo de [introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -64,7 +64,7 @@ Elija los nombres ahora y escríbalos.
 
     - **Grupo de recursos**: seleccione **Crear nuevo** y proporcione el nombre único que eligió antes para el grupo de recursos.
     - **Ubicación**: seleccione una ubicación en la lista desplegable.
-    - **User**: use el valor de nombre de usuario que eligió antes.
+    - **Usuario**: use el valor de nombre de usuario que eligió antes.
 
 1. Implemente la aplicación.
 
@@ -126,7 +126,7 @@ La aplicación Wingtip usa  [*Azure Traffic Manager*](../traffic-manager/traffi
 
     En la tabla siguiente se explican los elementos del formato anterior.
 
-    | Elemento de URL        | DESCRIPCIÓN       |
+    | Elemento de URL        | Descripción       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | Elementos de eventos de la aplicación Wingtip.<br /><br /> *-dpt* distingue la implementación de *base de datos por inquilino* de Wingtip Tickets de otras implementaciones. Algunos ejemplos incluyen la implementación *única* de aplicación por inquilino ( *-sa*) o de *base de datos multiinquilino* ( *-mt*). |
     | . *&lt;usuario&gt;* | *af1* en el ejemplo. |

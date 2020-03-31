@@ -9,11 +9,11 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749222"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228380"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de comprobación de escalabilidad y rendimiento para Blob Storage
 

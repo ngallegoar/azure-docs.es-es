@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 5eba50e7cfc00c081622972ca09f305b34c19c47
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034994"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Uso de la consola serie para llamadas SysRq y NMI
@@ -25,7 +25,7 @@ ms.locfileid: "74034994"
 ## <a name="system-request-sysrq"></a>Solicitud del sistema (SysRq)
 Una solicitud del sistema, o SysRq, es una secuencia de claves que entiende el kernel del sistema de operaciones Linux, que puede desencadenar un conjunto de acciones predefinidas. Estos comandos se usan a menudo cuando la solución de problemas o la recuperación de una máquina virtual no pueden realizarse mediante la administración tradicional (por ejemplo, si la máquina virtual no responde). Mediante la característica SysRq de la consola serie de Azure se imita la acción de presionar la tecla SysRq y los caracteres escritos en un teclado físico.
 
-Una vez que se entrega la secuencia SysRq, la configuración del kernel controla cómo responde el sistema. Para información sobre cómo habilitar y deshabilitar SysRq, consulte la *guía del administrador de SysRq* [texto](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
+Una vez que se entrega la secuencia SysRq, la configuración del kernel controla cómo responde el sistema. Para información sobre cómo habilitar y deshabilitar SysRq, consulte la *guía del administrador de SysRq*[texto](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
 
 La consola serie de Azure se puede usar para enviar un comando SysRq a una máquina virtual de Azure mediante el icono de teclado de la barra de comandos que se muestra a continuación.
 
@@ -129,5 +129,5 @@ Para más información sobre las configuraciones del kernel de Linux, como `unkn
 ## <a name="next-steps"></a>Pasos siguientes
 * La página principal de la documentación de Linux de la consola serie se encuentra [aquí](serial-console.md).
 * Use la consola serie para arrancar en [GRUB y entrar en modo de usuario único](serial-console-grub-single-user-mode.md).
-* La consola serie también está disponible para máquinas virtuales [Windows](../windows/serial-console.md).
+* La consola serie también está disponible para VM [Windows](../windows/serial-console.md)
 * Obtenga más información sobre [Diagnósticos de arranque](boot-diagnostics.md)

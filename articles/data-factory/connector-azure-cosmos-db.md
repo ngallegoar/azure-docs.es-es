@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
 ms.openlocfilehash: 7096b429145a54b5a09fe38eb8099c4ff24ac452
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460971"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224744"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copia y transformación de datos en Azure Cosmos DB (SQL API) mediante Azure Data Factory
 
@@ -62,7 +62,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Co
 |:--- |:--- |:--- |
 | type | La propiedad **type** debe establecerse en **CosmosDb**. | Sí |
 | connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure Cosmos DB.<br />**Nota**: Debe especificar la información de la base de datos en la cadena de conexión como se muestra en los ejemplos siguientes. <br/> También puede colocar la clave de cuenta en Azure Key Vault y extraer la configuración `accountKey` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. |Sí |
-| connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica esta propiedad, se usa el valor predeterminado de Azure Integration Runtime. |Sin |
+| connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica esta propiedad, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
 **Ejemplo**
 
@@ -153,9 +153,9 @@ La sección **source** de la actividad de copia admite las siguientes propiedade
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad **type1** del origen de la actividad de copia debe establecerse en **CosmosDbSqlApiSource**. |Sí |
-| Query |Especifique la consulta de Azure Cosmos DB para leer datos.<br/><br/>Ejemplo:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Sin <br/><br/>Si no se especifica, se ejecuta la instrucción SQL: `select <columns defined in structure> from mycollection` |
-| preferredRegions | Lista preferida de regiones a las que se conectará cuando recupere los datos de Cosmos DB. | Sin |
-| pageSize | Número de documentos por página del resultado de la consulta. El valor predeterminado es "-1", que significa el uso del tamaño de página dinámica del servicio hasta 1000. | Sin |
+| Query |Especifique la consulta de Azure Cosmos DB para leer datos.<br/><br/>Ejemplo:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Si no se especifica, se ejecuta la instrucción SQL: `select <columns defined in structure> from mycollection` |
+| preferredRegions | Lista preferida de regiones a las que se conectará cuando recupere los datos de Cosmos DB. | No |
+| pageSize | Número de documentos por página del resultado de la consulta. El valor predeterminado es "-1", que significa el uso del tamaño de página dinámica del servicio hasta 1000. | No |
 
 Si utiliza el origen de tipo "DocumentDbCollectionSource", todavía se admite tal cual para la compatibilidad con versiones anteriores. Se recomienda utilizar el nuevo modelo en el futuro, que proporciona funcionalidades más enriquecidas para copiar datos de Cosmos DB.
 
@@ -205,8 +205,8 @@ La sección **source** de la actividad de copia admite las siguientes propiedade
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad **type** del receptor de la actividad de copia tiene que establecerse en **CosmosDbSqlApiSink**. |Sí |
-| writeBehavior |Describe cómo escribir datos en Azure Cosmos DB. Valores permitidos: **insert** y **upsert**.<br/><br/>El comportamiento de **upsert** consiste en reemplazar el documento si ya existe un documento con el mismo identificador; en caso contrario, inserta el documento.<br /><br />**Nota**: Data Factory genera automáticamente un identificador para un documento si no se especifica un identificador en el documento original o mediante la asignación de columnas. Esto significa que debe asegurarse de que, para que **upsert** funcione según lo esperado, el documento tenga un identificador. |Sin<br />(el valor predeterminado es **insert**) |
-| writeBatchSize | Data Factory usa la [biblioteca BulkExecutor en Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escribir datos en Azure Cosmos DB. La propiedad **writeBatchSize** controla el tamaño de los documentos que ADF proporciona a la biblioteca. Puede aumentar el valor de **writeBatchSize** para mejorar el rendimiento y reducir el valor si el documento tiene un tamaño grande: a continuación encontrará sugerencias. |Sin<br />(el valor predeterminado es **10 000**) |
+| writeBehavior |Describe cómo escribir datos en Azure Cosmos DB. Valores permitidos: **insert** y **upsert**.<br/><br/>El comportamiento de **upsert** consiste en reemplazar el documento si ya existe un documento con el mismo identificador; en caso contrario, inserta el documento.<br /><br />**Nota**: Data Factory genera automáticamente un identificador para un documento si no se especifica un identificador en el documento original o mediante la asignación de columnas. Esto significa que debe asegurarse de que, para que **upsert** funcione según lo esperado, el documento tenga un identificador. |No<br />(el valor predeterminado es **insert**) |
+| writeBatchSize | Data Factory usa la [biblioteca BulkExecutor en Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para escribir datos en Azure Cosmos DB. La propiedad **writeBatchSize** controla el tamaño de los documentos que ADF proporciona a la biblioteca. Puede aumentar el valor de **writeBatchSize** para mejorar el rendimiento y reducir el valor si el documento tiene un tamaño grande: a continuación encontrará sugerencias. |No<br />(el valor predeterminado es **10 000**) |
 | disableMetricsCollection | Data Factory recopila métricas, como las RU de Cosmos DB, para la optimización del rendimiento de copia y la obtención de recomendaciones. Si le preocupa este comportamiento, especifique `true` para desactivarlo. | No (el valor predeterminado es `false`) |
 
 >[!TIP]

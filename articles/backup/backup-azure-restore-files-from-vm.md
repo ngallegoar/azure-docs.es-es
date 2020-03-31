@@ -3,12 +3,12 @@ title: Recuperación de archivos y carpetas desde una copia de seguridad de máq
 description: En este artículo, aprenderá a recuperar archivos y carpetas desde un punto de recuperación de la máquina virtual de Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4565929b5475e2348685fbec77b596b65ed73fd6
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114325"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233880"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -125,7 +125,7 @@ Para enumerar todos los volúmenes lógicos, los nombres y sus rutas de acceso e
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command's results>
 ```
 
 Para montar los volúmenes lógicos en la ruta de acceso de su elección:
@@ -202,11 +202,11 @@ Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a l
 
 - `download.microsoft.com`
 - Direcciones URL del servicio de recuperación (geo-nombre hace referencia a la región donde reside el almacén de Recovery Services)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.com> (Para regiones geográficas públicas de Azure)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (Para Azure China 21Vianet)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Para Azure US Gov)
-  - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Para Azure Alemania)
-- Puerto de salida 3260
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Para regiones geográficas públicas de Azure)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Para Azure China 21Vianet)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Para Azure US Gov)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Para Azure Alemania)
+- Puertos de salida 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
@@ -295,7 +295,7 @@ Para examinar los archivos y carpetas, el script usa el iniciador iSCSI de la m�
 
 Usamos el mecanismo de autenticación CHAP mutua para que los componentes se autentiquen entre sí. Esto significa que un iniciador falso lo tiene muy difícil para conectarse al destino iSCSI, mientras que un destino falso lo tiene muy difícil para conectarse a la máquina donde se ejecuta el script.
 
-El flujo de datos entre el servicio de recuperación y la máquina se protege mediante la creación de un túnel SSH seguro a través de TCP ([TLS 1.2 se debe admitir](#system-requirements) en la máquina donde se ejecuta el script).
+El flujo de datos entre el servicio de recuperación y la máquina se protege mediante la creación de un túnel TLS seguro a través de TCP ([TLS 1.2 se debe admitir](#system-requirements) en la máquina donde se ejecuta el script).
 
 Cualquier lista de control de acceso (ACL) a archivos presente en la máquina virtual principal o de la que se ha hecho una copia de seguridad se conserva también en el sistema de archivos montado.
 

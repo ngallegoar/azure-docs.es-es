@@ -11,11 +11,11 @@ ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 09/03/2019
 ms.openlocfilehash: 0dbed3db8e106b9bfe1b48ff2b9bc52840fc4c3a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818860"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228584"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Zonas horarias en la Instancia administrada de Azure SQL Database
 
@@ -149,7 +149,7 @@ No es obligatorio usar la misma zona horaria entre una instancia principal y sec
 | UTC | (UTC) Hora universal coordinada |
 | Hora estándar GMT | (UTC+00:00) Dublín, Edimburgo, Lisboa, Londres |
 | Hora estándar de Greenwich | (UTC+00:00) Monrovia, Reykjavik |
-| Hora estándar Europa Occidental | (UTC+01:00) Ámsterdam, Berlín, Berna, Roma, Estocolmo, Viena |
+| Hora estándar Europa Oriental | (UTC+01:00) Ámsterdam, Berlín, Berna, Roma, Estocolmo, Viena |
 | Hora estándar Europa Central | (UTC+01:00) Belgrado, Bratislava, Budapest, Liubliana, Praga |
 | Hora estándar romance | (UTC+01:00) Bruselas, Copenhague, Madrid, París |
 | Hora estándar de Marruecos | (UTC+01:00) Casablanca |
@@ -193,7 +193,7 @@ No es obligatorio usar la misma zona horaria entre una instancia principal y sec
 | Hora estándar de La India | (UTC+05:30) Chennai, Kolkata, Mumbai, Nueva Delhi |
 | Hora estándar de Sri Lanka | (UTC+05:30) Sri Jayawardenepura |
 | Hora estándar de Nepal | (UTC+05:45) Katmandú |
-| Hora estándar de Asia Central | (UTC+06:00) Astaná |
+| estándar de Asia Central Norte | (UTC+06:00) Astaná |
 | Hora estándar de Bangladés | (UTC+06:00) Dacca |
 | Hora estándar de Omsk | (UTC+06:00) Omsk |
 | Hora estándar de Myanmar | (UTC+06:30) Yangón (Rangún) |
@@ -206,7 +206,7 @@ No es obligatorio usar la misma zona horaria entre una instancia principal y sec
 | Hora estándar de China | (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi |
 | Hora estándar del este de Asia Norte | (UTC+08:00) Irkutsk |
 | Hora estándar de Singapur | (UTC+08:00) Kuala Lumpur, Singapur |
-| Hora estándar de Australia Occidental | (UTC+08:00) Perth |
+| Hora Hora estándar de Australia Oriental | (UTC+08:00) Perth |
 | Hora estándar de Taipéi | (UTC+08:00) Taipéi |
 | Hora estándar de Ulán Bator | (UTC+08:00) Ulán Bator |
 | Hora estándar de Australia Central Oeste | (UTC+08:45) Eucla |
@@ -215,7 +215,7 @@ No es obligatorio usar la misma zona horaria entre una instancia principal y sec
 | Hora estándar de Corea del Norte | (UTC+09:00) Pyongyang |
 | Hora estándar de Corea | (UTC+09:00) Seúl |
 | Hora estándar de Yakutsk | (UTC+09:00) Yakutsk |
-| Hora estándar de Australia Central | (UTC+09:30) Adelaida |
+| Hora Hora estándar de Australia Oriental | (UTC+09:30) Adelaida |
 | Hora estándar de Australia Central | (UTC+09:30) Darwin |
 | E. Hora estándar de Australia Oriental | (UTC+10:00) Brisbane |
 | Hora estándar Australia Oriental | (UTC+10:00) Canberra, Melbourne, Sídney |
@@ -240,7 +240,7 @@ No es obligatorio usar la misma zona horaria entre una instancia principal y sec
 | Hora estándar de Samoa | (UTC+13:00) Samoa |
 | Hora estándar de Islas de la Línea | (UTC+14:00) Isla de Kiritimati |
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Consulte también 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 5c4fcb9b4fea1a4d982b5cf665564599d371b7cb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789144"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Supervisión y administración de Trello como Azure Logic Apps
@@ -26,9 +26,9 @@ Con Azure Logic Apps y el conector de Trello, puede crear tareas automatizadas y
 
 Puede usar desencadenadores que obtengan respuestas de su cuenta de Trello y hagan que la salida esté disponible para otras acciones. Puede usar acciones que realizan tareas con su cuenta de Trello. También puede hacer que otras acciones usen la salida de las acciones de Trello. Por ejemplo, cuando una tarjeta nueva se agrega a un panel o lista, puede enviar mensajes con el conector de Slack. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * Cuenta de Trello y credenciales del usuario
 

@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: 9a3a58cab2d9673a4660967e3a11d7f88900e718
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844962"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232688"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registros de consultas lentas en Azure Database for MySQL
 En Azure Database for MySQL, el registro de consultas lentas está disponible para los usuarios. No se admite el acceso al registro de transacciones. El registro de consultas lentas puede utilizarse para identificar cuellos de botella que afectan al rendimiento a fin de solucionar el problema.
@@ -40,7 +40,7 @@ Otros parámetros que se pueden ajustar son los siguientes:
 - **long_query_time**: si una consulta tarda más que long_query_time (en segundos), esa consulta se registra. El valor predeterminado es 10 segundos.
 - **log_slow_admin_statements**: si ON incluye instrucciones administrativas como ALTER_TABLE y ANALYZE_TABLE en las instrucciones escritas en slow_query_log.
 - **log_queries_not_using_indexes**: determina si las consultas que no utilizan índices se registran en slow_query_log.
-- **log_throttle_queries_not_using_indexes**: este parámetro limita el número de consultas que no son de índice que se pueden escribir en el registro de consultas lentas. Este parámetro surte efecto cuando log_queries_not_using_indexes está configurado en ON.
+- **log_throttle_queries_not_using_indexes**: este parámetro limita el número de consultas no de índice que se pueden escribir en el registro de consultas lentas. Este parámetro surte efecto cuando log_queries_not_using_indexes está configurado en ON.
 - **log_output**: si es "File", permite escribir el registro de consultas lento en el almacenamiento del servidor local y en los registros de diagnóstico de Azure Monitor. Si es "None", el registro de consultas lentas solo se escribirá en los registros de diagnóstico de Azure Monitor. 
 
 > [!IMPORTANT]

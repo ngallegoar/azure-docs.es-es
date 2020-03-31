@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
 ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173496"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229012"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Incorporación de runbooks de Azure Automation a los planes de recuperación
 
@@ -247,7 +247,7 @@ Para ello se especifican varios valores mediante Azure PowerShell.
 
 Puede usar el mismo script para distintos planes de recuperación. Escriba distintos parámetros al almacenar el valor que corresponde a un plan de recuperación en variables diferentes.
 
-## <a name="sample-scripts"></a>Scripts de ejemplo
+## <a name="sample-scripts"></a>Muestras de scripts
 
 Para implementar scripts de ejemplo en la cuenta de Automation, haga clic en el botón **Implementar en Azure**.
 

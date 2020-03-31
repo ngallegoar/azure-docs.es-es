@@ -16,12 +16,12 @@ ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f7bc881cee362103fc611cbf8a094e07ad50699
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: f5d63577cbdbdf18cb17618bdb5c9e3b5de0e44a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77499039"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225472"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Funcionalidades de administración de los roles de Azure AD en Privileged Identity Management
 
@@ -62,7 +62,7 @@ Hemos hecho todo lo posible para ponernos en contacto con todos los clientes que
 
 ## <a name="powershell-change"></a>Cambio de PowerShell
 
-En el caso de los clientes que usan el módulo de PowerShell de Privileged Identity Management para los roles de Azure AD, PowerShell dejará de funcionar con la actualización. En lugar de los cmdlets anteriores, debe usar los cmdlets de Privileged Identity Management dentro del módulo de PowerShell de la versión preliminar de Azure AD. Instale el módulo de Azure AD PowerShell desde la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Los cmdlets se basan en Graph API.
+En el caso de los clientes que usan el módulo de PowerShell de Privileged Identity Management para los roles de Azure AD, PowerShell dejará de funcionar con la actualización. En lugar de los cmdlets anteriores, debe usar los cmdlets de Privileged Identity Management dentro del módulo de PowerShell de la versión preliminar de Azure AD. Instale el módulo de Azure AD PowerShell desde la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Ahora puede [leer la documentación y los ejemplos de las operaciones de PIM en este módulo de PowerShell](powershell-for-azure-ad-roles.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

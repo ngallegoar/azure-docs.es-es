@@ -5,11 +5,11 @@ ms.date: 11/20/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 4a9a4f660dd171e65b600ec4cd66714ca476b091
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326300"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227404"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar los nodos de transacción de Azure Blockchain Service
 
@@ -17,7 +17,7 @@ Los nodos de transacciones se usan para enviar transacciones de cadenas de bloqu
 
 Para ver los detalles del nodo de transacción predeterminado:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Vaya al miembro de Azure Blockchain Service. Seleccione **Nodos de transacción**.
 
     ![Selección del nodo de transacción predeterminado](./media/configure-transaction-nodes/nodes.png)
@@ -35,9 +35,9 @@ Para agregar un nodo de transacción:
 
     ![Agregar nodos de transacción](./media/configure-transaction-nodes/add-node.png)
 
-    | Configuración | DESCRIPCIÓN |
+    | Configuración | Descripción |
     |---------|-------------|
-    | NOMBRE | Nombre del nodo de transacción. El nombre se usa para crear la dirección DNS del punto de conexión del nodo de transacción. Por ejemplo, `newnode-myblockchainmember.blockchain.azure.com`. No se puede cambiar el nombre del nodo una vez creado. |
+    | Nombre | Nombre del nodo de transacción. El nombre se usa para crear la dirección DNS del punto de conexión del nodo de transacción. Por ejemplo, `newnode-myblockchainmember.blockchain.azure.com`. No se puede cambiar el nombre del nodo una vez creado. |
     | Contraseña | Establezca una contraseña segura. Use la contraseña para acceder al punto de conexión del nodo de transacción con autenticación básica.
 
 1. Seleccione **Crear**.
@@ -67,7 +67,7 @@ Para conceder control de acceso de Azure AD al punto de conexión:
 
     ![Agregar rol de IAM](./media/configure-transaction-nodes/add-role.png)
 
-    | Configuración | . |
+    | Configuración | Acción |
     |---------|-------------|
     | Role | Seleccione **Propietario**, **Colaborador** o **Lector**.
     | Asignar acceso a | Seleccione **Usuario, grupo o entidad de servicio de Azure AD**.

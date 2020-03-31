@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 8dbb4ff0c9f8df6609d8447e84dcfe878a954fff
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 045f3ccdc8dc09bf657ab39ce15a0d0524c73fcb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443965"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235200"
 ---
 # <a name="azure-functions-http-trigger"></a>Desencadenador HTTP de Azure Functions
 
@@ -749,7 +749,7 @@ El usuario autenticado está disponible a través de [encabezados HTTP](../app-s
 
 ## <a name="authorization-keys"></a>Claves de autorización
 
-Functions permite usar claves para dificultar el acceso a los puntos de conexión de función HTTP durante el desarrollo.  Un desencadenador HTTP estándar puede necesitar que haya una clave de API de este tipo en la solicitud. 
+Functions permite usar claves para dificultar el acceso a los puntos de conexión de función HTTP durante el desarrollo.  A menos que el nivel de autorización HTTP en una función desencadenada por HTTP se establezca en `anonymous`, las solicitudes deben incluir una clave de API. 
 
 > [!IMPORTANT]
 > Aunque las claves pueden ayudar a ofuscar los puntos de conexión HTTP durante el desarrollo, no están diseñadas como una manera de proteger un desencadenador HTTP en producción. Para obtener más información, vea [Proteger un punto de conexión HTTP en producción](#secure-an-http-endpoint-in-production).
@@ -757,14 +757,19 @@ Functions permite usar claves para dificultar el acceso a los puntos de conexió
 > [!NOTE]
 > En el runtime 1.x de Functions, los proveedores de webhooks pueden usar claves para autorizar solicitudes de varias maneras, según lo que admita el proveedor. Esto se trata en [Webhooks y claves](#webhooks-and-keys). El entorno en tiempo de ejecución de Functions en la versión 2.x y posteriores no incluye compatibilidad integrada con proveedores de webhooks.
 
-Existen dos tipos de claves:
+#### <a name="authorization-scopes-function-level"></a>Ámbitos de autorización (nivel de función)
 
-* **Claves de host**: estas claves se comparten entre todas las funciones dentro de la aplicación de función. Cuando se usan como una clave de API, permiten el acceso a cualquier función dentro de la aplicación de función.
-* **Claves de función**: estas claves se aplican solo a las funciones específicas en las que se definen. Cuando se usan como una clave de API, solo permiten el acceso a esa función.
+Hay dos ámbitos de autorización para las claves de nivel de función:
+
+* **Función**: estas claves se aplican solo a las funciones específicas en las que se definen. Cuando se usan como una clave de API, solo permiten el acceso a esa función.
+
+* **Host**: las claves con un ámbito de host se pueden usar para acceder a todas las funciones dentro de la aplicación de función. Cuando se usan como una clave de API, permiten el acceso a cualquier función dentro de la aplicación de función. 
 
 Para cada clave se usa un nombre fácilmente referenciable y hay una clave predeterminada (denominada "predeterminada") en el nivel de función y host. Las claves de función tienen prioridad sobre las claves de host. Si se definen dos claves con el mismo nombre, siempre se usa la clave de función.
 
-Cada aplicación de función además tiene una **clave maestra** especial. Esta clave es una clave de host denominada `_master`, que proporciona acceso administrativo a las API en tiempo de ejecución. No se puede revocar esta clave. Al establecer un nivel de autorización `admin`, las solicitudes deben usar la clave maestra; cualquier otra clave da lugar a un error de autorización.
+#### <a name="master-key-admin-level"></a>Clave maestra (nivel de administrador) 
+
+Cada aplicación de función también tiene una clave de host de nivel de administrador denominada `_master`. Además de proporcionar acceso de nivel de host a todas las funciones de la aplicación, la clave maestra también proporciona acceso administrativo a las API REST del entorno de ejecución. No se puede revocar esta clave. Al establecer un nivel de autorización `admin`, las solicitudes deben usar la clave maestra; cualquier otra clave da lugar a un error de autorización.
 
 > [!CAUTION]  
 > Debido a los permisos elevados de la aplicación de función otorgados por la clave maestra, no debe compartir esta clave con terceros ni distribuirla en aplicaciones cliente nativas. Tenga cuidado al elegir el nivel de autorización de administrador.
@@ -829,7 +834,7 @@ La autorización de webhook se controla mediante el componente receptor de webho
 
 ## <a name="limits"></a>límites
 
-La longitud de la solicitud HTTP está limitada a 100 MB (104 857 600 bytes) y la longitud de la dirección URL a 4 KB (4 096 bytes). El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) especifica estos límites.
+La longitud de la solicitud HTTP está limitada a 100 MB (104 857 600 bytes) y la longitud de la dirección URL a 4 KB (4 096 bytes). El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config) especifica estos límites.
 
 Si una función que usa el desencadenador HTTP no se completa en menos de 230 segundos, [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) agotará el tiempo de espera y devolverá un error HTTP 502. La función seguirá ejecutándose, pero no podrá devolver una respuesta HTTP. En el caso de funciones de ejecución prolongada, se recomienda que siga patrones asincrónicos y que devuelva una ubicación donde pueda hacer ping con el estado de la solicitud. Para más información sobre cuánto tiempo se puede ejecutar una función, consulte [Escalado y hospedaje: Plan de consumo](functions-scale.md#timeout).
 

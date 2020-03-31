@@ -1,6 +1,6 @@
 ---
 title: Notas de la versión de disponibilidad general de Azure Data Box Gateway | Microsoft Docs
-description: Describe los problemas críticos y las soluciones para la versión de disponibilidad general de Azure Data Box Gateway.
+description: Se describen los problemas críticos y las soluciones para la versión de disponibilidad general de Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60754206"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231448"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notas de la versión de disponibilidad general de Azure Data Box Edge/Azure Data Box Gateway
 
@@ -21,7 +21,7 @@ ms.locfileid: "60754206"
 
 En las notas de la versión siguientes se identifican los problemas críticos pendientes y los problemas resueltos de la versión de disponibilidad general para Azure Data Box Edge y Azure Data Box Gateway.
 
-Las notas de la versión se actualizan continuamente y se van agregando a medida que se descubren problemas críticos que requieren una solución alternativa. Antes de implementar Data Box Edge/Data Box Gateway, revise detenidamente la información que encontrará en las notas de la versión.
+Las notas de la versión se actualizan continuamente y se van agregando a medida que se descubren problemas críticos que requieren una solución alternativa. Antes de implementar la instancia de Data Box Edge o Data Box Gateway, revise detenidamente la información que encontrará en las notas de la versión.
 
 Esta versión de disponibilidad general se corresponde con las versiones de software:
 
@@ -36,7 +36,7 @@ Esta versión de disponibilidad general se corresponde con las versiones de soft
 - **Resistencia al almacenamiento**: su dispositivo Data Box Edge puede resistir el error de un disco de datos con la característica de resistencia de Storage. Esta funcionalidad actualmente está en su versión preliminar. Puede habilitar la resistencia al almacenamiento seleccionando la opción **Resistente** en la **configuración de Storage** en la interfaz de usuario web local.
 
 
-## <a name="known-issues-in-ga-release"></a>Problemas conocidos en esta versión de disponibilidad general
+## <a name="known-issues-in-ga-release"></a>Problemas conocidos en la versión de disponibilidad general
 
 En la tabla siguiente se proporciona un resumen de los problemas conocidos de la versión en ejecución de Data Box Gateway.
 

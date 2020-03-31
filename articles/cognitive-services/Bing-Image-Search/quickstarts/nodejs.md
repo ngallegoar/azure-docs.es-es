@@ -13,19 +13,19 @@ ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 2aaed57c7e1d817cd892f45c441ab59d4ffba3d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930759"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Guía de inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y Node.js
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y Node.js
 
 Utilice este inicio rápido para empezar a enviar solicitudes de búsqueda a Bing Image Search API. Esta aplicación de JavaScript envía una consulta de búsqueda a la API y muestra la dirección URL de la primera imagen de los resultados. Si bien esta aplicación está escrita en JavaScript, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) con anotaciones y control de errores adicionales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * La última versión de [Node.js](https://nodejs.org/en/download/).
 

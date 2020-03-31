@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 12/08/2019
 ms.author: spelluru
 ms.openlocfilehash: e6ee1137fce97cbe5a64aa5287223f6ba09dcf47
-ms.sourcegitcommit: 6e42ce0ca0a7ac572398e9d024fcf69906670d74
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74936110"
 ---
 # <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs: excepciones de Resource Manager
@@ -29,7 +29,7 @@ En las secciones siguientes se proporcionan varias excepciones o errores que se 
 
 ## <a name="error-code-conflict"></a>Código de error: Conflicto
 
-| Código de error | Subcódigo de error | Mensaje de error | DESCRIPCIÓN | Recomendación |
+| Código de error | Subcódigo de error | Mensaje de error | Descripción | Recomendación |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Conflicto | 40300 | Se ha alcanzado o superado el número máximo de recursos de tipo EventHub. Real: #, máximo permitido: # | El espacio de nombres ha alcanzado su [cuota](event-hubs-quotas.md) del número de centros de eventos que puede contener. | Elimine los centros de eventos no usados o extraños del espacio de nombres o considere la posibilidad de actualizar a un [clúster dedicado](event-hubs-dedicated-overview.md). |
 | Conflicto | None | No se puede eliminar la configuración de recuperación ante desastres (DR) porque la replicación está en curso. Conmute por error o interrumpa el emparejamiento antes de intentar eliminar la configuración de recuperación ante desastres. | La [replicación de GeoDR](event-hubs-geo-dr.md) está en curso, por lo que en este momento no se puede eliminar la configuración. | Para desbloquear la eliminación de la configuración, espere a que la replicación se haya completado, desencadene una conmutación por error o interrumpa el emparejamiento de GeoDR. |
@@ -37,14 +37,14 @@ En las secciones siguientes se proporcionan varias excepciones o errores que se 
 
 ## <a name="error-code-429"></a>Código de error: 429
 
-| Código de error | Subcódigo de error | Mensaje de error | DESCRIPCIÓN | Recomendación |
+| Código de error | Subcódigo de error | Mensaje de error | Descripción | Recomendación |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | 429 | None | Aprovisionamiento del espacio de nombres en transición | Actualmente se está realizando otra operación en este espacio de nombres. | Espere hasta que se complete la operación actual y, luego, vuelva a intentarlo. |
 | 429 | None | Operación de recuperación ante desastres en curso. | Actualmente se está realizando una operación [GeoDR](event-hubs-geo-dr.md) en este espacio de nombres o emparejamiento. | Espere hasta que se complete la operación GeoDR actual y, luego, vuelva a intentarlo. |
 
 ## <a name="error-code-badrequest"></a>Código de error: BadRequest
 
-| Código de error | Subcódigo de error | Mensaje de error | DESCRIPCIÓN | Recomendación |
+| Código de error | Subcódigo de error | Mensaje de error | Descripción | Recomendación |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | BadRequest | 40000 | No se puede cambiar PartitionCount para un centro de eventos. | El nivel básico o estándar de Azure Event Hubs no admite el cambio de particiones. | Cree un centro de eventos con el número deseado de particiones en el espacio de nombres de nivel básico o estándar. La escalabilidad horizontal de la partición es compatible con [clústeres dedicados](event-hubs-dedicated-overview.md). |
 | BadRequest | 40000 | El valor "#" de MessageRetentionInDays no es válido para el nivel básico. El valor no puede superar "1" día(s). | Los espacios de nombres de Event Hubs del nivel básico solo admiten la retención de mensajes de hasta 1 día. | Si quiere más de un día de retención de mensajes, [cree un espacio de nombres de Event Hubs estándar](event-hubs-create.md). | 
@@ -59,6 +59,6 @@ En las secciones siguientes se proporcionan varias excepciones o errores que se 
 
 ## <a name="error-code-internal-server-error"></a>Código de error: Error interno del servidor
 
-| Código de error | Subcódigo de error | Mensaje de error | DESCRIPCIÓN | Recomendación |
+| Código de error | Subcódigo de error | Mensaje de error | Descripción | Recomendación |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Internal Server Error | None | Error interno del servidor. | Error interno del servicio Event Hubs. | Vuelva a intentar la operación con error. Si la operación sigue produciendo errores, póngase en contacto con el servicio de soporte técnico. |

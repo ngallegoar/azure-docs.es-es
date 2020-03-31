@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084961"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229140"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Análisis del informe de Azure Site Recovery Deployment Planner
 En este artículo se describen las hojas que contiene el informe de Excel generado por Azure Site Recovery Deployment Planner en un escenario de Hyper-V en Azure.
@@ -25,13 +25,13 @@ La hoja de cálculo de resumen local proporciona una introducción al entorno de
 
 **Fecha de inicio** y **Fecha de finalización**: las fechas de inicio y finalización de los datos de generación de perfiles que se tienen en cuenta para la generación del informe. De forma predeterminada, la fecha de inicio es la fecha en que comienza la generación de perfiles, mientras que la de finalización es la fecha en la que se detiene. Esta información se puede especificar mediante los valores "StartDate" y "EndDate" si el informe se genera con estos parámetros.
 
-**Número total de días de generación de perfiles**: el número total de días de generación de perfiles comprendido entre las fechas de inicio y de finalización para el que se genera el informe.
+**Total number of profiling days** (Número total de días de generación de perfiles): el número total de días de generación de perfiles comprendido entre las fechas de inicio y de finalización para el que se genera el informe.
 
 **Number of compatible virtual machines** (Número de máquinas virtuales compatibles): el número total de máquinas virtuales compatibles para las que se calculan el ancho de banda de red, el número de cuentas de almacenamiento y los núcleos de Azure necesarios.
 
-**Número total de discos en todas las máquinas virtuales compatibles**: el número total de discos en todas las máquinas virtuales compatibles.
+**Total number of disks across all compatible virtual machines** (Número total de discos en todas las máquinas virtuales compatibles): el número total de discos en todas las máquinas virtuales compatibles.
 
-**Número medio de discos en cada máquina virtual compatible**: el número medio de discos calculado para todas las máquinas virtuales compatibles.
+**Average number of disks per compatible virtual machine** (Número medio de discos en cada máquina virtual compatible): el número medio de discos calculado para todas las máquinas virtuales compatibles.
 
 **Average disk size (GB)** (Tamaño medio de disco [GB]): el tamaño medio de disco calculado en todas las máquinas virtuales compatibles.
 
@@ -39,7 +39,7 @@ La hoja de cálculo de resumen local proporciona una introducción al entorno de
 
 **Desired bandwidth (Mbps)** (Ancho de banda deseado [Mbps]): el valor pasado para el parámetro "Bandwidth" en el momento de la generación de informes para calcular el objetivo de punto de recuperación (RPO) factible.
 
-**Actividad de datos normal observada por día (GB)** : el valor medio de la actividad de datos observada en todos los días de generación de perfiles.
+**Observed typical data churn per day (GB)** (Renovación de datos normal observada por día [GB]): el valor medio de renovación de datos observada en todos los días de generación de perfiles.
 
 ## <a name="recommendations"></a>Recomendaciones 
 La hoja de recomendaciones del informe de Hyper-V a Azure tiene los siguientes detalles según el RPO deseado seleccionado:
@@ -49,18 +49,18 @@ La hoja de recomendaciones del informe de Hyper-V a Azure tiene los siguientes d
 ### <a name="profile-data"></a>Generación de perfiles de datos
 ![Generación de perfiles de datos](media/hyper-v-deployment-planner-analyze-report/profile-data-h2a.png)
 
-**Periodo de datos de generación de perfiles**: el período durante el que se ejecutó la generación de perfiles. De forma predeterminada, la herramienta incluye todos los datos para los que se han generado perfiles en el cálculo. Si ha usado la opción StartDate (Fecha inicial) y EndDate (Fecha final) en la generación de informes, se genera el informe para el período específico. 
+**Profiled data period** (Periodo de datos de generación de perfiles): el período durante el que se ejecutó la generación de perfiles. De forma predeterminada, la herramienta incluye todos los datos para los que se han generado perfiles en el cálculo. Si ha usado la opción StartDate (Fecha inicial) y EndDate (Fecha final) en la generación de informes, se genera el informe para el período específico. 
 
 **Number of Hyper-V servers profiled** (Número de servidores de Hyper-V para los que se han generado perfiles): número de servidores de Hyper-V para los que se genera el informe de sus máquinas virtuales. Seleccione el número para ver el nombre de los servidores de Hyper-V. Se abre la hoja On-premises Storage Requirement (Requisitos de almacenamiento local) para mostrar todos los servidores junto con sus requisitos de almacenamiento. 
 
-**RPO deseado**: el objetivo de punto de recuperación de la implementación. De manera predeterminada, se calcula el ancho de banda de red necesario para los valores de RPO de 15, 30 y 60 minutos. En función de la selección, los valores afectados se actualizan en la hoja. Si ha usado el parámetro DesiredRPOinMin al generar el informe, ese valor se muestra en el resultado de RPO deseado.
+**Desired RPO** (RPO deseado): el objetivo de punto de recuperación de la implementación. De manera predeterminada, se calcula el ancho de banda de red necesario para los valores de RPO de 15, 30 y 60 minutos. En función de la selección, los valores afectados se actualizan en la hoja. Si ha usado el parámetro DesiredRPOinMin al generar el informe, ese valor se muestra en el resultado de RPO deseado.
 
 ### <a name="profiling-overview"></a>Información general sobre la generación de perfiles
 ![Información general sobre la generación de perfiles](media/hyper-v-deployment-planner-analyze-report/profiling-overview-h2a.png)
 
-**Total de máquinas virtuales de las que se ha generado el perfil**: el número total de las máquinas virtuales cuyos datos de generación de perfiles están disponibles. Si VMListFile contiene los nombres de las máquinas virtuales para las que no se han generado perfiles, dichas máquinas virtuales no se tienen en cuenta en la generación de informes y se excluyen del número total de máquinas virtuales de las que se han generado perfiles.
+**Total Profiled Virtual Machines** (Total de máquinas virtuales de las que se ha generado el perfil): el número total de las máquinas virtuales cuyos datos de generación de perfiles están disponibles. Si VMListFile contiene los nombres de las máquinas virtuales para las que no se han generado perfiles, dichas máquinas virtuales no se tienen en cuenta en la generación de informes y se excluyen del número total de máquinas virtuales de las que se han generado perfiles.
 
-**Máquinas virtuales compatibles**: número de máquinas virtuales que se pueden proteger en Azure mediante Azure Site Recovery. Es el número total de máquinas virtuales compatibles para las que se calculan el ancho de banda de red, el número de cuentas de almacenamiento y el número de núcleos de Azure necesarios. Los detalles de todas las máquinas virtuales compatibles están disponibles en la sección "Máquinas virtuales compatibles".
+**Compatible Virtual Machines** (Máquinas virtuales compatibles): número de máquinas virtuales que se pueden proteger en Azure mediante Azure Site Recovery. Es el número total de máquinas virtuales compatibles para las que se calculan el ancho de banda de red, el número de cuentas de almacenamiento y el número de núcleos de Azure necesarios. Los detalles de todas las máquinas virtuales compatibles están disponibles en la sección "Máquinas virtuales compatibles".
 
 **Incompatible Virtual Machines** (Máquinas virtuales no compatibles): el número de máquinas virtuales de las que se ha generado el perfil que no son compatibles para la protección con Site Recovery. Los motivos de dicha incompatibilidad se indican en la sección "Máquinas virtuales no compatibles". Si VMListFile contiene los nombres de las máquinas virtuales para las que no se han generado perfiles, dichas máquinas se excluyen del número de máquinas virtuales no compatibles. Estas máquinas aparecen como "Datos no encontrados" al final de la sección "Máquinas virtuales no compatibles".
 
@@ -127,7 +127,7 @@ El resumen le ayuda a comprender lo que debe pagar por almacenamiento, proceso, 
  
 Puede ver el costo mensual o anual. Obtenga más información sobre las [regiones de destino admitidas](./hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) y las [monedas admitidas](./hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Cost by components** (Costo por componentes): el costo total de la recuperación ante desastres se divide entre cuatro componentes: Compute, Storage, Network y el costo de la licencia de Site Recovery. El costo se calcula en función del consumo que se ha realizado durante la replicación y durante el simulacro de recuperación ante desastres. Para los cálculos se usa Compute, Storage (Premium y estándar), el circuito ExpressRoute o la red privada virtual que están configurados entre el sitio local y Azure, y la licencia de Site Recovery.
+**Cost by components** (Costo por componentes): el costo total de la recuperación ante desastres se divide entre cuatro componentes: proceso, almacenamiento, red y costo de la licencia de Site Recovery. El costo se calcula en función del consumo que se ha realizado durante la replicación y durante el simulacro de recuperación ante desastres. Para los cálculos se usa Compute, Storage (Premium y estándar), el circuito ExpressRoute o la red privada virtual que están configurados entre el sitio local y Azure, y la licencia de Site Recovery.
 
 **Cost by states** (Costo por estados): el costo total de recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres. 
 
@@ -177,9 +177,9 @@ El informe de Excel generado por Azure Site Recovery Deployment Planner proporci
 
 ![Máquinas virtuales compatibles](media/hyper-v-deployment-planner-analyze-report/compatible-vms-h2a.png)
 
-**Nombre de la máquina virtual**: el nombre de la máquina virtual que se utiliza en VMListFile cuando se genera un informe. Esta columna también muestra los discos (discos duros virtuales) que están conectados a las máquinas virtuales. Los nombres incluyen los nombres de host de Hyper-V donde se colocaron las máquinas virtuales cuando la herramienta los detectó durante el período de generación de perfiles.
+**VM Name** (Nombre de la máquina virtual): el nombre de la máquina virtual que se utiliza en VMListFile cuando se genera un informe. Esta columna también muestra los discos (discos duros virtuales) que están conectados a las máquinas virtuales. Los nombres incluyen los nombres de host de Hyper-V donde se colocaron las máquinas virtuales cuando la herramienta los detectó durante el período de generación de perfiles.
 
-**Compatibilidad de la máquina virtual**: los valores son **Yes** (Sí) y **Yes**\* (Sí). **Sí**\* es para las instancias en las que la máquina virtual es una opción para [discos SSD Premium](../virtual-machines/windows/disks-types.md). En este caso, la renovación elevada de generación de perfiles o el disco IOPS encaja en un tamaño de disco Premium mayor que el tamaño asignado al disco. La cuenta de almacenamiento decide a qué tipo de disco de almacenamiento Premium se asigna un disco, en función de su tamaño: 
+**VM Compatibility** (Compatibilidad de la máquina virtual): los valores son **Yes** (Sí) y **Yes**\* (Sí). **Sí**\* es para las instancias en las que la máquina virtual es una opción para [discos SSD Premium](../virtual-machines/windows/disks-types.md). En este caso, la renovación elevada de generación de perfiles o el disco IOPS encaja en un tamaño de disco Premium mayor que el tamaño asignado al disco. La cuenta de almacenamiento decide a qué tipo de disco de almacenamiento Premium se asigna un disco, en función de su tamaño: 
 * Menos de 128 GB es P10.
 * De 128 GB a 256 GB es P15
 * De 256 GB a 512 GB es P20.
@@ -199,9 +199,9 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 
 **Peak Data Churn in MB/s (with Growth Factor)** (Actividad de datos máxima en MB/s [con factor de crecimiento]): el máximo índice de actividad en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). La actividad de datos total de la máquina virtual no es siempre la suma de la actividad de datos de los discos individuales de la máquina virtual. La actividad de datos máxima de la máquina virtual es el valor máximo de la suma de la actividad de sus discos individuales durante cada minuto del período de generación de perfiles.
 
-**Tamaño de la máquina virtual de Azure**: el tamaño ideal de la máquina virtual de Azure Cloud Services asignada para esta máquina virtual local. La asignación se basa en la memoria, el número de discos/núcleos/NIC y las IOPS de lectura y escritura de la máquina virtual local. La recomendación es usar siempre el menor tamaño de máquina virtual de Azure que cumpla todas las características de la máquina virtual local.
+**Azure VM Size** (Tamaño de la máquina virtual de Azure): el tamaño ideal de la máquina virtual de Azure Cloud Services asignada para esta máquina virtual local. La asignación se basa en la memoria, el número de discos/núcleos/NIC y las IOPS de lectura y escritura de la máquina virtual local. La recomendación es usar siempre el menor tamaño de máquina virtual de Azure que cumpla todas las características de la máquina virtual local.
 
-**Número de discos**: el número total de discos (discos duros virtuales) de la máquina virtual.
+**Number of Disks** (Número de discos): el número total de discos (discos duros virtuales) de la máquina virtual.
 
 **Tamaño del disco (GB)** : el tamaño total de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
@@ -211,16 +211,16 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 
 **NICs** (Tarjetas NIC): el número de tarjetas NIC de la máquina virtual.
 
-**Tipo de arranque**: el tipo de arranque de la máquina virtual. Puede ser BIOS o EFI.
+**Boot Type** (Tipo de arranque): el tipo de arranque de la máquina virtual. Puede ser BIOS o EFI.
 
 ## <a name="incompatible-vms"></a>Máquinas virtuales no compatibles
 El informe de Excel generado por Azure Site Recovery Deployment Planner proporciona todos los detalles de las máquinas virtuales no compatibles en la hoja "Incompatible VMs" (Máquinas virtuales no compatibles).
 
 ![Máquinas virtuales no compatibles](media/hyper-v-deployment-planner-analyze-report/incompatible-vms-h2a.png)
 
-**Nombre de la máquina virtual**: el nombre de la máquina virtual que se utiliza en VMListFile cuando se genera un informe. Esta columna también muestra los discos (discos duros virtuales) que están conectados a las máquinas virtuales. Los nombres incluyen los nombres de host de Hyper-V donde se colocaron las máquinas virtuales cuando la herramienta los detectó durante el período de generación de perfiles.
+**VM Name** (Nombre de la máquina virtual): el nombre de la máquina virtual que se utiliza en VMListFile cuando se genera un informe. Esta columna también muestra los discos (discos duros virtuales) que están conectados a las máquinas virtuales. Los nombres incluyen los nombres de host de Hyper-V donde se colocaron las máquinas virtuales cuando la herramienta los detectó durante el período de generación de perfiles.
 
-**Compatibilidad de la máquina virtual**: indica el motivo por el que una máquina virtual dada no es compatible con Site Recovery. Se describen las razones de cada disco incompatible de la máquina virtual, que, en función de los [límites de almacenamiento](https://aka.ms/azure-storage-scalbility-performance) publicados, pueden ser cualesquiera de las siguientes:
+**VM Compatibility** (Compatibilidad de la máquina virtual): indica el motivo por el que una máquina virtual dada no es compatible con Site Recovery. Se describen las razones de cada disco incompatible de la máquina virtual, que, en función de los [límites de almacenamiento](https://aka.ms/azure-storage-scalbility-performance) publicados, pueden ser cualesquiera de las siguientes:
 
 * El tamaño del disco es mayor que 4095 GB. Azure Storage no admite actualmente discos de datos de más de 4095 GB.
 
@@ -256,7 +256,7 @@ El informe de Excel generado por Azure Site Recovery Deployment Planner proporci
 
 **Peak Data Churn MB/s (with Growth Factor)** (Actividad de datos máxima en MB/s [con factor de crecimiento]): el máximo índice de actividad en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que la actividad de datos total de la máquina virtual no es siempre la suma de la actividad de datos de los discos individuales de la máquina virtual. La actividad de datos máxima de la máquina virtual es el valor máximo de la suma de la actividad de sus discos individuales durante cada minuto del período de generación de perfiles.
 
-**Número de discos**: el número total de discos duros virtuales de la máquina virtual.
+**Number of Disks** (Número de discos): el número total de discos duros virtuales de la máquina virtual.
 
 **Tamaño del disco (GB)** : el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
@@ -266,7 +266,7 @@ El informe de Excel generado por Azure Site Recovery Deployment Planner proporci
 
 **NICs** (Tarjetas NIC): el número de tarjetas NIC de la máquina virtual.
 
-**Tipo de arranque**: el tipo de arranque de la máquina virtual. Puede ser BIOS o EFI.
+**Boot Type** (Tipo de arranque): el tipo de arranque de la máquina virtual. Puede ser BIOS o EFI.
 
 ## <a name="azure-site-recovery-limits"></a>Límites de Azure Site Recovery
 En la tabla siguiente se proporcionan los límites de Site Recovery. Estos límites se basan en pruebas, pero no pueden cubrir todas las combinaciones posibles de E/S de la aplicación. Los resultados reales pueden variar en función de la combinación de E/S de la aplicación. Para unos mejores resultados, incluso después del planeamiento de la implementación, realice pruebas exhaustivas de la aplicación mediante la emisión de una conmutación por error de prueba para obtener una imagen real del rendimiento de la aplicación.

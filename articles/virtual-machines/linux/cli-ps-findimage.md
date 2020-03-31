@@ -1,27 +1,17 @@
 ---
 title: Selección de imágenes de máquinas virtuales con la CLI de Azure
 description: Obtenga información sobre cómo usar la CLI de Azure para determinar el publicador, la oferta, la SKU y la versión para imágenes de VM de Marketplace.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4dd51640c4eeda2ec99c14812a534ee506faeda
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0026c70a3a1a6b5e635e6b43e74b557d4218e6d3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036862"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226804"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Búsqueda de imágenes de maquina virtual Linux en Azure Marketplace con la CLI de Azure
 
@@ -112,7 +102,7 @@ Aplique filtros similares con las opciones `--location`, `--publisher` y `--sku`
 
 Si no especifica una ubicación determinada con la opción `--location`, se devuelven los valores de la ubicación predeterminada. (Establezca una ubicación predeterminada distinta ejecutando `az configure --defaults location=<location>`).
 
-Por ejemplo, el comando siguiente muestra todas las SKU de Debian 8 en la ubicación Europa Occidental:
+Por ejemplo, el comando siguiente muestra todas las SKU de Debian 8 en la ubicación Oeste de Europa:
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -196,7 +186,7 @@ westus      akumina
 ...
 ```
 
-Utilice esta información para buscar ofertas desde un publicador específico. Por ejemplo, para el editor *Canonical* de la ubicación oeste de Estados Unidos, busque ofertas mediante la ejecución de `azure vm image list-offers`. Pase la ubicación y el publicador como en el ejemplo siguiente:
+Utilice esta información para buscar ofertas desde un publicador específico. Por ejemplo, para el editor *Canonical* de la ubicación Oeste de EE. UU., busque ofertas mediante la ejecución de `azure vm image list-offers`. Pase la ubicación y el publicador como en el ejemplo siguiente:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table

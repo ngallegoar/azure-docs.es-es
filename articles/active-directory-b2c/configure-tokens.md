@@ -11,10 +11,10 @@ ms.date: 04/16/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189624"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C

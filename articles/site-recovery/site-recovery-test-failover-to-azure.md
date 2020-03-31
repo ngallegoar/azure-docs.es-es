@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091741"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229024"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Ejecución de una recuperación ante desastres de prueba (simulacro de recuperación ante desastres) en Azure 
 

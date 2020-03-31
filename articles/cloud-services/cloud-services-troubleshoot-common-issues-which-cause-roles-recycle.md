@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 554508b1bf784e306cd12a4a601f908e06320933
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71154975"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comunes que causan el reciclaje de los roles
@@ -39,10 +39,10 @@ Antes de compilar y empaquetar la aplicación, compruebe lo siguiente:
 Azure es un entorno de 64 bits. Por lo tanto, los ensamblados de .NET compilados para un destino de 32 bits no funcionarán en Azure.
 
 ## <a name="role-throws-unhandled-exceptions-while-initializing-or-stopping"></a>El rol genera excepciones no controladas cuando se inicializa o se detiene
-Todas las excepciones iniciadas por los métodos de la clase [RoleEntryPoint], que incluye los métodos [OnStart], [OnStop] y [Run], son excepciones no controladas. Si se produce una excepción no controlada en uno de estos métodos, el rol se reciclará. Si el rol se recicla de forma repetida, es posible que inicie una excepción no controlada cada vez que intente iniciarse.
+Todas las excepciones iniciadas por los métodos de la clase [RoleEntryPoint], que incluye los métodos [OnStart], [OnStop] y [Ejecutar], son excepciones no controladas. Si se produce una excepción no controlada en uno de estos métodos, el rol se reciclará. Si el rol se recicla de forma repetida, es posible que inicie una excepción no controlada cada vez que intente iniciarse.
 
 ## <a name="role-returns-from-run-method"></a>El rol se devuelve del método Run
-El método [Run] está pensado para que se ejecute indefinidamente. Si el código invalida el método [Run] , podría quedar inactivo indefinidamente. Si se devuelve el método [Run] , el rol se recicla.
+El método [Ejecutar] está pensado para que se ejecute indefinidamente. Si el código invalida el método [Ejecutar] , podría quedar inactivo indefinidamente. Si se devuelve el método [Ejecutar] , el rol se recicla.
 
 ## <a name="incorrect-diagnosticsconnectionstring-setting"></a>Configuración incorrecta de DiagnosticsConnectionString
 Si la aplicación usa Diagnósticos de Azure, el archivo de configuración de servicio debe especificar el valor de configuración de `DiagnosticsConnectionString` . Este valor debe especificar una conexión HTTPS a la cuenta de almacenamiento de Azure.
@@ -68,4 +68,4 @@ En la [series de blogs de Kevin Williamson](https://blogs.msdn.com/b/kwill/archi
 [RoleEntryPoint]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx
 [OnStart]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
-[Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
+[Ejecutar]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx

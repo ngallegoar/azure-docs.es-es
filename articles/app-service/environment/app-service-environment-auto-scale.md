@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687294"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Escalado automático y App Service Environment v1
@@ -76,7 +76,7 @@ Frank está muy familiarizado con la aplicación. Sabe que las horas pico de car
 | --- | --- |
 | **Nombre:** perfil Día laborable |**Nombre:** perfil Fin de semana |
 | **Escalar por:** reglas de rendimiento y programación |**Escalar por:** reglas de rendimiento y programación |
-| **Perfil:** Días laborables |**Perfil:** Fin de semana |
+| **Perfil:** Días de la semana |**Perfil:** Fin de semana |
 | **Tipo:** Periodicidad |**Tipo:** Periodicidad |
 | **Rango objetivo:** de 5 a 20 instancias |**Rango objetivo:** de 3 a 10 instancias |
 | **Días:** lunes, martes, miércoles, jueves, viernes |**Días:** sábado, domingo |
@@ -88,7 +88,7 @@ Frank está muy familiarizado con la aplicación. Sabe que las horas pico de car
 | **Métrica:** % de CPU |**Métrica:** % de CPU |
 | **Operación:** mayor que el 60 % |**Operación:** mayor que el 80 % |
 | **Duración:** 5 minutos |**Duración:** 10 minutos |
-| **Agregación de tiempo:** Media |**Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Average |**Agregación de tiempo:** Average |
 | **Acción:** aumentar recuento en 2 |**Acción:** aumentar recuento en 1 |
 | **Tiempo de finalización (minutos):** 15 |**Tiempo de finalización (minutos):** 20 |
 |  | |
@@ -97,7 +97,7 @@ Frank está muy familiarizado con la aplicación. Sabe que las horas pico de car
 | **Métrica:** % de CPU |**Métrica:** % de CPU |
 | **Operación:** menor que el 30 % |**Operación:** menor que el 20 % |
 | **Duración:** 10 minutos |**Duración:** 15 minutos |
-| **Agregación de tiempo:** Media |**Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Average |**Agregación de tiempo:** Average |
 | **Acción:** reducir el recuento en 1 |**Acción:** reducir el recuento en 1 |
 | **Tiempo de finalización (minutos):** 20 |**Tiempo de finalización (minutos):** 10 |
 
@@ -147,7 +147,7 @@ Con esta información, Frank puede definir el siguiente perfil y las siguientes 
 | --- | --- |
 | **Nombre:** perfil Día laborable |**Nombre:** perfil Fin de semana |
 | **Escalar por:** reglas de rendimiento y programación |**Escalar por:** reglas de rendimiento y programación |
-| **Perfil:** Días laborables |**Perfil:** Fin de semana |
+| **Perfil:** Días de la semana |**Perfil:** Fin de semana |
 | **Tipo:** Periodicidad |**Tipo:** Periodicidad |
 | **Rango objetivo:** de 13 a 25 instancias |**Rango objetivo:** de 6 a 15 instancias |
 | **Días:** lunes, martes, miércoles, jueves, viernes |**Días:** sábado, domingo |
@@ -159,7 +159,7 @@ Con esta información, Frank puede definir el siguiente perfil y las siguientes 
 | **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
 | **Operación:** menor que 8 |**Operación:** menor que 3 |
 | **Duración:** 20 minutos |**Duración:** 30 minutos |
-| **Agregación de tiempo:** Media |**Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Average |**Agregación de tiempo:** Average |
 | **Acción:** aumentar recuento en 8 |**Acción:** aumentar recuento en 3 |
 | **Tiempo de finalización (minutos):** 180 |**Tiempo de finalización (minutos):** 180 |
 |  | |
@@ -168,7 +168,7 @@ Con esta información, Frank puede definir el siguiente perfil y las siguientes 
 | **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
 | **Operación:** mayor que 8 |**Operación:** mayor que 3 |
 | **Duración:** 20 minutos |**Duración:** 15 minutos |
-| **Agregación de tiempo:** Media |**Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Average |**Agregación de tiempo:** Average |
 | **Acción:** reducir el recuento en 2 |**Acción:** reducir el recuento en 3 |
 | **Tiempo de finalización (minutos):** 120 |**Tiempo de finalización (minutos):** 120 |
 
@@ -204,7 +204,7 @@ En este escenario, Frank sabe que la tasa de errores aumenta una vez que los ser
 | **Métrica:** % de CPU |
 | **Operación:** mayor que el 60 % |
 | **Duración:** 20 minutos |
-| **Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Average |
 | **Acción:** aumentar recuento en 3 |
 | **Tiempo de finalización (minutos):** 120 |
 |  |
@@ -213,7 +213,7 @@ En este escenario, Frank sabe que la tasa de errores aumenta una vez que los ser
 | **Métrica:** % de CPU |
 | **Operación:** menor que el 30 % |
 | **Duración:** 20 minutos |
-| **Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Average |
 | **Acción:** reducir el recuento en 3 |
 | **Tiempo de finalización (minutos):** 120 |
 

@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083687"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229036"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conservar las direcciones IP durante la conmutación por error
 
@@ -39,15 +39,15 @@ Esta es la arquitectura antes de la conmutación por error.
 - La empresa A tiene redes y subredes idénticas en las regiones de origen y destino de Azure.
 - Para reducir el objetivo de tiempo de recuperación (RTO), la empresa usa los nodos de réplica de SQL Server Always On, controladores de dominio, etc. Estos nodos de réplica están en una red virtual diferente en la región de destino, por lo que puede establecer la conectividad VPN de sitio a sitio entre las regiones de origen y destino. Esto no es posible si se usa el mismo espacio de direcciones IP en el origen y en el destino.  
 - Antes de la conmutación por error, la arquitectura de red es la siguiente:
-    - La región principal es Asia Oriental de Azure
-        - Asia Oriental tiene una red virtual (**VNET de origen**) con el espacio de direcciones 10.1.0.0/16.
-        - Asia Oriental tiene cargas de trabajo divididas en tres subredes de la red virtual:
+    - La región principal es Este de Asia de Azure
+        - Este de Asia tiene una red virtual (**VNET de origen**) con el espacio de direcciones 10.1.0.0/16.
+        - Este de Asia tiene cargas de trabajo divididas en tres subredes de la red virtual:
             - **Subred 1**: 10.1.1.0/24
             - **Subred 2**: 10.1.2.0/24
             - **Subred 3**: 10.1.3.0/24
-    - La región secundaria (destino) es la del Sudeste Asiático de Azure.
-        - El Sudeste Asiático tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
-        - El Sudeste Asiático tiene una red virtual adicional (**VNET de Azure**) con el espacio de direcciones 10.2.0.0/16.
+    - La región secundaria (destino) es la del Sudeste de Asia de Azure.
+        - El Sudeste de Asia tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
+        - El Sudeste de Asia tiene una red virtual adicional (**VNET de Azure**) con el espacio de direcciones 10.2.0.0/16.
         - **VNET de Azure** contiene una subred (**Subred 4**) con el espacio de direcciones 10.2.4.0/24.
         - Los nodos de réplica de SQL Server Always On, el controlador de dominio, etc. se encuentran en la **Subred 4**.
     - Las redes **VNET de origen** y **VNET de Azure** están conectadas con una conexión VPN de sitio a sitio.
@@ -84,13 +84,13 @@ En este ejemplo, la empresa A coloca las aplicaciones en la región de origen de
 
 Antes de la conmutación por error, la arquitectura es la siguiente:
 
-- Las máquinas virtuales de la aplicación se hospedan en la región Asia Oriental de Azure:
+- Las máquinas virtuales de la aplicación se hospedan en la región Este de Asia de Azure:
     - Las máquinas virtuales de la **aplicación 1** se encuentran en **VNET de origen 1**: 10.1.0.0/16.
     - Las máquinas virtuales de la **aplicación 2** se encuentran en **VNET de origen 2**: 10.2.0.0/16.
     - **VNET de origen 1** tiene dos subredes.
     - **VNET de origen 2** tiene dos subredes.
-- La región secundaria (destino) es Sudeste Asiático de Azure. Sudeste Asiático tiene redes virtuales de recuperación (**VNET de recuperación 1** y **VNET de recuperación 2**) que son idénticas a las redes **VNET de origen 1** y **VNET de origen 2**.
-        Las redes - **VNET de recuperación 1** y **VNET de recuperación 2** tienen, cada una, dos subredes que coinciden con **VNET de origen 1** y **VNET de origen 2**. Sudeste Asiático tiene una red virtual adicional (**VNET de Azure**) con el espacio de direcciones 10.3.0.0/16.
+- La región secundaria (destino) es Sudeste de Asia de Azure. Sudeste de Asia tiene redes virtuales de recuperación (**VNET de recuperación 1** y **VNET de recuperación 2**) que son idénticas a las redes **VNET de origen 1** y **VNET de origen 2**.
+        Las redes - **VNET de recuperación 1** y **VNET de recuperación 2** tienen, cada una, dos subredes que coinciden con **VNET de origen 1** y **VNET de origen 2**. Sudeste de Asia tiene una red virtual adicional (**VNET de Azure**) con el espacio de direcciones 10.3.0.0/16.
         - **VNET de Azure** contiene una subred (**Subred 4**) con un espacio de direcciones 10.3.4.0/24.
         - Los nodos de réplica de SQL Server Always On, el controlador de dominio, etc. se encuentran en la **Subred 4**.
 - Hay diferentes conexiones de VPN de sitio a sitio: 
@@ -127,16 +127,16 @@ En este escenario, la **empresa B** ejecuta una empresa híbrida, en la cual una
 
 Este es el aspecto de la arquitectura de red antes de la conmutación por error:
 
-- Las máquinas virtuales de la aplicación se hospedan en la región Asia Oriental de Azure.
-- Asia Oriental tiene una red virtual (**VNET de origen**) con el espacio de direcciones 10.1.0.0/16.
-  - Asia Oriental tiene cargas de trabajo divididas en tres subredes de la red **VNET de origen**:
+- Las máquinas virtuales de la aplicación se hospedan en la región Este de Asia de Azure.
+- Este de Asia tiene una red virtual (**VNET de origen**) con el espacio de direcciones 10.1.0.0/16.
+  - Este de Asia tiene cargas de trabajo divididas en tres subredes de la red **VNET de origen**:
     - **Subred 1**: 10.1.1.0/24
     - **Subred 2**: 10.1.2.0/24
     - **Subred 3**: 10.1.3.0/24, que usa una red virtual de Azure con el espacio de direcciones 10.1.0.0/16. Esta red virtual se denomina **VNET de origen**
-      - La región secundaria (destino) es la del Sudeste Asiático de Azure:
-  - El Sudeste Asiático tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
-- Las máquinas virtuales de la región de Asia Oriental están conectadas a un centro de datos local mediante Azure ExpressRoute o una conexión VPN de sitio a sitio.
-- Para reducir el RTO, la empresa B debe aprovisionar las puertas de enlace en VNET de recuperación en la región del Sudeste Asiático de Azure antes de realizar la conmutación por error.
+      - La región secundaria (destino) es la del Sudeste de Asia de Azure:
+  - El Sudeste de Asia tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
+- Las máquinas virtuales de la región de Este de Asia están conectadas a un centro de datos local mediante Azure ExpressRoute o una conexión VPN de sitio a sitio.
+- Para reducir el RTO, la empresa B debe aprovisionar las puertas de enlace en VNET de recuperación en la región del Sudeste de Asia de Azure antes de realizar la conmutación por error.
 - La empresa B asigna o comprueba las direcciones IP de destino de las máquinas virtuales replicadas. La dirección IP de destino es la misma que la dirección IP de origen para cada máquina virtual.
 
 
@@ -149,7 +149,7 @@ Si se produce una interrupción regional de origen, la empresa B puede conmutar 
 
 - Con las direcciones IP de destino ya en vigor antes de la conmutación por error, la empresa B puede orquestar la conmutación por error y establecer automáticamente conexiones después de la conmutación por error entre las redes **VNET de recuperación** y **VNET de Azure**.
 - En función de los requisitos de la aplicación, las conexiones entre las dos redes virtuales (**VNET de recuperación** y **VNET de Azure**) en la región de destino se pueden establecer antes, durante (como un paso intermedio) o después de la conmutación por error. La empresa puede usar los [planes de recuperación](site-recovery-create-recovery-plans.md) para especificar cuándo se establecerán las conexiones.
-- Recuerde que debe desconectar la conexión original entre la región de Asia Oriental de Azure y el centro de datos local antes de establecer la conexión entre la región del Sudeste Asiático de Azure y el centro de datos local.
+- Recuerde que debe desconectar la conexión original entre la región de Este de Asia de Azure y el centro de datos local antes de establecer la conexión entre la región del Sudeste de Asia de Azure y el centro de datos local.
 - Asimismo, se vuelve a configurar el enrutamiento local para que apunte a la región de destino y a las puertas de enlace una vez realizada la conmutación por error.
 
 ![Conectividad local a Azure después de realizar la conmutación por error](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)

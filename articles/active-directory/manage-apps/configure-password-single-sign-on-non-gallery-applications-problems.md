@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed8bafe7f5bc28cf37205107f8ab6dd5cdb4907c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74274145"
 ---
 # <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problemas en la configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería

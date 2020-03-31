@@ -3,7 +3,7 @@ title: Transmisión de registros de Azure Active Directory a registros de Azure 
 description: Aprenda a integrar registros de Azure Active Directory con registros de Azure Monitor.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bffe16d604ac6b86b489092f50fbdc0b856867b3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989764"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231768"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integración de registros de Azure AD con registros de Azure Monitor
 
@@ -51,18 +51,18 @@ Puede enrutar los registros de actividad de auditoría y los registros de activi
 > En este momento no se admiten los registros de actividad de auditoría e inicio de sesión relacionados con B2C.
 >
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 Para usar esta característica, necesita:
 
-* Una suscripción de Azure. Si no tiene ninguna suscripción de Azure, puede [registrarse para obtener una evaluación gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene ninguna suscripción de Azure, puede [registrarse para obtener una evaluación gratuita](https://azure.microsoft.com/free/).
 * Un inquilino de Azure AD.
 * Un usuario que sea *administrador global* o *administrador de seguridad* para el inquilino de Azure AD.
 * Un área de trabajo de Log Analytics en la suscripción a Azure. Aprenda a [crear un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 ## <a name="send-logs-to-azure-monitor"></a>Envío de registros a Azure Monitor
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
 2. Seleccione **Azure Active Directory** > **Configuración de diagnóstico** -> **Agregar configuración de diagnóstico**. También puede seleccionar **Exportar configuraciones** desde la página **Registros de auditoría** o **Inicios de sesión** para ir a la página de configuración de diagnóstico.  
     

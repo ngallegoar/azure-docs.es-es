@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74684130"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Solución de problemas de una VM de Linux cuando no se tiene acceso a la consola serie de Azure y el diseño de disco usa LVM (Administrador de volúmenes lógicos)
@@ -71,7 +71,7 @@ Ejecute el comando **lsblk** para ver los LVM de la VM afectada.
 
 `lsblk`
 
-![Ejecute lsblk.](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![Ejecute lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
 Compruebe si se muestran LVM de la VM afectada.

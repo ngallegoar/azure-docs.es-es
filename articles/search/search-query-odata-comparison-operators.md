@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113226"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparación de OData en Azure Cognitive Search: `eq`, `ne`, `gt`, `lt`, `ge` y `le`
@@ -69,7 +69,7 @@ También está disponible un diagrama de sintaxis interactivo:
 > [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#comparison_expression)
 
 > [!NOTE]
-> Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
+> Consulte [Referencia de la sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
 Hay dos formas de expresiones de comparación. La única diferencia entre las dos es si la constante aparece en el lado izquierdo o derecho del operador. La expresión en el otro lado del operador debe ser una **variable** o una llamada de función. Una variable puede ser un nombre de campo o una variable de rango en el caso de una [expresión lambda](search-query-odata-collection-operators.md).
 

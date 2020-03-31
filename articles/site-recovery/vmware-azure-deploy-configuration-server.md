@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75376297"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228980"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -26,7 +26,7 @@ Cuando se usa [Azure Site Recovery](site-recovery-overview.md) para realizar la 
 
 El servidor de configuración debe configurarse como una máquina virtual de VMware de alta disponibilidad con ciertos requisitos mínimos de hardware y tamaño. Para realizar una implementación cómoda y fácil, Site Recovery proporciona una plantilla de OVA (Open Virtualization Application) descargable para configurar el servidor de configuración que cumple con todos los requisitos obligatorios que se enumeran en este documento.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En las secciones siguientes se resumen los requisitos mínimos de hardware necesarios para un servidor de configuración.
 

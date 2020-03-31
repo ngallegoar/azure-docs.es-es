@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65953125"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Administración de proceso en una instancia de Azure Data Box Edge
 
 En este artículo se describe cómo administrar el proceso en una instancia de Azure Data Box Edge. Puede administrar el proceso a través de Azure Portal o mediante la interfaz de usuario web local. Use Azure Portal para administrar los módulos, los desencadenadores y la configuración de proceso, y la interfaz de usuario web local para administrar los valores del proceso.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
-> * Administrar desencadenadores
-> * Administrar la configuración del proceso
+> * Administración de desencadenadores
+> * Administración de la configuración del proceso
 
 
 ## <a name="manage-triggers"></a>Administración de desencadenadores

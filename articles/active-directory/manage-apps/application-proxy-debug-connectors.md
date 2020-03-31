@@ -12,10 +12,10 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.openlocfilehash: c041578932bd33eb0a2d3afc18a35c2c0458dc8b
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72311856"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Depuración de problemas de los conectores de Application Proxy 
@@ -40,7 +40,7 @@ Este diagrama de flujo lo guía a través de los pasos para depurar algunos de l
 
 ![Diagrama de flujo que muestra los pasos para depurar un conector](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
 
-|  | . | DESCRIPCIÓN | 
+|  | Acción | Descripción | 
 |---------|---------|---------|
 |1 | Búsqueda del grupo de conectores asignado a la aplicación | Probablemente tiene un conector instalado en varios servidores, en cuyo caso los conectores se deben [asignar a grupos de conectores](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Para más información acerca de los grupos de conectores, consulte [Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores](application-proxy-connector-groups.md). |
 |2 | Instalación del conector y asignación de un grupo | Si no tiene instalado un conector, consulte [Instalación y registro de un conector](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Si tiene problemas para instalar el conector, consulte [Problema al instalar el conector](application-proxy-connector-installation-problem.md).<br></br> Si el conector no está asignado a un grupo, consulte sobre la [asignación del conector a un grupo](application-proxy-connector-groups.md#create-connector-groups).<br></br>Si la aplicación no está asignada a un grupo de conectores, consulte sobre la [asignación de la aplicación a un grupo de conectores](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|

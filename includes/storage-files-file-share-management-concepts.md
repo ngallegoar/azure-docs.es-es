@@ -9,10 +9,10 @@ ms.date: 12/26/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a67ad4c5010cf93ff55123013a35c697ce5971f8
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77597887"
 ---
 Los recursos compartidos de archivos de Azure se implementan en *cuentas de almacenamiento*, que son objetos de nivel superior que representan un grupo compartido de almacenamiento. Este grupo de almacenamiento se puede usar para implementar varios recursos compartidos de archivos, así como otros recursos de almacenamiento, tales como contenedores de blobs, colas o tablas. Todos los recursos de almacenamiento que se implementan en una cuenta de almacenamiento comparten los límites que se aplican a esa cuenta de almacenamiento. Para ver los límites actuales de una cuenta de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento de Azure Files](../articles/storage/files/storage-files-scale-targets.md).

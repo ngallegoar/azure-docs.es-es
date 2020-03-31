@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.openlocfilehash: 20a5a9c5513c165cd5add2e97f019a741dfd0b03
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681468"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225540"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -230,11 +230,11 @@ Para hacer que el desencadenador de programación dé inicio a una ejecución de
 ### <a name="schema-overview"></a>Información general del esquema
 En la tabla siguiente se muestra información general de los elementos del esquema más importantes relacionados con la periodicidad y la programación de un desencadenador:
 
-| Propiedad JSON | DESCRIPCIÓN |
+| Propiedad JSON | Descripción |
 |:--- |:--- |
 | **startTime** | Valor de fecha y hora. Para las programaciones básicas, se aplica el valor de la propiedad **startTime** al primer caso. Para las programaciones complejas, el desencadenador no se inicia antes del valor de **startTime** especificado. |
 | **endTime** | Fecha y hora de finalización para el desencadenador. El desencadenador no se ejecuta después de la fecha y hora de finalización especificadas. El valor de la propiedad no puede estar en el pasado. <!-- This property is optional. --> |
-| **timeZone** | Zona horaria. Actualmente, solo se admite la zona horaria UTC. |
+| **timeZone** | La zona horaria Actualmente, solo se admite la zona horaria UTC. |
 | **recurrence** | Objeto que especifica las reglas de periodicidad para el desencadenador. El objeto recurrence admite los elementos **frequency**, **interval**, **endTime**, **count** y **schedule**. Cuando se define un objeto recurrence, es necesario el elemento **frequency**. Los demás elementos del objeto recurrence son opcionales. |
 | **frequency** | Unidad de frecuencia a la que se repite el desencadenador. Los valores admitidos son "minute", "hour", "day", "week" y "month". |
 | **interval** | Entero positivo que indica el intervalo para el valor **frequency**. El valor **frequency** determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es “week”, el desencadenador se repite cada tres semanas. |
@@ -276,13 +276,13 @@ En la tabla siguiente se muestra información general de los elementos del esque
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valores predeterminados del esquema, límites y ejemplos
 
-| Propiedad JSON | type | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
+| Propiedad JSON | Tipo | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | Sí | None | Fechas y horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | número | Sin | 1 | 1 a 1000 | `"interval":10` |
+| **interval** | number | No | 1 | 1 a 1000 | `"interval":10` |
 | **endTime** | string | Sí | None | Valor de fecha y hora que representa un período de tiempo en el futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | object | Sin | None | Objeto de programación | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **schedule** | object | No | None | Objeto de programación | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propiedad startTime
 En la tabla siguiente se muestra cómo la propiedad **startTime** controla una ejecución de desencadenador:
@@ -309,7 +309,7 @@ Si se especifican varios elementos de **programación**, el orden de evaluación
 
 En la siguiente tabla se describen los elementos de **schedule** con detalle:
 
-| Elemento JSON | DESCRIPCIÓN | Valores válidos |
+| Elemento JSON | Descripción | Valores válidos |
 |:--- |:--- |:--- |
 | **minutes** | Minutos de la hora en la que se ejecuta el desencadenador. |- Entero<br />- Matriz de enteros|
 | **hours** | Horas del día en la que se ejecuta el desencadenador. |- Entero<br />- Matriz de enteros|
@@ -333,7 +333,7 @@ En esta sección se proporcionan ejemplos de programaciones de periodicidad. Se 
 
 Los ejemplos asumen que el valor de **interval** es 1 y que el valor de **frequency** es correcto según la definición de la programación. Por ejemplo, no puede tener un valor de **frequency** de "day" y tener también una modificación de **monthDays** en el objeto **schedule**. Estos tipos de restricciones se describen en la tabla de la sección anterior.
 
-| Ejemplo | DESCRIPCIÓN |
+| Ejemplo | Descripción |
 |:--- |:--- |
 | `{"hours":[5]}` | Se ejecuta a las 5:00 a. m. todos los días. |
 | `{"minutes":[15], "hours":[5]}` | Se ejecuta a las 5:15 a. m. todos los días. |
@@ -369,10 +369,10 @@ En la siguiente tabla se muestra una comparación entre el desencadenador de ven
 
 |  | Desencadenador de ventana de saltos de tamaño constante | Desencadenador de programación |
 |:--- |:--- |:--- |
-| **Escenarios de reposición** | Se admite. Las ejecuciones de canalización se pueden programar para ventanas en el pasado. | No compatible. Se pueden realizar las ejecuciones de canalización solo en períodos de tiempo del momento actual y en el futuro. |
+| **Escenarios de reposición** | Compatible. Las ejecuciones de canalización se pueden programar para ventanas en el pasado. | No compatible. Se pueden realizar las ejecuciones de canalización solo en períodos de tiempo del momento actual y en el futuro. |
 | **Confiabilidad** | 100 % confiabilidad. Las ejecuciones de canalización se pueden programar para todas las ventanas de una fecha de inicio especificada sin intervalos. | Menos confiable. |
-| **Funcionalidad de reintento** | Se admite. Las ejecuciones de canalización erróneas tienen una directiva de reintentos predeterminada de 0 u otra especificada por el usuario en la definición del desencadenador. Realiza un reintento automáticamente cuando se produce un error en la ejecución de la canalización debido a los límites de simultaneidad/servidor/limitación (es decir, códigos de estado 400: Error de usuario, 429: Demasiadas solicitudes y 500: Error interno del servidor). | No compatible. |
-| **Concurrency** | Se admite. Los usuarios pueden establecer explícitamente límites de simultaneidad para el desencadenador. Permite entre 1 y 50 ejecuciones simultáneas de canalizaciones desencadenadas. | No compatible. |
+| **Funcionalidad de reintento** | Compatible. Las ejecuciones de canalización erróneas tienen una directiva de reintentos predeterminada de 0 u otra especificada por el usuario en la definición del desencadenador. Realiza un reintento automáticamente cuando se produce un error en la ejecución de la canalización debido a los límites de simultaneidad/servidor/limitación (es decir, códigos de estado 400: Error de usuario, 429: Demasiadas solicitudes y 500: Error interno del servidor). | No compatible. |
+| **Concurrency** | Compatible. Los usuarios pueden establecer explícitamente límites de simultaneidad para el desencadenador. Permite entre 1 y 50 ejecuciones simultáneas de canalizaciones desencadenadas. | No compatible. |
 | **Variables del sistema** | Admite el uso de las variables del sistema **WindowStart** y **WindowEnd**. Los usuarios pueden acceder a `triggerOutputs().windowStartTime` y `triggerOutputs().windowEndTime` como variables del sistema del desencadenador en la definición del desencadenador. Los valores se utilizan como la hora de inicio y la hora de finalización de la ventana, respectivamente. Por ejemplo, para un desencadenador de la ventana de saltos de tamaño constante que se ejecuta cada hora, para la ventana de 1:00 a. m. a 2:00 a. m., la definición es `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` y `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | No compatible. |
 | **Relación de canalización a desencadenador** | Admite las relaciones uno a uno. Solo se puede desencadenar una canalización. | Admite relaciones muchos a muchos. Varios desencadenadores pueden comenzar una única canalización. Un único desencadenador puede iniciar varias canalizaciones. |
 

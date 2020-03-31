@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: fbc814b5d263e20cea1d961891afb19894b78965
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: a502638744009fc34a7f0a27f8034b89d2c8fa26
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772223"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527816"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Supervisión del rendimiento de Azure Database for MariaDB con el Almacén de consultas
 
@@ -91,14 +91,14 @@ Las siguientes opciones están disponibles para configurar los parámetros del A
 |---|---|---|---|
 | query_store_capture_mode | Active o desactive la característica de almacén de consultas según el valor. Nota: Si performance_schema está desactivado, al activar query_store_capture_mode se activarán performance_schema y un subconjunto de instrumentos de esquema de rendimiento necesarios para esta característica. | ALL | NONE, ALL |
 | query_store_capture_interval | Intervalo de captura del Almacén de consultas en minutos. Permite especificar el intervalo en el que se agregan las métricas de consulta. | 15 | 5 - 60 |
-| query_store_capture_utility_queries | Se activa o se desactiva para capturar todas las consultas de utilidades que se están ejecutando en el sistema. | NO | YES, NO |
+| query_store_capture_utility_queries | Se activa o se desactiva para capturar todas las consultas de utilidades que se están ejecutando en el sistema. | No | YES, NO |
 | query_store_retention_period_in_days | Período de tiempo en días que se conservan los datos en el Almacén de consultas. | 7 | 1 - 30 |
 
 Las siguientes opciones afectan específicamente a las estadísticas de espera.
 
 | **Parámetro** | **Descripción** | **Valor predeterminado** | **Range** |
 |---|---|---|---|
-| query_store_wait_sampling_capture_mode | Permite activar o desactivar las estadísticas de espera. | NINGUNA | NONE, ALL |
+| query_store_wait_sampling_capture_mode | Permite activar o desactivar las estadísticas de espera. | Ninguno | NONE, ALL |
 | query_store_wait_sampling_frequency | Altera la frecuencia de muestreo de espera en segundos. De 5 a 300 segundos. | 30 | 5 - 300 |
 
 > [!NOTE]
@@ -118,32 +118,32 @@ Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por 
 
 | **Nombre** | **Tipo de datos** | **IS_NULLABLE** | **Descripción** |
 |---|---|---|---|
-| `schema_name`| varchar(64) | NO | El nombre del esquema. |
-| `query_id`| bigint(20) | NO| El identificador único generado para la consulta específica. Si la misma consulta se ejecuta en un esquema diferente, se generará un nuevo identificador. |
-| `timestamp_id` | timestamp| NO| La marca de tiempo en la que se ejecuta la consulta. Se basa en la configuración de query_store_interval.|
-| `query_digest_text`| longtext| NO| El texto de consulta normalizado después de quitar todos los literales.|
-| `query_sample_text` | longtext| NO| La primera aparición de la consulta real con literales.|
+| `schema_name`| varchar(64) | No | El nombre del esquema. |
+| `query_id`| bigint(20) | No| El identificador único generado para la consulta específica. Si la misma consulta se ejecuta en un esquema diferente, se generará un nuevo identificador. |
+| `timestamp_id` | timestamp| No| La marca de tiempo en la que se ejecuta la consulta. Se basa en la configuración de query_store_interval.|
+| `query_digest_text`| longtext| No| El texto de consulta normalizado después de quitar todos los literales.|
+| `query_sample_text` | longtext| No| La primera aparición de la consulta real con literales.|
 | `query_digest_truncated` | bit| SÍ| Indica si el texto de consulta se ha truncado. El valor será Sí si la consulta tiene más de 1 KB.|
-| `execution_count` | bigint(20)| NO| El número de veces que se ejecutó la consulta para este identificador o marca de tiempo durante el intervalo configurado.|
-| `warning_count` | bigint(20)| NO| El número de advertencias que generó la consulta durante el intervalo.|
-| `error_count` | bigint(20)| NO| El número de errores que generó la consulta durante el intervalo.|
+| `execution_count` | bigint(20)| No| El número de veces que se ejecutó la consulta para este identificador o marca de tiempo durante el intervalo configurado.|
+| `warning_count` | bigint(20)| No| El número de advertencias que generó la consulta durante el intervalo.|
+| `error_count` | bigint(20)| No| El número de errores que generó la consulta durante el intervalo.|
 | `sum_timer_wait` | double| SÍ| El tiempo de ejecución total de esta consulta durante el intervalo.|
 | `avg_timer_wait` | double| SÍ| El tiempo de ejecución promedio de esta consulta durante el intervalo.|
 | `min_timer_wait` | double| SÍ| El tiempo de ejecución mínimo de esta consulta.|
 | `max_timer_wait` | double| SÍ| El tiempo de ejecución máximo.|
-| `sum_lock_time` | bigint(20)| NO| El tiempo total empleado en todos los bloqueos para la ejecución de esta consulta durante este período de tiempo.|
-| `sum_rows_affected` | bigint(20)| NO| El número de filas afectadas.|
-| `sum_rows_sent` | bigint(20)| NO| El número de filas enviadas al cliente.|
-| `sum_rows_examined` | bigint(20)| NO| Número de filas examinadas|
-| `sum_select_full_join` | bigint(20)| NO| El número de combinaciones completas.|
-| `sum_select_scan` | bigint(20)| NO| El número de exámenes seleccionados. |
-| `sum_sort_rows` | bigint(20)| NO| El número de filas ordenadas.|
-| `sum_no_index_used` | bigint(20)| NO| El número de veces que la consulta no usó índices.|
-| `sum_no_good_index_used` | bigint(20)| NO| El número de veces que el motor de ejecución de consultas no usó índices correctos.|
-| `sum_created_tmp_tables` | bigint(20)| NO| El número total de tablas temporales creadas.|
-| `sum_created_tmp_disk_tables` | bigint(20)| NO| El número total de tablas temporales creadas en el disco (genera E/S).|
-| `first_seen` | timestamp| NO| La primera aparición (UTC) de la consulta durante el período de agregación.|
-| `last_seen` | timestamp| NO| La última aparición (UTC) de la consulta durante este período de agregación.|
+| `sum_lock_time` | bigint(20)| No| El tiempo total empleado en todos los bloqueos para la ejecución de esta consulta durante este período de tiempo.|
+| `sum_rows_affected` | bigint(20)| No| Número de filas afectadas.|
+| `sum_rows_sent` | bigint(20)| No| El número de filas enviadas al cliente.|
+| `sum_rows_examined` | bigint(20)| No| Número de filas examinadas|
+| `sum_select_full_join` | bigint(20)| No| El número de combinaciones completas.|
+| `sum_select_scan` | bigint(20)| No| El número de exámenes seleccionados. |
+| `sum_sort_rows` | bigint(20)| No| El número de filas ordenadas.|
+| `sum_no_index_used` | bigint(20)| No| El número de veces que la consulta no usó índices.|
+| `sum_no_good_index_used` | bigint(20)| No| El número de veces que el motor de ejecución de consultas no usó índices correctos.|
+| `sum_created_tmp_tables` | bigint(20)| No| El número total de tablas temporales creadas.|
+| `sum_created_tmp_disk_tables` | bigint(20)| No| El número total de tablas temporales creadas en el disco (genera E/S).|
+| `first_seen` | timestamp| No| La primera aparición (UTC) de la consulta durante el período de agregación.|
+| `last_seen` | timestamp| No| La última aparición (UTC) de la consulta durante este período de agregación.|
 
 ### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
@@ -151,15 +151,15 @@ Esta vista devuelve datos de eventos de espera en el Almacén de consultas. Hay 
 
 | **Nombre**| **Tipo de datos** | **IS_NULLABLE** | **Descripción** |
 |---|---|---|---|
-| `interval_start` | timestamp | NO| El inicio del intervalo (incremento de 15 minutos).|
-| `interval_end` | timestamp | NO| El fin del intervalo (incremento de 15 minutos).|
-| `query_id` | bigint(20) | NO| El identificador único generado en la consulta normalizada (desde el Almacén de consultas).|
-| `query_digest_id` | varchar(32) | NO| El texto de consulta normalizado después de quitar todos los literales (desde el Almacén de consultas). |
-| `query_digest_text` | longtext | NO| La primera aparición de la consulta real con literales (desde el Almacén de consultas). |
-| `event_type` | varchar(32) | NO| La categoría del evento de espera. |
-| `event_name` | varchar(128) | NO| El nombre del evento de espera. |
-| `count_star` | bigint(20) | NO| El número de eventos de espera muestreados durante el intervalo de la consulta. |
-| `sum_timer_wait_ms` | double | NO| El tiempo de espera total (en milisegundos) de esta consulta durante el intervalo. |
+| `interval_start` | timestamp | No| El inicio del intervalo (incremento de 15 minutos).|
+| `interval_end` | timestamp | No| El fin del intervalo (incremento de 15 minutos).|
+| `query_id` | bigint(20) | No| El identificador único generado en la consulta normalizada (desde el Almacén de consultas).|
+| `query_digest_id` | varchar(32) | No| El texto de consulta normalizado después de quitar todos los literales (desde el Almacén de consultas). |
+| `query_digest_text` | longtext | No| La primera aparición de la consulta real con literales (desde el Almacén de consultas). |
+| `event_type` | varchar(32) | No| La categoría del evento de espera. |
+| `event_name` | varchar(128) | No| El nombre del evento de espera. |
+| `count_star` | bigint(20) | No| El número de eventos de espera muestreados durante el intervalo de la consulta. |
+| `sum_timer_wait_ms` | double | No| El tiempo de espera total (en milisegundos) de esta consulta durante el intervalo. |
 
 ### <a name="functions"></a>Functions
 

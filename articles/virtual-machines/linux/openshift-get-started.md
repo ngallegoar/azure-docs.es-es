@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
 ms.openlocfilehash: 021ebe010a27fa155de861121e1972466c800f4a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035420"
 ---
 # <a name="openshift-in-azure"></a>OpenShift en Azure
@@ -51,7 +51,7 @@ OKD es un proyecto ascendente de [código abierto](https://www.okd.io/) de OpenS
 
 - [Configuración de los requisitos previos comunes para OpenShift en Azure](./openshift-container-platform-3x-prerequisites.md)
 - [Implementación de OpenShift Container Platform en Azure](./openshift-container-platform-3x.md)
-- [Implementación con la oferta de Marketplace de OpenShift Container Platform](./openshift-container-platform-3x-marketplace-self-managed.md)
+- [Implementación con la oferta de Marketplace de OpenShift Container Platform autoadministrada](./openshift-container-platform-3x-marketplace-self-managed.md)
 - [Implementación de OpenShift en Azure Stack](./openshift-azure-stack.md)
 - [Tareas posteriores a la implementación](./openshift-container-platform-3x-post-deployment.md)
 - [Solución de problemas de implementación de OpenShift](./openshift-container-platform-3x-troubleshooting.md)

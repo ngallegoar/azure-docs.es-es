@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 65465c6897853617f7f33a989f97d01fb0518a5e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6c1b4390282f6d54178365714b1e2e665b4cf061
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304331"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136507"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
@@ -57,4 +57,4 @@ Al completar la guía de inicio rápido, tiene una aplicación que está lista p
 
 Microsoft Graph Explorer es una herramienta basada en la web que puede usar para compilar y probar solicitudes con Microsoft Graph API. Puede tener acceso a Microsoft Graph Explorer en `https://developer.microsoft.com/graph/graph-explorer`.
 
-Postman es una herramienta que también puede usar para compilar y probar solicitudes con Microsoft Graph API. Puede descargar Postman en `https://www.getpostman.com/`. Para interactuar con Microsoft Graph en Postman, use la colección de Microsoft Graph en Postman. Para más información, consulte [Uso de Postman con Microsoft Graph API](https://docs.microsoft.comgraph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+Postman es una herramienta que también puede usar para compilar y probar solicitudes con Microsoft Graph API. Puede descargar Postman en `https://www.getpostman.com/`. Para interactuar con Microsoft Graph en Postman, use la colección de Microsoft Graph en Postman. Para más información, consulte [Uso de Postman con Microsoft Graph API](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).

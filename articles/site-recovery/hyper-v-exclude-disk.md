@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.author: mayg
 ms.date: 11/12/2019
 ms.openlocfilehash: 50fb6da2905b2ae27547f25cce3d7a76ca7976b7
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75498137"
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos de la replicación
 
 En este artículo se describe cómo excluir discos al replicar máquinas virtuales de Hyper-V en Azure. Es posible que quiera excluir discos de la replicación por varios motivos:
 
-- Asegurarse de que los datos sin importancia que se replicaron en el disco excluido no se repliquen.
-- Optimizar el ancho de banda consumido o los recursos del lado objetivo al excluir los discos que no necesita que se repliquen.
+- Asegurarse de que los datos sin importancia que se abandonaron en el disco excluido no se repliquen.
+- Optimizar el ancho de banda de replicación consumido o los recursos del lado de destino al excluir los discos que no necesita que se repliquen.
 - Ahorrar recursos de almacenamiento y red al no replicar los datos que no necesita.
 
 Antes de excluir los discos de la replicación:
@@ -42,7 +42,7 @@ Antes de empezar, tenga en cuenta lo siguiente:
 ## <a name="exclude-disks"></a>Exclusión de discos
 
 1. Para excluir discos cuando [habilita la replicación](site-recovery-hyper-v-site-to-azure.md) para una máquina virtual de Hyper-V, después de seleccionar las máquinas virtuales que quiere replicar, en la página **Habilitar replicación** > **Propiedades** > **Configurar propiedades**, revise la columna **Discos que se replicarán**. De forma predeterminada se seleccionan todos los discos para la replicación.
-2. Si no quiere replicar un disco específico, en **Discos que se replicarán** anule la selección de los discos que quiere excluir. 
+2. Si no quiere replicar un disco específico, en **Discos que se replicarán**, anule la selección de los discos que quiera excluir. 
 
     ![Excluir discos de la replicación](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)
 

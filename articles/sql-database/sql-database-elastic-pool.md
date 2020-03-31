@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 0cda55d42f0d89d61919b751335ec95ef8143274
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3c476393153f6bc1d18d5c163bcd69484583eb15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901172"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228640"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Los grupos elásticos pueden ayudarle a administrar y escalar varias bases de datos de Azure SQL
 
@@ -222,6 +222,7 @@ Para más información, consulte cómo [crear alertas de SQL Database en Azure P
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Para obtener información de precios, consulte [Precios de grupos elásticos](https://azure.microsoft.com/pricing/details/sql-database/elastic).
 - Para escalar grupos elásticos, consulte los artículos sobre el [escalado de grupos elásticos](sql-database-elastic-pool-scale.md) y el [código de ejemplo de escalado de un grupo elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - Para ver un vídeo, vea el [Curso de vídeo de la Academia virtual de Microsoft sobre las funcionalidades de las bases de datos elásticas en Azure SQL Database](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554).
 - Para más información acerca de los modelos de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Modelos de diseño para aplicaciones SaaS multiinquilino con Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).

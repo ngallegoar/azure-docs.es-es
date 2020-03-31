@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: 5a7ed254de7b7ea32f2fb357d860354693e46e92
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73827229"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migración a los nuevos trabajos de Elastic Database
@@ -25,7 +25,7 @@ Está disponible una versión actualizada de los [Trabajos de Elastic Database ]
 Si tiene una versión existente hospedada en el cliente de trabajos de Elastic Database, se proporcionan cmdlets y scripts para una fácil migración a la última versión.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 La versión actualizada de los trabajos de Elastic Database tiene un nuevo conjunto de cmdlets de PowerShell para su utilización durante la migración. Estos nuevos cmdlets transfieren todas las credenciales de trabajos, destinos (incluidas bases de datos, servidores y colecciones personalizadas), desencadenadores de trabajos, programaciones de trabajos, contenido de trabajos y trabajos existentes a un nuevo agente de trabajos elásticos.
 
@@ -92,7 +92,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 Ahora que están inicializados los cmdlets de trabajos elásticos nuevos y anteriores, migre las credenciales de trabajos, los destinos y los trabajos a la nueva *base de datos de trabajos*.
 
-### <a name="setup"></a>Configuración
+### <a name="setup"></a>Configurar
 
 ```powershell
 $ErrorActionPreference = "Stop";
@@ -375,7 +375,7 @@ Para migrar los destinos (servidores, bases de datos y colecciones personalizada
 Migrate-TargetGroups $agent
 ```
 
-Salida de ejemplo:
+Salida del ejemplo:
 
 ```powershell
 # --------------------- Migrating target groups ---------------------
@@ -572,7 +572,7 @@ Para migrar los trabajos, el contenido de los trabajos, los desencadenadores de 
 Migrate-Jobs $agent
 ```
 
-Salida de ejemplo:
+Salida del ejemplo:
 ```powershell
 --------------------- Migrating jobs and job steps ---------------------
 Job job1

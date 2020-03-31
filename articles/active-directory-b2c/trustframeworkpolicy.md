@@ -11,10 +11,10 @@ ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186393"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
@@ -41,12 +41,12 @@ El elemento **TrustFrameworkPolicy** contiene los atributos siguientes:
 | Atributo | Obligatorio | Descripción |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sí | Versión del esquema que se usará para ejecutar la directiva. El valor debe ser `0.3.0.0` |
-| TenantObjectId | Sin | Identificador de objeto único del inquilino de Azure Active Directory B2C (Azure AD B2C). |
+| TenantObjectId | No | Identificador de objeto único del inquilino de Azure Active Directory B2C (Azure AD B2C). |
 | TenantId | Sí | Identificador único del inquilino al que pertenece esta directiva. |
 | PolicyId | Sí | Identificador único de la directiva. Es necesario agregar el prefijo *B2C_1A_* al identificador. |
 | PublicPolicyUri | Sí | URI de la directiva, que es una combinación del id. de inquilino y el id. de directiva. |
-| DeploymentMode | Sin | Valores posibles: `Production` o `Development`. `Production` es el valor predeterminado. Use esta propiedad para depurar la directiva. Para obtener más información, vea [Recopilación de registros](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | Sin | Punto de conexión que se usará cuando **DeploymentMode** se establece en `Development`. El valor tiene que ser `urn:journeyrecorder:applicationinsights`. Para obtener más información, vea [Recopilación de registros](troubleshoot-with-application-insights.md). |
+| DeploymentMode | No | Valores posibles: `Production` o `Development`. `Production` es el valor predeterminado. Use esta propiedad para depurar la directiva. Para obtener más información, vea [Recopilación de registros](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | No | Punto de conexión que se usará cuando **DeploymentMode** se establece en `Development`. El valor tiene que ser `urn:journeyrecorder:applicationinsights`. Para obtener más información, vea [Recopilación de registros](troubleshoot-with-application-insights.md). |
 
 
 En el ejemplo siguiente, se muestra cómo especificar el elemento **TrustFrameworkPolicy**:

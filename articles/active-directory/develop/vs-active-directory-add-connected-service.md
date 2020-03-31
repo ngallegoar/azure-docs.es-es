@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.openlocfilehash: f139fc8cb59c40ea169e195312326773296b0592
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77159632"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adición de una instancia de Azure Active Directory mediante Servicios conectados en Visual Studio

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee35f26f9433f6ab342c7dce105638122b9d7717
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486267"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235296"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -220,7 +220,7 @@ En las secciones siguientes se describen los efectos concretos de las sesiones e
 
 ### <a name="orchestrator-function-replay"></a>Reproducción de una función de orquestador
 
-Tal como se ha mencionado anteriormente, las funciones de orquestador se reproducen con el contenido de la tabla **History**. De forma predeterminada, el código de la función de orquestador se reproduce cada vez que se elimina un lote de mensajes de una cola de control. Cuando se habilitan sesiones extendidas, las instancias de funciones de orquestador se mantienen en memoria más tiempo y se pueden procesar mensajes nuevos sin una reproducción de historial completa.
+Tal como se ha mencionado anteriormente, las funciones de orquestador se reproducen con el contenido de la tabla **History**. De forma predeterminada, el código de la función de orquestador se reproduce cada vez que se elimina un lote de mensajes de una cola de control. Incluso si usa el patrón de distribución ramificada de entrada y salida y está esperando a que se completen todas las tareas (por ejemplo, con `Task.WhenAll` en .NET o `context.df.Task.all` en JavaScript), habrá repeticiones que se produzcan a medida que se procesen lotes de respuestas de tareas a lo largo del tiempo. Cuando se habilitan sesiones extendidas, las instancias de funciones de orquestador se mantienen en memoria más tiempo y se pueden procesar mensajes nuevos sin una reproducción de historial completa.
 
 La mejora del rendimiento de las sesiones extendidas suele notarse en las siguientes situaciones:
 

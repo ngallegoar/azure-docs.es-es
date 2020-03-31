@@ -4,11 +4,11 @@ description: Los proyectos de Azure Notebooks Preview administran una colección
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646252"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236116"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Creación y clonación de proyectos en Azure Notebooks Preview
 

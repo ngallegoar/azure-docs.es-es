@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
 ms.openlocfilehash: 9f115d51657993562642391a235de79420aa434a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823373"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Creación de una red virtual para Instancia administrada de Azure SQL Database
@@ -41,7 +41,7 @@ La Instancia administrada de Azure SQL Database debe implementarse dentro de una
 
 La manera más fácil de crear y configurar una red virtual es usar una plantilla de implementación de Azure Resource Manager.
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en Azure Portal.
 
 2. Seleccione el botón **Implementar en Azure**:
 
