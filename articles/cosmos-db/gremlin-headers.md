@@ -8,10 +8,10 @@ ms.date: 09/03/2019
 author: luisbosquez
 ms.author: lbosq
 ms.openlocfilehash: 95677f4c45c0213de5ffac5521bac1c6bf7294e4
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72755079"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Encabezados de respuesta del servidor Gremlin en Azure Cosmos DB
@@ -21,7 +21,7 @@ Tenga en cuenta que, si depende de estos encabezados, estará limitando la porta
 
 ## <a name="headers"></a>encabezados
 
-| Encabezado | type | Valor de ejemplo | Cuándo se incluye | Explicación |
+| Encabezado | Tipo | Valor de ejemplo | Cuándo se incluye | Explicación |
 | --- | --- | --- | --- | --- |
 | **x-ms-request-charge** | double | 11.3243 | Aciertos y errores | Cantidad de rendimiento de las bases de datos o colecciones consumido en [unidades de solicitud (RU/s o RU)](request-units.md) en un mensaje de respuesta parcial. Este encabezado está presente en las continuaciones de las solicitudes que tienen varios fragmentos. Refleja la carga de un determinado fragmento de la respuesta. En aquellas solicitudes que se componen de un solo fragmento de respuesta, este encabezado coincide con el costo total del recorrido. Sin embargo, en la mayoría de los recorridos complejos, este valor representa un costo parcial. |
 | **x-ms-total-request-charge** | double | 423,987 | Aciertos y errores | Cantidad de rendimiento de las bases de datos o colecciones consumido en [unidades de solicitud (RU/s o RU)](request-units.md) en una solicitud completa. Este encabezado está presente en las continuaciones de las solicitudes que tienen varios fragmentos. Indica el cargo acumulado desde el inicio de la solicitud. El valor de este encabezado en el último fragmento indica la carga completa de la solicitud. |

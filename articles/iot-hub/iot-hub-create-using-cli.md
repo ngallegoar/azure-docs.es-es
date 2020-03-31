@@ -1,6 +1,6 @@
 ---
 title: Creación de un centro de IoT mediante la CLI de Azure | Microsoft Docs
-description: Aprenda a usar los comandos de la CLI de Azure para crear un grupo de recursos y, luego, crear en él un centro de IoT. También aprenderá a quitar el centro.
+description: Aprenda a usar los comandos de la CLI de Azure para crear un grupo de recursos y, luego, crear en él un centro de IoT. También aprenda a quitar el centro.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
 ms.openlocfilehash: e7253747d95917e34725cc7c6c034b1306f65e50
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889510"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237392"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creación de una instancia de IoT Hub mediante la CLI de Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "73889510"
 
 En este artículo se muestra cómo utilizar la CLI de Azure para crear una instancia de IoT Hub.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este procedimiento, se necesita una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

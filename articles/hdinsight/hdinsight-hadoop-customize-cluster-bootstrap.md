@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931413"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233640"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalización de los clústeres de HDInsight con Bootstrap
 
@@ -133,7 +133,7 @@ Puede usar Bootstrap en la plantilla de Resource Manager:
 * [Instalación y uso de Apache Spark en clústeres de HDInsight](spark/apache-spark-jupyter-spark-sql-use-portal.md)
 * [Instalación y uso de Apache Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
 
-## <a name="appendix-powershell-sample"></a>Apéndice: Ejemplo de PowerShell
+## <a name="appendix-powershell-sample"></a>Anexo: ejemplo de PowerShell
 
 Este script de PowerShell crea un clúster de HDInsight y personaliza una configuración de Hive. Asegúrese de especificar valores para `$nameToken`, `$httpPassword` y `$sshPassword`.
 

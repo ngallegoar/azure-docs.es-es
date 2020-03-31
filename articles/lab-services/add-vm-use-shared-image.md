@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
 ms.openlocfilehash: c13b2c3d00a0ab0af0f7785feae645d907ffdaa3
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68775788"
 ---
 # <a name="add-a-vm-using-an-image-from-the-attached-shared-image-gallery"></a>Incorporación de una máquina virtual mediante una imagen de la galería de imágenes compartidas adjunta
@@ -38,7 +38,7 @@ A continuación, en la pestaña **Configuración avanzada** de la página **Crea
 Puede cambiar para usar otra versión de la imagen después de que se crea la máquina virtual. 
 
 ## <a name="resource-manager-template"></a>Plantilla de Resource Manager
-Si usa una plantilla de Azure Resource Manager para crear una máquina virtual con una imagen de la galería de imágenes compartidas, especifique un valor para **sharedImageId** en la sección **Propiedades**. Consulte el ejemplo siguiente: 
+Si usa una plantilla de Azure Resource Manager para crear una máquina virtual con una imagen de la galería de imágenes compartidas, especifique un valor para **sharedImageId** en la sección **Propiedades**. Vea el ejemplo siguiente: 
 
 ```json
 "resources": [

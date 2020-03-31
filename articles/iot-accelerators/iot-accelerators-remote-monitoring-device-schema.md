@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65823324"
 ---
 # <a name="understand-the-device-model-schema"></a>Descripción del esquema de modelo del dispositivo
@@ -29,7 +29,7 @@ Los siguientes artículos están relacionadas con el artículo actual:
 * [Implement the device model behavior](iot-accelerators-remote-monitoring-device-behavior.md) (Implementar el comportamiento de modelo del dispositivo): describe los archivos de JavaScript que se usan para implementar el comportamiento de un dispositivo simulado.
 * [Create a new simulated device](iot-accelerators-remote-monitoring-create-simulated-device.md) (Crear un nuevo dispositivo simulado): reúne todos los elementos necesarios y le muestra cómo implementar un nuevo tipo de dispositivo simulado en la solución.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 >[!div class="checklist"]
 > * Usar un archivo JSON para definir un modelo de dispositivo simulado.
@@ -68,7 +68,7 @@ Puede ver los archivos de esquema de los dispositivos simulados predeterminados 
 
 En la tabla siguiente se describen las entradas de esquema de nivel superior:
 
-| Entrada de esquema | DESCRIPCIÓN |
+| Entrada de esquema | Descripción |
 | -- | --- |
 | `SchemaVersion` | La versión del esquema es siempre `1.0.0` y es específica del formato de este archivo. |
 | `Id` | Id. único para este modelo de dispositivo. |
@@ -90,7 +90,7 @@ La definición del estado del dispositivo tiene dos elementos:
 
 Para obtener más información sobre el archivo de JavaScript dedicado a actualizar el objeto de estado del dispositivo, consulte [Understand the device model behavior](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md) (Descripción del comportamiento del modelo del dispositivo).
 
-En el ejemplo siguiente se muestra la definición del objeto de estado del dispositivo en un dispositivo Chiller simulado:
+En el ejemplo siguiente se muestra la definición del objeto de estado del dispositivo en un dispositivo refrigerador simulado:
 
 ```json
 "Simulation": {
@@ -114,7 +114,7 @@ En el ejemplo siguiente se muestra la definición del objeto de estado del dispo
 
 El servicio de simulación ejecuta el archivo **chiller-01-state.js** cada cinco segundos para actualizar el estado del dispositivo. Puede ver los archivos de JavaScript de los dispositivos simulados predeterminados en la [carpeta de scripts](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) en GitHub. Como es costumbre, estos archivos de JavaScript tienen el sufijo **-state** para poder distinguirlos de los archivos que implementan los comportamientos del método.
 
-## <a name="properties"></a>Properties (Propiedades)
+## <a name="properties"></a>Propiedades
 
 La sección `Properties` del esquema define los valores de propiedad que el dispositivo envía a la solución. Por ejemplo:
 
@@ -167,7 +167,7 @@ Actualmente, solo se pueden utilizar los esquemas de mensaje JSON. Los campos en
 * Boolean
 * Entero
 * Double
-* Datetime
+* DateTime
 
 Para enviar mensajes de telemetría en diferentes intervalos, agregue varios tipos de telemetría a la matriz `Telemetry`. En el ejemplo siguiente se envían datos de temperatura y humedad cada 10 segundos y el estado de la luz cada minuto:
 

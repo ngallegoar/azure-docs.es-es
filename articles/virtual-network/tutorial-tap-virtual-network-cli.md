@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 05ce45a52db2b8a47223023ce31b5591b2b97c37
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 56288a65dc9e5b12a12393965b9670e394146181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185393"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234969"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Uso de una instancia de Virtual Network TAP con la CLI de Azure
 
@@ -86,6 +86,7 @@ Antes de crear un recurso de Virtual Network TAP, lea los [requisitos previos](v
       --query id \
       --out tsv)
       ```
+
    - Cree la instancia de Virtual Network TAP y use el identificador de la configuración IP de front-end como destino y una propiedad de puerto opcional. El puerto especifica el puerto de destino en la configuración IP del front-end donde se recibirá el tráfico TAP:  
 
       ```azurecli-interactive
@@ -140,7 +141,7 @@ Antes de crear un recurso de Virtual Network TAP, lea los [requisitos previos](v
 
 ## <a name="delete-the-tap-configuration-on-a-network-interface"></a>Eliminar la configuración de TAP en una interfaz de red
 
-   ```azure-cli-interactive
+   ```azurecli-interactive
    az network nic vtap-config delete \
    --resource-group myResourceGroup \
    --nic myNetworkInterface \

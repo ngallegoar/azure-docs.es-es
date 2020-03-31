@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
 ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72299663"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Procedimientos recomendados para usar Azure Data Lake Storage Gen2
@@ -95,7 +95,7 @@ En algunas ocasiones, el procesamiento de archivos es incorrecto debido a datos 
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
 
-Por ejemplo, una empresa de marketing recibe a diario extractos de datos de actualizaciones de los clientes de Estados Unidos. Podría tener el aspecto del siguiente fragmento de código antes y después del procesamiento:
+Por ejemplo, una empresa de marketing recibe a diario extractos de datos de actualizaciones de los clientes de Norteamérica. Podría tener el aspecto del siguiente fragmento de código antes y después del procesamiento:
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv

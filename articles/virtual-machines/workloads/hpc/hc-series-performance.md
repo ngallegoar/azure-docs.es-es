@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67707679"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>Tamaños de las máquinas virtuales de la serie HC
@@ -103,9 +103,9 @@ Prueba de ancho de banda de MPI de OSU, versión 5.4.3.
 | 16384   | 9218,29          | 73,74632         |
 | 32 768   | 10 564,61         | 84,51688         |
 | 65536   | 11 275,6          | 90,2048          |
-| 131 072  | 11 633,7          | 93,0696          |
-| 262 144  | 11 856,27         | 94,85016         |
-| 524 288  | 11 962.69         | 95,70152         |
-| 1 048 576 | 12 025,43         | 96,20344         |
-| 2 097 152 | 12 038,7          | 96,3096          |
-| 4 194 304 | 11 290,92         | 90,32736         |
+| 131 072  | 11 633,7          | 93,0696          |
+| 262 144  | 11 856,27         | 94,85016         |
+| 524 288  | 11 962.69         | 95,70152         |
+| 1 048 576 | 12 025,43         | 96,20344         |
+| 2 097 152 | 12 038,7          | 96,3096          |
+| 4 194 304 | 11 290,92         | 90,32736         |

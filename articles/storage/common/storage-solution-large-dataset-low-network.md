@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 4c4ac9489b9613b2eeaf26a3df9f4cbc664a1026
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60730697"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transferencia de datos para grandes conjuntos de datos con poco o ningún ancho de banda de red
  
 En este artículo encontrará información general sobre las soluciones para la transferencia de datos cuando ha limitado el ancho de banda de red a un valor nulo en su entorno y va a transferir grandes conjuntos de datos. En el artículo también se describen las opciones recomendadas de transferencia de datos y la matriz de funcionalidades clave para este escenario.
 
-Para obtener una visión general de todas las opciones de transferencia de datos disponibles, vaya a [Choose an Azure data transfer solution](storage-choose-data-transfer-solution.md) (Elección de una solución de transferencia de datos de Azure).
+Para una visión general de todas las opciones de transferencia de datos disponibles, vaya a [Choose an Azure data transfer solution](storage-choose-data-transfer-solution.md) (Elección de una solución de transferencia de datos de Azure).
 
 ## <a name="offline-transfer-or-network-transfer"></a>Transferencia sin conexión o transferencia de red
 
@@ -38,7 +38,7 @@ Para confirmar si un dispositivo físico es la opción más adecuada, utilice la
 
 Las opciones disponibles en este escenario son dispositivos para la transferencia sin conexión de Azure Data Box o Azure Import/Export.
 
-- **Familia Azure Data Box para transferencias sin conexión**: Use dispositivos Data Box suministrados por Microsoft para mover grandes cantidades de datos a Azure cuando esté limitado por el tiempo, por la disponibilidad de red o por los costos. Copie los datos locales con herramientas como Robocopy. Según el tamaño de los datos previstos para la transferencia, puede elegir entre Data Box Disk, Data Box o Data Box Heavy.
+- **Familia Azure Data Box para transferencias sin conexión**: use los dispositivos Data Box que proporciona Microsoft para mover grandes cantidades de datos a Azure cuando tenga límites de tiempo, de disponibilidad de red o de costos. Copie los datos locales con herramientas como Robocopy. Según el tamaño de los datos previstos para la transferencia, puede elegir entre Data Box Disk, Data Box o Data Box Heavy.
 - **Azure Import/Export**: use el servicio Azure Import/Export para enviar sus propias unidades de disco y así importar de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files. También se puede usar este servicio para transferir datos desde Azure Blob Storage hasta las unidades de disco y enviarlas al sitio local.
 
 ## <a name="comparison-of-key-capabilities"></a>Comparación de funcionalidades clave
@@ -52,7 +52,7 @@ En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 |    Factor de forma                      |    5 SSD por pedido             |    1 x 50 libras dispositivo de tamaño de escritorio por pedido    |    1 x ~500 libras dispositivo grande por pedido    |    Hasta 10 HDD/SSD por pedido        |
 |    Tiempo de instalación inicial               |    Bajo <br>(15 min)            |    De bajo a moderado <br> (<30 min)               |    Moderado<br>(De 1 a 2 horas)               |    De moderado a difícil<br>(variable) |
 |    Envío de datos a Azure               |    Sí                          |    Sí                                           |    Sí                                   |    Sí                                 |
-|    Exportar datos de Azure           |    Sin                           |    No                                            |    No                                    |    Sí                                 |
+|    Exportar datos de Azure           |    No                           |    No                                            |    No                                    |    Sí                                 |
 |    Cifrado                       |    AES de 128 bits                  |    AES de 256 bits                                   |    AES de 256 bits                           |    AES de 128 bits                         |
 |    Hardware                         |     Proporcionado por Microsoft          |    Proporcionado por Microsoft                            |    Proporcionado por Microsoft                    |    Proporcionado por el cliente                   |
 |    interfaz de red                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458421"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Copia de seguridad a petición en Azure Service Fabric
@@ -19,7 +19,7 @@ Puede realizar una copia de seguridad de los servicios de confianza sin estado y
 Azure Service Fabric incluye características para la [copia de seguridad periódica de los datos](service-fabric-backuprestoreservice-quickstart-azurecluster.md) y la copia de seguridad de los datos cuando sea necesaria. La copia de seguridad a petición es útil porque protege frente a la _pérdida de datos_/_los daños en los datos_ debidos a los cambios planeados en el servicio subyacente o su entorno.
 
 Las características de copia de seguridad a petición son útiles para capturar el estado de los servicios antes de cualquier operación desencadenada manualmente relacionada con el servicio o el entorno de este. Por ejemplo, si realiza un cambio en los binarios del servicio al actualizarlo o degradarlo. En tal caso, la copia de seguridad a petición puede ayudar a proteger los datos de daños causados por errores de código de las aplicaciones.
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Instale el módulo Microsoft.ServiceFabric.Powershell.Http [en versión preliminar] para realizar llamadas de configuración.
 

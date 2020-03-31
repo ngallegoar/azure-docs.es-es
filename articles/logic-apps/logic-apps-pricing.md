@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 6c7112b6b5944042036fd3e7af6ec6f6dfbde0c0
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 795acd67a8d4a9f8b8b7d78799a92134f249cf8d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526151"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233004"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de precios de Azure Logic Apps
 
@@ -64,7 +64,7 @@ Un [*entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-
 
   Para más información sobre los límites de las cuentas de integración, consulte [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Puede obtener más información sobre los [niveles de las cuentas de integración y su modelo de precios](#integration-accounts) más adelante en este tema.
 
-Si elige la SKU de ISE prémium, la unidad base tiene una capacidad fija. Si necesita más rendimiento, puede [agregar más unidades de escalado](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity) durante o después de la creación. La SKU del ISE de Desarrollador no tiene la funcionalidad para agregar más unidades de escalado. Las aplicaciones lógicas que se ejecutan en un ISE no comportan gastos de retención de datos.
+Si elige la SKU de ISE prémium, la unidad base tiene una capacidad fija. Si necesita más rendimiento, puede [agregar más unidades de escalado](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) durante o después de la creación. La SKU del ISE de Desarrollador no tiene la funcionalidad para agregar más unidades de escalado. Las aplicaciones lógicas que se ejecutan en un ISE no comportan gastos de retención de datos.
 
 Para ver las tarifas de precios, consulte los [precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 

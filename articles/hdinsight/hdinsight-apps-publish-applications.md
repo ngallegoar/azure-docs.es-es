@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64685317"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicación de una aplicación de HDInsight en Azure Marketplace
@@ -25,7 +25,7 @@ Para más información, consulte estos artículos relacionados con la aplicació
 * [Instalación de aplicaciones de HDInsight](hdinsight-apps-install-applications.md) Aprenda a instalar una aplicación de HDInsight en sus clústeres.
 * [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md) Aprenda a instalar y probar aplicaciones de HDInsight personalizadas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para enviar la aplicación personalizada a Marketplace, primero [cree y pruebe su aplicación personalizada](hdinsight-apps-install-custom-applications.md).
 
 También debe registrar la cuenta de desarrollador. Para más información, consulte [Publicación de una oferta en Azure Marketplace](../marketplace/marketplace-publishers-guide.md) y [Crear una cuenta de desarrollador de Microsoft](../marketplace/marketplace-publishers-guide.md).
@@ -44,7 +44,7 @@ La publicación de aplicaciones en Marketplace consta de dos pasos. En primer lu
 }
 ```
 
-| Campo | DESCRIPCIÓN | Valores posibles |
+| Campo | Descripción | Valores posibles |
 | --- | --- | --- |
 | types |Los tipos de clúster con los que es compatible la aplicación. |Hadoop, HBase, Storm y Spark (o cualquier combinación de estos) |
 | versions |Los tipos de clúster de HDInsight con los que es compatible la aplicación. |3.4 |
@@ -92,7 +92,7 @@ Para publicar una aplicación de HDInsight:
 4. Si todavía no ha registrado su organización, seleccione **Create Dev Center account and join the Azure program** ///(Crear cuenta de Centro de desarrollo y unirse al programa de Azure).  Para más información, consulte [Crear una cuenta de desarrollador de Microsoft](../marketplace/marketplace-publishers-guide.md).
 5. Seleccione **Define some Topologies to get Started** ///(Definir algunas topologías para comenzar). Una plantilla de solución es una "matriz" para todas sus topologías. Puede definir varias topologías en una oferta o plantilla de solución. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus topologías. 
 6. Escriba un nombre de topología y luego seleccione **+** .
-7. Escriba una nueva versión y luego seleccione  **+** .
+7. Escriba una nueva versión y luego seleccione **+** .
 8. Cargue el archivo .zip que creó cuando empaquetó la aplicación.  
 9. Seleccione **Request Certification** ///(Solicitar certificación). El equipo de certificación de Microsoft revisa los archivos y certifica la topología.
 

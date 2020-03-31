@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76545031"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database
@@ -73,7 +73,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-La mejor manera de optimizar este código es implementar algún tipo de procesamiento por lotes del lado cliente para estas llamadas. Pero hay una forma sencilla de aumentar el rendimiento de este código simplemente encapsulando la secuencia de llamadas en una transacción. El siguiente código es el mismo que usa una transacción.
+La mejor manera de optimizar este código es implementar algún tipo de procesamiento por lotes del lado cliente para estas llamadas. Pero hay una forma sencilla de aumentar el rendimiento de este código simplemente encapsulando la secuencia de llamadas en una transacción. Este es el mismo código que usa una transacción.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -91,9 +91,9 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Realmente, se usan transacciones en ambos ejemplos. En el primer ejemplo, cada llamada individual es una transacción implícita. En el segundo ejemplo, una transacción explícita encapsula todas las llamadas. Según la documentación del [registro de transacciones de escritura previa](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), las entradas del registro se vacían en el disco cuando se confirma la transacción. Por lo tanto, al incluir más llamadas en una transacción, la escritura en el registro de transacciones se puede retrasar hasta que se confirma la transacción. En efecto, está habilitando el procesamiento por lotes para las escrituras en el registro de transacciones del servidor.
+Realmente, se usan transacciones en ambos ejemplos. En el primer ejemplo, cada llamada individual es una transacción implícita. En el segundo ejemplo, una transacción explícita encapsula todas las llamadas. Según la documentación del [registro de transacciones de escritura anticipada](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), las entradas del registro se vacían en el disco cuando se confirma la transacción. Por lo tanto, al incluir más llamadas en una transacción, la escritura en el registro de transacciones se puede retrasar hasta que se confirma la transacción. En efecto, está habilitando el procesamiento por lotes para las escrituras en el registro de transacciones del servidor.
 
-En la tabla siguiente se muestran algunos resultados de pruebas ad hoc. En las pruebas se realizaron las mismas inserciones secuenciales con y sin transacciones. Para obtener más perspectiva, el primer conjunto de pruebas se ejecutó de forma remota de un equipo portátil a la base de datos de Microsoft Azure. El segundo conjunto de pruebas se ejecutó desde un servicio en la nube y una base de datos que residían en el mismo centro de datos de Microsoft Azure (Oeste de EE. UU.). En la tabla siguiente se muestra la duración en milisegundos de las inserciones secuenciales con y sin transacciones.
+En la tabla siguiente se muestran algunos resultados de pruebas ad hoc. En las pruebas se realizaron las mismas inserciones secuenciales con y sin transacciones. Para obtener más perspectiva, el primer conjunto de pruebas se ejecutó de forma remota de un equipo portátil a la base de datos de Microsoft Azure. El segundo conjunto de pruebas se ejecutó de un servicio en la nube y una base de datos que residían en el mismo centro de datos de Microsoft Azure (Oeste de EE. UU.). En la tabla siguiente se muestra la duración en milisegundos de las inserciones secuenciales con y sin transacciones.
 
 **De local a Azure**:
 
@@ -212,7 +212,7 @@ Para obtener más información sobre los parámetros con valores de tabla, consu
 
 ### <a name="sql-bulk-copy"></a>Copia masiva de SQL
 
-La copia masiva de SQL es otra forma de insertar grandes cantidades de datos en una base de datos de destino. Las aplicaciones .NET pueden usar la clase **SqlBulkCopy** para realizar operaciones de inserción masiva. **SqlBulkCopy** desempeña una función similar a la herramienta de línea de comandos **Bcp.exe** o la instrucción Transact-SQL **BULK INSERT**. En el ejemplo de código siguiente se muestra cómo realizar una copia masiva de las filas de la tabla de origen **DataTable** en la tabla de destino en SQL Server, MyTable.
+La copia masiva de SQL es otra forma de insertar grandes cantidades de datos en una base de datos de destino. Las aplicaciones .NET pueden usar la clase **SqlBulkCopy** para realizar operaciones de inserción masiva. **SqlBulkCopy** desempeña una función similar a la herramienta de línea de comandos **Bcp.exe** o la instrucción Transact-SQL **BULK INSERT**. En el ejemplo de código siguiente se muestra cómo realizar una copia masiva de las filas de la tabla de origen **DataTable**en la tabla de destino en SQL Server, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -246,7 +246,7 @@ Los resultados de pruebas ad hoc siguientes muestran el rendimiento del procesam
 > 
 > 
 
-En lotes más pequeños, el uso de parámetros con valores de tabla superó el rendimiento de la clase **SqlBulkCopy** . Sin embargo, el rendimiento con **SqlBulkCopy** fue entre un 12 % y un 31 % mayor que los parámetros con valores de tabla en las pruebas de 1,000 y 10.000 filas. Como los parámetros con valores de tabla, **SqlBulkCopy** es una buena opción para las inserciones por lotes, especialmente cuando se compara con el rendimiento de las operaciones sin lotes.
+En lotes más pequeños, el uso de parámetros con valores de tabla superó el rendimiento de la clase **SqlBulkCopy** . Sin embargo, el rendimiento con**SqlBulkCopy** fue entre un 12 % y un 31 % mayor que los parámetros con valores de tabla en las pruebas de 1000 y 10,000 filas. Como los parámetros con valores de tabla, **SqlBulkCopy** es una buena opción para las inserciones por lotes, especialmente cuando se compara con el rendimiento de las operaciones sin lotes.
 
 Para obtener más información sobre la copia masiva en ADO.NET, consulte [Operaciones de copia masiva en SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
@@ -301,7 +301,7 @@ Actualmente, Entity Framework no admite el procesamiento por lotes. Varios desar
 
 ### <a name="xml"></a>XML
 
-Para ofrecer una imagen completa, creemos que es importante hablar de XML como estrategia de procesamiento por lotes. Sin embargo, el uso de XML no supone ninguna ventaja respecto a otros métodos, pero sí varias desventajas. El enfoque es similar a los parámetros con valores de tabla, excepto en que se pasa una cadena o un archivo XML a un procedimiento almacenado en lugar de una tabla definida por el usuario. El procedimiento almacenado analiza los comandos en el procedimiento almacenado.
+Por exhaustividad, creemos que es importante hablar de XML como estrategia de procesamiento por lotes. Sin embargo, el uso de XML no supone ninguna ventaja respecto a otros métodos, pero sí varias desventajas. El enfoque es similar a los parámetros con valores de tabla, excepto en que se pasa una cadena o un archivo XML a un procedimiento almacenado en lugar de una tabla definida por el usuario. El procedimiento almacenado analiza los comandos en el procedimiento almacenado.
 
 Existen varias desventajas con este enfoque:
 
@@ -376,7 +376,7 @@ Si usa la ejecución en paralelo, considere la posibilidad de controlar el núme
 
 Las instrucciones típicas sobre el rendimiento de la base de datos también afectan al procesamiento por lotes. Por ejemplo, el rendimiento de inserción se reduce para aquellas tablas que tengan una clave principal grande o varios índices no agrupados.
 
-Si los parámetros con valores de tabla usan un procedimiento almacenado, puede emplear el comando **SET NOCOUNT ON** al principio del procedimiento. Esta instrucción suprime la devolución del recuento de las filas afectadas en el procedimiento. Sin embargo, en nuestras pruebas, el uso de **SET NOCOUNT ON** no tiene ningún efecto sobre el rendimiento o lo disminuye. El procedimiento almacenado de la prueba era simple, con un solo comando **INSERT** desde el parámetro con valores de tabla. Es posible que los procedimientos almacenados más complejos se beneficien de esta instrucción. Pero no dé por supuesto que agregar **SET NOCOUNT ON** al procedimiento almacenado mejora automáticamente el rendimiento. Para entender el efecto, pruebe el procedimiento almacenado con la instrucción **SET NOCOUNT ON** y sin ella.
+Si los parámetros con valores de tabla usan un procedimiento almacenado, puede emplear el comando **SET NOCOUNT ON** al principio del procedimiento. Esta instrucción suprime la devolución del recuento de las filas afectadas en el procedimiento. Sin embargo, en nuestras pruebas, el uso de **SET NOCOUNT ON** no tiene ningún efecto sobre el rendimiento o lo disminuye. El procedimiento almacenado de la prueba era simple, con un solo comando **INSERT** desde el parámetro con valores de tabla. Es posible que los procedimientos almacenados más complejos se beneficien de esta instrucción. Pero no dé por supuesto que agregar **SET NOCOUNT ON** al procedimiento almacenado mejora automáticamente el rendimiento. Para entender el efecto, pruebe el procedimiento almacenado con y sin la instrucción **SET NOCOUNT ON** .
 
 ## <a name="batching-scenarios"></a>Escenarios de procesamiento por lotes
 

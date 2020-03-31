@@ -8,10 +8,10 @@ ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: f0ca836e3b53c3cce755d45b50fe168073f0bbaa
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513140"
 ---
 # <a name="deploy-updates-to-microsoft-endpoint-configuration-manager-clients-with-update-management"></a>Implementación de actualizaciones en los clientes de Microsoft Endpoint Configuration Manager con Update Management
@@ -20,7 +20,7 @@ Los clientes que han invertido en Microsoft Endpoint Configuration Manager para 
 
 Puede crear informes sobre los servidores Windows administrados y actualizarlos. Para hacerlo, cree y preconfigure implementaciones de actualizaciones de software en Configuration Manager y obtenga el estado detallado de las implementaciones de actualizaciones completadas mediante la [solución Update Management](automation-update-management.md). Si utiliza Configuration Manager para los informes de cumplimiento de las actualizaciones, pero no para administrar implementaciones de actualizaciones con los servidores de Windows, puede seguir enviando notificaciones a Configuration Manager mientras se administran las actualizaciones de seguridad con la solución Update Management.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Debe tener la [solución Update Management](automation-update-management.md) agregada a su cuenta de Automation.
 * Los servidores de Windows que actualmente administra su entorno de Configuration Manager también deben informar al área de trabajo de Log Analytics que también tiene habilitada la solución Update Management.

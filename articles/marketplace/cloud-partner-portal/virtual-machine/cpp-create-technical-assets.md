@@ -1,19 +1,18 @@
 ---
 title: Creación de recursos técnicos para una oferta de máquina virtual para Azure Marketplace
 description: Se explica cómo crear los recursos técnicos para una oferta de máquina virtual en Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: pabutler
-ms.openlocfilehash: 45d0ff5b7b3fea1566b13b61bd01cc17da61e4b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 57f56a341cfc3db6a5f0664503809e6ab6cf3d3d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824507"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278031"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Creación de recursos técnicos para una oferta de máquina virtual
 

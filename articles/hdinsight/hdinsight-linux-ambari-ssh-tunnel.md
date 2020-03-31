@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.openlocfilehash: 6f4efd9a316b92f17f89cea66a7c81e84ac3cf06
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72991348"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Use la tunelización SSH para tener acceso a la interfaz de usuario web de Apache Ambari, JobHistory, NameNode, Apache Oozie y otras interfaces de usuario.
@@ -40,7 +40,7 @@ Si usa las acciones de script para personalizar el clúster, todos los servicios
 
 La [tunelización Secure Shell (SSH) ](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) conecta un puerto del equipo local a un nodo principal en HDInsight. El tráfico enviado al puerto local se enruta a través de una conexión SSH en el nodo principal. La solicitud se resuelve como si se originara en el nodo principal. A continuación, la respuesta se enruta a través del túnel a la estación de trabajo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -54,7 +54,7 @@ La [tunelización Secure Shell (SSH) ](https://en.wikipedia.org/wiki/Tunneling_p
     >
     > Google Chrome también se basa en la configuración de proxy de Windows. Sin embargo, se pueden instalar extensiones que admiten SOCKS5. Se recomienda [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
 
-## <a name="usessh"></a>Creación de un túnel con el comando SSH
+## <a name="create-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>Creación de un túnel con el comando SSH
 
 Use el siguiente comando para crear un túnel SSH con el comando `ssh` . Reemplace `sshuser` por un usuario SSH para su clúster de HDInsight y sustituya `CLUSTERNAME` por el nombre de su clúster de HDInsight.
 
@@ -75,7 +75,7 @@ Este comando crea una conexión que enruta el tráfico al puerto local 9876 al c
 
 Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la máquina local se enruta al nodo principal del cluster.
 
-## <a name="useputty"></a>Creación de un túnel mediante PuTTY
+## <a name="create-a-tunnel-using-putty"></a><a name="useputty"></a>Creación de un túnel mediante PuTTY
 
 [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) es un cliente SSH gráfico para Windows. Si no está familiarizado con PuTTY, consulte la [documentación de PuTTY ](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use los siguientes pasos para crear un túnel SSH con PuTTY:
 
@@ -85,7 +85,7 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la má
 
 1. Si aún no tiene una sesión guardada, escriba su información de conexión:
 
-    |Propiedad |Valor |
+    |Propiedad |Value |
     |---|---|
     |Nombre de host (o dirección IP)|La dirección SSH del clúster de HDInsight. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.|
     |Port|22|
@@ -99,7 +99,7 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la má
 
 1. Proporcione la siguiente información en el formulario **Options controlling SSH port forwarding** (Opciones que controlan el desvío de puertos SSH):
 
-    |Propiedad |Valor |
+    |Propiedad |Value |
     |---|---|
     |Puerto de origen|El puerto en el cliente que desea desviar. Por ejemplo, **9876**.|
     |Destination|La dirección SSH del clúster de HDInsight. Por ejemplo, **mycluster-ssh.azurehdinsight.net**.|

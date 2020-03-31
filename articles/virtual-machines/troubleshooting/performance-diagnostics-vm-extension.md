@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71057540"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensión de máquina virtual de diagnóstico de rendimiento de Azure para Windows
@@ -27,7 +27,7 @@ La extensión de máquina virtual de diagnósticos de rendimiento de Azure ayuda
 > [!NOTE]
 > Si desea ejecutar diagnósticos en la máquina virtual desde Azure Portal para máquinas virtuales no clásicas, se recomienda usar la nueva experiencia. Para más información, consulte [Diagnóstico de rendimiento para máquinas virtuales de Azure](performance-diagnostics.md). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Esta extensión se puede instalar en Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016. También se puede instalar en Windows 8.1 y Windows 10.
 
@@ -70,7 +70,7 @@ El siguiente código JSON muestra el esquema de la extensión de máquina virtua
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|La versión de la API.
 |publisher|Microsoft.Azure.Performance.Diagnostics|El espacio de nombres del publicador correspondiente a la extensión.
-|Tipo|AzurePerformanceDiagnostics|El tipo de la extensión de máquina virtual.
+|type|AzurePerformanceDiagnostics|El tipo de la extensión de máquina virtual.
 |typeHandlerVersion|1.0|La versión del controlador de extensiones.
 |performanceScenario|basic|El escenario de rendimiento para el que se capturan datos. Los valores válidos son: **basic**, **vmslow**, **azurefiles** y **custom**.
 |traceDurationInSeconds|300|La duración de los seguimientos, si se ha seleccionado alguna de las opciones de seguimiento.
@@ -88,7 +88,7 @@ El siguiente código JSON muestra el esquema de la extensión de máquina virtua
 
 Siga estas instrucciones para instalar la extensión en máquinas virtuales Windows:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione la máquina virtual en la que desee instalar esta extensión.
 
     ![Captura de pantalla de Azure Portal, donde aparece resaltado Virtual Machines](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)

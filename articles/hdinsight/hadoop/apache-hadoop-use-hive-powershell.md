@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: deaa934b257fab74830d75e308a283e7608dc590
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552600"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Ejecución de consultas de Apache Hive con PowerShell
@@ -41,8 +41,8 @@ Los siguientes cmdlets se utilizan al ejecutar las consultas de Hive en un clús
 * `Start-AzHDInsightJob`: envía la definición del trabajo a HDInsight e inicia el trabajo. Se devuelve un objeto *job*.
 * `Wait-AzHDInsightJob`: usa el objeto del trabajo para comprobar el estado del trabajo. Esperará hasta que el trabajo se complete o se supere el tiempo de espera.
 * `Get-AzHDInsightJobOutput`: se utiliza para recuperar la salida del trabajo.
-* `Invoke-AzHDInsightHiveJob`: se usa para ejecutar instrucciones de HiveQL. Este cmdlet bloquea toda la consulta y devuelve los resultados.
-* `Use-AzHDInsightCluster`: establece el clúster actual que se va a usar para el comando `Invoke-AzHDInsightHiveJob`.
+* `Invoke-AzHDInsightHiveJob`: se utiliza para ejecutar instrucciones de HiveQL. Este cmdlet bloquea toda la consulta y devuelve los resultados.
+* `Use-AzHDInsightCluster`: establece el clúster actual que se utilizará para el comando `Invoke-AzHDInsightHiveJob`.
 
 Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo en el clúster de HDInsight:
 

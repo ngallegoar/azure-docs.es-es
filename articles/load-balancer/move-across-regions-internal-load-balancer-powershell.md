@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: f8e431124155fe23853fe61e985fe4db522c3f77
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75644280"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-powershell"></a>Traslado de un equilibrador de carga interno de Azure a otra región mediante PowerShell
@@ -315,7 +315,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga inter
     ```
 12. También puede cambiar otros parámetros de la plantilla si así lo desea; son opcionales según sus requisitos:
     
-    * **SKU**: puede cambiar la SKU del equilibrador de carga interno en la configuración del nivel estándar al básico o viceversa si modifica la propiedad **sku** > **name** en el archivo \<**nombre-del-grupo-de-recursos>.json**:
+    * **SKU**: puede cambiar la SKU del equilibrador de carga interno en la configuración del nivel estándar al básico o viceversa si modifica la propiedad **sku** > **name** en el archivo **\<nombre-del-grupo-de-recursos>.json**:
 
         ```json
         "resources": [

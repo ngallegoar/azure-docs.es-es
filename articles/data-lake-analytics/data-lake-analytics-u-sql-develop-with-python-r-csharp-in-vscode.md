@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 11/22/2017
 ms.openlocfilehash: cb3ddf0c4147fa982e8ab0f9d440292d12803d35
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71309705"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desarrollo de trabajos U-SQL con Python, R y C# para Azure Data Lake Analytics en Visual Studio Code
@@ -58,7 +58,7 @@ Registre los ensamblados de extensiones de Python y R en la cuenta de ADL.
         USING Outputters.Csv();
     ```
     
-3. Haga clic con el botón derecho en un archivo de script y luego seleccione **ADL: generar un archivo de código subyacente de Python**. 
+3. Haga clic con el botón derecho en un archivo de script y, luego, seleccione **ADL: Generate Python Code Behind File**. 
 4. Se genera el archivo **xxx.usql.py** en la carpeta de trabajo. Escriba el código en el archivo de Python. A continuación, se muestra un ejemplo de código.
 
     ```Python
@@ -115,7 +115,7 @@ Registre los ensamblados de extensiones de Python y R en la cuenta de ADL.
     TO @OutputFilePredictions
     USING Outputters.Tsv();
     ```
-3. Haga clic con el botón derecho en un archivo **USQL** y luego seleccione **ADL: generar un archivo de código subyacente de R**. 
+3. Haga clic con el botón derecho en el archivo **USQL** y después seleccione **ADL: Generate R Code Behind File**. 
 4. Se genera el archivo **xxx.usql.r** en la carpeta de trabajo. Escriba el código en el archivo de R. A continuación, se muestra un ejemplo de código.
 
     ```R
@@ -125,7 +125,7 @@ Registre los ensamblados de extensiones de Python y R en la cuenta de ADL.
 5. Haga clic con el botón derecho en el archivo **USQL**; puede hacer clic en **Compile Script** (Compilar script) o **Submit Job** (Enviar trabajo) para ejecutar el trabajo.
 
 ## <a name="develop-c-file"></a>Desarrollo de archivos de C#
-Un archivo de código subyacente es un archivo C# asociado con un solo script U-SQL. Puede definir un script dedicado a UDO, UDA, UDT o UDF en el archivo de código subyacente. UDF, UDO, UDA o UDT se puede usar directamente en el script sin tener que registrar primero el ensamblado. El archivo de código subyacente se coloca en la misma carpeta que su archivo de script U-SQL de emparejamiento. Si el script se denomina xxx.usql, el código subyacente se denomina xxx.usql.cs. Si elimina manualmente el archivo de código subyacente, la característica de código subyacente se deshabilita para su script U-SQL asociado. Para obtener más información sobre cómo escribir código de cliente para el script U-SQL, consulte [Escritura y uso de código personalizado en U-SQL: funciones definidas por el usuario]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+Un archivo de código subyacente es un archivo C# asociado con un solo script U-SQL. Puede definir un script dedicado a UDO, UDA, UDT o UDF en el archivo de código subyacente. UDF, UDO, UDA o UDT se puede usar directamente en el script sin tener que registrar primero el ensamblado. El archivo de código subyacente se coloca en la misma carpeta que su archivo de script U-SQL de emparejamiento. Si el script se denomina xxx.usql, el código subyacente se denomina xxx.usql.cs. Si elimina manualmente el archivo de código subyacente, la característica de código subyacente se deshabilita para su script U-SQL asociado. Para más información sobre cómo escribir código de cliente para el script U-SQL, consulte [Writing and Using Custom Code in U-SQL – User-Defined Functions]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/) (Escritura y uso de código personalizado en U-SQL: funciones definidas por el usuario).
 
 1. Haga clic en **Archivo nuevo** en el área de trabajo.
 2. Escriba el código en el archivo U-SQL. A continuación, se muestra un ejemplo de código.
@@ -157,7 +157,7 @@ Un archivo de código subyacente es un archivo C# asociado con un solo script U-
         TO @"/output/SearchLogtest.txt" 
         USING Outputters.Tsv();
     ```
-3. Haga clic con el botón derecho en un archivo **USQL** y luego seleccione **ADL: generar un archivo de código subyacente de CS**. 
+3. Haga clic con el botón derecho en el archivo **USQL** y después seleccione **ADL: Generate CS Code Behind File**. 
 4. Se genera el archivo **xxx.usql.cs** en la carpeta de trabajo. Escriba el código en el archivo CS. A continuación, se muestra un ejemplo de código.
 
     ```CS

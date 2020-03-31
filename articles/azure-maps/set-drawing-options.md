@@ -1,19 +1,19 @@
 ---
 title: Módulo de herramientas de dibujo | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre cómo establecer datos de opciones de dibujo mediante el SDK web de Microsoft Azure Maps
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f3634149b744b9a03f0ed89aafbc20932701bdbc
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 711609f9382e2153cbc738d544933796dbbe2e99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208189"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334306"
 ---
 # <a name="use-the-drawing-tools-module"></a>Uso del módulo de herramientas de dibujo
 
@@ -26,8 +26,8 @@ El SDK web de Azure Maps proporciona un *módulo de herramientas de dibujo*. Est
     - Utilizar la versión de Azure Content Delivery Network hospedada globalmente del módulo de servicios de Azure Maps. Agregue una referencia a la hoja de estilos de JavaScript y CSS en el elemento `<head>` del archivo:
 
         ```html
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.css" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.js"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0/atlas-drawing.min.js"></script>
         ```
 
     - Otra alternativa es cargar localmente el módulo de herramientas de dibujo para el código fuente del SDK web de Azure Maps mediante el paquete npm [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools) y, luego, hospedarlo con la aplicación. Este paquete también incluye las definiciones de TypeScript. Use este comando:
@@ -104,7 +104,7 @@ En los ejemplos anteriores se ha mostrado cómo personalizar las opciones de dib
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a usar características adicionales del módulo de herramientas de dibujo:
+Obtenga información sobre cómo usar características adicionales del módulo de herramientas de dibujo:
 
 > [!div class="nextstepaction"]
 > [Incorporación de una barra de herramientas de dibujo](map-add-drawing-toolbar.md)

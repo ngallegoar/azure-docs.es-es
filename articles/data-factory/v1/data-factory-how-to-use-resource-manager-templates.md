@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 930a3f0cf629c99fc03a84c701bcf7b2807c77c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75972857"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Uso de plantillas para crear entidades de Azure Data Factory
@@ -37,8 +37,8 @@ Las [plantillas de Azure Resource Manager](../../azure-resource-manager/template
 ## <a name="tutorials"></a>Tutoriales
 Consulte los siguientes tutoriales para obtener instrucciones detalladas para crear entidades de Data Factory mediante plantillas de Resource Manager:
 
-* [Tutorial: Creación de una canalización para copiar datos mediante el uso de plantillas de Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-* [Tutorial: Creación de una canalización para procesar datos mediante el uso de plantillas de Azure Resource Manager](data-factory-build-your-first-pipeline.md)
+* [Tutorial: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Tutorial: Creación de una canalización para copiar datos mediante el uso de plantillas de Azure Resource Manager)
+* [Tutorial: Create a pipeline to copy data by using Azure Resource Manager template](data-factory-build-your-first-pipeline.md) (Tutorial: Creación de una canalización para procesar datos mediante el uso de plantillas de Azure Resource Manager)
 
 ## <a name="data-factory-templates-on-github"></a>Plantillas de Data Factory en GitHub
 Consulte las siguientes plantillas de inicio rápido de Azure en GitHub:

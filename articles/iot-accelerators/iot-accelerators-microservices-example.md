@@ -8,10 +8,10 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447648"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalización y reimplementación de un microservicio
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Extraer una imagen de Docker nueva
 > * Visualizar los cambios 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para utilizar este tutorial, necesitará:
 
@@ -144,11 +144,11 @@ Para terminar, reimplemente una instancia local de la solución de supervisión 
     ```
 
 3. Busque el entorno de Postman descargado y ábralo.
-4. En Postman, escriba la siguiente solicitud en GET: `http://localhost:8080/iothubmanager/v1/status`. Ahora debería ver "Estado": "Correcto: Las nuevas modificaciones se hacen aquí".
+4. En Postman, escriba la siguiente solicitud en GET: `http://localhost:8080/iothubmanager/v1/status`. Ahora debería ver "Estado": "Correcto. Las nuevas modificaciones se hacen aquí".
 
 ![Mensaje de Postman Las nuevas modificaciones se hacen aquí](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
-## <a name="Troubleshoot"></a>Solución de problemas
+## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Solución de problemas
 
 Si experimenta problemas, intente eliminar las imágenes y los contenedores de Docker del equipo local.
 

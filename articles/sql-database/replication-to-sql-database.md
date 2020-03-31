@@ -12,11 +12,11 @@ ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997282"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228700"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicación en bases de datos agrupadas y únicas de SQL Database
 
@@ -28,7 +28,7 @@ La replicación de SQL Server puede configurarse para bases de datos únicas y a
 - Azure SQL Database debe ser un suscriptor de inserción de un publicador de SQL Server.  
 - La base de datos de distribución y los agentes de replicación no pueden colocarse en una base de datos de Azure SQL.  
 - Se admiten replicaciones transaccionales unidireccionales y de instantáneas. La replicación transaccional punto a punto y la replicación de mezcla no se admiten.
-- La replicación está disponible para su versión preliminar en Instancia administrada de Azure SQL Database. Instancia administrada puede hospedar las bases de datos del publicador, distribuidor y suscriptor. Para más información, consulte [Replication with SQL Database Managed Instance](replication-with-sql-database-managed-instance.md) (Replicación con Instancia administrada de Azure SQL Database).
+- La replicación está disponible para la versión preliminar pública de Instancia administrada de Azure SQL Database. Instancia administrada puede hospedar las bases de datos del publicador, distribuidor y suscriptor. Para más información, consulte [Replication with SQL Database Managed Instance](replication-with-sql-database-managed-instance.md) (Replicación con Instancia administrada de Azure SQL Database).
 
 ## <a name="versions"></a>Versiones  
 
@@ -44,7 +44,7 @@ Los publicadores y distribuidores de SQL Server local deben usar (como mínimo) 
 Para usar todas las características de Azure SQL Database, debe usar las versiones más recientes de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
   
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
 - La replicación puede configurarse mediante el uso de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o mediante la ejecución de instrucciones Transact-SQL en el publicador. No se puede configurar la replicación mediante Azure Portal.  
 - La replicación solo puede usar inicios de sesión de autenticación de SQL Server para conectarse a una base de datos de Azure SQL.
@@ -111,7 +111,7 @@ Cree una publicación y una suscripción de inserción. Para más información, 
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication) (Creación de una publicación)
 - [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) (Creación de una suscripción de inserción) mediante el nombre del servidor de Azure SQL Database como suscriptor (por ejemplo, **N'azuresqldbdns.database.windows.net'** ) y el nombre de Azure SQL Database como la base de datos de destino (por ejemplo, **AdventureWorks**).  
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Consulte también  
 
 - [Replicación transaccional](sql-database-managed-instance-transactional-replication.md)
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication) (Creación de una publicación)

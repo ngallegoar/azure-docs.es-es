@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: fb13e4f062976e39c3cec607001e6982db228873
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74765637"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
@@ -58,8 +58,8 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 3. Rellene el formulario Restaurar con la información necesaria:
 
    ![Azure Database for PostgreSQL - Información sobre restauración](./media/howto-restore-server-portal/3-restore.png)
-   - **Punto de restauración**: seleccione el momento al que desea restaurar.
-   - **Servidor de destino:** : proporcione un nombre para el nuevo servidor.
+   - **Punto de restauración**: seleccione el momento que desea restaurar.
+   - **Servidor de destino**: especifique el nombre del nuevo servidor.
    - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
    - **Plan de tarifa**: estos parámetros no se pueden cambiar al realizar una restauración a un momento dado. Es el mismo que el del servidor de origen. 
 
@@ -81,7 +81,7 @@ Si ha configurado el servidor para copias de seguridad con redundancia geográfi
    ![Opción "Azure Database for PostgreSQL"](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
 
 2. En el menú desplegable **Seleccionar origen** del formulario, elija **Copia de seguridad**. Esta acción carga una lista de servidores que tienen habilitadas copias de seguridad con redundancia geográfica. Seleccione una de las copias de seguridad como origen del nuevo servidor.
-   ![Seleccionar origen: Azure Backup y lista de copias de seguridad con redundancia geográfica](./media/howto-restore-server-portal/2-georestore.png)
+   ![Seleccionar origen: Copia de seguridad y lista de copias de seguridad con redundancia geográfica](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Al crear por primera vez un servidor, puede que no esté disponible para la restauración geográfica inmediatamente. Los metadatos pueden tardar unas horas en rellenarse.

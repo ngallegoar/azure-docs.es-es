@@ -12,10 +12,10 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ddbf1eb960a24cfaa8d09ab45b6febca07e6d504
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979925"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>P+F sobre bases de datos MySql ClearDB con Azure App Service
@@ -39,8 +39,8 @@ Tiene algunas otras opciones para el hospedaje de MySQL en Azure:
 Depende del tipo de suscripción que esté utilizando. Estos son algunos tipos de suscripción de uso frecuente:
 
 * [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/): requiere una tarjeta de crédito. Al adquirir una base de datos MySQL de pago, se cargará el importe correspondiente en su tarjeta de crédito.
-* [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/): incluye créditos para usarlos con los servicios de Microsoft Azure pero no permite la adquisición de recursos de terceros. Para adquirir servicios de terceros o una base de datos MySQL de pago, tiene que usar una suscripción con tarjeta de crédito habilitada. Para Web Apps, puede crear una base de datos MySQL ClearDB GRATUITA.
-* [Suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) y **pruebas de desarrollo MSDN de pago por uso**: al igual que la versión de evaluación gratuita, una suscripción a MSDN requiere una tarjeta de crédito para adquirir una solución de MySQL de pago de ClearDB.
+* [Prueba gratuita](https://azure.microsoft.com/pricing/free-trial/): incluye créditos para usarlos con los servicios de Microsoft Azure pero no permite la adquisición de recursos de terceros. Para adquirir servicios de terceros o una base de datos MySQL de pago, tiene que usar una suscripción con tarjeta de crédito habilitada. Para Web Apps, puede crear una base de datos MySQL ClearDB GRATUITA.
+* [Suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) y **pruebas de desarrollo MSDN de pago por uso**: Al igual que la versión de prueba gratuita, una suscripción a MSDN requiere una tarjeta de crédito para adquirir una solución de MySQL de pago de ClearDB.
 * [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): los clientes de EA reciben su facturación de EA cada trimestre para todas sus compras en Azure Marketplace (terceros) mediante una factura independiente y consolidada. Se le facturará fuera el compromiso monetario para las compras en Marketplace. Tenga en cuenta que, en este momento, la tienda de Azure no está disponible para los clientes inscritos en Azerbaiyán, Croacia, Noruega y Puerto Rico. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>¿Por qué se me ha cobrado 3,50 USD por una aplicación web + MySQL desde Azure Marketplace?

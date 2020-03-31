@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: e82fa00226c964d5ba774cdf06f5b0f3898bdc55
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113080"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Solución de problemas de filtros de colección de OData en Azure Cognitive Search
@@ -36,7 +36,7 @@ No todas las características de las expresiones de filtro están disponibles de
 
 En la tabla siguiente se enumeran los errores que pueden surgir al intentar ejecutar un filtro de colección. Estos errores se producen cuando se usa una característica de las expresiones de filtro que no se admite dentro de una expresión lambda. Cada error proporciona instrucciones sobre cómo puede volver a escribir el filtro para evitar el error. En la tabla también se incluye un vínculo a la sección correspondiente de este artículo en la que se proporciona más información sobre cómo evitar este error.
 
-| Mensaje de error | Situación | Para obtener más información, consulte |
+| Mensaje de error | Situación | Para obtener más información, vea |
 | --- | --- | --- |
 | La función "ismatch" no tiene ningún parámetro enlazado a la variable de rango "s". Dentro de las expresiones lambda solo se admiten referencias de campo enlazadas ("any" o "all"). Cambie el filtro para que la función "ismatch" esté fuera de la expresión lambda y vuelva a intentarlo. | Uso de `search.ismatch` o `search.ismatchscoring` dentro de una expresión lambda | [Reglas de filtrado de colecciones complejas](#bkmk_complex) |
 | Expresión lambda no válida. Se ha encontrado una prueba de igualdad o desigualdad cuando se esperaba lo contrario en una expresión lambda que recorre en iteración un campo de tipo Collection(Edm.String). Para "any", use expresiones con el formato "x eq y" o "search.in(...)". Para "all", use expresiones con el formato "x ne y", "not (x eq y)" o "not search.in(...)". | Filtrado por un campo de tipo `Collection(Edm.String)` | [Reglas de filtrado de colecciones de cadenas](#bkmk_strings) |

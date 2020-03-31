@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 25e001927d5c06b4a7e5639faaa054ae18b12bb7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474614"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226204"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Administración de grupos de recursos de Azure Resource Manager mediante Azure PowerShell
 
@@ -209,7 +209,7 @@ Si usa el parámetro `-SkipResourceNameParameterization` al exportar la plantill
 ]
 ```
 
-La característica de exportación de plantillas no admite la exportación de recursos de Azure Data Factory. Para obtener información sobre cómo exportar recursos de Data Factory, vea [Copia o clonación de una factoría de datos en Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+La característica de exportación de plantillas no admite la exportación de recursos de Azure Data Factory. Para más información sobre cómo exportar recursos de Data Factory, consulte [Copia o clonación de una factoría de datos en Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
 
 Para exportar los recursos creados mediante el modelo de implementación clásica, debe [migrarlos al modelo de implementación de Resource Manager](https://aka.ms/migrateclassicresourcetoarm).
 

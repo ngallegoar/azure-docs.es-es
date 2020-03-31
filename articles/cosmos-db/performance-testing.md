@@ -8,10 +8,10 @@ ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: fb510c5628913fb3fa37b572c4409aee5d1028ab
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76313763"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Pruebas de escala y rendimiento con Azure Cosmos DB
@@ -37,16 +37,16 @@ Si busca opciones de configuración de cliente para mejorar el rendimiento de Az
 ## <a name="run-the-performance-testing-application"></a>Ejecute la aplicación de pruebas de rendimiento
 La forma más rápida de empezar es compilar y ejecutar este ejemplo de .NET, tal como se describe en los pasos siguientes. También puede revisar el código fuente e implementar configuraciones similares en sus propias aplicaciones cliente.
 
-**Paso 1:** Descargue el proyecto del [ejemplo de pruebas de rendimiento de Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o bifurque el repositorio de GitHub.
+**Paso 1:** descargue el proyecto del [ejemplo de pruebas de rendimiento de Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o bifurque el repositorio de GitHub.
 
-**Paso 2:** Modifique la configuración de EndpointUrl, AuthorizationKey, CollectionThroughput y DocumentTemplate (opcional) en el archivo App.config.
+**Paso 2:** modifique la configuración de EndpointUrl, AuthorizationKey, CollectionThroughput y DocumentTemplate (opcional) en el archivo App.config.
 
 > [!NOTE]
 > Antes de aprovisionar colecciones con un alto rendimiento, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para estimar los costos por colección. Azure Cosmos DB realiza una facturación independiente por horas por el almacenamiento y el rendimiento. Puede ahorrar costos si elimina o reduce el procesamiento de las colecciones de Azure Cosmos después de realizar las pruebas.
 > 
 > 
 
-**Paso 3:** Compile y ejecute la aplicación de consola en la línea de comandos. El resultado debe ser parecido a lo siguiente:
+**Paso 3:** compile y ejecute la aplicación de consola en la línea de comandos. El resultado debe ser parecido a lo siguiente:
 
     C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
@@ -89,7 +89,7 @@ La forma más rápida de empezar es compilar y ejecutar este ejemplo de .NET, ta
     Press any key to exit...
 
 
-**Paso 4 (si es necesario):** El rendimiento notificado (RU/s) por la herramienta debe ser igual o mayor que el rendimiento aprovisionado de la colección o el conjunto de colecciones. Si no es así, puede alcanzar el límite si aumenta el valor de DegreeOfParallelism en incrementos pequeños. Si el rendimiento de la aplicación cliente se estanca, inicie varias instancias de la aplicación en equipos cliente adicionales. Si necesita ayuda con este paso, abra una incidencia de soporte técnico en [Azure Portal](https://portal.azure.com).
+**Paso 4 (si es necesario):** el rendimiento notificado (RU/s) por la herramienta debe ser igual o mayor que el rendimiento aprovisionado de la colección o un conjunto de colecciones. Si no es así, puede alcanzar el límite si aumenta el valor de DegreeOfParallelism en incrementos pequeños. Si el rendimiento de la aplicación cliente se estanca, inicie varias instancias de la aplicación en equipos cliente adicionales. Si necesita ayuda con este paso, abra una incidencia de soporte técnico en [Azure Portal](https://portal.azure.com).
 
 Una vez que se ejecute la aplicación, puede probar diferentes [directivas de indexación](index-policy.md) y [niveles de coherencia](consistency-levels.md) para conocer su repercusión en el rendimiento y la latencia. También puede revisar el código fuente e implementar configuraciones similares a sus propios conjuntos de pruebas o aplicaciones de producción.
 

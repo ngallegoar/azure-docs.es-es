@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
 ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75463557"
 ---
 Los clientes de Azure pueden desbloquear 25.000 correos electrónicos gratuitos cada mes. Estos 25 000 correos electrónicos mensuales gratuitos le darán acceso a funciones avanzadas de informes y análisis, así como a [todas las API][all APIs] (Web, SMTP, Event, Parse, etc.). Para obtener información sobre los servicios adicionales que ofrece SendGrid, visite la página [Soluciones de SendGrid][SendGrid Solutions].

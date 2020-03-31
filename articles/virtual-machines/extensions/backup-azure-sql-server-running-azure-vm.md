@@ -8,21 +8,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 77492454e2519c98cadfb6819c850c4830015b59
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b17e4031edaedc6b0a63d305d20a77e5b58f91ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748962"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247391"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure Backup para SQL Server que se ejecuta en la máquina virtual de Azure
 
 Azure Backup, entre otras ofertas, admite la realización de copias de seguridad de cargas de trabajo, por ejemplo de una instancia de SQL Server que se ejecuta en máquinas virtuales Azure. Como la aplicación SQL se ejecuta dentro de una máquina virtual de Azure, el servicio de copia de seguridad necesita permiso para acceder a la aplicación y capturar los detalles necesarios.
 Para ello, Azure Backup instala la extensión **AzureBackupWindowsWindowsWorkload** en la máquina virtual, en la que se ejecuta SQL Server, durante el proceso de registro iniciado por el usuario.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para obtener la lista de escenarios admitidos, consulte la [matriz de compatibilidad](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support) admitida con Azure Backup.
+Para obtener la lista de escenarios admitidos, consulte la [matriz de compatibilidad](../../backup/sql-support-matrix.md#scenario-support) admitida con Azure Backup.
 
 ## <a name="network-connectivity"></a>Conectividad de red
 
@@ -85,9 +85,9 @@ En el siguiente JSON, se muestra el esquema para la extensión WorkloadBackup.
 
 ### <a name="property-values"></a>Valores de propiedad
 
-NOMBRE | Valor o ejemplo | Tipo de datos
+Nombre | Valor o ejemplo | Tipo de datos
  --- | --- | ---
-locale | es-ES  |  string
+locale | es-es  |  string
 taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | string
 objectStr <br/> (publicSettings)  | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5ODI3ZTgzNTQiLCJVbmlxdWVDb250YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ==" | string
 commandStartTimeUTCTicks | "636967192566036845"  | string

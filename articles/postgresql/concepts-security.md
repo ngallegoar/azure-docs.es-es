@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.openlocfilehash: 02dc9e1ad9ee46b1a400e44b6ef737e70571a17a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75972585"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Seguridad en Azure Database for PostgreSQL con un único servidor
@@ -38,7 +38,7 @@ Las reglas de firewall de IP otorgan acceso a los servidores según la direcci�
 Los puntos de conexión de servicio de red virtual amplían la conectividad de la red virtual a través de la red troncal de Azure. Cuando se usan reglas de red virtual, el servidor de Azure Database for PostgreSQL se puede habilitar para permitir conexiones desde subredes seleccionadas en una red virtual. Para obtener más información, consulte la [información general sobre los puntos de conexión de servicio de red virtual](concepts-data-access-and-security-vnet.md).
 
 ### <a name="private-ip"></a>Dirección IP privada
-Private Link le permite conectarse a su servidor único de Azure Database for PostgreSQL en Azure a través de un punto de conexión privado. En esencia, Azure Private Link incorpora los servicios de Azure dentro de su red virtual privada (VNet). Se puede acceder a los recursos de PaaS mediante la dirección IP privada, al igual que cualquier otro recurso de la red virtual. Para más información, consulte la [Información general de Private Link](concepts-data-access-and-security-private-link.md).
+Private Link le permite conectarse a su servidor único de Azure Database for PostgreSQL en Azure a través de un punto de conexión privado. En esencia, Azure Private Link incorpora los servicios de Azure dentro de su red virtual privada (VNet). Se puede acceder a los recursos de PaaS mediante la dirección IP privada, al igual que cualquier otro recurso de la red virtual. Para más información, vea la [información general de Private Link](concepts-data-access-and-security-private-link.md).
 
 
 ## <a name="access-management"></a>Administración de acceso

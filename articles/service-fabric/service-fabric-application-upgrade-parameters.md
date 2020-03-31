@@ -4,10 +4,10 @@ description: Describe los parámetros relacionados con la actualización de una 
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 42b5c52181cfb006ae57e43c183b96a059a9c63a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75377980"
 ---
 # <a name="application-upgrade-parameters"></a>Parámetros de actualización de la aplicación

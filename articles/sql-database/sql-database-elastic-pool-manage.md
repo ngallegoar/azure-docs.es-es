@@ -4,19 +4,18 @@ description: Cree y administre grupos elásticos de Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: seoapril2019
-ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4ae2e84ab5f6108de4e8236c39371cf9658809d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.custom: seoapril2019
+ms.openlocfilehash: d8dde76753e58c713763c16230e5461fef43be88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823852"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067346"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Administración de grupos elásticos en Azure SQL Database
 
@@ -40,7 +39,7 @@ Desde aquí puede realizar cualquier combinación de los siguientes cambios y gu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Database con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell). Para crear y administrar servidores de SQL Database para un grupo elástico, consulte [Create and manage SQL Database servers](sql-database-servers.md) (Creación y administración de servidores de SQL Database). Para crear y administrar reglas de firewall, consulte la sección [Administración de reglas de firewall mediante Azure PowerShell](sql-database-firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules).
 
@@ -48,7 +47,7 @@ Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Dat
 > Para obtener scripts de ejemplo de PowerShell, vea [Creación de grupos elásticos y traslado de bases de datos de un grupo a otro y fuera de un grupo mediante PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) y [Uso de PowerShell para supervisar y escalar un grupo elástico de SQL en Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
 >
 
-| Cmdlet | DESCRIPCIÓN |
+| Cmdlet | Descripción |
 | --- | --- |
 |[New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool)|Crea un grupo elástico.|
 |[Get-AzSqlElasticPool](/powershell/module/az.sql/get-azsqlelasticpool)|Obtiene los grupos elásticos y sus valores de propiedad.|
@@ -71,7 +70,7 @@ Para crear y administrar grupos elásticos de SQL Database con la [CLI de Azure]
 > Para obtener scripts de ejemplo de la CLI de Azure, vea [Uso de la CLI para mover una base de datos de Azure SQL a un grupo elástico de SQL](scripts/sql-database-move-database-between-pools-cli.md) y [Uso de la CLI de Azure para escalar un grupo elástico de SQL en Azure SQL Database](scripts/sql-database-scale-pool-cli.md).
 >
 
-| Cmdlet | DESCRIPCIÓN |
+| Cmdlet | Descripción |
 | --- | --- |
 |[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|Crea un grupo elástico.|
 |[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|Devuelve una lista de grupos elásticos de un servidor.|
@@ -88,7 +87,7 @@ Para crear y mover bases de datos en grupos elásticos existentes o para devolve
 > No es posible crear, actualizar ni eliminar un grupo elástico de Azure SQL Database mediante Transact-SQL. Puede agregar o quitar bases de datos de un grupo elástico y puede usar DMV para devolver información sobre grupos elásticos existentes.
 >
 
-| Get-Help | DESCRIPCIÓN |
+| Get-Help | Descripción |
 | --- | --- |
 |[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Crea una nueva base de datos en un grupo existente o como una sola base de datos. Debe estar conectado a la base de datos maestra para crear una base de datos.|
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Mueve una base de datos a un grupo elástico, fuera de él o entre grupos elásticos.|
@@ -100,7 +99,7 @@ Para crear y mover bases de datos en grupos elásticos existentes o para devolve
 
 Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Database, use estas solicitudes de la API REST.
 
-| Get-Help | DESCRIPCIÓN |
+| Get-Help | Descripción |
 | --- | --- |
 |[Elastic pools - Create or update](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Crea un nuevo grupo elástico o actualiza uno ya existente.|
 |[Grupos elásticos: eliminación](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Elimina el grupo elástico.|

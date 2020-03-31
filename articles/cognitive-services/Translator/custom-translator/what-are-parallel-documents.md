@@ -1,5 +1,5 @@
 ---
-title: ¿Qué son los documentos paralelos? Custom Translator
+title: ¿Qué son los documentos paralelos? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Los documentos paralelos son pares de documentos en los que uno es la traducción del otro. Un documento en el par contiene frases en el idioma de origen y el otro documento contiene estas mismas frases traducidas al idioma de destino.
 author: swmachan
@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: d7c38a44e3111a319e4146b3c9b71a22b0d31bfd
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72675462"
 ---
 # <a name="what-are-parallel-documents"></a>¿Qué son los documentos paralelos?

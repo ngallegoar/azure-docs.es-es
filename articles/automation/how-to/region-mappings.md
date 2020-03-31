@@ -10,10 +10,10 @@ ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 965d6b206bb64e90fe59798ce0c37ccf029117f5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849520"
 ---
 # <a name="workspace-mappings"></a>Asignaciones de áreas de trabajo
@@ -39,8 +39,8 @@ En la tabla siguiente se muestran las asignaciones admitidas:
 |JapanEast|JapanEast|
 |**Europa**||
 |UKSouth|UKSouth|
-|WestEurope|WestEurope|
-|**Gov (US)**||
+|Oeste de Europa|Oeste de Europa|
+|**US Gov**||
 |USGovVirginia|USGovVirginia|
 
 <sup>1</sup> La asignación EastUS de áreas de trabajo de Log Analytics a cuentas de Automation no es una asignación exacta de región a región, pero es la asignación correcta.

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: 592be1710893791e80dfe4b20e1323e789b33e69
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77157099"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Diseño de aplicaciones de alta disponibilidad mediante almacenamiento con redundancia geográfica con acceso de lectura
@@ -28,7 +28,7 @@ Las cuentas de almacenamiento configuradas para la replicación con redundancia 
 
 En este artículo se muestra cómo diseñar la aplicación para controlar una interrupción en la región primaria. Si la región primaria deja de estar disponible, la aplicación se puede adaptar para realizar operaciones de lectura en la región secundaria en su lugar. Antes de comenzar, asegúrese de que la cuenta de almacenamiento está configurada para RA-GRS o RA-GZRS.
 
-Para obtener información sobre qué regiones primarias se emparejan con qué regiones secundarias, consulte [Continuidad empresarial y recuperación ante desastres (BCDR): Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Para obtener información sobre qué regiones primarias se emparejan con qué regiones secundarias, consulte [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 En este artículo se incluyen fragmentos de código y, al final, un vínculo a un ejemplo completo que puede descargar y ejecutar.
 

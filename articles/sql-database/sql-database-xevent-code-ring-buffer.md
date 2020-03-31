@@ -3,7 +3,7 @@ title: Código de búfer de anillo de XEvent
 description: Proporciona un ejemplo de código de Transact-SQL más fácil y rápido mediante el uso del destino de Búfer de anillo, en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 7adffac045ddb2ba369993b1b805e3ce2304fb38
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ad98b61d6339388551af93671b3d4d892942f4e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822309"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79213962"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino de búfer de anillo para eventos extendidos en SQL Database
 
@@ -40,7 +40,7 @@ En este tema, se presenta un ejemplo de código de Transact-SQL que:
 7. Anula el destino de Búfer de anillo para liberar sus recursos.
 8. Anula la sesión de eventos y la tabla de demostración.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Cualquier base de datos donde pueda crear una tabla.

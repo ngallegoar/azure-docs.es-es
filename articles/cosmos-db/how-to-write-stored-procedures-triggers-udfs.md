@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441729"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Escritura de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) en Azure Cosmos DB
@@ -25,7 +25,7 @@ Para llamar a un procedimiento almacenado, desencadenador o función definida po
 > [!Tip]
 > Cosmos admite la implementación de contenedores con procedimientos almacenados, desencadenadores y funciones definidas por el usuario. Para más información, consulte [Creación de un contenedor de Azure Cosmos DB con funcionalidad del lado servidor.](manage-sql-with-resource-manager.md#create-sproc)
 
-## <a id="stored-procedures"></a>Escritura de procedimientos almacenados
+## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Escritura de procedimientos almacenados
 
 Los procedimientos almacenados se escriben con JavaScript y pueden crear, actualizar, leer, consultar y eliminar elementos dentro de un contenedor de Azure Cosmos. Los procedimientos almacenados se registran por colección y pueden funcionar en cualquier documento o dato adjunto presente en esa colección.
 
@@ -49,7 +49,7 @@ El objeto de contexto proporciona acceso a todas las operaciones que se pueden r
 
 Una vez escrito, el procedimiento almacenado debe registrarse con una colección. Para obtener más información, consulte el artículo [Uso de procedimientos almacenados de Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#stored-procedures).
 
-### <a id="create-an-item"></a>Creación de un elemento con el procedimiento almacenado
+### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>Creación de un elemento con el procedimiento almacenado
 
 Cuando se crea un elemento utilizando el procedimiento almacenado, el elemento se inserta en el contenedor de Azure Cosmos y se devuelve un identificador para el elemento recién creado. La creación de un elemento es una operación asincrónica y depende de las funciones de devolución de llamada de JavaScript. La función de devolución de llamada tiene dos parámetros, uno para el objeto de error en caso de que la operación no se complete y otro para un valor devuelto; en este caso, el objeto creado. Dentro de la devolución de llamada, puede controlar la excepción o lanzar un error. En caso de que no se proporcione una devolución de llamada y haya un error, el sistema en tiempo de ejecución de Azure Cosmos DB producirá un error. 
 
@@ -88,7 +88,7 @@ function sample(arr) {
 }
 ```
 
-### <a id="transactions"></a>Transacciones en procedimientos almacenados
+### <a name="transactions-within-stored-procedures"></a><a id="transactions"></a>Transacciones en procedimientos almacenados
 
 Puede implementar las transacciones en los elementos dentro de un contenedor mediante el uso de un procedimiento almacenado. En el ejemplo siguiente se utilizan las transacciones de la aplicación de un juego de fútbol de fantasía para intercambiar jugadores entre dos equipos en una sola operación. El procedimiento almacenado intenta leer los dos elementos de Azure Cosmos, donde cada uno de ellos corresponde al identificador del jugador que se ha pasado como un argumento. Si se encuentran ambos jugadores, el procedimiento almacenado actualiza los elementos intercambiando sus equipos. Si se produce cualquier error durante el proceso, el procedimiento almacenado lanza una excepción de JavaScript que de forma implícita cancela la transacción.
 
@@ -156,7 +156,7 @@ function tradePlayers(playerId1, playerId2) {
 }
 ```
 
-### <a id="bounded-execution"></a>Ejecución enlazada dentro de procedimientos almacenados
+### <a name="bounded-execution-within-stored-procedures"></a><a id="bounded-execution"></a>Ejecución enlazada dentro de procedimientos almacenados
 
 El siguiente es un ejemplo de un procedimiento almacenado que importa elementos de forma masiva en un contenedor de Azure Cosmos. El procedimiento almacenado controla la ejecución enlazada comprobando el valor de devolución booleano de `createDocument` y, a continuación, utiliza el recuento de elementos insertados en cada invocación del procedimiento almacenado para realizar un seguimiento y reanudar el progreso en todos los lotes.
 
@@ -211,11 +211,11 @@ function bulkImport(items) {
 }
 ```
 
-## <a id="triggers"></a>Escritura de desencadenadores
+## <a name="how-to-write-triggers"></a><a id="triggers"></a>Escritura de desencadenadores
 
 Azure Cosmos DB admite desencadenadores previos y posteriores. Los desencadenadores previos se ejecutan antes de modificar un elemento de la base de datos, y los desencadenadores posteriores se ejecutan después de modificar un elemento de la base de datos.
 
-### <a id="pre-triggers"></a>Desencadenadores previos
+### <a name="pre-triggers"></a><a id="pre-triggers"></a>Desencadenadores previos
 
 En el ejemplo siguiente se muestra cómo se puede utilizar un desencadenador previo para validar las propiedades de un elemento de Azure Cosmos que se está creando. En este ejemplo, estamos aprovechando el ejemplo ToDoList del [inicio rápido de la API de SQL en .NET](create-sql-api-dotnet.md) para agregar una propiedad de marca de tiempo a un elemento recién agregado, en caso de que no tenga ninguna.
 
@@ -244,7 +244,7 @@ Cuando se registran los desencadenadores, puede especificar las operaciones que 
 
 Para obtener ejemplos de cómo registrar y llamar a un desencadenador previo, vea los artículos sobre [desencadenadores previos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) y [desencadenadores posteriores](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 
-### <a id="post-triggers"></a>Desencadenadores posteriores
+### <a name="post-triggers"></a><a id="post-triggers"></a>Desencadenadores posteriores
 
 En el ejemplo siguiente se muestra un desencadenador posterior. Este desencadenador consulta el elemento de metadatos y lo actualiza con detalles del elemento recién creado.
 
@@ -286,7 +286,7 @@ Es importante tener en cuenta la ejecución transaccional de los desencadenadore
 
 Para obtener ejemplos de cómo registrar y llamar a un desencadenador previo, vea los artículos sobre [desencadenadores previos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) y [desencadenadores posteriores](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 
-## <a id="udfs"></a>Escritura de funciones definidas por el usuario
+## <a name="how-to-write-user-defined-functions"></a><a id="udfs"></a>Escritura de funciones definidas por el usuario
 
 En el ejemplo siguiente se crea una UDF para calcular los impuestos sobre la renta para diferentes niveles de renta. A continuación, se usaría esta función definida por el usuario dentro de una consulta. Para los fines de este ejemplo, suponga hay un contenedor denominado "Ingresos" con las siguientes propiedades:
 

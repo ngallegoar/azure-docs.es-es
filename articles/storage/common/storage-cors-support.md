@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: bb296db0d97382deac984369704777de5d5cb362
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65147687"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage
@@ -72,7 +72,7 @@ A continuación se describen todos los elementos incluidos en la regla de CORS:
 * **AllowedMethods**: los métodos (verbos de solicitud HTTP) que el dominio de origen puede usar para una solicitud de CORS. En el ejemplo anterior, solo se permiten las solicitudes PUT y GET.
 * **AllowedHeaders**: los encabezados de solicitud que el dominio de origen puede especificar en la solicitud de CORS. En el ejemplo anterior, se permiten todos los encabezados de metadatos que comienzan por x-ms-meta-data, mx-ms-meta-target y x-ms-meta-abcm. Tenga en cuenta que el carácter comodín '*' indica que se permite cualquier encabezado que empiece con el prefijo especificado.
 * **ExposedHeaders**: los encabezados de respuesta que se pueden enviar en la respuesta a la solicitud de CORS y que el explorador expone al emisor de la solicitud. En el ejemplo anterior, se pide al explorador que exponga todos los encabezados que empiecen por x-ms-meta.
-* **MaxAgeInSeconds**: el tiempo máximo que un explorador debe almacenar en la memoria caché la solicitud preparatoria OPTIONS.
+* **MaxAgeInSeconds**: el tiempo máximo que un explorador debe almacenar en memoria caché la solicitud preparatoria OPTIONS.
 
 Los servicios de almacenamiento de Azure permiten especificar encabezados con prefijo para los elementos **AllowedHeaders** y **ExposedHeaders**. Para permitir una categoría de encabezados, puede especificar un prefijo común a esa categoría. Por ejemplo, si se especifica *x-ms-meta*\* como un encabezado con prefijo, se establece una regla que coincidirá con todos los encabezados que empiecen por x-ms-meta.
 
@@ -165,11 +165,11 @@ En la tabla siguiente se indica cómo responderá Almacenamiento de Azure a las 
 | Solicitud | Configuración de la cuenta y resultado de la evaluación de reglas |  |  | Response |  |  |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Encabezado Origin presente en la solicitud** |**Reglas de CORS especificadas para este servicio** |**Existe una regla de coincidencia que permite todos los orígenes (*)** |**Existe una regla de coincidencia para una coincidencia exacta del origen** |**La respuesta incluye el encabezado Vary establecido en Origin** |**La respuesta incluye Access-Control-Allowed-Origin: "*"** |**La respuesta incluye Access-Control-Exposed-Headers** |
-| Sin |No |No |No |No |No |No |
+| No |No |No |No |No |No |No |
 | No |Sí |No |No |Sí |No |No |
 | No |Sí |Sí |No |No |Sí |Sí |
 | Sí |No |No |No |No |No |No |
-| Sí |Sí |Sin |Sí |Sí |Sin |Sí |
+| Sí |Sí |No |Sí |Sí |No |Sí |
 | Sí |Sí |No |No |Sí |No |No |
 | Sí |Sí |Sí |No |No |Sí |Sí |
 

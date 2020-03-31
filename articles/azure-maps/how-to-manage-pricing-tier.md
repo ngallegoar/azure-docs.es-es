@@ -1,19 +1,19 @@
 ---
 title: Administración del plan de tarifa de la cuenta de Azure Maps | Microsoft Azure Maps
 description: Puede usar Azure Portal para administrar la cuenta de Microsoft Azure Maps y su plan de tarifa.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 08a00487df70e9bcce394ad06c9d7e4d5c9e1c20
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 35e23d4d5babccb4507473826237997afec5f2cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209926"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335492"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Administración del plan de tarifa de la cuenta de Azure Maps
 

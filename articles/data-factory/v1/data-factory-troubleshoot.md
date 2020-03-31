@@ -14,10 +14,10 @@ ms.reviewer: maghan
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 81ae5c3c702108d854e4dfde93001d5c99875666
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931578"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solución de problemas de la factoría de datos
@@ -29,7 +29,7 @@ En este artículo se proporcionan consejos para solución de problemas surgidos 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
-### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Error: la suscripción no está registrada para usar el espacio de nombres "Microsoft.DataFactory".
+### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Error: La suscripción no está registrada para usar el espacio de nombres 'Microsoft.DataFactory'
 Si recibe este error, el proveedor de recursos de Azure Data Factory no se ha registrado en su equipo. Haga lo siguiente:
 
 1. Inicie Azure PowerShell.
@@ -44,14 +44,14 @@ Si recibe este error, el proveedor de recursos de Azure Data Factory no se ha re
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
-### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: error no autorizado al ejecutar un cmdlet de Data Factory.
+### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: error no autorizado al ejecutar un cmdlet de Factoría de datos
 Probablemente no está usando la cuenta o suscripción de Azure correctas con Azure PowerShell. Use los cmdlets siguientes para seleccionar la cuenta y la suscripción de Azure correctas que se usarán con Azure PowerShell.
 
 1. Connect-AzAccount: use el id. de usuario y la contraseña correctos
 2. Get-AzureRmSubscription: consulte todas las suscripciones de la cuenta.
 3. Select-AzSubscription &lt;nombre de la suscripción&gt;: seleccione la suscripción correcta. Use la misma que usó para crear una factoría de datos en el Portal de Azure.
 
-### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: no se pudo iniciar la configuración rápida de la puerta de enlace de administración de datos desde Azure Portal.
+### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: no se pudo iniciar la configuración rápida de Data Management Gateway desde el Portal de Azure.
 La configuración rápida de Data Management Gateway requiere Internet Explorer o un explorador web compatible con Microsoft ClickOnce. Si no se puede iniciar la configuración rápida, realice una de las siguientes acciones:
 
 * Utilice Internet Explorer o un explorador web compatible con Microsoft ClickOnce.
@@ -64,7 +64,7 @@ La configuración rápida de Data Management Gateway requiere Internet Explorer 
 ### <a name="problem-fail-to-connect-to-on-premises-sql-server"></a>Problema: no se pudo conectar al servidor SQL Server local.
 Inicie **Administrador de configuración de Data Management Gateway** en el equipo de la puerta de enlace y use la pestaña **Solución de problemas** para probar la conexión a SQL Server desde el equipo de la puerta de enlace. Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.   
 
-### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: Los segmentos de entrada están en el estado En espera de forma permanente
+### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: Los segmentos de entrada están en el estado En espera de forma permanente.
 Los intervalos pueden tener el estado **En espera** por diversos motivos. Uno de los motivos comunes es que la propiedad **external** no está establecida en **True**. Cualquier conjunto de datos que se produce fuera del ámbito de Azure Data Factory debe marcarse con la propiedad **external** . Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
 
 Consulte el ejemplo siguiente para el uso de la propiedad **external** . Opcionalmente, puede especificar **externalData*** al establecer external en true.
@@ -102,7 +102,7 @@ Para resolver el error, agregue la propiedad **external** y la sección **extern
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problema: la operación de copia híbrida produce un error.
 Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) si quiere ver los pasos para solucionar problemas con la copia en un almacén de datos local como origen o destino usando Data Management Gateway.
 
-### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problema: el aprovisionamiento de HDInsight a petición produce un error.
+### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problema: El aprovisionamiento de HDInsight a petición produce un error
 Al usar un servicio vinculado de tipo HDInsightOnDemand, debe especificar linkedServiceName que apunte a Azure Blob Storage. El servicio Data Factory usa este almacenamiento para almacenar registros y archivos auxiliares para el clúster de HDInsight a petición.  A veces, el aprovisionamiento de un clúster de HDInsight a petición produce el siguiente error:
 
 ```
@@ -113,7 +113,7 @@ Este error suele indicar que la ubicación de la cuenta de almacenamiento especi
 
 Además, hay una segunda propiedad de JSON additionalLinkedServiceNames, donde puede se especifiquen cuentas de almacenamiento adicionales en HDInsight a petición. Las cuentas de almacenamiento vinculado adicionales deben estar en la misma ubicación que el clúster de HDInsight; de lo contrario, se producirá el mismo error.
 
-### <a name="problem-custom-net-activity-fails"></a>Problema: Se produce un error en la actividad personalizada de .NET
+### <a name="problem-custom-net-activity-fails"></a>Problema: La actividad de .NET personalizada produce un error
 Consulte [Debug a pipeline with custom activity](data-factory-use-custom-activities.md#troubleshoot-failures) (Depurar una canalización con una actividad personalizada) para obtener pasos detallados.
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Uso del Portal de Azure para solucionar problemas

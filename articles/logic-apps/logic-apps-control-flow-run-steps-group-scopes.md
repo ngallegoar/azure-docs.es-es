@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: b84db69f79b1611347a4c55d929e5426141e7ac6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74791492"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Ejecución de acciones basadas en el estado del grupo mediante ámbitos en Azure Logic Apps
@@ -23,11 +23,11 @@ Por ejemplo, aquí hay una aplicación lógica de alto nivel que utiliza un ámb
 
 ![Configurar desencadenador "Programación: Periodicidad"](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir el ejemplo de este artículo, necesita estos elementos:
 
-* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
+* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
 
 * Una cuenta de correo electrónico de cualquier proveedor de correo electrónico compatible con Logic Apps. Este ejemplo utiliza Outlook.com. Si utiliza un proveedor diferente, el flujo general sigue siendo el mismo, pero la interfaz de usuario es diferente.
 
@@ -61,7 +61,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
    1. Si no tiene una conexión de Mapas de Bing, se le solicitará que cree una.
 
-      | Configuración | Valor | DESCRIPCIÓN |
+      | Configuración | Value | Descripción |
       | ------- | ----- | ----------- |
       | **Nombre de la conexión** | BingMapsConnection | Proporcione un nombre para la conexión. | 
       | **Clave de API** | <*su-clave-de-Mapas-de-Bing*> | Escriba la clave de Mapas de Bing recibida previamente. | 
@@ -73,7 +73,7 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
       Para más información acerca de estos parámetros, consulte [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Cálculo de una ruta).
 
-      | Configuración | Valor | DESCRIPCIÓN |
+      | Configuración | Value | Descripción |
       | ------- | ----- | ----------- |
       | **Waypoint 1** (Punto de referencia 1) | <*inicio*> | Escriba el origen de la ruta. | 
       | **Waypoint 2** (Punto de referencia 2) | <*fin*> | Escriba el destino de la ruta. | 

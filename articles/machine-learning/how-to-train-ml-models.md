@@ -12,10 +12,10 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.custom: seodec18
 ms.openlocfilehash: 678af1855baf52efa727444236de8a1724a7d0b0
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79078489"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator
@@ -68,7 +68,7 @@ Parámetro | Descripción
 
 El constructor tiene otro parámetro llamado `pip_packages` que puede usar para los paquetes de pip necesarios.
 
-Ahora que ha creado el objeto `Estimator`, envíe el trabajo de aprendizaje que se va a ejecutar en el proceso remoto mediante una llamada a la función `submit` en el objeto `experiment` del [experimento](concept-azure-machine-learning-architecture.md#experiments). 
+Ahora que ha creado el objeto `Estimator`, envíe el trabajo de aprendizaje que se va a ejecutar en el proceso remoto mediante una llamada a la función `submit` en el objeto [ del ](concept-azure-machine-learning-architecture.md#experiments)experimento`experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)

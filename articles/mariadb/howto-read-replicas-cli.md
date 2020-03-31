@@ -5,22 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e9353bb5d472cc8dc798e7e09aed2183e48124ed
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: abf80e98881b73bed53c5a939a79bc8b3a9de2db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765841"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530587"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Creación y administración de réplicas de lectura en Azure Database for MariaDB mediante la CLI de Azure y API REST
 
 En este artículo aprenderá a crear y administrar réplicas de lectura en el servicio Azure Database for MariaDB mediante la CLI de Azure y API REST.
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 Puede crear y administrar réplicas de lectura mediante la CLI de Azure.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 - [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Un [servidor de Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md) que se usará como servidor maestro. 
@@ -38,10 +38,10 @@ az mariadb server replica create --name mydemoreplicaserver --source-server myde
 
 El comando `az mariadb server replica create` requiere los siguientes parámetros:
 
-| Configuración | Valor de ejemplo | DESCRIPCIÓN  |
+| Configuración | Valor de ejemplo | Descripción  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
-| Nombre | mydemoreplicaserver | Nombre del nuevo servidor de réplica que se crea. |
+| name | mydemoreplicaserver | Nombre del nuevo servidor de réplica que se crea. |
 | source-server | mydemoserver | Nombre o identificador del servidor principal existente desde el que replicar. |
 
 Para crear una réplica de lectura entre regiones, use el parámetro `--location`. 
@@ -71,7 +71,7 @@ az mariadb server replica list --server-name mydemoserver --resource-group myres
 
 El comando `az mariadb server replica list` requiere los siguientes parámetros:
 
-| Configuración | Valor de ejemplo | DESCRIPCIÓN  |
+| Configuración | Valor de ejemplo | Descripción  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
 | server-name | mydemoserver | Nombre o identificador del servidor maestro. |
@@ -89,10 +89,10 @@ az mariadb server replica stop --name mydemoreplicaserver --resource-group myres
 
 El comando `az mariadb server replica stop` requiere los siguientes parámetros:
 
-| Configuración | Valor de ejemplo | DESCRIPCIÓN  |
+| Configuración | Valor de ejemplo | Descripción  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupo de recursos donde se encuentra el servidor de réplica.  |
-| Nombre | mydemoreplicaserver | Nombre del servidor de réplica para el que desea detener la replicación. |
+| name | mydemoreplicaserver | Nombre del servidor de réplica para el que desea detener la replicación. |
 
 ### <a name="delete-a-replica-server"></a>Eliminación de un servidor de réplica
 
@@ -138,7 +138,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Si no ha establecido el parámetro `azure.replication_support` en **REPLICA** en un servidor maestro de uso general u optimizado para memoria y no ha reiniciado el servidor, recibirá un error. Complete estos dos pasos antes de crear una réplica.
 
-Se crea una réplica con la misma configuración de proceso y almacenamiento que la maestra. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
+Una réplica se crea con la misma configuración de proceso y almacenamiento que el servidor maestro. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.
 
 
 > [!IMPORTANT]

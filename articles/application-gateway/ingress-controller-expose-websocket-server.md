@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 01fde82e69917f59f6519524c4c8828feb84a4f9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795963"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297839"
 ---
 # <a name="expose-a-websocket-server-to-application-gateway"></a>Exponer un servidor WebSocket a Application Gateway
 
-Tal como se describe en la documentación de Application Gateway v2, [proporciona compatibilidad nativa con los protocolos WebSocket y HTTP/2](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic). Tenga en cuenta que, tanto en Application Gateway como en la entrada de Kubernetes, no hay ninguna opción configurable por el usuario para habilitar o deshabilitar de forma selectiva la compatibilidad con WebSocket.
+Tal como se describe en la documentación de Application Gateway v2, [proporciona compatibilidad nativa con los protocolos WebSocket y HTTP/2](features.md#websocket-and-http2-traffic). Tenga en cuenta que, tanto en Application Gateway como en la entrada de Kubernetes, no hay ninguna opción configurable por el usuario para habilitar o deshabilitar de forma selectiva la compatibilidad con WebSocket.
 
 En el YAML de implementación de Kubernetes siguiente se muestra la configuración mínima que se usa para implementar un servidor de WebSocket, que es igual que la implementación de un servidor Web normal:
 ```yaml

@@ -10,17 +10,17 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: 5145aa0ffdc4095f178a214f63433e5bcece83b6
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72249165"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Envío de un flujo de trabajo con una entrada de archivo BAM
 
 Este artículo muestra cómo enviar un flujo de trabajo al servicio de Microsoft Genomics, si el archivo de entrada es un archivo simple BAM. En este tema se da por supuesto que ya ha instalado y ejecutado el cliente `msgen` y está familiarizado con el uso de Azure Storage. Si ha enviado correctamente un flujo de trabajo usando los datos de ejemplo proporcionados, puede continuar con este artículo. 
 
-## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Configuración: carga del archivo BAM en Azure Storage
+## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Configuración: Carga del archivo BAM en Azure Storage
 Supongamos que tiene un único archivo BAM, *reads.bam*, y lo ha cargado en la cuenta de almacenamiento *myaccount* en Azure como **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>** . Tiene la dirección URL de la API y la clave de acceso. Desea los resultados en **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
 
 

@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 48f4c7497583e872c89e4d8cd92dab52ab4f9239
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: a3fb3dbf026a696b9d472efcba139c371ff1e587
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304937"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334926"
 ---
-| Resource | Límite predeterminado/máximo | Nota: |
+| Resource | Límite | Nota: |
 | --- | --- | --- |
 | Azure Application Gateway |1000 por suscripción | |
 | Configuración de direcciones IP de front-end |2 |1 pública y 1 privada |

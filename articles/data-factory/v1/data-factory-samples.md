@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 63db1810cbdd2133bc0577530325351997b31f30
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70139259"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: ejemplos
@@ -26,7 +26,7 @@ ms.locfileid: "70139259"
 ## <a name="samples-on-github"></a>Ejemplos en GitHub
 El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contiene varios ejemplos que le ayudarán a arrancar rápidamente el servicio Azure Data Factory (o) modificar los scripts y usarlos en su propia aplicación. La carpeta Samples\JSON contiene fragmentos de JSON para escenarios comunes.
 
-| Muestra | DESCRIPCIÓN |
+| Muestra | Descripción |
 |:--- |:--- |
 | [Tutorial de ADF](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFWalkthrough) |Este ejemplo ofrece un tutorial exhaustivo para el procesamiento de archivos de registro mediante Azure Data Factory con el fin de convertir los datos de los archivos de registro en información útil. <br/><br/>En este tutorial, la canalización de Data Factory recopila registros de muestra, procesa y enriquece los datos de los registros con datos de referencia, y transforma los datos para evaluar la eficacia de una campaña de marketing lanzada recientemente. |
 | [Muestras de JSON](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Esta muestra ofrece ejemplos de JSON para escenarios comunes. |
@@ -46,7 +46,7 @@ El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-data
 ## <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 En GitHub, puede encontrar las siguientes plantillas de Azure Resource Manager para Data Factory.
 
-| Plantilla | DESCRIPCIÓN |
+| Plantilla | Descripción |
 | --- | --- |
 | [Copia de datos de Azure Blob Storage en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde el almacenamiento de blobs de Azure especificado a la base de datos de Azure SQL. |
 | [Copia de datos de Salesforce en Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde la cuenta de Salesforce especificada al almacenamiento de blobs de Azure. |
@@ -75,12 +75,12 @@ Puede usar el icono de **Canales de muestras** de la página principal de la fac
     ![Hoja de la Factoría de datos](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Ejemplos en Visual Studio
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 Debe tener lo siguiente instalado en el equipo:
 
 * Visual Studio 2013 o Visual Studio 2015.
 * Descargue el SDK de Azure para Visual Studio 2013 o Visual Studio 2015. Vaya a la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **VS 2013** o **VS 2015** en la sección **.NET**.
-* Descargue el complemento más reciente de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si utiliza Visual Studio 2013, también puede actualizar el complemento con el procedimiento siguiente: En el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Microsoft Azure Data Factory Tools for Visual Studio (Herramientas de Microsoft Azure Data Factory para Visual Studio)**  -> **Actualizar**.
+* Descargue el último complemento de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si va a utilizar Visual Studio 2013, también puede actualizar el complemento, para lo que debe seguir estos pasos: en el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Herramientas de Microsoft Azure Data Factory para Visual Studio** -> **Actualizar**.
 
 ### <a name="use-data-factory-templates"></a>Uso de plantillas de Data Factory
 1. Haga clic en **Archivo** en el menú, seleccione **Nuevo** y haga clic en **Proyecto**.
@@ -102,7 +102,7 @@ Debe tener lo siguiente instalado en el equipo:
    2. Escriba un **nombre** para la factoría de datos.
    3. Seleccione la **suscripción de Azure** donde desea crear la factoría de datos.
    4. Seleccione el **grupo de recursos** para la factoría de datos.
-   5. Seleccione **oeste de EE. UU.** , **este de EE. UU.** o **Europa del Norte** para la **región**.
+   5. Seleccione **Oeste de EE. UU.** , **Este de EE. UU.** o **Norte de Europa** para la **región**.
    6. Haga clic en **Next**.
 6. En la página **Configure data stores** (Configurar almacenes de datos), especifique una **base de datos de Azure SQL** y una **cuenta de almacenamiento de Azure** ya existentes o cree otras nuevas y haga clic en Siguiente.
 7. En la página **Configurar proceso**, seleccione los valores predeterminados y haga clic en **Siguiente**.

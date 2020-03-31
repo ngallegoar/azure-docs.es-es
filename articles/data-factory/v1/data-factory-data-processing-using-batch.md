@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: afc7a7406831568304c2ebd8d9a6c72b497e04e4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75972879"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
@@ -546,7 +546,7 @@ En el siguiente tutorial, se proporcionan más detalles.
 
    ![Página Data Factory](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>Paso 2: Crear servicios vinculados
+#### <a name="step-2-create-linked-services"></a>Paso 2: Creación de servicios vinculados
 Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos. En este paso, vinculará la cuenta de almacenamiento y la cuenta de Batch con su factoría de datos.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
@@ -932,9 +932,9 @@ Puede extender este ejemplo para obtener más información sobre las caracterís
 
 1. Agregue las siguientes subcarpetas en `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 y 2015-11-16-09. Coloque los archivos de entrada en esas carpetas. Cambie la hora de finalización de la canalización de `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. En la vista **Diagrama**, haga doble clic en **InputDataset** y confirme que los segmentos de entrada están listos. Haga doble clic en **OuptutDataset** para ver el estado de los segmentos de salida. Si se encuentran en el estado **Listo**, compruebe si los archivos de salida se encuentran en la carpeta de salida.
 
-1. Aumente o disminuya la configuración de **concurrency** para saber cómo afecta al rendimiento de la solución, especialmente el procesamiento que se produce en Batch. Para más información sobre la **simultaneidad**, consulte "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
+1. Aumente o disminuya la configuración de **concurrency** para saber cómo afecta al rendimiento de la solución, especialmente el procesamiento que se produce en Batch. Para más información sobre la configuración del valor **concurrency**, vea "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
 
-1. Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual**. Actualice el servicio vinculado Batch en la solución de Data Factory para que use el nuevo grupo que creó. Para más información sobre el **Máximo de tareas por máquina virtual**, consulte "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
+1. Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual**. Actualice el servicio vinculado Batch en la solución de Data Factory para que use el nuevo grupo que creó. Para más información sobre la configuración del valor **Maximum tasks per VM** (Máximo de tareas por máquina virtual), vea "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
 
 1. Cree un grupo de Batch con la característica de **escalado automático**. El escalado automático de los nodos de ejecución de un grupo de Batch es el ajuste dinámico de la potencia de procesamiento que usa su aplicación.
 
@@ -956,13 +956,13 @@ Puede extender este ejemplo para obtener más información sobre las caracterís
 
 1. En la solución de ejemplo, el método **Execute** invoca al método **Calculate** que procesa un segmento de datos de entrada para generar un segmento de datos de salida. Puede escribir su propio método para procesar los datos de entrada y reemplazar la llamada al método **Calculate** en el método **Execute** por una llamada a su método.
 
-### <a name="next-steps-consume-the-data"></a>Pasos siguientes: Consumo de datos
+### <a name="next-steps-consume-the-data"></a>Pasos siguientes: Consumo de los datos
 Después de procesar datos, puede consumirlos con herramientas en línea como Power BI. Estos vínculos lo ayudarán a comprender Power BI y aprender a usarlo en Azure:
 
 * [Exploración de un conjunto de datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [Introducción a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 * [Actualizar datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Azure y Power BI Información general básica](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Información general básica de Azure y Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Referencias
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)

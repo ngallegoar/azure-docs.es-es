@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
 ms.openlocfilehash: ca52a458104b4de0f7b3ed2aa3f76109a5623c97
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74067312"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configuración de acceso a WinRM para máquinas virtuales en Azure Resource Manager
@@ -55,7 +55,7 @@ $password = Read-Host -Prompt "Please enter the certificate password." -AsSecure
 Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $password
 ```
 
-## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Paso 3: Carga del certificado autofirmado en Key Vault
+## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>Paso 3: Carga del certificado autofirmado en el almacén de claves
 Antes de cargar el certificado en el almacén de claves que creó en el paso 1, debe convertirlo a un formato que entienda el proveedor de recursos Microsoft.Compute. El siguiente script de PowerShell le permitirá hacer eso:
 
 ```
@@ -78,7 +78,7 @@ $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
-## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Paso 4: Obtención de la dirección URL para el certificado autofirmado en el almacén de claves.
+## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>Paso 4: Obtención de la dirección URL del certificado autofirmado en el almacén de claves
 El proveedor de recursos Microsoft.Compute necesita una dirección URL al secreto en el almacén de claves durante el aprovisionamiento de la máquina virtual. De esta manera, dicho proveedor podrá descargar el secreto y crear el certificado equivalente en la máquina virtual.
 
 > [!NOTE]
@@ -143,7 +143,7 @@ El código fuente de esta plantilla está disponible en [GitHub](https://github.
     $CertificateStore = "My"
     $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
-## <a name="step-6-connecting-to-the-vm"></a>Paso 6: Conexión a la VM
+## <a name="step-6-connecting-to-the-vm"></a>Paso 6: Conexión a la máquina virtual
 Antes de poder conectarse a la máquina virtual, debe asegurarse de que el equipo esté configurado para la administración remota de WinRM. Inicie PowerShell como administrador y ejecute el siguiente comando para asegurarse de que se encuentra en el programa de instalación.
 
     Enable-PSRemoting -Force

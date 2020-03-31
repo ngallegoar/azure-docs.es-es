@@ -4,10 +4,10 @@ description: Aprenda a solucionar problemas con los diversos SDK mientras consul
 ms.date: 10/18/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: f881db4f75bcee8c13221717596442ac29a4b1ac
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74303903"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Solución problemas relativos a errores con Azure Resource Graph
@@ -20,7 +20,7 @@ La mayoría de los errores son el resultado de un problema al ejecutar una consu
 
 ## <a name="general-errors"></a>Errores generales
 
-### <a name="toomanysubscription"></a>Escenario: Demasiadas suscripciones
+### <a name="scenario-too-many-subscriptions"></a><a name="toomanysubscription"></a>Escenario: Demasiadas suscripciones
 
 #### <a name="issue"></a>Problema
 
@@ -30,7 +30,7 @@ Los clientes con acceso a más de 1000 suscripciones, incluidas las suscripcione
 
 La CLI de Azure y PowerShell reenvían solo las primeras 1000 suscripciones a Azure Resource Graph. La API REST para Azure Resource Graph acepta un número máximo de suscripciones en las que realizar la consulta.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Solicitudes por lotes de la consulta con un subconjunto de suscripciones para permanecer debajo del límite de suscripción de 1000. La solución es usar el parámetro **Subscription** en PowerShell.
 
@@ -57,7 +57,7 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 $response
 ```
 
-### <a name="rest-contenttype"></a>Escenario: Encabezado Content-Type de REST no admitido
+### <a name="scenario-unsupported-content-type-rest-header"></a><a name="rest-contenttype"></a>Escenario: Encabezado Content-Type de REST no admitido
 
 #### <a name="issue"></a>Problema
 
@@ -67,11 +67,11 @@ Los clientes que consultan la API de REST de Azure Resource Graph reciben una re
 
 La API de REST de Azure Resource Graph solo admite un `Content-Type` de **application/json**. Algunas herramientas o agentes de REST se establecen de forma predeterminada en **texto/sin formato**, un valor que la API de REST no admite.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Compruebe que la herramienta o el agente que está usando para realizar la consulta a Azure Resource Graph tiene el encabezado de la API de REST `Content-Type` configurado para **application/json**.
 
-### <a name="rest-403"></a>Escenario: no tiene permiso de lectura para todas las suscripciones de la lista
+### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>Escenario: no tiene permiso de lectura para todas las suscripciones de la lista
 
 #### <a name="issue"></a>Problema
 
@@ -81,7 +81,7 @@ Los clientes que pasan explícitamente una lista de suscripciones con una consul
 
 Si el cliente no tiene permiso de lectura para todas las suscripciones proporcionadas, se denegará la solicitud debido a la falta de los derechos de seguridad adecuados.
 
-#### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Solución
 
 Incluya al menos una suscripción de la lista de suscripciones a la que el cliente que ejecuta la consulta tiene acceso de lectura como mínimo. Para más información, consulte [Permisos en Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 

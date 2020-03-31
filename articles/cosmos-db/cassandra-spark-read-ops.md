@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60893415"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Lectura de datos de tablas de Cassandra API de Azure Cosmos DB con Spark
@@ -46,7 +46,7 @@ spark.conf.set("spark.cassandra.concurrent.reads", "512")
 spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
-## <a name="dataframe-api"></a>API de Dataframe
+## <a name="dataframe-api"></a>Dataframe API
 
 ### <a name="read-table-using-sessionreadformat-command"></a>Lectura de la tabla con el comando session.read.format
 
@@ -103,7 +103,7 @@ readBooksDF.explain
 readBooksDF.show
 ```
 
-## <a name="rdd-api"></a>API de RDD
+## <a name="rdd-api"></a>RDD API
 
 ### <a name="read-table"></a>Lectura de tabla
 ```scala
@@ -140,7 +140,7 @@ select * from books_vw where book_pub_year > 1891
 
 Los siguientes son artículos adicionales sobre cómo trabajar con Cassandra API de Azure Cosmos DB desde Spark:
  
- * [Operaciones de upsert](cassandra-spark-upsert-ops.md)
+ * [Upsert operations](cassandra-spark-upsert-ops.md) (Operaciones de upsert)
  * [Delete operations](cassandra-spark-delete-ops.md) (Operaciones de eliminación)
  * [Aggregation operations](cassandra-spark-aggregation-ops.md) (Operaciones de agregación)
  * [Table copy operations](cassandra-spark-table-copy-ops.md) (Operaciones de copia en tabla)

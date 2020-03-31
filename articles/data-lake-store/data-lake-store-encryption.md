@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878449"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Cifrado de datos en Azure Data Lake Storage Gen1
@@ -56,11 +56,11 @@ Esta es una breve comparación de las funcionalidades que proporcionan ambos mod
 | --- | --- | --- |
 |¿Cómo se almacenan los datos?|Siempre se cifran antes de almacenarse.|Siempre se cifran antes de almacenarse.|
 |¿Dónde se almacena la clave de cifrado maestra?|Key Vault|Key Vault|
-|¿Hay claves de cifrado almacenadas sin cifrar fuera de Key Vault? |Sin|Sin|
+|¿Hay claves de cifrado almacenadas sin cifrar fuera de Key Vault? |No|No|
 |¿Se puede recuperar la clave de cifrado maestra mediante Key Vault?|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|
 |¿Quién posee la instancia de Key Vault y la clave de cifrado maestra?|Servicio de Data Lake Storage Gen1|Usted es el propietario de la instancia de Key Vault, que pertenece a su propia suscripción de Azure. La clave de cifrado maestra de Key Vault se puede administrar mediante software o hardware.|
-|¿Puede revocar el acceso a la clave de cifrado maestra para el servicio Data Lake Storage Gen1?|Sin|Sí. Puede administrar listas de control de acceso en Key Vault y eliminar entradas de control de acceso a la identidad de servicio para el servicio Data Lake Storage Gen1.|
-|¿Puede eliminar permanentemente la clave de cifrado maestra?|Sin|Sí. Si elimina la clave de cifrado maestra de Key Vault, nadie podrá cifrar los datos de la cuenta de Data Lake Storage Gen1, incluido el servicio Data Lake Storage Gen1. <br><br> Si ha realizado copia de seguridad explícita de la clave de cifrado maestra antes de eliminarla de Key Vault, se puede restaurar y entonces se pueden recuperar los datos. Sin embargo, si no lo ha hecho, los datos de la cuenta de Data Lake Storage Gen1 nunca se podrán cifrar después.|
+|¿Puede revocar el acceso a la clave de cifrado maestra para el servicio Data Lake Storage Gen1?|No|Sí. Puede administrar listas de control de acceso en Key Vault y eliminar entradas de control de acceso a la identidad de servicio para el servicio Data Lake Storage Gen1.|
+|¿Puede eliminar permanentemente la clave de cifrado maestra?|No|Sí. Si elimina la clave de cifrado maestra de Key Vault, nadie podrá cifrar los datos de la cuenta de Data Lake Storage Gen1, incluido el servicio Data Lake Storage Gen1. <br><br> Si ha realizado copia de seguridad explícita de la clave de cifrado maestra antes de eliminarla de Key Vault, se puede restaurar y entonces se pueden recuperar los datos. Sin embargo, si no lo ha hecho, los datos de la cuenta de Data Lake Storage Gen1 nunca se podrán cifrar después.|
 
 
 Aparte de esta diferencia sobre quién administra la clave de cifrado maestra y la instancia de Key Vault en la que reside, el resto del diseño es igual en ambos modos.
@@ -74,7 +74,7 @@ Al elegir el modo de las claves de cifrado maestras, es importante recordar lo s
 
 Son tres los tipos de claves que se usan en el diseño del cifrado de datos. En la tabla siguiente se proporciona un resumen:
 
-| Clave                   | Abreviatura | Asociada a | Ubicación de almacenamiento                             | Type       | Notas                                                                                                   |
+| Clave                   | Abreviatura | Asociada a | Ubicación de almacenamiento                             | Tipo       | Notas                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Clave de cifrado maestra | MEK          | Cuenta de Data Lake Storage Gen1 | Key Vault                              | Asimétrica | Puede administrarla Data Lake Storage Gen1 o usted.                                                              |
 | Clave de cifrado de datos   | DEK          | Cuenta de Data Lake Storage Gen1 | Almacenamiento persistente, administrada por el servicio Data Lake Storage Gen1 | Simétrica  | La DEK se cifra mediante la clave de cifrado maestra. La DEK cifrada es lo que se almacena en el medio persistente. |
@@ -107,7 +107,7 @@ En el siguiente diagrama, se ilustra este concepto:
 
 Cuando se usan claves administradas por el cliente, puede rotar la clave MEK. Para aprender a configurar una cuenta de Data Lake Storage Gen1 con claves administradas por el cliente, consulte [Introducción](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Cuando configuró la cuenta de Data Lake Storage Gen1, eligió usar sus propias claves. Esta opción no se puede cambiar una vez creada la cuenta. En los siguientes pasos se supone que usa claves administradas por el cliente (es decir, ha elegido sus propias claves de Key Vault).
 
@@ -115,7 +115,7 @@ Tenga en cuenta que si usa las opciones predeterminadas para el cifrado, los dat
 
 ### <a name="how-to-rotate-the-mek-in-data-lake-storage-gen1"></a>Rotación de la clave MEK en Data Lake Storage Gen1
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Vaya a la instancia de Key Vault que almacena las claves asociadas con la cuenta de Data Lake Storage Gen1. Seleccione **Claves**.
 
     ![Captura de pantalla de Key Vault](./media/data-lake-store-encryption/keyvault.png)

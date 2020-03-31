@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873427"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Constantes de consulta SQL de Azure Cosmos DB  
 
- Una constante, también conocida como valor literal o escalar, es un símbolo que representa un valor de datos específicos. El formato de una constante depende del tipo de datos del valor que representa.  
+ Una constante, también conocida como valor literal o escalar, es un símbolo que representa un valor de datos específico. El formato de las constantes depende del tipo de datos del valor que representan.  
   
  **Tipos de datos escalares admitidos:**  
   
@@ -29,7 +29,7 @@ ms.locfileid: "74873427"
 |**Array**|Secuencia de cero o más elementos. Cada elemento puede ser un valor de cualquier tipo de datos escalar, excepto **Undefined**.|  
 |**Object**|Conjunto desordenado de cero o más pares nombre/valor. Nombre es una cadena Unicode, el valor puede ser de cualquier tipo de datos escalar, excepto **Undefined**.|  
   
-## <a name="bk_syntax"></a>Sintaxis
+## <a name="syntax"></a><a name="bk_syntax"></a>Sintaxis
   
 ```sql  
 <constant> ::=  
@@ -59,7 +59,7 @@ ms.locfileid: "74873427"
   
 ```  
   
-##  <a name="bk_arguments"></a> Argumentos
+##  <a name="arguments"></a><a name="bk_arguments"></a> Argumentos
   
 * `<undefined_constant>; Undefined`  
   

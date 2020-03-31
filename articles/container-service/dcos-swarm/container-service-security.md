@@ -8,10 +8,10 @@ ms.date: 03/28/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: d90d872175febf775e7d0892e133883f1a8ff8a2
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552398"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(EN DESUSO) Protección de contenedores de Docker en Azure Container Service
@@ -61,11 +61,11 @@ Cada orquestador disponible en Azure Container Service tiene sus propias conside
 
 Para información adicional sobre la seguridad específica del orquestador, consulte estos los siguientes recursos:
 
-* **Kubernetes**: [Security Best Practices for Kubernetes Deployment](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/) (Prácticas recomendadas de seguridad para la implementación de Kubernetes)
+* **Kubernetes**: [prácticas recomendadas de seguridad para la implementación de Kubernetes](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
 
-* **DC/OS**: [Securing Your Cluster](https://docs.mesosphere.com/1.12/administering-clusters/securing-your-cluster) (Protección de su clúster)
+* **DC/OS**: [cómo asegurar su clúster](https://docs.mesosphere.com/1.12/administering-clusters/securing-your-cluster)
 
-* **Docker Swarm**: [Docker Security](https://www.docker.com/docker-security) (Seguridad de docker)
+* **Docker Swarm**: [seguridad de Docker](https://www.docker.com/docker-security)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

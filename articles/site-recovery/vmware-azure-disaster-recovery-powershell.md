@@ -8,11 +8,11 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861292"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228924"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Aprenda a configurar la recuperación ante desastres de máquinas virtuales de VMware en Azure con PowerShell.
 
@@ -31,7 +31,7 @@ Aprenderá a:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar:
 
@@ -53,7 +53,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## <a name="set-up-a-recovery-services-vault"></a>Configuración del almacén de Recovery Services
 
-1. Cree el grupo de recursos en el que se creará el almacén de Recovery Services. En el ejemplo siguiente, el grupo de recursos se denomina VMwareDRtoAzurePS y se crea en la región de Asia Oriental.
+1. Cree el grupo de recursos en el que se creará el almacén de Recovery Services. En el ejemplo siguiente, el grupo de recursos se denomina VMwareDRtoAzurePS y se crea en la región de Este de Asia.
 
    ```azurepowershell
    New-AzResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
@@ -66,7 +66,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
    ```
 
-2. Cree un almacén de Recovery Services. En el ejemplo siguiente, el almacén de Recovery Services se denomina VMwareDRToAzurePs, y se crea en la región de Asia Oriental y en el grupo de recursos creado en el paso anterior.
+2. Cree un almacén de Recovery Services. En el ejemplo siguiente, el almacén de Recovery Services se denomina VMwareDRToAzurePs, y se crea en la región de Este de Asia y en el grupo de recursos creado en el paso anterior.
 
    ```azurepowershell
    New-AzRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"

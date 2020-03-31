@@ -1,5 +1,5 @@
 ---
-title: 'API REST: operaciones del sistema de archivos en Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'API de REST: operaciones del sistema de archivos en Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Uso de la API de REST WebHDFS para realizar operaciones del sistema de archivos en Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
@@ -12,24 +12,24 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 351c92f1e1a698893f61004d523ba79ebca253e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878790"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operaciones del sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso de la API de REST
 > [!div class="op_single_selector"]
 > * [SDK de .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
-> * [API DE REST](data-lake-store-data-operations-rest-api.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
 En este artículo aprenderá a usar las API de REST WebHDFS y las API de REST de Data Lake Storage Gen1 para realizar operaciones del sistema de archivos en Azure Data Lake Storage Gen1. Para instrucciones sobre cómo realizar operaciones de administración de cuentas en Data Lake Storage Gen1 con la API de REST, consulte [Operaciones de administración de cuentas en Data Lake Storage Gen1 con la API de REST](data-lake-store-get-started-rest-api.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cuenta de Azure Data Lake Storage Gen1**. Siga las instrucciones de [Introducción a Azure Data Lake Storage Gen1 con Azure Portal](data-lake-store-get-started-portal.md).
@@ -161,7 +161,7 @@ Debe ver algo parecido a lo siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 * [Account management operations on Data Lake Storage Gen1 using REST API](data-lake-store-get-started-rest-api.md) (Operaciones de administración de cuentas en Data Lake Storage Gen1 mediante la API de REST).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Azure Data Lake Storage Gen1 REST API Reference](https://docs.microsoft.com/rest/api/datalakestore/) (Referencia sobre la API de REST de Azure Data Lake Storage Gen1)
-* [Open Source Big Data applications compatible with Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md) (Abrir aplicaciones Big Data de origen que funcionan con Azure Data Lake Storage Gen1)
+* [Abrir aplicaciones de macrodatos de código abierto que funcionan con Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 

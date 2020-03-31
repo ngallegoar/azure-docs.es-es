@@ -1,19 +1,19 @@
 ---
 title: Visualización de las métricas de uso de la API de Azure Maps | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre cómo ver las métricas de las llamadas API de Microsoft Azure Maps en Azure Portal.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cc9834f4e1df1a68f78230ec587254c72aeabbcf
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 0eb117af712b3b1f63a3f99c96cba9775f8e3996
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208692"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335166"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Visualización de las métricas de uso de la API de Azure Maps
 

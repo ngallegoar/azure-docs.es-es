@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 86aaebe652968a2ea33fd8e15f9de9c1dff31a30
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086963"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228372"
 ---
 # <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
@@ -24,7 +24,7 @@ En este artículo de procedimientos se aprende a crear una cuenta de almacenamie
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -219,7 +219,10 @@ az group create --name $resourceGroupName --location "$location" &&
 az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-Para aprender a crear plantillas, consulte:
+> [!NOTE]
+> Esta plantilla sirve solo como ejemplo. Hay muchas opciones de una cuenta de almacenamiento que no se configuran como parte de esta plantilla. Por ejemplo, si desea utilizar [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), debe modificar esta plantilla estableciendo la propiedad `isHnsEnabledad` del objeto `StorageAccountPropertiesCreateParameters` en `true`. 
+
+Para obtener información sobre cómo modificar esta plantilla o crear otras nuevas, consulte:
 
 - [Documentación de Azure Resource Manager](/azure/azure-resource-manager/).
 - [Referencia de plantilla de cuenta de almacenamiento](/azure/templates/microsoft.storage/allversions).

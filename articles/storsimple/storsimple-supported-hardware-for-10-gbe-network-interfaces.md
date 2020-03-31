@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68965011"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple
@@ -54,7 +54,7 @@ Microsoft ha probado los siguientes transceptores, cables y conmutadores acoplab
 ## <a name="list-of-devices-tested-in-the-field"></a>Lista de dispositivos probados sobre el terreno
 Esta sección contiene la lista de dispositivos que se implementaron correctamente en el terreno por los clientes de StorSimple. Microsoft no los ha probado pero probablemente funcionan con el dispositivo StorSimple.
 
-| Parámetro | Valor |
+| Parámetro | Value |
 | --- | --- |
 | Proveedor del conmutador |Juniper |
 | Modelo del conmutador |ex4550-32F |
@@ -73,7 +73,7 @@ Mellanox ha probado los siguientes transceptores acoplables de factor de forma p
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Cables y módulos compatibles con Mellanox
 En la tabla siguiente se enumeran los cables y módulos compatibles con Mellanox. Microsoft no los ha probado pero probablemente funcionan con el dispositivo StorSimple.
 
-| S. No. | Velocidad | Modelo | DESCRIPCIÓN | Asegúrese |
+| S. No. | Velocidad | Modelo | Descripción | Asegúrese |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |cable de cobre pasivo SFP+ 10 Gb/s 1 m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2M |cable de cobre pasivo SFP+ 10 Gb/s 2 m |Arista |
@@ -114,7 +114,7 @@ En la tabla siguiente se enumeran los cables y módulos compatibles con Mellanox
 ### <a name="switches-supported-by-mellanox"></a>Lista de conmutadores compatibles con Mellanox
 En la tabla siguiente se enumeran los conmutadores y módulos compatibles con Mellanox. Microsoft no los ha probado pero probablemente funcionan con el dispositivo StorSimple.
 
-| S. No. | Velocidad | Modelo | DESCRIPCIÓN | Asegúrese |
+| S. No. | Velocidad | Modelo | Descripción | Asegúrese |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |516733-B21 |Conmutador Blade HP ProCurve 6120XG 10GbE Ethernet |HP |
 | 2. |10 GbE |538113-B21 |Módulo de paso a través HP 10GbE (PTM) |HP |

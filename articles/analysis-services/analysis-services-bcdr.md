@@ -4,15 +4,15 @@ description: En este artículo se describe cómo Azure Analysis Services proporc
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2e750dce804ea93f3d3068ffd36bc7a73a50906a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 78a6d41b638d79111a58830f0cb0d5190ea0796c
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573357"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408682"
 ---
 # <a name="analysis-services-high-availability"></a>Alta disponibilidad de Azure Analysis Services
 
@@ -32,7 +32,7 @@ Para evitar tener que cambiar las cadenas de conexión de los clientes de inform
 
 ## <a name="related-information"></a>Información relacionada
 
-[Copia de seguridad y restauración](analysis-services-backup.md)   
+[Copias de seguridad y restauración](analysis-services-backup.md)   
 [Administración de Azure Analysis Services](analysis-services-manage.md)   
 [Alias de nombre de servidor](analysis-services-server-alias.md) 
 

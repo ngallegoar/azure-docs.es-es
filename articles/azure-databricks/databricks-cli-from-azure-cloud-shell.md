@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
 ms.openlocfilehash: efb0d3222bfd98b15502163979425d47fa459e07
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73605716"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Uso de la CLI de Databricks desde Azure Cloud Shell
 
 Aprenda a usar la CLI Databricks desde Azure Cloud Shell para realizar operaciones en Databricks.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un área de trabajo y un clúster de Azure Databricks. Para obtener instrucciones, consulte [Introducción a Azure Databricks](quickstart-create-databricks-workspace-portal.md). 
 

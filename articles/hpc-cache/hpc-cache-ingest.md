@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646734"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233440"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Traslado de datos a Azure Blob Storage
 
@@ -58,7 +58,7 @@ La utilidad Avere CLFSLoad necesita la siguiente información:
 
 Si no quiere usar la utilidad Avere CLFSLoad o si quiere agregar una gran cantidad de datos a un destino existente de Blob Storage, puede copiarlos mediante la caché. Azure HPC Cache está diseñado para atender a varios clientes a la vez, así que para copiar datos mediante la caché, debe usar escrituras en paralelo desde varios clientes.
 
-![Diagrama que muestra el movimiento de datos de varios clientes de múltiples subprocesos: en la parte superior izquierda, hay un icono para el almacenamiento de hardware local que tiene varias flechas que salen de él. Las flechas apuntan a cuatro equipos cliente diferentes. De cada máquina cliente tres flechas apuntan a Azure HPC Cache. De Azure HPC Cache, varias flechas apuntan a Blob Storage.](media/hpc-cache-parallel-ingest.png)
+![En este diagrama se muestra el movimiento de datos de varios procesos y clientes: en la parte superior izquierda, hay un icono para el almacenamiento de hardware local que tiene varias flechas saliendo de él. Las flechas apuntan a cuatro equipos cliente diferentes. De cada máquina cliente tres flechas apuntan a Azure HPC Cache. De Azure HPC Cache, varias flechas apuntan a Blob Storage.](media/hpc-cache-parallel-ingest.png)
 
 Los comandos ``cp`` o ``copy`` que se usan habitualmente para transferir datos de un sistema de almacenamiento a otro son comandos de subproceso único que copian solo un archivo a la vez. Esto significa que el servidor de archivos solo puede ingerir un archivo a la vez, lo que es un desperdicio de los recursos de la caché.
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67186368"
 ---
 #### <a name="to-create-a-volume"></a>Para crear un volumen
@@ -45,7 +45,7 @@ ms.locfileid: "67186368"
          1. Proporcione un **Nombre** para el ACR.
          2. En **Nombre del iniciador iSCSI**, proporcione el nombre completo del iSCSI (IQN) del host de Windows. Si no tiene el IQN, vaya a [Obtener el IQN de un host de Windows Server](#get-the-iqn-of-a-windows-server-host).
 
-      1. Haga clic en **Create**(Crear). Se creará un volumen con la configuración especificada.
+      1. Haga clic en **Crear**. Se creará un volumen con la configuración especificada.
 
          ![Haga clic en Crear.](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 

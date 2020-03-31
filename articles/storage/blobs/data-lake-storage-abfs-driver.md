@@ -9,13 +9,13 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 3db039d39ef532ea51143dc9cbdb6bd5f29d6225
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75970270"
 ---
-# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Controlador del sistema de archivos de Azure Blob (ABFS): un controlador de Azure Storage dedicado para Hadoop
+# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>El controlador Azure Blob Filesystem (ABFS): un controlador de Azure Storage dedicado para Hadoop
 
 Uno de los principales métodos de acceso para los datos en Azure Data Lake Storage Gen2 es mediante [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 permite a los usuarios de Azure Blob Storage obtener acceso a un nuevo controlador, el controlador del sistema de archivos de blob de Azure o `ABFS`. ABFS forma parte de Apache Hadoop y se incluye en muchas de las distribuciones comerciales de Hadoop. Con este controlador, muchas aplicaciones y plataformas pueden acceder a datos de Azure Blob Storage sin código que haga referencia explícita a Data Lake Storage Gen2.
 
@@ -46,9 +46,9 @@ Internamente, el controlador ABFS convierte los recursos especificados en el URI
 
 El controlador ABFS admite dos formas de autenticación, de modo que la aplicación de Hadoop puede acceder de forma segura a los recursos contenidos en la cuenta compatible de Data Lake Storage Gen2. Se proporcionan detalles completos de los esquemas de autenticación disponibles en la [guía de seguridad de Azure Storage](security-recommendations.md). Son las siguientes:
 
-- **Clave compartida**: esto proporciona a los usuarios acceso a todos los recursos de la cuenta. La clave se cifra y almacena en la configuración de Hadoop.
+- **Clave compartida:** esto proporciona a los usuarios acceso a todos los recursos de la cuenta. La clave se cifra y almacena en la configuración de Hadoop.
 
-- **Token de portador de OAuth de Azure Active Directory**: el controlador adquiere y actualiza los tokens de portador de Azure AD con la identidad del usuario final o una entidad de servicio configurada. Al usar este modelo de autenticación, se autoriza todo acceso en función de cada llamada, mediante la identidad asociada con el token suministrado y se evalúa en relación con la lista de control de acceso POSIX (ACL) asignada.
+- **Token de portador de OAuth de Azure Active Directory:** el controlador adquiere y actualiza los tokens de portador de Azure AD con la identidad del usuario final o una entidad de servicio configurada. Al usar este modelo de autenticación, se autoriza todo acceso en función de cada llamada, mediante la identidad asociada con el token suministrado y se evalúa en relación con la lista de control de acceso POSIX (ACL) asignada.
 
    > [!NOTE]
    > Azure Data Lake Storage Gen2 solo admite puntos de conexión de Azure AD v1.0.

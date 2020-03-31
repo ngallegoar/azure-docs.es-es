@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 3f27753b0775f44cbdf9d4c478a19e423b8e1f19
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604559"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar actualizaciones del sistema en Azure Security Center
@@ -44,19 +44,19 @@ En este ejemplo usaremos **Proceso**.
 
    En la parte inferior del panel se muestran todas las actualizaciones que faltan en todas las máquinas virtuales y equipos, así como la gravedad de la actualización que falta.  La lista incluye:
 
-    - NOMBRE: nombre de la actualización que falta.
-    - NÚMERO DE EQUIPOS Y VM: número total de máquinas virtuales y equipos que no tienen esta actualización.
-    - ESTADO: el estado actual de la recomendación:
+    - NOMBRE: Nombre de la actualización que falta.
+    - NÚMERO DE EQUIPOS Y MÁQUINAS VIRTUALES: Número total de máquinas virtuales y equipos que no tienen esta actualización.
+    - ESTADO: Estado actual de la recomendación:
 
-      - Abierta: la recomendación aún no se ha abordado.
-      - En curso: la recomendación se está aplicando actualmente a esos recursos y no se requiere ninguna acción por su parte.
-      - Resuelta: la recomendación ya terminó. (Si se ha resuelto el problema, la entrada aparecerá atenuada).
+      - Abierto: La recomendación aún no se ha abordado.
+      - En curso: La recomendación se está aplicando actualmente a esos recursos y no se requiere ninguna acción por su parte.
+      - Resuelto: La recomendación ya terminó. (Si se ha resuelto el problema, la entrada aparecerá atenuada).
 
-    - GRAVEDAD: describe la gravedad de una recomendación concreta:
+    - GRAVEDAD: Describe la gravedad de una recomendación concreta:
 
-      - Alta: existe una vulnerabilidad en un recurso importante (aplicación, máquina virtual o grupo de seguridad de red) y requiere atención.
-      - Media: para completar un proceso o eliminar una vulnerabilidad se requieren pasos adicionales o no críticos.
-      - Baja: es preciso abordar una vulnerabilidad, pero esta no requiere una atención inmediata. (De manera predeterminada no se muestran las recomendaciones bajas, pero si desea verlas, puede filtrar por ellas).
+      - Alta: Existe una vulnerabilidad en un recurso importante (aplicación, máquina virtual o grupo de seguridad de red) y requiere atención.
+      - Media: Para completar un proceso o eliminar una vulnerabilidad se requieren pasos adicionales o no críticos.
+      - Baja: Es preciso abordar una vulnerabilidad, pero esta no requiere una atención inmediata. (De manera predeterminada no se muestran las recomendaciones bajas, pero si desea verlas, puede filtrar por ellas).
 
 3. En la lista, seleccione una actualización que falta para ver los detalles.
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: jingwang
 ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250275"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
@@ -139,8 +139,8 @@ Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 fieldList | Los tipos de información de metadatos necesarios. Para más información sobre los metadatos admitidos, consulte la sección [Opciones de metadatos](#metadata-options) de este artículo. | Sí 
 dataset | Conjunto de datos de referencia cuyos metadatos debe recuperar la actividad de obtención de metadatos. Consulte la sección[Capacidades](#capabilities) para obtener información sobre los conectores admitidos. Consulte los temas específicos del conector para obtener información detallada sobre la sintaxis del conjunto de datos. | Sí
-formatSettings | Se aplica cuando se usa el tipo de formato dataset. | Sin
-storeSettings | Se aplica cuando se usa el tipo de formato dataset. | Sin
+formatSettings | Se aplica cuando se usa el tipo de formato dataset. | No
+storeSettings | Se aplica cuando se usa el tipo de formato dataset. | No
 
 ## <a name="sample-output"></a>Salida de ejemplo
 

@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.openlocfilehash: 9ef4b569fd8413d2825374c963fb272dd450cf0e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533134"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
@@ -33,7 +33,7 @@ Los valores JSON de la definición pueden ser literales o expresiones que se eva
 "name": "value"
 ```
 
- o  
+ or  
   
 ```json
 "name": "@pipeline().parameters.password"
@@ -195,7 +195,7 @@ Estas funciones son útiles en las condiciones y se pueden usar para evaluar cua
 | [greaterOrEquals](control-flow-expression-language-functions.md#greaterOrEquals) | Comprueba si el primer valor es mayor o igual que el segundo. |
 | [if](control-flow-expression-language-functions.md#if) | Comprueba si una expresión es true o false. En función del resultado, devuelve un valor especificado. |
 | [less](control-flow-expression-language-functions.md#less) | Comprueba si el primer valor es menor que el segundo. |
-| [lessOrEquals](control-flow-expression-language-functions.md#lessOrEquals) | Comprueba si el primer valor es menor o igual que el segundo. |
+| [lessOrEquals](control-flow-expression-language-functions.md#lessOrEquals) | Compruebe si el primer valor es menor o igual que el segundo valor. |
 | [not](control-flow-expression-language-functions.md#not) | Comprueba si una expresión es false. |
 | [or](control-flow-expression-language-functions.md#or) | Comprueba si al menos una expresión es true. |
   
@@ -204,7 +204,7 @@ Estas funciones son útiles en las condiciones y se pueden usar para evaluar cua
  Estas funciones se utilizan para convertir en cada uno de los tipos nativos del idioma:  
 -   string
 -   integer
--   float
+-   FLOAT
 -   boolean
 -   arrays
 -   dictionaries
@@ -290,12 +290,12 @@ Devuelve el resultado de sumar dos números.
 add(<summand_1>, <summand_2>)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*sumando_1*>, <*sumando_2*> | Sí | Integer, Float o mixto | Números que se van a sumar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | -----| ----------- |
 | <*resultado-de-la-suma*> | Integer o Float | Resultado de sumar los números especificados |
 ||||
@@ -320,14 +320,14 @@ Agrega un número de días a una marca de tiempo.
 addDays('<timestamp>', <days>, '<format>'?)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*días*> | Sí | Integer | Número positivo o negativo de días que desea agregar |
-| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*días*> | Sí | Entero | Número positivo o negativo de días que desea agregar |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*marca-de-tiempo-actualizada*> | String | Marca de tiempo más el número de días especificado  |
 ||||
@@ -342,7 +342,7 @@ addDays('2018-03-15T13:00:00Z', 10)
 
 Y devuelve este resultado: `"2018-03-25T00:00:0000000Z"`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Este ejemplo resta cinco días a la marca de tiempo especificada:
 
@@ -362,14 +362,14 @@ Agrega un número de horas a una marca de tiempo.
 addHours('<timestamp>', <hours>, '<format>'?)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*horas*> | Sí | Integer | Número positivo o negativo de horas que desea agregar |
-| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*horas*> | Sí | Entero | Número positivo o negativo de horas que desea agregar |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*marca-de-tiempo-actualizada*> | String | Marca de tiempo más el número de horas especificado  |
 ||||
@@ -384,7 +384,7 @@ addHours('2018-03-15T00:00:00Z', 10)
 
 Y devuelve este resultado: `"2018-03-15T10:00:0000000Z"`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Este ejemplo resta cinco horas a la marca de tiempo especificada:
 
@@ -404,14 +404,14 @@ Agrega un número de minutos a una marca de tiempo.
 addMinutes('<timestamp>', <minutes>, '<format>'?)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*minutos*> | Sí | Integer | Número positivo o negativo de minutos que desea agregar |
-| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*minutos*> | Sí | Entero | Número positivo o negativo de minutos que desea agregar |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*marca-de-tiempo-actualizada*> | String | Marca de tiempo más el número de minutos especificado |
 ||||
@@ -426,7 +426,7 @@ addMinutes('2018-03-15T00:10:00Z', 10)
 
 Y devuelve este resultado: `"2018-03-15T00:20:00.0000000Z"`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Este ejemplo resta cinco minutos a la marca de tiempo especificada:
 
@@ -446,14 +446,14 @@ Agrega un número de segundos a una marca de tiempo.
 addSeconds('<timestamp>', <seconds>, '<format>'?)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*segundos*> | Sí | Integer | Número positivo o negativo de segundos que desea agregar |
-| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*segundos*> | Sí | Entero | Número positivo o negativo de segundos que desea agregar |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*marca-de-tiempo-actualizada*> | String | Marca de tiempo más el número de segundos especificado  |
 ||||
@@ -468,7 +468,7 @@ addSeconds('2018-03-15T00:00:00Z', 10)
 
 Y devuelve este resultado: `"2018-03-15T00:00:10.0000000Z"`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Este ejemplo resta cinco segundos a la marca de tiempo especificada:
 
@@ -489,15 +489,15 @@ Consulte también [getFutureTime()](#getFutureTime).
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*intervalo*> | Sí | Integer | Número de unidades de tiempo especificadas que se va a agregar |
-| <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
-| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a agregar |
+| <*unidad_de_tiempo*> | Sí | String | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*marca-de-tiempo-actualizada*> | String | Marca de tiempo más el número de unidades de tiempo especificado  |
 ||||
@@ -512,7 +512,7 @@ addToTime('2018-01-01T00:00:00Z', 1, 'Day')
 
 Y devuelve este resultado: `"2018-01-02T00:00:00.0000000Z"`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Este ejemplo agrega un día a la marca de tiempo especificada:
 
@@ -533,12 +533,12 @@ Devuelve true cuando todas las expresiones son verdaderas o devuelve false cuand
 and(<expression1>, <expression2>, ...)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*expresión1*>, <*expresión2*>, ... | Sí | Boolean | Expresiones que se van a comprobar |
+| <*expression1*>, <*expression2*>, ... | Sí | Boolean | Expresiones que se van a comprobar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | -----| ----------- |
 | true o false | Boolean | Devuelve true si todas las expresiones son verdaderas. Devuelve false cuando al menos una expresión es falsa. |
 ||||
@@ -559,7 +559,7 @@ Y devuelve estos resultados:
 * Segundo ejemplo: una expresión es falsa, por lo que devuelve `false`.
 * Tercer ejemplo: ambas expresiones son falsas, por lo que devuelve `false`.
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Estos ejemplos comprueban si las expresiones especificadas son todas verdaderas:
 
@@ -586,12 +586,12 @@ Para varias entradas, consulte [createArray()](#createArray).
 array('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena para la creación de una matriz |
+| <*value*> | Sí | String | Cadena para la creación de una matriz |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | [<*valor*>] | Array | Matriz que contiene la única entrada especificada |
 ||||
@@ -616,12 +616,12 @@ Devuelve la versión de una cadena codificada en base64.
 base64('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena de entrada |
+| <*value*> | Sí | String | Cadena de entrada |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*cadena-en-base64*> | String | Versión codificada en base64 de la cadena de entrada |
 ||||
@@ -646,12 +646,12 @@ Devuelve la versión binaria de una cadena codificada en base64.
 base64ToBinary('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena con codificación base64 que se va a convertir |
+| <*value*> | Sí | String | Cadena con codificación base64 que se va a convertir |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*binario-de-cadena-en-base64*> | String | Versión binaria de la cadena con codificación base64 |
 ||||
@@ -680,12 +680,12 @@ Aunque ambas funciones funcionan del mismo modo, `base64ToString()` es preferibl
 base64ToString('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena con codificación base64 que se va a decodificar |
+| <*value*> | Sí | String | Cadena con codificación base64 que se va a decodificar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*cadena-base64-decodificada*> | String | Versión de cadena de una cadena codificada en base64 |
 ||||
@@ -710,12 +710,12 @@ Devuelve la versión binaria de una cadena.
 binary('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena que se va a convertir |
+| <*value*> | Sí | String | Cadena que se va a convertir |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*binario-del-valor-de-entrada*> | String | Versión binaria de la cadena especificada |
 ||||
@@ -742,12 +742,12 @@ Devuelve la versión booleana de un valor.
 bool(<value>)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | Any | Valor que se va a convertir |
+| <*value*> | Sí | Any | Valor que se va a convertir |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | true o false | Boolean | Versión booleana del valor especificado |
 ||||
@@ -777,12 +777,12 @@ Las cadenas vacías, las matrices vacías y los objetos vacíos no son nulos.
 coalesce(<object_1>, <object_2>, ...)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*objeto_1*>, <*objeto_2*>, ... | Sí | Cualquiera, se pueden mezclar tipos | Uno o más elementos para comprobar si hay valores NULL |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*primer-elemento-no-NULL*> | Any | Primer elemento o valor que no sea NULL. Si todos los parámetros son NULL, esta función devuelve NULL. |
 ||||
@@ -813,12 +813,12 @@ Combina dos o más cadenas y devuelve la cadena combinada.
 concat('<text1>', '<text2>', ...)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*texto1*>, <*texto2*>, ... | Sí | String | Al menos dos cadenas para combinar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*texto1texto2...* > | String | Cadena que se crea a partir de las cadenas de entrada combinadas |
 ||||
@@ -852,13 +852,13 @@ En concreto, esta función funciona en estos tipos de colección:
 * Una *matriz* para buscar un *valor*
 * Un *diccionario* para buscar una *clave*
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*colección*> | Sí | Cadena, matriz o diccionario | Colección que se va a comprobar |
-| <*valor*> | Sí | Cadena, matriz o diccionario, respectivamente | Elemento que se va a buscar |
+| <*value*> | Sí | Cadena, matriz o diccionario, respectivamente | Elemento que se va a buscar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | true o false | Boolean | Devuelve true cuando se encuentra el elemento. Devuelve false si no se encuentra. |
 ||||
@@ -871,7 +871,7 @@ Este ejemplo comprueba la cadena "hello world" para buscar la subcadena "world" 
 contains('hello world', 'world')
 ```
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Este ejemplo comprueba la cadena "hello world" para buscar la subcadena "universe" y devuelve false:
 
@@ -889,14 +889,14 @@ Convierte una marca de tiempo del formato Hora Universal Coordinada (UTC) a la z
 convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
-| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*marca-de-tiempo-convertida*> | String | Marca de tiempo convertida a la zona horaria de destino |
 ||||
@@ -911,7 +911,7 @@ convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time')
 
 Y devuelve este resultado: `"2018-01-01T00:00:00.0000000"`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Este ejemplo convierte una marca de tiempo a la zona horaria y el formato especificados:
 
@@ -931,15 +931,15 @@ Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de 
 convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
 | <*zona_horaria_de_destino*> | Sí | String | Nombre de la zona horaria de destino. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
-| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*marca-de-tiempo-convertida*> | String | Marca de tiempo convertida a la zona horaria de destino |
 ||||
@@ -954,7 +954,7 @@ convertTimeZone('2018-01-01T08:00:00.0000000Z', 'UTC', 'Pacific Standard Time')
 
 Y devuelve este resultado: `"2018-01-01T00:00:00.0000000"`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Este ejemplo convierte una zona horaria a la zona horaria y el formato especificados:
 
@@ -974,14 +974,14 @@ Convierte una marca de tiempo de la zona horaria de origen al formato Hora Unive
 convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*zona_horaria_de_origen*> | Sí | String | Nombre de la zona horaria de origen. Para los nombres de zonas horarias, consulte [Valores de índice de zona horaria de Microsoft](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values), pero es posible que tenga que quitar los signos de puntuación del nombre de zona horaria. |
-| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*marca-de-tiempo-convertida*> | String | Marca de tiempo convertida a formato UTC |
 ||||
@@ -996,7 +996,7 @@ convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time')
 
 Y devuelve este resultado: `"2018-01-01T08:00:00.0000000Z"`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Este ejemplo convierte una marca de tiempo a formato UTC:
 
@@ -1017,12 +1017,12 @@ Para matrices de una sola entrada, consulte [array()](#array).
 createArray('<object1>', '<object2>', ...)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*objeto1*>, <*objeto2*>,... | Sí | Cualquiera, pero no mixtos | Al menos dos elementos para crear la matriz |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | [<*objeto1*>, <*objeto2*>, ...] | Array | Matriz creada a partir de todos los elementos de entrada |
 ||||
@@ -1047,12 +1047,12 @@ Devuelve un identificador uniforme de recursos (URI) de datos de una cadena.
 dataUri('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena que se va a convertir |
+| <*value*> | Sí | String | Cadena que se va a convertir |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*uri-de-datos*> | String | Identificador URI de datos de la cadena de entrada |
 ||||
@@ -1079,12 +1079,12 @@ Aunque ambas funciones funcionan del mismo modo, `dataUriBinary()` es preferible
 dataUriToBinary('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Identificador URI de datos que se va a convertir |
+| <*value*> | Sí | String | Identificador URI de datos que se va a convertir |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*binario-de-uri-de-datos*> | String | Versión binaria del identificador URI de datos |
 ||||
@@ -1114,12 +1114,12 @@ Devuelve la versión de cadena de un identificador uniforme de recursos (URI) de
 dataUriToString('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Identificador URI de datos que se va a convertir |
+| <*value*> | Sí | String | Identificador URI de datos que se va a convertir |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*cadena-de-uri-de-datos*> | String | Versión de cadena del identificador URI de datos |
 ||||
@@ -1144,14 +1144,14 @@ Devuelve el día del mes de una marca de tiempo.
 dayOfMonth('<timestamp>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*día-del-mes*> | Integer | Día del mes de la marca de tiempo especificada |
+| <*día-del-mes*> | Entero | Día del mes de la marca de tiempo especificada |
 ||||
 
 *Ejemplo*
@@ -1174,14 +1174,14 @@ Devuelve el día de la semana de una marca de tiempo.
 dayOfWeek('<timestamp>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*día-de-la-semana*> | Integer | Día de la semana de la marca de tiempo especificada, donde el domingo es 0, el lunes es 1, etc. |
+| <*día-de-la-semana*> | Entero | Día de la semana de la marca de tiempo especificada, donde el domingo es 0, el lunes es 1, etc. |
 ||||
 
 *Ejemplo*
@@ -1204,14 +1204,14 @@ Devuelve el día del año de una marca de tiempo.
 dayOfYear('<timestamp>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*día-del-año*> | Integer | Día del año de la marca de tiempo especificada |
+| <*día-del-año*> | Entero | Día del año de la marca de tiempo especificada |
 ||||
 
 *Ejemplo*
@@ -1236,12 +1236,12 @@ Aunque ambas funciones funcionan del mismo modo, `base64ToString()` es preferibl
 decodeBase64('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena con codificación base64 que se va a decodificar |
+| <*value*> | Sí | String | Cadena con codificación base64 que se va a decodificar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*cadena-base64-decodificada*> | String | Versión de cadena de una cadena codificada en base64 |
 ||||
@@ -1268,12 +1268,12 @@ Aunque ambas funciones funcionan del mismo modo, `dataUriToBinary()` es preferib
 decodeDataUri('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena URI de datos que se va a decodificar |
+| <*value*> | Sí | String | Cadena URI de datos que se va a decodificar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*binario-de-uri-de-datos*> | String | Versión binaria de una cadena URI de datos |
 ||||
@@ -1303,12 +1303,12 @@ Devuelve una cadena que reemplaza los caracteres de escape por versiones descodi
 decodeUriComponent('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena con caracteres de escape que se va a decodificar |
+| <*value*> | Sí | String | Cadena con caracteres de escape que se va a decodificar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*uri-decodificado*> | String | Cadena actualizada con los caracteres de escape decodificados |
 ||||
@@ -1334,15 +1334,15 @@ Para obtener el resultado del resto, consulte [mod()](#mod).
 div(<dividend>, <divisor>)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*dividendo*> | Sí | Integer o Float | Número que se va a dividir entre el *divisor*. |
+| <*dividend*> | Sí | Integer o Float | Número que se va a dividir entre el *divisor*. |
 | <*divisor*> | Sí | Integer o Float | Número que divide el *dividendo*, pero no puede ser 0 |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*resultado-cociente*> | Integer | Resultado entero de dividir el primer número entre el segundo número |
+| <*resultado-cociente*> | Entero | Resultado entero de dividir el primer número entre el segundo número |
 ||||
 
 *Ejemplo*
@@ -1368,12 +1368,12 @@ Aunque ambas funciones funcionan del mismo modo, `uriComponent()` es preferible.
 encodeUriComponent('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena que se va a convertir en formato codificado de URI |
+| <*value*> | Sí | String | Cadena que se va a convertir en formato codificado de URI |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*uri-codificado*> | String | Cadena codificada en formato URI con caracteres de escape |
 ||||
@@ -1400,12 +1400,12 @@ empty('<collection>')
 empty([<collection>])
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*colección*> | Sí | Cadena, matriz u objeto | Colección que se va a comprobar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | true o false | Boolean | Devuelve true cuando la colección está vacía. Devuelve false si no está vacía. |
 ||||
@@ -1436,13 +1436,13 @@ Esta función no distingue mayúsculas de minúsculas.
 endsWith('<text>', '<searchText>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*texto*> | Sí | String | Cadena que se va a comprobar |
 | <*texto_a_buscar*> | Sí | String | Subcadena final que se va a buscar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | true o false  | Boolean | Devuelve true cuando se encuentra la subcadena final. Devuelve false si no se encuentra. |
 ||||
@@ -1457,7 +1457,7 @@ endsWith('hello world', 'world')
 
 Y devuelve este resultado: `true`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Este ejemplo comprueba si la cadena "hello world" termina con la cadena "universe":
 
@@ -1478,12 +1478,12 @@ Devuelve true cuando ambos son equivalentes o devuelve false cuando no son equiv
 equals('<object1>', '<object2>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*objeto1*>, <*objeto2*> | Sí | Varios | Valores, expresiones u objetos que se van a comparar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | true o false | Boolean | Devuelve true cuando ambos son equivalentes. Devuelve false cuando no son equivalentes. |
 ||||
@@ -1513,12 +1513,12 @@ first('<collection>')
 first([<collection>])
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*colección*> | Sí | Cadena o matriz | Colección en la que buscar el primer elemento |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*primer-elemento-de-la-colección*> | Any | Primer elemento de la colección |
 ||||
@@ -1532,14 +1532,14 @@ first('hello')
 first(createArray(0, 1, 2))
 ```
 
-Y devuelven estos resultados:
+Asimismo, devuelven estos resultados:
 
 * Primer ejemplo: `"h"`
 * Segundo ejemplo: `0`
 
 <a name="float"></a>
 
-### <a name="float"></a>float
+### <a name="float"></a>FLOAT
 
 Convierte una versión de cadena de un número de punto flotante a un número de punto flotante real.
 
@@ -1547,12 +1547,12 @@ Convierte una versión de cadena de un número de punto flotante a un número de
 float('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena que contiene un número de punto flotante válido que se va a convertir |
+| <*value*> | Sí | String | Cadena que contiene un número de punto flotante válido que se va a convertir |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*valor-de-tipo-float*> | Float | Número de punto flotante a partir de la cadena especificada |
 ||||
@@ -1577,13 +1577,13 @@ Devuelve una marca de tiempo en el formato especificado.
 formatDateTime('<timestamp>', '<format>'?)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
-| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*marca-de-tiempo-con-nuevo-formato*> | String | Marca de tiempo actualizada en el formato especificado |
 ||||
@@ -1608,14 +1608,14 @@ Devuelve la marca de tiempo actual más las unidades de tiempo especificadas.
 getFutureTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*intervalo*> | Sí | Integer | Número de unidades de tiempo especificadas que se va a agregar |
-| <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
-| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a agregar |
+| <*unidad_de_tiempo*> | Sí | String | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*marca-de-tiempo-actualizada*> | String | Marca de tiempo actual más el número de unidades de tiempo especificado |
 ||||
@@ -1631,7 +1631,7 @@ getFutureTime(5, 'Day')
 
 Y devuelve este resultado: `"2018-03-06T00:00:00.0000000Z"`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Imagine que la marca de tiempo actual es "2018-03-01T00:00:00.0000000Z".
 Este ejemplo agrega cinco días y convierte el resultado al formato "D":
@@ -1652,14 +1652,14 @@ Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas.
 getPastTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*intervalo*> | Sí | Integer | Número de unidades de tiempo especificadas que se va a sustraer |
-| <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
-| <*formato*> | Sin | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
+| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a sustraer |
+| <*unidad_de_tiempo*> | Sí | String | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") |
+| <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*marca-de-tiempo-actualizada*> | String | Marca de tiempo actual menos el número de unidades de tiempo especificado |
 ||||
@@ -1675,7 +1675,7 @@ getPastTime(5, 'Day')
 
 Y devuelve este resultado: `"2018-01-27T00:00:00.0000000Z"`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Imagine que la marca de tiempo actual es "2018-02-01T00:00:00.0000000Z".
 Este ejemplo resta cinco días y convierte el resultado al formato "D":
@@ -1698,13 +1698,13 @@ greater(<value>, <compareTo>)
 greater('<value>', '<compareTo>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | Integer, Float o String | Primer valor para comprobar si es mayor que el segundo valor |
-| <*comparar_con*> | Sí | Integer, Float o String, respectivamente | Valor de comparación |
+| <*value*> | Sí | Integer, Float o String | Primer valor para comprobar si es mayor que el segundo valor |
+| <*compareTo*> | Sí | Integer, Float o String, respectivamente | Valor de comparación |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | true o false | Boolean | Devuelve true si el primer valor es mayor que el segundo. Devuelve false si el primer valor es igual o menor que el segundo. |
 ||||
@@ -1718,7 +1718,7 @@ greater(10, 5)
 greater('apple', 'banana')
 ```
 
-Y devuelven estos resultados:
+Asimismo, devuelven estos resultados:
 
 * Primer ejemplo: `true`
 * Segundo ejemplo: `false`
@@ -1735,13 +1735,13 @@ greaterOrEquals(<value>, <compareTo>)
 greaterOrEquals('<value>', '<compareTo>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | Integer, Float o String | Primer valor para comprobar si es mayor o igual que el segundo valor |
-| <*comparar_con*> | Sí | Integer, Float o String, respectivamente | Valor de comparación |
+| <*value*> | Sí | Integer, Float o String | Primer valor para comprobar si es mayor o igual que el segundo valor |
+| <*compareTo*> | Sí | Integer, Float o String, respectivamente | Valor de comparación |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | true o false | Boolean | Devuelve true si el primer valor es mayor o igual que el segundo. Devuelve false si el primer valor es menor que el segundo. |
 ||||
@@ -1755,14 +1755,14 @@ greaterOrEquals(5, 5)
 greaterOrEquals('apple', 'banana')
 ```
 
-Y devuelven estos resultados:
+Asimismo, devuelven estos resultados:
 
 * Primer ejemplo: `true`
 * Segundo ejemplo: `false`
 
 <a name="guid"></a>
 
-### <a name="guid"></a>GUID
+### <a name="guid"></a>guid
 
 Genera un identificador único global (GUID) como una cadena, por ejemplo, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce":
 
@@ -1776,12 +1776,12 @@ Además, es posible especificar un formato diferente del GUID que no sea el form
 guid('<format>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*formato*> | Sin | String | Un único [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) para el GUID devuelto. De forma predeterminada, el formato es "D", pero puede usar "N", "D", "B", "P" o "X". |
+| <*formato*> | No | String | Un único [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) para el GUID devuelto. De forma predeterminada, el formato es "D", pero puede usar "N", "D", "B", "P" o "X". |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*valor-de-GUID*> | String | GUID generado aleatoriamente |
 ||||
@@ -1807,14 +1807,14 @@ En función del resultado, devuelve un valor especificado.
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*expresión*> | Sí | Boolean | Expresión que se va a evaluar |
+| <*expression*> | Sí | Boolean | Expresión que se va a evaluar |
 | <*valor_si_es_true*> | Sí | Any | Valor que se devuelve cuando la expresión es verdadera |
 | <*valor_si_es_false*> | Sí | Any | Valor que se devuelve cuando la expresión es falsa |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*valor-a-devolver-especificado*> | Any | Valor especificado que se devuelve en función de si la expresión es true o false |
 ||||
@@ -1839,15 +1839,15 @@ Esta función no distingue entre mayúsculas y minúsculas y los índices comien
 indexOf('<text>', '<searchText>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*texto*> | Sí | String | Cadena que contiene la subcadena que se va a buscar |
 | <*texto_a_buscar*> | Sí | String | Subcadena que se va a buscar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*valor-de-índice*>| Integer | Posición de inicio o valor de índice de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. |
+| <*valor-de-índice*>| Entero | Posición de inicio o valor de índice de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. |
 ||||
 
 *Ejemplo*
@@ -1870,14 +1870,14 @@ Devuelve la versión como número entero de una cadena.
 int('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String | Cadena que se va a convertir |
+| <*value*> | Sí | String | Cadena que se va a convertir |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*resultado-de-número-entero*> | Integer | Versión como número entero de la cadena especificada. |
+| <*resultado-de-número-entero*> | Entero | Versión como número entero de la cadena especificada. |
 ||||
 
 *Ejemplo*
@@ -1900,12 +1900,12 @@ Devuelve el valor o el objeto de tipo Notación de objetos JavaScript (JSON) de 
 json('<value>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
-| <*valor*> | Sí | String o XML | Cadena o XML que se va a convertir |
+| <*value*> | Sí | String o XML | Cadena o XML que se va a convertir |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*resultado-JSON*> | Objeto o tipo nativo de JSON | Objeto o valor de tipo nativo de JSON de la cadena o XML especificados. Si la cadena es NULL, la función devuelve un objeto vacío. |
 ||||
@@ -1920,7 +1920,7 @@ json('[1, 2, 3]')
 
 Y devuelve este resultado: `[1, 2, 3]`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Este ejemplo convierte esta cadena a JSON:
 
@@ -1972,12 +1972,12 @@ intersection([<collection1>], [<collection2>], ...)
 intersection('<collection1>', '<collection2>', ...)
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*colección1*>, <*colección2*>, ... | Sí | Matriz u objeto, pero no ambos | Colecciones de las que desea *solo* los elementos comunes |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*elementos-comunes*> | Matriz u objeto, respectivamente | Colección que tiene solo los elementos comunes en las colecciones especificadas |
 ||||
@@ -2002,13 +2002,13 @@ Devuelve una cadena que tiene todos los elementos de una matriz y tiene cada car
 join([<collection>], '<delimiter>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*colección*> | Sí | Array | Matriz que tiene los elementos que se van a unir |
 | <*delimitador*> | Sí | String | Separador que aparece entre cada carácter de la cadena resultante |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*carácter1*><*delimitador*><*carácter2*><*delimitador*>... | String | Cadena resultante creada a partir de todos los elementos de la matriz especificada |
 ||||
@@ -2034,12 +2034,12 @@ last('<collection>')
 last([<collection>])
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*colección*> | Sí | Cadena o matriz | Colección en la que buscar el último elemento |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*último-elemento-de-la-colección*> | Cadena o matriz, respectivamente | Último elemento de la colección |
 ||||
@@ -2069,15 +2069,15 @@ Esta función no distingue entre mayúsculas y minúsculas y los índices comien
 lastIndexOf('<text>', '<searchText>')
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*texto*> | Sí | String | Cadena que contiene la subcadena que se va a buscar |
 | <*texto_a_buscar*> | Sí | String | Subcadena que se va a buscar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*valor-de-índice-final*> | Integer | Posición inicial o valor de índice de la última repetición de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. |
+| <*valor-de-índice-final*> | Entero | Posición inicial o valor de índice de la última repetición de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. |
 ||||
 
 *Ejemplo*
@@ -2101,12 +2101,12 @@ length('<collection>')
 length([<collection>])
 ```
 
-| Parámetro | Obligatorio | type | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Tipo | Descripción |
 | --------- | -------- | ---- | ----------- |
 | <*colección*> | Sí | Cadena o matriz | Colección con los elementos que se van a contar |
 |||||
 
-| Valor devuelto | type | DESCRIPCIÓN |
+| Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
 | <*length-or-count*> | Entero | Número de elementos de la colección |
 ||||
@@ -2838,7 +2838,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*marca_de_tiempo*> | Sí | String | Cadena que contiene la marca de tiempo |
 | <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a sustraer |
-| <*unidad_de_tiempo*> | Sí | String | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" |
+| <*unidad_de_tiempo*> | Sí | String | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") |
 | <*formato*> | No | String | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 |||||
 

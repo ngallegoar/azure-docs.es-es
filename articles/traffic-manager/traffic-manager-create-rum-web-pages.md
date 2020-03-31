@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: 927d774ee30a291607a8a47fc2fd6878c1bc6fee
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938698"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Envío de medidas de usuarios reales a Azure Traffic Manager mediante páginas web
@@ -36,13 +36,13 @@ Para obtener la clave RUM con Azure Portal:
  
    ![Generación de una clave de Real User Measurements](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: Generación de la clave de Mediciones de usuario reales**
+   **Figura 1: Generación de la clave de Real User Measurements**
 
 5. La hoja muestra ahora la clave RUM generada y un fragmento de código de JavaScript que debe insertarse en la página HTML.
  
     ![Código JavaScript para la clave de Real User Measurements](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
 
-    **Figura 2: Clave de Mediciones de usuario reales y JavaScript de medida**
+    **Figura 2: Clave de Real User Measurements y JavaScript de medida**
  
 6. Haga clic en el botón **Copiar** para copiar el código JavaScript. 
 
@@ -58,7 +58,7 @@ Después de haber obtenido la clave RUM, el siguiente paso es insertar este cód
  
     ![Inserción de código JavaScript en la página web para Real User Measurements](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
-    **Figura 3: HTML simple con JavaScript insertado de Mediciones de usuario reales**
+    **Figura 3: HTML simple con JavaScript insertado de Real User Measurements**
 
 3.  Guarde el archivo HTML y hospédelo en un servidor web conectado a Internet. 
 4. La próxima vez que se represente la página en un explorador web, el código JavaScript al que se hace referencia se descarga y el script ejecuta las operaciones de medidas e informes.

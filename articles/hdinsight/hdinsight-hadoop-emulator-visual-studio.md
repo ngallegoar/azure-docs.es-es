@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: e128aaf6e1726b7a1341fefc6df3cdafd3beb880
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73500165"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Uso de las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks
@@ -21,7 +21,7 @@ Azure Data Lake incluye herramientas para trabajar con clústeres de Apache Hado
 
 Mediante Sandbox de Hortonworks puede trabajar con Hadoop localmente en su entorno de desarrollo. Una vez que haya desarrollado una solución y quiera implementarla a escala, puede desplazarse a un clúster de HDInsight.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Sandbox de Hortonworks en ejecución en una máquina virtual en el entorno de desarrollo. Este documento se ha escrito y probado con el espacio aislado ejecutado en Oracle VirtualBox, Para información sobre cómo configurar el espacio aislado, consulte el documento de [introducción al espacio aislado de Hortonworks](hadoop/apache-hadoop-emulator-get-started.md) .
 
@@ -155,7 +155,7 @@ Aunque Hive proporciona un lenguaje similar a SQL para trabajar con datos estruc
 
     ![Captura de pantalla de un trabajo de Pig finalizado](./media/hdinsight-hadoop-emulator-visual-studio/completed-apache-pig.png)
 
-## <a name="view-jobs"></a>Vista de trabajos
+## <a name="view-jobs"></a>Ver trabajos
 
 Las herramientas de Data Lake también le permiten ver fácilmente la información sobre los trabajos ejecutados en Hadoop. Siga estos pasos para ver los trabajos que se han ejecutado en el clúster local.
 

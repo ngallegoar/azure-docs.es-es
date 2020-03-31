@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 9a77a9d9c8b2d71197089f66d81e07d56c780e11
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263853"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Uso de Notification Hubs desde PHP
@@ -218,7 +218,7 @@ Con esta clase, ahora podemos escribir los métodos de envío de notificaciones 
 
 Los métodos anteriores envían una solicitud POST HTTP al extremo `/messages` del centro de notificaciones, con el cuerpo y encabezados correctos para enviar la notificación.
 
-## <a name="complete-tutorial"></a>Finalización del tutorial
+## <a name="complete-the-tutorial"></a><a name="complete-tutorial"></a>Finalización del tutorial
 
 Ahora puede completar el tutorial introductorio enviando la notificación desde un back-end de PHP.
 

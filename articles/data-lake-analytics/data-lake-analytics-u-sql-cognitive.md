@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.openlocfilehash: 406eb1c9153e1ddbdc196cd64378c17cfa986dac
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71672708"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Introducción a las funcionalidades de Cognitive de U-SQL
@@ -22,14 +22,14 @@ ms.locfileid: "71672708"
 Las funcionalidades de Cognitive para U-SQL permiten a los desarrolladores usar inteligencia en sus programas de macrodatos. 
 
 Están disponibles los siguientes ejemplos que usan funcionalidades cognitivas:
-* Creación de imágenes: [Detección de caras](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Creación de imágenes: [Detección de emociones](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
-* Creación de imágenes: [Detección de objetos (etiquetado)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
-* Creación de imágenes: [OCR (reconocimiento óptico de caracteres)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Creación de imágenes: [detección de caras](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Creación de imágenes: [detección de emociones](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Creación de imágenes: [detección de objetos (etiquetado)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Creación de imágenes: [OCR (reconocimientos óptico de caracteres)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
 * Texto: [Extracción de frases clave y Análisis de sentimiento](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
 ## <a name="registering-cognitive-extensions-in-u-sql"></a>Registro de extensiones cognitivas en U-SQL
-Antes de comenzar, siga los pasos descritos en este artículo para registrar extensiones de Cognitive en U-SQL: [Registro de extensiones cognitivas en U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
+Antes de comenzar, siga los pasos de este artículo para registrar extensiones cognitivas en U-SQL: [Registro de extensiones cognitivas en U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Ejemplos de U-SQL/Cognitive](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)

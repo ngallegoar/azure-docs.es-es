@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4832762a88073f4d819925659bf9078e18f60c2d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720289"
 ---
-# <a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
+# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
 
 En este artículo se tratan los datos de muestreo almacenados en el almacenamiento de blobs de Azure; para ello, se descargan mediante programación y luego se realiza un muestreo de los mismos con procedimientos escritos en Python.
 
@@ -53,7 +53,7 @@ Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos 
         #directly ready from file on disk
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Muestreo de los datos mediante `random.choice` de `numpy` como se indica a continuación:
+3. Muestreo de los datos mediante `numpy` de `random.choice` como se indica a continuación:
    
         # A 1 percent sample
         sample_ratio = 0.01 
@@ -63,7 +63,7 @@ Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos 
 
 Ahora se puede trabajar con el marco de datos anterior, con el ejemplo del uno por ciento, para la generación y exploración de características más a fondo.
 
-## <a name="heading"></a>Carga de datos y lectura en Azure Machine Learning
+## <a name="upload-data-and-read-it-into-azure-machine-learning"></a><a name="heading"></a>Carga de datos y lectura en Azure Machine Learning
 Puede usar el ejemplo de código siguiente para muestrear los datos y usarlos directamente en Azure Machine Learning:
 
 1. Escribir la trama de datos en un archivo local

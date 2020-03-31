@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 1917bd6744e100db54fe959292e29486f8a1784b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770193"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Optimización del vaciado automático en Azure Database for PostgreSQL con un único servidor
@@ -44,7 +44,7 @@ Los parámetros de configuración que controlan el vaciado automático se basan 
 
 Aquí se incluyen algunos de los parámetros de configuración del vaciado automático que puede actualizar según las preguntas anteriores, junto con algunas pautas.
 
-Parámetro|DESCRIPCIÓN|Valor predeterminado
+Parámetro|Descripción|Valor predeterminado
 ---|---|---
 autovacuum_vacuum_threshold|Especifica el número mínimo de tuplas actualizadas o eliminadas necesarias para desencadenar una operación de vaciado en cualquier tabla. El valor predeterminado es de 50 tuplas. Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor. Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión.|50
 autovacuum_vacuum_scale_factor|Especifica una fracción del tamaño de la tabla para agregar a autovacuum_vacuum_threshold cuando se decide activar una operación de vaciado. El valor predeterminado es 0,2 (20 % del tamaño de la tabla). Configure este parámetro solo en el archivo postgresql.conf o en la línea de comandos del servidor. Para anular la configuración de tablas individuales, cambie los parámetros de almacenamiento de la tabla en cuestión.|5 %

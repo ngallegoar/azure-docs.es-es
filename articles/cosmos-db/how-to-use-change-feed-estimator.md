@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: 8bd024fae7496db6c9cb6410df26975fde1984f7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0023f68400b36b9abd3b9d4a789895e79f67aa03
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77585295"
 ---
 # <a name="use-the-change-feed-estimator"></a>Uso del calculador de la fuente de cambios
@@ -33,11 +33,11 @@ Al igual que el [procesador de la fuente de cambios](./change-feed-processor.md)
 
 Por ejemplo, si el procesador de la fuente de cambios se define de la siguiente manera:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartProcessorEstimator":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimator)]
 
 La manera correcta de inicializar un calculador para medir ese procesador sería usar `GetChangeFeedEstimatorBuilder` como se explica a continuación:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartEstimator":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimator)]
 
 Donde tanto el procesador como el calculador comparten el mismo `leaseContainer` y el mismo nombre.
 
@@ -45,7 +45,7 @@ Los otros dos parámetros son el delegado, que recibirá un número que represen
 
 Un ejemplo de un delegado que recibe la estimación es:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="EstimationDelegate":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=EstimationDelegate)]
 
 Puede enviarla a su solución de supervisión y usarla para saber cómo se comporta el progreso con el tiempo.
 

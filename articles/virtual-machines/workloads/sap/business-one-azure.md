@@ -16,10 +16,10 @@ ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 18409f93ab50f7d031ec78a55b9eaf8ad1b85a49
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101409"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One en Azure Virtual Machines
@@ -31,7 +31,7 @@ Business One admite dos bases de datos diferentes:
 
 Con respecto a SQL Server, se aplican las consideraciones de implementación básicas documentadas en [Implementación de DBMS de Azure Virtual Machines para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide). Para SAP HANA, las consideraciones se mencionan en este documento.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para utilizar esta guía, necesita un conocimiento básico de los siguientes componentes de Azure:
 
 - [Máquinas virtuales de Azure en Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)

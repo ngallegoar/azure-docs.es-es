@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: ff1a6c63b6eb99acdef955806a138e3e22b8902a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 188ef3a1b9777c37f8557a69e19887638a973611
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773717"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062525"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Configuración de los registros de auditoría de Azure Database for MySQL y acceso a ellos en Azure Portal
 
@@ -20,7 +20,7 @@ Puede configurar los [registros de auditoría de Azure Database for MySQL](conce
 > [!IMPORTANT]
 > La funcionalidad del registro de auditoría se encuentra actualmente en versión preliminar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir esta guía, necesitará:
 
@@ -30,7 +30,7 @@ Para seguir esta guía, necesitará:
 
 Habilite y configure el registro de auditoría.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Seleccione un servidor de Azure Database for MySQL.
 

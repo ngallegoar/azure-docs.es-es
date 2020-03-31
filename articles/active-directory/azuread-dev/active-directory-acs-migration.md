@@ -4,7 +4,6 @@ description: Aprenda sobre las opciones para mover aplicaciones y servicios fuer
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev
@@ -13,14 +12,15 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 63ace9af31dd284c61fae188744b24361f33c170
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3168d36bf4c2d3c696173725f669b12dc168dcc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377905"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80155008"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedimientos: Migración desde Azure Access Control Service
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedimiento para la migración desde Azure Access Control Service
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -112,7 +112,7 @@ A partir de noviembre de 2017, todos los componentes de Access Control son total
 
 Aquí está el calendario que indica el desuso de los componentes de Access Control:
 
-- **Noviembre de 2017**:  la experiencia de administración de Azure AD en el Portal de Azure clásico [se retira](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). En este momento, la administración del espacio de nombres de Access Control estará disponible en esta nueva dirección URL dedicada: `https://manage.windowsazure.com?restoreClassic=true`. Use esta URl para ver los espacios de nombres existentes y habilitar, deshabilitar y eliminar diversos espacios de nombres si así lo desea.
+- **Noviembre de 2017**: la experiencia de administración de Azure AD en el Portal de Azure clásico [se retira](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). En este momento, la administración del espacio de nombres de Access Control estará disponible en esta nueva dirección URL dedicada: `https://manage.windowsazure.com?restoreClassic=true`. Use esta URl para ver los espacios de nombres existentes y habilitar, deshabilitar y eliminar diversos espacios de nombres si así lo desea.
 - **2 de abril de 2018**: el Portal de Azure clásico se ha retirado por completo, lo que significa que la administración del espacio de nombres de Access Control ya no está disponible a través de ninguna dirección URL. No podrá deshabilitar o habilitar, eliminar o enumerar los espacios de nombres de Access Control. Sin embargo, el portal de administración de Access Control será totalmente funcional y se ubicará en `https://\<namespace\>.accesscontrol.windows.net`. Todos los demás componentes de Access Control también seguirán funcionando con normalidad.
 - **7 de noviembre de 2018**: todos los componentes de Access Control se cierran permanentemente. Esto incluye el portal de administración de Access Control, el servicio de administración, STS y el motor de reglas de transformación de tokens. En este momento, las solicitudes enviadas a Access Control (ubicado en \<espacio de nombres\>.accesscontrol.windows.net) producirán un error. Debe haber migrado todos los servicios y aplicaciones existentes a otras tecnologías bastante antes de esta fecha.
 
@@ -161,7 +161,7 @@ Access Control proporciona a arquitectos y desarrolladores de aplicaciones web q
 
 - Integración profunda con Windows Identity Foundation (WIF).
 - Federación con Google, Facebook, Yahoo, Azure Active Directory y cuentas de AD FS y Microsoft.
-- Compatibilidad con los siguientes protocolos de autenticación: OAuth 2.0 Draft 13, WS-Trust y Web Services Federation (WS-Federation).
+- Compatibilidad con los protocolos de autenticación siguientes: OAuth 2.0 Draft 13, WS-Trust y Web Services Federation (WS-Federation).
 - Compatibilidad con los siguientes formatos de token: JSON Web Token (JWT), SAML 1.1, SAML 2.0 y Simple Web Token (SWT).
 - Una experiencia de detección de dominio de inicio, integrada en WIF, que permite a los usuarios seleccionar el tipo de cuenta que usan para iniciar sesión. Esta experiencia es totalmente personalizable y la proporciona la aplicación web.
 - La transformación de token que permite la variada personalización de las notificaciones que recibe la aplicación web de ACS, incluyendo:
@@ -306,7 +306,7 @@ Access Control ofrece las siguientes características y funcionalidades para los
     - Una contraseña sencilla creada para la identidad del servicio.
     - Un SWT firmado mediante una clave simétrica o un certificado X509.
     - Un token SAML que emitió un proveedor de identidad de confianza (normalmente una instancia de AD FS).
-- Compatibilidad con los siguientes formatos de token: JWT, SAML 1.1, SAML 2.0 y SWT.
+- Compatibilidad con los siguientes formatos de token: SWT, SAML 1.1, SAML 2.0 y SWT.
 - Reglas simples de transformación de token.
 
 Las identidades de servicio de Access Control se suelen usar para implementar la autenticación de servidor a servidor (S2S). 

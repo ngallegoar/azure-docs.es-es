@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: d950d41186d578702343645875dd7c565002d5a5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513012"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Conexión y autenticación con las API
@@ -28,11 +28,11 @@ Para integrar una aplicación o un servicio con Azure AD, el desarrollador debe 
 
 Azure AD admite [cinco escenarios principales de aplicación](../active-directory/develop/v2-app-types.md):
 
-* Aplicación de página única (SPA): un usuario tiene que iniciar sesión en una aplicación de página única protegida por Azure AD.
-* Explorador web a aplicación web: un usuario tiene que iniciar sesión en una aplicación web protegida por Azure AD.
-* Aplicación nativa a API web: una aplicación nativa que se ejecuta en teléfonos, tabletas o equipos tiene que autenticar a un usuario para obtener recursos de una API web protegida por Azure AD.
-* Aplicación web a API web: una aplicación web tiene que obtener recursos de una API web protegida por Azure AD.
-* Aplicación de servidor o de demonio a API web: una aplicación de demonio o de servidor sin interfaz de usuario web tiene que obtener recursos de una API web protegida por Azure AD.
+* Aplicación de una sola página (SPA): un usuario tiene que iniciar sesión en una aplicación de una sola página protegida por Azure AD.
+* Explorador web para aplicación web: un usuario tiene que iniciar sesión en una aplicación web protegida por Azure AD.
+* Aplicación nativa para API web: una aplicación nativa que se ejecuta en teléfonos, tabletas o equipos tiene que autenticar a un usuario para obtener recursos de una API web protegida por Azure AD.
+* Aplicación web para API web: una aplicación web tiene que obtener recursos de una API web protegida por Azure AD.
+* Aplicación de servidor o demonio para API web: una aplicación de demonio o de servidor sin interfaz de usuario web tiene que obtener recursos de una API web protegida por Azure AD.
 
 > [!IMPORTANT]
 > Azure Digital Twins admite las dos bibliotecas de autenticación siguientes:

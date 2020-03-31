@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6c737af85e2a7205dca6a56174dfda565da1410d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: a76852a6e3cc5ffcdfcac62ce29fe47c97af3df1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304323"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136166"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendaciones y procedimientos recomendados para Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Durante la fase de implementación, tenga en cuenta las siguientes recomendacion
 
 |  |  |
 |--|--|
-| Edición de las directivas personalizadas con la extensión de Azure AD B2C para Visual Studio Code | Descargue Visual Studio Code y esta [extensión creada por la comunidad desde Visual Studio Code Marketplace]((https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)). Aunque no es un producto oficial de Microsoft, la extensión de Azure AD B2C para Visual Studio Code incluye varias características que ayudan a facilitar el trabajo con directivas personalizadas. |
+| Edición de las directivas personalizadas con la extensión de Azure AD B2C para Visual Studio Code | Descargue Visual Studio Code y esta [extensión creada por la comunidad desde Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). Aunque no es un producto oficial de Microsoft, la extensión de Azure AD B2C para Visual Studio Code incluye varias características que ayudan a facilitar el trabajo con directivas personalizadas. |
 | Más información acerca de cómo solucionar problemas de Azure AD B2C | Obtenga información acerca de cómo [solucionar problemas de las directivas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) durante el desarrollo. Obtenga información sobre el aspecto de un flujo de autenticación normal y use herramientas para detectar anomalías y errores. Por ejemplo, use [Application Insights](troubleshoot-with-application-insights.md) para revisar los registros de salida de los recorridos del usuario. |
 | Aprovechamiento de nuestra biblioteca de patrones de directivas personalizadas probadas | Busque [ejemplos](https://github.com/azure-ad-b2c/samples) de varios recorridos del usuario de administración de identidades y acceso de clientes (CIAM) mejorados de Azure AD B2C. |
 

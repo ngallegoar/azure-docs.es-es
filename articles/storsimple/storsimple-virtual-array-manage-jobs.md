@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60302506"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para ver los trabajos de StorSimple Virtual Array
@@ -59,7 +59,7 @@ Realice los pasos siguientes para ver los detalles de cualquier trabajo.
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Errores en el trabajo cuando la máquina virtual está en pausa en el hipervisor
 Cuando un trabajo se encuentra en curso en StorSimple Virtual Array y el dispositivo (máquina virtual aprovisionada en hipervisor) se pone en pausa durante más de 15 minutos, se producirá un error en el trabajo. Esto es debido a que la hora de la matriz virtual de StorSimple no está sincronizada con la hora de Microsoft Azure. 
 
-Verá este error: "La hora del dispositivo está desfasada con respecto a la hora de Azure en más de 15 minutos. Asegúrese de que la hora del hipervisor y del dispositivo están sincronizadas con un servidor NTP. Compruebe que no haya ningún problema de conectividad. Para solucionar problemas de conectividad, ejecute pruebas de diagnóstico desde la interfaz de usuario del dispositivo virtual.
+Verá un error que indica que la hora del dispositivo está desincronizada con la hora de Microsoft Azure en más de 15 minutos. Asegúrese de que la hora del hipervisor y del dispositivo están sincronizadas con un servidor NTP. Compruebe que no haya ningún problema de conectividad. Para solucionar problemas de conectividad, ejecute pruebas de diagnóstico desde la interfaz de usuario del dispositivo virtual.
 
 Estos errores se aplicarán a los trabajos de copia de seguridad, restauración, actualización y conmutación por error. Si se aprovisiona la máquina virtual en Hyper-V, la máquina sincronizará finalmente la hora con el hipervisor. Cuando esto ocurra, puede reiniciar el trabajo.
 

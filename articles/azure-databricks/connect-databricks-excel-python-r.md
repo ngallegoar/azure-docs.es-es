@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: f7494d36cf9b16ac6c7a1287a6ff96dd2285c6e2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73601944"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Conectarse a Azure Databricks desde Excel, Python o R
 
 En este artículo, aprenderá a usar el controlador ODBC de Databricks para conectar Azure Databricks con Microsoft Excel, Python o el lenguaje R. Una vez establecida la conexión, puede acceder a los datos de Azure Databricks desde los clientes de Excel, Python o R. También puede usar los clientes para analizar con más detalle los datos. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Debe tener un área de trabajo de Azure Databricks, un clúster de Spark y datos de ejemplo asociados al clúster. Si no dispone de estos requisitos previos, complete la guía de inicio rápido de [Ejecución de un trabajo de Spark en Azure Databricks con Azure Portal](quickstart-create-databricks-workspace-portal.md).
 
@@ -54,14 +54,14 @@ Un nombre de origen de datos (DSN) contiene la información sobre un origen de d
 
     La tabla siguiente proporciona información sobre los valores que debe proporcionar en el cuadro de diálogo.
     
-    |Campo  | Valor  |
+    |Campo  | Value  |
     |---------|---------|
     |**Data Source Name**     | Proporcione un nombre para el origen de datos.        |
     |**Host(s)**     | Proporcione el valor que copió del área de trabajo de Databricks en *Nombre de host del servidor*.        |
     |**Puerto**     | Escriba *443*.        |
     |**Authentication** > **Mechanism**     | Seleccione *User name and password* (Nombre de usuario y contraseña).        |
     |**Nombre de usuario**     | Escriba *token*.        |
-    |**Password**     | Escriba el valor de token que copió del área de trabajo de Databricks. |
+    |**Contraseña**     | Escriba el valor de token que copió del área de trabajo de Databricks. |
     
     Realice los siguientes pasos adicionales en el cuadro de diálogo de configuración de DSN.
     

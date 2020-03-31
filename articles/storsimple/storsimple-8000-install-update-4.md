@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60860515"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Instalación de Update 4 en el dispositivo StorSimple
@@ -74,7 +74,7 @@ El método de revisión implica los tres pasos siguientes:
 
 Debe descargar e instalar las revisiones siguientes en el orden indicado y las carpetas sugeridas:
 
-| Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación |Carpeta de instalación|
+| Pedido de | KB | Descripción | Tipo de actualización | Hora de instalación |Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4011839 |Actualización de software |Normal <br></br>Sin interrupciones |~ 25 min |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |Actualizaciones de firmware y controlador LSI <br> Actualización de firmware de USM (versión 3.38) |Normal <br></br>Sin interrupciones |~ 3 horas <br> (incluye 2A. + 2B. + 2C).|SecondOrderUpdate|
@@ -83,7 +83,7 @@ Debe descargar e instalar las revisiones siguientes en el orden indicado y las c
 
 Es posible que también necesite instalar actualizaciones de firmware de disco en la parte superior de todas las actualizaciones que se muestran en las tablas anteriores. Puede comprobar si las necesita actualizaciones de firmware de disco ejecutando el cmdlet `Get-HcsFirmwareVersion` . Si ejecuta estas versiones de firmware: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, no necesita instalar estas actualizaciones.
 
-| Orden | KB | DESCRIPCIÓN | Tipo de actualización | Hora de instalación | Carpeta de instalación|
+| Pedido de | KB | Descripción | Tipo de actualización | Hora de instalación | Carpeta de instalación|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB3121899 |Firmware del disco |Mantenimiento <br></br>Perjudicial |~30 min | ThirdOrderUpdate |
 

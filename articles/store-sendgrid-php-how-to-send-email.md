@@ -16,10 +16,10 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67870911"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Uso del servicio de correo electrónico SendGrid desde PHP
@@ -37,7 +37,7 @@ SendGrid es un [servicio de correo electrónico basado en la nube] que ofrece un
 * Reenvío de consultas de los clientes
 * Envío de notificaciones de correo electrónico desde su aplicación
 
-Para más información, consulte [https://sendgrid.com][https://sendgrid.com].
+Para más información, vea [https://sendgrid.com][https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Creación de una cuenta de SendGrid
 
@@ -47,7 +47,7 @@ Para más información, consulte [https://sendgrid.com][https://sendgrid.com].
 
 El uso de SendGrid en una aplicación PHP de Azure no requiere una configuración ni una codificación especiales. Puesto que SendGrid es un servicio, se accede a él exactamente igual desde una aplicación en la nube que desde una aplicación local.
 
-## <a name="how-to-send-an-email"></a>Procedimientos para: Enviar un correo electrónico
+## <a name="how-to-send-an-email"></a>Envío de un correo electrónico
 
 Puede enviar correo electrónico usando SMTP o la API web que proporciona SendGrid.
 
@@ -162,7 +162,7 @@ Use la [función curl][curl function] de PHP para enviar correo electrónico usa
 
 La API web de SendGrid es muy similar a la API de REST, aunque no es realmente una API de RESTful porque, en la mayoría de las llamadas, se pueden usar los verbos GET y POST indistintamente.
 
-## <a name="how-to-add-an-attachment"></a>Procedimientos para: Agregar datos adjuntos
+## <a name="how-to-add-an-attachment"></a>Adición de un correo electrónico
 
 ### <a name="smtp-api"></a>API SMTP
 
@@ -297,7 +297,7 @@ El envío de datos adjuntos mediante la API web es muy similar al envío de un m
  print_r($response);
 ```
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Procedimientos para: Uso de filtros para habilitar pies de página, seguimiento y análisis
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Uso de filtros para habilitar pies de página, seguimiento y análisis
 
 SendGrid proporciona funcionalidad de correo electrónico adicional mediante el uso de *filtros*. Estas configuraciones se pueden agregar a un mensaje de correo electrónico para permitir una funcionalidad específica, como habilitar el seguimiento de clics, el análisis de Google, el seguimiento de las suscripciones, etc.
 

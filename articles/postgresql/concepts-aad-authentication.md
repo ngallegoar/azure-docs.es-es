@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: ec853657d6dd1f3b019d8a414cfa28edc1083b29
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74769921"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Uso de Azure Active Directory para la autenticación con PostgreSQL
@@ -43,7 +43,7 @@ Para configurar y usar la autenticación de Azure Active Directory, siga el proc
 > [!NOTE]
 > Para aprender a crear y rellenar Azure AD y, posteriormente, configurar Azure AD con Azure Database for PostgreSQL, consulte [Configure and sign in with Azure AD for Azure Database for PostgreSQL](howto-configure-sign-in-aad-authentication.md) (Configuración e inicio de sesión con Azure AD para Azure Database for PostgreSQL).
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 En el siguiente diagrama de alto nivel se resume cómo funciona la autenticación de Azure AD con Azure Database for PostgreSQL. Las flechas indican las rutas de comunicación.
 

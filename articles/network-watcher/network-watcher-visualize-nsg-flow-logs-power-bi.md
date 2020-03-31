@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 955e13b88037aa42b59707698549b1c980720990
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840611"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualización de registros de flujo del grupo de seguridad de red con Power BI
@@ -44,7 +44,7 @@ La plantilla que se proporciona es editable, por lo que puede modificarla agrega
 
 ## <a name="setup"></a>Configurar
 
-Antes de empezar, tiene que tener el registro de flujo de grupo de seguridad de red habilitado en uno o más grupos de seguridad de red de su cuenta. Para obtener instrucciones sobre cómo habilitar los registros de flujo de grupo de seguridad de red, consulte el artículo siguiente: [Introducción al registro de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
+Antes de empezar, tiene que tener el registro de flujo de grupo de seguridad de red habilitado en uno o más grupos de seguridad de red de su cuenta. Para ver instrucciones para habilitar los registros de flujo de grupo de seguridad de red, consulte el artículo siguiente: [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md) (Introducción al registro de flujo para grupos de seguridad de red).
 
 También tiene que tener el cliente de Power BI Desktop instalado en su equipo y suficiente espacio disponible en el mismo para descargar y cargar los datos del registro que existen en la cuenta de almacenamiento.
 

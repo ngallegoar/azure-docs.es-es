@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c80ab4acd745717e2e68ae7d9dc818594ad1ce9e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087088"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501469"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 
@@ -155,7 +155,7 @@ Los pasos siguientes le ayudan a que sus soluciones sean altamente escalables y 
 
 1. Si tiene mucho rendimiento aprovisionado excesivo a través de contenedores y bases de datos, debe revisar las RU aprovisionadas frente a las RU consumidas y ajustar las cargas de trabajo.  
 
-2. Un método para calcular la cantidad de rendimiento reservado que necesita la aplicación es registrar la carga de unidades de solicitud (RU) asociadas a la ejecución de las operaciones típicas, frente a un contenedor o base de datos representativo de Azure Cosmos que usa la aplicación y, después, calcular el número de operaciones que prevé realizar cada segundo. Asegúrese de medir e incluir las consultas típicas, así como su uso. Para información sobre cómo calcular los costos de RU de consultas mediante programación o con el portal, consulte [Optimización del costo de las consultas](online-backup-and-restore.md). 
+2. Un método para calcular la cantidad de rendimiento reservado que necesita la aplicación es registrar la carga de unidades de solicitud (RU) asociadas a la ejecución de las operaciones típicas, frente a un contenedor o base de datos representativo de Azure Cosmos que usa la aplicación y, después, calcular el número de operaciones que prevé realizar cada segundo. Asegúrese de medir e incluir las consultas típicas, así como su uso. Para información sobre cómo calcular los costos de RU de consultas mediante programación o con el portal, consulte [Optimización del costo de las consultas](../synapse-analytics/sql-data-warehouse/backup-and-restore.md). 
 
 3. Otra forma de obtener las operaciones y sus costos en RU es habilitar los registros de Azure Monitor, lo que proporcionará el desglose de operación/duración y el cargo de solicitud. Azure Cosmos DB proporciona el cargo de solicitud para cada operación, por lo que cada cargo de operación se puede almacenar desde la respuesta y luego usarse para el análisis. 
 

@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: b67202da7293ef55cfe3390ca676f7944da80fba
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69614337"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funciones definidas por el usuario (UDF) en Azure Cosmos DB
 
-La API de SQL brinda compatibilidad con funciones definidas por el usuario (UDF). Con las funciones definidas por el usuario escalares, puede pasar ningún argumento o muchos, y devolver un resultado con un único argumento. La API comprueba que cada argumento sea un valor JSON válido.  
+La API de SQL proporciona compatibilidad con las funciones definidas por el usuario (UDF). Con las funciones definidas por el usuario escalares, puede pasar ningún argumento o muchos, y devolver un resultado con un único argumento. La API comprueba que cada argumento sea un valor JSON válido.  
 
 La API amplía la sintaxis de SQL para admitir una lógica de aplicación personalizada con funciones definidas por el usuario. Puede registrar las funciones definidas por el usuario con la API de SQL y hacer referencia a ellas en las consultas SQL. De hecho, dichas funciones están exquisitamente diseñadas para que se las pueda llamar desde consultas. Como consecuencia, las funciones definidas por el usuario no tienen acceso al objeto de contexto, como lo tienen otros tipos de JavaScript, por ejemplo, los procedimientos almacenados y desencadenadores. Las consultas son de solo lectura y pueden ejecutarse en réplicas principales o secundarias. Las funciones definidas por el usuario, a diferencia de otros tipos de JavaScript, están diseñadas para ejecutarse en réplicas secundarias.
 
@@ -37,7 +37,7 @@ En el ejemplo siguiente se registra una función definida por el usuario en un c
            regexMatchUdf).Result;  
 ```
 
-Ahora, use esta UDF en la proyección de una consulta. Debe calificar las funciones definidas por el usuario con el prefijo que distingue mayúsculas de minúsculas `udf.` al llamarlas desde las consultas.
+Ahora, use esta función definida por el usuario en la proyección de una consulta. Debe calificar las funciones definidas por el usuario con el prefijo que distingue mayúsculas de minúsculas `udf.` al llamarlas desde las consultas.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
@@ -124,7 +124,7 @@ Los resultados son:
 
 Si las propiedades a las que hacen referencia los parámetros de la función no están disponibles en el valor JSON, el parámetro se considera indefinido y la invocación de la función se omite. De forma similar, si el resultado de la función definida por el usuario es indefinido, no se incluye en el resultado.
 
-Como se muestra en los ejemplos anteriores, las funciones definidas por el usuario integran la eficacia del lenguaje JavaScript con la API de SQL. Las funciones definidas por el usuario proporcionan una interfaz programable enriquecida para lograr una lógica condicional de procedimientos compleja con la ayuda de funcionalidades de tiempo de ejecución de JavaScript integradas. La API de SQL proporciona a las funciones definidas por el usuario los argumentos para cada elemento de origen en la fase actual de procesamiento de las cláusulas WHERE o SELECT. El resultado se incorpora a la perfección en la canalización de la ejecución general. En resumen, las UDF son excelentes herramientas para hacer lógica de negocios compleja como parte de las consultas.
+Como se muestra en los ejemplos anteriores, las funciones definidas por el usuario integran la eficacia del lenguaje JavaScript con la API de SQL. Las funciones definidas por el usuario proporcionan una interfaz programable enriquecida para lograr una lógica condicional de procedimientos compleja con la ayuda de funcionalidades de tiempo de ejecución de JavaScript integradas. La API de SQL proporciona a las funciones definidas por el usuario los argumentos para cada elemento de origen en la fase actual de procesamiento de las cláusulas WHERE o SELECT. El resultado se incorpora a la perfección en la canalización de la ejecución general. En resumen, las funciones definidas por el usuario son excelentes herramientas para lograr una lógica de negocios compleja como parte de las consultas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

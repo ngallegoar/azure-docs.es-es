@@ -1,20 +1,18 @@
 ---
 title: Bibliotecas de proceso de negocio | Azure Marketplace
 description: Este artículo de CPP está en desuso, vinculado al artículo de PC. Anteriormente era "Explicación de las metodologías y las bibliotecas de proceso de negocio".
-services: Azure, Marketplace, Cloud Partner Portal,
-author: ChJenk
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: f23bc3374b50271398979271bd43ab7533f5214b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 60c83f037f95f1a1ec59075708caacdce4e5be81
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819765"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280565"
 ---
 # <a name="business-process-libraries"></a>Bibliotecas de proceso de negocio
 

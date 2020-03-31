@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: diberry
 ms.openlocfilehash: 9a8e8cb331dd11eebaddbcbf8f603c1148415aef
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79117372"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Cambios de punto de conexión para predicciones para la versión 3
@@ -226,7 +226,7 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 
 En la versión 2, la matriz `entities` devuelve todas las entidades previstas, cuyo el nombre de entidad es el identificador único. En la versión 3, si la entidad usa roles y la predicción es para un rol de entidad, el identificador principal es el nombre del rol. Esto es posible porque los nombres de rol de entidad deben ser únicos en toda la aplicación, incluidos otros nombres del modelo (entidad, intención).
 
-En el siguiente ejemplo: considere la posibilidad de que una expresión incluya el texto `Yellow Bird Lane`. Este texto se prevé como el rol `Destination` de una entidad de `Location` personalizada.
+En el siguiente ejemplo: considere la posibilidad de que una expresión incluya el texto `Yellow Bird Lane`. Este texto se prevé como el rol `Location` de una entidad de `Destination` personalizada.
 
 |Texto de expresión|Nombre de entidad|Nombre de rol|
 |--|--|--|

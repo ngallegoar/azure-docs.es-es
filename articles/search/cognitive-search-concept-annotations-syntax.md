@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113870"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Referencia a las anotaciones en un conjunto de aptitudes de Azure Cognitive Search
@@ -25,7 +25,7 @@ Los ejemplos de este artículo se basan en el campo de *contenido* que crearon a
 
 Antes de revisar la sintaxis, repasemos algunos conceptos importantes para comprender mejor los ejemplos que se proporcionan más adelante en este artículo.
 
-| Término | DESCRIPCIÓN |
+| Término | Descripción |
 |------|-------------|
 | Documento enriquecido | Un documento enriquecido es una estructura interna que la canalización crea y usa para guardar todas las anotaciones relacionadas con un documento. Imagine un documento enriquecido como un árbol de anotaciones. En general, una anotación creada a partir de una anotación anterior se convierte en una anotación secundaria.<p/>Los documentos enriquecidos solo existen durante la ejecución del conjunto de aptitudes. Una vez que el contenido se asigna al índice de búsqueda, ya no se necesita el documento enriquecido. Aunque no interactúa directamente con documentos enriquecidos, resulta útil tener un modelo mental de los documentos al crear un conjunto de aptitudes. |
 | Contexto de enriquecimiento | Es el contexto en el que tiene lugar el enriquecimiento, teniendo en cuenta qué elemento se va a enriquecer. De forma predeterminada, el contexto de enriquecimiento se establece en el nivel `"/document"`, dentro del alcance de los documentos individuales. Cuando se ejecuta una aptitud, los resultados de la misma se convierten en [propiedades del contexto definido](#example-2).|
@@ -59,7 +59,7 @@ Debido a que el contexto predeterminado es `"/document"`, ahora se puede hacer r
 
 <a name="example-2"></a>
 
-## <a name="example-2-reference-an-array-within-a-document"></a>Ejemplo 2: referencia a una matriz dentro de un documento
+## <a name="example-2-reference-an-array-within-a-document"></a>Ejemplo 2: hacer referencia a una matriz dentro de un documento
 
 En este ejemplo, que se basa en el anterior, le mostramos cómo invocar varias veces un paso de enriquecimiento en el mismo documento. Suponga que en el ejemplo anterior generó una matriz de cadenas con los nombres de 10 personas de un solo documento. El próximo paso lógico es crear un segundo enriquecimiento que extraiga el apellido de un nombre completo. Como hay 10 nombres, le interesa realizar este paso 10 veces en el documento; esto es, una vez por cada persona. 
 
@@ -91,7 +91,7 @@ Cuando las anotaciones son matrices o colecciones de cadenas, tal vez quiera tra
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Ejemplo 3: referencia a miembros de una matriz
+## <a name="example-3-reference-members-within-an-array"></a>Ejemplo 3: miembros de referencia de una matriz
 
 A veces es necesario agrupar todas las anotaciones de un tipo en particular para pasarlas a una aptitud en particular. Pongamos como ejemplo una habilidad hipotética personalizada que identifica el apellido más común de todos los apellidos extraídos en el Ejemplo 2. Para proporcionar solo los apellidos a esa habilidad personalizada, debe especificar el contexto como `"/document"` y la entrada como `"/document/people/*/lastname"`.
 
@@ -120,8 +120,8 @@ Tenga en cuenta que la cardinalidad de `"/document/people/*/lastname"` es mayor 
 
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 + [Cómo integrar una aptitud personalizada en una canalización de enriquecimiento](cognitive-search-custom-skill-interface.md)
-+ [Cómo definir un conjunto de aptitudes](cognitive-search-defining-skillset.md)
++ [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Crear un conjunto de aptitudes (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Asignar campos enriquecidos a un índice](cognitive-search-output-field-mapping.md)

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: 1c24782285ac9b06d5499351eebe1693ade07297
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78162951"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configuración del firewall de IP en Azure Cosmos DB
@@ -21,7 +21,7 @@ Puede proteger los datos almacenados en su cuenta de Azure Cosmos DB mediante el
 * Mediante declaración al usar una plantilla de Azure Resource Manager
 * Mediante programación a través de la CLI de Azure o Azure PowerShell al actualizar la propiedad **ipRangeFilter**
 
-## <a id="configure-ip-policy"></a> Configuración de un firewall de dirección IP mediante Azure Portal
+## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configuración de un firewall de dirección IP mediante Azure Portal
 
 Para establecer la directiva de control de acceso de IP en Azure Portal, vaya a la página de la cuenta de Azure Cosmos DB y seleccione **Firewall y redes virtuales** en el menú de navegación. Cambie el valor **Permitir acceso desde** por **Redes seleccionadas** y, a continuación, seleccione **Guardar**.
 
@@ -92,7 +92,7 @@ Al agregar instancias de máquina virtual al grupo, reciben automáticamente acc
 
 Cuando se obtiene acceso a la cuenta de Azure Cosmos DB desde un equipo de Internet, la dirección IP del cliente o el intervalo de direcciones IP de la máquina se debe agregar a la lista de direcciones IP permitida para dicha cuenta.
 
-## <a id="configure-ip-firewall-arm"></a>Configuración de un firewall de dirección IP mediante una plantilla de Resource Manager
+## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Configuración de un firewall de dirección IP mediante una plantilla de Resource Manager
 
 Para configurar el control de acceso a su cuenta de Azure Cosmos DB, asegúrese de que la plantilla de Resource Manager especifica el atributo **ipRangeFilter** con una lista de intervalos IP permitidos. Si configura el Firewall de IP en una cuenta de Cosmos ya implementada, asegúrese de que la matriz `locations` coincida con la que está implementada actualmente. No se puede modificar simultáneamente la matriz `locations` y otras propiedades. Para más información y ejemplos sobre las plantillas de Azure Resource Manager para Azure Cosmos DB, consulte [Plantillas de Azure Resource Manager para Azure Cosmos DB](resource-manager-samples.md).
 
@@ -113,7 +113,7 @@ Para configurar el control de acceso a su cuenta de Azure Cosmos DB, asegúrese 
 }
 ```
 
-## <a id="configure-ip-firewall-cli"></a>Configuración de una directiva de control de acceso IP con la CLI de Azure
+## <a name="configure-an-ip-access-control-policy-by-using-the-azure-cli"></a><a id="configure-ip-firewall-cli"></a>Configuración de una directiva de control de acceso IP con la CLI de Azure
 
 El comando siguiente muestra cómo crear una cuenta de Azure Cosmos DB con control de acceso por IP:
 
@@ -132,7 +132,7 @@ az cosmosdb create \
     --ip-range-filter $ipRangeFilter
 ```
 
-## <a id="configure-ip-firewall-ps"></a>Configuración de una directiva de control de acceso IP mediante PowerShell
+## <a name="configure-an-ip-access-control-policy-by-using-powershell"></a><a id="configure-ip-firewall-ps"></a>Configuración de una directiva de control de acceso IP mediante PowerShell
 
 En el script siguiente se muestra cómo crear una cuenta de Azure Cosmos DB con control de acceso IP:
 
@@ -159,7 +159,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-## <a id="troubleshoot-ip-firewall"></a>Solución de problemas con una directiva de control de acceso por IP
+## <a name="troubleshoot-issues-with-an-ip-access-control-policy"></a><a id="troubleshoot-ip-firewall"></a>Solución de problemas con una directiva de control de acceso por IP
 
 Puede solucionar problemas con una directiva de control de acceso por IP mediante las siguientes opciones:
 
