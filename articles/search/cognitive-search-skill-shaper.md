@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 384b79037bb30656934c5e4b596dac2b776593b0
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75754119"
 ---
 # <a name="shaper-cognitive-skill"></a>Habilidad cognitiva Conformador
@@ -109,7 +109,7 @@ Un documento JSON entrante que proporcionara una entrada útil para esta aptitud
 
 ### <a name="skill-output"></a>Salida de aptitud
 
-La aptitud *Conformador* genera un nuevo elemento llamado **analyzedText** con los elementos combinados de *text* y *sentiment*. Esta salida se ajusta al esquema de índice. Se importará e indexará en un índice de Azure Cognitive Search.
+La aptitud **Conformador** genera un nuevo elemento llamado *analyzedText* con los elementos combinados de *text* y *sentiment*. Esta salida se ajusta al esquema de índice. Se importará e indexará en un índice de Azure Cognitive Search.
 
 ```json
 {

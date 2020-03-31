@@ -15,10 +15,10 @@ ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
 ms.openlocfilehash: 3abc09f8c82442e3b24a9edf6ef4fb42f19dfde8
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74806956"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imágenes de máquinas virtuales de Oracle y su implementación en Microsoft Azure

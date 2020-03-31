@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66497276"
 ---
 # <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Ingesta de datos de Kafka en Azure Data Explorer
  
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer ofrece ingesta (carga de datos) de Kafka. Kafka es una plataforma de streaming distribuida que permite la creación de canalizaciones de streaming de datos en tiempo real que mueven los datos de forma confiable entre aplicaciones o sistemas.
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
  
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar. 
  
@@ -36,14 +36,14 @@ Kafka Connect es una herramienta para realizar streaming de datos de forma escal
 
 Kafka puede cargar un archivo `.jar` como complemento que funcionará como un conector personalizado. Para generar dicho archivo `.jar`, se clonará el código localmente y se compilará con Maven. 
 
-#### <a name="clone"></a>Clon
+#### <a name="clone"></a>Clonar
 
 ```bash
 git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Compilación
+#### <a name="build"></a>Build
 
 Compile localmente con Maven para generar un archivo `.jar` junto con dependencias.
 
@@ -64,7 +64,7 @@ Cargue el complemento en Kafka. Se puede encontrar un ejemplo de implementación
 
 Se puede encontrar documentación detallada sobre los conectores de Kafka y cómo implementarlos en [Kafka Connect](https://kafka.apache.org/documentation/#connect) 
 
-### <a name="example-configuration"></a>Configuración de ejemplo 
+### <a name="example-configuration"></a>Ejemplo de configuración 
  
 ```config
 name=KustoSinkConnector 
@@ -112,7 +112,7 @@ Cree una tabla en ADX a la que Kafka pueda enviar datos. Cree la tabla en el cl�
 
 Ahora que el clúster de Kafka está conectado a ADX, use la [aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que descargó para generar datos.
 
-### <a name="clone"></a>Clon
+### <a name="clone"></a>Clonar
 
 Clone la aplicación de ejemplo localmente:
 
@@ -121,7 +121,7 @@ git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
 
-### <a name="run-the-app"></a>Ejecución de la aplicación
+### <a name="run-the-app"></a>Ejecución la aplicación
 
 1. Abra la aplicación de ejemplo en Visual Studio.
 

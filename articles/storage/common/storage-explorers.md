@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.openlocfilehash: b02a08b7e8d8b867df820868b72a0ce14b6afa40
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71670947"
 ---
 # <a name="microsoft-client-tools-for-working-with-azure-storage"></a>Herramientas de cliente de Microsoft para trabajar con Azure Storage
@@ -24,6 +24,6 @@ Microsoft proporciona varias herramientas de interfaz gráfica de usuario (GUI) 
 |-------------------------------------------|---------------------|------------|-----------|-------------|--------|--------|-------|
 | [Azure Portal](https://portal.azure.com)                    | Web                 | Sí          | Sí         | Sí           | Sí      | Sí      | Sí     |
 | [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/)          | Windows, OSX        | Sí          | Sí         | Sí           | Sí      | Sí      | Sí     |
-| [Microsoft Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | Windows             | Sí          | Sí         | Sí           | Sí      | Sí      | Sin      |
+| [Microsoft Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | Windows             | Sí          | Sí         | Sí           | Sí      | Sí      | No      |
 
 También hay una serie de herramientas de terceros disponibles para trabajar con datos de Azure Storage.

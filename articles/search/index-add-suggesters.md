@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: a312068d5c8c574e7b069263cf37e3b855810e4b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72790101"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-cognitive-search"></a>Incorporación de proveedores de sugerencias a un índice de escritura automática en Azure Cognitive Search
@@ -105,7 +105,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 ### <a name="property-reference"></a>Referencia de propiedades
 
-|Propiedad      |DESCRIPCIÓN      |
+|Propiedad      |Descripción      |
 |--------------|-----------------|
 |`name`        |El nombre del proveedor de sugerencias.|
 |`searchMode`  |La estrategia que se usa para buscar las frases candidatas. El único modo que se admite actualmente es `analyzingInfixMatching`, que establece una correspondencia flexible de frases al principio o en medio de las oraciones.|

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
 ms.openlocfilehash: ef781653332984a7fb6d71ef91d53cbf77e6c91c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72437954"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
@@ -177,7 +177,7 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 
 ## <a name="details"></a>Detalles
 
-| Nombre de propiedad | type | DESCRIPCIÓN |
+| Nombre de propiedad | Tipo | Descripción |
 | --- | --- | --- |
 | settings.wmfVersion |string |Especifica la versión de Windows Management Framework (WMF) que debe instalarse en la máquina virtual. Si se establece esta propiedad en **latest**, se instala la versión más reciente de WMF. Actualmente, los únicos valores posibles para esta propiedad son **4.0**, **5.0**, **5.1** y **más recientes**. Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es **latest**. |
 | settings.configuration.url |string |Especifica la ubicación de la dirección URL desde la que descargar el archivo .zip de la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, establezca la propiedad **protectedSettings.configurationUrlSasToken** en el valor de su token de SAS. Esta propiedad es necesaria si se definen **settings.configuration.script** o **settings.configuration.function**. Si no se especifica ningún valor para estas propiedades, la extensión llamará al script de configuración predeterminada para establecer los metadatos del administrador de configuración de ubicación (LCM) y se deben proporcionar los argumentos. |
@@ -196,7 +196,7 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 Para más información sobre los valores siguientes, consulte [Configuración básica del administración de configuración local](/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings).
 Puede usar el script de configuración predeterminada de la extensión DSC para configurar solo las propiedades de LCM que aparecen en la tabla siguiente.
 
-| Nombre de propiedad | type | DESCRIPCIÓN |
+| Nombre de propiedad | Tipo | Descripción |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Propiedad obligatoria. Especifica la clave que se usa para que un nodo se registre en el servicio de Azure Automation, como la contraseña de un objeto de credencial de PowerShell. Este valor se puede detectar automáticamente a través del método **listkeys** con la cuenta de Automation.  Observe el [ejemplo](#example-using-referenced-azure-automation-registration-values). |
 | settings.configurationArguments.RegistrationUrl |string |Propiedad obligatoria. Especifique la dirección URL del punto de conexión de Automation donde el nodo intenta registrarse. Este valor se puede detectar automáticamente a través del método **reference** con la cuenta de Automation. |
@@ -345,7 +345,7 @@ Así se adapta el formato anterior al actual:
 | protectedSettings.configurationUrlSasToken |settings.SasToken |
 | protectedSettings.configurationDataUrlSasToken |Token de SAS de protectedSettings.DataBlobUri |
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Esto son algunos de los errores que pueden surgir y cómo se pueden corregir.
 
@@ -356,18 +356,18 @@ The only possible values are '', 'Enable', and 'Disable'" (Privacy.dataCollectio
 "WmfVersion is '{0}'. ("WmfVersion es "{0}")
 Los únicos valores posibles son: and "latest" (WmfVersion es '{0}'. Los únicos valores posibles son... y "latest").
 
-**Problema**: se proporcionó un valor no permitido.
+**Problema**: Se proporcionó un valor no permitido.
 
-**Solución**: cambie el valor no válido por un valor válido.
+**Solución**: Cambie el valor no válido a un valor válido.
 Para más información, consulte la tabla que aparece en [Detalles](#details).
 
 ### <a name="invalid-url"></a>Dirección URL no válida
 
 "ConfigurationData.url is '{0}'. ("ConfigurationData.url es "{0}") This is not a valid URL" "DataBlobUri is '{0}'. (Esta dirección URL no es válida" "DataBlobUri es "{0}") This is not a valid URL" "Configuration.url is '{0}'. (Esta dirección URL no es válida" "Configuration.url es "{0}") This is not a valid URL" This is not a valid URL" (Configuration.url es '{0}'. No es una dirección URL válida)
 
-**Problema**: una URL proporcionada no es válida.
+**Problema**: Se proporcionó una dirección URL no válida.
 
-**Solución**: revise todas las direcciones URL proporcionadas.
+**Solución**: Revise todas las direcciones URL proporcionadas.
 Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas a las que la extensión pueda acceder en la máquina remota.
 
 ### <a name="invalid-registrationkey-type"></a>Tipo RegistrationKey no válido
@@ -376,7 +376,7 @@ Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas
 
 **Problema**: el valor de *RegistrationKey* en protectedSettings.configurationArguments no se puede proporcionar como cualquier tipo que no sea PSCredential.
 
-**Solución**: cambie la entrada de protectedSettings.configurationArguments de RegistrationKey a un tipo PSCredential con el formato siguiente:
+**Solución**: cambie la entrada de protectedSettings.configurationArguments para RegistrationKey a un tipo PSCredential con el formato siguiente:
 
 ```json
 "configurationArguments": {
@@ -400,9 +400,9 @@ Siga el formato proporcionado en los ejemplos anteriores. Esté atento a las com
 
 "Found duplicate arguments '{0}' in both public and protected configurationArguments" (Se encontraron argumentos duplicados "{0}" en propiedades configurationArguments públicas y privadas)
 
-**Problema**: la propiedad *ConfigurationArguments* en la configuración pública y la propiedad *ConfigurationArguments* en la configuración protegida contienen propiedades con el mismo nombre.
+**Problema**: La propiedad *ConfigurationArguments* en la configuración pública y la propiedad *ConfigurationArguments* en la configuración protegida contienen propiedades con el mismo nombre.
 
-**Solución**: quite una de las propiedades duplicadas.
+**Solución**: Quite una de las propiedades duplicadas.
 
 ### <a name="missing-properties"></a>Propiedades que faltan
 
@@ -418,7 +418,7 @@ Siga el formato proporcionado en los ejemplos anteriores. Esté atento a las com
 
 "protectedSettings.ConfigurationDataUrlSasToken requiere que se especifique settings.configurationData.url"
 
-**Problema**: una propiedad definida requiere otra propiedad que falta.
+**Problema**: Una propiedad definida requiere otra propiedad que falta.
 
 **Soluciones**:
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
 ms.openlocfilehash: a6c7639cb4988eb13dfaa1c151085cda6e53b5d3
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68611359"
 ---
 # <a name="remediate-non-compliant-dsc-servers"></a>Corrección de servidores DSC no compatibles

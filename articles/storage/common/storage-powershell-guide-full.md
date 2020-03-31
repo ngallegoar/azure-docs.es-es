@@ -9,10 +9,10 @@ ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: d2404ee58f5f44fbe5625f267e6d1c504d0bd237
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465096"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Azure Storage
@@ -161,7 +161,7 @@ Para regenerar la otra clave, use `key2` como el nombre de clave en lugar de `ke
 Regenere una de las claves y después vuelva a recuperarla para ver el nuevo valor.
 
 > [!NOTE]
-> Debe realizar un planeamiento minucioso antes de regenerar la clave para una cuenta de almacenamiento de producción. La regeneración de una o ambas claves invalidará el acceso para alguna aplicación que use la clave regenerada. Para obtener más información, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](storage-account-keys-manage.md).
+> Debe realizar un planeamiento minucioso antes de regenerar la clave para una cuenta de almacenamiento de producción. La regeneración de una o ambas claves invalidará el acceso para alguna aplicación que use la clave regenerada. Para más información, consulte [Administración de las claves de acceso de la cuenta de almacenamiento](storage-account-keys-manage.md).
 
 
 ### <a name="delete-a-storage-account"></a>Eliminar una cuenta de almacenamiento

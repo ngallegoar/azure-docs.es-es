@@ -9,10 +9,10 @@ ms.date: 11/06/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: d32beb2d799a60cb9c5be061c39e4ec834da8dcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66814701"
 ---
 Esta característica se encuentra en su versión preliminar. Para usarlo, debe instalar una extensión o módulo de la versión preliminar.
@@ -43,12 +43,12 @@ En [CloudShell](/azure/cloud-shell/quickstart-powershell):
 Para una instalación local:
 
 1. Abra una consola de PowerShell como administrador
-1. Instalación del módulo `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+1. Instale el módulo `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
 
 Si el parámetro `-AllowPrerelease` no está disponible, siga estos pasos:
 
-1. Ejecute `Install-Module PowerShellGet -Force`
-1. Ejecute `Update-Module PowerShellGet`
+1. Ejecute `Install-Module PowerShellGet -Force`:
+1. Ejecute `Update-Module PowerShellGet`:
 1. Cierre la consola de PowerShell.
 1. Reinicie PowerShell como administrador.
 1. Instale el módulo `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.

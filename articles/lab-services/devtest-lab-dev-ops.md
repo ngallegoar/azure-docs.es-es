@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: spelluru
 ms.openlocfilehash: 62c44bfea28d47d7c32aa7ef440a40d45c314683
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67081613"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Integración de Azure DevTest Labs y DevOps
@@ -42,7 +42,7 @@ Un laboratorio se debe centrar en un equipo que trabaje en un área de caracter�
 ## <a name="cicd-pipeline"></a>Canalización de integración y entrega continuas 
 La canalización de CI/CD es uno de los componentes fundamentales de DevOps que mueve código de una solicitud de incorporación de cambios del desarrollador, lo integra con el código existente y lo implementa en el ecosistema de producción. No es necesario que todos los recursos estén dentro de un laboratorio. Por ejemplo, se podría configurar un host Jenkins fuera de laboratorio como un recurso más persistente. Estos son algunos ejemplos específicos de la integración de laboratorios en la canalización. 
 
-### <a name="build"></a>Compilación 
+### <a name="build"></a>Build 
 La canalización de compilación se centra en crear un paquete de componentes que se probarán de forma conjunta para su entrega a la canalización de versión. Los laboratorios pueden formar parte de la canalización de compilación como ubicación para los agentes de compilación y otros recursos de soporte técnico. La capacidad de crear la infraestructura de forma dinámica permite tener un mayor control. Con la capacidad de tener varios entornos en un laboratorio, cada compilación se puede ejecutar de forma asincrónica mientras se usa el identificador de compilación como parte de la información del entorno para identificar de forma exclusiva los recursos necesarios para la compilación específica.   
 
 Para los agentes de compilación, la capacidad del laboratorio de restringir el acceso aumenta la seguridad y reduce la posibilidad de daños accidentales.  

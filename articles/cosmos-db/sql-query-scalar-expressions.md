@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
 ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74870741"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Expresiones escalares en consultas SQL de Azure Cosmos DB
@@ -97,7 +97,7 @@ La [cláusula SELECT](sql-query-select.md) admite expresiones escalares. Una exp
   
    Representa un valor del nombre de parámetro especificado. Los nombres de parámetro deben tener un único \@ como primer carácter.  
   
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
   
   Todos los argumentos deben estar definidos al llamar a una función escalar incorporada o definida por el usuario. Si alguno de los argumentos no está definido, no se llamará a la función y el resultado será undefined.  
   

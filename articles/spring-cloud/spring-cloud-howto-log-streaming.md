@@ -7,16 +7,16 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.openlocfilehash: fc208a3542528fb4554a365a02e13c2da3055cf2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78192207"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Streaming de registros de aplicaciones de Azure Spring Cloud en tiempo real
 Azure Spring Cloud permite el streaming de registros en la CLI de Azure para obtener registros de la consola de la aplicación en tiempo real para solucionar problemas. También puede realizar el [análisis de registros y métricas con la configuración de diagnóstico](./diagnostic-services.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Instale la [extensión de la CLI de Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) para Spring Cloud, la versión mínima es 0.2.0.
 * Una instancia de **Azure Spring Cloud** con una aplicación en ejecución, por ejemplo [Spring Cloud App](./spring-cloud-quickstart-launch-app-cli.md).

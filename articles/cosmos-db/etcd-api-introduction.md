@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 6c7fcb1429438ee024cb226b63cfcdcab05ed9f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acd87fac5ec2edc40d27d98f073e13c0acae8d8a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205804"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498600"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Introducción a la API de etcd en Azure Cosmos DB (versión preliminar)
 
@@ -50,7 +50,7 @@ A medida que crece el clúster de Kubernetes, la cuenta de la API de etcd en Azu
 
 ### <a name="security--enterprise-readiness"></a>Seguridad y preparación para empresas
 
-Cuando los datos de etcd se almacenan en Azure Cosmos DB, los desarrolladores de Kubernetes obtienen automáticamente [cifrado integrado en reposo](database-encryption-at-rest.md), [certificaciones y cumplimiento normativo](compliance.md) y [funcionalidades de copia de seguridad y restauración](online-backup-and-restore.md) compatibles con Azure Cosmos DB. 
+Cuando los datos de etcd se almacenan en Azure Cosmos DB, los desarrolladores de Kubernetes obtienen automáticamente [cifrado integrado en reposo](database-encryption-at-rest.md), [certificaciones y cumplimiento normativo](compliance.md) y [funcionalidades de copia de seguridad y restauración](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) compatibles con Azure Cosmos DB. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

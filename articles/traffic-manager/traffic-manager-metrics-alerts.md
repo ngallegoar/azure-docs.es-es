@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: rohink
 ms.openlocfilehash: 521e6ac605d187c0f95545611a17a86cfda6e1dd
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938583"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métricas y alertas de Traffic Manager
@@ -56,7 +56,7 @@ Esta métrica puede mostrarse como valor agregado que representa el estado de to
 
 ![Métricas de Traffic Manager: vista dividida del estado de los puntos de conexión](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Ilustración 4: Vista dividida de las métricas de estado de los puntos de conexión*
+*Figura 4: Vista dividida de las métricas de estado de los puntos de conexión*
 
 Puede consumir estas métricas a través del portal del [servicio Azure Monitor](../azure-monitor/platform/metrics-supported.md), la [API de REST](https://docs.microsoft.com/rest/api/monitor/), [CLI de Azure](https://docs.microsoft.com/cli/azure/monitor) y [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), o a través de la sección de métricas de la experiencia del portal de Traffic Manager.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759635"
 ---
 # <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Referencia de la sintaxis de SQLRuleAction para Azure Service Bus
@@ -123,9 +123,9 @@ Un intento de acceso a una propiedad de sistema que no existe es un error, mient
   
  `<pattern>` debe ser una expresión que se evalúa como una cadena. Se utiliza como patrón para el operador LIKE.      Puede contener los siguientes caracteres comodín:  
   
--   `%`:  Cualquier cadena de cero o más caracteres.  
+-   `%`: cualquier cadena de cero o más caracteres.  
   
--   `_`: Cualquier carácter individual.  
+-   `_`: cualquier carácter individual.  
   
 ## <a name="escape_char"></a>escape_char  
   

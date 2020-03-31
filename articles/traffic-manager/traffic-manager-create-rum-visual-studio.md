@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: 3106334e1fb3e3000cbd09e00e413b34a1b55e54
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939180"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Envío de medidas de usuarios reales a Traffic Manager con Visual Studio Mobile Center
@@ -41,13 +41,13 @@ Para obtener la clave RUM mediante Azure Portal, use el procedimiento siguiente:
         
    ![Generación de una clave de Real User Measurements](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: Generación de la clave de Mediciones de usuario reales**
+   **Figura 1: Generación de la clave de Real User Measurements**
 
 5. La página muestra la clave RUM que se genera y un fragmento de código de JavaScript que debe insertarse en la página HTML.
  
    ![Código JavaScript para la clave de Real User Measurements](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
-   **Figura 2: Clave de Mediciones de usuario reales y JavaScript de medida**
+   **Figura 2: Clave de Real User Measurements y JavaScript de medida**
  
 6. Haga clic en el botón **Copiar** para copiar la clave RUM. 
 

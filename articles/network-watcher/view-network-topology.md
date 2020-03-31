@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840577"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visualización de la topología de una red virtual de Azure
@@ -26,7 +26,7 @@ Puede usar [Azure Portal](#azure-portal), la [CLI de Azure](#azure-cli) o [Power
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name = "azure-portal"></a>Visualización de topología: Azure Portal
+## <a name="view-topology---azure-portal"></a><a name = "azure-portal"></a>Visualización de topología: Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que disponga de los [permisos](required-rbac-permissions.md) necesarios.
 2. En la esquina superior izquierda del portal, seleccione **Todos los servicios**.
@@ -47,7 +47,7 @@ Puede usar [Azure Portal](#azure-portal), la [CLI de Azure](#azure-cli) o [Power
 
 Los recursos mostrados en el diagrama son un subconjunto de los componentes de red en la red virtual. Por ejemplo, mientras se muestra un grupo de seguridad de red, las reglas de seguridad dentro de él no se muestran en el diagrama. Aunque no se diferencian en el diagrama, las líneas representan una de dos relaciones: *independencia* o *asociado*. Para ver la lista completa de recursos en la red virtual y el tipo de relación entre los recursos, genere la topología con [PowerShell ](#powershell) o la [CLI de Azure](#azure-cli).
 
-## <a name = "azure-cli"></a>Visualización de la topología: CLI de Azure
+## <a name="view-topology---azure-cli"></a><a name = "azure-cli"></a>Visualización de la topología: CLI de Azure
 
 Puede ejecutar los comandos en los pasos siguientes:
 - En Azure Cloud Shell, mediante la selección **Pruébelo** en la parte superior derecha de cualquier comando. Azure Cloud Shell es un shell interactivo gratis que tiene herramientas comunes de Azure preinstaladas y configuradas para usar con la cuenta.
@@ -80,7 +80,7 @@ La cuenta que utilice debe tener los [permisos](required-rbac-permissions.md) ne
 
    Obtenga más información acerca de las relaciones y [propiedades](#properties) de la salida devuelta. Si no tiene una red virtual existente para ver una topología, puede crear una utilizando el ejemplo de script [para el enrutamiento del tráfico mediante una aplicación virtual de red](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Para ver un diagrama de la topología y descargar en un archivo editable, use el [portal](#azure-portal).
 
-## <a name = "powershell"></a>Visualización de topología: PowerShell
+## <a name="view-topology---powershell"></a><a name = "powershell"></a>Visualización de topología: PowerShell
 
 Puede ejecutar los comandos en los pasos siguientes:
 - En Azure Cloud Shell, mediante la selección **Pruébelo** en la parte superior derecha de cualquier comando. Azure Cloud Shell es un shell interactivo gratis que tiene herramientas comunes de Azure preinstaladas y configuradas para usar con la cuenta.
@@ -137,10 +137,10 @@ Todos los recursos devueltos en una topología tienen uno de los siguientes tipo
 
 Todos los recursos que se devuelven en una topología tienen las siguientes propiedades:
 
-- **Name**: Nombre del recurso.
+- **Name**: nombre del recurso.
 - **Id**: identificador URI del recurso.
-- **Ubicación**: región de Azure en la que existe el recurso.
-- **Asociaciones**: lista de asociaciones para el objeto al que se hace referencia. Cada asociación tiene las siguientes propiedades:
+- **Location**: región de Azure en la que existe el recurso.
+- **Associations**: lista de asociaciones para el objeto al que se hace referencia. Cada asociación tiene las siguientes propiedades:
     - **AssociationType**: hace referencia a la relación entre los objetos secundario y principal. Los valores válidos son *Contains* o *Associated*.
     - **Name**: nombre del recurso al que se hace referencia.
     - **ResourceId**: identificador URI del recurso al que se hace referencia en la asociación.

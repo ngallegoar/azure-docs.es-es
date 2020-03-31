@@ -10,10 +10,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
 ms.openlocfilehash: d1a59e7ad86191bcc30b7d898d00f327c20fbc5e
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75945614"
 ---
 # <a name="azure-hybrid-benefit"></a>Ventaja híbrida de Azure
@@ -31,7 +31,7 @@ Con la Ventaja híbrida de Azure, puede elegir pagar solo por la infraestructura
 
 Puede elegir o cambiar el modelo de licencia mediante Azure Portal o con una de las siguientes API:
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Para establecer o actualizar el tipo de licencia mediante PowerShell:
 
@@ -40,7 +40,7 @@ Para establecer o actualizar el tipo de licencia mediante PowerShell:
 - [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance)
 - [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance)
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Para establecer o actualizar el tipo de licencia mediante la CLI de Azure:
 
@@ -49,7 +49,7 @@ Para establecer o actualizar el tipo de licencia mediante la CLI de Azure:
 - [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
 - [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
 
-# <a name="rest-apitabrest"></a>[REST API](#tab/rest)
+# <a name="rest-api"></a>[REST API](#tab/rest)
 
 Para establecer o actualizar el tipo de licencia mediante la API REST:
 

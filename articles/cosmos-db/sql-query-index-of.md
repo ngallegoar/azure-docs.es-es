@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 50e489fdf57398d486b07944782ecbb3fd1d6a43
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71350993"
 ---
 # <a name="index_of-azure-cosmos-db"></a>INDEX_OF (Azure Cosmos DB)
@@ -33,7 +33,7 @@ INDEX_OF(<str_expr1>, <str_expr2> [, <numeric_expr>])
 
 *numeric_expr* Expresión numérica opcional que establece la posición en la que se iniciará la búsqueda. La primera posición en *str_expr1* es 0. 
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve una expresión numérica.  
   

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: fb49802adf6242f445b700d06622d7e6aa336b4d
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67357036"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluciones para la transferencia de datos periódica
@@ -32,7 +32,7 @@ Las opciones recomendadas para la transferencia de datos periódica se dividen e
 
 - **Herramientas de ingesta continua de datos**: para la ingesta de datos continua en intervalos regulares puede seleccionar un dispositivo de transferencia en línea de Data Box o Azure Data Factory. Estas herramientas las configuran los profesionales de TI y automatizan de manera transparente la transferencia de datos.
 
-    - **Azure Data Factory**: se debe usar Data Factory para escalar horizontalmente una operación de transferencia y saber si existe la necesidad de funcionalidades de orquestación y supervisión de nivel empresarial. Use Azure Data Factory para configurar una canalización en la nube para transferir archivos periódicamente entre distintos servicios de Azure, locales o de ambos tipos. Azure Data Factory permite orquestar flujos de trabajo basados en datos que ingieren datos de distintos almacenes de datos y automatizar el movimiento y la transformación de datos.
+    - **Azure Data Factory**: se debe usar Data Factory para escalar horizontalmente una operación de transferencia y saber si existe la necesidad de tener funcionalidades de orquestación y supervisión a nivel empresarial. Use Azure Data Factory para configurar una canalización en la nube para transferir archivos periódicamente entre distintos servicios de Azure, locales o de ambos tipos. Azure Data Factory permite orquestar flujos de trabajo basados en datos que ingieren datos de distintos almacenes de datos y automatizar el movimiento y la transformación de datos.
     - **Familia de Azure Data Box para transferencias en línea**: Data Box Edge y Data Box Gateway son dispositivos de red en línea que pueden mover datos dentro y fuera de Azure. Data Box Edge usa procesos perimetrales compatibles con la inteligencia artificial para el procesamiento previo de los datos antes de la carga. Data Box Gateway es una versión virtual del dispositivo con las mismas funcionalidades de transferencia de datos.
 
 
@@ -45,7 +45,7 @@ En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 | Capacidad                  | AzCopy                                 | API REST de Azure Storage       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Factor de forma                 | Herramienta de línea de comandos de Microsoft       | Los clientes desarrollan en Storage <br> API REST que usan las bibliotecas de cliente de Azure |
-| Instalación única inicial     | Mínimo                                | Esfuerzo de desarrollo moderado, variable    |
+| Instalación única inicial     | mínimo                                | Esfuerzo de desarrollo moderado, variable    |
 | Formato de datos                 | Azure Blobs, Azure Files, Azure Tables | Azure Blobs, Azure Files, Azure Tables   |
 | Rendimiento                 | Ya se ha optimizado                      | Se optimiza durante el desarrollo                  |
 | Precios                     | Gratis, se aplican los cargos de salida      | Gratis, se aplican los cargos de salida        |
@@ -58,9 +58,9 @@ En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 | Hardware                                      | Hipervisor del usuario            | Suministrado por Microsoft    | N/D                                                            |
 | Esfuerzo de instalación inicial                          | Bajo (<30 minutos)            | Moderado (un par de horas) | Grande (unos días)                                                 |
 | Formato de datos                                   | Azure Blobs, Azure Files   | Azure Blobs, Azure Files | [Admite más de 70 conectores de datos para almacenes y formatos de datos](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Procesamiento previo de los datos                           | Sin                         | Sí, mediante un proceso perimetral    | Sí                                                           |
-| Caché local<br>(para almacenar datos locales)    | Sí                        | Sí                      | Sin                                                            |
-| Transferencia desde otras nubes                    | Sin                         | No                       | Sí                                                           |
+| Procesamiento previo de los datos                           | No                         | Sí, mediante un proceso perimetral    | Sí                                                           |
+| Caché local<br>(para almacenar datos locales)    | Sí                        | Sí                      | No                                                            |
+| Transferencia desde otras nubes                    | No                         | No                       | Sí                                                           |
 | Precios                                       | [Precios](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Precios](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Precios](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Pasos siguientes

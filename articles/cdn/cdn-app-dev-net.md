@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594172"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de Azure CDN
@@ -329,7 +329,7 @@ Ahora podemos compilar y ejecutar el programa haciendo clic en el botón **Inici
 
 Cuando el programa llega al mensaje anterior, debería poder ver, de vuelta en el grupo de recursos en el Portal de Azure, que se ha creado el perfil.
 
-![¡Éxito!](./media/cdn-app-dev-net/cdn-success.png)
+![¡Hecho!](./media/cdn-app-dev-net/cdn-success.png)
 
 Después, se pueden confirmar los mensajes para ejecutar el resto del programa.
 

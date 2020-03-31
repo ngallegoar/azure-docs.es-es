@@ -9,17 +9,17 @@ ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: a313296a9a19aa762803652a3b139cdac7ca3a58
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68359931"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Administrar el tráfico web con una puerta de enlace de aplicaciones mediante Azure PowerShell
 
 La puerta de enlace de aplicaciones se utiliza para administrar y proteger el tráfico web en los servidores que mantenga. Puede usar Azure PowerShell para crear una [puerta de enlace de aplicaciones](overview.md) que use un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de servidores de back-end para administrar el tráfico web. En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual que se agregan al grupo de servidores back-end predeterminado de la puerta de enlace de aplicaciones.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red
@@ -122,7 +122,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>Creación del agente de escucha y la regla predeterminados
 
-Es necesario un agente de escucha para permitir que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este ejemplo, creará un agente de escucha básico que escucha el tráfico en la dirección URL raíz. 
+Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este ejemplo, creará un agente de escucha básico que escucha el tráfico en la dirección URL raíz. 
 
 Cree un cliente de escucha llamado *mydefaultListener* mediante [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configuración de front-end y el puerto de front-end que creó anteriormente. Es necesaria una regla para que el agente de escucha sepa qué grupo de servidores back-end se usa para el tráfico entrante. Cree una regla básica llamada *rule1* mediante [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -143,7 +143,7 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-Ahora que ha creado los recursos complementarios necesarios, especifique los parámetros para la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) y, luego, cree dicha puerta mediante [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Ahora que ha creado los recursos auxiliares necesarios, especifique parámetros para la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) y, luego, cree dicha puerta mediante [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `

@@ -7,14 +7,14 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658853"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Acceso y resumen de conversión del diseñador de vistas en libros
-El [diseñador de vistas](view-designer.md) es una característica de Azure Monitor que permite crear vistas personalizadas para ayudar a visualizar datos en el área de trabajo de Log Analytics, con gráficos, listas y escalas de tiempo. Estas vistas se están retirando paulatinamente y están siendo reemplazadas por libros, que proporcionan funcionalidad adicional. En este artículo se describe cómo puede crear un resumen de información general y los permisos necesarios para acceder a los libros.
+El [diseñador de vistas](view-designer.md) es una característica de Azure Monitor que permite crear vistas personalizadas para ayudar a visualizar datos en el área de trabajo de Log Analytics, con gráficos, listas y escalas de tiempo. Estas vistas se están retirando paulatinamente y están siendo reemplazadas por libros, que proporcionan funcionalidad adicional. En este artículo se describe cómo puede crear un resumen de información general y los permisos necesarios para acceder a los libros.
 
 ## <a name="creating-your-workspace-summary-from-azure-dashboard"></a>Creación del resumen del área de trabajo desde el panel de Azure
 Los usuarios del diseñador de vistas pueden estar familiarizados con un icono de información general para representar un conjunto de vistas. Para mantener una información general visual similar al resumen del área de trabajo del diseñador de vistas, los libros ofrecen pasos anclados, que se pueden anclar al [panel de Azure Portal](../../azure-portal/azure-portal-dashboards.md). Al igual que los iconos de información general del resumen del área de trabajo, los elementos del libro anclados se vincularán directamente a la vista del libro.

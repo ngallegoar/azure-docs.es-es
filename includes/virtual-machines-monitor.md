@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 09/30/2019
 ms.author: cynthn
 ms.openlocfilehash: fbc6889507e58c4721597a1108337fcb1f8756a2
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75751944"
 ---
 Con el crecimiento significativo de las máquinas virtuales hospedadas en Azure, es importante identificar los problemas de rendimiento y de estado que afectan a las aplicaciones y los servicios de infraestructura que admiten. Azure incluye supervisión básica de forma predeterminada, con las métricas de uso de CPU, uso de disco, uso de memoria y tráfico de red que el hipervisor del host recopila. Se pueden recopilar datos de métricas y de registro adicionales con [extensiones](../articles/virtual-machines/windows/extensions-features.md) para configurar el diagnóstico en las máquinas virtuales desde el sistema operativo invitado.

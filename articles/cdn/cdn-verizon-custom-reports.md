@@ -1,6 +1,6 @@
 ---
 title: Informes personalizados de Verizon | Microsoft Docs
-description: 'Puede ver los patrones de uso de la red CDN mediante los informes siguientes: Ancho de banda, Datos transferidos, Aciertos, Estados de la memoria caché, Proporción de aciertos de caché y Datos de IPV4/IPV6 transferidos.'
+description: 'Puede ver los patrones de uso de la red CDN mediante los siguientes informes: Ancho de banda, Datos transferidos, Aciertos, Estados de la memoria caché, Frecuencia de aciertos de caché, Datos de IPV4/IPV6 transferidos.'
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 15f17ac6556c4ff731372dc7f738d0f58bdc3e31
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593289"
 ---
 # <a name="custom-reports-from-verizon"></a>Informes personalizados de Verizon
@@ -45,11 +45,11 @@ El registro de datos de informes personalizados comienza una hora después de ha
 
 Generación de un informe personalizado mediante la definición de las siguientes opciones de informe:
 
-- Métricas: Se admiten las siguientes opciones:
+- Métricas: se admiten las siguientes opciones:
 
    - Aciertos: indica el número total de solicitudes que se dirigen a un CNAME perimetral en el que la funcionalidad de informes personalizados está habilitada. Esta métrica no incluye el código de estado devuelto al cliente.
 
-   - Datos transferidos: indica la cantidad total de datos transferidos entre los servidores perimetrales a los clientes HTTP (por ejemplo, los exploradores web) para las solicitudes que se dirigen a un CNAME perimetral en el que la funcionalidad de informes personalizados está habilitada. La cantidad de datos transferidos se calcula agregando encabezados de respuesta HTTP al cuerpo de respuesta. Como resultado, la cantidad de datos transferidos para cada recurso es mayor que el tamaño real del archivo.
+   - Transferencia de datos: indica la cantidad total de datos transferidos entre los servidores perimetrales a los clientes HTTP (por ejemplo, los exploradores web) para las solicitudes que se dirigen a un CNAME perimetral en el que la funcionalidad de informes personalizados está habilitada. La cantidad de datos transferidos se calcula agregando encabezados de respuesta HTTP al cuerpo de respuesta. Como resultado, la cantidad de datos transferidos para cada recurso es mayor que el tamaño real del archivo.
 
 - Agrupaciones: determina el tipo de estadísticas que se muestra debajo del gráfico de barras. Se admiten las siguientes opciones:
 
@@ -68,7 +68,7 @@ Puede exportar los datos en formato de Excel haciendo clic en el símbolo de Exc
 
 ## <a name="edge-cnames-custom-report-fields"></a>Campos de informes personalizados de CNAME perimetrales
 
-| Campo                     | DESCRIPCIÓN   |
+| Campo                     | Descripción   |
 |---------------------------|---------------|
 | 2xx                       | Indica el número total de solicitudes o datos transferidos (MB) para el CNAME perimetral que da como resultado un código de estado HTTP 2xx (por ejemplo, 200 - Correcto. |
 | 3xx                       | Indica el número total de solicitudes o datos transferidos (MB) para el CNAME perimetral que da como resultado un código de estado HTTP 3xx (por ejemplo, 302 - Encontrado o 304 - No modificado). |
@@ -77,7 +77,7 @@ Puede exportar los datos en formato de Excel haciendo clic en el símbolo de Exc
 | Porcentaje de aciertos de caché               | Indica el porcentaje de solicitudes almacenadas en caché que se sirven directamente desde la memoria caché al solicitante. |
 | Aciertos de caché                | Indica el número total de solicitudes o datos transferidos (MB) para el CNAME perimetral que da como resultado un acierto de caché (por ejemplo, TCP_EXPIRED_HIT, TCP_HIT o TCP_PARTIAL_HIT). Un acierto de caché se produce cuando se detecta una versión almacenada en caché del contenido solicitado. |
 | Datos transferidos (MB)     | Indica la cantidad total de datos transferidos (MB) desde los servidores perimetrales a clientes HTTP (exploradores web) para el CNAME perimetral. La cantidad de datos transferidos se calcula agregando encabezados de respuesta HTTP al cuerpo de respuesta. Como resultado, la cantidad de datos transferidos para cada recurso es mayor que el tamaño real del archivo. |
-| DESCRIPCIÓN               | Identifica un CNME perimetral por su nombre de host. |
+| Descripción               | Identifica un CNME perimetral por su nombre de host. |
 | Aciertos                      | Indica el número total de solicitudes para el CNAME perimetral. |
 | Errores                    | Indica el número total de solicitudes o datos transferidos (MB) para el CNAME perimetral que da como resultado un error de caché (por ejemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS o TCP_MISS). Se produce un error de caché cuando el contenido solicitado no se ha almacenado en caché en el servidor perimetral que respetaba la solicitud. | 
 | No Cache (Sin caché)                  | Indica el número total de solicitudes o datos transferidos (MB) para el CNAME perimetral que da como resultado un código de estado de la caché CONFIG_NOCACHE.  |

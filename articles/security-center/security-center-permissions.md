@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921324"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permisos en Azure Security Center

@@ -15,10 +15,10 @@ ms.date: 12/05/2018
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 68d5976a5a79dbde88b7f80b02b39793ffc86de9
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254857"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
@@ -28,7 +28,7 @@ En este artículo se explica cómo supervisar una cuenta de Batch con las caract
 
 ## <a name="batch-metrics"></a>Métricas de Batch
 
-Las métricas son datos de telemetría de Azure (también denominados contadores de rendimiento) que emiten los recursos de Azure y que consume el servicio Azure Monitor. Las métricas de ejemplo en una cuenta de Batch incluyen: Eventos de creación de grupo, Recuento de nodos de baja prioridad y Eventos de tarea completada. 
+Las métricas son datos de telemetría de Azure (también denominados contadores de rendimiento) que emiten los recursos de Azure y que consume el servicio Azure Monitor. Ejemplos de métricas en una cuenta de Batch son: eventos de creación de grupos, recuento de nodos de prioridad baja y eventos de finalización de tareas. 
 
 Consulte la [lista de métricas admitidas de Batch](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 

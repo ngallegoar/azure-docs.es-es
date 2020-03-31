@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920151"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Pasos detallados para solucionar problemas de conexión a Escritorio remoto a máquinas virtuales Windows en Azure
@@ -62,7 +62,7 @@ Puede que el cliente de Escritorio remoto no pueda ponerse en contacto con el se
 * [Grupos de seguridad de red](#source-4-network-security-groups)
 * [Máquina virtual de Azure basada en Windows](#source-5-windows-based-azure-vm)
 
-## <a name="source-1-remote-desktop-client-computer"></a>Causa 1: Equipo cliente de Escritorio remoto
+## <a name="source-1-remote-desktop-client-computer"></a>Causa 1: equipo cliente de Escritorio remoto
 Compruebe que el equipo puede establecer conexiones de Escritorio remoto a otro equipo local, basado en Windows.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_1.png)
@@ -76,7 +76,7 @@ Si no es posible, compruebe si la configuración del equipo incluye lo siguiente
 
 En todos estos casos, deshabilite temporalmente el software e intente conectarse a un equipo local a través de Escritorio remoto. Si puede averiguar la causa real mediante este método, trabaje con el administrador de red para corregir la configuración del software para permitir conexiones a Escritorio remoto.
 
-## <a name="source-2-organization-intranet-edge-device"></a>Causa 2: Dispositivo perimetral de intranet de la organización
+## <a name="source-2-organization-intranet-edge-device"></a>Causa 2: dispositivo perimetral de intranet de la organización
 Compruebe que un equipo conectado directamente a Internet puede establecer conexiones de Escritorio remoto a la máquina virtual de Azure.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_2.png)
@@ -91,7 +91,7 @@ Si puede crear una conexión a Escritorio remoto con un equipo conectado directa
 
 Trabaje con el administrador de red para corregir la configuración del dispositivo perimetral de intranet de la organización para permitir conexiones a Escritorio remoto a Internet basadas en HTTPS.
 
-## <a name="source-3-cloud-service-endpoint-and-acl"></a>Causa 3: Punto de conexión de servicio en la nube y ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>Causa 3: extremo de servicio en la nube y ACL
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
@@ -100,23 +100,23 @@ Para las máquinas virtuales creadas mediante el modelo de implementación clás
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
 
 > [!NOTE]
-> Para las máquinas virtuales creadas en Resource Manager, vaya a [Causa 4: grupos de seguridad de red](#source-4-network-security-groups).
+> Para las máquinas virtuales creadas en el Administrador de recursos, vaya a [Causa 4: grupos de seguridad de red](#source-4-network-security-groups).
 
 Si no tiene otra máquina virtual en el mismo servicio en la nube o red virtual, cree una. Siga los pasos en el artículo sobre la [creación de una máquina virtual que ejecuta Windows en Azure](../virtual-machines-windows-hero-tutorial.md). Una vez completada la prueba, elimine la máquina virtual de prueba.
 
 Si puede conectarse a una máquina virtual en el mismo servicio en la nube o la misma red virtual mediante Escritorio remoto, compruebe las siguientes configuraciones:
 
-* La configuración del punto de conexión para el tráfico de Escritorio remoto en la VM de destino: El puerto TCP privado del punto de conexión debe coincidir con el puerto TCP en el que escucha el servicio de Escritorio remoto de la VM (el valor predeterminado es 3389).
-* La ACL del punto de conexión para el tráfico de Escritorio remoto en la VM de destino: Las ACL permiten especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de Escritorio remoto al extremo. Compruebe las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, vea [qué es una lista de control de acceso (ACL) de red](../../virtual-network/virtual-networks-acl.md)
+* La configuración del punto de conexión para el tráfico de Escritorio remoto en la máquina virtual de destino: el puerto TCP privado del punto de conexión debe coincidir con el puerto TCP en el que está escuchando el servicio de Escritorio remoto de la máquina virtual (el valor predeterminado es 3389).
+* La ACL del punto de conexión del tráfico de Escritorio remoto en la máquina virtual de destino: las ACL permiten especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de Escritorio remoto al extremo. Compruebe las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, vea [qué es una lista de control de acceso (ACL) de red](../../virtual-network/virtual-networks-acl.md)
 
 Para comprobar si el punto de conexión es la causa del problema, quite el punto de conexión actual y cree uno nuevo. Para ello, elija un puerto aleatorio en el intervalo que va entre 49152 y 65535 para el número de puerto externo. Para más información, consulte [Configuración de puntos de conexión en una máquina virtual](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="source-4-network-security-groups"></a>Causa 4: Grupos de seguridad de red
+## <a name="source-4-network-security-groups"></a>Causa 4: grupos de seguridad de red
 Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure.
 
 Use la [verificación del flujo IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) para confirmar si una regla en un grupo de seguridad de red está bloqueando el tráfico hacia o desde una máquina virtual. También puede revisar cómo crear reglas de grupo de seguridad eficaces para garantizar que exista la regla NSG "Permitir" de entrada y tenga prioridad para el puerto RDP (valor predeterminado 3389). Para más información, vea [Uso de las reglas de seguridad vigentes para solucionar problemas de flujo de tráfico de máquinas virtuales](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
-## <a name="source-5-windows-based-azure-vm"></a>Causa 5: VM de Azure basada en Windows
+## <a name="source-5-windows-based-azure-vm"></a>Causa 5: máquina virtual de Azure basada en Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
 Siga las instrucciones de [este artículo](../windows/reset-rdp.md). En este artículo se restablece el servicio de Escritorio remoto en la máquina virtual:

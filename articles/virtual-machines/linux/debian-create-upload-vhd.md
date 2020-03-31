@@ -1,20 +1,20 @@
 ---
 title: Preparación de un disco duro virtual con Debian Linux
 description: Aprenda a crear imágenes de VHD de Debian para implementar máquinas virtuales en Azure.
-author: mimckitt
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/13/2018
-ms.author: mimckitt
-ms.openlocfilehash: f17759fb65cec1609298d34b29829e895526e080
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.author: guybo
+ms.openlocfilehash: d54f7a11d929c31fee29a788eb3a2ae2cc8f2703
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970248"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066711"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Preparar VHD en Debian de Azure
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 En esta sección, se supone que ya instaló en un sistema operativo Debian Linux desde un archivo .iso que obtuvo del [sitio web Debian](https://www.debian.org/distrib/) y que descargó a un disco duro virtual. Existen varias herramientas para crear archivos .vhd; Hyper-V es solo un ejemplo. Para obtener instrucciones acerca de cómo usar Hyper-V, consulte [Instalación del rol de Hyper-V y configuración de una máquina virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
 ## <a name="installation-notes"></a>Notas de instalación

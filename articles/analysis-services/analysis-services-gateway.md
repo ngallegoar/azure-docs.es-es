@@ -8,10 +8,10 @@ ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76310159"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local
@@ -32,7 +32,7 @@ Para Azure Analysis Services, el proceso de instalación de la puerta de enlace 
 
 
 
-## <a name="how-it-works"> </a>Funcionamiento
+## <a name="how-it-works"></a><a name="how-it-works"> </a>Funcionamiento
 La puerta de enlace que se instala en un equipo de la organización funciona como un servicio de Windows, **Puerta de enlace de datos local**. Este servicio local se registra en el servicio en la nube de puerta de enlace a través de Azure Service Bus. Luego crea un recurso de puerta de enlace de datos local para la suscripción a Azure. Posteriormente, los servidores de Azure Analysis Services se conectan al recurso de puerta de enlace de Azure. Cuando los modelos del servidor necesitan conectarse a los orígenes de datos locales para realizar consultas o procesamiento, un flujo de datos y consultas atraviesa el recurso de puerta de enlace, Azure Service Bus, el servicio de puerta de enlace de datos local y los orígenes de datos. 
 
 ![Funcionamiento](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
@@ -52,7 +52,7 @@ En una instalación para un entorno de Azure Analysis Services, es importante qu
 
 ## <a name="ports-and-communication-settings"></a>Configuración de puertos y comunicación
 
-La puerta de enlace crea una conexión de salida con Azure Service Bus. Se comunica en los puertos de salida siguientes: TCP 443 (predeterminado), 5671, 5672 y del 9350 al 9354.  La puerta de enlace no requiere puertos de entrada.
+La puerta de enlace crea una conexión de salida con Azure Service Bus. Se comunica en los puertos de salida siguientes: TCP 443 (valor predeterminado), 5671, 5672 y del 9350 al 9354.  La puerta de enlace no requiere puertos de entrada.
 
 Es posible que tenga que incluir direcciones IP de la región de datos en el firewall. Puede descargar la [lista de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=56519). La lista se actualiza semanalmente. Las direcciones IP mostradas en la lista de direcciones IP del centro de datos de Azure están en notación CIDR. Para obtener más información, consulte [Enrutamiento de interdominios sin clases](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
@@ -73,7 +73,7 @@ Estos son los nombres de dominio completos usados por la puerta de enlace.
 | *.microsoftonline-p.com |443 |Se utiliza para la autenticación dependiendo de la configuración. |
 | dc.services.visualstudio.com  |443 |Usado por AppInsights para recopilar datos de telemetría. |
 
-### <a name="force-https"></a>Forzar la comunicación HTTPS con Azure Service Bus
+### <a name="forcing-https-communication-with-azure-service-bus"></a><a name="force-https"></a>Forzar la comunicación HTTPS con Azure Service Bus
 
 Puede hacer que la puerta de enlace se comunique con Azure Service Bus mediante HTTPS en lugar de TCP directo. Sin embargo, de ese modo puede reducir en gran medida el rendimiento. Debe modificar el archivo *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* cambiando el valor de `AutoDetect` por `Https`. Este archivo suele encontrarse en *C:\Archivos de programa\Puerta de enlace de datos local*.
 

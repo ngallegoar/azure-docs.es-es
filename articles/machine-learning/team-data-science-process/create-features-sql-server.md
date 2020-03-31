@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721751"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creación de características para datos de SQL Server con SQL y Python
@@ -34,7 +34,7 @@ En este artículo se supone que ha:
 * Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-account-create.md)
 * Almacenado los datos en SQL Server. Si no es así, consulte [Traslado de datos a Azure SQL Database para Azure Machine Learning](move-sql-azure.md) para obtener instrucciones sobre cómo trasladar los datos.
 
-## <a name="sql-featuregen"></a>Generación de características con SQL
+## <a name="feature-generation-with-sql"></a><a name="sql-featuregen"></a>Generación de características con SQL
 En esta sección, se describen formas de generar características mediante SQL:  
 
 * [Generación de características basadas en recuentos](#sql-countfeature)
@@ -46,7 +46,7 @@ En esta sección, se describen formas de generar características mediante SQL:
 > 
 > 
 
-### <a name="sql-countfeature"></a>Generación de características basadas en recuentos
+### <a name="count-based-feature-generation"></a><a name="sql-countfeature"></a>Generación de características basadas en recuentos
 En este documento se muestran dos maneras de generar características de recuento. El primer método usa la suma condicional y el segundo utiliza la cláusula 'where'. Estas características nuevas se pueden combinar con la tabla original (con columnas de clave principal) para disponer de características de recuento junto con los datos originales.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -54,13 +54,13 @@ En este documento se muestran dos maneras de generar características de recuent
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="sql-binningfeature"></a>Generación de características de discretización
+### <a name="binning-feature-generation"></a><a name="sql-binningfeature"></a>Generación de características de discretización
 En el ejemplo siguiente se muestra cómo generar características discretizadas mediante la discretización (con cinco discretizaciones) de una columna numérica que puede usarse en su lugar como una característica:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="sql-featurerollout"></a>Implementación de las características de una sola columna
+### <a name="rolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Implementación de las características de una sola columna
 En esta sección, se muestra cómo se implementa una sola columna de una tabla para generar características adicionales. En el ejemplo se supone que hay una columna de latitud o longitud en la tabla a partir de la cual está intentando generar características.
 
 Aquí se incluye un breve manual sobre los datos de ubicación de latitud y longitud (extraído de stackoverflow `https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Estas son algunas cuestiones útiles que hay que comprender acerca de los datos de ubicación antes de crear características desde el campo:
@@ -97,12 +97,12 @@ Estas características basadas en ubicación se pueden usar aún más para gener
 > 
 > 
 
-### <a name="sql-aml"></a>Conexión con Azure Machine Learning
+### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conexión con Azure Machine Learning
 La característica recién generada se puede agregar como una columna a una tabla existente o se puede almacenar en una tabla nueva y combinar con la tabla original para el aprendizaje automático. Es posible generar o acceder a las características si ya se han creado, mediante el módulo [Importar datos](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) en Aprendizaje automático de Azure, como se muestra a continuación:
 
 ![Lectores de Azure Machine Learning](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-## <a name="python"></a>Uso de un lenguaje de programación como Python
+## <a name="using-a-programming-language-like-python"></a><a name="python"></a>Uso de un lenguaje de programación como Python
 Usar Python para generar características cuando los datos están en SQL Server es parecido a procesar los datos en un blob de Azure mediante Python. Para la comparación, vea [Proceso de datos de Azure Blob en el entorno de ciencia de datos](data-blob.md). Cargue los datos de la base de datos en una trama de datos Pandas para seguir procesándolos. El proceso de conexión a la base de datos y de carga de los datos en la trama de datos se documenta en esta sección.
 
 El formato de cadena de conexión siguiente puede usarse para conectarse a una base de datos de SQL Server desde Python mediante pyodbc (reemplace servername, dbname, username y password con sus valores específicos):

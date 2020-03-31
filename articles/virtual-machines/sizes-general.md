@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
 ms.openlocfilehash: 4b36f456f70eb79cff1f615c7c136b8fe4b1b3d4
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78226708"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Tamaños de máquina virtual de uso general

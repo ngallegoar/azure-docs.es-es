@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.openlocfilehash: a482fef93d43f92257608b65c9c0e2ade535bcca
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194164"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Previsión y detección de anomalías en Azure Data Explorer
@@ -20,7 +20,7 @@ Azure Data Explorer realiza la recopilación continua de datos de telemetría de
 
 En este artículo se detallan las capacidades de Azure Data Explorer de previsión y detección de anomalías de series temporales. Las funciones de serie temporal aplicables se basan en un modelo de descomposición conocido sólido, en el que cada serie temporal original se descompone en los componentes estacional, residual y de tendencia. Las anomalías se detectan mediante los valores atípicos en el componente residual, mientras que la previsión se realiza mediante la extrapolación de los componentes estacional y de tendencia. La implementación de Azure Data Explorer mejora significativamente el modelo de descomposición básico por detección de estacionalidad automática, análisis de valores atípicos sólido e implementación vectorizada para procesar miles de series temporales en cuestión de segundos.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Lea [Análisis de series temporales en Azure Data Explorer](/azure/data-explorer/time-series-analysis) para obtener una introducción a las capacidades de serie temporal.
 

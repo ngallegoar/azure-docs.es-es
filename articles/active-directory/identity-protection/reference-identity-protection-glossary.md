@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232339"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glosario de Azure Active Directory Identity Protection
@@ -158,6 +158,6 @@ Usuarios con detecciones de riesgo activas o corregidas
 ### <a name="vulnerability"></a>Punto vulnerable
 Configuración o condición en Azure Active Directory, que hace que el directorio sea susceptible de recibir ataques o amenazas.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

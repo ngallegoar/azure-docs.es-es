@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 9339fff820c0a0d915258ce3a0bc5371242ad50d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75892842"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copia de datos desde Cassandra mediante Azure Data Factory
@@ -60,10 +60,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Cassandr
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type |La propiedad type debe establecerse en: **Cassandra** |Sí |
+| type |La propiedad type debe establecerse en: **Cassandra**. |Sí |
 | host |Una o varias direcciones IP o nombres de host de los servidores de Cassandra.<br/>Especifica una lista de direcciones IP o nombres de host separada por comas para conectar con todos los servidores a la vez. |Sí |
 | port |Puerto TCP que el servidor de Cassandra utiliza para escuchar las conexiones del cliente. |No (el valor predeterminado es 9042). |
-| authenticationType | El tipo de autenticación que se utiliza para conectarse a la base de datos Cassandra.<br/>Los valores permitidos son: **Basic** (básica) y **Anonymous** (anónima). |Sí |
+| authenticationType | El tipo de autenticación que se utiliza para conectarse a la base de datos Cassandra.<br/>Los valores permitidos son: **Básica** y **Anónima**. |Sí |
 | username |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
 | password |Especifique la contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí, si el valor de authenticationType es Basic. |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |No |
@@ -103,7 +103,7 @@ Para copiar datos desde Cassandra, establezca la propiedad type del conjunto de 
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **CassandraTable** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **CassandraTable**. | Sí |
 | keyspace |Nombre del espacio de claves o esquema de la base de datos de Cassandra. |Sí (si no hay especificada ninguna "consulta" para "CassandraSource") |
 | tableName |Nombre de la tabla de la base de datos de Cassandra. |Sí (si no hay especificada ninguna "consulta" para "CassandraSource") |
 
@@ -138,7 +138,7 @@ Para copiar datos desde Cassandra, establezca el tipo de origen de la actividad 
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **CassandraSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **CassandraSource**. | Sí |
 | Query |Utilice la consulta personalizada para leer los datos. Consulta SQL-92 o consulta CQL. Vea la [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)(referencia de CQL). <br/><br/>Cuando utilice una consulta SQL, especifique **nombre de espacio de claves.nombre de tabla** para representar la tabla que quiere consultar. |No (si "tableName" y "keyspace" en el conjunto de datos están especificados) |
 | consistencyLevel |El nivel de coherencia establece el número de réplicas que deben responder a una solicitud de lectura antes de que se devuelvan datos a la aplicación cliente. Cassandra comprueba el número de réplicas especificado para que los datos satisfagan la solicitud de lectura. Para más información, consulte [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) (Configuración de la coherencia de datos).<br/><br/>Los valores permitidos son: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** y **LOCAL_ONE**. |No (el valor predeterminado es `ONE`) |
 

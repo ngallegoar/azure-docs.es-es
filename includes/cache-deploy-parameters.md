@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186124"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
@@ -81,7 +81,7 @@ La plantilla define los valores enteros permitidos para este parámetro (0 a 6 p
 
 Los valores corresponden a los siguientes tamaños de caché:
 
-| Valor | Básico y Estándar<br>tamaño de caché | Premium<br>tamaño de caché |
+| Value | Básico y Estándar<br>tamaño de caché | Premium<br>tamaño de caché |
 | :---: | :------------------------------: | :-------------------: |
 | 0     | 250 MB (valor predeterminado)                 | N/D                   |
 | 1     | 1 GB                             | 6 GB (valor predeterminado)        |

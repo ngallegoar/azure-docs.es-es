@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d635950c8b34986cd5824660166017317948cbd8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73176912"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Plantillas de aplicación en Azure API Management
@@ -36,7 +36,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="ProductList"></a> Application list  
+##  <a name="application-list"></a><a name="ProductList"></a> Application list  
  La plantilla **Application list** le permite personalizar el cuerpo de la página de lista de aplicaciones en el portal para desarrolladores.  
   
  ![Application List Page Developer Portal Templates](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "APIM Application List Page Developer Portal Templates (Plantillas del portal para desarrolladores de la página de la lista de aplicaciones de APIM)") (Plantillas del portal para desarrolladores de la página de la lista de aplicaciones)  
@@ -80,7 +80,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 ### <a name="data-model"></a>Modelo de datos  
   
-|Propiedad|Escriba|DESCRIPCIÓN|  
+|Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
 |`Paging`|Entidad [Paging](api-management-template-data-model-reference.md#Paging).|La información de paginación de la colección de aplicaciones.|  
 |`Applications`|Colección de entidades de [aplicación](api-management-template-data-model-reference.md#Application).|Las aplicaciones visibles para el usuario actual.|  
@@ -137,7 +137,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```  
   
-##  <a name="Application"></a> Application  
+##  <a name="application"></a><a name="Application"></a> Application  
  La plantilla **Application** le permite personalizar el cuerpo de la página de aplicación en el portal para desarrolladores.  
   
  ![Application Page Developer Portal Templates](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "APIM Application Page Developer Portal Templates (Plantillas del portal para desarrolladores de la página de aplicación de APIM)") (Plantillas del portal para desarrolladores de la página de aplicación)  

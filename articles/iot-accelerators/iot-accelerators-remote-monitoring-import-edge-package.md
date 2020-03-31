@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/10/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34222f396ed3c43932371aa9f64a459bb2a5dd0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61443018"
 ---
 # <a name="import-an-iot-edge-package-into-your-remote-monitoring-solution-accelerator"></a>Importación de un paquete de IoT Edge en el acelerador de soluciones de supervisión remota
@@ -29,11 +29,11 @@ Un desarrollador crea y prueba un manifiesto de implementación en un entorno de
 
 Use Azure Portal para exportar el manifiesto de implementación desde el entorno de desarrollo:
 
-1. En Azure Portal, vaya a la instancia de IoT Hub, que se usa para desarrollar y probar los dispositivos de IoT Edge. Haga clic en **IoT Edge** y después en **Implementaciones de IoT Edge**: ![IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/iotedge.png)
+1. En Azure Portal, vaya a la instancia de IoT Hub, que se usa para desarrollar y probar los dispositivos de IoT Edge. Haga clic en **IoT Edge** y, después, **Implementaciones de IoT Edge**: ![IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/iotedge.png).
 
-1. Haga clic en la implementación que tiene la configuración de implementación que quiere usar. Se muestra la página de **Detalles de la implementación**: ![Detalles de la implementación de IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png)
+1. Haga clic en la implementación que tiene la configuración de implementación que quiere usar. La página **Detalles de la implementación** muestra: ![Detalles de la implementación de IoT Edge](media/iot-accelerators-remote-monitoring-import-edge-package/deploymentdetails.png)
 
-1. Haga clic en **Descargar manifiesto de IoT Edge**:  ![Descargar manifiesto de implementación](media/iot-accelerators-remote-monitoring-import-edge-package/download.png)
+1. Haga clic en **Download IoT Edge manifest**  (Descargar manifiesto de IoT Edge): ![Download deployment manifest](media/iot-accelerators-remote-monitoring-import-edge-package/download.png) (Descargar manifiesto de implementación).
 
 1. Guarde el archivo JSON como un archivo local denominado **deploymentmanifest.json**.
 
@@ -43,11 +43,11 @@ Ahora tiene un archivo que contiene el manifiesto de implementación. En la secc
 
 Siga los pasos que se muestran a continuación para importar un manifiesto de implementación de Edge como un paquete en la solución:
 
-1. Vaya a la página **Paquetes** de la interfaz de usuario web de supervisión remota:  ![Página de paquetes](media/iot-accelerators-remote-monitoring-import-edge-package/packagespage.png)
+1. Vaya a la página **Paquetes** de la interfaz de usuario web de supervisión remota: ![Página de paquetes](media/iot-accelerators-remote-monitoring-import-edge-package/packagespage.png)
 
-1. Haga clic en **+ Nuevo paquete**, elija **Manifiesto de Edge** como el tipo de paquete y haga clic en **Examinar** para seleccionar el archivo **deploymentmanifest.json** que se ha guardado en la sección anterior:  ![Seleccionar manifiesto](media/iot-accelerators-remote-monitoring-import-edge-package/selectmanifest.png)
+1. Haga clic en **+ Nuevo paquete**, elija **Manifiesto de Edge** como el tipo de paquete y haga clic en **Examinar** para seleccionar el archivo **deploymentmanifest.json** que guardó en la sección anterior: ![Seleccionar manifiesto](media/iot-accelerators-remote-monitoring-import-edge-package/selectmanifest.png)
 
-1. Haga clic en **Cargar** para agregar el paquete a la solución de supervisión remota:  ![Paquete cargado](media/iot-accelerators-remote-monitoring-import-edge-package/uploadedpackage.png)
+1. Haga clic en **Cargar** para agregar el paquete a la solución de supervisión remota: ![Paquete cargado](media/iot-accelerators-remote-monitoring-import-edge-package/uploadedpackage.png)
 
 Ahora ha cargado un manifiesto de implementación de IoT Edge como un paquete. En la página **Implementaciones**, puede implementar este paquete en los dispositivos de IoT Edge conectados.
 

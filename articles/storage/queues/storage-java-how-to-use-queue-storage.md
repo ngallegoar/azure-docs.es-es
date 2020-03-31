@@ -2,18 +2,18 @@
 title: Uso del almacenamiento de colas de Java - Azure Storage
 description: Aprenda a usar Queue Storage para crear y eliminar colas e insertar, obtener y eliminar mensajes con la biblioteca cliente de Azure Storage para Java.
 author: mhopkins-msft
-ms.service: storage
 ms.author: mhopkins
 ms.date: 12/08/2016
+ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 17d02d8df96927aa506683fef94899e5c5114684
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7658b8541e7a79a5e547a6649b35681446e34b0b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839036"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067144"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Uso del almacenamiento de colas de Java
 
@@ -68,8 +68,8 @@ String storageConnectionString =
 
 En los ejemplos siguientes se supone que usó uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.
 
-## <a name="how-to-create-a-queue"></a>Procedimientos para: Creación de una cola
-Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. (Nota: Existen otras maneras de crear objetos **CloudStorageAccount**. Para más información, consulte **CloudStorageAccount** en la [referencia del SDK del cliente de Azure Storage].
+## <a name="how-to-create-a-queue"></a>Creación de una cola
+Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. (Nota: Hay otras maneras de crear objetos **CloudStorageAccount**. Para más información, consulte **CloudStorageAccount** en la [Referencia del SDK del cliente de Azure Storage]).
 
 Use el objeto **CloudQueueClient** para obtener una referencia a la cola que desea utilizar. En caso de que la cola no exista todavía, es posible crearla.
 
@@ -96,7 +96,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-add-a-message-to-a-queue"></a>Procedimientos para: un mensaje a una cola
+## <a name="how-to-add-a-message-to-a-queue"></a>Incorporación de un mensaje a una cola
 Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo **CloudQueueMessage**. A continuación, llame al método **addMessage** . Se puede crear un **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de bytes. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo".
 
 ```java
@@ -126,7 +126,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Procedimientos para: siguiente mensaje
+## <a name="how-to-peek-at-the-next-message"></a>Cómo ojear el siguiente mensaje
 Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peekMessage**.
 
 ```java
@@ -158,7 +158,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procedimientos para: contenido de un mensaje en cola
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Cómo cambiar el contenido de un mensaje en cola
 Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. El aumento del tiempo de espera de la visibilidad permite guardar el estado del trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de *n* veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
 
 El siguiente código de ejemplo busca en la cola de mensajes, encuentra el primer mensaje cuyo contenido coincide con "Hola, mundo" y luego modifica el contenido del mensaje "Hola mundo" y se cierra.
@@ -241,7 +241,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Procedimientos para: la longitud de la cola
+## <a name="how-to-get-the-queue-length"></a>Cómo obtener la longitud de la cola
 Puede obtener una estimación del número de mensajes existentes en una cola. El método **downloadAttributes** pide al servicio de cola varios valores actuales, incluido un conteo de cuántos mensajes están en la cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud. El método **getApproximateMethodCount** devuelve el último valor recuperado por la llamada a **downloadAttributes**, sin llamar a Queue service.
 
 ```java
@@ -273,7 +273,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Procedimientos para: Extracción del siguiente mensaje de la cola
+## <a name="how-to-dequeue-the-next-message"></a>Extracción del siguiente mensaje de la cola
 El código extrae un mensaje de una cola en dos pasos. Al llamar a **retrieveMessage**, obtiene el siguiente mensaje de una cola. Un mensaje devuelto por **retrieveMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para terminar de quitar el mensaje de la cola, también debe llamar a **deleteMessage**. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
 
 ```java
@@ -337,7 +337,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-list-the-queues"></a>Procedimientos para: Enumeración de las colas
+## <a name="how-to-list-the-queues"></a>Enumeración de las colas
 Para obtener una lista de las colas actuales, llame al método **CloudQueueClient.listQueues()** , el cual devolverá una colección de objetos **CloudQueue**.
 
 ```java
@@ -365,7 +365,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-delete-a-queue"></a>Procedimientos para: Eliminación de una cola
+## <a name="how-to-delete-a-queue"></a>Cómo eliminar una cola
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **deleteIfExists** en el objeto de cola **CloudQueue**.
 
 ```java
@@ -395,7 +395,7 @@ catch (Exception e)
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
 * [SDK de Azure Storage para Java][Azure Storage SDK for Java]
-* [Referencia del SDK de cliente de Azure Storage][Azure Storage Client SDK Reference]
+* [Referencia del SDK del cliente de Azure Storage][Azure Storage Client SDK Reference]
 * [API de REST de servicios de Azure Storage][Azure Storage Services REST API]
 * [Blog del equipo de Azure Storage][Azure Storage Team Blog]
 

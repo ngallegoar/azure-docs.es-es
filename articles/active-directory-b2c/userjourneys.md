@@ -11,10 +11,10 @@ ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d73a1a3ce23817d9d6f742a4a8c730afb58ee0c8
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78227002"
 ---
 # <a name="userjourneys"></a>UserJourneys
@@ -65,8 +65,8 @@ El elemento **OrchestrationStep** contiene los siguientes atributos:
 | --------- | -------- | ----------- |
 | `Order` | Sí | El orden de los pasos de orquestación. |
 | `Type` | Sí | El tipo de paso de orquestación. Valores posibles: <ul><li>**ClaimsProviderSelection**: indica que el paso de orquestación presenta diversos proveedores de notificaciones al usuario para que seleccione uno.</li><li>**CombinedSignInAndSignUp**: indica que el paso de orquestación presenta una página combinada de inicio de sesión en el proveedor social y de registro en la cuenta local.</li><li>**ClaimsExchange**: indica que el paso de orquestación intercambia notificaciones con un proveedor de notificaciones.</li><li>**GetClaims**: indica que el paso de orquestación lee las notificaciones de entrada.</li><li>**SendClaims**: indica que el paso de orquestación envía las notificaciones al usuario de confianza con un token emitido por un emisor de notificaciones.</li></ul> |
-| ContentDefinitionReferenceId | Sin | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este paso de orquestación. Normalmente, el identificador de referencia de la definición de contenido se define en el perfil técnico autoafirmado. Pero hay algunos casos en los que Azure AD B2C necesita mostrar contenido sin un perfil técnico. Hay dos ejemplos: si el tipo de paso de orquestación es uno de los siguientes: `ClaimsProviderSelection` o `CombinedSignInAndSignUp`, Azure AD B2C debe mostrar la selección del proveedor de identidades sin tener ningún perfil técnico. |
-| CpimIssuerTechnicalProfileReferenceId | Sin | El tipo de paso de orquestación es `SendClaims`. Esta propiedad define el identificador de perfil técnico del proveedor de notificaciones que emite el token del usuario de confianza.  Si no aparece, no se crea ningún token para el usuario de confianza. |
+| ContentDefinitionReferenceId | No | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este paso de orquestación. Normalmente, el identificador de referencia de la definición de contenido se define en el perfil técnico autoafirmado. Pero hay algunos casos en los que Azure AD B2C necesita mostrar contenido sin un perfil técnico. Hay dos ejemplos: si el tipo de paso de orquestación es uno de los siguientes: `ClaimsProviderSelection` o `CombinedSignInAndSignUp`, Azure AD B2C debe mostrar la selección del proveedor de identidades sin tener ningún perfil técnico. |
+| CpimIssuerTechnicalProfileReferenceId | No | El tipo de paso de orquestación es `SendClaims`. Esta propiedad define el identificador de perfil técnico del proveedor de notificaciones que emite el token del usuario de confianza.  Si no aparece, no se crea ningún token para el usuario de confianza. |
 
 
 El elemento **OrchestrationStep** puede contener los siguientes elementos:
@@ -172,14 +172,14 @@ El elemento **ClaimsProviderSelections** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| DisplayOption| Sin | Controla el comportamiento de un caso en el que solo hay disponible una selección del proveedor de notificaciones. Valores posibles: `DoNotShowSingleProvider` (valor predeterminado), el usuario se redirige inmediatamente al proveedor de identidades federadas. O `ShowSingleProvider` Azure AD B2C presenta la página de inicio de sesión con la selección del proveedor de identidades única. Para usar este atributo, la [versión de definición de contenido](page-layout.md) debe ser  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` y superior.|
+| DisplayOption| No | Controla el comportamiento de un caso en el que solo hay disponible una selección del proveedor de notificaciones. Valores posibles: `DoNotShowSingleProvider` (valor predeterminado), el usuario se redirige inmediatamente al proveedor de identidades federadas. O `ShowSingleProvider` Azure AD B2C presenta la página de inicio de sesión con la selección del proveedor de identidades única. Para usar este atributo, la [versión de definición de contenido](page-layout.md) debe ser  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` y superior.|
 
 El elemento **ClaimsProviderSelection** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Sin | El identificador del intercambio de notificaciones, que se ejecuta en el siguiente paso de orquestación de la selección del proveedor de notificaciones. Hay que especificar este atributo o el atributo ValidationClaimsExchangeId, pero no ambos. |
-| ValidationClaimsExchangeId | Sin | El identificador del intercambio de notificaciones, que se ejecuta en el paso de orquestación actual para validar la selección del proveedor de notificaciones. Hay que especificar este atributo o el atributo TargetClaimsExchangeId, pero no ambos. |
+| TargetClaimsExchangeId | No | El identificador del intercambio de notificaciones, que se ejecuta en el siguiente paso de orquestación de la selección del proveedor de notificaciones. Hay que especificar este atributo o el atributo ValidationClaimsExchangeId, pero no ambos. |
+| ValidationClaimsExchangeId | No | El identificador del intercambio de notificaciones, que se ejecuta en el paso de orquestación actual para validar la selección del proveedor de notificaciones. Hay que especificar este atributo o el atributo TargetClaimsExchangeId, pero no ambos. |
 
 ### <a name="claimsproviderselection-example"></a>Ejemplo de ClaimsProviderSelection
 

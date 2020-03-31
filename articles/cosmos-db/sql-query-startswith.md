@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9ed49c067946186f8b79f67bad0a460113eacb73
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78295715"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTSWITH (Azure Cosmos DB)
@@ -51,7 +51,7 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 
 ## <a name="remarks"></a>Observaciones
 
-Esta función del sistema se beneficiaría de un [índice de intervalo](index-policy.md#includeexclude-strategy).
+Esta función del sistema se beneficiará de un [índice de intervalo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

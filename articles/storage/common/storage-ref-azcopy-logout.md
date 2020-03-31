@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 538c54c338540059baa17b9818d444cc863b7309
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034065"
 ---
 # <a name="azcopy-logout"></a>azcopy logout
@@ -36,17 +36,17 @@ azcopy logout [flags]
 
 ## <a name="options"></a>Opciones
 
-|Opción|DESCRIPCIÓN|
+|Opción|Descripción|
 |--|--|
 |-h, --help|Muestra el contenido de la ayuda para el comando logout.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Opciones heredadas de comandos primarios
 
-|Opción|DESCRIPCIÓN|
+|Opción|Descripción|
 |---|---|
 |--cap-mbps uint32|Limita la velocidad de transferencia, en megabits por segundo. El rendimiento en un momento dado puede variar ligeramente del límite. Si esta opción se establece en cero o se omite, el rendimiento no se limita.|
 |--output-type string|Formato de la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es "text".|
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [azcopy](storage-ref-azcopy.md)

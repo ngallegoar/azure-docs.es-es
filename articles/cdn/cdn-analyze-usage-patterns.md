@@ -1,6 +1,6 @@
 ---
 title: Informes principales de Verizon | Microsoft Docs
-description: 'Puede ver los patrones de uso de la red CDN mediante los informes siguientes: Ancho de banda, Datos transferidos, Aciertos, Proporción de aciertos de caché y Datos de IPV4/IPV6 transferidos.'
+description: 'Puede ver los patrones de uso de la red CDN mediante los siguientes informes: Ancho de banda, Datos transferidos, Aciertos, Estados de la memoria caché, Frecuencia de aciertos de caché, Datos de IPV4/IPV6 transferidos.'
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d48ddafdc1ec30ae1533b3a3101582f33e7f4b5c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594160"
 ---
 # <a name="core-reports-from-verizon"></a>Informes principales de Verizon
@@ -89,7 +89,7 @@ Para reducir los aciertos de caché expirados, establezca el valor de `max-age` 
 * TCP_HIT: servido desde el servidor perimetral. El objeto estaba en la caché y no ha excedido su duración máxima.
 * TCP_MISS: servido desde el servidor de origen. El objeto no estaba en la caché y la respuesta se devolvió al origen.
 * TCP_EXPIRED _MISS: servido desde el servidor de origen después de la revalidación con el origen. El objeto estaba en la caché, pero ha excedido su duración máxima. Como resultado de una revalidación con el origen, el objeto de caché será reemplazado por una nueva respuesta desde el origen.
-* TCP_EXPIRED _HIT: servido desde el servidor perimetral después de la revalidación con el origen. El objeto estaba en la memoria caché, pero ha excedido su duración máxima. Como resultado de una revalidación con el servidor de origen, el objeto de caché no se ha modificado.
+* TCP_EXPIRED _HIT: servido desde el extremo después de la revalidación con el origen. El objeto estaba en la memoria caché, pero ha excedido su duración máxima. Como resultado de una revalidación con el servidor de origen, el objeto de caché no se ha modificado.
 
 ### <a name="full-list-of-cache-statuses"></a>Lista completa de los estados de la memoria caché
 * TCP_HIT: este estado se comunica cuando una solicitud se sirve directamente desde el POP al cliente. Un activo se sirve inmediatamente desde un servidor POP cuando se almacena en caché en el servidor POP más cercano al cliente y tiene un valor de período de vida (TTL) válido. TTL se determina mediante los siguientes encabezados de respuesta:
@@ -97,15 +97,15 @@ Para reducir los aciertos de caché expirados, establezca el valor de `max-age` 
   * Cache-Control: s-maxage
   * Cache-Control: max-age
   * Expira
-* TCP_MISS: este estado indica que no se ha encontrado una versión en caché del recurso solicitado en el POP más cercano al cliente. El recurso se solicita desde un servidor de origen o un servidor de escudo de origen. Si el servidor de origen o el servidor de escudo de origen devuelve un recurso, se sirve al cliente y se almacena en caché en el cliente y el servidor perimetral. En caso contrario, se devuelve un código de estado no 200 (por ejemplo, 403 Prohibido o 404 No encontrado).
-* TCP_EXPIRED_HIT: este estado se notifica cuando una solicitud destinada a un recurso con TTL expirado se ha servido directamente desde el servidor POP al cliente. Por ejemplo, cuando la duración máxima del recurso ha expirado. 
+* TCP_MISS: este estado indica que no se encontró una versión en caché del recurso solicitado en el POP más cercano al cliente. El recurso se solicita desde un servidor de origen o un servidor de escudo de origen. Si el servidor de origen o el servidor de escudo de origen devuelve un recurso, se sirve al cliente y se almacena en caché en el cliente y el servidor perimetral. En caso contrario, se devuelve un código de estado no 200 (por ejemplo, 403 Prohibido o 404 No encontrado).
+* TCP_EXPIRED _HIT: este estado se comunica cuando una solicitud destinada a un recurso con TTL expirado se sirve directamente desde el servidor POP al cliente. Por ejemplo, cuando la duración máxima del recurso ha expirado. 
   
    Una solicitud expirada normalmente produce una solicitud de revalidación al servidor de origen. Para que se produzca un estado TCP_EXPIRED_HIT, el servidor de origen debe indicar que no existe una versión más reciente del recurso. Esta situación da lugar normalmente a una actualización de los encabezados Cache-Control y Expires del recurso.
-* TCP_EXPIRED_MISS: este estado se notifica cuando se proporciona una versión más reciente de un recurso almacenado en caché expirado desde el servidor POP al cliente. Este estado se produce cuando el TTL de un recurso almacenado en caché ha expirado (por ejemplo, la duración máxima ha expirado) y el servidor de origen devuelve una versión más reciente de dicho recurso. Esta nueva versión del recurso se sirve al cliente en lugar de la versión almacenada en caché. Además, se almacena en caché en el servidor perimetral y el cliente.
-* CONFIG_NOCACHE: este estado indica que una configuración específica del cliente en el POP perimetral ha impedido que el recurso se almacene en caché.
+* TCP_EXPIRED _MISS: este estado se comunica cuando se proporciona una versión más reciente de un recurso almacenado en caché expirado desde el servidor POP al cliente. Este estado se produce cuando el TTL de un recurso almacenado en caché ha expirado (por ejemplo, la duración máxima ha expirado) y el servidor de origen devuelve una versión más reciente de dicho recurso. Esta nueva versión del recurso se sirve al cliente en lugar de la versión almacenada en caché. Además, se almacena en caché en el servidor perimetral y el cliente.
+* CONFIG_NOCACHE: este estado indica que una configuración específica del cliente en el POP perimetral impidió que el recurso se almacene en caché.
 * NONE: este estado indica que no se realizó una comprobación de actualización del contenido de la memoria caché.
-* TCP_CLIENT_REFRESH_MISS: este estado se comunica cuando un cliente HTTP (por ejemplo, un explorador) fuerza a un servidor POP perimetral a recuperar una nueva versión de un recurso obsoleto desde el servidor de origen. De forma predeterminada, los servidores impiden que un cliente HTTP fuerce los servidores perimetrales para recuperar una nueva versión del recurso desde el servidor de origen.
-* TCP_PARTIAL_HIT: este estado se comunica cuando una solicitud de intervalo de bytes da como resultado un acierto para un recurso almacenado parcialmente en caché. El intervalo de bytes solicitado se sirve inmediatamente desde el POP al cliente.
+* TCP_ CLIENT_REFRESH _MISS: este estado se comunica cuando un cliente HTTP (por ejemplo, un explorador) fuerza a un servidor POP perimetral a que recupere una nueva versión de un recurso obsoleto desde el servidor de origen. De forma predeterminada, los servidores impiden que un cliente HTTP fuerce los servidores perimetrales para recuperar una nueva versión del recurso desde el servidor de origen.
+* TCP_ PARTIAL_HIT: este estado se comunica cuando una solicitud de intervalo de bytes da como resultado un acierto para un recurso almacenado parcialmente en caché. El intervalo de bytes solicitado se sirve inmediatamente desde el POP al cliente.
 * UNCACHEABLE: este estado se comunica cuando los encabezados `Cache-Control` y `Expires` de un recurso indican que no se debe almacenar en caché en un POP o mediante el cliente HTTP. Estos tipos de solicitudes se atienden desde el servidor de origen.
 
 ## <a name="cache-hit-ratio"></a>Frecuencia de aciertos de caché

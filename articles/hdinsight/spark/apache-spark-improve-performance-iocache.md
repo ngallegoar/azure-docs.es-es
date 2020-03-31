@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/23/2019
 ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75494990"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight
@@ -34,7 +34,7 @@ No tiene que realizar ningún cambio en los trabajos de Spark para ver un aument
 
 La memoria caché de E/S de Azure HDInsight está desactivada de forma predeterminada en la versión preliminar. La memoria caché de E/S está disponible en los clústeres de Spark de Azure HDInsight 3.6 +, que ejecutan Apache Spark 2.3.  Para activar la caché de E/S en HDInsight 4.0, realice los pasos siguientes:
 
-1. Desde un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster.
+1. En un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster.
 
 1. Seleccione el servicio **Memoria caché de E/S** a la izquierda.
 
@@ -77,4 +77,4 @@ Si esto no funciona, deshabilite la memoria caché de E/S.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Lea más acerca de la memoria caché de E/S, incluidas las pruebas comparativas de rendimiento, en esta entrada de blog: [Los trabajos de Apache Spark obtienen hasta 9 veces más velocidad con la memoria caché de E/S HDInsight](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+Obtenga más información acerca de la memoria caché de E/S, incluidas las pruebas comparativas de rendimiento en esta entrada de blog: [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/) (Los trabajos de Apache Spark consiguen una velocidad hasta 9 veces superior con la memoria caché de E/S de HDInsight).

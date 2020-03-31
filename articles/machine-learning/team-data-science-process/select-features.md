@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1127a470a48660ffffa892d24c9f2991ec64c8e6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76716672"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Selección de características en el proceso de ciencia de datos en equipos (TDSP)
@@ -23,8 +23,8 @@ En este artículo se explican los propósitos de la selección de característic
 
 La ingeniería y la selección de características forman parte del proceso de ciencia de datos en equipos TDSP descrito en el artículo [¿Cuál es el ciclo de vida del TDSP?](overview.md). La selección y la ingeniería de características son partes del paso del **desarrollo de características** del TDSP.
 
-* **Diseño de características**: este proceso trata de crear más características pertinentes a partir de las que tengamos sin procesar en los datos, así como de mejorar la eficacia predictiva del algoritmo de aprendizaje.
-* **Selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
+* **Diseño de características**: este proceso intenta crear características pertinentes adicionales a partir de características existentes sin procesar en los datos y mejorar la eficacia predictiva del algoritmo de aprendizaje.
+* **selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
 
 Normalmente, la **ingeniería de características** se aplica primero para generar características adicionales y, a continuación, se realiza el paso de **selección de características** para eliminar características irrelevantes, redundantes o altamente correlacionadas.
 

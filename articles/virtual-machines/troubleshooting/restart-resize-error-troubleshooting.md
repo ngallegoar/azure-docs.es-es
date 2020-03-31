@@ -14,10 +14,10 @@ ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a6532558107463311c4225b9855bc4cd3f19eed9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75965622"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Solución de problemas de implementación con el reinicio o el cambio de tamaño de una máquina virtual Windows existente en Azure
@@ -45,7 +45,7 @@ La solicitud de iniciar la máquina virtual detenida se debe intentar en el clú
   2. Después de detener todas las máquinas virtuales, selecciónelas y haga clic en Iniciar.
 * Vuelva a intentar solicitar el reinicio más tarde.
 
-## <a name="issue-error-when-resizing-an-existing-vm"></a>Problema: Error al cambiar el tamaño de una máquina virtual existente
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Problema: error al reiniciar una máquina virtual existente
 Intenta cambiar el tamaño de una máquina virtual existente, pero obtiene un error de asignación.
 
 ### <a name="cause"></a>Causa

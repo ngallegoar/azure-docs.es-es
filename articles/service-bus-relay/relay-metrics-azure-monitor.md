@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 159249e2c997e4c414127992b08a83b488281e46
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273129"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de Azure Relay en Azure Monitor 
@@ -60,24 +60,24 @@ Los valores de las métricas se envían a Azure Monitor cada minuto. La granular
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
-| ListenerConnections-Success  | Número de conexiones correctas del agente de escucha a Azure Relay durante un determinado periodo. <br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|ListenerConnections-ClientError |Número de errores de cliente en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|ListenerConnections-ServerError |Número de errores del servidor en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|SenderConnections-Success |Número de conexiones correctas del remitente durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|SenderConnections-ClientError |Número de errores de cliente en las conexiones del remitente durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|SenderConnections-ServerError |Número de errores del servidor en las conexiones del remitente durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|ListenerConnections-TotalRequests |Número total de errores en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|SenderConnections-TotalRequests |Solicitudes de conexión realizadas por los remitentes durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|ActiveConnections |Número de conexiones activas. Este valor es un valor de un momento dado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|ActiveListeners |El número de licencias activas. Este valor es un valor de un momento dado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|ListenerDisconnects |Número de agentes de escucha desconectados durante un determinado periodo.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|SenderDisconnects |Número de remitentes desconectados durante un determinado periodo.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+| ListenerConnections-Success  | Número de conexiones correctas del agente de escucha a Azure Relay durante un determinado periodo. <br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|ListenerConnections-ClientError |Número de errores de cliente en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|ListenerConnections-ServerError |Número de errores del servidor en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|SenderConnections-Success |Número de conexiones correctas del remitente durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|SenderConnections-ClientError |Número de errores de cliente en las conexiones del remitente durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|SenderConnections-ServerError |Número de errores del servidor en las conexiones del remitente durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|ListenerConnections-TotalRequests |Número total de errores en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|SenderConnections-TotalRequests |Solicitudes de conexión realizadas por los remitentes durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|ActiveConnections |Número de conexiones activas. Este valor es un valor de un momento dado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|ActiveListeners |El número de licencias activas. Este valor es un valor de un momento dado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|ListenerDisconnects |Número de agentes de escucha desconectados durante un determinado periodo.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|SenderDisconnects |Número de remitentes desconectados durante un determinado periodo.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
 
 ## <a name="memory-usage-metrics"></a>Métricas de uso de memoria
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
-|BytesTransferred |Número de bytes transferidos durante un determinado periodo.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|BytesTransferred |Número de bytes transferidos durante un determinado periodo.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensiones de métricas
 

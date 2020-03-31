@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.openlocfilehash: b0af19ec740e96cd572ffe37285d7e58ead83b25
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774861"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitectura de la conectividad en Azure Database for PostgreSQL
@@ -40,7 +40,7 @@ En la siguiente tabla se enumeran las direcciones IP principales y secundarias d
 | Este de China 2 | 40.73.82.1  |
 | Norte de China | 139.219.15.17    |
 | Norte de China 2 | 40.73.50.0     |
-| Asia oriental | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
+| Este de Asia | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
 | Este de EE. UU. | 40.121.158.30, 191.238.6.43  |
 | Este de EE. UU. 2 |40.79.84.180, 191.239.224.107, 52.177.185.181   |
 | Centro de Francia | 40.79.137.0, 40.79.129.1  |
@@ -58,7 +58,7 @@ En la siguiente tabla se enumeran las direcciones IP principales y secundarias d
 | Norte de Sudáfrica  | 102.133.152.0    |
 | Oeste de Sudáfrica | 102.133.24.0   |
 | Centro-sur de EE. UU. |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
-| Sudeste Asiático | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
+| Sudeste de Asia | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Centro de Emiratos Árabes Unidos | 20.37.72.64  |
 | Norte de Emiratos Árabes Unidos | 65.52.248.0    |
 | Sur de Reino Unido 2 | 51.140.184.11   |

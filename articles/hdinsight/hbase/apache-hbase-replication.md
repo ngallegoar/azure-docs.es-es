@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.openlocfilehash: 1e6465584dd4e67f736b94d2939678c1a69163bf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435664"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clústeres de Apache HBase en redes virtuales de Azure
@@ -85,7 +85,7 @@ Algunos de los valores de la plantilla están codificados de forma rígida:
 
 | Propiedad | Value |
 |----------|-------|
-| Location | East US |
+| Location | Este de EE. UU. |
 | Nombre de red virtual | &lt;ClusterNamePrevix>-vnet2 |
 | Prefijo del espacio de direcciones | 10.2.0.0/16 |
 | Nombre de subred | subred 1 |
@@ -262,9 +262,9 @@ Cree un clúster de [Apache HBase](https://hbase.apache.org/) en cada una de las
 - **Nombre del grupo de recursos**: use el mismo nombre del grupo de recursos que cuando creó las redes virtuales.
 - **Tipo de clúster**: HBase
 - **Versión**: HBase 1.1.2 (HDI 3.6)
-- **Ubicación**: use la misma ubicación que la de la red virtual.  De forma predeterminada, para vnet1 es *Oeste de EE. UU.* y para vnet2 es *Este de EE. UU*.
+- **Ubicación**: seleccione la misma ubicación que la red virtual.  De forma predeterminada, para vnet1 es *Oeste de EE. UU.* y para vnet2 es *Este de EE. UU*.
 - **Almacenamiento**: cree una nueva cuenta de almacenamiento para el clúster.
-- **Red virtual** (en Configuración avanzada en el portal): seleccione la red vnet1 que creó en el último procedimiento.
+- **Red virtual** (en Configuración avanzada en el portal): seleccione vnet1, la máquina virtual que creó en el último procedimiento.
 - **Subred**: el nombre predeterminado que se utiliza en la plantilla es **subnet1**.
 
 Para asegurarse de que el entorno está configurado correctamente, debe poder hacer ping en el FQDN del nodo principal entre los dos clústeres.
@@ -273,7 +273,7 @@ Para asegurarse de que el entorno está configurado correctamente, debe poder ha
 
 Al replicar un clúster, debe especificar las tablas que quere replicar. En esta sección, va a cargar algunos datos en el clúster de origen. En la siguiente sección, habilitará la replicación entre los dos clústeres.
 
-Para crear una tabla **Contacts** e insertar algunos datos en ella, siga las instrucciones que se indican en el [Tutorial de HBase: Introducción a HBase Apache en HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Para crear una tabla **Contacts** e insertar algunos datos en ella, siga las instrucciones que se indican en el [tutorial de HBase sobre la introducción al uso de Apache HBase en HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 > [!NOTE]
 > Si desea replicar tablas desde un espacio de nombres personalizado, debe asegurarse de que también se definen los espacios de nombres personalizados adecuados en el clúster de destino.
@@ -291,9 +291,9 @@ En los pasos siguientes se describe cómo llamar al script de acción de script 
 4. En la parte superior de la página, seleccione **Enviar nuevo**.
 5. Seleccione o escriba la siguiente información:
 
-   1. **Name**: especifique **Enable replication** (Habilitar replicación).
-   2. **Bash Script URL** (Dirección URL de script de Bash): Escriba **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
-   3. **Head** (Encabezado): asegúrese de que esta opción está seleccionada. Borre los demás tipos de nodo.
+   1. **Nombre** especifique **Enable replication** (Habilitar replicación).
+   2. **URL de script de Bash**: escriba **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
+   3. **Principal**: asegúrese de que esta opción está seleccionada. Borre los demás tipos de nodo.
    4. **Parámetros**: los siguientes parámetros de ejemplo permiten la replicación en todas las tablas existentes y copian todos los datos del clúster de origen al clúster de destino:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
 ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304198"
 ---
 # <a name="load-balancer-outbound-rules"></a>Reglas de salida de Load Balancer
@@ -64,7 +64,7 @@ La versión de la API "2018-07-01" permite una definición de regla de salida qu
 >[!NOTE]
 >La configuración de NAT de salida eficaz es una composición de todas las reglas de salida y de equilibrio de carga. Las reglas de salida son incrementales para las reglas de equilibrio de carga. Revise [Deshabilitar la NAT de salida para una regla de equilibrio de carga](#disablesnat) para administrar la traducción de NAT de salida eficaz cuando se aplican varias reglas a una VM. Debe [deshabilitar la SNAT de salida](#disablesnat) al definir una regla de salida que usa la misma dirección IP pública que una regla de equilibrio de carga.
 
-### <a name="scale"></a> NAT de salida de escala con varias direcciones IP
+### <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a> NAT de salida de escala con varias direcciones IP
 
 Mientras una regla de salida se puede usar con una única dirección IP pública, las reglas de salida alivian la carga de configuración para escalar la NAT de salida. Puede usar varias direcciones IP para planear escenarios de gran escala y puede usar reglas de salida para mitigar los patrones con tendencia a [agotamiento de SNAT](load-balancer-outbound-connections.md#snatexhaust).  
 
@@ -74,7 +74,7 @@ Además, puede usar un [prefijo de IP pública](https://aka.ms/lbpublicipprefix)
 
 No se pueden crear recursos de dirección IP pública individuales a partir del prefijo de IP pública cuando se usa esta opción, ya que la regla de salida debe tener control total sobre el prefijo de IP pública.  Si necesita un control más específico, puede crear un recurso de dirección IP pública individual a partir del prefijo de IP pública y asignar varias direcciones IP públicas individualmente al front-end de una regla de salida.
 
-### <a name="snatports"></a> Ajustar la asignación de puertos SNAT
+### <a name="tune-snat-port-allocation"></a><a name="snatports"></a> Ajustar la asignación de puertos SNAT
 
 Puede usar reglas de salida para ajustar la [asignación de puertos SNAT automática según el tamaño del grupo de back-end](load-balancer-outbound-connections.md#preallocatedports) y asignar más o menos que la asignación automática de puertos SNAT.
 
@@ -87,7 +87,7 @@ Cada dirección IP pública de todos los servidores front-end de una regla de sa
 
 Puede volver a la [asignación de puertos SNAT automática basada en el tamaño del grupo de back-end](load-balancer-outbound-connections.md#preallocatedports). Para hacerlo, especifique 0 como número de puertos. En ese caso, las primeras 50 instancias de máquina virtual obtendrán 1024 puertos, las instancias de máquina virtual 51 a 100 obtendrán 512 y así sucesivamente según la tabla.
 
-### <a name="idletimeout"></a> Tiempo de espera de inactividad de flujo de salida de control
+### <a name="control-outbound-flow-idle-timeout"></a><a name="idletimeout"></a> Tiempo de espera de inactividad de flujo de salida de control
 
 Las reglas de salida proporcionan un parámetro de configuración para controlar el tiempo de espera de inactividad del flujo de salida y que se corresponda con las necesidades de su aplicación.  El tiempo de espera de inactividad de salida predeterminado es de 4 minutos.  El parámetro acepta un valor de 4 a 120 para especificar el número de minutos del tiempo de espera de inactividad para los flujos que coincidan con esta regla concreta.
 
@@ -95,7 +95,7 @@ Use el parámetro siguiente para establecer el tiempo de espera de inactividad d
 
           "idleTimeoutInMinutes": 60
 
-### <a name="tcprst"></a> <a name="tcpreset"></a> Habilitar el restablecimiento de TCP al agotarse el tiempo de espera de inactividad
+### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a> <a name="tcpreset"></a> Habilitar el restablecimiento de TCP al agotarse el tiempo de espera de inactividad
 
 De forma predeterminada, Load Balancer anula el flujo en silencio cuando se alcanza el tiempo de espera de inactividad de salida.  Con el parámetro enableTCPReset, puede habilitar un comportamiento de la aplicación más predecible y controlar si se debe enviar un restablecimiento de TCP bidireccional (TCP RST) al agotarse del tiempo de espera de inactividad de salida. 
 
@@ -105,7 +105,7 @@ Para habilitar el restablecimiento de TCP en una regla de salida, use el siguien
 
 Revise [Restablecimiento de TCP al agotarse el tiempo de espera de inactividad](https://aka.ms/lbtcpreset) para obtener detalles como la disponibilidad por regiones.
 
-### <a name="proto"></a> Compatibilidad con los protocolos de transporte TCP y UDP con una sola regla
+### <a name="support-both-tcp-and-udp-transport-protocols-with-a-single-rule"></a><a name="proto"></a> Compatibilidad con los protocolos de transporte TCP y UDP con una sola regla
 
 Probablemente, querrá usar "All" para el protocolo de transporte de la regla de salida, pero también puede aplicar la regla de salida a un protocolo de transporte específico si necesita hacerlo.
 
@@ -113,7 +113,7 @@ Para definir el protocolo TCP y UDP, use el siguiente parámetro:
 
           "protocol": "All"
 
-### <a name="disablesnat"></a> Deshabilitar NAT de salida para una regla de equilibrio de carga
+### <a name="disable-outbound-nat-for-a-load-balancing-rule"></a><a name="disablesnat"></a> Deshabilitar NAT de salida para una regla de equilibrio de carga
 
 Como se ha indicado anteriormente, las reglas de equilibrio de carga proporcionan programación automática de NAT de salida. Sin embargo, algunos escenarios requieren que deshabilite la programación automática de NAT de salida por parte de la regla de equilibrio de carga para permitirle controlar o refinar el comportamiento, o bien mejoran al hacerlo.  Las reglas de salida tienen escenarios donde es importante detener la programación de NAT de salida automática.
 
@@ -145,7 +145,7 @@ Las reglas de salida no introducen ningún concepto nuevo para definir el grupo 
 
 ## <a name="scenarios"></a>Escenarios
 
-### <a name="groom"></a> Limpiar las conexiones de salida en un conjunto específico de direcciones IP públicas
+### <a name="groom-outbound-connections-to-a-specific-set-of-public-ip-addresses"></a><a name="groom"></a> Limpiar las conexiones de salida en un conjunto específico de direcciones IP públicas
 
 Puede usar una regla de salida para limpiar las conexiones de salida para que parezca que se originan en un conjunto concreto de direcciones IP públicas a fin de facilitar los escenarios de creación de listas de permitidos.  Esta dirección IP pública de origen puede ser la misma que usa una regla de equilibrio de carga u otro conjunto de direcciones IP públicas distinto del que usa la regla de equilibrio de carga.  
 
@@ -157,7 +157,7 @@ Puede usar una regla de salida para limpiar las conexiones de salida para que pa
    
 Si no quiere usar la regla de equilibrio de carga para la salida, debe [deshabilitar la SNAT de salida](#disablesnat) en la regla de equilibrio de carga.
 
-### <a name="modifysnat"></a> Modificar la asignación de puertos SNAT
+### <a name="modify-snat-port-allocation"></a><a name="modifysnat"></a> Modificar la asignación de puertos SNAT
 
 Puede utilizar reglas de salida para ajustar la [asignación de puertos de SNAT automática basada en el tamaño del grupo de back-end](load-balancer-outbound-connections.md#preallocatedports).
 
@@ -165,7 +165,7 @@ Por ejemplo, si tiene dos máquinas virtuales que comparten una única direcció
 
 Consulte las [conexiones de salida](load-balancer-outbound-connections.md) y los detalles sobre cómo se asignan y usan los puertos [SNAT](load-balancer-outbound-connections.md#snat).
 
-### <a name="outboundonly"></a> Habilitar solo la salida
+### <a name="enable-outbound-only"></a><a name="outboundonly"></a> Habilitar solo la salida
 
 Puede usar una instancia pública de Standard Load Balancer para proporcionar NAT de salida para un grupo de VM. En este escenario, puede usar una sola regla de salida, sin necesidad de reglas adicionales.
 

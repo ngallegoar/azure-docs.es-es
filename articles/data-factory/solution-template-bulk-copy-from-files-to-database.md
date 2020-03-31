@@ -9,10 +9,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: ae250c7d15801789ad22955845cfa535ed91f2c1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75921153"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Copia masiva desde archivos a una base de datos

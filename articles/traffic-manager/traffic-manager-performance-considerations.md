@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
 ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938536"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Consideraciones de rendimiento sobre el Administrador de tráfico
@@ -28,7 +28,7 @@ Tiene instancias de su sitio web en las regiones Oeste de EE. UU. y Este de Asia
 
 El único impacto en el rendimiento que puede tener Traffic Manager sobre su sitio web es en la búsqueda de DNS inicial. Una solicitud de DNS del nombre de su perfil de Traffic Manager se procesa mediante el servidor de raíz DNS de Microsoft que hospeda la zona trafficmanager.net. Traffic Manager rellena y actualiza con regularidad los servidores de raíz DNS de Microsoft en función de la directiva de Traffic Manager y los resultados del sondeo. Por tanto, incluso durante la búsqueda de DNS inicial, no se envía ninguna consulta de DNS a Traffic Manager.
 
-Traffic Manager está formado por varios componentes: servidores de nombres DNS, un servicio de API, la capa de almacenamiento y un servicio de supervisión de puntos de conexión. Si se produce un error en un componente del servicio Traffic Manager, no surte ningún efecto en el nombre DNS asociado a su perfil de Traffic Manager. No se modificarán los registros en los servidores DNS de Microsoft. Sin embargo, la supervisión de puntos de conexión y la actualización de DNS no se llevan a cabo. Por lo tanto, Traffic Manager no es capaz de actualizar DNS para que señale a su sitio de conmutación por error cuando el sitio principal deja de funcionar.
+Traffic Manager se compone de varios elementos: servidores de nombres DNS, un servicio de API, la capa de almacenamiento y un servicio de supervisión de puntos de conexión. Si se produce un error en un componente del servicio Traffic Manager, no surte ningún efecto en el nombre DNS asociado a su perfil de Traffic Manager. No se modificarán los registros en los servidores DNS de Microsoft. Sin embargo, la supervisión de puntos de conexión y la actualización de DNS no se llevan a cabo. Por lo tanto, Traffic Manager no es capaz de actualizar DNS para que señale a su sitio de conmutación por error cuando el sitio principal deja de funcionar.
 
 La resolución de nombres DNS es rápida y los resultados se almacenan en la memoria caché. La velocidad de la búsqueda de DNS inicial depende de los servidores DNS que el cliente use para la resolución de nombres. Por lo general, un cliente puede completar una búsqueda de DNS en aproximadamente 50 ms. Los resultados de la búsqueda se almacenan en la memoria caché durante el período de vida (TTL) de DNS. El TTL predeterminado para Traffic Manager es 300 segundos.
 

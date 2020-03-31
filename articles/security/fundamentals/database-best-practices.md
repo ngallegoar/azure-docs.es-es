@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 316c3ef3c5bd16b52291029924d04fc159375bc8
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0f2e0257c5bf855b0d9be61c43b68b4e30b3d80d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943663"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125103"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedimientos recomendados para la seguridad de las bases de datos de Azure
 En este artículo se describen los procedimientos recomendados para la seguridad de base de datos.
@@ -72,10 +72,10 @@ Si usa autenticación de SQL Server, debe:
 
 - Administrar las credenciales seguras usted mismo.
 - Proteger las credenciales en la cadena de conexión.
-- Proteger (potencialmente) las credenciales transmitidas a través de la red desde el servidor web a la base de datos. Para más información, vea: [Cómo: conectar con SQL Server mediante la Autenticación de SQL en ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
+- Proteger (potencialmente) las credenciales transmitidas a través de la red desde el servidor web a la base de datos. Para obtener más información, vea [Conectar con SQL Server mediante Autenticación de SQL en ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticación de Azure Active Directory (AD)*
-La autenticación de Azure AD es un mecanismo de conexión a Azure SQL Database y [SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure AD. Con la autenticación de Azure AD, puede administrar las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece una ubicación única para administrar usuarios de base de datos y simplifica la administración de permisos.
+La autenticación de Azure AD es un mecanismo de conexión a Azure SQL Database y [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure AD. Con la autenticación de Azure AD, puede administrar las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece una ubicación única para administrar usuarios de base de datos y simplifica la administración de permisos.
 
 > [!NOTE]
 > Se recomienda el uso de la autenticación de Azure AD por encima de la autenticación de SQL Server.
@@ -146,17 +146,17 @@ La protección contra amenazas va más allá de la detección. La protección co
 - Detectar amenazas potenciales a medida que se producen para responder a ellas y corregirlas rápidamente.
 
 **Procedimiento recomendado**: detectar, clasificar y etiquetar los datos confidenciales de las bases de datos.   
-**Detalles**: clasifique los datos de la instancia de SQL Database al habilitar [Detección y clasificación de datos](/azure/sql-database/sql-database-data-discovery-and-classification) en Azure SQL Database. Puede supervisar el acceso a los datos confidenciales en el panel de Azure o descargar informes.
+**Detalle**: clasifique los datos de la base de datos SQL al habilitar [Detección y clasificación de datos](/azure/sql-database/sql-database-data-discovery-and-classification) en Azure SQL Database. Puede supervisar el acceso a los datos confidenciales en el panel de Azure o descargar informes.
 
-**Procedimiento recomendado**: realice un seguimiento de las vulnerabilidades de la base de datos para mejorar la seguridad de esta de manera proactiva.   
-**Detalles**: use el servicio [Evaluación de vulnerabilidad](/azure/sql-database/sql-vulnerability-assessment) de Azure SQL Database, que busca posibles vulnerabilidades de la base de datos. El servicio emplea una base de conocimiento de reglas que marcan vulnerabilidades de seguridad y muestran las desviaciones de los procedimientos recomendados, como errores de configuración, permisos excesivos y datos confidenciales sin protección.
+**Procedimiento recomendado**: realizar un seguimiento de las vulnerabilidades de la base de datos para mejorar la seguridad de esta de manera proactiva.   
+**Detalle**: use el servicio [Evaluación de vulnerabilidad](/azure/sql-database/sql-vulnerability-assessment) de Azure SQL Database, que busca posibles vulnerabilidades de la base de datos. El servicio emplea una base de conocimiento de reglas que marcan vulnerabilidades de seguridad y muestran las desviaciones de los procedimientos recomendados, como errores de configuración, permisos excesivos y datos confidenciales sin protección.
 
 Las reglas se basan en los procedimientos recomendados de Microsoft y se centran en los problemas de seguridad que presentan mayores riesgos para la base de datos y sus valiosos datos. Tratan los problemas de nivel de base de datos y los problemas de seguridad de nivel de servidor, como la configuración del firewall de servidor y los permisos de nivel de servidor. Estas reglas también representan muchos de los requisitos de diferentes organismos reguladores para cumplir sus estándares de cumplimiento.
 
-**Procedimiento recomendado**: Habilitar la detección de amenazas.  
-**Detalles**:  habilite la [Detección de amenazas](/azure/sql-database/sql-database-threat-detection) de Azure SQL Database para obtener alertas de seguridad y recomendaciones sobre cómo investigar y mitigar las amenazas. Se obtienen alertas sobre actividades sospechosas en las bases de datos, posibles vulnerabilidades y ataques por inyección de código SQL, así como sobre patrones anómalos de acceso y consulta a las bases de datos.
+**Procedimiento recomendado**: habilitar detección de amenazas.  
+**Detalle**: habilite [Detección de amenazas](/azure/sql-database/sql-database-threat-detection) de Azure SQL Database para obtener alertas de seguridad y recomendaciones sobre cómo investigar y mitigar las amenazas. Se obtienen alertas sobre actividades sospechosas en las bases de datos, posibles vulnerabilidades y ataques por inyección de código SQL, así como sobre patrones anómalos de acceso y consulta a las bases de datos.
 
-[Advanced Threat Protection](/azure/sql-database/sql-advanced-threat-protection) es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Incluye los servicios mencionados anteriormente: Clasificación y detección de datos, evaluación de vulnerabilidades y detección de amenazas. Proporciona una ubicación única para habilitar y administrar estas funcionalidades.
+[Advanced Threat Protection](/azure/sql-database/sql-advanced-threat-protection) es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Incluye los servicios mencionados anteriormente: Detección y clasificación de datos, Evaluación de vulnerabilidad y Detección de amenazas. Proporciona una ubicación única para habilitar y administrar estas funcionalidades.
 
 La habilitación de estas funcionalidades ayuda a:
 

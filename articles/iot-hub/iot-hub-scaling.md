@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: d1de29124825a7f398b9722bb2455d1105e9c9f7
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: ecc1ae5138fe5a1e42fed9be2e31b5afa8b6d5b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023649"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497510"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
@@ -72,37 +72,37 @@ La diferencia de funcionalidades admitidas entre los niveles Basic y Estándar d
 
 | API | Nivel Basic | Nivel Estándar o Gratis |
 | --- | ---------- | ------------- |
-| [Eliminar un dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Sí | Sí |
-| [Obtener dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Sí | Sí |
-| [Eliminar módulo](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | Sí | Sí |
-| [Obtener módulo](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | Sí | Sí |
-| [Obtener estadísticas del registro](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Sí | Sí |
-| [Obtener estadísticas de servicios](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Sí | Sí |
-| [Crear o actualizar el dispositivo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Sí | Sí |
-| [Crear o actualizar el módulo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | Sí | Sí |
-| [Consultar IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Sí | Sí |
+| [Eliminar un dispositivo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletedevice) | Sí | Sí |
+| [Obtener dispositivo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevice) | Sí | Sí |
+| [Eliminar módulo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/deletemodule) | Sí | Sí |
+| [Obtener módulo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getmodule) | Sí | Sí |
+| [Obtener estadísticas del registro](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getdevicestatistics) | Sí | Sí |
+| [Obtener estadísticas de servicios](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/getservicestatistics) | Sí | Sí |
+| [Crear o actualizar el dispositivo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatedevice) | Sí | Sí |
+| [Crear o actualizar el módulo](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/createorupdatemodule) | Sí | Sí |
+| [Consultar IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/queryiothub) | Sí | Sí |
 | [Crear el URI de SAS de carga de archivos](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Sí | Sí |
 | [Recibir notificación de dispositivo enlazado](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Sí | Sí |
 | [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Sí | Sí |
 | Enviar eventos de módulo | Solo AMQP y MQTT | Solo AMQP y MQTT |
 | [Actualizar estado de la carga de archivo](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sí | Sí |
-| [Operación de dispositivos en bloque](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Sí, excepto las funcionalidades de IoT Edge | Sí |
-| [Cancelar trabajo de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/cancelimportexportjob) | Sí | Sí |
-| [Crear trabajo de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/createimportexportjob) | Sí | Sí |
-| [Obtener trabajo de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjob) | Sí | Sí |
-| [Obtener trabajos de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/getimportexportjobs) | Sí | Sí |
-| [Purgar cola de comandos](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Sí |
-| [Obtener dispositivo gemelo](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Sí |
-| [Obtener módulo gemelo](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Sí |
-| [Invocar método de dispositivo](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Sí |
-| [Actualizar dispositivo gemelo](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Sí |
-| [Actualizar módulo gemelo](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | Sí |
+| [Operación de dispositivos en bloque](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/bulkdevicecrud) | Sí, excepto las funcionalidades de IoT Edge | Sí |
+| [Cancelar trabajo de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/jobclient/cancelimportexportjob) | Sí | Sí |
+| [Crear trabajo de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createimportexportjob) | Sí | Sí |
+| [Obtener trabajo de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjob) | Sí | Sí |
+| [Obtener trabajos de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) | Sí | Sí |
+| [Purgar cola de comandos](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) |   | Sí |
+| [Obtener dispositivo gemelo](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) |   | Sí |
+| [Obtener módulo gemelo](https://docs.microsoft.com/rest/api/iothub/service/twin/getmoduletwin) |   | Sí |
+| [Invocar método de dispositivo](https://docs.microsoft.com/rest/api/iothub/service/devicemethod/invokedevicemethod) |   | Sí |
+| [Actualizar dispositivo gemelo](https://docs.microsoft.com/rest/api/iothub/service/twin/updatedevicetwin) |   | Sí |
+| [Actualizar módulo gemelo](https://docs.microsoft.com/rest/api/iothub/service/twin/updatemoduletwin) |   | Sí |
 | [Abandonar notificación de dispositivo enlazado](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Sí |
 | [Completar notificación de dispositivo enlazado](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Sí |
-| [Cancelar trabajo](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Sí |
-| [Crear trabajo](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | Sí |
-| [Obtener trabajo](https://docs.microsoft.com/rest/api/iothub/service/getjob) |   | Sí |
-| [Consultar trabajos](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | Sí |
+| [Cancelar trabajo](https://docs.microsoft.com/rest/api/iothub/service/jobclient/canceljob) |   | Sí |
+| [Crear trabajo](https://docs.microsoft.com/rest/api/iothub/service/jobclient/createjob) |   | Sí |
+| [Obtener trabajo](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getjob) |   | Sí |
+| [Consultar trabajos](https://docs.microsoft.com/rest/api/iothub/service/jobclient/queryjobs) |   | Sí |
 
 ## <a name="message-throughput"></a>Rendimiento de mensajes
 

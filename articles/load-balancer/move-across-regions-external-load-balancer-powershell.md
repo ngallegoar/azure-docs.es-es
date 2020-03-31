@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: a24eb4608e7630d5b613751fa2120361eccd7672
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75644824"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Traslado de un equilibrador de carga externo de Azure a otra región mediante Azure PowerShell
@@ -306,7 +306,7 @@ En los pasos siguientes se muestra cómo preparar el equilibrador de carga exter
     ```
 12. También puede cambiar otros parámetros de la plantilla si así lo desea; son opcionales según sus requisitos:
     
-    * **SKU**: puede cambiar la SKU del equilibrador de carga externo en la configuración del nivel estándar al básico o viceversa si modifica la propiedad **sku** > **name** en el archivo \<**nombre-del-grupo-de-recursos>.json**:
+    * **SKU**: puede cambiar la SKU del equilibrador de carga externo en la configuración del nivel estándar al básico o viceversa si modifica la propiedad **sku** > **name** en el archivo **\<nombre-del-grupo-de-recursos>.json**:
 
         ```json
         "resources": [

@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/18/2019
 ms.openlocfilehash: 8eb03a42f38c0cc7fe82eda6a81d1c8c1213ec74
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71212400"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportación e importación de registros de Azure Notification Hubs en masa
@@ -31,7 +31,7 @@ El soporte técnico por lotes está diseñado para respaldar los trabajos de eje
 
 ## <a name="import"></a>Importar
 
-### <a name="set-up"></a>Instalación
+### <a name="set-up"></a>Configurar
 En esta sección se supone que tiene las siguientes entidades:
 
 - Un centro de notificaciones aprovisionado.

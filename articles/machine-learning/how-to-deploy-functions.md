@@ -11,10 +11,10 @@ author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.openlocfilehash: d03a3d482d147d3bc69354ee09dfe0b187610a09
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78927439"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementación de un modelo de Machine Learning en Azure Functions (versión preliminar)
@@ -27,7 +27,7 @@ Obtenga información sobre cómo implementar un modelo de Azure Machine Learnin
 
 Con Azure Machine Learning, puede crear una imagen de Docker a partir de modelos de aprendizaje automático entrenados. Ahora, Azure Machine Learning tiene la funcionalidad en versión preliminar para crear estos modelos de Machine Learning en las aplicaciones de funciones, que se pueden implementar en [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
 * La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).

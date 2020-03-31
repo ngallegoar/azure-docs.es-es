@@ -12,21 +12,21 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ae6fce5ab962637fe477ade75cf81b6ac237bdd2
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 9beda6589c03f1b14fc9756af86a9ce0711894c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138310"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063011"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Incorporación o eliminación de asignaciones de roles con RBAC de Azure y la API REST
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] En este artículo se describe cómo asignar roles con la API REST.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para agregar o quitar asignaciones de roles, debe tener:
 
@@ -57,23 +57,27 @@ En RBAC, para conceder acceso es preciso agregar una asignación de roles. Para 
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito de la asignación de roles.
 
-    | Ámbito | Tipo |
-    | --- | --- |
-    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
-    | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Ámbito | Tipo |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resource |
+
+    En el ejemplo anterior, microsoft.web es un proveedor de recursos que hace referencia a una instancia de App Service. De forma similar, puede usar cualquier otro proveedor de recursos y especificar el ámbito. Para más información, consulte [Tipos y proveedores de recursos de Azure](../azure-resource-manager/management/resource-providers-and-types.md) y [Operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md) compatibles.  
 
 1. Reemplace *{roleAssignmentName}* por el identificador GUID de la asignación de roles.
 
 1. En el cuerpo de la solicitud, reemplace *{scope}* por el ámbito de la asignación de roles.
 
-    | Ámbito | Tipo |
-    | --- | --- |
-    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
-    | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Ámbito | Tipo |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resource |
 
 1. Reemplace *{roleDefinitionId}* por el identificador de la definición de roles.
 
@@ -93,12 +97,13 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles. Para qui
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito para eliminar la asignación de roles.
 
-    | Ámbito | Tipo |
-    | --- | --- |
-    | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
-    | `subscriptions/{subscriptionId1}` | Subscription |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/microsoft.web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Ámbito | Tipo |
+    > | --- | --- |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de administración |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Resource |
 
 1. Reemplace *{roleAssignmentName}* por el identificador GUID de la asignación de roles.
 

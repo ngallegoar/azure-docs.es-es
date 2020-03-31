@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
 ms.openlocfilehash: 58f7d99af638c8d03bbce46b7fcf8204aaca11d9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435751"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Ejecución de los ejemplos de MapReduce incluidos en HDInsight
@@ -172,13 +172,13 @@ Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativame
 
 Este ejemplo utiliza tres conjuntos de programas de MapReduce:
 
-* **TeraGen**: un programa de MapReduce que genera filas de datos que se van a ordenar.
+* **TeraGen**: programa de MapReduce que genera filas de datos que se van a ordenar.
 
 * **TeraSort**: toma una muestra de los datos de entrada y usa MapReduce para ordenar los datos de manera absoluta.
 
     TeraSort es una ordenación MapReduce estándar, salvo por el particionador personalizado. El particionador usa una lista ordenada de N-1 claves de muestra que definen el intervalo de claves para cada reducción. En concreto, todas las claves, como esa muestra[i-1] <= clave < muestra[i] se envían a la reducción i. Esta particionador garantiza que las salidas de la reducción i sean todas menores que la salida de la reducción i+1.
 
-* **TeraValidate**: un programa de MapReduce que valida que la salida se ordene de manera global.
+* **TeraValidate**: programa de MapReduce que valida que la salida se ordene de manera global.
 
     Crea una asignación por archivo en el directorio de salida y cada asignación asegura que cada clave es menor o igual que la anterior. La función de asignación genera registros de la primera y última clave de cada archivo. La función de reducción se asegura de que la primera clave del archivo i es mayor que la última clave del archivo i-1. Los problemas se notifican como una salida de la fase de reducción con las claves que no están en orden.
 

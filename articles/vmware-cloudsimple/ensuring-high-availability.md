@@ -1,6 +1,6 @@
 ---
 title: Asegurar la alta disponibilidad de una aplicación al ejecutarse en VMware en Azure
-description: Describe las características de alta disponibilidad de AVS para abordar escenarios comunes de error de aplicaciones que se ejecutan en una nube privada de AVS.
+description: Describe las características de alta disponibilidad de CloudSimple para abordar escenarios comunes de error de aplicaciones que se ejecutan en una nube privada de CloudSimple.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b32f7f3f38098f935382cce46d8251340784b940
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a3eed033ba6a1a6f9237116a53ec7751ae906fe4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025357"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Asegurar la alta disponibilidad de una aplicación al ejecutarse en VMware en Azure
 
-La solución AVS proporciona alta disponibilidad para las aplicaciones que se ejecutan en VMware en el entorno de Azure. En la tabla siguiente se enumeran los escenarios de error y las características de alta disponibilidad asociadas.
+La solución CloudSimple proporciona alta disponibilidad para las aplicaciones que se ejecutan en VMware en el entorno de Azure. En la tabla siguiente se enumeran los escenarios de error y las características de alta disponibilidad asociadas.
 
 | Escenario de error | ¿Aplicación protegida? | Característica de alta disponibilidad de la plataforma | Característica de alta disponibilidad de VMware | Característica de alta disponibilidad de Azure |
 ------------ | ------------- | ------------ | ------------ | ------------- |
@@ -35,15 +35,15 @@ La solución AVS proporciona alta disponibilidad para las aplicaciones que se ej
 | Error del centro de datos | SÍ |  |  | Zonas de disponibilidad |
 | Error regional | SÍ  |  |  | Regiones de Azure |
 
-Azure VMware Solution by AVS proporciona las siguientes características de alta disponibilidad.
+Azure VMware Solution by CloudSimple proporciona las siguientes características de alta disponibilidad.
 
 ## <a name="fast-replacement-of-failed-node"></a>Sustitución rápida del nodo con errores
 
-El software de plano de control de AVS supervisa continuamente el estado de los clústeres de VMware y detecta cuándo se produce un error en un nodo ESXi. Luego, agrega automáticamente un nuevo host ESXi al clúster de VMware afectado a partir del grupo de nodos de disponibilidad inmediata y retira el nodo con errores del clúster. Esta funcionalidad garantiza que la capacidad de reserva en el clúster de VMware se restaure rápidamente para que se restaure la resistencia del clúster proporcionada por la alta disponibilidad de vSAN y VMware HA.
+El software de plano de control de CloudSimple supervisa continuamente el estado de los clústeres de VMware y detecta cuándo se produce un error en un nodo ESXi. Luego, agrega automáticamente un nuevo host ESXi al clúster de VMware afectado a partir del grupo de nodos de disponibilidad inmediata y retira el nodo con errores del clúster. Esta funcionalidad garantiza que la capacidad de reserva en el clúster de VMware se restaure rápidamente para que se restaure la resistencia del clúster proporcionada por la alta disponibilidad de vSAN y VMware HA.
 
 ## <a name="placement-groups"></a>Grupos de selección de ubicación
 
-Un usuario que cree una nube privada de AVS puede seleccionar una región de Azure y un grupo de selección de ubicación dentro de la región seleccionada. Un grupo de selección de ubicación es un conjunto de nodos distribuidos entre varios bastidores, pero dentro del mismo segmento de red vertebral. Los nodos dentro del mismo grupo de selección de ubicación pueden comunicarse entre sí con un máximo de dos saltos de conmutador adicionales. Un grupo de selección de ubicación siempre se encuentra dentro de una sola zona de disponibilidad de Azure y abarca varios bastidores. El plano de control de AVS distribuye los nodos de una nube privada de AVS entre varios bastidores en función del mejor esfuerzo. Se garantiza que los nodos de grupos de selección de ubicación diferentes se colocarán en distintos bastidores.
+Un usuario que cree una nube privada puede seleccionar una región de Azure y un grupo de selección de ubicación dentro de la región seleccionada. Un grupo de selección de ubicación es un conjunto de nodos distribuidos entre varios bastidores, pero dentro del mismo segmento de red vertebral. Los nodos dentro del mismo grupo de selección de ubicación pueden comunicarse entre sí con un máximo de dos saltos de conmutador adicionales. Un grupo de selección de ubicación siempre se encuentra dentro de una sola zona de disponibilidad de Azure y abarca varios bastidores. El plano de control de CloudSimple distribuye los nodos de una nube privada entre varios bastidores en función del mejor esfuerzo. Se garantiza que los nodos de grupos de selección de ubicación diferentes se colocarán en distintos bastidores.
 
 ## <a name="availability-zones"></a>Zonas de disponibilidad
 
@@ -55,7 +55,7 @@ La conectividad del centro de datos a una red virtual de Azure mediante ExpressR
 
 ## <a name="redundant-networking-services"></a>Servicios de red redundantes
 
-Todos los servicios de red de AVS para la nube privada de AVS (incluidas la VLAN, el firewall, las direcciones IP públicas, Internet y VPN) están diseñados para tener una alta disponibilidad y poder admitir el contrato de nivel de servicio.
+Todos los servicios de red de CloudSimple para la nube privada (incluidas la VLAN, el firewall, las direcciones IP públicas, Internet y VPN) están diseñados para tener una alta disponibilidad y poder admitir el contrato de nivel de servicio.
 
 ## <a name="azure-layer-7-load-balancer-for-stateless-vmware-vms"></a>Equilibrador de carga de capa 7 de Azure para VM de VMware sin estado
 

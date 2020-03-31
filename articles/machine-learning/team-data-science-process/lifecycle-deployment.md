@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720493"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase de implementación del ciclo de vida del proceso de ciencia de datos en equipos
@@ -39,7 +39,7 @@ Implemente modelos con canalización de datos en un entorno de producción o sim
 ## <a name="how-to-do-it"></a>Modo de hacerlo
 La tarea principal que se aborda en esta fase es la siguiente:
 
-**Poner en marcha el modelo**: implemente el modelo y la canalización en un entorno de producción o semejante para el consumo de aplicaciones.
+**Uso del modelo**: implemente el modelo y la canalización en un entorno de producción o semejante para el consumo de aplicaciones.
 
 ### <a name="operationalize-a-model"></a>Uso de modelos
 Cuando ya disponga de un conjunto de modelos que funcionan bien, los puede hacer operativos para que los consuman otras aplicaciones. Dependiendo de los requisitos empresariales, se realizan predicciones en tiempo real o por lotes. Para implementar modelos, los expone con una interfaz de API abierta. La interfaz permite que el modelo se utilice fácilmente por diferentes aplicaciones, como las siguientes:

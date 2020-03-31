@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 7a589ba80b61ea5ef9ea1c941e9a0218a1653c99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60735532"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Conexión de dispositivos IoT a Azure: IoT Hub y Event Hubs
@@ -30,8 +30,8 @@ En la tabla siguiente se proporcionan detalles de la comparación entre dos nive
 | Funcionalidad de IoT | Nivel estándar de IoT Hub | Nivel básico de IoT Hub | Event Hubs |
 | --- | --- | --- | --- |
 | Mensajería de un dispositivo a la nube | ![Comprobar][checkmark] | ![Comprobar][checkmark] | ![Comprobar][checkmark] |
-| Protocols: HTTPS, AMQP, AMQP sobre WebSockets | ![Comprobar][checkmark] | ![Comprobar][checkmark] | ![Comprobar][checkmark] |
-| Protocols: MQTT, MQTT sobre WebSockets | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
+| Protocolos: HTTPS, AMQP, AMQP sobre WebSockets | ![Comprobar][checkmark] | ![Comprobar][checkmark] | ![Comprobar][checkmark] |
+| Protocolos: MQTT, MQTT sobre WebSockets | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
 | Identidad por dispositivo | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
 | Carga de archivos desde dispositivos | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
 | Servicio Device Provisioning | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |

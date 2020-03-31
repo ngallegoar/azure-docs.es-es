@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73097101"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Uso de Apache Ambari Hive View con Apache Hadoop en HDInsight
@@ -21,7 +21,7 @@ ms.locfileid: "73097101"
 
 Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vista de Hive permite crear, optimizar y ejecutar consultas de Hive directamente desde el explorador web.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Un explorador web
@@ -70,7 +70,7 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
 
    * `STORED AS TEXTFILE LOCATION`: indica dónde se almacenan los datos y que se almacenan como texto.
 
-   * `SELECT`: selecciona un recuento de todas las filas donde la columna t4 contiene el valor [ERROR].
+   * `SELECT`: selecciona el número total de filas en las que la columna t4 contiene el valor [ERROR].
 
    > [!IMPORTANT]  
    > Deje la selección de __base de datos__ en el __valor predeterminado__. Los ejemplos de este documento usan la base de datos predeterminada que se incluye en HDInsight.
@@ -100,7 +100,7 @@ Para mostrar la interfaz de usuario de Tez, seleccione la pestaña **Tez UI** qu
 > [!IMPORTANT]  
 > Tez no se usa para resolver todas las consultas. No es necesario usar Tez para resolver muchas consultas.
 
-## <a name="view-job-history"></a>Visualización del historial de trabajos
+## <a name="view-job-history"></a>Ver historial de trabajos
 
 La pestaña __Trabajos__ muestra un historial de las consultas de Hive.
 
@@ -161,7 +161,7 @@ Para más información sobre el uso de UDF con Hive en HDInsight, consulte los a
 
 Puede modificar la configuración de Hive; por ejemplo, puede cambiar el motor de ejecución de Hive de Tez (valor predeterminado) a MapReduce.
 
-## <a id="nextsteps"></a>Pasos siguientes
+## <a name="next-steps"></a><a id="nextsteps"></a>Pasos siguientes
 
 Para consultar información general sobre Hive en HDInsight:
 

@@ -7,10 +7,10 @@ ms.author: ramkris
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 68ce06d8a2904bf99f58a53817444b2992b23501
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76719745"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementación de una arquitectura lambda en la plataforma Azure 
@@ -59,7 +59,7 @@ Desde una perspectiva operativa, mantener dos flujos de datos al tiempo que se g
  4. La **capa de velocidad** utiliza HDInsight (Apache Spark) para leer la fuente de cambios de Azure Cosmos DB. Esto le permite conservar los datos así como consultarlos y procesarlos de forma simultánea.
  5. Todas las consultas se pueden resolver mediante la combinación de los resultados de las vistas de lote y las vistas en tiempo real, o haciendo ping en ellas individualmente.
  
-### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Ejemplo de código: Flujos estructurados de Spark en una fuente de cambios de Azure Cosmos DB
+### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Ejemplo de código: flujos estructurados de Spark en una fuente de cambios de Azure Cosmos DB
 Antes de ejecutar un prototipo rápido de la fuente de cambios de Azure Cosmos DB como parte de la **capa de velocidad**, puede probarlo mediante datos de Twitter como parte del ejemplo que se describe en [Stream Processing Changes using Azure Cosmos DB Change Feed and Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark) (Procesamiento de flujos de cambios mediante la fuente de cambios de Azure Cosmos DB). Para comenzar de inmediato con la salida de Twitter, consulte el ejemplo de código de [Stream feed from Twitter to Cosmos DB](https://github.com/tknandu/TwitterCosmosDBFeed) (Fuente de flujos de Twitter a Cosmos DB). En el ejemplo anterior va a cargar datos de Twitter en Azure Cosmos DB y, a continuación, puede configurar el clúster de HDInsight (Apache Spark) para que se conecte a la fuente de cambios. Para más información sobre cómo realizar esta configuración, consulte [Apache Spark to Azure Cosmos DB Connector Setup](https://github.com/Azure/azure-cosmosdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup) (Configuración del conector de Apache Spark en Azure Cosmos DB).  
 
 El fragmento de código siguiente muestra cómo configurar `spark-shell` para ejecutar un trabajo de flujos estructurados para que se conecte a una fuente de cambios de Azure Cosmos DB que revisa en tiempo real el flujo de datos de Twitter para llevar a cabo un recuento del intervalo de ejecución.
@@ -103,7 +103,7 @@ Para más información sobre la fuente de cambios de Azure Cosmos DB, consulte:
 
 * [Compatibilidad con la fuente de cambios en Azure Cosmos DB](change-feed.md)
 * [Introducing the Azure CosmosDB Change Feed Processor Library](https://azure.microsoft.com/blog/introducing-the-azure-cosmosdb-change-feed-processor-library/) (Introducción a la biblioteca de procesadores de la fuente de cambios de Azure Cosmos DB)
-* [Stream Processing Changes: Azure CosmosDB change feed + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/) (Cambios en el procesamiento de transmisiones: fuente de cambios de Azure CosmosDB + Apache Spark)
+* [Stream Processing Changes: Azure CosmosDB change feed + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/) (Procesamiento de flujo de cambios: fuente de cambios de Azure CosmosDB + Apache Spark)
 
 ## <a name="batch-and-serving-layers"></a>Capas de proceso por lotes y de servicio
 Puesto que los nuevos datos se cargan en Azure Cosmos DB (donde la fuente de cambios se está usando para la capa de velocidad), aquí es donde reside el **conjunto de datos maestro** (un conjunto inmutable, solo de anexación de datos sin procesar). De aquí en adelante, utilice HDInsight (Apache Spark) para realizar las funciones de cálculo previo de la **capa de procesamiento por lotes** a la **capa de servicio**, tal y como se muestra en la siguiente imagen:

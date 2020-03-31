@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 532cb62c371718a59adf2877517fcdb8f7047bcf
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: a793de35ffff84009d362f005e599b4419f0763f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770975"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532780"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Conceptos de alta disponibilidad en Azure Database for MySQL
 El servicio Azure Database for MySQL garantiza un alto nivel de disponibilidad. El Acuerdo de Nivel de Servicio con respaldo financiero tiene un 99,99 % de disponibilidad general. Al usar este servicio, las aplicaciones prácticamente no tienen tiempo de inactividad.

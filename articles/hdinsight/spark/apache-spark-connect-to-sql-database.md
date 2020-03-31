@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/05/2020
 ms.openlocfilehash: 4e0c1626582297aa7d80cbbd4241b6f81e314f8f
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78927456"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Uso del clúster de Spark en HDInsight para leer y escribir datos en Azure SQL Database
 
 Aprenda a conectar un clúster de Apache Spark en Azure HDInsight con una instancia de Azure SQL Database y después, leer, escribir y transmitir datos en dicha instancia. Las instrucciones descritas en este artículo usan un cuaderno de [Jupyter Notebook](https://jupyter.org/) para ejecutar los fragmentos de código de Scala. Sin embargo, puede crear una aplicación independiente en Scala o Python y realizar las mismas tareas.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Clúster de Spark en Azure HDInsight.  Siga las instrucciones de [Creación de un clúster de Apache Spark en HDInsight](apache-spark-jupyter-spark-sql.md).
 

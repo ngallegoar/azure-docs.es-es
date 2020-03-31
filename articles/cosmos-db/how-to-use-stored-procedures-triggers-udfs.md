@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: mjbrown
 ms.openlocfilehash: 00740bc2255962089789682e3227ce414fd0ce64
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77582507"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Registro y uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB
 
 La API de SQL en Azure Cosmos DB admite el registro e invocación de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) escritas en JavaScript. Puede usar los SDK de [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md) o [Python](sql-api-sdk-python.md) de SQL API para registrar e invocar los procedimientos almacenados. Una vez que haya definido uno o varios procedimientos, desencadenadores y funciones definidas por el usuario, puede cargarlos y verlos en [Azure Portal](https://portal.azure.com/) mediante el Explorador de datos.
 
-## <a id="stored-procedures"></a>Ejecución de procedimientos almacenados
+## <a name="how-to-run-stored-procedures"></a><a id="stored-procedures"></a>Ejecución de procedimientos almacenados
 
 Los procedimientos almacenados se escriben con JavaScript. Pueden crear, actualizar, leer, consultar y eliminar elementos dentro de un contenedor de Azure Cosmos. Para más información sobre cómo escribir procedimientos almacenados en Azure Cosmos DB, consulte el artículo sobre la [escritura de procedimientos almacenados en Azure Cosmos DB](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures).
 
@@ -195,7 +195,7 @@ new_item = [{
 client.ExecuteStoredProcedure(sproc_link, new_item, {'partitionKey': 'Personal'}
 ```
 
-## <a id="pre-triggers"></a>Ejecución de desencadenadores previos
+## <a name="how-to-run-pre-triggers"></a><a id="pre-triggers"></a>Ejecución de desencadenadores previos
 
 Los ejemplos siguientes muestran cómo registrar y llamar a un desencadenador previo mediante los SDK de Azure Cosmos DB. Consulte el [ejemplo de desencadenador previo](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers) porque el origen para este desencadenador previo se guarda como `trgPreValidateToDoItemTimestamp.js`.
 
@@ -353,7 +353,7 @@ client.CreateItem(container_link, item, {
                   'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
 ```
 
-## <a id="post-triggers"></a>Ejecución de desencadenadores posteriores
+## <a name="how-to-run-post-triggers"></a><a id="post-triggers"></a>Ejecución de desencadenadores posteriores
 
 Los ejemplos siguientes muestran cómo registrar un desencadenador posterior mediante los SDK de Azure Cosmos DB. Consulte el [ejemplo de desencadenador posterior](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) porque el origen para este desencadenador previo se guarda como `trgPostUpdateMetadata.js`.
 
@@ -500,7 +500,7 @@ client.CreateItem(container_link, item, {
                   'postTriggerInclude': 'trgPostUpdateMetadata'})
 ```
 
-## <a id="udfs"></a>Trabajo con funciones definidas por el usuario
+## <a name="how-to-work-with-user-defined-functions"></a><a id="udfs"></a>Trabajo con funciones definidas por el usuario
 
 Los ejemplos siguientes muestran cómo registrar una función definida por el usuario mediante los SDK de Azure Cosmos DB. Consulte este [ejemplo de función definida por el usuario](how-to-write-stored-procedures-triggers-udfs.md#udfs) porque el origen para este desencadenador previo se guarda como `udfTax.js`.
 

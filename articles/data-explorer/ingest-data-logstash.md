@@ -8,19 +8,19 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66494538"
 ---
 # <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Ingesta de datos de Logstash en Azure Data Explorer
 
 [Logstash](https://www.elastic.co/products/logstash) es una canalización de procesamiento de datos del servidor de código abierto que ingiere datos de varios orígenes al mismo tiempo, los transforma y, después, los envía a su "lugar de almacenamiento provisional" preferido. En este artículo, enviará dichos datos a Azure Data Explorer, que es un servicio de exploración de datos rápido y muy escalable para datos de telemetría y registro. Inicialmente creará una tabla y una asignación de datos en un clúster de prueba y, después, hará que Logstash envíe los datos a la tabla y valide los resultados.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no la tiene, [cree una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+* Suscripción a Azure. Si no la tiene, [cree una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * Un clúster y una base de datos de prueba de [Azure Data Explorer](create-cluster-database-portal.md).
 * [Instrucciones de instalación](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html) de la versión 6, o posteriores, de Logstash
 
@@ -106,7 +106,7 @@ output {
 }
 ```
 
-| Nombre de parámetro | DESCRIPCIÓN |
+| Nombre de parámetro | Descripción |
 | --- | --- |
 | **path** | El complemento de Logstash escribe eventos en archivos temporales antes de enviarlos a Azure Data Explorer. Este parámetro incluye una ruta de acceso en la que se deben escribir los archivos y una expresión de tiempo para la rotación de archivos desencadenará una carga en el servicio Azure Data Explorer.|
 | **ingest_url** | El punto de conexión de Kusto para las comunicaciones relacionadas con la ingesta.|

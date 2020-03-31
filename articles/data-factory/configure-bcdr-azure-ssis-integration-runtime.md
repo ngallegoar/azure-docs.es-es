@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/14/2018
 ms.openlocfilehash: 92f7d25a9c19409b220b6a71fba87da91e51a415
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928499"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurar Azure-SSIS Integration Runtime con la replicación geográfica y la conmutación por error de Azure SQL Database
 
 En este artículo se describe cómo configurar Azure-SSIS Integration Runtime con la replicación geográfica de Azure SQL Database para la base de datos SSISDB. Cuando se produce una conmutación por error, puede asegurarse de que Azure-SSIS IR sigue funcionando con la base de datos secundaria.
 
-Para más información acerca de la replicación geográfica y la conmutación por error para SQL Database, consulte [Información general: Grupos de conmutación por error automática](../sql-database/sql-database-geo-replication-overview.md).
+Para obtener más información acerca de la replicación geográfica y la conmutación por error para SQL Database, consulte [Información general: grupos de conmutación por error automática y replicación geográfica activa](../sql-database/sql-database-geo-replication-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Esta sección se aplica cuando se cumplen las condiciones siguientes:
 
 - Azure-SSIS IR señala al punto de conexión del agente de escucha de lectura y escritura del grupo de conmutación por error.
 
-  Y
+  y
 
 - El servidor de SQL Database *no* está configurado con la regla de punto de conexión de servicio de red virtual.
 
@@ -51,11 +51,11 @@ Esta sección se aplica cuando se cumple una de las condiciones siguientes:
 
 - Azure-SSIS IR señala al punto de conexión del servidor principal del grupo de conmutación por error. Este punto de conexión cambia cuando se produce una conmutación por error.
 
-  OR
+  O BIEN
 
 - El servidor de Azure SQL Database está configurado con la regla de punto de conexión de servicio de red virtual.
 
-  OR
+  O BIEN
 
 - El servidor de base de datos es una Instancia administrada SQL Database configurada con una red virtual.
 
@@ -71,7 +71,7 @@ Cuando se produce una conmutación por error, deberá hacer lo siguiente:
 
 En las siguientes secciones se describen estos pasos con más detalle.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 - Asegúrese de que ha habilitado la recuperación ante desastres para el servidor de Azure SQL Database en caso de que el servidor tenga una interrupción del servicio al mismo tiempo. Para más información, vea [Introducción a la continuidad empresarial con Azure SQL Database](../sql-database/sql-database-business-continuity.md).
 
@@ -104,7 +104,7 @@ Siga estos pasos para detener el entorno de ejecución de integración de SSIS e
 
 Cuando se produce un desastre de Azure-SSIS IR o de ADF en la región actual, puede hacer que su SSISDB siga trabajando con un nuevo Azure-SSIS IR en una región nueva.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 - Si usa una red virtual en la región actual, tiene que usar otra red virtual en la nueva región para conectarse a un entorno de ejecución para la integración de SSIS en Azure. Para más información, vea [Unión de un entorno de ejecución para la integración de SSIS en Azure a una red virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 
@@ -114,7 +114,7 @@ Cuando se produce un desastre de Azure-SSIS IR o de ADF en la región actual, pu
 
 Siga estos pasos para detener el entorno de ejecución de integración de SSIS en Azure, cambie el entorno de ejecución de integración a otra región y vuelva a iniciarlo.
 
-1. Ejecute el procedimiento almacenado para hacer que SSISDB se adjunte a  **\<new_data_factory_name\>** o **\<new_integration_runtime_name\>** .
+1. Ejecute el procedimiento almacenado para hacer que SSISDB se adjunte a **\<new_data_factory_name\>** o **\<new_integration_runtime_name\>** .
    
   ```SQL
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'

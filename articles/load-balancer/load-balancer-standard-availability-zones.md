@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: 5a65982c5c13eb4e4273efcfd8d14910b0f35572
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197154"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Estándar y zonas de disponibilidad
 
 Azure Standard Load Balancer admite escenarios de [zonas de disponibilidad](../availability-zones/az-overview.md). Puede usar Standard Load Balancer para optimizar la disponibilidad en un escenario de un extremo a otro mediante la alineación de recursos con zonas y su distribución entre ellas.  Revise el documento sobre [zonas de disponibilidad](../availability-zones/az-overview.md) para ver qué son las zonas de disponibilidad, qué regiones las admiten actualmente y otros productos y conceptos relacionados. Las zonas de disponibilidad, combinadas con Standard Load Balancer, son un conjunto de características ampliable y flexible que posibilita la creación de diferentes escenarios.  Revise este documento para conocer estos [conceptos](#concepts) y la [guía de diseño](#design) de un escenario básico.
 
-## <a name="concepts"></a> Conceptos de las zonas de disponibilidad aplicados a Load Balancer
+## <a name="availability-zones-concepts-applied-to-load-balancer"></a><a name="concepts"></a> Conceptos de las zonas de disponibilidad aplicados a Load Balancer
 
 Un recurso de Load Balancer en sí mismo es regional y nunca zonal. La granularidad de lo que se puede configurar está restringida por cada configuración de front-end, regla y definición del grupo de back-end.
 En el contexto de las zonas de disponibilidad, el comportamiento y las propiedades de una regla de Load Balancer se describen como con redundancia de zona o zonales.  Con redundancia de zona y zonal describen la zonalidad de una propiedad.  En el contexto de Load Balancer, con redundancia de zona siempre significa *varias zonas* y zonal significa aislamiento del servicio para una *sola zona*.
@@ -77,7 +77,7 @@ Las definiciones de sondeos de mantenimiento existentes permanecen tal cual esta
 
 Cuando se usan front-end con redundancia de zona, Load Balancer expande su modelo de mantenimiento interno para sondear el alcance de una máquina virtual de cada zona de disponibilidad por separado y cerrar las rutas de acceso entre zonas que puedan haber tenido errores sin la intervención del usuario.  Si una ruta de acceso determinada no está disponible desde la infraestructura de Load Balancer de una zona para una máquina virtual de otra zona, Load Balancer puede detectar y evitar este error. Otras zonas que puedan llegar a esta máquina virtual pueden continuar sirviendo la máquina virtual desde sus front-end respectivos.  Como resultado, es posible que, durante los eventos de error, cada zona pueda tener distribuciones de nuevos flujos ligeramente diferentes al proteger el mantenimiento general de su servicio de un extremo a otro.
 
-## <a name="design"></a> Consideraciones de diseño
+## <a name="design-considerations"></a><a name="design"></a> Consideraciones de diseño
 
 Load Balancer es deliberadamente flexible en el contexto de las zonas de disponibilidad. Puede optar por alinearse con zonas y puede optar por la redundancia de zona para cada zona.  Aumentar la disponibilidad puede conllevar una mayor complejidad y debe diseñar la disponibilidad para un rendimiento óptimo.  Revise algunas consideraciones de diseño importantes.
 
@@ -87,7 +87,7 @@ Load Balancer hace sencillo tener una dirección IP única como un front-end con
 
 La redundancia de zona no implica una ruta de acceso de datos sin incidencias ni un plano de control; es expresamente un plano de datos. Los flujos con redundancia de zona pueden usar cualquier zona y los flujos de un cliente utilizarán todas las zonas correctas de una región. En caso de error de zona, el tráfico fluye por las zonas correctas que en ese momento del tiempo no se ven afectadas.  Los flujos de tráfico que están usando una zona en el momento en que se produce un error en esta se pueden ver afectados pero las aplicaciones se pueden recuperar. Estos flujos pueden continuar en las restantes zonas correctas de la región después de la retransmisión o el restablecimiento una vez que Azure ha detectado el error en la zona.
 
-### <a name="xzonedesign"></a> Límites entre zonas
+### <a name="cross-zone-boundaries"></a><a name="xzonedesign"></a> Límites entre zonas
 
 Es importante comprender que cuando un servicio de un extremo a otro cruza zonas, comparte su destino no con una zona, sino potencialmente con varias zonas.  Como resultado, el servicio de un extremo a otro podría no obtener ninguna disponibilidad en implementaciones no zonales.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: labrenne
-ms.openlocfilehash: f1f47df841b61599b6aed8cd4d6715decd27a288
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5c217971bd213c97a2ee31a0a1f513b601d14df9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025986"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472986"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticación de soluciones de administración de Batch con Active Directory
 
@@ -91,9 +91,9 @@ La aplicación cliente usa el identificador de aplicación (conocido también co
 
 ```csharp
 // Specify the unique identifier (the "Client ID") for your application. This is required so that your
-// native client application (i.e. this sample) can access the Microsoft Azure AD Graph API. For information
-// about registering an application in Azure Active Directory, please see "Adding an Application" here:
-// https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
+// native client application (i.e. this sample) can access the Microsoft Graph API. For information
+// about registering an application in Azure Active Directory, please see "Register an application with the Microsoft identity platform" here:
+// https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app
 private const string ClientId = "<application-id>";
 ```
 Copie también el URI de redirección especificado durante el proceso de registro. El identificador URI de redireccionamiento especificado en el código debe coincidir con el identificador URI de redireccionamiento que proporcionó al registrar la aplicación.

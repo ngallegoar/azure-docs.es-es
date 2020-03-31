@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: fe72031ef9ade7473dc4d5de7e090e92ef2a6843
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74769938"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Capacidad de aprendizaje automático en Azure Data Explorer
@@ -189,7 +189,7 @@ demo_clustering1
 |-----------|--------|--------|----------|----------|---------------|--------|-----------|----------------------------------|------------|
 | 0 | 639 | 21 | 65.74 | 1.7 | 64.04 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  |
 | 1 | 167 | 544 | 17.18 | 44.16 | 26.97 | scus |  |  |  |
-| 2 | 92 | 356 | 9.47 | 28.9 | 19.43 |  |  |  | 10007007 |
+| 2 | 92 | 356 | 9.47 | 28,9 | 19.43 |  |  |  | 10007007 |
 | 3 | 90 | 336 | 9,26 | 27.27 | 18.01 |  |  |  | 10007006 |
 | 4 | 82 | 318 | 8.44 | 25.81 | 17.38 | ncus | su1 | e24ef436e02b4823ac5d5b1465a9401e |  |
 | 5 | 55 | 252 | 5.66 | 20.45 | 14.8 | weu | su4 | be1d6d7ac9574cbc9a22cb8ee20f16fc |  |

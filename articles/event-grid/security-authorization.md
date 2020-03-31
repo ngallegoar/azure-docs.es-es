@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
 ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78899006"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorización de acceso a recursos de Event Grid
@@ -111,7 +111,7 @@ Si tiene que especificar permisos distintos a los de los roles integrados, puede
 
 Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a los usuarios realizar distintas acciones. Estos roles personalizados son diferentes de los roles integrados, ya que conceden acceso más amplio que las suscripciones a eventos.
 
-**EventGridReadOnlyRole.json**: Únicamente se permiten operaciones de solo lectura.
+**EventGridReadOnlyRole.json**: Permitir únicamente operaciones de solo lectura.
 
 ```json
 {
@@ -130,7 +130,7 @@ Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: permitir acciones de publicación restringidas pero denegar acciones de eliminación.
+**EventGridNoDeleteListKeysRole.json**: Permitir acciones de publicación restringidas pero denegar acciones de eliminación.
 
 ```json
 {
