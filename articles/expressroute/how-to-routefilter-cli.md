@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
 ms.openlocfilehash: c3c50a005e119890fb17fcf7b3114a747bbe34bf
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033413"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: CLI de Azure
+# <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](how-to-routefilter-portal.md)
@@ -32,7 +32,7 @@ Si necesita conectividad con todos los servicios, se anuncia un gran número de 
 
 * Definir filtros de ruta y aplicarlos al circuito ExpressRoute. Un filtro de ruta es un nuevo recurso que le permite seleccionar la lista de servicios que se va a consumir mediante el emparejamiento de Microsoft. Los enrutadores de ExpressRoute solo envían la lista de prefijos que pertenecen a los servicios identificados en el filtro de ruta.
 
-### <a name="about"></a>Acerca de los filtros de ruta
+### <a name="about-route-filters"></a><a name="about"></a>Acerca de los filtros de ruta
 
 Cuando se configura el emparejamiento de Microsoft en el circuito ExpressRoute, los enrutadores perimetrales de Microsoft establecen un par de sesiones BGP con los enrutadores perimetrales suyos o del proveedor de conectividad. No se anuncia ningún enrutador en la red. Para habilitar los anuncios de rutas en la red, debe asociar un filtro de ruta.
 
@@ -45,7 +45,7 @@ Para poder asociar filtros de ruta con servicios de Office 365 en ellos, debe te
 > 
 > 
 
-### <a name="workflow"></a>Flujo de trabajo
+### <a name="workflow"></a><a name="workflow"></a>Flujo de trabajo
 
 Para poder conectarse correctamente a los servicios mediante el emparejamiento de Microsoft, debe realizar los siguientes pasos de configuración:
 
@@ -90,7 +90,7 @@ Seleccione la suscripción para la que desea crear un circuito ExpressRoute.
 az account set --subscription "<subscription ID>"
 ```
 
-## <a name="prefixes"></a>Paso 1: Obtención de una lista de prefijos y valores de la comunidad de BGP
+## <a name="step-1-get-a-list-of-prefixes-and-bgp-community-values"></a><a name="prefixes"></a>Paso 1: Obtención de una lista de prefijos y valores de la comunidad de BGP
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obtención de una lista de valores de la comunidad de BGP
 
@@ -103,7 +103,7 @@ az network route-filter rule list-service-communities
 
 Cree una lista de valores de la comunidad de BGP que quiera usar en el filtro de ruta.
 
-## <a name="filter"></a>Paso 2: Creación de un filtro de ruta y una regla de filtro
+## <a name="step-2-create-a-route-filter-and-a-filter-rule"></a><a name="filter"></a>Paso 2: Creación de un filtro de ruta y una regla de filtro
 
 Un filtro de ruta puede tener una única regla y la regla debe ser de tipo "Permitir". Esta regla puede tener una lista de valores de la comunidad de BGP asociados a ella.
 
@@ -123,7 +123,7 @@ Ejecute el siguiente comando para crear una nueva regla:
 az network route-filter rule create --filter-name MyRouteFilter -n CRM --communities 12076:5040 --access Allow -g MyResourceGroup
 ```
 
-## <a name="attach"></a>Paso 3: Asociación del filtro de ruta a un circuito ExpressRoute
+## <a name="step-3-attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Paso 3: Asociación del filtro de ruta a un circuito ExpressRoute
 
 Ejecute el siguiente comando para asociar el filtro de ruta al circuito ExpressRoute:
 
@@ -131,9 +131,9 @@ Ejecute el siguiente comando para asociar el filtro de ruta al circuito ExpressR
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --route-filter MyRouteFilter
 ```
 
-## <a name="tasks"></a>Tareas comunes
+## <a name="common-tasks"></a><a name="tasks"></a>Tareas comunes
 
-### <a name="getproperties"></a>Obtención de las propiedades de un filtro de ruta
+### <a name="to-get-the-properties-of-a-route-filter"></a><a name="getproperties"></a>Obtención de las propiedades de un filtro de ruta
 
 Para obtener las propiedades de un filtro de ruta, utilice el siguiente comando:
 
@@ -141,7 +141,7 @@ Para obtener las propiedades de un filtro de ruta, utilice el siguiente comando:
 az network route-filter show -g ExpressRouteResourceGroupName --name MyRouteFilter 
 ```
 
-### <a name="updateproperties"></a>Actualización de las propiedades de un filtro de ruta
+### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>Actualización de las propiedades de un filtro de ruta
 
 Si el filtro de ruta ya está asociado a un circuito, las actualizaciones de la lista de la comunidad de BGP propagan automáticamente los cambios en los anuncios de prefijos adecuados mediante las sesiones BGP establecidas. Puede actualizar la lista de la comunidad de BGP de su filtro de ruta con el comando siguiente:
 
@@ -149,7 +149,7 @@ Si el filtro de ruta ya está asociado a un circuito, las actualizaciones de la 
 az network route-filter rule update --filter-name MyRouteFilter -n CRM -g ExpressRouteResourceGroupName --add communities '12076:5040' --add communities '12076:5010'
 ```
 
-### <a name="detach"></a>Desasociación de un filtro de ruta de un circuito ExpressRoute
+### <a name="to-detach-a-route-filter-from-an-expressroute-circuit"></a><a name="detach"></a>Desasociación de un filtro de ruta de un circuito ExpressRoute
 
 Una vez que un filtro de ruta se desasocia del circuito ExpressRoute, no se anuncia ningún prefijo mediante la sesión BGP. Puede desasociar un filtro de ruta de un circuito ExpressRoute con el comando siguiente:
 
@@ -157,7 +157,7 @@ Una vez que un filtro de ruta se desasocia del circuito ExpressRoute, no se anun
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
-### <a name="delete"></a>Eliminación de un filtro de ruta
+### <a name="to-delete-a-route-filter"></a><a name="delete"></a>Eliminación de un filtro de ruta
 
 Solo se puede eliminar un filtro de ruta si no está asociado a ningún circuito. Asegúrese de que el filtro de ruta no esté asociado a ningún circuito antes de intentar eliminarlo. Puede eliminar un filtro de ruta con el comando siguiente:
 

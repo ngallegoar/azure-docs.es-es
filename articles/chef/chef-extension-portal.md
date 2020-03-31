@@ -5,18 +5,18 @@ keywords: azure, chef, devops, client, install, portal
 ms.date: 02/22/2020
 ms.topic: article
 ms.openlocfilehash: 6e46133c598c44b314077f2d020852416d3d2745
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586366"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instalación del cliente Chef desde Azure Portal
 Puede agregar la extensión de cliente de Chef directamente en una máquina Linux o Windows desde Azure Portal. Este artículo le guiará a través de ese proceso con una nueva máquina virtual Linux.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
-- **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
+- **Suscripción de Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
 - **Chef**: si no tiene una cuenta de Chef activa, regístrese para obtener una [evaluación gratuita de Hosted Chef](https://manage.chef.io/signup). Para seguir las instrucciones de este artículo, necesitará los siguientes valores de la cuenta de Chef:
   - clave de organization_validation

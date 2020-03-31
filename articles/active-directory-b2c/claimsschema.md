@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4c3b3318e941723ec333597c7e4b3e48710152d1
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78397800"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -128,7 +128,7 @@ El elemento **Mask** contiene los siguientes atributos:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | `Type` | Sí | Tipo de enmascaramiento de la notificación. Valores posibles: `Simple` o `Regex`. El valor `Simple` indica que se aplica un solo enmascaramiento del texto en la parte inicial de una notificación de la cadena. El valor `Regex` indica que una expresión regular se aplica a una notificación de la cadena en conjunto.  Si se especifica el valor `Regex`, también debe definirse un atributo opcional con la expresión regular que se va a usar. |
-| `Regex` | Sin | Si **`Type`** se establece en `Regex`, especifique la expresión regular que se va a usar.
+| `Regex` | No | Si **`Type`** se establece en `Regex`, especifique la expresión regular que se va a usar.
 
 El ejemplo siguiente configura una notificación **PhoneNumber** con el enmascaramiento `Simple`:
 
@@ -167,7 +167,7 @@ El elemento **Restriction** puede contener el atributo siguiente:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| MergeBehavior | Sin | El método usado para combinar los valores de enumeración con un ClaimType en una directiva principal con el mismo identificador. Use este atributo para sobrescribir una notificación especificada en la directiva base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` es una colección de datos que se deben anexar al final de la colección especificada en la directiva principal. El valor `Prepend` es una colección de datos que se deben agregar antes de la colección especificada en la directiva principal. El valor `ReplaceAll` es una colección de datos especificada en la directiva principal que se debe omitir. |
+| MergeBehavior | No | El método usado para combinar los valores de enumeración con un ClaimType en una directiva principal con el mismo identificador. Use este atributo para sobrescribir una notificación especificada en la directiva base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` es una colección de datos que se deben anexar al final de la colección especificada en la directiva principal. El valor `Prepend` es una colección de datos que se deben agregar antes de la colección especificada en la directiva principal. El valor `ReplaceAll` es una colección de datos especificada en la directiva principal que se debe omitir. |
 
 El elemento **Restriction** contiene los elementos siguientes:
 
@@ -186,7 +186,7 @@ El elemento **Enumeration** contiene los siguientes atributos:
 | --------- | -------- | ----------- |
 | Texto | Sí | La cadena de presentación que se muestra al usuario en la interfaz de usuario para esta opción. |
 |Value | Sí | El valor de notificación que está asociado a la selección de esta opción. |
-| SelectByDefault | Sin | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
+| SelectByDefault | No | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 
 En el ejemplo siguiente se configura una notificación de lista desplegable **Ciudad** con un valor predeterminado establecido en `New York`:
 
@@ -214,7 +214,7 @@ El elemento **Pattern** puede contener los siguientes atributos:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | RegularExpression | Sí | La expresión regular con la que deben coincidir las notificaciones de este tipo para que sean válidas. |
-| HelpText | Sin | Un mensaje de error para los usuarios si se produce un error en la comprobación de la expresión regular. |
+| HelpText | No | Un mensaje de error para los usuarios si se produce un error en la comprobación de la expresión regular. |
 
 En el ejemplo siguiente se configura una notificación de **correo electrónico** con el texto de ayuda y la validación de entrada de la expresión regular:
 

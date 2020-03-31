@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: bb44e078a3958a788d23356c970b62fd97cbf420
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696323"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050370"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Archivo de configuración de la biblioteca de autenticación de Microsoft para Android
 
@@ -88,11 +88,11 @@ Lista de autoridades que conoce y en las que confía. Además de las autoridades
 
 | Tipo | Público | Id. de inquilino | Authority_Url | Punto de conexión resultante | Notas |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftAccount | | | https://login.microsoftonline.com/common | `common` es un alias de inquilino de donde se encuentra la cuenta. Como, por ejemplo, un inquilino de Azure Active Directory específico o el sistema de cuentas de Microsoft. |
-| AAD | AzureADMyOrg | contoso.com | | https://login.microsoftonline.com/contoso.com | Solo las cuentas presentes en contoso.com pueden adquirir un token. Cualquier dominio comprobado, o el GUID del inquilino, se puede usar como identificador de inquilino. |
-| AAD | AzureADMultipleOrgs | | | https://login.microsoftonline.com/organizations | Solo se pueden utilizar cuentas de Azure Active Directory con este punto de conexión. Las cuentas de Microsoft pueden ser miembros de organizaciones. Para adquirir un token mediante un cuenta de Microsoft para un recurso de una organización, especifique el inquilino de la organización del que desea el token. |
-| AAD | PersonalMicrosoftAccount | | | https://login.microsoftonline.com/consumers | Solo las cuentas de Microsoft pueden usar este punto de conexión. |
-| B2C | | | Consulte Punto de conexión resultante | https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/ | Solo las cuentas presentes en el inquilino contoso.onmicrosoft.com pueden adquirir un token. En este ejemplo, la directiva de B2C forma parte de la ruta de la dirección URL de la autoridad. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` es un alias de inquilino de donde se encuentra la cuenta. Como, por ejemplo, un inquilino de Azure Active Directory específico o el sistema de cuentas de Microsoft. |
+| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Solo las cuentas presentes en contoso.com pueden adquirir un token. Cualquier dominio comprobado, o el GUID del inquilino, se puede usar como identificador de inquilino. |
+| AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Solo se pueden utilizar cuentas de Azure Active Directory con este punto de conexión. Las cuentas de Microsoft pueden ser miembros de organizaciones. Para adquirir un token mediante un cuenta de Microsoft para un recurso de una organización, especifique el inquilino de la organización del que desea el token. |
+| AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Solo las cuentas de Microsoft pueden usar este punto de conexión. |
+| B2C | | | Consulte Punto de conexión resultante | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Solo las cuentas presentes en el inquilino contoso.onmicrosoft.com pueden adquirir un token. En este ejemplo, la directiva de B2C forma parte de la ruta de la dirección URL de la autoridad. |
 
 > [!NOTE]
 > No se puede habilitar ni deshabilitar la validación de la autoridad en MSAL.

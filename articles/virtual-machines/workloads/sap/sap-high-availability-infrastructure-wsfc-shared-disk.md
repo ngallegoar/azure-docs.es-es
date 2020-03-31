@@ -17,11 +17,11 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8a49bc979923bf52d099e30615910c5bdb0601b6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591938"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235896"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparación de la infraestructura de Azure para alta disponibilidad de SAP con un clúster de conmutación por error de Windows y un disco compartido para ASCS/SCS de SAP
 
@@ -222,7 +222,7 @@ _**Ilustración 1:** Configuración de los parámetros de Azure Resource Manage
 >
 >
 
-## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Implementación de máquinas virtuales con conectividad de red corporativa (entre locales) para uso en producción
+## <a name="deploy-virtual-machines-with-corporate-network-connectivity-cross-premises-to-use-in-production"></a><a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Implementación de máquinas virtuales con conectividad de red corporativa (entre locales) para uso en producción
 En los sistemas de producción de SAP, implemente máquinas virtuales de Azure con conectividad de red corporativa mediante Azure VPN Gateway o Azure ExpressRoute.
 
 > [!NOTE]
@@ -251,7 +251,7 @@ En los sistemas de producción de SAP, implemente máquinas virtuales de Azure c
    /subscriptions/<subscription ID>/resourceGroups/<VPN name>/providers/Microsoft.Network/virtualNetworks/azureVnet/subnets/<subnet name>
    ```
 
-## <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> Implementación solo en la nube de instancias de SAP para prueba o demostración
+## <a name="deploy-cloud-only-sap-instances-for-test-and-demo"></a><a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> Implementación solo en la nube de instancias de SAP para prueba o demostración
 Puede implementar el sistema de SAP de alta disponibilidad en un modelo de implementación solo en la nube. Este tipo de implementación se usa principalmente para demostrar o probar casos de uso. No es idóneo para los casos de uso de producción.
 
 - En Azure Portal, en el panel **Parámetros**, en el cuadro **NEWOREXISTINGSUBNET**, seleccione **Nuevo**. Deje vacío el campo **SUBNETID**.
@@ -290,7 +290,7 @@ Para crear un nuevo clúster de varios SID, debe implementar las tres plantillas
 
 Las siguientes secciones contienen más detalles sobre las plantillas y los parámetros que debe proporcionar en las plantillas.
 
-### <a name="ASCS-SCS-template"></a>Plantilla de ASCS/SCS
+### <a name="ascsscs-template"></a><a name="ASCS-SCS-template"></a>Plantilla de ASCS/SCS
 
 La plantilla de ASCS/SCS permite implementar dos máquinas virtuales que se pueden usar para crear un clúster de conmutación por error de Windows Server que hospeda varias instancias de ASCS/SCS.
 
@@ -316,7 +316,7 @@ La plantilla implementa una instancia de Azure Load Balancer que admite varios s
 
 El equilibrador de carga contiene 1 VIP (2 para Linux), 1 VIP para ASCS/SCS y 1 VIP para ERS (solo Linux).
 
-#### <a name="0f3ee255-b31e-4b8a-a95a-d9ed6200468b"></a>Puertos de ASCS/SCS de SAP
+#### <a name="sap-ascsscs-ports"></a><a name="0f3ee255-b31e-4b8a-a95a-d9ed6200468b"></a>Puertos de ASCS/SCS de SAP
 En la lista siguiente se incluyen todas las reglas de equilibrio de carga (donde x es el número del sistema SAP, por ejemplo, 1, 2, 3, etc.):
 - Puertos específicos de Windows para cada sistema SAP: 445, 5985
 - Puertos ASCS (número de instancia x0): 32x0, 36x0, 39x0, 81x0, 5x013, 5x014, 5x016
@@ -328,7 +328,7 @@ El equilibrador de carga se configurará para usar los siguientes puertos de son
 - Puerto de sondeo del equilibrador de carga interno de ASCS/SCS: 620x0
 - Puerto de sondeo del equilibrador de carga interno de ERS (solo para Linux): 621x2
 
-### <a name="database-template"></a> Plantilla de base de datos
+### <a name="database-template"></a><a name="database-template"></a> Plantilla de base de datos
 
 La plantilla de la base de datos implementa uno o dos máquinas virtuales que puede usar para instalar el sistema de administración de bases de datos relacionales (RDBMS) de un sistema SAP. Por ejemplo, si ha implementado una plantilla de ASCS/SCS para 5 sistemas SAP, debe implementar esta plantilla cinco veces.
 
@@ -345,7 +345,7 @@ Para configurar la plantilla de varios SID de base de datos, en la [plantilla de
 - **Nombre de usuario y contraseña del administrador**: Cree un nuevo usuario que pueda usarse para iniciar sesión en la máquina.
 - **Identificador de subred**: Escriba el identificador de la subred que usó durante la implementación de la plantilla de ASCS/SCS o el identificador de la subred que se creó como parte de la implementación de esta plantilla.
 
-### <a name="application-servers-template"></a>Plantilla de servidores de aplicaciones
+### <a name="application-servers-template"></a><a name="application-servers-template"></a>Plantilla de servidores de aplicaciones
 
 La plantilla de servidores de aplicaciones permite implementar dos o más máquinas virtuales que se pueden usar como instancias de servidores de aplicaciones SAP en un sistema SAP. Por ejemplo, si ha implementado una plantilla de ASCS/SCS para 5 sistemas SAP, debe implementar esta plantilla cinco veces.
 
@@ -359,7 +359,7 @@ Para configurar la plantilla de varios SID de servidores de aplicaciones, en la 
   -  **Identificador de subred**: Escriba el identificador de la subred que usó durante la implementación de la plantilla de ASCS/SCS o el identificador de la subred que se creó como parte de la implementación de esta plantilla.
 
 
-## <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure Virtual Network
+## <a name="azure-virtual-network"></a><a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure Virtual Network
 En nuestro ejemplo, el espacio de direcciones de la instancia de Azure Virtual Network es 10.0.0.0/16. Hay una subred llamada Subnet, con un intervalo de direcciones de 10.0.0.0/24. Todas las máquinas virtuales y los equilibradores de carga internos están implementados en esta red virtual.
 
 > [!IMPORTANT]
@@ -367,7 +367,7 @@ En nuestro ejemplo, el espacio de direcciones de la instancia de Azure Virtual N
 >
 >
 
-## <a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> Direcciones IP de DNS
+## <a name="dns-ip-addresses"></a><a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> Direcciones IP de DNS
 
 Para configurar las direcciones IP de DNS que se requieren, realice los pasos siguientes:
 
@@ -393,7 +393,7 @@ En este ejemplo, el servicio DNS está instalado y configurado en estas máquina
 | Primer servidor DNS |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
 | Segundo servidor DNS |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
 
-## <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Nombres de host y direcciones IP estáticas para la instancia en clúster de ASCS/SCS de SAP y la instancia de clúster de DBMS
+## <a name="host-names-and-static-ip-addresses-for-the-sap-ascsscs-clustered-instance-and-dbms-clustered-instance"></a><a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Nombres de host y direcciones IP estáticas para la instancia en clúster de ASCS/SCS de SAP y la instancia de clúster de DBMS
 
 Para la implementación local, necesita estas direcciones IP y nombres de host reservados:
 
@@ -407,7 +407,7 @@ Cuando crea el clúster, crea los nombres de host virtual pr1-ascs-vir y pr1-dbm
 
 Puede crear manualmente los otros dos nombres de host virtual, pr1-ascs-sap y pr1-dbms-sap y las direcciones IP asociadas en el servidor DNS. La instancia de ASCS/SCS de SAP en clúster y la instancia de DBMS en clúster usan estos recursos. Para más información sobre cómo hacerlo, vea [Creación de un nombre de host virtual para la instancia de ASCS/SCS de SAP en clúster][sap-ha-guide-9.1.1].
 
-## <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Configuración de direcciones IP estáticas para las máquinas virtuales SAP
+## <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Configuración de direcciones IP estáticas para las máquinas virtuales SAP
 Después de implementar las máquinas virtuales que usará en el clúster, deberá establecer direcciones IP estáticas para todas las máquinas virtuales. Debe hacerlo en la configuración de Azure Virtual Network y no en el sistema operativo invitado.
 
 1. En Azure Portal, seleccione **Grupo de recursos** > **Tarjeta de red** > **Configuración** > **Dirección IP**.
@@ -437,7 +437,7 @@ En este ejemplo, aparecen estas máquinas virtuales y direcciones IP estáticas:
 | Primer nodo de clúster para la instancia de DBMS |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |
 | Segundo nodo de clúster para la instancia de DBMS |pr1-db-1 |pr1-nic-db-1 |10.0.0.31 |
 
-## <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Configuración de una dirección IP estática para el equilibrador de carga interno de Azure
+## <a name="set-a-static-ip-address-for-the-azure-internal-load-balancer"></a><a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Configuración de una dirección IP estática para el equilibrador de carga interno de Azure
 
 La plantilla de Azure Resource Manager para SAP crea un equilibrador de carga interno de Azure que se usa para el clúster de instancia de ASCS/SCS de SAP y el clúster de DBMS.
 
@@ -465,7 +465,7 @@ En este ejemplo, aparecen 2 equilibradores de carga internos de Azure que tienen
 | Equilibrador de carga interno de DBMS de SAP |pr1-lb-dbms |10.0.0.33 |
 
 
-## <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure
+## <a name="default-ascsscs-load-balancing-rules-for-the-azure-internal-load-balancer"></a><a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure
 
 La plantilla de Azure Resource Manager para SAP crea los puertos que necesita:
 * Una instancia de ASCS de ABAP con el número de instancia predeterminado 00
@@ -517,7 +517,7 @@ _**Ilustración 5:** Reglas predeterminadas de equilibrio de carga de ASCS/SCS 
 
 Establezca la dirección IP del equilibrador de carga pr1-lb-dbms en la dirección IP del nombre de host virtual de la instancia de DBMS.
 
-### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure
+### <a name="change-the-ascsscs-default-load-balancing-rules-for-the-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure
 
 Si desea usar otros números para las instancias de ASCS o SCS de SAP, debe actualizar los nombres y valores de sus puertos a partir de los predeterminados.
 
@@ -536,7 +536,7 @@ Si desea usar otros números para las instancias de ASCS o SCS de SAP, debe actu
 
    _**Figura 6:** Cambio de las reglas predeterminadas de equilibrio de carga de ASCS/SCS para el equilibrador de carga interno de Azure_
 
-## <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Incorporación de máquinas virtuales de Windows al dominio
+## <a name="add-windows-virtual-machines-to-the-domain"></a><a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Incorporación de máquinas virtuales de Windows al dominio
 
 Después de asignar una dirección IP estática a las máquinas virtuales, agregue las máquinas virtuales al dominio.
 
@@ -544,7 +544,7 @@ Después de asignar una dirección IP estática a las máquinas virtuales, agreg
 
 _**Figura 7:** Incorporación de una máquina virtual a un dominio_
 
-## <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> Incorporación de entradas del Registro en ambos nodos del clúster usados para la instancia de ASCS/SCS de SAP
+## <a name="add-registry-entries-on-both-cluster-nodes-of-the-sap-ascsscs-instance"></a><a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> Incorporación de entradas del Registro en ambos nodos del clúster usados para la instancia de ASCS/SCS de SAP
 
 Azure Load Balancer tiene un equilibrador de carga interno que cierra las conexiones cuando están inactivas durante un período establecido (tiempo de espera de inactividad). Los proceso de trabajo de SAP en instancias de diálogo abren conexiones con el proceso de puesta en cola de SAP tan pronto como se deba enviar la primera solicitud para poner en cola y para quitar de la cola. Estas conexiones suelen mantenerse hasta que el proceso de trabajo o el de puesta en cola se reinicia. Sin embargo, si la conexión está inactiva durante un periodo, el equilibrador de carga interno de Azure cierra la conexión. Esto no supone un problema, porque el proceso de trabajo de SAP restablece la conexión con el proceso de puesta en cola si ya no existe. Estas actividades se documentan en los seguimientos de desarrollador de los procesos de SAP, pero crean una gran cantidad de contenido adicional en esos seguimientos. Se recomienda cambiar los parámetros de TCP/IP `KeepAliveTime` y `KeepAliveInterval` en ambos nodos del clúster. Combine estos cambios en los parámetros de TCP/IP con los parámetros de perfil de SAP, lo que se describe más adelante en este artículo.
 
@@ -572,14 +572,14 @@ Luego, agregue estas entradas del registro de Windows en ambos nodos del clúste
 
 Para aplicar los cambios, reinicie ambos nodos del clúster.
 
-## <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> Configuración de un clúster de conmutación por error de Windows Server para una instancia de ASCS/SCS de SAP
+## <a name="set-up-a-windows-server-failover-cluster-for-an-sap-ascsscs-instance"></a><a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> Configuración de un clúster de conmutación por error de Windows Server para una instancia de ASCS/SCS de SAP
 
 Para configurar un clúster de conmutación por error de Windows Server para una instancia de ASCS/SCS de SAP, hay que realizar estas tareas:
 
 - Recopilación de los nodos del clúster en una configuración de clúster.
 - Configuración de un testigo de recurso compartido de archivos de clúster.
 
-### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Recopilación de nodos del clúster en la configuración de clúster
+### <a name="collect-the-cluster-nodes-in-a-cluster-configuration"></a><a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Recopilación de nodos del clúster en la configuración de clúster
 
 1. En el Asistente para Agregar roles y características, agregue a ambos nodos del clúster agrupaciones en clústeres de conmutación por error.
 2. Configure el clúster de conmutación por error mediante el Administrador de clústeres de conmutación por error. En Administrador de clústeres de conmutación por error, seleccione **Crear clúster** y, luego, agregue solo el nombre del primer clúster (nodo A). No agregue el segundo nodo aún; el segundo nodo se agrega en un paso posterior.
@@ -658,14 +658,14 @@ Para configurar un clúster de conmutación por error de Windows Server para una
    _**Figura 19:** Omisión de las advertencias sobre el cuórum de disco_
 
 
-#### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> Configuración de un testigo de recurso compartido de archivos de clúster
+#### <a name="configure-a-cluster-file-share-witness"></a><a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> Configuración de un testigo de recurso compartido de archivos de clúster
 
 Para configurar un testigo de recurso compartido de archivos de clúster, hay que realizar las siguientes tareas:
 
 - Creación de un recurso compartido de archivos.
 - Configuración del cuórum del testigo del recurso compartido de archivos en el Administrador de clústeres de conmutación por error.
 
-#### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Creación de un recurso compartido de archivos
+#### <a name="create-a-file-share"></a><a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Creación de un recurso compartido de archivos
 
 1. Seleccione un testigo de recurso de archivos en lugar de un disco de cuórum. SIOS DataKeeper admite esta opción.
 
@@ -704,7 +704,7 @@ Para configurar un testigo de recurso compartido de archivos de clúster, hay qu
 
    _**Figura 23:** Establecimiento de los atributos de seguridad para el objeto de nombre de clúster en el cuórum de recurso compartido de archivos_
 
-#### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Configuración del cuórum de testigo del recurso compartido de archivos en el Administrador de clústeres de conmutación por error
+#### <a name="set-the-file-share-witness-quorum-in-failover-cluster-manager"></a><a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Configuración del cuórum de testigo del recurso compartido de archivos en el Administrador de clústeres de conmutación por error
 
 1. Abra el Asistente para la configuración de cuórum.
 
@@ -744,7 +744,7 @@ Después de instalar correctamente el clúster de conmutación por error de Wind
 
 Esta configuración se han probado con clientes y ofrece un buen compromiso. Son lo suficientemente resistentes y también proporcionan una conmutación por error que es lo suficientemente rápida en condiciones de error real en un software de SAP o en un nodo o un error de la máquina virtual.
 
-### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Instalación de SIOS DataKeeper Cluster Edition para un disco compartido de clúster de ASCS/SCS de SAP
+### <a name="install-sios-datakeeper-cluster-edition-for-the-sap-ascsscs-cluster-share-disk"></a><a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Instalación de SIOS DataKeeper Cluster Edition para un disco compartido de clúster de ASCS/SCS de SAP
 
 Ahora tiene una configuración de clústeres de conmutación por error de Windows Server activa en Azure. Para instalar una instancia de ASCS/SCS de SAP, necesita un recurso de disco compartido. No puede crear los recursos de disco compartido que necesita en Azure. SIOS DataKeeper Cluster Edition es una solución de terceros que puede usar para crear recursos de disco compartido.
 
@@ -754,7 +754,7 @@ Para instalar SIOS DataKeeper Cluster Edition en un disco compartido de clúster
 - Instalación de SIOS DataKeeper.
 - Configuración de SIOS DataKeeper.
 
-### <a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a> Incorporación de la característica .NET Framework 3.5
+### <a name="add-net-framework-35"></a><a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a> Incorporación de la característica .NET Framework 3.5
 .NET Framework 3.5 no está activo ni instalado automáticamente en Windows Server 2012 R2. Dado que SIOS DataKeeper requiere que .NET esté instalado en todos los nodos donde se instala DataKeeper, debe instalar .NET Framework 3.5 en el sistema operativo invitado de todas las máquinas virtuales del clúster.
 
 Hay dos maneras de agregar .NET Framework 3.5:
@@ -775,7 +775,7 @@ Hay dos maneras de agregar .NET Framework 3.5:
   Dism /online /enable-feature /featurename:NetFx3 /All /Source:installation_media_drive:\sources\sxs /LimitAccess
   ```
 
-### <a name="dd41d5a2-8083-415b-9878-839652812102"></a> Instalación de SIOS DataKeeper
+### <a name="install-sios-datakeeper"></a><a name="dd41d5a2-8083-415b-9878-839652812102"></a> Instalación de SIOS DataKeeper
 
 Instale SIOS DataKeeper Cluster Edition en cada nodo del clúster. Con SIOS DataKeeper, para crear el almacenamiento compartido virtual, cree un reflejo sincronizado y, luego, simule el almacenamiento compartido de clúster.
 
@@ -822,7 +822,7 @@ Para instalar SIOS DataKeeper, siga estos pasos:
 
 6. Cuando se le solicite, reinicie la máquina virtual.
 
-### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> Configuración de SIOS DataKeeper
+### <a name="set-up-sios-datakeeper"></a><a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> Configuración de SIOS DataKeeper
 
 Después de instalar SIOS DataKeeper en ambos nodos, inicie la configuración. El objetivo de la configuración es conseguir la replicación sincrónica de datos entre los discos adicionales conectados a cada una de las máquinas virtuales.
 

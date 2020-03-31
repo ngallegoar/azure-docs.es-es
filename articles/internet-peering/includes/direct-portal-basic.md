@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 79cf4b2edd1a25df427cf15f9ee7f2f331ebd2df
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773771"
 ---
 1. Haga clic en **Crear un recurso** > **Ver todo**.
@@ -38,7 +38,7 @@ ms.locfileid: "75773771"
     * Elija la suscripción de **Azure**.
     * Para **Grupo de recursos**, puede seleccionar un grupo de recursos existente en el menú desplegable o seleccionar la opción **Crear nuevo** para crear uno. Para este ejemplo, crearemos un nuevo grupo de recursos.
     * **Nombre** corresponde al nombre del recurso y puede ser el que prefiera.
-    * **Región** se selecciona automáticamente si se elige un grupo de recursos existente en el paso anterior. Si decide crear un nuevo grupo de recursos, también debe elegir la región de Azure en la que desea que resida el recurso. East US
+    * **Región** se selecciona automáticamente si se elige un grupo de recursos existente en el paso anterior. Si decide crear un nuevo grupo de recursos, también debe elegir la región de Azure en la que desea que resida el recurso. Este de EE. UU.
 
         > [!NOTE]
         > La región donde reside el grupo de recursos es independiente de la ubicación en la que desea crear el emparejamiento con Microsoft. No obstante, se recomienda organizar los recursos de emparejamiento en grupos de recursos que residan en las regiones más cercanas de Azure. Por ejemplo, para los emparejamientos en Ashburn, puede crear un grupo de recursos en *Este de EE. UU.* o *Este de EE. UU. 2*

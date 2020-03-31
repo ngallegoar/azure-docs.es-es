@@ -13,10 +13,10 @@ ms.author: abnarain
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 45aa49de51f42b26c653b15e79c865e3f5647c39
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931641"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Actividad de procedimiento almacenado de SQL Server
@@ -68,7 +68,7 @@ El siguiente procedimiento usa la actividad del procedimiento almacenado en una 
     ```
     Id es el identificador único y la columna datetimestamp indica la fecha y la hora en que se generó el identificador correspondiente.
     
-    ![Datos de ejemplo](./media/data-factory-stored-proc-activity/sample-data.png)
+    ![Datos de muestra](./media/data-factory-stored-proc-activity/sample-data.png)
 
     En este ejemplo, el procedimiento almacenado está en una base de datos de Azure SQL Database. Si el procedimiento almacenado está en un Azure SQL Data Warehouse y una base de datos de SQL Server, el enfoque es similar. Para una base de datos de SQL Server, debe instalar una [Puerta de enlace de administración de datos](data-factory-data-management-gateway.md).
 2. Cree el siguiente **procedimiento almacenado**, que inserta datos en **sampletable**.
@@ -303,15 +303,15 @@ Este es el formato JSON para definir una actividad de procedimiento almacenado:
 
 En la tabla siguiente se describen estas propiedades JSON:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | name | Nombre de la actividad |Sí |
-| description |Texto que describe para qué se usa la actividad. |Sin |
+| description |Texto que describe para qué se usa la actividad. |No |
 | type | Se debe establecer en: **SqlServerStoredProcedure** | Sí |
-| inputs | Opcional. Si especifica un conjunto de datos de entrada, debe estar disponible (en estado "Listo") para que se ejecute la actividad de procedimiento almacenado. El conjunto de datos de entrada no se puede usar en el procedimiento almacenado como parámetro. Solo se utiliza para comprobar la dependencia antes de iniciar la actividad de procedimiento almacenado. |Sin |
+| inputs | Opcional. Si especifica un conjunto de datos de entrada, debe estar disponible (en estado "Listo") para que se ejecute la actividad de procedimiento almacenado. El conjunto de datos de entrada no se puede usar en el procedimiento almacenado como parámetro. Solo se utiliza para comprobar la dependencia antes de iniciar la actividad de procedimiento almacenado. |No |
 | outputs | Debe especificar un conjunto de datos para una actividad de procedimiento almacenado. El conjunto de datos de salida especifica la **programación** para la actividad de procedimiento almacenada (por hora, semanal, mensual, etc.). <br/><br/>El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a una base de datos de Azure SQL, una base de datos de almacenamiento de Azure SQL o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. <br/><br/>El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. <br/><br/>En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio**, que solo se utilice para especificar la programación para ejecutar la actividad de procedimiento almacenado. |Sí |
 | storedProcedureName |Especifique el nombre del procedimiento almacenado de la base de datos de Azure SQL, el almacenamiento de datos de Azure SQL o la base de datos de SQL Server que se representa mediante el servicio vinculado que usa la tabla de salida. |Sí |
-| storedProcedureParameters |Especifique valores para los parámetros del procedimiento almacenado. Si necesita pasar null para un parámetro, use la sintaxis: "param1": null (todo en minúsculas). Vea el ejemplo siguiente para aprender el uso de esta propiedad. |Sin |
+| storedProcedureParameters |Especifique valores para los parámetros del procedimiento almacenado. Si necesita pasar null para un parámetro, use la sintaxis: "param1": null (todo en minúsculas). Vea el ejemplo siguiente para aprender el uso de esta propiedad. |No |
 
 ## <a name="passing-a-static-value"></a>Pasar un valor estático
 Ahora, pensemos en agregar otra columna denominada 'Escenario' en la tabla que contiene un valor estático denominado 'Ejemplo de documento'.

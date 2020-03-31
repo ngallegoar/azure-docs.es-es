@@ -10,10 +10,10 @@ ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 4689714073047e383a53a04bd0069a8a27afdf9d
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72966127"
 ---
 # <a name="manage-azure-data-lake-analytics-using-account-policies"></a>Administración de Azure Data Lake Analytics con directivas de cuentas
@@ -82,10 +82,10 @@ Hay una directiva predeterminada establecida en cada cuenta. La directiva predet
 1. En Azure Portal, vaya a la cuenta de Data Lake Analytics.
 2. Haga clic en **Límites y directivas**.
 3. En **Límites del envío de trabajos**, haga clic en el botón **Agregar directiva**. Luego, seleccione o escriba los siguientes valores:
-    1. **Compute Policy Name** (Nombre de la directiva de cálculo): escriba un nombre de directiva que le recuerde su propósito.
-    2. **Select User or Group** (Seleccionar usuario o grupo): seleccione el usuario o el grupo a los que se aplica esta directiva.
-    3. **Set the Job AU Limit** (Establecer el límite de AU del trabajo): establezca el límite de unidades de análisis que se aplica al usuario o al grupo seleccionados.
-    4. **Set the Priority Limit** (Establecer el límite de prioridad): establezca el límite de prioridad que se aplica al usuario o al grupo seleccionados.
+    1. **Nombre de la directiva de cálculo**: escriba un nombre de directiva que le recuerde su propósito.
+    2. **Seleccionar usuario o grupo**: seleccione el usuario o grupo al que se aplica esta directiva.
+    3. **Establezca el límite de AU del trabajo**: establezca el límite de unidades de análisis que se aplica al usuario o grupo seleccionado.
+    4. **Establezca el límite de prioridad**: establezca el límite de prioridad que se aplica al usuario o grupo seleccionado.
 
 4. Haga clic en **Aceptar**.
 

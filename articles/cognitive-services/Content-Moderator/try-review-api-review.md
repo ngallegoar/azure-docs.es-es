@@ -11,31 +11,31 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
 ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72757139"
 ---
 # <a name="create-human-reviews-rest"></a>Creación de revisiones humanas (REST)
 
-Las [revisiones](./review-api.md#reviews) almacenan y muestran el contenido que habrán de evaluar moderadores humanos. Cuando un usuario completa una revisión, los resultados se envían a un punto de conexión de devolución de llamada especificado. En esta guía, aprenderá a configurar las revisiones mediante API REST de revisión a través de la consola de API. Una vez que comprenda la estructura de las API, podrá migrar fácilmente estas llamadas a cualquier plataforma compatible con REST.
+Las [revisiones](./review-api.md#reviews) almacenan y muestran el contenido que habrán de evaluar moderadores humanos. Cuando un usuario completa una revisión, los resultados se envían a un punto de conexión de devolución de llamada especificado. En esta guía, aprenderá a configurar las revisiones mediante API REST de revisión a través de la consola de API. Una vez que comprenda la estructura de las API, podrá migrar fácilmente estas llamadas a cualquier plataforma compatible con REST.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-- Inicie sesión o cree una cuenta en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
+- Inicie sesión o cree una cuenta en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
 ## <a name="create-a-review"></a>Creación de una revisión
 
-Para crear una revisión, vaya a la página de referencia de API **[Review - Create](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** (Revisar: crear) y seleccione el botón para su región clave (lo encontrará en la dirección URL de punto de conexión en la página **Credenciales** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/)). Esto inicia la consola de API, donde puede crear y ejecutar llamadas API REST con facilidad.
+Para crear una revisión, vaya a la página de referencia de API **[Review - Create](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** (Revisar: crear) y seleccione el botón para su región clave (lo encontrará en la dirección URL de punto de conexión en la página **Credenciales** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/)). Esto inicia la consola de API, donde puede crear y ejecutar llamadas API REST con facilidad.
 
 ![Selección de región para Revisar: obtener](images/test-drive-region.png)
 
-### <a name="enter-rest-call-parameters"></a>Especificación de parámetros de llamada de REST
+### <a name="enter-rest-call-parameters"></a>Especificación de parámetros de llamada de REST
 
 Especifique los valores para **teamName** y **Ocp-Apim-Subscription-Key**:
 
-- **teamName**: identificador de equipo que creó al configurar la cuenta de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) (se encuentra en el campo de **identificador** en la pantalla Credentials [Credenciales] de la herramienta de revisión).
+- **teamName**: identificador de equipo que creó al configurar la cuenta de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) (se encuentra en el campo **Id.** en la pantalla de credenciales de la herramienta de revisión).
 - **Ocp-Apim-Subscription-Key**: su clave de Content Moderator. Puede encontrarla en la pestaña **Configuración** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com).
 
 ### <a name="enter-a-review-definition"></a>Especificación de una definición de revisión
@@ -45,7 +45,7 @@ Edite el cuadro **Cuerpo de la solicitud** para especificar la solicitud JSON co
 - **Metadatos**: pares de clave-valor personalizados devueltos al punto de conexión de la devolución de llamada. Si la clave es un código corto definido en la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com), aparece como una etiqueta.
 - **Content**: en el caso de contenido de imagen y vídeo, se trata de una cadena de dirección URL que apunta al contenido. Para el contenido de texto, esta es la cadena de texto real.
 - **ContentId**: cadena de identificador personalizada. Esta cadena se pasa a la API y se devuelve a través de la devolución de llamada. Es útil para asociar los identificadores internos o metadatos con los resultados de un trabajo de moderación.
-- **CallbackEndpoint**: (Opcional) La dirección URL para recibir información de devolución de llamada cuando la revisión se completa.
+- **CallbackEndpoint**: (opcional) dirección URL para recibir información de devolución de llamada cuando la revisión se completa.
 
 El cuerpo de la solicitud predeterminado muestra ejemplos de los diferentes tipos de revisiones que se puede crear:
 
@@ -135,7 +135,7 @@ Seleccione **Enviar**. Si la operación se realiza correctamente, **Estado de re
 
 ### <a name="examine-the-new-review"></a>Examen de la nueva revisión
 
-En el [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com), seleccione **Revisar** > **Imagen**/**Texto** / **Vídeo** (según el contenido que use). Debe aparecer el contenido que ha cargado, listo para revisión humana.
+En el [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com), seleccione **Revisar** > **Imagen**/**Texto**/**Vídeo** (según el contenido que use). Debe aparecer el contenido que ha cargado, listo para revisión humana.
 
 ![Imagen de un balón de fútbol de la herramienta de revisión](images/test-drive-review-5.PNG)
 

@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gwallace
-ms.openlocfilehash: bfb7d3ad6f918d91061fa226ae2dbfcd7f27852d
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 43352117d149abbe41ba7bf49a1ffb68e46d2707
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210164"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235056"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
@@ -104,7 +104,7 @@ Puede utilizar la dirección URL del paquete externo para hacer referencia a un 
 
 Utilice la implementación de archivo ZIP para insertar un archivo ZIP que contiene la aplicación de funciones de Azure. Si quiere, puede establecer que la aplicación comience a [ejecutarse desde el paquete](run-functions-from-deployment-package.md) o especificar que se produzca una [compilación remota](#remote-build).
 
->__Cómo se debe usar:__ Realice la implementación con su herramienta cliente favorita: [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), [Azure Functions Core Tools](functions-run-local.md)o la [CLI de Azure](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). De forma predeterminada, estas herramientas usan la implementación desde un archivo ZIP y se [ejecutan desde el paquete](run-functions-from-deployment-package.md). Core Tools y la extensión Visual Studio Code habilitan la [compilación remota](#remote-build) al implementar en Linux. Para implementar manualmente un archivo ZIP en la aplicación de funciones, siga las instrucciones que encontrará en [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url) (Implementación desde un archivo ZIP o una dirección URL).
+>__Cómo se debe usar:__ Realice la implementación con su herramienta cliente favorita: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure) o mediante la línea de comandos con [Azure Functions Core Tools](functions-run-local.md#project-file-deployment). De forma predeterminada, estas herramientas usan la implementación desde un archivo ZIP y se [ejecutan desde el paquete](run-functions-from-deployment-package.md). Core Tools y la extensión Visual Studio Code habilitan la [compilación remota](#remote-build) al implementar en Linux. Para implementar manualmente un archivo ZIP en la aplicación de funciones, siga las instrucciones que encontrará en [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url) (Implementación desde un archivo ZIP o una dirección URL).
 
 >Si realiza la implementación mediante la implementación de archivos ZIP, puede establecer la aplicación para que [se ejecute desde el paquete](run-functions-from-deployment-package.md). Para ejecutarla desde el paquete, defina el valor de configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` en `1`. Se recomienda usar la implementación de archivos ZIP. Produce tiempos de carga más rápidos para las aplicaciones, y es el valor predeterminado para VS Code, Visual Studio y la CLI de Azure. 
 

@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273566"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Desencadenador de Azure Service Bus para Azure Functions
 
 Utilice el desencadenador de Service Bus para responder a mensajes de una cola o tema de Service Bus.
 
-Para obtener información sobre los detalles de instalación y configuración, vea la [información general](functions-bindings-service-bus-output.md).
+Para obtener información sobre los detalles de instalación y configuración, consulte la [información general](functions-bindings-service-bus-output.md).
 
 ## <a name="example"></a>Ejemplo
 
@@ -256,7 +256,7 @@ Para las [bibliotecas de clases de C#](functions-dotnet-class-library.md), utili
 
 La cuenta de Service Bus que se debe usar se determina en el orden siguiente:
 
-* La propiedad `Connection` del atributo `ServiceBusTrigger`.
+* La propiedad `ServiceBusTrigger` del atributo `Connection`.
 * El atributo `ServiceBusAccount` aplicado al mismo parámetro que el atributo `ServiceBusTrigger`.
 * El atributo `ServiceBusAccount` aplicado a la función.
 * El atributo `ServiceBusAccount` aplicado a la clase.
@@ -374,4 +374,4 @@ Consulte los [ejemplos de código](#example) que utilizan estas propiedades más
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Envío de mensajes de Azure Service Bus desde Azure Functions (enlace de salida)](./functions-bindings-service-bus-output.md)
+- [Envío de mensajes de Azure Service Bus desde Azure Functions (Enlace de salida)](./functions-bindings-service-bus-output.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 22d98656f42f52f2fba0845fac6f1d210d2cf0bd
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76264685"
 ---
 # <a name="deliver-content-to-customers"></a>Entrega de contenido a los clientes
@@ -55,7 +55,7 @@ Media Services permite definir filtros para los recursos. Estos filtros son regl
 
 Para obtener más información, consulte [Filtros y manifiestos dinámicos](media-services-dynamic-manifest-overview.md).
 
-## <a name="a-idlocatorslocators"></a><a id="locators"/>Localizadores
+## <a name="locators"></a><a id="locators"/>Localizadores
 Para proporcionar al usuario una dirección URL que pueda utilizarse para transmitir o descargar su contenido, primero necesitará publicar su recurso mediante la creación de un localizador. Los localizadores proporcionan un punto de entrada para tener acceso a los archivos que se encuentran en un recurso. Media Services admite dos tipos de localizadores:
 
 * Localizadores OnDemandOrigin. Se usan para transmitir archivos multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) o archivos de descarga progresiva.
@@ -87,7 +87,7 @@ Para proporcionar direcciones URL de streaming a los usuarios, primero debe crea
 
 Solo puede transmitir por SSL si se creó el punto de conexión de streaming desde el que se entrega el contenido a partir del 10 de septiembre de 2014. Si las direcciones URL de streaming se basan en los puntos de conexión de streaming creados después del 10 de septiembre de 2014, la dirección URL contendrá streaming.mediaservices.windows.net. Las direcciones URL de streaming que contengan "origin.mediaservices.windows.net" (el formato anterior) no son compatibles con SSL. Si la dirección URL tiene un formato antiguo y desea poder transmitir a través de SSL, cree un extremo de streaming nuevo. Utilice direcciones URL creadas en función del nuevo punto de conexión de streaming para transmitir el contenido a través de SSL.
 
-## <a name="a-idurlsstreaming-url-formats"></a><a id="URLs"/>Formatos de la dirección URL de streaming
+## <a name="streaming-url-formats"></a><a id="URLs"/>Formatos de la dirección URL de streaming
 
 ### <a name="mpeg-dash-format"></a>Formato MPEG-DASH
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=mpd-time-csf)
@@ -118,7 +118,7 @@ Ejemplo:
 
 http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-### <a id="fmp4_v20"></a>Manifiesto Smooth Streaming 2.0 (manifiesto heredado)
+### <a name="smooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>Manifiesto Smooth Streaming 2.0 (manifiesto heredado)
 De forma predeterminada el formato de manifiesto Smooth Streaming contiene la etiqueta de repetición (r-tag). Sin embargo, algunos reproductores no son compatibles con r-tag. Los clientes con estos reproductores pueden utilizar un formato que deshabilite la etiqueta r-tag:
 
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=fmp4-v20)

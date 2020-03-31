@@ -1,20 +1,18 @@
 ---
 title: Problemas comunes durante la creación de discos duros virtuales (P+F) para Azure Marketplace
 description: Preguntas más frecuentes sobre la creación de discos duros virtuales y problemas asociados.
-services: Azure Marketplace
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/02/2018
-ms.author: evansma
-ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: 152a2f6fda081b2612197cc4848207b336adf8dc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.author: dsindona
+ms.openlocfilehash: 8ae1dcbeff6e14e6f1f7cd44ae3a0a68bd379b56
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934260"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387349"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comunes durante la creación de discos duros virtuales (P+F)
 

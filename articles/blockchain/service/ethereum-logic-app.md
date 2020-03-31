@@ -5,17 +5,17 @@ ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: chrisseg
 ms.openlocfilehash: 4a9acfd6098ed45fd92c7e3047b5d1446eeddbd6
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74325217"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Uso del conector Ethereum Blockchain con Azure Logic Apps
 
 Use el [conector Ethereum Blockchain](https://docs.microsoft.com/connectors/blockchainethereum/) con [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) para realizar acciones y responder a eventos de contrato inteligente. Supongamos que desea crear un microservicio basado en REST que devuelva información de un libro de contabilidad de cadena de bloques. Mediante el uso de una aplicación lógica, puede aceptar solicitudes HTTP que consulten la información almacenada en un libro de contabilidad de cadena de bloques.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete el requisito previo opcional de [Inicio rápido: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service](connect-vscode.md). El inicio rápido le guía por la instalación de [Azure Blockchain Development Kit para Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) y la configuración del entorno de desarrollo de la cadena de bloques.
 
@@ -52,7 +52,7 @@ Use desencadenadores de eventos de Ethereum Blockchain cuando quiera que se ejec
 
     ![Diseñador de aplicaciones lógicas con las propiedades del desencadenador de eventos](./media/ethereum-logic-app/event-properties.png)
 
-    | Propiedad | DESCRIPCIÓN |
+    | Propiedad | Descripción |
     |----------|-------------|
     | **Contract ABI** (ABI del contrato) | La interfaz binaria de aplicaciones (ABI) del contrato define las interfaces del contrato inteligente. Para más información, consulte [Obtención de ABI del contrato](#get-the-contract-abi). |
     | **Smart contract address** (Dirección del contrato inteligente) | La dirección del contrato es la dirección de destino del contrato inteligente en Ethereum Blockchain. Para más información, consulte [Obtención de la dirección del contrato](#get-the-contract-address). |
@@ -78,7 +78,7 @@ Las acciones del conector requieren un desencadenador. Puede usar una acción de
 1. Cambie o [cree una conexión de API](#create-an-api-connection) a Azure Blockchain Service.
 1. En función de la acción que elija, proporcione los detalles siguientes sobre la función del contrato inteligente.
 
-    | Propiedad | DESCRIPCIÓN |
+    | Propiedad | Descripción |
     |----------|-------------|
     | **Contract ABI** (ABI del contrato) | La ABI del contrato define las interfaces del contrato inteligente. Para más información, consulte [Obtención de ABI del contrato](#get-the-contract-abi). |
     | **Contract Bytecode** (Código de bytes del contrato) | Código de bytes del contrato inteligente compilado. Para más información, consulte [Obtención del código de bytes del contrato](#get-the-contract-bytecode). |
@@ -153,7 +153,7 @@ El conector Ethereum Blockchain requiere una conexión de API a una cadena de bl
 
 Para ayudarle a configurar una conexión a un miembro de Azure Blockchain Service, en la siguiente lista se muestran las propiedades que puede necesitar en función de su escenario.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |----------|-------------|
 |**Nombre de la conexión** | Nombre de la conexión de API. Necesario. |
 |**Ethereum RPC endpoint** (Punto de conexión RPC de Ethereum) | Dirección HTTP del nodo de transacción de Azure Blockchain Service. Necesario. Para más información, consulte [Obtención del punto de conexión de RPC](#get-the-rpc-endpoint). |
@@ -176,7 +176,7 @@ Para conectarse a una red de cadena de bloques se necesita la dirección del pun
 
 **Para utilizar Azure Portal**:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Vaya al miembro de Azure Blockchain Service. Seleccione **Nodos de transacción** y el vínculo al nodo de transacción predeterminado.
 
     ![Página Transaction nodes (Nodos de transacción) con la selección (nodo predeterminado)](./media/ethereum-logic-app/transaction-nodes.png)

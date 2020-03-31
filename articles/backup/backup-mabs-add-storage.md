@@ -4,10 +4,10 @@ description: Obtenga información sobre las nuevas características de Azure Bac
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: c6346d7b0275a00271c1787b378a63b8365edf2d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172373"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adición de almacenamiento a Azure Backup Server
@@ -56,7 +56,7 @@ El uso de Backup Server V2 o versiones posteriores con volúmenes como almacenam
 
     ![Creación de un nuevo volumen](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. En el cuadro de diálogo **Seleccionar el servidor y el disco**, seleccione el servidor y el nuevo disco. A continuación, seleccione **Siguiente**.
+6. En el cuadro de diálogo **Seleccionar el servidor y el disco**, seleccione el servidor y el nuevo disco. Después, seleccione **Siguiente**.
 
     ![Selección del servidor y disco](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
@@ -133,4 +133,4 @@ Después de instalar Backup Server, sepa cómo preparar el servidor o empezar a 
 
 - [Preparar cargas de trabajo de Backup Server](backup-azure-microsoft-azure-backup.md)
 - [Usar Backup Server para hacer una copia de seguridad de un servidor de VMware](backup-azure-backup-server-vmware.md)
-- [Uso de Backup Server para hacer una copia de seguridad de SQL Server](backup-azure-sql-mabs.md)
+- [Usar Backup Server para hacer una copia de seguridad de SQL Server](backup-azure-sql-mabs.md)

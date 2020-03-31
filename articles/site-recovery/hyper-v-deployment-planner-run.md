@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082621"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
@@ -35,11 +35,11 @@ La tabla siguiente contiene una lista de parámetros obligatorios y opcionales d
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
 
-| Nombre de parámetro | DESCRIPCIÓN |
+| Nombre de parámetro | Descripción |
 |---|---|
 | -Operation | GetVMList |
 | -User | El nombre de usuario para conectarse al host de Hyper-V o al clúster de Hyper-V. El usuario necesita tener acceso administrativo.|
-| -ServerListFile | El archivo con la lista de servidores que contiene las máquinas virtuales para las que se van a generar perfiles. La ruta de acceso del archivo puede ser absoluta o relativa. Este archivo debe contener uno de los siguientes datos en cada línea:<ul><li>Nombre o dirección IP del host de Hyper-V</li><li>Nombre o dirección IP del clúster de Hyper-V</li></ul><br>**Ejemplo:** el archivo ServerList.txt contiene los siguientes servidores:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | El archivo con la lista de servidores que contiene las máquinas virtuales para las que se van a generar perfiles. La ruta de acceso del archivo puede ser absoluta o relativa. Este archivo debe contener uno de los siguientes datos en cada línea:<ul><li>Nombre o dirección IP del host de Hyper-V</li><li>Nombre o dirección IP del clúster de Hyper-V</li></ul><br>**Ejemplo**: el archivo ServerList.txt contiene los siguientes servidores:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(Opcional) La convención de nomenclatura universal (UNC) o la ruta de acceso del directorio local para almacenar los datos generados durante esta operación. Si no se especifica un nombre, el directorio llamado ProfiledData de la ruta de acceso actual se usa como directorio predeterminado.|
 |-OutputFile| (Opcional) El archivo donde se guarda la lista de máquinas virtuales obtenidas de los servidores de Hyper-V especificados. Si no se menciona ningún nombre, los detalles se almacenarán en VMList.txt.  Use el archivo para iniciar la generación de perfiles después de quitar las máquinas virtuales donde no se van a generar perfiles.|
 |-Password|(Opcional) La contraseña para conectarse al host de Hyper-V. Si no la especifica como un parámetro, se le pedirá que lo haga al ejecutar el comando.|
@@ -85,11 +85,11 @@ La tabla siguiente enumera los parámetros opcionales y obligatorios de la herra
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Nombre de parámetro | DESCRIPCIÓN |
+| Nombre de parámetro | Descripción |
 |---|---|
 | -Operation | Inicio de la generación de perfiles |
 | -User | El nombre de usuario para conectarse al host de Hyper-V o al clúster de Hyper-V. El usuario necesita tener acceso administrativo.|
-| -VMListFile | El archivo con la lista de máquinas virtuales para las que se va a realizar la generación de perfiles. La ruta de acceso del archivo puede ser absoluta o relativa. En Hyper-V, este archivo es el archivo de salida de la operación GetVMList. Si va a realizar la preparación de forma manual, el archivo debe contener un nombre de servidor o una dirección IP seguidos de un nombre de máquina virtual, (separados por una barra diagonal inversa "\" por línea). El nombre de la máquina virtual especificado en el archivo debe ser el mismo que el nombre de la máquina virtual del host de Hyper-V.<br><br>**Ejemplo:** el archivo VMList.txt contiene las siguientes máquinas virtuales:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+| -VMListFile | El archivo con la lista de máquinas virtuales para las que se va a realizar la generación de perfiles. La ruta de acceso del archivo puede ser absoluta o relativa. En Hyper-V, este archivo es el archivo de salida de la operación GetVMList. Si va a realizar la preparación de forma manual, el archivo debe contener un nombre de servidor o una dirección IP seguidos de un nombre de máquina virtual, (separados por una barra diagonal inversa "\" por línea). El nombre de la máquina virtual especificado en el archivo debe ser el mismo que el nombre de la máquina virtual del host de Hyper-V.<br><br>**Ejemplo**: el archivo VMList.txt contiene las siguientes máquinas virtuales:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-NoOfMinutesToProfile|Número de minutos durante los cuales se va a ejecutar la generación de perfiles. El mínimo es 30 minutos.|
 |-NoOfHoursToProfile|Número de horas durante las cuales se va a ejecutar la generación de perfiles.|
 |-NoOfDaysToProfile |Número de días durante los cuales se va a ejecutar la generación de perfiles. Se recomienda ejecutar la generación de perfiles durante más de 7 días. Esa duración sirve para asegurarse de que el patrón de carga de trabajo en su entorno durante el período especificado se observa y se usa para proporcionar una recomendación adecuada.|
@@ -167,10 +167,10 @@ La siguiente tabla contiene una lista de los parámetros obligatorios y opcional
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
 
-| Nombre de parámetro | DESCRIPCIÓN |
+| Nombre de parámetro | Descripción |
 |---|---|
 | -Operation | GenerateReport |
-|-VMListFile | El archivo que contiene la lista de máquinas virtuales con perfiles para las que se va a generar el informe. La ruta de acceso del archivo puede ser absoluta o relativa. En Hyper-V, este archivo es el archivo de salida de la operación GetVMList. Si va a realizar la preparación de forma manual, el archivo debe contener un nombre de servidor o una dirección IP seguidos de un nombre de máquina virtual, (separados por una barra diagonal inversa "\" por línea). El nombre de la máquina virtual especificado en el archivo debe ser el mismo que el nombre de la máquina virtual del host de Hyper-V.<br><br>**Ejemplo:** el archivo VMList.txt contiene las siguientes máquinas virtuales:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+|-VMListFile | El archivo que contiene la lista de máquinas virtuales con perfiles para las que se va a generar el informe. La ruta de acceso del archivo puede ser absoluta o relativa. En Hyper-V, este archivo es el archivo de salida de la operación GetVMList. Si va a realizar la preparación de forma manual, el archivo debe contener un nombre de servidor o una dirección IP seguidos de un nombre de máquina virtual, (separados por una barra diagonal inversa "\" por línea). El nombre de la máquina virtual especificado en el archivo debe ser el mismo que el nombre de la máquina virtual del host de Hyper-V.<br><br>**Ejemplo**: el archivo VMList.txt contiene las siguientes máquinas virtuales:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Virtualization|El tipo de virtualización (VMware o Hyper-V).|
 |-Directory|(Opcional) El UNC o la ruta de acceso del directorio local en que se almacenan los datos de la generación de perfiles (los archivos que se crean en la generación de perfiles). Estos datos son necesarios para generar el informe. Si no se especifica un nombre, el directorio llamado "ProfiledData" de la ruta de acceso actual se usa como el directorio predeterminado.|
 | -User | (Opcional) El nombre de usuario para conectarse al host de Hyper-V o al clúster de Hyper-V. El usuario necesita tener acceso administrativo. El usuario y la contraseña se usan para recuperar los cambios más recientes en la información de configuración de las máquinas virtuales (como el número de discos, el número de núcleos o el número de tarjetas NIC) que se usarán en el informe. Si no se proporciona, se usa la información de configuración recopilada durante la generación de perfiles.|
@@ -225,7 +225,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Dire
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -DesiredRPO 5
 ```
 
-#### <a name="generate-a-report-for-the-south-india-azure-region-with-indian-rupee-and-a-specific-offer-id"></a>Generación de un informe para la región de Azure de India del Sur con la rupia india y un identificador de oferta específico
+#### <a name="generate-a-report-for-the-south-india-azure-region-with-indian-rupee-and-a-specific-offer-id"></a>Generación de un informe para la región de Azure de Sur de la India con la rupia india y un identificador de oferta específico
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
@@ -275,14 +275,14 @@ Abra una consola de línea de comandos y vaya a la carpeta de la herramienta Azu
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
 
- Nombre de parámetro | DESCRIPCIÓN |
+ Nombre de parámetro | Descripción |
 |---|---|
 | -Operation | GetThroughput |
 |-Virtualization|El tipo de virtualización (VMware o Hyper-V).|
 |-Directory|(Opcional) El UNC o la ruta de acceso del directorio local en que se almacenan los datos de la generación de perfiles (los archivos que se crean en la generación de perfiles). Estos datos son necesarios para generar el informe. Si no se especifica un nombre, el directorio llamado "ProfiledData" de la ruta de acceso actual se usa como el directorio predeterminado.|
 | -StorageAccountName | El nombre de la cuenta de almacenamiento que se usa para hallar el ancho de banda consumido durante la replicación de datos desde una ubicación local a Azure. La herramienta carga los datos de prueba en esta cuenta de almacenamiento para calcular el ancho de banda consumido. La cuenta de almacenamiento debe ser de tipo de uso general v1 (GPv1).|
 | -StorageAccountKey | La clave de la cuenta de almacenamiento utilizada para acceder a dicha cuenta. Vaya a Azure Portal > **Cuentas de almacenamiento** > *nombre de la cuenta de almacenamiento* > **Configuración** > **Claves de acceso** > **Key1**.|
-| -VMListFile | El archivo que contiene la lista de máquinas virtuales de las que se va a generar el perfil para calcular el ancho de banda consumido. La ruta de acceso del archivo puede ser absoluta o relativa. En Hyper-V, este archivo es el archivo de salida de la operación GetVMList. Si va a realizar la preparación de forma manual, el archivo debe contener un nombre de servidor o una dirección IP seguidos de un nombre de máquina virtual, (separados por una barra diagonal inversa "\" por línea). El nombre de la máquina virtual especificado en el archivo debe ser el mismo que el nombre de la máquina virtual del host de Hyper-V.<br><br>**Ejemplo:** el archivo VMList.txt contiene las siguientes máquinas virtuales:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
+| -VMListFile | El archivo que contiene la lista de máquinas virtuales de las que se va a generar el perfil para calcular el ancho de banda consumido. La ruta de acceso del archivo puede ser absoluta o relativa. En Hyper-V, este archivo es el archivo de salida de la operación GetVMList. Si va a realizar la preparación de forma manual, el archivo debe contener un nombre de servidor o una dirección IP seguidos de un nombre de máquina virtual, (separados por una barra diagonal inversa "\" por línea). El nombre de la máquina virtual especificado en el archivo debe ser el mismo que el nombre de la máquina virtual del host de Hyper-V.<br><br>**Ejemplo**: el archivo VMList.txt contiene las siguientes máquinas virtuales:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|(Opcional) Su entorno de destino para la cuenta de Azure Storage. Puede ser uno de tres valores: AzureCloud, AzureUSGovernment o AzureChinaCloud. El valor predeterminado es AzureCloud. Use el parámetro si la región de destino de Azure se corresponde con Azure US Government o Azure China 21Vianet.|
 
 ### <a name="example"></a>Ejemplo

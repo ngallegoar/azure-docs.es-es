@@ -4,10 +4,10 @@ description: Aprenda a usar API REST para administrar y supervisar los recursos 
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 9d29b226aff568c91de8e1f19ddc0c64f8169e4d
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444917"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure con API REST

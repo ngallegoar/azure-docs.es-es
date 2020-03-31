@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109332"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
@@ -52,7 +52,7 @@ Los escenarios definidos en la ilustración anterior son:
 
 La tabla siguiente le ayuda a determinar las ventajas y desventajas de cada una de las estrategias siguientes:
 
-| Estrategia | Ventajas | Desventajas |
+| Estrategia | Ventajas | Inconvenientes |
 | --- | --- | --- |
 | **Identidades en la nube** |Fáciles de administrar para organizaciones pequeñas. <br> No hay nada que instalar localmente. No se necesita hardware adicional<br>Se deshabilitan fácilmente si el usuario abandona la compañía. |Los usuarios tendrán que iniciar sesión al acceder a las cargas de trabajo en la nube. <br> Las contraseñas puede ser las mismas, o no, para las entidades identidades de nube y locales. |
 | **Sincronizada** |La contraseña local se autentica localmente y en directorios en la nube. <br>Más fácil de administrar para organizaciones pequeñas, medianas o grandes. <br>Los usuarios pueden tener el inicio de sesión único (SSO) en algunos recursos. <br> Método preferido de Microsoft para la sincronización <br> Más fácil de administrar |Algunos clientes pueden ser reacios a sincronizar sus directorios con la nube debido  a las directivas de la compañía. |
@@ -182,11 +182,11 @@ Opciones de diseño multifactor:
 
 | Activo que se protege | MFA en la nube | MFA local |
 | --- | --- | --- |
-| Aplicaciones de Microsoft |Sí |Sí |
-| Aplicaciones de SaaS en la galería de aplicaciones |Sí |Sí |
-| Aplicaciones de IIS que se publican a través del proxy de aplicación de Azure AD |Sí |Sí |
-| Aplicaciones IIS que no se publican a través del proxy de aplicación de Azure AD |no |Sí |
-| Acceso remoto como VPN o RDG |no |Sí |
+| Aplicaciones de Microsoft |sí |sí |
+| Aplicaciones de SaaS en la galería de aplicaciones |sí |sí |
+| Aplicaciones de IIS que se publican a través del proxy de aplicación de Azure AD |sí |sí |
+| Aplicaciones IIS que no se publican a través del proxy de aplicación de Azure AD |no |sí |
+| Acceso remoto como VPN o RDG |no |sí |
 
 Aunque puede que eligiera una solución para su estrategia, será preciso que use la evaluación anterior en donde se encuentren los usuarios.  Esto puede provocar un cambio de solución.  La tabla siguiente puede ayudarle a decidirse:
 
@@ -213,6 +213,6 @@ La autenticación multifactor está disponible de forma predeterminada para los 
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de los requisitos de protección de datos](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

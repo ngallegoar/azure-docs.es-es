@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
 ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121808"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225112"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -309,7 +309,7 @@ Sí. El mismo recurso de TAP de red virtual se puede utilizar para agregar tráf
 
 TAP de red virtual está en versión preliminar. Durante la versión preliminar no hay ningún Acuerdo de Nivel de Servicio. La funcionalidad no debe usarse para cargas de trabajo de producción. Cuando se habilita una interfaz de red de máquina virtual con una configuración de TAP, se utilizan los mismos recursos en el host de Azure asignados a la máquina virtual para enviar el tráfico de producción para realizar la función de creación de reflejo y enviar los paquetes reflejados. Seleccione el tamaño correcto de la máquina virtual [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para asegurarse de que dispone de recursos suficientes para que la máquina virtual envíe el tráfico de producción y el tráfico reflejado.
 
-### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>¿Se admiten redes aceleradas para [Linux](create-vm-accelerated-networking-cli.md) o [Windows](create-vm-accelerated-networking-powershell.md) con TAP de red virtual?
+### <a name="is-accelerated-networking-for-linux-or-windows-supported-with-virtual-network-tap"></a>¿Se admiten redes aceleradas para [Linux](create-vm-accelerated-networking-cli.md) o [Windows](create-vm-accelerated-networking-powershell.md) con TAP de red virtual?
 
 Podrá agregar una configuración de TAP en una interfaz de red asociada a una máquina virtual que esté habilitada con redes aceleradas. Pero el rendimiento y la latencia en la máquina virtual se verán afectados por la adición de la configuración de TAP, ya que la descarga para reflejar el tráfico no se admite actualmente por la red acelerada de Azure.
 

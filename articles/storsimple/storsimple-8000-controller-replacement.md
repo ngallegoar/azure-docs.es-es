@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482913"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232224"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Reemplazar un módulos de controladores en el dispositivo StorSimple
 ## <a name="overview"></a>Información general
@@ -79,7 +79,7 @@ Complete los pasos siguientes si se produce un error en uno de los controladores
 
 #### <a name="to-remove-a-single-failed-controller-module"></a>Para quitar un módulo de un solo controlador defectuoso
 1. En Azure Portal, vaya al servicio StorSimple Device Manager, haga clic en **Dispositivos** y luego haga clic en el nombre del dispositivo que quiere supervisar.
-2. Vaya a **Monitor > Hardware health** (Mantenimiento de hardware). El estado del Controlador 0 o 1 debe ser rojo, que indica un error.
+2. Vaya a **Supervisar > Mantenimiento de hardware**. El estado del Controlador 0 o 1 debe ser rojo, que indica un error.
    
    > [!NOTE]
    > El controlador defectuoso en un reemplazo de un único controlador siempre es un controlador en modo de espera.
@@ -90,7 +90,7 @@ Complete los pasos siguientes si se produce un error en uno de los controladores
    
     **Figura 1** Parte posterior del dispositivo StorSimple
    
-   | Etiqueta | DESCRIPCIÓN |
+   | Etiqueta | Descripción |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -231,7 +231,7 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 
 **Figura 8** Parte posterior del gabinete principal con los puertos de datos y LED de supervisión
 
-| Etiqueta | DESCRIPCIÓN |
+| Etiqueta | Descripción |
 |:--- |:--- |
 | 1-6 |DATOS 0: 5 puertos de red |
 | 7 |LED azul |

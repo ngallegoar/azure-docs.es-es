@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 47ee05113d46f66efd02978fed09cf72edc5ac1c
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: dcca1417aec52fb4bf99d5c480d81995154a68b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049938"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481983"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configuración de ExpressRoute Direct mediante la CLI de Azure
 
 Puede usar Azure ExpressRoute Direct para conectarse directamente a la red global de Microsoft en ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. Para obtener más información, consulte [About ExpressRoute Direct Connect](expressroute-erdirect-about.md) (Acerca de ExpressRoute Direct Connect).
 
-## <a name="resources"></a>Crear el recurso
+## <a name="create-the-resource"></a><a name="resources"></a>Crear el recurso
 
 1. Inicie sesión en Azure y seleccione la suscripción que contiene ExpressRoute. El recurso de ExpressRoute Direct y sus circuitos de ExpressRoute deben estar en la misma suscripción. En la CLI de Azure, ejecute los siguientes comandos:
 
@@ -51,7 +51,7 @@ Puede usar Azure ExpressRoute Direct para conectarse directamente a la red globa
 
    **Salida del ejemplo**
   
-   ```azurecli
+   ```output
    [
    {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
@@ -118,7 +118,7 @@ Puede usar Azure ExpressRoute Direct para conectarse directamente a la red globa
 
    **Salida del ejemplo**
 
-   ```azurecli
+   ```output
    {
    "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
    "availableBandwidths": [
@@ -156,7 +156,7 @@ Puede usar Azure ExpressRoute Direct para conectarse directamente a la red globa
 
    **Salida del ejemplo**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -208,7 +208,7 @@ Puede usar Azure ExpressRoute Direct para conectarse directamente a la red globa
    }  
    ```
 
-## <a name="state"></a>Cambio de AdminState para vínculos
+## <a name="change-adminstate-for-links"></a><a name="state"></a>Cambio de AdminState para vínculos
 
 Utilice este proceso para llevar a cabo una prueba de capa 1. Asegúrese de que cada conexión cruzada se ha revisado correctamente en cada enrutador de los puertos principales y secundarios.
 
@@ -224,7 +224,7 @@ Utilice este proceso para llevar a cabo una prueba de capa 1. Asegúrese de que 
    ```
    **Salida del ejemplo**
 
-   ```azurecli
+   ```output
    {
    "allocationDate": "Wednesday, October 17, 2018",
    "bandwidthInGbps": 100,
@@ -278,7 +278,7 @@ Utilice este proceso para llevar a cabo una prueba de capa 1. Asegúrese de que 
 
    Use el mismo procedimiento mediante `AdminState = "Disabled"` para deshabilitar los puertos.
 
-## <a name="circuit"></a>Crear un circuito
+## <a name="create-a-circuit"></a><a name="circuit"></a>Crear un circuito
 
 De forma predeterminada, puede crear 10 circuitos en la suscripción que contiene el recurso ExpressRoute Direct. El Soporte técnico de Microsoft puede aumentar el límite predeterminado. Tenga en cuenta que debe realizar usted mismo el seguimiento tanto del ancho de banda aprovisionado como el del utilizado. El ancho de banda aprovisionado es la suma del ancho de banda de todos los circuitos en el recurso de ExpressRoute Direct. El ancho de banda utilizado es el uso físico de las interfaces físicas subyacentes.
 
@@ -297,7 +297,7 @@ Cree un circuito en el recurso de ExpressRoute Direct:
 
   **Salida del ejemplo**
 
-  ```azurecli
+  ```output
   {
   "allowClassicOperations": false,
   "allowGlobalReach": false,

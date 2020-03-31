@@ -5,10 +5,10 @@ ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
 ms.openlocfilehash: 585084b4c85c48533bdad96d4f99813ef2e418b4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74325987"
 ---
 # <a name="azure-blockchain-workbench-database-views"></a>Vistas de base de datos de Azure Blockchain Workbench
@@ -27,17 +27,17 @@ Esta sección incluye una introducción sobre las vistas de base de datos y los 
 
 Esta vista proporciona información detallada sobre **aplicaciones** que se han cargado en Azure Blockchain Workbench.
 
-| NOMBRE                             | Escriba          | Puede ser NULL | DESCRIPCIÓN                                                                                                                                                                                                                                                   |
+| Nombre                             | Tipo          | Puede ser NULL | Descripción                                                                                                                                                                                                                                                   |
 |----------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                    | int           | Sin          | Un identificador único para la aplicación |
-| ApplicationName                  | nvarchar(50)  | Sin          | Nombre de la aplicación |
+| ApplicationId                    | int           | No          | Un identificador único para la aplicación |
+| ApplicationName                  | nvarchar(50)  | No          | Nombre de la aplicación |
 | ApplicationDescription           | nvarchar(255) | Sí         | Una descripción de la aplicación |
-| ApplicationDisplayName           | nvarchar(255) | Sin          | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled               | bit           | Sin          | Identifica si la aplicación está habilitada actualmente<br /> **Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
-| UploadedDtTm                     | datetime2(7)  | Sin          | La fecha y hora en que se cargó un contrato |
-| UploadedByUserId                 | int           | Sin          | El identificador del usuario que ha cargado la aplicación |
-| UploadedByUserExternalId         | nvarchar(255) | Sin          | El identificador externo del usuario que ha cargado la aplicación. De forma predeterminada, este Id. es el usuario de Azure Active Directory para el consorcio.                                                                                                |
-| UploadedByUserProvisioningStatus | int           | Sin          | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado                         |
+| ApplicationDisplayName           | nvarchar(255) | No          | El nombre que aparecerá en una interfaz de usuario |
+| ApplicationEnabled               | bit           | No          | Identifica si la aplicación está habilitada actualmente<br /> **Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
+| UploadedDtTm                     | datetime2(7)  | No          | La fecha y hora en que se cargó un contrato |
+| UploadedByUserId                 | int           | No          | El identificador del usuario que ha cargado la aplicación |
+| UploadedByUserExternalId         | nvarchar(255) | No          | El identificador externo del usuario que ha cargado la aplicación. De forma predeterminada, este Id. es el usuario de Azure Active Directory para el consorcio.                                                                                                |
+| UploadedByUserProvisioningStatus | int           | No          | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado                         |
 | UploadedByUserFirstName          | nvarchar(50)  | Sí         | El nombre del usuario que ha cargado el contrato |
 | UploadedByUserLastName           | nvarchar(50)  | Sí         | Los apellidos del usuario que ha cargado el contrato |
 | UploadedByUserEmailAddress       | nvarchar(255) | Sí         | La dirección de correo electrónico del usuario que ha cargado el contrato |
@@ -48,14 +48,14 @@ Esta vista proporciona información detallada sobre los roles que se han definid
 
 Por ejemplo, en una aplicación de *transferencia de recursos*, se pueden definir roles como *Comprador* y *Vendedor*.
 
-| NOMBRE                   | Escriba             | Puede ser NULL | DESCRIPCIÓN                                       |
+| Nombre                   | Tipo             | Puede ser NULL | Descripción                                       |
 |------------------------|------------------|-------------|---------------------------------------------------|
-| ApplicationId          | int              | Sin          | Un identificador único para la aplicación           |
-| ApplicationName        | nvarchar(50)     | Sin          | Nombre de la aplicación                       |
+| ApplicationId          | int              | No          | Un identificador único para la aplicación           |
+| ApplicationName        | nvarchar(50)     | No          | Nombre de la aplicación                       |
 | ApplicationDescription | nvarchar(255)    | Sí         | Una descripción de la aplicación                  |
-| ApplicationDisplayName | nvarchar(255)    | Sin          | El nombre que aparecerá en una interfaz de usuario      |
-| RoleId                 | int              | Sin          | Un identificador único para un rol de la aplicación |
-| RoleName               | nvarchar50)      | Sin          | El nombre del rol                              |
+| ApplicationDisplayName | nvarchar(255)    | No          | El nombre que aparecerá en una interfaz de usuario      |
+| RoleId                 | int              | No          | Un identificador único para un rol de la aplicación |
+| RoleName               | nvarchar50)      | No          | El nombre del rol                              |
 | RoleDescription        | description(255) | Sí         | Una descripción del rol                         |
 
 ## <a name="vwapplicationroleuser"></a>vwApplicationRoleUser
@@ -64,18 +64,18 @@ Esta vista proporciona información detallada sobre los roles que se han definid
 
 Por ejemplo, en una aplicación de *transferencia de recursos*, *John Smith* se puede asociar al rol *Comprador*.
 
-| NOMBRE                       | Escriba          | Puede ser NULL | DESCRIPCIÓN                                                                                                                                                                                                                           |
+| Nombre                       | Tipo          | Puede ser NULL | Descripción                                                                                                                                                                                                                           |
 |----------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId              | int           | Sin          | Un identificador único para la aplicación                                                                                                                                                                                               |
-| ApplicationName            | nvarchar(50)  | Sin          | Nombre de la aplicación                                                                                                                                                                                                           |
+| ApplicationId              | int           | No          | Un identificador único para la aplicación                                                                                                                                                                                               |
+| ApplicationName            | nvarchar(50)  | No          | Nombre de la aplicación                                                                                                                                                                                                           |
 | ApplicationDescription     | nvarchar(255) | Sí         | Una descripción de la aplicación                                                                                                                                                                                                      |
-| ApplicationDisplayName     | nvarchar(255) | Sin          | El nombre que aparecerá en una interfaz de usuario                                                                                                                                                                                          |
-| ApplicationRoleId          | int           | Sin          | Un identificador único para un rol de la aplicación                                                                                                                                                                                     |
-| ApplicationRoleName        | nvarchar50)   | Sin          | El nombre del rol                                                                                                                                                                                                                  |
+| ApplicationDisplayName     | nvarchar(255) | No          | El nombre que aparecerá en una interfaz de usuario                                                                                                                                                                                          |
+| ApplicationRoleId          | int           | No          | Un identificador único para un rol de la aplicación                                                                                                                                                                                     |
+| ApplicationRoleName        | nvarchar50)   | No          | El nombre del rol                                                                                                                                                                                                                  |
 | ApplicationRoleDescription | nvarchar(255) | Sí         | Una descripción del rol                                                                                                                                                                                                             |
-| UserId                     | int           | Sin          | El identificador del usuario asociado al rol |
-| UserExternalId             | nvarchar(255) | Sin          | El identificador externo del usuario asociado con el rol. De forma predeterminada, este Id. es el usuario de Azure Active Directory para el consorcio.                                                                     |
-| UserProvisioningStatus     | int           | Sin          | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado |
+| UserId                     | int           | No          | El identificador del usuario asociado al rol |
+| UserExternalId             | nvarchar(255) | No          | El identificador externo del usuario asociado con el rol. De forma predeterminada, este Id. es el usuario de Azure Active Directory para el consorcio.                                                                     |
+| UserProvisioningStatus     | int           | No          | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado |
 | UserFirstName              | nvarchar(50)  | Sí         | El nombre del usuario asociado al rol |
 | UserLastName               | nvarchar(255) | Sí         | Los apellidos del usuario asociado al rol |
 | UserEmailAddress           | nvarchar(255) | Sí         | La dirección de correo electrónico del usuario asociado al rol |
@@ -87,17 +87,17 @@ Esta vista proporciona información detallada sobre las conexiones que se han de
 -   Detalles del libro de contabilidad asociado
 -   Información del usuario asociado
 
-| NOMBRE                     | Escriba          | Puede ser NULL | DESCRIPCIÓN                                                                                                                                                                                                                           |
+| Nombre                     | Tipo          | Puede ser NULL | Descripción                                                                                                                                                                                                                           |
 |--------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ConnectionId             | int           | Sin          | El identificador único de una conexión de Azure Blockchain Workbench |
-| ConnectionEndpointUrl    | nvarchar(50)  | Sin          | La dirección URL del punto de conexión de una conexión |
+| ConnectionId             | int           | No          | El identificador único de una conexión de Azure Blockchain Workbench |
+| ConnectionEndpointUrl    | nvarchar(50)  | No          | La dirección URL del punto de conexión de una conexión |
 | ConnectionFundingAccount | nvarchar(255) | Sí         | La cuenta de financiación asociada a una conexión, si procede |
-| LedgerId                 | int           | Sin          | Identificador único de un libro de contabilidad |
-| LedgerName               | nvarchar(50)  | Sin          | El nombre del libro de contabilidad |
-| LedgerDisplayName        | nvarchar(255) | Sin          | El nombre del libro de contabilidad que se va a mostrar en la interfaz de usuario |
-| UserId                   | int           | Sin          | El identificador del usuario asociado a la conexión |
-| UserExternalId           | nvarchar(255) | Sin          | El identificador externo del usuario asociado a la conexión. De forma predeterminada, este Id. es el usuario de Azure Active Directory para el consorcio. |
-| UserProvisioningStatus   | int           | Sin          |Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado |
+| LedgerId                 | int           | No          | Identificador único de un libro de contabilidad |
+| LedgerName               | nvarchar(50)  | No          | El nombre del libro de contabilidad |
+| LedgerDisplayName        | nvarchar(255) | No          | El nombre del libro de contabilidad que se va a mostrar en la interfaz de usuario |
+| UserId                   | int           | No          | El identificador del usuario asociado a la conexión |
+| UserExternalId           | nvarchar(255) | No          | El identificador externo del usuario asociado a la conexión. De forma predeterminada, este Id. es el usuario de Azure Active Directory para el consorcio. |
+| UserProvisioningStatus   | int           | No          |Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado |
 | UserFirstName            | nvarchar(50)  | Sí         | El nombre del usuario asociado a la conexión |
 | UserLastName             | nvarchar(255) | Sí         | Los apellidos del usuario asociado a la conexión |
 | UserEmailAddress         | nvarchar(255) | Sí         | La dirección de correo electrónico del usuario asociado a la conexión |
@@ -112,31 +112,31 @@ Esta vista proporciona detalles sobre los contratos implementados. Para cada con
 -   Detalles del usuario que inició la acción
 -   Detalles relacionados con el bloque y las transacciones de la cadena de bloques
 
-| NOMBRE                                     | Escriba           | Puede ser NULL | DESCRIPCIÓN                                                                                                                                                                                                                                                   |
+| Nombre                                     | Tipo           | Puede ser NULL | Descripción                                                                                                                                                                                                                                                   |
 |------------------------------------------|----------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ConnectionId                             | int            | Sin          | El identificador único de una conexión de Azure Blockchain Workbench.                                                                                                                                                                                         |
-| ConnectionEndpointUrl                    | nvarchar(50)   | Sin          | La dirección URL del punto de conexión de una conexión |
+| ConnectionId                             | int            | No          | El identificador único de una conexión de Azure Blockchain Workbench.                                                                                                                                                                                         |
+| ConnectionEndpointUrl                    | nvarchar(50)   | No          | La dirección URL del punto de conexión de una conexión |
 | ConnectionFundingAccount                 | nvarchar(255)  | Sí         | La cuenta de financiación asociada a una conexión, si procede |
-| LedgerId                                 | int            | Sin          | Identificador único de un libro de contabilidad |
-| LedgerName                               | nvarchar(50)   | Sin          | El nombre del libro de contabilidad |
-| LedgerDisplayName                        | nvarchar(255)  | Sin          | El nombre del libro de contabilidad que se va a mostrar en la interfaz de usuario |
-| ApplicationId                            | int            | Sin          | Un identificador único para la aplicación |
-| ApplicationName                          | nvarchar (50)  | Sin          | Nombre de la aplicación |
-| ApplicationDisplayName                   | nvarchar (255) | Sin          | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled                       | bit            | Sin          | Identifica si la aplicación está habilitada actualmente.<br /> **Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos.  |
-| WorkflowId                               | int            | Sin          | Un identificador único del flujo de trabajo asociado a un contrato |
-| WorkflowName                             | nvarchar(50)   | Sin          | El nombre del flujo de trabajo asociado a un contrato |
-| WorkflowDisplayName                      | nvarchar(255)  | Sin          | El nombre del flujo de trabajo asociado al contrato que se muestra en la interfaz de usuario |
+| LedgerId                                 | int            | No          | Identificador único de un libro de contabilidad |
+| LedgerName                               | nvarchar(50)   | No          | El nombre del libro de contabilidad |
+| LedgerDisplayName                        | nvarchar(255)  | No          | El nombre del libro de contabilidad que se va a mostrar en la interfaz de usuario |
+| ApplicationId                            | int            | No          | Un identificador único para la aplicación |
+| ApplicationName                          | nvarchar (50)  | No          | Nombre de la aplicación |
+| ApplicationDisplayName                   | nvarchar (255) | No          | El nombre que aparecerá en una interfaz de usuario |
+| ApplicationEnabled                       | bit            | No          | Identifica si la aplicación está habilitada actualmente.<br /> **Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos.  |
+| WorkflowId                               | int            | No          | Un identificador único del flujo de trabajo asociado a un contrato |
+| WorkflowName                             | nvarchar(50)   | No          | El nombre del flujo de trabajo asociado a un contrato |
+| WorkflowDisplayName                      | nvarchar(255)  | No          | El nombre del flujo de trabajo asociado al contrato que se muestra en la interfaz de usuario |
 | WorkflowDescription                      | nvarchar(255)  | Sí         | La descripción del flujo de trabajo asociado a un contrato |
-| ContractCodeId                           | int            | Sin          | Un identificador único del código de contrato asociado al contrato |
-| ContractFileName                         | int            | Sin          | El nombre del archivo que contiene el código de contrato inteligente de este flujo de trabajo. |
-| ContractUploadedDtTm                     | int            | Sin          | La fecha y hora en que se cargó el código de contrato |
-| ContractId                               | int            | Sin          | El identificador único del contrato |
-| ContractProvisioningStatus               | int            | Sin          | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractV0** está disponible y solo admite valores de 0 a 2. |
+| ContractCodeId                           | int            | No          | Un identificador único del código de contrato asociado al contrato |
+| ContractFileName                         | int            | No          | El nombre del archivo que contiene el código de contrato inteligente de este flujo de trabajo. |
+| ContractUploadedDtTm                     | int            | No          | La fecha y hora en que se cargó el código de contrato |
+| ContractId                               | int            | No          | El identificador único del contrato |
+| ContractProvisioningStatus               | int            | No          | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractV0** está disponible y solo admite valores de 0 a 2. |
 | ContractLedgerIdentifier                 | nvarchar (255) |             | La dirección de correo electrónico del usuario que ha implementado el contrato |
-| ContractDeployedByUserId                 | int            | Sin          | Un identificador externo para el usuario que ha implementado el contrato. De forma predeterminada, este Id. es el identificador único global que representa el Id. de Azure Active Directory del usuario.                                                                                                          |
-| ContractDeployedByUserExternalId         | nvarchar(255)  | Sin          | Un identificador externo para el usuario que ha implementado el contrato. De forma predeterminada, este Id. es el identificador único global que representa el Id. de Azure Active Directory del usuario.                                                                                                         |
-| ContractDeployedByUserProvisioningStatus | int            | Sin          | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: una clave se ha asociado con el usuario en la base de datos <br />2: el usuario está completamente aprovisionado                     |
+| ContractDeployedByUserId                 | int            | No          | Un identificador externo para el usuario que ha implementado el contrato. De forma predeterminada, este Id. es el identificador único global que representa el Id. de Azure Active Directory del usuario.                                                                                                          |
+| ContractDeployedByUserExternalId         | nvarchar(255)  | No          | Un identificador externo para el usuario que ha implementado el contrato. De forma predeterminada, este Id. es el identificador único global que representa el Id. de Azure Active Directory del usuario.                                                                                                         |
+| ContractDeployedByUserProvisioningStatus | int            | No          | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos <br />2: el usuario está completamente aprovisionado                     |
 | ContractDeployedByUserFirstName          | nvarchar(50)   | Sí         | El nombre del usuario que ha implementado el contrato |
 | ContractDeployedByUserLastName           | nvarchar(255)  | Sí         | Los apellidos del usuario que ha implementado el contrato |
 | ContractDeployedByUserEmailAddress       | nvarchar(255)  | Sí         | La dirección de correo electrónico del usuario que ha implementado el contrato |
@@ -153,47 +153,47 @@ Esta vista representa la mayoría de la información relacionada con las accione
 -   Detalles del usuario que inició la acción
 -   Detalles relacionados con el bloque y las transacciones de la cadena de bloques
 
-| NOMBRE                                     | Escriba          | Puede ser NULL | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                    |
+| Nombre                                     | Tipo          | Puede ser NULL | Descripción                                                                                                                                                                                                                                                                                                    |
 |------------------------------------------|---------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                            | int           | Sin          | Un identificador único para la aplicación |
-| ApplicationName                          | nvarchar(50)  | Sin          | Nombre de la aplicación |
-| ApplicationDisplayName                   | nvarchar(255) | Sin          | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled                       | bit           | Sin          | Este campo identifica si la aplicación está habilitada actualmente. Nota: incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos.                                                  |
-| WorkflowId                               | int           | Sin          | Identificador único de un flujo de trabajo |
-| WorkflowName                             | nvarchar(50)  | Sin          | El nombre del flujo de trabajo |
-| WorkflowDisplayName                      | nvarchar(255) | Sin          | El nombre del flujo de trabajo que se va a mostrar en una interfaz de usuario |
+| ApplicationId                            | int           | No          | Un identificador único para la aplicación |
+| ApplicationName                          | nvarchar(50)  | No          | Nombre de la aplicación |
+| ApplicationDisplayName                   | nvarchar(255) | No          | El nombre que aparecerá en una interfaz de usuario |
+| ApplicationEnabled                       | bit           | No          | Este campo identifica si la aplicación está habilitada actualmente. Nota: incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos.                                                  |
+| WorkflowId                               | int           | No          | Identificador único de un flujo de trabajo |
+| WorkflowName                             | nvarchar(50)  | No          | El nombre del flujo de trabajo |
+| WorkflowDisplayName                      | nvarchar(255) | No          | El nombre del flujo de trabajo que se va a mostrar en una interfaz de usuario |
 | WorkflowDescription                      | nvarchar(255) | Sí         | La descripción del flujo de trabajo |
-| ContractId                               | int           | Sin          | Un identificador único del contrato |
-| ContractProvisioningStatus               | int           | Sin          | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractActionV0** está disponible y solo admite valores de 0 a 2. |
-| ContractCodeId                           | int           | Sin          | Un identificador único para la implementación del código del contrato |
+| ContractId                               | int           | No          | Un identificador único del contrato |
+| ContractProvisioningStatus               | int           | No          | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractActionV0** está disponible y solo admite valores de 0 a 2. |
+| ContractCodeId                           | int           | No          | Un identificador único para la implementación del código del contrato |
 | ContractLedgerIdentifier                 | nvarchar(255) | Sí         | Un identificador único asociado a la versión implementada de un contrato inteligente de un libro de contabilidad distribuida específico. Por ejemplo, Ethereum. |
-| ContractDeployedByUserId                 | int           | Sin          | El identificador único del usuario que ha implementado el contrato |
+| ContractDeployedByUserId                 | int           | No          | El identificador único del usuario que ha implementado el contrato |
 | ContractDeployedByUserFirstName          | nvarchar(50)  | Sí         | El nombre del usuario que ha implementado el contrato |
 | ContractDeployedByUserLastName           | nvarchar(255) | Sí         | Los apellidos del usuario que ha implementado el contrato |
-| ContractDeployedByUserExternalId         | nvarchar(255) | Sin          | El identificador externo del usuario que ha implementado el contrato. De forma predeterminada, este Id. es el identificador único global que representa su identidad en la instancia de Azure Active Directory del consorcio.                                                                                                                                                |
+| ContractDeployedByUserExternalId         | nvarchar(255) | No          | El identificador externo del usuario que ha implementado el contrato. De forma predeterminada, este Id. es el identificador único global que representa su identidad en la instancia de Azure Active Directory del consorcio.                                                                                                                                                |
 | ContractDeployedByUserEmailAddress       | nvarchar(255) | Sí         | La dirección de correo electrónico del usuario que ha implementado el contrato |
-| WorkflowFunctionId                       | int           | Sin          | El identificador único de una función de flujo de trabajo |
-| WorkflowFunctionName                     | nvarchar(50)  | Sin          | El nombre de la función |
-| WorkflowFunctionDisplayName              | nvarchar(255) | Sin          | El nombre de una función que se mostrará en la interfaz de usuario |
-| WorkflowFunctionDescription              | nvarchar(255) | Sin          | La descripción de la función |
-| ContractActionId                         | int           | Sin          | El identificador único de una acción del contrato |
-| ContractActionProvisioningStatus         | int           | Sin          | Identifica el estado actual del proceso de aprovisionamiento de la acción del contrato. Los valores posibles son: <br />0: la API ha creado la acción del contrato en la base de datos<br />1: la acción del contrato se ha enviado al libro de contabilidad<br />2: la acción del contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractActionV0** está disponible y solo admite valores de 0 a 2. |
-| ContractActionTimestamp                  | datetime(2,7) | Sin          | La marca de tiempo de la acción del contrato |
-| ContractActionExecutedByUserId           | int           | Sin          | El identificador único del usuario que ha ejecutado la acción del contrato |
+| WorkflowFunctionId                       | int           | No          | El identificador único de una función de flujo de trabajo |
+| WorkflowFunctionName                     | nvarchar(50)  | No          | El nombre de la función |
+| WorkflowFunctionDisplayName              | nvarchar(255) | No          | El nombre de una función que se mostrará en la interfaz de usuario |
+| WorkflowFunctionDescription              | nvarchar(255) | No          | La descripción de la función |
+| ContractActionId                         | int           | No          | El identificador único de una acción del contrato |
+| ContractActionProvisioningStatus         | int           | No          | Identifica el estado actual del proceso de aprovisionamiento de la acción del contrato. Los valores posibles son: <br />0: la API ha creado la acción del contrato en la base de datos<br />1: la acción del contrato se ha enviado al libro de contabilidad<br />2: la acción del contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractActionV0** está disponible y solo admite valores de 0 a 2. |
+| ContractActionTimestamp                  | datetime(2,7) | No          | La marca de tiempo de la acción del contrato |
+| ContractActionExecutedByUserId           | int           | No          | El identificador único del usuario que ha ejecutado la acción del contrato |
 | ContractActionExecutedByUserFirstName    | int           | Sí         | El nombre del usuario que ha ejecutado la acción del contrato |
 | ContractActionExecutedByUserLastName     | nvarchar(50)  | Sí         | Los apellidos del usuario que ha ejecutado la acción del contrato |
 | ContractActionExecutedByUserExternalId   | nvarchar(255) | Sí         | El identificador externo del usuario que ha ejecutado la acción del contrato. De forma predeterminada, este Id. es el identificador único global que representa su identidad en la instancia de Azure Active Directory del consorcio. |
 | ContractActionExecutedByUserEmailAddress | nvarchar(255) | Sí         | La dirección de correo electrónico del usuario que ha ejecutado la acción del contrato |
-| WorkflowFunctionParameterId              | int           | Sin          | Un identificador único de un parámetro de la función |
-| WorkflowFunctionParameterName            | nvarchar(50)  | Sin          | El nombre de un parámetro de la función |
-| WorkflowFunctionParameterDisplayName     | nvarchar(255) | Sin          | El nombre de un parámetro de la función que se mostrará en la interfaz de usuario |
-| WorkflowFunctionParameterDataTypeId      | int           | Sin          | El identificador único para el tipo de datos asociado a un parámetro de función del flujo de trabajo |
-| WorkflowParameterDataTypeName            | nvarchar(50)  | Sin          | El nombre de un tipo de datos asociado a un parámetro de función del flujo de trabajo |
-| ContractActionParameterValue             | nvarchar(255) | Sin          | El valor del parámetro almacenado en el contrato inteligente |
+| WorkflowFunctionParameterId              | int           | No          | Un identificador único de un parámetro de la función |
+| WorkflowFunctionParameterName            | nvarchar(50)  | No          | El nombre de un parámetro de la función |
+| WorkflowFunctionParameterDisplayName     | nvarchar(255) | No          | El nombre de un parámetro de la función que se mostrará en la interfaz de usuario |
+| WorkflowFunctionParameterDataTypeId      | int           | No          | El identificador único para el tipo de datos asociado a un parámetro de función del flujo de trabajo |
+| WorkflowParameterDataTypeName            | nvarchar(50)  | No          | El nombre de un tipo de datos asociado a un parámetro de función del flujo de trabajo |
+| ContractActionParameterValue             | nvarchar(255) | No          | El valor del parámetro almacenado en el contrato inteligente |
 | BlockHash                                | nvarchar(255) | Sí         | Hash del bloque |
 | BlockNumber                              | int           | Sí         | El número del bloque en el libro de contabilidad |
 | BlockTimestamp                           | datetime(2,7) | Sí         | La marca de tiempo del bloque |
-| TransactionId                            | int           | Sin          | Un identificador único para la transacción |
+| TransactionId                            | int           | No          | Un identificador único para la transacción |
 | TransactionFrom                          | nvarchar(255) | Sí         | La entidad que originó la transacción |
 | TransactionTo                            | nvarchar(255) | Sí         | La entidad con la que se ha realizado la transacción |
 | TransactionHash                          | nvarchar(255) | Sí         | El hash de una transacción |
@@ -212,34 +212,34 @@ Esta vista representa la mayoría de la información relacionada con las propied
 -   Valores de instancia específicos para las propiedades
 -   Detalles de la propiedad de estado del contrato
 
-| NOMBRE                               | Escriba          | Puede ser NULL | DESCRIPCIÓN                                                                                                                                                                                                                                                                        |
+| Nombre                               | Tipo          | Puede ser NULL | Descripción                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                      | int           | Sin          | Un identificador único para la aplicación |
-| ApplicationName                    | nvarchar(50)  | Sin          | Nombre de la aplicación |
-| ApplicationDisplayName             | nvarchar(255) | Sin          | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled                 | bit           | Sin          | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos.                      |
-| WorkflowId                         | int           | Sin          | El identificador único del flujo de trabajo |
-| WorkflowName                       | nvarchar(50)  | Sin          | El nombre del flujo de trabajo |
-| WorkflowDisplayName                | nvarchar(255) | Sin          | El nombre del flujo de trabajo que se va a mostrar en la interfaz de usuario |
+| ApplicationId                      | int           | No          | Un identificador único para la aplicación |
+| ApplicationName                    | nvarchar(50)  | No          | Nombre de la aplicación |
+| ApplicationDisplayName             | nvarchar(255) | No          | El nombre que aparecerá en una interfaz de usuario |
+| ApplicationEnabled                 | bit           | No          | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos.                      |
+| WorkflowId                         | int           | No          | El identificador único del flujo de trabajo |
+| WorkflowName                       | nvarchar(50)  | No          | El nombre del flujo de trabajo |
+| WorkflowDisplayName                | nvarchar(255) | No          | El nombre del flujo de trabajo que se va a mostrar en la interfaz de usuario |
 | WorkflowDescription                | nvarchar(255) | Sí         | La descripción del flujo de trabajo |
-| ContractId                         | int           | Sin          | El identificador único del contrato |
-| ContractProvisioningStatus         | int           | Sin          | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractPropertyV0** está disponible y solo admite valores de 0 a 2. |
-| ContractCodeId                     | int           | Sin          | Un identificador único para la implementación del código del contrato |
+| ContractId                         | int           | No          | El identificador único del contrato |
+| ContractProvisioningStatus         | int           | No          | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractPropertyV0** está disponible y solo admite valores de 0 a 2. |
+| ContractCodeId                     | int           | No          | Un identificador único para la implementación del código del contrato |
 | ContractLedgerIdentifier           | nvarchar(255) | Sí         | Un identificador único asociado a la versión implementada de un contrato inteligente de un libro de contabilidad distribuida específico. Por ejemplo, Ethereum. |
-| ContractDeployedByUserId           | int           | Sin          | El identificador único del usuario que ha implementado el contrato |
+| ContractDeployedByUserId           | int           | No          | El identificador único del usuario que ha implementado el contrato |
 | ContractDeployedByUserFirstName    | nvarchar(50)  | Sí         | El nombre del usuario que ha implementado el contrato |
 | ContractDeployedByUserLastName     | nvarchar(255) | Sí         | Los apellidos del usuario que ha implementado el contrato |
-| ContractDeployedByUserExternalId   | nvarchar(255) | Sin          | El identificador externo del usuario que ha implementado el contrato. De forma predeterminada, este Id. es el identificador único global que representa su identidad en la instancia de Azure Active Directory del consorcio. |
+| ContractDeployedByUserExternalId   | nvarchar(255) | No          | El identificador externo del usuario que ha implementado el contrato. De forma predeterminada, este Id. es el identificador único global que representa su identidad en la instancia de Azure Active Directory del consorcio. |
 | ContractDeployedByUserEmailAddress | nvarchar(255) | Sí         | La dirección de correo electrónico del usuario que ha implementado el contrato |
 | WorkflowPropertyId                 | int           |             | El identificador único de una propiedad de un flujo de trabajo |
-| WorkflowPropertyDataTypeId         | int           | Sin          | El identificador del tipo de datos de la propiedad |
-| WorkflowPropertyDataTypeName       | nvarchar(50)  | Sin          | El nombre del tipo de datos de la propiedad |
-| WorkflowPropertyName               | nvarchar(50)  | Sin          | El nombre de la propiedad del flujo de trabajo |
-| WorkflowPropertyDisplayName        | nvarchar(255) | Sin          | El nombre para mostrar de la propiedad del flujo de trabajo |
+| WorkflowPropertyDataTypeId         | int           | No          | El identificador del tipo de datos de la propiedad |
+| WorkflowPropertyDataTypeName       | nvarchar(50)  | No          | El nombre del tipo de datos de la propiedad |
+| WorkflowPropertyName               | nvarchar(50)  | No          | El nombre de la propiedad del flujo de trabajo |
+| WorkflowPropertyDisplayName        | nvarchar(255) | No          | El nombre para mostrar de la propiedad del flujo de trabajo |
 | WorkflowPropertyDescription        | nvarchar(255) | Sí         | Descripción de la propiedad |
-| ContractPropertyValue              | nvarchar(255) | Sin          | El valor de una propiedad del contrato |
+| ContractPropertyValue              | nvarchar(255) | No          | El valor de una propiedad del contrato |
 | StateName                          | nvarchar(50)  | Sí         | Si esta propiedad contiene el estado del contrato, es el nombre para mostrar del estado. Si no está asociado con el estado, el valor será NULL. |
-| StateDisplayName                   | nvarchar(255) | Sin          | Si esta propiedad contiene el estado, es el nombre para mostrar del estado. Si no está asociado con el estado, el valor será NULL. |
+| StateDisplayName                   | nvarchar(255) | No          | Si esta propiedad contiene el estado, es el nombre para mostrar del estado. Si no está asociado con el estado, el valor será NULL. |
 | StateValue                         | nvarchar(255) | Sí         | Si esta propiedad contiene el estado, es el valor del mismo. Si no está asociado con el estado, el valor será NULL. |
 
 ## <a name="vwcontractstate"></a>vwContractState
@@ -252,46 +252,46 @@ Esta vista representa la mayoría de la información relacionada con el estado d
 -   Definición de la propiedad de contrato inteligente asociada
 -   Detalles de la propiedad de estado del contrato
 
-| NOMBRE                               | Escriba          | Puede ser NULL | DESCRIPCIÓN                                                                                                                                                                                                                                                                        |
+| Nombre                               | Tipo          | Puede ser NULL | Descripción                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                      | int           | Sin          | Un identificador único para la aplicación |
-| ApplicationName                    | nvarchar(50)  | Sin          | Nombre de la aplicación |
-| ApplicationDisplayName             | nvarchar(255) | Sin          | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled                 | bit           | Sin          | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
-| WorkflowId                         | int           | Sin          | El identificador único del flujo de trabajo |
-| WorkflowName                       | nvarchar(50)  | Sin          | El nombre del flujo de trabajo |
-| WorkflowDisplayName                | nvarchar(255) | Sin          | El nombre que se muestra en la interfaz de usuario |
+| ApplicationId                      | int           | No          | Un identificador único para la aplicación |
+| ApplicationName                    | nvarchar(50)  | No          | Nombre de la aplicación |
+| ApplicationDisplayName             | nvarchar(255) | No          | El nombre que aparecerá en una interfaz de usuario |
+| ApplicationEnabled                 | bit           | No          | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
+| WorkflowId                         | int           | No          | El identificador único del flujo de trabajo |
+| WorkflowName                       | nvarchar(50)  | No          | El nombre del flujo de trabajo |
+| WorkflowDisplayName                | nvarchar(255) | No          | El nombre que se muestra en la interfaz de usuario |
 | WorkflowDescription                | nvarchar(255) | Sí         | La descripción del flujo de trabajo |
 | ContractLedgerImplementationId     | nvarchar(255) | Sí         | Un identificador único asociado a la versión implementada de un contrato inteligente de un libro de contabilidad distribuida específico. Por ejemplo, Ethereum. |
-| ContractId                         | int           | Sin          | Un identificador único del contrato |
-| ContractProvisioningStatus         | int           | Sin          |Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractStateV0** está disponible y solo admite valores de 0 a 2. |
-| ConnectionId                       | int           | Sin          | El identificador único de la instancia de la cadena de bloques en la que se implementa el flujo de trabajo |
-| ContractCodeId                     | int           | Sin          | Un identificador único para la implementación del código del contrato |
-| ContractDeployedByUserId           | int           | Sin          | El identificador único del usuario que ha implementado el contrato |
-| ContractDeployedByUserExternalId   | nvarchar(255) | Sin          | El identificador externo del usuario que ha implementado el contrato. De forma predeterminada, este Id. es el identificador único global que representa su identidad en la instancia de Azure Active Directory del consorcio. |
+| ContractId                         | int           | No          | Un identificador único del contrato |
+| ContractProvisioningStatus         | int           | No          |Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractStateV0** está disponible y solo admite valores de 0 a 2. |
+| ConnectionId                       | int           | No          | El identificador único de la instancia de la cadena de bloques en la que se implementa el flujo de trabajo |
+| ContractCodeId                     | int           | No          | Un identificador único para la implementación del código del contrato |
+| ContractDeployedByUserId           | int           | No          | El identificador único del usuario que ha implementado el contrato |
+| ContractDeployedByUserExternalId   | nvarchar(255) | No          | El identificador externo del usuario que ha implementado el contrato. De forma predeterminada, este Id. es el identificador único global que representa su identidad en la instancia de Azure Active Directory del consorcio. |
 | ContractDeployedByUserFirstName    | nvarchar(50)  | Sí         | El nombre del usuario que ha implementado el contrato |
 | ContractDeployedByUserLastName     | nvarchar(255) | Sí         | Los apellidos del usuario que ha implementado el contrato |
 | ContractDeployedByUserEmailAddress | nvarchar(255) | Sí         | La dirección de correo electrónico del usuario que ha implementado el contrato |
-| WorkflowPropertyId                 | int           | Sin          | El identificador único de una propiedad del flujo de trabajo |
-| WorkflowPropertyDataTypeId         | int           | Sin          | El identificador del tipo de datos de la propiedad del flujo de trabajo |
-| WorkflowPropertyDataTypeName       | nvarchar(50)  | Sin          | El nombre del tipo de datos de la propiedad del flujo de trabajo |
-| WorkflowPropertyName               | nvarchar(50)  | Sin          | El nombre de la propiedad del flujo de trabajo |
-| WorkflowPropertyDisplayName        | nvarchar(255) | Sin          | El nombre para mostrar de la propiedad que va a aparecer en una interfaz de usuario |
+| WorkflowPropertyId                 | int           | No          | El identificador único de una propiedad del flujo de trabajo |
+| WorkflowPropertyDataTypeId         | int           | No          | El identificador del tipo de datos de la propiedad del flujo de trabajo |
+| WorkflowPropertyDataTypeName       | nvarchar(50)  | No          | El nombre del tipo de datos de la propiedad del flujo de trabajo |
+| WorkflowPropertyName               | nvarchar(50)  | No          | El nombre de la propiedad del flujo de trabajo |
+| WorkflowPropertyDisplayName        | nvarchar(255) | No          | El nombre para mostrar de la propiedad que va a aparecer en una interfaz de usuario |
 | WorkflowPropertyDescription        | nvarchar(255) | Sí         | La descripción de la propiedad |
-| ContractPropertyValue              | nvarchar(255) | Sin          | El valor de una propiedad almacenado en el contrato |
+| ContractPropertyValue              | nvarchar(255) | No          | El valor de una propiedad almacenado en el contrato |
 | StateName                          | nvarchar(50)  | Sí         | Si esta propiedad contiene el estado, es el nombre para mostrar del estado. Si no está asociado con el estado, el valor será NULL. |
-| StateDisplayName                   | nvarchar(255) | Sin          | Si esta propiedad contiene el estado, es el nombre para mostrar del estado. Si no está asociado con el estado, el valor será NULL. |
+| StateDisplayName                   | nvarchar(255) | No          | Si esta propiedad contiene el estado, es el nombre para mostrar del estado. Si no está asociado con el estado, el valor será NULL. |
 | StateValue                         | nvarchar(255) | Sí         | Si esta propiedad contiene el estado, es el valor del mismo. Si no está asociado con el estado, el valor será NULL. |
 
 ## <a name="vwuser"></a>vwUser
 
 Esta vista proporciona detalles sobre los miembros del consorcio que se han aprovisionado para el uso de Azure Blockchain Workbench. De forma predeterminada, los datos se rellenan mediante el aprovisionamiento inicial del usuario.
 
-| NOMBRE               | Escriba          | Puede ser NULL | DESCRIPCIÓN                                                                                                                                                                                                                               |
+| Nombre               | Tipo          | Puede ser NULL | Descripción                                                                                                                                                                                                                               |
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ID                 | int           | Sin          | El identificador único de un usuario |
-| ExternalID         | nvarchar(255) | Sin          | El identificador externo de un usuario. De forma predeterminada, este Id. es el identificador único global que representa el Id. de Azure Active Directory del usuario. |
-| ProvisioningStatus | int           | Sin          |Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado |
+| id                 | int           | No          | El identificador único de un usuario |
+| ExternalID         | nvarchar(255) | No          | El identificador externo de un usuario. De forma predeterminada, este Id. es el identificador único global que representa el Id. de Azure Active Directory del usuario. |
+| ProvisioningStatus | int           | No          |Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado |
 | Nombre          | nvarchar(50)  | Sí         | El nombre del usuario |
 | Apellidos           | nvarchar(50)  | Sí         | Los apellidos del usuario |
 | EmailAddress       | nvarchar(255) | Sí         | La dirección de correo electrónico del usuario. |
@@ -304,24 +304,24 @@ Esta vista representa los principales metadatos del flujo de trabajo así como l
 -   Definición de flujo de trabajo asociada
 -   Información de estado de inicio del flujo de trabajo asociado
 
-| NOMBRE                              | Escriba          | Puede ser NULL | DESCRIPCIÓN                                                                                                                                |
+| Nombre                              | Tipo          | Puede ser NULL | Descripción                                                                                                                                |
 |-----------------------------------|---------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                     | int           | Sin          | Un identificador único para la aplicación |
-| ApplicationName                   | nvarchar(50)  | Sin          | Nombre de la aplicación |
-| ApplicationDisplayName            | nvarchar(255) | Sin          | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled                | bit           | Sin          | Identifica si la aplicación está habilitada |
+| ApplicationId                     | int           | No          | Un identificador único para la aplicación |
+| ApplicationName                   | nvarchar(50)  | No          | Nombre de la aplicación |
+| ApplicationDisplayName            | nvarchar(255) | No          | El nombre que aparecerá en una interfaz de usuario |
+| ApplicationEnabled                | bit           | No          | Identifica si la aplicación está habilitada |
 | WorkflowId                        | int           | Sí         | Identificador único de un flujo de trabajo |
-| WorkflowName                      | nvarchar(50)  | Sin          | El nombre del flujo de trabajo |
-| WorkflowDisplayName               | nvarchar(255) | Sin          | El nombre que se muestra en la interfaz de usuario |
+| WorkflowName                      | nvarchar(50)  | No          | El nombre del flujo de trabajo |
+| WorkflowDisplayName               | nvarchar(255) | No          | El nombre que se muestra en la interfaz de usuario |
 | WorkflowDescription               | nvarchar(255) | Sí         | La descripción del flujo de trabajo. |
-| WorkflowConstructorFunctionId     | int           | Sin          | El identificador de la función de flujo de trabajo que actúa como constructor del flujo de trabajo |
-| WorkflowStartStateId              | int           | Sin          | Un identificador único del estado |
-| WorkflowStartStateName            | nvarchar(50)  | Sin          | Nombre del estado |
-| WorkflowStartStateDisplayName     | nvarchar(255) | Sin          | El nombre del estado que aparecerá en la interfaz de usuario |
+| WorkflowConstructorFunctionId     | int           | No          | El identificador de la función de flujo de trabajo que actúa como constructor del flujo de trabajo |
+| WorkflowStartStateId              | int           | No          | Un identificador único del estado |
+| WorkflowStartStateName            | nvarchar(50)  | No          | Nombre del estado |
+| WorkflowStartStateDisplayName     | nvarchar(255) | No          | El nombre del estado que aparecerá en la interfaz de usuario |
 | WorkflowStartStateDescription     | nvarchar(255) | Sí         | La descripción del estado de flujo de trabajo |
 | WorkflowStartStateStyle           | nvarchar(50)  | Sí         | Este valor permite identificar el porcentaje completado del flujo de trabajo cuando se encuentra en este estado |
-| WorkflowStartStateValue           | int           | Sin          | Valor del estado |
-| WorkflowStartStatePercentComplete | int           | Sin          | Una descripción de texto que proporciona una sugerencia a los clientes sobre cómo representar este estado en la interfaz de usuario. Entre los estados admitidos se incluyen *Correcto* y *Error* |
+| WorkflowStartStateValue           | int           | No          | Valor del estado |
+| WorkflowStartStatePercentComplete | int           | No          | Una descripción de texto que proporciona una sugerencia a los clientes sobre cómo representar este estado en la interfaz de usuario. Entre los estados admitidos se incluyen *Correcto* y *Error* |
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
@@ -331,26 +331,26 @@ Esta vista representa los principales metadatos del flujo de trabajo así como l
 -   Definición de flujo de trabajo asociada
 -   Información detallada de la función del flujo de trabajo
 
-| NOMBRE                                 | Escriba          | Puede ser NULL | DESCRIPCIÓN                                                                          |
+| Nombre                                 | Tipo          | Puede ser NULL | Descripción                                                                          |
 |--------------------------------------|---------------|-------------|--------------------------------------------------------------------------------------|
-| ApplicationId                        | int           | Sin          | Un identificador único para la aplicación |
-| ApplicationName                      | nvarchar(50)  | Sin          | Nombre de la aplicación |
-| ApplicationDisplayName               | nvarchar(255) | Sin          | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled                   | bit           | Sin          | Identifica si la aplicación está habilitada |
-| WorkflowId                           | int           | Sin          | Identificador único de un flujo de trabajo |
-| WorkflowName                         | nvarchar(50)  | Sin          | El nombre del flujo de trabajo |
-| WorkflowDisplayName                  | nvarchar(255) | Sin          | El nombre del flujo de trabajo que se va a mostrar en la interfaz de usuario |
+| ApplicationId                        | int           | No          | Un identificador único para la aplicación |
+| ApplicationName                      | nvarchar(50)  | No          | Nombre de la aplicación |
+| ApplicationDisplayName               | nvarchar(255) | No          | El nombre que aparecerá en una interfaz de usuario |
+| ApplicationEnabled                   | bit           | No          | Identifica si la aplicación está habilitada |
+| WorkflowId                           | int           | No          | Identificador único de un flujo de trabajo |
+| WorkflowName                         | nvarchar(50)  | No          | El nombre del flujo de trabajo |
+| WorkflowDisplayName                  | nvarchar(255) | No          | El nombre del flujo de trabajo que se va a mostrar en la interfaz de usuario |
 | WorkflowDescription                  | nvarchar(255) | Sí         | La descripción del flujo de trabajo |
-| WorkflowFunctionId                   | int           | Sin          | Identificador único de una función |
+| WorkflowFunctionId                   | int           | No          | Identificador único de una función |
 | WorkflowFunctionName                 | nvarchar(50)  | Sí         | El nombre de la función |
-| WorkflowFunctionDisplayName          | nvarchar(255) | Sin          | El nombre de una función que se mostrará en la interfaz de usuario |
+| WorkflowFunctionDisplayName          | nvarchar(255) | No          | El nombre de una función que se mostrará en la interfaz de usuario |
 | WorkflowFunctionDescription          | nvarchar(255) | Sí         | La descripción de la función del flujo de trabajo |
-| WorkflowFunctionIsConstructor        | bit           | Sin          | Identifica si la función del flujo de trabajo actúa como constructor de este |
-| WorkflowFunctionParameterId          | int           | Sin          | El identificador único de un parámetro de una función |
-| WorkflowFunctionParameterName        | nvarchar(50)  | Sin          | El nombre de un parámetro de la función |
-| WorkflowFunctionParameterDisplayName | nvarchar(255) | Sin          | El nombre de un parámetro de la función que se mostrará en la interfaz de usuario |
-| WorkflowFunctionParameterDataTypeId  | int           | Sin          | El identificador único para el tipo de datos asociado a un parámetro de función del flujo de trabajo |
-| WorkflowParameterDataTypeName        | nvarchar(50)  | Sin          | El nombre de un tipo de datos asociado a un parámetro de función del flujo de trabajo |
+| WorkflowFunctionIsConstructor        | bit           | No          | Identifica si la función del flujo de trabajo actúa como constructor de este |
+| WorkflowFunctionParameterId          | int           | No          | El identificador único de un parámetro de una función |
+| WorkflowFunctionParameterName        | nvarchar(50)  | No          | El nombre de un parámetro de la función |
+| WorkflowFunctionParameterDisplayName | nvarchar(255) | No          | El nombre de un parámetro de la función que se mostrará en la interfaz de usuario |
+| WorkflowFunctionParameterDataTypeId  | int           | No          | El identificador único para el tipo de datos asociado a un parámetro de función del flujo de trabajo |
+| WorkflowParameterDataTypeName        | nvarchar(50)  | No          | El nombre de un tipo de datos asociado a un parámetro de función del flujo de trabajo |
 
 ## <a name="vwworkflowproperty"></a>vwWorkflowProperty
 
@@ -360,24 +360,24 @@ Esta vista representa las propiedades definidas para un flujo de trabajo. Para c
 -   Definición de flujo de trabajo asociada
 -   Detalles de la propiedad de flujo de trabajo
 
-| NOMBRE                         | Escriba          | Puede ser NULL | DESCRIPCIÓN                                                                                                                                                                                                                                                   |
+| Nombre                         | Tipo          | Puede ser NULL | Descripción                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                | int           | Sin          | Un identificador único para la aplicación |
-| ApplicationName              | nvarchar(50)  | Sin          | Nombre de la aplicación |
-| ApplicationDisplayName       | nvarchar(255) | Sin          | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled           | bit           | Sin          | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
-| WorkflowId                   | int           | Sin          | El identificador único del flujo de trabajo |
-| WorkflowName                 | nvarchar(50)  | Sin          | El nombre del flujo de trabajo |
-| WorkflowDisplayName          | nvarchar(255) | Sin          | El nombre del flujo de trabajo que aparecerá en una interfaz de usuario |
+| ApplicationId                | int           | No          | Un identificador único para la aplicación |
+| ApplicationName              | nvarchar(50)  | No          | Nombre de la aplicación |
+| ApplicationDisplayName       | nvarchar(255) | No          | El nombre que aparecerá en una interfaz de usuario |
+| ApplicationEnabled           | bit           | No          | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
+| WorkflowId                   | int           | No          | El identificador único del flujo de trabajo |
+| WorkflowName                 | nvarchar(50)  | No          | El nombre del flujo de trabajo |
+| WorkflowDisplayName          | nvarchar(255) | No          | El nombre del flujo de trabajo que aparecerá en una interfaz de usuario |
 | WorkflowDescription          | nvarchar(255) | Sí         | Una descripción del flujo de trabajo |
-| WorkflowPropertyID           | int           | Sin          | El identificador único de una propiedad de un flujo de trabajo |
-| WorkflowPropertyName         | nvarchar(50)  | Sin          | El nombre de la propiedad |
+| WorkflowPropertyID           | int           | No          | El identificador único de una propiedad de un flujo de trabajo |
+| WorkflowPropertyName         | nvarchar(50)  | No          | El nombre de la propiedad |
 | WorkflowPropertyDescription  | nvarchar(255) | Sí         | Descripción de la propiedad |
-| WorkflowPropertyDisplayName  | nvarchar(255) | Sin          | El nombre que aparecerá en una interfaz de usuario |
-| WorkflowPropertyWorkflowId   | int           | Sin          | El identificador del flujo de trabajo al que está asociada esta propiedad |
-| WorkflowPropertyDataTypeId   | int           | Sin          | El identificador del tipo de datos definido para la propiedad |
-| WorkflowPropertyDataTypeName | nvarchar(50)  | Sin          | El nombre del tipo de datos definido para la propiedad |
-| WorkflowPropertyIsState      | bit           | Sin          | Este campo identifica si esta propiedad de flujo de trabajo contiene el estado del flujo de trabajo |
+| WorkflowPropertyDisplayName  | nvarchar(255) | No          | El nombre que aparecerá en una interfaz de usuario |
+| WorkflowPropertyWorkflowId   | int           | No          | El identificador del flujo de trabajo al que está asociada esta propiedad |
+| WorkflowPropertyDataTypeId   | int           | No          | El identificador del tipo de datos definido para la propiedad |
+| WorkflowPropertyDataTypeName | nvarchar(50)  | No          | El nombre del tipo de datos definido para la propiedad |
+| WorkflowPropertyIsState      | bit           | No          | Este campo identifica si esta propiedad de flujo de trabajo contiene el estado del flujo de trabajo |
 
 ## <a name="vwworkflowstate"></a>vwWorkflowState
 
@@ -387,20 +387,20 @@ Esta vista representa las propiedades asociadas a un flujo de trabajo. Para cada
 -   Definición de flujo de trabajo asociada
 -   Información de estado de flujo de trabajo
 
-| NOMBRE                         | Escriba          | Puede ser NULL | DESCRIPCIÓN                                                                                                                                                                                                                                                   |
+| Nombre                         | Tipo          | Puede ser NULL | Descripción                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ApplicationId                | int           | Sin          | Un identificador único para la aplicación |
-| ApplicationName              | nvarchar(50)  | Sin          | Nombre de la aplicación |
-| ApplicationDisplayName       | nvarchar(255) | Sin          | Una descripción de la aplicación |
-| ApplicationEnabled           | bit           | Sin          | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
-| WorkflowId                   | int           | Sin          | El identificador único del flujo de trabajo |
-| WorkflowName                 | nvarchar(50)  | Sin          | El nombre del flujo de trabajo |
-| WorkflowDisplayName          | nvarchar(255) | Sin          | El nombre del flujo de trabajo que aparecerá en la interfaz de usuario |
+| ApplicationId                | int           | No          | Un identificador único para la aplicación |
+| ApplicationName              | nvarchar(50)  | No          | Nombre de la aplicación |
+| ApplicationDisplayName       | nvarchar(255) | No          | Una descripción de la aplicación |
+| ApplicationEnabled           | bit           | No          | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
+| WorkflowId                   | int           | No          | El identificador único del flujo de trabajo |
+| WorkflowName                 | nvarchar(50)  | No          | El nombre del flujo de trabajo |
+| WorkflowDisplayName          | nvarchar(255) | No          | El nombre del flujo de trabajo que aparecerá en la interfaz de usuario |
 | WorkflowDescription          | nvarchar(255) | Sí         | La descripción del flujo de trabajo |
-| WorkflowStateID              | int           | Sin          | El identificador único del estado |
-| WorkflowStateName            | nvarchar(50)  | Sin          | Nombre del estado |
-| WorkflowStateDisplayName     | nvarchar(255) | Sin          | El nombre del estado que aparecerá en la interfaz de usuario |
+| WorkflowStateID              | int           | No          | El identificador único del estado |
+| WorkflowStateName            | nvarchar(50)  | No          | Nombre del estado |
+| WorkflowStateDisplayName     | nvarchar(255) | No          | El nombre del estado que aparecerá en la interfaz de usuario |
 | WorkflowStateDescription     | nvarchar(255) | Sí         | La descripción del estado de flujo de trabajo |
-| WorkflowStatePercentComplete | int           | Sin          | Este valor permite identificar el porcentaje completado del flujo de trabajo cuando se encuentra en este estado |
-| WorkflowStateValue           | nvarchar(50)  | Sin          | Valor del estado |
-| WorkflowStateStyle           | nvarchar(50)  | Sin          | Una descripción de texto que proporciona una sugerencia a los clientes sobre cómo representar este estado en la interfaz de usuario. Entre los estados admitidos se incluyen *Correcto* y *Error* |
+| WorkflowStatePercentComplete | int           | No          | Este valor permite identificar el porcentaje completado del flujo de trabajo cuando se encuentra en este estado |
+| WorkflowStateValue           | nvarchar(50)  | No          | Valor del estado |
+| WorkflowStateStyle           | nvarchar(50)  | No          | Una descripción de texto que proporciona una sugerencia a los clientes sobre cómo representar este estado en la interfaz de usuario. Entre los estados admitidos se incluyen *Correcto* y *Error* |

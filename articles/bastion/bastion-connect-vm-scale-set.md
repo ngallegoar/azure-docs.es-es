@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 4f513aaf113ef4bd6e75e5c4b31e0f0252d45f10
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988097"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Conexión a un conjunto de escalado de máquinas virtuales mediante Azure Bastion
@@ -22,7 +22,7 @@ En este artículo se muestra cómo establecer una conexión segura y sin problem
 
 Asegúrese de haber configurado un host de Azure Bastion para la red virtual donde reside el conjunto de escalado de máquinas virtuales. Para más información, consulte [Create an Azure Bastion host](bastion-create-host-portal.md) (Creación de un host de Azure Bastion). Cuando el servicio Bastion se aprovisiona e implementa en la red virtual, puede usarlo para conectarse a cualquier instancia de conjunto de escalado de máquinas virtuales de esta red virtual. Bastion presupone que usa RDP para conectarse a un conjunto de escalado de máquinas virtuales Windows y SSH para conectarse al conjunto de escalado de máquinas virtuales Linux. Para información sobre la conexión a una máquina virtual Linux, consulte el artículo sobre cómo [conectarse a una máquina virtual Linux](bastion-connect-vm-ssh.md).
 
-## <a name="rdp"></a>Conexión mediante RDP
+## <a name="connect-using-rdp"></a><a name="rdp"></a>Conexión mediante RDP
 
 1. Abra [Azure Portal](https://portal.azure.com). Vaya al conjunto de escalado de máquinas virtuales al que quiere conectarse.
 

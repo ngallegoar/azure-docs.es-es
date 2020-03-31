@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 484d4e8df8a8fdceed62a65858126a16d028121e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: efa498ba600a664beab4b9a49eae2b2c3f1c8397
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670090"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298312"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Inicio rápido: Introducción a Application Insights en un proyecto web de Java
 
@@ -176,7 +176,7 @@ A medida que acumula más datos, puede ejecutar consultas tanto para agregar dat
 
 ![Ejemplo de Analytics](./media/java-get-started/0025.png)
 
-## <a name="7-install-your-app-on-the-server"></a>7. Instalación de la aplicación en el servidor
+## <a name="install-your-app-on-the-server"></a>Instalación de la aplicación en el servidor
 Ahora puede publicar la aplicación en el servidor, dejar que la utilicen los usuarios y ver la telemetría en el portal.
 
 * Asegúrese de que el firewall permite que la aplicación envíe datos de telemetría a estos puertos:

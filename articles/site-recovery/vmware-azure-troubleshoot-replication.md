@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
 ms.openlocfilehash: 7237bb7e0538ba1a9b6333ccb6589efe657a247d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74423949"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solución de problemas de replicación de máquinas virtuales de VMware y de servidores físicos
 
 En este artículo se describen algunos problemas comunes y errores específicos que pueden surgir al replicar máquinas virtuales de VMware locales y servidores físicos en Azure mediante [Site Recovery](site-recovery-overview.md).
 
-## <a name="step-1-monitor-process-server-health"></a>Paso 1: Supervisar el estado de los servidores de procesos
+## <a name="step-1-monitor-process-server-health"></a>Paso 1: Supervisión del estado de los servidores de procesos
 
 Site Recovery usa el [servidor de procesos](vmware-physical-azure-config-process-server-overview.md#process-server) para recibir y optimizar los datos replicados y enviarlos a Azure.
 

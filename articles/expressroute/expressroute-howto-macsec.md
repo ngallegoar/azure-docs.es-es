@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
 ms.openlocfilehash: 626302845dfb4b19deb921675601818b35ab8edb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083544"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configuración de MACsec para los puertos de ExpressRoute Direct
@@ -47,7 +47,7 @@ Para iniciar la configuración, inicie sesión en su cuenta de Azure y seleccion
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    Si ya tiene un grupo de recursos o un almacén de claves, puede reutilizarlos. Sin embargo, es fundamental que habilite la característica de [**eliminación temporal** ](../key-vault/key-vault-ovw-soft-delete.md) en el almacén de claves existente. Si la eliminación temporal no está habilitada, ejecute los siguientes comandos para habilitarla:
+    Si ya tiene un grupo de recursos o un almacén de claves, puede reutilizarlos. Sin embargo, es fundamental que habilite la característica de [**eliminación temporal**](../key-vault/key-vault-ovw-soft-delete.md) en el almacén de claves existente. Si la eliminación temporal no está habilitada, ejecute los siguientes comandos para habilitarla:
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"

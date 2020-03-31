@@ -4,10 +4,10 @@ description: Aprenda a configurar las celdas para el modo de presentación en un
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 05dd3d9c5580e208ecf6f9e6d762476b0b493a6c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647125"
 ---
 # <a name="run-a-notebook-slideshow-in-azure-notebooks-preview"></a>Ejecución de una presentación de un cuaderno en la versión preliminar de Azure Notebooks

@@ -4,10 +4,10 @@ description: Configure una tarea de Azure Container Registry (tarea de ACR) para
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 47d3d643ee1287ef4f444095a2c6cfe6dcab294b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842527"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticación externa en una tarea de ACR mediante una identidad administrada por Azure 
@@ -26,7 +26,7 @@ Los pasos que se muestran en este ejemplo utilizan una identidad administrada, b
 
 En un escenario real, una empresa puede publicar imágenes en un repositorio privado de Docker Hub como parte de un proceso de compilación. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesita un registro de contenedor de Azure en el que ejecutar la tarea. En este artículo, este registro se denomina *myregistry*. Reemplácelo por su propio nombre de registro en los pasos posteriores.
 

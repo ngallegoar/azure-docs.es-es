@@ -4,10 +4,10 @@ description: Una introducción a ACR Tasks, un conjunto de características de A
 ms.topic: article
 ms.date: 01/22/2020
 ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79087276"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks
@@ -59,7 +59,7 @@ ACR Tasks admite los siguientes desencadenadores cuando establece un repositorio
 | Desencadenador | Habilitado de forma predeterminada |
 | ------- | ------------------ |
 | Commit | Sí |
-| Solicitud de incorporación de cambios | Sin |
+| Solicitud de incorporación de cambios | No |
 
 Para configurar el desencadenador de actualización de código fuente, debe proporcionar un token de acceso personal (PAT) a la tarea para establecer el webhook en el repositorio de GitHub público o privado o el repositorio de Azure DevOps.
 
