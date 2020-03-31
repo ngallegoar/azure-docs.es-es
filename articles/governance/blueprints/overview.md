@@ -4,10 +4,10 @@ description: Conozca el modo en que el servicio Azure Blueprints permite crear, 
 ms.date: 11/21/2019
 ms.topic: overview
 ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74321774"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
@@ -48,7 +48,7 @@ Se puede incluir una directiva como uno de muchos _artefactos_ en una definició
 
 Un plano técnico se compone de _artefactos_. Los planos técnicos actualmente admiten los siguientes recursos como artefactos:
 
-|Resource  | Opciones de la jerarquía| DESCRIPCIÓN  |
+|Resource  | Opciones de la jerarquía| Descripción  |
 |---------|---------|---------|
 |Grupos de recursos | Subscription | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Azure Resource Manager. |
 |Plantilla del Administrador de recursos de Azure | Suscripción, grupo de recursos | Las plantillas, incluidas las plantillas anidadas y vinculadas, se usan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |
@@ -77,7 +77,7 @@ Cuando se crea por primera vez un plano técnico, se considera que está en modo
 
 ## <a name="blueprint-assignment"></a>Asignación de plano técnico
 
-Cada **versión** **publicada** de un plano técnico se puede asignar a una suscripción existente (con una longitud máxima del nombre de 90 caracteres). En el portal, el plano técnico tiene de forma predeterminada la **versión** **publicada** más recientemente. Si hay parámetros de artefacto (o parámetros de plano técnico), se definirán durante el proceso de asignación.
+Cada **versión** **publicada** de un plano técnico se puede asignar a una suscripción existente (con una longitud máxima del nombre de 90 caracteres). En el portal, el plano técnico tiene de forma predeterminada la **versión** **publicada** más recientemente. Si hay parámetros de artefacto (o parámetros de plano técnico), se definirán durante el proceso de asignación.
 
 ## <a name="permissions-in-azure-blueprints"></a>Permisos de Azure Blueprint
 
@@ -106,7 +106,7 @@ Para asignar o cancelar la asignación de un plano técnico, la cuenta necesita 
 
 Están disponibles los siguientes roles integrados:
 
-|Rol de RBAC | DESCRIPCIÓN |
+|Rol de RBAC | Descripción |
 |-|-|
 |[Propietario](../../role-based-access-control/built-in-roles.md#owner) | Además de otros permisos, incluye todos los permisos relacionados con Azure Blueprints. |
 |[Colaborador](../../role-based-access-control/built-in-roles.md#contributor) | Además de otros permisos, puede crear y eliminar definiciones de planos técnicos, pero no tiene permisos para asignarlos. |
@@ -124,10 +124,10 @@ Existen las siguientes limitaciones para determinados campos:
 
 |Object|Campo|Caracteres permitidos|Máx. Length|
 |-|-|-|-|
-|Plano técnico|NOMBRE|letras, números, guiones y puntos|48|
+|Plano técnico|Nombre|letras, números, guiones y puntos|48|
 |Plano técnico|Versión|letras, números, guiones y puntos|20|
-|Asignación de plano técnico|NOMBRE|letras, números, guiones y puntos|90|
-|Artefactos de plano técnico|NOMBRE|letras, números, guiones y puntos|48|
+|Asignación de plano técnico|Nombre|letras, números, guiones y puntos|90|
+|Artefactos de plano técnico|Nombre|letras, números, guiones y puntos|48|
 
 ## <a name="video-overview"></a>Introducción en vídeo
 

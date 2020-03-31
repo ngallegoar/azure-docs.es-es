@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Protección de un servidor web con Windows con certificados SSL en Azure'
-description: En este tutorial, aprenderá a usar Azure PowerShell para proteger una máquina virtual Windows que ejecuta el servidor web IIS con certificados SSL almacenados en Azure Key Vault.
+title: 'Tutorial: Protección de un servidor web con Windows con certificados TLS/SSL en Azure'
+description: En este tutorial, aprenderá a usar Azure PowerShell para proteger una máquina virtual Windows que ejecuta el servidor web IIS con certificados TLS/SSL almacenados en Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,25 +15,25 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6185ad4f0e043329c4e833b97a09922ba0238a82
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5b084f8a226d1cfd5bab2cc81512fb51fa6bf41c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264244"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154294"
 ---
-# <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Protección de un servidor web en una máquina virtual Windows en Azure con certificados SSL almacenados en Key Vault
+# <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Protección de un servidor web en una máquina virtual Windows en Azure con certificados TLS/SSL almacenados en Key Vault
 
 > [!NOTE]
 > Actualmente este documento solo funciona para imágenes generalizadas. Si intenta realizar este tutorial con un disco especializado, recibirá un error. 
 
-Para proteger los servidores web, se puede utilizar un certificado Capa de sockets seguros (SSL) para cifrar el tráfico web. Estos certificados SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Windows en Azure. En este tutorial, aprenderá a:
+Para proteger los servidores web, se puede usar un certificado de seguridad de la capa de transporte (TLS), conocido anteriormente como Capa de sockets seguros (SSL), para cifrar el tráfico web. Estos certificados TLS/SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Windows en Azure. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una instancia de Azure Key Vault
 > * Generar o cargar un certificado en Key Vault
 > * Creación de una máquina virtual e instalación del servidor web IIS
-> * Inserción del certificado en la máquina virtual y configuración de IIS con un enlace SSL
+> * Insertar el certificado en la máquina virtual y configuración de IIS con un enlace TLS
 
 
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
@@ -172,13 +172,13 @@ El sitio web IIS protegido se muestra ahora como en el ejemplo siguiente:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, protegió un servidor web IIS con un certificado SSL almacenado en Azure Key Vault. Ha aprendido a:
+En este tutorial, protegió un servidor web IIS con un certificado TLS/SSL almacenado en Azure Key Vault. Ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear una instancia de Azure Key Vault
 > * Generar o cargar un certificado en Key Vault
 > * Creación de una máquina virtual e instalación del servidor web IIS
-> * Inserción del certificado en la máquina virtual y configuración de IIS con un enlace SSL
+> * Insertar el certificado en la máquina virtual y configuración de IIS con un enlace TLS
 
 Siga este vínculo para ver ejemplos de scripts de máquina virtual creados previamente.
 

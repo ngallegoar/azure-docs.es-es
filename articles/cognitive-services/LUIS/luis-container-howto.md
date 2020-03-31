@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
 ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888573"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218782"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
  
@@ -28,7 +28,7 @@ En el siguiente vídeo, se explica cómo se utiliza este contenedor.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para ejecutar el contenedor de LUIS, tenga en cuenta los siguientes requisitos previos:
 
@@ -120,7 +120,7 @@ Para poder empaquetar una aplicación de LUIS, debe tener lo siguiente:
 
 |Requisitos de empaquetado|Detalles|
 |--|--|
-|Instancia de recurso de Azure _Cognitive Services_|Las regiones admitidas son<br><br>Oeste de EE. UU. (`westus`)<br>Europa Occidental (`westeurope`)<br>Este de Australia (`australiaeast`)|
+|Instancia de recurso de Azure _Cognitive Services_|Las regiones admitidas son<br><br>Oeste de EE. UU. (`westus`)<br>Oeste de Europa (`westeurope`)<br>Este de Australia (`australiaeast`)|
 |Aplicación de LUIS entrenada o publicada|Sin [dependencias no compatibles][unsupported-dependencies]. |
 |Acceso al sistema de archivos del [equipo host](#the-host-computer) |El equipo host debe permitir un [montaje de entrada](luis-container-configuration.md#mount-settings).|
   
@@ -171,7 +171,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | **{APP_ID}** | Identificador de la aplicación de LUIS publicada. |
 | **{SLOT_NAME}** | Entorno de la aplicación de LUIS publicada. Utilice uno de los valores siguientes:<br/>`PRODUCTION`<br/>`STAGING` |
 | **{AUTHORING_KEY}** | Clave de creación de la cuenta de LUIS para la aplicación de LUIS publicada.<br/>Puede obtener la clave de creación en la página **User Settings** (Configuración del usuario) del portal de LUIS. |
-| **{AZURE_REGION}** | Región de Azure que corresponda:<br/><br/>`westus`: Oeste de EE. UU.<br/>`westeurope`: Europa Occidental<br/>`australiaeast`: Este de Australia |
+| **{AZURE_REGION}** | Región de Azure que corresponda:<br/><br/>`westus`: Oeste de EE. UU.<br/>`westeurope`: Oeste de Europa<br/>`australiaeast`: Este de Australia |
 
 Para descargar el paquete publicado, consulte la [documentación de la API aquí][download-published-package]. Si se descarga correctamente, la respuesta será un archivo de paquete de LUIS. Guarde el archivo en la ubicación de almacenamiento especificada para el montaje de entrada del contenedor. 
 
@@ -190,7 +190,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | **{APP_ID}** | Identificador de la aplicación de LUIS entrenada. |
 | **{APP_VERSION}** | Versión de la aplicación de LUIS entrenada. |
 | **{AUTHORING_KEY}** | Clave de creación de la cuenta de LUIS para la aplicación de LUIS publicada.<br/>Puede obtener la clave de creación en la página **User Settings** (Configuración del usuario) del portal de LUIS. |
-| **{AZURE_REGION}** | Región de Azure que corresponda:<br/><br/>`westus`: Oeste de EE. UU.<br/>`westeurope`: Europa Occidental<br/>`australiaeast`: Este de Australia |
+| **{AZURE_REGION}** | Región de Azure que corresponda:<br/><br/>`westus`: Oeste de EE. UU.<br/>`westeurope`: Oeste de Europa<br/>`australiaeast`: Este de Australia |
 
 Para descargar el paquete con versiones, consulte la [documentación de la API aquí][download-versioned-package]. Si se descarga correctamente, la respuesta será un archivo de paquete de LUIS. Guarde el archivo en la ubicación de almacenamiento especificada para el montaje de entrada del contenedor. 
 
@@ -243,7 +243,7 @@ El contenedor proporciona varias API de puntos de conexión de predicción de co
 
 Utilice el host, `http://localhost:5000`, con las API de contenedor.
 
-# <a name="v3-prediction-endpointtabv3"></a>[Punto de conexión de predicción de V3](#tab/v3)
+# <a name="v3-prediction-endpoint"></a>[Punto de conexión de predicción de V3](#tab/v3)
 
 |Tipo de paquete|Verbo HTTP|Enrutar|Parámetros de consulta|
 |--|--|--|--|
@@ -259,7 +259,7 @@ Los parámetros de consulta determinan cómo y qué se devuelve en la respuesta 
 |`log`|boolean|Registra las consultas, lo que puede utilizarse después para el [aprendizaje activo](luis-how-to-review-endpoint-utterances.md). El valor predeterminado es False.|
 |`show-all-intents`|boolean|Valor booleano que indica si se devuelven todas las intenciones o solo la intención de puntuación superior. El valor predeterminado es False.|
 
-# <a name="v2-prediction-endpointtabv2"></a>[Punto de conexión de predicción de V2](#tab/v2)
+# <a name="v2-prediction-endpoint"></a>[Punto de conexión de predicción de V2](#tab/v2)
 
 |Tipo de paquete|Verbo HTTP|Enrutar|Parámetros de consulta|
 |--|--|--|--|
@@ -282,7 +282,7 @@ Los parámetros de consulta determinan cómo y qué se devuelve en la respuesta 
 
 A continuación, se muestra un ejemplo de un comando CURL para consultar el contenedor de una aplicación publicada:
 
-# <a name="v3-prediction-endpointtabv3"></a>[Punto de conexión de predicción de V3](#tab/v3)
+# <a name="v3-prediction-endpoint"></a>[Punto de conexión de predicción de V3](#tab/v3)
 
 Para consultar un modelo en un espacio, use la siguiente API:
 
@@ -308,7 +308,7 @@ curl -G \
 "http://localhost:5000/luis/v3.0/apps/{APP_ID}/versions/{APP_VERSION}/predict"
 ```
 
-# <a name="v2-prediction-endpointtabv2"></a>[Punto de conexión de predicción de V2](#tab/v2)
+# <a name="v2-prediction-endpoint"></a>[Punto de conexión de predicción de V2](#tab/v2)
 
 Para consultar un modelo en un espacio, use la siguiente API:
 

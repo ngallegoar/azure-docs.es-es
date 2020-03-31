@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 077032e4fe3886d5bf9a678dffdffca1a5802091
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848415"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230956"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -30,12 +30,12 @@ Puede tener acceso a la configuración relacionada con Azure Multi-Factor Authen
 
 Algunas de estas opciones se aplican al Servidor MFA, Azure MFA o ambos.
 
-| Característica | DESCRIPCIÓN |
+| Característica | Descripción |
 | ------- | ----------- |
 | Bloqueo de cuenta | Bloquea temporalmente las cuentas del servicio de autenticación multifactor si hay demasiados intentos de autenticación denegados en una fila. Esta característica solo se aplica a los usuarios que escriben un PIN para autenticarse. (Servidor MFA) |
 | [Bloqueo y desbloqueo de usuarios](#block-and-unblock-users) | Se usa para impedir que usuarios específicos puedan recibir solicitudes de Multi-Factor Authentication. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen. |
 | [Alerta de fraude](#fraud-alert) | Configure valores relacionados con la capacidad de los usuarios para notificar solicitudes de comprobación fraudulentas. |
-| [Notifications](#notifications) | Permite notificaciones de eventos desde el Servidor MFA. |
+| [Notificaciones](#notifications) | Permite notificaciones de eventos desde el Servidor MFA. |
 | [Tokens OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Se usa en entornos de Azure MFA basados en la nube para administrar tokens de OATH para los usuarios. |
 | [Configuración de las llamadas telefónicas](#phone-call-settings) | Configure valores relacionados con llamadas de teléfono y saludos para entornos locales y en la nube. |
 | Proveedores | Se mostrarán los proveedores de autenticación existentes que pueden haberse asociado con su cuenta. A partir del 1 de septiembre de 2018 no se pueden crear nuevos proveedores de autenticación. |
@@ -44,7 +44,7 @@ Algunas de estas opciones se aplican al Servidor MFA, Azure MFA o ambos.
 
 Los valores de configuración de esta sección son solo para el Servidor MFA.
 
-| Característica | DESCRIPCIÓN |
+| Característica | Descripción |
 | ------- | ----------- |
 | Configuración del servidor | Descarga el Servidor MFA y genera credenciales de activación para inicializar el entorno. |
 | [Omisión por única vez](#one-time-bypass) | Permite que un usuario se autentique sin necesidad de realizar la verificación en dos pasos por un tiempo limitado. |
@@ -97,7 +97,7 @@ Configure la característica de _alerta de fraude_ para que los usuarios puedan 
 
 ### <a name="view-fraud-reports"></a>Visualización de notificaciones de fraude
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Azure Active Directory** > **Inicios de sesión**. El informe de fraude ahora forma parte del informe de inicios de sesión de Azure AD estándar.
 
 ## <a name="notifications"></a>Notificaciones
@@ -192,7 +192,7 @@ La característica de _omisión por única vez_ permite a un usuario autenticars
 
 ### <a name="view-the-one-time-bypass-report"></a>Visualización del informe de omisión por única vez
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a **Azure Active Directory** > **Seguridad** > **MFA** > **de omisión por única vez**.
 
 ## <a name="caching-rules"></a>Reglas de caché
@@ -277,7 +277,7 @@ Azure AD admite la federación, o el inicio de sesión único (SSO), con Active 
 
 De forma predeterminada, los usuarios no pueden crear contraseñas de aplicación. Debe habilitarse la característica de las contraseñas de aplicación. Para dar a los usuarios la posibilidad de crear contraseñas de aplicación, use el procedimiento siguiente:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios**.
 3. Seleccione **Multi-Factor Authentication**.
 4. En Multi-Factor Authentication, seleccione **Configuración del servicio**.
@@ -317,7 +317,7 @@ Independientemente de si la característica de la IP de confianza está habilita
 
 ### <a name="enable-named-locations-by-using-conditional-access"></a>Habilitación de las ubicaciones con nombre mediante el acceso condicional
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el lado izquierdo, seleccione **Azure Active Directory** > **Seguridad** > **Acceso condicional** > **Ubicaciones con nombre**.
 3. Seleccione **Nueva ubicación**.
 4. Escriba un nombre para la ubicación.
@@ -327,7 +327,7 @@ Independientemente de si la característica de la IP de confianza está habilita
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Habilite la característica de direcciones IP de confianza mediante el acceso condicional
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En el lado izquierdo, seleccione **Azure Active Directory** > **Seguridad** >  **Acceso condicional** > **Ubicaciones con nombre**.
 3. Seleccione **Configurar IP de confianza de MFA**.
 4. En la página **Configuración del servicio**, en **IP de confianza**, seleccione una de las dos opciones siguientes:
@@ -345,7 +345,7 @@ Independientemente de si la característica de la IP de confianza está habilita
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Habilite la característica de direcciones IP de confianza mediante la configuración del servicio
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios**.
 3. Seleccione **Multi-Factor Authentication**.
 4. En Multi-Factor Authentication, seleccione **Configuración del servicio**.
@@ -368,7 +368,7 @@ Puede elegir los métodos de comprobación que estén disponibles para los usuar
 
 Cuando los usuarios inscriben sus cuentas en Azure Multi-Factor Authentication, deciden su método de verificación preferido de las opciones que ha habilitado. Las instrucciones para el proceso de inscripción de los usuarios se proporcionan en [Configuración de mi cuenta para la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-| Método | DESCRIPCIÓN |
+| Método | Descripción |
 |:--- |:--- |
 | Llamada al teléfono |Hace una llamada de voz automática. El usuario responde a la llamada y pulsa la # del teclado del teléfono para autenticarse. El número de teléfono no se sincroniza con Active Directory local. |
 | Mensaje de texto al teléfono |Envía un mensaje de texto que contiene un código de verificación. Se pide al usuario que escriba el código de verificación en la interfaz de inicio de sesión. Este proceso se llama "SMS unidireccional". SMS bidireccional significa que el usuario debe devolver un mensaje de texto con un código determinado. SMS bidireccional se encuentra en desuso y no se admitirá después del 14 de noviembre de 2018. Los administradores deben habilitar otro método para los usuarios que antes usaban SMS bidireccional.|
@@ -377,7 +377,7 @@ Cuando los usuarios inscriben sus cuentas en Azure Multi-Factor Authentication, 
 
 ### <a name="enable-and-disable-verification-methods"></a>Habilitar y deshabilitar los métodos de verificación
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios**.
 3. Seleccione **Multi-Factor Authentication**.
 4. En Multi-Factor Authentication, seleccione **Configuración del servicio**.
@@ -413,7 +413,7 @@ La característica reduce el número de autenticaciones en las aplicaciones web,
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Habilitación de Recordar Multi-Factor Authentication
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios**.
 3. Seleccione **Multi-Factor Authentication**.
 4. En Multi-Factor Authentication, seleccione **Configuración del servicio**.

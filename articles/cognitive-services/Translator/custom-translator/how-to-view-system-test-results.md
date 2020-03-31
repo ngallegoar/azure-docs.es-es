@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595604"
 ---
 # <a name="view-system-test-results"></a>Ver resultados de pruebas del sistema
@@ -46,7 +46,7 @@ En la pestaña de pruebas se muestra lo siguiente:
 
     ![Comparación de los resultados de pruebas del sistema](media/how-to/how-to-system-test-results-2.png)
 
-## <a name="download-test"></a>Descarga de la prueba
+## <a name="download-test"></a>Descargar la prueba
 
 Haga clic en el vínculo Download Translations (Descargar traducciones) para descargar un archivo zip. El archivo zip contiene las traducciones automáticas de las oraciones de origen en el conjunto de datos de pruebas.
 
@@ -70,12 +70,12 @@ Para solicitar una implementación, haga lo siguiente:
 
 2. Para cada modelo entrenado correctamente, se muestra un botón "Implementar" si aún no se implementa.
 
-    ![Implementación del modelo](media/how-to/how-to-deploy-model.png)
+    ![Implementación de un modelo](media/how-to/how-to-deploy-model.png)
 
 3.  Haga clic en Implementar.
 4.  Seleccione **Implementado** para las regiones donde quiere que se implemente el modelo y haga clic en Guardar. Puede seleccionar **Implementado** para varias regiones.
 
-    ![Implementación del modelo](media/how-to/how-to-deploy-model-regions.png)
+    ![Implementación de un modelo](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Puede ver el estado del modelo en la columna "Estado".
 
@@ -90,12 +90,12 @@ Para actualizar la configuración de implementación:
 
 2. En el caso de un modelo implementado correctamente, se muestra un botón **Actualizar**.
 
-    ![Implementación del modelo](media/how-to/how-to-update-undeploy-model.png)
+    ![Implementación de un modelo](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Seleccione **Actualizar**.
 4.  Seleccione **Implementado** o **No implementado** para las regiones donde quiere que se implemente el modelo o se anule su implementación y, a continuación, haga clic en **Guardar**.
 
-    ![Implementación del modelo](media/how-to/how-to-undeploy-model.png)
+    ![Implementación de un modelo](media/how-to/how-to-undeploy-model.png)
 
 >[!Note]
 >Si selecciona **No implementado** para todas las regiones, se anula la implementación del modelo en todas las regiones y se coloca en un estado no implementado. Ahora está deshabilitado para su uso.

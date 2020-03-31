@@ -1,5 +1,6 @@
 ---
 title: ¿Qué es Azure Virtual Network NAT?
+titlesuffix: Azure Virtual Network
 description: Información general sobre las características, recursos, arquitectura e implementación de Virtual Network NAT. Aprenda cómo funciona Virtual Network NAT y cómo usar los recursos de puerta de enlace de NAT en la nube.
 services: virtual-network
 documentationcenter: na
@@ -11,16 +12,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 205826a6ad952383582f5a8086cbd8b85dbc3794
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 4b34d4208d8686cdac3f8164d2cf7efb2d881346
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359252"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79409905"
 ---
-# <a name="what-is-virtual-network-nat-public-preview"></a>¿Qué es Virtual Network NAT (versión preliminar pública)?
+# <a name="what-is-virtual-network-nat"></a>¿Qué es NAT de Virtual Network?
 
 La NAT (traducción de direcciones de red) de Virtual Network simplifica la conectividad a Internet de solo salida para redes virtuales. Cuando se configura en una subred, todas las conexiones salientes usan las direcciones IP públicas estáticas que se hayan especificado.  La conectividad saliente es posible sin que el equilibrador de carga ni las direcciones IP públicas estén conectados directamente a máquinas virtuales. La NAT está totalmente administrada y es muy resistente.
 
@@ -36,10 +37,6 @@ La NAT (traducción de direcciones de red) de Virtual Network simplifica la cone
 
 
 *Ilustración:* Virtual Network NAT
-
-
->[!NOTE] 
->En este momento, Virtual Network NAT está disponible como versión preliminar pública. Actualmente solo está disponible en un conjunto limitado de [regiones](#region-availability). Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>Direcciones IP estáticas de solo salida
 
@@ -91,9 +88,9 @@ El lado privado de NAT envía paquetes de TCP Reset para realizar intentos de co
 
 El lado público de NAT no genera paquetes de TCP Reset ni ningún otro tipo de tráfico.  Solo se emite el tráfico generado por la red virtual del cliente.
 
-## <a name="configurable-idle-timeout"></a>Tiempo de espera de inactividad configurable
+## <a name="configurable-tcp-idle-timeout"></a>Tiempo de espera de inactividad de TCP configurable
 
-Se usa un tiempo de espera de inactividad predeterminado de 4 minutos que se puede aumentar hasta 120. Cualquier actividad de un flujo puede restablecer también el temporizador de actividad, lo que incluye mensajes TCP Keepalive.
+Se usa un tiempo de espera de inactividad de TCP predeterminado de 4 minutos que se puede aumentar hasta 120. Cualquier actividad de un flujo puede restablecer también el temporizador de actividad, lo que incluye mensajes TCP Keepalive.
 
 ## <a name="regional-or-zone-isolation-with-availability-zones"></a>Aislamiento regional o por zona con zonas de disponibilidad
 
@@ -125,48 +122,6 @@ La operación de la NAT se puede supervisar a través de métricas multidimensio
 
 En disponibilidad general, la disponibilidad mínima de la ruta de datos de NAT es del 99,9 %.
 
-## <a name = "region-availability"></a>Disponibilidad regional
-
-NAT está disponible actualmente en estas regiones:
-
-- Oeste de Europa
-- Japón Oriental
-- Este de EE. UU. 2
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
-- Centro-oeste de EE. UU.
-
-## <a name = "enable-preview">Participación en la versión preliminar pública</a>
-
-Las suscripciones deben estar registradas para permitir la participación en la versión preliminar pública.  La participación requiere un proceso de dos pasos y a continuación se proporcionan instrucciones tanto para la CLI de Azure como para Azure PowerShell.  La activación puede tardar varios minutos en completarse.
-
-### <a name="azure-cli"></a>Azure CLI
-
-1. Registre la suscripción a la versión preliminar pública
-
-    ```azurecli-interactive
-      az feature register --namespace Microsoft.Network --name AllowNatGateway
-    ```
-
-2. Active el registro
-
-    ```azurecli-interactive
-      az provider register --namespace Microsoft.Network
-    ```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-
-1. Registre la suscripción a la versión preliminar pública
-
-    ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowNatGateway
-    ```
-
-2. Active el registro
-
-    ```azurepowershell-interactive
-      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-    ```
 
 ## <a name="pricing"></a>Precios
 
@@ -180,7 +135,9 @@ La puerta de enlace de NAT se factura con dos medidores independientes:
 Las horas de recursos cuentan el tiempo de existencia de un recurso de puerta de enlace de NAT.
 Los datos procesados cuentan todo el tráfico procesado por un recurso de puerta de enlace de NAT.
 
-Durante la versión preliminar pública, se ofrece un descuento del 50 % en los precios.
+## <a name="availability"></a>Disponibilidad
+
+NAT de Virtual Network y el recurso de puerta de enlace NAT están disponibles en todas las [regiones](https://azure.microsoft.com/global-infrastructure/regions/) de la nube pública de Azure.
 
 ## <a name="support"></a>Soporte técnico
 
@@ -188,12 +145,13 @@ El soporte técnico de NAT se proporciona a través de los canales normales de s
 
 ## <a name="feedback"></a>Comentarios
 
-Queremos saber cómo podemos mejorar el servicio. Comparta sus [comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).  También puede proponer lo que debemos crear después (y votar por ello) en [UserVoice para NAT](https://aka.ms/natuservoice).
+Queremos saber cómo podemos mejorar el servicio. Proponga lo que debemos crear después (y vote por ello) en [UserVoice para NAT](https://aka.ms/natuservoice).
+
 
 ## <a name="limitations"></a>Limitaciones
 
-* NAT es compatible con la dirección IP pública de la SKU estándar, el prefijo de IP pública y los recursos del equilibrador de carga.   Ni los recursos básicos (por ejemplo, el equilibrador de carga básico) ni los productos derivados de ellos son compatibles con NAT.  Los recursos básicos se deben colocar en una subred que no esté configurada con NAT.
-* Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.  NAT no se puede implementar en una subred con prefijo IPv6.
+* NAT es compatible con la dirección IP pública de la SKU estándar, el prefijo de IP pública y los recursos del equilibrador de carga. Ni los recursos básicos (por ejemplo, el equilibrador de carga básico) ni los productos derivados de ellos son compatibles con NAT.  Los recursos básicos se deben colocar en una subred que no esté configurada con NAT.
+* Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.  NAT no se puede implementar en una subred con un prefijo IPv6.
 * El registro de flujos de grupos de seguridad de red no se admite cuando se usa NAT.
 * NAT no puede abarcar varias redes virtuales.
 
@@ -201,4 +159,4 @@ Queremos saber cómo podemos mejorar el servicio. Comparta sus [comentarios sobr
 
 * Obtenga más información sobre [recursos de puerta de enlace de NAT](./nat-gateway-resource.md).
 * [Indíquenos qué crear a continuación para Virtual Network NAT en UserVoice](https://aka.ms/natuservoice).
-* [Proporcione comentarios sobre la versión preliminar pública](https://aka.ms/natfeedback).
+

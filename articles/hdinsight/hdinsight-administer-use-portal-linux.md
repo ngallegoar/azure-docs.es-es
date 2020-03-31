@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/12/2020
 ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561789"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233704"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal
 
@@ -29,13 +29,13 @@ Un clúster existente de Apache Hadoop en HDInsight.  Consulte [Crear clústeres
 
 Inicie sesión en [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="showClusters"></a> Enumeración y visualización de clústeres
+## <a name="list-and-show-clusters"></a><a name="showClusters"></a> Enumeración y visualización de clústeres
 
 En la página de **clústeres de HDInsight** se muestran los clústeres existentes.  En el portal:
 1. En el menú izquierdo, seleccione **Todos los servicios**.
 2. Seleccione **Clústeres de HDInsight** en **ANALYTICS**.
 
-## <a name="homePage"></a> Página principal del clúster
+## <a name="cluster-home-page"></a><a name="homePage"></a> Página principal del clúster
 
 Seleccione el nombre del clúster en la página [**Clústeres de HDInsight**](#showClusters).  Se abrirá la vista de **Información general**, que se parece a la siguiente imagen:
 
@@ -96,7 +96,7 @@ Seleccione el nombre del clúster en la página [**Clústeres de HDInsight**](#s
     |Estado de los recursos|consulte [Introducción a Azure Resource Health](../service-health/resource-health-overview.md).|
     |Nueva solicitud de soporte|permite crear una incidencia de soporte técnico con el soporte técnico de Microsoft.|
 
-## <a name="properties"></a> Propiedades del clúster
+## <a name="cluster-properties"></a><a name="properties"></a> Propiedades del clúster
 
 En la [página principal del clúster](#homePage), en **Configuración**, seleccione **Propiedades**.
 

@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2020
+ms.date: 03/12/2020
 ms.author: dacoulte
-ms.openlocfilehash: f11fdf61bd9382cdf7956426871ce562e2a88038
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: a229d3d3ba89b4bafd4b0b45a143e29d3d5f7ede
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78668990"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79382238"
 ---
 |Nombre |Descripción |Directivas |Versión |
 |---|---|---|---|
@@ -23,7 +23,7 @@ ms.locfileid: "78668990"
 |[\[Versión preliminar\]: Auditar los controles SWIFT CSP-CSCF v2020 e implementar extensiones de VM específicas para admitir los requisitos de auditoría](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/SWIFTv2020_audit.json). |Esta iniciativa incluye las directivas de implementación de extensiones de VM y de auditoría que tratan un subconjunto de controles SWIFT CSP-CSCF v2020. Se agregarán directivas adicionales en futuras versiones. Para más información, visite https://aka.ms/SWIFT-blueprint. |71 |1.0.0-preview |
 |[\[Versión preliminar\]: Auditar los controles UK OFFICIAL y UK NHS e implementar extensiones de VM específicas para cumplir con los requisitos de la auditoría](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/ukofficial_audit.json). |Esta iniciativa incluye directivas que tratan un subconjunto de controles de tipo UK OFFICIAL y UK NHS. Se agregarán directivas adicionales en futuras versiones. Para más información, visite https://aka.ms/ukofficial-blueprint y https://aka.ms/uknhs-blueprint. |66 |2.0.0-preview |
 |[Auditar las recomendaciones de Azure Security Benchmark e implementar extensiones de VM compatibles específicas](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |Esta iniciativa incluye las directivas de implementación de extensiones de VM y de auditoría que abordan un subconjunto de recomendaciones de Azure Security Benchmark. Se agregarán directivas adicionales en futuras versiones. Para más información, visite https://aka.ms/azsecbm. |148 |2.0.0-preview |
+|[Auditoría de los controles DoD de nivel de impacto 4 e implementación de extensiones de máquinas virtuales específicas para admitir los requisitos de auditoría](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/DOD_IL4_audit.json) |Esta iniciativa incluye las directivas de implementación de extensiones de máquinas virtuales y auditoría que tratan un subconjunto de controles DoD de nivel 4. Se agregarán directivas adicionales en futuras versiones. Para más información, visite https://aka.ms/DoDIL4-blueprint. |108 |3.0.0-preview |
 |[Auditar los controles FedRAMP High e implementar extensiones de máquinas virtuales específicas para admitir los requisitos de auditoría](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Esta iniciativa incluye directivas de implementación de extensiones de máquinas virtuales y de auditoría que tratan un subconjunto de controles altos de FedRAMP. Se agregarán directivas adicionales en futuras versiones. Para más información, visite https://aka.ms/fedramph-blueprint. |80 |2.0.0-preview |
 |[Auditar los controles HITRUST/HIPAA e implementar extensiones de máquina virtual específicas para admitir los requisitos de auditoría](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |Esta iniciativa incluye directivas que abarcan un subconjunto de controles HITRUST/HIPAA. Se agregarán directivas adicionales en futuras versiones. https://aka.ms/hipaa-blueprint |57 |1.0.0 |
 |[Audit Motion Picture Association of America (MPAA) controla e implementa extensiones de VM específicas para admitir los requisitos de auditoría.](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/Media_audit.json) |Esta iniciativa incluye directivas que tratan un subconjunto de controles de seguridad y lineamientos de Motion Picture Association of America (MPAA). Se agregarán directivas adicionales en futuras versiones. Para más información, visite https://aka.ms/mpaa-blueprint. |45 |1.0.0-preview |
-|[Nivel 4 de impacto de DoD](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/DOD_IL4_audit.json) |Asigna directivas para abordar controles específicos de nivel de impacto 4 (IL4) de DoD. Más información: https://aka.ms/DoDIL4-blueprint. |80 |2.0.0-preview |

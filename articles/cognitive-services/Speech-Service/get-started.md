@@ -8,24 +8,38 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 02/26/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 3ddba414ef1801b812d157ad734847099a8a9f25
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: f74e3ea3d20ad2666b434e009cf62add6f88d200
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806191"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218686"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prueba gratuita del servicio Voz
 
-Usar el servicio Voz es un proceso fácil y asequible. Hay dos opciones disponibles gratis para que pueda descubrir lo que puede hacer el servicio y decidir si es adecuado para sus necesidades:
+En este artículo, elige una opción para probar fácilmente el servicio Voz disponible gratis para que pueda descubrir lo que puede hacer el servicio y decidir si es adecuado para sus necesidades. Elija una de las dos opciones siguientes en función de su situación y caso de uso:
 
-- Obtener una evaluación gratuita sin proporcionar la información de la tarjeta de crédito (debe tener una cuenta de Azure existente)
-- Crear una cuenta de Azure sin cargo alguno durante un período de prueba (se requiere la información de la tarjeta de crédito)
+- [Opción 1](#no-card): obtener inmediatamente las claves de API de **evaluación gratuita** sin proporcionar la información de la tarjeta de crédito (debe tener una cuenta de Azure existente). La **evaluación gratuita** dura 30 días y los datos se eliminarán al final. Esta opción es la más adecuada para una experimentación rápida del servicio.
+- [Opción 2](#new-resource): cree un nuevo recurso Voz en Azure, sin cargo alguno, mediante una **suscripción gratuita** (se requiere la información de la tarjeta de crédito). Una **suscripción gratuita** tiene, principalmente, unos límites de velocidad más estrictos que una suscripción de pago. Esta opción es preferible si desea probar el servicio, pero también si tiene previsto actualizar a una suscripción de pago en el futuro y no desea perder datos.
 
-En este artículo, elegirá una de estas opciones que mejor se adapte a sus necesidades.
+## <a name="try-the-speech-service-without-credit-card-info"></a><a id="no-card"></a>Prueba del servicio Voz sin la información de la tarjeta de crédito
+
+Complete los pasos siguientes para activar una evaluación gratuita de 30 días y obtener las claves de API. El período de prueba se iniciará inmediatamente una vez que se hayan completado los pasos siguientes.
+
+1. Vaya a [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
+1. Seleccione la pestaña **Speech API**.
+1. Elija **Obtener clave de API**.
+
+Se le presentarán opciones de facturación. Elija la opción gratis y, después, lea y apruebe el acuerdo de usuario. Se le presentarán claves que puede usar para probar el servicio Voz gratis durante 30 días.
+
+## <a name="try-the-speech-service-by-creating-an-azure-resource"></a><a id="new-resource"></a>Prueba del servicio Voz mediante la creación de un recurso de Azure
+
+En los pasos siguientes, necesitará un cuenta de Microsoft y una cuenta de Azure. Si no tiene un cuenta de Microsoft, puede registrarse para obtener una gratuita en el [portal de la cuenta de Microsoft](https://account.microsoft.com/account). Seleccione **Iniciar sesión con Microsoft** y, luego, cuando se le pida que inicie sesión, seleccione **Crear una cuenta de Microsoft**. Siga los pasos para crear y comprobar la nueva cuenta Microsoft.
+
+Cuando tenga la cuenta de Microsoft, vaya a la [página de suscripción a Azure](https://azure.microsoft.com/free/ai/), seleccione **Comenzar gratis** y cree una cuenta de Azure con su cuenta de Microsoft.
 
 > [!NOTE]
 > El servicio Voz tiene dos niveles de servicio: gratis y suscripción, que tienen diferentes limitaciones y ventajas. Si se registra para obtener una cuenta gratuita de Azure, obtendrá 200 USD en crédito de servicios que puede aplicar a una suscripción del servicio Voz de pago durante 30 días.
@@ -34,33 +48,7 @@ En este artículo, elegirá una de estas opciones que mejor se adapte a sus nece
 >
 > Para más información, consulte [Precios de Cognitive Services: servicio de voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-## <a name="try-the-speech-service-without-credit-card-info"></a>Prueba del servicio Voz sin la información de la tarjeta de crédito
-
-Aunque se recomienda probar el servicio Voz siguiendo las instrucciones de la sección siguiente, puede que prefiera las instrucciones de esta sección si se aplica lo siguiente:
-
-- Ya tiene una cuenta activa de Azure.
-- Quiere evaluar el servicio Voz sin crear una nueva cuenta de Azure.
-- Prefiere que no se requiera ninguna tarjeta de crédito y que no se guarde ningún dato después del período de prueba.
-
-> [!NOTE]
-> El período de prueba se iniciará inmediatamente una vez que se hayan completado los pasos siguientes.
-
-1. Vaya a [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
-1. Seleccione la pestaña **Speech API**.
-1. Elija **Obtener clave de API**.
-
-Se le presentarán opciones de facturación. Elija la opción gratis y, después, lea y apruebe el acuerdo de usuario. Se le presentarán claves que puede usar para probar el servicio Voz durante un tiempo limitado.
-
-## <a name="try-the-speech-service-using-a-new-azure-account"></a>Prueba del servicio Voz con una nueva cuenta de Azure
-
-Para suscribirse a una nueva cuenta de Azure, necesitará una cuenta de Microsoft. Si no tiene un cuenta de Microsoft, puede registrarse para obtener una gratuita en el [portal de la cuenta de Microsoft](https://account.microsoft.com/account). Seleccione **Iniciar sesión con Microsoft** y, luego, cuando se le pida que inicie sesión, seleccione **Crear una cuenta de Microsoft**. Siga los pasos para crear y comprobar la nueva cuenta Microsoft.
-
-Cuando tenga la cuenta de Microsoft, vaya a la [página de suscripción a Azure](https://azure.microsoft.com/free/ai/), seleccione **Comenzar gratis** y cree una cuenta de Azure con su cuenta de Microsoft.
-
-### <a name="create-a-speech-resource-in-azure"></a>Crear un recurso de voz en Azure
-
-> [!NOTE]
-> Puede crear un número ilimitado de suscripciones de plan estándar en una o varias regiones. Pero solo puede crear una suscripción de plan gratuito. Las implementaciones de modelo del plan gratuito que permanezcan inactivas durante siete días se retirarán automáticamente.
+### <a name="create-the-resource"></a>Crear el recurso
 
 Para agregar un recurso de servicio de voz (plan gratuito o de pago) a la cuenta de Azure:
 
@@ -78,12 +66,15 @@ Para agregar un recurso de servicio de voz (plan gratuito o de pago) a la cuenta
 
 1. Seleccione **Crear** y, después:
 
-   - Dé un nombre único al nuevo recurso. El nombre ayuda a distinguir entre varias suscripciones al mismo servicio.
+   - Dé un nombre único al nuevo recurso. El nombre ayuda a distinguir entre varias suscripciones vinculadas al mismo servicio.
    - Elija la suscripción de Azure a la que esté asociado el recurso nuevo para determinar cómo se facturan las tarifas.
    - Elija la [región](regions.md) donde se va a usar el recurso.
    - Elija un plan de tarifa de pago (S0) o gratis (F0). Para completar la información sobre los precios y las cuotas de uso de cada plan, seleccione **Ver todos los detalles de los precios**.
    - Cree un nuevo grupo de recursos para esta suscripción de voz o asígnela a un grupo de recursos existente. Los grupos de recursos ayudan a mantener organizadas las distintas suscripciones de Azure.
    - Seleccione **Crear**. Esto le llevará a la información general de la implementación y mostrará mensajes del progreso de la implementación.
+
+> [!NOTE]
+> Puede crear un número ilimitado de suscripciones de plan estándar en una o varias regiones. Pero solo puede crear una suscripción de plan gratuito. Las implementaciones de modelo del plan gratuito que permanezcan inactivas durante siete días se retirarán automáticamente.
 
 La implementación del recurso de voz nuevo puede tardar unos instantes. Una vez completada la implementación, seleccione **Ir al recurso** y, en el panel de navegación izquierdo, seleccione **Claves** para mostrar las claves de suscripción del servicio Voz. Cada suscripción tiene dos claves; puede usar cualquiera de ellas en la aplicación. Para copiar y pegar rápidamente una clave en el editor de código o en otra ubicación, seleccione el botón Copiar que se encuentra junto a cada clave, cambie de ventana para pegar el contenido del portapapeles en la ubicación deseada.
 

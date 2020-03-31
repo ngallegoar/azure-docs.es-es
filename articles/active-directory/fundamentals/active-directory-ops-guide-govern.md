@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 4826bcdc85e0c6189c51aa262014fe154bb479b1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74534816"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Guía de referencia de operaciones de gobernanza de Azure Active Directory
@@ -23,18 +23,18 @@ ms.locfileid: "74534816"
 En esta sección de la [guía de referencia de operaciones de Azure AD](active-directory-ops-guide-intro.md) se describen las comprobaciones y las acciones que debe realizar para evaluar y confirmar el acceso concedido a las identidades sin privilegios y con privilegios, así como auditar y controlar los cambios en el entorno.
 
 > [!NOTE]
-> Estas recomendaciones están actualizadas en la fecha de publicación, pero pueden cambiar con el tiempo. Las organizaciones deben evaluar continuamente sus prácticas de gobernanza a medida que los productos y servicios de Microsoft evolucionen con el tiempo.
+> Estas recomendaciones están actualizadas hasta la fecha de publicación, pero pueden cambiar con el tiempo. Las organizaciones deben evaluar continuamente sus prácticas de gobernanza a medida que los productos y servicios de Microsoft evolucionen con el tiempo.
 
-## <a name="key-operational-processes"></a>Principales procesos operativos
+## <a name="key-operational-processes"></a>Procesos operativos clave
 
-### <a name="assign-owners-to-key-tasks"></a>Asignación de propietarios a las principales tareas
+### <a name="assign-owners-to-key-tasks"></a>Asignación de propietarios a las tareas clave
 
-La administración de Azure Active Directory requiere la ejecución continua de tareas y procesos operativos clave que pueden no formar parte de un proyecto de implementación. Aun así, es importante que configure estas tareas con miras a optimizar su entorno. Entre las tareas clave y sus propietarios recomendados se incluyen:
+La administración de Azure Active Directory requiere la ejecución continua de tareas y procesos operativos clave que pueden no formar parte de un proyecto de lanzamiento. Aun así, es importante que configure estas tareas con miras a optimizar su entorno. Entre las tareas clave y sus propietarios recomendados se incluyen:
 
 | Tarea | Propietario |
 | :- | :- |
 | Archivado de registros de auditoría de Azure AD en el sistema SIEM | Equipo de operaciones de InfoSec |
-| Detección de aplicaciones que se administran fuera del cumplimiento | Equipo de operaciones de administración de identidad y acceso |
+| Detección de aplicaciones que se administran fuera del cumplimiento | Equipo de operaciones IAM |
 | Revisión periódica del acceso a las aplicaciones | Equipo de arquitectura de InfoSec |
 | Revisión periódica del acceso a identidades externas | Equipo de arquitectura de InfoSec |
 | Revisión periódica de quién tiene roles con privilegios | Equipo de arquitectura de InfoSec |
@@ -45,7 +45,7 @@ La administración de Azure Active Directory requiere la ejecución continua de 
 | Si las directivas incluyen flujos de trabajo de aprobación, revisión periódica de las aprobaciones de flujo de trabajo | Propietarios de la aplicación |
 | Revisión de excepciones en las directivas de seguridad, como las directivas de acceso condicional, mediante las revisiones de acceso | Equipo de operaciones de InfoSec |
 
-A medida que revise la lista, es posible que tenga que asignar un propietario a las tareas que no tienen uno o ajustar la propiedad de aquellas tareas con propietarios que no estén alineados con las recomendaciones anteriores.
+A medida que revise la lista, es posible que tenga que asignar un propietario a las tareas que no tienen uno o ajustar la propiedad de aquellas tareas con propietarios que no coincidan con las recomendaciones anteriores.
 
 #### <a name="owner-recommended-reading"></a>Lecturas recomendadas para propietarios
 

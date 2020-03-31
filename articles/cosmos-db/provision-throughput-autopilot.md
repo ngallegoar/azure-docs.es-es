@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 89af30788fe5129cddc6a3607b8c722549b610d1
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264057"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225680"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Creación de contenedores y bases de datos de Azure Cosmos en modo Autopilot (versión preliminar)
 
@@ -82,7 +82,7 @@ Puede configurar Autopilot para bases de datos o contenedores nuevos mientras lo
 
 Para crear una base de datos de rendimiento compartida con el modo Autopilot, seleccione la opción de **Rendimiento de la base de datos de aprovisionamiento**.
 
-## <a id="autopilot-limits"></a> Límites de rendimiento y almacenamiento para AutoPilot
+## <a name="throughput-and-storage-limits-for-autopilot"></a><a id="autopilot-limits"></a> Límites de rendimiento y almacenamiento para AutoPilot
 
 En la tabla siguiente se muestran los límites de rendimiento y almacenamiento máximos para distintas opciones en el modo AutoPilot:
 

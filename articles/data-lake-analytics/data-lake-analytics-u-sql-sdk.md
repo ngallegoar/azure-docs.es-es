@@ -9,10 +9,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
 ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71309696"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Ejecución y prueba de U-SQL con el SDK de U-SQL para Azure Data Lake
@@ -63,7 +63,7 @@ Puede usar tanto una ruta de acceso relativa como una ruta de acceso absoluta lo
 
 Al ejecutar localmente el script U-SQL, se crea un directorio de trabajo durante la compilación en el directorio que se está ejecutando actualmente. Además de las salidas de compilación, se creará una instantánea de los archivos del runtime necesarios para la ejecución local en este directorio de trabajo. La carpeta de raíz del directorio de trabajo se denomina "ScopeWorkDir" y los archivos dentro el directorio de trabajo son los siguientes:
 
-|Directorio o archivo|Directorio o archivo|Directorio o archivo|Definición|DESCRIPCIÓN|
+|Directorio o archivo|Directorio o archivo|Directorio o archivo|Definición|Descripción|
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Cadena de hash de la versión del runtime|Instantánea de los archivos del runtime necesarios para la ejecución local|
 | |Script_66AE4909AA0ED06C| |Nombre de script + cadena de hash de la ruta de acceso del script|Resultados de compilación y registro de los pasos de ejecución|
@@ -137,7 +137,7 @@ El comando **run** se utiliza para compilar el script y ejecutar después los re
 A continuación se muestran los argumentos opcionales para **run**:
 
 
-|Argumento|Valor predeterminado|DESCRIPCIÓN|
+|Argumento|Valor predeterminado|Descripción|
 |--------|-------------|-----------|
 |-CodeBehind|False|El script tiene código subyacente .cs|
 |-CppSDK| |Directorio CppSDK|
@@ -146,7 +146,7 @@ A continuación se muestran los argumentos opcionales para **run**:
 |-Parallel|1|Ejecutar el plan con el paralelismo especificado|
 |-References| |Lista de rutas de acceso a los ensamblados de referencia adicionales o archivos de datos de código subyacente, separadas por ';'|
 |-UdoRedirect|False|Generar la configuración de redirección de ensamblado de Udo|
-|-UseDatabase|principal|Base de datos que se utilizará para el registro de ensamblados temporal de código subyacente|
+|-UseDatabase|maestro|Base de datos que se utilizará para el registro de ensamblados temporal de código subyacente|
 |-Verbose|False|Mostrar resultados detallados del runtime|
 |-WorkDir|Directorio actual|Directorio para las salidas y el uso del compilador|
 |-RunScopeCEP|0|Modo de ScopeCEP que se utilizará|
@@ -169,7 +169,7 @@ El comando **compile** se utiliza para compilar un script U-SQL en los archivos 
 A continuación, se muestran los argumentos opcionales para **compile**:
 
 
-|Argumento|DESCRIPCIÓN|
+|Argumento|Descripción|
 |--------|-----------|
 | -CodeBehind [valor predeterminado 'False']|El script tiene código subyacente .cs|
 | -CppSDK [valor predeterminado '']|Directorio CppSDK|
@@ -207,7 +207,7 @@ El comando **execute** se usa para ejecutar resultados compilados.
 
 A continuación, se muestran los argumentos opcionales para **execute**:
 
-|Argumento|Valor predeterminado|DESCRIPCIÓN|
+|Argumento|Valor predeterminado|Descripción|
 |--------|-------------|-----------|
 |-DataRoot | '' |Raíz de datos para la ejecución de metadatos. De manera predeterminada, es la variable de entorno **LOCALRUN_DATAROOT**.|
 |-MessageOut | '' |Volcar mensajes de la consola en un archivo.|
@@ -332,13 +332,13 @@ LocalRunHelper.exe proporciona las interfaces de programación de compilación l
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parámetro|type|DESCRIPCIÓN|
+|Parámetro|Tipo|Descripción|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para los mensajes de salida; establézcalo en null para usar la consola|
 
 **Propiedades**
 
-|Propiedad|Escriba|DESCRIPCIÓN|
+|Propiedad|Tipo|Descripción|
 |--------|----|-----------|
 |AlgebraPath|string|La ruta de acceso al archivo álgebra (el archivo álgebra es uno de los resultados de compilación)|
 |CodeBehindReferences|string|Si el script tiene referencias adicionales de código subyacente, especifique las rutas de acceso separadas por ";".|
@@ -364,7 +364,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 **Método**
 
-|Método|DESCRIPCIÓN|Valor devuelto|Parámetro|
+|Método|Descripción|Valor devuelto|Parámetro|
 |------|-----------|------|---------|
 |public bool DoCompile()|Compilación del script U-SQL|Si se realiza correctamente, devuelve True.| |
 |public bool DoExec()|Ejecución del resultado compilado|Si se realiza correctamente, devuelve True.| |
