@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74847395"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Solución de problemas de registro de información de seguridad combinado (vista preliminar)
@@ -24,7 +24,7 @@ La información de este artículo está pensada como guía para los administrado
 
 |     |
 | --- |
-| El registro de información de seguridad combinado para el autoservicio de restablecimiento de contraseña de Azure Active Directory (Azure AD) y Azure Multi-Factor Authentication es una característica en vista previa pública de Azure AD. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| El registro de información de seguridad combinado para el autoservicio de restablecimiento de contraseña de Azure Active Directory (Azure AD) y Azure Multi-Factor Authentication es una característica en vista previa pública de Azure AD. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 ## <a name="audit-logs"></a>Registros de auditoría
@@ -35,7 +35,7 @@ Los eventos registrados para un registro combinado están en la categoría de m�
 
 En la siguiente tabla se muestran todos los eventos de auditoría generados por el registro combinado:
 
-| Actividad | Status | Motivo | DESCRIPCIÓN |
+| Actividad | Status | Motivo | Descripción |
 | --- | --- | --- | --- |
 | El usuario registró toda la información de seguridad necesaria | Correcto | El usuario registró toda la información de seguridad necesaria. | Este evento se produce cuando un usuario ha completado correctamente el registro.|
 | El usuario registró toda la información de seguridad necesaria | Error | El usuario canceló el registro de información de seguridad. | Este evento se produce cuando un usuario cancela el registro del modo de interrupción.|
@@ -65,7 +65,7 @@ Cuando un usuario registra un número de teléfono o aplicación móvil en la nu
 
 Si un administrador habilita la versión preliminar, los usuarios se registran mediante la nueva experiencia y, después, el administrador deshabilita la versión preliminar, los usuarios también pueden registrarse para la autenticación multifactor sin saberlo.
 
-Si un usuario que ha completado el registro combinado llega a la página de registro de restablecimiento de autoservicio de restablecimiento de contraseña (SSPR) actual en [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup), se solicitará al usuario que realice la autenticación multifactor para poder obtener acceso a esa página. Este paso es el esperado desde un punto de vista técnico, pero es nuevo para los usuarios que estaban previamente registrados en SSPR únicamente. Aunque este paso adicional mejora la postura de seguridad del usuario al proporcionar otro nivel de seguridad, los administradores pueden querer revertir a sus usuarios para que ya no puedan realizar la autenticación multifactor.  
+Si un usuario que ha completado el registro combinado llega a la página de registro de restablecimiento de autoservicio de restablecimiento de contraseña (SSPR) actual en [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup), se solicitará al usuario que realice la autenticación multifactor para poder obtener acceso a esa página. Este paso es el esperado desde un punto de vista técnico, pero es nuevo para los usuarios que estaban previamente registrados en SSPR únicamente. Aunque este paso adicional mejora la postura de seguridad del usuario al proporcionar otro nivel de seguridad, los administradores pueden querer revertir a sus usuarios para que ya no puedan realizar la autenticación multifactor.  
 
 ### <a name="how-to-roll-back-users"></a>Cómo revertir a los usuarios
 
@@ -73,7 +73,7 @@ Si usted, como un administrador, desea restablecer la configuración de autentic
 
 Los pasos siguientes le ayudarán a revertir a un usuario o grupo de usuarios.
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerrequisitos
 
 1. Instale los módulos de Azure AD PowerShell adecuados. En una ventana de PowerShell, ejecute estos comandos para instalar los módulos:
 
@@ -155,7 +155,7 @@ En una ventana de PowerShell, ejecute el comando siguiente y proporcione el scri
 Para deshabilitar la experiencia de versión preliminar para los usuarios, complete estos pasos:
 
 1. Inicie sesión en Azure Portal como administrador de usuarios.
-2. Vaya a **Azure Active Directory** > **Configuración de usuario** > **Administrar la configuración de las características en vista previa del panel de acceso**.
+2. Vaya a **Azure Active Directory** > **Configuración de usuario** > **Administrar la configuración de las características en vista previa del panel de acceso**.
 3. En **Los usuarios pueden utilizar las características en vista previa para registrar y administrar la información de seguridad**, establezca el selector en **Ninguno** y, a continuación, haga clic en **Guardar**.
 
 Ya no se pedirá a los usuarios que se registren mediante la experiencia de versión preliminar.

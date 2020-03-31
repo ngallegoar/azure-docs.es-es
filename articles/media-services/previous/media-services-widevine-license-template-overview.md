@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: c7511279e66ab598e4ae3c26f053915b7393b39d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978397"
 ---
 # <a name="widevine-license-template-overview"></a>Información general sobre las plantillas de licencias de Widevine 
@@ -59,7 +59,7 @@ Una solicitud de licencia de Widevine tiene el formato de un mensaje JSON.
     }
 
 ## <a name="json-message"></a>Mensaje JSON
-| NOMBRE | Valor | DESCRIPCIÓN |
+| Nombre | Value | Descripción |
 | --- | --- | --- |
 | payload |Cadena codificada en Base64 |La solicitud de licencia enviada por un cliente. |
 | content_id |Cadena codificada en Base64 |Identificador utilizado para derivar el id. de la clave y la clave de contenido de cada elemento content_key_specs.track_type. |
@@ -77,7 +77,7 @@ Si existe una directiva anterior, no es necesario especificar ninguno de los val
 
 Cada valor de content_key_specs debe especificarse en todas las pistas, independientemente de la opción use_policy_overrides_exclusively. 
 
-| NOMBRE | Valor | DESCRIPCIÓN |
+| Nombre | Value | Descripción |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Un nombre de tipo de pista. Si se especifica content_key_specs en la solicitud de licencia, asegúrese de especificar todos los tipos de pista explícitamente. Si no lo hace, se producirán errores en la reproducción transcurridos 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define los requisitos de solidez del cliente para la reproducción. <br/> - Se requiere criptografía de caja blanca basada en software. <br/> - Se requiere criptografía de software y un descodificador de ofuscación. <br/> - Las operaciones de criptografía y material clave deben realizarse en un entorno de ejecución de confianza con respaldo del hardware. <br/> - La criptografía y la descodificación del contenido deben realizarse dentro de un entorno de ejecución de confianza con respaldo del hardware.  <br/> - La criptografía, la descodificación y todo el tratamiento de los medios (comprimidos y descomprimidos) deben administrarse dentro de un entorno de ejecución de confianza con respaldo del hardware. |
@@ -86,11 +86,11 @@ Cada valor de content_key_specs debe especificarse en todas las pistas, independ
 | content_key_specs.key_id |Binario de cadena codificada en Base64, 16 bytes |Identificador único para la clave. |
 
 ## <a name="policy-overrides"></a>Invalidaciones de directivas
-| NOMBRE | Valor | DESCRIPCIÓN |
+| Nombre | Value | Descripción |
 | --- | --- | --- |
-| policy_overrides. can_play |Valor booleano (true o false) |Indica que la reproducción del contenido está permitida. El valor predeterminado es false. |
-| policy_overrides. can_persist |Valor booleano (true o false) |Indica que la licencia puede conservarse en el almacenamiento no volátil para su uso sin conexión. El valor predeterminado es false. |
-| policy_overrides. can_renew |Valor booleano (true o false) |Indica que se permite la renovación de la presente licencia. Si es true, se puede ampliar la duración de la licencia mediante latido. El valor predeterminado es false. |
+| policy_overrides. can_play |Valor booleano (true o false) |Indica que la reproducción del contenido está permitida. El valor predeterminado es False. |
+| policy_overrides. can_persist |Valor booleano (true o false) |Indica que la licencia puede conservarse en el almacenamiento no volátil para su uso sin conexión. El valor predeterminado es False. |
+| policy_overrides. can_renew |Valor booleano (true o false) |Indica que se permite la renovación de la presente licencia. Si es true, se puede ampliar la duración de la licencia mediante latido. El valor predeterminado es False. |
 | policy_overrides. license_duration_seconds |int64 |Indica el período de tiempo para esta licencia específica. Un valor de 0 indica que no hay ningún límite para la duración. El valor predeterminado es 0. |
 | policy_overrides. rental_duration_seconds |int64 |Indica el período de tiempo en el que se permite la reproducción. Un valor de 0 indica que no hay ningún límite para la duración. El valor predeterminado es 0. |
 | policy_overrides. playback_duration_seconds |int64 |El período de tiempo de visualización una vez que la reproducción comienza en el plazo de duración de la licencia. Un valor de 0 indica que no hay ningún límite para la duración. El valor predeterminado es 0. |
@@ -101,7 +101,7 @@ Cada valor de content_key_specs debe especificarse en todas las pistas, independ
 | policy_overrides. renew_with_usage |Valor booleano (true o false) |Indica que la licencia se enviará para renovación cuando se inicie el uso. Este campo solo se usa si can_renew es "true". |
 
 ## <a name="session-initialization"></a>Inicialización de la sesión
-| NOMBRE | Valor | DESCRIPCIÓN |
+| Nombre | Value | Descripción |
 | --- | --- | --- |
 | provider_session_token |Cadena codificada en Base64 |Este token de sesión se pasa de nuevo en la licencia y existirá en renovaciones posteriores. El token de sesión no se conservará una vez agotadas las sesiones. |
 | provider_client_token |Cadena codificada en Base64 |Token de cliente para devolver en la respuesta de licencia. Si la solicitud de licencia contiene un token de cliente, este valor se omite. El token del cliente se conservará una vez agotadas las sesiones de licencia. |
@@ -191,7 +191,7 @@ En el ejemplo siguiente se muestra cómo utilizar las API de .NET para configura
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

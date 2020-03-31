@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 8ffd0fd558cf759fadd912de9dff4acf49d9659f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789093"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Supervisión y administración de Twitter con Azure Logic Apps
@@ -23,9 +23,9 @@ Con Azure Logic Apps y el conector de Twitter, puede crear tareas automatizadas 
 
 Puede usar desencadenadores que obtengan respuestas de su cuenta de Twitter y permitan que la salida esté disponible para otras acciones. Puede usar acciones que realicen tareas con su cuenta de Twitter. También puede hacer que otras acciones usen la salida de las acciones de Twitter. Por ejemplo, cuando aparezca un nuevo tweet con un hashtag específico, puede enviar mensajes con el conector de Slack. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * Las credenciales de usuario y la cuenta de Twitter
 
@@ -58,7 +58,7 @@ Puede usar desencadenadores que obtengan respuestas de su cuenta de Twitter y pe
      Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
      
        En el cuadro de búsqueda, escriba "twitter" como filtro. 
-       En la lista de acciones, seleccione la acción que desee.
+       En la lista de acciones, seleccione la que desee.
 
 1. Si se le solicita que inicie sesión en Twitter, inicie sesión ahora para que pueda autorizar el acceso a la aplicación lógica.
 

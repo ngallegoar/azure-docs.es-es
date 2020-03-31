@@ -4,10 +4,10 @@ description: Este es un índice de las aplicaciones de ejemplo de Service Fabric
 ms.date: 12/03/2018
 ms.topic: conceptual
 ms.openlocfilehash: c944ddc26f2e2d099cf9552acb8287c363d0c768
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75461910"
 ---
 # <a name="find-service-fabric-mesh-samples"></a>Búsqueda de ejemplos de Service Fabric Mesh

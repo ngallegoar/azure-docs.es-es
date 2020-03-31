@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 2b7a9c44a84e3ce15eaec22c8f57bb48f79dae05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464641"
 ---
 # <a name="report-and-check-service-health"></a>Notificación y comprobación del estado del servicio
@@ -25,7 +25,7 @@ Hay tres maneras de informar sobre el estado del servicio:
 
 Este artículo le guiará a través de un ejemplo que informa del estado del código de servicio. El ejemplo también muestra cómo se pueden usar las herramientas que ofrece Service Fabric para comprobar el estado de mantenimiento. Este artículo pretende ser una introducción rápida a las funcionalidades de supervisión del estado de Service Fabric. Para obtener más información, puede leer la serie de artículos detallados sobre el estado, empezando por el vínculo al final de este documento.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Debe tener instalados los siguientes elementos:
 
 * Visual Studio 2015 o Visual Studio 2019
