@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 762353cbc276eb78868c46bbfde4789e792f6d85
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: a924f51fac6d43ae4a4530ac4f61f2e8b1f4e8c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775995"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537064"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Información de rendimiento de consultas en Azure Database for MySQL
 
@@ -19,7 +19,7 @@ ms.locfileid: "74775995"
 
 Query Performance Insight le ayuda a identificar rápidamente cuáles son las consultas que más tardan en ejecutarse, cómo cambian con el tiempo y qué esperas están afectándoles.
 
-## <a name="common-scenarios"></a>Escenarios comunes
+## <a name="common-scenarios"></a>Escenarios frecuentes
 
 ### <a name="long-running-queries"></a>Consultas de larga duración
 
@@ -35,7 +35,7 @@ Query Performance Insight le ayuda a identificar rápidamente cuáles son las co
 
 Se necesitan los permisos **Propietario** o **Colaborador** para ver el texto de las consultas en Query Performance Insight. **Lector** pueden ver las tablas y los gráficos, pero no el texto de consulta.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para que Query Performance Insight funcione, deben existir datos en el [Almacén de consultas](concepts-query-store.md).
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 10/12/2019
-ms.openlocfilehash: 6a25d5197746e04ffa25ee397e6d8451e24ae176
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.date: 03/03/2020
+ms.openlocfilehash: 9f518df02b1923513fd014be53646a9a1be8465e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615003"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232440"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 
@@ -274,7 +274,7 @@ No. El subsistema de almacenamiento administra las copias de seguridad y estas a
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>¿Puedo realizar una restauración geográfica con una base de datos de Hiperescala?
 
-Sí.  La restauración geográfica es totalmente compatible. A diferencia de la restauración a un punto concreto, la restauración geográfica puede requerir una operación de tamaño de datos de larga duración.
+Sí. La restauración geográfica es totalmente compatible. A diferencia de la restauración a un momento dado, la restauración geográfica requiere una operación de tamaño de datos. Los archivos de datos se copian en paralelo, por lo que la duración de esta operación depende sobre todo del tamaño del archivo más grande en la base de datos, en lugar del tamaño total de la base de datos. Los tiempos de la restauración geográfica se reducirán de manera significativa si la base de datos se restaura en la región de Azure que está [emparejada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) con la región de la base de datos de origen.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>¿Puedo configurar la replicación geográfica con la base de datos de Hiperescala?
 

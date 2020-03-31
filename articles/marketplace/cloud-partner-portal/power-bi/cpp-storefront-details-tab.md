@@ -1,19 +1,18 @@
 ---
 title: Detalles del escaparate electrónico de una oferta de la aplicación de Power BI | Azure Marketplace
 description: Configure los campos de detalles del escaparate electrónico para una oferta de la aplicación Power BI para Microsoft AppSource Marketplace.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 309b2eb33c594b5233c547e3bf45a49aa3a25678
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b69ef8aa57393c5be8d23aaf4af1821697295235
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817661"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281687"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico de aplicación de Power BI
 
@@ -28,7 +27,7 @@ En la sección **Detalles de la oferta**, especifique la información general so
 
 En la tabla siguiente se proporciona más información sobre estos campos. Los campos obligatorios se indican con un asterisco (*).  
 
-|   Campo               |   DESCRIPCIÓN                                                                           |
+|   Campo               |   Descripción                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
 | **Resumen de la oferta\***     | Propósito breve de la aplicación, con hasta 100 caracteres.                             |
 | **Descripción de la oferta\*** | Descripción de la aplicación, con hasta 3000 caracteres. Este campo admite el formato HTML simple. |
@@ -43,7 +42,7 @@ En la sección **Detalles del anuncio** se recopila información sobre el contex
 
 Para completar los campos de esta sección, use la siguiente tabla.  Los campos obligatorios se indican con un asterisco (*).
  
-|   Campo                                  |   DESCRIPCIÓN                                                        |
+|   Campo                                  |   Descripción                                                        |
 | --------------                           | ---------------------                                                |
 | **Industrias**                           | Seleccione el sector dónde encaja mejor la aplicación. Si la aplicación está relacionada con varios sectores, puede dejar este campo en blanco.      |
 | **Categorías\***                           | Seleccione hasta tres categorías que se relacionen con la aplicación.     |
@@ -61,7 +60,7 @@ En la sección **Marketing Artifacts** (Artefactos de marketing), cargue los mat
 
 Para completar los campos de esta sección, use la siguiente tabla. Los campos obligatorios se indican con un asterisco (*).
  
-|    Campo                             |    DESCRIPCIÓN                                                    |
+|    Campo                             |    Descripción                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logotipos*                              |                                                                   |
 | **Logotipo de la oferta (formato .png, 48×48)\***   | Cargue un logotipo para mostrar en la información general de la aplicación o en los resultados de la búsqueda de la aplicación. AppSource solo es compatible con el formato PNG, con una resolución de 48×48 px.  |
@@ -78,7 +77,7 @@ Para completar los campos de esta sección, use la siguiente tabla. Los campos o
 | **Imagen**                            | Cargue una captura de pantalla PNG. Su resolución debe ser de 1280×720 px.  | 
 |   |   |
 
-Los logotipos que carga en [Cloud Partner Portal](https://cloudpartner.azure.com) *no* deben:
+Los logotipos que carga en [Cloud Partner Portal](https://cloudpartner.azure.com)*no* deben:
 
 - Usar un degradado. La apariencia del logotipo debe ser homogénea.
 - Incluir el nombre de su compañía, el nombre de la marca ni otro texto. 
@@ -92,7 +91,7 @@ En la sección **Legal** encontrará dos documentos legales necesarios para cada
 
 Para completar los campos de esta sección, use la siguiente tabla:
 
-|   Campo                |   DESCRIPCIÓN                           |
+|   Campo                |   Descripción                           |
 |------------------------|--------------------------------------   |
 | **Dirección URL de la directiva de privacidad\*** | Dirección URL de la directiva de privacidad publicada.       |
 | **Términos de uso\***       | La directiva de uso, con formato de texto sin formato o HTML simple.     |
@@ -110,7 +109,7 @@ En la sección **Administración de clientes potenciales**, configure el sistema
 
 |    Campo               |   Destino de clientes potenciales                               |
 |------------------------|--------------------------------------            |
-|  **None**              | No recopila ningún cliente potencial. Esta es la opción predeterminada.  |
+|  **None**              | No recopila ningún cliente potencial. Ésta es la opción predeterminada.  |
 | **Azure Blob (en desuso)** | Especifique una instancia de [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) con un nombre de contenedor y una cadena de conexión.  Esta opción está en desuso. Use **Tabla de Azure** en su lugar.  |
 | **Tabla de Azure**        | Especifique [Almacenamiento de tablas de Azure](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) con una cadena de conexión.  |
 | **Dynamics CRM Online** | Especifique [Dynamics 365](https://dynamics.microsoft.com/) con una dirección URL y credenciales de autenticación. |

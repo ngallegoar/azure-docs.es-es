@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: de6953b6648613595bc9975b17941b3a453a6d60
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185981"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Procedimientos recomendados para crear evaluaciones
 
-[Azure Migrate](migrate-overview.md) proporciona un centro de herramientas que le ayuda a detectar y evaluar las aplicaciones, la infraestructura y las cargas de trabajo en Microsoft Azure, así como a migrarlas. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
+[Azure Migrate](migrate-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros.
 
 En este artículo se resumen los procedimientos recomendados para crear evaluaciones mediante la herramienta Azure Migrate Server Assessment.
 
@@ -23,7 +23,7 @@ En este artículo se resumen los procedimientos recomendados para crear evaluaci
 
 Las evaluaciones que crea con Azure Migrate Server Assessment son una instantánea de datos de un momento dado. En Azure Migrate, existen dos tipos de evaluaciones.
 
-**Tipo de evaluación** | **Detalles** | **Datos**
+**Tipo de evaluación** | **Detalles** | **Data**
 --- | --- | ---
 **Basada en el rendimiento** | Evaluaciones que realizan recomendaciones basadas en datos de rendimiento recopilados | La recomendación del tamaño de VM se basa en los datos de uso de la CPU y la memoria.<br/><br/> La recomendación de tipo de disco (SSD/disco duro estándar o discos administrados prémium) se basa en el IOPS y el rendimiento de los discos locales.
 **Tal cual en el entorno local** | Evaluaciones que no usan datos de rendimiento para hacer recomendaciones. | La recomendación de tamaño de la máquina virtual se basa en el tamaño de la máquina virtual local.<br/><br> El tipo de disco recomendado se basa en lo que selecciona en la configuración de tipo de almacenamiento para la evaluación.

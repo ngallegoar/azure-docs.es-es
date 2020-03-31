@@ -1,26 +1,20 @@
 ---
 title: archivo de inclusión
 description: archivo de inclusión
-services: commercial marketplace
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
-manager: evansma
-editor: ''
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 10/09/2019
-ms.author: v-qiwe
+ms.author: dsindona
 ms.custom: include file
-ms.openlocfilehash: b8fae52224d601fabce1470d9886512aa5acfd4c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f79b25c98ae2e764f607fc5a12bc311ed0edacae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825560"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286190"
 ---
 Conecte directamente con los clientes mediante el anuncio de la oferta en los catálogos de soluciones y el enlace de su sistema de Administración de relaciones con los clientes (CRM) para que pueda recibir información de contacto de cualquier cliente en cuanto este exprese interés por su producto o lo implemente.
 

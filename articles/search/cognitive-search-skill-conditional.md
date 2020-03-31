@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792042"
 ---
 # <a name="conditional-cognitive-skill"></a>Aptitud cognitiva condicional
@@ -85,9 +85,9 @@ Dado que la aptitud condicional admite la evaluación, puede usarla en escenario
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 Las entradas distinguen mayúsculas de minúsculas.
 
-| Entrada   | DESCRIPCIÓN |
+| Entrada   | Descripción |
 |-------------|-------------|
-| condition   | Esta entrada es un [campo evaluado](#evaluated-fields) que representa la condición que se va a evaluar. Esta condición debe evaluarse con un valor booleano (*true* o *false*).   <br/>  Ejemplos: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| condición   | Esta entrada es un [campo evaluado](#evaluated-fields) que representa la condición que se va a evaluar. Esta condición debe evaluarse con un valor booleano (*true* o *false*).   <br/>  Ejemplos: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
 | whenTrue    | Esta entrada es un [campo evaluado](#evaluated-fields) que representa el valor que se devolverá si la condición se evalúa en *true*. Las cadenas de constantes deben devolverse entre comillas simples (' y '). <br/>Valores de ejemplo: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
 | whenFalse   | Esta entrada es un [campo evaluado](#evaluated-fields) que representa el valor que se devolverá si la condición se evalúa en *false*. <br/>Valores de ejemplo: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 

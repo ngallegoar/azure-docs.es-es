@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
 ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70279435"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Evaluación de grandes cantidades de máquinas virtuales de Hyper-V para la migración a Azure
@@ -21,7 +21,7 @@ En este artículo se describe cómo evaluar grandes cantidades de máquinas virt
 [Azure Migrate](migrate-services-overview.md) proporciona un centro de herramientas que le ayuda a detecta las aplicaciones, la infraestructura y las cargas de trabajo, a evaluarlas y a migrarlas a Microsoft Azure. Este centro incluye herramientas de Azure Migrate y ofertas de fabricantes de software independientes (ISV) de terceros. 
 
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 > [!div class="checklist"]
 > * Planificar la evaluación a escala.
 > * Configurar los permisos de Azure y preparar Hyper-V para la evaluación.
@@ -37,7 +37,7 @@ En este artículo, aprenderá a:
 Al planear la evaluación de un gran número de máquinas virtuales de Hyper-V, hay un par de cosas que hay que tener en cuenta:
 
 - **Planeación de proyectos de Azure Migrate**: Averigüe cómo implementar proyectos de Azure Migrate. Por ejemplo, si los centros de datos están en zonas geográficas diferentes, o si necesita almacenar metadatos relacionados con la detección, la evaluación o la migración en una zona geográfica diferente, es posible que necesite varios proyectos.
-- **Planear dispositivos**: Azure Migrate usa un dispositivo de Azure Migrate local, implementado como una máquina virtual de Hyper-V, para detectar continuamente máquinas virtuales para la evaluación y migración. El dispositivo supervisa los cambios de entorno, como la incorporación de máquinas virtuales, discos o adaptadores de red. También envía metadatos y datos de rendimiento acerca de ellos a Azure. Debe averiguar el número de dispositivos que se van a implementar.
+- **Planear dispositivos**: Azure Migrate usa un dispositivo de Azure Migrate local, implementado como una máquina virtual de Hyper-V, para detectar continuamente máquinas virtuales para la evaluación y migración. El dispositivo supervisa los cambios de entorno, como la incorporación de VM, discos o adaptadores de red. También envía metadatos y datos de rendimiento acerca de ellos a Azure. Debe averiguar el número de dispositivos que se van a implementar.
 
 
 ## <a name="planning-limits"></a>Límites de planeación
@@ -93,6 +93,6 @@ En este artículo:
 > * Planeó escalar evaluaciones de Azure Migrate para máquinas virtuales de Hyper-V
 > * Preparó Azure e Hyper-V para la evaluación
 > * Creó un proyecto de Azure Migrate y ejecutó las evaluaciones
-> * Revisó las evaluaciones en preparación para la migración.
+> * Revisó las evaluaciones como preparación para la migración.
 
 Ahora, [obtenga información](concepts-assessment-calculation.md) sobre cómo se calculan las evaluaciones y cómo [modificar estas](how-to-modify-assessment.md)

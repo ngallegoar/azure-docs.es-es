@@ -1,20 +1,18 @@
 ---
 title: Habilitar una descripción de Microsoft AppSource y Azure Marketplace mediante Azure Active Directory | Azure
 description: Habilite un tipo de aplicación mediante Azure Active Directory en Azure Marketplace y AppSource para los anunciantes de aplicaciones y servicios.
-services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pabutler
-ms.openlocfilehash: 9423263270313659017b16a5e34511e7ef385af5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 45855038e60dcdc3be4f98cfdceed69df5e8c946
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825889"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286326"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Habilitar una descripción de AppSource y Marketplace mediante Azure Active Directory
 
@@ -36,12 +34,12 @@ Las distintas [opciones de aplicaciones y tipos de ofertas](https://docs.microso
 | **Tipo de oferta**    | **¿Se requiere el SSO de Azure AD?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Ponerse en contacto conmigo | Versión de prueba | Versión de prueba | Transacción |
-| Máquina virtual | N/D | Sin | No | Sin |
+| Máquina virtual | N/D | No | No | No |
 | Azure Apps (plantilla de solución)  | N/D | N/D | N/D | N/D |
-| Aplicaciones administradas  | N/D | N/D | N/D | Sin |
-| SaaS  | Sin | Sí | Sí | Sí |
-| Contenedores  | N/D | N/D | N/D | Sin |
-| Servicios de consultoría  | Sin | N/D | N/D | N/D |
+| Aplicaciones administradas  | N/D | N/D | N/D | No |
+| SaaS  | No | Sí | Sí | Sí |
+| Contenedores  | N/D | N/D | N/D | No |
+| Servicios de consultoría  | No | N/D | N/D | N/D |
 
 Para obtener más información acerca de los requisitos técnicos de SaaS, consulte la [Guía de publicación de ofertas de aplicaciones de SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 

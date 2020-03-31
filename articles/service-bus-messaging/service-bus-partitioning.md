@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/06/2020
 ms.author: aschhab
-ms.openlocfilehash: 699581c7ccd3f36da0cd0c1def623607b7c0a13b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 671368993acb43c0d55eca73119effa934e3cff8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589671"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230076"
 ---
 # <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
@@ -25,7 +25,7 @@ Azure Service Bus emplea varios agentes de mensajes para procesar mensajes y var
  
 No es posible cambiar la opción de particionamiento en una cola o tema existentes; solo puede establecer la opción cuando se crea la entidad.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Cada cola o tema con particiones consta de varias particiones. Cada partición se almacena en un almacén de mensajería diferente y la controla un agente de mensajes diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a una de las particiones. La selección se realiza de forma aleatoria mediante Service Bus o una clave de partición que el remitente puede especificar.
 
@@ -39,11 +39,11 @@ Para usar colas o temas con particiones con Azure Service Bus, use la versión 2
 
 ### <a name="standard"></a>Estándar
 
-En el nivel de mensajería Estándar, puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, Service Bus crea 16 copias (16 particiones) de la entidad, cada una del mismo tamaño especificado. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones, el tamaño de cola máximo se convierte en (5 \* 16) = 80 GB. Puede ver el tamaño máximo de la cola o tema con particiones examinando su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
+En el nivel de mensajería Estándar, puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4 o 5 GB (el valor predeterminado es 1 GB). Con las particiones habilitadas, Service Bus crea 16 copias (16 particiones) de la entidad, cada una del mismo tamaño especificado. Por lo tanto, si crea una cola con un tamaño de 5 GB, con 16 particiones, el tamaño de cola máximo se convierte en (5 \* 16) = 80 GB. Para ver el tamaño máximo de la cola o el tema con particiones, puede examinar su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
 
 ### <a name="premium"></a>Premium
 
-En un espacio de nombres de nivel Premium no se admiten entidades de creación de particiones. Aunque puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4, 5, 10, 20, 40 u 80 GB (el valor predeterminado es 1 GB). Para ver el tamaño de la cola o tema, puede examinar su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
+En un espacio de nombres de nivel Premium no se admiten entidades de creación de particiones. Aunque puede crear colas y temas de Service Bus en tamaños de 1, 2, 3, 4, 5, 10, 20, 40 u 80 GB (el valor predeterminado es 1 GB). Para ver el tamaño de la cola o el tema, puede examinar su entrada en [Azure Portal][Azure portal], en la hoja **Información general** de esa entidad.
 
 ### <a name="create-a-partitioned-entity"></a>Creación de una entidad particionada
 
@@ -57,7 +57,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-También puede crear una cola o tema con particiones en [Azure Portal][Azure portal]. Al crear una cola o tema en el portal, la opción **Habilitar partición** de la cola o tema, se activa el cuadro de diálogo**Crear** de forma predeterminada. Solo puede deshabilitar esta opción en una entidad de nivel Estándar; en el nivel Premium, la creación de particiones está siempre habilitada, y la casilla no tiene ningún efecto. 
+También puede crear una cola o un tema con particiones en [Azure Portal][Azure portal]. Al crear una cola o tema en el portal, la opción **Habilitar partición** de la cola o tema, se activa el cuadro de diálogo**Crear** de forma predeterminada. Solo puede deshabilitar esta opción en una entidad de nivel Estándar; en el nivel Premium, la creación de particiones está siempre habilitada, y la casilla no tiene ningún efecto. 
 
 ## <a name="use-of-partition-keys"></a>Uso de claves de partición
 
@@ -128,7 +128,7 @@ Service Bus de Azure admite el reenvío automático de mensajes desde entidades 
 ## <a name="considerations-and-guidelines"></a>Consideraciones e instrucciones
 * **Características de alta coherencia**: si una entidad utiliza características como sesiones, detección de duplicados o control explícito de la clave de creación de particiones, las operaciones de mensajería se enrutarán siempre a particiones específicas. Si cualquiera de estas particiones experimenta un tráfico elevado o el almacén subyacente es incorrecto, se producirá un error en las operaciones y se reducirá la disponibilidad. En general, la coherencia es todavía mucho mayor que en las entidades sin particiones ya que solo un subconjunto del tráfico tiene problemas, en lugar de todo el tráfico. Para obtener más información, consulte este [análisis sobre la disponibilidad y la coherencia](../event-hubs/event-hubs-availability-and-consistency.md).
 * **Administración**: las operaciones Create, Update y Delete se deben realizar en todas las particiones de la entidad. Si alguna partición es incorrecta, podría provocar errores en estas operaciones. Para la operación Get, la información, como el número de mensajes, se debe agregar desde todas las particiones. Si alguna partición es incorrecta, se notifica el estado de disponibilidad de la entidad como limitado.
-* **Escenarios de bajo volumen de mensajes**: para tales escenarios, especialmente cuando se usa el protocolo HTTP, tendrá que realizar varias operaciones de recepción con el fin de obtener todos los mensajes. Para las solicitudes de recepción, el equipo front-end realiza una operación de recepción en todos las particiones y almacena en caché todas las respuestas recibidas. Una solicitud de recepción posterior en la misma conexión se beneficiaría de este almacenamiento en caché y las latencias de recepción serían menores. Sin embargo, si tiene varias conexiones o utiliza el protocolo HTTP, se establecerá una conexión nueva para cada solicitud. Por lo tanto, no hay ninguna garantía de que llegará al mismo nodo. Si todos los mensajes existentes están bloqueados y almacenados en caché en otro equipo front-end, la operación de recepción devolverá un valor **null**. Finalmente, los mensajes caducan y podrá volver a recibirlos. Se recomienda mantener la conexión HTTP.
+* **Escenarios de bajo volumen de mensajes**: para tales escenarios, especialmente cuando se usa el protocolo HTTP, tendrá que realizar varias operaciones de recepción con el fin de obtener todos los mensajes. Para las solicitudes de recepción, el equipo front-end realiza una operación de recepción en todos las particiones y almacena en caché todas las respuestas recibidas. Una solicitud de recepción posterior en la misma conexión se beneficiaría de este almacenamiento en caché y las latencias de recepción serían menores. Sin embargo, si tiene varias conexiones o utiliza el protocolo HTTP, se establecerá una conexión nueva para cada solicitud. Por lo tanto, no hay ninguna garantía de que llegará al mismo nodo. Si todos los mensajes existentes están bloqueados y almacenados en caché en otro equipo front-end, la operación de recepción devolverá un valor **null**. Finalmente, los mensajes caducan y podrá volver a recibirlos. Se recomienda mantener la conexión HTTP. Cuando se usa la creación de particiones en escenarios de bajo volumen, las operaciones de recepción pueden tardar más de lo esperado. Por lo tanto, se recomienda no usar la creación de particiones en estos escenarios. Elimine las entidades con particiones existentes y vuelva a crearlas con la creación de particiones deshabilitada para mejorar el rendimiento.
 * **Examinar o buscar mensajes**: disponible únicamente en la antigua biblioteca [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) no siempre devuelve el número de mensajes especificado en la propiedad [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount). Este comportamiento tiene dos motivos habituales. Uno de ellos es que el tamaño agregado de la colección de mensajes supera el tamaño máximo de 256 KB. El otro es que si la cola o tema tiene la [propiedad EnablePartitioning](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) establecida en **true**, puede que una partición no tenga suficientes mensajes para completar el número solicitado de mensajes. En general, si una aplicación desea recibir un número específico de mensajes, debe llamar a [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) repetidamente hasta que obtenga ese número de mensajes o no habrá más mensajes para inspeccionar. Para obtener más información, incluidos algunos ejemplos de código, consulte la documentación de la API [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) o [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch).
 
 ## <a name="latest-added-features"></a>Características agregadas más recientes
@@ -143,7 +143,7 @@ En su implementación actual, Service Bus impone las siguientes limitaciones en 
 
 * Los temas y las colas con particiones no se admiten en el nivel de mensajería Premium. Se admiten las sesiones en el nivel premier mediante el uso de SessionId. 
 * Las colas y los temas con particiones no admiten el envío de mensajes que pertenecen a sesiones diferentes en una sola transacción.
-* Actualmente, Service Bus permite hasta 100 colas o temas particionados por espacio de nombres. Cada cola o tema con particiones se tiene en cuenta para la cuota de 10.000 entidades por espacio de nombres (no se aplica al nivel Premium).
+* Actualmente Service Bus permite hasta 100 colas o temas particionados por espacio de nombres. Cada cola o tema con particiones se tiene en cuenta para la cuota de 10.000 entidades por espacio de nombres (no se aplica al nivel Premium).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

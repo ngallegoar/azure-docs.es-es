@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846285"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236856"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
@@ -77,7 +77,7 @@ Para determinar si su servicio tiene límites de documento, use la [API de REST 
 Si el portal indica un límite de documentos, el servicio se creó antes de finales de 2017 o en un centro de datos mediante clústeres de menor capacidad para hospedar servicios de Azure Cognitive Search:
 
 + Este de Australia
-+ Asia oriental
++ Este de Asia
 + Centro de la India
 + Japón Occidental
 + Centro-Oeste de EE. UU.

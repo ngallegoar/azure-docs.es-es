@@ -1,19 +1,18 @@
 ---
 title: Panel Cliente de los análisis de Marketplace comercial del Centro de partners
 description: Obtenga detalles sobre cómo acceder a la información de los clientes, incluidas las tendencias de crecimiento, mediante el panel Cliente de los análisis de Marketplace comercial.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: f2eaaf2ec2f3dad1da345d0cfeadf1cae223a592
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 7fe56a81bc82f9d49cf9f81b30986882b6d13cfe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264023"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286122"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Panel Cliente de los análisis de Marketplace comercial
 

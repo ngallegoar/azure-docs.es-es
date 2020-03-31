@@ -1,19 +1,18 @@
 ---
 title: P+F de Marketplace comercial de Microsoft
 description: Respuestas a preguntas habituales sobre Azure Marketplace y AppSource
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/4/2019
-ms.author: ellacroi
-ms.openlocfilehash: 6a7a0d5bdd07221be823f8b94bd581db6d966fa8
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.author: dsindona
+ms.openlocfilehash: ae5c691375d52bc7da7a877f5b2e0c2ca52cc87e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306405"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288468"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>P+F de Marketplace comercial de Microsoft
 
@@ -365,7 +364,7 @@ Para más información, consulte la sección sobre la [eliminación de una ofert
 *Web Apps (aplicaciones de SaaS, complementos) y servicios de consultoría:*
 
 1. en el Centro de partners, seleccione el icono de signo de interrogación y, a continuación, haga clic en **Soporte técnico**.
-1. Vaya a <https://go.microsoft.com/fwlink/?linkid=844975>.
+1. Ir a <https://go.microsoft.com/fwlink/?linkid=844975>.
 1. En la página de soporte técnico, seleccione el tipo de oferta.
 1. Seleccione **Remove** (Quitar) una oferta publicada.
 1. Cree un incidente de soporte técnico.

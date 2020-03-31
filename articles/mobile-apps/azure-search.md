@@ -1,18 +1,18 @@
 ---
 title: Servicio de búsqueda en la nube basado en inteligencia artificial para el desarrollo de aplicaciones móviles con Azure Cognitive Search
 description: Aprenda a usar el servicio de búsqueda en la nube basado en inteligencia artificial para el desarrollo de aplicaciones móviles.
-author: elamalani
+author: codemillmatt
 ms.assetid: 34a8a070-0123-8982-8345-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: d7f7c232723493af6b39fe51502e8751641ce735
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 48703001317533981f360baacb330b6878a3857e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454503"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240993"
 ---
 # <a name="ai-powered-cloud-service-with-azure-cognitive-search"></a>Servicio en la nube con tecnología de inteligencia artificial con Azure Cognitive Search
 [Azure Cognitive Search](https://azure.microsoft.com/services/search/) es una solución en la nube de búsqueda como servicio que proporciona a los desarrolladores las API y las herramientas necesarias para agregar una completa experiencia de búsqueda de datos a través de contenido privado y heterogéneo en aplicaciones web, móviles y empresariales. El código personalizado invoca la ingesta de datos (indexación) para crear y cargar un índice. Por otra parte, el código de aplicación genera solicitudes de consulta y controla las respuestas. La experiencia de búsqueda se define en el cliente mediante el uso de funciones de Azure Cognitive Search, con la ejecución de consultas en un índice persistente que crea, es de su propiedad y almacena en el servicio.

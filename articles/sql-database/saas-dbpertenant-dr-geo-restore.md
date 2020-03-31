@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
 ms.openlocfilehash: 270fc157fa14efa19ed30d35b614fb769804b72e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73826469"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Uso de la restauración geográfica para recuperar una aplicación SaaS multiinquilino a partir de copias de seguridad de base de datos
@@ -71,12 +71,12 @@ En este tutorial se usan características de Azure SQL Database y la plataforma 
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obtención de los scripts de recuperación ante desastres
 
-Los scripts de recuperación ante desastres de este tutorial están disponibles en el [repositorio de GitHub SaaS Wingtip Tickets, con una base de datos por inquilino](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts de administración de Wingtip Tickets.
+Los scripts de recuperación ante desastres de este tutorial están disponibles en el [repositorio de GitHub SaaS Wingtip Tickets, con una base de datos por inquilino](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consulte en las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) los pasos para descargar y desbloquear los scripts de administración de Wingtip Tickets.
 
 > [!IMPORTANT]
 > Al igual que todos los scripts de administración de Wingtip vales, los scripts de recuperación ante desastres tienen una calidad de muestra y no para usarse en producción.
 
-## <a name="review-the-healthy-state-of-the-application"></a>Revisión del estado correcto de la aplicación
+## <a name="review-the-healthy-state-of-the-application"></a>Revisión del estado de mantenimiento de la aplicación
 Antes de comenzar el proceso de recuperación, revise el estado de mantenimiento normal de la aplicación.
 
 1. En el explorador web, abra el centro de eventos de Wingtip Tickets: http://events.wingtip-dpt.&lt ;usuario&gt;.trafficmanager.net (sustituya &lt; usuario&gt; por el valor del usuario de la implementación).
@@ -188,7 +188,7 @@ Suponga que hay una interrupción en la región en la que la aplicación se impl
 > [!NOTE]
 > Para explorar el código para los trabajos de recuperación, revise los scripts de PowerShell en la carpeta ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\RecoveryJobs.
 
-## <a name="review-the-application-state-during-recovery"></a>Revisión del estado de aplicación durante la recuperación
+## <a name="review-the-application-state-during-recovery"></a>Revisión del estado de la aplicación durante la recuperación
 Mientras que el punto de conexión de la aplicación esté deshabilitado en Traffic Manager, la aplicación no está disponible. El catálogo se restaura y todos los inquilinos se marcan como sin conexión. A continuación, se habilita el punto de conexión de la aplicación en la región de recuperación y la aplicación vuelve a estar en línea. Aunque la aplicación esté disponible, los inquilinos aparecen sin conexión en el centro de eventos hasta que sus bases de datos se restauran. Es importante diseñar la aplicación para controlar las bases de datos de inquilino sin conexión.
 
 * Después de recuperar la base de datos de catálogo pero antes de que los inquilinos vuelvan a estar en línea, actualice el centro de eventos de Wingtip Tickets en el explorador web.
@@ -272,7 +272,7 @@ En este punto del tutorial, ha recuperado la aplicación, que ahora se está eje
 > [!NOTE]
 > Otros tutoriales del ejemplo no están diseñados para ejecutarse con la aplicación en el estado de recuperación. Si desea explorar otros tutoriales, asegúrese de repatriar primero la aplicación.
 
-## <a name="repatriation-process-overview"></a>Información general del proceso de repatriación
+## <a name="repatriation-process-overview"></a>Introducción al proceso de repatriación
 
 El proceso de repatriación revierte la aplicación y sus bases de datos a su región original después de que se resuelva una interrupción.
 
@@ -364,7 +364,7 @@ Las bases de datos de inquilinos pueden distribuirse entre regiones de recuperac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 > [!div class="checklist"]
 > 
 > * Usar el catálogo de inquilino para mantener actualizada la información de configuración periódicamente, lo que permite crear un entorno de recuperación de imagen reflejada en otra región

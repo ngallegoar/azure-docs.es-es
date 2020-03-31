@@ -1,19 +1,18 @@
 ---
 title: Tabla de Azure | Azure Marketplace
 description: Configure la administración de clientes potenciales para Azure Table.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.author: evansma
-ms.openlocfilehash: 9b24e6eb714c531b49ba08591bf4ed33d0f10101
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: f511a60b533d6d1e0b1ae8847d0ee0fb6be3500c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812335"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288842"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Configuración de la administración de clientes potenciales mediante una tabla de Azure
 
@@ -146,7 +145,7 @@ En los pasos siguientes, va a configurar la acción que se realizará según el 
 19. En la ventana **Office 365 Outlook**, proporcione la información para los campos siguientes:
 
     1. **Para**: escriba una dirección de correo electrónico para todos los usuarios que reciban esta notificación.
-    1. **Asunto**: proporcione un asunto para el correo electrónico. Por ejemplo:  Nuevos clientes potenciales.
+    1. **Asunto**: proporcione un asunto para el correo electrónico. Por ejemplo: Nuevos clientes potenciales.
     1. **Cuerpo**: Agregue el texto que quiera incluir en cada correo electrónico (opcional) y, luego, pegue en el cuerpo `body('Get_entities')?['value']`.
 
     >[!Note]

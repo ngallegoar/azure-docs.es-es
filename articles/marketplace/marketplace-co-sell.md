@@ -1,19 +1,18 @@
 ---
 title: Participación de asociados de venta conjunta | Azure Marketplace
 description: El programa de venta conjunta de Microsoft para asociados puede ayudarle a llegar a una gran base de clientes y generar nuevas ventas.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 389e6f512f05c7bd1a6e9963e60afbcf27067fb3
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 00ddfa9e7cc6805c39e149d9c7c9a163297c6c71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934676"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279851"
 ---
 # <a name="co-sell-partner-engagement"></a>Participación de asociados de venta conjunta
 

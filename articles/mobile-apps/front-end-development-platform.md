@@ -1,19 +1,18 @@
 ---
 title: Elección de la plataforma de desarrollo de front-end para compilar las aplicaciones cliente con Visual Studio y servicios de Azure
 description: Conozca los lenguajes nativos y multiplataforma admitidos para compilar aplicaciones cliente.
-author: elamalani
-manager: elamalani
+author: codemillmatt
 ms.service: vs-appcenter
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: c55c9c36d84c8545f4192e1c9a65d8af0c580396
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 714916c755ce50f6e596cee4be85ceb0b142c789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453150"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240856"
 ---
 # <a name="choose-mobile-development-frameworks"></a>Elección de marcos de desarrollo para aplicaciones móviles
 Los desarrolladores pueden usar las tecnologías del lado cliente para compilar por su cuenta las aplicaciones móviles, con marcos y patrones específicos para un enfoque multiplataforma. En función de sus factores de decisión, los desarrolladores pueden crear:

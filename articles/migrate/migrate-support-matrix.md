@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad para Azure Migrate
 description: Proporciona un resumen de limitaciones y configuraciones de compatibilidad para el servicio Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 03/22/2020
 ms.author: raynew
-ms.openlocfilehash: 5c3adecf62f9bd15c820baf116dbc01e5d3542fa
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: bf719f9179384ec3dca99d2429f569ef209b5daa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77014018"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127713"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de compatibilidad para Azure Migrate
 
@@ -55,7 +55,7 @@ Migración de servidores de Azure Migrate | N/D | Migrar [máquinas virtuales de
 Subscription | Puede tener varios proyectos de Azure Migrate en una suscripción.
 Permisos de Azure | Necesita permisos de colaborador o propietario en la suscripción para crear un proyecto de Azure Migrate.
 Máquinas virtuales de VMware  | Evalúe hasta 35 000 máquinas virtuales de VMware en un único proyecto.
-Máquinas virtuales de Hyper-V | Evalúe hasta 35 000 máquinas virtuales de Hyper-V en un único proyecto.
+Máquinas virtuales de Hyper-V    | Evalúe hasta 35 000 máquinas virtuales de Hyper-V en un único proyecto.
 
 Un proyecto puede incluir máquinas virtuales de VMware y máquinas virtuales de Hyper-V, hasta los límites de evaluación.
 
@@ -76,13 +76,13 @@ Puede crear un proyecto de Azure Migrate en varias zonas geográficas. Aunque so
 **Geografía** | **Ubicación de almacenamiento de metadatos**
 --- | ---
 Azure Government | US Gov - Virginia
-Asia Pacífico | Asia Oriental o Sudeste Asiático
+Asia Pacífico | Este de Asia o Sudeste de Asia
 Australia | Este de Australia o Sudeste de Australia
 Brasil | Sur de Brasil
 Canadá | Centro de Canadá o Este de Canadá
 Europa | Norte de Europa y Oeste de Europa
 Francia | Centro de Francia
-India | Centro de la India o India del Sur
+India | Centro de la India o Sur de la India
 Japón |  Japón Oriental u Japón Occidental
 Corea | Centro de Corea del Sur o Sur de Corea del Sur
 Reino Unido | Sur de Reino Unido u Oeste de Reino Unido
@@ -108,7 +108,7 @@ Estados Unidos | Centro de EE. UU. u Oeste de EE. UU. 2
 
 Existen dos versiones del servicio Azure Migrate:
 
-- **Versión actual**: use esta versión para crear nuevos proyectos de Azure Migrate, detectar evaluaciones locales y organizar valoraciones y migraciones. [Más información](whats-new.md#release-version-july-2019).
+- **Versión actual**: use esta versión para crear nuevos proyectos de Azure Migrate, detectar evaluaciones locales y organizar valoraciones y migraciones. [Más información](whats-new.md).
 - **Versión anterior**: para clientes que usaban la versión anterior de Azure Migrate (solo se admitía la evaluación de VM de VMware locales), ahora debería usar la versión actual. En la versión anterior, no puede crear nuevos proyectos de Azure Migrate ni realizar nuevas detecciones.
 
 ## <a name="next-steps"></a>Pasos siguientes

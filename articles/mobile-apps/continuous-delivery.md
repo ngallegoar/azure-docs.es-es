@@ -1,18 +1,18 @@
 ---
 title: Automatización de la implementación y el lanzamiento de las aplicaciones móviles con Visual Studio App Center y servicios de Azure
 description: Conozca los servicios de App Center que ayudan a configurar la canalización de entrega continua de sus aplicaciones móviles.
-author: elamalani
+author: codemillmatt
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 6a8c8d9fc535d973c70eb2e477051dbd1dd1f6fb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: ccfd0fc0450a6fbd34192dce7e375fe2de7f47c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454469"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235350"
 ---
 # <a name="automate-the-deployment-and-release-of-your-mobile-applications-with-continuous-delivery-services"></a>Automatización de la implementación y el lanzamiento de las aplicaciones móviles con servicios de entrega continua
 
@@ -50,7 +50,7 @@ Use los servicios siguientes para habilitar la canalización de entrega continua
 **Características principales**
 - **Experiencia simplificada basada en tareas para configurar un servidor de CI:** configure un servidor de CI para aplicaciones móviles nativas (Android, iOS y Windows) y multiplataforma (Xamarin, Cordova y React Native).
 - **Cualquier lenguaje, plataforma y nube:** compile, pruebe e implemente aplicaciones de Node.js, Python, Java, PHP, Ruby, Go, C/C++, C#, iOS y Android. Trabaje en paralelo en Linux, macOS y Windows. Implemente en proveedores de nube como Azure, AWS y Google Cloud Platform. Distribuya aplicaciones móviles a través de canales beta y tiendas de aplicaciones.
-- **Compatibilidad nativa con contenedores:** cree contenedores con facilidad e insértelos en cualquier registro. Implemente contenedores en hosts independientes o en Kubernetes.
+- **Compatibilidad nativa con contenedores:** cree nuevos contenedores con facilidad e insértelos en cualquier registro. Implemente contenedores en hosts independientes o en Kubernetes.
 - **Características y flujos de trabajo avanzados:** cree fácilmente cadenas de compilación y compilaciones en fases. Obtenga compatibilidad con YAML, integración de pruebas, validación de versiones, informes, etc.
 - **Extensible:** use diversas tareas de compilación, prueba e implementación creadas por la comunidad, lo que incluye cientos de extensiones de Slack a SonarCloud. Incluso se pueden implementar soluciones de otros sistemas de CI, como Jenkins. Los webhooks y las API REST pueden contribuir a la integración.
 - **Compilaciones gratuitas hospedadas en la nube:** estas compilaciones están disponibles para repositorios públicos y privados.

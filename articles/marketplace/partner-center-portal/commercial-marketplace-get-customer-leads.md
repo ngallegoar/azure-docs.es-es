@@ -1,19 +1,18 @@
 ---
 title: Configurar clientes potenciales | Azure Marketplace
 description: Configure clientes potenciales en Marketplace comercial.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: evansma
-ms.openlocfilehash: 7ead8dee12d4376e6e1058b84a25b91c021a937c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ce576d9825819770486197a6c39425adf6ac3208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812640"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275907"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Clientes potenciales a partir de la oferta de Marketplace
 

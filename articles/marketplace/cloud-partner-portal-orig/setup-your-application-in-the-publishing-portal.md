@@ -1,20 +1,18 @@
 ---
 title: Configuración de la aplicación en el portal de publicación
 description: Instrucciones para configurar una aplicación en el Portal de publicación en la nube.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 1bf89f94d91e0d809428cf8098db0fb37afdb47a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2676dbf72309eeb51be1f08e7bae2c1502cc671e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814677"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280208"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configuración de la aplicación en el portal de publicación
 
@@ -54,7 +52,7 @@ Por ejemplo, si un publicador **"contoso"** crea una oferta con el identificador
 
 Esta lista desplegable permite elegir el perfil del publicador en el que desea publicar esta oferta. Este campo queda bloqueado en cuanto se lanza una oferta.
 
-### <a name="name"></a>NOMBRE
+### <a name="name"></a>Nombre
 
 Se trata del nombre para mostrar de la oferta. Este es el nombre que se mostrará en [AppSource](https://appsource.microsoft.com/). Puede tener un máximo de 50 caracteres.
 
@@ -117,7 +115,7 @@ Escriba una dirección URL a una página con información de ayuda relacionada p
 
 En este campo se determinan las regiones en las que estará disponible la versión de prueba.
 
-### <a name="supported-languages"></a>Idiomas admitidos
+### <a name="supported-languages"></a>Idiomas compatibles
 
 Seleccione los idiomas que admite la aplicación. Si la aplicación es compatible con idiomas adicionales que no están en esta lista, publique su oferta y envíenos un correo electrónico a [appsource@microsoft.com](mailto:appsource@microsoft.com) para hacérnoslo saber.
 
@@ -131,7 +129,7 @@ Escriba la fecha de lanzamiento de la aplicación
 
 ### <a name="products-your-app-works-with-max-3"></a>Productos con los que funciona su aplicación (máximo de 3)
 
-Indique los productos específicos con los que funciona la aplicación. Puede enumerar tres productos como máximo. Para agregar un producto a la lista, haga clic en el signo más (junto a la opción Nuevo) y se creará un nuevo campo de texto abierto para que escriba el nombre de un producto con el que funcione la aplicación.
+Indique los productos específicos con los que funciona la aplicación. Puede enumerar tres productos como máximo. Para agregar un producto a la lista, haga clic en el signo más (junto a la opción Nuevo) y se creará un nuevo campo de texto abierto en el que podrá escribir el nombre de un producto con el que funcione la aplicación.
 
 ### <a name="search-keywords-max-3"></a>Palabras clave de búsqueda (máximo de 3)
 
@@ -139,7 +137,7 @@ AppSource permite que el cliente haga una búsqueda basada en palabras clave. Pu
 
 Por ejemplo, si la aplicación es "Mi servicio de correo electrónico", Correo electrónico, Correo, Servicio de correo podrían ser algunas palabras clave. Elija las palabras que es probable que los usuarios usen para buscar su aplicación en el cuadro de búsqueda de AppSource.
 
-### <a name="hide-key"></a>Clave oculta
+### <a name="hide-key"></a>Ocultación de la clave
 
 Esta es una clave que se combinará con la dirección URL de la versión preliminar de la oferta para ocultarla de la vista pública. No es una contraseña. Puede especificar cualquier cadena aquí.
 
@@ -153,7 +151,7 @@ Aparecerá en la página de detalles de la aplicación. **Solo se permite el for
 
 ### <a name="videos"></a>Vídeos
 
-Puede cargar un máximo de cuatro vídeos. Para cada vídeo que quiera cargar, debe completar el nombre del vídeo, la dirección URL (solo para YouTube o Vimeo) y la miniatura que se asociará al vídeo. La miniatura debe estar en formato .png y debe ser de 1280px \* 720px. Para agregar vídeos nuevos, haga clic en el signo +. Aparecerán miniaturas de vídeo en la página de detalles de la aplicación.
+Puede cargar un máximo de cuatro vídeos. Para cada vídeo que quiera cargar, debe completar el nombre del vídeo, la dirección URL (solo para YouTube o Vimeo) y la miniatura que se asociará al vídeo. La miniatura debe estar en formato .png y debe ser de 1280 px \* 720 px. Para agregar vídeos nuevos, haga clic en el signo +. Aparecerán miniaturas de vídeo en la página de detalles de la aplicación.
 
 ### <a name="documents"></a>Documentos
 

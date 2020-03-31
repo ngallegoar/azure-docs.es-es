@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 3b0b5b02fa8f369bdfa03726bd5649b70b7bbd48
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b98331a9cdb359aeefac5db1546f3a15b54010ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228048"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232476"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recuperación de una base de datos de Azure SQL mediante copias de seguridad de base de datos
 
@@ -126,12 +126,12 @@ Para obtener un script de PowerShell de ejemplo que muestre cómo realizar una r
 
 #### <a name="managed-instance-database"></a>Base de datos de Instancia administrada
 
-Para obtener un script de PowerShell de ejemplo que muestre cómo realizar una restauración en una base de datos de instancia eliminada, consulte [Restauración una base de datos eliminada en una instancia administrada mediante PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
+Para ver un script de PowerShell de ejemplo que muestre cómo restaurar una base de datos de instancia eliminada, consulte [Restauración una base de datos eliminada en una instancia administrada mediante PowerShell](sql-database-managed-instance-point-in-time-restore.md#restore-a-deleted-database).
 
 > [!TIP]
 > Para restaurar una base de datos eliminada mediante programación, consulte [Recuperación mediante programación con copias de seguridad automatizadas](sql-database-recovery-using-backups.md).
 
-## <a name="geo-restore"></a>Restauración geográfica
+## <a name="geo-restore"></a>Geo-restore
 
 Una base de datos SQL situada en cualquier servidor de cualquier región de Azure se puede restaurar desde las copias de seguridad con replicación geográfica más recientes. La restauración geográfica usa una copia de seguridad con replicación geográfica como su origen. Puede solicitar una restauración geográfica, aunque la base de datos o el centro de datos sea inaccesible debido a una interrupción.
 
@@ -194,13 +194,13 @@ También puede usar Azure PowerShell o la API REST para la recuperación. En las
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son en gran medida idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son en gran medida idénticos.
 
 #### <a name="single-azure-sql-database"></a>Base de datos única de Azure SQL
 
 Para restaurar una base de datos independiente o agrupada, vea [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
-  | Cmdlet | DESCRIPCIÓN |
+  | Cmdlet | Descripción |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |Obtiene una o más bases de datos. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Obtiene una base de datos eliminada que se puede restaurar. |
@@ -214,7 +214,7 @@ Para restaurar una base de datos independiente o agrupada, vea [Restore-AzSqlDat
 
 Para restaurar una base de datos de instancia administrada, consulte [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
-  | Cmdlet | DESCRIPCIÓN |
+  | Cmdlet | Descripción |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Obtiene una o más instancias administradas. |
   | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Obtiene una base de datos de instancias. |
@@ -224,12 +224,12 @@ Para restaurar una base de datos de instancia administrada, consulte [Restore-Az
 
 Para restaurar una base de datos única o agrupada mediante la API REST:
 
-| API | DESCRIPCIÓN |
+| API | Descripción |
 | --- | --- |
 | [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Restaura una base de datos. |
 | [Obtener el estado de creación o actualización de la base de datos](https://docs.microsoft.com/rest/api/sql/operations) |Devuelve el estado durante una operación de restauración. |
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 #### <a name="single-azure-sql-database"></a>Base de datos única de Azure SQL
 

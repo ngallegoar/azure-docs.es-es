@@ -11,16 +11,16 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 7849f6d391cad7e973babfa97f2859b9df40f23e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5d4d410f6fca566dab14e601972952b5996c331a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820895"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124882"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configuración de la autenticación multifactor para SQL Server Management Studio y Azure AD
 
-En este tema se muestra cómo usar la autenticación multifactor (MFA) de Azure Active Directory con SQL Server Management Studio. MFA de Azure AD puede usarse al conectar SSMS o SqlPackage.exe a Azure [SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obtener información general de la autenticación multifactor de Azure SQL Database, vea [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](sql-database-ssms-mfa-authentication.md).
+En este tema se muestra cómo usar la autenticación multifactor (MFA) de Azure Active Directory con SQL Server Management Studio. MFA de Azure AD puede usarse al conectar SSMS o SqlPackage.exe a Azure [SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obtener información general de la autenticación multifactor de Azure SQL Database, vea [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](sql-database-ssms-mfa-authentication.md).
 
 > [!NOTE]
 > Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
@@ -34,7 +34,7 @@ En este tema se muestra cómo usar la autenticación multifactor (MFA) de Azure 
 
 ## <a name="connecting-by-using-universal-authentication-with-ssms"></a>Conexión mediante autenticación universal con SSMS
 
-Los pasos siguientes muestran cómo conectarse a SQL Database o SQL Data Warehouse con la versión más reciente de SSMS.
+Los pasos siguientes muestran cómo conectarse a SQL Database o a SQL Data Warehouse con la versión más reciente de SSMS.
 
 1. Para conectarse con Autenticación universal, en el cuadro de diálogo **Conectar con el servidor**, seleccione **Active Directory - Universal compatible con MFA**. (Si ve **Autenticación universal de Active Directory**, no tiene la versión más reciente de SSMS).  
    ![1mfa-universal-connect][1]  

@@ -1,18 +1,18 @@
 ---
 title: Almacenamiento en la nube para crear aplicaciones muy escalables, seguras y duraderas con Azure Storage
 description: Conozca los servicios para almacenar en la nube grandes volúmenes de datos (estructurados y no estructurados) de aplicaciones móviles.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 53754976a6e1f6d893cf7d6ab73d57c95dae193f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 682f06936480d9018d759b4df3bed80be1206faf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453261"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240971"
 ---
 # <a name="cloud-storage-for-highly-secure-durable-scalable-apps-with-azure-storage"></a>Almacenamiento en la nube de aplicaciones muy escalables, seguras y duraderas con Azure Storage
 [Azure Storage](https://azure.microsoft.com/services/storage/) es la solución de almacenamiento en la nube de Microsoft para las aplicaciones modernas que ofrece un almacén de objetos escalable de forma masiva para objetos de datos, un servicio de sistema de archivos para la nube, un almacén de mensajería confiable y un almacén NoSQL. Azure Storage se caracteriza por:

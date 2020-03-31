@@ -2,17 +2,16 @@
 Description: Para comprender las consideraciones fiscales que debe tener en cuenta para la selección de precios, las implicaciones en el pago y la responsabilidad fiscal, consulte los países o regiones de distribución en las tablas siguientes.
 title: Información sobre impuestos | Azure Marketplace
 ms.date: 2/13/2020
-ms.topic: article
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+ms.topic: conceptual
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: cd580c43aa25dd4cc33ceb7138785a94a021b771
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 2546de2b63c70d7456712ba39086cd7fb540cf82
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210455"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285170"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Información sobre impuestos para los publicadores de Marketplace comercial
 

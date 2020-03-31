@@ -1,19 +1,18 @@
 ---
 title: Definiciones de Seller Insights
 description: Proporciona definiciones de muchos de los términos que encontrará en Seller Insights.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 2571f916f6efc61772b2734119e197996e2ffe3c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 082e5f13ae44a58088b7728103415dbfa5a969f1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809110"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280140"
 ---
 <a name="seller-insights-definitions"></a>Definiciones de Seller Insights
 =======================
@@ -26,7 +25,7 @@ En la siguiente tabla se incluyen definiciones de muchos de los términos usados
 | **Tipo de licencia de Azure: Proveedor de soluciones en la nube**      | El cliente final adquiere Azure y su oferta de Marketplace a través de su proveedor de soluciones en la nube, que actúa como su revendedor.                 |
 | **Tipo de licencia de Azure: Enterprise**                   | El cliente final adquiere Azure y su oferta de Marketplace a través de un contrato Enterprise, firmado directamente con Microsoft.                  |
 | **Tipo de licencia de Azure: Enterprise a través de revendedor**  | El cliente final adquiere Azure y su oferta de Marketplace a través de un revendedor que le facilita el contrato Enterprise con Microsoft.     |
-| **Tipo de licencia de Azure: Pago por uso**                | El cliente final adquiere Azure y la oferta de Marketplace a través de un contrato de pago por uso, firmado directamente con Microsoft.                |
+| **Tipo de licencia de Azure: Pago por uso**                | El cliente final adquiere Azure y la oferta de Marketplace a través de un contrato de pago por uso firmado directamente con Microsoft.                |
 | **Importe del cargo (CC)**                              | Cantidad que se cobra al cliente en la *moneda del cliente* (CC) para la facturación.                                                                 |
 | **Importe del cargo (PC)**                               | Cantidad que se cobra al cliente en la *moneda de pago* (PC).                                                                      |
 | **Fecha del cargo**                                      | Fecha en que se calcula el cargo del cliente (por lo general, inmediatamente después del período de uso).                                             |
@@ -35,7 +34,7 @@ En la siguiente tabla se incluyen definiciones de muchos de los términos usados
 | **Nombre de la instancia en la nube: Azure Government**        | Nubes de Microsoft específicas de la Administración Pública para una de las administraciones siguientes: China, Alemania o Estados Unidos de América.                           |
 | **Estado de cobro**  | Para un cargo específico, estado más reciente del ciclo de vida de facturación y cobro.  Por ejemplo, el estado puede ser Cobro en curso, Cobrado o Reembolso.                  |
 | **Tamaño de núcleo**  | Número de núcleos virtuales que presenta la máquina virtual en la que se ejecuta la oferta.               |
-| **Ciudad del cliente**  | Nombre de ciudad proporcionado por el cliente. Podría ser diferente a la ciudad de la suscripción a Azure del cliente.  |
+| **Ciudad del cliente**  | Nombre de ciudad proporcionado por el cliente. Podría ser diferente de la ciudad de la suscripción a Azure del cliente.  |
 | **Idioma de comunicación del cliente**        | Idioma preferido por el cliente para la comunicación.                                  |
 | **Nombre de la empresa del cliente**                  | Nombre de empresa proporcionado por el cliente. Podría ser diferente de la ciudad de la suscripción a Azure del cliente.                                  |
 | **País del cliente**                       | Nombre del país o región proporcionado por el cliente.  Podría ser diferente del país o región de la suscripción a Azure del cliente.                               |
@@ -43,7 +42,7 @@ En la siguiente tabla se incluyen definiciones de muchos de los términos usados
 | **Correo electrónico del cliente**                         | Dirección de correo electrónico proporcionada por el cliente final.  Podría ser diferente de la dirección de correo electrónico de la suscripción a Azure del cliente.                   |
 | **Nombre del cliente**                              | Nombre proporcionado por el cliente.  Podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente.                    |
 | **Apellidos del cliente**                               | Apellidos proporcionados por el cliente.  Podría ser diferente del nombre proporcionado en la suscripción a Azure del cliente.                    |
-| **Identificador de cliente**                               | Identificador único asignado a un cliente.  Un cliente puede tener ninguna o varias suscripciones a Azure Marketplace.                    |
+| **Identificador de cliente**                               | Identificador único asignado a un cliente.  Un cliente puede no tener ninguna suscripción a Azure Marketplace o bien tener varias.                    |
 | **Tipo de pago del cliente**                            | Tipo de instrumento de pago utilizado por el cliente.  Por ejemplo, podría ser una tarjeta, una factura o una verificación electrónica.                             |
 | **Código postal del cliente**                             | Código postal proporcionado por el cliente.  Podría ser diferente del código postal proporcionado en la suscripción a Azure del cliente.                                                                 |
 | **Estado del cliente**                                   | Estado (dirección) proporcionado por el cliente.  Podría ser diferente del apellido proporcionado en la suscripción a Azure del cliente.                                                                 |

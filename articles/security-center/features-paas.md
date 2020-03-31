@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
 ms.openlocfilehash: 85460724071347a768a924f34290a75d2383b4c0
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78209263"
 ---
-# Cobertura de características para los servicios de PaaS de Azure <a name="paas-services"></a>
+# <a name="feature-coverage-for-azure-paas-services"></a>Cobertura de características para los servicios de PaaS de Azure <a name="paas-services"></a>
 
 En esta tabla se muestra la disponibilidad de características de Azure Security Center para los recursos de PaaS de Azure compatibles.
 

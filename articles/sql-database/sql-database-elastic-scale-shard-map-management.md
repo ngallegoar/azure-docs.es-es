@@ -12,11 +12,11 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 8175563d8c1c2ec59b4195b2ede06f6e1dbf8556
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823554"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228636"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Escalado horizontal de las bases de datos mediante Shard Map Manager
 
@@ -55,7 +55,7 @@ El escalado elástico admite los siguientes tipos como claves de particionamient
 | --- | --- |
 | integer |integer |
 | long |long |
-| GUID |uuid |
+| guid |uuid |
 | byte[]  |byte[] |
 | datetime | timestamp |
 | timespan | duration|
@@ -75,7 +75,7 @@ Las **particiones** contienen **shardlets** y la asignación de shardlets a part
 | 3 |Database_B |
 | 4 |Database_C |
 | 6 |Database_B |
-| ... |... |
+| … |… |
 
 ### <a name="range-shard-maps"></a>Mapas de particiones de intervalo
 
@@ -89,7 +89,7 @@ Por ejemplo **[0, 100)** incluye todos los números enteros que son mayores o ig
 | [50,100) |Database_B |
 | [100,200) |Database_C |
 | [400,600) |Database_C |
-| ... |... |
+| … |… |
 
 Cada una de las tablas mostradas anteriormente es un ejemplo conceptual de un objeto **ShardMap** . Cada fila es un ejemplo simplificado de un objeto **PointMapping** (para el mapa de particiones de lista) o **RangeMapping** (para el mapa de particiones de intervalo).
 

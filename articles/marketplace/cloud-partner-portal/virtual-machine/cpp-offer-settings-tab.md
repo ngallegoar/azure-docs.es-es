@@ -1,19 +1,18 @@
 ---
 title: Pestaña Configuración de oferta de máquina virtual en Cloud Partner Portal para Azure Marketplace
 description: Se describe la pestaña Configuración de oferta que se usa en la creación de una oferta de máquina virtual de Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 6f7b90f6b02999869026db24836091233692143c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: e5353797aaa7d40e1b6a95685b79cb3fe99f5ecd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824437"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277657"
 ---
 # <a name="virtual-machine-offer-settings-tab"></a>Pestaña Configuración de oferta de máquina virtual
 

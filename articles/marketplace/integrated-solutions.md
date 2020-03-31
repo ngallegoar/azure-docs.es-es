@@ -1,19 +1,18 @@
 ---
 title: 'Soluciones integradas: Azure Marketplace'
 description: Soluciones integradas en Azure Marketplace y AppSource
-services: Azure, Marketplace, Compute, Storage, Networking
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/16/2019
-ms.author: v-chjen
-ms.openlocfilehash: 11f1504e8bd57fe34eb7acdc50598403225adcd9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: dsindona
+ms.openlocfilehash: d99b061b57beb003cc47b2d809f493d5a9c66888
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427175"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286173"
 ---
 # <a name="integrated-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Soluciones integradas de Microsoft AppSource y Azure Marketplace
 
