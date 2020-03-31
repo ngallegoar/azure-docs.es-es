@@ -4,7 +4,6 @@ description: Cómo utilizar las características del SDK de ADAL para habilitar 
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
@@ -15,14 +14,15 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 48c28831d1fbbfc4fe78ebe12e5a158a8259cf44
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0b87a9cd0ae29281faad4209f4449d547921835d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190303"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154821"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedimientos: Habilitación de SSO entre aplicaciones en Android mediante ADAL
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Habilitación de SSO entre aplicaciones en Android mediante ADAL
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -60,7 +60,7 @@ Si se instala un agente compatible en el dispositivo, como la aplicación Micros
 
 #### <a name="how-microsoft-ensures-the-application-is-valid"></a>Cómo garantiza Microsoft que la aplicación es válida
 
-La necesidad de garantizar la identidad de una aplicación que llama al agente es fundamental para la seguridad que se proporciona en los inicios de sesión asistidos por agente. Ni iOS ni Android exigen identificadores únicos que sean válidos solo para una aplicación determinada, por lo que aplicaciones malintencionadas pueden "suplantar" un identificador de una aplicación legítima y recibir los tokens destinados a ella. Para asegurarse de que Microsoft siempre se comunica con la aplicación correcta en el runtime, se solicita al desarrollador que proporcione un redirectURI personalizado al registrar su aplicación en el propio Microsoft. **A continuación se describe cómo los desarrolladores deben diseñar este URI de redirección.** Este URI de redirección personalizado contiene la huella digital del certificado de la aplicación y se asegura de que es único para la aplicación por Google Play Store. Cuando una aplicación llama el agente, este solicita al sistema de operativo Android que le proporcione la huella digital del certificado que llama el agente. El agente proporciona esta huella digital del certificado a Microsoft en la llamada al sistema de identidad. Si la huella digital del certificado de la aplicación no coincide con la huella digital del certificado proporcionada por el desarrollador durante el registro, se deniega el acceso a los tokens al recurso que solicita la aplicación. Esta comprobación asegura que solo la aplicación registrada por el desarrollador recibe los tokens.
+La necesidad de asegurar la identidad de una llamada de la aplicación al agente es fundamental para la seguridad que proporcionamos en los inicios de sesión asistidos por agente. Ni iOS ni Android exigen identificadores únicos que sean válidos solo para una aplicación determinada, por lo que aplicaciones malintencionadas pueden "suplantar" un identificador de una aplicación legítima y recibir los tokens destinados a ella. Para asegurarse de que Microsoft siempre se comunica con la aplicación correcta en el runtime, se solicita al desarrollador que proporcione un redirectURI personalizado al registrar su aplicación en el propio Microsoft. **A continuación se describe cómo los desarrolladores deben diseñar este URI de redirección.** Este URI de redirección personalizado contiene la huella digital del certificado de la aplicación y se asegura de que es único para la aplicación por Google Play Store. Cuando una aplicación llama el agente, este solicita al sistema de operativo Android que le proporcione la huella digital del certificado que llama el agente. El agente proporciona esta huella digital del certificado a Microsoft en la llamada al sistema de identidad. Si la huella digital del certificado de la aplicación no coincide con la huella digital del certificado proporcionada por el desarrollador durante el registro, se deniega el acceso a los tokens al recurso que solicita la aplicación. Esta comprobación asegura que solo la aplicación registrada por el desarrollador recibe los tokens.
 
 Los inicios de sesión únicos con agente tienen las siguientes ventajas:
 

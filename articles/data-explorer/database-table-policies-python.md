@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.openlocfilehash: a0fe86e2dcb802b822cb08ed0922b5da9c5cfd1c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74667274"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Creación de directivas de bases de datos y tablas para Azure Data Explorer con Python
@@ -23,7 +23,7 @@ ms.locfileid: "74667274"
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. En este artículo, va a crear directivas de bases de datos y tablas para Azure Data Explorer con Python.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * [Base de datos y clúster de prueba](create-cluster-database-python.md)

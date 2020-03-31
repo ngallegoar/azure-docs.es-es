@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61244351"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Uso de rutas de mensajes y de puntos de conexión personalizados para mensajes de dispositivo a nube
@@ -21,7 +21,7 @@ ms.locfileid: "61244351"
 
 El [enrutamiento de mensajes](iot-hub-devguide-routing-query-syntax.md) de IoT Hub permite a los usuarios enrutar los mensajes del dispositivo a la nube a puntos de conexión orientados al servicio. El enrutamiento también proporciona una funcionalidad de consulta para filtrar los datos antes de enrutarlos a los puntos de conexión. Cada consulta de enrutamiento que configure tiene las siguientes propiedades:
 
-| Propiedad      | DESCRIPCIÓN |
+| Propiedad      | Descripción |
 | ------------- | ----------- |
 | **Nombre**      | Nombre único que identifica la consulta. |
 | **Origen**    | El origen del flujo de datos sobre el que se debe actuar. Por ejemplo, telemetría de dispositivo. |

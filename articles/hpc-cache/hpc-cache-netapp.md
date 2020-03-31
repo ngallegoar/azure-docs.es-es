@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: c6259dabd5ee9c53d37a3396f36832720a103c23
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 38f9d0338ce4c47024d670e6d3ee89a97faecc91
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582167"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80238676"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Uso de Azure HPC Cache con Azure NetApp Files
 
@@ -76,7 +76,7 @@ Siga las [instrucciones de montaje de la documentación de Azure NetApp Files](.
 
 También puede encontrar direcciones IP con la CLI de Azure:
 
-```bash
+```azurecli
 az netappfiles volume list -g ${RESOURCE_GROUP} --account-name ${ANF_ACCOUNT} --pool-name ${POOL} --query "[].mountTargets[].ipAddress" | grep -Ee '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+' | tr -d '"' | tr -d , | sort | uniq
 ```
 

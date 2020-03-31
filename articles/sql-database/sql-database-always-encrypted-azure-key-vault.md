@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 22324f59f766e8cd7fd8776acea72e3a56a8519f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 006c780aeb3db813c8fdfb5da0b5c13fc4dcfebc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421700"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067434"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: protección de datos confidenciales y almacenamiento de las claves de cifrado en Azure Key Vault
 
@@ -35,7 +35,7 @@ Siga los pasos de este artículo y aprenda a configurar Always Encrypted para un
 - Crear una tabla de base de datos y cifrar columnas.
 - Crear una aplicación que inserta, selecciona y muestra los datos de las columnas cifradas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para este tutorial, necesitará:
 
@@ -57,10 +57,10 @@ Ahora que la aplicación cliente está configurada y tiene el id. de la aplicaci
 
 Para crear rápidamente un almacén de claves, ejecute el script siguiente. Para obtener una explicación detallada de estos comandos y obtener más información sobre cómo crear y configurar un almacén de claves, consulte [¿Qué es Azure Key Vault?](../key-vault/key-vault-overview.md).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información acerca la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
+> El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 ```powershell
 $subscriptionName = '<subscriptionName>'
@@ -81,9 +81,9 @@ Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGro
 Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-```powershell
+```azurecli
 $subscriptionName = '<subscriptionName>'
 $userPrincipalName = '<username@domain.com>'
 $applicationId = '<applicationId from AAD application>'
@@ -106,7 +106,7 @@ az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwr
 
 ## <a name="create-a-blank-sql-database"></a>Crear una instancia en blanco en SQL Database
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Vaya a **Crear un recurso** > **Bases de datos** > **SQL Database**.
 3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Para obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera base de datos de Azure SQL](sql-database-single-database-get-started.md).
 
@@ -119,7 +119,7 @@ Necesitará la cadena de conexión más adelante en el tutorial; por lo tanto, d
 
     ![Copiar la cadena de conexión](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
 
-## <a name="connect-to-the-database-with-ssms"></a>Conéctese a la base de datos con SSMS
+## <a name="connect-to-the-database-with-ssms"></a>Conectarse a la base de datos con SSMS
 
 Abra SSMS y conéctese al servidor con la base de datos Clinic.
 
@@ -164,7 +164,7 @@ SSMS proporciona un asistente para ayudar a configurar Always Encrypted fácilme
 
     ![Cifrar columnas](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
-El Asistente para Always Encrypted incluye las siguientes secciones: **Selección de columnas**, **Configuración de la clave maestra**, **Validación** y **Resumen**.
+El asistente de Always Encrypted incluye las siguientes secciones: **Selección de columnas**, **Configuración de la clave maestra**, **Validación** y **Resumen**.
 
 ### <a name="column-selection"></a>Selección de columnas
 

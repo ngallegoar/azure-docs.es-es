@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 84cd201cd758293082a61a87528332c7d8c58811
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76264312"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Introducción a la distribución de datos global con Azure Cosmos DB
@@ -45,7 +45,7 @@ Con las API de hospedaje múltiple de Azure Cosmos DB, la aplicación sabe cuá
 
 **Elección entre varios modelos de coherencia bien definidos.** El protocolo de replicación de Azure Cosmos DB ofrece cinco modelos de coherencia prácticos, intuitivos y bien definidos. Cada modelo tiene un equilibrio entre coherencia y rendimiento. Use estos modelos de coherencia para compilar con facilidad las aplicaciones distribuidas globalmente.
 
-## <a id="Next Steps"></a>Pasos siguientes
+## <a name="next-steps"></a><a id="Next Steps"></a>Pasos siguientes
 
 Lea más sobre la distribución global en estos artículos:
 

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
 ms.openlocfilehash: 9ff8cc64266375a2d439763b222870843136f67a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101503"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino 
@@ -32,7 +32,7 @@ Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a esc
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Implementación de la imagen de Windows 10 desde Azure Marketplace 
 Para las implementaciones de plantilla de Powershell, CLI y Azure Resource Manager, la imagen de Windows 10 puede encontrarse con el siguiente nombre de editor, oferta o sku.
 
-| OS  |      PublisherName      |  Oferta | SKU |
+| SO  |      PublisherName      |  Oferta | SKU |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |

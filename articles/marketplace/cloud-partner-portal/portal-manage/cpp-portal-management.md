@@ -1,19 +1,18 @@
 ---
 title: Administración de Cloud Partner Portal | Azure Marketplace
 description: Artículo de CPP en desuso, apuntaba al artículo de PC; era "Describe los tipos de operaciones disponibles para administrar cuentas para Cloud Partner Portal para Azure Marketplace."
-services: Azure, Marketplace, Cloud Partner Portal, Partner Center
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.author: v-chjen
-ms.openlocfilehash: 4d586e45b0d86bedce61eef69a87d3fc187cf279
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.author: dsindona
+ms.openlocfilehash: ce7e56352533072c625d0ea54a77fa6c4860f2e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666399"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288451"
 ---
 # <a name="cloud-partner-portal-management"></a>Administración de Cloud Partner Portal
 

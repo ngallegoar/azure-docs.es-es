@@ -1,19 +1,18 @@
 ---
 title: API Recuperación de ofertas| Azure Marketplace
 description: La API recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5c94c03a63936be2b086085a1e52064dedf214b0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: a1f15e269481b9706f81fd02f19effc9ad37df32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819622"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280497"
 ---
 <a name="retrieve-offers"></a>Recuperación de ofertas
 ===============
@@ -28,7 +27,7 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 
 | **Nombre**         |  **Descripción**                         |  **Tipo de datos** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificador del publicador, por ejemplo `contoso`. |   Cadena    |
+|  publisherId     | Identificador del publicador, por ejemplo `contoso`. |   String    |
 |  api-version     | Última versión de la API.                    |    Date        |
 |  |  |
 
@@ -36,10 +35,10 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 <a name="header"></a>Encabezado
 ------
 
-|  **Nombre**        |         **Valor**       |
+|  **Nombre**        |         **Value**       |
 |  --------------- |       ----------------  |
 |  Content-Type    | `application/json`      |
-|  Authorization   | `Bearer YOUR_TOKEN`     |
+|  Autorización   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
 
@@ -81,7 +80,7 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 
 ### <a name="response-status-codes"></a>Códigos de estado de respuesta
 
-| **Código**  |  **Descripción**                                                                                                   |
+| **(Código:**  |  **Descripción**                                                                                                   |
 | -------   |  ----------------------------------------------------------------------------------------------------------------- |
 |  200      | `OK`: La solicitud se ha procesado correctamente y todas las ofertas del anunciante se han devuelto al cliente.  |
 |  400      | `Bad/Malformed request`: El cuerpo de la respuesta del error puede contener más información.                                    |
@@ -98,7 +97,7 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 |  NotStarted                  | La oferta es nueva y no se ha iniciado.                 |
 |  WaitingForPublisherReview   | La oferta está esperando la aprobación del anunciante.         |
 |  En ejecución                     | Se está procesando el envío de la oferta.             |
-|  Succeeded                   | Se terminó de procesar el envío de la oferta.       |
+|  Correcto                   | Se terminó de procesar el envío de la oferta.       |
 |  Canceled                    | Se canceló el envío de la oferta.                   |
 |  Con error                      | Error en el envío de la oferta.                         |
 |  |  |

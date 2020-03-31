@@ -8,10 +8,10 @@ ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73831979"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implementación y configuración de Azure Firewall mediante la CLI de Azure
@@ -33,7 +33,7 @@ En este artículo, creará una red virtual única simplificada con tres subredes
 
 ![Infraestructura de red del tutorial](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar un entorno de red de prueba
@@ -49,9 +49,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Si decide instalar y usar la CLI localmente, ejecute la CLI de Azure versión 2.0.4 o posterior. Para averiguar la versión, ejecute el comando **az --version**. Para más información sobre la instalación o actualización, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
@@ -284,7 +284,7 @@ Ahora, pruebe el firewall para confirmar que funciona según lo previsto.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Las solicitudes de `www.google.com` deberían realizarse correctamente y las solicitudes de `www.microsoft.com` deberían producir un error. Esto demostraría que las reglas de firewall están funcionando según lo previsto.
+   Las solicitudes de `www.google.com` deberían realizarse correctamente, mientras que las solicitudes de `www.microsoft.com` deberían producir un error. Esto demostraría que las reglas de firewall están funcionando según lo previsto.
 
 Con ello, ha comprobado que las reglas de firewall funcionan:
 

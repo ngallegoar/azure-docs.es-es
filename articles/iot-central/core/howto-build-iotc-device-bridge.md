@@ -6,14 +6,14 @@ ms.service: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 07/09/2019
-ms.topic: conceptual
+ms.topic: how-to
 manager: peterpr
-ms.openlocfilehash: b79020b4da08eeade0af885b4a6ca9f01c81c526
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6499c9c29d10a2056b0af5499b68b5edd67d82cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023215"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158425"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Creación del puente de dispositivos de IoT Central para conectar otras nubes de IoT a IoT Central
 
@@ -23,10 +23,10 @@ El puente de dispositivos de IoT Central es una solución de código abierto que
 
 ## <a name="what-is-it-and-how-does-it-work"></a>¿Qué es y cómo funciona?
 El puente de dispositivos de IoT Central es una solución de código abierto en GitHub. Funciona con un botón "Implementar en Azure" que implementa una plantilla de Azure Resource Manager personalizada con varios recursos de Azure en su suscripción de Azure. Los recursos incluyen:
--   Aplicación de función de Azure
--   Cuenta de Azure Storage
--   Plan de consumo
--   Azure Key Vault
+-    Aplicación de función de Azure
+-    Cuenta de Azure Storage
+-    Plan de consumo
+-    Azure Key Vault
 
 La aplicación de función es la pieza fundamental del puente de dispositivos. Recibe las solicitudes HTTP POST desde otras plataformas de IoT o desde cualquier plataforma personalizada a través de una integración de webhook sencilla. Se incluyen ejemplos que muestran cómo conectarse a las nubes de Sigfox Particle y TTN. Puede ampliar fácilmente esta solución para conectarse a su nube de IoT personalizada si su plataforma puede enviar solicitudes HTTP POST a la aplicación de función.
 La aplicación de función transforma los datos en un formato aceptado por IoT Central y los reenvía a través de las API de DPS.

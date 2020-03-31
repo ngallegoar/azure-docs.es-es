@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: magattus
 ms.openlocfilehash: 1bfbc1b730811e1111a08a957db3a747f90fb587
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74546214"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgar un punto de conexión de Azure CDN
@@ -73,7 +73,7 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
 > 
 > 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Carga previa de activos en un punto de conexión de Azure CDN](cdn-preload-endpoint.md)
 * [Referencia de la API REST de Azure CDN - purgar o cargar previamente un punto de conexión](/rest/api/cdn/endpoints)
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
 ms.openlocfilehash: bdc55af23568b5785a831e81f352400c728c902e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60400987"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Información general sobre la administración de dispositivos con IoT Hub
@@ -53,7 +53,7 @@ Hay un conjunto de fases generales de administración de dispositivos que son co
 
 Dentro de cada una de estas cinco fases, hay que cumplir varios requisitos de operador de dispositivo para proporcionar una solución completa:
 
-* **Planeamiento**: permitir que los operadores creen un esquema de metadatos de los dispositivos que les permita consultar y seleccionar, de forma fácil y rápida, un grupo de dispositivos para operaciones de administración masiva. Puede usar al dispositivo gemelo para almacenar los metadatos de este dispositivo en forma de etiquetas y propiedades.
+* **Planeamiento**: permitir a los operadores que creen un esquema de metadatos de los dispositivos que les permita consultar y seleccionar, de forma fácil y rápida, un grupo de dispositivos para operaciones de administración masiva. Puede usar al dispositivo gemelo para almacenar los metadatos de este dispositivo en forma de etiquetas y propiedades.
   
     *Lecturas adicionales*: 
     * [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md)
@@ -70,7 +70,7 @@ Dentro de cada una de estas cinco fases, hay que cumplir varios requisitos de op
     * [Procedimientos recomendados para la configuración de dispositivos en una solución de IoT](iot-hub-configuration-best-practices.md)
     * [Servicio Azure IoT Hub Device Provisioning](https://azure.microsoft.com/documentation/services/iot-dps)
 
-* **Configurar**: facilitar los cambios de configuración y las actualizaciones de firmware de forma masiva en dispositivos, a la vez que se mantienen el estado y la seguridad. Realice estas operaciones de administración de dispositivos de forma masiva usando las propiedades que desee o con métodos directos y trabajos de difusión.
+* **Configuración**: facilitar los cambios de configuración de forma masiva y las actualizaciones de firmware en dispositivos, a la vez que se mantienen el estado y la seguridad. Realice estas operaciones de administración de dispositivos de forma masiva usando las propiedades que desee o con métodos directos y trabajos de difusión.
   
     *Lecturas adicionales*:
     * [Uso de propiedades de dispositivos gemelos](tutorial-device-twins.md)
@@ -85,7 +85,7 @@ Dentro de cada una de estas cinco fases, hay que cumplir varios requisitos de op
     * [Configuración y supervisión de dispositivos IoT a escala](iot-hub-auto-device-config.md)
     * [Procedimientos recomendados para la configuración de dispositivos en una solución de IoT](iot-hub-configuration-best-practices.md)
 
-* **Retirada**: reemplazar o retirar dispositivos después de un error, un ciclo de actualización o al final de la duración del servicio.  Use dispositivos gemelos para conservar la información del dispositivo si el dispositivo físico se va a reemplazar, o para archivarla si se va a retirar. Use el registro de identidades de IoT Hub para revocar de forma segura las credenciales y las identidades de los dispositivos.
+* **Retirada**: reemplazar o retirar dispositivos después de un error, ciclo de actualización o al final de la duración del servicio.  Use dispositivos gemelos para conservar la información del dispositivo si el dispositivo físico se va a reemplazar, o para archivarla si se va a retirar. Use el registro de identidades de IoT Hub para revocar de forma segura las credenciales y las identidades de los dispositivos.
   
     *Lecturas adicionales*: 
     * [Uso de propiedades de dispositivos gemelos](tutorial-device-twins.md)
@@ -95,15 +95,15 @@ Dentro de cada una de estas cinco fases, hay que cumplir varios requisitos de op
 
 IoT Hub habilita el siguiente conjunto de patrones de administración de dispositivos. Los [tutoriales de administración de dispositivos](iot-hub-node-node-device-management-get-started.md) muestran con más detalle cómo ampliar estos patrones para que se adapten a su escenario exacto y cómo diseñar nuevos patrones basados en estas plantillas centrales.
 
-* **Reinicio**: la aplicación de back-end usa un método directo para informar al dispositivo de que se ha iniciado un reinicio.  El dispositivo usa las propiedades notificadas para actualizar el estado de reinicio del dispositivo.
+* **Reinicio**: la aplicación back-end usa un método directo para informar al dispositivo de que se ha iniciado un reinicio.  El dispositivo usa las propiedades notificadas para actualizar el estado de reinicio del dispositivo.
   
     ![Gráfico de los patrones de reinicio de la administración de dispositivos](./media/iot-hub-device-management-overview/reboot-pattern.png)
 
-* **Restablecimiento de fábrica**: la aplicación de back-end usa un método directo para informar al dispositivo de que se ha iniciado un restablecimiento de fábrica. El dispositivo usa las propiedades notificadas para actualizar el estado de restablecimiento de fábrica del dispositivo.
+* **Restablecimiento de fábrica**: la aplicación back-end usa un método directo para informar al dispositivo de que se ha iniciado un restablecimiento de fábrica. El dispositivo usa las propiedades notificadas para actualizar el estado de restablecimiento de fábrica del dispositivo.
   
     ![Gráfico de los patrones de restablecimiento de fábrica de la administración de dispositivos](./media/iot-hub-device-management-overview/facreset-pattern.png)
 
-* **Configuración**: la aplicación de back-end usa las propiedades deseadas para configurar el software que se ejecuta en el dispositivo. El dispositivo usa las propiedades notificadas para actualizar el estado de configuración del dispositivo.
+* **Configuración**: la aplicación back-end usa las propiedades deseadas para configurar el software que se ejecuta en el dispositivo. El dispositivo usa las propiedades notificadas para actualizar el estado de configuración del dispositivo.
   
     ![Gráfico de los patrones de configuración de la administración de dispositivos](./media/iot-hub-device-management-overview/configuration-pattern.png)
 
@@ -111,7 +111,7 @@ IoT Hub habilita el siguiente conjunto de patrones de administración de disposi
   
     ![Gráfico del patrón de actualización del firmware de la administración de dispositivos](media/iot-hub-device-management-overview/fwupdate-pattern.png)
 
-* **Informes de progreso y estado**: la solución back-end ejecuta consultas de dispositivos gemelos, en un conjunto de dispositivos, para informar sobre el estado y el progreso de las acciones que se ejecutan en los dispositivos.
+* **Informes de progreso y estado**: la solución back-end ejecuta consultas de dispositivos gemelos, en un conjunto de dispositivos, para informar sobre el estado y el progreso de las acciones que se ejecutan en el dispositivo.
   
     ![Gráfico del patrón del estado y progreso de la administración de dispositivos](./media/iot-hub-device-management-overview/report-progress-pattern.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Sincronización de Azure AD Connect: comprender y personalizar la sincronización | Microsoft Docs'
+title: 'Sincronización de Azure AD Connect: descripción y personalización de la sincronización | Microsoft Docs'
 description: Se explica cómo funciona la sincronización de Azure AD Connect y cómo personalizarla.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3b87f40d75d4045155e7dd953dc76ffd9de2b34
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60348746"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronización de Azure AD Connect: comprender y personalizar la sincronización

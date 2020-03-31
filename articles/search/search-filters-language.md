@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112069"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Filtro por idioma en Azure Cognitive Search 
@@ -60,7 +60,7 @@ parameters =
 > [!Note]
 > Aunque no hay ningún argumento $filter en la consulta, este caso de uso está fuertemente vinculado a los conceptos de filtro, por lo que se presenta como un escenario de filtrado.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Filtros de Azure Cognitive Search](search-filters.md)
 + [Analizadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support)

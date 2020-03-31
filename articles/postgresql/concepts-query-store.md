@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: ccc503e6718ee8f516920cfbea3ad86e7ed81d84
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74768272"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Supervisión del rendimiento con el Almacén de consultas
@@ -124,7 +124,7 @@ Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por 
 |runtime_stats_entry_id |bigint | | Id. de la tabla runtime_stats_entries|
 |user_id    |oid    |pg_authid.oid  |OID del usuario que ha ejecutado la instrucción.|
 |db_id  |oid    |pg_database.oid    |OID de la base de datos en la que se ha ejecutado la instrucción.|
-|query_id   |bigint  || Código hash interno, calculado a partir del árbol de análisis de la instrucción|
+|query_id   |bigint  || Código hash interno, calculado a partir del árbol de análisis de la instrucción.|
 |query_sql_text |Varchar(10000)  || Texto de una instrucción representativa. Las consultas diferentes con la misma estructura se agrupan; este texto es el texto para la primera consulta del clúster.|
 |plan_id    |bigint |   |Identificador del plan correspondiente a esta consulta, no está disponible todavía.|
 |start_time |timestamp  ||  Las consultas se agregan por ciclos: el intervalo de tiempo de un ciclo es de 15 minutos de forma predeterminada. Se trata de la hora de inicio correspondiente al ciclo para esta entrada.|

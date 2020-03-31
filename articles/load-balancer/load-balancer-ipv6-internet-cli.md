@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
 ms.openlocfilehash: bff6a7ca6eb1a6859ec25d488f564c66946a780b
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76045409"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Creación de un equilibrador de carga público con IPv6 mediante la CLI de Azure
 
 >[!NOTE] 
->En este artículo se describe una característica de IPv6 introductoria que permite que los equilibradores de carga básicos proporcionen conectividad IPv4 e IPv6. Ahora hay disponible conectividad IPv6 completa con [IPv6 para redes virtuales de Azure](../virtual-network/ipv6-overview.md) que integra conectividad IPv6 con las redes virtuales e incluye características clave como las reglas de grupo de seguridad de red IPv6, el enrutamiento definido por el usuario IPv6, el equilibrio de carga de IPv6 básico y estándar, y mucho más.  IPv6 para redes virtuales de Azure es el estándar recomendado para las aplicaciones IPv6 en Azure. Vea [IPv6 para la implementación de PowerShell de red virtual de Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
+>En este artículo se describe una característica de IPv6 introductoria que permite que los equilibradores de carga básicos proporcionen conectividad IPv4 e IPv6. Ahora hay disponible conectividad IPv6 completa con [IPv6 para redes virtuales de Azure](../virtual-network/ipv6-overview.md) que integra conectividad IPv6 con las redes virtuales e incluye características clave como las reglas de grupo de seguridad de red IPv6, el enrutamiento definido por el usuario IPv6, el equilibrio de carga de IPv6 básico y estándar, y mucho más.  IPv6 para redes virtuales de Azure es el estándar recomendado para las aplicaciones IPv6 en Azure. Vea [IPv6 para la implementación de PowerShell de red virtual de Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). 
 
 Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) Los equilibradores de carga proporcionan una alta disponibilidad mediante la distribución del tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de equilibradores de carga. Los equilibradores de carga también pueden prestar estos servicios en varios puertos, varias direcciones IP o ambos.
 
@@ -48,11 +48,11 @@ Los pasos siguientes muestran cómo crear un equilibrador de carga público medi
 
 Para implementar un equilibrador de carga, cree y configure los objetos siguientes:
 
-* **Configuración de direcciones IP de front-end**: Contiene direcciones IP públicas para el tráfico de red entrante.
-* **Grupo de direcciones de back-end**: Contiene interfaces de red (NIC) para que las máquinas virtuales reciban tráfico de red del equilibrador de carga.
-* **Reglas de equilibrio de carga**: Contiene reglas que asignan un puerto público en el equilibrador de carga a un puerto del grupo de direcciones de back-end.
-* **Reglas NAT de entrada**: Contiene reglas de traducción de direcciones de red (NAT) que asignan un puerto público en el equilibrador de carga a un puerto de una máquina virtual específica en el grupo de direcciones de back-end.
-* **Sondeos**: Contiene los sondeos de estado que se usan para comprobar la disponibilidad de las instancias de las máquinas virtuales del grupo de direcciones de back-end.
+* **Configuración de direcciones IP de front-end**: contiene direcciones IP públicas para el tráfico de red entrante.
+* **Grupo de direcciones de back-end**: contiene interfaces de red (NIC) para que las máquinas virtuales reciban tráfico de red del equilibrador de carga.
+* **Reglas de equilibrio de carga**: contiene reglas que asignan un puerto público en el equilibrador de carga a un puerto del grupo de direcciones de back-end.
+* **Reglas NAT de entrada**: contiene reglas de traslación de direcciones de red (NAT) que asignan un puerto público en el equilibrador de carga a un puerto de una máquina virtual específica en el grupo de direcciones de back-end.
+* **Sondeos**: contiene los sondeos de estado que se usan para comprobar la disponibilidad de las instancias de las máquinas virtuales del grupo de direcciones de back-end.
 
 ## <a name="set-up-azure-cli"></a>Configuración de la CLI de Azure
 

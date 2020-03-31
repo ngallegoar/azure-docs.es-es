@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 57671aa170e02cd773ba927a698d3ecece2ab4e3
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 3/18/2020
+ms.openlocfilehash: 39af6850810fa471003cea27ed274972fb2ff046
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163553"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528037"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Planes de tarifa de Azure Database for MariaDB
 

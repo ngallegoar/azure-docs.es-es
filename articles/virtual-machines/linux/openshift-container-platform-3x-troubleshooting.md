@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 1915cce1878b9b7ec058c13167e03c3c318f3668
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bd83a1ca731d81edb76a3c1bc07113ce96adb9ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035485"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066599"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Solución de problemas de implementación de OpenShift Container Platform 3.11
 
@@ -102,7 +102,7 @@ La clave privada se copia en el host del cuaderno de estrategias de Ansible: ~/.
 
 Al proporcionar la entrada a la plantilla o la oferta de Marketplace, se proporcionó la información incorrecta. Asegúrese de que usa el identificador de aplicación (clientId) y la contraseña (clientSecret) correctas para la entidad de servicio. Puede verificarlo con el siguiente comando de la CLI de Azure.
 
-```bash
+```azurecli
 az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 ```
 
@@ -110,7 +110,7 @@ az login --service-principal -u <client id> -p <client secret> -t <tenant id>
 
 Si está habilitado el proveedor en la nube de Azure, la entidad de servicio utilizada debe tener acceso de colaborador al grupo de recursos. Puede verificarlo con el siguiente comando de la CLI de Azure.
 
-```bash
+```azurecli
 az group update -g <openshift resource group> --set tags.sptest=test
 ```
 

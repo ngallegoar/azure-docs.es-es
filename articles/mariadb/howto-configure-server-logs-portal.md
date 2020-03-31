@@ -5,25 +5,25 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 69a01ec021ecbade235a693b1be502353420fde0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 89bdd209315445519c35f3ef2c2f1ad2555106ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767473"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531403"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configuración y acceso a los registros de consultas lentas en Azure Portal
 
 Se pueden configurar, enumerar y descargar [registros de consulta lentos de Azure Database for MariaDB](concepts-server-logs.md) desde Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Los pasos descritos en este artículo requieren que tenga un [servidor de Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 ## <a name="configure-logging"></a>registro
 Configure el acceso al registro de consultas lentas. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 2. Seleccione un servidor de Azure Database for MariaDB.
 
@@ -43,7 +43,7 @@ Desde la página **Parámetros de servidor**, puede volver a la lista de los reg
 ## <a name="view-list-and-download-logs"></a>Visualización de lista y descarga de registros
 Una vez que comienza el registro, puede ver una lista de los registros de consultas lentas disponibles y descargar archivos de registro individuales. 
 
-1. Abra Azure Portal.
+1. Abra Azure Portal.
 
 2. Seleccione un servidor de Azure Database for MariaDB.
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c95ed6dde3c00c0688ccfd58565fd112427c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372217"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79135945"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Creación o eliminación de un contenedor en Azure Storage con .NET
 
-Los blobs de Azure Storage se organizan en contenedores. Antes de poder cargar un blob, primero debe crear un contenedor. En este artículo se muestra cómo crear y eliminar contenedores con [la biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client).
+Los blobs de Azure Storage se organizan en contenedores. Antes de poder cargar un blob, primero debe crear un contenedor. En este artículo se muestra cómo crear y eliminar contenedores con [la biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="name-a-container"></a>Asignación de un nombre para un contenedor
 
@@ -35,7 +35,7 @@ El URI de un contenedor tiene este formato:
 
 Para crear un contenedor, llame a uno de los métodos siguientes:
 
-- [Creación](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
+- [Crear](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
 - [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)

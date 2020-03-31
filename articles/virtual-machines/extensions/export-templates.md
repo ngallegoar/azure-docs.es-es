@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
 ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073122"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227912"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportación de grupos de recursos que contienen extensiones de VM
 
@@ -42,7 +42,7 @@ Las siguientes extensiones se pueden exportar con la característica de script d
 | BMC CTM Agent Windows | Dynatrace Windows | Site 24x7 Windows Server |
 | Chef Client | HPE Security Application Defender | Trend Micro DSA |
 | Script personalizado | IaaS Antimalware | Trend Micro DSA Linux |
-| Extensión Custom Script | IaaS Diagnostics | VM Access For Linux |
+| Custom Script Extension | IaaS Diagnostics | VM Access For Linux |
 | Script personalizado para Linux | Linux Chef Client | VM Access For Linux |
 | Datadog Linux Agent | Linux Diagnostic | VM Snapshot |
 

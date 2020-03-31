@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: e0a24b52c12bce6a8e016a926dfa64a1e36a7cc6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72753314"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimización del costo de varias regiones de Azure Cosmos DB
@@ -29,14 +29,14 @@ En un sistema de arquitectura multimaestro, las RU disponibles netas para las op
 
 ### <a name="example"></a>Ejemplo
 
-Imagine que tiene un contenedor en la región Oeste de EE. UU. con una capacidad de proceso aprovisionada de 10 000 RU/s y almacena 1 TB de datos este mes. Suponga que agrega tres regiones (Este de EE. UU., Europa del Norte y Asia Oriental), cada una con el mismo almacenamiento y capacidad de proceso, y que quiere ser capaz de escribir en los contenedores de las cuatro regiones desde la aplicación distribuida mundialmente. Su factura total mensual (suponiendo que un mes tiene 31 días) será:
+Imagine que tiene un contenedor en la región Oeste de EE. UU. con una capacidad de proceso aprovisionada de 10 000 RU/s y almacena 1 TB de datos este mes. Suponga que agrega tres regiones (Este de EE. UU., Norte de Europa y Este de Asia), cada una con el mismo almacenamiento y capacidad de proceso, y que quiere ser capaz de escribir en los contenedores de las cuatro regiones desde la aplicación distribuida mundialmente. Su factura total mensual (suponiendo que un mes tiene 31 días) será:
 
 |**Elemento**|**Uso (mensual)**|**Tarifa**|**Costo mensual**|
 |----|----|----|----|
 |Factura de capacidad de proceso para un contenedor en la región Oeste de EE. UU. (operaciones de escritura en varias regiones) |10 000 RU/s * 24 * 31 |0,016 USD por cada 100 RU/s por hora |1190,40 USD |
-|Factura de capacidad de proceso para 3 regiones más: Este de EE. UU., Europa del Norte y Asia Oriental (operaciones de escritura en varias regiones) |(3 + 1) * 10 000 RU/s * 24 * 31 |0,016 USD por cada 100 RU/s por hora |4761,60 USD |
+|Factura de capacidad de proceso para 3 regiones más: Este de EE. UU., Norte de Europa y Este de Asia (operaciones de escritura en varias regiones) |(3 + 1) * 10 000 RU/s * 24 * 31 |0,016 USD por cada 100 RU/s por hora |4761,60 USD |
 |Factura de almacenamiento por el contenedor en Oeste de EE. UU. |1 TB (o 1024 GB) |0,25 USD/GB |256 USD |
-|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental |3 * 1 TB (o 3072 GB) |0,25 USD/GB |768 USD |
+|Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Norte de Europa y Este de Asia |3 * 1 TB (o 3072 GB) |0,25 USD/GB |768 USD |
 |**Total**|||**6976 USD** |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Mejora del uso de la capacidad de proceso por región
@@ -53,10 +53,10 @@ Si el uso no es el adecuado, como una o más regiones con menos o más uso del n
 
 A continuación, puede seguir obteniendo más información sobre la optimización de costos en Azure Cosmos DB con los siguientes artículos:
 
-* Sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md)
+* Obtenga más información sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md).
 * Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
 * Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).
 * Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
 * Obtenga más información sobre la [optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md).
-* Sobre la [Optimización del costo de las consultas](optimize-cost-queries.md)
+* Obtenga más información sobre la [optimización del costo de las consultas](optimize-cost-queries.md).
 

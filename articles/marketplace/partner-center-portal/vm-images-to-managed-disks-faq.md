@@ -1,19 +1,18 @@
 ---
 title: Migración de imágenes de máquina virtual (VM) a almacenamiento de disco administrado en Azure Marketplace
 description: Para proporcionar almacenamiento más rápido y confiable y compatibilidad con nuevas características y funcionalidades de Marketplace, vamos a migrar imágenes de máquina virtual de Marketplace a almacenamiento de disco administrado.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 683b35661a41325cfd5baa877acdb0e37529bb94
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 17b418ab82cc88b4368efe247b06c0c8bbb27453
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198741"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285119"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Migración de imágenes de máquina virtual (VM) a almacenamiento de disco administrado en Azure Marketplace
 

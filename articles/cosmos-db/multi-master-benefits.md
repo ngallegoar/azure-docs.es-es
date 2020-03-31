@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: b21b6ba82ba1ada0103501b8beeca270df86abd9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74872016"
 ---
 # <a name="understand-multi-master-benefits-in-azure-cosmos-db"></a>Descripción de las ventajas de la arquitectura multimaestro de Azure Cosmos DB
@@ -21,10 +21,10 @@ Los operadores de cuentas de Cosmos DB deben elegir la configuración adecuada d
 
 |Requisito de la aplicación|Múltiples ubicaciones de escritura|Ubicación única de escritura|Nota:|
 |---|---|---|---|
-|Acuerdo de Nivel de Servicio de latencia de escritura de <10ms en P99|**Sí**|Sin|Las cuentas con una única ubicación de escritura incurren en una latencia adicional de red entre regiones por cada escritura.|
+|Acuerdo de Nivel de Servicio de latencia de escritura de <10ms en P99|**Sí**|No|Las cuentas con una única ubicación de escritura incurren en una latencia adicional de red entre regiones por cada escritura.|
 |Acuerdo de Nivel de Servicio de latencia de lectura de <10ms en P99|**Sí**|Sí| |
-|Acuerdo de Nivel de Servicio de operaciones de escritura del 99,999 %|**Sí**|Sin|Las cuentas con una única ubicación de escritura garantizan un Acuerdo de Nivel de Servicio del 99,99 %|
-|RTO = 0|**Sí**|Sin|Tiempo fuera de servicio igual a cero para las operaciones de escritura en caso de desastres regionales. Las cuentas con una única ubicación de escritura tienen un RTO de 15 min.|
+|Acuerdo de Nivel de Servicio de operaciones de escritura del 99,999 %|**Sí**|No|Las cuentas con una única ubicación de escritura garantizan un Acuerdo de Nivel de Servicio del 99,99 %|
+|RTO = 0|**Sí**|No|Tiempo fuera de servicio igual a cero para las operaciones de escritura en caso de desastres regionales. Las cuentas con una única ubicación de escritura tienen un RTO de 15 min.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,17 +1,17 @@
 ---
-title: Creación y carga de una imagen de OpenBSD
+title: Creación y carga de una imagen de máquina virtual de OpenBSD en Azure
 description: Aprenda a crear y cargar un disco duro virtual (VHD) que contenga el sistema operativo OpenBSD para crear una máquina virtual de Azure mediante la CLI de Azure.
-author: thomas1206
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: huishao
-ms.openlocfilehash: d4ecc539d71933c4aecc9124b903c57cb72838de
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.author: guybo
+ms.openlocfilehash: 1ad1a66d67be7aefe4d9a7acae993e8788cbb193
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78969496"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066754"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Creación y carga de una imagen de máquina virtual de OpenBSD en Azure
 En este artículo se muestra cómo crear y cargar un disco duro virtual (VHD) que contenga el sistema operativo OpenBSD. Después de cargarlo, puede utilizarlo como su propia imagen para crear una máquina virtual (VM) en Azure a través de la CLI de Azure.
@@ -94,7 +94,7 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## <a name="create-storage-resources-and-upload"></a>Creación de recursos de almacenamiento y de carga
-En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *EastUS*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

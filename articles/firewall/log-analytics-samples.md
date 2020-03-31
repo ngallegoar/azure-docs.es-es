@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: victorh
 ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76706007"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Ejemplos de análisis de registros en Azure Firewall
@@ -177,4 +177,4 @@ En los siguientes ejemplos de registro se muestran los datos incluidos en una en
 ![entrada del registro](media/log-analytics-samples/log3.png)
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para información sobre la supervisión y el diagnóstico de Azure Firewall, consulte [Tutorial: Supervisión de métricas y registros de Azure Firewall](tutorial-diagnostics.md).
+Para más información sobre la supervisión y el diagnóstico de Azure Firewall, vea [Tutorial: Métricas y registros de Azure Firewall](tutorial-diagnostics.md).

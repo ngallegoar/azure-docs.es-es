@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 009aabb8b742a752a29d775efbd11b153588c09b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75475674"
 ---
 # <a name="get-all-application-proxy-apps-and-list-basic-information"></a>Obtención de todas las aplicaciones de Application Proxy y lista de la información básica
@@ -42,6 +42,6 @@ El ejemplo requiere el [módulo Azure AD V2 PowerShell para Graph](https://docs
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre el módulo de Azure AD PowerShell, consulte la [información general del módulo de Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Para obtener más información sobre el módulo de Azure AD PowerShell, consulte [Información general del módulo de Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-Para ver otros ejemplos de PowerShell para Application Proxy, consulte [ejemplos de Azure AD PowerShell para Azure AD Application Proxy](../application-proxy-powershell-samples.md).
+Para obtener otros ejemplos de PowerShell para Application Proxy, consulte [Ejemplos de Azure AD PowerShell para Azure AD Application Proxy](../application-proxy-powershell-samples.md).

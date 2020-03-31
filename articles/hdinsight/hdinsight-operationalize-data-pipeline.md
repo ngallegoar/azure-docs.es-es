@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
 ms.openlocfilehash: 16c7af4d66bd550eb4a286de7c86c436b1fe10e2
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75922662"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Uso de una canalización de análisis de datos
@@ -499,13 +499,13 @@ Puede usar un coordinador para programar que este flujo de trabajo se ejecute di
 
 Como puede ver, la mayor parte del coordinador consiste simplemente en el paso de información de configuración a la instancia del flujo de trabajo. Sin embargo, hay algunos elementos importantes que destacar.
 
-* Punto 1: los atributos `start` y `end` del elemento `coordinator-app` controlan el intervalo de tiempo en el que se ejecuta el coordinador.
+* Punto 1: Los atributos `start` y `end` del elemento `coordinator-app` controlan el intervalo de tiempo en el que se ejecuta el coordinador.
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    Un coordinador es responsable de programar acciones dentro del intervalo de fechas `start` y `end`, según el intervalo especificado en el atributo `frequency`. Cada acción programada, a su vez, ejecuta el flujo de trabajo según la configuración. En la definición de coordinador anterior, el coordinador está configurado para ejecutar acciones desde el 1 hasta el 5 de enero de 2017. La expresión de frecuencia `${coord:days(1)}` del [lenguaje de expresiones de Oozie](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) establece la frecuencia en un día. Como resultado, el coordinador programa una acción (y por lo tanto, el flujo de trabajo) una vez al día. Para intervalos de fechas que se encuentran en el pasado, como en este ejemplo, la acción se programará para que se ejecute sin retraso. La fecha de inicio para la que se ha programado la ejecución de una acción se llama *hora nominal*. Por ejemplo, para procesar los datos desde el 1 de enero de 2017, el coordinador programará una acción con una hora nominal de 2017-01-01T00:00:00 GMT.
+    Un coordinador es responsable de programar acciones dentro del intervalo de fechas `start` y `end`, según el intervalo especificado en el atributo `frequency`. Cada acción programada, a su vez, ejecuta el flujo de trabajo según la configuración. En la definición de coordinador anterior, el coordinador está configurado para ejecutar acciones desde el 1 hasta el 5 de enero de 2017. La expresión de frecuencia [ del ](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation)lenguaje de expresiones de Oozie`${coord:days(1)}` establece la frecuencia en un día. Como resultado, el coordinador programa una acción (y por lo tanto, el flujo de trabajo) una vez al día. Para intervalos de fechas que se encuentran en el pasado, como en este ejemplo, la acción se programará para que se ejecute sin retraso. La fecha de inicio para la que se ha programado la ejecución de una acción se llama *hora nominal*. Por ejemplo, para procesar los datos desde el 1 de enero de 2017, el coordinador programará una acción con una hora nominal de 2017-01-01T00:00:00 GMT.
 
 * Punto 2: dentro del intervalo de fechas del flujo de trabajo, el elemento `dataset` especifica dónde buscar los datos de un intervalo de fechas determinado en HDFS y configura el modo en que Oozie determina si los datos están disponibles aún para su procesamiento.
 
@@ -520,7 +520,7 @@ Como puede ver, la mayor parte del coordinador consiste simplemente en el paso d
 
     El elemento `done-flag` vacío indica que cuando Oozie comprueba la presencia de datos de entrada en el momento prefijado, Oozie determina si los datos están disponibles por la presencia de un directorio o archivo. En este caso es la presencia de un archivo csv. Si hay un archivo csv, Oozie da por supuesto que los datos están listos e inicia una instancia del flujo de trabajo para procesar el archivo. Si no hay ningún archivo csv, Oozie supone que los datos todavía no están preparados y esa ejecución del flujo de trabajo entra en estado de espera.
 
-* Punto 3: el elemento `data-in` especifica la marca de tiempo que se usará como hora nominal al reemplazar los valores de `uri-template` para el conjunto de datos asociado.
+* Punto 3: El elemento `data-in` especifica la marca de tiempo que se usará como hora nominal al reemplazar los valores de `uri-template` para el conjunto de datos asociado.
 
     ```xml
     <data-in name="event_input1" dataset="ds_input1">

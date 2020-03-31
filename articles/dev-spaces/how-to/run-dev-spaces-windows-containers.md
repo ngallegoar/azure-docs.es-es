@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Obtenga información sobre cómo ejecutar Azure Dev Spaces en un clúster existente con contenedores de Windows.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, contenedores de Windows
-ms.openlocfilehash: d376aca45778060c8913924fd2a44031109390d2
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 0b3f221c9e62343a02ba8742e4cf988c7cf26c12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538796"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240481"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Uso de Azure Dev Spaces para interactuar con contenedores de Windows
 
@@ -141,7 +141,7 @@ azds up
 El comando `azds prep --enable-ingress` genera el gráfico de Helm y Dockerfile para la aplicación.
 
 > [!TIP]
-> Azure Dev Spaces usa [Dockerfile y el gráfico de Helm](../how-dev-spaces-works.md#prepare-your-code) del proyecto para compilar y ejecutar el código, pero el usuario puede modificar estos archivos si desea cambiar la forma en que se compila y se ejecuta el proyecto.
+> Azure Dev Spaces usa [Dockerfile y el gráfico de Helm](../how-dev-spaces-works-prep.md#prepare-your-code) del proyecto para compilar y ejecutar el código, pero el usuario puede modificar estos archivos si desea cambiar la forma en que se compila y se ejecuta el proyecto.
 
 El comando `azds up` ejecuta el servicio en el espacio de nombres.
 

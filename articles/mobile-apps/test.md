@@ -1,18 +1,18 @@
 ---
 title: Prueba de aplicaciones móviles en miles de dispositivos reales con Visual Studio App Center
 description: Obtenga información sobre Visual Studio App Center como servicio para probar continuamente aplicaciones móviles en miles de dispositivos reales.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-0000-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 18331de5d362aa7dfedcf5bb6cff893a2893f604
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 05fa29e4b79cdbec7d925b2a35bd3fdf0bb03213
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453081"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240087"
 ---
 # <a name="perform-automated-testing-on-thousands-of-mobile-devices-simultaneously"></a>Realización de pruebas automatizadas en miles de dispositivos móviles simultáneamente
 Las pruebas pueden ser desafiantes y cada vez más complejas debido a la fragmentación de dispositivos, complejidad de las aplicaciones, ciclos de versiones rápidos, sesiones cortas y altas expectativas de los usuarios. Debe asegurarse periódicamente de entregar aplicaciones que se han probado exhaustivamente y que proporcionan una excelente experiencia de cliente. Las pruebas no son una tarea fácil y no es un buen uso del tiempo del desarrollador probar manualmente cada versión.
@@ -37,6 +37,6 @@ Los desafíos de las pruebas pueden abordarse de forma eficaz. Puede probar apli
    - Compatibilidad con marcos de pruebas conocidos como Appium (Java con JUnit) para Android e iOS, Espresso (Java) para Android, Calabash para Android e iOS, Xamarin.UITest para Android e iOS y XCUITest para iOS.
    - Compatibilidad con las plataformas iOS, Android, Xamarin y React Native.
 
-**Referencias**
-   - [Registro con Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
+**Referencias**.
+   - [Registro con Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
    - [Introducción a App Center Test](/appcenter/test-cloud/)

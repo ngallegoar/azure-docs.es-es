@@ -1,29 +1,28 @@
 ---
 title: Visualización del estado de las ofertas de Marketplace | Azure Marketplace
 description: Visualización del estado de las ofertas de los Marketplaces de Azure y AppSource mediante Cloud Partner Portal
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pabutler
-ms.openlocfilehash: e58670d37e01bb6e453b73e42a87e42e890d10d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 0cbe6a45ba205f32a764bdadb021dc0dcf5bf0cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826702"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275975"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Visualización del estado de publicación de las ofertas de Azure Marketplace y AppSource
 
 Después de crear una oferta y especialmente durante el proceso de publicación, puede ver el estado de la oferta en Cloud Partner Portal.  El estado de publicación general está disponible en las páginas [**Todas las ofertas**](../portal-tour/cpp-all-offers-page.md) y [**Aprobaciones**](../portal-tour/cpp-approvals-page.md) del portal.  Uno de los siguientes indicadores de estado se debe mostrar para cada oferta.  
 
-|            Status              |   DESCRIPCIÓN                                                           |
+|            Status              |   Descripción                                                           |
 |            ------              |   -----------                                                           |
 | **-**                          | Se ha creado la oferta pero no ha comenzado el proceso de publicación.            |
 | **Publicación en curso**        | Se están realizando los pasos del proceso de publicación para la oferta.   |
-| **Error al publicar**             | Se ha detectado un problema crítico durante la validación o la revisión de Microsoft. |
+| **Error al publicar**:             | Se ha detectado un problema crítico durante la validación o la revisión de Microsoft. |
 | **Publicación cancelada**           | El anunciante ha cancelado el proceso de publicación de la oferta.  Este estado no elimina del Marketplace a una oferta existente. | 
 | **Awaiting publisher sign out** (Esperando el cierre de sesión del anunciante) | Microsoft ha recibido la oferta y está en espera de la comprobación final del anunciante. |
 | **Delisted** (Quitada de la lista)                   | Una oferta publicada anteriormente se ha quitado del Marketplace.      | 

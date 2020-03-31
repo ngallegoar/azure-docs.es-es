@@ -10,10 +10,10 @@ ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: a66f73e028594cf90f1fa1765910a3df3adbad1a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849486"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Activos de certificados en Azure Automation
@@ -27,7 +27,7 @@ Los certificados se almacenan de manera segura en Azure Automation de manera que
 
 En AzureRM, los cmdlets de la tabla siguiente se usan para crear y administrar recursos de credenciales de automatización con Windows PowerShell. Se incluyen como parte del [módulo AzureRM.Automation](/powershell/azure/overview), que está disponible para su uso en las configuraciones de DSC y los runbooks de Automation.
 
-|Cmdlets|DESCRIPCIÓN|
+|Cmdlets|Descripción|
 |:---|:---|
 |[Get-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Recupera información sobre un certificado para utilizarlo en un runbook o en la configuración de DSC. Solo puede recuperar el certificado mismo desde la actividad Get-AutomationCertificate.|
 |[New-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Crea un certificado nuevo en Azure Automation.|
@@ -39,7 +39,7 @@ En AzureRM, los cmdlets de la tabla siguiente se usan para crear y administrar r
 
 Las actividades de la tabla siguiente se usan para obtener acceso a los certificados de un runbook y las configuraciones de DSC.
 
-| Actividades | DESCRIPCIÓN |
+| Actividades | Descripción |
 |:---|:---|
 |Get-AutomationCertificate|Obtiene un certificado para usarlo en un runbook o una configuración de DSC. Devuelve un objeto [System.Security.Cryptography.X509Certificates.X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2).|
 
@@ -50,7 +50,7 @@ Las actividades de la tabla siguiente se usan para obtener acceso a los certific
 
 La función de la tabla siguiente se usa para obtener acceso a los certificados de un runbook de Python2.
 
-| Función | DESCRIPCIÓN |
+| Función | Descripción |
 |:---|:---|
 | automationassets.get_automation_certificate | Recupera información de un recurso de certificado. |
 
@@ -59,7 +59,7 @@ La función de la tabla siguiente se usa para obtener acceso a los certificados 
 
 ## <a name="creating-a-new-certificate"></a>Creación de un certificado nuevo
 
-Cuando crea un certificado nuevo, debe cargar un archivo .cer o .pfx a Azure Automation. Si marca el certificado como exportable, podrá transferirlo fuera del almacén de certificados de Azure Automation. Si no es exportable, solo se puede usar para firmar dentro del runbook o la configuración de DSC. Azure Automation requiere que el certificado tenga como proveedor a: **proveedor de servicios criptográficos AES y RSA mejorado de Microsoft**.
+Cuando crea un certificado nuevo, debe cargar un archivo .cer o .pfx a Azure Automation. Si marca el certificado como exportable, podrá transferirlo fuera del almacén de certificados de Azure Automation. Si no es exportable, solo se puede usar para firmar dentro del runbook o la configuración de DSC. Azure Automation requiere que el certificado tenga el **proveedor de servicios criptográficos AES y RSA mejorado de Microsoft**.
 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Para crear un certificado nuevo con el portal de Azure
 

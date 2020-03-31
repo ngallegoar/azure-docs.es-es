@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: 4cea558b11d7ee7bbe838cecbd061cd487b536d2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769870"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235424"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Solución de problemas relativos a errores con recursos compartidos
 
@@ -21,7 +21,7 @@ En este artículo se describen soluciones para resolver problemas que pueden sur
 
 ## <a name="modules"></a>Módulos
 
-### <a name="module-stuck-importing"></a>Escenario: Un módulo está bloqueado en el estado de importación
+### <a name="scenario-a-module-is-stuck-importing"></a><a name="module-stuck-importing"></a>Escenario: Un módulo está bloqueado en el estado de importación
 
 #### <a name="issue"></a>Problema
 
@@ -39,7 +39,7 @@ Para resolver este problema, debe quitar el módulo que está bloqueado en el es
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
-### <a name="update-azure-modules-importing"></a>Escenario: Se bloquea la importación de los módulos de AzureRM después de intentar actualizarlos
+### <a name="scenario-azurerm-modules-are-stuck-importing-after-trying-to-update-them"></a><a name="update-azure-modules-importing"></a>Escenario: Se bloquea la importación de los módulos de AzureRM después de intentar actualizarlos
 
 #### <a name="issue"></a>Problema
 
@@ -57,7 +57,7 @@ Hay un problema conocido con la actualización de los módulos de AzureRM de una
 
 Para actualizar los módulos de Azure en la cuenta de Automation, esta debe estar en un grupo de recursos con un nombre alfanumérico. En este momento, los grupos de recursos con nombres numéricos que empiezan por 0 no pueden actualizar módulos de AzureRM.
 
-### <a name="module-fails-to-import"></a>Escenario: No se puede importar el módulo o no se pueden ejecutar cmdlets después de la importación
+### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a><a name="module-fails-to-import"></a>Escenario: No se puede importar el módulo o no se pueden ejecutar cmdlets después de la importación
 
 #### <a name="issue"></a>Problema
 
@@ -80,7 +80,7 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 * Abra el archivo. psd1 y compruebe si el módulo tiene dependencias. Si es así, cargue estos módulos en la cuenta de Automation.
 * Asegúrese de que todos los archivos .dll a los que se hace referencia están presentes en la carpeta del módulo.
 
-### <a name="all-modules-suspended"></a>Escenario: Update-AzureModule.ps1 se suspende durante la actualización de módulos
+### <a name="scenario-update-azuremoduleps1-suspends-when-updating-modules"></a><a name="all-modules-suspended"></a>Escenario: Update-AzureModule.ps1 se suspende durante la actualización de módulos
 
 #### <a name="issue"></a>Problema
 
@@ -118,7 +118,7 @@ Si se suspende el proceso de actualización, deberá agregar el parámetro `Simu
 
 ## <a name="run-as-accounts"></a>Cuentas de ejecución
 
-### <a name="unable-create-update"></a>Escenario: No puede crear o actualizar una cuenta de ejecución
+### <a name="scenario-youre-unable-to-create-or-update-a-run-as-account"></a><a name="unable-create-update"></a>Escenario: No puede crear o actualizar una cuenta de ejecución
 
 #### <a name="issue"></a>Problema
 
@@ -138,7 +138,7 @@ Para crear o actualizar una cuenta de ejecución, debe tener los permisos adecua
 
 Si el problema se debe a un bloqueo, verifique que el bloqueo esté correcto para quitarlo. A continuación, navegue hasta el recurso que está bloqueado, haga clic en el bloqueo y elija **Eliminar** para quitar el bloqueo.
 
-### <a name="iphelper"></a>Escenario: Aparece el error "No se puede encontrar el punto de entrada denominado 'GetPerAdapterInfo' en el archivo DLL 'iplpapi.dll'" al ejecutar un runbook.
+### <a name="scenario-you-receive-the-error-unable-to-find-an-entry-point-named-getperadapterinfo-in-dll-iplpapidll-when-executing-a-runbook"></a><a name="iphelper"></a>Escenario: Aparece el error "No se puede encontrar el punto de entrada denominado 'GetPerAdapterInfo' en el archivo DLL 'iplpapi.dll'" al ejecutar un runbook.
 
 #### <a name="issue"></a>Problema
 

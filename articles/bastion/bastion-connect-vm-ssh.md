@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: cherylmc
 ms.openlocfilehash: 381f45a51002188c72174cff83c26b829912a0b9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77596834"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Conexión mediante SSH a una máquina virtual Linux con Azure Bastion
@@ -45,7 +45,7 @@ Para conectarse a la máquina virtual Linux mediante SSH, debe tener abiertos lo
 
 * Puerto de entrada: SSH (22)
 
-## <a name="username"></a>Conexión: mediante un nombre de usuario y una contraseña
+## <a name="connect-using-username-and-password"></a><a name="username"></a>Conexión: mediante un nombre de usuario y una contraseña
 
 1. Abra [Azure Portal](https://portal.azure.com). Vaya a la máquina virtual a la que quiere conectarse y, a continuación, haga clic en **Conectar** y seleccione **Bastion** en la lista desplegable.
 
@@ -56,7 +56,7 @@ Para conectarse a la máquina virtual Linux mediante SSH, debe tener abiertos lo
 1. Escriba el nombre de usuario y la contraseña para establecer una conexión SSH con la máquina virtual.
 1. Haga clic en el botón **Connect** (Conectar) después de escribir la clave.
 
-## <a name="privatekey"></a>Conexión: con una clave privada escrita
+## <a name="connect-manually-enter-a-private-key"></a><a name="privatekey"></a>Conexión: con una clave privada escrita
 
 1. Abra [Azure Portal](https://portal.azure.com). Vaya a la máquina virtual a la que quiere conectarse y, a continuación, haga clic en **Conectar** y seleccione **Bastion** en la lista desplegable.
 
@@ -68,7 +68,7 @@ Para conectarse a la máquina virtual Linux mediante SSH, debe tener abiertos lo
 1. Escriba la clave privada en el área de texto **Clave privada SSH** (o péguela directamente).
 1. Haga clic en el botón **Connect** (Conectar) después de escribir la clave.
 
-## <a name="ssh"></a>Conexión: con un archivo de clave privada
+## <a name="connect-using-a-private-key-file"></a><a name="ssh"></a>Conexión: con un archivo de clave privada
 
 1. Abra [Azure Portal](https://portal.azure.com). Vaya a la máquina virtual a la que quiere conectarse y, a continuación, haga clic en **Conectar** y seleccione **Bastion** en la lista desplegable.
 

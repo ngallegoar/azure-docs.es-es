@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo trabajar con sus definiciones de p
 ms.date: 09/03/2019
 ms.topic: how-to
 ms.openlocfilehash: fc7b9818072665d79deaf8a456868943e8428730
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873206"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importación y exportación de definiciones de planos técnicos con PowerShell
@@ -23,7 +23,7 @@ Azure Blueprints se puede administrar totalmente a través de Azure Portal. A me
 
 Independientemente de las razones, la administración de sus definiciones de planos técnicos como código tiene ventajas. En este artículo se muestra cómo usar los comandos `Import-AzBlueprintWithArtifact` y `Export-AzBlueprintWithArtifact` en el módulo [Az.Blueprint](https://powershellgallery.com/packages/Az.Blueprint/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este artículo se presuponen conocimientos prácticos moderados de Azure Blueprints. Si aún no lo ha hecho, trabaje en los siguientes artículos:
 

@@ -4,11 +4,11 @@ description: Documentación de referencia para la configuración de la aplicaci�
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357574"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235272"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 

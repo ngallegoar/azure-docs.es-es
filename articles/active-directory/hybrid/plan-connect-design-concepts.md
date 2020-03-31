@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Conceptos de diseño | Microsoft Docs'
+title: Conceptos de diseño de Azure AD Connect | Microsoft Docs
 description: En este tema se detallan algunas áreas de diseño de implementación
 services: active-directory
 documentationcenter: ''
@@ -18,13 +18,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135735"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227904"
 ---
-# <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Conceptos de diseño
+# <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceptos de diseño
 El propósito de este documento es describir las áreas que se deben tener en cuenta durante el diseño de implementación de Azure AD Connect. Este documento trata de una profundización en determinadas áreas y estos conceptos se describen también brevemente en otros documentos.
 
 ## <a name="sourceanchor"></a>sourceAnchor
@@ -119,7 +119,7 @@ Cuando se instala Azure AD Connect con el modo Personalizado, el asistente de Az
 
 ![Instalación personalizada: configuración de sourceAnchor](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| Configuración | DESCRIPCIÓN |
+| Configuración | Descripción |
 | --- | --- |
 | Let Azure manage the source anchor for me (Dejar que Azure administre automáticamente el delimitador de origen) | Seleccione esta opción si desea que Azure AD elija automáticamente el atributo. Si selecciona esta opción, el asistente de Azure AD Connect aplica la misma [lógica de selección del atributo sourceAnchor usada durante la instalación rápida](#express-installation). De forma parecida a la instalación rápida, el asistente indica qué atributo se ha elegido como atributo sourceAnchor una vez finalizada la instalación personalizada. |
 | Un atributo específico | Seleccione esta opción si desea especificar un atributo existente de AD como atributo sourceAnchor. |

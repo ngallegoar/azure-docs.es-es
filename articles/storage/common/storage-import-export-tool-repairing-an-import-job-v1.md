@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: f5db321d8c4a6e42591a82b0ed8eb6bc6e93bad4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74973890"
 ---
 # <a name="repairing-an-import-job"></a>Reparación de un trabajo de importación
@@ -33,7 +33,7 @@ Se pueden modificar los parámetros siguientes con **RepairImport**:
 |||  
 |-|-|  
 |**/r:** &lt;ArchivoReparación\>|**Requerido.** Ruta de acceso al archivo de reparación, que realiza un seguimiento del progreso de la reparación y le permite reanudar una reparación interrumpida. Cada unidad debe tener un solo archivo de reparación. Cuando inicie una reparación para una unidad determinada, pasa la ruta de acceso a un archivo de reparación que aún no existe. Para reanudar una reparación interrumpida, debe pasar el nombre de un archivo de reparación existente. Siempre se debe especificar el archivo de reparación correspondiente a la unidad de destino.|  
-|**/logdir:** &lt;DirectorioRegistro\>|**Opcional.** El directorio de registro. Los archivos de registro detallados se escriben en este directorio. Si no se especifica un directorio de registro, se usa el directorio actual como directorio de registro.|  
+|**/logdir:** &lt;DirectorioRegistro\>|**Opcional.** Directorio de registro. Los archivos de registro detallados se escriben en este directorio. Si no se especifica un directorio de registro, se usa el directorio actual como directorio de registro.|  
 |**/d:** &lt;DirectoriosDestino\>|**Requerido.** Uno o varios directorios separados por puntos y coma que contienen los archivos originales que se importaron. También se puede utilizar la unidad de importación, pero no es necesaria si están disponibles ubicaciones alternativas de los archivos originales.|  
 |**/bk:** &lt;ClaveBitLocker\>|**Opcional.** Debe especificar la clave de BitLocker si desea que la herramienta desbloquee una unidad cifrada donde están disponibles los archivos originales.|  
 |**/sn:** &lt;NombreCuentaAlmacenamiento\>|**Requerido.** El nombre de la cuenta de almacenamiento para el trabajo de importación.|  

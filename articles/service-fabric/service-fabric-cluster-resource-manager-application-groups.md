@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 988c7ce52125800c16aa785d5b1458604a927ecd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75452146"
 ---
 # <a name="introduction-to-application-groups"></a>Introducción a los grupos de aplicaciones
@@ -99,7 +99,7 @@ La reserva de espacio en el clúster para la aplicación sucede inmediatamente, 
 - el número de servicios en la instancia de aplicación cambia cada vez 
 - los servicios existen pero no consumen recursos 
 
-Para reservar recursos para una instancia de aplicación, es necesario especificar dos parámetros adicionales: *MinimumNodes* y *NodeReservationCapacity*
+Para reservar recursos para una instancia de aplicación, es necesario especificar dos parámetros adicionales: *MinimumNodes* y *NodeReservationCapacity* .
 
 - **MinimumNodes**: define el número mínimo de nodos en los que se debe ejecutar la instancia de aplicación.  
 - **NodeReservationCapacity**: este valor es por métrica de la aplicación. El valor es la cantidad de esa métrica reservada para la aplicación en cualquier nodo donde se ejecutan los servicios de esa aplicación.
@@ -171,7 +171,7 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 
 La consulta ApplicationLoad devuelve la información básica de la capacidad de aplicación que se especificó. Esta información incluye la información de nodos mínimos y máximos, y la cantidad que la aplicación está usando actualmente. También incluye información de cada métrica de carga de la aplicación, por ejemplo:
 
-* Nombre de la métrica: el nombre de la métrica.
+* Nombre de métrica: nombre de la métrica.
 * Capacidad de reserva: capacidad del clúster que está reservada en el clúster para esta aplicación.
 * Carga de la aplicación: carga total de las réplicas secundarias de esta aplicación.
 * Capacidad de aplicación: valor máximo permitido de la carga de la aplicación.

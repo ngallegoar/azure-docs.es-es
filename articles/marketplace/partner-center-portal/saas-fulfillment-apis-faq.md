@@ -1,19 +1,18 @@
 ---
 title: 'API de suministro de SaaS: preguntas más frecuentes | Azure Marketplace'
 description: Detección y compra de experiencias por parte de los clientes de una oferta de SaaS en Azure Marketplace.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: d5b7a4e880cbd5dca73b3b091402e2c7dd3b7901
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 6d3a84341d5221950da20f39456461dafc5d2e75
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934186"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275703"
 ---
 # <a name="saas-fulfillment-apis---faq"></a>Preguntas más frecuentes sobre las API de suministro de SaaS
 

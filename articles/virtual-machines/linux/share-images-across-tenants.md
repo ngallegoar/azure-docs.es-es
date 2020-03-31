@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: cynthn
 ms.openlocfilehash: 18337620a6f9506e402149909667026e4a8ba7eb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034983"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>Uso compartido de imágenes de la máquina virtual de la galería entre inquilinos de Azure
@@ -43,7 +43,7 @@ az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 2 ID>
 az account get-access-token
 ```
 
-Cree la máquina virtual. Reemplace la información del ejemplo por la suya propia.
+Cree la máquina virtual. Reemplace la información del ejemplo por la suya.
 
 ```azurecli-interactive
 az vm create \

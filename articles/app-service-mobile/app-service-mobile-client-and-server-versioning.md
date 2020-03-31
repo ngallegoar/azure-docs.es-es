@@ -6,12 +6,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: f24ae0a48b835785a2e000210f3609b82d42d0f6
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: a9ba442c00ec2498139ee34a1ff7497c98f17ede
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461562"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80293481"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Control de versiones de cliente y servidor en Mobile Apps y Mobile Services
 
@@ -27,11 +27,11 @@ La clave `ZUMO-API-VERSION` se puede especificar en el encabezado HTTP o en la c
 
 Por ejemplo:
 
-GET https://service.azurewebsites.net/tables/TodoItem
+`GET https://service.azurewebsites.net/tables/TodoItem`
 
 HEADERS: ZUMO-API-VERSION: 2.0.0
 
-POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
+`POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0`
 
 ## <a name="opting-out-of-version-checking"></a>Anulación de la comprobación de la versión
 Para anular la comprobación de la versión, establezca el valor **true** en la configuración de la aplicación **MS_SkipVersionCheck**. Especifique esto en el archivo web.config o en la sección Configuración de la aplicación del Portal de Azure.
@@ -39,8 +39,8 @@ Para anular la comprobación de la versión, establezca el valor **true** en la 
 > [!NOTE]
 > Hay una serie de cambios de comportamiento entre Mobile Services y Mobile Apps, especialmente en las áreas de sincronización sin conexión, autenticación y notificaciones push. Solo debe anular la comprobación de versión después de realizar pruebas exhaustivas para asegurarse de que estos cambios de comportamiento no impiden la funcionalidad de la aplicación.
 
-## <a name="2.0.0"></a>Cliente y servidor de Azure Mobile Apps
-### <a name="MobileAppsClients"></a> SDK de cliente de *Aplicaciones* móviles
+## <a name="azure-mobile-apps-client-and-server"></a><a name="2.0.0"></a>Cliente y servidor de Azure Mobile Apps
+### <a name="mobile-apps-client-sdks"></a><a name="MobileAppsClients"></a> SDK de cliente de *Aplicaciones* móviles
 La comprobación de versión se introdujo a partir de las siguientes versiones del SDK de cliente de **Azure Mobile Apps**:
 
 | Plataforma de cliente | Versión | Valor de encabezado de versión |

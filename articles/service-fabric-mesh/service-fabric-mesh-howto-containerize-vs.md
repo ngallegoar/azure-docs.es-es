@@ -6,10 +6,10 @@ ms.author: dekapur
 ms.date: 11/08/2018
 ms.topic: conceptual
 ms.openlocfilehash: d67ea5bb7df5910ec87e69adf3c414c303bf0182
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75462038"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Inclusión de una aplicación .NET existente en un contenedor para Service Fabric Mesh
@@ -21,7 +21,7 @@ En Visual Studio 2017, puede agregar compatibilidad con la inclusión de los pro
 > [!NOTE]
 > Actualmente no se admiten los proyectos .NET **Core**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si no tiene una suscripción a Azure, puede [crear una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

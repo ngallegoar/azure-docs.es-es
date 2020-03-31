@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e93360d4045f9c97d45abe2af489804a4c3c85f0
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 619ba7cb2d99e0137fd1834096dd5b66ffcd6ec9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673486"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240383"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Implementación de módulos de Azure IoT Edge con la CLI de Azure
 
@@ -24,7 +24,7 @@ La [CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) es
 
 En este artículo se muestra cómo crear un manifiesto de implementación de JSON y, luego, usar ese archivo para insertar la implementación en un dispositivo IoT Edge. Para información sobre la creación de una implementación dirigida a varios dispositivos en función de sus etiquetas compartidas, consulte [Implementación y supervisión de módulos de IoT Edge a escala](how-to-deploy-monitor-cli.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure.
 * Un [dispositivo de IoT Edge](how-to-register-device.md#register-with-the-azure-cli) que tenga instalado el entorno de ejecución de Azure IoT Edge.
@@ -116,7 +116,7 @@ Cambie los directorios a la carpeta donde se guarda el manifiesto de implementac
 
 Utilice el siguiente comando para aplicar la configuración a un dispositivo IoT Edge:
 
-   ```cli
+   ```azurecli
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
@@ -130,7 +130,7 @@ Una vez que los módulos se han implementado en el dispositivo, puede verlos tod
 
 Vea los módulos en el dispositivo de IoT Edge:
 
-   ```cli
+   ```azurecli
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 

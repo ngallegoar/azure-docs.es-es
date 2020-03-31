@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: f577059e1ebf70e3a9dfe9e538a9d3d49d7c8e96
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71199999"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilación e implementación del servicio de administración de certificados de OPC Vault
@@ -22,7 +22,7 @@ En este artículo se explica cómo implementar el servicio de administración de
 > [!NOTE]
 > Para más información, consulte el [repositorio de OPC Vault](https://github.com/Azure/azure-iiot-opc-vault-service) de GitHub.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="install-required-software"></a>Instalación del software necesario
 
@@ -88,9 +88,9 @@ Después de una implementación correcta, puede empezar a usar los servicios. Co
 
 ## <a name="delete-the-services-from-the-subscription"></a>Eliminación de los servicios desde la suscripción
 
-Este es el procedimiento:
+A continuación, se indica cómo puede hacerlo.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya al grupo de recursos en el que se implementó el servicio.
 3. Seleccione **Eliminar grupo de recursos** y confirme.
 4. Después de unos minutos, se eliminan todos los componentes de servicio implementados.

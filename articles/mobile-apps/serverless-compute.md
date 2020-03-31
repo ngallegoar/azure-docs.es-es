@@ -1,19 +1,18 @@
 ---
 title: Creación de un back-end de aplicación móvil sin servidor con Azure Functions y otros servicios
 description: Obtenga información sobre Compute Services, que se usa para crear un back-end de aplicación móvil sólida sin servidor.
-author: elamalani
-manager: elamalani
+author: codemillmatt
 ms.service: vs-appcenter
 ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: ec7091a32a1be8d875e16d8e0a9b20b5e80de387
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: d6a2bbc984a8808d2cd8a9b292e55d80f43f2e9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291964"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240142"
 ---
 # <a name="build-mobile-back-end-components-with-compute-services"></a>Crear componentes de back-end móvil con Compute Services
 Cada aplicación móvil necesita un back-end responsable del almacenamiento de datos, la lógica de negocios y la seguridad. La administración de la infraestructura necesaria para hospedar y ejecutar código de back-end requiere que determine el tamaño de varios servidores, los aprovisione y los escale. También debe administrar las actualizaciones del sistema operativo y el hardware implicado, y aplicar revisiones de seguridad. A continuación, debe supervisar el rendimiento, la disponibilidad y la tolerancia a errores de todos estos componentes de infraestructura. 
@@ -43,7 +42,7 @@ Use los servicios siguientes para habilitar las funcionalidades de proceso sin s
 - Diversos lenguajes de programación y opciones de hospedaje para el desarrollo, como C#, Node.js, Java, Javascript o Python.
 - El modelo de precios de pago por uso significa que solo paga por el tiempo que haya empleado ejecutando el código.
 
-**Referencias**
+**Referencias**.
 - [Azure Portal](https://portal.azure.com)
 - [Documentación de Azure Functions](/azure/azure-functions/)
 - [Guía para desarrolladores de Azure Functions](/azure/azure-functions/functions-reference)
@@ -62,7 +61,7 @@ Con [Azure App Service](https://azure.microsoft.com/services/app-service/), pued
 - Plantillas de aplicación para elegir entre una amplia lista de plantillas de aplicación en Azure Marketplace, como WordPress, Joomla y Drupal.
 - Integración con Visual Studio con herramientas dedicadas en Visual Studio que permiten optimizar las tareas de creación, implementación y depuración.
 
-**Referencias**
+**Referencias**.
 - [Azure Portal](https://portal.azure.com/)
 - [Documentación de Azure App Service](/azure/app-service/)
 - [Guías de inicio rápido](/azure/app-service/app-service-web-get-started-dotnet)
@@ -80,7 +79,7 @@ Con [Azure App Service](https://azure.microsoft.com/services/app-service/), pued
 - Implemente y administre dispositivos IoT a petición.
 - Entrene modelos de Machine Learning con el uso de herramientas como TensorFlow y KubeFlow.
 
-**Referencias**
+**Referencias**.
 - [Azure Portal](https://portal.azure.com/)
 - [Documentación de Azure Kubernetes Service](/azure/aks/)
 - [Guías de inicio rápido](/azure/aks/kubernetes-walkthrough-portal)
@@ -97,7 +96,7 @@ Con [Azure App Service](https://azure.microsoft.com/services/app-service/), pued
 - Almacenamiento persistente para recuperar y conservar el estado. Container Instances ofrece el montaje directo de recursos compartidos de Azure Files.
 - Contenedores de Linux y Windows programados con la misma API.
 
-**Referencias**
+**Referencias**.
 - [Azure Portal](https://portal.azure.com/)
 - [Documentación de Azure Container Instances](/azure/container-instances/)
 - [Guías de inicio rápido](/azure/container-instances/container-instances-quickstart-portal)

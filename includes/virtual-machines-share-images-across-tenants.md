@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73903700"
 ---
 Pero si quiere compartir las imágenes fuera de su inquilino de Azure, a escala, debe crear un registro de aplicación para facilitar el uso compartido.  Usar un registro de aplicación puede habilitar escenarios de uso compartidos más complejos, como por ejemplo: 

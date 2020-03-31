@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: fc6766943747c066581fe3820481cfe4a35d5296
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774977"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295434"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Uso de la autenticación de Azure AD para acceder a la API de Media Services con REST
 
@@ -83,7 +83,7 @@ Para obtener la información, siga estos pasos:
 5. Seleccione una **aplicación de Azure AD** o cree una nueva (como se muestra a continuación).
 
     > [!NOTE]
-    > Para que la solicitud de REST de Azure Media Services se complete correctamente, el usuario que realiza la llamada debe tener el rol de **colaborador** o **propietario** de la cuenta de Media Services a la que está intentando obtener acceso. Si se produce una excepción que indica "El servidor remoto devolvió un error: (401) No autorizado", consulte [Control de acceso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+    > Para que la solicitud de REST de Azure Media Services se complete correctamente, el usuario que realiza la llamada debe tener el rol de **colaborador** o **propietario** de la cuenta de Media Services a la que está intentando obtener acceso. Si se produce una excepción que indica "El servidor remoto devolvió un error: (401) No autorizado", vea [Control de acceso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
     Si necesita crear una nueva aplicación de AD, siga estos pasos:
     
@@ -128,7 +128,7 @@ Esta sección muestra cómo usar **Postman** para ejecutar una API de REST que d
 2. Seleccione **POST**.
 3. Escriba la dirección URL que incluye el nombre de inquilino con el formato siguiente: el nombre del inquilino debe terminar por **. onmicrosoft.com** y la dirección URL debe terminar por **oauth2/token**: 
 
-    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
 4. Seleccione la pestaña **Encabezados**.
 5. Escriba la información de **Encabezados** mediante la cuadrícula de datos "Clave/Valor". 

@@ -1,24 +1,18 @@
 ---
 title: Soporte técnico de Azure con máquinas virtuales de generación 2
 description: Información general de compatibilidad de Azure para máquinas virtuales de generación 2
-services: virtual-machines-linux
-documentationcenter: ''
 author: ju-shim
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 70b13b16e6aca6b0bdb0858a32a219defef6cca3
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: b68179caed4df5efd3696d7d6a3739a1e07a3c80
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162045"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232032"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Compatibilidad para máquinas virtuales de generación 2 en Azure
 
@@ -33,18 +27,18 @@ Las VM de generación 2 usan la nueva arquitectura de arranque basado en UEFI en
 Las máquinas virtuales de primera generación son compatibles con todos los tamaños de máquina virtual de Azure (salvo con las de la serie Mv2). Azure ahora ofrece compatibilidad de generación 2 para las siguientes series de VM seleccionadas:
 
 * [Serie B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
-* [Serie DC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
-* [Serie Dsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) y [serie Dsv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
-* [Serie Esv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
-* [Serie Fsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
+* [Serie DC](../dcv2-series.md)
+* [Serie Dsv2](../dv2-dsv2-series.md) y [serie Dsv3](../dv3-dsv3-series.md)
+* [Serie Esv3](../ev3-esv3-series.md)
+* [Serie Fsv2](../fsv2-series.md)
 * [Serie GS](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
-* [Serie HB](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hb-series)
-* [Serie HC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hc-series)
-* [Serie Ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) y [serie Lsv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
-* [Serie Mv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
-* [Serie NCv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) y [serie NCv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
-* [Serie ND](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
-* [Serie NVv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
+* [Serie HB](../hb-series.md)
+* [Serie HC](../hc-series.md)
+* [Serie Ls](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) y [serie Lsv2](../lsv2-series.md)
+* [Serie Mv2](../mv2-series.md)
+* [Serie NCv2](../ncv2-series.md) y [serie NCv3](../ncv3-series.md)
+* [Serie ND](../nd-series.md)
+* [Serie NVv3](../nvv3-series.md)
 
 > [!NOTE]
 > El uso de imágenes de máquina virtual de generación 2 en las máquinas virtuales de la serie Mv2 está disponible con carácter general, ya que esta serie funciona exclusivamente con imágenes de máquina virtual de generación 2. Las imágenes de máquina virtual de generación 1 no se admiten en máquinas virtuales de la serie Mv2. 
@@ -58,8 +52,9 @@ Las VM de generación 2 admiten las siguientes imágenes de Marketplace:
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 
-* RHEL 8.0, 7.6, 7.5, 7.4, 7.0
-* Cent OS 8.0
+* RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
+* Cent OS 8.0, 7.7, 7.6, 7.5, 7.4
+* Oracle Linux 7.7, 7.7-CI
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>Máquinas virtuales locales frente a VM de generación 2 de Azure
 

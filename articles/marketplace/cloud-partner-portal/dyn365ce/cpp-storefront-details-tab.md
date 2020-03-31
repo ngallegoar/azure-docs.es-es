@@ -1,19 +1,18 @@
 ---
 title: 'Oferta de Dynamics 365 for Customer Engagement: Pestaña Detalles del escaparate electrónico de Azure Marketplace | Azure Marketplace'
 description: Este artículo de CPP está en desuso, vinculado al artículo de PC. Anteriormente era "Use la pestaña Detalles del escaparate electrónico para especificar la información de ventas y marketing para una oferta de Dynamics 365 for Customer Engagement".
-services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 1121a021b580d23006e3aaff5da4c6a2a58dca73
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4b5a927b227b2f4b39d9b964219eb3fd50b07406
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824694"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279936"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico para Dynamics 365 for Customer Engagement
 

@@ -1,19 +1,18 @@
 ---
 title: Publicar una oferta de módulo Azure IoT Edge | Azure Marketplace
 description: Cómo publicar una oferta de módulo IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
-ms.openlocfilehash: 2310d7a7cad16009bbb58469190a77eedb0619f8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b30fde19c4474ba7e2d3bbaed44802884a5b27f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813832"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286530"
 ---
 # <a name="publish-iot-edge-module-offer"></a>Publicar una oferta de módulo IoT Edge
 
@@ -29,7 +28,7 @@ La tabla siguiente describe cada paso de publicación, con una estimación de ti
 <!-- P2: we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **Paso de publicación**           | **Hora**    | **Descripción**                                                            |
+|  **Paso de publicación**           | **Time**    | **Descripción**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar requisitos previos         | 15 minutos   | Se validan la información y la configuración de la oferta.                        |
 | Certificación                  | Dos semanas | El equipo de certificación de Azure analiza la oferta. En este paso se llevan a cabo exámenes de virus, malware, cumplimiento de seguridad y problemas de seguridad. También se comprueba que esta oferta de módulo IoT Edge cumpla todos los criterios de elegibilidad (vea [Requisitos previos](./cpp-prerequisites.md) y [Preparar los recursos técnicos](./cpp-create-technical-assets.md)). Si se detecta un problema, se proporcionan comentarios. |

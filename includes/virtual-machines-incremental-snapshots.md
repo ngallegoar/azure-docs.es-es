@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74014545"
 ---
 ## <a name="overview"></a>Información general
@@ -57,7 +57,7 @@ Siempre que se cumplan las condiciones siguientes:
 * El blob se creó a partir del 1 de enero de 2016.
 * El blob no se sobrescribió con [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) o [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) entre dos instantáneas.
 
-**Nota**: Esta característica está disponible para blobs en páginas de Azure Premium y Standard.
+**Nota**: Esta característica está disponible para los blobs en páginas de Azure premium y estándar.
 
 Cuando se emplea una estrategia de copia de seguridad personalizada en la que se utilicen instantáneas, la copia de estas últimas de una cuenta de almacenamiento a otra puede ser lenta y consumir mucho espacio. En lugar de copiar toda la instantánea en una cuenta de almacenamiento de copia de seguridad, puede escribir la diferencia entre instantáneas consecutivas en un blob en páginas de copia de seguridad. De este modo, se reduce considerablemente el tiempo de copia y espacio necesario para almacenar las copias de seguridad.
 

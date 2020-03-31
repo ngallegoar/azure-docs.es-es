@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 4df6396d156c3fe1b75e3cac3d3f4aad7f23553a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660672"
 ---
 # <a name="message-sessions"></a>Sesiones de mensajes
@@ -89,7 +89,7 @@ La definición de recuento de entregas por mensaje en el contexto de las sesione
 | Escenario | Se incrementa el recuento de entregas del mensaje |
 |----------|---------------------------------------------|
 | Se acepta la sesión, pero el bloqueo de la sesión expira (debido al tiempo de espera) | Sí |
-| Se acepta la sesión, los mensajes de la sesión no se completan (aunque estén bloqueados) y la sesión se cierra. | Sin |
+| Se acepta la sesión, los mensajes de la sesión no se completan (aunque estén bloqueados) y la sesión se cierra. | No |
 | Se acepta la sesión, se completan los mensajes y, luego, la sesión se cierra explícitamente. | N/A (es el flujo estándar. Aquí se quitan los mensajes de la sesión) |
 
 ## <a name="request-response-pattern"></a>Patrón de solicitud-respuesta

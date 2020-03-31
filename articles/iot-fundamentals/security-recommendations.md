@@ -10,15 +10,15 @@ ms.date: 11/13/2019
 ms.author: dkshir
 ms.custom: security-recommendations
 ms.openlocfilehash: 0ada9a520a5be56444a1c3e746a68dbcf9275686
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74048453"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recomendaciones de seguridad para la implementación de Azure Internet of Things (IoT)
 
-Este artículo contiene recomendaciones de seguridad para IoT. La implementación de estas recomendaciones lo ayudará a cumplir sus obligaciones de seguridad, tal y como se describe en nuestro modelo de responsabilidad compartida. Para más información sobre lo que Microsoft hace para cumplir las responsabilidades del proveedor de servicios, consulte [Responsabilidades compartidas de la informática en la nube](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+Este artículo contiene recomendaciones de seguridad para IoT. La implementación de estas recomendaciones le ayudará a cumplir sus obligaciones de seguridad, tal y como se describe en nuestro modelo de responsabilidad compartida. Para más información sobre lo que Microsoft hace para cumplir las responsabilidades del proveedor de servicios, consulte [Responsabilidades compartidas de la informática en la nube](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
 Algunas de las recomendaciones incluidas en este artículo se pueden supervisar automáticamente mediante Azure Security Center. Azure Security Center es la primera línea de defensa en la protección de los recursos de Azure. Se encarga de analizar el estado de seguridad de los recursos de Azure para identificar posibles vulnerabilidades de seguridad. Después, proporciona recomendaciones sobre cómo abordarlas.
 
@@ -40,7 +40,7 @@ Algunas de las recomendaciones incluidas en este artículo se pueden supervisar 
 | Defina el control de acceso para el centro | [Comprenda y defina el tipo de acceso](iot-security-deployment.md#securing-the-cloud) que tendrá cada componente en su solución de IoT Hub, según la funcionalidad. Los permisos permitidos son *Registry Read*, *RegistryReadWrite*, *ServiceConnect* y *DeviceConnect*. Las [directivas de acceso compartido en el centro de IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#access-control-and-permissions) predeterminadas también pueden ayudarle a definir los permisos para cada componente según su rol. | - |
 | Defina el control de acceso para los servicios de back-end | Los datos que introduce la solución de IoT Hub pueden aprovecharse en otros servicios de Azure, como, por ejemplo, [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/), [Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/), [App Service](https://docs.microsoft.com/azure/app-service/), [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) y [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Asegúrese de comprender y conceder los permisos de acceso adecuados tal como se documenta para estos servicios. | - |
 
-## <a name="data-protection"></a>Protección de datos
+## <a name="data-protection"></a>Protección de los datos
 
 | Recomendación | Comentarios | Compatible con ASC |
 |-|----|--|

@@ -15,10 +15,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74275560"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores
@@ -32,7 +32,7 @@ Todas las aplicaciones se asignan a un grupo de conectores. Si no crea grupos, t
 > [!TIP]
 > Si cuenta con una implementación del proxy de aplicación grande, no asigne ninguna aplicación al grupo de conectores predeterminado. De ese modo, los nuevos conectores no recibirán tráfico directo hasta que los asigne a un grupo de conectores activo. Esta configuración también permite poner los conectores en modo inactivo moviéndolos de nuevo al grupo predeterminado para que se pueda realizar el mantenimiento sin que esto afecte a los usuarios.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para agrupar los conectores, debe asegurarse de [tener instalados varios conectores](application-proxy-add-on-premises-application.md). Cuando se instala un nuevo conector, se une automáticamente al grupo de conectores **predeterminado** .
 
@@ -40,7 +40,7 @@ Para agrupar los conectores, debe asegurarse de [tener instalados varios conecto
 
 Siga estos pasos para crear tantos grupos de conectores como desee.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Proxy de aplicación**.
 1. Seleccione **Nuevo grupo de conectores**. Aparece la hoja New Connector Group (Nuevo grupo de conectores).
 

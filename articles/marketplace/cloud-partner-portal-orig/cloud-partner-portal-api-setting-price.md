@@ -1,19 +1,18 @@
 ---
 title: Precios de ofertas de máquinas virtuales | Azure Marketplace
 description: Explica los tres métodos para especificar el precio de las ofertas de máquinas virtuales.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: c7ea5afeb46c30837c2ae53e871bb64f5d8cf292
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b96dcfa6a140d5c16208fd8183003a7462b1aa56
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827332"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280446"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Precios de ofertas de máquinas virtuales
 ==================================
@@ -168,7 +167,7 @@ En la tabla siguiente se muestran las distintas regiones que se pueden especific
 | NL         | Países Bajos          | EUR               |
 | NZ         | Nueva Zelanda          | NZD               |
 | NG         | Nigeria              | NGN               |
-| NO         | Noruega               | NOK               |
+| No         | Noruega               | NOK               |
 | OM         | Omán                 | OMR               |
 | PK         | Pakistán             | PKR               |
 | PA         | Panamá               | USD               |

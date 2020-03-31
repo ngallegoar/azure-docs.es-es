@@ -11,10 +11,10 @@ ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9630e1f23b6595ca690ecafcf0c4b9bfff603f2e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78185665"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
@@ -32,7 +32,7 @@ Están disponibles los siguientes tipos de cuentas:
 
 ## <a name="work-account"></a>Cuenta profesional
 
-Una cuenta profesional se crea de la misma manera para todos los inquilinos basada en Azure AD. Para crear una cuenta profesional, puede usar la información de [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Una nueva cuenta profesional se crea mediante la elección de **Nuevo usuario** en Azure Portal.
+Una cuenta profesional se crea de la misma manera para todos los inquilinos basada en Azure AD. Para crear una cuenta profesional, puede usar la información de [Inicio rápido: incorporación de nuevos usuarios a Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Una nueva cuenta profesional se crea mediante la elección de **Nuevo usuario** en Azure Portal.
 
 Cuando se agrega una nueva cuenta profesional, es preciso tener en cuenta las siguientes opciones de configuración:
 

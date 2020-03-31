@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: 65e85548420116bdfcab87fe9f81a20e66226beb
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74803844"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Consulta a los registros de Azure Monitor para supervisar clústeres de HDInsight
@@ -24,7 +24,7 @@ Conozca algunos escenarios básicos de uso de los registros de Azure Monitor par
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Debe haber configurado un clúster de HDInsight para usar registros de Azure Monitor y agregado las soluciones de supervisión de registros de Azure Monitor específicas del clúster de HDInsight al área de trabajo. Puede encontrar instrucciones para ello en [Uso de los registros de Azure Monitor con clústeres de HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
@@ -127,7 +127,7 @@ El primer paso para crear una alerta es llegar a una consulta en función de la 
 
 Para más información, vea [Creación, visualización y administración de alertas de métricas mediante Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 * [Creación de vistas personalizadas mediante el Diseñador de vistas en Azure Monitor](../azure-monitor/platform/view-designer.md)

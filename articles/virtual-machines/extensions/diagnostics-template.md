@@ -16,10 +16,10 @@ ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073845"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager
@@ -169,11 +169,11 @@ Cada tabla WADMetrics contiene las columnas siguientes:
 
 * **PartitionKey**: la clave de partición se construye a partir del valor *resourceID* para identificar de forma única el recurso de máquina virtual. Por ejemplo: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
 * **RowKey**: sigue el formato `<Descending time tick>:<Performance Counter Name>`. El cálculo de la graduación de tiempo descendente es igual a la graduación de tiempo máxima menos el tiempo de comienzo del período de agregación. Por ejemplo, si el período de ejemplo empezó el 10 de noviembre de 2015 a las 00:00 horas UTC, entonces el cálculo sería: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Para el contador de rendimiento de bytes de memoria disponible, la clave de fila será similar a: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
-* **CounterName**: nombre del contador de rendimiento. Coincide con el valor de *counterSpecifier* definido en el archivo de configuración XML.
+* **CounterName**: es el nombre del contador de rendimiento. Coincide con el valor de *counterSpecifier* definido en el archivo de configuración XML.
 * **Maximum**: el valor máximo del contador de rendimiento durante el período de agregación.
-* **Mínimos**: el valor mínimo del contador de rendimiento durante el período de agregación.
+* **Minimum**: el valor mínimo del contador de rendimiento durante el período de agregación.
 * **Total**: la suma de todos los valores del contador de rendimiento notificados durante el período de agregación.
-* **Recuento**: el número total de valores notificados para el contador de rendimiento.
+* **Count**: el número total de valores notificados para el contador de rendimiento.
 * **Average**: el valor medio (total/count) del contador de rendimiento durante el período de agregación.
 
 ## <a name="next-steps"></a>Pasos siguientes

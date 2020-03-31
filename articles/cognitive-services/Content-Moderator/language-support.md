@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73744366"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Idiomas admitidos para Content Moderator API
@@ -30,10 +30,10 @@ ms.locfileid: "73744366"
 | Árabe (romanizado)   | Afrikáans   | Árabe   | Árabe |
 | Balinés | Albanés | Chino (simplificado)    | Danés |
 | Bengalí | Amárico | Chino (tradicional)     | Neerlandés |
-| Buginés | Árabe | Checo                     | English |
+| Buginés | Árabe | Checo                     | Inglés |
 | Buhid | Armenio | Danés                     | Finés |
 | Cario | Asamés | Neerlandés                     | Francés |
-| Chino (simplificado) | Azerbaiyano | English  | Griego (moderno) |
+| Chino (simplificado) | Azerbaiyano | Inglés  | Griego (moderno) |
 | Chino (tradicional) | Bengalí (Bangladesh) | Finés  | Italiano |
 | Eslavo (eclesiástico) | Bengalí (India) | Francés     | Coreano |
 | Copto | Vasco | Alemán                      | Noruego |
@@ -53,7 +53,7 @@ ms.locfileid: "73744366"
 | Italiano | Danés | Español | |
 | Japonés | Dari | Sueco | |
 | Coreano | Neerlandés | Turco | |
-| Kurdo (árabe) | English | | |
+| Kurdo (árabe) | Inglés | | |
 | Kurdo (latino) | Estonio | | |
 | Lepcha | Filipino | | |
 | Limbu | Finés | | |

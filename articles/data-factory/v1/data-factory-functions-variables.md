@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73667649"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory: funciones y variables del sistema
@@ -25,7 +25,7 @@ Este artículo proporciona información sobre las funciones y las variables comp
 
 ## <a name="data-factory-system-variables"></a>Variables del sistema de Data Factory
 
-| Nombre de la variable | DESCRIPCIÓN | Ámbito del objeto | Ámbito JSON y casos de uso |
+| Nombre de la variable | Descripción | Ámbito del objeto | Ámbito JSON y casos de uso |
 | --- | --- | --- | --- |
 | WindowStart |Inicio del intervalo de tiempo para la ventana de ejecución de la actividad actual |activity |<ol><li>Especifique las consultas de selección de datos. Consulte los artículos de conector indicados en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) .</li> |
 | WindowEnd |Final del intervalo de tiempo para la ventana de ejecución de actividad actual |activity |igual que WindowStart. |
@@ -75,11 +75,11 @@ Consulte el tema [Cadenas con formato de fecha y hora personalizado](https://msd
 ### <a name="functions"></a>Functions
 Las tablas siguientes muestran todas las funciones de Azure Data Factory:
 
-| Category | Función | Parámetros | DESCRIPCIÓN |
+| Category | Función | Parámetros | Descripción |
 | --- | --- | --- | --- |
-| Hora |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Agrega Y horas a la hora X determinada. <br/><br/>Ejemplo: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Hora |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Agrega Y minutos a X.<br/><br/>Ejemplo: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Hora |StartOfHour(X) |X: Datetime |Obtiene la hora de inicio de la hora representada por el componente de hora de X. <br/><br/>Ejemplo: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Time |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Agrega Y horas a la hora X determinada. <br/><br/>Ejemplo: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Time |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Agrega Y minutos a X.<br/><br/>Ejemplo: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Time |StartOfHour(X) |X: DateTime |Obtiene la hora de inicio de la hora representada por el componente de hora de X. <br/><br/>Ejemplo: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
 | Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Agrega Y días a X. <br/><br/>Ejemplo: 9/15/2013 12:00:00 PM + 2 días = 9/17/2013 12:00:00 PM.<br/><br/>También puede restar días especificando Y como un número negativo.<br/><br/>Ejemplo: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
 | Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Agrega Y meses a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>También puede restar meses especificando Y como un número negativo.<br/><br/>Ejemplo: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
 | Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Agrega Y * 3 meses a X.<br/><br/>Ejemplo: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
@@ -92,9 +92,9 @@ Las tablas siguientes muestran todas las funciones de Azure Data Factory:
 | Date |EndOfDay(X) |X: DateTime |Obtiene la fecha y hora que representa el final del día (componente de días) de X.<br/><br/>Ejemplo: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Date |EndOfMonth(X) |X: DateTime |Obtiene el final del mes representado por el componente de mes del parámetro X. <br/><br/>Ejemplo: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (fecha y hora que representan el final del mes de septiembre) |
 | Date |StartOfDay(X) |X: DateTime |Obtiene el inicio del día representado por el componente de día del parámetro X.<br/><br/>Ejemplo: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |From(X) |X: Cadena |Analiza la cadena X en una fecha y hora. |
+| DateTime |From(X) |X: String |Analiza la cadena X en una fecha y hora. |
 | DateTime |Ticks(X) |X: DateTime |Obtiene la propiedad ticks del parámetro X. Un ciclo es igual a 100 nanosegundos. El valor de esta propiedad representa el número de ciclos transcurridos desde la medianoche del 1 de enero de 0001. |
-| Texto |Format(X) |X: Variable de cadena |Formatea el texto (use la combinación `\\'` para aplicar el escape del carácter `'`).|
+| Texto |Format(X) |X: String variable |Formatea el texto (use la combinación `\\'` para aplicar el escape del carácter `'`).|
 
 > [!IMPORTANT]
 > Cuando se usa una función dentro de otra función, no es necesario usar el prefijo **$$** para la función interna. Por ejemplo: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' y RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). En este ejemplo, observe que el prefijo **$$** no se usa para la función **Time.AddHours**. 

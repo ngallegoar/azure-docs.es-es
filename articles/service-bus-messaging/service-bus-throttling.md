@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: aschhab
 ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598296"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Operaciones de limitación en Azure Service Bus
@@ -127,6 +127,6 @@ Sin embargo, cuando se limita una solicitud, el servicio entiende que no puede a
 Para más información y ejemplos de cómo usar la mensajería de Service Bus, consulte estos temas avanzados:
 
 * [Introducción a la mensajería de Service Bus](service-bus-messaging-overview.md)
-* [Inicio rápido: Envío y recepción de mensajes mediante Azure Portal y .NET](service-bus-quickstart-portal.md)
+* [Guía de inicio rápido: Envío y recepción de mensajes mediante Azure Portal y .NET](service-bus-quickstart-portal.md)
 * [Tutorial: Actualización del inventario mediante Azure Portal y temas y suscripciones](service-bus-tutorial-topics-subscriptions-portal.md)
 

@@ -11,10 +11,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
 ms.openlocfilehash: 8096da955da0266f3727197f21d67c33d099aa4f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74922644"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Aprovisionamiento de Enterprise Edition para una instancia de Integration Runtime para la integración de SSIS en Azure
@@ -40,7 +40,7 @@ Algunas de estas características requieren la instalación de componentes adici
 | Transformaciones de Agrupación aproximada y Búsqueda aproximada  | Las transformaciones de Agrupación aproximada y Búsqueda aproximada están preinstaladas en la edición Enterprise Edition de la instancia de Integration Runtime para la integración de SSIS en Azure. Estos componentes admiten SQL Server y Azure SQL Database para almacenar datos de referencia. |
 | Transformaciones de Extracción de términos y Búsqueda de términos | Las transformaciones de Extracción de términos y Búsqueda de términos están preinstaladas en la edición Enterprise Edition de la instancia de Integration Runtime para la integración de SSIS en Azure. Estos componentes admiten SQL Server y Azure SQL Database para almacenar datos de referencia. |
 
-## <a name="instructions"></a>Instrucciones
+## <a name="instructions"></a>Instructions
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

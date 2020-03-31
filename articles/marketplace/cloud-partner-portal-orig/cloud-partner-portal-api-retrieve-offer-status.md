@@ -1,19 +1,18 @@
 ---
 title: Recuperar el estado de la oferta | Azure Marketplace
 description: La API recupera el estado actual de la oferta.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5ce546d79497f462f6c262de738036d7e3a30226
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819664"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280514"
 ---
 <a name="retrieve-offer-status"></a>Recuperación del estado de la oferta 
 =====================
@@ -27,8 +26,8 @@ Recupera el estado actual de la oferta.
 
 |  **Nombre**       |   **Descripción**                            |  **Tipo de datos** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificador del publicador, por ejemplo `Contoso`.  |     Cadena     |
-|  offerId        | GUID que identifica de manera única la oferta      |     Cadena     |
+|  publisherId    | Identificador del publicador, por ejemplo `Contoso`.  |     String     |
+|  offerId        | GUID que identifica de manera única la oferta      |     String     |
 |  api-version    | Última versión de la API.                        |     Date       |
 |  |  |
 
@@ -39,7 +38,7 @@ Recupera el estado actual de la oferta.
 |  NOMBRE           |  Valor               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
-|  Authorization  | `Bearer YOUR_TOKEN`  |
+|  Autorización  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
 
@@ -143,7 +142,7 @@ Recupera el estado actual de la oferta.
 
 ### <a name="response-status-codes"></a>Códigos de estado de respuesta
 
-| **Código** |   **Descripción**                                                                                 |
+| **(Código:** |   **Descripción**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
 |  200     |  `OK`: la solicitud se procesó correctamente y se devolvió el estado actual de la oferta. |
 |  400     | `Bad/Malformed request`: El cuerpo de la respuesta del error puede contener más información.                 |
@@ -159,7 +158,7 @@ Recupera el estado actual de la oferta.
 |  NotStarted                  | La oferta es nueva y no se ha iniciado.                            |
 |  WaitingForPublisherReview   | La oferta está esperando la aprobación del anunciante.                 |
 |  En ejecución                     | Se está procesando el envío de la oferta.                     |
-|  Succeeded                   | Se terminó de procesar el envío de la oferta.               |
+|  Correcto                   | Se terminó de procesar el envío de la oferta.               |
 |  Canceled                    | Se canceló el envío de la oferta.                           |
 |  Con error                      | Error en el envío de la oferta.                                 |
 |  |  |
@@ -175,6 +174,6 @@ Recupera el estado actual de la oferta.
 |  WaitingForApproval          | El paso está esperando la aprobación del proceso.        |
 |  Bloqueado                     | El paso está bloqueado.                             |
 |  Rechazada                    | El paso se rechazó                            |
-|  Complete                    | El paso se completó.                            |
+|  Operación completada                    | El paso se completó.                            |
 |  Canceled                    | El paso se canceló.                           |
 |  |  |

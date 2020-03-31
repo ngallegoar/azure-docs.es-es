@@ -1,18 +1,17 @@
 ---
 title: Recepción de pagos en Marketplace comercial | Azure Marketplace
 description: Obtenga información acerca de cómo recibir los pagos de sus ganancias en el Marketplace comercial.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 7f539d4165df04ddca198385f9eef4f90ed15189
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 3c75d5ccdd2d632fbc31d1be3faf6cbc6d3fb223
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933599"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275839"
 ---
 # <a name="getting-paid"></a>Recepción del pago
 Esta es información importante sobre cómo recibir el pago por las ofertas, los complementos y los ingresos publicitarios.
@@ -56,11 +55,11 @@ Los pagos se realizan mensualmente (siempre que se cumpla el umbral de pago apli
 
 ##  <a name="payout-hold-status"></a>Estado de retención de pagos
 
-De forma predeterminada, enviaremos pagos mensualmente, como se describió anteriormente. No obstante, tiene la opción de retener los pagos de un programa, lo que nos impediría enviar pagos a su cuenta. Si decide poner los pagos en espera, seguiremos registrando los ingresos que gane y le proporcionaremos los detalles en su **Resumen de pagos**. Sin embargo, no enviaremos ningún pago a la cuenta hasta que quite la suspensión.
+De forma predeterminada, enviaremos pagos mensualmente, como se describió anteriormente. No obstante, tiene la opción de retener los pagos de un programa, lo que nos impediría enviar pagos a su cuenta. Si decide retener los pagos, se siguen registrando los ingresos que genera y se le proporcionan los detalles en el **Resumen de pagos**. Sin embargo, no enviaremos ningún pago a la cuenta hasta que quite la suspensión.
 
-Para retener los pagos, vaya a la **Configuración del desarrollador**. En **Pago e impuestos**, en la sección **Asignación de perfiles fiscales y de pago**, busque el programa para el que quiere suspender los pagos. Haga clic en la casilla **Retener mi pago** para retener los pagos de este programa. Puede cambiar el estado de retención de pagos en cualquier momento, pero tenga en cuenta que su decisión afectará a su próximo pago mensual. Por ejemplo, si desea retener los pagos de abril, asegúrese de establecer el estado de retención de pagos en **Activado** antes del final de marzo.
+Para retener los pagos, vaya a la **Configuración del desarrollador**. En **Pago e impuestos**, en la sección **Asignación de perfiles fiscales y de pago**, busque el programa para el que quiere suspender los pagos. Haga clic en la casilla **Retener mi pago** para retener los pagos de este programa. Puede cambiar el estado de retención de pagos en cualquier momento, pero tenga en cuenta que su decisión afectará a su próximo pago mensual. Por ejemplo, si quiere retener los pagos de abril, asegúrese de establecer el estado de retención de pagos en **Activado** antes del final de marzo.
 
-Una vez que haya establecido el estado de la retención de pagos en **Activado**, todos los pagos de este programa se pondrán en espera hasta que desplace el control deslizante de nuevo a **Desactivado**. Cuando lo haya hecho, se le incluirá en el siguiente ciclo de pago mensual (siempre que se hayan cumplido los umbrales de pago aplicables). Por ejemplo, si ha tenido sus pagos en espera, pero le gustaría que se generara un pago en junio, deberá asegurarse de mover el control deslizante con el estado de retención de pagos a **Desactivado** antes de finales de mayo.
+Una vez que haya establecido el estado de la retención de pagos en **Activado**, todos los pagos de este programa se pondrán en espera hasta que desplace el control deslizante de nuevo a **Desactivado**. Cuando lo haya hecho, se le incluirá en el siguiente ciclo de pago mensual (siempre que se hayan cumplido los umbrales de pago aplicables). Por ejemplo, si ha retenido los pagos pero quiere que se genere un pago en junio, asegúrese de alternar el estado de retención de pagos a **Desactivado** antes de finales de mayo.
 
 > [!NOTE]
 > El **Estado de retención del pago** se aplica individualmente a cada programa (Microsoft Store, publicidad, Azure Marketplace, etc.). Si quiere retener los pagos de todos los programas, debe retenerlos en cada programa de forma individual.

@@ -1,19 +1,19 @@
 ---
 title: Cobertura de representación | Microsoft Azure Maps
 description: Este artículo incluye información sobre las regiones con la cobertura de representación de Microsoft Azure Maps junto con su nivel de detalles representados.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7821b0b76fb9be1b62aaf334b3c07aaff1d0021a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: ddc53111cd69072322f37fdfb25c37665c852c23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209552"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536758"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de representación de Azure Maps
 

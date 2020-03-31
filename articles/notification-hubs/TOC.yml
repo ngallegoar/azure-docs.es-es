@@ -11,7 +11,9 @@
   items:
     - name: 'Creación de un centro de notificaciones: Azure Portal'
       href: create-notification-hub-portal.md
-    - name: 'Configuración de un centro de notificaciones: Azure Portal'
+    - name: 'Creación de un centro de notificaciones: CLI de Azure'
+      href: create-notification-hub-azure-cli.md
+    - name: Configuración de un Centro de notificaciones
       href: configure-notification-hub-portal-pns-settings.md
 - name: Tutoriales
   items:
@@ -140,6 +142,8 @@
       href: notification-hubs-push-notification-fixer.md
     - name: Envío de notificaciones push mediante Baidu Cloud Push
       href: notification-hubs-baidu-china-android-notifications-get-started.md
+    - name: Uso de APNS VOIP a través de Notification Hubs
+      href: voip-apns.md
 - name: Referencia
   items:
     - name: .NET

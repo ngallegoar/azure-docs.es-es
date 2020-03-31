@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60461028"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configuración de la recuperación ante desastres de VMware en Azure en un entorno multiinquilino con el programa Proveedor de soluciones en la nube (CSP)
@@ -22,7 +22,7 @@ Con [Azure Site Recovery](site-recovery-overview.md), los asociados pueden admin
 
 En este artículo se describe cómo los asociados pueden crear y administrar las suscripciones de los inquilinos mediante CSP para un escenario de replicación multiinquilino de VMware.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para configurar la replicación de VMware debe hacer lo siguiente:
 
@@ -39,7 +39,7 @@ Para configurar la replicación de VMware debe hacer lo siguiente:
 
     ![La página Información de la cuenta](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
-5. A continuación, haga clic en **Siguiente: Suscripciones**.
+5. A continuación, haga clic en **Siguiente: suscripciones**.
 6. En la página de selección de suscripciones, seleccione la casilla **Microsoft Azure**. Puede agregar otras suscripciones ahora o en cualquier otro momento.
 7. En la página **Revisar**, confirme los detalles del inquilino y, a continuación, haga clic en **Enviar**.
 8. Después de haber creado la cuenta del inquilino, aparece una página de confirmación que muestra los detalles de la cuenta predeterminada y la contraseña de esa suscripción. Guarde la información y cambie la contraseña más adelante si es necesario mediante la página de inicio de sesión de Azure Portal.
@@ -91,7 +91,7 @@ Existen tres modelos principales multiinquilino:
 
 * **Proveedor de servicios de hospedaje compartido (HSP)** : el asociado posee la infraestructura física y usa los recursos compartidos (vCenter, centros de datos, almacenamiento físico, etc.) para hospedar máquinas virtuales multiinquilino en la misma infraestructura. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede ser propietario de la recuperación ante desastres como solución de autoservicio.
 
-* **Proveedor de servicios de hospedaje dedicado**: el asociado posee la infraestructura física, pero usa recursos dedicados (varios vCenters, almacenes de datos físicos, etc.) para hospedar las máquinas virtuales de cada inquilino en infraestructuras diferentes. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede poseerla como solución de autoservicio.
+* **Proveedor de servicios de hospedaje dedicados**: el asociado posee la infraestructura física, pero usa recursos dedicados (varios vCenters, almacenes de datos físicos, etc.) para hospedar las máquinas virtuales de cada inquilino en infraestructuras diferentes. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede poseerla como solución de autoservicio.
 
 * **Proveedor de servicios administrados (MSP)** : aquí el cliente posee la infraestructura física que hospeda las máquinas virtuales y el asociado proporciona la habilitación y la administración de la recuperación ante desastres.
 

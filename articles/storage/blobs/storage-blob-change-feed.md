@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: b26e54c7130469eee87a9237f4847f46cb3b7698
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: ac111b06d578a0e9af8581ef2e8caeccfc4a291e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75691042"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536894"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Compatibilidad con la fuente de cambios en Azure Blob Storage (versión preliminar)
 
 El propósito de la fuente de cambios es proporcionar registros de transacciones de todos los cambios que se producen en los blobs y en los metadatos de blobs de la cuenta de almacenamiento. La fuente de cambios proporciona un registro **ordenado**, **garantizado**, **durable**, **inmutable** y de **solo lectura** de estos cambios. Las aplicaciones cliente pueden leer estos registros en cualquier momento, ya sea en streaming o en modo por lotes. La fuente de cambios le permite compilar soluciones eficaces y escalables que procesan los eventos de cambio que se producen en su cuenta de Blob Storage a un bajo costo.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 La fuente de cambios se almacena como [blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) en un contenedor especial de la cuenta de almacenamiento al costo de los [precios de los blobs](https://azure.microsoft.com/pricing/details/storage/blobs/) estándar. Puede controlar el período de retención de estos archivos en función de los requisitos (consulte las [condiciones](#conditions) de la versión actual). Los eventos de cambio se anexan a la fuente de cambios como registros en la especificación de formato de [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html): un formato compacto, rápido y binario que proporciona estructuras de datos enriquecidos con el esquema en línea. Este formato se usa ampliamente en el ecosistema de Hadoop, en Stream Analytics y en Azure Data Factory.
 
@@ -55,7 +57,7 @@ Estos son algunos aspectos que hay que tener en cuenta al habilitar la fuente de
 > [!IMPORTANT]
 > La fuente de cambios está en versión preliminar pública y se encuentra disponible en las regiones **westcentralus** y **westus2**. Consulte la sección de [condiciones](#conditions) de este artículo. Para inscribirse en la versión preliminar, consulte la sección [Registro de la suscripción](#register) de este artículo. Debe registrar la suscripción para poder habilitar la fuente de cambios en las cuentas de almacenamiento.
 
-### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Habilite la fuente de cambios en la cuenta de almacenamiento mediante Azure Portal:
 
@@ -69,7 +71,7 @@ Habilite la fuente de cambios en la cuenta de almacenamiento mediante Azure Port
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Habilite la fuente de cambios mediante PowerShell:
 
@@ -99,7 +101,7 @@ Habilite la fuente de cambios mediante PowerShell:
    Update-AzStorageBlobServiceProperty -EnableChangeFeed $true
    ```
 
-### <a name="templatetabtemplate"></a>[Plantilla](#tab/template)
+### <a name="template"></a>[Plantilla](#tab/template)
 Use una plantilla de Azure Resource Manager para habilitar la fuente de cambios en la cuenta de almacenamiento existente a través de Azure Portal:
 
 1. En Azure Portal, elija **Crear un recurso**.
@@ -150,7 +152,7 @@ Consulte [Procesamiento de los registros de la fuente de cambios en Azure Blob S
 
 ### <a name="segments"></a>Segmentos
 
-La fuente de cambios es un registro de los cambios que se organizan en *segmentos* **horarios**, pero que se anexan y se actualizan cada pocos minutos. Estos segmentos se crean solo cuando se produce un evento de cambio de blob en esa hora. Esto permite que la aplicación cliente consuma los cambios que se producen dentro de intervalos de tiempo específicos sin tener que buscar en todo el registro. Para más información, consulte las [especificaciones](#specifications).
+La fuente de cambios es un registro de los cambios que se organizan en **segmentos** *horarios*, pero que se anexan y se actualizan cada pocos minutos. Estos segmentos se crean solo cuando se produce un evento de cambio de blob en esa hora. Esto permite que la aplicación cliente consuma los cambios que se producen dentro de intervalos de tiempo específicos sin tener que buscar en todo el registro. Para más información, consulte las [especificaciones](#specifications).
 
 Un segmento por hora disponible de la fuente de cambios se describe en un archivo de manifiesto que especifica las rutas de acceso a los archivos de la fuente de cambios para ese segmento. El listado del directorio virtual `$blobchangefeed/idx/segments/` muestra estos segmentos ordenados por hora. La ruta de acceso del segmento describe el inicio del intervalo de tiempo por hora que el segmento representa. Puede usar esa lista para filtrar los segmentos de registros que le interesan.
 
@@ -298,7 +300,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 En Azure Cloud Shell, ejecute estos comandos:
 
-```cli
+```azurecli
 az feature register --namespace Microsoft.Storage --name Changefeed
 az provider register --namespace 'Microsoft.Storage'
 ```

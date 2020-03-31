@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 76f0dbb48ca5e250a383e8427ce2dd0c9dd618c9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930933"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copia de datos de una tabla web mediante Azure Data Factory
@@ -42,7 +42,7 @@ Puede copiar datos desde la base de datos de la tabla web en cualquier almacén 
 
 En concreto, este conector de tabla web permite **extraer contenido de tablas de una página HTML**.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para usar este conector de tabla web, tiene que configurar una instancia de Integration Runtime autohospedada. Consulte el artículo sobre [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md) para más información.
 
@@ -56,14 +56,14 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado de tabla web:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Web** |Sí |
 | url | Dirección URL para el origen de Web |Sí |
-| authenticationType | El valor permitido es: **Anonymous**. |Sí |
+| authenticationType | El valor permitido es: **Anónima**. |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -88,13 +88,13 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde una tabla web, establezca la propiedad type del conjunto de datos en **WebTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **WebTable** | Sí |
 | path |Dirección URL relativa al recurso que contiene la tabla. |No. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. |
-| index |Índice de la tabla en el recurso. Consulte la sección [Obtención de índice de una tabla en una página HTML](#get-index-of-a-table-in-an-html-page) para saber los pasos necesarios para obtener el índice de una tabla en una página HTML. |Sí |
+| índice |Índice de la tabla en el recurso. Consulte la sección [Obtención de índice de una tabla en una página HTML](#get-index-of-a-table-in-an-html-page) para saber los pasos necesarios para obtener el índice de una tabla en una página HTML. |Sí |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -122,7 +122,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde una tabla web, establezca el tipo de origen de la actividad de copia en **WebSource**. No se admite ninguna otra propiedad.
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[

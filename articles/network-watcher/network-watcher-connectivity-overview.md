@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842876"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236948"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introducción a la solución de problemas de conexiones en Azure Network Watcher
 
@@ -46,7 +46,7 @@ En la tabla siguiente se muestran las propiedades que se devuelven cuando la sol
 |Hops[].Issues | Colección de problemas encontrados durante la comprobación en ese salto. Si no hubiera ningún problema, el valor está en blanco.|
 |Hops[].Issues[].Origin | Salto actual donde se produjo el problema. Los valores posibles son:<br/> **Inbound**: El problema se encuentra en el enlace entre el salto anterior y el salto actual.<br/>**Outbound**: El problema se encuentra en el enlace entre el salto actual y el salto anterior.<br/>**Local**: El problema se encuentra en el salto actual.|
 |Hops[].Issues[].Severity | La gravedad del problema detectado. Los valores posibles son **Error** and **Warning**. |
-|Hops[].Issues[].Type |Tipo de problema encontrado. Los valores posibles son: <br/>**CPU**<br/>**Memoria**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|Hops[].Issues[].Type |Tipo de problema encontrado. Los valores posibles son: <br/>**Cpu**<br/>**Memoria**<br/>**GuestFirewall**<br/>**DNSResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
 |Hops[].Issues[].Context |Detalles relacionados con el problema encontrado.|
 |Hops[].Issues[].Context[].key |Clave del par clave-valor devuelta.|
 |Hops[].Issues[].Context[].value |Valor del par clave-valor devuelto.|

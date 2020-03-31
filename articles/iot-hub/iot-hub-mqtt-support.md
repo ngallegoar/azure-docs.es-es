@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
 ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648502"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233220"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -73,11 +73,11 @@ Para asegurarse de que una conexión cliente/IoT Hub permanece activa, tanto el 
 
 |Idioma  |Intervalo de mantenimiento de conexión predeterminado  |Configurable  |
 |---------|---------|---------|
-|Node.js     |   180 Segundos      |     Sin    |
-|Java     |    230 Segundos     |     Sin    |
+|Node.js     |   180 Segundos      |     No    |
+|Java     |    230 Segundos     |     No    |
 |C     | 240 segundos |  [Sí](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 segundos |  [Sí](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python (V2)   | 60 segundos |  Sin   |
+|Python (V2)   | 60 segundos |  No   |
 
 Siguiendo la [especificación de MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), el intervalo de ping de Keep-Alive de IoT Hub es 1,5 veces el valor de Keep-Alive del cliente. Sin embargo, IoT Hub limita el tiempo de espera máximo del servidor a 29,45 minutos (1 767 segundos) porque todos los servicios de Azure están enlazados al tiempo de espera de inactividad TCP del equilibrador de carga de Azure, que es de 29,45 minutos. 
 

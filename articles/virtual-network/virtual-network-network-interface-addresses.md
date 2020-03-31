@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
 ms.openlocfilehash: a2a85d98bf29e78d58bf0c578ce79943bae21fc1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355980"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225160"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Incorporación, cambio o eliminación de direcciones IP para una interfaz de red de Azure
 
@@ -56,7 +56,7 @@ Puede agregar a una interfaz de red tantas direcciones [privadas](#private) y [p
    |Nombre|Sí|Debe ser único para la interfaz de red|
    |Tipo|Sí|Debido a que agrega una configuración IP a una interfaz de red existente y cada interfaz de red debe tener una configuración IP [principal](#primary), la única opción es **Secundaria**.|
    |Método de asignación de direcciones IP privadas|Sí|[**Dinámica**](#dynamic): Azure asigna la siguiente dirección disponible para el intervalo de dirección de subred en el que se implementa la interfaz de red. [**Estática**](#static): asigna una dirección o usada para el intervalo de dirección de subred en el que se implementa la interfaz de red.|
-   |Dirección IP pública|Sin|**Deshabilitado:** ningún recurso de dirección IP pública está asociado actualmente a la configuración de IP. **Habilitada:** seleccione una dirección IP pública IPv4 existente o cree una nueva. Para más información sobre cómo crear una dirección IP pública, lea el artículo [Direcciones IP públicas](virtual-network-public-ip-address.md#create-a-public-ip-address).|
+   |Dirección IP pública|No|**Deshabilitado:** ningún recurso de dirección IP pública está asociado actualmente a la configuración de IP. **Habilitada:** seleccione una dirección IP pública IPv4 existente o cree una nueva. Para más información sobre cómo crear una dirección IP pública, lea el artículo [Direcciones IP públicas](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Agregue manualmente las direcciones IP privadas secundarias al sistema operativo de la máquina virtual siguiendo las instrucciones que aparecen en el artículo [Asignación de varias direcciones IP a sistemas operativos de máquinas virtuales](virtual-network-multiple-ip-addresses-portal.md#os-config). Consulte las direcciones IP [privadas](#private) para ver consideraciones especiales antes de agregar manualmente direcciones IP a un sistema operativo de máquina virtual. No agregue ninguna dirección IP pública al sistema operativo de máquina virtual.
 
 **Comandos**
@@ -175,7 +175,7 @@ Las direcciones IPv4 e IPv6 (opcionalmente) privadas dinámicas se asignan de ma
 De manera opcional, puede asignar una dirección IPv4 o IPv6 estática pública o privada a una configuración IP. Para más información sobre cómo Azure asigna direcciones IPv4 estáticas públicas, consulte [Dirección IP pública](virtual-network-public-ip-address.md).
 
 - **Solo pública**: Azure asigna la dirección de un intervalo único a cada región de Azure. Puede descargar la lista de intervalos (prefijos) para las nubes de Azure [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [Gobierno de Estados Unidos](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) y [Alemania](https://www.microsoft.com/download/details.aspx?id=57064). La dirección no cambia hasta que el recurso de dirección IP pública se asigna o se elimina, o el método de asignación cambia a dinámico. Si el recurso de dirección IP pública está asociado a una configuración de dirección IP, se debe desasociar de la configuración de dirección IP antes de cambiar su método de asignación.
-- **Solo privado**: se selecciona y asigna una dirección del intervalo de direcciones de la subred. La dirección que se asigna puede ser cualquiera que esté en el intervalo de direcciones de subred, salvo que sea una de las cuatro primeras y que no esté asignada a otro recurso de la subred. Las direcciones estáticas solo se liberan cuando se elimina la interfaz de red. Si cambia el método de asignación a estática, Azure asigna dinámicamente la dirección IP estática asignada anteriormente como dirección estática, aunque no sea la siguiente dirección disponible en el intervalo de direcciones de la subred. La dirección también cambia si la interfaz de red se asigna a otra subred de la misma red virtual, pero para ello, antes hay que cambiar el método de asignación de estática a dinámica. Una vez que ha asignado la interfaz de red a otra subred, puede volver a cambiar el método de asignación a estática y asignar una dirección IP del intervalo de direcciones de la nueva subred.
+- **Solo privada**: se selecciona y asigna una dirección del intervalo de direcciones de la subred. La dirección que se asigna puede ser cualquiera que esté en el intervalo de direcciones de subred, salvo que sea una de las cuatro primeras y que no esté asignada a otro recurso de la subred. Las direcciones estáticas solo se liberan cuando se elimina la interfaz de red. Si cambia el método de asignación a estática, Azure asigna dinámicamente la dirección IP estática asignada anteriormente como dirección estática, aunque no sea la siguiente dirección disponible en el intervalo de direcciones de la subred. La dirección también cambia si la interfaz de red se asigna a otra subred de la misma red virtual, pero para ello, antes hay que cambiar el método de asignación de estática a dinámica. Una vez que ha asignado la interfaz de red a otra subred, puede volver a cambiar el método de asignación a estática y asignar una dirección IP del intervalo de direcciones de la nueva subred.
 
 ## <a name="ip-address-versions"></a>Versiones de direcciones IP
 

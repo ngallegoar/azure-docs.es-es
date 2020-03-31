@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72801886"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Método y proceso de adopción de Azure Data Catalog
@@ -43,13 +43,13 @@ Estas son algunas sugerencias para definir un plan de adopción del **Azure Data
 
 ## <a name="define-your-data-catalog-project-vision"></a>Definición de la visión del proyecto de Data Catalog
 
-El primer paso para definir un plan de adopción de **Azure Data Catalog** es escribir una descripción ambiciosa de lo que intenta realizar. Lo mejor es mantener una visión bastante amplia, pero a la vez lo suficientemente concisa como para definir objetivos específicos a corto y largo plazo.
+El primer paso para definir un plan de adopción del **Azure Data Catalog** es escribir una descripción ambiciosa de lo que intenta realizar. Lo mejor es mantener una visión bastante amplia, pero a la vez lo suficientemente concisa como para definir objetivos específicos a corto y largo plazo.
 
 Estas son algunas sugerencias que le ayudarán a definir su visión:
 
-* **Identificar el principal potenciador de la implementación** : piense en las necesidades de administración concretas de los orígenes de datos del negocio que pueden cubrirse con Data Catalog. Le ayuda a exponer las principales ventajas de usar Data Catalog. Por ejemplo, puede haber orígenes de datos comunes que todos los empleados nuevos deben conocer y usar, u orígenes de datos complejos que pocas personas conocen en profundidad. **Azure Data Catalog** puede facilitar la detección y comprensión de estos orígenes de datos, con el fin de que estos conocidos puntos problemáticos se puedan afrontar directamente en las primeras etapas de la adopción del servicio.
+* **Identificar el principal potenciador de la implementación** : piense en las necesidades de administración concretas de los orígenes de datos del negocio que pueden cubrirse con el Catálogo de datos. Le ayuda a exponer las principales ventajas de usar Data Catalog. Por ejemplo, puede haber orígenes de datos comunes que todos los empleados nuevos deben conocer y usar, u orígenes de datos complejos que pocas personas conocen en profundidad. **Azure Data Catalog** puede facilitar la detección y comprensión de estos orígenes de datos, con el fin de que estos conocidos puntos problemáticos se puedan afrontar directamente en las primeras etapas de la adopción del servicio.
 * **Sea tajante y claro**: una clara comprensión de la visión hará que todo el mundo capte el valor que Data Catalog aporta a la organización y la forma en que la visión apoya los objetivos de la organización.
-* **Inspire a la gente para que desee usar Data Catalog**: tanto su misión como su plan de comunicación deberían inspirar a otros para que reconozcan que Data Catalog puede beneficiarlos al buscar orígenes de datos y conectar con ellos para sacar más partido a los datos.
+* **Inspire a la gente para que desee usar el Catálogo de datos** : tanto su misión como su plan de comunicación deberían inspirar a otros para que reconozcan que el Catálogo de datos puede beneficiarlos al buscar orígenes de datos y conectar con ellos para sacar más partido a los datos.
 * **Especifique una escala de tiempo y objetivos específicos**: garantiza que el plan de adopción tenga objetivos específicos que se puedan lograr. Una escala de tiempo mantiene a todos centrados y permite la existencia de puntos de control para medir el éxito.
 
 A continuación encontrará una visión de ejemplo para un plan de adopción de Data Catalog para una empresa ficticia llamada Adventure Works.
@@ -129,7 +129,7 @@ Como parte del proyecto piloto, el equipo de Nancy también utiliza orígenes de
 
 Cuando el proyecto piloto está en su lugar, es el momento de ejecutar el plan de adopción de Data Catalog.
 
-### <a name="execute"></a>Ejecución
+### <a name="execute"></a>Execute
 
 Ya ha identificado los casos de uso para Data Catalog y su primer proyecto. Además, ha registrado los orígenes de datos clave de Adventure Works y ha agregado información del libro de Excel existente mediante la herramienta que TI creó. Ahora es el momento de trabajar con el equipo piloto para iniciar el proceso de adopción de Data Catalog.
 
@@ -138,7 +138,7 @@ Estas son algunas sugerencias para comenzar:
 * **Crear entusiasmo**: los usuarios empresariales se entusiasman si creen que **Azure Data Catalog** les facilitará la vida. Intente que la conversación gire en torno a la solución y a las ventajas que ofrece, no a la tecnología.
 * **Facilitar el cambio** : empiece con poco y comunique el plan a los usuarios empresariales. Para tener éxito, es crucial involucrar a los usuarios desde el principio, con el fin de que influyan en el resultado y desarrollan un sentido de propiedad acerca de la solución.
 * **Preparar a los pioneros**: los pioneros son usuarios empresariales que sienten pasión por lo que hacen y a los que entusiasma dar a conocer las ventajas de **Azure Data Catalog** a sus colegas.
-* **Formación dirigida**: los usuarios empresariales no necesitan saber todo acerca de Data Catalog, por lo que deben tener una formación dirigida para abordar los objetivos específicos del equipo. Céntrese en lo que hacen los usuarios y en cómo podrían cambiar algunas de sus tareas, para incorporar **Azure Data Catalog** en su rutina diaria.
+* **Formación dirigida** : los usuarios empresariales no necesitan saber todo acerca del Catálogo de datos, por lo que deben tener una formación dirigida para abordar los objetivos específicos del equipo. Céntrese en lo que hacen los usuarios y en cómo podrían cambiar algunas de sus tareas, para incorporar **Azure Data Catalog** en su rutina diaria.
 * **Estar dispuesto a cometer errores**: si el programa piloto no logra los resultados deseados, vuelva a evaluar e identificar las áreas que se deben cambiar (solucione los problemas del programa piloto antes de pasar a un ámbito mayor).
 
 Antes de que el equipo piloto comience a usar Data Catalog, programe una reunión de puesta en marcha para debatir las expectativas del proyecto piloto y proporcione una formación inicial.

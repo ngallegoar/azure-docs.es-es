@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb0f7cdb320d009eb1549efabac60d7710b9b0e
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 88ae3c45126403161e35ec46e5ccc2666c3edb55
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080081"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050073"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -177,7 +177,7 @@ Transcurridos unos instantes, se asigna el rol a la entidad de seguridad en el �
 
 En el ejemplo siguiente se usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para asignar el rol Inicio de sesión de administrador de Virtual Machine a la VM para el usuario de Azure actual. El nombre de usuario de la cuenta de Azure activa se obtiene con [az account show](/cli/azure/account#az-account-show) y el ámbito se establece en la VM que se creó en un paso anterior con [az vm show](/cli/azure/vm#az-vm-show). El ámbito también se podría asignar en el nivel de un grupo de recursos o de suscripción y se aplican los permisos de herencia de RBAC normales. Para más información, consulte [Controles de acceso basado en rol](../../virtual-machines/linux/login-using-aad.md).
 
-```   zureCLI
+```   AzureCLI
 username=$(az account show --query user.name --output tsv)
 vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
@@ -278,7 +278,7 @@ Este código de salida se convierte en DSREG_E_MSI_TENANTID_UNAVAILABLE porque l
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Problema 2: La extensión AADLoginForWindows no se puede instalar con el código de salida:-2145648607
 
-Este código de salida se convierte en DSREG_AUTOJOIN_DISC_FAILED porque la extensión no puede alcanzar el punto de conexión de https://enterpriseregistration.windows.net.
+Este código de salida se convierte en DSREG_AUTOJOIN_DISC_FAILED porque la extensión no puede alcanzar el punto de conexión de `https://enterpriseregistration.windows.net`.
 
 1. Compruebe que los punto de conexión necesarios son accesibles desde la VM. Para ello, use la siguiente línea de comandos:
 

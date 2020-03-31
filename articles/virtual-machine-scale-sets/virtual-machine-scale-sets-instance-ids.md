@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: aa2b0013818f897f01945d394266a57016ecb0bb
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 99ad4249a4134bcc1b1cf5aba92b8a95a034db33
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275845"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534429"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Identificadores de instancia de máquinas virtuales del conjunto de escalado de máquinas virtuales de Azure
 En este artículo se describen los identificadores de instancia de los conjuntos de escalado y las distintas formas en que se muestran.
@@ -40,8 +40,11 @@ También puede usar [resources.azure.com](https://resources.azure.com) o los [Az
 
 La presentación exacta de la salida depende de las opciones proporcionadas para el comando. Aquí solo se muestra un ejemplo de la salida de la CLI:
 
+```azurecli
+az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 ```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+
+```output
 [
   {
     "instanceId": "85",
@@ -70,7 +73,7 @@ La parte {instance-id} del nombre es el mismo número decimal que la propiedad "
 
 Si consulta los [metadatos de instancia](../virtual-machines/windows/instance-metadata-service.md) de la máquina virtual de un conjunto de escalado, verá un nombre en la salida:
 
-```
+```output
 {
   "compute": {
     "location": "westus",

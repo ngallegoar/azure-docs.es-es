@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
 ms.openlocfilehash: 8f2c6bc7fb7ab0939da20932fd531c158549ce7a
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70012852"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---template-preview"></a>Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: plantilla (versión preliminar)

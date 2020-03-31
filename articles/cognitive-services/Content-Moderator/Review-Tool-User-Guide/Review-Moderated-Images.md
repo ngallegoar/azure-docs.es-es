@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: b02324923e3f004395105b8e04165390cb950fe7
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73044127"
 ---
 # <a name="create-human-reviews"></a>Creación de revisiones humanas
 
 En esta guía, obtendrá información sobre cómo configurar [revisiones](../review-api.md#reviews) en el sitio web de la herramienta de revisión. Las revisiones almacenan y muestran el contenido que habrán de evaluar moderadores humanos. Los moderadores pueden modificar las etiquetas aplicadas y aplicar sus propias etiquetas personalizadas según corresponda. Cuando un usuario completa una revisión, los resultados se envían a un punto de conexión de devolución de llamada especificado y el contenido se quita del sitio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Inicie sesión o cree una cuenta en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
+- Inicie sesión o cree una cuenta en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
 ## <a name="image-reviews"></a>Revisiones de imágenes
 

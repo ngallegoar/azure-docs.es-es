@@ -1,18 +1,18 @@
 ---
 title: Todo sobre DevOps con Visual Studio App Center y servicios de Azure
 description: Conozca todo sobre DevOps en el desarrollo de aplicaciones móviles.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2323-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: a501eb8426dd31f1ce63bece132c1065e277b54e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 1c87dc01d6fda5032556c175218d9aea46bed495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453167"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240890"
 ---
 # <a name="what-is-devops"></a>¿Qué es DevOps?
 La palabra "DevOps" proviene de una combinación de los términos ingleses "development" (desarrollo) y "operations" (operaciones). DevOps destaca la importancia de la comunicación y la colaboración entre desarrolladores de software y profesionales de TI de producción, al tiempo que automatiza la implementación de software y los cambios de infraestructura. DevOps se centra en la adopción de metodologías ágiles y eficientes, y en la automatización de tareas repetitivas. El objetivo de DevOps es la publicación oportuna y correcta de aplicaciones.

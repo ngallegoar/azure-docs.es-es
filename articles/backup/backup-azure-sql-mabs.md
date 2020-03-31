@@ -4,10 +4,10 @@ description: En este artículo aprenderá la configuración de la copia de segur
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 4a4d4b7e70e2df0e014ea4b4d23027aa7c48f2fe
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77505950"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Copia de seguridad de SQL Server en Azure con Azure Backup Server

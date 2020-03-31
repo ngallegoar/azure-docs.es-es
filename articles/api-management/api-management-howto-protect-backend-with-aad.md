@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
 ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190362"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
@@ -27,7 +27,7 @@ En esta guía se muestra cómo configurar la instancia de Azure API Management p
 > [!NOTE]
 > Esta característica está disponible en los niveles **Desarrollador**, **Estándar** y **Premium** de API Management.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 Para seguir los pasos de este artículo, debe tener:
 * Una instancia de API Management
 * Una API que se vaya a publicar y que use la instancia de API Management

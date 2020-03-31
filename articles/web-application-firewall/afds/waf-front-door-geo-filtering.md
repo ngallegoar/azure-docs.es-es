@@ -5,15 +5,15 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: eb91dfd5d774e591d3c3c3964668dcc626086181
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e287da94a71fccabddb90f3f5a3699f4c4cf22a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510205"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472612"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>¿Qué es el filtrado geográfico en un dominio para Azure Front Door?
 
@@ -119,7 +119,7 @@ Las directivas de filtrado geográfico para Front Door se pueden configurar medi
 | KW | Kuwait|
 | KY | Islas Caimán|
 | KZ | Kazajistán|
-| LA | República Democrática Popular de Laos|
+| Los Ángeles | República Democrática Popular de Laos|
 | LB | Líbano|
 | LI | Liechtenstein|
 | LK | Sri Lanka|
@@ -150,7 +150,7 @@ Las directivas de filtrado geográfico para Front Door se pueden configurar medi
 | NG | Nigeria|
 | NI | Nicaragua|
 | NL | Países Bajos|
-| NO | Noruega|
+| No | Noruega|
 | NP | Nepal|
 | NR | Nauru|
 | NZ | Nueva Zelanda|

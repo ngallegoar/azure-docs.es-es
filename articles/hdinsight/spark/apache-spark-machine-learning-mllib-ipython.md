@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
 ms.openlocfilehash: c8ead7abc454df387db31b2ce65d2ba714b0067d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73494089"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Uso de Apache Spark MLlib para compilar una aplicación de aprendizaje automático y analizar un conjunto de datos
@@ -202,8 +202,8 @@ Vamos a empezar a hacernos una idea de lo que contiene el conjunto de datos.
    - Pass (pasado)
        - Pass (pasado)
        - Pass w/ conditions (superado con condiciones)
-   - Fail (no superado)
-       - Fail (no superado)
+   - Incorrecto
+       - Incorrecto
    - Discard (Descartar)
        - Business not located (no se encontró el negocio)
        - Out of Business (negocio cerrado)
@@ -359,12 +359,12 @@ Ahora se puede crear una visualización final para facilitar el análisis de los
 ## <a name="shut-down-the-notebook"></a>Cierre del cuaderno
 Cuando haya terminado de ejecutar la aplicación, deberá cerrar el cuaderno para liberar los recursos. Para ello, en el menú **File** (Archivo) del cuaderno y seleccione **Close and Halt** (Cerrar y detener). Con esta acción se cerrará el cuaderno.
 
-## <a name="seealso"></a>Consulte también
-* [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)
+## <a name="see-also"></a><a name="seealso"></a>Otras referencias
+* [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
-* [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con BI: Realización de análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para analizar la temperatura de un edificio mediante datos de HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
@@ -379,6 +379,6 @@ Cuando haya terminado de ejecutar la aplicación, deberá cerrar el cuaderno par
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight de Azure](apache-spark-jupyter-notebook-install-locally.md)
 
-### <a name="manage-resources"></a>Administración de recursos
+### <a name="manage-resources"></a>Administrar recursos
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](apache-spark-job-debugging.md)

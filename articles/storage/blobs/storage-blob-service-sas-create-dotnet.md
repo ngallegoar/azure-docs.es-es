@@ -10,18 +10,18 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 0d911d67eeaeae4b48198e95dc3df01e4740dc00
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 10045a760d7e0fcb02a754bc9bb52a5ebca970f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372081"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79137218"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Creación de un servicio de SAS para un contenedor o blob con .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-En este artículo se muestra cómo usar la clave de cuenta de almacenamiento para crear un servicio de SAS para un contenedor o blob con la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client).
+En este artículo se muestra cómo usar la clave de cuenta de almacenamiento para crear un servicio de SAS para un contenedor o blob con la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="create-a-service-sas-for-a-blob-container"></a>Creación de una SAS de servicio para un contenedor de blob
 
@@ -122,5 +122,5 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md) (Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido [SAS])
+- [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md)
 - [Create a service SAS](/rest/api/storageservices/create-service-sas) (Creación de una SAS de servicio)

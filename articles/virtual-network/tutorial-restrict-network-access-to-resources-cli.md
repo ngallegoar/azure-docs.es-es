@@ -18,15 +18,15 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: f2dcc714bc9052dd51f114e24f0b9bd74b87480c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74186400"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restricción del acceso a la red a los recursos de PaaS con puntos de conexión de servicio de red virtual mediante la CLI de Azure
 
-Los puntos de conexión de servicio de red virtual permiten que el acceso de la red a algunos recursos de servicio de Azure esté restringido a una subred de la red virtual. También se puede quitar el acceso de Internet a los recursos. Los puntos de conexión de servicio proporcionan a la red virtual conexión directa con los servicios de Azure compatibles, de modo que se puede usar el espacio de direcciones privadas de la red virtual para acceder a los servicios de Azure. El tráfico destinado a los recursos de Azure a través de los puntos de conexión de servicio siempre se mantiene en la red troncal de Microsoft Azure. En este artículo, aprenderá a:
+Los puntos de conexión de servicio de red virtual permiten que el acceso de la red a algunos recursos de servicio de Azure esté restringido a una subred de la red virtual. También se puede quitar el acceso de Internet a los recursos. Los puntos de conexión de servicio proporcionan a la red virtual conexión directa con los servicios de Azure compatibles, de modo que se puede usar el espacio de direcciones privadas de la red virtual para acceder a los servicios de Azure. El tráfico destinado a los recursos de Azure a través de los puntos de conexión de servicio siempre se mantiene en la red troncal de Microsoft Azure. En este artículo aprenderá a:
 
 * Crear una red virtual con una subred
 * Agregar una subred y habilitar un punto de conexión de servicio
@@ -210,7 +210,7 @@ az storage account update \
   --default-action Deny
 ```
 
-### <a name="enable-network-access-from-a-subnet"></a>Habilitación del acceso a la red desde una subred
+### <a name="enable-network-access-from-a-subnet"></a>Habilitación del acceso de red desde una subred
 
 Permita el acceso a la red a la cuenta de almacenamiento desde la subred *Private* con [az storage account network-rule add](/cli/azure/storage/account/network-rule).
 
@@ -298,7 +298,7 @@ Asegúrese de que la máquina virtual no tiene conectividad de salida con otras 
 ping bing.com -c 4
 ```
 
-Dado que el grupo de seguridad de red asociado a la subred *Private* no permite el acceso de salida a direcciones IP públicas que no sean las direcciones asignadas al servicio Azure Storage, no recibirá ninguna respuesta.
+Dado que el grupo de seguridad de red asociado a la subred *Privada* no permite el acceso de salida a otras direcciones IP públicas que no sean las direcciones asignadas al servicio Azure Storage, no recibirá ninguna respuesta.
 
 Salga de la sesión de SSH en la máquina virtual *myVmPrivate*.
 

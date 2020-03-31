@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976968"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219182"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entidades y su finalidad en LUIS
 
@@ -37,10 +37,10 @@ Las entidades deben etiquetarse de forma coherente en todas las expresiones de e
 
  Puede definir sus propias entidades o usar entidades pregeneradas para ahorrar tiempo para conceptos comunes como [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordinal](luis-reference-prebuilt-ordinal.md), [correo electrónico](luis-reference-prebuilt-email.md) y [número de teléfono](luis-reference-prebuilt-phonenumber.md).
 
-|Expresión|Entidad|Datos|
+|Expresión|Entidad|data|
 |--|--|--|
 |Comprar 3 billetes a Nueva York|Número creado previamente<br>Location.Destination|3<br>Nueva York|
-|Comprar un billete de Nueva York a Londres para el 5 de marzo|Location.Origin<br>Location.Destination<br>Entidad datetimeV2 creada previamente|Nueva York<br>Londres<br>5 de marzo de 2018|
+|Comprar un billete de Nueva York a Londres para el 5 de marzo|Location.Origin<br>Location.Destination<br>Entidad datetimeV2 creada previamente|Nueva York<br>London<br>5 de marzo de 2018|
 
 ### <a name="entities-are-optional"></a>Las entidades son opcionales.
 
@@ -140,5 +140,5 @@ Aprenda conceptos sobre las buenas [expresiones](luis-concept-utterance.md).
 
 Vea [Add entities](luis-how-to-add-entities.md) (Agregar entidades) para obtener más información sobre cómo agregar entidades a la aplicación de LUIS.
 
-Vea [Tutorial: Extraiga los datos estructurados de la expresión del usuario con entidades con aprendizaje automático en Language Understanding (LUIS)](tutorial-machine-learned-entity.md) para obtener información sobre cómo extraer datos estructurados de una expresión mediante la entidad con aprendizaje automático.
+Consulte [Tutorial: Extraiga los datos estructurados de la expresión del usuario con entidades con aprendizaje automático en Language Understanding (LUIS)](tutorial-machine-learned-entity.md) para obtener información sobre cómo extraer datos estructurados de una expresión mediante la entidad con aprendizaje automático.
  

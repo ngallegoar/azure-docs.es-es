@@ -1,19 +1,18 @@
 ---
 title: Creación de una oferta de contenedor de Azure | Azure Marketplace
 description: Publicación de una nueva oferta de contenedor para Marketplace
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: a9766f234b074fd259eeb7bcc184573e21e390a7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d2a18d0fee4352cd88e4c64ab99a7dfc1b08ed75
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823220"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280089"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Creación de una oferta de contenedor con Cloud Partner Portal
 

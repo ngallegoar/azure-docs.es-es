@@ -10,11 +10,11 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
 ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252083"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237148"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -38,7 +38,7 @@ Una instancia de proceso es una estación de trabajo totalmente administrada bas
 |Preconfigurada&nbsp;o&nbsp;ML|Ahorre tiempo en las tareas de configuración con paquetes de ML preconfigurados y actualizados, marcos de aprendizaje profundo y controladores de GPU.|
 |Totalmente personalizable|La amplia compatibilidad con los tipos de máquina virtual de Azure, incluidas las GPU y la personalización de bajo nivel persistente, como la instalación de paquetes y controladores, hace que los escenarios avanzados sean muy sencillos. |
 
-## <a name="contents"></a>Herramientas y entornos
+## <a name="tools-and-environments"></a><a name="contents"></a>Herramientas y entornos
 
 La estancia de proceso Azure Machine Learning permite crear, formar e implementar modelos en una experiencia de cuaderno completamente integrada en el área de trabajo.
 
@@ -139,7 +139,7 @@ La cuota de núcleos dedicados por región que se aplica a la creación de insta
 
 Las instancias de proceso se pueden usar como [destino de proceso de entrenamiento](concept-compute-target.md#train) de forma similar a los clústeres de entrenamiento de Azure Machine Learning. Aprovisione una máquina virtual de varias GPU para ejecutar trabajos de formación distribuidos con estimaciones de TensorFlow/PyTorch. También puede crear una configuración de ejecución y usarla para ejecutar el experimento en la instancia de proceso. Puede usar una instancia de proceso como destino de implementación de inferencia local para escenarios de prueba o depuración.
 
-## <a name="notebookvm"></a>¿Qué ha ocurrido con la VM de cuaderno?
+## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>¿Qué ha ocurrido con la VM de cuaderno?
 
 Las instancias de proceso reemplazan la VM de cuaderno.  
 

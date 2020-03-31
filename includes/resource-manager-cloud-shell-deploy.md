@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: aac2f3ea2b52ac0319f96279deed13c1145749bd
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74451412"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Implementación de una plantilla desde Cloud Shell
 
 Puede usar [Cloud Shell](../articles/cloud-shell/overview.md) para implementar la plantilla. Para implementar una plantilla externa, proporcione el identificador URI de la plantilla exactamente como lo haría para cualquier implementación externa. Para implementar una plantilla local, primero debe cargar la plantilla en la cuenta de almacenamiento de Cloud Shell. En esta sección se describe cómo cargar la plantilla a su cuenta de Cloud Shell e implementarla como un archivo local. Si no ha usado Cloud Shell, consulte la [Introducción a Azure Cloud Shell](../articles/cloud-shell/overview.md) para más información sobre su configuración.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. Seleccione el grupo de recursos de Cloud Shell. El patrón de nombre es `cloud-shell-storage-<region>`.
 

@@ -17,10 +17,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: f878c6f7a59328e2f68ffbaee066bba4a5b6c898
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978139"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar la integración de Azure Key Vault para SQL Server en Azure Virtual Machines (implementación clásica)
@@ -56,9 +56,9 @@ En la tabla siguiente se enumeran los parámetros necesarios para ejecutar el sc
 | **$akvURL** |**La dirección URL del Almacén de claves** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**Nombre de entidad de servicio** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Secreto de entidad de servicio** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
-| **$credName** |**Nombre de credencial**: La integración de AKV crea una credencial en SQL Server, permitiendo el acceso de la máquina virtual al Almacén de claves. Elija un nombre para esta credencial. |"mycred1" |
-| **$vmName** |**Nombre de la máquina virtual**: Nombre de una VM SQL creada anteriormente. |"myvmname" |
-| **$serviceName** |**Nombre del servicio**: Nombre del servicio en la nube que está asociado a la VM SQL. |"mycloudservicename" |
+| **$credName** |**Nombre de credencial**: la integración de AKV crea una credencial en SQL Server, permitiendo el acceso de la máquina virtual al Almacén de claves. Elija un nombre para esta credencial. |"mycred1" |
+| **$vmName** |**Nombre de la máquina virtual**: el nombre de una máquina virtual de SQL creada anteriormente. |"myvmname" |
+| **$serviceName** |**Nombre de servicio**: nombre del servicio en la nube que está asociado a la máquina virtual de SQL. |"mycloudservicename" |
 
 ### <a name="enable-akv-integration-with-powershell"></a>Habilitación de la integración de AKV con PowerShell
 El cmdlet **New-AzureVMSqlServerKeyVaultCredentialConfig** crea un objeto de configuración para la característica de integración de Azure Key Vault. **Set-AzureVMSqlServerExtension** configura esta integración con el parámetro **KeyVaultCredentialSettings**. Los pasos siguientes muestran cómo usar estos comandos.

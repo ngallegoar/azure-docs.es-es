@@ -1,18 +1,18 @@
 ---
 title: Supervisión de la aplicación en busca de bloqueos y errores en tiempo real con Visual Studio App Center
 description: Conozca App Center como servicio para supervisar las aplicaciones móviles en busca de bloqueos y errores.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 38822ee6630f1dfd77ea2c62f9e4c489d159a1a2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 6e7e29f28390278b21fb164365cc02d834e05b62
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454432"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240876"
 ---
 # <a name="monitor-failures-and-errors-in-real-time-for-your-mobile-application"></a>Supervisión de la aplicación móvil en busca de bloqueos y errores en tiempo real
 Una vez que miles de usuarios usan la aplicación, es probable que tenga errores. Los usuarios pueden encontrarse con errores inesperados en la aplicación. Desde la perspectiva de los usuarios, lo único que quieren es una aplicación que funcione y sea confiable. Las aplicaciones con errores y bloqueos no proporcionan una buena experiencia de usuario. Los usuarios, decepcionados, desinstalarán la aplicación, dejarán una reseña negativa o la criticarán públicamente y se quejarán de su experiencia.
@@ -42,5 +42,5 @@ El servicio [App Center Diagnostics](/appcenter/diagnostics/) le ayuda a supervi
 - Compatibilidad con las plataformas iOS, Android, macOS, tvOS, Xamarin, React Native, Unity, Cordova, WPF y WinForms.
 
 **Referencias**
-- [Registro con Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
+- [Registro con Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
 - [Introducción a App Center Diagnostics](/appcenter/diagnostics/)

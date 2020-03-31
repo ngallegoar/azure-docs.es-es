@@ -3,7 +3,7 @@ title: Eventos extendidos
 description: Describe los eventos extendidos (XEvents) en Azure SQL Database y cómo las sesiones de eventos difieren ligeramente de las sesiones de eventos en Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: cab5b5baf318eb9eadc398ce525e0de716d0df2d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822299"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79213961"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos extendidos en SQL Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -31,10 +31,10 @@ En este tema se explica cómo la implementación de eventos extendidos en Azure 
 
 Se puede encontrar información adicional sobre eventos extendidos, para Azure SQL Database y Microsoft SQL Server, en:
 
-- [Inicio rápido: Eventos extendidos en SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Quick Start: Extended events in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Eventos extendidos](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este tema se da por sentado que ya tiene algunos conocimientos sobre:
 
@@ -81,25 +81,25 @@ Los temas relacionados proporcionan dos ejemplos de código:
 
 La característica eventos extendidos es compatible con varias [vistas de catálogo](https://msdn.microsoft.com/library/ms174365.aspx). Las vistas de catálogo le informan sobre *metadatos o definiciones* de sesiones de eventos creadas por el usuario en la base de datos actual. Las vistas no devuelven información acerca de las instancias de sesiones de eventos activas.
 
-| Nombre de<br/>vista de catálogo | DESCRIPCIÓN |
+| Nombre de<br/>vista de catálogo | Descripción |
 |:--- |:--- |
 | **sys.database_event_session_actions** |Devuelve una fila por cada acción en cada evento de una sesión de eventos. |
 | **sys.database_event_session_events** |Devuelve una fila por cada evento de una sesión de eventos. |
 | **sys.database_event_session_fields** |Devuelve una fila por cada columna personalizable que se estableció de forma explícita en los eventos y destinos. |
-| **sys.database_event_session_targets** |Devuelve una fila por cada destino de evento de una sesión de eventos. |
+| **sys.database_event_session_targets** |Devuelve una fila para cada destino de evento de una sesión de eventos. |
 | **sys.database_event_sessions** |Devuelve una fila por cada sesión de eventos en la base de datos de SQL Database. |
 
 En Microsoft SQL Server, hay vistas de catálogo similares con nombres que incluyen *.server\_* en lugar de *.database\_* . El patrón de nombre es parecido a **sys.server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nuevas vistas de administración dinámica [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>Nuevas vistas de administración dinámica [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
 Azure SQL Database tiene [vistas de administración dinámica (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) que admiten eventos extendidos. Las DMV le informan sobre las sesiones de eventos *activas* .
 
-| Nombre de DMV | DESCRIPCIÓN |
+| Nombre de DMV | Descripción |
 |:--- |:--- |
-| **sys.dm_xe_database_session_event_actions** |Devuelve información acerca de las acciones de la sesión de eventos. |
-| **sys.dm_xe_database_session_events** |Devuelve información acerca de los eventos de sesión. |
-| **sys.dm_xe_database_session_object_columns** |Muestra los valores de configuración para los objetos que están enlazados a una sesión. |
+| **sys.dm_xe_database_session_event_actions** |Devuelve información sobre las acciones de la sesión de eventos. |
+| **sys.dm_xe_database_session_events** |Devuelve información sobre los eventos de la sesión. |
+| **sys.dm_xe_database_session_object_columns** |Muestra los valores de configuración de los objetos enlazados a una sesión. |
 | **sys.dm_xe_database_session_targets** |Devuelve información acerca de los destinos de la sesión. |
 | **sys.dm_xe_database_sessions** |Devuelve una fila para cada sesión de eventos del ámbito de la base de datos actual. |
 
@@ -173,7 +173,7 @@ El token SAS genere para el contenedor de Azure Storage debe especificar **rwl**
 - Escritura
 - List
 
-## <a name="performance-considerations"></a>Consideraciones sobre rendimiento
+## <a name="performance-considerations"></a>Consideraciones de rendimiento
 
 Existen escenarios donde un uso intensivo de eventos extendidos puede acumular más memoria activa de la que sería conveniente para el buen estado de todo el sistema. Por ello, el sistema Azure SQL Database establece y ajusta de forma dinámica los límites en la cantidad de memoria activa que puede acumularse en una sesión de eventos. En el cálculo dinámico se incluyen muchos factores.
 
@@ -194,7 +194,7 @@ El destino del **archivo de eventos** puede experimentar latencia de red o error
 - [Cmdlets de Azure Storage](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Usar Azure PowerShell con Azure Storage](../storage/common/storage-powershell-guide-full.md) proporciona información completa sobre PowerShell y el servicio Azure Storage.
 - [Uso del almacenamiento de blobs de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [CREATE CREDENTIAL (Transact-SQL).](https://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Las publicaciones del blog de Jonathan Kehayias acerca de los eventos extendidos en Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 

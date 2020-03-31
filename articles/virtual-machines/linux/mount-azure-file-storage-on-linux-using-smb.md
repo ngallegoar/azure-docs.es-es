@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b9b536def2aa7da25fef9f3baa5efdd8b0ed6f7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 0314095a053087a7d490926c41c6ae386c304919
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944608"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066646"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montaje de Azure File Storage en máquinas virtuales Linux con SMB
 
@@ -29,7 +29,7 @@ Para esta guía es necesario que ejecute la versión 2.0.4 o superior de la CLI 
 
 Cree un grupo de recursos denominado *myResourceGroup* en la ubicación *Este de EE. UU.*
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -37,7 +37,7 @@ az group create --name myResourceGroup --location eastus
 
 Cree una cuenta de almacenamiento, en el grupo de recursos que ha creado, con [az storage account create](/cli/azure/storage/account). En este ejemplo se crea una cuenta de almacenamiento denominada *mySTORAGEACCT\<número aleatorio>* y se coloca el nombre de esa cuenta de almacenamiento en la variable **STORAGEACCT**. Los nombres de la cuenta de almacenamiento deben ser únicos, usar `$RANDOM` anexa un número al final para que sea único.
 
-```bash
+```azurecli
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
     --name "mystorageacct$RANDOM" \
@@ -52,7 +52,7 @@ Cuando cree una cuenta de almacenamiento, las claves de cuenta de almacenamiento
 
 Para ver las claves de la cuenta de almacenamiento, use [az storage account keys list](/cli/azure/storage/account/keys). En este ejemplo se almacena el valor de clave 1 en la variable **STORAGEKEY**.
 
-```bash
+```azurecli
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT \
@@ -67,7 +67,7 @@ Los nombres de recursos compartidos deben estar formados por letras minúsculas,
 
 En este ejemplo se crea un recurso compartido denominado *myshare* con una cuota de 10 GiB. 
 
-```bash
+```azurecli
 az storage share create --name myshare \
     --quota 10 \
     --account-name $STORAGEACCT \
@@ -103,6 +103,7 @@ Cuando reinicie la VM de Linux, el recurso compartido de SMB montado se desmonta
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
+
 Para mayor seguridad en entornos de producción, debe almacenar las credenciales fuera de fstab.
 
 ## <a name="next-steps"></a>Pasos siguientes

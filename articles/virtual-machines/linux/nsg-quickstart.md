@@ -1,6 +1,6 @@
 ---
-title: Apertura de puertos en una máquina virtual con la CLI de Azure
-description: Aprenda a abrir un puerto o crear un punto de conexión en su máquina virtual mediante la CLI de Azure.
+title: Apertura de puertos a una máquina virtual Linux con CLI de Azure
+description: Más información sobre cómo abrir un puerto o crear un punto de conexión a la máquina virtual Linux mediante el modelo de implementación de Azure Resource Manager y la CLI de Azure
 author: cynthn
 manager: gwallace
 ms.service: virtual-machines
@@ -9,14 +9,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: d9488b7a466dfc67edbf2dcbee966fc1fc72e8b7
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c29fb075fc2d8b512070d7a6cf3fef949def5894
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944539"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066623"
 ---
-# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Abrir puertos y puntos de conexión en una máquina virtual con la CLI de Azure
+# <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Apertura de puertos y puntos de conexión para una máquina virtual Linux en Azure con la CLI de Azure 2.0
 
 En Azure, se abre un puerto o se crea un punto de conexión a una máquina virtual creando un filtro de red en una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red y se asocian al recurso que va a recibir dicho tráfico. Vamos a usar un ejemplo común de tráfico web en el puerto 80. En este artículo se muestra cómo abrir un puerto a una VM mediante la CLI de Azure. 
 
@@ -29,7 +29,7 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
 ## <a name="quickly-open-a-port-for-a-vm"></a>Abrir rápidamente un puerto para una máquina virtual
 Si necesita abrir rápidamente un puerto para una máquina virtual en un escenario de desarrollo y prueba, puede usar el comando [az vm open-port](/cli/azure/vm). Este comando crea un grupo de seguridad de red, agrega una regla y la aplica a una máquina virtual o subred. En el ejemplo siguiente se abre el puerto *80* en la máquina virtual denominada "*myVM*" que se encuentra en el grupo de recursos *myResourceGroup*.
 
-```azure-cli
+```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
 ```
 
@@ -87,5 +87,5 @@ Para las aplicaciones web de alta disponibilidad, debe colocar las máquinas vir
 ## <a name="next-steps"></a>Pasos siguientes
 En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Puede encontrar información sobre la creación de entornos más detallados en los siguientes artículos:
 
-* [Información general sobre Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+* [Introducción a Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [¿Qué es un grupo de seguridad de red?](../../virtual-network/security-overview.md)

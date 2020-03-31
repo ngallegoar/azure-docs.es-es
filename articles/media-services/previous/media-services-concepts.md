@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 69e2c053c9fb874889bc3d5b08be6e0c7ce875a5
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162912"
 ---
 # <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services 
@@ -27,7 +27,7 @@ ms.locfileid: "77162912"
 
 En este tema se proporciona información general sobre los conceptos más importantes de Media Services.
 
-## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Recursos y almacenamiento
+## <a name="assets-and-storage"></a><a id="assets"/>Recursos y almacenamiento
 ### <a name="assets"></a>Recursos
 Un [recurso](https://docs.microsoft.com/rest/api/media/operations/asset) contiene archivos digitales (como vídeos, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos) y metadatos de estos archivos. Una vez que los archivos digitales se cargan en un recurso, se pueden utilizar en los flujos de trabajo de codificación y streaming en Media Services.
 
@@ -75,7 +75,7 @@ Un contenedor de blobs proporciona una agrupación de un conjunto de blobs. Los 
 > 
 > 
 
-### <a name="a-idlocatorslocators"></a><a id="locators"/>Localizadores
+### <a name="locators"></a><a id="locators"/>Localizadores
 Los [localizador](https://docs.microsoft.com/rest/api/media/operations/locator)es proporcionan un punto de entrada para tener acceso a los archivos que se encuentran en un recurso. Se usa una directiva de acceso para definir los permisos y la duración en que un cliente tiene acceso a un recurso determinado. Los localizadores pueden tener de varias a una relación con una directiva de acceso, de manera tal que distintos localizadores pueden proporcionar distintas horas de inicio y tipos de conexión a distintos clientes, mientras que todos usan la misma configuración de permiso y duración; sin embargo, debido a una restricción en la directiva de acceso compartido definida por los servicios de almacenamiento de Azure, no puede tener más de cinco localizadores únicos asociados con un recurso determinado a la vez. 
 
 Media Services admite dos tipos de localizadores: OnDemandOrigin, que se usan para hacer streaming de elementos multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) o para descargar elementos multimedia de manera progresiva; y SAS URL, que se usan para cargar o descargar archivos multimedia hacia y desde Azure Storage. 
@@ -91,7 +91,7 @@ Un [trabajo](https://docs.microsoft.com/rest/api/media/operations/job) se usa no
 
 Un trabajo contiene metadatos acerca del procesamiento que se realizará. Cada trabajo contiene una o varias [tareas](https://docs.microsoft.com/rest/api/media/operations/task)que especifican una tarea de procesamiento atómica, sus recursos de entrada, recursos de salida, un procesador de multimedia y su configuración asociada. Las tareas dentro de un trabajo se pueden encadenar en conjunto, donde el recurso de salida de una de las tareas se indica como el recurso de entrada de la tarea siguiente. De este modo, un trabajo puede contener todos los procesos necesarios para una presentación multimedia.
 
-## <a id="encoding"></a>Encoding
+## <a name="encoding"></a><a id="encoding"></a>Encoding
 Azure Media Services ofrece varias opciones para la codificación de medios en la nube.
 
 Cuando comience con Media Services, es importante comprender la diferencia entre códecs y formatos de archivo.
@@ -160,7 +160,7 @@ Para más información, consulte los siguientes artículos.
 - [Protección con PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Entrega
-### <a name="a-iddynamic_packagingdynamic-packaging"></a><a id="dynamic_packaging"/>Empaquetado dinámico
+### <a name="dynamic-packaging"></a><a id="dynamic_packaging"/>Empaquetado dinámico
 Cuando se trabaja con Media Services, es aconsejable codificar los archivos intermedios en una conjunto MP4 de velocidad de bits adaptable y, a continuación, convertir el conjunto en el formato deseado con el [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>extremo de streaming

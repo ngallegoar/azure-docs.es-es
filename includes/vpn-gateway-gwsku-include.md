@@ -9,15 +9,15 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74085276"
 ---
 Al crear una puerta de enlace de red virtual, debe especificar la SKU de la puerta de enlace que desea usar. Seleccione las SKU que cumplan sus requisitos en función de los tipos de cargas de trabajo, rendimientos, características y Acuerdos de Nivel de Servicio. En relación con las SKU de puerta de enlace de red virtual en Azure Availability Zones, vea la información sobre las [SKU de puerta de enlace de Azure Availability Zones](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
-###  <a name="benchmark"></a>SKU de puerta de enlace por túnel, conexión y rendimiento
+###  <a name="gateway-skus-by-tunnel-connection-and-throughput"></a><a name="benchmark"></a>SKU de puerta de enlace por túnel, conexión y rendimiento
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -27,7 +27,7 @@ Al crear una puerta de enlace de red virtual, debe especificar la SKU de la puer
 >  * Para las SKU de puerta de enlace de ExpressRoute, consulte [Acerca de las puertas de enlace de red virtual para ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 >
 
-###  <a name="feature"></a>SKU de puerta de enlace por conjunto de características
+###  <a name="gateway-skus-by-feature-set"></a><a name="feature"></a>SKU de puerta de enlace por conjunto de características
 
 Las nueva SKU de puerta de enlace de VPN simplifican los conjuntos de características que se ofrecen en las puertas de enlace:
 
@@ -41,7 +41,7 @@ Las nueva SKU de puerta de enlace de VPN simplifican los conjuntos de caracterí
 
 (\*\*) La SKU Basic se considera una SKU heredada. La SKU Basic tiene ciertas limitaciones de características. No se puede cambiar el tamaño de una puerta de enlace que utiliza una SKU Basic a una de las SKU de puerta de enlace nuevas, sino que debe cambiar a una SKU nueva, lo que implica eliminar y volver a crear la puerta de enlace VPN.
 
-###  <a name="workloads"></a>SKU de puerta de enlace: producción frente a cargas de desarrollo y pruebas
+###  <a name="gateway-skus---production-vs-dev-test-workloads"></a><a name="workloads"></a>SKU de puerta de enlace: producción frente a cargas de desarrollo y pruebas
 
 Dadas las diferencias en los Acuerdos de Nivel de Servicio y los conjuntos de características, se recomiendan las siguientes SKU para la producción, en comparación el desarrollo y las pruebas:
 

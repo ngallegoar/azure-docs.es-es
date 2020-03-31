@@ -16,10 +16,10 @@ ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75965666"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar Azure Premium Storage con SQL Server en máquinas virtuales
@@ -83,7 +83,7 @@ Por ejemplo, considere la siguiente configuración de red virtual:
 </VirtualNetworkSite>
 ```
 
-Para moverlo a una red virtual regional en Europa Occidental, cambie la configuración a la siguiente:
+Para moverlo a una red virtual regional en Oeste de Europa, cambie la configuración a la siguiente:
 ```xml
 <VirtualNetworkSite name="danAzureSQLnet" Location="West Europe">
 <AddressSpace>

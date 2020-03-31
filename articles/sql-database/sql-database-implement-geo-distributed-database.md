@@ -11,14 +11,14 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 1da977f41add19afa6f84b7e5a3dc99c980ac1cf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 58d5bd4a7f3087e11056354f7534c3c9dbebca3c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421126"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067286"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar una base de datos distribuida geográficamente
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementación de una base de datos distribuida geográficamente
 
 Configure una base de datos de Azure SQL y una aplicación para realizar conmutación por error a una región remota y probar un plan de conmutación por error. Aprenderá a:
 
@@ -29,12 +29,12 @@ Configure una base de datos de Azure SQL y una aplicación para realizar conmuta
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 Para completar el tutorial, asegúrese de que instaló los elementos siguientes:
 
@@ -58,7 +58,7 @@ Para completar el tutorial, asegúrese de que instaló los elementos siguientes:
 
 Con Azure PowerShell, cree [grupos de conmutación por error](sql-database-auto-failover-group.md) entre un servidor SQL Azure existente y uno nuevo en otra región. A continuación, agregue la base de datos de ejemplo al grupo de conmutación por error.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
@@ -90,12 +90,12 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 > [!IMPORTANT]
 > Ejecute `az login` para iniciar sesión en Azure.
 
-```powershell
+```azurecli
 $admin = "<adminName>"
 $password = "<password>"
 $resourceGroup = "<resourceGroupName>"
@@ -317,7 +317,7 @@ Las opciones de configuración de replicación geográfica también pueden cambi
 
 Ejecute los siguientes scripts para simular una conmutación por error y observar los resultados de la aplicación. Observe cómo se producirán errores en algunas inserciones y selecciones durante la migración de la base de datos.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Puede comprobar el rol del servidor de recuperación ante desastres durante la prueba con el siguiente comando:
 
@@ -342,11 +342,11 @@ Para probar una conmutación por error:
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Puede comprobar el rol del servidor de recuperación ante desastres durante la prueba con el siguiente comando:
 
-```azure-cli
+```azurecli
 az sql failover-group show --name $failoverGroup --resource-group $resourceGroup --server $drServer
 ```
 
@@ -354,13 +354,13 @@ Para probar una conmutación por error:
 
 1. Inicie la conmutación por error manual del grupo de conmutación por error:
 
-   ```azure-cli
+   ```azurecli
    az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $drServer
    ```
 
 1. Revierta el grupo de conmutación por error al servidor principal:
 
-   ```azure-cli
+   ```azurecli
    az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $server
    ```
 

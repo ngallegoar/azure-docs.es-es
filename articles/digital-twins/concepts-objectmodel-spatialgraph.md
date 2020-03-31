@@ -9,11 +9,11 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.openlocfilehash: cafec321e7c40e27d8de731feda1103451271507
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562602"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231388"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Descripción de los modelos de objetos de Digital Twins y del grafo de inteligencia espacial
 

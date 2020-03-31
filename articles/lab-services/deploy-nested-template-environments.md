@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: e83bc4e77a44f20d55fa3b56bc81aefd1d25bb03
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76168817"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Implementar plantillas anidadas de Azure Resource Manager para probar entornos
@@ -79,4 +79,4 @@ Consulte estos artículos para obtener detalles sobre los entornos:
 
 - [Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 - [Configuración y uso de entornos públicos en Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
-- [Conexión de un entorno a la red virtual del laboratorio en Azure DevTest Labs](connect-environment-lab-virtual-network.md)
+- [Conexión de un entorno a la red virtual del laboratorio en Azure DevTest Labs](connect-environment-lab-virtual-network.md)

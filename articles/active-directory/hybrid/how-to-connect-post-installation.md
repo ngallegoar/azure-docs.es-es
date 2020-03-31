@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c204029557a73dc3f02015afb92c0fdbf0d4d50e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571323"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230184"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Pasos siguientes y cómo administrar Azure AD Connect
 Utilice los procedimientos operativos de este artículo para personalizar Azure Active Directory (Azure AD) Connect para satisfacer las necesidades y requisitos de su organización.  
@@ -72,7 +72,7 @@ En la tabla siguiente se proporciona un resumen de estas tareas y una breve desc
 
 ![Lista de tareas adicionales](./media/how-to-connect-post-installation/addtasks2.png)
 
-| Tarea adicional | DESCRIPCIÓN |
+| Tarea adicional | Descripción |
 | --- | --- |
 |**Configuración de privacidad**|Consulte qué datos de telemetría se comparten con Microsoft.|
 |**Ver la configuración actual**|Visualice su solución actual de Azure AD Connect.  Incluye la configuración general, los directorios sincronizados y la configuración de sincronización. |
@@ -85,4 +85,4 @@ En la tabla siguiente se proporciona un resumen de estas tareas y una breve desc
 |**Solución de problemas**|Ayuda para solucionar problemas de Azure AD Connect.|
 
 ## <a name="next-steps"></a>Pasos siguientes
-Más información acerca de la [integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).
+Obtenga más información sobre la [integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

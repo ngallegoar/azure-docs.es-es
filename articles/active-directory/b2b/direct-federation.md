@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6187fa9f274c6d00c1c9872a1b27268ac91295e
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 2b99a80a90df8fcfc5efe6dfa0c2cd7e8e5e04e0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161493"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050872"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
 |     |
@@ -47,6 +47,7 @@ Con la federación directa, los usuarios invitados inician sesión en el inquili
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Dominios comprobados por DNS en Azure AD
 El dominio con el que desea federarse ***no*** puede estar verificado por DNS en Azure AD. Se puede realizar una federación directa en los inquilinos no administrados (comprobados por correo electrónico o "viral") de Azure AD porque no están comprobados por DNS.
+
 ### <a name="authentication-url"></a>Dirección URL de autenticación
 La federación directa solo se permite para las directivas en las que el dominio de la dirección URL de autenticación coincide con el dominio de destino, o en las que la dirección URL de autenticación es uno de estos proveedores de identidades permitidos (esta lista está sujeta a cambios):
 -   accounts.google.com

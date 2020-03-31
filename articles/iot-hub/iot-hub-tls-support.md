@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: rezas
-ms.openlocfilehash: 244a71d400493a2029e831b729c63bc0b0dfe559
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 7ab3b48d22f116a707f68cbf6284928c7d2557e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049647"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409512"
 ---
 # <a name="tls-support-in-iot-hub"></a>Compatibilidad con TLS en IoT Hub
 
@@ -61,6 +61,8 @@ Los recursos de IoT Hub que necesitan el uso de TLS 1.2 se pueden crear en est
 * Este de EE. UU.
 * Centro-sur de EE. UU.
 * Oeste de EE. UU. 2
+* US Gov: Arizona
+* US Gov - Virginia
 
 > [!NOTE]
 > En caso de conmutaciones por error, la propiedad `minTlsVersion` de su IoT Hub seguirá siendo efectiva en la región con emparejamiento geográfico.
@@ -80,11 +82,11 @@ Use los vínculos enumerados abajo para configurar TLS 1.2 y los cifrados permi
 
 | Idioma | Versiones compatibles con TLS 1.2 | Documentación |
 |----------|------------------------------------|---------------|
-| C        | Etiqueta 2019-12-11 o más reciente            | [Vínculo](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Versión 2.0.0 o más reciente             | [Vínculo](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Versión 1.21.4 o más reciente            | [Vínculo](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Versión 1.19.0 o más reciente            | [Vínculo](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Versión 1.12.2 o más reciente            | [Vínculo](https://aka.ms/Tls_Node_SDK_IoT) |
+| C        | Etiqueta 2019-12-11 o más reciente            | [-link](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Versión 2.0.0 o más reciente             | [-link](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Versión 1.21.4 o más reciente            | [-link](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Versión 1.19.0 o más reciente            | [-link](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Versión 1.12.2 o más reciente            | [-link](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
 ### <a name="use-tls-12-in-your-iot-edge-setup"></a>Uso de TLS 1.2 en la configuración de IoT Edge

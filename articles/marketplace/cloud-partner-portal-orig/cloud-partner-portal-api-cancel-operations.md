@@ -1,19 +1,18 @@
 ---
 title: API Cancelar operación | Azure Marketplace
 description: Cancele las operaciones.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 374425dbd2abacb2114b5792d7476bc341fa353a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 6d4c1f52f0f3b1e05ec06f5a66a36323f346d4eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819783"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280548"
 ---
 # <a name="cancel-operation"></a>Cancelar operación 
 
@@ -28,8 +27,8 @@ Puede proporcionar una lista de direcciones de correo electrónico delimitadas p
 
 |  **Nombre**    |      **Descripción**                                  |    **Tipo de datos**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identificador del editor, por ejemplo, `contoso`         |   Cadena          |
-| offerId      |  Identificador de la oferta.                                     |   Cadena          |
+| publisherId  |  Identificador del editor, por ejemplo, `contoso`         |   String          |
+| offerId      |  Identificador de la oferta.                                     |   String          |
 | api-version  |  Versión actual de la API                               |    Date           |
 |  |  |  |
 
@@ -37,17 +36,17 @@ Puede proporcionar una lista de direcciones de correo electrónico delimitadas p
 <a name="header"></a>Encabezado
 ------
 
-|  **Nombre**              |  **Valor**         |
+|  **Nombre**              |  **Value**         |
 |  ---------             |  ----------        |
 |  Content-Type          |  application/json  |
-|  Authorization         |  SU TOKEN de portador |
+|  Autorización         |  SU TOKEN de portador |
 |  |  |
 
 
 <a name="body-example"></a>Ejemplo de cuerpo
 ------------
 
-### <a name="request"></a>Solicitud
+### <a name="request"></a>Request
 
 ``` json
 {
@@ -72,7 +71,7 @@ Puede proporcionar una lista de direcciones de correo electrónico delimitadas p
 
 ### <a name="response-header"></a>Encabezado de respuesta
 
-|  **Nombre**             |    **Valor**                       |
+|  **Nombre**             |    **Value**                       |
 |  ---------            |    ----------                      |
 | Operation-Location    | Dirección URL que se puede consultar para determinar el estado actual de la operación. |
 |  |  |
@@ -80,7 +79,7 @@ Puede proporcionar una lista de direcciones de correo electrónico delimitadas p
 
 ### <a name="response-status-codes"></a>Códigos de estado de respuesta
 
-| **Código**  |  **Descripción**                                                                       |
+| **(Código:**  |  **Descripción**                                                                       |
 |  ------   |  ------------------------------------------------------------------------               |
 |  200      | OK. La solicitud se procesó correctamente y la operación se canceló de manera sincrónica. |
 |  202      | Accepted. La solicitud se procesó correctamente y la operación está en proceso de ser cancelada. La ubicación de la operación de cancelación se devuelve en el encabezado de la respuesta. |

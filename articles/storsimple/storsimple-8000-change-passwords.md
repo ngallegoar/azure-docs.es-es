@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ab874bbdcd47a4bfa9abfba721afa46d0f23a338
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60638038"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232256"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Uso del servicio StorSimple Device Manager para cambiar las contraseñas de StorSimple
 
@@ -27,7 +27,7 @@ ms.locfileid: "60638038"
 La opción **Configuración del dispositivo** de Azure Portal contiene todos los parámetros de dispositivo que puede volver a configurar en un dispositivo StorSimple administrado mediante un servicio StorSimple Device Manager. En este tutorial se explica cómo se puede usar la opción **Seguridad** de **Configuración del dispositivo** para cambiar la contraseña de administrador de dispositivos y de StorSimple Snapshot Manager.
 
 ## <a name="change-the-device-administrator-password"></a>Cambio de la contraseña del administrador de dispositivos
-Cuando se usa la interfaz de Windows PowerShell para tener acceso al dispositivo StorSimple, se le pedirá que escriba una contraseña de administrador de dispositivos. Cuando el primer dispositivo StorSimple esté registrado con un servicio, la contraseña predeterminada para esta interfaz será *Password1*. Por seguridad de sus datos, deberá cambiar esta contraseña al final del proceso de registro. No se puede salir del proceso de registro sin cambiar esta contraseña. Para obtener más información, consulte el [Paso 3: Configurar y registrar el dispositivo mediante Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Cuando se usa la interfaz de Windows PowerShell para tener acceso al dispositivo StorSimple, se le pedirá que escriba una contraseña de administrador de dispositivos. Cuando el primer dispositivo StorSimple esté registrado con un servicio, la contraseña predeterminada para esta interfaz será *Password1*. Por seguridad de sus datos, deberá cambiar esta contraseña al final del proceso de registro. No se puede salir del proceso de registro sin cambiar esta contraseña. Para más información, consulte [Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 La primera contraseña que se estableció a través de la interfaz de Windows PowerShell durante el registro puede cambiarse después a través de Azure Portal. Realice los pasos siguientes para cambiar la contraseña del administrador de dispositivos.
 
@@ -93,7 +93,7 @@ La contraseña de StorSimple Snapshot Manager se puede establecer o cambiar a tr
 Ahora se debe actualizar la contraseña de StorSimple Snapshot Manager.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información sobre la [seguridad de StorSimple](storsimple-8000-security.md).
+* Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-8000-security.md).
 * Obtenga más información sobre la [modificación de la configuración del dispositivo](storsimple-8000-modify-device-config.md).
 * Obtenga más información sobre el [uso del servicio Administrador de dispositivos de StorSimple para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

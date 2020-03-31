@@ -4,16 +4,16 @@ description: Administración de proyectos, plantillas y secuencias de imágenes 
 services: openshift
 keywords: red hat openshift projects requests self-provisioner
 author: mjudeikis
-ms.author: b-majude
+ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: d88be50468f55a848b43613e1f7851621202052d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378235"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79139120"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Administración de proyectos, plantillas y secuencias de imágenes en un clúster de Red Hat OpenShift en Azure 
 

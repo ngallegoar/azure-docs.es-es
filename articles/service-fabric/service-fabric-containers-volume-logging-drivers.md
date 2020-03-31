@@ -4,10 +4,10 @@ description: Service Fabric admite el uso de Azure Files para realizar copias de
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75750043"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Controlador de volumen de Azure Files para Service Fabric
@@ -18,7 +18,7 @@ El controlador de volúmenes de Azure Files es un [complemento de volúmenes de 
 > La versión 6.5.661.9590 del complemento de volumen de Azure Files se ha publicado para la disponibilidad general.
 >
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 * La versión de Windows del complemento de volúmenes de Azure Files funciona en [Windows Server versión 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versión 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) o sistemas operativos posteriores únicamente.
 
 * La versión de Linux del complemento de volúmenes de Azure Files funciona en todas las versiones de sistemas operativos admitidas por Service Fabric.

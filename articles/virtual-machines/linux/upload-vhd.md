@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 70fff041cd693a19269b11398947fb0c8ce56bb1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b5063c8037a763c1919d2172a81c8abbbd406ace
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350682"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060145"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Creación de una VM Linux desde un disco personalizado con la CLI de Azure
 
@@ -64,17 +64,17 @@ Azure admite varias distribuciones Linux (consulte [Distribuciones aprobadas](en
 * [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES y openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Ubuntu:](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Otras: distribuciones no aprobadas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Vea también las [notas de instalación de Linux](create-upload-generic.md#general-linux-installation-notes) para obtener más sugerencias generales sobre la preparación de imágenes de Linux para Azure.
+Consulte también las [notas de instalación de Linux](create-upload-generic.md#general-linux-installation-notes) para más sugerencias generales sobre la preparación de imágenes de Linux para Azure.
 
 > [!NOTE]
 > El [Acuerdo de Nivel de Servicio de la plataforma Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) se aplica a las VM que ejecutan Linux solo cuando una de las distribuciones aprobadas se use con los detalles de la configuración según se indica en la sección "Versiones admitidas" en [Linux en distribuciones aprobadas por Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
-## <a name="option-1-upload-a-vhd"></a>Opción 1: Carga de un disco duro virtual
+## <a name="option-1-upload-a-vhd"></a>Opción 1: Cargar un disco duro virtual
 
 Ahora puede cargar un disco duro virtual directamente en un disco administrado. Para obtener instrucciones al respecto, consulte [Carga de un disco duro virtual en Azure mediante la CLI de Azure](disks-upload-vhd-to-managed-disk-cli.md).
 
@@ -90,7 +90,7 @@ Si no es así, debe tomar una instantánea de la máquina virtual y, a continuac
 
 En este ejemplo se crea una instantánea de una máquina virtual denominada *myVM* en el grupo de recursos *myResourceGroup* y se crea una instantánea denominada *osDiskSnapshot*.
 
-```azure-cli
+```azurecli
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 az snapshot create \
     -g myResourceGroup \
@@ -103,13 +103,13 @@ Cree un nuevo disco administrado a partir de la instantánea.
 
 Obtenga el identificador de la instantánea. En este ejemplo, la instantánea se denomina *osDiskSnapshot* y se encuentra en el grupo de recursos *myResourceGroup*.
 
-```azure-cli
+```azurecli
 snapshotId=$(az snapshot show --name osDiskSnapshot --resource-group myResourceGroup --query [id] -o tsv)
 ```
 
 Cree el disco administrado. En este ejemplo se va a crear un disco administrado denominado *myManagedDisk* a partir de la instantánea, donde el disco tiene un almacenamiento estándar y un tamaño de 128 GB.
 
-```azure-cli
+```azurecli
 az disk create \
     --resource-group myResourceGroup \
     --name myManagedDisk \

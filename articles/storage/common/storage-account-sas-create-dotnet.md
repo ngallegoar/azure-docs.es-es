@@ -10,18 +10,18 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 46374c35e6810bf056272ab2be355676f7b028b8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9da27cef7bafa94715a42db86fc5a5675a049eb1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460594"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79137876"
 ---
 # <a name="create-an-account-sas-with-net"></a>Creación de una SAS de cuenta con .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-En este artículo se muestra cómo usar la clave de cuenta de almacenamiento para crear una SAS de cuenta con la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client).
+En este artículo se muestra cómo usar la clave de cuenta de almacenamiento para crear una SAS de cuenta con la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="create-an-account-sas"></a>Creación de una SAS de cuenta
 
@@ -97,5 +97,5 @@ static void UseAccountSAS(string sasToken)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md) (Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido [SAS])
+- [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](storage-sas-overview.md)
 - [Creación de una SAS de cuenta](/rest/api/storageservices/create-account-sas)

@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101257"
 ---
 # <a name="disaster-recovery-principles"></a>Principios de la recuperación ante desastres
@@ -80,7 +80,7 @@ A continuación, configure o ajuste la programación de copia de seguridad de in
 - En cuanto al volumen de la copia de seguridad del registro de transacciones (tipo de instantánea **logs**), establezca que se replique cada 3 minutos en los destinos de volúmenes de almacenamiento equivalentes del sitio de recuperación ante desastres.
 
 Para minimizar el objetivo de punto de recuperación, configure lo siguiente:
-- Realice una instantánea de almacenamiento de tipo **hana** (consulte "Paso 7: Realizar instantáneas") cada 30 minutos a 1 hora.
+- Realice una instantánea de almacenamiento de tipo **hana** (consulte el "Paso 7: Realizar instantáneas") entre cada treinta minutos y una hora.
 - Realice copias de seguridad del registro de transacciones de SAP HANA cada 5 minutos.
 - Realice una instantánea de almacenamiento de tipo **logs** entre cada cinco o quince minutos. Con este período, se logra un RPO de entre 15 y 25 minutos.
 

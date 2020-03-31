@@ -10,10 +10,10 @@ ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
 ms.openlocfilehash: ce2b4200496938e6cffb935207df8c7027eaf37a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77486141"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Uso de la CLI de Azure para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2 (versión preliminar)
@@ -24,7 +24,7 @@ En este artículo se muestra cómo usar la [Interfaz de la línea de comandos de
 > La extensión `storage-preview` que se incluye en este artículo se encuentra actualmente en versión preliminar pública.
 
 [Muestra](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Envíenos sus comentarios](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 > [!div class="checklist"]
 > * Suscripción a Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -203,7 +203,7 @@ az storage blob delete -c my-file-system -b my-file.txt --account-name mystorage
 Puede obtener, establecer y actualizar los permisos de acceso de los directorios y archivos.
 
 > [!NOTE]
-> Si usa Azure Active Directory (Azure AD) para autorizar comandos, asegúrese de que la entidad de seguridad tiene asignado el [rol Propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para más información sobre cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, vea [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+> Si usa Azure Active Directory (Azure AD) para autorizar comandos, asegúrese de que la entidad de seguridad tiene asignado el [rol Propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para obtener más información acerca de cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, consulte [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ### <a name="get-directory-and-file-permissions"></a>Obtención de permisos de archivo y directorio
 

@@ -8,17 +8,17 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 71b3b7815d2a4b0b4de3afdca9db93156f505445
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572876"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Implementación de un modelo de Visual Studio
 
 Una vez que ha creado un servidor en su suscripción de Azure, está listo para implementar una base de datos de modelo tabular en él. Puede usar Visual Studio con proyectos de Analysis Services para compilar e implementar un proyecto de modelo tabular en el que está trabajando. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar, necesitará lo siguiente:
 
@@ -53,7 +53,7 @@ En **Azure Portal** > servidor > **Información general** > **Nombre de servidor
 Eso es todo.
 
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si se produce un error al implementar los metadatos, es probable que sea porque Visual Studio no se pudo conectar al servidor. Asegúrese de poder conectarse al servidor mediante SSMS. A continuación, asegúrese de que la propiedad de Servidor de implementación del proyecto es correcta.
 

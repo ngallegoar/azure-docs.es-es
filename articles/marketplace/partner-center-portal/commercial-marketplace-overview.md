@@ -1,19 +1,18 @@
 ---
 title: Introducción al portal de Marketplace comercial en el Centro de partners
 description: Obtenga más información sobre el portal de Marketplace comercial en el Centro de partners y aprenda a enumerar y vender ofertas en Azure Marketplace, AppSource y a través del programa Proveedor de soluciones en la nube (CSP).
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.openlocfilehash: 2e5ae90cf6ee8bccc9919c88bc695bf944f58a67
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 3c98a143dbc23d4d8e105785ab003258ab913a6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069445"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281449"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Introducción al portal de Marketplace comercial en el Centro de partners
 

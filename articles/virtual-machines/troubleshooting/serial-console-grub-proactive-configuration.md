@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: vilibert
 ms.openlocfilehash: a154ab4742f0d0d7acae0376bcf894bc2b62b4cd
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74186760"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantizar de forma proactiva el acceso a GRUB y a SysRq podría ahorrarle mucho tiempo de inactividad.
@@ -76,14 +76,14 @@ Asegurarse de que se tiene acceso a la consola serie de Azure y a GRUB significa
 
 - Intercambio de disco, que se puede automatizar mediante:
 
-   - [Scripts de recuperación de PowerShell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
+   - [Scripts de recuperación de Power Shell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
    - [Scripts de recuperación de Bash](https://github.com/sribs/azure-support-scripts)
 
 - Método heredado
 
-## <a name="disk-swap-video"></a>Vídeo sobre el intercambio de disco:
+## <a name="disk-swap-video"></a>Vídeo de intercambio de discos:
 
-Si no tiene acceso a GRUB, vea [este](https://youtu.be/m5t0GZ5oGAc) vídeo para saber cómo automatizar fácilmente el procedimiento de intercambio de disco para recuperar la máquina virtual
+Si no tiene acceso a GRUB, vea en [este](https://youtu.be/m5t0GZ5oGAc) vídeo cómo puede automatizar fácilmente el procedimiento de intercambio de discos para recuperar la máquina virtual
 
 ## <a name="challenges"></a>Desafíos:
 
@@ -437,4 +437,4 @@ Para más información sobre cómo acceder al modo de usuario único, consulte [
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Más información sobre la [consola serie de Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+Obtenga más información sobre la [consola serie de Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74887095"
 ---
 # <a name="azure-media-services-error-codes"></a>Códigos de error de Azure Media Services
@@ -116,7 +116,7 @@ Para controlar este error, se recomienda usar la lógica de reintento de retroce
 > 
 > 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Códigos de error de administración de Media Services](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## <a name="next-steps"></a>Pasos siguientes

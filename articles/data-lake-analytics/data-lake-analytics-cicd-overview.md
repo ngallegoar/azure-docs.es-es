@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60333883"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Procedimiento para configurar una canalización de CI/CD para Azure Data Lake Analytics  
@@ -313,7 +313,7 @@ Para agregar dicha referencia al paquete NuGet, haga clic con el botón derecho 
 
 ### <a name="build-u-sql-a-database-project-with-the-msbuild-command-line"></a>Compilación de un proyecto de base de datos U-SQL con la línea de comandos de MSBuild
 
-Para compilar un proyecto de base de datos U-SQL, llame a la línea de comandos de MSBuild estándar y pase la referencia del paquete NuGet del SDK de U-SQL como argumento adicional. Consulte el ejemplo siguiente: 
+Para compilar un proyecto de base de datos U-SQL, llame a la línea de comandos de MSBuild estándar y pase la referencia del paquete NuGet del SDK de U-SQL como argumento adicional. Vea el ejemplo siguiente: 
 
 ```
 msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime
@@ -424,7 +424,7 @@ Siga estos pasos para configurar una tarea de implementación de la base de dato
     copy USQLSDK\build\runtime\*.* $DBDeploymentTool
     ```
 
-2. Llame a `PackageDeploymentTool.exe` para agregar una **tarea de línea de comandos** en una canalización de versión o de compilación, y rellenar el script. `PackageDeploymentTool.exe` se encuentra bajo la carpeta **$DBDeploymentTool** definida. Este es el script de ejemplo: 
+2. Llame a **para agregar una**tarea de línea de comandos`PackageDeploymentTool.exe` en una canalización de versión o de compilación, y rellenar el script. `PackageDeploymentTool.exe` se encuentra bajo la carpeta **$DBDeploymentTool** definida. Este es el script de ejemplo: 
 
     * Implementación local de una base de datos U-SQL:
 
@@ -454,7 +454,7 @@ Siga estos pasos para configurar una tarea de implementación de la base de dato
 
 #### <a name="common-parameters"></a>Parámetros comunes
 
-| Parámetro | DESCRIPCIÓN | Valor predeterminado | Obligatorio |
+| Parámetro | Descripción | Valor predeterminado | Obligatorio |
 |---------|-----------|-------------|--------|
 |Paquete|Ruta de acceso del paquete de implementación de la base de datos U-SQL que se va a implementar.|null|true|
 |Base de datos|Nombre de base de datos que se va a implementar o crear.|maestro|false|
@@ -463,13 +463,13 @@ Siga estos pasos para configurar una tarea de implementación de la base de dato
 
 #### <a name="parameter-for-local-deployment"></a>Parámetro para la implementación local
 
-|Parámetro|DESCRIPCIÓN|Valor predeterminado|Obligatorio|
+|Parámetro|Descripción|Valor predeterminado|Obligatorio|
 |---------|-----------|-------------|--------|
 |DataRoot|Ruta de acceso de la carpeta raíz de datos local.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parámetros para la implementación de Azure Data Lake Analytics
 
-|Parámetro|DESCRIPCIÓN|Valor predeterminado|Obligatorio|
+|Parámetro|Descripción|Valor predeterminado|Obligatorio|
 |---------|-----------|-------------|--------|
 |Cuenta|Especifica la cuenta de Azure Data Lake Analytics en la que se realiza la implementación, por número de cuenta.|null|true|
 |ResourceGroup|Nombre del grupo de recursos de Azure para la cuenta de Azure Data Lake Analytics.|null|true|

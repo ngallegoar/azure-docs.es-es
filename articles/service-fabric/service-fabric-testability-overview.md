@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: d5c770a4d823ebe9b2700b081c407c54dd1d18a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465574"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introducción al servicio de análisis de errores
@@ -37,9 +37,9 @@ Cuando se inicia un escenario de prueba o una acción de error, se envía un com
 ## <a name="testing-distributed-systems"></a>Prueba de los sistemas distribuidos
 Service Fabric facilita considerablemente el trabajo de escribir y administrar aplicaciones escalables distribuidas. El servicio de análisis de errores realiza una prueba de una aplicación distribuida de una facilidad similar. Durante las pruebas deben resolverse tres problemas principales:
 
-1. Simular o generar errores que pueden producirse en los escenarios del mundo real: uno de los aspectos importantes de Service Fabric es que permite a las aplicaciones distribuidas recuperarse de varios errores. Sin embargo, para probar que la aplicación puede recuperarse de estos errores se necesita un mecanismo que simule o genere estos errores reales en un entorno de prueba controlado.
+1. Simular o generar errores que pueden producirse en los escenarios del mundo real: uno de los aspectos importantes de Service Fabric es que permite a las aplicaciones distribuidas recuperarse de varios errores. Sin embargo, para probar que la aplicación puede recuperarse de estos errores se necesita un mecanismo que simule o genere estos errores reales en un entorno de prueba controlado.
 1. La capacidad de generar los errores correlacionados: los errores básicos del sistema, como errores de red o errores del equipo, son fáciles de generar de forma individual. Generar un número significativo de escenarios que pueden ocurrir en el mundo real como resultado de las interacciones de estos errores individuales no es trivial.
-1. Experiencia unificada en distintos niveles de desarrollo e implementación: Hay muchos sistemas de inserción de errores que pueden provocar varios tipos de errores. Sin embargo, la experiencia en todos ellos es deficiente al pasar de los escenarios de desarrollo one box a ejecutar las mismas pruebas en entornos de prueba grandes y a utilizarlas para pruebas en producción.
+1. Experiencia unificada a través de varios niveles de desarrollo e implementación: existen muchos sistemas de inserción de errores que pueden realizar varios tipos de errores. Sin embargo, la experiencia en todos ellos es deficiente al pasar de los escenarios de desarrollo one box a ejecutar las mismas pruebas en entornos de prueba grandes y a utilizarlas para pruebas en producción.
 
 Aunque existen varios mecanismos para resolver estos problemas, falta un sistema que haga lo mismo con las garantías requeridas, desde un entorno del desarrollador one box hasta la prueba en clústeres de producción. El servicio de análisis de errores ayuda a los desarrolladores de aplicaciones a concentrarse en probar su lógica de negocios. Este servicio proporciona todas las capacidades necesarias para probar la interacción del servicio con el sistema distribuido subyacente.
 

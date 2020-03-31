@@ -1,19 +1,18 @@
 ---
 title: Configuración del soporte técnico de una aplicación de Azure | Azure Marketplace
 description: Configure el soporte técnico de una aplicación de Azure para una oferta en Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: b6616f4caed3483af9e23c7d5d1326478213f6f0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 93dd8636f60ceca0f43d806d4f5b1a037ed21ee4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818181"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289029"
 ---
 # <a name="azure-application-support-tab"></a>Pestaña de soporte técnico de una aplicación de Azure
 

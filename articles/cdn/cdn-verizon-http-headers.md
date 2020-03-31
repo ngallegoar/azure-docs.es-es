@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
 ms.openlocfilehash: a5881bea578f2791f8dc0d6e760fd15c6f47e435
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593262"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP específicos de Verizon para el motor de reglas de Azure CDN
@@ -27,13 +27,13 @@ En el caso de los productos de **Azure CDN Premium de Verizon**, cuando se enví
 
 Si desea impedir que se agregue uno de estos encabezados reservados en la solicitud POP de Azure CDN (Content Delivery Network) al servidor de origen, deberá crear una regla con la [característica Encabezados de proxy especiales](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) en el motor de reglas. En esta regla, excluya el encabezado que desee quitar de la lista predeterminada de encabezados del campo correspondiente. Si ha habilitado la [característica Depurar encabezados de respuesta de la caché](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), no olvide agregar los encabezados `X-EC-Debug` necesarios. 
 
-Por ejemplo, para quitar el encabezado `Via`, el campo de encabezados de la regla debe incluir la siguiente lista de encabezados: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
+Por ejemplo, para quitar el encabezado `Via`, el campo de encabezados de la regla debería incluir la siguiente lista de encabezados: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
 
 ![Regla de encabezados de proxy especiales](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
 En la tabla siguiente se describen los encabezados que se pueden agregar mediante el servidor POP de CDN de Verizon en la solicitud:
 
-Encabezado de solicitud | DESCRIPCIÓN | Ejemplo
+Encabezado de solicitud | Descripción | Ejemplo
 ---------------|-------------|--------
 [Via](#via-request-header) | Identifica el servidor POP que redirigió mediante un proxy la solicitud a un servidor de origen. | HTTP/1.1 ECS (dca/1A2B)
 X-Forwarded-For | Indica la dirección IP del solicitante.| 10.10.10.10
@@ -62,7 +62,7 @@ Los términos que se usan en la sintaxis se definen de la siguiente manera:
 
 - POP: indica el servidor [POP](cdn-pop-abbreviations.md) que procesó la solicitud. 
 
-- Id.: Solo para uso interno.
+- ID: solo para uso interno.
 
 ### <a name="example-via-request-header"></a>Ejemplo de encabezado de solicitud Via
 
