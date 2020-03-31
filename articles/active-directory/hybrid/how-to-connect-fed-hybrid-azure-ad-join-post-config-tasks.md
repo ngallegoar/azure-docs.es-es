@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70e3267792f27a170efa26cc4267d1b25045a099
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ffb8243041bb93ba8be6a65bb83df6f84affaee3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231244"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049659"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tareas posteriores a la configuración de la combinación de Azure AD híbrido
 
@@ -43,9 +43,9 @@ Todos los dispositivos unidos a un dominio que ejecuten Windows 10 y Windows Ser
 ## <a name="2-configure-network-with-device-registration-endpoints"></a>2. Configurar la red con los puntos de conexión del registro de dispositivos
 Asegúrese de que las direcciones URL siguientes son accesibles desde equipos dentro de la red de su organización para el registro en Azure AD:
 
-* https://enterpriseregistration.windows.net
-* https://login.microsoftonline.com
-* https://device.login.microsoftonline.com 
+* `https://enterpriseregistration.windows.net`
+* `https://login.microsoftonline.com`
+* `https://device.login.microsoftonline.com` 
 
 ## <a name="3-implement-wpad-for-windows-10-devices"></a>3. Implementar WPAD para dispositivos Windows 10
 Si la organización accede a Internet a través de un proxy de salida, implemente la Detección automática de proxy web (WPAD) para permitir que los equipos de Windows 10 se registren en Azure AD.
@@ -76,9 +76,9 @@ Para registrar dispositivos de nivel inferior de Windows, es preciso asegurarse 
 
 ## <a name="8-add-azure-ad-endpoint-to-windows-down-level-devices"></a>8. Agregar un punto de conexión de Azure AD a dispositivos de nivel inferior de Windows
 
-Agregue el punto de conexión de autenticación de dispositivos de Azure AD a las zonas de la intranet locales en los dispositivos de nivel inferior de Windows para evitar las solicitudes de certificado al autenticar los dispositivos: https://device.login.microsoftonline.com. 
+Agregue el punto de conexión de autenticación de dispositivos de Azure AD a las zonas de la intranet locales en los dispositivos de nivel inferior de Windows para evitar las solicitudes de certificado al autenticar los dispositivos: `https://device.login.microsoftonline.com`. 
 
-Si utiliza un [SSO de conexión directa](how-to-connect-sso.md), habilite también la opción "Permitir actualizaciones de barra de estado a través de scripts" en esa zona y agregue el siguiente punto de conexión: https://autologon.microsoftazuread-sso.com. 
+Si utiliza un [SSO de conexión directa](how-to-connect-sso.md), habilite también la opción "Permitir actualizaciones de barra de estado a través de scripts" en esa zona y agregue el siguiente punto de conexión: `https://autologon.microsoftazuread-sso.com`. 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Instalar Microsoft Workplace Join en dispositivos de nivel inferior de Windows
 

@@ -1,19 +1,18 @@
 ---
 title: Configuración de la administración de clientes potenciales en Salesforce | Azure Marketplace
 description: Configure la administración de clientes potenciales en Salesforce para clientes de Azure Marketplace.
-services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: evansma
-ms.openlocfilehash: bdd3bb50fc69083c73eb01a84bf0fb0db82a8a65
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 1720026b4beff941b02a60cd1c755a043d66bdb5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812150"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281500"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configuración de la administración de clientes potenciales en Salesforce
 
@@ -63,7 +62,7 @@ Cuando esté listo para configurar la información de administración de cliente
 1. Seleccione **Guardar**. 
 
     >[!Note]
-    >Debe terminar de configurar el resto de partes de la oferta y publicarla para poder recibir clientes potenciales de la oferta.
+    >Debe terminar de configurar el resto de las partes de la oferta y publicarla para poder recibir clientes potenciales para la oferta.
 
     ![Detalles de la conexión: elegir un destino de cliente potencial](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
 

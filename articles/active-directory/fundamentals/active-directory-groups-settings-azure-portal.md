@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68561880"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Edición de la información de un grupo mediante Azure Active Directory
@@ -25,7 +25,7 @@ ms.locfileid: "68561880"
 Con Azure Active Directory (Azure AD), puede editar la configuración de un grupo, lo que incluye actualizar su nombre, descripción o tipo de pertenencia.
 
 ## <a name="to-edit-your-group-settings"></a>Para editar la configuración de un grupo
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global del directorio.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global para el directorio.
 
 2. Seleccione **Azure Active Directory** y después seleccione **Grupos**.
 
@@ -60,7 +60,7 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 - [Visualización de grupos y miembros](active-directory-groups-view-azure-portal.md)
 
-- [Creación de un grupo básico y adición de miembros](active-directory-groups-create-azure-portal.md)
+- [Creación de un grupo básico e incorporación de miembros](active-directory-groups-create-azure-portal.md)
 
 - [Incorporación o eliminación de miembros de un grupo](active-directory-groups-members-azure-portal.md)
 
@@ -70,4 +70,4 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 - [Administrar el acceso a los recursos mediante grupos](active-directory-manage-groups.md)
 
-- [Asociación o adición de una suscripción de Azure a Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Asociar o agregar una suscripción de Azure a Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

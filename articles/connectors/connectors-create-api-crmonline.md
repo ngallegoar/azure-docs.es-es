@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: 9837b68fbfba783a468712d8ba1883b198af4954
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789891"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Administración de registros de Dynamics 365 con Azure Logic Apps
@@ -23,9 +23,9 @@ Con Azure Logic Apps y el conector de Dynamics 365, puede crear tareas y flujos 
 En este artículo se explica cómo crear una aplicación lógica que crea una tarea en Dynamics 365 cada vez que se crea un registro de cliente potencial en Dynamics 365.
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una [cuenta de Dynamics 365](https://dynamics.microsoft.com)
 
@@ -41,7 +41,7 @@ En primer lugar, agregue un desencadenador de Dynamics 365 que se activa cuando 
 
 1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en blanco en el Diseñador de aplicación lógica, si aún no está abierta.
 
-1. En el cuadro de búsqueda, escriba "Dynamics 365" como filtro. En este ejemplo, en la lista de desencadenadores, seleccione este desencadenador: **When a record is created**
+1. En el cuadro de búsqueda, escriba "Dynamics 365" como filtro. En este ejemplo, en la lista de desencadenadores, seleccione este desencadenador: **Al crear un registro**.
 
    ![Seleccionar un desencadenador](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -49,7 +49,7 @@ En primer lugar, agregue un desencadenador de Dynamics 365 que se activa cuando 
 
 1. Proporcione estos detalles para el desencadenador:
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de la organización** | Sí | El nombre de la instancia de Dynamics 365 de la organización que desea supervisar; por ejemplo, "Contoso" |
    | **Nombre de entidad** | Sí | El nombre de la entidad que desea supervisar; por ejemplo, "Clientes potenciales" | 
@@ -65,13 +65,13 @@ Ahora, agregue la acción de Dynamics 365 que crea un registro de tareas para el
 
 1. En el desencadenador, elija **Nuevo paso**.
 
-1. En el cuadro de búsqueda, escriba "Dynamics 365" como filtro. En la lista de acciones, seleccione esta acción: **Create a new record**
+1. En el cuadro de búsqueda, escriba "Dynamics 365" como filtro. En la lista de acciones, seleccione esta acción: **Crear un nuevo registro**.
 
    ![Acción Select](./media/connectors-create-api-crmonline/select-action.png)
 
 1. Proporcione estos detalles para la acción:
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de la organización** | Sí | La instancia de Dynamics 365 donde desea crear el registro, que no tiene que ser la misma instancia del desencadenador; en este ejemplo es "Contoso" |
    | **Nombre de entidad** | Sí | La entidad donde desea crear el registro; por ejemplo, "Tareas" |
@@ -81,7 +81,7 @@ Ahora, agregue la acción de Dynamics 365 que crea un registro de tareas para el
 
 1. Si aparece el cuadro **Asunto** en la acción, haga clic dentro del cuadro **Asunto** para que aparezca la lista de contenido dinámico. En la lista, seleccione los valores de campo que desea incluir en el registro de tareas asociado con el nuevo registro de cliente potencial:
 
-   | Campo | DESCRIPCIÓN |
+   | Campo | Descripción |
    |-------|-------------|
    | **Apellidos** | El apellido del cliente potencial como contacto principal en el registro |
    | **Tema.** | El nombre descriptivo del cliente potencial en el registro |
@@ -119,7 +119,7 @@ Cuando se especifica un valor para un campo de una acción o desencadenador, el 
 
 En esta tabla se describen algunos tipos de campos y los tipos de datos necesarios para sus valores.
 
-| Tipo de campo | Tipo de datos necesario | DESCRIPCIÓN | 
+| Tipo de campo | Tipo de datos necesario | Descripción | 
 |------------|--------------------|-------------|
 | Campos de texto | Línea de texto única | Estos campos requieren una sola línea de texto o de contenido dinámico que tenga el tipo de texto. <p><p>*Campos de ejemplo*: **Descripción** y **Categoría** | 
 | Campos numéricos enteros | Número entero | Algunos campos requieren un número entero o un contenido dinámico que tenga el tipo numérico entero. <p><p>*Campos de ejemplo*: **Porcentaje completado** y **Duración** | 
@@ -129,7 +129,7 @@ En esta tabla se describen algunos tipos de campos y los tipos de datos necesari
 
 Para ampliar estos tipos de campos, a continuación se indican campos de ejemplo de desencadenadores y acciones de Dynamics 365 que requieren un identificador de registro y el tipo de búsqueda. Este requisito implica que los valores seleccionados de la lista dinámica no funcionarán.
 
-| Campo | DESCRIPCIÓN |
+| Campo | Descripción |
 |-------|-------------|
 | **Propietario** | Debe ser un identificador de usuario válido o un identificador de registro de equipo. |
 | **Tipo de propietario** | Debe ser `systemusers` o `teams`. |

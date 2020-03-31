@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 1b598385d533b3fc157a7a90ecc34c3cb18df4ac
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 74574fb905ae4ebd2552ef97cd0b5430eea6363a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767286"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530230"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Conexión de aplicaciones a Azure Database for MariaDB
 En este documento se enumeran todos los tipos de cadena de conexión que Azure Database for MariaDB admite, junto con plantillas y ejemplos. Su cadena de conexión puede tener otros parámetros y configuraciones.
@@ -62,7 +62,7 @@ client = Mysql2::Client.new(username: "{username@servername}", password: {your_p
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Obtención de los detalles de la cadena de conexión de Azure Portal
-En [Azure Portal](https://portal.azure.com), vaya al servidor de Azure Database for MariaDB y haga clic en **Cadenas de conexión** para obtener la lista de cadenas para la instancia: ![Panel Cadenas de conexión en Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+En [Azure Portal](https://portal.azure.com), vaya al servidor de Azure Database for MariaDB y haga clic en **Cadenas de conexión** para obtener la lista de cadenas para la instancia: ![El panel Cadenas de conexión en Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 La cadena proporciona detalles como el controlador, el servidor y otros parámetros de conexión de base de datos. Modifique estos ejemplos para usar sus propios parámetros, como un nombre de base de datos, una contraseña, etc. Luego puede usar esta cadena para conectarse al servidor desde su código y sus aplicaciones.
 

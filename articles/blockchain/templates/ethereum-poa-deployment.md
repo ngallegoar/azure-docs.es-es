@@ -5,10 +5,10 @@ ms.date: 12/18/2019
 ms.topic: article
 ms.reviewer: coborn
 ms.openlocfilehash: 7e9af5c501b58f6828360ee280440ea85698bf16
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75387678"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementación de la solución Consorcio de prueba de autoridad de Ethereum en Azure
@@ -162,7 +162,7 @@ Parámetro | Descripción | Valor de ejemplo
 ----------|-------------|--------------
 Supervisión | Opción para habilitar la supervisión | Habilitar
 Conectarse a registros de Azure Monitor existente | Opción para crear una instancia de registros de Azure Monitor o unirse a una instancia existente | Crear nuevo
-Location | Región donde se implementa la instancia nueva | East US
+Location | Región donde se implementa la instancia nueva | Este de EE. UU.
 Identificador de área de trabajo de Log Analytics existente (Conectarse a registros de Azure Monitor existente = Unirse a existente)|Identificador del área de trabajo de la instancia de registros de Azure Monitor existente||N/D
 Clave principal de Log Analytics existente (Conectarse a registros de Azure Monitor existente = Unirse a existente)|Clave principal que se usa para conectarse a la instancia de registros de Azure Monitor existente||N/D
 
@@ -545,7 +545,7 @@ En la parte superior derecha se encuentra el icono de identidad y el alias de la
 
 ![Cuenta](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-## Desarrollo de Ethereum<a id="tutorials"></a>
+## <a name="ethereum-development"></a>Desarrollo de Ethereum<a id="tutorials"></a>
 
 Para compilar, implementar y probar contratos inteligentes, estas son algunas de las opciones que puede tener en cuenta para el desarrollo de Ethereum:
 * [Truffle Suite](https://www.trufflesuite.com/docs/truffle/overview): entorno de desarrollo de Ethereum basado en el cliente
@@ -555,7 +555,7 @@ Para compilar, implementar y probar contratos inteligentes, estas son algunas de
 
 En el ejemplo siguiente, se crea un contrato inteligente sencillo. Use Truffle para compilar e implementar el contrato inteligente en la red de cadena de bloques. Una vez implementado, puede llamar a una función de contrato inteligente mediante una transacción.
 
-#### <a name="prerequisites"></a>Prerequisites
+#### <a name="prerequisites"></a>Prerrequisitos
 
 * Instale [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python es necesario para Truffle y Web3. Seleccione la opción de instalación para incluir Python en su ruta de acceso.
 * Instale Truffle v5.0.5 `npm install -g truffle@v5.0.5`. Para usar Truffle es necesario instalar varias herramientas, como [Node.js](https://nodejs.org) y [Git](https://git-scm.com/). Consulte la [documentación de Truffle](https://github.com/trufflesuite/truffle) para más información.

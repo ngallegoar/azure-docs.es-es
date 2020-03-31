@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c493f79a066f872be6b38d127622cc757ab3c1cc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bae7e53a316fa6ca3158639cc551a0a3de5cb952
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100237"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536928"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 12c en una máquina virtual Linux de Azure
 
 Puede usar la CLI de Azure para crear y administrar recursos de Azure en un símbolo del sistema o usar scripts en su lugar. En este artículo, se usan scripts de la CLI de Azure para implementar una base de datos de Oracle Database 12c desde una imagen de la galería de Azure Marketplace.
 
-Antes de comenzar, asegúrese de que esté instalada la CLI de Azure. Para más información, vea la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Antes de comenzar, asegúrese de que esté instalada la CLI de Azure. Para obtener más información, vea la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Preparación del entorno
 
-### <a name="step-1-prerequisites"></a>Paso 1: Requisitos previos
+### <a name="step-1-prerequisites"></a>Paso 1: Prerrequisitos
 
 *   Para llevar a cabo el proceso de copia de seguridad y recuperación, primero debe crear una máquina virtual Linux que tenga una instancia de Oracle Database 12c instalada. La imagen de Marketplace que se usa para crear las máquinas virtuales se denomina *Oracle:Oracle-Database-Ee:12.1.0.2:latest*.
 
@@ -40,7 +40,7 @@ Antes de comenzar, asegúrese de que esté instalada la CLI de Azure. Para más 
 
 *   Para crear una sesión de Secure Shell (SSH) con la máquina virtual, use el siguiente comando. Reemplace la combinación de dirección IP y nombre de host con el valor `publicIpAddress` para la máquina virtual.
 
-    ```bash 
+    ```bash
     ssh <publicIpAddress>
     ```
 
@@ -94,6 +94,7 @@ Antes de comenzar, asegúrese de que esté instalada la CLI de Azure. Para más 
     SQL> ALTER DATABASE OPEN;
     SQL> ALTER SYSTEM SWITCH LOGFILE;
     ```
+
 3.  (Opcional) Cree una tabla para probar la confirmación:
 
     ```bash
@@ -115,6 +116,7 @@ Antes de comenzar, asegúrese de que esté instalada la CLI de Azure. Para más 
     SQL> commit;
     Commit complete.
     ```
+
 4.  Compruebe o cambie la ubicación y el tamaño del archivo de copia de seguridad:
 
     ```bash
@@ -125,6 +127,7 @@ Antes de comenzar, asegúrese de que esté instalada la CLI de Azure. Para más 
     db_recovery_file_dest                string      /u01/app/oracle/fast_recovery_area
     db_recovery_file_dest_size           big integer 4560M
     ```
+
 5. Use Oracle Recovery Manager (RMAN) para hacer una copia de seguridad de la base de datos:
 
     ```bash
@@ -140,7 +143,7 @@ Las copias de seguridad coherentes con la aplicación es una nueva característi
 
     Descargue VMSnapshotScriptPluginConfig.json desde https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. El contenido del archivo tiene un aspecto similar al siguiente:
 
-    ```azurecli
+    ```output
     {
         "pluginName" : "ScriptRunner",
         "preScriptLocation" : "",
@@ -171,7 +174,7 @@ Las copias de seguridad coherentes con la aplicación es una nueva característi
 
     Edite el archivo VMSnapshotScriptPluginConfig.json para incluir los parámetros `PreScriptLocation` y `PostScriptlocation`. Por ejemplo:
 
-    ```azurecli
+    ```output
     {
         "pluginName" : "ScriptRunner",
         "preScriptLocation" : "/etc/azure/pre_script.sh",
@@ -368,6 +371,7 @@ Para restaurar los archivos eliminados, siga estos pasos:
     ```bash
     $ scp Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh <publicIpAddress>:/<folder>
     ```
+
 6. Cambie el archivo para que sea propiedad de la raíz.
 
     En el ejemplo siguiente, cambie el archivo para que sea propiedad de la raíz. Después, cambie los permisos.
@@ -379,9 +383,10 @@ Para restaurar los archivos eliminados, siga estos pasos:
     # chmod 755 /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     # /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     ```
+
     En el ejemplo siguiente se muestra lo que verá después de ejecutar el script anterior. Cuando se le pregunte si desea continuar, escriba **Y**.
 
-    ```bash
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     The script requires 'open-iscsi' and 'lshw' to run.
@@ -429,6 +434,7 @@ Para restaurar los archivos eliminados, siga estos pasos:
     # cd /u01/app/oracle/oradata/cdb1
     # chown oracle:oinstall *.dbf
     ```
+
 9. En el siguiente script, utilice RMAN para recuperar la base de datos:
 
     ```bash
@@ -440,7 +446,7 @@ Para restaurar los archivos eliminados, siga estos pasos:
     RMAN> alter database open resetlogs;
     RMAN> SELECT * FROM scott.scott_table;
     ```
-    
+
 10. Desmonte el disco.
 
     En la hoja **Recuperación de archivos (versión preliminar)** de Azure Portal, haga clic en **Desmontar discos**.
@@ -502,7 +508,7 @@ Una vez restaurada la máquina virtual, configure la dirección IP pública.
 
     ![Lista de direcciones IP públicas](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  En la hoja **Direcciones IP públicas**, haga clic en **Agregar**. En la hoja **Crear dirección IP pública**, seleccione el nombre de la dirección IP pública en **Nombre**. Para **Grupo de recursos**, seleccione **Usar existente**. A continuación, haga clic en **Crear**.
+2.  En la hoja **Direcciones IP públicas**, haga clic en **Agregar**. En la hoja **Crear dirección IP pública**, seleccione el nombre de la dirección IP pública en **Nombre**. En **Grupo de recursos**, seleccione **Usar existente**. A continuación, haga clic en **Crear**.
 
     ![Creación de la dirección IP](./media/oracle-backup-recovery/create_ip_01.png)
 
@@ -522,14 +528,14 @@ Una vez restaurada la máquina virtual, configure la dirección IP pública.
 
 *   Para conectarse a la máquina virtual, use el script siguiente:
 
-    ```bash 
+    ```bash
     ssh <publicIpAddress>
     ```
 
 ### <a name="step-5-test-whether-the-database-is-accessible"></a>Paso 5: Comprobación de accesibilidad de la base de datos
 *   Para probar la accesibilidad, use el script siguiente:
 
-    ```bash 
+    ```bash
     $ sudo su - oracle
     $ sqlplus / as sysdba
     SQL> startup

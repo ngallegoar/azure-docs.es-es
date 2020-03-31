@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0b938dc808d9b02ad4105d85a5b3125135c51d6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74023085"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-privileged-identity-management"></a>Configuración de alertas de seguridad para roles de recursos de Azure en Privileged Identity Management
@@ -38,9 +38,9 @@ Seleccione una alerta para ver un informe que muestre los usuarios o los roles q
 
 | Alerta | severity | Desencadenador | Recomendación |
 | --- | --- | --- | --- |
-| **Hay demasiados propietarios asignados a un recurso** |Mediano |Demasiados usuarios tienen el rol de propietario. |Revise los usuarios de la lista y vuelva a asignar algunos a roles con menos privilegios. |
-| **Hay demasiados propietarios permanentes asignados a un recurso** |Mediano |Demasiados usuarios están asignados permanentemente a un rol. |Revise los usuarios de la lista y vuelva a asignar algunos para que tengan que solicitar la activación para usar el rol. |
-| **Se ha creado un rol duplicado** |Mediano |Varios roles tienen los mismos criterios. |Use solo uno de estos roles. |
+| **Hay demasiados propietarios asignados a un recurso** |Media |Demasiados usuarios tienen el rol de propietario. |Revise los usuarios de la lista y vuelva a asignar algunos a roles con menos privilegios. |
+| **Hay demasiados propietarios permanentes asignados a un recurso** |Media |Demasiados usuarios están asignados permanentemente a un rol. |Revise los usuarios de la lista y vuelva a asignar algunos para que tengan que solicitar la activación para usar el rol. |
+| **Se ha creado un rol duplicado** |Media |Varios roles tienen los mismos criterios. |Use solo uno de estos roles. |
 
 ### <a name="severity"></a>severity
 
@@ -60,4 +60,4 @@ Personalice la configuración de las diferentes alertas para que encajen con su 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configurar las opciones del rol de recursos de Azure en Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Configuración de las opciones de rol de recursos de Azure en Privileged Identity Management](pim-resource-roles-configure-role-settings.md)

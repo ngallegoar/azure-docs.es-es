@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: e2d63626ec548f0107d7af935af32e90d6972849
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2680304bd73bdbae35b29b89f38ae2665615f5e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435522"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239918"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Apache Hadoop mediante la API de REST de Azure
 
@@ -223,7 +223,7 @@ Siga los pasos documentados en [Introducción a la CLI de Azure](https://docs.mi
 
 1. Desde una línea de comandos, use el siguiente comando para enumerar las suscripciones de Azure.
 
-   ```bash
+   ```azurecli
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
@@ -231,7 +231,7 @@ Siga los pasos documentados en [Introducción a la CLI de Azure](https://docs.mi
 
 2. Use los comandos siguientes para crear una aplicación en Azure Active Directory.
 
-   ```bash
+   ```azurecli
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
@@ -244,7 +244,7 @@ Siga los pasos documentados en [Introducción a la CLI de Azure](https://docs.mi
 
 3. Use el siguiente comando para crear una entidad de servicio con el **Id. de aplicación**.
 
-   ```bash
+   ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
@@ -252,7 +252,7 @@ Siga los pasos documentados en [Introducción a la CLI de Azure](https://docs.mi
 
 4. Asigne el rol **Propietario** a la entidad de servicio mediante el valor de **Id. de objeto**. Utilice el **identificador de suscripción** que obtuvo anteriormente.
 
-   ```bash
+   ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
    ```
 

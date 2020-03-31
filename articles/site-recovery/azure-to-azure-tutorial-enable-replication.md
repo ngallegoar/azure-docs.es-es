@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759796"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80292481"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -27,7 +27,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres en máqui
 > [!NOTE]
 > En este artículo se proporcionan instrucciones para implementar la recuperación ante desastres con la configuración más sencilla. Si desea obtener información acerca de la configuración personalizada, consulte los artículos de la [sección de procedimientos](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 
@@ -75,7 +75,7 @@ Si usa un proxy de firewall basado en direcciones URL para controlar la conectiv
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
 
-Si usa un grupo de seguridad de red, cree reglas de grupo de seguridad de red basadas en etiquetas de servicio para acceder a Azure Storage, Azure Active Directory, el servicio Site Recovery y la supervisión de Site Recovery. [Más información](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
+Si usa un grupo de seguridad de red, cree reglas de grupo de seguridad de red basadas en etiquetas de servicio para acceder a Azure Storage, Azure Active Directory, el servicio Site Recovery y la supervisión de Site Recovery. [Más información](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ## <a name="verify-azure-vm-certificates"></a>Comprobación de los certificados de la máquina virtual de Azure
 

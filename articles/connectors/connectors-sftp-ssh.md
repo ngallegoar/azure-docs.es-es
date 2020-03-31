@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/7/2020
 tags: connectors
 ms.openlocfilehash: d4ab7425c967d3a176c0a576d0be38ece1701b8b
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128399"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
@@ -42,7 +42,7 @@ Para conocer las diferencias entre el conector SFTP-SSH y el conector SFTP, revi
 
   | Acción | Compatibilidad con la fragmentación | Invalidación de la compatibilidad con el tamaño de fragmento |
   |--------|------------------|-----------------------------|
-  | **Copiar archivo** | Sin | No aplicable |
+  | **Copiar archivo** | No | No aplicable |
   | **Crear archivo** | Sí | Sí |
   | **Crear carpeta** | No aplicable | No aplicable |
   | **Eliminar archivo** | No aplicable | No aplicable |
@@ -53,7 +53,7 @@ Para conocer las diferencias entre el conector SFTP-SSH y el conector SFTP, revi
   | **Obtener metadatos de archivo mediante la ruta de acceso** | No aplicable | No aplicable |
   | **Enumerar archivos de la carpeta** | No aplicable | No aplicable |
   | **Cambiar nombre de archivo** | No aplicable | No aplicable |
-  | **Actualizar archivo** | Sin | No aplicable |
+  | **Actualizar archivo** | No | No aplicable |
   ||||
 
 * Los desencadenadores SFTP-SSH no admiten la fragmentación de mensajes. Cuando se solicita el contenido del archivo, los desencadenadores seleccionan solo los archivos que tienen un tamaño de 15 MB o menos. Para obtener archivos de más de 15 MB, siga este patrón en su lugar:

@@ -4,10 +4,10 @@ description: En este artículo se describen las asignaciones de región compatib
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.openlocfilehash: a058f9cac987bb5c7130019f50370c6a176b09ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75403421"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Asignaciones de región compatibles con Azure Monitor para contenedores
@@ -21,8 +21,8 @@ Los recursos de clúster de AKS o el área de trabajo de Log Analytics pueden en
 |**Región de clúster de AKS** | **Región del área de trabajo de Log Analytics** |
 |-----------------------|------------------------------------|
 |**África** | |
-|SouthAfricaNorth |WestEurope |
-|SouthAfricaWest |WestEurope |
+|SouthAfricaNorth |Oeste de Europa |
+|SouthAfricaWest |Oeste de Europa |
 |**Australia** | |
 |AustraliaEast |AustraliaEast |
 |AustraliaCentral |AustraliaCentral |
@@ -39,10 +39,10 @@ Los recursos de clúster de AKS o el área de trabajo de Log Analytics pueden en
 |**Europa** | |
 |FranceCentral |FranceCentral |
 |FranceSouth |FranceCentral |
-|NorthEurope |NorthEurope |
+|Norte de Europa |Norte de Europa |
 |UKSouth |UKSouth |
 |UKWest |UKSouth |
-|WestEurope |WestEurope |
+|Oeste de Europa |Oeste de Europa |
 |**India** | |
 |CentralIndia |CentralIndia |
 |SouthIndia |CentralIndia |
@@ -60,7 +60,7 @@ Los recursos de clúster de AKS o el área de trabajo de Log Analytics pueden en
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
-|Gobierno de EE. UU. - Virginia |Gobierno de EE. UU. - Virginia |
+|US Gov - Virginia |US Gov - Virginia |
 
 <sup>1</sup> Debido a restricciones de capacidad, la región no está disponible cuando se crean recursos nuevos. Esto incluye un área de trabajo de Log Analytics. Sin embargo, los recursos vinculados preexistentes en la región deberían seguir funcionando.
 

@@ -1,18 +1,14 @@
 ---
 title: Retención y almacenamiento de datos en Azure Application Insights | Microsoft Docs
 description: Declaración de directiva de retención y privacidad
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: ba8a76cd4d3804bcb062ae0554e3fe7002804ed2
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031687"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234708"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 
@@ -97,7 +93,7 @@ Microsoft usa los datos con el fin exclusivo de proporcionarle el servicio.
 ## <a name="where-is-the-data-held"></a>¿Donde se conservan los datos?
 * Puede seleccionar la ubicación cuando se crea un nuevo recurso de Application Insights. [Aquí](https://azure.microsoft.com/global-infrastructure/services/?products=all) encontrará más información sobre la disponibilidad de Application Insights por región.
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>¿Significa que la aplicación tiene que estar hospedada en Estados Unidos, Europa o el Sudeste Asiático?
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>¿Significa que la aplicación tiene que estar hospedada en Estados Unidos, Europa o el Sudeste de Asia?
 * No. La aplicación puede ejecutarse desde cualquier lugar, en sus propios hosts locales o en la nube.
 
 ## <a name="how-secure-is-my-data"></a>¿Están seguros mis datos?
@@ -174,6 +170,12 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 De forma predeterminada, se utiliza `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` para guardar los datos. Los permisos para acceder a esta carpeta están restringidos al usuario actual y los administradores. (Consulte la [implementación](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) aquí).
 
 El prefijo de la carpeta `appInsights-node` se puede invalidar cambiando el valor en tiempo de ejecución de la variable estática `Sender.TEMPDIR_PREFIX` que se encuentra en [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+
+### <a name="javascript-browser"></a>JavaScript (explorador)
+
+Se usa [almacenamiento de sesión de HTML5](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) para conservar los datos. Se usan dos búferes independientes: `AI_buffer` y `AI_sent_buffer`. La telemetría por lotes y en espera de ser enviada se almacena en `AI_buffer`. La telemetría que se acaba de enviar se coloca en `AI_sent_buffer` hasta que el servidor de ingesta responde que se ha recibido correctamente. Una vez que la telemetría se ha recibido correctamente, se quita de todos los búferes. En los errores transitorios (por ejemplo, un usuario pierde la conectividad de red), la telemetría permanece en `AI_buffer` hasta que se recibe correctamente o el servidor de ingesta responde que no es válida (esquema incorrecto o demasiado antiguo, por ejemplo).
+
+Los búferes de telemetría se pueden deshabilitar si se establece [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) en `false`. Cuando se desactiva el almacenamiento de sesión, en su lugar se usa una matriz local como almacenamiento persistente. Dado que el SDK de JavaScript se ejecuta en un dispositivo cliente, el usuario tiene acceso a esta ubicación de almacenamiento mediante las herramientas de desarrollo del explorador.
 
 ### <a name="opencensus-python"></a>Python para OpenCensus
 

@@ -1,19 +1,18 @@
 ---
 title: Ofertas del Marketplace de Azure y AppSource
 description: Creación y administración de las ofertas del Marketplace de Azure y AppSource
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: pabutler
-ms.openlocfilehash: f1e561e84daed6c24ca0d9b7832af3d975082e25
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 7f6fd723355426a49cff032d51da0e09f13e295d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818769"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278491"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Ofertas del Marketplace de Azure y AppSource
 
@@ -44,7 +43,7 @@ Puede examinar las ofertas de Marketplace existentes que tienen las demostracion
 
 En la tabla siguiente se enumeran los tipos de oferta actuales compatibles con [Cloud Partner Portal](https://cloudpartner.azure.com).  Para cada tipo de oferta, se muestran los Marketplace en los que se puede publicar la oferta, así como una descripción general de la tecnología de solución de la oferta.
 
-|                Tipo de oferta                |  Marketplace  |   DESCRIPCIÓN                                                           |
+|                Tipo de oferta                |  Marketplace  |   Descripción                                                           |
 |                ----------                |  -----------  |   -----------                                                           |
 | [Aplicación de Azure](./azure-applications/cpp-azure-app-offer.md) | Azure | Solución compuesta de una o más máquinas virtuales (VM) y código personalizado opcional de Azure. Se implementa a través de una plantilla de Azure Resource Manager.  La implementación puede realizarla el usuario a través de una plantilla de solución o el anunciante puede encargarse de ella. Este tipo de oferta se usa para una obtener una flexibilidad mayor que la de las ofertas de máquina virtual proporcionadas.  |
 | [Servicio de consultoría](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Ambos | Los consultores de Microsoft que cumplen los requisitos pueden publicar servicios específicos para un dominio en Azure Marketplace o AppSource.  Su experiencia ayuda a los clientes a evaluar sus problemas y crear e implementar las soluciones correctas para cumplir sus objetivos empresariales.  |

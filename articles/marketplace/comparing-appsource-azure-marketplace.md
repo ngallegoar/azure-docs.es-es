@@ -1,20 +1,18 @@
 ---
 title: Comparación de AppSource y Azure Marketplace | Azure
 description: En este artículo se describen los escaparates de AppSource y Azure Marketplace.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
-manager: pabutler
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: ellacroi
-ms.openlocfilehash: 1e1ce36fa29000b5d8dd82a31278f390144384e2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: bd6c375231facc3d7afb35df74210d26b5f50ba8
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825991"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387791"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparación de AppSource y Azure Marketplace
 Los escaparates de [Azure Marketplace](https://azuremarketplace.microsoft.com) y [Microsoft AppSource](https://appsource.microsoft.com) atienden los requisitos únicos de los clientes. Utilice los escaparates para dirigirse a los clientes por rol. Puede ofrecer la solución o el servicio correctos en función del cliente.

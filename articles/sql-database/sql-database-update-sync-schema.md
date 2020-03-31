@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/14/2018
 ms.openlocfilehash: 639901975bbb66b9f410bea297d9e48cd96d6d1b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822429"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync
@@ -171,7 +171,7 @@ Cambiar el nombre de las columnas o tablas hace que Data Sync deje de funcionar.
 
 Para otros tipos de cambios de esquema (por ejemplo, crear procedimientos almacenados o colocar un índice), no es necesario actualizar el esquema de sincronización.
 
-## <a name="troubleshoot"></a> Solución de problemas de la replicación automatizada de cambios de esquema
+## <a name="troubleshoot-automated-schema-change-replication"></a><a name="troubleshoot"></a> Solución de problemas de la replicación automatizada de cambios de esquema
 
 En este artículo se describe una lógica de replicación que deja de trabajar en ciertas situaciones, por ejemplo, si hace un cambio de esquema en una base de datos local no compatible con Azure SQL Database. En ese caso, no se puede sincronizar la tabla de seguimiento de cambios de esquema. Debe corregir manualmente este problema:
 
@@ -199,7 +199,7 @@ En este artículo se describe una lógica de replicación que deja de trabajar e
 
 Si quiere limpiar los registros de la tabla de seguimiento de cambios de esquema, use DELETE en lugar de TRUNCATE. Nunca use DBCC CHECKIDENT para propagar la columna de identidad en la tabla de seguimiento de cambios de esquema. Si es necesario realizar una propagación, puede crear tablas de seguimiento de cambios de esquema nuevas y actualizar el nombre de la tabla en el desencadenador DDL.
 
-## <a name="other"></a> Otras consideraciones
+## <a name="other-considerations"></a><a name="other"></a> Otras consideraciones
 
 -   Los usuarios de la base de datos que configuran la central y las bases de datos miembro deben tener los permisos suficientes para ejecutar los comandos de cambios de esquema.
 
@@ -231,5 +231,5 @@ Para más información sobre SQL Data Sync, consulte:
 -   Procedimientos recomendados: [Procedimientos recomendados para Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   Supervisión: [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
 -   Solución de problemas: [Solución de problemas de Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
--   Actualice el esquema de sincronización.
+-   Actualización del esquema de sincronización
     -   Con PowerShell: [Usar PowerShell para actualizar el esquema de sincronización en un grupo de sincronización existente](scripts/sql-database-sync-update-schema.md)

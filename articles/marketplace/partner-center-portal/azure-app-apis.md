@@ -1,19 +1,18 @@
 ---
 title: API de incorporación para aplicaciones de Azure en Marketplace comercial
 description: Requisitos previos de la API para aplicaciones de Azure en Marketplace comercial en el Centro de partners de Microsoft.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: c14d8c6f27e4b0f4a4a75fa14b83455ff30ee35a
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: cc4d56058ce3985ec3a1d9124ef4ec73ff6be1a2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933663"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279766"
 ---
 # <a name="api-for-onboarding-azure-apps-in-partner-center"></a>API para la incorporación de aplicaciones de Azure en el Centro de partners
 

@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773431"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229168"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager
 
@@ -240,8 +240,8 @@ Antes de comenzar, la cuenta de almacenamiento especificada debe estar en la mis
 > Si quiere realizar la replicación en discos administrados habilitados para CMK en Azure, siga estos pasos con Az PowerShell 3.3.0 en adelante:
 >
 > 1. Habilitar la conmutación por error a discos administrados mediante la actualización de las propiedades de máquina virtual
-> 1. Usar el cmdlet `Get-AzRecoveryServicesAsrReplicationProtectedItem` para capturar el identificador de disco para cada disco del elemento protegido
-> 1. Cree un objeto de diccionario con el cmdlet `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` para que contenga la asignación de un identificador de disco a un conjunto de cifrado de disco. Estos conjuntos de cifrado de disco se crearán previamente de forma automática en la región de destino.
+> 1. Usar el cmdlet `Get-AzRecoveryServicesAsrReplicationProtectedItem` para capturar el identificador de disco de cada disco del elemento protegido.
+> 1. Crear un objeto de diccionario con el cmdlet `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` para que contenga la asignación de un identificador de disco a un conjunto de cifrado de disco. Estos conjuntos de cifrado de disco se crearán previamente de forma automática en la región de destino.
 > 1. Actualice las propiedades de la VM mediante el cmdlet `Set-AzRecoveryServicesAsrReplicationProtectedItem` y pase el objeto de diccionario en el parámetro **DiskIdToDiskEncryptionSetMap**.
 
 ## <a name="step-8-run-a-test-failover"></a>Paso 8: Ejecución de una conmutación por error de prueba

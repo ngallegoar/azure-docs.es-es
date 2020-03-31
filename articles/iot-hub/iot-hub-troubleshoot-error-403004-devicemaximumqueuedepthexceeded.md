@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: d48fd9aa9ba52c850a514d392f25b980d0219470
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 1edf723aa885ff18d2ce2dda4d71b67700a98a5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960329"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497482"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
@@ -35,4 +35,4 @@ El patrón admitido para los mensajes de nube a dispositivo con HTTP es disposit
 
 O bien, mejore la lógica del lado del dispositivo para completar, rechazar o abandonar los mensajes en cola rápidamente o acortar el período de vida, o considere la posibilidad de enviar menos mensajes. Consulte [Período de vida de un mensaje C2D](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Por último, considere el uso de la [API para purgar la cola](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) a fin de limpiar periódicamente los mensajes pendientes antes de que se alcance el límite.
+Por último, considere el uso de la [API para purgar la cola](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) a fin de limpiar periódicamente los mensajes pendientes antes de que se alcance el límite.

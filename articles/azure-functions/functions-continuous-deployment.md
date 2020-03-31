@@ -5,11 +5,11 @@ ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.openlocfilehash: cc1e100a0c2e652ab081869409fd24dbf88017a3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230894"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235024"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementación continua para Azure Functions
 
@@ -32,7 +32,7 @@ Para que la implementación continua se realice correctamente, la estructura de 
 >[!NOTE]  
 > Todavía no se admite la implementación continua para las aplicaciones de Linux que se ejecutan en un plan de consumo. 
 
-## <a name="credentials"></a>Configuración de la implementación continua
+## <a name="set-up-continuous-deployment"></a><a name="credentials"></a>Configuración de la implementación continua
 
 Para configurar la implementación continua de una aplicación de funciones existente, siga estos pasos. Estos pasos muestran la integración con un repositorio de GitHub, aunque estos mismos pasos son válidos en Azure Repos o en otros repositorios de código fuente.
 

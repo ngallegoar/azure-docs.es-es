@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77086913"
 ---
 ## <a name="personal-information-entity-types"></a>Tipos de entidades de información personal:
@@ -23,7 +23,7 @@ Reconocimiento de nombres de persona en el texto.
 Lenguajes:
 * Versión preliminar pública: `English`
 
-| Nombre del subtipo | Descripción                                               | Disponible a partir de la versión del modelo |
+| Nombre del subtipo | Descripción                                               | Disponible a partir de la versión del modelo. |
 |--------------|-----------------------------------------------------------|----------------------------------------|
 | N/D          | Nombres reconocidos, como `Bill Gates` o `Marie Curie` | `2020-02-01`                           |
 
@@ -35,7 +35,7 @@ Lenguajes:
 
 * Versión preliminar pública: `English`
 
-| Nombre del subtipo | Descripción                                                                                       | Disponible a partir de la versión del modelo|
+| Nombre del subtipo | Descripción                                                                                       | Disponible a partir de la versión del modelo.|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
 | N/D          | Organizaciones, como `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
@@ -47,7 +47,7 @@ Lenguajes:
 
 * Versión preliminar pública: `English`
 
-| Nombre del subtipo | Descripción                                    | Disponible a partir de la versión del modelo |
+| Nombre del subtipo | Descripción                                    | Disponible a partir de la versión del modelo. |
 |--------------|------------------------------------------------|----------------------------------------|
 | N/D          | Números de teléfono de EE. UU., como `(312) 555-0176`. | `2020-02-01`                           |
 
@@ -59,7 +59,7 @@ Lenguajes:
 
 * Versión preliminar pública: `English`
 
-| Nombre del subtipo | Descripción                                      | Disponible a partir de la versión del modelo |
+| Nombre del subtipo | Descripción                                      | Disponible a partir de la versión del modelo. |
 |--------------|--------------------------------------------------|----------------------------------------|
 | N/D          | Dirección de correo electrónico, por ejemplo `support@contoso.com` | `2020-02-01`                           |
 
@@ -71,7 +71,7 @@ Lenguajes:
 
 * Versión preliminar pública: `English`
 
-| Nombre del subtipo | Descripción                                          | Disponible a partir de la versión del modelo |
+| Nombre del subtipo | Descripción                                          | Disponible a partir de la versión del modelo. |
 |--------------|------------------------------------------------------|----------------------------------------|
 | N/D          | Direcciones URL a sitios web, como `https://www.bing.com`. | `2020-02-01`                           |
 
@@ -83,7 +83,7 @@ Lenguajes:
 
 * Versión preliminar pública: `English`
 
-| Nombre del subtipo | Descripción                              | Disponible a partir de la versión del modelo |
+| Nombre del subtipo | Descripción                              | Disponible a partir de la versión del modelo. |
 |--------------|------------------------------------------|----------------------------------------|
 | N/D          | Dirección de red, como `10.0.0.101` | `2020-02-01`                           |
 
@@ -95,7 +95,7 @@ Lenguajes:
 
 * Versión preliminar pública: `English`
 
-| Nombre del subtipo | Descripción                   | Disponible a partir de la versión del modelo |
+| Nombre del subtipo | Descripción                   | Disponible a partir de la versión del modelo. |
 |--------------|-------------------------------|----------------------------------------|
 | Age          | `90 days old`, `30 years old` | `2020-02-01`                           |
 
@@ -119,7 +119,7 @@ Lenguajes:
 
 * Versión preliminar pública: `English`
 
-| Nombre del subtipo | Descripción                               | Disponible a partir de la versión del modelo |
+| Nombre del subtipo | Descripción                               | Disponible a partir de la versión del modelo. |
 |--------------|-------------------------------------------|----------------------------------------|
 | N/D          | Coordenadas GPS de la Unión Europea | `2019-10-01`                           |
 

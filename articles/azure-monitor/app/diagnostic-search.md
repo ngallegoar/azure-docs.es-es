@@ -4,11 +4,11 @@ description: Busque y filtre los datos de telemetría sin procesar que envía la
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669682"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234704"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 
@@ -133,9 +133,9 @@ Además de la telemetría inmediata enviada por el SDK de Application Insights, 
 
 [Aprender a enviar registros y telemetría personalizada a Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
 
-## <a name="questions"></a>Preguntas y respuestas
+## <a name="q--a"></a><a name="questions"></a>Preguntas y respuestas
 
-### <a name="limits"></a>¿Qué cantidad de datos se conserva?
+### <a name="how-much-data-is-retained"></a><a name="limits"></a>¿Qué cantidad de datos se conserva?
 
 Consulte [Resumen de límites](../../azure-monitor/app/pricing.md#limits-summary).
 
@@ -143,7 +143,7 @@ Consulte [Resumen de límites](../../azure-monitor/app/pricing.md#limits-summary
 
 Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o llamadas de registro](../../azure-monitor/app/asp-net-trace-logs.md). Coloque los datos POST en el parámetro de mensaje. No puede filtrar por el mensaje de la misma forma que con las propiedades, pero el límite de tamaño es mayor.
 
-## <a name="add"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="add"></a>Pasos siguientes
 
 * [Escribir consultas complejas en Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Envío de registros y telemetría personalizada a Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).

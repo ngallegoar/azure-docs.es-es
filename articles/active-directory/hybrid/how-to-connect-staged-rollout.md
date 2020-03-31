@@ -11,10 +11,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f3044ebdd716eb85dc63d3a77089912d0d51d8b6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74915228"
 ---
 # <a name="migrate-to-cloud-authentication-by-using-staged-rollout-preview"></a>Migración a la autenticación en la nube mediante un lanzamiento preconfigurado (versión preliminar)
@@ -33,7 +33,7 @@ Para información general sobre la característica, vea este vídeo "Azure Acti
 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 -   Tiene un inquilino de Azure Active Directory (Azure AD) con dominios federados.
 
@@ -112,7 +112,7 @@ Se recomienda habilitar el *inicio de sesión único de conexión directa* con i
 
 ## <a name="pre-work-for-seamless-sso"></a>Trabajo previo para el inicio de sesión único de conexión directa
 
-Habilite el *inicio de sesión único de conexión directa*  en los bosques de Active Directory mediante PowerShell. Si tiene más de un bosque de Active Directory, habilítelo de forma individual para cada bosque. El *inicio de sesión único de conexión directa* solo se desencadena para los usuarios seleccionados para el lanzamiento preconfigurado. No afecta a la configuración de federación existente.
+Habilite el *inicio de sesión único de conexión directa* en los bosques de Active Directory mediante PowerShell. Si tiene más de un bosque de Active Directory, habilítelo de forma individual para cada bosque. El *inicio de sesión único de conexión directa* solo se desencadena para los usuarios seleccionados para el lanzamiento preconfigurado. No afecta a la configuración de federación existente.
 
 Para habilitar el *inicio de sesión único de conexión directa*, haga lo siguiente:
 
@@ -225,15 +225,15 @@ Al eliminar un usuario del grupo, se deshabilita el lanzamiento preconfigurado p
 
 **P: ¿Se puede usar esta funcionalidad en producción?**
 
-R: Sí, esta característica se puede usar en el inquilino de producción, pero se recomienda que la pruebe primero en el inquilino de prueba.
+A. Sí, esta característica se puede usar en el inquilino de producción, pero se recomienda que la pruebe primero en el inquilino de prueba.
 
 **P: ¿Se puede usar esta característica para mantener una "coexistencia" permanente, en la que algunos usuarios usan la autenticación federada y otros la autenticación en la nube?**
 
-R: No, esta característica está diseñada para migrar de la autenticación federada a la autenticación en la nube por fases para finalmente usar esta última. No se recomienda un estado mixto permanente, ya que este enfoque podría llevar a flujos de autenticación inesperados.
+A. No, esta característica está diseñada para migrar de la autenticación federada a la autenticación en la nube por fases para finalmente usar esta última. No se recomienda un estado mixto permanente, ya que este enfoque podría llevar a flujos de autenticación inesperados.
 
 **P: ¿Se puede usar PowerShell para realizar el lanzamiento preconfigurado?**
 
-R: Sí. Para información sobre cómo usar PowerShell para realizar el lanzamiento preconfigurado, consulte [Versión preliminar de Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A. Sí. Para información sobre cómo usar PowerShell para realizar el lanzamiento preconfigurado, consulte [Versión preliminar de Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Versión preliminar de Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

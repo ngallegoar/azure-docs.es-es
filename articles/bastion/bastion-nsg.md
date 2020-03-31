@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: 15abee4688a2f6aefa2b08ad2b8eee6622d56be2
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087276"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabajo con acceso a grupos de seguridad de red y Azure Bastion
@@ -28,7 +28,7 @@ En este diagrama:
 * Integración de conexión: sesión de RDP/SSH con un solo clic dentro del explorador
 * No se requiere ninguna dirección IP pública en la máquina virtual de Azure.
 
-## <a name="nsg"></a>Grupos de seguridad de red
+## <a name="network-security-groups"></a><a name="nsg"></a>Grupos de seguridad de red
 
 En esta sección se muestra el tráfico de red entre el usuario y Azure Bastion, y para dirigirse a las máquinas virtuales de la red virtual:
 
@@ -50,7 +50,7 @@ Azure Bastion se implementa en concreto en la subred AzureBastionSubnet.
 
    * **Tráfico de entrada procedente de Azure Bastion:** Azure Bastion se comunicará con la máquina virtual de destino a través de la dirección IP privada. Los puertos RDP/SSH (puertos 3389/22, respectivamente) tienen que abrirse en la máquina virtual de destino a través de la dirección IP privada. Como procedimiento recomendado, puede agregar el intervalo de direcciones IP de la subred de Azure Bastion en esta regla para permitir que solo Bastion pueda abrir estos puertos en las máquinas virtuales de destino de la subred de la máquina virtual de destino.
 
-## <a name="apply"></a>Aplicación de grupos de seguridad de red en AzureBastionSubnet
+## <a name="apply-nsgs-to-azurebastionsubnet"></a><a name="apply"></a>Aplicación de grupos de seguridad de red en AzureBastionSubnet
 
 Si crea y aplica un grupo de seguridad de red a ***AzureBastionSubnet***, asegúrese de que ha agregado las siguientes reglas en él. Si no agrega estas reglas, se producirá un error en la creación o actualización de los grupos de seguridad de red:
 

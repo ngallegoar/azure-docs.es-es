@@ -9,12 +9,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: c18e1b1a1feba5c528a692b7d63287b3751b62cf
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 9c1260bb1fab23ede2d1a96725c3086dc128fffc
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506213"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387655"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database
 
@@ -46,7 +46,7 @@ Esta guía está pensada para clientes que se preguntan cómo proteger Azure SQ
 - Responsables de privacidad
 - Ingenieros de seguridad
 
-### <a id="using"></a> Uso de esta guía
+### <a name="using-this-guide"></a><a id="using"></a> Uso de esta guía
 
 Este documento está pensado como complemento de la documentación de [seguridad de Azure SQL Database](sql-database-security-overview.md).
 
@@ -657,7 +657,7 @@ El seguimiento de los eventos de base de datos ayuda a comprender la actividad d
 **Procedimientos recomendados**:
 
 - Al configurar [Auditoría de SQL Database](sql-database-auditing.md) en el servidor de base de datos para auditar los eventos, se auditarán todas las bases de datos existentes y recién creadas en ese servidor.
-- De manera predeterminada, la directiva de auditoría incluye todas las acciones (consultas, procedimientos almacenados e inicios de sesión correctos y erróneos) en las bases de datos, lo que puede dar lugar a un gran volumen de registros de auditoría. Se recomienda a los clientes [configurar la auditoría para diferentes tipos de acciones y grupos de acciones mediante PowerShell](sql-database-auditing.md#subheading-7). Configurarla ayudará a controlar el número de acciones auditadas y a minimizar el riesgo de pérdida de eventos. La configuración de auditoría personalizada permite a los clientes capturar solo los datos de auditoría necesarios.
+- De manera predeterminada, la directiva de auditoría incluye todas las acciones (consultas, procedimientos almacenados e inicios de sesión correctos y erróneos) en las bases de datos, lo que puede dar lugar a un gran volumen de registros de auditoría. Se recomienda a los clientes [configurar la auditoría para diferentes tipos de acciones y grupos de acciones mediante PowerShell](sql-database-auditing.md#manage-auditing). Configurarla ayudará a controlar el número de acciones auditadas y a minimizar el riesgo de pérdida de eventos. La configuración de auditoría personalizada permite a los clientes capturar solo los datos de auditoría necesarios.
 - Los registros de auditoría se pueden consumir directamente en [Azure Portal](https://portal.azure.com/) o desde la ubicación de almacenamiento que se configuró. 
 
 

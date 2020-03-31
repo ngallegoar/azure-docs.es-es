@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72435738"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231872"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption para máquinas virtuales Windows 
 
@@ -23,7 +23,7 @@ Si utiliza [Azure Security Center](../../security-center/index.yml), se le alert
 ![Alerta de cifrado de discos en Azure Security Center](../media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
-> - Si ya ha usado Azure Disk Encryption con Azure AD para cifrar una VM, debe seguir usando esta opción para cifrar la VM. Para más información, consulte [Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-overview-aad.md). 
+> - Si ya ha usado Azure Disk Encryption con Azure AD para cifrar una VM, debe seguir usando esta opción para cifrar la VM. Para más información, consulte [Azure Disk Encryption con Azure AD (versión anterior)](disk-encryption-overview-aad.md). 
 > - Algunas de las recomendaciones pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que incrementará los costes de las licencias o suscripciones. Para crear recursos en Azure en las regiones admitidas, debe tener una suscripción válida de Azure activa.
 
 Para obtener información sobre los aspectos básicos de Azure Disk Encryption para Windows en unos minutos, consulte [Inicio rápido: Creación y cifrado de una VM Windows con la CLI de Azure](disk-encryption-cli-quickstart.md) o [Inicio rápido: Creación y cifrado de una VM Windows con Azure Powershell](disk-encryption-powershell-quickstart.md).
@@ -36,7 +36,7 @@ Las máquinas virtuales Windows están disponibles en una [variedad de tamaños]
 
 Azure Disk Encryption también está disponible para las VM con almacenamiento Premium.
 
-### <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
 - Cliente Windows: Windows 8 y versiones posteriores.
 - Windows Server: Windows Server 2008 R2 y versiones posteriores.  
@@ -65,7 +65,7 @@ Azure Disk Encryption producirá un error si la directiva de grupo de nivel de d
 
 ## <a name="encryption-key-storage-requirements"></a>Requisitos de almacenamiento de la clave de cifrado  
 
-Azure Disk Encryption requiere Azure Key Vault para controlar y administrar las claves y los secretos de cifrado de discos. El almacén de claves y las VM deben residir en la misma región y suscripción de Azure.
+Azure Disk Encryption requiere Azure Key Vault para controlar y administrar las claves y los secretos de cifrado de discos. El almacén de claves y las máquinas virtuales deben residir en la misma región y suscripción de Azure.
 
 Para obtener más información, consulte [Creación y configuración de un almacén de claves para Azure Disk Encryption](disk-encryption-key-vault.md).
 
@@ -75,7 +75,7 @@ En la siguiente tabla se definen algunos de los términos comunes que se usan en
 | Terminología | Definición |
 | --- | --- |
 | Azure Key Vault | Key Vault es un servicio de administración de claves criptográficas basado en módulos de seguridad de hardware validados por el Estándar federal de procesamiento de información (FIPS). Estos estándares ayudan a proteger las claves criptográficas y los secretos confidenciales. Para obtener más información, consulte la documentación de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) y [Creación y configuración de un almacén de claves para Azure Disk Encryption](disk-encryption-key-vault.md). |
-| CLI de Azure | [La CLI de Azure](/cli/azure/install-azure-cli) está optimizada para administrar recursos de Azure desde la línea de comandos.|
+| Azure CLI | [La CLI de Azure](/cli/azure/install-azure-cli) está optimizada para administrar recursos de Azure desde la línea de comandos.|
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) es una tecnología de cifrado de volúmenes de Windows reconocida por el sector que se usa para habilitar el cifrado de disco en VM Windows. |
 | Clave de cifrado de claves (KEK) | La clave asimétrica (RSA 2048) que puede usar para proteger o encapsular el secreto. Puede proporcionar una clave protegida mediante módulos de seguridad de hardware (HSM) o una clave protegida mediante software. Para obtener más información, consulte la documentación de [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) y [Creación y configuración de un almacén de claves para Azure Disk Encryption](disk-encryption-key-vault.md). |
 | Cmdlets de PowerShell | Para más información, consulte [Cmdlets de Azure PowerShell](/powershell/azure/overview). |

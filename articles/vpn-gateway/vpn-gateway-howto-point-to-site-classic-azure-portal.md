@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: 5d80cb2f2ed844126d1e9311151e6c53fcb11840
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894867"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225040"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configuración de una conexión de punto a sitio mediante la autenticación de certificado (clásica)
 
@@ -35,7 +35,7 @@ Use una puerta de enlace de VPN de punto a sitio (P2S) para crear una conexión 
 
 ![Diagrama de punto a sitio](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Las conexiones de autenticación de certificado de punto a sitio necesitan los siguientes requisitos previos:
 
@@ -136,7 +136,7 @@ En este paso se crea una subred de puerta de enlace y una puerta de enlace de en
 
 9. En la página **Nueva conexión VPN**, seleccione **Aceptar** en la parte inferior de la página para empezar a crear la puerta de enlace de red virtual. Una puerta de enlace de VPN puede tardar hasta 45 minutos en completarse, según la SKU de puerta de enlace que seleccione.
  
-## <a name="generatecerts"></a>Creación de certificados
+## <a name="create-certificates"></a><a name="generatecerts"></a>Creación de certificados
 
 Azure usa certificados para autenticar a los clientes VPN en VPN de punto a sitio. Cargue la información de clave pública del certificado raíz en Azure. La clave pública se considerará *de confianza*. Deben generarse certificados de cliente a partir del certificado raíz de confianza e instalarse en cada equipo cliente en el almacén de certificados Certificados-Usuario actual/Personal/Certificados. El certificado se utiliza para autenticar al cliente cuando se conecta a la red virtual. 
 

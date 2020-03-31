@@ -2,15 +2,15 @@
 title: Configurar y administrar Azure Notebooks Preview
 description: Más información sobre cómo administrar metadatos del proyecto, archivos de proyecto, el entorno del proyecto y los pasos de configuración a través de la interfaz de usuario de Azure Notebooks y el acceso directo a terminal.
 ms.topic: how-to
-ms.date: 05/13/2019
-ms.openlocfilehash: 5c97372133315e6f0bcd3b854793b6b4746b5ba5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/28/2020
+ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236124"
 ---
-# <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Administrar y configurar proyectos en Azure Notebooks Preview
+# <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" /> Administrar y configurar proyectos en Azure Notebooks Preview
 
 Un proyecto en Azure Notebooks Preview es esencialmente una configuración de la máquina virtual de Linux subyacente en la que se ejecutan los cuadernos de Jupyter Notebook, junto con una carpeta de archivos y metadatos descriptivos. 
 
@@ -131,6 +131,9 @@ La información del proyecto depende del tipo de operación que eligió:
 - **Script de shell**: En la segunda lista desplegable, seleccione un script de shell de bash del proyecto (habitualmente, un archivo con la extensión *.sh*) que contiene cualquier comando que quiere ejecutar para inicializar el entorno.
 
 - **Environment.yml**: En la segunda lista desplegable, seleccione un archivo *environments.yml* para los proyectos de Python mediante un entorno de Conda.
+
+   > [!WARNING]
+   > Dado que se trata de un servicio en versión preliminar en desarrollo, actualmente hay un problema conocido en el que el valor `Environment.yml` no se aplica al proyecto según lo esperado. En este momento, el proyecto y los cuadernos de Jupyter que contiene no cargan el archivo de entorno especificado.
 
 Una vez que agregue los pasos, seleccione **Guardar**.
 

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73612794"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)
@@ -39,7 +39,7 @@ La arquitectura de los informes de Azure Active Directory (Azure AD) consta de l
 
 Este tema ofrece una visión general del informe de aprovisionamiento.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 * Los usuarios con los roles Administrador de seguridad, Lector de seguridad, Lector de informes, Administrador de aplicaciones y Administrador de aplicaciones en la nube.
@@ -93,7 +93,7 @@ Seleccione un elemento de la vista de lista para obtener información más detal
 Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de aprovisionamiento con los campos predeterminados que se indican a continuación. Tenga en cuenta que los valores de los filtros se rellenan dinámicamente en función del inquilino. Por ejemplo, si no tiene ningún evento de creación en el inquilino, no habrá una opción de filtro para la creación.
 
 - Identidad
-- .
+- Acción
 - Sistema de origen
 - Sistema de destino
 - Status
@@ -113,7 +113,7 @@ El filtro **Estado** le permite seleccionar:
 - All
 - Correcto
 - Error
-- Skipped
+- Omitido
 
 El filtro **Acción** permite filtrar:
 
@@ -210,7 +210,7 @@ En la pestaña **Resumen** se proporciona información general sobre lo que suce
 
 Use la tabla siguiente para entender mejor cómo resolver los errores que puede encontrar en los registros de aprovisionamiento. En el caso de los códigos de error que faltan, proporcione comentarios mediante el vínculo situado en la parte inferior de esta página. 
 
-|Código de error|DESCRIPCIÓN|
+|Código de error|Descripción|
 |---|---|
 |Conflict, EntryConflict|Corrija los valores de atributo en conflicto en Azure AD o en la aplicación, o bien revise la configuración de atributo correspondiente si se supone que la cuenta de usuario en conflicto debía coincidir y tomarse. Revise la siguiente [documentación](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) para obtener más información sobre cómo configurar atributos coincidentes.|
 |TooManyRequests|La aplicación de destino rechazó este intento de actualizar el usuario porque está sobrecargado y recibe demasiadas solicitudes. No hay nada que hacer. Este intento se retirará automáticamente. También se ha notificado a Microsoft de este problema.|

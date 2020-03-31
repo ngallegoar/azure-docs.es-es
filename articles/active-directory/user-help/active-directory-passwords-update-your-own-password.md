@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062666"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Restablecimiento de la contraseña profesional o educativa con la información de seguridad
 
-Si alguna vez ha olvidado su contraseña en el trabajo o en la escuela, en su organización no ha tenido nunca contraseña o le han bloqueado la cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña profesional o educativa. Para poder configurar sus datos y restablecer su contraseña, es preciso que el administrador active esta característica.
+Si alguna vez ha olvidado su contraseña en el trabajo o en el centro educativo, en su organización no ha tenido nunca contraseña o le han bloqueado la cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña profesional o educativa. Para poder configurar sus datos y restablecer su contraseña, es preciso que el administrador active esta característica.
 
 Si conoce la contraseña pero desea cambiarla, consulte las secciones [Para cambiar la contraseña](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de este artículo.
 
@@ -151,9 +151,9 @@ Si el administrador activa la funcionalidad, puede ver un vínculo a **Restablec
 
     Si todavía no puede acceder a su cuenta, debe ponerse en contacto con el administrador de la organización para obtener más ayuda.
 
-## <a name="common-problems-and-their-solutions"></a>problemas comunes y sus soluciones
+## <a name="common-problems-and-their-solutions"></a>Problemas comunes y sus soluciones
 
-A continuación se presentan algunos casos terror comunes y sus soluciones:
+A continuación se presentan algunos casos de errores comunes y sus soluciones:
 
 |Problema|Descripción|Solución|
 | --- | --- | --- |

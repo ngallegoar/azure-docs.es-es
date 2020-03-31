@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
-ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6939ea2497a9f12321e1a6dfb9bf9fbb353bc7db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712671"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240773"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnóstico de un problema de filtro del tráfico de red de una máquina virtual
 
@@ -103,7 +103,7 @@ $VM.NetworkProfile
 
 Recibirá una salida similar a la del ejemplo siguiente:
 
-```powershell
+```output
 NetworkInterfaces
 -----------------
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
@@ -138,7 +138,7 @@ az vm show \
 
 En la salida devuelta, verá información similar a la del ejemplo siguiente:
 
-```azurecli
+```output
 "networkProfile": {
     "additionalProperties": {},
     "networkInterfaces": [
@@ -168,16 +168,16 @@ La regla denominada **defaultSecurityRules/DenyAllInBound** es lo que impide la 
 
 Independientemente de que utilice Azure [Portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell) o la [CLI de Azure](#diagnose-using-azure-cli) para diagnosticar el problema que se presenta en el [escenario](#scenario) de este artículo, la solución consiste en crear una regla de seguridad de red con las siguientes propiedades:
 
-| Propiedad                | Valor                                                                              |
+| Propiedad                | Value                                                                              |
 |---------                |---------                                                                           |
-| Origen                  | Cualquiera                                                                                |
-| Intervalos de puertos de origen      | Cualquiera                                                                                |
-| Destino             | La dirección IP de la máquina virtual, un intervalo de direcciones IP o todas las direcciones de la subred. |
+| Source                  | Any                                                                                |
+| Source port ranges      | Any                                                                                |
+| Destination             | La dirección IP de la máquina virtual, un intervalo de direcciones IP o todas las direcciones de la subred. |
 | Intervalos de puertos de destino | 80                                                                                 |
 | Protocolo                | TCP                                                                                |
-| .                  | PERMITIR                                                                              |
-| Prioridad                | 100                                                                                |
-| NOMBRE                    | Allow-HTTP-All                                                                     |
+| Acción                  | Allow                                                                              |
+| Priority                | 100                                                                                |
+| Nombre                    | Allow-HTTP-All                                                                     |
 
 Después de crear la regla, el puerto 80 está permitido de entrada desde Internet, ya que la prioridad de la regla es mayor que la regla de seguridad predeterminada llamada *DenyAllInBound*, que deniega el tráfico. Aprenda a [crear una regla de seguridad](manage-network-security-group.md#create-a-security-rule). Si hay diferentes grupos de seguridad de red asociados tanto a la interfaz de red como a la subred, debe crear la misma regla en los dos grupos de seguridad de red.
 

@@ -102,6 +102,8 @@
               href: concepts-data-access-and-security-private-link.md
             - name: Cifrado de datos
               href: concepts-data-encryption-postgresql.md
+            - name: Línea de base de seguridad
+              href: security-baseline.md
         - name: Continuidad empresarial
           items:
             - name: Introducción a la continuidad empresarial
@@ -273,6 +275,10 @@
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
+        - name: Denegación del acceso a una red pública
+          items:
+            - name: Portal de Azure
+              href: howto-deny-public-network-access.md
         - name: Replicación
           items:
             - name: Administración de réplicas de lectura en Azure Portal

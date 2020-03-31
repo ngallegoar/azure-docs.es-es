@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226562"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234864"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -29,7 +29,7 @@ Tenga en cuenta los siguientes ejemplos de cómo se pueden implementar las disti
 | Escenario de ejemplo | Desencadenador | Enlace de entrada | Enlace de salida |
 |-------------|---------|---------------|----------------|
 | Llega un nuevo mensaje de cola que ejecuta una función para escribir en otra cola. | Cola<sup>*</sup> | *None* | Cola<sup>*</sup> |
-|Un trabajo programado lee los contenidos de Blob Storage y crea un nuevo documento de Cosmos DB. | Temporizador | Blob Storage | Cosmos DB |
+|Un trabajo programado lee los contenidos de Blob Storage y crea un nuevo documento de Cosmos DB. | Timer | Blob Storage | Cosmos DB |
 |Event Grid se utiliza para leer una imagen en Blob Storage y un documento de Cosmos DB con el fin de enviar un correo. | Event Grid | Blob Storage y Cosmos DB | SendGrid |
 | Un webhook que usa Microsoft Graph para actualizar una hoja de Excel. | HTTP | *None* | Microsoft Graph |
 
@@ -81,7 +81,7 @@ Para información sobre qué enlaces están en versión preliminar o aprobados p
 
 ## <a name="resources"></a>Recursos
 - [Patrones y expresiones de enlace](./functions-bindings-expressions-patterns.md)
-- [Uso del valor devuelto de Azure Functions](./functions-bindings-return-value.md)
+- [Uso del valor devuelto de una función de Azure](./functions-bindings-return-value.md)
 - [Cómo registrar una expresión de enlace](./functions-bindings-register.md)
 - Prueba:
   - [Estrategias para probar el código en Azure Functions](functions-test-a-function.md)

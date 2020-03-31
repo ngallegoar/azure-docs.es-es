@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: a834c68119340d796f87971912a07fc0524a6d21
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718617"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218858"
 ---
 # <a name="language-support-for-computer-vision"></a>Compatibilidad con idiomas para Computer Vision
 
@@ -27,7 +27,7 @@ Computer Vision puede reconocer texto en varios idiomas. Específicamente, la AP
 
 OCR detecta automáticamente el idioma del material de entrada, por lo que no es necesario especificar un código de idioma en la llamada a la API. Sin embargo, siempre se devuelven los códigos de idioma como el valor del nodo `"language"` en la respuesta JSON.
 
-|Idioma| Código de idioma | API de OCR |
+|Idioma| Código de lenguaje | API de OCR |
 |:-----|:----:|:-----:|
 |Árabe | `ar`|✔ |
 |Chino (simplificado) | `zh-Hans`|✔ |
@@ -35,7 +35,7 @@ OCR detecta automáticamente el idioma del material de entrada, por lo que no es
 |Checo | `cs` |✔ |
 |Danés | `da` |✔ |
 |Neerlandés | `nl` |✔ |
-|English | `en` |✔ |
+|Inglés | `en` |✔ |
 |Finés | `fi` |✔ |
 |Francés | `fr` |✔ |
 |Alemán | `de` |✔ |
@@ -60,10 +60,10 @@ OCR detecta automáticamente el idioma del material de entrada, por lo que no es
 
 Algunas acciones de la API [analizar: imagen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) pueden devolver resultados en otros idiomas, especificados con el parámetro de consulta `language`. Otras acciones devuelven resultados en inglés, independientemente del idioma que se especifique, y otros generan una excepción para los idiomas no admitidos. Las acciones se especifican con los parámetros de consulta `visualFeatures` y `details`; vea la [información general](home.md) para obtener una lista de todas las acciones que puede hacer con el análisis de imágenes.
 
-|Idioma | Código de idioma | Categorías | Etiquetas | DESCRIPCIÓN | Adultos | Marcas | Color | Caras | ImageType | Objetos | Celebridades | Puntos de referencia |
+|Idioma | Código de lenguaje | Categorías | Etiquetas | Descripción | Adultos | Marcas | Color | Caras | ImageType | Objetos | Celebridades | Puntos de referencia |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chino | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-|English | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
+|Inglés | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
 |Japonés | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Portugués | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Español | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|

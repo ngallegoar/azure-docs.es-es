@@ -4,11 +4,11 @@ description: Aprenda a evitar problemas de rendimiento en Azure Functions median
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226496"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234848"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Administración de conexiones en Azure Functions
 

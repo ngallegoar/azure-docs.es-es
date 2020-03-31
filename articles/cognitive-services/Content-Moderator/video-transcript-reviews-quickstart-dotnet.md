@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73744380"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Creación de revisiones de transcripciones de vídeo con .NET
@@ -25,7 +25,7 @@ En este artículo se proporciona información y ejemplos de código que le ayuda
 - Agregar una transcripción moderada a la revisión
 - Publicar la revisión
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 - Inicie sesión en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator, o cree una cuenta si aún no tiene una.
 - En este artículo se da por hecho que ha [moderado el vídeo](video-moderation-api.md) y ha [creado la revisión de vídeo](video-reviews-quickstart-dotnet.md) en la herramienta de revisión para la toma de decisiones humana. Ahora desea agregar transcripciones de vídeo moderadas en la herramienta de revisión.
@@ -42,11 +42,11 @@ Si usa la clave de prueba gratuita generada por la herramienta de revisión, la 
 
 Agregue la transcripción a una revisión de vídeo. El vídeo debe estar publicado en línea. Necesita su punto de conexión de streaming. El punto de conexión de streaming permite que el reproductor de vídeo de la herramienta de revisión reproduzca el vídeo.
 
-![Miniatura de demostración del vídeo](images/ams-video-demo-view.PNG)
+![Miniatura de la demostración de vídeo](images/ams-video-demo-view.PNG)
 
 - Copie la **Dirección URL** en la página de la [demostración de Azure Media Services](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) para la dirección URL del manifiesto.
 
-## <a name="create-your-visual-studio-project"></a>Creación del proyecto de Visual Studio
+## <a name="create-your-visual-studio-project"></a>Crear un proyecto de Visual Studio
 
 1. Agregue un nuevo proyecto de **Aplicación de consola (.NET Framework)** a la solución.
 
@@ -63,7 +63,7 @@ Instale los siguientes paquetes NuGet para el proyecto TermLists.
 - Microsoft.Rest.ClientRuntime.Azure
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Actualización de las instrucciones using del programa
+### <a name="update-the-programs-using-statements"></a>Actualizar las instrucciones using del programa
 
 Modifique las instrucciones using de la siguiente manera.
 
@@ -192,16 +192,16 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 > [!NOTE]
 > La clave de servicio de Content Moderator tiene un límite de frecuencia de solicitudes por segundo (RPS). Si se supera el límite, el SDK produce una excepción con un código de error 429.
 >
-> Una clave de plan gratuito tiene un límite de frecuencia de RPS.
+> Una clave de un plan gratuito tiene un límite de una solicitud por segundo.
 
 ## <a name="add-transcript-to-video-review"></a>Adición de una transcripción a una revisión de vídeo
 
 Para agregar una transcripción a una revisión de vídeo, se utiliza **ContentModeratorClient.Reviews.AddVideoTranscript**. **AddVideoTranscript** tiene los siguientes parámetros requeridos:
 1. El identificador del equipo de Content Moderator.
-1. El identificador de revisión del vídeo devuelto por **CreateVideoReviews**.
+1. Identificador de revisión de vídeo que **CreateVideoReviews** devuelve.
 1. Un objeto **Stream** que contiene la transcripción.
 
-La transcripción debe tener el formato WebVTT. Para más información, consulte [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
+La transcripción debe tener el formato WebVTT. Para obtener más información, vea [Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/) (Formato de pistas de texto de vídeo web).
 
 > [!NOTE]
 > El programa utiliza una transcripción de ejemplo en formato VTT. En una solución real, utilice el servicio Azure Media Indexer para [generar una transcripción](https://docs.microsoft.com/azure/media-services/media-services-index-content) a partir de un vídeo.
@@ -240,7 +240,7 @@ Además de agregar una transcripción a una revisión de vídeo, también agrega
 1. **Term**. Una cadena que contiene el término.
 1. **Timestamp**. Una cadena que contiene, en segundos, el tiempo en la transcripción en el que se encuentran los términos.
 
-La transcripción debe tener el formato WebVTT. Para más información, consulte [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
+La transcripción debe tener el formato WebVTT. Para obtener más información, vea [Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/) (Formato de pistas de texto de vídeo web).
 
 Agregue la siguiente definición de método al espacio de nombres VideoTranscriptReviews, clase Program. Este método envía una transcripción al método **ContentModeratorClient.TextModeration.ScreenText**. También convierte el resultado en un valor IList\<TranscriptModerationBodyItem>, y lo envía a **AddVideoTranscriptModerationResult**.
 
@@ -351,7 +351,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="run-the-program-and-review-the-output"></a>Ejecución del programa y revisión de la salida
+## <a name="run-the-program-and-review-the-output"></a>Ejecutar el programa y revisar la salida
 
 Al ejecutar la aplicación, verá una salida en las siguientes líneas:
 

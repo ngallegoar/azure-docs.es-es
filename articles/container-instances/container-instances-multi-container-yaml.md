@@ -4,10 +4,10 @@ description: En este tutorial, aprenderá a implementar un grupo de contenedores
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: cce98ec56ee1d84c087150ba486b9482515b46f0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533588"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implementación de un grupo de varios contenedores con un archivo YAML
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para implementar un grupo de varios contenedores con el comando [az container create][az-container-create] en la CLI de Azure, debe especificar la configuración del grupo de contenedores en un archivo YAML. A continuación, pase el archivo YAML como parámetro al comando.
 
-Para empezar, copie el siguiente archivo YAML en un nuevo archivo denominado **deploy-aci.yaml**. En Azure Cloud Shell, puede usar Visual Studio Code para crear el archivo en el directorio de trabajo:
+Para empezar, copie el siguiente archivo YAML en un nuevo archivo denominado **deploy-aci.yaml**. En Azure Cloud Shell, puede usar Visual Studio Code para crear el archivo en el directorio de trabajo:
 
 ```
 code deploy-aci.yaml

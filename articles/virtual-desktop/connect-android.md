@@ -5,15 +5,15 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99d52077d84ab8a9495f92d9c75fb742ff988ba8
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: d2990c82efbcdac7d453f920301787b8c83db1e9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128265"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295379"
 ---
 # <a name="connect-with-the-android-client"></a>Conexión con el cliente de Android
 
@@ -26,7 +26,7 @@ Puede acceder a los recursos de Windows Virtual Desktop desde su dispositivo And
 
 ## <a name="install-the-android-client"></a>Instalación del cliente Android
 
-Para empezar, [descargue](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android) e instale el cliente en su dispositivo Android.
+Para empezar, [descargue](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) e instale el cliente en su dispositivo Android.
 
 ## <a name="subscribe-to-a-feed"></a>Suscripción a una fuente
 

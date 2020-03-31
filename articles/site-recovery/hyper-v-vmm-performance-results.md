@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73663171"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Resultados de pruebas para la replicación de Hyper-V a un sitio secundario
@@ -133,7 +133,7 @@ Los resultados muestran claramente que Site Recovery, junto con la réplica de H
 
 | Carga de trabajo | Tamaño de E/S (KB) | % de acceso | % de lectura | Operaciones de E/s pendientes | Patrón de E/S |
 | --- | --- | --- | --- | --- | --- |
-| Servidor de archivos |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5 %<br />5 %<br />10% |80 %<br />80 %<br />80 %<br />80 %<br />80 % |8<br />8<br />8<br />8<br />8 |Todos 100% aleatorios |
+| Servidor de archivos |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5 %<br />5 %<br />10 % |80 %<br />80 %<br />80 %<br />80 %<br />80 % |8<br />8<br />8<br />8<br />8 |Todos 100% aleatorios |
 | SQL Server (volumen 1)<br />SQL Server (volumen 2) |8<br />64 |100%<br />100% |70%<br />0 % |8<br />8 |100% aleatorio<br />100 % secuencial |
 | Exchange |32 |100% |67% |8 |100% aleatorio |
 | Estación de trabajo/VDI |4<br />64 |66 %<br />34 % |70%<br />95 % |1<br />1 |Los dos 100% aleatorios |
@@ -150,8 +150,8 @@ Los resultados muestran claramente que Site Recovery, junto con la réplica de H
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
 | Servidor de archivos |50 |1 |2 |552 |22 |
-| VDI |149 |0,5 |1 |80 |6 |
-| Servidor Web |149 |0,5 |1 |80 |6 |
+| VDI |149 |.5 |1 |80 |6 |
+| Servidor Web |149 |.5 |1 |80 |6 |
 | TOTAL |470 | | |96,83 TB |4108 |
 
 ### <a name="site-recovery-settings"></a>Configuración de Site Recovery

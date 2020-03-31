@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
 ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76757975"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Administración de recursos de base de datos Informix de IBM mediante Azure Logic Apps
@@ -25,7 +25,7 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de I
 
 Este tema le muestra cómo usar el conector en una aplicación lógica para procesar operaciones de base de datos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 

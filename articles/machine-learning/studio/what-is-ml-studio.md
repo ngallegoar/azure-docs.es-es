@@ -10,17 +10,15 @@ ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
-ms.date: 10/17/2019
-ms.openlocfilehash: 8179e36342f4f3544a1ecd503d7f136ea437d374
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 03/24/2020
+ms.openlocfilehash: c1772ceb514e46542129759711f2d45db39abf82
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79217821"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371976"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>¿Qué es Machine Learning Studio (clásico)?
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -29,6 +27,9 @@ Microsoft Azure Machine Learning Studio (clásico) es una herramienta colaborati
 Machine Learning Studio (clásico) es el lugar en que confluyen la ciencia de datos, el análisis predictivo, los recursos en la nube y sus datos.
 
 ## <a name="the-machine-learning-studio-classic--interactive-workspace"></a>El área de trabajo interactiva de Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Para desarrollar un modelo de análisis predictivo, normalmente se utilizan datos de una o varias fuentes, se transforman y analizan los datos a través de diversas funciones estadísticas y de manipulación de datos y se genera un conjunto de resultados. Desarrollar un modelo como este es un proceso iterativo: a medida que se modifican las diversas funciones y sus parámetros, sus resultados convergen hasta que esté satisfecho con un modelo entrenado y efectivo.
 
 Azure Machine Learning Studio (clásico) le proporciona un área de trabajo visual e interactiva para crear, probar e iterar con toda facilidad sobre un modelo de análisis predictivo. Los ***conjuntos de datos*** y los ***módulos*** de análisis se arrastran y colocan en un lienzo interactivo, y se conectan todos para formar un ***experimento*** que se ejecuta en Machine Learning Studio (clásico). Para iterar su diseño de modelo, se puede editar el experimento, guardar una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede convertir el ***experimento de entrenamiento*** en un ***experimento predictivo***, y luego publicarlo como ***servicio web*** para que otros usuarios puedan acceder al modelo.
@@ -36,30 +37,6 @@ Azure Machine Learning Studio (clásico) le proporciona un área de trabajo visu
 No se requiere programación; conecte visualmente conjuntos de datos y módulos para construir el modelo de análisis predictivo.
 
 ![Diagrama de Azure Machine Learning Studio (clásico): crear experimentos, leer datos de muchos orígenes, escribir datos puntuados, modelos de escritura.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
-
-<a name="compare"></a>
-## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>¿En qué se diferencia Machine Learning Studio (clásico) de Azure Machine Learning?
-
-[Azure Machine Learning](../overview-what-is-azure-ml.md) proporciona los SDK **y** el diseñador de Azure Machine Learning (versión preliminar) para preparar los datos y entrenar e implementar con rapidez los modelos de aprendizaje automático. El diseñador proporciona una experiencia de arrastrar y colocar similar a Studio (clásico). Sin embargo, a diferencia de la plataforma de proceso propietaria de Studio (clásico), el diseñador utiliza sus propios recursos de proceso y está totalmente integrado en Azure Machine Learning.
-
-Esta es una comparación rápida:
-
-|| Machine Learning Studio (clásico) | Azure Machine Learning |
-|---| --- | --- |
-| Interfaz que permite arrastrar y colocar | Sí | Sí: [diseñador de Azure Machine Learning (versión preliminar)](../concept-designer.md) |
-| Experimento | Escalable (límite de datos de entrenamiento, 10 GB) | Escalar con destino de proceso |
-| Módulos para la interfaz de arrastrar y colocar | Muchos | Conjunto inicial de [módulos](../algorithm-module-reference/module-reference.md) populares|
-|Entrenamiento de destinos de proceso| Destino de proceso propietario, solo admite CPU| Admite el proceso de Azure Machine Learning (GPU o CPU) y las máquinas virtuales de Notebook.<br/>([Otros procesos que admite el SDK](../concept-compute-target.md#train))|
-|Destinos de proceso de inferencia| Formato del servicio web propietario, no personalizable |  Azure Kubernetes Service y Proceso de Azure Machine Learning <br/>([Otros procesos que admite el SDK](../how-to-deploy-and-where.md)) |
-| Canalización de Machine Learning | No compatible | [Canalizaciones](../concept-ml-pipelines.md) que se admiten |
-| MLOps | Implementación y administración básicas de modelos | Implementación configurable: control de versiones y seguimiento de canalizaciones y modelos |
-| Formato del modelo | Formato propietario, solo Studio (clásico) | Formato estándar en función del tipo de trabajo de entrenamiento |
-|Entrenamiento de modelos y optimización de hiperparámetros automatizados | No | Aún no está en el diseñador <br/> ([Se admite en el SDK y en la página de aterrizaje del área de trabajo](../concept-automated-ml.md)) | 
-
-Pruebe el diseñador con [Tutorial: Predicción del precio de un automóvil con el diseñador](../tutorial-designer-automobile-price-train-score.md)
-
-> [!NOTE]
-> Azure Machine Learning no puede implementar ni administrar los modelos creados en Studio (clásico). Sin embargo, los modelos creados e implementados en el diseñador se pueden administrar mediante el área de trabajo de Azure Machine Learning.
 
 ## <a name="download-the-machine-learning-studio-classic-overview-diagram"></a>Descarga del diagrama de información general de Machine Learning Studio (clásico)
 Descargue el diagrama **Microsoft Azure Machine Learning Studio (classic) Capabilities Overview** y obtenga una visión general de las funcionalidades de Machine Learning Studio (clásico). Para tenerlo a mano, puede imprimir el diagrama en tamaño tabloide (279 x 432 mm).

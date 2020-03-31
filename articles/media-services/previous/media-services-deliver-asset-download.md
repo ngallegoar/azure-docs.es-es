@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61465667"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Procedimientos para: Entrega de un recurso mediante descarga  
+# <a name="how-to-deliver-an-asset-by-download"></a>Procedimientos: Entrega de un recurso mediante descarga  
 En este artículo se analizan las opciones para entregar recursos multimedia cargados en Media Services. Puede entregar contenido de Media Services en diversos escenarios de aplicaciones. Después de la codificación, descargue los recursos multimedia generados, o bien acceda a ellos mediante un localizador de streaming. Para mejorar el rendimiento y la escalabilidad, también puede entregar contenido si utiliza una instancia de Content Delivery Network (CDN).
 
 En este ejemplo se muestra cómo descargar recursos multimedia desde los Media Services en el equipo local. El código consulta los trabajos asociados con la cuenta de Media Services por identificador de trabajo y tiene acceso a su colección **OutputMediaAssets** (que es el conjunto de uno o más recursos multimedia de salida que resultan de la ejecución de un trabajo). Este ejemplo muestra cómo descargar recursos multimedia de salida desde un trabajo, pero puede aplicar el mismo enfoque para descargar otros recursos.
@@ -87,6 +87,6 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Media S
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [contenido por secuencias](media-services-deliver-streaming-content.md)
 

@@ -1,19 +1,18 @@
 ---
 title: Pestaña Configuración de la oferta de Dynamics 365 for Customer Engagement| Azure Marketplace
 description: Este artículo de CPP está en desuso, vinculado al artículo de PC "Establezca la configuración de una oferta de la aplicación Dynamics 365 for Customer Engagement en AppSource Marketplace".
-services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: 34d4886b8913da24177b939d88eb90dd8650542f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 06ae437209b52d3aae92cd1784ccae722992766e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824749"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278372"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Pestaña Configuración de oferta en Dynamics 365 for Customer Engagement
 

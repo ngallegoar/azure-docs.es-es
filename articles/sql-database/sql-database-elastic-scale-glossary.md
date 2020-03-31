@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: ab972db78cd213497fb96486b3e16b01f2c4c6eb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823625"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glosario de las herramientas de Elastic Database
@@ -50,7 +50,7 @@ Aquí se muestra una representación de bases de datos de inquilino único y mul
 
 **Tablas de referencia**: tablas no particionadas, pero que se replican entre particiones. Por ejemplo, los códigos postales se pueden almacenar en una tabla de referencia. 
 
-**Partición**: una base de datos de Azure SQL que almacena datos desde un conjunto de datos particionados. 
+**Particionar**: una base de datos de Azure SQL que almacena datos desde un conjunto de datos particionados. 
 
 **Elasticidad de partición**: la posibilidad de realizar **escalado horizontal** y **escalado vertical**.
 

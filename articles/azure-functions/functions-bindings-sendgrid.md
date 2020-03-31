@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304011"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235160"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces de SendGrid de Azure Functions
 
@@ -356,10 +356,10 @@ En la siguiente tabla se enumeran las propiedades de configuración de enlace di
 
 | Propiedad de *function.json* | Propiedad de atributo/anotación | Descripción | Opcional |
 |--------------------------|-------------------------------|-------------|----------|
-| type |N/D| Se debe establecer en `sendGrid`.| Sin |
-| direction |N/D| Se debe establecer en `out`.| Sin |
-| name |N/D| El nombre de variable que se usa en el código de función para la solicitud o el cuerpo de la solicitud. Este valor es `$return` cuando hay solo un valor de devuelto. | Sin |
-| apiKey | ApiKey | El nombre de una configuración de aplicación que contiene la clave de API. Si no está establecido, el nombre predeterminado de la configuración de aplicación es *AzureWebJobsSendGridApiKey*.| Sin |
+| type |N/D| Se debe establecer en `sendGrid`.| No |
+| direction |N/D| Se debe establecer en `out`.| No |
+| name |N/D| El nombre de variable que se usa en el código de función para la solicitud o el cuerpo de la solicitud. Este valor es `$return` cuando hay solo un valor de devuelto. | No |
+| apiKey | ApiKey | El nombre de una configuración de aplicación que contiene la clave de API. Si no está establecido, el nombre predeterminado de la configuración de aplicación es *AzureWebJobsSendGridApiKey*.| No |
 | to| A | La dirección de correo electrónico del destinatario. | Sí |
 | desde| De | La dirección de correo electrónico del remitente. |  Sí |
 | subject| Asunto | El asunto del correo electrónico. | Sí |

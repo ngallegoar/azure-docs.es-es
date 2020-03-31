@@ -1,20 +1,18 @@
 ---
 title: Registro en el Centro para desarrolladores | Azure
 description: Registro en el Centro para desarrolladores
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
-manager: pabutler
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/05/2018
-ms.author: ellacroi
-ms.openlocfilehash: a7abb73f229c444f88626ef03c90f62e138023c6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 62e25a252d6a4981bddd50361d01110ec10a6e2c
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825920"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387672"
 ---
 # <a name="register-in-dev-center"></a>Registro en el Centro para desarrolladores  
 Para ayudar a asegurarse de que no está registrado en una cuenta de explorador personal, abra una nueva sesión de exploración de incógnito de Chrome o de InPrivate en Internet Explorer.  
@@ -172,7 +170,7 @@ La información bancaria y fiscal es obligatoria para todas las ofertas comercia
 * **¿Por qué se rechaza mi aplicación del Centro de desarrollo?**
   > La compañía de examen de terceros (Duns & Bradstreet) no pudo ponerse en contacto con usted a través del número de teléfono que proporcionó. Póngase en contacto con soporte técnico en [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) para volver a iniciar el proceso de examen.
 
-> o
+> or
 > 
 > Se rechaza el registro de la cuenta por problemas geográficos. Las compañías con subsidiarias basadas en ubicaciones diferentes de la sede central solo necesitarán una cuenta del Centro de desarrollo.
  

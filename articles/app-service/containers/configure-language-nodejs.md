@@ -4,12 +4,12 @@ description: Aprenda a configurar un contenedor de Node.js precompilado para la 
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 6cf60472307a378d2fd4258a9777152344a11ded
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: fdc5129fc395f99cb4c244414ea952b2776dc4dc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670268"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227548"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurar una aplicación de Node.js para Azure App Service
 
@@ -43,6 +43,32 @@ Esta configuración especifica la versión de Node.js que usa, tanto en tiempo d
 
 > [!NOTE]
 > Debe establecer la versión de Node.js en el archivo `package.json` del proyecto. El motor de implementación se ejecuta en un contenedor independiente que contiene todas las versiones compatibles de Node.js.
+
+## <a name="customize-build-automation"></a>Personalización de la automatización de compilaciones
+
+Si implementa la aplicación utilizando paquetes Git o zip con la automatización de compilaciones activada, la automatización de compilaciones de App Service se ejecutará en este orden:
+
+1. Ejecute el script personalizado si lo especifica `PRE_BUILD_SCRIPT_PATH`.
+1. Ejecute `npm install` sin marcas, lo que incluye los scripts de npm `preinstall` y `postinstall` y también instala `devDependencies`.
+1. Ejecute `npm run build` si se especifica un script de compilación en *package.json*.
+1. Ejecute `npm run build:azure` si se especifica un script build:azure en *package.json*.
+1. Ejecute el script personalizado si lo especifica `POST_BUILD_SCRIPT_PATH`.
+
+> [!NOTE]
+> Como se describe en la [documentación de npm](https://docs.npmjs.com/misc/scripts), los scripts denominados `prebuild` y `postbuild` se ejecutan antes y después de `build`, respectivamente, si se especifican. `preinstall` y `postinstall` ejecutan antes y después de `install`, respectivamente.
+
+`PRE_BUILD_COMMAND` y `POST_BUILD_COMMAND` son variables de entorno que están vacías de forma predeterminada. Para ejecutar comandos anteriores a la compilación, defina `PRE_BUILD_COMMAND`. Para ejecutar comandos posteriores a la compilación, defina `POST_BUILD_COMMAND`.
+
+En el ejemplo siguiente se especifican las dos variables para una serie de comandos, separados por comas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Para obtener más variables de entorno para personalizar la automatización de compilaciones, consulte la [configuración de Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Para más información sobre cómo se ejecuta App Service y se compilan aplicaciones de Node.js en Linux, consulte la [documentación de Oryx sobre cómo se detectan y se compilan las aplicaciones de Node.js](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md).
 
 ## <a name="configure-nodejs-server"></a>Configurar el servidor Node.js
 
@@ -235,16 +261,18 @@ if (req.secure) {
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Cuando una aplicación de Node.js en funcionamiento se comporta de manera diferente en App Service o genera errores, intente lo siguiente:
 
 - [Acceso a la secuencia de registros](#access-diagnostic-logs).
 - Pruebe la aplicación localmente en modo de producción. App Service ejecuta las aplicaciones de Node.js en el modo de producción, por lo que deberá asegurarse de que el proyecto funciona según lo previsto en modo de producción localmente. Por ejemplo:
     - En función de su archivo *package.json*, pueden instalarse distintos paquetes para el modo de producción (`dependencies` frente a `devDependencies`).
-    - Algunos marcos web pueden implementar archivos estáticos de forma diferente en modo de producción.
-    - Algunos marcos web pueden usar scripts de inicio personalizados cuando se ejecutan en modo de producción.
+    - Algunas plataformas web pueden implementar archivos estáticos de forma diferente en modo de producción.
+    - Algunas plataformas web pueden usar scripts de inicio personalizados cuando se ejecutan en modo de producción.
 - Ejecute la aplicación en App Service en el modo de desarrollo. Por ejemplo, en [MEAN.js](https://meanjs.org/), puede establecer la aplicación en modo de desarrollo en tiempo de ejecución [estableciendo la configuración de aplicación `NODE_ENV`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

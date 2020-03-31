@@ -1,19 +1,18 @@
 ---
 title: Códigos de país y región de venta conjunta | Azure Marketplace
 description: Use estos códigos de país o región de dos letras al proporcionar información de contacto sobre la página de venta conjunta de su oferta.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 925218879ce0dc1c69054f861e37e86c122d47f9
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934352"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277063"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Códigos de país y región de venta conjunta
 

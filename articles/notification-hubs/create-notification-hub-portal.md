@@ -12,14 +12,14 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 53abc28a6923c2d55b3bb39defb08778485a9744
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3aeeb989d15dc74849c85fa58cbefa891809f3c5
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "71212450"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80347087"
 ---
-# <a name="create-an-azure-notification-hub-in-the-azure-portal"></a>Creación de un centro de notificaciones de Azure en Azure Portal 
+# <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Inicio rápido: Creación de un centro de notificaciones de Azure en Azure Portal 
 Azure Notification Hubs proporciona un motor de inserción de escalabilidad horizontal y fácil de usar que le permite enviar notificaciones a cualquier plataforma (iOS, Android, Windows, Kindle, Baidu, etc.) desde cualquier back-end (en la nube o local). Para más información sobre el servicio, consulte [¿Qué es Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
 En este inicio rápido, creará un centro de notificaciones en Azure Portal. La primera sección proporciona los pasos para crear un espacio de nombres de Notification Hubs y un centro en ese espacio de nombres. La segunda sección proporciona los pasos para crear un centro de notificaciones en un espacio de nombres de Notification Hubs existente. 

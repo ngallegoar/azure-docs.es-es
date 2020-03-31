@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355605"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225128"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 
@@ -30,7 +30,7 @@ Los valores de este artículo se aplican a las puertas de enlace de VPN (puertas
 
 
 
-## <a name="gwtype"></a>Tipos de puerta de enlace
+## <a name="gateway-types"></a><a name="gwtype"></a>Tipos de puerta de enlace
 
 Cada red virtual solo puede tener una puerta de enlace de red de cada tipo. Al crear una puerta de enlace de red virtual, debe asegurarse de que el tipo de puerta de enlace es el correcto para su configuración.
 
@@ -49,7 +49,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -VpnType RouteBased
 ```
 
-## <a name="gwsku"></a>SKU de puerta de enlace
+## <a name="gateway-skus"></a><a name="gwsku"></a>SKU de puerta de enlace
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
@@ -75,7 +75,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizechange"></a>Cambio de tamaño o de SKU
+###  <a name="resizing-or-changing-a-sku"></a><a name="resizechange"></a>Cambio de tamaño o de SKU
 
 Si tiene una puerta de enlace VPN y desea usar una SKU de puerta de enlace distinta, las opciones son o cambiar el tamaño de la SKU de puerta de enlace o cambiar a otra SKU. Al cambiar a otra SKU de puerta de enlace, se elimina completamente la puerta de enlace existente y se crea otra. La creación de una puerta de enlace puede tardar hasta 45 minutos. En cambio, al cambiar el tamaño de la SKU de puerta de enlace, el tiempo de inactividad será corto, ya que no tiene que eliminar y volver crear la puerta de enlace. Si tiene la opción de cambiar el tamaño de la SKU de puerta de enlace, en lugar de cambiarla, aprovéchela. Sin embargo, hay reglas en relación con el cambio de tamaño:
 
@@ -83,15 +83,15 @@ Si tiene una puerta de enlace VPN y desea usar una SKU de puerta de enlace disti
 2. Si trabaja con las SKU de puerta de enlace antiguas, puede cambiar el tamaño entre las SKU Básica, Estándar y HighPerformance.
 3. Sin embargo, **no puede** cambiar el tamaño de las SKU de Básica/Estándar/HighPerformance a las SKU de VpnGw. En su lugar, debe [cambiar](#change) a las SKU nuevas.
 
-#### <a name="resizegwsku"></a>Cambiar el tamaño de una puerta de enlace
+#### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Cambiar el tamaño de una puerta de enlace
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 
-####  <a name="change"></a>Cambiar de una SKU anterior (heredada) anterior a una nueva
+####  <a name="to-change-from-an-old-legacy-sku-to-a-new-sku"></a><a name="change"></a>Cambiar de una SKU anterior (heredada) anterior a una nueva
 
 [!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
-## <a name="connectiontype"></a>Tipos de conexión
+## <a name="connection-types"></a><a name="connectiontype"></a>Tipos de conexión
 
 En el modelo de implementación de Resource Manager, cada configuración requiere un tipo de conexión de puerta de enlace de red virtual específico. Los valores de PowerShell de Resource Manager para `-ConnectionType` son:
 
@@ -108,7 +108,7 @@ New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
 
-## <a name="vpntype"></a>Tipos de VPN
+## <a name="vpn-types"></a><a name="vpntype"></a>Tipos de VPN
 
 Al crear la puerta de enlace de red virtual para una configuración de puerta de enlace de VPN, debe especificar un tipo de VPN. El tipo de VPN que elija dependerá de la topología de conexión que desee crear. Por ejemplo, una conexión de P2S requiere un tipo de VPN RouteBased. Un tipo de VPN también puede depender del hardware que se esté usando. Las configuraciones de S2S requieren un dispositivo VPN. Algunos dispositivos VPN solo serán compatibles con un determinado tipo de VPN.
 
@@ -126,11 +126,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-## <a name="requirements"></a>Requisitos de la puerta de enlace
+## <a name="gateway-requirements"></a><a name="requirements"></a>Requisitos de la puerta de enlace
 
 [!INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-## <a name="gwsub"></a>Subred de puerta de enlace
+## <a name="gateway-subnet"></a><a name="gwsub"></a>Subred de puerta de enlace
 
 Antes de crear una puerta de enlace de VPN, debe crear una subred de puerta de enlace. La subred de puerta de enlace contiene las direcciones IP que usan los servicios y las máquinas virtuales de la puerta de enlace de red virtual. Al crear la puerta de enlace de red virtual, las máquinas virtuales de puerta de enlace se implementan en la subred de puerta de enlace, y se configuran con las opciones de puerta de enlace de VPN necesarias. Nunca implemente nada más (por ejemplo, máquinas virtuales adicionales) en la subred de puerta de enlace. Para que la subred de puerta de enlace funcione correctamente, su nombre tiene que ser “GatewaySubnet2”. La asignación del nombre "GatewaySubnet" a la subred de puerta de enlace permite a Azure saber que se trata de la subred donde se implementarán las máquinas virtuales y los servicios de la puerta de enlace de red virtual.
 
@@ -150,7 +150,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="lng"></a>Puertas de enlace de red local
+## <a name="local-network-gateways"></a><a name="lng"></a>Puertas de enlace de red local
 
  Una puerta de enlace de red local es diferente a una puerta de enlace de red virtual. Al crear una configuración de puerta de enlace de VPN, la puerta de enlace de red local suele representar la ubicación local. En el modelo de implementación clásica, la puerta de enlace de red local se conoce como un sitio local.
 
@@ -165,7 +165,7 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 A veces es necesario modificar la configuración de la puerta de enlace de red local. Por ejemplo, al agregar o modificar el intervalo de direcciones, o si cambia la dirección IP del dispositivo VPN. Vea [Modificación de la configuración de la puerta de enlace de red local mediante PowerShell](vpn-gateway-modify-local-network-gateway.md).
 
-## <a name="resources"></a>API de REST, cmdlets de PowerShell y CLI
+## <a name="rest-apis-powershell-cmdlets-and-cli"></a><a name="resources"></a>API de REST, cmdlets de PowerShell y CLI
 
 Para más información sobre los recursos técnicos y los requisitos de sintaxis específicos para usar las API de REST y los cmdlets de PowerShell para configuraciones de VPN Gateway, consulte las páginas siguientes:
 

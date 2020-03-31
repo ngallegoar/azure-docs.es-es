@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138597"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230284"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronización de Azure AD Connect: Comprensión de la arquitectura
 En este tema, se describe la arquitectura básica para la sincronización de Azure AD Connect. En muchos aspectos, es similar a la de sus predecesores: MIIS 2003, ILM 2007 y FIM 2010. Azure AD Connect Sync representa la evolución de estas tecnologías anteriores. Si ya conoce cualquiera de ellas, el contenido de este tema también le resultará familiar. Si está comenzando con la sincronización, entonces este tema está a su nivel. De todos modos, no es requisito conocer los detalles de este tema para realizar personalizaciones correctas en la sincronización de Azure AD Connect (llamado motor de sincronización en este tema).
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 El motor de sincronización crea una vista integrada de objetos que están almacenados en varios orígenes de datos conectados y administra información de identidad en esos orígenes de datos. Esta vista integrada viene determinada por la información de identidad recuperada de orígenes de datos conectados y un conjunto de reglas que determinan cómo procesar esta información.
 
 ### <a name="connected-data-sources-and-connectors"></a>Orígenes de datos conectados y conectores
@@ -146,7 +146,7 @@ Un objeto de importación se crea como objeto separado. A cambio, un objeto de e
 El proceso de administración de identidad controla cómo se actualiza la información de identidad entre distintos orígenes de datos conectados. La administración de identidad se produce en tres procesos:
 
 * Importar
-* Sincronización
+* Synchronization
 * Exportación
 
 Durante el proceso de importación, el motor de sincronización evalúa la información de identidad entrante desde un origen de datos conectado. Cuando se detectan cambios, crea nuevos objetos de almacenamiento provisional o actualiza los existentes en el espacio conector para la sincronización.
@@ -179,7 +179,7 @@ Si el motor de sincronización localiza un objeto de almacenamiento provisional 
 
 Los objetos de almacenamiento provisional con datos actualizados se marcan como pendientes de importación. Existen distintos tipos de importación pendiente. Según el resultado del proceso de importación, un objeto de almacenamiento provisional en el espacio conector tiene uno de los siguientes tipos de importación pendiente:
 
-* **Ninguna**. No hay disponible ningún cambio en ninguno de los atributos del objeto de almacenamiento provisional. El motor de sincronización no marca este tipo como pendiente de importación.
+* **No**. No hay disponible ningún cambio en ninguno de los atributos del objeto de almacenamiento provisional. El motor de sincronización no marca este tipo como pendiente de importación.
 * **Agregar**. El objeto de almacenamiento provisional es un nuevo objeto de importación en el espacio conector. El motor de sincronización marca este tipo como pendiente de importación para seguir procesándolo en el metaverso.
 * **Actualizar**. El motor de sincronización encuentra un objeto de almacenamiento provisional correspondiente en el espacio conector y marca este tipo como pendiente de importación para que se puedan procesar las actualizaciones de los atributos en el metaverso. Entre las actualizaciones, se incluye el cambio de nombre del objeto.
 * **Eliminar**. El motor de sincronización encuentra un objeto de almacenamiento provisional correspondiente en el espacio conector y marca este tipo como pendiente de importación para que se pueda eliminar el objeto unido.

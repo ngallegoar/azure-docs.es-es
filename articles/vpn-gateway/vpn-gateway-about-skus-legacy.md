@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861921"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235752"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Trabajo con SKU de puerta de enlace de red virtual (SKU antiguas)
 
 Este artículo contiene información sobre las SKU de puerta de enlace de red virtual heredadas (antiguas). Las SKU heredadas siguen funcionando en ambos modelos de implementación para las puertas de enlace de VPN ya creadas. Las puertas de enlace de VPN clásicas siguen usando las SKU heredadas para puertas de enlace existentes y para nuevas puertas de enlace. Al crear nuevas puertas de enlace de VPN de Resource Manager, use las nuevas SKU de puerta de enlace. Para más información sobre las nuevas SKU, vea [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md).
 
-## <a name="gwsku"></a>SKU de puerta de enlace
+## <a name="gateway-skus"></a><a name="gwsku"></a>SKU de puerta de enlace
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
 Puede ver los precios de las puertas de enlace heredadas en la sección **Puertas de enlace de Virtual Network**de la página [Precios de ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute).
 
-## <a name="agg"></a>Rendimiento agregado estimado por SKU
+## <a name="estimated-aggregate-throughput-by-sku"></a><a name="agg"></a>Rendimiento agregado estimado por SKU
 
 [!INCLUDE [Aggregated throughput by legacy SKU](../../includes/vpn-gateway-table-gwtype-legacy-aggtput-include.md)]
 
-## <a name="config"></a>Configuraciones admitidas por el tipo de VPN y SKU
+## <a name="supported-configurations-by-sku-and-vpn-type"></a><a name="config"></a>Configuraciones admitidas por el tipo de VPN y SKU
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>Cambio del tamaño de una puerta de enlace
+## <a name="resize-a-gateway"></a><a name="resize"></a>Cambio del tamaño de una puerta de enlace
 
 Puede cambiar el tamaño de la puerta de enlace a una SKU de puerta de enlace dentro de la misma familia de la SKU. Por ejemplo, si tiene una SKU Estándar, puede cambiar a una SKU HighPerformance. Sin embargo, no se puede cambiar el tamaño de las puertas de enlace de VPN entre las familias de SKU antiguas y las nuevas. Por ejemplo, no se puede pasar de una SKU Estándar a una SKU VpnGw2, o de una SKU Básica a VpnGw1.
 
@@ -47,7 +47,7 @@ Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerfor
 
 También puede cambiar el tamaño de una puerta de enlace en Azure Portal.
 
-### <a name="classicresize"></a>Clásico
+### <a name="classic"></a><a name="classicresize"></a>Clásico
 
 Para cambiar el tamaño de una puerta de enlace al modelo de implementación clásica, debe usar los cmdlets de PowerShell de administración de servicios. Use el comando siguiente:
 
@@ -55,7 +55,7 @@ Para cambiar el tamaño de una puerta de enlace al modelo de implementación cl�
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-## <a name="change"></a>Cambio a las nuevas SKU de puerta de enlace
+## <a name="change-to-the-new-gateway-skus"></a><a name="change"></a>Cambio a las nuevas SKU de puerta de enlace
 
 [!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 

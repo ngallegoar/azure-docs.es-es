@@ -1,20 +1,18 @@
 ---
 title: Compilación de la página de aterrizaje en Azure Marketplace | Azure
 description: Aprenda a crear una página de aterrizaje en Azure Marketplace y Microsoft AppSource para anunciantes de aplicaciones y servicios.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
-manager: pabutler
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/04/2018
-ms.author: ellacroi
-ms.openlocfilehash: cf7d15ba375faf7dfb38bf5f691799875f2dd6e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 0952c1d4b6955ff20f06afc6eaded18fbd105708
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819824"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387808"
 ---
 # <a name="build-your-landing-page"></a>Compilación de la página de aterrizaje
 

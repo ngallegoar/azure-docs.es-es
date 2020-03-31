@@ -10,10 +10,10 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77505576"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
@@ -81,7 +81,7 @@ También puede realizar las siguientes tareas de administración de áreas de tr
 > [!WARNING]
 > No se admite mover el área de trabajo de Azure Machine Learning a otra suscripción ni mover la suscripción propietaria a un nuevo inquilino. Si lo hace, pueden producirse errores.
 
-## <a name='create-workspace'></a> Creación de un área de trabajo
+## <a name="create-a-workspace"></a><a name='create-workspace'></a> Creación de un área de trabajo
 
 Cuando cree un área de trabajo, decida si desea crearla con [Basic Edition o Enterprise Edition](overview-what-is-azure-ml.md#sku). La edición determina las características disponibles en el área de trabajo. Entre otras características, Enterprise Edition le proporciona acceso al [diseñador de Azure Machine Learning ](concept-designer.md) y a la versión de Studio de creación de [experimentos de aprendizaje automático automatizado](tutorial-first-experiment-automated-ml.md).  Para más detalles e información sobre precios, vea [Precios de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
@@ -95,11 +95,11 @@ Hay varias maneras de crear un área de trabajo:
 > [!NOTE]
 > El nombre del área de trabajo no distingue mayúsculas de minúsculas.
 
-## <a name="upgrade"></a> Actualización a Enterprise Edition
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a> Actualización a Enterprise Edition
 
 Puede [actualizar el área de trabajo de Basic Edition a Enterprise Edition](how-to-manage-workspace.md#upgrade) mediante Azure Portal. No se puede rebajar un área de trabajo de la edición Enterprise a un área de trabajo de la edición Basic. 
 
-## <a name="resources"></a> Recursos asociados
+## <a name="associated-resources"></a><a name="resources"></a> Recursos asociados
 
 Al crear una nueva área de trabajo, se crean automáticamente varios recursos de Azure que el área de trabajo utiliza:
 

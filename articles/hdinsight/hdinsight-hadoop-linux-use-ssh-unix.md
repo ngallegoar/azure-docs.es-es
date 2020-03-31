@@ -4,17 +4,16 @@ description: Puede acceder a HDInsight mediante Secure Shell (SSH). Este documen
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-keywords: comandos hadoop en linux, comandos hadoop linux, hadoop macos, ssh hadoop, ssh hadoop clúster
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/02/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: f4ca521e13ac51d7df4917e75fdf1c21b1e9cfa2
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/28/2020
+ms.openlocfilehash: 31e85876d60ae6fcd8f3b29633506d698a323acb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751097"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233612"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Conexión a HDInsight (Apache Hadoop) mediante SSH
 
@@ -29,7 +28,7 @@ La tabla siguiente contiene la información de dirección y puerto necesaria par
 | `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nodo perimetral (Machine Learning Services en HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nodo perimetral (cualquier otro tipo de clúster, si existe un nodo perimetral) |
 
-Reemplace `<clustername>` por el nombre del clúster. Reemplace `<edgenodename>` con el nombre del nodo perimetral. 
+Reemplace `<clustername>` por el nombre del clúster. Reemplace `<edgenodename>` con el nombre del nodo perimetral.
 
 Si el clúster contiene un nodo perimetral, se recomienda que __siempre se conecte al nodo perimetral__ mediante SSH. Los nodos principales hospedan servicios que son críticos para el estado de Hadoop. El nodo perimetral ejecuta solo lo que incluya en él. Para más información, consulte [Uso de nodos perimetrales en HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
@@ -44,7 +43,7 @@ Los sistemas Linux, Unix y macOS proporcionan los comandos `ssh` y `scp`. El cli
 
 Microsoft Windows no instala los clientes SSH de forma predeterminada. Los clientes `ssh` y `scp` están disponibles para Windows a través de los siguientes paquetes:
 
-* [Cliente OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse): se trata de una característica opcional que se introdujo en Windows 10 Fall Creators Update.
+* [Cliente OpenSSH](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse): Este cliente es una característica opcional que se introdujo en Windows 10 Fall Creators Update.
 
 * [Bash en Ubuntu en Windows 10](https://docs.microsoft.com/windows/wsl/about).
 
@@ -54,7 +53,7 @@ Microsoft Windows no instala los clientes SSH de forma predeterminada. Los clien
 
 También hay varios clientes SSH gráficos, como [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) y [MobaXterm](https://mobaxterm.mobatek.net/). Aunque estos clientes se pueden usar para conectar con HDInsight, el proceso de conexión es diferente a usar la utilidad `ssh`. Para más información, consulte la documentación del cliente gráfico que esté usando.
 
-## <a id="sshkey"></a>Autenticación: Claves SSH
+## <a name="authentication-ssh-keys"></a><a id="sshkey"></a>Autenticación: Claves SSH
 
 Las claves SSH utilizan [criptografía de clave pública](https://en.wikipedia.org/wiki/Public-key_cryptography) para autenticar las sesiones de SSH. Las claves SSH son más seguras que las contraseñas y proporcionan una manera fácil para proteger el acceso al clúster de Hadoop.
 
@@ -93,7 +92,7 @@ Se le pedirá información durante el proceso de creación de claves. Por ejempl
 | Azure CLI | Use el parámetro `--sshPublicKey` del comando [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) y pase el contenido de la clave pública como una cadena. |
 | Plantilla de Resource Manager | Para obtener un ejemplo del uso de claves SSH con una plantilla, consulte la [implementación de HDInsight en Linux con una clave SSH](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). El elemento `publicKeys` en el archivo [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) se usa para pasar las claves a Azure al crear el clúster. |
 
-## <a id="sshpassword"></a>Autenticación: Contraseña
+## <a name="authentication-password"></a>Autenticación: Contraseña
 
 Las cuentas SSH se pueden proteger mediante una contraseña. Cuando se conecte a HDInsight usando SSH, se le pedirá que escriba la contraseña.
 
@@ -116,7 +115,7 @@ Las cuentas SSH se pueden proteger mediante una contraseña. Cuando se conecte a
 
 Para información acerca de cómo cambiar la contraseña de cuenta de usuario SSH, consulte la sección __Cambio de contraseñas__ del documento sobre [administración de HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords).
 
-## <a id="domainjoined"></a>Autenticación: HDInsight unido a un dominio
+## <a name="authentication-domain-joined-hdinsight"></a>Autenticación de HDInsight unido a un dominio
 
 Si está usando un __clúster de HDInsight unido a un dominio__, tiene que utilizar el comando `kinit` después de conectarse con el usuario local de SSH. Este comando le pide un usuario de dominio y una contraseña y autentica la sesión con el dominio de Azure Active Directory asociado con el clúster.
 
@@ -132,7 +131,7 @@ Quite los comentarios y cambie `KerberosAuthentication` a `yes`
 sudo service sshd restart
 ```
 
-En cualquier momento, para verificar si la autenticación de Kerberos se ha realizado correctamente, utilice el comando `klist`.
+Utilice el comando `klist` para verificar si la autenticación Kerberos se realizó correctamente.
 
 Para más información, consulte [Configuración de clústeres de HDInsight unidos a un dominio](./domain-joined/apache-domain-joined-configure.md).
 

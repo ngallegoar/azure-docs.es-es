@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
 ms.openlocfilehash: 2e8519fa8d96b7fe016b9da4ba84ce481a57d94e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73802812"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Funcionalidades multimodelo de Azure SQL Database
@@ -68,7 +68,7 @@ No hay nada que una base de datos de grafos puede conseguir, que no se puede log
 
 Azure SQL Database permite analizar y consultar datos representados en formato de notación de objetos JavaScript [(JSON)](https://www.json.org/), y exportar los datos relacionales como texto JSON.
 
-JSON es un formato de datos conocido que se usa para intercambiar datos en aplicaciones web y móviles modernas. JSON también se utiliza para almacenar datos semiestructurados en archivos de registro o en bases de datos NoSQL como [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Muchos servicios web REST devuelven resultados con formato de texto JSON o aceptan datos con ese formato. La mayoría de los servicios de Azure, como [Azure Cognitive Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/) y [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), tienen puntos de conexión REST que devuelven o consumen JSON.
+JSON es un formato de datos conocido que se usa para intercambiar datos en aplicaciones web y móviles modernas. JSON también se utiliza para almacenar datos semiestructurados en archivos de registro o en bases de datos NoSQL como [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Muchos servicios web REST devuelven resultados con formato de texto JSON o bien aceptan datos con este formato. La mayoría de los servicios de Azure, como [Azure Cognitive Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/) y [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), tienen puntos de conexión REST que devuelven o consumen JSON.
 
 Azure SQL Database permite trabajar fácilmente con datos JSON e integrar su base de datos con servicios modernos. Azure SQL Database proporciona las siguientes funciones para trabajar con datos JSON:
 

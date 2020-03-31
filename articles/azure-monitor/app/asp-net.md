@@ -4,10 +4,10 @@ description: Configure las herramientas de análisis del rendimiento, la disponi
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665925"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
@@ -25,7 +25,7 @@ Para agregar Application Insights al sitio web de ASP.NET, necesita:
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="ide"></a> Paso 1: Agregue el SDK de Application Insights
+## <a name="step-1-add-the-application-insights-sdk"></a><a name="ide"></a> Paso 1: Agregue el SDK de Application Insights
 
 > [!IMPORTANT]
 > Las capturas de pantalla de este ejemplo están basadas en Visual Studio 2017, versión 15.9.9 y posteriores. La experiencia de adición de Application Insights varía en las versiones de Visual Studio, así como el tipo de plantilla de ASP.NET. Las versiones anteriores pueden tener texto alternativo, como "Configurar Application Insights".
@@ -56,7 +56,7 @@ Si desea establecer el grupo de recursos o la ubicación en que se almacenan los
 > [!NOTE]
 > Si no desea enviar datos de telemetría al portal mientras se lleva a cabo una depuración, agregue el SDK de Application Insights a la aplicación, pero no configure ningún recurso en el portal. Durante la depuración puede ver la telemetría en Visual Studio. Posteriormente, puede volver a esta página de configuración, o bien puede esperar hasta que haya implementado la aplicación y [activar la telemetría en tiempo de ejecución](../../azure-monitor/app/monitor-performance-live-website-now.md).
 
-## <a name="run"></a> Paso 2: Ejecutar la aplicación
+## <a name="step-2-run-your-app"></a><a name="run"></a> Paso 2: Ejecutar la aplicación
 Ejecute la aplicación con F5. Abra distintas páginas para generar telemetría.
 
 En Visual Studio, verá un recuento de los eventos que se han registrado.
@@ -104,7 +104,7 @@ También puede seguir analizando la telemetría en [Visual Studio](../../azure-m
 >
 >
 
-## <a name="land"></a>Ya está listo
+## <a name="youre-all-set"></a><a name="land"></a>Ya está listo
 
 Felicidades. Ha instalado el paquete de Application Insights en la aplicación y lo ha configurado para que envíe telemetría al servicio Application Insights en Azure.
 

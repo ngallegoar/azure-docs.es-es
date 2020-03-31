@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.custom: mvc
 ms.openlocfilehash: d2b4e20520cad28c5d62118f6c9d10fcc43ac89e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533632"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Tutorial: Implementación de un grupo con varios contenedores con una plantilla de Resource Manager
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="configure-a-template"></a>Configuración de una plantilla
 
-Para empezar, copie el siguiente código JSON en un nuevo archivo denominado `azuredeploy.json`. En Azure Cloud Shell, puede usar Visual Studio Code para crear el archivo en el directorio de trabajo:
+Para empezar, copie el siguiente código JSON en un nuevo archivo denominado `azuredeploy.json`. En Azure Cloud Shell, puede usar Visual Studio Code para crear el archivo en el directorio de trabajo:
 
 ```
 code azuredeploy.json
@@ -145,7 +145,7 @@ Para usar un registro de imagen de contenedor privado, agregue un objeto al docu
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Cree un grupo de recursos con el comando [az group create][az-group-create].
+Para crear un grupo de recursos, use el comando [az group create][az-group-create].
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus

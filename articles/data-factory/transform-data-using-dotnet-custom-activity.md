@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
 ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439545"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229964"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 
@@ -324,7 +324,7 @@ Esta serialización no es verdaderamente segura y no está pensada para serlo. L
 
 Para acceder a las propiedades de tipo *SecureString* desde una actividad personalizada, lea el archivo `activity.json`, que se coloca en la misma carpeta que su archivo .EXE, deserialice el archivo JSON y, a continuación, acceda a la propiedad JSON (extendedProperties => [propertyName] => valor).
 
-## <a name="compare-v2-v1"></a> Comparación de la actividad personalizada de la versión 2 y la actividad de DotNet de la versión 1 (personalizada)
+## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a> Comparación de la actividad personalizada de la versión 2 y la actividad de DotNet de la versión 1 (personalizada)
 
 En la versión 1 de Azure Data Factory, puede implementar una actividad de DotNet (personalizada) mediante la creación de un proyecto de la biblioteca de clases .NET con una clase que implementa el método `Execute` de la interfaz `IDotNetActivity`. Los servicios vinculados, los conjuntos de datos y las propiedades extendidas de la carga de JSON de una actividad de DotNet (personalizada) se pasan al método de ejecución como objetos fuertemente tipados. Para detalles sobre el comportamiento de la versión 1, consulte la [actividad de DotNet (personalizada) en la versión 1](v1/data-factory-use-custom-activities.md). Debido a esta implementación, el código de la actividad de DotNet de la versión 1 tiene como destino .NET Framework 4.5.2. La actividad de DotNet de la versión 1 también se debe ejecutar en nodos de grupo de Azure Batch basados en Windows.
 

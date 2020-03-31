@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: d061a132699e733e78a7d717ee32222b158d73b4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927533"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Actividad de eliminación en Azure Data Factory
@@ -42,7 +42,7 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 
 -   [Almacenamiento de blobs de Azure](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+-   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 -   [Azure File Storage](connector-azure-file-storage.md)
 
 ### <a name="file-system-data-stores"></a>Almacenes de datos del sistema de archivos
@@ -80,15 +80,15 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 
 ## <a name="type-properties"></a>Propiedades de tipo
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | dataset | Proporciona la referencia del conjunto de datos para determinar qué archivos o carpetas se van a eliminar. | Sí |
 | recursive | Indica si los archivos se eliminan de forma recursiva de las subcarpetas o solo de la carpeta especificada.  | No. El valor predeterminado es `false`. |
 | maxConcurrentConnections | El número de conexiones para conectarse al almacén de almacenamiento al mismo tiempo para eliminar archivos o carpetas.   |  No. El valor predeterminado es `1`. |
-| enablelogging | Indica si es necesario registrar los nombres de carpeta o archivo que se han eliminado. Si es true, tiene que proporcionar una cuenta de almacenamiento para guardar el archivo de registro, por lo que puede realizar un seguimiento de los comportamientos de la actividad de eliminación leyendo el archivo de registro. | Sin |
-| logStorageSettings | Solo se aplica cuando enablelogging = true.<br/><br/>Un grupo de propiedades de almacenamiento que se pueden especificar donde desea guardar el archivo de registro que contiene los nombres de carpeta o archivo que se han eliminado por la actividad de eliminación. | Sin |
-| linkedServiceName | Solo se aplica cuando enablelogging = true.<br/><br/>El servicio vinculado de [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para almacenar el archivo de registro que contiene los nombres de carpeta o archivo que se han eliminado con la actividad de eliminación. Tenga en cuenta que se debe configurar con el mismo tipo de Integration Runtime que el que la actividad de eliminación usó para eliminar archivos. | Sin |
-| path | Solo se aplica cuando enablelogging = true.<br/><br/>La ruta de acceso para guardar el archivo de registro en la cuenta de almacenamiento. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | Sin |
+| enablelogging | Indica si es necesario registrar los nombres de carpeta o archivo que se han eliminado. Si es true, tiene que proporcionar una cuenta de almacenamiento para guardar el archivo de registro, por lo que puede realizar un seguimiento de los comportamientos de la actividad de eliminación leyendo el archivo de registro. | No |
+| logStorageSettings | Solo se aplica cuando enablelogging = true.<br/><br/>Un grupo de propiedades de almacenamiento que se pueden especificar donde desea guardar el archivo de registro que contiene los nombres de carpeta o archivo que se han eliminado por la actividad de eliminación. | No |
+| linkedServiceName | Solo se aplica cuando enablelogging = true.<br/><br/>El servicio vinculado de [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para almacenar el archivo de registro que contiene los nombres de carpeta o archivo que se han eliminado con la actividad de eliminación. Tenga en cuenta que se debe configurar con el mismo tipo de Integration Runtime que el que la actividad de eliminación usó para eliminar archivos. | No |
+| path | Solo se aplica cuando enablelogging = true.<br/><br/>La ruta de acceso para guardar el archivo de registro en la cuenta de almacenamiento. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | No |
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -116,7 +116,7 @@ Hay dos lugares donde puede ver y supervisar los resultados de la actividad de e
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Archivo de registro de ejemplo de la actividad de eliminación
 
-| NOMBRE | Category | Status | Error |
+| Nombre | Category | Status | Error |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.json | Archivo | Deleted |  |
 | test2/hello789.txt | Archivo | Deleted |  |

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 06b35fdcd9da333c3c9d94d41c84a2f25ede59ad
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: dd499a82ba1011d96772d6722e25a434d43a6bf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666572"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480205"
 ---
 # <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
 
@@ -84,7 +84,7 @@ Azure Monitor puede recopilar datos de registro de diversos orígenes, tanto en 
 
 | data | Descripción |
 |:---|:---|
-| Diagnóstico de recursos | Configure los ajustes de diagnóstico para escribir en los datos de diagnóstico, incluidas las métricas en un área de trabajo de Log Analytics. Consulte [Transmisión de registros de recursos de Azure a Log Analytics](resource-logs-collect-storage.md). |
+| Diagnóstico de recursos | Configure los ajustes de diagnóstico para escribir en los datos de diagnóstico, incluidas las métricas en un área de trabajo de Log Analytics. Consulte [Transmisión de registros de recursos de Azure a Log Analytics](resource-logs-collect-workspace.md). |
 | Soluciones de supervisión | Las soluciones de supervisión escriben los datos que recopilan en su área de trabajo de Log Analytics. Consulte [Detalles de la recopilación de inventario y datos para la supervisión de soluciones en Azure](../insights/solutions-inventory.md) para ver una lista de soluciones. Consulte [Soluciones de supervisión en Azure Monitor](../insights/solutions.md) para obtener más información sobre la instalación y el uso de soluciones. |
 | Métricas | Envíe las métricas de la plataforma para los recursos de Azure Monitor a un área de trabajo de Log Analytics para conservar los datos de registro durante períodos más largos y realizar análisis complejos con otros tipos de datos utilizando el [lenguaje de consulta Kusto](/azure/kusto/query/). Consulte [Transmisión de registros de recursos de Azure a Log Analytics](resource-logs-collect-storage.md). |
 | Almacenamiento de tablas de Azure | Recopile datos de la instancia de Azure Storage donde algunos recursos de Azure escriben datos de supervisión. Consulte [Use Azure blob storage for IIS and Azure table storage for events with Log Analytics](diagnostics-extension-logs.md) (Uso de Azure Blob Storage para el almacenamiento de tablas de Azure e IIS de eventos con Log Analytics). |

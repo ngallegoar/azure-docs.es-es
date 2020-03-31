@@ -9,10 +9,10 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75895232"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Solución de problemas de Apache Hive mediante Azure HDInsight
@@ -99,7 +99,7 @@ El código de los pasos de resolución asume que las rutas de acceso de datos en
 
 - [Propiedades de configuración de Hive](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>¿Cómo se analizan datos de Apache Tez DAG en una ruta crítica de clúster?
+## <a name="how-do-i-analyze-apache-tez-dag-data-on-a-cluster-critical-path"></a><a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>¿Cómo se analizan datos de Apache Tez DAG en una ruta crítica de clúster?
 
 ### <a name="resolution-steps"></a>Pasos de resolución
 
@@ -120,17 +120,17 @@ El código de los pasos de resolución asume que las rutas de acceso de datos en
    Debe proporcionar un programa de ejemplo como el primer argumento.
 
    Los nombres de programa válidos incluyen:
-    - **ContainerReuseAnalyzer**: imprima los detalles de la reutilización del contenedor en un DAG
-    - **CriticalPath**: busque la ruta crítica de un DAG
-    - **LocalityAnalyzer**: imprima los detalles de localidad en un DAG
-    - **ShuffleTimeAnalyzer**: analice los detalles de tiempo de orden aleatorio en un DAG
-    - **SkewAnalyzer**: analice los detalles de distorsión en un DAG
-    - **SlowNodeAnalyzer**: imprima los detalles del nodo en un DAG
-    - **SlowTaskIdentifier**: imprima los detalles de la tarea lenta en un DAG
-    - **SlowestVertexAnalyzer**: imprima los detalles del vértice más lento en un DAG
-    - **SpillAnalyzer**: imprima los detalles de desbordamiento en un DAG
-    - **TaskConcurrencyAnalyzer**: imprima los detalles de la simultaneidad de tareas en un DAG
-    - **VertexLevelCriticalPathAnalyzer**: busque la ruta crítica a nivel de vértice en un DAG
+    - **ContainerReuseAnalyzer**: imprima los detalles de la reutilización del contenedor en un DAG.
+    - **CriticalPath**: busque la ruta crítica de un DAG.
+    - **LocalityAnalyzer**: imprima los detalles de localidad en un DAG.
+    - **ShuffleTimeAnalyzer**: analice los detalles de tiempo de orden aleatorio en un DAG.
+    - **SkewAnalyzer**: analice los detalles de sesgo en un DAG.
+    - **SlowNodeAnalyzer**: imprima los detalles del nodo en un DAG.
+    - **SlowTaskIdentifier**: imprima los detalles de una tarea lenta en un DAG.
+    - **SlowestVertexAnalyzer**: imprima los detalles de los vértices más lentos en un DAG.
+    - **SpillAnalyzer**: imprima los detalles de desbordamiento en un DAG.
+    - **TaskConcurrencyAnalyzer**: imprima los detalles de la simultaneidad de tareas en un DAG.
+    - **VertexLevelCriticalPathAnalyzer**: busque la ruta crítica en el nivel de vértices en un DAG.
 
 ### <a name="additional-reading"></a>Lecturas adicionales
 
@@ -157,7 +157,7 @@ Hay dos maneras de recopilar los datos de DAG de Tez.
   3. Seleccione el DAG que desea ver.
   4. Seleccione **Descargar datos**.
 
-### <a name="additional-reading-end"></a>Lecturas adicionales
+### <a name="additional-reading"></a><a name="additional-reading-end"></a>Lecturas adicionales
 
 [Conexión a través de SSH con HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)
 

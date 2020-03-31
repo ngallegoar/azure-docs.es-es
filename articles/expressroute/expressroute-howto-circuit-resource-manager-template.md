@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
 ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981149"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creación de un circuito de ExpressRoute mediante una plantilla de Azure Resource Manager
@@ -34,7 +34,7 @@ Aprenda a crear un circuito de ExpressRoute mediante la implementación de una p
 * Asegúrese de que tiene permisos para crear recursos de red. Si no tiene los permisos adecuados, póngase en contacto con el administrador de cuenta.
 * Puede [ver un vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit) antes de comenzar para entender mejor los pasos.
 
-## <a name="create"></a>Crear y aprovisionar un circuito ExpressRoute
+## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Crear y aprovisionar un circuito ExpressRoute
 
 [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) tiene una buena colección de plantillas de Resource Manager. Use alguna de las [plantillas existentes](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) para crear un circuito de ExpressRoute.
 
@@ -84,7 +84,7 @@ En este tutorial se usa Azure PowerShell para implementar la plantilla. Para ot
 * [Mediante la CLI de Azure](../azure-resource-manager/templates/deploy-cli.md).
 * [Mediante la API REST](../azure-resource-manager/templates/deploy-rest.md).
 
-## <a name="delete"></a>Desaprovisionar y eliminar un circuito ExpressRoute
+## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Desaprovisionar y eliminar un circuito ExpressRoute
 
 Puede eliminar el circuito ExpressRoute seleccionando el icono **Eliminar** . Tenga en cuenta la información siguiente:
 

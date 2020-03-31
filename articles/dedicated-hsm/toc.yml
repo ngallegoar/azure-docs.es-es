@@ -26,6 +26,8 @@
   items:
     - name: Decisión sobre la arquitectura de implementación
       href: deployment-architecture.md
+    - name: Solución de problemas
+      href: troubleshoot.md
 - name: Recursos
   items:
     - name: Preguntas más frecuentes

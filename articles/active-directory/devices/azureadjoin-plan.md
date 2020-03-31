@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672695"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos: Planeación de la implementación de la unión a Azure AD
@@ -197,11 +197,11 @@ A continuación se incluye una comparación de estos tres enfoques
  
 |   | Configuración de autoservicio | Windows Autopilot | Inscripción masiva |
 | --- | --- | --- | --- |
-| Requiere la interacción del usuario para la configuración | Sí | Sí | Sin |
-| Requiere un esfuerzo de TI | Sin | Sí | Sí |
+| Requiere la interacción del usuario para la configuración | Sí | Sí | No |
+| Requiere un esfuerzo de TI | No | Sí | Sí |
 | Flujos aplicables | OOBE y Configuración | Solo OOBE | Solo OOBE |
-| Derechos de administrador local para el usuario principal | Sí, de forma predeterminada | Configurable | Sin |
-| Requerir soporte técnico del OEM del dispositivo | Sin | Sí | Sin |
+| Derechos de administrador local para el usuario principal | Sí, de forma predeterminada | Configurable | No |
+| Requerir soporte técnico del OEM del dispositivo | No | Sí | No |
 | Versiones compatibles | 1511 y posteriores | 1709 y posteriores | 1703 y posteriores |
  
 Elija el enfoque o los enfoques de implementación. Para ello, revise la tabla anterior y tenga en cuenta las consideraciones siguientes a la hora de adoptar alguno:  

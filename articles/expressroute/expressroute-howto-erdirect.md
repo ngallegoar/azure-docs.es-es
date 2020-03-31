@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: jaredro
 ms.openlocfilehash: 2722a852b1119ef619bc414bce5cb3a8ff6f8f00
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77031619"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Cómo configurar ExpressRoute Direct
 
 ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red global de Microsoft en ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. Para obtener más información, consulte [Acerca de ExpressRoute Direct](expressroute-erdirect-about.md).
 
-## <a name="resources"></a>Crear el recurso
+## <a name="create-the-resource"></a><a name="resources"></a>Crear el recurso
 
 1. Inicie sesión en Azure y seleccione la suscripción. El recurso de ExpressRoute Direct y los circuitos de ExpressRoute deben estar en la misma suscripción.
 
@@ -155,7 +155,7 @@ ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red
    Circuits                   : []
    ```
 
-## <a name="state"></a>Cambiar el estado de administración de los vínculos
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Cambiar el estado de administración de los vínculos
 
   Este proceso debe usarse para llevar a cabo una prueba de nivel 1, para garantizar que cada conexión cruzada está correctamente revisada en cada enrutador principal y secundario.
 1. Obtenga los detalles de ExpressRoute Direct.
@@ -225,7 +225,7 @@ ExpressRoute Direct le ofrece la capacidad para conectarse directamente a la red
 
    Use el mismo procedimiento con `AdminState = "Disabled"` para rechazar los puertos.
 
-## <a name="circuit"></a>Crear un circuito
+## <a name="create-a-circuit"></a><a name="circuit"></a>Crear un circuito
 
 De forma predeterminada, puede crear 10 circuitos en la suscripción donde se encuentra el recurso ExpressRoute Direct. Si desea aumentar este número, puede ponerse en contacto con el soporte técnico. Recuerde que debe realizar usted mismo el seguimiento tanto del ancho de banda aprovisionado como el del utilizado. El ancho de banda aprovisionado es la suma del ancho de banda de todos los circuitos en el recurso ExpressRoute Direct, y el ancho de banda utilizado corresponde al uso físico de las interfaces físicas subyacentes.
 

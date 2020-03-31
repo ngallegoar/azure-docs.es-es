@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67721741"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Compatibilidad de idioma y región con Ink Recognizer API
 
 En este artículo se explica qué idiomas se admiten en Ink Recognizer API. El contenido de tinta digital escrito en los idiomas siguientes se puede interpretar y procesar mediante la API.
 
-## <a name="supported-languages"></a>Idiomas admitidos
+## <a name="supported-languages"></a>Idiomas compatibles
 
-| Idioma                                   | Código de idioma   |
+| Idioma                                   | Código de lenguaje   |
 |:-------------------------------------------|:---------------:|
 | Afrikáans                                  |    `af-ZA`      |
 | Albanés                                   |     `sq-AL`     |
@@ -41,7 +41,7 @@ En este artículo se explica qué idiomas se admiten en Ink Recognizer API. El c
 | Inglés (Canadá)                           |     `en-CA`     |
 | Inglés (Reino Unido)                   |     `en-GB`     |
 | Inglés (India)                            |     `en-IN`     |
-| Inglés (Estados Unidos)                    |     `en-US`     |
+| Spanish (Traditional Sort) - Spain                    |     `en-US`     |
 | Finés                                    |     `fi-FI`     |
 | Francés (Francia)                            |     `fr-FR`     |
 | Gallego                                   |     `gl-ES`     |
@@ -89,7 +89,7 @@ En este artículo se explica qué idiomas se admiten en Ink Recognizer API. El c
 | Xhosa                                      |     `xh-ZA`     |
 | Zulú                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [¿Qué es la API Ink Recognizer?](overview.md)
 * [Envío de datos de entrada de lápiz a la API Ink Recognizer](concepts/send-ink-data.md)

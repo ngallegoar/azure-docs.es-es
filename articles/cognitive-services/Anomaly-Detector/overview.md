@@ -10,14 +10,16 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 05ed7903cafbb265f23ba74a24ee0498be0effe9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9237e670dd8d43c4036f996c477948944718e3aa
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448969"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053713"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>¿Qué es Anomaly Detector API?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Anomaly Detector API permite supervisar y detectar anomalías en datos de serie temporal con aprendizaje automático. Esta API se adapta al identificar y aplicar automáticamente los modelos más idóneos para sus datos, con independencia del sector, el escenario o el volumen de datos. Con el uso de datos de serie temporal, la API determina los límites de la detección de anomalías, los valores esperados y qué puntos de datos son anomalías.
 
@@ -27,7 +29,7 @@ Para usar Anomaly Detector, no se necesita ninguna experiencia anterior con el a
 
 ## <a name="features"></a>Características
 
-Con Anomaly Detector, puede detectar automáticamente las anomalías existentes en los datos de serie temporal, o cuando se producen en tiempo real. 
+Con Anomaly Detector, puede detectar automáticamente las anomalías existentes en los datos de serie temporal, o cuando se producen en tiempo real.
 
 |Característica  |Descripción  |
 |---------|---------|
@@ -52,7 +54,7 @@ Para ejecutar el cuaderno, haga lo siguiente:
 1. Desactive la opción "público" en el cuadro de diálogo antes de completar la operación de clonación, ya que si no, el cuaderno, incluidas las claves de suscripción, será público.
 1. Haga clic en **Run on Free Compute** (Ejecutar en un proceso gratuito).
 1. Seleccione uno de los cuadernos.
-1. Agregue su clave de suscripción válida de Anomaly Detector API a la variable `subscription_key`. 
+1. Agregue su clave de suscripción válida de Anomaly Detector API a la variable `subscription_key`.
 1. Cambie la variable `endpoint` por el punto de conexión. Por ejemplo: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. En la barra de menús superior, haga clic en **Cell** (celda) y, luego, en **Run All** (Ejecutar todo).
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 725bdfd4efe3be600c993e568f1a5c7edccc6952
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 1a4ae0701174278203023c156a86aad8feb1ca4c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74148224"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240623"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
 
@@ -25,9 +25,9 @@ HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociad
 > [!WARNING]  
 > HDInsight debe tener acceso total al almacenamiento predeterminado para el clúster.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure.
+* Suscripción a Azure.
 
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -88,11 +88,11 @@ Guarde el token de SAS que se crea al final de cada método. El token será simi
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
 ```
 
-### <a name="using-powershell"></a>Con PowerShell
+### <a name="using-powershell"></a>Usar PowerShell
 
 Reemplace `RESOURCEGROUP`, `STORAGEACCOUNT` y `STORAGECONTAINER` por los valores adecuados para el contenedor de almacenamiento existente. Cambie el directorio a `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` o revise el parámetro `-File` para que incluya la ruta de acceso absoluta para `Set-AzStorageblobcontent`. Escriba el siguiente comando de PowerShell:
 
-```PowerShell
+```powershell
 $resourceGroupName = "RESOURCEGROUP"
 $storageAccountName = "STORAGEACCOUNT"
 $containerName = "STORAGECONTAINER"
@@ -175,7 +175,7 @@ El uso de variables en esta sección se basa en un entorno de Windows. Se necesi
 
 2. Establezca la clave principal recuperada en una variable para su uso posterior. Reemplace `PRIMARYKEY` con el valor recuperado en el paso anterior y, después, escriba el comando siguiente:
 
-    ```azurecli
+    ```console
     #set variable for primary key
     set AZURE_STORAGE_KEY=PRIMARYKEY
     ```
@@ -215,11 +215,11 @@ Es posible que tenga que ejecutar `pip install --upgrade azure-storage` si recib
 
    * StorageConnectionString: la cadena de conexión de la cuenta de almacenamiento para la que desea crear una directiva almacenada y una SAS. El formato debe ser `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` donde `myaccount` es el nombre de la cuenta de almacenamiento y `mykey` es la clave para la cuenta de almacenamiento.
 
-   * ContainerName: el contenedor de la cuenta de almacenamiento a la que desea restringir el acceso.
+   * ContainerName: El contenedor de la cuenta de almacenamiento a la que desea restringir el acceso.
 
-   * SASPolicyName: el nombre que se usará para la directiva almacenada que se va a crear.
+   * SASPolicyName: El nombre que se usará para la directiva almacenada que se va a crear.
 
-   * FileToUpload: la ruta de acceso a un archivo que se carga en el contenedor.
+   * FileToUpload: La ruta de acceso a un archivo que se carga en el contenedor.
 
 4. Ejecute el proyecto. Guarde el token de directiva de SAS, el nombre de la cuenta de almacenamiento y el nombre del contenedor. Estos valores se usan al asociar la cuenta de almacenamiento con el clúster de HDInsight.
 

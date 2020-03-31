@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
 ms.openlocfilehash: 4f30bf112175742566c2957d78154e5a7abd1733
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096865"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
@@ -63,12 +63,12 @@ Los [grupos de conmutación por error automática](sql-database-auto-failover-gr
 
 |                                              | Replicación geográfica | Grupos de conmutación por error  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Conmutación por error automática                           |     Sin          |      Sí         |
-| Conmutación por error de varias bases de datos simultáneamente  |     Sin          |      Sí         |
-| El usuario debe actualizar la cadena de conexión tras la conmutación por error      |     Sí         |      Sin          |
-| Compatibilidad con la instancia administrada                   |     Sin          |      Sí         |
-| Posibilidad de estar en la misma región que la principal             |     Sí         |      Sin          |
-| Varias réplicas                            |     Sí         |      Sin          |
+| Conmutación por error automática                           |     No          |      Sí         |
+| Conmutación por error de varias bases de datos simultáneamente  |     No          |      Sí         |
+| El usuario debe actualizar la cadena de conexión tras la conmutación por error      |     Sí         |      No          |
+| Compatibilidad con la instancia administrada                   |     No          |      Sí         |
+| Posibilidad de estar en la misma región que la principal             |     Sí         |      No          |
+| Varias réplicas                            |     Sí         |      No          |
 | Admisión del escalado de lectura                          |     Sí         |      Sí         |
 | &nbsp; | &nbsp; | &nbsp; |
 

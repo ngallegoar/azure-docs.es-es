@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: zeyadr
 ms.openlocfilehash: e819dd39481b58d446384a5e2253c548ce0c267c
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77505985"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Administración de los miembros del consorcio en Azure Blockchain Service mediante PowerShell
@@ -139,7 +139,7 @@ Use este cmdlet para obtener detalles de los miembros o enumerar los miembros de
 
 | Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
-| Nombre | El nombre del miembro de Blockchain Service cuyos detalles se desea recuperar. Cuando se escribe un nombre, devuelve los detalles del miembro. Si se omite un nombre, devuelve una lista de todos los miembros del consorcio. | Sin |
+| Nombre | El nombre del miembro de Blockchain Service cuyos detalles se desea recuperar. Cuando se escribe un nombre, devuelve los detalles del miembro. Si se omite un nombre, devuelve una lista de todos los miembros del consorcio. | No |
 | Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
 
@@ -197,8 +197,8 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
 | Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
 | Nombre | Nombre de un miembro de la cadena de bloques | Sí |
-| DisplayName | Nuevo nombre para mostrar | Sin |
-| AccountAddress | Dirección de la cuenta | Sin |
+| DisplayName | Nuevo nombre para mostrar | No |
+| AccountAddress | Dirección de la cuenta | No |
 | Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Account | Objeto Web3Account obtenido de Import-Web3Account | Sí |
 | Web3Client |  Objeto Web3Client obtenido de New-Web3Connection| Sí |
@@ -248,7 +248,7 @@ Use este cmdlet para recuperar o enumerar el estado de la invitación de un miem
 
 | Parámetro | Descripción | Obligatorio |
 |-----------|-------------|:--------:|
-| SubscriptionId | Identificador de suscripción de Azure del miembro que desea invitar. Si se proporciona el identificador de la suscripción, devuelve los detalles de la invitación de dicho identificador. Si el identificador de suscripción se omite, devuelve una lista de todas las invitaciones de miembros. | Sin |
+| SubscriptionId | Identificador de suscripción de Azure del miembro que desea invitar. Si se proporciona el identificador de la suscripción, devuelve los detalles de la invitación de dicho identificador. Si el identificador de suscripción se omite, devuelve una lista de todas las invitaciones de miembros. | No |
 | Members | Objeto Members obtenido de Import-ConsortiumManagementContracts | Sí |
 | Web3Client | Objeto Web3Client obtenido de New-Web3Connection | Sí |
 

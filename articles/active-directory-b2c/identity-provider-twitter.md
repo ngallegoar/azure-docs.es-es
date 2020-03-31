@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd538529756270053351e4c2d85f5761b198eeff
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 62a283efb93987d3c4a6564c9b25d2031c269559
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187889"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051464"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Twitter mediante Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Para usar Twitter como proveedor de identidades en Azure AD B2C, tiene que crear
 1. Inicie sesión en el sitio web para [desarrolladores de Twitter](https://developer.twitter.com/en/apps) con las credenciales de la cuenta de Twitter.
 1. Seleccione **Create an app** (Crear una aplicación).
 1. Escriba un **nombre de aplicación** y una **descripción de aplicación**.
-1. En **URL del sitio web**, escriba `https://your-tenant.b2clogin.com`. Reemplace `your-tenant` por el nombre del inquilino. Por ejemplo, https://contosob2c.b2clogin.com.
+1. En **URL del sitio web**, escriba `https://your-tenant.b2clogin.com`. Reemplace `your-tenant` por el nombre del inquilino. Por ejemplo, `https://contosob2c.b2clogin.com`.
 1. Para la **URL de devolución de llamada**, escriba `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Sustituya `your-tenant` por el nombre del inquilino y `your-user-flow-Id` por el identificador del flujo de usuario. Por ejemplo, `b2c_1A_signup_signin_twitter`. Cuando especifique el nombre de inquilino y el identificador de flujo de usuario, escriba todas las letras en minúscula, aunque se hayan definido con letras en mayúscula en Azure AD B2C.
 1. En la parte inferior de la página, lea y acepte los términos y seleccione **Crear**.
 1. En la página **Detalles de la aplicación**, seleccione **Editar > Editar detalles**, active la casilla **Enable Sign in with Twitter** (Habilitar inicio de sesión con Twitter) y luego seleccione **Guardar**.

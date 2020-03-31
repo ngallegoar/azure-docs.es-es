@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
 ms.openlocfilehash: ab99b974aed6f8cd5e1da2ee9b427f593b405889
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73571236"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformaciones y trabajos en Media Services
@@ -114,7 +114,7 @@ Para más información, consulte [Escalado de procesamiento de medios con la CLI
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Códigos de error](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
 * [Filtrado, ordenación y paginación de entidades de Media Services](entities-overview.md)

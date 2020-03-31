@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: ef4bce4dfba77aafa9b86c6877c153534b54636e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74324297"
 ---
 # <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Solución de problemas de Azure Blockchain Workbench, versión preliminar
@@ -32,7 +32,7 @@ El script de solución de problemas de PowerShell está disponible en GitHub. [D
 git clone https://github.com/Azure-Samples/blockchain.git
 ```
 
-## <a name="run-the-script"></a>Ejecute el script
+## <a name="run-the-script"></a>Ejecute el script.
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 Ejecute el script `collectBlockchainWorkbenchTroubleshooting.ps1` para recopilar registros y crear un archivo ZIP que contiene una carpeta con información para la solución de problemas. Por ejemplo:
@@ -42,21 +42,21 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ```
 El script acepta los siguientes parámetros:
 
-| Parámetro  | DESCRIPCIÓN | Obligatorio |
+| Parámetro  | Descripción | Obligatorio |
 |---------|---------|----|
 | SubscriptionID | Identificador de suscripción para crear o ubicar todos los recursos. | Sí |
 | ResourceGroupName | Nombre del grupo de recursos de Azure donde se haya implementado Blockchain Workbench. | Sí |
-| OutputDirectory | Ruta de acceso para crear el archivo .ZIP de salida. Si no se especifica, tiene como valor predeterminado el directorio actual. | Sin |
-| LookbackHours | Número de horas que se usará al extraer la telemetría. El valor predeterminado es 24 horas. El valor máximo es 90 horas. | Sin |
-| OmsSubscriptionId | El identificador de la suscripción donde se han implementado registros de Azure Monitor. Pase este parámetro únicamente si se implementan registros de Azure Monitor para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench.| Sin |
-| OmsResourceGroup |Grupo de recursos donde se han implementado registros de Azure Monitor. Pase este parámetro únicamente si se implementan registros de Azure Monitor para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench.| Sin |
-| OmsWorkspaceName | Nombre del área de trabajo de Log Analytics. Pase este parámetro únicamente si se implementan registros de Azure Monitor para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench. | Sin |
+| OutputDirectory | Ruta de acceso para crear el archivo .ZIP de salida. Si no se especifica, tiene como valor predeterminado el directorio actual. | No |
+| LookbackHours | Número de horas que se usará al extraer la telemetría. El valor predeterminado es 24 horas. El valor máximo es 90 horas. | No |
+| OmsSubscriptionId | El identificador de la suscripción donde se han implementado registros de Azure Monitor. Pase este parámetro únicamente si se implementan registros de Azure Monitor para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench.| No |
+| OmsResourceGroup |Grupo de recursos donde se han implementado registros de Azure Monitor. Pase este parámetro únicamente si se implementan registros de Azure Monitor para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench.| No |
+| OmsWorkspaceName | Nombre del área de trabajo de Log Analytics. Pase este parámetro únicamente si se implementan registros de Azure Monitor para la red de la cadena de bloques fuera del grupo de recursos de Blockchain Workbench. | No |
 
 ## <a name="what-is-collected"></a>¿Qué información se recopila?
 
 El archivo ZIP de salida contiene la estructura de carpetas siguiente:
 
-| Archivo o carpeta | DESCRIPCIÓN  |
+| Archivo o carpeta | Descripción  |
 |---------|---------|
 | \Summary.txt | Resumen del sistema |
 | \Metrics\blockchain | Métricas relacionadas con la cadena de bloques |

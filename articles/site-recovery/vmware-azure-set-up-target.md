@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
 ms.openlocfilehash: c721234f2e1d806d51d31f3466e441bf8360f6b8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73693171"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Preparación del entorno de destino para la recuperación ante desastres de máquinas virtuales de VMware o servidores físicos en Azure
 
 En este artículo se describe cómo configurar el entorno de Azure de destino para empezar a replicar máquinas virtuales de VMware o servidores físicos en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por supuesto lo siguiente:
 - Ha creado un almacén de Recovery Services en [Azure Portal](https://portal.azure.com "Portal de Azure") para proteger las máquinas de origen.
@@ -31,7 +31,7 @@ Después de completar el **Paso 1: Selección del objetivo de protección** y el
 
 ![Preparación del destino](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
 
-1. **Suscripción:** en el menú desplegable, seleccione la suscripción en la que quiere replicar las máquinas virtuales o los servidores físicos.
+1. **Subscription** (Suscripción): en el menú desplegable, seleccione la suscripción en la que quiere replicar las máquinas virtuales o los servidores físicos.
 2. **Modelo de implementación:** seleccione el modelo de implementación (clásico o Resource Manager)
 
 Según el modelo de implementación elegido, se ejecuta una validación para asegurarse de que tiene al menos una red virtual en la suscripción de destino en la que replicar y conmutar por error las máquinas virtuales o los servidores físicos.

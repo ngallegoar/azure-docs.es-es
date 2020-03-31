@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173393"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233948"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Seguimiento de los trabajos de copia de seguridad y restauración mediante API REST
 
@@ -17,7 +17,7 @@ El servicio Azure Backup desencadena trabajos que se ejecutan en segundo plano e
 
 ## <a name="fetch-job-information-from-operations"></a>Captura de información sobre el trabajo de las operaciones
 
-Una operación como desencadenar la copia de seguridad siempre devolverá un valor de jobID. Por ejemplo:  la respuesta final de una [operación para desencadenar una copia de seguridad en la API REST](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) es como sigue:
+Una operación como desencadenar la copia de seguridad siempre devolverá un valor de jobID. Por ejemplo: la respuesta final de una [operación para desencadenar una copia de seguridad en la API REST](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) es como sigue:
 
 ```http
 {
@@ -45,9 +45,9 @@ El `{jobName}` es el "jobId" mencionado anteriormente. La respuesta es siempre 2
 
 ### <a name="response"></a>Response
 
-|NOMBRE  |type  |DESCRIPCIÓN  |
+|Nombre  |Tipo  |Descripción  |
 |---------|---------|---------|
-|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | Aceptar        |
 
 #### <a name="example-response"></a>Respuesta de ejemplo
 

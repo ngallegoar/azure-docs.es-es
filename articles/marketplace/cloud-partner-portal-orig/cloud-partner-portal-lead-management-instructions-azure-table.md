@@ -1,19 +1,18 @@
 ---
 title: Azure Table Storage | Azure Marketplace
 description: Configure la administración de clientes potenciales en Azure Table Storage.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: pabutler
-ms.openlocfilehash: 21105d72ccd288faf0fed58019e67afe2e1c9d01
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: cee28c65b97d4ac163f78b746dc7be9ee210843c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825268"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280361"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Instrucciones de administración de clientes potenciales con Table Storage
 
@@ -133,7 +132,7 @@ En el siguiente conjunto de pasos, se conectará a Table Storage y configurará 
    1. En la ventana **Enviar un correo electrónico**, escriba información en los campos siguientes:
 
       - **Para**: dirección de correo electrónico para todos los usuarios que recibirán la notificación.
-      - **Asunto**: asunto para el correo electrónico. Por ejemplo:  *Nuevos clientes potenciales.*
+      - **Asunto**: asunto para el correo electrónico. Por ejemplo: *Nuevos clientes potenciales.*
       - **Cuerpo**: texto que quiere incluir en cada correo electrónico (opcional). También puede pegar `body('Get_entities')?['value']` como una función para insertar información de clientes potenciales.
 
         >[!NOTE] 

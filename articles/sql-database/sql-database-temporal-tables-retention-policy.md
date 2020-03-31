@@ -12,19 +12,19 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
 ms.openlocfilehash: 3c2460c6f5e0905f45106148ecc3e8a949cf221f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820683"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Administración de datos históricos en tablas temporales con directivas de retención
 
 Las tablas temporales pueden aumentar el tamaño de la base de datos más que las tablas normales, especialmente si conserva datos históricos durante un período de tiempo más largo. De ahí que las directivas de retención de datos históricos sean un aspecto importante del planeamiento y la administración del ciclo de vida de cada tabla temporal. Las tablas temporales de Azure SQL Database incluyen un mecanismo de retención fácil de usar que ayuda a realizar esta tarea.
 
-Se puede configurar la retención temporal de datos históricos en el nivel de tabla individual, lo que permite a los usuarios crea directivas de antigüedad flexibles. Aplicar la retención temporal es simple: solo es necesario establecer un parámetro durante la creación de tablas o el cambio de esquemas.
+La retención de historial temporal se puede configurar en el nivel de tabla individual, lo que permite a los usuarios crear directivas de vencimiento flexibles. Aplicar la retención temporal es muy sencillo: solo requiere establecer un parámetro al cambiar el esquema o al crear la tabla.
 
-Después de definir la directiva de retención, Azure SQL Database comenzará a comprobar periódicamente si hay filas históricas que son aptas para la limpieza automática de datos. La identificación de filas coincidentes y su eliminación de la tabla de historial se producen de forma transparente, en la tarea en segundo plano programada y ejecutada por el sistema. El estado de antigüedad de las filas de la tabla de historial se compruebe en función de la columna que representa el final del período de SYSTEM_TIME. Si, por ejemplo, el período de retención está establecido en seis meses, las filas de tabla aptas para limpieza satisfacen la siguiente condición:
+Después de definir la directiva de retención, si hay filas de historial que sean aptas para la limpieza de datos automática, Azure SQL Database inicia la comprobación periódicamente. La identificación de las filas coincidentes y su eliminación de la tabla de historial se producen de forma transparente, en la tarea en segundo plano que programa y ejecuta el sistema. Se comprueba la condición de vencimiento para las filas de la tabla de historial en función de la columna que representa el final del período SYSTEM_TIME. Si el período de retención se establece, por ejemplo, en seis meses, las filas aptas para la limpieza de la tabla cumplen la condición siguiente:
 
 ```
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
@@ -41,7 +41,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-La marca de la base de datos **is_temporal_history_retention_enabled** está establecida en ON de forma predeterminada, pero los usuarios pueden cambiarla con la instrucción ALTER DATABASE. También se establece automáticamente en OFF después de la operación de [restauración a un momento dado](sql-database-recovery-using-backups.md). Para habilitar la limpieza de la retención temporal de datos históricos, ejecute la siguiente instrucción:
+La marca de base de datos **is_temporal_history_retention_enabled** se establece en ON de forma predeterminada, pero los usuarios pueden cambiarla con la instrucción ALTER DATABASE. También se establece automáticamente en OFF después de la operación de [restauración a un momento dado](sql-database-recovery-using-backups.md). Para habilitar la limpieza de la retención de historial temporal de la base de datos, ejecute la instrucción siguiente:
 
 ```sql
 ALTER DATABASE <myDB>
@@ -51,7 +51,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 > [!IMPORTANT]
 > Puede configurar la retención para tablas temporales aunque **is_temporal_history_retention_enabled** esté establecida en OFF, pero en ese caso no se desencadenará la limpieza automática de las filas de datos antiguos.
 
-La directiva de retención se configura durante la creación de una tabla mediante la especificación del valor del parámetro HISTORY_RETENTION_PERIOD:
+La directiva de retención se configura al crear la tabla especificando el valor del parámetro HISTORY_RETENTION_PERIOD:
 
 ```sql
 CREATE TABLE dbo.WebsiteUserInfo
@@ -73,9 +73,9 @@ CREATE TABLE dbo.WebsiteUserInfo
  );
 ```
 
-Azure SQL Database le permite especificar el período de retención mediante distintas unidades de tiempo: DÍAS, SEMANAS, MESES y AÑOS. Si se omite HISTORY_RETENTION_PERIOD, se supone una retención INFINITA. También puede usar explícitamente la palabra clave INFINITO.
+Azure SQL Database le permite especificar el período de retención mediante distintas unidades de tiempo: DAYS, WEEKS, MONTHS y YEARS. Si se omite HISTORY_RETENTION_PERIOD, se asume la retención INFINITE. También puede usar explícitamente la palabra clave INFINITE.
 
-En algunos escenarios, puede que quiera configurar la retención después de la creación de una tabla, o cambiar el valor configurado anteriormente. En ese caso use la instrucción ALTER TABLE:
+En algunos escenarios, es posible que quiera configurar la retención tras crear la tabla o cambiar a un valor previamente configurado. En ese caso, use la instrucción ALTER TABLE:
 
 ```sql
 ALTER TABLE dbo.WebsiteUserInfo
@@ -85,7 +85,7 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 > [!IMPORTANT]
 > El establecimiento de SYSTEM_VERSIONING en OFF *no conserva* el valor del período de retención. El establecimiento de SYSTEM_VERSIONING en ON sin especificar HISTORY_RETENTION_PERIOD da lugar explícitamente al período de retención INFINITO.
 
-Para revisar el estado actual de la directiva de retención, use la siguiente consulta que combina la marca de habilitación de retención temporal en el nivel de base de datos con períodos de retención para tablas individuales:
+Para revisar el estado actual de la directiva de retención, use la siguiente consulta, que combina la marca de habilitación de retención temporal en el nivel de base de datos con períodos de retención para tablas individuales:
 
 ```sql
 SELECT DB.is_temporal_history_retention_enabled,
@@ -103,14 +103,14 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>Eliminación de las filas antiguas en SQL Database
 
-El proceso de limpieza depende del diseño del índice de la tabla de historial. Es importante tener en cuenta que *solo las tablas de historial con un índice agrupado (árbol B o almacén de columnas) pueden tener configurada una directiva de retención finita*. Se crea una tarea en segundo plano para realizar una limpieza de datos antiguos de todas las tablas temporales con el período de retención finito.
-La lógica de limpieza del índice agrupado de almacén de filas (árbol B) elimina la fila antigua en fragmentos más pequeños (hasta 10 K), lo que reduce la presión en el registro de base de datos y el subsistema de E/S. A pesar de que la lógica de limpieza usa el índice de árbol B necesario, el orden de las eliminaciones de filas más antiguas que el período de retención no se puede garantizar completamente. Por lo tanto, *no adquiera ninguna dependencia en el orden de limpieza de sus aplicaciones*.
+El proceso de limpieza depende del diseño del índice de la tabla de historial. Es importante tener en cuenta que *solo las tablas de historial con un índice agrupado (árbol B o almacén de columnas) pueden tener una directiva de retención finita configurada*. Se crea una tarea en segundo plano para realizar la limpieza de datos antiguos de todas las tablas temporales con el período de retención finito.
+La lógica de limpieza del índice agrupado de almacén de filas (árbol B) elimina la fila antigua en fragmentos más pequeños (hasta 10 K), lo que reduce la presión en el registro de base de datos y el subsistema de E/S. A pesar de que la lógica de limpieza usa el índice de árbol B necesario, no se puede garantizar el orden de las eliminaciones de las filas más antiguas en relación con el período de retención. Por tanto, *no hay ninguna dependencia en el orden de limpieza en sus aplicaciones*.
 
 La tarea de limpieza del almacén de columnas agrupado quita [grupos de filas](https://msdn.microsoft.com/library/gg492088.aspx) enteros a la vez (normalmente contiene 1 millón de filas cada uno), lo que resulta muy eficaz, especialmente cuando los datos históricos se generan a un ritmo elevado.
 
 ![Retención de almacén de columnas agrupado](./media/sql-database-temporal-tables-retention-policy/cciretention.png)
 
-La excelente compresión de datos y la eficaz limpieza de retención convierten al índice del almacén de columnas agrupado en una perfecta opción en escenarios en los que la carga de trabajo genera rápidamente gran cantidad de datos históricos. Este patrón es típico de [cargas de trabajo intensivas de procesamiento de transacciones que usan tablas temporales](https://msdn.microsoft.com/library/mt631669.aspx) para el seguimiento de cambios y la auditoría, el análisis de tendencias o la ingesta de datos de IoT.
+La excelente compresión de datos y la limpieza eficaz de la retención hacen que el índice de almacén de columnas agrupadas sea una elección perfecta en escenarios en los que la carga de trabajo genera rápidamente una gran cantidad de datos de historial. Este patrón es típico de [cargas de trabajo intensivas de procesamiento de transacciones que usan tablas temporales](https://msdn.microsoft.com/library/mt631669.aspx) para el seguimiento de cambios y la auditoría, el análisis de tendencias o la ingesta de datos de IoT.
 
 ## <a name="index-considerations"></a>Consideraciones sobre el índice
 

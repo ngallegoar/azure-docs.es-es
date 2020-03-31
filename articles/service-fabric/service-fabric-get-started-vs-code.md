@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 67846293257661a4f7a907d76402d2e98c339225
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251641"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229320"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric para Visual Studio Code
 
@@ -48,7 +48,7 @@ Los siguientes requisitos previos deben instalarse para programar con Java:
 Los siguientes requisitos previos deben instalarse para programar con .NET Core o C#.
 
 * [.NET Core](https://www.microsoft.com/net/learn/get-started) (versión 2.0.0 o posteriores)
-* [Extensión VS Code de C# para Visual Studio Code (con tecnología OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Necesario para depurar los servicios de C#. Para instalar, puede hacer clic en el icono Extensiones en la **Barra de actividades** de VS Code y buscar la extensión, o puede usar VS Code Marketplace.
+* [Extensión VS Code de C# para Visual Studio Code (con tecnología OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Necesario para depurar los servicios de C#. Para instalar, puede hacer clic en el icono Extensiones en la **Barra de actividades** de VS Code y buscar la extensión, o puede usar VS Code Marketplace.
 
 ## <a name="setup"></a>Configurar
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: f4fdf25fa1403b8429e7ad7e7fc644d0355b1324
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 566d6ccf43024692e19bcd6639fe5cfbbba0660d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189817"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80056406"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -316,7 +316,7 @@ Expresado como una cadena, el formato `TimeSpan` es `hh:mm:ss` cuando `hh` es me
 |---------|---------|
 |"01:00:00" | Cada hora        |
 |"00:01:00"|Cada minuto         |
-|"24:00:00" | cada 24 horas        |
+|"24:00:00" | Cada 24 días        |
 |"1.00:00:00" | Todos los días        |
 
 ## <a name="scale-out"></a>Escalado horizontal

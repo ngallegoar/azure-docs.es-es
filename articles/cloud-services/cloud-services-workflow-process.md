@@ -15,17 +15,17 @@ ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
 ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71162160"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Flujo de trabajo de la arquitectura clásica de máquinas virtuales de Microsoft Azure 
 En este artículo se proporciona información general de los procesos de flujo de trabajo que se producen al implementar o actualizar un recurso de Azure, como una máquina virtual. 
 
 > [!NOTE]
->Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: Resource Manager y clásico. Este artículo trata del modelo de implementación clásico.
+>Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: el de Resource Manager y el clásico. Este artículo trata del modelo de implementación clásico.
 
 El diagrama siguiente presenta la arquitectura de los recursos de Azure.
 

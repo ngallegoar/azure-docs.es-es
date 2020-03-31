@@ -4,11 +4,11 @@ description: Use Azure Portal para exportar una plantilla de Azure Resource Mana
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: 8cdba58a7a2ba998bac7fc0225ff957047cd69b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474214"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234012"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportación de uno y varios recursos a una plantilla en Azure Portal
 

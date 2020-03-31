@@ -3,23 +3,21 @@ title: 'Inicio rápido: Reconocimiento de la voz almacenada en Blob Storage: ser
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/17/2019
-ms.author: erhopf
+ms.date: 03/13/2020
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 495d2a8e38b58eb3ef1494e6a3a33ee1dc32d049
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a7fa1813eec8e73f4cc937062ad4374aef93e6e0
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468461"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79382026"
 ---
 En este inicio rápido, usará una API REST para reconocer la voz de los archivos en un proceso por lotes. Un proceso por lotes ejecuta la transcripción de voz sin ninguna interacción del usuario. Proporciona un modelo de programación simple, sin necesidad de administrar la simultaneidad, los modelos de voz personalizados u otros detalles. Conlleva opciones de control avanzadas, a la vez que se realiza un uso eficaz de los recursos del servicio de voz de Azure.
-
-La [información general sobre la transcripción por lotes](../../../batch-transcription.md) describe los detalles necesarios para usar esta característica. La API detallada está disponible como [documento de Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A) debajo del encabezado `Custom Speech transcriptins`. 
 
 El siguiente inicio rápido le guiará a través de un ejemplo de uso.

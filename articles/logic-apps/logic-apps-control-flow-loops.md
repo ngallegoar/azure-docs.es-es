@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791750"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233040"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
@@ -22,9 +22,9 @@ Para repetir las acciones hasta que se cumpla una condición o cambie un estado,
 > [!TIP]
 > Si tiene un desencadenador que recibe una matriz y desea ejecutar un flujo de trabajo para cada elemento de matriz, puede *desagrupar* esa matriz con la propiedad de desencadenador [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
+* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -165,7 +165,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 > [Compruebe aquí la lista de conectores](https://docs.microsoft.com/connectors/). Si utiliza otra cuenta de correo electrónico, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta. 
 
 1. Crear una aplicación lógica en blanco. En el cuadro de búsqueda del Diseñador de aplicación lógica, elija **Todas**. Busque "periodicidad". 
-   En la lista de desencadenadores, seleccione este desencadenador: **Programación: Periodicidad**
+   En la lista de desencadenadores, seleccione este desencadenador: **Periodicidad: Programación**
 
    ![Incorporación del desencadenador "Periodicidad: Programación"](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -173,7 +173,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
    ![Configuración de la programación de periodicidad](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
-   | Propiedad | Valor |
+   | Propiedad | Value |
    | -------- | ----- |
    | **Intervalo** | 1 | 
    | **Frecuencia** | Día |
@@ -189,10 +189,10 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
    ![Establecer propiedades de las variables](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | Propiedad | Valor | DESCRIPCIÓN |
+   | Propiedad | Value | Descripción |
    | -------- | ----- | ----------- |
    | **Nombre** | Límite | El nombre de la variable | 
-   | **Tipo** | Integer | El tipo de datos de la variable | 
+   | **Tipo** | Entero | El tipo de datos de la variable | 
    | **Valor** | 0 | El valor de inicio de la variable | 
    |||| 
 
@@ -230,7 +230,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
       ![Configurar las propiedades del correo electrónico](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Propiedad | Valor | DESCRIPCIÓN |
+      | Propiedad | Value | Descripción |
       | -------- | ----- | ----------- | 
       | **To** | *\<dirección de correo electrónico\@dominio >* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
       | **Subject** | El valor actual de "Límite" es **Limit** | Especifique el asunto del correo electrónico. En este ejemplo, asegúrese de que incluye la variable **Limit**. | 
@@ -247,7 +247,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
 Un bucle "Until" tiene límites predeterminados que detienen la ejecución si se produce alguna de estas condiciones:
 
-| Propiedad | Valor predeterminado | DESCRIPCIÓN | 
+| Propiedad | Valor predeterminado | Descripción | 
 | -------- | ------------- | ----------- | 
 | **Recuento** | 60 | Número máximo de bucles que se ejecutan antes de salir del bucle. El valor predeterminado es de 60 ciclos. | 
 | **Tiempo de espera** | PT1H | Cantidad máxima de tiempo que se ejecuta un bucle antes de salir del bucle. El valor predeterminado es una hora y se especifica en formato ISO 8601. <p>El valor de tiempo de espera se evalúa para cada ciclo del bucle. Si cualquier acción en el bucle tarda más que el límite de tiempo de expiración, el ciclo actual no se detiene. Pero el siguiente ciclo no se inicia porque no se cumple la condición del límite. | 

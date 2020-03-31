@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 211f8c8a203b81a4df6a8e9515b403f99cec572a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926327"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235104"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Enlace de salida de Notification Hubs para Azure Functions
 
@@ -247,14 +247,14 @@ Los parámetros y las propiedades del constructor del atributo se describen en l
 
 En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* y el atributo `NotificationHub`:
 
-|Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
+|Propiedad de function.json | Propiedad de atributo |Descripción|
 |---------|---------|----------------------|
 |**type** |N/D| Se debe establecer en `notificationHub`. |
 |**direction** |N/D| Se debe establecer en `out`. | 
 |**name** |N/D| Nombre de variable usado en el código de función para el mensaje del Centro de notificaciones. |
 |**tagExpression** |**TagExpression** | Las expresiones de etiqueta permiten especificar las notificaciones que se entregarán a un conjunto de dispositivos que se registraron para recibir las notificaciones que coincidan con estas expresiones.  Para obtener más información, consulte [Expresiones de etiqueta y enrutamiento](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nombre del recurso del Centro de notificaciones en Azure Portal. |
-|**conexión** | **ConnectionStringSetting** | El nombre de una configuración de aplicación que contiene una cadena de conexión de Notification Hubs.  La cadena de conexión se debe establecer en el valor *DefaultFullSharedAccessSignature* de la instancia de Notification Hub. Consulte [Configuración de la cadena de conexión](#connection-string-setup) más adelante en este artículo.|
+|**connection** | **ConnectionStringSetting** | El nombre de una configuración de aplicación que contiene una cadena de conexión de Notification Hubs.  La cadena de conexión se debe establecer en el valor *DefaultFullSharedAccessSignature* de la instancia de Notification Hub. Consulte [Configuración de la cadena de conexión](#connection-string-setup) más adelante en este artículo.|
 |**platform** | **Plataforma** | La propiedad de plataforma indica la plataforma cliente a donde se enviará la notificación. De forma predeterminada, si se omite la propiedad de plataforma desde el enlace de salida, las notificaciones de plantilla se pueden usar para tener como destino cualquier plataforma configurada en el centro de notificaciones de Azure. Para obtener más información sobre cómo utilizar plantillas en general para enviar notificaciones multiplataforma con un Centro de notificaciones de Azure, consulte [Templates](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) (Plantillas). Al establecerse, **platform** debe ser uno de los siguientes valores: <ul><li><code>apns</code>: Apple Push Notification Service. Para más información sobre la configuración del centro de notificaciones para APNS y la recepción de la notificación en una aplicación cliente, vea [Envío de notificaciones push a iOS con Azure Notification Hubs](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md).</li><li><code>adm</code>: [Amazon Device Messaging](https://developer.amazon.com/device-messaging). Para más información sobre la configuración del centro de notificaciones para ADM y la recepción de la notificación en una aplicación Kindle, vea [Introducción a Notification Hubs para aplicaciones Kindle](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md).</li><li><code>wns</code>: [Servicios de notificaciones push de Windows](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) que tienen como destino plataformas Windows. WNS también admite Windows Phone 8.1 y versiones posteriores. Para más información, vea [Introducción a Notification Hubs para aplicaciones de la plataforma universal de Windows](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).</li><li><code>mpns</code>: [Servicio de notificaciones push de Microsoft](/previous-versions/windows/apps/ff402558(v=vs.105)). Esta plataforma es compatible con Windows Phone 8 y versiones anteriores. Para más información, vea [Envío de notificaciones push con Azure Notification Hubs en Windows Phone](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md).</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

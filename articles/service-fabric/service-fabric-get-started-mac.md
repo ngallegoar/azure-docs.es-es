@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
 ms.openlocfilehash: f2ca1566358fad45f6ec2860fcca96b887c54adb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722584"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configuración de su entorno de desarrollo en Mac OS X
@@ -123,7 +123,7 @@ Para configurar un contenedor local de Docker y hacer que un clúster de Service
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configuración de la CLI de Service Fabric (sfctl) en un Mac
 
-Para instalar la CLI de Service Fabric (`sfctl`) en un Mac, siga las instrucciones que encontrará en [CLI de Service Fabric](service-fabric-cli.md#cli-mac).
+Para instalar la CLI de Service Fabric ([) en un Mac, siga las instrucciones que encontrará en ](service-fabric-cli.md#cli-mac)CLI de Service Fabric`sfctl`.
 Los comandos de la CLI permiten interactuar con las entidades de Service Fabric, lo que incluye clústeres, aplicaciones y servicios.
 
 1. Para conectarse al clúster antes de implementar las aplicaciones, ejecute el siguiente comando. 

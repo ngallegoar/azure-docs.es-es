@@ -1,18 +1,18 @@
 ---
-title: 'Inicio rápido: Creación de la base de conocimiento en QnA Maker con REST y Go'
+title: 'Guía de inicio rápido: Creación una la base de conocimiento en QnA Maker con REST y Go'
 description: Esta guía de inicio rápido basada en REST para Go le lleva por la creación de una base de conocimiento de QnA Maker de ejemplo mediante programación, que aparecerá en el panel de Azure de su cuenta de la API de Cognitive Services.
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 221220345f4f3b7aff2a32c956d921f677ca0627
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851634"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Inicio rápido: Creación de una base de conocimiento en QnA Maker mediante Go
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Guía de inicio rápido: Creación de una base de conocimiento en QnA Maker mediante Go
 
 Esta guía de inicio rápido describe la creación mediante programación de una base de conocimiento de QnA Maker de ejemplo. QnA Maker extrae automáticamente preguntas y respuestas a partir de contenido semiestructurado, como las preguntas frecuentes, y de [orígenes de datos](../Concepts/knowledge-base.md). El modelo para la base de conocimiento se define en el JSON que se envía en el cuerpo de la solicitud de API.
 
@@ -24,7 +24,7 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Go 1.10.1](https://golang.org/dl/)
 * Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar la clave y el punto de conexión (que incluye el nombre del recurso), seleccione **Inicio rápido** en el recurso en Azure Portal.
@@ -72,7 +72,7 @@ A continuación, agregue las siguientes funciones auxiliares.
 
 ## <a name="add-function-to-create-kb"></a>Incorporación de la función para crear una base de conocimiento
 
-Agregue las siguientes funciones para realizar una solicitud HTTP POST a fin de crear la base de conocimiento. El **identificador de la operación** _create_ se devuelve en el campo **Location** del encabezado de respuesta POST y luego se usa como parte de la ruta en la solicitud GET. `Ocp-Apim-Subscription-Key` es la clave del servicio QnA Maker, usada para la autenticación.
+Agregue las siguientes funciones para realizar una solicitud HTTP POST a fin de crear la base de conocimiento. El _identificador de la operación_ **create** se devuelve en el campo **Location** del encabezado de respuesta POST y luego se usa como parte de la ruta en la solicitud GET. `Ocp-Apim-Subscription-Key` es la clave del servicio QnA Maker, usada para la autenticación.
 
 [!code-go[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
 

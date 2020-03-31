@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb094d04a7210d76a98f3e47af750e49b617e493
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77195069"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230796"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
@@ -37,7 +37,7 @@ La frecuencia de inicio de sesión define el período de tiempo antes de que se 
 
 La configuración predeterminada de Azure Active Directory (Azure AD) para la frecuencia de inicio de sesión de usuario es período sucesivo de 90 días. Pedir credenciales a los usuarios a menudo parece algo sensato, pero puede resultar contraproducente: los usuarios que están capacitados para escribir sus credenciales sin pensarlo pueden suministrarlas sin querer a una petición de credenciales malintencionada.
 
-Puede parecer alarmante no pedir a un usuario que vuelva a iniciar sesión; en realidad, cualquier infracción de las directivas de TI revocará la sesión. Algunos ejemplos incluyen, pero sin limitarse, un cambio de contraseña, un dispositivo que no cumple con las normas o la deshabilitación de la cuenta. También puede explícitamente [revocar sesiones de usuarios mediante PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). La configuración predeterminada de Azure AD se reduce a "no pedir a los usuarios que proporcionen sus credenciales si la posición de seguridad de sus sesiones no ha cambiado".
+Puede parecer alarmante no pedir a un usuario que vuelva a iniciar sesión; en realidad, cualquier infracción de las directivas de TI revocará la sesión. Algunos ejemplos incluyen, pero sin limitarse, un cambio de contraseña, un dispositivo que no cumple con las normas o la deshabilitación de la cuenta. También puede explícitamente [revocar sesiones de usuarios mediante PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). La configuración predeterminada de Azure AD se reduce a "no pedir a los usuarios que proporcionen sus credenciales si la posición de seguridad de sus sesiones no ha cambiado".
 
 La configuración de la frecuencia de inicio de sesión funciona con aplicaciones que han implementado los protocolos OAUTH2 o OIDC de acuerdo con los estándares. La mayoría de aplicaciones nativas de Microsoft para Windows, Mac y dispositivos móviles que incluyen las aplicaciones web siguientes cumplen con la configuración.
 
@@ -72,7 +72,7 @@ Ejemplo 2:
 
 Una sesión persistente del explorador permite a los usuarios permanecer conectados después de cerrar y volver a abrir la ventana del explorador.
 
-El valor predeterminado de Azure AD para la persistencia de la sesión del explorador permite a los usuarios de dispositivos personales elegir si desean mantener la sesión mostrando un aviso de "¿Quiere mantener la sesión iniciada?" tras una autenticación correcta. Si se configura la persistencia del explorador en AD FS mediante las instrucciones del artículo [Configuración de inicio de sesión único de AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+El valor predeterminado de Azure AD para la persistencia de la sesión del explorador permite a los usuarios de dispositivos personales elegir si desean mantener la sesión mostrando un aviso de "¿Quiere mantener la sesión iniciada?" tras una autenticación correcta. Si se configura la persistencia del explorador en AD FS mediante las instrucciones del artículo [Configuración de inicio de sesión único de AD FS](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
 ), cumpliremos con esa directiva y persistiremos también en la sesión de Azure AD. También, para configurar si los usuarios del inquilino van a ver el aviso "¿Quiere mantener la sesión iniciada?", cambie la configuración apropiada en el panel de la marca de la empresa en Azure Portal mediante la guía del artículo [Personalización de la página de inicio de sesión de Azure AD](../fundamentals/customize-branding.md).
 
 ## <a name="configuring-authentication-session-controls"></a>Configuración de los controles de sesión de autenticación

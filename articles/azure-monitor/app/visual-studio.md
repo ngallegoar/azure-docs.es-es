@@ -8,10 +8,10 @@ ms.date: 07/07/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: 8905222214d58eeba24ecf50da768ffa1d65c39d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670889"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depure sus aplicaciones con Azure Application Insights en Visual Studio
@@ -21,7 +21,7 @@ Si ha creado la aplicación web de ASP.NET mediante Visual Studio 2017 o version
 
 Para supervisar la aplicación cuando se encuentra activa en producción, normalmente verá la telemetría de Application Insights en [Azure Portal](https://portal.azure.com), donde puede establecer alertas y aplicar eficaces herramientas de supervisión. Pero para la depuración, también puede buscar y analizar la telemetría en Visual Studio. Puede usar Visual Studio para analizar la telemetría desde su sitio de producción y desde los procesos de depuración que se ejecutan en el equipo de desarrollo. En este caso, puede analizar los procesos de depuración aunque todavía no haya configurado el SDK para enviar telemetría a Azure Portal. 
 
-## <a name="run"></a> Depure el proyecto
+## <a name="debug-your-project"></a><a name="run"></a> Depure el proyecto
 Ejecute la aplicación web en modo de depuración local mediante F5. Abra distintas páginas para generar telemetría.
 
 En Visual Studio, puede ver un recuento de los eventos que el módulo Application Insights ha registrado en el proyecto.

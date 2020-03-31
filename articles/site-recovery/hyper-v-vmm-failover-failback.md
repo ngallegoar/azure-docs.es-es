@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082593"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Conmutación por error y por recuperación de máquinas virtuales de Hyper-V replicadas a su sitio local secundario
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) administra y orquesta la replicación, la conmutación por error y la conmutación por recuperación de máquinas locales y máquinas virtuales (VM) de Azure.
 
-En este artículo se describe cómo conmutar por error una máquina virtual administrada de Hyper-V en una nube de System Center Virtual Machine Manager (VMM) a un sitio secundario de VMM. Después de que ha conmutado por error, conmutará por recuperación a su sitio local cuando esté disponible. En este artículo, aprenderá a:
+En este artículo se describe cómo conmutar por error una máquina virtual administrada de Hyper-V en una nube de System Center Virtual Machine Manager (VMM) a un sitio secundario de VMM. Después de que ha conmutado por error, conmutará por recuperación a su sitio local cuando esté disponible. En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Conmutar por error de una máquina virtual de Hyper-V desde una nube de VMM principal a una nube de VMM secundaria
@@ -35,7 +35,7 @@ La conmutación por error y por recuperación consta de tres etapas:
 3. Después de la conmutación por error planeada, tiene la opción de comenzar a replicar desde el sitio primario al sitio secundario.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Asegúrese de que ha completado una [exploración en profundidad de recuperación ante desastres](hyper-v-vmm-test-failover.md) para comprobar que todo funciona según lo previsto.
 - Para realizar la conmutación por recuperación, asegúrese de que los servidores VMM principal y secundario están conectados a Site Recovery.

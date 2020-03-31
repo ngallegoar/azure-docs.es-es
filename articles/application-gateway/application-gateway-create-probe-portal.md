@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 15daf47a1cb44635932311e60b3690af9ff58677
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74074608"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creación de un sondeo personalizado para Puerta de enlace de aplicaciones mediante el portal
@@ -32,9 +32,9 @@ Si no dispone aún de una puerta de enlace de aplicaciones, visite [Creación de
 
 Los sondeos se configuran en un proceso de dos pasos a través del portal. En el primer paso se introducen los valores necesarios para la configuración del sondeo. En el segundo paso se prueba el estado del back-end mediante esta configuración de sondeo y se guarda el sondeo. 
 
-### <a name="createprobe"></a>Especificación de las propiedades del sondeo
+### <a name="enter-probe-properties"></a><a name="createprobe"></a>Especificación de las propiedades del sondeo
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free).
 
 2. En el panel Favoritos de Azure Portal, haga clic en Todos los recursos. Haga clic en la puerta de enlace de aplicaciones en la hoja Todos los recursos. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir partners.contoso.net en el cuadro Filtrar por nombre… para acceder fácilmente a la puerta de enlace de la aplicación.
 
@@ -81,9 +81,9 @@ Después de especificar las propiedades de sondeo, puede probar el estado de los
 
 Los sondeos se configuran en un proceso de dos pasos a través del portal. El primer paso consiste en crear el sondeo. En el segundo paso, agregue el sondeo a la configuración HTTP de back-end de la puerta de enlace de aplicaciones.
 
-### <a name="createprobe"></a>Creación del sondeo
+### <a name="create-the-probe"></a><a name="createprobe"></a>Creación del sondeo
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free).
 
 2. En el panel Favoritos de Azure Portal, seleccione **Todos los recursos**. Seleccione la puerta de enlace de aplicaciones en la página **Todos los recursos**. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir partners.contoso.net en el cuadro Filtrar por nombre… para acceder fácilmente a la puerta de enlace de la aplicación.
 

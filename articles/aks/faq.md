@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 1531308a8d0bd5a09952d8ad8ccd03c92f2f99eb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: c4bb4328af5df7f729967c7b249847b2ab098770
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914609"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79497755"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -132,7 +132,7 @@ Los nodos de agente de AKS se facturan como máquinas virtuales de Azure estánd
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>¿Puedo mover o migrar mi clúster entre inquilinos de Azure?
 
-El comando `az aks update-credentials` se puede usar para mover un clúster de AKS entre inquilinos de Azure. Siga las instrucciones de [Elija actualizar o crear una entidad de servicio](https://docs.microsoft.com/azure/aks/update-credentials) y luego [actualice el clúster de AKS con las nuevas credenciales](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
+El comando `az aks update-credentials` se puede usar para mover un clúster de AKS entre inquilinos de Azure. Siga las instrucciones de [Elija actualizar o crear una entidad de servicio](https://docs.microsoft.com/azure/aks/update-credentials) y luego [actualice el clúster de AKS con las nuevas credenciales](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>¿Puedo mover o migrar mi clúster entre suscripciones?
 

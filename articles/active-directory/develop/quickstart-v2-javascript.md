@@ -105,7 +105,7 @@ En este inicio rápido se usa un código de ejemplo que muestra cómo una aplica
 
 > [!div renderon="portal"]
 > > [!NOTE]
-> > Escriba_la_información_de_la_cuenta_admitida_aquí
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
 >

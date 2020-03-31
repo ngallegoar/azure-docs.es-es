@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/16/2020
 ms.author: ramkris
 ms.openlocfilehash: 1a8040fc397b526b540ce9343baa985cab49e2b4
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169402"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca Bulk Executor para .NET: Información de descarga 
@@ -45,111 +45,111 @@ ms.locfileid: "76169402"
 
 ## <a name="release-notes"></a>Notas de la versión
 
-### <a name="a-name241-preview241-preview"></a><a name="2.4.1-preview"/>2.4.1-preview
+### <a name="241-preview"></a><a name="2.4.1-preview"/>2.4.1-preview
 
 * Se corrigió TotalElapsedTime en la respuesta de BulkDelete para medir correctamente el tiempo total, incluidos los reintentos.
 
-### <a name="a-name240-preview240-preview"></a><a name="2.4.0-preview"/>2.4.0-preview
+### <a name="240-preview"></a><a name="2.4.0-preview"/>2.4.0-preview
 
 * Se ha modificado la dependencia del SDK por la versión 2.5.1 o posteriores
 
-### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
+### <a name="230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
 
 * Se ha agregado compatibilidad para que el ejecutor en masa acepte TTL en vértices y bordes.
 
-### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
+### <a name="220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
 
 * Se ha corregido un problema que provocaba excepciones durante el escalado elástico de Azure Cosmos DB cuando se ejecutaba en modo de puerta de enlace. Esta corrección la hace funcionalmente equivalente a la versión 1.4.1.
 
-### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
+### <a name="210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
 
 * Se ha agregado compatibilidad con la operación BulkDelete para que las cuentas de la API de SQL acepten la clave de partición y las tuplas de identificación de documentos que se van a eliminar. Este cambio la hace funcionalmente equivalente a la versión 1.4.0.
 
-### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+### <a name="200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Incluye MongoBulkExecutor para la compatibilidad con .NET Standard 2.0. Esta característica tiene una funcionalidad similar a la de la versión 1.3.0, pero se ha agregado la compatibilidad con .NET Standard 2.0 como plataforma de destino.
 
-### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
+### <a name="200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
 * Se ha agregado .NET Standard 2.0 como una de las plataformas de destino admitidas para que la biblioteca Bulk Executor funcione con las aplicaciones .NET Core.
 
-### <a name="a-name188188"></a><a name="1.8.8"/>1.8.8
+### <a name="188"></a><a name="1.8.8"/>1.8.8
 
 * Se ha corregido un problema en MongoBulkExecutor que incrementaba el tamaño del documento de forma inesperada agregando relleno y, en algunos casos, superando el tamaño máximo del documento.
 
-### <a name="a-name187187"></a><a name="1.8.7"/>1.8.7
+### <a name="187"></a><a name="1.8.7"/>1.8.7
 
 * Se ha corregido un problema con BulkDeleteAsync cuando la colección tiene rutas de acceso de clave de partición anidadas.
 
-### <a name="a-name186186"></a><a name="1.8.6"/>1.8.6
+### <a name="186"></a><a name="1.8.6"/>1.8.6
 
 * MongoBulkExecutor ahora implementa IDisposable y se espera que se elimine después de usarse.
 
-### <a name="a-name185185"></a><a name="1.8.5"/>1.8.5
+### <a name="185"></a><a name="1.8.5"/>1.8.5
 
 * Se quitó el bloqueo de la versión del SDK. El paquete depende ahora del SDK > = 2.5.1.
 
-### <a name="a-name184184"></a><a name="1.8.4"/>1.8.4
+### <a name="184"></a><a name="1.8.4"/>1.8.4
 
 * Se corrigió el control de los identificadores al llamar a BulkImport con una lista de objetos POCO con valores numéricos.
 
-### <a name="a-name183183"></a><a name="1.8.3"/>1.8.3
+### <a name="183"></a><a name="1.8.3"/>1.8.3
 
 * Se corrigió TotalElapsedTime en la respuesta de BulkDelete para medir correctamente el tiempo total, incluidos los reintentos.
 
-### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+### <a name="182"></a><a name="1.8.2"/>1.8.2
 
 * Se ha corregido el consumo elevado de CPU en ciertos escenarios.
 * El seguimiento ahora utiliza TraceSource. Los usuarios pueden definir clientes de escucha para el origen `BulkExecutorTrace`.
 * Se ha corregido un escenario poco frecuente que podía provocar un bloqueo al enviar documentos de aproximadamente 2 MB de tamaño.
 
-### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
+### <a name="160"></a><a name="1.6.0"/>1.6.0
 
 * Se ha actualizado Bulk Executor para usar la versión más reciente del SDK de .NET de Azure Cosmos DB (2.4.0).
 
-### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0
+### <a name="150"></a><a name="1.5.0"/>1.5.0
 
 * Se ha agregado compatibilidad para que el ejecutor en masa acepte TTL en vértices y bordes.
 
-### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+### <a name="141"></a><a name="1.4.1"/>1.4.1
 
 * Se ha corregido un problema que provocaba excepciones durante el escalado elástico de Azure Cosmos DB cuando se ejecutaba en modo de puerta de enlace.
 
-### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+### <a name="140"></a><a name="1.4.0"/>1.4.0
 
 * Se ha agregado compatibilidad con la operación BulkDelete para que las cuentas de la API de SQL acepten la clave de partición y las tuplas de identificación de documentos que se van a eliminar.
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+### <a name="130"></a><a name="1.3.0"/>1.3.0
 
 * Se ha corregido un problema que generaba un error de formato en el agente de usuario utilizado por Bulk Executor.
 
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+### <a name="120"></a><a name="1.2.0"/>1.2.0
 
 * Se han mejorado las API de importación y actualización de Bulk Executor para adaptarlas de forma transparente al escalado elástico del contenedor de Cosmos cuando el espacio de almacenamiento sobrepase la capacidad actual sin generar excepciones.
 
-### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
+### <a name="112"></a><a name="1.1.2"/>1.1.2
 
 * Se ha incrementado la independencia de .NET SDK para DocumentDB con la versión 2.1.3.
 
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+### <a name="111"></a><a name="1.1.1"/>1.1.1
 
 * Se ha corregido un problema que hacía que Bulk Executor generara un error de JSRT al realizar la importación en colecciones fijas.
 
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+### <a name="110"></a><a name="1.1.0"/>1.1.0
 
 * Se agregó compatibilidad con la operación BulkDelete para las cuentas de la API de SQL de Azure Cosmos DB.
 * Se agregó compatibilidad con la operación BulkImport para las cuentas con la API de Azure Cosmos DB para MongoDB.
 * Se aumentó la dependencia del SDK de .NET de DocumentDB a la versión 2.0.0. 
 
-### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
+### <a name="102"></a><a name="1.0.2"/>1.0.2
 
 * Se agregó compatibilidad con la operación BulkImport para las cuentas de la API de Gremlin de Azure Cosmos DB.
 
-### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+### <a name="101"></a><a name="1.0.1"/>1.0.1
 
 * Se corrigió un error leve de la operación BulkImport para las cuentas de la API de SQL de Azure Cosmos DB.
 
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"/>1.0.0
 
 * Se agregó compatibilidad con las operaciones BulkImport y BulkUpdate de las cuentas de la API de SQL de Azure Cosmos DB.
 

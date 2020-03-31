@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/26/2019
+ms.date: 03/25/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a721d1e486010e22927512985611cccdd99f4505
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 707b03d46615f3acfa0797d1dc0865d53ef75dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78248320"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282127"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>¿Qué son las identidades administradas de recursos de Azure?
 
@@ -56,7 +56,7 @@ El código puede usar una identidad administrada para solicitar tokens de acceso
 
 En el diagrama siguiente se muestra cómo funcionan las identidades de servicio administradas con máquinas virtuales (VM) de Azure:
 
-![Identidades de Managed Service Identity y máquinas virtuales de Azure](media/overview/msi-vm-vmextension-imds-example.png)
+![Identidades de Managed Service Identity y máquinas virtuales de Azure](media/overview/data-flow.png)
 
 |  Propiedad    | Identidad administrada asignada por el sistema | Identidad administrada asignada por el usuario |
 |------|----------------------------------|--------------------------------|
@@ -143,7 +143,7 @@ Aprenda a usar una identidad administrada con otros servicios de Azure:
 * [Azure Data Factory](../../data-factory/data-factory-service-identity.md)
 
 
-## ¿Qué servicios de Azure admiten la característica?<a name="which-azure-services-support-managed-identity"></a>
+## <a name="what-azure-services-support-the-feature"></a>¿Qué servicios de Azure admiten la característica?<a name="which-azure-services-support-managed-identity"></a>
 
 Las identidades administradas de Managed Identities for Azure Resources se pueden usar para autenticarse en servicios que admiten la autenticación de Azure AD. Para ver una lista de los servicios de Azure que admiten la característica Managed Identities for Azure Resources, consulte [Services that support managed identities for Azure resources](services-support-msi.md) (Servicios que admiten la característica Managed Identities for Azure Resources).
 

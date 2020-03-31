@@ -1,20 +1,18 @@
 ---
 title: Requisitos por tipo de publicación | Azure
 description: En este artículo se describen los criterios de idoneidad y los requisitos de publicación de los asociados que intentan comprender cómo publicar aplicaciones en Azure Marketplace.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
-manager: pabutler
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/19/2018
-ms.author: ellacroi
-ms.openlocfilehash: b9a2e8b37f746eb86b2e0fe6a7304cd888a293e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 1ff6e34936234d6636fabc6c5e17dd32416b4ac2
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823027"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387859"
 ---
 # <a name="requirements-by-listing-type"></a>Requisitos por tipo de publicación  
 Los requisitos de contenido de marketing y técnicos varían en función del escaparate, el tipo de oferta y el tipo de anuncio. Revise las siguientes especificaciones para verificar el cumplimiento.  
@@ -128,7 +126,7 @@ El tipo de publicación de anuncio incluye los siguientes tipos de oferta en los
 
 | Tipo de oferta | Escaparate | Detalles |   
 |:---        |:---        | :--- |  
-| Aplicaciones de Azure: Aplicación administrada | Azure Marketplace | Requisitos: Azure Marketplace: Transacción: Aplicaciones de Azure: aplicación administrada |  
+| Aplicaciones de Azure: aplicación administrada | Azure Marketplace | Requisitos: Azure Marketplace: Transacción: Aplicaciones de Azure: aplicación administrada |  
 | Aplicaciones de Azure: Plantilla de solución | Azure Marketplace | Requisitos: Azure Marketplace: Transacción: Aplicaciones de Azure: Plantilla de solución |  
 | Contenedores | Azure Marketplace | [Requisitos: Azure Marketplace: Transacción: Contenedor](#requirements-azure-marketplace-transact-container) |  
 | Aplicación SaaS  | Azure Marketplace | [Requisitos: Azure Marketplace: Transacción: Aplicación SaaS](#requirements-azure-marketplace-transact-saas-app) |  

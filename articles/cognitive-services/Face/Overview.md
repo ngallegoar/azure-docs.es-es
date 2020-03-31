@@ -9,14 +9,16 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: c4e2253229f4461bcb6a2a9fe3e561f3cde29760
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: c433d99fd96e99d418fd5500c1075e68dfb1742c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170251"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053594"
 ---
 # <a name="what-is-the-azure-face-service"></a>¿Qué es el servicio Azure Face?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 El servicio Face de Azure Cognitive Services ofrece algoritmos que se utilizan para detectar, reconocer y analizar caras humanas en imágenes. La capacidad de procesar la información de caras humanas es importante en muchos escenarios de software diferentes. Los escenarios de ejemplo son seguridad, interfaz de usuario natural, análisis y administración de contenido de imagen, aplicaciones móviles y robótica.
 

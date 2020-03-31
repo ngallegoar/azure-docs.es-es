@@ -7,7 +7,7 @@
     - name: Comparación entre las versiones de Bing Search API
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guías de inicio rápido de API REST
+- name: Guías de inicio rápido
   expanded: true
   items:
     - name: API DE REST

@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 310decf8053ea16ba46250ba3aabe81c9c254e5e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72243123"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de simulación mediante "bake" de Project Acoustics con Unity
@@ -53,7 +53,7 @@ La transformación de un objeto durante el cálculo del sondeo (mediante la pest
 ### <a name="mark-the-navigation-mesh"></a>Marca de una malla de navegación
 El sistema acústico tomará las mallas de navegación que se crearon mediante el flujo de trabajo de Unity. Para usar sus propias mallas, márquelas en la pestaña **Objects** (Objetos).
 
-### <a name="for-reference-the-objects-tab-parts"></a>Para referencia: Partes de la pestaña Objects (Objetos)
+### <a name="for-reference-the-objects-tab-parts"></a>Como referencia: Partes de la pestaña Objects (Objetos)
 Las partes de la pestaña (que aparecen en la imagen tras las descripciones) son las siguientes:
 
 1. Los botones de selección de la pestaña (con la pestaña **Objects** [Objetos] seleccionada). Use estos botones para desplazarse por los distintos pasos de la simulación acústica mediante "bake", de izquierda a derecha.
@@ -201,7 +201,7 @@ Por motivos de seguridad, las credenciales de Azure se almacenan en la máquina 
    ![El estado de la tarea de simulación mediante "bake"](media/azure-batch-task-state.png)  
 
 
-### <a name="Estimating-bake-cost"></a> Estimación del costo de simulación mediante "bake" de Azure
+### <a name="estimate-azure-bake-cost"></a><a name="Estimating-bake-cost"></a> Estimación del costo de simulación mediante "bake" de Azure
 
 Para estimar el costo de la simulación mediante "bake", comience con el valor **Estimated Compute Cost** (Costo de proceso estimado), que indica una duración. Multiplique ese valor por el costo por hora en la moneda local para el valor de **VM Node Type** (Tipo de nodo VM) que seleccione. Tenga en cuenta que el resultado no incluirá el tiempo de nodo necesario para que los nodos entren en funcionamiento.
 
@@ -209,7 +209,7 @@ Por ejemplo, suponga que selecciona **Standard_F8s_v2** como tipo de nodo, que t
 
 Busque el costo por hora de los nodos en [Precios de Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (seleccione los valores **Proceso optimizado** o **Proceso de alto rendimiento** en Categoría).
 
-## <a name="Local-bake"></a>Simulación mediante "bake" de una escena en el PC
+## <a name="bake-your-scene-on-your-pc"></a><a name="Local-bake"></a>Simulación mediante "bake" de una escena en el PC
 Puede simular mediante "bake" una escena en su propio PC. Este método puede ser útil para experimentar con la acústica de escenas pequeñas antes de crear una cuenta de Azure Batch. Tenga en cuenta, sin embargo, que la simulación acústica local puede tardar mucho tiempo, según el tamaño de la escena.
 
 ### <a name="minimum-hardware-requirements"></a>Requisitos mínimos de hardware
@@ -233,7 +233,7 @@ Instale y configure Docker en el equipo en el que se va a procesar la simulació
 2. Para iniciar la simulación, ejecute el script *runlocalbake.bat* en Windows o bien el script *runlocalbake.sh* en MacOS. Este script captura la imagen de Docker de Project Acoustics con el conjunto de herramientas necesario para el procesamiento de la simulación e inicia la simulación.
 3. Cuando haya finalizado la simulación, copie el archivo *.ace* resultante al proyecto de Unity. Para asegurarse de que Unity lo reconoce como un archivo binario, anexe ".bytes" a la extensión de archivo (por ejemplo, "Scene1.ace.bytes"). Los registros detallados de la simulación se almacenan en *AcousticsLog.txt*. Si tiene algún problema, inspeccione este archivo como ayuda para diagnosticarlo.
 
-## <a name="Data-Files"></a> Archivos de datos agregados por el proceso de simulación mediante "bake"
+## <a name="data-files-added-by-the-bake-process"></a><a name="Data-Files"></a> Archivos de datos agregados por el proceso de simulación mediante "bake"
 
 Durante el proceso de simulación mediante "bake" se crean los cuatro archivos de datos siguientes. Uno contiene los resultados de la simulación y se incluye con el título. Los demás almacenan datos relacionados con el editor de Unity.
 

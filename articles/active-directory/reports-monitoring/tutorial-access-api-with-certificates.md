@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014265"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obtención de datos mediante Reporting API de Azure Active Directory con certificados
@@ -29,9 +29,9 @@ Las [API de generación de informes de Azure Active Directory (Azure AD)](concep
 
 En este tutorial, aprenderá a crear un certificado de prueba para acceder a Microsoft Graph API para la creación de informes. El uso de certificados de prueba no se recomienda en un entorno de producción. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-1. Para obtener acceso a datos de inicio de sesión, asegúrese de que tiene un inquilino de Azure Active Directory con una licencia prémium (P1 y P2). Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory. Tenga en cuenta que si no tuvo ningún dato de las actividades antes de la actualización, los datos tardarán un par de días en mostrarse en los informes después de actualizar a una licencia prémium. 
+1. Para obtener acceso a datos de inicio de sesión, asegúrese de que tiene un inquilino de Azure Active Directory con una licencia prémium (P1 y P2). Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory. Tenga en cuenta que si no tuvo ningún dato de actividades antes de la actualización, los datos tardarán un par de días en mostrarse en los informes después de actualizar a una licencia premium. 
 
 2. Cree o cambie a una cuenta de usuario con el rol **Administrador global**, **Administrador de seguridad**, **Lector de seguridad** o **Lector de informes** en el inquilino. 
 

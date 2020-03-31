@@ -3,12 +3,12 @@ title: 'Copias de seguridad de archivos y carpetas: preguntas comunes'
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 7b80932d49038bb42fa93f71b3ac0194c2869489
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: adcbf5c3b404de46634423f8f59c4798d44bebe0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425075"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233916"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas
 
@@ -149,7 +149,7 @@ Ni la carpeta de caché ni el disco duro virtual de metadatos tienen los atribut
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>¿Hay alguna forma de ajustar la cantidad de ancho de banda que se utiliza para la copia de seguridad?
 
-Sí, puede usar la opción **Cambiar propiedades** del agente de MARS para ajustar el ancho de banda y el tiempo. [Más información](backup-configure-vault.md#enable-network-throttling).
+Sí, puede usar la opción **Cambiar propiedades** del agente de MARS para ajustar el ancho de banda y el tiempo. [Más información](backup-windows-with-mars-agent.md#enable-network-throttling).
 
 ## <a name="restore"></a>Restauración
 

@@ -5,10 +5,10 @@ ms.date: 11/22/2019
 ms.topic: article
 ms.reviewer: janders
 ms.openlocfilehash: 682ab282036fcd592e66942d08a84cdce46d8915
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455847"
 ---
 # <a name="how-to-configure-azure-active-directory-access-for-azure-blockchain-service"></a>Configuración del acceso a Azure Active Directory para Azure Blockchain Service
@@ -17,7 +17,7 @@ En este artículo, aprenderá a conceder acceso y conectarse a los nodos de Azur
 
 Azure AD proporciona la administración de identidades basada en la nube y le permite usar una identidad única en toda una empresa y las aplicaciones de acceso en Azure. Azure Blockchain Service se integra con Azure AD y ofrece ventajas como el id. de federación, el inicio de sesión único y la autenticación multifactor.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Create a blockchain member using the Azure portal](create-member.md) (Creación de un miembro de cadena de bloques mediante Azure Portal)
 
@@ -29,7 +29,7 @@ Puede conceder acceso en el nivel de miembro y el nivel de nodo. Conceder derech
 
 Para conceder permiso de acceso en el nivel de miembro:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Navegue hasta **Control de acceso (IAM) > Agregar > Agregar asignación de roles**.
 1. Seleccione el rol **Acceso a nodos de miembros de Blockchain (versión preliminar)**  y agregue el objeto de id. de Azure AD al que desea conceder acceso. El objeto de id. de Azure AD puede ser:
 
@@ -87,7 +87,7 @@ Para conectarse al nodo mediante un id. de aplicación, reemplace **aadauthcode*
 connector.exe -remote <myBlockchainEndpoint>  -method aadclient -client-id <myClientID> -client-secret "<myClientSecret>" -tenant-id <myAADDirectory>
 ```
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |-----------|-------------|
 | tenant-id | Dominio de Azure AD, por ejemplo, `yourdomain.onmicrosoft.com`
 | client-id | Id. de cliente de la aplicación registrada en Azure AD

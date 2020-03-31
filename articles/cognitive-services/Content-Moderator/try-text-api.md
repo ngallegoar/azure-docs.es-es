@@ -11,10 +11,10 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: e0930558f31b27a77fa2cd6b44fcea2fe9091086
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74538823"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderación de texto desde la consola de API
@@ -33,7 +33,7 @@ Vaya a la [referencia de Text Moderation API](https://westus.dev.cognitive.micro
 
 ## <a name="open-the-api-console"></a>Abrir la consola de API
 
-En **Open API testing console** (Abrir consola de prueba de API), seleccione la región que mejor describa su ubicación. 
+En **Open API testing console** (Abrir consola de pruebas de API), seleccione la región que mejor describa su ubicación. 
 
   ![Selección de la región en la página Text - Screen (Texto: filtrar)](images/test-drive-region.png)
 
@@ -46,9 +46,9 @@ En **Open API testing console** (Abrir consola de prueba de API), seleccione la 
 Seleccione los parámetros de consulta que quiere usar en la pantalla de texto. En este ejemplo, utilice el valor predeterminado de **language** (idioma). También puede dejarlo en blanco, ya que la operación detectará automáticamente el idioma probable como parte de su ejecución.
 
 > [!NOTE]
-> Para el parámetro **language** (idioma), asigne `eng` o déjelo en blanco para ver asistida la respuesta de **classification** (clasificación) asistida por máquina. **Esta característica solo admite inglés**.
+> Para el parámetro **language** (idioma), asigne `eng` o déjelo en blanco para ver la respuesta **classification** (clasificación) asistida por máquina. **Esta característica solo admite inglés**.
 >
-> Para la detección de **profanity terms** (palabras soeces), use el [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) de los idiomas admitidos que se enumeran en este artículo, o deje el campo en blanco.
+> Para la detección de **palabras soeces**, use el [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) de los idiomas admitidos que se enumeran en este artículo, o deje el campo en blanco.
 
 Para **autocorrect** (autocorrección), **PII** (DCP) y **classify (preview)** [clasificar (versión preliminar)], seleccione **true**. Deje el campo **ListId** vacío.
 

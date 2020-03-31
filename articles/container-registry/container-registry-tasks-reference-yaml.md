@@ -3,12 +3,12 @@ title: 'Referencia de YAML: ACR Tasks'
 description: Referencia para definir tareas en YAML para ACR Tasks, como propiedades de tareas, tipos de pasos, propiedades de pasos y variables integradas.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: d86eb0e24233afb536d27f5d0938d4748941e88a
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 9558f698b4a9dbca46431fc02ced6ae30de29121
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945739"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225780"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -528,7 +528,7 @@ Los siguientes alias de tarea están disponibles para usarse en lugar de [variab
 
 En los pasos de la tarea, anteponga la directiva `$` a un alias, como en este ejemplo:
 
-```yaml
+```yml
 version: v1.1.0
 steps:
   - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
@@ -547,7 +547,7 @@ Cada uno de los siguientes alias apunta a una imagen estable en Microsoft Contai
 
 En la tarea de ejemplo siguiente se usan varios alias para [purgar](container-registry-auto-purge.md) las etiquetas de imagen con una antigüedad mayor a siete días en el repositorio `samples/hello-world` del registro de ejecución:
 
-```yaml
+```yml
 version: v1.1.0
 steps:
   - cmd: acr tag list --registry $RegistryName --repository samples/hello-world

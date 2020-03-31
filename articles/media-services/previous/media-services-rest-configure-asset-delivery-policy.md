@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 09f0371bc189fcf7b25ec3261e2e1f5eaf1892ae
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194520"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configuración de directivas de entrega de recursos
@@ -71,7 +71,7 @@ Para obtener instrucciones sobre cómo publicar un recurso y generar una direcci
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="clear-asset-delivery-policy"></a>Directiva de entrega de recursos sin cifrar
-### <a id="create_asset_delivery_policy"></a>Creación de directiva de entrega de recursos
+### <a name="create-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>Creación de directiva de entrega de recursos
 La solicitud HTTP siguiente crea una directiva de entrega de recursos que especifica que no se aplique el cifrado dinámico y que se entregue la secuencia en cualquiera de los siguientes protocolos:  MPEG DASH, HLS y Smooth Streaming. 
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types) .   
@@ -120,7 +120,7 @@ Respuesta:
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a id="link_asset_with_asset_delivery_policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
+### <a name="link-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
 La siguiente solicitud HTTP vincula el recurso especificado con la directiva de entrega de recursos.
 
 Solicitud:
@@ -147,7 +147,7 @@ Respuesta:
 ### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Crear clave de contenido del tipo EnvelopeEncryption y vincularla al recurso
 Al especificar la directiva de entrega de DynamicEnvelopeEncryption, asegúrese de vincular el recurso a una clave de contenido del tipo EnvelopeEncryption. Para más información, consulte: [Creación de una clave de contenido](media-services-rest-create-contentkey.md)).
 
-### <a id="get_delivery_url"></a>Obtención de una dirección URL de entrega
+### <a name="get-delivery-url"></a><a id="get_delivery_url"></a>Obtención de una dirección URL de entrega
 Obtenga la dirección URL de entrega para el método de entrega especificado de la clave de contenido que creó en el paso anterior. Un cliente usa la dirección URL devuelta para solicitar una clave AES o una licencia de PlayReady para reproducir el contenido protegido.
 
 Especifique el tipo de la dirección URL que se obtendrá en el cuerpo de la solicitud HTTP. Si protege el contenido con PlayReady, solicite una URL de adquisición de licencias PlayReady de Media Services, con 1 para keyDeliveryType: {"keyDeliveryType":1}. Si protege el contenido con el cifrado de sobre, solicite una dirección URL de adquisición de claves con 2 para keyDeliveryType: {"keyDeliveryType":2}.
@@ -272,7 +272,7 @@ Por ejemplo:
 ### <a name="link-asset-with-asset-delivery-policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
 Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#link_asset_with_asset_delivery_policy)
 
-## <a id="types"></a>Tipos usados al definir AssetDeliveryPolicy
+## <a name="types-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>Tipos usados al definir AssetDeliveryPolicy
 
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 

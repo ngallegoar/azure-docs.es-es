@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: ad81ca75638b9510064b7f2c319d9429881c60d1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c94b670a33f7640d2d6f428287b3ba0fab766bc5
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79475933"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384881"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un espacio de nombres de Service Bus con un tema y una suscripción mediante una plantilla de Azure Resource Manager
 
@@ -38,8 +38,6 @@ Para ver la plantilla completa, consulte la [Plantilla de espacio de nombres de 
 > * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md) (Creación de un espacio de nombres de Service Bus con tema, suscripción y regla)
 > 
 > Para buscar las plantillas más recientes, visite la galería de [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque **Service Bus**.
-> 
-> 
 
 ## <a name="what-do-you-deploy"></a>¿Qué puede implementar?
 
@@ -58,6 +56,7 @@ Con el Administrador de recursos de Azure, se definen los parámetros de los val
 La plantilla define los parámetros siguientes:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 El nombre del espacio de nombres de Service Bus que crear.
 
 ```json
@@ -67,6 +66,7 @@ El nombre del espacio de nombres de Service Bus que crear.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
+
 El nombre del tema creado en el espacio de nombres de Service Bus.
 
 ```json
@@ -76,6 +76,7 @@ El nombre del tema creado en el espacio de nombres de Service Bus.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
+
 El nombre de la suscripción creada en el espacio de nombres de Service Bus.
 
 ```json
@@ -85,6 +86,7 @@ El nombre de la suscripción creada en el espacio de nombres de Service Bus.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 La versión de la API de Service Bus de la plantilla.
 
 ```json
@@ -95,7 +97,9 @@ La versión de la API de Service Bus de la plantilla.
            "description": "Service Bus ApiVersion used by the template" 
        }
 ```
+
 ## <a name="resources-to-deploy"></a>Recursos para implementar
+
 Crea un espacio de nombres de Service Bus estándar de tipo **Mensajería**con tema y suscripción.
 
 ```json
@@ -134,19 +138,23 @@ Crea un espacio de nombres de Service Bus estándar de tipo **Mensajería**con t
 Para la sintaxis y las propiedades JSON, consulte los[espacios de nombres](/azure/templates/microsoft.servicebus/namespaces), los [temas](/azure/templates/microsoft.servicebus/namespaces/topics) y las [suscripciones](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions).
 
 ## <a name="commands-to-run-deployment"></a>Comandos para ejecutar la implementación
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```powershell
+
+```powershell-interactive
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-```azurecli
+
+```azurecli-interactive
 az group deployment create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que ha creado e implementado recursos con Azure Resource Manager, estos artículos le enseñarán como administrarlos:
 
 * [Administración de Service Bus con PowerShell](service-bus-manage-with-ps.md)

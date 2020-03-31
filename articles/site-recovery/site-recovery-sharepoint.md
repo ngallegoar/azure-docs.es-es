@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74706361"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configuración de la recuperación ante desastres para una aplicación de SharePoint de niveles múltiples mediante Azure Site Recovery
@@ -34,7 +34,7 @@ También puede ver el vídeo siguiente sobre la recuperación de una aplicación
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, no olvide informarse sobre las cuestione siguientes:
 
@@ -65,7 +65,7 @@ Site Recovery es independiente de la aplicación y debe funcionar con cualquier 
 **Hyper-V** | Sí | Sí
 **VMware** | Sí | Sí
 **Servidor físico** | Sí | Sí
-**Las tablas de Azure** | N/D | Sí
+**Azure** | N/D | Sí
 
 
 ### <a name="things-to-keep-in-mind"></a>Aspectos que debe tener en cuenta

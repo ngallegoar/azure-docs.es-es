@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e9fd17d9e066be6a1abff5165436a09b8921184e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68381296"
 ---
 # <a name="sign-in-problems-with-an-azure-ad-gallery-app-configured-for-sso"></a>Problemas de información de inicio de sesión con una aplicación de galería de Azure AD configurada para inicio de sesión único
@@ -109,7 +109,7 @@ Siga estos pasos:
 
 6. En el cuadro de texto **Escriba un nombre** de la sección **Agregar desde la galería**, escriba el nombre de la aplicación.
 
-7. Seleccione la aplicación para la que quiere configurar el inicio de sesión único.
+7. Seleccione la aplicación para la que quiere configurar el SSO.
 
 8. *Opcional:* antes de agregar la aplicación, puede cambiar el nombre en el cuadro de texto **Nombre**.
 
@@ -134,7 +134,7 @@ Siga estos pasos:
    > [!NOTE]
    > Si no ve la aplicación que busca, use el control **Filtro** en la parte superior de la lista **Todas las aplicaciones**. Establezca la opción **Mostrar** en "Todas las aplicaciones".
 
-6. Seleccione la aplicación para la que quiere configurar el inicio de sesión único.
+6. Seleccione la aplicación para la que quiere configurar el SSO.
 
 7. Después de que la aplicación se cargue, seleccione **Inicio de sesión único** en el panel del lado izquierdo de la aplicación.
 

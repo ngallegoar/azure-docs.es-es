@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: 58b5b749e81aab4d8563d09cbfd139629520531c
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 1257bf4dfb0d5b2c4995cac760290f97293a0c0f
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310581"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382977"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nubes y regiones donde existe Azure Media Services v3
 
@@ -37,11 +37,11 @@ Azure Media Services v3 está disponible a través del manifiesto de Azure Resou
 
 [Regiones en las que se implementa el servicio Azure Media Services](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
-### <a name="region-code-name"></a>Nombre de código de región 
+### <a name="region-code-name"></a>Nombre de código de región
 
 Cuando tenga que proporcionar el parámetro **location**, deberá proporcionar el nombre de código de región como el valor **location**. Para obtener el nombre de código de la región en la que está su cuenta y a la que se debe enrutar la llamada, puede ejecutar la siguiente línea en la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-```bash
+```azurecli-interactive
 az account list-locations
 ```
 
@@ -66,18 +66,18 @@ Es importante conocer los siguientes puntos de conexión al conectarse a cuentas
 
 ### <a name="global-azure"></a>Azure global
 
-|Puntos de conexión ||
-| --- | --- | 
+|Puntos de conexión||
+| --- | --- |
 | Azure Resource Manager |  `https://management.azure.com/` |
-| Authentication | `https://login.microsoftonline.com/` | 
+| Authentication | `https://login.microsoftonline.com/` |
 | Público del token | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
 |Puntos de conexión||
-| --- | --- | 
+| --- | --- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
-| Authentication | `https://login.microsoftonline.us/` | 
+| Authentication | `https://login.microsoftonline.us/` |
 | Público del token | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Alemania
@@ -91,7 +91,7 @@ Es importante conocer los siguientes puntos de conexión al conectarse a cuentas
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
 
 |Puntos de conexión||
-| --- | --- | 
+| --- | --- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Público del token |  `https://management.core.chinacloudapi.cn/` |

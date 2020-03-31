@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 18b5f19e3e994aa05fa99caf360d0c1be69ec7a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245117"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049787"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Compatibilidad con varios dominios para la federación con Azure AD
 La siguiente documentación proporciona una guía sobre cómo usar varios dominios y subdominios de nivel superior al federarse con Office 365 o con dominios de Azure AD.
@@ -69,7 +69,7 @@ Otra cosa que hace `-SupportMultipleDomain` es garantizar que el sistema de AD F
 
 Por lo tanto, durante la autenticación en Azure AD u Office 365, el elemento IssuerUri del token del usuario se usa para buscar el dominio en Azure AD.  Si no se encuentra una coincidencia, se producirá un error en la autenticación.
 
-Por ejemplo, si el UPN de un usuario es bsimon@bmcontoso.com, la propiedad IssuerUri del token que emite AD FS se establecerá en <http://bmcontoso.com/adfs/services/trust>. Este elemento coincidirá con la configuración de Azure AD y la autenticación se realizará correctamente.
+Por ejemplo, si el UPN de un usuario es bsimon@bmcontoso.com, la propiedad IssuerUri del token que emite AD FS se establecerá en `http://bmcontoso.com/adfs/services/trust`. Este elemento coincidirá con la configuración de Azure AD y la autenticación se realizará correctamente.
 
 A continuación se muestra la regla de notificaciones personalizada que implementa esta lógica:
 
@@ -82,7 +82,7 @@ A continuación se muestra la regla de notificaciones personalizada que implemen
 >
 
 ## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>Actualización de la confianza entre AD FS y Azure AD
-Si no configuró la confianza federada entre AD FS y la instancia de Azure AD, podría tener que volver a crear esta confianza.  Esto se debe a que, cuando se configura originalmente sin el parámetro `-SupportMultipleDomain`, la propiedad IssuerUri se establece como predeterminado.  En la siguiente captura de pantalla, puede ver que el valor de IssuerUri se establece en https://adfs.bmcontoso.com/adfs/services/trust.
+Si no configuró la confianza federada entre AD FS y la instancia de Azure AD, podría tener que volver a crear esta confianza.  Esto se debe a que, cuando se configura originalmente sin el parámetro `-SupportMultipleDomain`, la propiedad IssuerUri se establece como predeterminado.  En la siguiente captura de pantalla, puede ver que el valor de IssuerUri se establece en `https://adfs.bmcontoso.com/adfs/services/trust`.
 
 Si hemos agregado correctamente un nuevo dominio en el Portal de Azure AD e intentamos convertirlo con `Convert-MsolDomaintoFederated -DomainName <your domain>`, obtendremos el error siguiente.
 
@@ -126,11 +126,11 @@ Siga los pasos que se indican a continuación para agregar el nuevo dominio de n
 5. Haga clic en Instalar.
 
 ### <a name="verify-the-new-top-level-domain"></a>Comprobación del nuevo dominio de nivel superior
-Con el comando de PowerShell `Get-MsolDomainFederationSettings -DomainName <your domain>`, puede ver el valor de IssuerUri actualizado.  La captura de pantalla siguiente muestra que la configuración de la federación se actualizó en el dominio original http://bmcontoso.com/adfs/services/trust.
+Con el comando de PowerShell `Get-MsolDomainFederationSettings -DomainName <your domain>`, puede ver el valor de IssuerUri actualizado.  La captura de pantalla siguiente muestra que la configuración de la federación se actualizó en el dominio original `http://bmcontoso.com/adfs/services/trust`.
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
-Y el valor de IssuerUri en el nuevo dominio se ha establecido en https://bmfabrikam.com/adfs/services/trust
+Y el valor de IssuerUri en el nuevo dominio se ha establecido en `https://bmfabrikam.com/adfs/services/trust`
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/settings2.png)
 
@@ -169,7 +169,7 @@ Siga los pasos indicados a continuación para agregar una notificación personal
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asignar licencias](how-to-connect-post-installation.md).
 
-Obtenga más información acerca de estas características, que se habilitaron con la instalación: [Actualización automática](how-to-connect-install-automatic-upgrade.md), [Evitar eliminaciones involuntarias](how-to-connect-sync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](how-to-connect-health-sync.md).
+Conozca más sobre estas características, que se habilitaron con la instalación: [Actualización automática](how-to-connect-install-automatic-upgrade.md), [Evitar eliminaciones involuntarias](how-to-connect-sync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Obtenga información acerca de estos temas habituales: [el programador y cómo desencadenar la sincronización](how-to-connect-sync-feature-scheduler.md).
 

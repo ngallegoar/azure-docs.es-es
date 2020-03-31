@@ -3,7 +3,7 @@ title: Interpretación del esquema de registro de auditoría de Azure Active Dir
 description: Se describe el esquema de registro de auditoría de Azure AD para su uso en Azure Monitor.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68987956"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretación del esquema de registros de auditoría de Azure AD en Azure Monitor (versión preliminar)
@@ -147,7 +147,7 @@ En este artículo se describe el esquema de registro de auditoría de Azure Acti
 
 ## <a name="field-and-property-descriptions"></a>Descripciones de campos y propiedades
 
-| Nombre del campo | DESCRIPCIÓN |
+| Nombre del campo | Descripción |
 |------------|-------------|
 | time       | Fecha y hora (UTC) |
 | operationName | Nombre de la operación. |
@@ -162,12 +162,12 @@ En este artículo se describe el esquema de registro de auditoría de Azure Acti
 | correlationId | GUID opcional que el cliente pasa. Puede ayudar a poner en correlación las operaciones de cliente con las operaciones de servidor y es útil al realizar el seguimiento de los registros que se distribuyen entre servicios. |
 | identity | Identidad del token que se ha presentado al realizar la solicitud. La identidad puede ser una cuenta de usuario, una cuenta del sistema o una entidad de servicio. |
 | level | Tipo de mensaje. Para los registros de auditoría, el nivel siempre es *Informativo*. |
-| location | Ubicación del centro de datos. |
+| ubicación | Ubicación del centro de datos. |
 | properties | Enumera las propiedades admitidas relacionadas con un registro de auditoría. Para más información, consulte la siguiente tabla. | 
 
 <br>
 
-| Nombre de propiedad | DESCRIPCIÓN |
+| Nombre de propiedad | Descripción |
 |---------------|-------------|
 | AuditEventCategory | Tipo de evento de auditoría. Puede ser *Administración de usuarios*, *Administración de aplicaciones* u otro tipo.|
 | Tipo de identidad | El tipo puede ser *Aplicación* o *Usuario*. |

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
 ms.openlocfilehash: ab3b6e740e644a1ed1495eb776045888be448047
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68596500"
 ---
 # <a name="security-module"></a>Módulo de seguridad
@@ -44,7 +44,7 @@ En un módulo de seguridad gemelo dedicado se conservan las propiedades de segur
 Vea [Creación de un módulo gemelo](quickstart-create-security-twin.md) y [Configurar agentes de seguridad](how-to-agent-configuration.md) para obtener información sobre cómo crear, personalizar y configurar el módulo gemelo. Vea [Descripción de módulos gemelos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para obtener más información sobre el concepto de módulo gemelo en IoT Hub. 
  
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 - [Introducción a Azure Security Center para IoT](overview.md)
 - [Implementación de agentes de seguridad](how-to-deploy-agent.md)
 - [Métodos de autenticación del agente de seguridad](concept-security-agent-authentication-methods.md)

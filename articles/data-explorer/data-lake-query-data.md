@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.openlocfilehash: 8240b1a01aa39e53b9ae41f73543ccf9774290b2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161756"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Consulta de datos en Azure Data Lake con Azure Data Explorer
@@ -29,7 +29,7 @@ Azure Data Explorer se integra con Azure Blob Storage y Azure Data Lake Storage 
  > [!NOTE]
  > Las cuentas de almacenamiento que se admiten actualmente son Azure Blob Storage o Azure Data Lake Storage (Gen1 y Gen2).
 
-1. Use el comando `.create external table` para crear una tabla externa en Azure Data Explorer. En [Comandos de tabla externa](/azure/kusto/management/externaltables) se documentan otros comandos de este tipo, como `.show`, `.drop` y `.alter`.
+1. Use el comando `.create external table` para crear una tabla externa en Azure Data Explorer. En `.show`Comandos de tabla externa`.drop` se documentan otros comandos de este tipo, como `.alter`, [ y ](/azure/kusto/management/externaltables).
 
     ```Kusto
     .create external table ArchivedProducts(

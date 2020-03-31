@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: cherylmc
 ms.openlocfilehash: e386e5fc9c4d62266e0ca23869bf30ccaffeb91d
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201567"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225000"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creación de una conexión de sitio a sitio mediante Azure Portal (clásico)
 
@@ -31,7 +31,7 @@ Se utiliza una conexión de puerta de enlace VPN de sitio a sitio para conectar 
 
 ![Diagrama de la conexión entre locales de VPN Gateway de sitio a sitio](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
-## <a name="before"></a>Antes de empezar
+## <a name="before-you-begin"></a><a name="before"></a>Antes de empezar
 
 Antes de comenzar con la configuración, compruebe que se cumplen los criterios siguientes:
 
@@ -41,7 +41,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 * Si no está familiarizado con los intervalos de direcciones IP ubicados en la red local, necesita trabajar con alguien que pueda proporcionarle estos detalles. Al crear esta configuración, debe especificar los prefijos del intervalo de direcciones IP al que Azure enrutará la ubicación local. Ninguna de las subredes de la red local puede superponerse con las subredes de la red virtual a la que desea conectarse.
 * Se requiere PowerShell para especificar la clave compartida y crear la conexión de puerta de enlace VPN. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-### <a name="values"></a>Valores de configuración de ejemplo para este ejercicio
+### <a name="sample-configuration-values-for-this-exercise"></a><a name="values"></a>Valores de configuración de ejemplo para este ejercicio
 
 Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo.
 
@@ -59,7 +59,7 @@ Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos
 * **Nombre del sitio local:** Site2
 * **Espacio de direcciones de cliente:** el espacio de direcciones que se encuentra en el sitio local.
 
-## <a name="CreatVNet"></a>1. Creación de una red virtual
+## <a name="1-create-a-virtual-network"></a><a name="CreatVNet"></a>1. Creación de una red virtual
 
 Cuando se crea una red virtual que se usará para una conexión S2S, debe asegurarse de que los espacios de direcciones que especifique no se superponen con ninguno de los espacios de direcciones de cliente de los sitios locales a los que desea conectarse. Si tiene subredes superpuestas, la conexión no funcionará correctamente.
 
@@ -81,7 +81,7 @@ Cuando se crea una red virtual que se usará para una conexión S2S, debe asegur
 8. Haga clic en **Crear** para crear la red virtual.
 9. Después de hacer clic en "Crear", aparece un icono en el panel que refleja el progreso de la red virtual. El icono cambiará a medida que se vaya creando la red virtual.
 
-## <a name="additionaladdress"></a>2. Incorporación de un espacio de direcciones adicional
+## <a name="2-add-additional-address-space"></a><a name="additionaladdress"></a>2. Incorporación de un espacio de direcciones adicional
 
 Después de crear la red virtual, puede agregar un espacio de direcciones adicional. La incorporación de un espacio de direcciones adicional no es un paso necesario de la configuración de S2S, pero si necesita varios espacios de direcciones, siga estos pasos:
 
@@ -89,7 +89,7 @@ Después de crear la red virtual, puede agregar un espacio de direcciones adicio
 2. En la página de su red virtual, en la sección **Valores**, haga clic en **Espacio de direcciones**.
 3. En la página Espacio de direcciones, haga clic en **+Agregar** y especifique el espacio de direcciones adicional.
 
-## <a name="dns"></a>3. Especificación de un servidor DNS
+## <a name="3-specify-a-dns-server"></a><a name="dns"></a>3. Especificación de un servidor DNS
 
 La configuración de DNS no es un paso necesario de la configuración de S2S, pero el servidor DNS se necesita para resolver nombres. La especificación de un valor no crea un servidor DNS nuevo. La dirección IP del servidor DNS que especifique debe ser un servidor DNS que pueda resolver los nombres de los recursos a los que se conecta. En los valores de ejemplo, hemos utilizado una dirección IP privada. La dirección IP que usamos probablemente no es la dirección IP del servidor DNS. Asegúrese de utilizar sus propios valores.
 
@@ -100,7 +100,7 @@ Después de crear la red virtual, puede agregar la dirección IP de un servidor 
 3. Agregue un servidor DNS.
 4. Para guardar la configuración, haga clic en **Guardar** en la parte superior de la página.
 
-## <a name="localsite"></a>4. Configuración del sitio local
+## <a name="4-configure-the-local-site"></a><a name="localsite"></a>4. Configuración del sitio local
 
 Normalmente, sitio local suele hacer referencia a la ubicación local. Contiene la dirección IP del dispositivo VPN al que se creará una conexión y los intervalos de direcciones IP que se enrutarán a través de la puerta de enlace VPN en el dispositivo VPN.
 
@@ -116,7 +116,7 @@ Normalmente, sitio local suele hacer referencia a la ubicación local. Contiene 
 
 Haga clic en **Aceptar**para cerrar la página Sitio local. **No haga clic en Aceptar para cerrar la página Nueva conexión VPN**.
 
-## <a name="gatewaysubnet"></a>5. Configuración de la subred de puerta de enlace
+## <a name="5-configure-the-gateway-subnet"></a><a name="gatewaysubnet"></a>5. Configuración de la subred de puerta de enlace
 
 Debe crear una subred de puerta de enlace para la puerta de enlace VPN. La subred de puerta de enlace contiene las direcciones IP que usan los servicios de VPN Gateway.
 
@@ -132,7 +132,7 @@ Debe crear una subred de puerta de enlace para la puerta de enlace VPN. La subre
 
    ![Agregación de una subred de la puerta de enlace](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "Agregación de subred de puerta de enlace")
 
-## <a name="sku"></a>6. Especificación del tipo de VPN y SKU
+## <a name="6-specify-the-sku-and-vpn-type"></a><a name="sku"></a>6. Especificación del tipo de VPN y SKU
 
 1. Seleccione el **tamaño** de la puerta de enlace. Es la SKU de la puerta de enlace que va a usa para crear la puerta de enlace de red virtual. Las puertas de enlace de VPN clásicas utilizan las SKU antiguas (heredadas). Para más información acerca de las SKU antiguas de puerta de enlace, consulte [Funcionamiento de SKU de puerta de enlace de red virtual (SKU antigua)](vpn-gateway-about-skus-legacy.md).
 
@@ -141,7 +141,7 @@ Debe crear una subred de puerta de enlace para la puerta de enlace VPN. La subre
 3. Haga clic en **Aceptar** para guardar la configuración.
 4. En la página **Nueva conexión VPN**, haga clic en **Aceptar** en la parte inferior de la página para empezar a implementar la puerta de enlace de red virtual. Según la SKU que seleccione, puede tardar hasta 45 minutos en crear una puerta de enlace de red virtual.
 
-## <a name="vpndevice"></a>7. Configurar el dispositivo VPN
+## <a name="7-configure-your-vpn-device"></a><a name="vpndevice"></a>7. Configurar el dispositivo VPN
 
 Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. En este paso, se configura el dispositivo VPN. Al configurar el dispositivo VPN, necesita lo siguiente:
 
@@ -150,7 +150,7 @@ Las conexiones de sitio a sitio a una red local requieren un dispositivo VPN. En
 
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="CreateConnection"></a>8. Creación de la conexión
+## <a name="8-create-the-connection"></a><a name="CreateConnection"></a>8. Creación de la conexión
 En este paso, se establece la clave compartida y se crea la conexión. La clave que se establezca debe ser la misma que se usó en la configuración del dispositivo VPN.
 
 > [!NOTE]
@@ -201,17 +201,17 @@ Al crear una red virtual clásica en el portal (no mediante PowerShell), Azure a
    ```
    Cuando se crea la conexión, el resultado es: **Estado: Correcto**.
 
-## <a name="verify"></a>9. Comprobación de la conexión
+## <a name="9-verify-your-connection"></a><a name="verify"></a>9. Comprobación de la conexión
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 Si tiene problemas para conectarse, consulte la sección de **solución de problemas** de la tabla de contenido en el panel izquierdo.
 
-## <a name="reset"></a>Procedimientos para restablecer una puerta de enlace de VPN
+## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>Procedimientos para restablecer una puerta de enlace de VPN
 
 Restablecer una puerta de enlace de VPN de Azure es útil si se pierde la conectividad VPN entre locales en uno o varios túneles VPN de sitio a sitio. En esta situación, todos tus dispositivos VPN locales funcionan correctamente, pero no pueden establecer túneles IPsec con las Puertas de enlace de VPN de Azure. Para conocer los pasos, consulte [Restablecimiento de una puerta de enlace de VPN](vpn-gateway-resetgw-classic.md#resetclassic).
 
-## <a name="changesku"></a>Procedimientos para cambiar la SKU de una puerta de enlace
+## <a name="how-to-change-a-gateway-sku"></a><a name="changesku"></a>Procedimientos para cambiar la SKU de una puerta de enlace
 
 Para que conocer los pasos para cambiar la SKU de puerta de enlace, consulte la sección para [cambio de tamaño de la SKU de una puerta de enlace](vpn-gateway-about-SKUS-legacy.md#classicresize).
 

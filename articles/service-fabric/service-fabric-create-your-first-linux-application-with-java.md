@@ -4,10 +4,10 @@ description: Aprenda a crear e implementar una aplicación Java de Reliable Acto
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458168"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creación de su primera aplicación Java de Reliable Actors de Service Fabric en Linux
@@ -19,7 +19,7 @@ ms.locfileid: "75458168"
 
 Este inicio rápido le ayuda a crear su primera aplicación Java de Azure Service Fabric en un entorno de desarrollo de Linux en tan solo unos minutos.  Cuando haya terminado, tendrá una sencilla aplicación Java con un único servicio en el clúster de desarrollo local.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de comenzar, instale el SDK de Service Fabric, la CLI de Service Fabric y Yeoman; asimismo, configure el entorno de desarrollo de Java y un clúster de desarrollo en su [entorno de desarrollo de Linux](service-fabric-get-started-linux.md). Si usa Mac OS X, puede [configurar un entorno de desarrollo en Mac mediante Docker](service-fabric-get-started-mac.md).
 
 Instale también la [CLI de Service Fabric](service-fabric-cli.md).

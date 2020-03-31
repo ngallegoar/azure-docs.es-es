@@ -4,10 +4,10 @@ description: Este modelo de datos es en referencia al modo específico del recur
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: 267753ee1647739e36d92b64f50d8a8be87537d9
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77583391"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de datos para eventos de diagnóstico de Azure Backup

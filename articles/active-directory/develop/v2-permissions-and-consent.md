@@ -16,13 +16,13 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 64d8481200359b4a4421e3f3c99e4fc5a32ef23f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.custom: aaddev, fasttrack-edit
+ms.openlocfilehash: f4b51641ed6bd7317060b567cf839775be426ac8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159548"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050049"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
 
@@ -37,11 +37,10 @@ La plataforma de identidad de Microsoft implementa el protocolo de autorización
 
 * Microsoft Graph: `https://graph.microsoft.com`
 * Office 365 Mail API: `https://outlook.office.com`
-* Azure AD Graph: `https://graph.windows.net`
 * `https://vault.azure.net`Azure Key Vault:
 
 > [!NOTE]
-> Se recomienda encarecidamente que utilice Microsoft Graph en lugar de Azure AD Graph, Office 365 Mail API, etc.
+> Se recomienda encarecidamente que utilice Microsoft Graph en lugar de Office 365 Mail API, etc.
 
 Ocurre lo mismo con cualquier recurso de terceros integrado en la plataforma de identidad de Microsoft. Cualquiera de estos recursos también puede definir un conjunto de permisos que se puede usar para dividir la funcionalidad de ese recurso en fragmentos menores. Por ejemplo, [Microsoft Graph](https://graph.microsoft.com) tiene permisos definidos para realizar, entre otras, las tareas siguientes:
 
@@ -123,7 +122,7 @@ El parámetro `scope` es una lista separada por espacios que incluye los permiso
 Después de que el usuario escriba sus credenciales, el punto de conexión de la Plataforma de identidad de Microsoft buscará un registro que coincida con el *consentimiento del usuario*. Si el usuario no dio su consentimiento a ninguno de los permisos solicitados en el pasado, y si ningún administrador dio su consentimiento a estos permisos en nombre de toda la organización, el punto de conexión de la Plataforma de identidad de Microsoft solicita al usuario que conceda los permisos solicitados.
 
 > [!NOTE]
-> En este momento, los permisos `offline_access` ("Mantener el acceso a los datos a los que le ha dado acceso") y `user.read` ("Iniciar sesión y leer su perfil") se incluyen automáticamente en el consentimiento inicial para una aplicación.  Estos permisos suelen ser necesarios para que la aplicación funcione correctamente: `offline_access` da acceso a la aplicación a los tokens de actualización, críticos para aplicaciones nativas y web, mientras que `user.read` da acceso a la notificación `sub`, lo que permite al cliente o a la aplicación identificar correctamente al usuario con el tiempo y acceder a información de usuario rudimentaria.  
+>En este momento, los permisos `offline_access` ("Mantener el acceso a los datos a los que le ha dado acceso") y `user.read` ("Iniciar sesión y leer su perfil") se incluyen automáticamente en el consentimiento inicial para una aplicación.  Estos permisos suelen ser necesarios para que la aplicación funcione correctamente: `offline_access` da acceso a la aplicación a los tokens de actualización, críticos para aplicaciones nativas y web, mientras que `user.read` da acceso a la notificación `sub`, lo que permite al cliente o a la aplicación identificar correctamente al usuario con el tiempo y acceder a información de usuario rudimentaria.  
 
 ![Captura de pantalla de ejemplo que muestra el consentimiento de la cuenta de trabajo](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -166,16 +165,16 @@ Para ver un ejemplo de código que implementa lo pasos, consulte el [ejemplo de 
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitud de los permisos en el portal de registro de aplicaciones
 
-Las aplicaciones pueden reconocer qué permisos necesitan (delegados y de aplicación) en el portal de registro de aplicaciones.  Esto permite el uso del ámbito `/.default` y la opción "Concesión de consentimiento del administrador" de Azure Portal.  En general, es aconsejable asegurarse de que los permisos definidos estáticamente para una aplicación determinada son un superconjunto de los que se van a solicitar dinámica o incrementalmente.
+Las aplicaciones pueden reconocer qué permisos necesitan (delegados y de aplicación) en el portal de registro de aplicaciones.  Esto permite el uso del ámbito `/.default` y la opción "Conceder consentimiento de administrador" de Azure Portal.  En general, es aconsejable asegurarse de que los permisos definidos estáticamente para una aplicación determinada son un superconjunto de los que se van a solicitar dinámica o incrementalmente.
 
 > [!NOTE]
-Los permisos de aplicación solo se pueden solicitar mediante el uso de [`/.default`](#the-default-scope), por lo que, si la aplicación necesita permisos de aplicación, asegúrese de que se muestran en el portal de registro de aplicaciones.  
+>Los permisos de aplicación solo se pueden solicitar mediante el uso de [`/.default`](#the-default-scope), por lo que, si la aplicación necesita permisos de aplicación, asegúrese de que se muestran en el portal de registro de aplicaciones.
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Para configurar la lista de permisos solicitados estáticamente para una aplicación
 
 1. Vaya a la aplicación en la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) o [cree una aplicación](quickstart-register-app.md), si todavía no tiene.
 2. Busque la sección **Permisos de API** y, en los permisos de API, haga clic en Agregar un permiso.
-3. Seleccione su recurso preferido (por ejemplo, **Microsoft Graph**) en la lista de API disponibles y, a continuación, agregue los permisos que la aplicación necesite.
+3. Seleccione **Microsoft Graph** en la lista de API disponibles y, luego, agregue los permisos que necesita la aplicación.
 3. **Guarde** el registro de aplicaciones.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Se recomienda: Iniciar la sesión del usuario en la aplicación
@@ -200,13 +199,13 @@ Cuando esté listo para solicitar permisos al administrador de la organización,
 ```
 
 
-| Parámetro     | Condición     | Descripción                                                                               |
+| Parámetro        | Condición        | Descripción                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | Obligatorio | El inquilino de directorio al que quiere solicitar permiso. Puede proporcionarse en formato de GUID o de nombre descriptivo, O BIEN se puede hacer referencia genéricamente con organizaciones, como se muestra en el ejemplo. No use "común", ya que las cuentas personales no pueden proporcionar consentimiento del administrador salvo en el contexto de un inquilino. Para garantizar una mejor compatibilidad con las cuentas personales que administran los inquilinos, use el identificador de inquilino cuando sea posible. |
 | `client_id` | Obligatorio | El **identificador de aplicación (cliente)** que la experiencia [Azure Portal: Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) asignó a la aplicación. |
 | `redirect_uri` | Obligatorio |El URI de redireccionamiento adonde desea que se envíe la respuesta para que la controle la aplicación. Debe coincidir exactamente con uno de los identificadores URI de redirección que registró el Portal de registro de aplicaciones. |
 | `state` | Recomendado | Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Use el estado para codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
-|`scope`        | Obligatorio      | Define el conjunto de permisos que la aplicación solicita. Puede ser estático (mediante [`/.default`](#the-default-scope)) o ámbitos dinámicos.  Puede incluir ámbitos de OIDC (`openid`, `profile`, `email`). Si necesita permisos de aplicación, debe usar `/.default` para solicitar la lista de permisos configurada de forma estática.  | 
+|`scope`        | Obligatorio        | Define el conjunto de permisos que la aplicación solicita. Puede ser estático (mediante [`/.default`](#the-default-scope)) o ámbitos dinámicos.  Puede incluir ámbitos de OIDC (`openid`, `profile`, `email`). Si necesita permisos de aplicación, debe usar `/.default` para solicitar la lista de permisos configurada de forma estática.  | 
 
 
 En este momento, Azure AD requiere que un administrador de inquilinos inicie sesión para completar la solicitud. Se solicita al administrador que apruebe todos los permisos solicitados en el parámetro `scope`.  Si ha usado un valor estático (`/.default`), funcionará como el punto de conexión de consentimiento del administración de la versión v1.0 y el consentimiento de solicitud para todos los ámbitos que se encuentran en los permisos necesarios para la aplicación.
@@ -265,7 +264,7 @@ Para más información sobre el protocolo OAuth 2.0 y cómo obtener tokens de a
 
 ## <a name="the-default-scope"></a>Ámbito /.default
 
-Puede usar el ámbito `/.default` para ayudar a migrar las aplicaciones del punto de conexión v1.0 al punto de conexión de la Plataforma de identidad de Microsoft. Se trata de un ámbito integrado para todas las aplicaciones, que hace referencia a la lista estática de permisos configurados en el registro de aplicación. Un valor `scope` de `https://graph.microsoft.com/.default` tiene exactamente la misma funcionalidad que los puntos de conexión v1.0 `resource=https://graph.microsoft.com`; es decir, solicita un token con los ámbitos en Microsoft Graph que la aplicación ha registrado en Azure Portal.  Se construye mediante el URI del recurso más `/.default` (por ejemplo, si el URI del recurso es `https://contosoApp.com`, el ámbito solicitado sería `https://contosoApp.com/.default`).  Consulte la sección [sobre barras diagonales finales](#trailing-slash-and-default) en los casos en los que debe incluir una segunda barra diagonal para solicitar correctamente el token.  
+Puede usar el ámbito `/.default` para ayudar a migrar las aplicaciones del punto de conexión v1.0 al punto de conexión de la Plataforma de identidad de Microsoft. Se trata de un ámbito integrado para todas las aplicaciones, que hace referencia a la lista estática de permisos configurados en el registro de aplicación. Un valor `scope` de `https://graph.microsoft.com/.default` tiene exactamente la misma funcionalidad que los puntos de conexión v1.0 `resource=https://graph.microsoft.com`; es decir, solicita un token con los ámbitos en Microsoft Graph que la aplicación ha registrado en Azure Portal.  Se construye mediante el URI del recurso más `/.default` (por ejemplo, si el URI del recurso es `https://contosoApp.com`, el ámbito solicitado sería `https://contosoApp.com/.default`).  Consulte la sección [sobre barras diagonales finales](#trailing-slash-and-default) en los casos en los que debe incluir una segunda barra diagonal para solicitar correctamente el token.
 
 El ámbito /.default se puede usar en cualquier flujo de OAuth 2.0, pero es necesario en el [flujo "en nombre de"](v2-oauth2-on-behalf-of-flow.md) y en el [flujo de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md), así como cuando se usa el punto de conexión de consentimiento de administración V2 para solicitar los permisos de aplicación.  
 
@@ -286,7 +285,7 @@ En este ejemplo, el usuario (o un administrador de inquilinos) ha concedido al c
 
 #### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Ejemplo 2: El usuario no ha concedido permisos entre el cliente y el recurso
 
-En este ejemplo, no existe ningún consentimiento para el usuario entre el cliente y Microsoft Graph. El cliente se ha registrado en los permisos `user.read` y `contacts.read`, así como en el ámbito `https://vault.azure.net/user_impersonation`. de Azure Key Vault. Cuando el cliente solicita un token para `scope=https://graph.microsoft.com/.default`, el usuario verá una pantalla de consentimiento para `user.read`, `contacts.read` y los ámbitos `user_impersonation` de Key Vault. El token devuelto tendrá solo los ámbitos `user.read` y `contacts.read`, y solo podrá usarse con Microsoft Graph. 
+En este ejemplo, no existe ningún consentimiento para el usuario entre el cliente y Microsoft Graph. El cliente se ha registrado en los permisos `user.read` y `contacts.read`, así como en el ámbito `https://vault.azure.net/user_impersonation`. de Azure Key Vault. Cuando el cliente solicita un token para `scope=https://graph.microsoft.com/.default`, el usuario verá una pantalla de consentimiento para `user.read`, `contacts.read` y los ámbitos `user_impersonation` de Key Vault. El token devuelto tendrá solo los ámbitos `user.read` y `contacts.read`, y solo podrá usarse con Microsoft Graph.
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Ejemplo 3: El usuario ha dado su consentimiento y el cliente solicita ámbitos adicionales
 
@@ -313,7 +312,7 @@ Se abre una pantalla de consentimiento para todos los permisos registrados (si e
 
 Algunos URI de recursos tienen una barra diagonal final (`https://contoso.com/` en lugar de `https://contoso.com`), lo que puede causar problemas con la validación de tokens.  Esto puede ocurrir principalmente cuando se solicita un token para la administración de recursos de Azure (`https://management.azure.com/`), que tiene una barra diagonal final en el URI de recurso y requiere que esté presente cuando se solicita el token.  Por lo tanto, al solicitar un token para `https://management.azure.com/` y usar `/.default`, debe solicitar `https://management.azure.com//.default` (tenga en cuenta la doble barra diagonal). 
 
-En general, si ha validado que se está emitiendo el token y la API que debe aceptarlo lo está rechazando, considere la posibilidad de agregar una segunda barra diagonal y vuelva a intentarlo. Esto se debe a que el servidor de inicio de sesión emite un token cuyo público coincide con los URI del parámetro `scope`, sin `/.default` al final.  Si esto quita la barra diagonal final, el servidor de inicio de sesión sigue procesando la solicitud y la valida con el URI del recurso, aunque ya no coincidan. Este no es el comportamiento estándar y la aplicación no debe utilizarlo. 
+En general, si ha validado que se está emitiendo el token y la API que debe aceptarlo lo está rechazando, considere la posibilidad de agregar una segunda barra diagonal y vuelva a intentarlo. Esto se debe a que el servidor de inicio de sesión emite un token cuyo público coincide con los URI del parámetro `scope`, sin `/.default` al final.  Si esto quita la barra diagonal final, el servidor de inicio de sesión sigue procesando la solicitud y la valida con el URI del recurso, aunque ya no coincidan. Este no es el comportamiento estándar y la aplicación no debe utilizarlo.  
 
 ## <a name="troubleshooting-permissions-and-consent"></a>Solución de problemas con permisos y consentimientos
 

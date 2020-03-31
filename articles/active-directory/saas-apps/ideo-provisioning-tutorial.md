@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.author: Zhchia
 ms.openlocfilehash: f5f163109d648a4fc021b41325c6d585a5a7a3e7
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057594"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Tutorial: Configuración de IDEO para el aprovisionamiento automático de usuarios

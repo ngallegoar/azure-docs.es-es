@@ -1,8 +1,8 @@
 ---
 title: 'Incorporación de invitados B2B sin un enlace o correo electrónico de invitación: Azure AD'
 description: Puede permitir que un usuario invitado agregue otros usuarios invitados a Azure AD sin canjear una invitación en Colaboración de Azure Active Directory B2B.
-services: active-directory
 documentationcenter: ''
+services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9efbb941e589cb8e4cf56ee06a697a1557a3cc89
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 42c9caaf581fab37e2e55cbe408db6d6d846622a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74268941"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050903"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Incorporación de usuarios invitados de colaboración B2B sin enlace ni correo electrónico de invitación
 

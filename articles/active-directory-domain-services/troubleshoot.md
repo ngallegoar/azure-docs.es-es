@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: c4b2dea05b459d6e9ae4eb086fa127d88a84a768
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e17112cbe2a494a585cd5a09c36cfe449d3d433c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249202"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79365822"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Errores comunes y pasos de solución de problemas para Azure Active Directory Domain Services
 
@@ -30,7 +30,7 @@ Si tiene problemas para habilitar Azure AD DS, revise los siguientes errores c
 
 | **Ejemplo de mensaje de error** | **Resolución** |
 | --- |:--- |
-| *El nombre addscontoso.com ya se está usando en esta red. Especifique un nombre que no esté en uso.* |[Conflicto de nombres de dominio en la red virtual](troubleshoot.md#domain-name-conflict) |
+| *El nombre aaddscontoso.com ya se está usando en esta red. Especifique un nombre que no esté en uso.* |[Conflicto de nombres de dominio en la red virtual](troubleshoot.md#domain-name-conflict) |
 | *No se pudo habilitar Domain Services en este inquilino de Azure AD. El servicio no tiene los permisos adecuados para la aplicación llamada 'Azure AD Domain Services Sync'. Elimine la aplicación llamada "Azure AD Domain Services Sync" e intente habilitar Domain Services para el inquilino de Azure AD.)* |[Domain Services carece de permisos suficientes para la aplicación Azure AD Domain Services Sync](troubleshoot.md#inadequate-permissions) |
 | *No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación de Domain Services en el inquilino de Azure AD carece de los permisos necesarios para habilitar Domain Services. Elimine la aplicación con el identificador d87dcbc6-a371-462e-88e3-28ad15ec4e64 e intente habilitar Domain Services para el inquilino de Azure AD.* |[La aplicación de Domain Services no está configurada correctamente en el inquilino de Azure AD](troubleshoot.md#invalid-configuration) |
 | *No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación Microsoft Azure AD está deshabilitada en el inquilino de Azure AD. Habilite la aplicación con el identificador 00000002-0000-0000-c000-000000000000 e intente habilitar Domain Services para el inquilino de Azure AD.* |[La aplicación Microsoft Graph está deshabilitada en el inquilino de Azure AD](troubleshoot.md#microsoft-graph-disabled) |

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109370"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definición de una estrategia de protección de datos para soluciones de identidad híbrida
@@ -80,7 +80,7 @@ Una parte fundamental de la administración de contenido es saber quién tiene a
 >
 >
 
-| Opciones de administración de contenido | Ventajas | Desventajas |
+| Opciones de administración de contenido | Ventajas | Inconvenientes |
 | --- | --- | --- |
 | Centralizada localmente (servidor de Active Directory Rights Management) |Control total sobre la infraestructura de servidor responsable de clasificar los datos <br> Funcionalidad integrada de Windows Server, sin necesidad de suscripción o de licencia adicional <br> Se puede integrar con Azure AD en un escenario híbrido. <br> Admite funcionalidades de Information Rights Management (IRM) en Microsoft Online Services como Exchange Online y SharePoint Online, así como Office 365. <br> Admite productos de servidor de Microsoft locales, como Exchange Server , SharePoint Server y servidores de archivo que ejecutan Windows Server e infraestructura de clasificación de archivos (FCI). |Mayor mantenimiento (para estar al día de las actualizaciones, la configuración y las actualizaciones potenciales), ya que el departamento de TI posee el servidor. <br> Requiere una infraestructura de servidor local.<br> No saca provecho de las funcionalidades de Azure de forma nativa. |
 | Centralizada en la nube (Azure RMS) |Más fácil de administrar, en comparación con la solución local <br> Se puede integrar con AD DS en un escenario híbrido. <br>  Completamente integrado con Azure AD. <br> No requiere un servidor local para implementar el servicio <br> Admite productos de servidor de Microsoft locales, como Exchange Server, SharePoint Server y servidores de archivo que ejecuten Windows Server y la infraestructura de clasificación de archivos (FCI). <br> El departamento de TI puede tener control completo sobre la clave de inquilino con funcionalidad de BYOK. |Su organización debe tener una suscripción de nube que admita RMS <br> Su organización debe tener un directorio de Azure AD para admitir la autenticación de usuario de RMS |
@@ -171,5 +171,5 @@ Dado que las opciones para la respuesta ante incidentes usan un enfoque multicap
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de las tareas de administración de identidades híbridas](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)

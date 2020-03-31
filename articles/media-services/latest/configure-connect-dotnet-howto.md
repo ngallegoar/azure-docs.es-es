@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
 ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899888"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232804"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conexión a la API de Media Services v3: .NET
 
 En este artículo se muestra cómo conectar con el SDK de .NET de Azure Media Services v3 con el método de inicio de sesión de la entidad de servicio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services.
 - Instale una herramienta que quiera usar para el desarrollo con .NET. Los pasos descritos en este artículo muestran cómo usar [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Puede usar Visual Studio Code, consulte [Working with C# ](https://code.visualstudio.com/docs/languages/csharp) (Trabajar con C#). O bien, puede usar otro editor de código.
@@ -45,7 +45,7 @@ La aplicación de ejemplo de este tema tiene `netcoreapp2.0` como destino. El c�
 1. En Visual Studio, seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**.
 2. En la ventana **Consola del Administrador de paquetes**, use el comando `Install-Package` para agregar los siguientes paquetes NuGet. Por ejemplo, `Install-Package Microsoft.Azure.Management.Media`.
 
-|Paquete|DESCRIPCIÓN|
+|Paquete|Descripción|
 |---|---|
 |`Microsoft.Azure.Management.Media`|SDK de Azure Media Services. <br/>Para asegurarse de que usa el paquete más reciente de Azure Media Services, consulte [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media).|
 |`Microsoft.Rest.ClientRuntime.Azure.Authentication`|Biblioteca con autenticación ADAL para el SDK de Azure SDK para .NET|

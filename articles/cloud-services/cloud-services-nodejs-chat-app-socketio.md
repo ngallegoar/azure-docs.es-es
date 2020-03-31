@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 0b515c630d8a3539cdab1df64b1925e9fcaf206e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360776"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Creación de una aplicación de chat Node.js con Socket.IO en un servicio de Azure Cloud Services
@@ -104,7 +104,7 @@ Después de guardar los cambios en **server.js**, use los siguientes pasos para 
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > Si tiene problemas al iniciar el emulador, como: Start-AzureEmulator : Error inesperado.  Detalles: Se produjo un error inesperado. No se puede usar el objeto de comunicación System.ServiceModel.Channels.ServiceChannel para la comunicación porque su estado es Error.
+   > Si tiene algún problema con el emulador de inicio, por ejemplo; Start-AzureEmulator : Error inesperado.  Detalles: Error inesperado. No se puede usar el objeto de comunicación, System.ServiceModel.Channels.ServiceChannel, para la comunicación porque está en el estado Faulted.
    > 
    > Vuelva a instalar AzureAuthoringTools versión 2.7.1 y AzureComputeEmulator versión 2.7. Asegúrese de que la versión coincida.
 

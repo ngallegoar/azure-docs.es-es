@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: rambala
 ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076699"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Diseño para la recuperación ante desastres con el emparejamiento privado de ExpressRoute
@@ -104,7 +104,7 @@ Usaremos el ejemplo ilustrado en el siguiente diagrama. En el ejemplo, Contoso t
 
 La forma en que diseñemos la recuperación ante desastres afectará a la forma en que se enruta el tráfico de una región a otra (región1/región2 a ubicación2/ubicación1). Debemos tener en cuenta dos arquitecturas diferentes de desastres que enruten el tráfico de ubicación de región de manera diferente.
 
-### <a name="scenario-1"></a>Escenario 1.
+### <a name="scenario-1"></a>Escenario 1
 
 En el primer escenario, diseñaremos la recuperación ante desastres de manera que todo el tráfico entre una región de Azure y la red local fluya a través del circuito de ExpressRoute local que tiene un estado estable. Si el circuito local de ExpressRoute produce un error, entonces el circuito remoto de ExpressRoute se usará para todos los flujos de tráfico entre Azure y la red local.
 
@@ -116,7 +116,7 @@ Puede diseñar el escenario usando el peso de la conexión para influir en las r
 
 [![8]][8]
 
-### <a name="scenario-2"></a>Escenario 2.
+### <a name="scenario-2"></a>Escenario 2
 
 El escenario 2 se ilustra en el diagrama siguiente. En el diagrama, las líneas verdes indican las rutas de acceso del flujo de tráfico entre VNet1 y las redes locales. Las líneas azules indican las rutas de acceso del flujo de tráfico entre VNet2 y las redes locales. En el estado estable (líneas continuas en el diagrama), todo el tráfico entre redes virtuales y ubicaciones locales fluye a través de la red troncal de Microsoft en su mayor parte; además, también fluye a través de la interconexión entre ubicaciones locales solo en el estado de error (líneas punteadas en el diagrama) de una ruta de ExpressRoute.
 

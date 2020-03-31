@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e350d6338b6ca589ab18d068ef6a314363fe205c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74272824"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Ejemplo: Federación directa con Servicios de federación de Active Directory (AD FS) (versión preliminar)
@@ -35,7 +35,7 @@ Azure AD B2B se puede configurar para federarse con proveedores de identidades 
 
 Para establecer una federación directa, se deben recibir los siguientes atributos en la respuesta de SAML 2.0 del proveedor de identidades. Estos atributos se pueden configurar mediante la vinculación con el archivo XML del servicio de token de seguridad en línea o la introducción manual. En el paso 12 de [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) (Creación de una instancia de AD FS de prueba) se describe cómo buscar los puntos de conexión de AD FS o generar la dirección URL de metadatos, por ejemplo `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`. 
 
-|Atributo  |Valor  |
+|Atributo  |Value  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Público     |`urn:federation:MicrosoftOnline`         |
@@ -44,7 +44,7 @@ Para establecer una federación directa, se deben recibir los siguientes atribut
 Las siguientes notificaciones deben configurarse en el token SAML 2.0 emitido por el proveedor de identidades:
 
 
-|Atributo  |Valor  |
+|Atributo  |Value  |
 |---------|---------|
 |Formato de NameID     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -108,7 +108,7 @@ Azure AD B2B puede configurarse para federar con proveedores de identidades que
 
 Para configurar una federación directa, se deben recibir los siguientes atributos en el mensaje de WS-Fed del proveedor de identidades. Estos atributos se pueden configurar mediante la vinculación con el archivo XML del servicio de token de seguridad en línea o la introducción manual. En el paso 12 de [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) (Creación de una instancia de AD FS de prueba) se describe cómo buscar los puntos de conexión de AD FS o generar la dirección URL de metadatos, por ejemplo `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
  
-|Atributo  |Valor  |
+|Atributo  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Público     |`urn:federation:MicrosoftOnline`         |
@@ -116,7 +116,7 @@ Para configurar una federación directa, se deben recibir los siguientes atribut
 
 Las notificaciones necesarias para el token de WS-Fed emitido por el proveedor de identidades:
 
-|Atributo  |Valor  |
+|Atributo  |Value  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |

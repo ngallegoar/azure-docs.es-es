@@ -2,17 +2,18 @@
 title: Habilitación de Azure Disk Encryption para VM Linux
 description: En este artículo se proporcionan instrucciones sobre cómo habilitar Microsoft Azure Disk Encryption para VM Linux.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96ac1becfed74141b3b1544646f5d82bd0985045
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ff1b37c3053ffa91dcb432cd97a7dd6fd71dad1c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988427"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226840"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VM Linux 
 
@@ -80,7 +81,7 @@ Las distribuciones de servidores Linux que no están aprobadas por Azure no admi
 > [!NOTE]
 > La nueva implementación de Azure Disk Encryption se admite para el sistema operativo RHEL y el disco de datos para las imágenes de Pago por uso de RHEL7.  
 >
-> ADE también es compatible con las imágenes Gold de tipo Traiga su propia suscripción de RHEL, pero solo **después** de registrar la suscripción. Para más información, consulte [Imágenes Gold de tipo Traiga su propia suscripción (BYOS) de Red Hat Enterprise Linux en Azure](../workloads/redhat/byos.md##encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images).
+> ADE también es compatible con las imágenes Gold de tipo Traiga su propia suscripción de RHEL, pero solo **después** de registrar la suscripción. Para más información, consulte [Imágenes Gold de tipo Traiga su propia suscripción (BYOS) de Red Hat Enterprise Linux en Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images).
 
 ## <a name="additional-vm-requirements"></a>Requisitos adicionales de VM
 

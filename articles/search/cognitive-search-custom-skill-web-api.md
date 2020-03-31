@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 29928d78c2cfc2f21def363341f8383c4efa89d2
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74484118"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Aptitud API web personalizada en una canalización de enriquecimiento de Azure Cognitive Search
@@ -34,7 +34,7 @@ Microsoft.Skills.Custom.WebApiSkill
 
 Los parámetros distinguen mayúsculas de minúsculas.
 
-| Nombre de parámetro     | DESCRIPCIÓN |
+| Nombre de parámetro     | Descripción |
 |--------------------|-------------|
 | uri | URI de la API web adonde se enviará la carga de _JSON_. Solo se permite el esquema de URI **https** |
 | httpMethod | Método que se usará al enviar la carga. Los métodos permitidos son `PUT` o `POST` |
@@ -201,7 +201,7 @@ Además de una API web no disponible o del envío de códigos de estado no corre
 
 En los casos en que la API web no está disponible o devuelve un error HTTP, se agregará un error descriptivo con todos los detalles disponibles sobre el error HTTP al historial de ejecución del indizador.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Incorporación de una aptitud personalizada a una canalización de enriquecimiento con IA](cognitive-search-custom-skill-interface.md)

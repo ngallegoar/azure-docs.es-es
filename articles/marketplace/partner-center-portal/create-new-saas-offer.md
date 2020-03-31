@@ -1,19 +1,18 @@
 ---
 title: Creación de una oferta de SaaS en Marketplace comercial
 description: Cómo crear una oferta de software como servicio (SaaS) para mostrarla o venderla en Azure Marketplace, AppSource, o bien a través del programa Proveedor de soluciones en la nube (CSP) mediante el portal de Marketplace comercial de Microsoft Partner Center.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: 9d06b34b459bf1d48aa293a889af57fb6192015d
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 3f2201db4b78ba61ba15608a676a8b9f8f5e612a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78208872"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286207"
 ---
 # <a name="create-a-new-saas-offer"></a>Creación de una oferta de SaaS
 

@@ -9,10 +9,10 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161943"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperación ante desastres regional para clústeres de Azure Databricks
@@ -31,7 +31,7 @@ Una de las ventajas de esta arquitectura es que los usuarios pueden conectar Azu
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Cómo crear una topología de recuperación ante desastres regionales
 
-Como se observa en la descripción de la arquitectura anterior, hay varios componentes que se utilizan para una canalización de macrodatos con Azure Databricks:  Azure Storage, Azure Database y otros orígenes de datos. Azure Databricks es el *proceso* para la canalización de macrodatos. Es *efímero* por naturaleza, lo que significa que mientras los datos siguen estando disponibles en Azure Storage, el *proceso* (clúster de Azure Databricks) se puede finalizar para que no tenga que pagar por proceso cuando no lo necesita. El *proceso* (Azure Databricks) y los orígenes de almacenamiento tienen que estar en la misma región para que los trabajos no sufran una latencia elevada.  
+Como se observa en la descripción de la arquitectura anterior, hay una serie de componentes utilizados para una canalización de macrodatos con Azure Databricks: Azure Storage, Azure Database y otros orígenes de datos. Azure Databricks es el *proceso* para la canalización de macrodatos. Es *efímero* por naturaleza, lo que significa que mientras los datos siguen estando disponibles en Azure Storage, el *proceso* (clúster de Azure Databricks) se puede finalizar para que no tenga que pagar por proceso cuando no lo necesita. El *proceso* (Azure Databricks) y los orígenes de almacenamiento tienen que estar en la misma región para que los trabajos no sufran una latencia elevada.  
 
 Para crear su propia topología de recuperación ante desastres regional, siga estos requisitos:
 

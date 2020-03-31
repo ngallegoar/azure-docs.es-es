@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919076"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230144"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronización de Azure AD Connect: cambio en la configuración predeterminada
 El objetivo de este artículo es guiarle para realizar cambios en la configuración predeterminada de la sincronización de Azure Active Directory (Azure AD) Connect. Proporciona las instrucciones para algunos escenarios comunes. Con este conocimiento, podrá realizar cambios sencillos en su propia configuración en función de sus propias reglas de negocio.
@@ -56,7 +56,7 @@ De forma predeterminada, el [programador](how-to-connect-sync-feature-scheduler.
 1. Haga clic en **Agregar nueva regla**.
 2. En la página **Descripción**, escriba lo siguiente:  
    ![Regla de filtrado de entrada](./media/how-to-connect-sync-change-the-configuration/description2.png)  
-   * **Nombre**: Asigne un nombre descriptivo a la regla.
+   * **Name**: Asigne un nombre descriptivo a la regla.
    * **Descripción**: Escriba alguna aclaración para que cualquier otro usuario entienda para qué sirve la regla.
    * **Sistema conectado**: El sistema donde se puede encontrar el objeto. En este caso, seleccione el **Conector Active Directory**.
    * **Connected System/Metaverse Object Type** (Tipo de objeto de sistema conectado/metaverso): Seleccione **Usuario** y **Persona**, respectivamente.
@@ -262,10 +262,10 @@ La regla de sincronización de entrada permite enviar el valor del atributo desd
 3. Haga clic en el botón **Agregar nueva regla** para crear una nueva regla de entrada.
 4. En la pestaña **Descripción**, proporcione la configuración siguiente:
 
-    | Atributo | Valor | Detalles |
+    | Atributo | Value | Detalles |
     | --- | --- | --- |
-    | NOMBRE | *Proporcione un nombre*. | Por ejemplo, *In from AD – User UserType* |
-    | DESCRIPCIÓN | *Proporcione una descripción* |  |
+    | Nombre | *Proporcione un nombre*. | Por ejemplo, *In from AD – User UserType* |
+    | Descripción | *Proporcione una descripción* |  |
     | Sistema conectado | *Elija Conector AD local* |  |
     | Tipo de objeto de sistema conectado | **User** |  |
     | Propiedades de objeto de metaverso | **Person** |  |
@@ -274,7 +274,7 @@ La regla de sincronización de entrada permite enviar el valor del atributo desd
 
 5. Vaya a la pestaña **Filtro de ámbito** y agregue un **solo grupo de filtro de ámbito** con la siguiente cláusula:
 
-    | Atributo | Operador | Valor |
+    | Atributo | Operator | Value |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Usuario\_ |
 
@@ -282,13 +282,13 @@ La regla de sincronización de entrada permite enviar el valor del atributo desd
 
 6. Vaya a la pestaña **Transformación** e implemente la regla de transformación que quiera. Por ejemplo, si ha designado un atributo de AD local sin usar (por ejemplo, extensionAttribute1) como atributo de origen para UserType, puede implementar un flujo de atributos directo:
 
-    | Tipo de flujo | Atributo de destino | Origen | Aplicar una vez | Tipo de combinación |
+    | Tipo de flujo | Atributo de destino | Source | Aplicar una vez | Tipo de combinación |
     | --- | --- | --- | --- | --- |
     | Directo | UserType | extensionAttribute1 | No activado | Actualizar |
 
     En otro ejemplo, puede que desee obtener el valor del atributo UserType de otras propiedades. Por ejemplo, desea sincronizar todos los usuarios como Invitado si su atributo UserPrincipalName de AD local termina con la parte del dominio de <em>@partners.fabrikam123.org</em>. Puede implementar una expresión como esta:
 
-    | Tipo de flujo | Atributo de destino | Origen | Aplicar una vez | Tipo de combinación |
+    | Tipo de flujo | Atributo de destino | Source | Aplicar una vez | Tipo de combinación |
     | --- | --- | --- | --- | --- |
     | Expression | UserType | IIF(IsPresent([userPrincipalName]),IIF(CBool(InStr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0),"Member","Guest"),Error("UserPrincipalName is not present to determine UserType")) | No activado | Actualizar |
 
@@ -304,10 +304,10 @@ La regla de sincronización de salida permite enviar el valor del atributo desde
 3. Haga clic en el botón **Agregar nueva regla**.
 4. En la pestaña **Descripción**, proporcione la configuración siguiente:
 
-    | Atributo | Valor | Detalles |
+    | Atributo | Value | Detalles |
     | ----- | ------ | --- |
-    | NOMBRE | *Proporcione un nombre*. | Por ejemplo, *Out to AAD – User UserType* |
-    | DESCRIPCIÓN | *Proporcione una descripción* ||
+    | Nombre | *Proporcione un nombre*. | Por ejemplo, *Out to AAD – User UserType* |
+    | Descripción | *Proporcione una descripción* ||
     | Sistema conectado | *Seleccione el conector AAD* ||
     | Tipo de objeto de sistema conectado | **User** ||
     | Propiedades de objeto de metaverso | **Person** ||
@@ -316,7 +316,7 @@ La regla de sincronización de salida permite enviar el valor del atributo desde
 
 5. Vaya a la pestaña **Filtro de ámbito** y agregue un **solo grupo de filtro de ámbito** con dos cláusulas:
 
-    | Atributo | Operador | Valor |
+    | Atributo | Operator | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Usuario |
     | cloudMastered | NOTEQUAL | True |
@@ -325,7 +325,7 @@ La regla de sincronización de salida permite enviar el valor del atributo desde
 
 6. Vaya a la pestaña **Transformación** e implemente la siguiente regla de transformación:
 
-    | Tipo de flujo | Atributo de destino | Origen | Aplicar una vez | Tipo de combinación |
+    | Tipo de flujo | Atributo de destino | Source | Aplicar una vez | Tipo de combinación |
     | --- | --- | --- | --- | --- |
     | Directo | UserType | UserType | No activado | Actualizar |
 

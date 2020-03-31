@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
 ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901506"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227048"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Introducción a los codificadores multimedia a petición de Azure 
 
@@ -36,7 +36,7 @@ Cuando se crea la cuenta de Media Services, se agrega un punto de conexión de s
 
 Media Services admite los siguientes codificadores a petición que se describen en este artículo:
 
-* [Media Encoder Estándar](media-services-encode-asset.md#media-encoder-standard)
+* [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 * [Flujo de trabajo del Codificador multimedia](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 En este artículo se ofrece una breve introducción a los codificadores multimedia a petición y se proporcionan vínculos a artículos con información más detallada. También se proporciona una comparación de los codificadores.

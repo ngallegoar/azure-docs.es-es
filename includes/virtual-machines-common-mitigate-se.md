@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73935878"
 ---
 **Última actualización del documento**: 12 de noviembre 2019 10:00 h PST.
@@ -72,7 +72,7 @@ Puede habilitar características de seguridad adicionales en la máquina virtual
 El sistema operativo de destino debe estar actualizado para habilitar estas características de seguridad adicionales. Aunque hay habilitadas numerosas mitigaciones del canal lateral de ejecución especulativa de forma predeterminada, las características adicionales que se describen aquí deben habilitarse manualmente y pueden afectar al rendimiento. 
 
 
-**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a un tamaño de máquina virtual que no sea hyper-threading. Remítase a [este documento](https://docs.microsoft.com/azure/virtual-machines/windows/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si la máquina virtual tiene habilitada la característica de hyper-threading, consulte el siguiente script mediante la línea de comandos de Windows desde la máquina virtual.
+**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a un tamaño de máquina virtual que no sea hyper-threading. Remítase a [este documento](https://docs.microsoft.com/azure/virtual-machines/windows/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si la máquina virtual tiene habilitada la característica de hyper-threading, consulte el siguiente script mediante la línea de comandos de Windows desde la máquina virtual.
 
 Escriba `wmic` para especificar la interfaz interactiva. A continuación, escriba lo siguiente para ver la cantidad de procesadores físicos y lógicos en la máquina virtual.
 
@@ -119,7 +119,7 @@ Si el resultado muestra `MDS mitigation is enabled: False`, [póngase en contact
 <a name="linux"></a>Se requiere que el sistema operativo de destino esté completamente actualizado para habilitar el conjunto de características de seguridad adicionales. Algunas de las mitigaciones estarán habilitadas de forma predeterminada. La siguiente sección describe las características que están desactivadas de forma predeterminada y sujetas a la compatibilidad de hardware (microcódigo). La habilitación de estas características puede afectar al rendimiento. Consulte la documentación del proveedor de su sistema operativo para más instrucciones
 
 
-**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a una máquina virtual que no sea hyper-threading.  Remítase a [este documento](https://docs.microsoft.com/azure/virtual-machines/linux/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si está ejecutando una máquina virtual de hyper-threading, ejecute el comando `lscpu` en la máquina virtual de Linux. 
+**Paso 1: deshabilite la característica de hyper-threading en la máquina virtual**. Los clientes que ejecutan código que no es de confianza en una máquina virtual de hyper-threading deben deshabilitarlo o pasar a una máquina virtual que no sea hyper-threading.  Remítase a [este documento](https://docs.microsoft.com/azure/virtual-machines/linux/acu) para obtener una lista de tamaños de máquina virtual de hyper-threading (donde la proporción de vCPU a Core es 2:1). Para comprobar si está ejecutando una máquina virtual de hyper-threading, ejecute el comando `lscpu` en la máquina virtual de Linux. 
 
 Si `Thread(s) per core = 2`, el hyper-threading se ha habilitado. 
 

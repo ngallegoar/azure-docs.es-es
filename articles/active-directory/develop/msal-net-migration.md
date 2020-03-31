@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 737b25fd4c83c459f033bd7b07f6362909e38056
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: cccb886e13482292e8ab9afa2b34bd9dd2c3229b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78299890"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050310"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migración de aplicaciones a MSAL.NET
 
@@ -143,9 +143,9 @@ MSAL.NET hace que la caché de tokens sea una clase sellada y elimina la posibil
 
 ## <a name="signification-of-the-common-authority"></a>Significación de la autoridad común
 
-En la versión 1.0, si usa la autoridad https://login.microsoftonline.com/common , permitirá a los usuarios iniciar sesión con cualquier cuenta de AAD (para cualquier organización). Consulte [Validación de autoridad en ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
+En la versión 1.0, si usa la autoridad `https://login.microsoftonline.com/common`, permitirá a los usuarios iniciar sesión con cualquier cuenta de AAD (para cualquier organización). Consulte [Validación de autoridad en ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
-Si usa la autoridad https://login.microsoftonline.com/common en la versión 2.0, permitirá a los usuarios iniciar sesión con una cuenta personal de Microsoft (MSA) o de cualquier organización de AAD. En MSAL.NET, si desea restringir el inicio de sesión a cualquier cuenta de AAD (el mismo comportamiento que con ADAL.NET), es preciso que use https://login.microsoftonline.com/organizations. Para más información, consulte el parámetro `authority` en la [aplicación cliente pública](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
+Si usa la autoridad `https://login.microsoftonline.com/common` en la versión 2.0, permitirá a los usuarios iniciar sesión con una cuenta personal de Microsoft (MSA) o de cualquier organización de AAD. En MSAL.NET, si desea restringir el inicio de sesión a cualquier cuenta de AAD (el mismo comportamiento que con ADAL.NET), es preciso que use `https://login.microsoftonline.com/organizations`. Para más información, consulte el parámetro `authority` en la [aplicación cliente pública](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
 ## <a name="v10-and-v20-tokens"></a>Tokens de las versiones 1.0 y 2.0
 

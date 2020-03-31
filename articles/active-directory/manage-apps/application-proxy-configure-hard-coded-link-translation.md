@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69533698"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con el Proxy de aplicación de Azure AD
@@ -90,7 +90,7 @@ La lista completa de etiquetas de código HTML para las que el proxy de aplicaci
 * a
 * audio
 * base
-* button
+* botón
 * div
 * embed
 * form
@@ -103,7 +103,7 @@ La lista completa de etiquetas de código HTML para las que el proxy de aplicaci
 * link
 * menuitem
 * meta
-* objeto
+* object
 * script
 * source
 * track

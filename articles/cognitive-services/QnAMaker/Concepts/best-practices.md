@@ -3,12 +3,12 @@ title: 'Procedimientos recomendados: QnA Maker'
 description: Siga estos procedimientos recomendados para mejorar la base de conocimiento y ofrecer mejores resultados a los usuarios finales del bot de chat o de la aplicación.
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: fb935aeed7b492a3a0c213d6d7166bd5d80144c1
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 9a6f7f7d6edc4544942476050a1ed3c2011af7fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370100"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053130"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedimientos recomendados para una base de conocimiento de QnA Maker
 
@@ -111,7 +111,7 @@ De manera predeterminada, QnA Maker busca a través de preguntas y respuestas. S
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>Uso de etiquetas de metadatos para el filtrado de preguntas y respuestas
 
-Los [metadatos](../How-To/edit-knowledge-base.md) agregan la posibilidad de que una aplicación cliente pueda saber que no debe tomar todas las respuestas, sino restringir los resultados de una consulta de usuario en función de las etiquetas de metadatos. La respuesta de la base de conocimiento puede diferir según la etiqueta de metadatos, aunque la consulta sea la misma. Por ejemplo, *¿Dónde está ubicado el estacionamiento?* puede tener otra respuesta si la ubicación de la sucursal del restaurante es diferente; es decir, los metadatos son *ubicación: Seattle* frente a *ubicación: Redmond*.
+Los [metadatos](../How-To/edit-knowledge-base.md) agregan la posibilidad de que una aplicación cliente pueda saber que no debe tomar todas las respuestas, sino restringir los resultados de una consulta de usuario en función de las etiquetas de metadatos. La respuesta de la base de conocimiento puede diferir según la etiqueta de metadatos, aunque la consulta sea la misma. Por ejemplo, *¿Dónde está ubicado el estacionamiento?* puede tener otra respuesta si la ubicación del restaurante es diferente; es decir, los metadatos son *ubicación: Seattle* frente a *ubicación: Redmond*.
 
 ### <a name="use-synonyms"></a>Usar sinónimos
 Aunque hay cierta compatibilidad con los sinónimos en inglés, use alteraciones de palabras que no distinguen mayúsculas de minúsculas a través de [Alterations API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos se agregan en el nivel del servicio QnA Maker y todas las bases de conocimiento del servicio los comparten.
@@ -139,7 +139,7 @@ QnA Maker permite a los usuarios [colaborar](../How-to/collaborate-knowledge-bas
 
 ## <a name="active-learning"></a>Aprendizaje activo
 
-[Aprendizaje activo](../How-to/improve-knowledge-base.md) ofrece el mejor resultado al sugerir preguntas alternativas cuando tiene una amplia variedad de calidad y cantidad de consultas basadas en el usuario. Es importante permitir que las consultas de usuario de las aplicaciones cliente participen en el bucle de comentarios de aprendizaje activo sin censura. Una vez que se sugieren preguntas en el portal de QnA Maker, puede **[filtrar por sugerencias](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** y, a continuación, revisar y aceptar las sugerencias o rechazarlas.
+[Aprendizaje activo](../How-to/use-active-learning.md) ofrece el mejor resultado al sugerir preguntas alternativas cuando tiene una amplia variedad de calidad y cantidad de consultas basadas en el usuario. Es importante permitir que las consultas de usuario de las aplicaciones cliente participen en el bucle de comentarios de aprendizaje activo sin censura. Una vez que se sugieren preguntas en el portal de QnA Maker, puede **[filtrar por sugerencias](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** y, a continuación, revisar y aceptar las sugerencias o rechazarlas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

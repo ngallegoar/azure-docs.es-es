@@ -4,11 +4,11 @@ description: Se describe cómo autenticar el acceso de cliente a un clúster de 
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587063"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229348"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conexión a un clúster seguro
 

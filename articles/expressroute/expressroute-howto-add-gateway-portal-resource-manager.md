@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 87b656f0ef999b3b15a89476f5cba4c4fcfc2b1e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037395"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231272"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configuración de una puerta de enlace de red virtual para ExpressRoute con Azure Portal
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 * Nombre de subred = "FrontEnd" 
     * Espacio de direcciones de subred = "192.168.1.0/24"
 * Grupo de recursos: "TestRG"
-* Ubicación: = "East US"
+* Ubicación: = "Este de EE. UU."
 * Nombre de subred de puerta de enlace: "GatewaySubnet" (siempre debe asignar a las subredes de puerta de enlace el nombre *GatewaySubnet*).
     * Espacio de direcciones de subred de puerta de enlace = "192.168.200.0/26"
 * Nombre de puerta de enlace = "ERGW"
@@ -47,7 +47,7 @@ Los pasos de esta tarea usan una red virtual que se basa en los valores de la si
 
 Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) de estos pasos antes de comenzar la configuración.
 
-## <a name="create-the-gateway-subnet"></a>Cree la subred de la puerta de enlace.
+## <a name="create-the-gateway-subnet"></a>Creación de la subred de la puerta de enlace
 
 1. En el [portal](https://portal.azure.com), navegue a la red virtual de Resource Manager para la que desea crear una puerta de enlace de red virtual.
 2. En la sección **Configuración** de la hoja de redes virtuales, haga clic en **Subredes** para expandir la hoja Subredes.
@@ -66,14 +66,14 @@ Puede ver un [vídeo](https://azure.microsoft.com/documentation/videos/azure-exp
 2. En la hoja **Create virtual network gateway** (Crear puerta de enlace de red virtual), rellene los valores de la puerta de enlace de red virtual.
 
     ![Campos de la hoja crear puerta de enlace de red virtual](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Campos de la hoja Crear puerta de enlace de red virtual")
-3. **Nombre**: Asigne un nombre a la puerta de enlace. Esta acción no es igual a la de asignación de un nombre a una subred de puerta de enlace. Este es el nombre del objeto de puerta de enlace que va a crear.
+3. **Name**: Asigne un nombre a la puerta de enlace. Esta acción no es igual a la de asignación de un nombre a una subred de puerta de enlace. Este es el nombre del objeto de puerta de enlace que va a crear.
 4. **Tipo de puerta de enlace**: seleccione **ExpressRoute**.
 5. **SKU**: seleccione la SKU de puerta de enlace en la lista desplegable.
 6. **Ubicación**: Ajuste el campo **Ubicación** para que apunte a la ubicación en la que se encuentra la red virtual. Si la ubicación no apunta a la región en que reside la red virtual, esta no aparece en la lista desplegable "Elegir una red virtual".
 7. Elija la red virtual a la que quiera agregar esta puerta de enlace. Haga clic en **Virtual network** para abrir la hoja **Elegir una red virtual**. Seleccione la red virtual. Si no se muestra la red virtual, asegúrese de que el campo **Ubicación** apunta a la región en la que se encuentra la red virtual.
 9. Elija una dirección IP pública. Haga clic en **Dirección de IP pública** para abrir la hoja **Elegir dirección IP pública**. Haga clic en **+Crear nueva** para abrir la hoja **Crear dirección IP pública**. Escriba un nombre para la dirección IP pública. Esta hoja crea un objeto de dirección IP pública al que se le asignará dinámicamente una dirección IP pública. Haga clic en **Aceptar** para guardar los cambios en esta hoja.
 10. **Suscripción**: compruebe que se selecciona la suscripción correcta.
-11. **Grupos de recursos**: este ajuste vendrá determinado por la red virtual que seleccione.
+11. **Grupo de recursos**: este ajuste vendrá determinado por la red virtual que seleccione.
 12. No ajuste la **ubicación** después de especificar la configuración anterior.
 13. Compruebe la configuración. Si desea que la puerta de enlace aparezca en el panel, puede seleccionar **Anclar al panel** en la parte inferior de la hoja.
 14. Haga clic en **Crear** para comenzar a crear la puerta de enlace. Se valida la configuración y se implementa la puerta de enlace. La creación de una puerta de enlace de red virtual puede tardar en completarse hasta 45 minutos.

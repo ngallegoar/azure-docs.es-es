@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
 ms.openlocfilehash: 47db03460ad3c5194a5445f0b25cb8e742e60c21
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75373237"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235820"
 ---
 # <a name="virtual-network-tap"></a>TAP de red virtual
 
@@ -56,7 +56,7 @@ En la siguiente imagen se muestra cómo funciona Virtual Network TAP. Puede agre
 
 ![Cómo funciona Virtual Network TAP](./media/virtual-network-tap/architecture.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de crear un Virtual Network TAP, debe haber recibido un correo electrónico de confirmación de su inscripción a la versión preliminar y debe haber creado una o más máquinas virtuales usando el modelo de implementación de [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y una solución de un partner para agregar el tráfico de TAP en la misma región de Azure. Si no tiene ninguna solución de partner en la red virtual, consulte [soluciones de partners](#virtual-network-tap-partner-solutions) para implementar una. Puede usar el mismo recurso de Virtual Red TAP para agregar tráfico de diferentes interfaces de red en la misma suscripción o en suscripciones distintas. Si las interfaces de red supervisadas se encuentran en suscripciones distintas, ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory. Además, las interfaces de red supervisadas y el punto de conexión de destino para agregar tráfico del TAP pueden estar en redes virtuales emparejadas en la misma región. Si usa este modelo de implementación, asegúrese de que el [emparejamiento de redes virtuales](virtual-network-peering-overview.md) está habilitada antes de configurar Virtual Network TAP.
 

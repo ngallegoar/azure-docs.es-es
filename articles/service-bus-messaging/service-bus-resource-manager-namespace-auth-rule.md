@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: c795c61ec4891205ad9c77e96914d9b374fa88af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1bfb2d2d946a85c1d051315fb29a5a63f7a00871
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426910"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384932"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Creación de una regla de autorización de Service Bus para un espacio de nombres y una cola mediante una plantilla de Azure Resource Manager
 
@@ -58,6 +58,7 @@ Con el Administrador de recursos de Azure, se definen los parámetros de los val
 La plantilla define los parámetros siguientes.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 El nombre del espacio de nombres de Service Bus que crear.
 
 ```json
@@ -67,6 +68,7 @@ El nombre del espacio de nombres de Service Bus que crear.
 ```
 
 ### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName
+
 El nombre de la regla de autorización para el espacio de nombres.
 
 ```json
@@ -76,6 +78,7 @@ El nombre de la regla de autorización para el espacio de nombres.
 ```
 
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
+
 El nombre de la cola en el espacio de nombres de Service Bus.
 
 ```json
@@ -85,6 +88,7 @@ El nombre de la cola en el espacio de nombres de Service Bus.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 La versión de la API de Service Bus de la plantilla.
 
 ```json
@@ -97,6 +101,7 @@ La versión de la API de Service Bus de la plantilla.
 ```
 
 ## <a name="resources-to-deploy"></a>Recursos para implementar
+
 Crea un espacio de nombres de Service Bus estándar de tipo **Mensajería**y una regla de autorización de Service Bus para el espacio de nombres y la entidad.
 
 ```json
@@ -152,21 +157,25 @@ Crea un espacio de nombres de Service Bus estándar de tipo **Mensajería**y una
 Para conocer la sintaxis y las propiedades JSON, consulte [espacios de nombres](/azure/templates/microsoft.servicebus/namespaces), [colas](/azure/templates/microsoft.servicebus/namespaces/queues) y [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
 
 ## <a name="commands-to-run-deployment"></a>Comandos para ejecutar la implementación
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-```powershell
+
+```powershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que ha creado e implementado recursos con Azure Resource Manager, estos artículos le enseñarán como administrarlos:
 
 * [Administración de Service Bus con PowerShell](service-bus-powershell-how-to-provision.md)

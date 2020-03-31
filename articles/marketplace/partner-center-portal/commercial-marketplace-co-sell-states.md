@@ -1,19 +1,18 @@
 ---
 title: Códigos de estado de venta conjunta | Azure Marketplace
 description: Use estos códigos de estado o provincia al proporcionar información de contacto sobre la página de venta conjunta de su oferta.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: c64fc161108560e893ef7b207782d79b6c3c01d4
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: f87014a599afd6d1c56d175b92d4da1ea49d9470
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934355"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277046"
 ---
 # <a name="co-sell-state-codes"></a>Códigos de estado de venta conjunta
 

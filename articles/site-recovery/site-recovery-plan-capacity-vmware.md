@@ -8,11 +8,11 @@ ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961366"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229052"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planeamiento de la capacidad y escalado para la recuperación ante desastres de VMware en Azure
 
@@ -38,7 +38,7 @@ Un servidor de configuración en el que se utiliza el servidor de procesos integ
 
 CPU | Memoria | Tamaño de disco de caché | Frecuencia de cambio de datos | Máquinas protegidas
 --- | --- | --- | --- | ---
-8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz) | 16 GB | < 300 GB | 500 GB o menos | Úselo para replicar menos de 100 máquinas.
+8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz) | 16 GB | 300 GB | 500 GB o menos | Úselo para replicar menos de 100 máquinas.
 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | De 501 GB a 1 TB | Úselo para replicar de 100 a 150 máquinas.
 16 vCPU (2 sockets * 8 núcleos \@ 2,5 GHz) | 32 GB | 1 TB | >1 TB a 2 TB | Úselo para replicar de 151 a 200 máquinas.
 Implemente otro servidor de configuración a través de la [plantilla OVF](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). | | | | Implemente un nuevo servidor de configuración si se van a replicar más de 200 máquinas.
@@ -64,7 +64,7 @@ En la siguiente tabla se describe este escenario:
 
 Servidor de procesos adicionales | Tamaño de disco de caché | Frecuencia de cambio de datos | Máquinas protegidas
 --- | --- | --- | ---
-4 vCPU (2 sockets * 2 núcleos \@ 2,5 GHz), 8 GB de memoria | < 300 GB | 250 GB o menos | Úselo para replicar 85 máquinas o menos.
+4 vCPU (2 sockets * 2 núcleos \@ 2,5 GHz), 8 GB de memoria | 300 GB | 250 GB o menos | Úselo para replicar 85 máquinas o menos.
 8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 12 GB de memoria | 600 GB | De 251 GB a 1 TB | Úselo para replicar de 86 a 150 máquinas.
 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz), 24 GB de memoria | 1 TB | >1 TB a 2 TB | Úselo para replicar de 151 a 225 máquinas.
 

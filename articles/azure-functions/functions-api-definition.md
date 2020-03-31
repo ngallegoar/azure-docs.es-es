@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: a80079574dc29c54de89f5275c65637b205742d7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74227412"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Compatibilidad con metadatos de OpenAPI 2.0 en Azure Functions (versión preliminar)
@@ -25,7 +25,7 @@ La compatibilidad con metadatos de OpenAPI 2.0 (anteriormente Swagger) en Azure 
 >[!TIP]
 >Se recomienda empezar por el [tutorial de introducción](./functions-api-definition-getting-started.md) y, luego, volver a este documento para obtener más información sobre características específicas.
 
-## <a name="enable"></a>Habilitar la compatibilidad con definiciones de OpenAPI
+## <a name="enable-openapi-definition-support"></a><a name="enable"></a>Habilitar la compatibilidad con definiciones de OpenAPI
 Puede configurar todas las opciones de OpenAPI en la página **Definición de la API** de **Características de la plataforma** de la aplicación de función.
 
 > [!NOTE]
@@ -33,18 +33,18 @@ Puede configurar todas las opciones de OpenAPI en la página **Definición de la
 
 Para habilitar la generación de una definición de OpenAPI hospedada y una definición de inicio rápido, establezca **Origen de definición de API** en **Functions (versión preliminar)** . **Dirección URL externa** permite que su función utilice una definición de OpenAPI hospedada en otro lugar.
 
-## <a name="generate-definition"></a>Generación de un esqueleto de Swagger a partir de los metadatos de la función.
+## <a name="generate-a-swagger-skeleton-from-your-functions-metadata"></a><a name="generate-definition"></a>Generación de un esqueleto de Swagger a partir de los metadatos de la función.
 Una plantilla puede ayudarle a empezar a escribir la primera definición de OpenAPI. La característica de plantilla de definición crea una definición de OpenAPI dispersa con todos los metadatos del archivo function.json para cada una de las funciones de desencadenador HTTP. Necesitará rellenar más información sobre la API con la [especificación de OpenAPI](https://swagger.io/specification/), como las plantillas de solicitud y respuesta.
 
 Para obtener instrucciones paso a paso, consulte el [Tutorial de inicio](./functions-api-definition-getting-started.md).
 
-### <a name="templates"></a>Plantillas disponibles
+### <a name="available-templates"></a><a name="templates"></a>Plantillas disponibles
 
-|NOMBRE| DESCRIPCIÓN |
+|Nombre| Descripción |
 |:-----|:-----|
 |Definición generada|Una definición de OpenAPI con la cantidad máxima de información que se puede inferir a partir de los metadatos existentes de la función.|
 
-### <a name="quickstart-details"></a>Metadatos incluidos en la definición generada
+### <a name="included-metadata-in-the-generated-definition"></a><a name="quickstart-details"></a>Metadatos incluidos en la definición generada
 
 En la tabla siguiente se representa la configuración de Azure Portal y los datos correspondientes en function.json, tal y como se asignan al esqueleto de Swagger generado.
 
@@ -62,7 +62,7 @@ En la tabla siguiente se representa la configuración de Azure Portal y los dato
 >
 > Para más información, consulte [Personalizar la definición de Swagger para PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
 
-## <a name="CICD"></a>Uso de CI/CD para establecer una definición de API
+## <a name="use-cicd-to-set-an-api-definition"></a><a name="CICD"></a>Uso de CI/CD para establecer una definición de API
 
  Debe habilitar el hospedaje de la definición de la API en el portal antes de habilitar el control de código fuente para modificar la definición de la API desde el control de código fuente. Siga estas instrucciones:
 

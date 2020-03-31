@@ -4,10 +4,10 @@ description: En este artículo se describe la vista en tiempo real de las implem
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75404771"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Cómo ver implementaciones (versión preliminar) en tiempo real
@@ -18,7 +18,7 @@ Con Azure Monitor para contenedores, la característica ver implementaciones (ve
 >No se admiten los clústeres de AKS habilitados como [clústeres privados](https://azure.microsoft.com/updates/aks-private-cluster/) con esta característica. Esta característica se basa en el acceso directo a la API de Kubernetes a través de un servidor proxy desde el explorador. La habilitación de la seguridad de red para bloquear la API de Kubernetes desde este proxy bloqueará este tráfico. 
 
 >[!NOTE]
->Esta característica está disponible en todas las regiones de Azure, incluida Azure China. Actualmente no está disponible en Azure Gobierno de EE. UU.
+>Esta característica está disponible en todas las regiones de Azure, incluida Azure China. Actualmente no está disponible en Azure US Gov
 
 Para más información, consulte la documentación de Kubernetes sobre las [Implementaciones](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). 
 

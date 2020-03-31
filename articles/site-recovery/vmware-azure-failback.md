@@ -8,10 +8,10 @@ ms.date: 01/15/2019
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: cd4cc90fb102d517a47ba458619e22b8921dd498
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75495328"
 ---
 # <a name="fail-back-vmware-vms-to-on-premises-site"></a>Conmutación por recuperación de máquinas virtuales de VMware al sitio local
@@ -35,7 +35,7 @@ En este artículo se describe cómo conmutar por recuperación las máquinas vir
 2. En el almacén > **Elementos replicados**, seleccione la máquina virtual. Haga clic con el botón derecho en la máquina virtual > **Conmutación por error no planeada** .
 3. En **Confirmar conmutación por error**, compruebe la dirección de conmutación por error (de Azure).
 4. Seleccione el punto de recuperación que desee usar para la conmutación por error.
-    - Se recomienda usar el punto de recuperación **Más reciente**. El punto coherente con la aplicación se encuentra detrás del último momento dado y provoca pérdidas de datos.
+    - Se recomienda usar el punto de recuperación **Más reciente**. El punto coherente con la aplicación se encuentra detrás del último momento dado y provoca cierta pérdida de datos.
     - **Más reciente** es un punto de recuperación coherente con los bloqueos.
     - Con **Más reciente**, una máquina virtual conmuta por error a su punto disponible más reciente. Si tiene un grupo de replicación para coherencia con varias máquinas virtuales dentro de un plan de recuperación, cada máquina virtual de este grupo conmutará por error a su punto independiente más reciente.
     - Si usa un punto de recuperación coherente con la aplicación, cada máquina virtual conmuta por recuperación a su punto disponible más reciente. Si un plan de recuperación tiene un grupo de replicación, cada grupo se recuperará en su punto de recuperación disponible común.
@@ -62,5 +62,5 @@ Después de confirmar la conmutación por recuperación, se eliminan las máquin
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez finalizado el trabajo de reprotección, la máquina virtual local se replica en Azure. Según sea necesario, puede [ejecutar otra conmutación por error](site-recovery-failover.md) en Azure.
+Una vez finalizado el trabajo de reprotección, la máquina virtual local se replica en Azure. Si fuera necesario, podría [ejecutar otra conmutación por error](site-recovery-failover.md) en Azure.
 

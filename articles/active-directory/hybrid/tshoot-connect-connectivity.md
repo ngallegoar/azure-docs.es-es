@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572786"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049729"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Solución de problemas de conectividad de Azure AD
 Este artículo explica cómo funciona la conectividad entre Azure AD Connect y Azure AD y cómo solucionar los problemas de conectividad. Estos problemas suelen aparecer en un entorno con un servidor proxy.
@@ -43,7 +43,7 @@ El servidor proxy también debe tener abiertas las direcciones URL necesarias. L
 
 De ellas, la tabla siguiente es el mínimo necesario para poder conectarse a Azure AD. Esta lista no incluye características opcionales, como la escritura diferida de contraseñas ni Azure AD Connect Health. Se documentan aquí para ayudar a solucionar problemas de la configuración inicial.
 
-| URL | Port | DESCRIPCIÓN |
+| URL | Port | Descripción |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Se usa para descargar listas CRL. |
 | \*.verisign.com |HTTP/80 |Se usa para descargar listas CRL. |
@@ -78,10 +78,10 @@ Aparece este error si no se puede establecer comunicación con el punto de conex
 Si el Asistente para instalación se conecta correctamente con Azure AD, pero la contraseña no se puede verificar, aparece lo siguiente:  
 ![Contraseña incorrecta.](./media/tshoot-connect-connectivity/badpassword.png)
 
-* ¿La contraseña es temporal y se debe cambiar? ¿Es realmente la contraseña correcta? Trate de iniciar sesión en https://login.microsoftonline.com (en un equipo distinto del servidor de Azure AD Connect) y compruebe que la cuenta se puede utilizar.
+* ¿La contraseña es temporal y se debe cambiar? ¿Es realmente la contraseña correcta? Trate de iniciar sesión en `https://login.microsoftonline.com` (en un equipo distinto del servidor de Azure AD Connect) y compruebe que la cuenta se puede utilizar.
 
 ### <a name="verify-proxy-connectivity"></a>Comprobación de la conectividad de proxy
-Para verificar si el servidor de Azure AD Connect tiene conectividad real con el servidor proxy e Internet, use PowerShell para ver si el servidor proxy permite solicitudes web o no. En un símbolo del sistema de PowerShell, ejecute `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc` (Técnicamente, la primera llamada es a https://login.microsoftonline.com y este identificador URI funciona también, pero el otro identificador URI responde más rápido).
+Para verificar si el servidor de Azure AD Connect tiene conectividad real con el servidor proxy e Internet, use PowerShell para ver si el servidor proxy permite solicitudes web o no. En un símbolo del sistema de PowerShell, ejecute `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc` (Técnicamente, la primera llamada es a `https://login.microsoftonline.com` y este identificador URI funciona también, pero el otro identificador URI responde más rápido).
 
 PowerShell usa la configuración de machine.config para establecer conexión con el servidor proxy. La configuración de winhttp/netsh no debería afectar a estos cmdlets.
 
@@ -104,7 +104,7 @@ Cuando Azure AD Connect envía una solicitud de exportación a Azure AD, Azure A
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Patrón de comunicación entre Azure AD Connect y Azure AD
 Si ha seguido todos los pasos anteriores y aún no se puede conectar, en este momento puede comenzar a examinar los registros de red. En esta sección se documenta un patrón de conectividad normal y correcta. También se muestra una lista de pistas falsas habituales que se pueden omitir si se están leyendo los registros de red.
 
-* Hay llamadas a https://dc.services.visualstudio.com. No es necesario tener abierta esta dirección URL en el proxy para que la instalación se realice correctamente, y estas llamadas pueden ignorarse.
+* Hay llamadas a `https://dc.services.visualstudio.com`. No es necesario tener abierta esta dirección URL en el proxy para que la instalación se realice correctamente, y estas llamadas pueden ignorarse.
 * Observe que la resolución DNS enumera los hosts reales que están en el espacio de nombres DNS nsatc.net y otros espacios de nombres que no están en microsoftonline.com. Sin embargo, no hay solicitudes de servicio web en los nombres de servidor reales y no es necesario agregar estas direcciones URL al proxy.
 * Los puntos de conexión adminwebservice y provisioningapi son los puntos de conexión de detección y se usan para buscar el punto de conexión real que se usará. Estos puntos de conexión difieren en función de la región.
 
@@ -113,7 +113,7 @@ Este es un volcado de un registro de proxy real y la página del asistente para 
 
 **Conectarse a Azure AD**
 
-| Hora | URL |
+| Time | URL |
 | --- | --- |
 | 11/1/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 11/1/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -124,7 +124,7 @@ Este es un volcado de un registro de proxy real y la página del asistente para 
 
 **Configuración**
 
-| Hora | URL |
+| Time | URL |
 | --- | --- |
 | 11/1/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 11/1/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -140,7 +140,7 @@ Este es un volcado de un registro de proxy real y la página del asistente para 
 
 **Sincronización inicial**
 
-| Hora | URL |
+| Time | URL |
 | --- | --- |
 | 11/1/2016 8:48 |connect://login.windows.net:443 |
 | 11/1/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |

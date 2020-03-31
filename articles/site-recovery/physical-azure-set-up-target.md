@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
 ms.openlocfilehash: 685f04b27cd315b04ef5c45e155e825eebe2747b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953899"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparación del destino (VMware a Azure)
 
 En este artículo se describe cómo preparar el entorno de Azure para comenzar a replicar servidores físicos (x64) que ejecutan Windows o Linux en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por supuesto lo siguiente:
 - Ha creado un almacén de Recovery Services para proteger sus servidores físicos. Puede crear un almacén de Recovery Services desde [Azure Portal](https://portal.azure.com "Portal de Azure").
@@ -30,7 +30,7 @@ Después de completar el **Paso 1: Selección del objetivo de protección** y el
 
 ![Preparación del destino](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
-1. **Suscripción:** en el menú desplegable, seleccione la suscripción en la que desea replicar los servidores físicos.
+1. **Subscription** (Suscripción): en el menú desplegable, seleccione la suscripción en la que desea replicar los servidores físicos.
 2. **Modelo de implementación:** seleccione el modelo de implementación (clásico o Resource Manager)
 
 Según el modelo de implementación elegido, se ejecuta una validación para asegurarse de que tiene al menos una cuenta de almacenamiento compatible y una red virtual en la suscripción de destino en la que replicar y conmutar por error los servidores físicos.
