@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 74747e1bc5247e2a95a180b7361eafe8ca795bc2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 1d2140ca0064e2eb6b12726bcee7bf5362de8fbe
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160713"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79408290"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Inicio rápido: Configuración de un inquilino
 
@@ -72,6 +72,6 @@ Para empezar a crear aplicaciones que inician sesión en cuentas sociales y loca
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Pruebe un inicio rápido de codificación y empiece a autenticar a los usuarios. 
-* Para obtener ejemplos de código más detallados, consulte la sección **Tutoriales** de la documentación.
-* ¿Desea implementar la aplicación en la nube? Revise la [implementación de contenedores en Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 
+* [Registre una aplicación](quickstart-register-app.md) e integre con la Plataforma de identidad de Microsoft. 
+* Conozca los [fundamentos de la autenticación](authentication-scenarios.md).
+* Consulte [Asociación de las suscripciones de Azure con Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) para más información sobre la relación entre las suscripciones y un inquilino de Azure AD.

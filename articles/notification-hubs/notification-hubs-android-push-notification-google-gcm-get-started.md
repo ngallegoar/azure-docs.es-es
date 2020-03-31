@@ -19,10 +19,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: c938b6174226ef9ea1104c5e95968d6122e922cf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72386320"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Google Cloud Messaging (en desuso)
@@ -53,7 +53,7 @@ En este tutorial realizará lo siguiente:
 > * Conexión de la aplicación al Centro de notificaciones
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
@@ -76,7 +76,7 @@ En este tutorial realizará lo siguiente:
 
 El Centro de notificaciones está configurado para funcionar con GCM y el usuario dispone de las cadenas de conexión necesarias para registrar su aplicación para que reciba y envíe notificaciones push.
 
-## <a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
+## <a name="connect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
 
 ### <a name="create-a-new-android-project"></a>Creación de un nuevo proyecto de Android
 
@@ -383,7 +383,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
         });
     }
     ```
-10. El método `ToastNotify` usa el control *"Hello World"* `TextView` para informar del estado y de las notificaciones de forma persistente en la aplicación. En el archivo activity_main.xml, agregue el siguiente identificador para ese control.
+10. El método `ToastNotify` usa el control *"Hola mundo"* `TextView` para informar del estado y de las notificaciones de forma persistente en la aplicación. En el archivo activity_main.xml, agregue el siguiente identificador para ese control.
 
     ```xml
     android:id="@+id/text_hello"

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
 ms.openlocfilehash: 18848695327a374f12fbe5a34d03366b050d8b65
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928359"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuración de flujos de datos de asignación

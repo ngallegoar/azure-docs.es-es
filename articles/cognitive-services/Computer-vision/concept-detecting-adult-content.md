@@ -12,10 +12,10 @@ ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: ee18916a59bb081d65494f46e7aba7c29c7177cc
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71718514"
 ---
 # <a name="detect-adult-content"></a>Detección de contenido para adultos

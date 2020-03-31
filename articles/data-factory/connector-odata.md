@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 17b78e03e330e342e9d558dd3ca5d9071bcd3c2f
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163937"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copia de datos desde un origen OData mediante Azure Data Factory
@@ -59,16 +59,16 @@ Las siguientes propiedades son compatibles con un servicio vinculado de OData:
 | type | La propiedad **type** debe establecerse en **OData**. |Sí |
 | url | Dirección URL raíz del servicio de OData. |Sí |
 | authenticationType | Tipo de autenticación que se usa para conectarse al origen de OData. Los valores permitidos son **Anónima**, **Básica**, **Windows** y **AadServicePrincipal**. No se admiten usuarios basados en OAuth. | Sí |
-| userName | Especifique **userName** si se usa la autenticación Básica o de Windows. | Sin |
-| password | Especifique la **contraseña** de la cuenta de usuario que se especificó para **userName**. Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
-| servicePrincipalId | Especifique el identificador de cliente de la aplicación de Azure Active Directory. | Sin |
-| aadServicePrincipalCredentialType | Especifique el tipo de credencial que se usará para la autenticación de entidad de servicio. Los valores permitidos son: `ServicePrincipalKey` o `ServicePrincipalCert`. | Sin |
-| servicePrincipalKey | Especifique la clave de la aplicación de Azure Active Directory. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sin |
-| servicePrincipalEmbeddedCert | Especifique el certificado codificado en base64 de la aplicación registrada en Azure Active Directory. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sin |
-| servicePrincipalEmbeddedCertPassword | Especifique la contraseña del certificado si el certificado está protegido por una. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**.  | Sin|
-| tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sin |
-| aadResourceId | Especifique el recurso de AAD para el cual solicita autorización.| Sin |
-| connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |Sin |
+| userName | Especifique **userName** si se usa la autenticación Básica o de Windows. | No |
+| password | Especifique la **contraseña** de la cuenta de usuario que se especificó para **userName**. Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| servicePrincipalId | Especifique el identificador de cliente de la aplicación de Azure Active Directory. | No |
+| aadServicePrincipalCredentialType | Especifique el tipo de credencial que se usará para la autenticación de entidad de servicio. Los valores permitidos son: `ServicePrincipalKey` o `ServicePrincipalCert`. | No |
+| servicePrincipalKey | Especifique la clave de la aplicación de Azure Active Directory. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | No |
+| servicePrincipalEmbeddedCert | Especifique el certificado codificado en base64 de la aplicación registrada en Azure Active Directory. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | No |
+| servicePrincipalEmbeddedCertPassword | Especifique la contraseña del certificado si el certificado está protegido por una. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**.  | No|
+| tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | No |
+| aadResourceId | Especifique el recurso de AAD para el cual solicita autorización.| No |
+| connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
 **Ejemplo 1: Uso de autenticación anónima**
 
@@ -242,7 +242,7 @@ Para copiar datos desde OData, en la sección **source** de la actividad de copi
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad **type** del origen de la actividad de copia se debe establecer en **ODataSource**. | Sí |
-| Query | Opciones de consulta de OData para filtrar datos. Ejemplo: `"$select=Name,Description&$top=5"`.<br/><br/>**Nota**: el conector OData copia datos de la dirección URL combinada: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Para más información, consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Sin |
+| Query | Opciones de consulta de OData para filtrar datos. Ejemplo: `"$select=Name,Description&$top=5"`.<br/><br/>**Nota**: el conector OData copia datos de la dirección URL combinada: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Para más información, consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 
 **Ejemplo**
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 2dfb2a7766ddbda5dd27d5b4fd6745836ad1dc75
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74929371"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copia de datos de HBase con Azure Data Factory 
@@ -33,7 +33,7 @@ Puede copiar datos de HBase en cualquier almacén de datos de receptor compatibl
 
 Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -47,20 +47,20 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de HBase:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **HBase** | Sí |
 | host | Dirección IP o nombre de host del servidor de HBase. (es decir, `[clustername].azurehdinsight.net`， `192.168.222.160`)  | Sí |
-| port | Puerto TCP que el servidor de HBase utiliza para escuchar las conexiones del cliente. El valor predeterminado es 9090. Si se conecta a Azure HDInsights, especifique el puerto 443. | Sin |
-| httpPath | La dirección URL parcial correspondiente al servidor de HBase, por ejemplo, `/hbaserest0` cuando se usa el clúster de HDInsights. | Sin |
+| port | Puerto TCP que el servidor de HBase utiliza para escuchar las conexiones del cliente. El valor predeterminado es 9090. Si se conecta a Azure HDInsights, especifique el puerto 443. | No |
+| httpPath | La dirección URL parcial correspondiente al servidor de HBase, por ejemplo, `/hbaserest0` cuando se usa el clúster de HDInsights. | No |
 | authenticationType | Mecanismo de autenticación utilizado para conectarse al servidor de HBase. <br/>Los valores permitidos son: **Anonymous**, **Basic** | Sí |
-| username | Nombre de usuario que se usa para conectarse al servidor de HBase.  | Sin |
-| password | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
-| enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin |
-| trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | Sin |
-| allowHostNameCNMismatch | Especifica si se requiere que el nombre del certificado SSL emitido por una CA coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es false.  | Sin |
-| allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | Sin |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sin |
+| username | Nombre de usuario que se usa para conectarse al servidor de HBase.  | No |
+| password | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | No |
+| trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | No |
+| allowHostNameCNMismatch | Especifica si se requiere que el nombre del certificado SSL emitido por una CA coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es false.  | No |
+| allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |No |
 
 >[!NOTE]
 >Si el clúster no es compatible con las sesiones rápidas, como HDInsight, agregue explícitamente el índice del nodo al final de la configuración de la ruta de acceso http; por ejemplo, especifique `/hbaserest0` en lugar de `/hbaserest`.
@@ -128,7 +128,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de HBase, establezca la propiedad type del conjunto de datos en **HBaseObject**. Se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **HBaseObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
@@ -158,12 +158,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de HBase, establezca el tipo de origen de la actividad de copia en **HBaseSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **HBaseSource** | Sí |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
+| Query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[

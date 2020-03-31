@@ -6,16 +6,16 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: bae67b0177823ab4558085db67423edea062fa3c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: a305914c5c870543e16c515880955693c2634044
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250073"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239178"
 ---
-# <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
+# <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
-Aprenda a recuperar los secretos de Azure Key Vault y a pasarlos como parámetros durante la implementación de Azure Resource Manager. El valor del parámetro nunca se expone, ya que solo se hace referencia a su identificador de almacén de claves. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./key-vault-parameter.md).
+Aprenda a recuperar los secretos de Azure Key Vault y a pasarlos como parámetros durante la implementación de una plantilla de Azure Resource Manager. El valor del parámetro nunca se expone, ya que solo se hace referencia a su identificador de almacén de claves. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./key-vault-parameter.md).
 
 En el tutorial [Establecimiento del orden de implementación de los recursos](./template-tutorial-create-templates-with-dependent-resources.md), se crea una máquina virtual (VM). Deberá proporcionar el nombre de usuario y la contraseña de administrador de la VM. En lugar de proporcionar la contraseña, puede almacenar previamente la contraseña en Azure Key Vault y luego personalizar la plantilla para recuperar la contraseña desde el almacén de claves durante la implementación.
 
@@ -39,7 +39,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](use-vs-code-to-create-template.md).
 * Para mejorar la seguridad, use una contraseña generada para la cuenta de administrador de la VM. Este es un ejemplo para generar una contraseña:
 
     ```console
@@ -97,7 +97,7 @@ Ha preparado un almacén de claves y un secreto. En las secciones siguientes se 
 
 ## <a name="open-a-quickstart-template"></a>Apertura de una plantilla de inicio rápido
 
-Plantillas de inicio rápido de Azure es un repositorio de plantillas de Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. En Visual Studio Code, seleccione **Archivo** > **Abrir archivo**.
 
@@ -107,7 +107,7 @@ Plantillas de inicio rápido de Azure es un repositorio de plantillas de Resourc
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 
-1. Seleccione **Abrir** para abrir el archivo. El escenario es el mismo que el que se usa en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md).
+1. Seleccione **Abrir** para abrir el archivo. El escenario es el mismo que el que se usa en [Tutorial: Creación de plantillas de Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md).
    La plantilla define cinco recursos:
 
    * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).

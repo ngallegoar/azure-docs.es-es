@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 36071cdee25cfa99fc54b0e5c0c0aa822cb5fe2f
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68662839"
 ---
 # <a name="what-is-reinforcement-learning"></a>¿Qué es el aprendizaje de refuerzo?

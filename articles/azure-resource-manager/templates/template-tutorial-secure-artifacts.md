@@ -5,20 +5,20 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7069ff363cf274ba855efc9b598d8d01e64e18d1
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: ad6ea3c68ed6f48ac48bbbdafed7f8660df23937
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250124"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239225"
 ---
-# <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Protección de los artefactos de las implementaciones de plantillas de Azure Resource Manager
+# <a name="tutorial-secure-artifacts-in-arm-template-deployments"></a>Tutorial: Protección de artefactos en implementaciones de plantillas de ARM
 
-Aprenda a proteger los artefactos que se usan en las plantillas de Azure Resource Manager mediante una cuenta de Azure Storage con firmas de acceso compartido (SAS). Los artefactos de implementación son cualquier archivo, además del archivo de plantilla principal, que se necesitan para completar una implementación. Por ejemplo, en [Tutorial: Importación de archivos BACPAC de SQL con plantillas de Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md), la plantilla principal crea una instancia de Azure SQL Database. También llama a un archivo BACPAC para crear tablas e insertar datos. El archivo BACPAC es un artefacto y se almacena en una cuenta de Azure Storage. Se utilizó una clave de la cuenta de almacenamiento para acceder al artefacto. 
+Aprenda a proteger los artefactos que se usan en las plantillas de Azure Resource Manager mediante una cuenta de Azure Storage con firmas de acceso compartido (SAS). Los artefactos de implementación son cualquier archivo, además del archivo de plantilla principal, que se necesitan para completar una implementación. Por ejemplo, en [Tutorial: Importación de archivos BACPAC de SQL con plantillas de Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md), la plantilla principal crea una instancia de Azure SQL Database. También llama a un archivo BACPAC para crear tablas e insertar datos. El archivo BACPAC es un artefacto y se almacena en una cuenta de Azure Storage. Se utilizó una clave de la cuenta de almacenamiento para acceder al artefacto.
 
 En este tutorial, usará SAS para conceder acceso limitado al archivo BACPAC en su propia cuenta de Azure Storage. Para obtener más información sobre SAS, consulte [Uso de firmas de acceso compartido (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-Para más información sobre cómo proteger una plantilla vinculada, consulte [Tutorial: Creación de plantillas vinculadas de Azure Resource Manager](./template-tutorial-create-linked-templates.md).
+Para más información sobre cómo proteger una plantilla vinculada, consulte [Tutorial: Creación de plantillas de ARM vinculadas](./template-tutorial-create-linked-templates.md).
 
 En este tutorial se describen las tareas siguientes:
 
@@ -35,15 +35,15 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Herramientas de Resource Manager. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](./use-vs-code-to-create-template.md).
-* Revise [Tutorial: Importación de archivos BACPAC de SQL con plantillas de Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md). La plantilla usada en este tutorial es lo que se desarrolló en ese mismo tutorial. En este artículo se proporciona un vínculo de descarga de la plantilla completa.
+* Visual Studio Code con la extensión Herramientas de Resource Manager. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](./use-vs-code-to-create-template.md).
+* Revise [Tutorial: Importación de archivos BACPAC de SQL con plantillas de Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md). La plantilla usada en este tutorial es lo que se desarrolló en ese mismo tutorial. En este artículo se proporciona un vínculo de descarga de la plantilla completa.
 * Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de SQL Server. A continuación se muestra un ejemplo de generación de contraseña:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en Resource Manager Template Deployment](./template-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
+    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./template-tutorial-use-key-vault.md) También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="prepare-a-bacpac-file"></a>Preparación de un archivo BACPAC
 
@@ -115,7 +115,7 @@ En esta sección preparará el archivo BACPAC para que se pueda acceder a él de
 
 ## <a name="open-an-existing-template"></a>Apertura de una plantilla existente
 
-En esta sesión, modificará la plantilla que creó en [Tutorial: Importación de archivos BACPAC de SQL con plantillas de Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md) para llamar al archivo BACPAC con un token de SAS. La plantilla desarrollada en el tutorial de la extensión de SQL está compartida en [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
+En esta sesión, modificará la plantilla que creó en [Tutorial: Importación de archivos BACPAC de SQL con plantillas de Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md) para llamar al archivo BACPAC con un token de SAS. La plantilla desarrollada en el tutorial de la extensión de SQL está compartida en [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
 1. En Visual Studio Code, seleccione **Archivo** > **Abrir archivo**.
 1. En **Nombre de archivo**, pegue el código URL siguiente:
@@ -138,7 +138,7 @@ En esta sesión, modificará la plantilla que creó en [Tutorial: Importación d
 
 ## <a name="edit-the-template"></a>Edición de la plantilla
 
-1. Reemplace la definición del parámetro storageAccountKey por la siguiente definición de parámetro: 
+1. Reemplace la definición del parámetro storageAccountKey por la siguiente definición de parámetro:
 
     ```json
         "_artifactsLocationSasToken": {
@@ -211,7 +211,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha implementado una instancia de SQL Server y otra de SQL Database y ha importado un archivo BACPAC mediante un token de SAS. Para información sobre cómo crear una canalización de Azure para desarrollar e implementar de manera continua las plantillas de Resource Manager, consulte:
+En este tutorial ha implementado una instancia de SQL Server y otra de SQL Database y ha importado un archivo BACPAC mediante un token de SAS. Para aprender a implementar los recursos de Azure en varias regiones y a usar prácticas de implementación seguras, consulte
 
 > [!div class="nextstepaction"]
-> [Integración continua con Azure Pipelines](./template-tutorial-use-azure-pipelines.md)
+> [Uso de procedimientos de implementación seguros](./deployment-manager-tutorial.md)

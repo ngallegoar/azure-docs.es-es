@@ -12,10 +12,10 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.openlocfilehash: a5540eea91937319a6ac947b50698ccaa8b25847
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931700"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Ejecución de paquetes de SQL Server Integration Services con la utilidad dtexec habilitada para Azure
@@ -29,7 +29,7 @@ AzureDTExec ejecuta los paquetes como actividades Ejecutar paquete de SSIS en la
 
 AzureDTExec se puede configurar mediante SSMS para usar una aplicación de Azure Active Directory (Azure AD) que genera canalizaciones en la factoría de datos. También puede configurarse para acceder a los sistemas de archivos, recursos compartidos de archivos o Azure Files donde se almacenan los paquetes. En función de los valores que proporcione para sus opciones de invocación, AzureDTExec genera y ejecuta una canalización de Data Factory única con la actividad Ejecutar paquete SSIS. Al invocar AzureDTExec con los mismos valores para sus opciones, se vuelve a ejecutar la canalización existente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para usar AzureDTExec, descargue e instale la versión más reciente de SSMS, que es la versión 18.3 o posterior. Descárguelo de [este sitio web](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 ## <a name="configure-the-azuredtexec-utility"></a>Configuración de la utilidad AzureDTExec

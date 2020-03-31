@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
 ms.openlocfilehash: 73ac1a6ffd5fc2b2d52f169e1e0332044638f9f7
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75942076"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Pasos previos a la migración para migraciones de datos de MongoDB a la API de Azure Cosmos DB para MongoDB
@@ -26,7 +26,7 @@ Antes de migrar los datos de MongoDB (ya sea local o en la nube) a la API de Azu
 
 Si ya se han completado los anteriores requisitos previos para la migración, puede [migrar los datos de MongoDB a la API de Azure Cosmos DB para MongoDB mediante Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md). Además, si no ha creado una cuenta, puede examinar cualquiera de los [inicios rápidos](create-mongodb-dotnet.md) que muestran los pasos para crear una cuenta.
 
-## <a id="considerations"></a>Consideraciones al usar la API de Azure Cosmos DB para MongoDB
+## <a name="considerations-when-using-azure-cosmos-dbs-api-for-mongodb"></a><a id="considerations"></a>Consideraciones al usar la API de Azure Cosmos DB para MongoDB
 
 A continuación se muestran características específicas sobre la API de Azure Cosmos DB para MongoDB:
 
@@ -38,7 +38,7 @@ A continuación se muestran características específicas sobre la API de Azure 
 
 - **Particionamiento automático**: Azure Cosmos DB proporciona un sistema de particionamiento automático que solo requiere una partición (o una clave de partición). El [mecanismo de particionamiento automático](partition-data.md) se comparte entre todas las API de Azure Cosmos DB y permite datos sin problemas y en todo el escalado a través de la distribución horizontal.
 
-## <a id="options"></a>Opciones de migración para la API de Azure Cosmos DB para MongoDB
+## <a name="migration-options-for-azure-cosmos-dbs-api-for-mongodb"></a><a id="options"></a>Opciones de migración para la API de Azure Cosmos DB para MongoDB
 
 [Azure Database Migration Service para la API de Azure Cosmos DB para MongoDB](../dms/tutorial-mongodb-cosmos-db.md) proporciona un mecanismo que simplifica la migración de datos facilitando una plataforma de hospedaje totalmente administrada, opciones de supervisión de la migración y control de limitaciones automático. La lista completa de opciones es la siguiente:
 
@@ -50,7 +50,7 @@ A continuación se muestran características específicas sobre la API de Azure 
 |En línea|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Servicio de migración totalmente administrado.<br/>&bull; Proporciona soluciones de hospedaje y supervisión para la tarea de migración. <br/>&bull; Adecuada para grandes conjuntos de valores y se encarga de replicar los cambios en directo <br/>&bull; Solo funciona con otros orígenes de MongoDB|
 
 
-## <a id="estimate-throughput"></a> Estimación del rendimiento necesario para las cargas de trabajo
+## <a name="estimate-the-throughput-need-for-your-workloads"></a><a id="estimate-throughput"></a> Estimación del rendimiento necesario para las cargas de trabajo
 
 En Azure Cosmos DB, el rendimiento se aprovisiona de antemano y se mide en Unidades de solicitud (RU) por segundo. A diferencia de las máquinas virtuales o servidores locales, las Unidades de solicitud se pueden escalar y reducir verticalmente fácilmente en cualquier momento. Puede cambiar el número de RU aprovisionadas de forma inmediata. Para más información, consulte [Unidades de solicitud en Azure Cosmos DB](request-units.md).
 
@@ -73,12 +73,12 @@ Este comando generará un documento JSON similar al siguiente:
 
 También puede usar [la configuración de diagnóstico](cosmosdb-monitor-resource-logs.md) para comprender la frecuencia y los patrones de las consultas ejecutadas en Azure Cosmos DB. Los resultados de los registros de diagnóstico se pueden enviar a una cuenta de almacenamiento, una instancia de EventHub o [Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).  
 
-## <a id="partitioning"></a>Elección de la clave de partición
+## <a name="choose-your-partition-key"></a><a id="partitioning"></a>Elección de la clave de partición
 La creación de particiones, también conocida como particionamiento, es un punto clave de consideración antes de migrar los datos. Azure Cosmos DB usa una creación de particiones totalmente administrada para aumentar la capacidad de una base de datos a fin de cumplir los requisitos de almacenamiento y rendimiento. Esta característica no necesita el hospedaje ni la configuración de los servidores de enrutamiento.   
 
 De forma similar, la funcionalidad de creación de particiones agrega capacidad automáticamente y vuelve a equilibrar los datos en consecuencia. Para obtener detalles y recomendaciones sobre cómo elegir la clave de partición correcta para los datos, consulte el [artículo Elección de una clave de partición](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
 
-## <a id="indexing"></a>Indexación de los datos
+## <a name="index-your-data"></a><a id="indexing"></a>Indexación de los datos
 De forma predeterminada, Azure Cosmos DB proporciona la indexación automática en todos los datos insertados. Entre las funcionalidades de indexación proporcionadas por Azure Cosmos DB se incluye la adición de índices compuestos, índices únicos e índices del período de vida (TTL). La interfaz de administración de índices se asigna al comando `createIndex()`. Obtenga más información en [Indexación en la API de Azure Cosmos DB para MongoDB](mongodb-indexing.md).
 
 [Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md) migra automáticamente las colecciones de MongoDB con índices únicos. Sin embargo, los índices únicos deben crearse antes de la migración. Azure Cosmos DB no admite la creación de índices únicos cuando ya hay datos en las colecciones. Para más información, consulte [Claves únicas en Azure Cosmos DB](unique-keys.md).

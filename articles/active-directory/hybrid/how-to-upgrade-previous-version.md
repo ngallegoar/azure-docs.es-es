@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60347757"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
@@ -33,7 +33,7 @@ Si quiere actualizar desde DirSync, consulte en su lugar [Azure AD Connect: actu
 
 Hay algunas estrategias distintas que se pueden usar para actualizar Azure AD Connect.
 
-| Método | DESCRIPCIÓN |
+| Método | Descripción |
 | --- | --- |
 | [Actualización automática](how-to-connect-install-automatic-upgrade.md) |Este es el método más sencillo para los clientes con una instalación rápida. |
 | [Actualización local](#in-place-upgrade) |Si tiene un solo servidor, puede actualizar la instalación local en el mismo servidor. |
@@ -135,7 +135,7 @@ Puede que haya situaciones en las no quiere que estas invalidaciones se produzca
 
 Para agregar las invalidaciones de importación completa y sincronización completa en un conector arbitrario, ejecute el siguiente cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 La siguiente sección contiene instrucciones de solución de problemas e información que puede usar si se produce un problema al actualizar Azure AD Connect.
 
 ### <a name="azure-active-directory-connector-missing-error-during-azure-ad-connect-upgrade"></a>Error Falta el conector de Azure Active Directory durante la actualización de Azure AD Connect
@@ -168,4 +168,4 @@ Si desea instalar una versión más reciente de Azure AD Connect: cierre el asis
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Más información acerca de la [integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).
+Obtenga más información sobre la [integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

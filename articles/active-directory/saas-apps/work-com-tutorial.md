@@ -17,10 +17,10 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7a6dc16eef1bb36a5bd6cbf0502a83481230bc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67087092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integración de Azure Active Directory con Work.com
@@ -35,7 +35,7 @@ La integración de Work.com con Azure AD le proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Work.com, necesita los siguientes elementos:
 
@@ -134,7 +134,7 @@ Para configurar el inicio de sesión único de Azure AD con Work.com, realice lo
 
 2. Acceda a **Setup**(Configuración).
    
-    ![Instalación](./media/work-com-tutorial/ic794108.png "Instalación")
+    ![Configuración](./media/work-com-tutorial/ic794108.png "Configurar")
 
 3. En el panel de navegación izquierdo, en la sección **Administer** (Administrar), haga clic en **Domain Management** (Administración de dominios) para expandir la sección relacionada y, luego, haga clic en **My Domain** (Mi dominio) para abrir la página **My Domain** (Mi dominio). 
    
@@ -148,7 +148,7 @@ Para configurar el inicio de sesión único de Azure AD con Work.com, realice lo
 
 6. Acceda a **Setup**(Configuración).
     
-    ![Instalación](./media/work-com-tutorial/ic794108.png "Instalación")
+    ![Configuración](./media/work-com-tutorial/ic794108.png "Configurar")
 
 7. Expanda el menú **Security Controls** (Controles de seguridad) y luego haga clic en **Single Sign-On Settings** (Configuración de inicio de sesión único).
     
@@ -160,11 +160,11 @@ Para configurar el inicio de sesión único de Azure AD con Work.com, realice lo
     
     a. Seleccione **SAML habilitado**.
     
-    b. Haga clic en **Nuevo**.
+    b. Haga clic en **Nueva**.
 
 9. En la sección **SAML Single Sign-On Settings** (Configuración del inicio de sesión único de SAML), siga estos pasos:
     
-    ![Inicio de sesión único SAML](./media/work-com-tutorial/ic794114.png "Inicio de sesión único SAML")
+    ![Configuración del inicio de sesión único de SAML](./media/work-com-tutorial/ic794114.png "Configuración de inicio de sesión único SAML")
     
     a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.  
        
@@ -195,11 +195,11 @@ Para configurar el inicio de sesión único de Azure AD con Work.com, realice lo
 
 11. En la página **My domain** (Mi dominio), en la sección **Login Page Branding** (Personalización de marca de la página de inicio de sesión), haga clic en **Edit** (Editar).
     
-    ![Personalización de marca de página de inicio de sesión](./media/work-com-tutorial/ic767826.png "Personalización de marca de página de inicio de sesión")
+    ![Personalización de marca de la página de inicio de sesión](./media/work-com-tutorial/ic767826.png "Personalización de marca de la página de inicio de sesión")
 
 12. En la página **Login Page Branding** (Personalización de marca de la página de inicio de sesión), en la sección **Authentication Service** (Servicio de autenticación), se muestra el nombre de su **SAML SSO Settings** (Configuración de SSO de SAML). Selecciónelo y luego haga clic en **Save**(Guardar).
     
-    ![Personalización de marca de página de inicio de sesión](./media/work-com-tutorial/ic784366.png "Personalización de marca de página de inicio de sesión")
+    ![Personalización de marca de la página de inicio de sesión](./media/work-com-tutorial/ic784366.png "Personalización de marca de la página de inicio de sesión")
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -223,7 +223,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -261,11 +261,11 @@ Para que los usuarios de Azure Active Directory puedan iniciar sesión, deben ap
 
 2. Acceda a **Setup**(Configuración).
    
-    ![Instalación](./media/work-com-tutorial/IC794108.png "Instalación")
+    ![Configuración](./media/work-com-tutorial/IC794108.png "Configurar")
 
 3. Vaya a **Manage Users \> (Administrar usuarios) Users** (Usuarios).
    
-    ![Administración de usuarios](./media/work-com-tutorial/IC784369.png "Administración de usuarios")
+    ![Administración de usuarios](./media/work-com-tutorial/IC784369.png "Administrar usuarios")
 
 4. Haga clic en **Nuevo usuario**.
    

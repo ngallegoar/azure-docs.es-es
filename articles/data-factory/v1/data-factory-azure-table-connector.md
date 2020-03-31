@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918737"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229924"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Movimiento de datos hacia y desde Tabla de Azure mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -36,7 +36,7 @@ Puede copiar datos de cualquier almacén de datos de origen compatible a Azure T
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva datos con Azure Table Storage como origen o destino mediante el uso de diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
 Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
@@ -60,7 +60,7 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 La sección typeProperties es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección **typeProperties** del conjunto de datos de tipo **AzureTable** tiene las propiedades siguientes.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | tableName |Nombre de la tabla en la instancia de Base de datos de tablas de Azure a la que hace referencia el servicio vinculado. |Sí. Cuando se especifica un elemento tableName sin azureTableSourceQuery, se copian todos los registros de la tabla en el destino. Si también se especifica azureTableSourceQuery, los registros de la tabla que satisfacen los requisitos de la consulta se copian en el destino. |
 
@@ -79,10 +79,10 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 
 **AzureTableSource** admite las siguientes propiedades en la sección typeProperties:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
 | AzureTableSourceQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta de tabla de Azure. Consulte los ejemplos en la sección siguiente. |No. Cuando se especifica un elemento tableName sin azureTableSourceQuery, se copian todos los registros de la tabla en el destino. Si también se especifica azureTableSourceQuery, los registros de la tabla que satisfacen los requisitos de la consulta se copian en el destino. |
-| azureTableSourceIgnoreTableNotFound |Indica si se omite la excepción de la tabla inexistente. |TRUE<br/>FALSE |Sin |
+| azureTableSourceIgnoreTableNotFound |Indica si se omite la excepción de la tabla inexistente. |TRUE<br/>FALSE |No |
 
 ### <a name="azuretablesourcequery-examples"></a>ejemplos de azureTableSourceQuery
 Si la columna de la Tabla de Azure es de tipo cadena:
@@ -99,12 +99,12 @@ Si la columna de la Tabla de Azure es de tipo datetime:
 
 **AzureTableSink** admite las siguientes propiedades en la sección typeProperties:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| azureTableDefaultPartitionKeyValue |Valor predeterminado de la clave de la partición que puede usar el receptor. |Valor de cadena. |Sin |
-| azureTablePartitionKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de partición. Si no se especifica, se utiliza AzureTableDefaultPartitionKeyValue como clave de la partición. |Un nombre de columna. |Sin |
-| azureTableRowKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de fila. Si no se especifica, use un GUID para cada fila. |Un nombre de columna. |Sin |
-| azureTableInsertType |Modo de insertar datos en la tabla de Azure.<br/><br/>Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). <br/><br> Esta configuración se aplica en el nivel de fila, no en el nivel de tabla, y ninguna opción elimina filas de la tabla de salida que no existan en la entrada. |merge (predeterminado)<br/>replace |Sin |
+| azureTableDefaultPartitionKeyValue |Valor predeterminado de la clave de la partición que puede usar el receptor. |Valor de cadena. |No |
+| azureTablePartitionKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de partición. Si no se especifica, se utiliza AzureTableDefaultPartitionKeyValue como clave de la partición. |Un nombre de columna. |No |
+| azureTableRowKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de fila. Si no se especifica, use un GUID para cada fila. |Un nombre de columna. |No |
+| azureTableInsertType |Modo de insertar datos en la tabla de Azure.<br/><br/>Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). <br/><br> Esta configuración se aplica en el nivel de fila, no en el nivel de tabla, y ninguna opción elimina filas de la tabla de salida que no existan en la entrada. |merge (predeterminado)<br/>replace |No |
 | writeBatchSize |Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. |Entero (número de filas) |No (valor predeterminado: 10000) |
 | writeBatchTimeout |Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. |timespan<br/><br/>Ejemplo: "00:20:00" (20 minutos) |No (el valor predeterminado de intervalo de tiempo del cliente de almacenamiento es 90 segundos) |
 
@@ -161,7 +161,7 @@ Azure Data Factory admite dos tipos de servicios vinculados de Azure Storage: **
 
 El ejemplo se supone que ha creado una tabla "MyTable" en la tabla de Azure.
 
-Si se establece "external": "true", se informa al servicio Data Factory que el conjunto de datos es externo a Data Factory y que no lo genera ninguna actividad de la factoría de datos.
+Si se establece "external": "true", se informa al servicio Data Factory que el conjunto de datos es externo a la factoría de datos y que no lo genera ninguna actividad de la factoría de datos.
 
 ```JSON
 {
@@ -483,7 +483,7 @@ Al mover datos a y desde Azure Table, se usan las siguientes [asignaciones defin
 | Edm.Guid |Guid |Identificador único global de 128 bits. |
 | Edm.Int32 |Int32 |Entero de 32 bits. |
 | Edm.Int64 |Int64 |Entero de 64 bits. |
-| Edm.String |Cadena |Valor codificado mediante UTF-16. Los valores de cadena pueden tener hasta 64 KB. |
+| Edm.String |String |Valor codificado mediante UTF-16. Los valores de cadena pueden tener hasta 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Ejemplo de conversión de tipo
 El siguiente es un ejemplo de la copia de datos desde un blob de Azure a una tabla de Azure con conversiones de tipo.

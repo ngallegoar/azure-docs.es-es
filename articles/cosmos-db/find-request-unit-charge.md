@@ -6,11 +6,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.openlocfilehash: 86e9854cb5a522a56cca09a6e1ea155fd8a62f14
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: c5699bb851bd0a818a987228155c62683e93f51a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77585907"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Búsqueda del cargo de unidad de solicitud en Azure Cosmos DB
@@ -79,7 +79,7 @@ while (query.HasMoreResults)
 
 Los objetos que se devuelven desde el [SDK de .NET v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) exponen una propiedad `RequestCharge`:
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs" id="GetRequestCharge":::
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
 Para más información, consulte [Inicio rápido: Cree una aplicación web .NET con una cuenta de SQL API en Azure Cosmos DB](create-sql-api-dotnet.md).
 

@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561683"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos de Azure Event Grid para las suscripciones
@@ -34,7 +34,7 @@ Para ver una lista de scripts de ejemplo y tutoriales, consulte el [origen del e
 
 Las suscripciones de Azure emiten eventos de administración desde Azure Resource Manager, como cuando se crea una máquina virtual o se elimina una cuenta de almacenamiento.
 
-| Tipo de evento | DESCRIPCIÓN |
+| Tipo de evento | Descripción |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceActionCancel | Se genera cuando se cancela la acción en el recurso. |
 | Microsoft.Resources.ResourceActionFailure | Se genera cuando hay un error en la acción en el recurso. |
@@ -234,20 +234,20 @@ En el ejemplo siguiente se muestra el esquema para un evento **ResourceActionSuc
 
 Un evento tiene los siguientes datos de nivel superior:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |
 | eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
 | eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
 | id | string | Identificador único para el evento |
-| data | object | Datos del evento de suscripción. |
+| datos | object | Datos del evento de suscripción. |
 | dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
 | metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | authorization | object | Autorización solicitada para la operación. |
 | claims | object | Propiedades de las notificaciones. Para más información, consulte la [especificación de JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |

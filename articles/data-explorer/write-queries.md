@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
 ms.openlocfilehash: 80d3eaaf7e588766d62f5e5885d75e61c590970e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68881192"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Escribir consultas para el Explorador de datos de Azure
 
 En este artículo, aprenderá a usar el lenguaje de consulta en el Explorador de datos de Azure para realizar consultas básicas con los operadores más comunes. También se expondrá a algunas de las características más avanzadas del lenguaje.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Puede ejecutar las consultas de este artículo de dos maneras:
 
@@ -110,7 +110,7 @@ StormEvents
 | project StartTime, EndTime, State, EventType, DamageProperty, EpisodeNarrative
 ```
 
-### <a name="where"></a>donde
+### <a name="where"></a>, donde
 
 [**where**](https://docs.microsoft.com/azure/kusto/query/whereoperator): Filtra una tabla para el subconjunto de filas que cumplen un predicado.
 
@@ -631,7 +631,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()** ](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): devuelve una estimación para el [**percentil del intervalo más cercano**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) especificado de la población definida por una expresión. La precisión depende de la densidad de población en la región del percentil. Se puede usar únicamente en el contexto de agregación dentro de [ **summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
+[**percentiles()** ](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): devuelve una estimación para el [**percentil del intervalo más cercano**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) especificado de la población definida por una expresión. La precisión depende de la densidad de población en la región del percentil. Se puede usar únicamente en el contexto de agregación dentro de [**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator).
 
 La siguiente consulta calcula los percentiles de duración de tormentas.
 

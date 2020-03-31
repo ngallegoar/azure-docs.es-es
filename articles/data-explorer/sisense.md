@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 5/29/2019
 ms.openlocfilehash: f0840b90e1036c23fa58d94515bfeb035299c07f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66358189"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-sisense"></a>Visualización de datos desde Azure Data Explorer en Sisense
 
 Sisense es una plataforma de inteligencia empresarial de análisis que le permite compilar aplicaciones de análisis que proporcionan experiencias de usuario altamente interactivas. La inteligencia empresarial y el software de informes del panel le permiten acceder a los datos y combinarlos en unos pocos clics. Puede conectarse a orígenes de datos estructurados y no estructurados, combinar tablas desde varios orígenes con un scripting y codificación mínimos, y crear informes y paneles web interactivos. En este artículo, aprenderá a configurar Azure Data Explorer como origen de datos de Sisense y a visualizarlos después desde un clúster de ejemplo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
@@ -68,12 +68,12 @@ Para completar este artículo, necesitará lo siguiente:
 
     ![Configuración del conector JDBC](media/sisense/jdbc-connector.png)
 
-    |Campo |DESCRIPCIÓN |
+    |Campo |Descripción |
     |---------|---------|
     |Cadena de conexión     |   `jdbc:sqlserver://<cluster_name.region>.kusto.windows.net:1433;database=<database_name>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.kusto.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword`      |
     |Carpeta de archivos JAR de JDBC  |    `..\Sisense\DataConnectors\jdbcdrivers\adx`     |
     |Nombre de clase de controlador    |   `com.microsoft.sqlserver.jdbc.SQLServerDriver`      |
-    |User Name   |    Nombre de usuario de AAD     |
+    |Nombre de usuario   |    Nombre de usuario de AAD     |
     |Contraseña     |   Contraseña de usuario de AAD      |
 
 1. En la pestaña **Seleccionar datos**, busque **Seleccionar base de datos** para elegir la base de datos relevante para la que dispone de permisos. En este ejemplo, seleccione *test1*.

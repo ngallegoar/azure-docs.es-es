@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c3028ed7629c41eece354dd2554ede9249bac4f8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "68669840"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334970"
 ---
 Puede asociar un número de discos de datos a una máquina virtual de Azure. Según los objetivos de escalabilidad y rendimiento de los discos de datos de una máquina virtual, puede determinar el número y el tipo de disco necesarios para satisfacer sus requisitos de capacidad y rendimiento.
 
@@ -20,14 +20,14 @@ Puede asociar un número de discos de datos a una máquina virtual de Azure. Seg
 
 En la tabla siguiente se muestran los límites predeterminado y máximo del número de recursos por región y suscripción. No hay ningún límite en el número de discos administrados, instantáneas e imágenes por grupo de recursos.  
 
-> | Resource | Límite predeterminado  | Límite máximo |
-> | --- | --- | --- |
-> | Discos administrados estándar | 50.000 | 50.000 |
-> | Discos administrados SSD estándar | 50.000 | 50.000 |
-> | Discos administrados Premium | 50.000 | 50.000 |
-> | Instantáneas Standard_LRS | 50.000 | 50.000 |
-> | Instantáneas Standard_ZRS | 50.000 | 50.000 |
-> | Imagen administrada | 50.000 | 50.000 |
+> | Resource | Límite |
+> | --- | --- |
+> | Discos administrados estándar | 50.000 |
+> | Discos administrados SSD estándar | 50.000 |
+> | Discos administrados Premium | 50.000 |
+> | Instantáneas Standard_LRS | 50.000 |
+> | Instantáneas Standard_ZRS | 50.000 |
+> | Imagen administrada | 50.000 |
 
 * **Para cuentas de almacenamiento estándar:** una cuenta de almacenamiento estándar tiene una tasa de solicitudes máxima total de 20 000 IOPS. El número total de IOPS en todos los discos de máquina virtual de una cuenta de almacenamiento estándar no debe superar este límite.
   

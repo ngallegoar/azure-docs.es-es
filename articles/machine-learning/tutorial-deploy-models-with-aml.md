@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de clasificación de imágenes: Implementación de modelos'
 titleSuffix: Azure Machine Learning
-description: En este tutorial se muestra cómo usar Azure Machine Learning para implementar un modelo de clasificación de imágenes con scikit-learn en un cuaderno de Jupyter en Python. Este tutorial es la segunda parte de una serie de dos.
+description: En este tutorial, que es el segundo de una serie de dos partes, se muestra cómo usar Azure Machine Learning para implementar un modelo de clasificación de imágenes con scikit-learn en un cuaderno de Jupyter en Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,17 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 071a8dd40d87e5df6fc5c65b789bb63b515dc60a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 81e02492f7e79b87e1513a910afe4719908adbbb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116510"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80159096"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementación de un modelo de clasificación de imágenes en Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este tutorial es la **segunda parte de dos**. En el [tutorial anterior](tutorial-train-models-with-aml.md), entrenó modelos de aprendizaje automático y registró un modelo en su área de trabajo en la nube.  
-
-Ahora ya está listo para implementar el modelo como un servicio web en [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). Un servicio web es una imagen, en este caso, una imagen de Docker. Encapsula la lógica de puntuación y el propio modelo. 
+Este tutorial es la **segunda parte de dos**. En el [tutorial anterior](tutorial-train-models-with-aml.md), entrenó modelos de aprendizaje automático y registró un modelo en su área de trabajo en la nube.  Ya está listo para implementar el modelo como un servicio web. Un servicio web es una imagen, en este caso, una imagen de Docker. Encapsula la lógica de puntuación y el propio modelo. 
 
 En esta parte del tutorial, se usa Azure Machine Learning para las siguientes tareas:
 
@@ -50,7 +48,7 @@ Este tutorial también está disponible en [GitHub](https://github.com/Azure/Mac
 > Cambie ahora al cuaderno de Jupyter Notebook si desea leer a medida que ejecuta el código.
 > Para ejecutar una sola celda de código en un cuaderno, haga clic en la celda y presione **Mayús + Entrar**. O bien, ejecute el cuaderno completo, para lo que debe elegir **Ejecutar todo** en la barra de herramientas superior.
 
-## <a name="start"></a>Configuración del entorno
+## <a name="set-up-the-environment"></a><a name="start"></a>Configuración del entorno
 
 Empiece por configurar un entorno de prueba.
 
@@ -299,7 +297,6 @@ Obtenga punto de conexión HTTP del servicio web de puntuación, que acepta llam
 ```python
 print(service.scoring_uri)
 ```
-
 
 ## <a name="test-the-deployed-service"></a>Prueba del modelo implementado
 

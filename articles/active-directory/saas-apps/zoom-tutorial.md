@@ -17,10 +17,10 @@ ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70743963"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Zoom
@@ -33,7 +33,7 @@ En este tutorial, obtendrá información sobre cómo integrar Zoom con Azure Act
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -114,7 +114,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
     1. En el campo **Nombre**, escriba `B.Simon`.  
     1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
     1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-    1. Haga clic en **Create**(Crear).
+    1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -140,13 +140,13 @@ En esta sección, va a permitir que B. Simon acceda a Zoom mediante el inicio d
 
 2. Haga clic en la pestaña **Inicio de sesión único** .
 
-    ![Pestaña de Inicio de sesión único](./media/zoom-tutorial/ic784700.png "Inicio de sesión único")
+    ![Pestaña Inicio de sesión único](./media/zoom-tutorial/ic784700.png "Inicio de sesión único")
 
 3. Haga clic en la pestaña **Control de seguridad** y luego vaya a la configuración de **Inicio de sesión único**.
 
 4. En la sección Inicio de sesión único, siga estos pasos:
 
-    ![Sección de Inicio de sesión único](./media/zoom-tutorial/ic784701.png "Inicio de sesión único")
+    ![Sección Inicio de sesión único](./media/zoom-tutorial/ic784701.png "Inicio de sesión único")
 
     a. En el cuadro de texto **Dirección URL de la página de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 

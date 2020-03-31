@@ -14,10 +14,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
 ms.openlocfilehash: 5263af2708ee30566e90cdf59ef69f52f76a9d32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440318"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Inicio y detención de Azure-SSIS Integration Runtime mediante una programación
@@ -27,7 +27,7 @@ Como alternativa, puede crear actividades web en las canalizaciones de ADF para 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Si todavía no ha aprovisionado Azure-SSIS IR, hágalo ahora según las instrucciones del [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Creación y programación de canalizaciones de ADF que inician o detienen Azure-SSIS IR

@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.openlocfilehash: fc7e78a44d03af8952c1e178a3e92b1ee0c6fe66
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688128"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lectura de la fuente de cambios de Azure Cosmos DB
@@ -44,5 +44,5 @@ Apache Cassandra nativo proporciona captura de datos modificados (CDC), un mecan
 Ahora, puede obtener más información acerca de las fuentes de cambios en los siguientes artículos:
 
 * [Introducción a la fuente de cambios](change-feed.md)
-* [Using change feed with Azure Functions](change-feed-functions.md) (Uso de la fuente de cambios con Azure Functions)
-* [Using change feed processor library](change-feed-processor.md) (Uso de la biblioteca de procesadores de fuente de cambios)
+* [Using change feed with Azure Functions](change-feed-functions.md) (Usar la fuente de cambios con Azure Functions)
+* [Uso de la biblioteca de procesadores de fuente de cambios](change-feed-processor.md)

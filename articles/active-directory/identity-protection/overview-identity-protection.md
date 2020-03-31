@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 10/18/2019
+ms.date: 03/17/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e928d67ba7102df3d342e77705ea895f9230ff3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887705"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79497678"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>¿Qué es Azure Active Directory Identity Protection?
 
@@ -46,14 +46,14 @@ En su [entrada de blog de octubre de 2018](https://techcommunity.microsoft.com/t
 
 Identity Protection identifica los riesgos de las siguientes clasificaciones:
 
-| Tipo de detección de riesgo | DESCRIPCIÓN |
+| Tipo de detección de riesgo | Descripción |
 | --- | --- |
-| Viaje atípico | Iniciar sesión desde una ubicación atípica, en función de los recientes inicios de sesión del usuario. |
+| Viaje atípico | Iniciar sesión desde una ubicación atípica, en función de los inicios de sesión del usuario recientes. |
 | Dirección IP anónima | Iniciar sesión desde una dirección IP anónima (por ejemplo: el explorador Tor o redes VPN anonimizadoras). |
 | Propiedades de inicio de sesión desconocidas | Iniciar sesión con propiedades que no hemos observado recientemente en el usuario en cuestión. |
 | Dirección IP vinculada al malware | Iniciar sesión desde una dirección IP vinculada al malware. |
 | Filtración de credenciales | Esta detección de riesgo indica que se han filtrado las credenciales válidas del usuario. |
-| Inteligencia de Azure AD sobre amenazas | Las fuentes de inteligencia de amenazas internas y externas de Microsoft han identificado un patrón de ataque conocido |
+| Inteligencia de Azure AD sobre amenazas | Las fuentes de inteligencia sobre amenazas internas y externas de Microsoft han identificado un patrón de ataque conocido |
 
 Puede encontrar más información sobre estos riesgos y cómo/cuándo se calculan en el artículo [Qué es el riesgo](concept-identity-protection-risks.md).
 
@@ -79,6 +79,15 @@ Puede encontrar información sobre la integración de información de Identity P
 
 Identity Protection requiere que los usuarios tengan el rol Lector de seguridad, Operador de seguridad, Administrador de seguridad, Lector global o Administrador global para poder acceder.
 
+| Role | Puede hacer | No se puede hacer |
+| --- | --- | --- |
+| Administrador global | Acceso completo a Identity Protection |   |
+| Administrador de seguridad | Acceso completo a Identity Protection | Restablecer la contraseña de un usuario |
+| Operador de seguridad | Ver todos los informes de Identity Protection y la hoja de información general <br><br> Descartar el riesgo del usuario, confirmar el inicio de sesión seguro, confirmar el compromiso | Configurar o cambiar directivas <br><br> Restablecer la contraseña de un usuario <br><br> Configurar alertas |
+| Lector de seguridad | Ver todos los informes de Identity Protection y la hoja de información general | Configurar o cambiar directivas <br><br> Restablecer la contraseña de un usuario <br><br> Configurar alertas <br><br> Enviar comentarios sobre las detecciones |
+
+Los administradores de acceso condicional también pueden crear directivas que representen el riesgo de inicio de sesión como una condición; consulte más información en el artículo [Acceso condicional: Condiciones](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
+
 ## <a name="license-requirements"></a>Requisitos de licencia
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
@@ -97,7 +106,7 @@ Identity Protection requiere que los usuarios tengan el rol Lector de seguridad,
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a la seguridad](concept-identity-protection-security-overview.md)
+- [Información general sobre seguridad](concept-identity-protection-security-overview.md)
 
 - [¿Qué es el riesgo?](concept-identity-protection-risks.md)
 

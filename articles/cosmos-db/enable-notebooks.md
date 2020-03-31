@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
 ms.openlocfilehash: dcec310db43baa513b2d574d03f3f35dee3f773b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76768016"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitación de cuadernos para las cuentas de Azure Cosmos DB (versión preliminar)
 
 > [!IMPORTANT]
-> Los cuadernos integrados para Azure Cosmos DB están disponibles actualmente en las siguientes regiones de Azure: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU.., Sudeste Asiático, Sur de Reino Unido, Oeste de Europa y Oeste de EE. UU. 2. Para usar cuadernos, [cree una cuenta nueva con Notebooks](#enable-notebooks-in-a-new-cosmos-account) o [habilite los Notebooks en una cuenta existente](#enable-notebooks-in-an-existing-cosmos-account) en una de estas regiones.
+> Los cuadernos integrados para Azure Cosmos DB están disponibles actualmente en las siguientes regiones de Azure: Este de Australia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU.., Sudeste de Asia, Sur de Reino Unido, Oeste de Europa y Oeste de EE. UU. 2. Para usar cuadernos, [cree una cuenta nueva con Notebooks](#enable-notebooks-in-a-new-cosmos-account) o [habilite los Notebooks en una cuenta existente](#enable-notebooks-in-an-existing-cosmos-account) en una de estas regiones.
 
 Los cuadernos de Jupyter integrados en Azure Cosmos DB permiten analizar y visualizar los datos desde Azure Portal. En este artículo se describe cómo habilitar esta característica para la cuenta de Azure Cosmos DB.
 

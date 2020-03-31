@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: d6305a6e68f435c009fdfdea371e88f4a73c3d92
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 1ca439d1a82e3cdbe2cc0274cf63653d39048057
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830401"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532559"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión HTTP mediante Azure Data Factory
 
@@ -50,7 +50,7 @@ Puede usar este conector HTTP para:
 > [!TIP]
 > Para probar una solicitud HTTP para la recuperación de datos antes de configurar el conector HTTP en Data Factory, obtenga información acerca de la especificación de API para los requisitos del cuerpo y del encabezado. Puede usar herramientas como Postman o un explorador web para validar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -177,7 +177,7 @@ Las propiedades siguientes se admiten para HTTP en la configuración `location` 
 | Propiedad    | Descripción                                                  | Obligatorio |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | La propiedad type de `location` en el conjunto de datos se debe establecer en **HttpServerLocation**. | Sí      |
-| relativeUrl | Dirección URL relativa al recurso que contiene los datos. El conector HTTP copia los datos de la dirección URL combinada: `[URL specified in linked service]/[relative URL specified in dataset]`.   | No       |
+| relativeUrl | Dirección URL relativa al recurso que contiene los datos. El conector HTTP copia los datos de la dirección URL combinada: `[URL specified in linked service][relative URL specified in dataset]`.   | No       |
 
 > [!NOTE]
 > El tamaño de carga de la solicitud HTTP admitido es aproximadamente 500 KB. Si el que desea pasar al punto de conexión web supera los 500 KB, considere la posibilidad de agrupar la carga en fragmentos menores.

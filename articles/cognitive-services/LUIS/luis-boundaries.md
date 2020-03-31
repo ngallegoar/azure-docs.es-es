@@ -12,11 +12,11 @@ ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78273519"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218838"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-boundaries), que controla las intenciones, entidades y características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS.

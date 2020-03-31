@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: aahi
 ms.openlocfilehash: ca93de71f64efaf21c78b37b9c9aee193d13b28d
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71840218"
 ---
-# <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procedimientos para: Uso de Anomaly Detector API en datos de serie temporal  
+# <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Procedimientos: Uso de Anomaly Detector API en datos de serie temporal  
 
 [Anomaly Detector API](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) proporciona dos métodos de detección de anomalías. Las anomalías se pueden detectar como un lote a lo largo de la serie temporal, o a medida que se generan los datos mediante la detección del estado de anomalía del punto de datos más reciente. El modelo de detección devuelve resultados de anomalía junto con el valor esperado de cada punto de datos, y los límites de detección de anomalías superior e inferior. Puede usar estos valores para visualizar el intervalo de valores normales y las anomalías en los datos.
 

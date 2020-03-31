@@ -13,16 +13,16 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929013"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236292"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Copia repetible en Azure Data Factory
 
 ## <a name="repeatable-read-from-relational-sources"></a>Lectura repetible de orígenes relacionales
-Cuando se copian datos desde almacenes de datos relacionales, hay que tener presente la repetibilidad para evitar resultados imprevistos. En Azure Data Factory, puede volver a ejecutar un segmento manualmente. También puede configurar la directiva de reintentos para un conjunto de datos con el fin de que un segmento se vuelva a ejecutar cuando se produce un error. Cuando se vuelve a ejecutar un segmento, debe asegurarse de que los mismos datos se leen sin importar cuántas veces se ejecuta un segmento.  
+Cuando se copian datos desde almacenes de datos relacionales, hay que tener presente la repetibilidad para evitar resultados imprevistos. En Azure Data Factory, puede volver a ejecutar un segmento manualmente. También puede configurar la directiva de reintentos para un conjunto de datos con el fin de que un segmento se vuelva a ejecutar cuando se produce un error. Cuando se vuelve a ejecutar un segmento, debe asegurarse de que los mismos datos se lean sin importar el número de ejecuciones.  
  
 > [!NOTE]
 > Los ejemplos siguientes son para SQL Azure, pero son aplicables a cualquier almacén de datos que admita conjuntos de datos rectangulares. Puede que deba ajustar el **tipo** de origen y la propiedad de la **consulta** (por ejemplo, consulta en lugar de sqlReaderQuery) del almacén de datos.   

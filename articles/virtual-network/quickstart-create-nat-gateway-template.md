@@ -15,19 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 0f6a303bfa42538bf56efa7e9f669588c8bff66c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 6b3dee698e63ed2b0a44f05b593b8840d1cd23ee
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082734"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80066415"
 ---
 # <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Inicio rápido: Creación de una puerta de enlace NAT - plantilla de Resource Manager
 
-Introducción a Virtual Network NAT mediante una plantilla de Azure Resource Manager.  Esta plantilla implementa una red virtual, una puerta de enlace NAT y una máquina virtual con Ubuntu. La máquina virtual con Ubuntu se implementa en una subred que está asociada a la puerta de enlace NAT.
-
->[!NOTE] 
->NAT de Azure Virtual Network está disponible como versión preliminar pública en este momento y en un conjunto limitado de [regiones](https://azure.microsoft.com/global-infrastructure/regions/). Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
+Introducción a Virtual Network NAT mediante una plantilla de Azure Resource Manager.  Esta plantilla implementa una red virtual, un recurso de puerta de enlace NAT y una máquina virtual con Ubuntu. La máquina virtual con Ubuntu se implementa en una subred que está asociada al recurso de puerta de enlace NAT.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

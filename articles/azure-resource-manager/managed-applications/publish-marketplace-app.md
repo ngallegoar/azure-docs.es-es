@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 73d4ccbda854d631248daef439aa3bd232d42e06
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a42ee5d6f7f40d391acb743ef85f671f25804749
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649072"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79473003"
 ---
-# <a name="azure-managed-applications-in-the-marketplace"></a>Aplicaciones administradas de Azure en Marketplace
+# <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Tutorial: Publicación de aplicaciones administradas de Azure en Marketplace
 
 Los proveedores pueden usar las aplicaciones administradas de Azure para ofrecer sus soluciones a todos los clientes de Azure Marketplace. Entre estos proveedores se incluyen los proveedores de servicios administrados (MSP), los fabricantes de software independientes (ISV) y los integradores de sistemas (SIs). Las aplicaciones administradas reducen la sobrecarga de mantenimiento para los clientes. Los proveedores pueden vender la infraestructura y el software a través de Marketplace. Pueden asociar los servicios y el soporte técnico operativo a las aplicaciones administradas. Para más información, consulte [Información general sobre las aplicaciones administradas](overview.md).
 

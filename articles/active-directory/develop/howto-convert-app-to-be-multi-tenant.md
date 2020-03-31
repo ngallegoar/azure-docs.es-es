@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/19/2020
+ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: b3338edf644aee8409cfca05d4ac801594cbf66b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: e15fb60ec339eae45f9f14a3333e8afe51fc05c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467766"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480868"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedimientos: Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino
 
@@ -115,7 +115,7 @@ Algunos permisos pueden tener el consentimiento de un usuario normal, mientras q
 
 Los permisos de solo aplicación siempre requieren el consentimiento del administrador de inquilinos. Si la aplicación solicita un permiso de solo aplicación y un usuario intenta iniciar sesión en la aplicación, aparece un mensaje de error que indica que el usuario no puede dar su consentimiento.
 
-Algunos permisos delegados también requieren el consentimiento del administrador de inquilinos. Por ejemplo, la posibilidad de reescribir en Azure AD como el usuario que ha iniciado la sesión requiere el consentimiento del administrador de inquilinos. Al igual que los permisos de solo aplicación, si un usuario ordinario intenta iniciar sesión en una aplicación que solicita un permiso delegado que requiere el consentimiento del administrador, la aplicación recibe un error. Que un permiso requiera el consentimiento del administrador viene determinado por el desarrollador que publica el recurso, y se puede encontrar en la documentación del recurso. La documentación de permisos para [Azure AD Graph API][AAD-Graph-Perm-Scopes] y [Microsoft Graph API][MSFT-Graph-permission-scopes] indica qué permisos requieren consentimiento del administrador.
+Algunos permisos delegados también requieren el consentimiento del administrador de inquilinos. Por ejemplo, la posibilidad de reescribir en Azure AD como el usuario que ha iniciado la sesión requiere el consentimiento del administrador de inquilinos. Al igual que los permisos de solo aplicación, si un usuario ordinario intenta iniciar sesión en una aplicación que solicita un permiso delegado que requiere el consentimiento del administrador, la aplicación recibe un error. Que un permiso requiera el consentimiento del administrador viene determinado por el desarrollador que publica el recurso, y se puede encontrar en la documentación del recurso. La documentación de permisos de [Microsoft Graph API][MSFT-Graph-permission-scopes] indica qué permisos requieren consentimiento del administrador.
 
 Si la aplicación usa permisos que requieren el consentimiento del administrador, necesita tener un gesto, como un botón o un vínculo donde el administrador pueda iniciar la acción. La solicitud que la aplicación envía para esta acción es la solicitud de autorización habitual de OAuth2 o OpenID Connect que también incluye el parámetro de cadena de consulta `prompt=admin_consent`. Una vez que el administrador ha dado su consentimiento y la entidad de servicio se crea en el inquilino del cliente, las posteriores solicitudes de inicio de sesión no necesitan el parámetro `prompt=admin_consent`. Dado que el administrador ha decido que los permisos solicitados son aceptables, en adelante no se solicitará consentimiento a ningún otro usuario.
 
@@ -176,13 +176,12 @@ En este artículo ha aprendido a crear una aplicación que puede hacer que un us
 
 ## <a name="related-content"></a>Contenido relacionado
 
-* [Ejemplo de aplicación multiinquilino](https://github.com/mspnp/multitenant-saas-guidance)
+* [Ejemplo de aplicación multiinquilino](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
 * [Directrices de personalización de marca para aplicaciones][AAD-App-Branding]
 * [Objetos de aplicación y de entidad de servicio][AAD-App-SP-Objects]
 * [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps]
 * [Información general sobre el marco de consentimiento][AAD-Consent-Overview]
 * [Ámbitos de permiso de Microsoft Graph API][MSFT-Graph-permission-scopes]
-* [Ámbitos de permiso de Azure AD Graph API][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -192,8 +191,6 @@ En este artículo ha aprendido a crear una aplicación que puede hacer que un us
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Consent-Overview]:consent-framework.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
@@ -213,10 +210,6 @@ En este artículo ha aprendido a crear una aplicación que puede hacer que un us
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md

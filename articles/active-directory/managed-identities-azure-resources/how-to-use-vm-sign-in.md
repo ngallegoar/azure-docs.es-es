@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74547385"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Cómo usar las identidades administradas para recursos de Azure en una VM de Azure para el inicio de sesión 
@@ -29,7 +29,7 @@ En este artículo se proporcionan ejemplos de script de PowerShell y de la CLI p
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -48,7 +48,7 @@ Las identidades administradas para recursos de Azure proporcionan un [objeto de 
 
 Con las identidades administradas para los recursos de Azure, el cliente de script ya no tiene que seguir ninguno de estos pasos, ya que puede iniciar sesión bajo las identidades administradas para la entidad de servicio de recursos de Azure. 
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 El script siguiente muestra cómo:
 

@@ -10,11 +10,11 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839480"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231540"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Administración de Azure Data Lake Analytics mediante Azure Portal
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -29,24 +29,24 @@ En este artículo se describe cómo administrar cuentas, orígenes de datos, usu
 
 ### <a name="create-an-account"></a>Crear una cuenta
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Crear un recurso** > **Inteligencia y análisis** > **Data Lake Analytics**.
 3. Seleccione los valores de los siguientes elementos: 
-   1. **Nombre**: nombre de la cuenta de Data Lake Analytics.
+   1. **Name**: nombre de la cuenta de Data Lake Analytics.
    2. **Suscripción**: suscripción de Azure usada para la cuenta.
    3. **Grupo de recursos**: grupo de recursos de Azure en el que se crea la cuenta. 
    4. **Ubicación**: centro de datos de Azure para la cuenta de Data Lake Analytics. 
    5. **Data Lake Store**: almacén predeterminado que se va a usar para la cuenta de Data Lake Analytics. Las cuentas de Azure Data Lake Store y de Data Lake Analytics deben estar en la misma ubicación.
-4. Haga clic en **Create**(Crear). 
+4. Haga clic en **Crear**. 
 
 ### <a name="delete-a-data-lake-analytics-account"></a>Eliminar una cuenta de Data Lake Analytics
 
 Para eliminar una cuenta de Data Lake Analytics, elimine la cuenta de Data Lake Store predeterminada.
 
 1. En Azure Portal, vaya a la cuenta de Data Lake Analytics.
-2. Hacer clic en **Eliminar**.
+2. Haga clic en **Eliminar**.
 3. Escriba el nombre de la cuenta.
-4. Hacer clic en **Eliminar**.
+4. Haga clic en **Eliminar**.
 
 <!-- ################################ -->
 <!-- ################################ -->

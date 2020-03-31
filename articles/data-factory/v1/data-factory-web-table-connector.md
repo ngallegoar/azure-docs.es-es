@@ -13,14 +13,14 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927935"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231544"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Movimiento de datos de un origen de tabla web mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que se usa:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-web-table-connector.md)
 > * [Versión 2 (versión actual)](../connector-web-table.md)
 
@@ -34,7 +34,7 @@ Factoría de datos solo admite actualmente el movimiento de datos desde una tabl
 > [!IMPORTANT]
 > Actualmente, este conector web solo permite extraer contenido de tablas de una página HTML. Para recuperar datos de un punto de conexión HTTP/s, utilice el [conector HTTP](data-factory-http-connector.md) en su lugar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para utilizar este conector de tabla web, debe configurar Integration Runtime autohospedado (también conocido como Data Management Gateway) y configurar la propiedad `gatewayName` en el servicio vinculado del receptor. Por ejemplo, para copiar de la tabla web a Azure Blob Storage, configure el servicio vinculado de Azure Storage de la siguiente manera:
 
@@ -54,7 +54,7 @@ Para utilizar este conector de tabla web, debe configurar Integration Runtime au
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva los datos desde un almacén de datos Cassandra local mediante el uso de diferentes herramientas o API. 
 
-- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos. 
+- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos. 
 - Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
@@ -70,10 +70,10 @@ En las secciones siguientes, se proporcionan detalles sobre las propiedades JSON
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de Web.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **Web** |Sí |
-| URL |Dirección URL para el origen de Web |Sí |
+| Url |Dirección URL para el origen de Web |Sí |
 | authenticationType |Anonymous. |Sí |
 
 ### <a name="using-anonymous-authentication"></a>Uso de autenticación anónima
@@ -98,13 +98,13 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos de tipo **WebTable** tiene las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type |Tipo del conjunto de datos. Debe establecerse en **WebTable** |Sí |
 | path |Dirección URL relativa al recurso que contiene la tabla. |No. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. |
-| index |Índice de la tabla en el recurso. Consulte la sección [Obtención de índice de una tabla en una página HTML](#get-index-of-a-table-in-an-html-page) para saber los pasos necesarios para obtener el índice de una tabla en una página HTML. |Sí |
+| índice |Índice de la tabla en el recurso. Consulte la sección [Obtención de índice de una tabla en una página HTML](#get-index-of-a-table-in-an-html-page) para saber los pasos necesarios para obtener el índice de una tabla en una página HTML. |Sí |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {

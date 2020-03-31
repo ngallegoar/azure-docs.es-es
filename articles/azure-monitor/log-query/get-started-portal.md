@@ -1,140 +1,140 @@
 ---
-title: Introducción a los análisis de registros de Azure Monitor | Microsoft Docs
-description: En este artículo se proporciona un tutorial de uso de Log Analytics en Azure Portal para escribir consultas.
+title: 'Tutorial: Introducción a las consultas de Log Analytics'
+description: En este tutorial aprenderá a escribir y administrar consultas de registro de Azure Monitor mediante Log Analytics en Azure Portal.
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 07/19/2019
-ms.openlocfilehash: 1cf1695db50e6aee2a5dae24ed5231fdda7c12de
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/17/2020
+ms.openlocfilehash: 29e24166218a6757cded9d1b002321800ab0c073
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670243"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80055669"
 ---
-# <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introducción a los análisis de registros de Azure Monitor
+# <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutorial: Introducción a las consultas de Log Analytics
 
-> [!NOTE]
-> Puede trabajar en este ejercicio en su propio entorno si va a recopilar datos de al menos una máquina virtual. Si no es así, use nuestro [entorno de demostración](https://portal.loganalytics.io/demo), que incluye gran cantidad de datos de ejemplo.
+En este tutorial se indica cómo usar Log Analytics para escribir, ejecutar y administrar consultas de registro de Azure Monitor en Azure Portal. Las consultas de Log Analytics se pueden usar para buscar términos, identificar tendencias, analizar patrones y proporcionar muchas otras conclusiones basadas en los datos. 
 
-En este tutorial aprenderá a usar los análisis de registros de Azure Portal para escribir consultas de registro de Azure Monitor. Le mostrará cómo:
+En este tutorial, aprenderá a usar Log Analytics para:
 
-- Usar los análisis de registros para escribir una consulta sencilla
-- Comprender el esquema de los datos
-- Filtrar, ordenar y agrupar los resultados
-- Aplicar intervalos de tiempo
-- Crear gráficos
-- Guardar y cargar consultas
-- Exportar y compartir consultas
+> [!div class="checklist"]
+> * Comprender el esquema de datos del registro
+> * Escribir y ejecutar consultas sencillas, y modificar el intervalo de tiempo de las consultas
+> * Filtrar, ordenar y agrupar los resultados de las consultas
+> * Ver, modificar y compartir los objetos visuales de los resultados de las consultas
+> * Guardar, cargar, exportar y copiar consultas y resultados
 
-Para ver un tutorial sobre cómo escribir consultas de registro, consulte [Introducción a las consultas de registro en Azure Monitor](get-started-queries.md).<br>
-Para más información sobre las consultas de registros, consulte [Introducción a las consultas de registros en Azure Monitor](log-query-overview.md).
+Para obtener más información sobre las consultas de registro, vea [Análisis de datos de registro en Azure Monitor](log-query-overview.md).<br/>
+Para ver un tutorial detallado sobre cómo escribir consultas de registro, consulte [Introducción a las consultas de registro en Azure Monitor](get-started-queries.md).
 
-## <a name="meet-log-analytics"></a>Descubrir los análisis de registros
-Los análisis de registros son una herramienta web que se usa para escribir y ejecutar consultas de registros en Azure Monitor. Seleccione **Registros** en el menú de Azure Monitor para abrirla. Se inicia con una nueva consulta en blanco.
+## <a name="open-log-analytics"></a>Apertura de Log Analytics
+Para usar Log Analytics debe iniciar sesión en una cuenta de Azure. Si no tiene una cuenta de Azure, [cree una gratis](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-![Página de inicio](media/get-started-portal/homepage.png)
+Para completar la mayoría de los pasos de este tutorial, puede usar [este entorno de demostración](https://portal.loganalytics.io/demo) que incluye gran cantidad de datos de ejemplo. En este entorno, no podrá guardar consultas ni anclar resultados en un panel.
 
-## <a name="firewall-requirements"></a>Requisitos de firewall
-Para usar análisis de registros, el explorador requiere acceso a las direcciones siguientes. Si el explorador tiene acceso a Azure Portal a través de un firewall, debe habilitar el acceso a estas direcciones.
-
-| Identificador URI | IP | Puertos |
-|:---|:---|:---|
-| portal.loganalytics.io | Dinámica | 80 443 |
-| api.loganalytics.io | Dinámica | 80 443 |
-| docs.loganalytics.io | Dinámica | 80 443 |
-
-## <a name="basic-queries"></a>Consultas básicas
-Las consultas se pueden usar para buscar términos, identificar tendencias o analizar patrones y proporcionan muchas otras conclusiones basadas en los datos. Comencemos con una consulta básica:
-
-```Kusto
-Event | search "error"
-```
-
-Esta consulta busca en la tabla _Event_ los registros que contienen el término _error_ en cualquier propiedad.
-
-Las consultas pueden comenzar por un nombre de tabla o un comando [search](/azure/kusto/query/searchoperator). El ejemplo anterior comienza con el nombre de tabla _Event_, que recupera todos los registros de la tabla de eventos. El carácter de barra vertical (|) separa los comandos,de manera que la salida del primero sea la entrada del siguiente. A una consulta se puede agregar cualquier cantidad de comandos.
-
-Otra forma de escribir la misma consulta sería:
-
-```Kusto
-search in (Event) "error"
-```
-
-En este ejemplo, **search** tiene como ámbito la tabla _Event_ y el término _error_ se busca en todos sus registros.
-
-## <a name="running-a-query"></a>Ejecución de una consulta
-Las consultas se ejecutan al hacer clic en el botón **Run** (Ejecutar) o al presionar **Mayús + Intro**. Tenga en cuenta los siguientes detalles que determinan el código que se va a ejecutar y los datos que se van a devolver:
-
-- Saltos de línea: Un único salto facilita la lectura de la consulta. Varios saltos de línea la dividen en consultas independientes.
-- Cursor: coloque el cursor en algún lugar dentro de la consulta para ejecutarla. Se considera que la consulta actual está compuesta por el código hasta que aparece una línea en blanco.
-- Intervalo de tiempo: de forma predeterminada, se establece uno de las _últimas 24 horas_. Con el selector de hora puede elegir un intervalo distinto. Como alternativa, agregue un filtro de intervalo de tiempo a la consulta.
-
+También puede usar su propio entorno si va a utilizar Azure Monitor para recopilar datos de registro en al menos un recurso de Azure. Para abrir un área de trabajo de Log Analytics, seleccione **Registros** en el panel de navegación izquierdo de Azure Monitor. 
 
 ## <a name="understand-the-schema"></a>Información sobre el esquema
-El esquema es una colección de tablas que visualmente se agrupan en una categoría lógica. Varias categorías provienen de las soluciones de supervisión. La categoría _LogManagement_ contiene datos comunes, como eventos de Windows y Syslog, datos de rendimiento y latidos de cliente.
+Un *esquema* es una colección de tablas que se agrupan en categorías lógicas. El esquema de demostración incluye varias categorías de soluciones de supervisión. Por ejemplo, la categoría **LogManagement** contiene eventos, datos de rendimiento y latidos del agente de Windows y Syslog.
+
+Las tablas del esquema aparecen en la pestaña **Tablas** del área de trabajo de Log Analytics. Las tablas contienen columnas, cada una con un tipo de datos que muestra el icono situado junto al nombre de la columna. Por ejemplo, la tabla **Eventos** contiene columnas de texto como **Equipo** y columnas numéricas como **EventCategory**.
 
 ![Schema](media/get-started-portal/schema.png)
 
-En cada tabla, los datos se organizan en columnas con tipos de datos diferentes, como indican los iconos junto al nombre de la columna. Por ejemplo, la tabla _Event_ que se muestra en la captura de pantalla contiene columnas como _Computer_ (texto), _EventCategory_ (cifra) y  _TimeGenerated_ (fecha y hora).
+## <a name="write-and-run-basic-queries"></a>Escritura y ejecución de consultas básicas
 
-## <a name="filter-the-results"></a>Filtrado de los resultados
-Comencemos por obtener todo el contenido de la tabla _Event_.
+Log Analytics se abre con una nueva consulta en blanco en el **Editor de consultas**.
+
+![Log Analytics](media/get-started-portal/homepage.png)
+
+### <a name="write-a-query"></a>Escriba una consulta.
+Las consultas de registro de Azure Monitor usan una versión del lenguaje de consulta de Kusto. Las consultas pueden comenzar por un nombre de tabla o un comando [search](/azure/kusto/query/searchoperator). 
+
+La siguiente consulta recupera todos los registros de la tabla **Eventos**:
 
 ```Kusto
 Event
 ```
 
-Los análisis de registro establecen automáticamente el ámbito de los resultados por:
+El carácter de barra vertical (|) separa los comandos, de manera que la salida del primer comando es la entrada del siguiente. A una consulta se puede agregar cualquier cantidad de comandos. La consulta siguiente recupera los registros de la tabla **Eventos** y, a continuación, busca en ellos el término **error** en todas las propiedades:
 
-- Intervalo de tiempo:  de forma predeterminada, las consultas se limitan a las últimas 24 horas.
-- Número de resultados: limitado a 10 000 registros como máximo.
+```Kusto
+Event 
+| search "error"
+```
 
-Esta consulta es muy general y devuelve demasiados resultados para ser útil. Puede filtrar los resultados a través de los elementos de la tabla o al agregar explícitamente un filtro a la consulta. El filtro de los resultados de los elementos de tabla se aplica al conjunto de resultados existente, mientras que un filtro en la propia consulta devolverá un nuevo conjunto de resultados filtrados y, por tanto, los resultados serían más precisos.
+Un solo salto de línea hace que las consultas sean más fáciles de leer. Más de un salto de línea divide la consulta en consultas independientes.
 
-### <a name="add-a-filter-to-the-query"></a>Incorporación de un filtro a la consulta
-Cada registro tiene una flecha a la izquierda. Haga clic en ella para abrir los detalles del registro en concreto.
+Esta es otra forma de escribir la misma consulta:
 
-Mantenga el mouse por encima de un nombre de columna para que aparezcan los iconos "+" y "-". Para agregar un filtro que devuelva únicamente los registros con el mismo valor, haga clic en el signo "+". Haga clic en "-" para excluir los registros con este valor y, a continuación, haga clic en **Run** (Ejecutar) para volver a ejecutar la consulta.
+```Kusto
+search in (Event) "error"
+```
 
-![Agregar filtro a consulta](media/get-started-portal/add-filter.png)
+En el segundo ejemplo, el comando **search** solo busca en los registros de la tabla **Eventos** el término **error**.
 
-### <a name="filter-through-the-table-elements"></a>Filtro en los elementos de la tabla
-Ahora vamos a centrarnos en los eventos con gravedad _Error_. Esto se especifica en una columna denominada _EventLevelName_. Deberá desplazarse hacia la derecha para ver esta columna.
+De forma predeterminada, Log Analytics limita las consultas a un intervalo de tiempo de las últimas 24 horas. Para establecer un intervalo de tiempo diferente, puede agregar un filtro **TimeGenerated** explícito a la consulta o utilizar el control **Intervalo de tiempo**.
 
-Haga clic en el icono de filtro junto al título de columna y, en la ventana emergente, seleccione los valores _Start with_ (Empieza por) y el texto _error_:
-
-![Filter](media/get-started-portal/filter.png)
-
-
-## <a name="sort-and-group-results"></a>Filtrado y agrupación de los resultados
-Los resultados ahora se reducen para incluir solo los eventos de error de SQL Server generados en las últimas 24 horas. Sin embargo, los resultados no se ordenan. Para ordenar los resultados por una columna específica, como por ejemplo _timestamp_, haga clic en el título de la columna. Con un solo clic se ordena en orden ascendente, mientras que un segundo clic el orden será descendente.
-
-![Ordenación de la columna](media/get-started-portal/sort-column.png)
-
-Otra manera de organizar los resultados es por grupos. Para agrupar los resultados por una columna específica, simplemente arrastre el encabezado de columna por encima de las demás. Para crear subgrupos, arrastre otras columnas a la barra superior también.
-
-![Grupos](media/get-started-portal/groups.png)
-
-## <a name="select-columns-to-display"></a>Selección de columnas para mostrar
-La tabla de resultados incluye a menudo una gran cantidad de columnas. Es posible que algunas de las columnas devueltas no se muestren de forma predeterminada o que desee quitar algunas de las que se muestran. Para seleccionar las columnas que desea mostrar, haga clic en el botón Columns (Columnas):
-
-![Select columns](media/get-started-portal/select-columns.png)
-
-
-## <a name="select-a-time-range"></a>Selección de un intervalo de tiempo
-De manera predeterminada, en los análisis de registros se aplica el intervalo de tiempo de _últimas 24 horas_. Para usar un intervalo diferente, seleccione otro valor mediante el selector de hora y haga clic en **Run** (Ejecutar). Además de los valores preestablecidos, puede usar la opción de _intervalo de tiempo personalizado_ para seleccionar un intervalo absoluto para la consulta.
+### <a name="use-the-time-range-control"></a>Uso del control Intervalo de tiempo
+Para utilizar el control **Intervalo de tiempo** selecciónelo en la barra superior y, después, seleccione un valor de la lista desplegable o seleccione **Personalizado** para crear un intervalo de tiempo personalizado.
 
 ![Selector de hora](media/get-started-portal/time-picker.png)
 
-Al seleccionar un intervalo de tiempo personalizado, con los valores seleccionados se utiliza la zona horaria UTC, que podría diferir de la suya.
+- Los valores del intervalo de tiempo están en formato UTC, el cual podría ser diferente de su zona horaria local.
+- Si la consulta establece explícitamente un filtro para **TimeGenerated**, en el control selector de hora aparece **Establecer en la consulta** y se deshabilita para evitar un conflicto.
 
-Si la consulta contiene explícitamente un filtro para _TimeGenerated_, en el título del selector de hora mostrará _Set in query_ (Establecer en consulta). La selección manual se deshabilitará para evitar conflictos.
+### <a name="run-a-query"></a>Ejecución de una consulta
+Para ejecutar una consulta, sitúe el cursor en algún lugar de esta y seleccione **Ejecutar** en la barra superior o presione **Mayús**+**Entrar**. La consulta se ejecuta hasta que encuentra una línea en blanco.
 
+## <a name="filter-results"></a>Filtrar resultados
+Log Analytics limita los resultados a un máximo de 10 000 registros. Una consulta general como `Event` devuelve demasiados resultados para ser útil. Puede filtrar los resultados mediante la restricción de los elementos de la tabla de la consulta o agregando explícitamente un filtro a los resultados. El filtrado mediante elementos de tabla devuelve un nuevo conjunto de resultados mientras que un filtro explícito se aplica al conjunto de resultados ya existente.
 
-## <a name="charts"></a>Gráficos
-Además de devolver los resultados de consulta en una tabla, se pueden presentar en formatos visuales. Use la siguiente consulta como ejemplo:
+### <a name="filter-by-restricting-table-elements"></a>Filtro mediante la restricción de elementos de tabla
+Para filtrar los resultados de la consulta de `Event` por eventos de **Error** mediante la restricción de elementos de tabla de la consulta:
+
+1. En los resultados de la consulta, seleccione la flecha desplegable situada junto a cualquier registro que contenga **Error** en la columna **EventLevelName**. 
+   
+1. En los detalles expandidos, pase el puntero y seleccione el icono **...** situado junto a **EventLevelName** y, después, seleccione **Incluir "Error"** . 
+   
+   ![Agregar filtro a consulta](media/get-started-portal/add-filter.png)
+   
+1. Observe que la consulta del **Editor de consultas** ha cambiado ahora a:
+   
+   ```Kusto
+   Event
+   | where EventLevelName == "Error"
+   ```
+   
+1. Seleccione **Ejecutar** para ejecutar la nueva consulta.
+
+### <a name="filter-by-explicitly-filtering-results"></a>Filtro mediante el filtrado explícito de los resultados
+Para filtrar los resultados de la consulta de `Event` por eventos de **Error** mediante el filtrado de los resultados de la consulta:
+
+1. En los resultados de la consulta, seleccione el icono de **Filtro** situado junto al encabezado de la columna **EventLevelName**. 
+   
+1. En el primer campo de la ventana emergente, seleccione **Es igual que** y, en el siguiente campo, escriba *error*. 
+   
+1. Seleccione **Filtro**.
+   
+   ![Filter](media/get-started-portal/filter.png)
+
+## <a name="sort-group-and-select-columns"></a>Ordenación, agrupación y selección de columnas
+Para ordenar los resultados de una consulta por una columna específica, como **TimeGenerated [UTC]** , seleccione el encabezado de la columna. Seleccione el encabezado de nuevo para cambiar entre un orden ascendente o descendente.
+
+![Ordenación de la columna](media/get-started-portal/sort-column.png)
+
+Otra manera de organizar los resultados es por grupos. Para agrupar resultados por una columna específica, arrastre el encabezado de la columna a la barra situada sobre la tabla de resultados con la etiqueta **Drag a column header and drop it here to group by that column** (Arrastrar un encabezado de columna y soltarlo aquí para agrupar por esa columna). Para crear subgrupos, arrastre otras columnas a la barra superior. Puede reorganizar la jerarquía y ordenar los grupos y subgrupos en la barra.
+
+![Grupos](media/get-started-portal/groups.png)
+
+Para ocultar o mostrar las columnas de los resultados, seleccione **Columnas** situado encima de la tabla y, a continuación, seleccione o anule la selección de las columnas que desee en la lista desplegable.
+
+![Select columns](media/get-started-portal/select-columns.png)
+
+## <a name="view-and-modify-charts"></a>Visualización y modificación de gráficos
+También puede ver los resultados de la consulta en formatos visuales. Escriba la siguiente consulta como ejemplo:
 
 ```Kusto
 Event 
@@ -143,58 +143,65 @@ Event
 | summarize count() by Source 
 ```
 
-De forma predeterminada, los resultados se muestran en una tabla. Haga clic en _Chart_ (Gráfico) para verlos en un gráfico:
+De forma predeterminada, los resultados aparecen en una tabla. Seleccione **Gráfico** en la parte superior de la tabla para ver los resultados en una vista gráfica.
 
 ![Gráfico de barras](media/get-started-portal/bar-chart.png)
 
-Los resultados se muestran en un gráfico de barras apiladas. Haga clic en _Stacked Column_ (Columna apilada) y seleccione _Pie_ (Gráfico circular) para mostrar otra vista de los resultados:
+Los resultados aparecen en un gráfico de barras apiladas. Seleccione otras opciones como **Columna apilada** o **Circular** para mostrar otras vistas de los resultados.
 
 ![Gráfico circular](media/get-started-portal/pie-chart.png)
 
-Las diferentes propiedades de la vista, como los ejes x e y, o las preferencias de agrupación y división, se pueden cambiar manualmente en la barra de control.
+Las propiedades de la vista, como los ejes "x" e "y", o las preferencias de agrupación y división, se pueden cambiar manualmente en la barra de control.
 
-También puede establecer la vista que prefiera en la propia consulta mediante el operador de representación.
+También puede establecer la vista que prefiera en la propia consulta mediante el operador de [representación](/azure/kusto/query/renderoperator).
 
-### <a name="smart-diagnostics"></a>Smart Diagnostics
-En un gráfico de tiempo, si se produce un pico o salto repentino en los datos, es posible que vea un punto en la línea resaltado. Esto indica que _Smart Diagnostics_ ha identificado una combinación de propiedades que filtran los cambios repentinos. Haga clic en el punto para obtener más detalles del filtro y para ver la versión filtrada. Esto puede ayudar a identificar lo que ha causado el cambio:
-
-![Smart Diagnostics](media/get-started-portal/smart-diagnostics.png)
-
-## <a name="pin-to-dashboard"></a>Anclar al panel
-Para anclar un diagrama o una tabla a uno de los paneles compartidos, haga clic en el icono de la chincheta. Tenga en cuenta que este icono se ha movido a la parte superior de la ventana de Log Analytics, diferente de la captura de pantalla mostrada a continuación.
+## <a name="pin-results-to-a-dashboard"></a>Anclaje de resultados a un panel
+Para anclar una tabla o gráfico de resultados desde Log Analytics en un panel compartido de Azure, seleccione **Anclar al panel** en la barra superior. 
 
 ![Anclar al panel](media/get-started-portal/pin-dashboard.png)
 
-A un gráfico se le aplican determinadas simplificaciones se le ancla a un panel:
+En el panel **Anclar a otro panel**, seleccione un panel al que realizar el anclaje, o créelo, y seleccione **Aplicar**. La tabla o gráfico aparece en el panel de Azure seleccionado.
 
-- Columnas y filas de la tabla: para anclar una tabla al panel, debe tener cuatro columnas como máximo. Se muestran solo las siete filas superiores.
-- Restricción de tiempo: las consultas se limitan de manera automática a los últimos 14 días.
-- Restricción de recuento de intervalos: si se muestra un gráfico con numerosos intervalos discretos, los intervalos menos poblados se agrupan automáticamente en un solo intervalo denominado _others_.
+![Gráfico anclado al panel](media/get-started-portal/pin-dashboard2.png)
 
-## <a name="save-queries"></a>Guardado de consultas
-Una vez creada una consulta útil, puede guardarla o compartirla. El icono **Save** (Guardar) se encuentra en la barra superior.
+La tablas o gráficos que ancle a un panel compartido tendrán las siguientes limitaciones: 
 
-Puede guardar la página de consulta completa o una sola consulta como función. Las funciones son consultas a las que también pueden hacer referencia otras consultas. Para guardar una consulta como función debe proporcionar un alias de función, que es el nombre que se utiliza para llamar a esta consulta cuando otras hagan referencia a ella.
+- Los datos se limitan a los últimos 14 días.
+- Una tabla solo muestra un máximo de cuatro columnas y las siete primeras filas.
+- Los gráficos con muchas categorías discretas agrupan automáticamente las categorías menos pobladas en una única categoría **otros**.
 
-![Función Guardar](media/get-started-portal/save-function.png)
+## <a name="save-load-or-export-queries"></a>Guardar, cargar o exportar consultas
+Después de crear una consulta, puede guardarla o compartir la consulta o los resultados con otros. 
 
->[!NOTE]
->Se admiten estas características `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` en el campo **Nombre** al guardar o editar la consulta guardada.
+### <a name="save-queries"></a>Guardado de consultas
+Para guardar una consulta:
 
-Las consultas de Log Analytics se guardan siempre en un área de trabajo determinada y se comparten con otros usuarios de esa área de trabajo.
+1. Seleccione **Guardar** en la barra superior.
+   
+1. En el cuadro de diálogo **Guardar**, asigne a la consulta un **Nombre** mediante los caracteres a – z, A – Z, 0-9, espacio, guión, carácter de subrayado, punto, paréntesis o barra vertical. 
+   
+1. Seleccione si desea guardar la consulta como **Consulta** o como **Función**. Las funciones son consultas a las que pueden hacer referencia otras consultas. 
+   
+   Para guardar una consulta como una función, proporcione un **Alias de función**, que es un nombre corto que otras consultas usan para llamar a esta consulta.
+   
+1. Proporcione una **Categoría** para que la use el **Explorador de consultas** para esta consulta.
+   
+1. Seleccione **Guardar**.
+   
+   ![Función Guardar](media/get-started-portal/save-function.png)
 
-## <a name="load-queries"></a>Carga de consultas
-El icono de Explorador de consultas se encuentra en la parte superior derecha. Enumera todas las consultas guardadas por categoría. También permite marcar consultas específicas como favoritas para encontrarlas rápidamente en el futuro. Haga doble clic en una consulta guardada para agregarla a la ventana actual.
+### <a name="load-queries"></a>Carga de consultas
+Para cargar una consulta guardada, seleccione **Explorador de consultas** en la esquina superior derecha. Se abre el panel **Explorador de consultas**, donde se muestran todas las consultas por categoría. Expanda las categorías o escriba un nombre de consulta en la barra de búsqueda y, a continuación, seleccione una consulta para cargarla en el **Editor de consultas**. Para marcar una consulta como **Favorita**, seleccione la estrella situada junto al nombre de la consulta.
 
 ![Explorador de consultas](media/get-started-portal/query-explorer.png)
 
-## <a name="export-and-share-as-link"></a>Exportación y vínculo compartido
-Los análisis de registros admiten varios métodos de exportación:
+### <a name="export-and-share-queries"></a>Exportar y compartir consultas
+Para exportar una consulta, seleccione **Exportar** en la barra superior y, después, seleccione **Exportar a CSV: todas las columnas**, **Exportar a CSV: columnas mostradas** o **Exportar a Power BI (M Query)** en la lista desplegable.
 
-- Excel: los resultados se guardan en un archivo CSV.
-- Power BI: los resultados se exportan a Power BI. Consulte [Importación de datos de registro de Azure Monitor en Power BI](../../azure-monitor/platform/powerbi.md) para obtener más detalles.
-- Compartir un vínculo: la propia consulta se puede compartir como vínculo y enviárselo a otros usuarios de esa área de trabajo para que estos la ejecuten.
+Para compartir un vínculo a una consulta, seleccione **Copiar vínculo** en la barra superior y, a continuación, seleccione **Copiar vínculo a la consulta**, **Copiar texto de la consulta** o **Copiar resultados de la consulta** para copiarlos en el portapapeles. Puede enviar el vínculo de la consulta a otros usuarios que tengan acceso a la misma área de trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre la [escritura de consultas de registro en Azure Monitor](get-started-queries.md).
+Prosiga con el siguiente tutorial para más información sobre la escritura de consultas de registro de Azure Monitor.
+> [!div class="nextstepaction"]
+> [Escritura de consultas de registros de Azure Monitor](get-started-queries.md)

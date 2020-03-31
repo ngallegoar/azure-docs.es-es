@@ -8,10 +8,10 @@ ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
 ms.openlocfilehash: 2d33a6ec5ff6b687913914e9433b85765aaa7aec
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71309950"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usar el explorador de trabajos y la vista de trabajo para Azure Data Lake Analytics
@@ -19,7 +19,7 @@ El servicio Azure Data Lake Analytics archiva los trabajos enviados en un almac�
 
 De forma predeterminada, el servicio Data Lake Analytics archiva los trabajos durante 30 días. El período de expiración se puede configurar desde Azure Portal configurando la directiva de caducidad personalizada. No podrá acceder a la información de trabajo tras la expiración. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Vea [Data Lake Tools for Visual Studio prerequisites](data-lake-analytics-data-lake-tools-get-started.md#prerequisites) (Requisitos previos de Data Lake Tools para Visual Studio).
 
 ## <a name="open-the-job-browser"></a>Abra el explorador de trabajos

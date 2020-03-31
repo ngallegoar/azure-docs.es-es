@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572350"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualización con Azure Automation
@@ -27,7 +27,7 @@ Todas las llamadas se deben autenticar con un token válido de Azure Active Dire
 
 Para obtener más información sobre cómo crear una entidad de servicio, consulte [Creación de una entidad de servicio mediante Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 > [!IMPORTANT]
 > En los ejemplos siguientes, se supone que el firewall de Azure Analysis Services está deshabilitado. Si el firewall está habilitado, la dirección IP pública del iniciador de la solicitud deberá figurar en la lista blanca del firewall.
@@ -105,7 +105,7 @@ Se puede configurar como se indica a continuación:
 
     ![Configurar la programación](./media/analysis-services-refresh-azure-automation/15.png)
 
-3. Haga clic en **Create**(Crear).
+3. Haga clic en **Crear**.
 
 4. Rellene los parámetros para la programación. Se utilizarán cada vez que se desencadene el runbook. El parámetro **WEBHOOKDATA** debe dejarse en blanco cuando se ejecuta a través de una programación.
 
@@ -144,7 +144,7 @@ La **URL** es la dirección URL creada a partir del webhook.
 El **cuerpo** es un documento JSON que debe contener las siguientes propiedades:
 
 
-|Propiedad  |Valor  |
+|Propiedad  |Value  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |Nombre de la base de datos de Azure Analysis Services <br/> Ejemplo: AdventureWorksDB         |
 |**AnalysisServicesServer**     |Nombre del servidor de Azure Analysis Services. <br/> Por ejemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/.         |
@@ -227,4 +227,4 @@ else
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Muestras](analysis-services-samples.md)  
-[API DE REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)

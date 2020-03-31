@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7a15db6bbbcd9dfd43b025b780fda5a8b1d79da2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 3b1988656e2c15515e121df3ee71e31ce7edd750
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946156"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79212962"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Tutorial: Transferencia de datos con Azure Data Box Edge
 
@@ -59,26 +59,28 @@ Para crear un recurso compartido, realice el procedimiento siguiente:
     El tipo puede ser **SMB** o **NFS** (SMB es el predeterminado). SMB es el estándar para los clientes de Windows y se usa NFS para los clientes de Linux.  
     Dependiendo de si elige recursos compartidos de SMB o NFS, el resto de las opciones varía ligeramente. 
 
-    c. Proporcione una cuenta de almacenamiento donde residirá el recurso compartido. 
+    c. Proporcione una cuenta de almacenamiento donde residirá el recurso compartido.
 
-    
+      > [!IMPORTANT]
+      > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo de Azure Stack Edge o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+
     d. En la lista desplegable **Servicio de almacenamiento**, seleccione **Blob en bloques**, **Blob en páginas** o **Archivos**.  
     El tipo de servicio que seleccione dependerá del formato que quiere que usen los datos en Azure. En este ejemplo, como queremos almacenar los datos como blobs en bloques en Azure, seleccionamos **Blob en bloques**. Si selecciona **Blob en páginas**, asegúrese de que los datos tienen una alineación de 512 bytes. Por ejemplo, un VHDX siempre tiene una alineación de 512 bytes.
 
     e. Cree un nuevo contenedor de blobs o use uno ya existente de la lista desplegable. Si crea un contenedor de blobs, proporcione un nombre para este. Si todavía no existe un contenedor, se crea en la cuenta de almacenamiento con el nombre del recurso compartido recién creado.
-   
-    f. Dependiendo de si creó un recurso compartido de SMB o NFS, haga uno de estos pasos: 
-     
-    - **Recurso compartido de SMB**: En **Usuario local con todos los privilegios**, seleccione **Crear nuevo** o **Usar existente**. Si crea un usuario local, escriba un nombre de usuario y una contraseña y, luego, confirme la contraseña. Con esta acción se asignan permisos al usuario local. Actualmente no se admite la modificación de permisos de nivel de recurso compartido.
+
+    f. Dependiendo de si creó un recurso compartido de SMB o NFS, haga uno de estos pasos:
+
+    * **Recurso compartido de SMB**: En **Usuario local con todos los privilegios**, seleccione **Crear nuevo** o **Usar existente**. Si crea un usuario local, escriba un nombre de usuario y una contraseña y, luego, confirme la contraseña. Con esta acción se asignan permisos al usuario local. Actualmente no se admite la modificación de permisos de nivel de recurso compartido.
 
         Si activa la casilla de verificación **Permitir operaciones de solo lectura** en los datos de este recurso compartido, puede especificar usuarios de solo lectura.
 
         ![Incorporación de recurso compartido de SMB](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
-   
-    - **Recurso compartido de NFS**: Escriba las direcciones IP de los clientes autorizados que pueden acceder al recurso compartido.
+
+    * **Recurso compartido de NFS**: Escriba las direcciones IP de los clientes autorizados que pueden acceder al recurso compartido.
 
         ![Incorporación de un recurso compartido NFS](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
-   
+
 4. Seleccione **Crear** para crear el recurso compartido.
     
     Recibe una notificación de que la creación del recurso compartido está en curso. Una vez creado el recurso compartido con la configuración especificada, el icono **Recursos compartidos** se actualiza para reflejar el nuevo recurso compartido.

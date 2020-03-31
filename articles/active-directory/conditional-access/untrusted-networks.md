@@ -12,19 +12,19 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4cedec7f0bd51460796d8138f8d481d2982098f4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74380002"
 ---
-# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedimientos para: Uso obligatorio de MFA para el acceso desde redes que no son de confianza con el acceso condicional   
+# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedimientos: Uso obligatorio de MFA para el acceso desde redes que no son de confianza con el acceso condicional   
 
 Azure Active Directory (Azure AD) habilita el inicio de sesión único en dispositivos, aplicaciones y servicios desde cualquier ubicación. Los usuarios pueden acceder a las aplicaciones en la nube no solo desde la red de la organización, sino también desde cualquier ubicación de Internet que no sea de confianza. Un procedimiento recomendado para el acceso desde redes que no son de confianza es requerir la autenticación multifactor (MFA).
 
 En este artículo se proporciona la información necesaria para configurar una directiva de acceso condicional que exija MFA para el acceso desde redes que no son de confianza. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se asume que está familiarizado con: 
 

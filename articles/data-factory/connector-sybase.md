@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 0552cdc50e2b760600ad8c58bd3d1cd4d2dc50a2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930992"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copia de datos desde Sybase mediante Azure Data Factory
@@ -39,7 +39,7 @@ En concreto, este conector Sybase admite las siguientes funcionalidades:
 - SAP Sybase SQL Anywhere (ASA), **versión 16 y superior**; no se admite IQ ni ASE.
 - La copia de datos con autenticación **básica** o de **Windows**.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar este conector Sybase, necesitará lo siguiente:
 
@@ -56,7 +56,7 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado Sybase:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Sybase** | Sí |
 | server | Nombre del servidor de Sybase. |Sí |
@@ -66,7 +66,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Sybase:
 | password | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -97,7 +97,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de Sybase, se admiten las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **SybaseTable** | Sí |
 | tableName | Nombre de la tabla de la base de datos Sybase. | No (si se especifica "query" en el origen de la actividad) |
@@ -129,12 +129,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Sybase, en la sección **source** de la actividad de copia se admiten las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **SybaseSource** | Sí |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
+| Query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[

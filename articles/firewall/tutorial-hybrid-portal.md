@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 02/21/2020
+ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 15901186194853aebf3b8222f271203161770380
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 208a7a677bdf0b76ffed83e679c6f1ff3041d50d
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561449"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239681"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure Portal
 
@@ -54,7 +54,7 @@ Una red híbrida usa el modelo de arquitectura radial para enrutar el tráfico e
    Además, las rutas a las redes virtuales conectadas a la puerta de enlace o a las redes locales se propagarán automáticamente a las tablas de enrutamiento de las redes virtuales emparejadas mediante el tránsito de la puerta de enlace. Para más información, consulte [Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
 - Establezca **UseRemoteGateways** al emparejar VNet-Spoke con VNet-Hub. Si se establece **UseRemoteGateways** y también se establece **AllowGatewayTransit** en emparejamiento remoto, la red virtual de radio usa puertas de enlace de la red virtual remota para el tránsito.
-- Para enrutar el tráfico de la subred de radio a través del firewall del centro, necesita una ruta definida por el usuario (UDR) que apunte al firewall con la opción **Deshabilitar la propagación de rutas BGP** definida. La opción **Deshabilitar la propagación de rutas BGP** evita la distribución de rutas a las subredes de radio. Esto evita que las rutas aprendidas entren en conflicto con la UDR.
+- Para enrutar el tráfico de la subred de radio a través del firewall de centro, necesita una ruta definida por el usuario (UDR) que apunte al firewall con la opción **Virtual network gateway route propagation** (Deshabilitar la propagación de rutas de la puerta de enlace de red virtual) deshabilitada. La opción **Propagación de rutas de puerta de enlace de red virtual** deshabilitada evita la distribución de rutas a las subredes de radio. Esto evita que las rutas aprendidas entren en conflicto con la UDR.
 - Configure una ruta definida por el usuario en la subred de la puerta de enlace del centro que apunte a la dirección IP del firewall como próximo salto para las redes de radio. No se requiere ninguna ruta definida por el usuario en la subred de Azure Firewall, ya que obtiene las rutas de BGP.
 
 Consulte la sección [Creación de rutas](#create-the-routes) en este tutorial para ver cómo se crean estas rutas.

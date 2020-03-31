@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513516"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
@@ -53,7 +53,7 @@ El siguiente diagrama representa el flujo de datos y los componentes implicados 
 
 7. **Power BI:** Power BI se usa para visualizar los datos enviados por Azure Stream Analytics. Puede crear un panel para ver cómo cambian las métricas en tiempo real.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Microsoft .NET Framework 4.7.1 o superior
 

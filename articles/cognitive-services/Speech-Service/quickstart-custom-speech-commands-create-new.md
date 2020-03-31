@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 4ae8f13b4887bbc41b17defa3f9a20c07ed0cb45
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76155594"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Inicio rápido: Creación de un comando personalizado (versión preliminar)
@@ -22,7 +22,7 @@ ms.locfileid: "76155594"
 En este artículo, obtendrá información sobre cómo crear y probar una aplicación de comandos personalizados hospedada.
 La aplicación reconocerá una expresión como "enciende el televisor" y responderá con un mensaje sencillo como "de acuerdo, encenderé el televisor".
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Voz.
 

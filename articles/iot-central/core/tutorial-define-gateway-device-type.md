@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: ec84d3804c24766c6344e9909ba10089e186599c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623454"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79298842"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo de puerta de enlace de IoT en la aplicación de Azure IoT Central
 
@@ -203,6 +203,9 @@ En este tutorial, ha aprendido a:
 * Definir una visualización para la telemetría del dispositivo
 * Agregar relaciones.
 * Publicar la plantilla de dispositivo
+
+> [!NOTE]
+> La generación de código basado en VS Code actualmente no se admite para dispositivos de puerta de enlace modelados en IoT Central.
 
 A continuación, puede realizar:
 

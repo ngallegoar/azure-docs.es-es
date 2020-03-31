@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
 ms.openlocfilehash: 8a39327275dca43ddb6ce0e46a3e3bb51ec4555b
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73795305"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configuración de los contenedores de docker de Text Analytics
 
 Text Analytics proporciona a cada contenedor un marco de configuración común, por lo que puede configurar y administrar fácilmente la configuración de almacenamiento, registro, telemetría y seguridad de los contenedores.
 
-## <a name="configuration-settings"></a>Valores de configuración
+## <a name="configuration-settings"></a>Parámetros de configuración
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -49,9 +49,9 @@ Este valor se puede encontrar en el siguiente lugar:
 
 * Azure Portal: Introducción a **Text Analytics**, con la etiqueta `Endpoint`
 
-|Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|Obligatorio| Nombre | Tipo de datos | Descripción |
 |--|------|-----------|-------------|
-|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
+|Sí| `Billing` | String | Identificador URI del punto de conexión de facturación. Para más información sobre cómo obtener el URI de facturación, consulte la [recopilación de los parámetros necesarios](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Para más información y para obtener una lista completa de los puntos de conexión regionales, consulte [Nombres de subdominios personalizados para Cognitive Services.](../cognitive-services-custom-subdomains.md) |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -77,10 +77,10 @@ El contenedor de Text Analytics no usa los montajes de entrada o salida para alm
 
 La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](how-tos/text-analytics-how-to-install-containers.md#the-host-computer) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host. 
 
-|Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|Opcional| Nombre | Tipo de datos | Descripción |
 |-------|------|-----------|-------------|
-|No permitida| `Input` | Cadena | Los contenedores de Text Analytics no usan esto.|
-|Opcional| `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|No permitida| `Input` | String | Los contenedores de Text Analytics no usan esto.|
+|Opcional| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
 
@@ -91,7 +91,7 @@ Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo 
 
 Reemplace {_argument_name_} por sus propios valores:
 
-| Marcador de posición | Valor | Formato o ejemplo |
+| Marcador de posición | Value | Formato o ejemplo |
 |-------------|-------|---|
 | **{CLAVE_API}** | La clave del punto de conexión del recurso `Text Analytics` disponible en la página Claves de Azure `Text Analytics`. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{URI_PUNTODECONEXIÓN}** | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Text Analytics`.| Consulte el apartado de [recopilación de los parámetros necesarios](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) para ejemplos explícitos. |
@@ -100,15 +100,15 @@ Reemplace {_argument_name_} por sus propios valores:
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](how-tos/text-analytics-how-to-install-containers.md#billing).
 > El valor de ApiKey es la **clave** de la página de claves de recursos de Azure `Text Analytics`. 
 
-#### <a name="key-phrase-extractiontabkeyphrase"></a>[Extracción de frases clave](#tab/keyphrase)
+#### <a name="key-phrase-extraction"></a>[Extracción de frases clave](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
 
-#### <a name="language-detectiontablanguage"></a>[Detección de idioma](#tab/language)
+#### <a name="language-detection"></a>[Detección de idioma](#tab/language)
 
 [!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
 
-#### <a name="sentiment-analysistabsentiment"></a>[Análisis de sentimiento](#tab/sentiment)
+#### <a name="sentiment-analysis"></a>[Análisis de sentimiento](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-docker-examples](includes/sentiment-analysis-docker-examples.md)]
 
@@ -117,4 +117,4 @@ Reemplace {_argument_name_} por sus propios valores:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Instalación y ejecución de contenedores](how-tos/text-analytics-how-to-install-containers.md)
-* Use más [contenedores de Cognitive Services](../cognitive-services-container-support.md)
+* Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75979177"
 ---
 # <a name="patternany-entity"></a>Entidad Pattern.any
@@ -53,7 +53,7 @@ Con el nombre del formulario incrustado que se va a extraer como Pattern.any:
 
 `Understand your responsibilities as a member of the community`
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -67,7 +67,7 @@ Con el nombre del formulario incrustado que se va a extraer como Pattern.any:
 ```
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 Este es el valor JSON si `verbose=false` se establece en la cadena de consulta:
 

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 58a7689263f9bc761eb0b904a9376c1ca0112c13
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: f2b51213dfc6d7e55f76e78b92d12111f84736be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128107"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79365396"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Creación de un grupo host para validar las actualizaciones del servicio
 
@@ -76,7 +76,7 @@ Las actualizaciones del servicio se realizan mensualmente. Si hay incidencias im
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que creó un grupo de hosts de validación, puede aprender a implementar una herramienta de administración y conectarse a ella para administrar los recursos del Escritorio virtual de Microsoft.
+Ahora que ha creado un grupo de hosts de validación, puede obtener información sobre cómo usar Azure Service Health para supervisar la implementación de Windows Virtual Desktop. 
 
 > [!div class="nextstepaction"]
-> [Tutorial Implementación de una herramienta de administración](./manage-resources-using-ui.md)
+> [Configuración de alertas de servicio](./set-up-service-alerts.md)

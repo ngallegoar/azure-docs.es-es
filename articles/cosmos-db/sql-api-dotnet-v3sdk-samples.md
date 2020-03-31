@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
 ms.openlocfilehash: 2a33a59ae0184e6c41fe7121560bc5df3a69cffd
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73888945"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>SDK de .NET V3 de Azure Cosmos DB (Microsoft.Azure.Cosmos) para la SQL API
@@ -32,7 +32,7 @@ El repositorio [azure-cosmos-dotnet-v3](https://github.com/Azure/azure-cosmos-do
 * Vínculos a las tareas de cada uno de los archivos de proyecto de ejemplo de C#.
 * Vínculos al contenido de referencia de la API relacionada.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Visual Studio 2019 con el flujo de trabajo de desarrollo de Azure instalado
 

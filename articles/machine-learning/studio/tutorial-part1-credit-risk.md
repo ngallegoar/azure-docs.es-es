@@ -10,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 07621bd2d0593ea3896aba0deb65e0b856e5987b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6fd8573c78d80c950bdeb41ec01e2835def3979a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432242"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204273"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Predicción del riesgo crediticio en Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -38,7 +40,7 @@ En esta parte del tutorial, se va a ver lo siguiente:
 
 Después, puede usar este experimento para [entrenar modelos en la parte 2](tutorial-part2-credit-risk-train.md) y, finalmente, [implementarlos en la parte 3](tutorial-part3-credit-risk-deploy.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este tutorial, se presupone que usó Machine Learning Studio (clásico) con anterioridad al menos una vez y que tiene ciertos conocimientos sobre los conceptos de aprendizaje automático. Pero no se asume de que sea un experto.
 
@@ -66,7 +68,7 @@ Una vez haya creado el área de trabajo, abra Machine Learning Studio (clásico)
 > En la página **CONFIGURACIÓN**, haga clic en **USUARIOS** y, después, haga clic en **INVITE MORE USERS** (INVITAR A MÁS USUARIOS) en la parte inferior de la ventana.
 > 
 
-## <a name="upload"></a>Carga de datos existentes
+## <a name="upload-existing-data"></a><a name="upload"></a>Carga de datos existentes
 
 Para desarrollar un modelo de predicción de riesgo de crédito, se necesitan datos para entrenar y probar el modelo. Para este tutorial, se usará el conjunto de datos "UCI Statlog (German Credit Data)" del repositorio de Machine Learning de UC Irvine. Puede encontrarlo aquí:  
 <a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
@@ -129,7 +131,7 @@ Una vez que los datos se han convertido al formato CSV, hay que cargarlos en Mac
 
 8. Para el tipo de datos, seleccione **Archivo CSV genérico sin encabezado (.nh.csv)** .
 
-9. Agregue una descripción si así lo desea.
+9. Agregue una descripción si lo desea.
 
 10. Haga clic en la marca de verificación **Aceptar**.  
 

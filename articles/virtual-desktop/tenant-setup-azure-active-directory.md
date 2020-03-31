@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: f38f0cec336061c97daa02798e94d98844d76ea2
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 9f9f7f709d31967e892900ccb25657a5963c0379
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368778"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79370226"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutorial: Creación de un inquilino en Windows Virtual Desktop
 
@@ -72,7 +73,7 @@ Asignar a un usuario de Azure Active Directory el rol de aplicación TenantCreat
 
 Para asignar el rol de aplicación TenantCreator:
 
-1. Vaya a  [Azure Portal](https://portal.azure.com)  para administrar el rol de aplicación TenantCreator. Busque **Aplicaciones empresariales** y selecciónelo. Si está trabajando con varios inquilinos de Azure Active Directory, es recomendable abrir una sesión privada del explorador y copiar y pegar las direcciones URL en la barra de direcciones.
+1. Vaya a [Azure Portal](https://portal.azure.com) para administrar el rol de aplicación TenantCreator. Busque **Aplicaciones empresariales** y selecciónelo. Si está trabajando con varios inquilinos de Azure Active Directory, es recomendable abrir una sesión privada del explorador y copiar y pegar las direcciones URL en la barra de direcciones.
 
    ![Captura de pantalla de la búsqueda de aplicaciones empresariales en Azure Portal](media/azure-portal-enterprise-applications.png)
 2. En **Aplicaciones empresariales**, busque **Windows Virtual Desktop**. Verá las dos aplicaciones para las que ha dado su consentimiento en la sección anterior. De estas dos aplicaciones, seleccione **Windows Virtual Desktop**.
@@ -81,7 +82,7 @@ Para asignar el rol de aplicación TenantCreator:
 3. Seleccione **Usuarios y grupos**. Es posible que vea que el administrador que concedió consentimiento a la aplicación ya aparece con el rol **Acceso predeterminado** asignado. Esto no es suficiente para crear un inquilino de Windows Virtual Desktop. Siga con estas instrucciones para agregar el rol **TenantCreator** a un usuario.
    
    ![Captura de pantalla de los usuarios y grupos asignados para administrar la aplicación empresarial "Windows Virtual Desktop". La captura de pantalla muestra solo una asignación que es para el "Acceso predeterminado".](media/tenant-default-access.png)
-4. Seleccione **+ Agregar usuario** y, después, seleccione **Usuarios y grupos** en la hoja **Agregar asignación**.
+4. Seleccione **+ Agregar usuario** y, después, **Usuarios y grupos** en la pestaña **Agregar asignación**.
 5. Busque una cuenta de usuario que cree el inquilino de Windows Virtual Desktop. Para mayor sencillez, esta puede ser la cuenta de administrador global.
    - Si utiliza un proveedor de identidades de Microsoft como contosoadmin@live.com o contosoadmin@outlook.com, es posible que no pueda iniciar sesión en Windows Virtual Desktop. Se recomienda usar una cuenta específica de dominio como admin@contoso.com o admin@contoso.onmicrosoft.com en su lugar.
 

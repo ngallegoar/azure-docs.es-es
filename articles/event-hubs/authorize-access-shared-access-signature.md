@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
 ms.openlocfilehash: bdb1896f8a40c6de21ae76b536bfccec316341cd
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69992448"
 ---
 # <a name="authorizing-access-to-event-hubs-resources-using-shared-access-signatures"></a>Autorización del acceso a recursos de Event Hubs mediante firmas de acceso compartido
@@ -67,9 +67,9 @@ Las siguientes recomendaciones para el uso de firmas de acceso compartido pueden
 Las firmas de acceso compartido son útiles para proporcionar permisos limitados para los recursos de Event Hubs a los clientes. Son parte fundamental del modelo de seguridad de cualquier aplicación que usa Azure Event Hubs. Si sigue los procedimientos recomendados que se describen en este artículo, puede usar SAS para ofrecer una mayor flexibilidad de acceso a los recursos sin que se ponga en riesgo la seguridad de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte también los siguientes artículos relacionados: 
+Consulte los artículos relacionados siguientes: 
 
-- [Autenticación de solicitudes en Azure Event Hubs desde una aplicación mediante Azure Active Directory](authenticate-application.md)
+- [Autenticación de solicitudes a Azure Event Hubs desde una aplicación mediante Azure Active Directory](authenticate-application.md)
 - [Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Event Hubs](authenticate-managed-identity.md)
 - [Autenticación de solicitudes para Azure Event Hubs mediante firmas de acceso compartido](authenticate-shared-access-signature.md)
 - [Autorización del acceso a recursos de Event Hubs mediante Azure Active Directory](authorize-access-azure-active-directory.md)

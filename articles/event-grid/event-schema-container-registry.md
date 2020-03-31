@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 03/12/2019
 ms.author: spelluru
 ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60345471"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de eventos de Azure Event Grid para Container Registry
@@ -23,7 +23,7 @@ En este artículo se proporcionan las propiedades y los esquemas de los eventos 
 
 Azure Container Registry emite los siguientes tipos de evento:
 
-| Tipo de evento | DESCRIPCIÓN |
+| Tipo de evento | Descripción |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Se genera cuando se inserta una imagen. |
 | Microsoft.ContainerRegistry.ImageDeleted | Se genera cuando se elimina una imagen. |
@@ -155,20 +155,20 @@ El esquema para un evento que se elimina de un gráfico es similar al esquema de
 
 Un evento tiene los siguientes datos de nivel superior:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |
 | eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
 | eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
 | id | string | Identificador único para el evento |
-| data | object | Datos de eventos de Blob Storage. |
+| datos | object | Datos de eventos de Blob Storage. |
 | dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
 | metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | id | string | El identificador de evento. |
 | timestamp | string | La hora a la que se produjo el evento. |
@@ -178,20 +178,20 @@ El objeto data tiene las siguientes propiedades:
 
 El objeto target tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | mediaType | string | El tipo MIME del objeto al que se hace referencia. |
-| size | integer | El número de bytes del contenido. Igual que el campo de longitud. |
+| tamaño | integer | El número de bytes del contenido. Igual que el campo de longitud. |
 | digest | string | El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro. |
 | length | integer | El número de bytes del contenido. Igual que el campo de tamaño. |
 | repository | string | El nombre del repositorio. |
 | etiqueta | string | El nombre de la etiqueta. |
-| Nombre | string | El nombre del gráfico. |
+| name | string | El nombre del gráfico. |
 | version | string | La versión del gráfico. |
 
 El objeto request tiene las siguientes propiedades:
 
-| Propiedad | Escriba | DESCRIPCIÓN |
+| Propiedad | Tipo | Descripción |
 | -------- | ---- | ----------- |
 | id | string | El identificador de la solicitud que inició el evento. |
 | addr | string | La dirección IP o nombre de host y, posiblemente, el puerto de la conexión de cliente que inició el evento. Este valor es RemoteAddr de la solicitud http estándar. |

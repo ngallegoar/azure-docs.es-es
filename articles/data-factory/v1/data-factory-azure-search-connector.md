@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929981"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236420"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Inserción de datos en un índice de Azure Cognitive Search mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -37,7 +37,7 @@ La puerta de enlace de administración de datos conecta orígenes de datos local
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que inserte datos de un almacén de datos de origen en un índice de búsqueda mediante el uso de distintas herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
 Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
@@ -55,7 +55,7 @@ Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se
 
 En la tabla siguiente se proporcionan descripciones de los elementos JSON específicos del servicio vinculado de Azure Cognitive Search.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- |
 | type | La propiedad type debe establecerse en: **AzureSearch**. | Sí |
 | url | URL del servicio de búsqueda. | Sí |
@@ -65,7 +65,7 @@ En la tabla siguiente se proporcionan descripciones de los elementos JSON espec�
 
 Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo sobre [creación de conjuntos de datos](data-factory-create-datasets.md) . Las secciones como estructura, disponibilidad y directiva de un JSON de conjunto de datos son similares para todos los tipos de conjunto de datos. La sección **typeProperties** es diferente para cada tipo de conjunto de datos. La sección typeProperties de un conjunto de datos del tipo **AzureSearchIndex** tiene las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- |
 | type | La propiedad type debe establecerse en **AzureSearchIndex**.| Sí |
 | indexName | Nombre del índice de búsqueda. Data Factory no crea el índice. El índice debe existir en Azure Cognitive Search. | Sí |
@@ -76,10 +76,10 @@ Para obtener una lista completa de las secciones y propiedades disponibles para 
 
 En la actividad de copia, si el receptor es de tipo **AzureSearchIndexSink**, estarán disponibles las propiedades siguientes en la sección typeProperties:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Especifica si, cuando ya haya un documento en el índice, se realizará una operación de combinación o de reemplazo. Consulte la propiedad [WriteBehavior](#writebehavior-property).| Combinar (predeterminado)<br/>Cargar| Sin |
-| WriteBatchSize | Carga datos en el índice de búsqueda cuando el tamaño del búfer alcanza el valor de writeBatchSize. Consulte la propiedad [WriteBatchSize](#writebatchsize-property) para obtener más información. | De 1 a 1000. El valor predeterminado es 1000. | Sin |
+| WriteBehavior | Especifica si, cuando ya haya un documento en el índice, se realizará una operación de combinación o de reemplazo. Consulte la propiedad [WriteBehavior](#writebehavior-property).| Combinar (predeterminado)<br/>Cargar| No |
+| WriteBatchSize | Carga datos en el índice de búsqueda cuando el tamaño del búfer alcanza el valor de writeBatchSize. Consulte la propiedad [WriteBatchSize](#writebatchsize-property) para obtener más información. | De 1 a 1000. El valor predeterminado es 1000. | No |
 
 ### <a name="writebehavior-property"></a>Propiedad WriteBehavior
 AzureSearchSink realiza una operación upsert al escribir los datos. Es decir, al crear un documento, si la clave de este ya se encuentra en el índice de búsqueda, Azure Cognitive Search actualiza el documento existente en lugar de generar una excepción de conflicto.
@@ -94,12 +94,12 @@ El comportamiento predeterminado es **Combinar**.
 ### <a name="writebatchsize-property"></a>Propiedad WriteBatchSize
 El servicio Azure Cognitive Search permite la creación de documentos como lotes. Un lote puede contener entre 1 y 1000 acciones. Una acción controla un documento para llevar a cabo la operación de combinación o de carga.
 
-### <a name="data-type-support"></a>Compatibilidad con los tipos de datos
+### <a name="data-type-support"></a>Compatibilidad con tipos de datos
 En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure Cognitive Search.
 
 | Tipo de datos de Azure Cognitive Search | Compatible con el receptor de Azure Cognitive Search |
 | ---------------------- | ------------------------------ |
-| Cadena | Y |
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
@@ -291,6 +291,6 @@ También puede asignar columnas del conjunto de datos de origen a las del conjun
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para obtener más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) y las diversas formas de optimizarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes:
+Vea los artículos siguientes:
 
 * [Tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia.

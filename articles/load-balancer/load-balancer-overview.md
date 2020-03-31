@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: ce8ae7f2f4de3659dc8dde98dc71d39886341498
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 2853b1567618127866a4e9c61d81e599d3100823
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602166"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80064268"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -40,7 +40,7 @@ Un **[equilibrador de carga interno (o privado)](./concepts-limitations.md#inter
 Para más información sobre los componentes individuales del equilibrador de carga, consulte [Componentes y limitaciones de Azure Load Balancer](./concepts-limitations.md).
 
 >[!NOTE]
-> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. Si necesita un equilibrio de carga de la capa 4 de alto rendimiento y baja latencia, consulte [¿Qué es Azure Application Gateway?](../application-gateway/overview.md) Si busca el equilibrio de carga de DNS global, consulte [¿Qué es Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Los escenarios de un extremo a otro pueden beneficiarse de la combinación de estas soluciones.
+> Azure ofrece un conjunto de soluciones de equilibrio de carga completamente administradas para sus escenarios. Si necesita un equilibrio de carga de la capa 7 de alto rendimiento y baja latencia, consulte [¿Qué es Azure Application Gateway?](../application-gateway/overview.md) Si busca el equilibrio de carga de DNS global, consulte [¿Qué es Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Los escenarios de un extremo a otro pueden beneficiarse de la combinación de estas soluciones.
 >
 > Si desea ver una comparación de las distintas opciones de equilibrio de carga de Azure, consulte [Información general sobre las opciones de equilibrio de carga en Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
@@ -69,7 +69,7 @@ Entre los escenarios clave que puede realizar con Standard Load Balancer se incl
 
 - Equilibrio de carga del flujo de TCP y UDP en todos los puertos simultáneamente mediante los **[puertos de alta disponibilidad](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)** .
 
-### <a name="securebydefault"></a>Seguro de forma predeterminada
+### <a name="secure-by-default"></a><a name="securebydefault"></a>Seguro de forma predeterminada
 
 Standard Load Balancer se basa en el modelo de seguridad de red de confianza cero en su núcleo. Standard Load Balancer es seguro de forma predeterminada y forma parte de la red virtual. La red virtual es una red privada y aislada.  Esto significa que las instancias de Standard Load Balancer y las direcciones IP públicas estándar se cierran en los flujos de entrada a menos que los abran los grupos de seguridad de red. Los grupos de seguridad de red se usan para permitir explícitamente el tráfico admitido.  Si no tiene ningún grupo de seguridad de red en una subred o NIC del recurso de máquina virtual, no se permitirá que el tráfico llegue a este recurso. Para aprender más sobre los NSG y cómo aplicarlos en su caso, vea [Grupos de seguridad de red](../virtual-network/security-overview.md).
 Load Balancer Básico está abierto a Internet de forma predeterminada.

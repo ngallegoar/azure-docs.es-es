@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: dapine
 ms.openlocfilehash: 786cf687e569af172eabfaa9068ae61ffd6b2988
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562503"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218982"
 ---
 # <a name="get-started-with-custom-voice"></a>Introducción a voz personalizada
 
@@ -46,7 +46,7 @@ La funcionalidad de personalización de voz neuronal se encuentra actualmente en
 
 ## <a name="set-up-your-azure-account"></a>Configuración de la cuenta de Azure
 
-Para poder usar el portal de Custom Speech y crear un modelo personalizado, se necesita una suscripción al servicio de voz. Siga estas instrucciones para crear una suscripción al servicio de voz en Azure. Si no tiene una cuenta de Azure, puede registrarse para obtener una nueva.  
+Para poder usar el portal de Habla personalizada y crear un modelo personalizado, se necesita una suscripción al servicio de voz. Siga estas instrucciones para crear una suscripción al servicio de voz en Azure. Si no tiene una cuenta de Azure, puede registrarse para obtener una nueva.  
 
 Después de crear una cuenta de Azure y la suscripción al servicio de voz, deberá iniciar sesión en el portal de Voz personalizada y conectarse a su suscripción.
 

@@ -4,10 +4,10 @@ description: Información acerca de cómo controlar las direcciones IP y la ubic
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 969061ec89ddd0f13caa675bc324207c6c5d8843
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77656524"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Administración de la ubicación geográfica y la dirección IP

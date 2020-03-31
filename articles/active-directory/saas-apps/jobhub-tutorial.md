@@ -17,10 +17,10 @@ ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc5f7bf299465b6af272c9b417a62f121b9a4d82
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67164932"
 ---
 # <a name="tutorial-integrate-jobhub-with-azure-active-directory"></a>Tutorial: Integración de JOBHUB con Azure Active Directory
@@ -33,7 +33,7 @@ En este tutorial, obtendrá información sobre cómo integrar JOBHUB con Azure 
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -61,12 +61,12 @@ Configure y pruebe el inicio de sesión único de Azure AD con JOBHUB utilizand
 
 Para configurar y probar el inicio de sesión único de Azure AD con JOBHUB, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
 2. **[Configuración del inicio de sesión único en JOBHUB](#configure-jobhub-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Creación de un usuario de prueba de JOBHUB](#create-jobhub-test-user)** : para tener un homólogo de Britta Simon en JOBHUB que esté vinculado a la representación del usuario en Azure AD.
-6. **[Comprobación del inicio de sesión único](#test-sso)** , para verificar que la configuración funciona correctamente.
+6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -115,7 +115,7 @@ En esta sección, va a crear un usuario de prueba llamado Britta Simon en Azure�
    1. En el campo **Nombre**, escriba `Britta Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `BrittaSimon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

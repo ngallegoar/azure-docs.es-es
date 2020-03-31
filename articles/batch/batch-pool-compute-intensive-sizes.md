@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
-ms.openlocfilehash: 22ee4aad6d2aabcc26dd97e50a2c716cb14be67a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: d0238e0b5b882748218835d7f06a147d435a9f90
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77483591"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80245062"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
 
@@ -76,7 +76,7 @@ Dispone de varias opciones para instalar el software o los controladores necesar
 
 * Para grupos de la configuración de máquina virtual, elija una imagen de máquina virtual de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) preconfigurada que tenga los controladores y el software preinstalados. Ejemplos: 
 
-  * [HPC Basado en CentOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview): incluye los controladores RDMA e Intel MPI 5.1
+  * [HPC Basado en CentOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview): incluye los controladores RDMA e Intel MPI 5.1
 
   * [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md) para Linux o Windows: incluye los controladores de NVIDIA CUDA
 
@@ -156,7 +156,7 @@ Para ejecutar aplicaciones MPI de Windows en un grupo de nodos de máquinas virt
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Ejemplo: Intel MPI en un grupo de máquinas virtuales H16r Linux
 
-Para ejecutar aplicaciones MPI en un grupo de nodos Linux de la serie H, una opción consiste en usar la imagen [HPC basada en CentOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) desde Azure Marketplace. Los controladores de RDMA de Linux e Intel MPI están preinstalados. Esta imagen también admite cargas de trabajo de contenedor de Docker.
+Para ejecutar aplicaciones MPI en un grupo de nodos Linux de la serie H, una opción consiste en usar la imagen [HPC basada en CentOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) desde Azure Marketplace. Los controladores de RDMA de Linux e Intel MPI están preinstalados. Esta imagen también admite cargas de trabajo de contenedor de Docker.
 
 Mediante las API de Batch o Azure Portal, cree un grupo con esta imagen y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración del grupo de ejemplo:
 

@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 8fb4d50a4ba56efd9087a829c7d54c3010fc671e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 84c132c333e4d6ba052029350f275ebf499a906f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431521"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79536809"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure PowerShell
 
@@ -28,7 +28,7 @@ El trabajo de ejemplo lee los datos de streaming desde el dispositivo de IoT Hub
 
 * Este inicio rápido requiere el módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para buscar la versión que está instalada en la máquina local. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Algunas acciones de IoT Hub no son compatibles con Azure PowerShell y se deben llevar a cabo con la CLI de Azure versión 2.0.24 o posterior, y la extensión de IoT para la CLI de Azure. [Instale la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y use `az extension add --name azure-cli-iot-ext` para instalar la extensión de IoT.
+* Algunas acciones de IoT Hub no son compatibles con Azure PowerShell y se deben llevar a cabo con la CLI de Azure versión 2.0.70 o posterior y la extensión de IoT para la CLI de Azure. [Instale la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y use `az extension add --name azure-iot` para instalar la extensión de IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
@@ -104,7 +104,7 @@ El siguiente bloque de código de la CLI de Azure realiza varios comandos para p
 
     **Ejemplo de salida:**
 
-    ```azurecli
+    ```output
     HostName=MyASAIoTHub.azure-devices.net;DeviceId=MyASAIoTDevice;SharedAccessKey=a2mnUsg52+NIgYudxYYUNXI67r0JmNubmfVafojG8=
     ```
 
@@ -297,6 +297,7 @@ New-AzStreamAnalyticsTransformation `
   -File $jobTransformationDefinitionFile `
   -Name $jobTransformationName -Force
 ```
+
 ## <a name="run-the-iot-simulator"></a>Ejecutar el simulador
 
 1. Abra el [simulador en línea de Raspberry Pi para Azure IoT](https://azure-samples.github.io/raspberry-pi-web-simulator/).

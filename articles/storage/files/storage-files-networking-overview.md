@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 09d7f93c7a1d8ad9e567ecfe0bb3854d9d54f6e0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597752"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067163"
 ---
 # <a name="azure-files-networking-considerations"></a>Consideraciones de redes para Azure Files 
 Puede conectarse a un recurso compartido de archivos de Azure de dos maneras:
@@ -22,7 +22,9 @@ Puede conectarse a un recurso compartido de archivos de Azure de dos maneras:
 
 Este artículo se centra en cómo configurar las funciones de red cuando el caso de uso necesita acceder al recurso compartido de archivos de Azure directamente, en lugar de usar Azure File Sync. Para obtener más información acerca de las consideraciones de red para una implementación de Azure File Sync, consulte [Configuración de los ajustes de proxy y firewall de Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
-La configuración de red de los recursos compartidos de archivos de Azure se realiza en la cuenta de Azure Storage. Una cuenta de almacenamiento es una construcción de administración que representa un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Las cuentas de almacenamiento exponen varias configuraciones que le ayudan a proteger el acceso de red a los recursos compartidos de archivos: puntos de conexión de red, configuración de firewall de la cuenta de almacenamiento y cifrado en tránsito.
+La configuración de red de los recursos compartidos de archivos de Azure se realiza en la cuenta de Azure Storage. Una cuenta de almacenamiento es una construcción de administración que representa un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Las cuentas de almacenamiento exponen varias configuraciones que le ayudan a proteger el acceso de red a los recursos compartidos de archivos: puntos de conexión de red, configuración de firewall de la cuenta de almacenamiento y cifrado en tránsito. 
+
+Se recomienda leer [Planeamiento de una implementación de Azure Files](storage-files-planning.md) antes de pasar a esta guía conceptual.
 
 ## <a name="accessing-your-azure-file-shares"></a>Acceso a los recursos compartidos de archivos de Azure
 Cuando se implementa un recurso compartido de archivos de Azure en una cuenta de almacenamiento, este es accesible inmediatamente mediante el punto de conexión público de la cuenta de almacenamiento. Esto significa que las solicitudes autenticadas, como las solicitudes autorizadas por la identidad de inicio de sesión de un usuario, pueden originarse de forma segura dentro o fuera de Azure. 
@@ -65,6 +67,8 @@ El uso de puntos de conexión privados con Azure Files le permite:
 - Conectarse de forma segura a los recursos compartidos de archivos de Azure desde redes locales mediante una conexión VPN o ExpressRoute con emparejamiento privado.
 - Proteger los recursos compartidos de archivos mediante la configuración del firewall de la cuenta de almacenamiento para bloquear todas las conexiones el punto de conexión público. De forma predeterminada, crear un punto de conexión privado no bloquea las conexiones al punto de conexión público.
 - Aumentar la seguridad de la red virtual, al permitirle bloquear la filtración de datos desde la red virtual (y los límites de emparejamiento).
+
+Para crear un punto de conexión privado, consulte [Configuración de puntos de conexión privados para Azure Files](storage-files-networking-endpoints.md).
 
 ### <a name="private-endpoints-and-dns"></a>Puntos de conexión privados y DNS
 Cuando se crea un punto de conexión privado, de forma predeterminada también se crea una zona DNS privada (o se actualiza una existente) correspondiente al subdominio `privatelink`. En realidad, no es necesario crear una zona DNS privada para usar un punto de conexión privado para la cuenta de almacenamiento, pero se recomienda encarecidamente en general y se requiere de forma explícita al montar el recurso compartido de archivos de Azure con una entidad de seguridad de usuario de Active Directory o al acceder desde la API de FileREST.
@@ -126,7 +130,7 @@ Esto refleja el hecho de que la cuenta de almacenamiento puede exponer el punto 
 
 - Modifique el archivo de hosts de los clientes para que `storageaccount.file.core.windows.net` se resuelva en la dirección IP privada del punto de conexión privado deseado. Este método no se recomienda en entornos de producción, ya que estos cambios se deberán realizar en todos los clientes que quieran montar los recursos compartidos de archivos de Azure y los cambios en la cuenta de almacenamiento o en el punto de conexión privado no se administrarán automáticamente.
 - Cree un registro D para `storageaccount.file.core.windows.net` en los servidores DNS locales. Este método tiene la ventaja de que los clientes de su entorno local podrán resolver automáticamente la cuenta de almacenamiento sin necesidad de configurar cada cliente; sin embargo, esta solución es igualmente frágil para modificar el archivo de hosts, ya que los cambios no se reflejan. Aunque esta solución es frágil, puede ser la mejor opción para algunos entornos.
-- Reenvíe la zona `core.windows.net` de los servidores DNS locales a la zona DNS privada de Azure. Se puede acceder al host DNS privado de Azure a través de una dirección IP especial (`168.63.129.16`) que solo es accesible dentro de las redes virtuales que están vinculadas a la zona DNS privada de Azure. Para solucionar esta limitación, puede ejecutar servidores DNS adicionales dentro de la red virtual que reenviarán `core.windows.net` a la zona DNS privada de Azure. Para simplificar esta configuración, se han proporcionado cmdlets de PowerShell que implementarán automáticamente los servidores DNS en la red virtual de Azure y los configurarán según sea necesario.
+- Reenvíe la zona `core.windows.net` de los servidores DNS locales a la zona DNS privada de Azure. Se puede acceder al host DNS privado de Azure a través de una dirección IP especial (`168.63.129.16`) que solo es accesible dentro de las redes virtuales que están vinculadas a la zona DNS privada de Azure. Para solucionar esta limitación, puede ejecutar servidores DNS adicionales dentro de la red virtual que reenviarán `core.windows.net` a la zona DNS privada de Azure. Para simplificar esta configuración, se han proporcionado cmdlets de PowerShell que implementarán automáticamente los servidores DNS en la red virtual de Azure y los configurarán según sea necesario. Para aprender a configurar el reenvío de DNS, consulte [Configuración de DNS con Azure Files](storage-files-networking-dns.md).
 
 ## <a name="storage-account-firewall-settings"></a>Configuración del firewall de la cuenta de almacenamiento
 Un firewall es una directiva de red que controla qué solicitudes pueden acceder al punto de conexión público de una cuenta de almacenamiento. Con el firewall de la cuenta de almacenamiento, puede restringir el acceso al punto de conexión público de la cuenta de almacenamiento a determinadas direcciones IP o intervalos de direcciones IP o a una red virtual. En general, la mayoría de las directivas de firewall de una cuenta de almacenamiento restringirán el acceso de red a una o varias redes virtuales. 

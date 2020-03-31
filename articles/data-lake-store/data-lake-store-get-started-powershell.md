@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 42ddab6991b418af3e41da9966cdab69ded87461
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73837891"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Introducción a Azure Data Lake Storage Gen1 mediante Azure PowerShell
@@ -26,7 +26,7 @@ ms.locfileid: "73837891"
 
 Aprenda a usar Azure PowerShell para crear una cuenta de Azure Data Lake Storage Gen1 y realizar operaciones básicas como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para más información sobre Data Lake Storage Gen1, consulte [Información general de Data Lake Storage Gen1](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -62,7 +62,7 @@ En este artículo se usa un enfoque de autenticación más sencillo con Data La
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    ![Creación de un grupo de recursos de Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Crear un grupo de recursos de Azure")
+    ![Creación de un grupo de recursos de Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Creación de un grupo de recursos de Azure")
 
 1. Cree una cuenta de Data Lake Storage Gen1. El nombre que especifique debe contener solo letras minúsculas y números.
 

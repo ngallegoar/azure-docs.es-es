@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 71a330523f1d3393a365fec29fb66f5c9773b6cc
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 2f6efdad7ab0685e58d2edd73bc36b758e8dbae2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207071"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245504"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación de Azure Functions con Azure App Configuration
 
@@ -28,13 +28,15 @@ En este inicio rápido se incorpora el servicio Azure App Configuration en una a
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seleccione **Explorador de configuración** >  **+ Crear** para agregar los siguientes pares clave-valor:
+6. Seleccione **Explorador de configuración** >  **+ Crear** > **Clave-valor** para agregar los siguientes pares clave-valor:
 
     | Clave | Value |
     |---|---|
     | TestApp:Settings:Message | Datos de Azure App Configuration |
 
     Deje **Etiqueta** y **Tipo de contenido** en blanco, por ahora.
+
+7. Seleccione **Aplicar**.
 
 ## <a name="create-a-functions-app"></a>Creación de una aplicación de Functions
 
@@ -85,7 +87,7 @@ En este inicio rápido se incorpora el servicio Azure App Configuration en una a
 
 1. Establezca una variable de entorno llamada **ConnectionString** y defínala como la clave de acceso a su almacén de App Configuration. Si usa el símbolo del sistema de Windows, ejecute el siguiente comando y reinícielo para que se aplique el cambio:
 
-    ```CLI
+    ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 

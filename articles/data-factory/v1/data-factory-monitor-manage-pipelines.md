@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73666980"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
@@ -46,7 +46,7 @@ Con Azure Portal, puede:
 En esta sección se describen también las transiciones de sectores de un conjunto de datos de un estado a otro.   
 
 ### <a name="navigate-to-your-data-factory"></a>Navegación hasta la factoría de datos
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Factorías de datos** en el menú de la izquierda. Si no ve está opción, haga clic en **Más servicios >** y luego en **Factorías de datos**, en la categoría **INTELIGENCIA Y ANÁLISIS**.
 
    ![Examinar todo -> Factorías de datos](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -87,7 +87,7 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 
 <table>
 <tr>
-    <th align="left">State</th><th align="left">Subestado</th><th align="left">DESCRIPCIÓN</th>
+    <th align="left">State</th><th align="left">Subestado</th><th align="left">Descripción</th>
 </tr>
 <tr>
     <td rowspan="8">En espera</td><td>ScheduleTime</td><td>No ha llegado la hora para que se ejecute el segmento.</td>
@@ -135,7 +135,7 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <td>Ready</td><td>-</td><td>El segmento está listo para su uso.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>None</td><td>El segmento se está procesando.</td>
+<td>Omitido</td><td>None</td><td>El segmento se está procesando.</td>
 </tr>
 <tr>
 <td>None</td><td>-</td><td>Un segmento existía con un estado distinto, pero se ha restablecido.</td>
@@ -278,7 +278,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 > [!IMPORTANT]
 > Es más fácil solucionar los errores y volver a ejecutar los sectores erróneos con la aplicación de supervisión y administración. Para más información sobre el uso de la aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
 
-### <a name="use-the-azure-portal"></a>Uso del Portal de Azure
+### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 Tras solucionar los problemas y depurar los errores de una canalización, puede volver a ejecutar los elementos con fallos; para ello, vaya al segmento de error y haga clic en el botón **Ejecutar** de la barra de comandos.
 
 ![Repetición de ejecución de un segmento con errores](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
@@ -290,7 +290,7 @@ En caso de que el segmento no se valide debido a un error de directiva (por ejem
 ### <a name="use-azure-powershell"></a>Uso de Azure PowerShell
 Puede volver a ejecutar errores mediante el cmdlet **Set-AzDataFactorySliceStatus**. Vea el tema [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obtener información sobre la sintaxis y otros detalles del cmdlet.
 
-**Ejemplo:**
+**Ejemplo**:
 
 En el siguiente ejemplo, el estado de todos los segmentos de la tabla "DAWikiAggregatedData" se establece en "En espera" en la factoría de datos de Azure "WikiADF".
 

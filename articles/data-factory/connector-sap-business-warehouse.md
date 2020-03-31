@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 0c37d77ca73ddbe8b79351f90275a1d639757633
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74923734"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse mediante Azure Data Factory
@@ -44,7 +44,7 @@ Concretamente, este conector SAP Business Warehouse admite:
 - La copia de datos de **InfoCubes y QueryCubes** (incluidas las consultas BEx) mediante consultas MDX.
 - Copiar datos con la autenticación básica.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar este conector SAP Business Warehouse, necesita hacer lo siguiente:
 
@@ -66,7 +66,7 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado SAP Business Warehouse (BW):
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **SapBw** | Sí |
 | server | Nombre del servidor en el que reside la instancia de SAP BW. | Sí |
@@ -76,7 +76,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP Busines
 | password | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -107,7 +107,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde SAP BW, establezca la propiedad type del conjunto de datos en **SapBwCube**. No hay ninguna propiedad específica del tipo compatible con el conjunto de datos de SAP BW de tipo RelationalTable.
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -134,12 +134,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde SAP BW, en la sección **source** de la actividad de copia se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **SapBwSource** | Sí |
-| query | Especifica la consulta MDX para leer datos de la instancia de SAP BW. | Sí |
+| Query | Especifica la consulta MDX para leer datos de la instancia de SAP BW. | Sí |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -200,7 +200,7 @@ Al copiar datos desde SAP BW, se usan las siguientes asignaciones de tipos de da
 | UNIDAD | String |
 | DATS | String |
 | NUMC | String |
-| TIMS | Cadena |
+| TIMS | String |
 
 
 ## <a name="lookup-activity-properties"></a>Propiedades de la actividad de búsqueda

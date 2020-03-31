@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integración de Azure Active Directory con Trisotech Digital Enterprise Server | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Trisotech Digital Enterprise Server.
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Trisotech Digital Enterprise Server.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 56399f99ede611c4a120603cce3a3eede2728c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67088262"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutorial: Integración de Azure Active Directory con Trisotech Digital Enterprise Server
@@ -34,7 +34,7 @@ Integrar Trisotech Digital Enterprise Server con Azure AD le proporciona las sig
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Trisotech Digital Enterprise Server, necesita los siguientes elementos:
 
@@ -168,7 +168,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

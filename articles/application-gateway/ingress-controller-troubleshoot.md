@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: a64a9ce5e080308674893273e90a0e83686e339e
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73795508"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Solución de preguntas o problemas comunes del controlador de entrada
@@ -236,7 +236,7 @@ Por otro lado, el nivel 5 mostrará todos los registros, incluido el contenido s
 La comunidad de Kubernetes ha establecido 9 niveles de registro para la herramienta [kubectl](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-output-verbosity-and-debugging). En este repositorio usamos 3 de ellos, con una semántica similar:
 
 
-| Nivel de detalle | DESCRIPCIÓN |
+| Nivel de detalle | Descripción |
 |-----------|-------------|
 |  1        | Nivel de registro predeterminado; muestra los detalles de inicio, las advertencias y los errores |
 |  3        | Información ampliada sobre eventos y cambios; listas de objetos creados |

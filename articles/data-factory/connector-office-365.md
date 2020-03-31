@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: d97b3caccc92f0fdfeb229d94e30ee6499c26181
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74912412"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copia de datos de Office 365 en Azure con Azure Data Factory
@@ -34,7 +34,7 @@ Por ahora, en una única actividad de copia, solo puede **copiar datos de Office
 >- Asegúrese de que la región de Azure Integration Runtime utilizada para la actividad de copia y el destino están en la misma región donde se encuentra el buzón de los usuarios del inquilino de Office 365. Haga clic [aquí](concepts-integration-runtime.md#integration-runtime-location) para obtener información sobre cómo se determina la ubicación de Azure IR. Consulte la [tabla aquí](https://docs.microsoft.com/graph/data-connect-datasets#regions) para obtener la lista de las regiones admitidas de Office y las regiones de Azure correspondientes.
 >- La autenticación de la entidad de servicio es el único mecanismo de autenticación admitido para Azure Blob Storage, Azure Data Lake Storage Gen1 y Azure Data Lake Storage Gen2 como almacenes de destino.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para copiar datos de Office 365 en Azure, es preciso completar los pasos de requisitos previos siguientes:
 
@@ -67,7 +67,7 @@ Puede crear una canalización con la actividad de copia mediante una de las sigu
 - [SDK de .NET](quickstart-create-data-factory-dot-net.md)
 - [SDK de Python](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
-- [API DE REST](quickstart-create-data-factory-rest-api.md)
+- [REST API](quickstart-create-data-factory-rest-api.md)
 - [Plantilla de Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md) 
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Office 365.
@@ -76,21 +76,21 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Office 365:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Office365** | Sí |
 | office365TenantId | Id. de inquilino de Azure al que pertenece la cuenta de Office 365. | Sí |
 | servicePrincipalTenantId | Especifique la información del inquilino en el que reside la aplicación web de Azure AD. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. | Sí |
-| connectVia | El entorno de ejecución de integración que se usará para conectarse al almacén de datos.  Si no se especifica, se usará Azure Integration Runtime. | Sin |
+| connectVia | El entorno de ejecución de integración que se usará para conectarse al almacén de datos.  Si no se especifica, se usará Azure Integration Runtime. | No |
 
 >[!NOTE]
 > La diferencia entre **office365TenantId** y **servicePrincipalTenantId** y el valor correspondiente que se debe proporcionar:
 >- Si es un desarrollador empresarial que va a desarrollar una aplicación con los datos de Office 365 para usarla en su organización, debe proporcionar el mismo identificador de inquilino para ambas propiedades, que es el identificador de inquilino de AAD de su organización.
 >- Si es un ISV que va a desarrollar una aplicación para los clientes, office365TenantId será el identificador de inquilino de AAD (instalador de la aplicación) del cliente y servicePrincipalTenantId será el identificador de inquilino de AAD de la empresa.
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -116,7 +116,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de Office 365, se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **Office365Table** | Sí |
 | tableName | Nombre del conjunto de datos para extraer de Office 365. Haga clic [aquí](https://docs.microsoft.com/graph/data-connect-datasets#datasets) para obtener la lista de conjuntos de datos de Office 365 disponibles para la extracción. | Sí |
@@ -150,17 +150,17 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de Office 365, se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **Office365Source** | Sí |
-| allowedGroups | Predicado de la selección de grupo.  Utilice esta propiedad para seleccionar hasta 10 grupos de usuarios para los que se recuperarán los datos.  Si no se especifica ningún grupo, se devolverán datos para toda la organización. | Sin |
-| userScopeFilterUri | Cuando la propiedad `allowedGroups` no se especifica, puede usar una expresión de predicado que se aplica en todo el inquilino para filtrar las filas específicas que extraer de Office 365. El formato de predicado debe coincidir con el formato de consultas de las API de Microsoft Graph, por ejemplo, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | Sin |
+| allowedGroups | Predicado de la selección de grupo.  Utilice esta propiedad para seleccionar hasta 10 grupos de usuarios para los que se recuperarán los datos.  Si no se especifica ningún grupo, se devolverán datos para toda la organización. | No |
+| userScopeFilterUri | Cuando la propiedad `allowedGroups` no se especifica, puede usar una expresión de predicado que se aplica en todo el inquilino para filtrar las filas específicas que extraer de Office 365. El formato de predicado debe coincidir con el formato de consultas de las API de Microsoft Graph, por ejemplo, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | No |
 | dateFilterColumn | Nombre de la columna de filtro DateTime. Utilice esta propiedad para limitar el intervalo de tiempo para que se extraigan los datos de Office 365. | Sí, si el conjunto de datos tiene una o varias columnas DateTime. Consulte [aquí](https://docs.microsoft.com/graph/data-connect-filtering#filtering) para obtener la lista de conjuntos de datos que requieren este filtro DateTime. |
 | startTime | Valor DateTime de inicio para el filtro. | Sí, si se especifica `dateFilterColumn` |
 | endTime | Valor DateTime de fin para el filtro. | Sí, si se especifica `dateFilterColumn` |
-| outputColumns | Matriz de las columnas que se van a copiar en el receptor. | Sin |
+| outputColumns | Matriz de las columnas que se van a copiar en el receptor. | No |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities": [

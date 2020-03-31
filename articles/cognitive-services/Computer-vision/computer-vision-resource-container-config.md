@@ -12,17 +12,17 @@ ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
 ms.openlocfilehash: ddbee3695c2a7ef7cb63c48cccacbd2d53a8c1a9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73718994"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configuración de contenedores de Docker de Computer Vision
 
 El entorno de ejecución del contenedor de Computer Vision se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
 
-## <a name="configuration-settings"></a>Valores de configuración
+## <a name="configuration-settings"></a>Parámetros de configuración
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -51,9 +51,9 @@ Este valor se puede encontrar en el siguiente lugar:
 
 No olvide agregar la ruta `vision/v1.0` al URI de punto de conexión, tal como se muestra en la tabla siguiente. 
 
-|Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|Obligatorio| Nombre | Tipo de datos | Descripción |
 |--|------|-----------|-------------|
-|Sí| `Billing` | Cadena | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Sí| `Billing` | String | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -79,10 +79,10 @@ El contenedor de Computer Vision no usa los montajes de entrada o salida para al
 
 La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](computer-vision-how-to-install-containers.md#the-host-computer) puede no ser accesible debido a un conflicto entre los permisos que usa la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host. 
 
-|Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|Opcional| Nombre | Tipo de datos | Descripción |
 |-------|------|-----------|-------------|
-|No permitida| `Input` | Cadena | Los contenedores de Computer Vision no usan esto.|
-|Opcional| `Output` | Cadena | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|No permitida| `Input` | String | Los contenedores de Computer Vision no usan esto.|
+|Opcional| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run
 
@@ -93,7 +93,7 @@ Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo 
 
 Reemplace {_argument_name_} por sus propios valores:
 
-| Marcador de posición | Valor | Formato o ejemplo |
+| Marcador de posición | Value | Formato o ejemplo |
 |-------------|-------|---|
 | **{CLAVE_API}** | La clave del punto de conexión del recurso `Computer Vision` en la página Claves de `Computer Vision` de Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{URI_PUNTODECONEXIÓN}** | El valor del punto de conexión de facturación está disponible en la página Información general de Azure `Computer Vision`.| Consulte el apartado de [recopilación de los parámetros necesarios](computer-vision-how-to-install-containers.md#gathering-required-parameters) para ejemplos explícitos. |

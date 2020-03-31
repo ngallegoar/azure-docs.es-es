@@ -11,31 +11,31 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72754182"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Definición y uso de los flujos de trabajo de moderación (REST)
 
-Los flujos de trabajo son filtros personalizados basados en la nube que puede usar para controlar el contenido de forma más eficaz. Los flujos de trabajo pueden conectarse a diversos servicios para filtrar el contenido de maneras diferentes y luego realizar la acción apropiada. En esta guía se le muestra cómo usar las API de REST de flujo de trabajo, a través de la consola de API, para crear y usar flujos de trabajo. Una vez que comprenda la estructura de las API, podrá migrar fácilmente estas llamadas a cualquier plataforma compatible con REST.
+Los flujos de trabajo son filtros personalizados basados en la nube que puede usar para controlar el contenido de forma más eficaz. Los flujos de trabajo pueden conectarse a diversos servicios para filtrar el contenido de maneras diferentes y luego realizar la acción apropiada. En esta guía se le muestra cómo usar las API de REST de flujo de trabajo, a través de la consola de API, para crear y usar flujos de trabajo. Una vez que comprenda la estructura de las API, podrá migrar fácilmente estas llamadas a cualquier plataforma compatible con REST.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-- Inicie sesión o cree una cuenta en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
+- Inicie sesión o cree una cuenta en el sitio de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
 ## <a name="create-a-workflow"></a>Creación de un flujo de trabajo
 
-Para crear o actualizar un flujo de trabajo, vaya a la página de referencia de API **[Workflow - Create Or Update](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** (Flujo de trabajo: Crear o actualizar) y seleccione el botón para su región clave (lo encontrará en la dirección URL de punto de conexión en la página **Credenciales** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/)). Esto inicia la consola de API, donde puede crear y ejecutar llamadas API de REST con facilidad.
+Para crear o actualizar un flujo de trabajo, vaya a la página de referencia de API **[Workflow - Create Or Update](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** (Flujo de trabajo: Crear o actualizar) y seleccione el botón para su región clave (lo encontrará en la dirección URL de punto de conexión en la página **Credenciales** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/)). Esto inicia la consola de API, donde puede crear y ejecutar llamadas API REST con facilidad.
 
 ![Selección de región para Workflow - Create Or Update (Flujo de trabajo: Crear o actualizar)](images/test-drive-region.png)
 
-### <a name="enter-rest-call-parameters"></a>Especificación de parámetros de llamada de REST
+### <a name="enter-rest-call-parameters"></a>Especificación de parámetros de llamada de REST
 
 Especifique los valores para **team**, **workflowName** y **Ocp-Apim-Subscription-Key**:
 
-- **team**: identificador de equipo que creó al configurar la cuenta de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) (se encuentra en el campo de **identificador** en la pantalla Credenciales de la herramienta de revisión).
+- **team**: identificador de equipo que creó al configurar la cuenta de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) (se encuentra en el campo **Id.** en la pantalla de credenciales de la herramienta de revisión).
 - **workflowname**: nombre de un nuevo flujo de trabajo que se va a agregar (o un nombre existente, si desea actualizar un flujo de trabajo existente).
 - **Ocp-Apim-Subscription-Key**: su clave de Content Moderator. Puede encontrarla en la pestaña **Configuración** de la [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com).
 

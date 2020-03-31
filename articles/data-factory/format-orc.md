@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
 ms.openlocfilehash: e104c4c8e976207859b75212d5406558f04c6377
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77597497"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC en Azure Data Factory
@@ -71,7 +71,7 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La propiedad type del origen de la actividad de copia debe establecerse en **OrcSource**. | Sí      |
-| storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
+| storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
 
 ### <a name="orc-as-sink"></a>ORC como receptor
 
@@ -80,7 +80,7 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La propiedad type del origen de la actividad de copia debe establecerse en **OrcSink**. | Sí      |
-| storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
+| storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Uso del entorno de ejecución de integración autohospedado
 

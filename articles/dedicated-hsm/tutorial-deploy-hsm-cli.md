@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4750673eb60529d812e4df71de9203d4d59a0cc9
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 76b7a97a5be5e7952b0ac11d93bd68656ff8f1ec
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212269"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79454319"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implementación de HSM en una red virtual existente con la CLI
 
@@ -144,7 +144,8 @@ az network vnet create \
 ```
 
 ```azurecli
---vnet-name myHSM-vnet \
+az network vnet create \
+  --vnet-name myHSM-vnet \
   --resource-group myRG \
   --name hsmsubnet \
   --address-prefixes 10.2.1.0/24 \

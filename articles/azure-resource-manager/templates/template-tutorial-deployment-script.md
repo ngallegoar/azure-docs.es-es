@@ -10,22 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/24/2020
+ms.date: 03/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 21725e64bb359b2f11086baceb186605f010b796
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 94b351ddb18ca596f47e8ef40cff8229c838d7bd
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561466"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239202"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Uso de scripts de implementación para crear un certificado autofirmado (versión preliminar)
 
 Aprenda a usar scripts de implementación en plantillas de Azure Resource Manager. Los scripts de implementación se pueden usar para realizar pasos personalizados que no se pueden llevar a cabo con plantillas de Resource Manager. Por ejemplo, para crear un certificado autofirmado.  En este tutorial, creará una plantilla para implementar un almacén de claves de Azure, usará un recurso `Microsoft.Resources/deploymentScripts` en la misma plantilla para crear un certificado y agregará el certificado al almacén de claves. Para más información sobre el script de implementación, consulte cómo [usar los scripts de implementación en las plantillas de Azure Resource Manager](./deployment-script-template.md).
-
-> [!NOTE]
-> El script de implementación se encuentra actualmente en versión preliminar. Para usarlo, debe [registrarse en la versión preliminar](https://aka.ms/armtemplatepreviews).
 
 > [!IMPORTANT]
 > En el mismo grupo de recursos que se usa para la ejecución de scripts y la solución de problemas, se crean dos recursos de script de implementación, una cuenta de almacenamiento y una instancia de contenedor. Estos recursos los suele eliminar el servicio del script cuando el script llega a un estado terminal de ejecución. Los recursos se le facturarán hasta que se eliminen. Para más información, consulte [Limpieza de los recursos del script de implementación](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -43,7 +40,7 @@ En este tutorial se describen las tareas siguientes:
 
 Para completar este artículo, necesitará lo siguiente:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) con la extensión Resource Manager Tools**. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](./use-vs-code-to-create-template.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) con la extensión Resource Manager Tools**. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](./use-vs-code-to-create-template.md).
 
 * **Una identidad administrada asignada por el usuario con el rol de colaborador en el nivel de suscripción**. Esta identidad se usa para ejecutar scripts de implementación. Para crear una, consulte [Identidad administrada asignada por el usuario](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Necesitará el identificador de identidad al implementar la plantilla. El formato de la identidad es:
 
@@ -62,7 +59,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
-En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Plantillas de inicio rápido de Azure es un repositorio de plantillas de Resource Manager.
+En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager.
 
 La plantilla usada en este inicio rápido se llama [Create an Azure Key Vault and a secret](https://azure.microsoft.com/resources/templates/101-key-vault-create/) (Crear un almacén de claves de Azure y un secreto). La plantilla crea un almacén de claves y agrega un secreto a él.
 
@@ -348,7 +345,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido a usar un script de implementación en plantillas de Azure Resource Manager. Para aprender a implementar recursos de Azure según condiciones, consulte:
+En este tutorial ha aprendido a usar un script de implementación en plantillas de Resource Manager. Para aprender a implementar recursos de Azure según condiciones, consulte:
 
 > [!div class="nextstepaction"]
 > [Condiciones de uso](./template-tutorial-use-conditions.md)

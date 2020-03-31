@@ -13,11 +13,11 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 066e32d5ab21f88b170498173606043c54fec586
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928155"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231588"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copia de datos con una instancia local de Oracle como origen o destino mediante Azure Data Factory
 
@@ -41,7 +41,7 @@ Puede copiar datos de los siguientes almacenes de datos *a una base de datos de 
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Data Factory admite la conexión a orígenes de Oracle locales mediante la puerta de enlace de administración de datos. Consulte [Data Management Gateway](data-factory-data-management-gateway.md) para obtener más información acerca de Data Management Gateway. Para obtener instrucciones paso a paso sobre cómo configurar la puerta de enlace en una canalización de datos para mover datos, consulte [Traslado de datos desde local a la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -76,11 +76,11 @@ Este conector de Oracle admite dos versiones de controladores:
 
 Si utiliza el asistente para copia para crear la canalización de copia, el tipo de controlador se determina automáticamente. El controlador de Microsoft se usa de forma predeterminada, a menos que la versión de la puerta de enlace sea anterior a la versión 2.7 o seleccione Oracle como receptor.
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 Puede crear una canalización con una actividad de copia. La canalización mueve los datos a o desde una base de datos de Oracle local mediante el uso de diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el Asistente para copiar. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el Asistente para copiar. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
 Puede usar una las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** o **API REST**. Consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización que tenga una actividad de copia.
 
@@ -99,10 +99,10 @@ Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se
 
 En la tabla siguiente se describen los elementos JSON específicos del servicio vinculado de Oracle:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad **type** debe establecerse en: **OnPremisesOracle**. |Sí |
-| driverType | Especifique qué controlador usar para copiar datos en bases de datos de Oracle o desde ellas. Los valores permitidos son **Microsoft** y **ODP** (valor predeterminado). Consulte [Versiones compatibles e instalación](#supported-versions-and-installation) para obtener información detallada sobre los controladores. | Sin |
+| type |La propiedad **type** debe establecerse en: **OnPremisesOracle**. |Sí |
+| driverType | Especifique qué controlador usar para copiar datos en bases de datos de Oracle o desde ellas. Los valores permitidos son **Microsoft** y **ODP** (valor predeterminado). Consulte [Versiones compatibles e instalación](#supported-versions-and-installation) para obtener información detallada sobre los controladores. | No |
 | connectionString | Especifique la información necesaria para conectarse a la instancia de la base de datos de Oracle para la propiedad **connectionString**. | Sí |
 | gatewayName | Nombre de la puerta de enlace que se usa para conectarse al servidor local de Oracle. |Sí |
 
@@ -150,7 +150,7 @@ Las secciones del archivo JSON de un conjunto de datos, como structure, availabi
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección **typeProperties** del conjunto de datos de tipo **OracleTable** tiene las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | tableName |El nombre de la tabla de la base de datos Oracle a la que hace referencia el servicio vinculado. |No (si se especifica **oracleReaderQuery** o **OracleSource**) |
 
@@ -169,20 +169,20 @@ Las propiedades que están disponibles en la sección **typeProperties** de la a
 
 En la actividad de copia, si el origen es de tipo **OracleSource**, están disponibles las propiedades siguientes en la sección **typeProperties**:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: "select \* from **MyTable**". <br/><br/>Si no se especifica, esta instrucción SQL se ejecuta: "select \* from **MyTable**" |Sin<br />(si se especifica **tableName** de **dataset**) |
+| oracleReaderQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: "select \* from **MyTable**". <br/><br/>Si no se especifica, esta instrucción SQL se ejecuta: "select \* from **MyTable**" |No<br />(si se especifica **tableName** de **dataset**) |
 
 ### <a name="oraclesink"></a>OracleSink
 
 **OracleSink** admite las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. |**timespan**<br/><br/> Ejemplo: 00:30:00 (30 minutos) |Sin |
+| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. |**timespan**<br/><br/> Ejemplo: 00:30:00 (30 minutos) |No |
 | writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor de **writeBatchSize**. |Entero (número de filas) |No (valor predeterminado: 100) |
-| sqlWriterCleanupScript |Especifica una consulta para que se ejecute la actividad de copia para que se limpien los datos de un segmento específico. |Una instrucción de consulta. |Sin |
-| sliceIdentifierColumnName |Especifica el nombre de columna para que la actividad de copia rellene un identificador de segmento generado automáticamente. El valor de **sliceIdentifierColumnName** se usa para borrar datos de un determinado segmento al volver a ejecutar. |Nombre de una columna con el tipo de datos **binary(32)** . |Sin |
+| sqlWriterCleanupScript |Especifica una consulta para que se ejecute la actividad de copia para que se limpien los datos de un segmento específico. |Una instrucción de consulta. |No |
+| sliceIdentifierColumnName |Especifica el nombre de columna para que la actividad de copia rellene un identificador de segmento generado automáticamente. El valor de **sliceIdentifierColumnName** se usa para borrar datos de un determinado segmento al volver a ejecutar. |Nombre de una columna con el tipo de datos **binary(32)** . |No |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Ejemplos de JSON para copiar datos a la base de datos de Oracle y desde esta
 
@@ -598,27 +598,27 @@ Al mover datos de Oracle, se usan las siguientes asignaciones del tipo de datos 
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(solo compatible con Oracle 10g y versiones posteriores cuando se usa un controlador de Microsoft) |
-| CHAR |Cadena |
-| CLOB |Cadena |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLOAT |Decimal, String (si la precisión > 28) |
 | INTEGER |Decimal, String (si la precisión > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
-| INTERVAL DAY TO SECOND |timespan |
-| LONG |Cadena |
+| INTERVAL DAY TO SECOND |TimeSpan |
+| LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |Cadena |
-| NCLOB |Cadena |
+| NCHAR |String |
+| NCLOB |String |
 | NUMBER |Decimal, String (si la precisión > 28) |
-| NVARCHAR2 |Cadena |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Cadena |
-| TIMESTAMP |DateTime |
+| ROWID |String |
+| timestamp |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
 | TIMESTAMP WITH TIME ZONE |DateTime |
-| UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |Cadena |
-| XML |Cadena |
+| UNSIGNED INTEGER |Number |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Los tipos de datos **INTERVAL YEAR TO MONTH** e **INTERVAL DAY TO SECOND** no se admiten cuando se utiliza un controlador de Microsoft.

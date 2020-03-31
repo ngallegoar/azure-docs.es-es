@@ -12,10 +12,10 @@ ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: 5d1b0b19523eb37aa83aa59b24114be9f76ffa55
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68882769"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Incorporación de análisis a Bing Search APIs
@@ -51,7 +51,7 @@ De manera predeterminada, los diagramas y gráficos muestran todas las métricas
 - **Puntos de conexión**: puntos de conexión de Bing Search APIs. La lista contiene todos los puntos de conexión para los cuales tiene una suscripción de pago. De forma predeterminada, se seleccionan todos los puntos de conexión.  
 
 - **Período de tiempo**: período de notificación. Puede especificar:
-  - **Todo**: Incluye datos de hasta 13 meses.  
+  - **Todos**: Incluye datos de hasta 13 meses.  
   - **Últimas 24 horas**: Incluye el análisis de las últimas 24 horas.  
   - **Última semana**: Incluye el análisis de los siete días anteriores.  
   - **Último mes**: Incluye el análisis de los 30 días anteriores.  

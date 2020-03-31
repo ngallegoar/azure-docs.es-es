@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 812ca0d502572f43c968c75dee17f45d066bcf04
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2a1507b008903085886f9392f3f4e5461997b6e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701304"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128867"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferencias de validación por tipos de cuenta compatibles (signInAudience)
 
@@ -33,7 +33,7 @@ El valor seleccionado para esta propiedad tiene implicaciones en otras propiedad
 
 Vea la tabla siguiente para conocer las diferencias de validación de diversas propiedades de diferentes tipos de cuenta admitidos.
 
-| Propiedad | `AzureADMyOrg` | `AzureADMultipleOrgs`  | `AzureADandPersonalMicrosoftAccount` |
+| Propiedad | `AzureADMyOrg` | `AzureADMultipleOrgs` | `AzureADandPersonalMicrosoftAccount` y `PersonalMicrosoftAccount` |
 |--------------|---------------|----------------|----------------|
 | URI de identificador de aplicación (`identifierURIs`)  | Debe ser único en el inquilino <br><br> Se admiten los esquemas urn:// <br><br> No se admiten caracteres comodín <br><br> Se admiten cadenas de consulta y fragmentos <br><br> Tiene una longitud máxima de 255 caracteres <br><br> Sin límite* en el número de identifierURI  | Debe ser único globalmente. <br><br> Se admiten los esquemas urn:// <br><br> No se admiten caracteres comodín <br><br> Se admiten cadenas de consulta y fragmentos <br><br> Tiene una longitud máxima de 255 caracteres <br><br> Sin límite* en el número de identifierURI | Debe ser único globalmente. <br><br> No se admiten los esquemas urn:// <br><br> No se admiten caracteres comodín, fragmentos y cadenas de consulta <br><br> Tiene una longitud máxima de 120 caracteres <br><br> Máximo de 50 identifierURI |
 | Certificados (`keyCredentials`) | Clave de firma simétrica | Clave de firma simétrica | Cifrado y clave de firma asimétrica | 

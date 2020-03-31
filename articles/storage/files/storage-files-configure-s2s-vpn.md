@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7762366f68bee2cd8c44e81bb22366c504ff1a73
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: ae3d38d92990d7a1af4146c25b017286ebd29352
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484429"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061033"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configuración de una VPN de sitio a sitio para su uso con Azure Files
 Puede usar una conexión VPN de sitio a sitio (S2S) para montar los recursos compartidos de archivos de Azure a través de SMB desde su red local sin necesidad de abrir el puerto 445. Puede configurar una VPN de sitio a sitio mediante [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), que es un recurso de Azure que ofrece servicios VPN y se implementa en un grupo de recursos junto con las cuentas de almacenamiento u otros recursos de Azure.
@@ -23,8 +23,10 @@ Se recomienda que lea [Introducción a las redes de Azure Files](storage-files-n
 
 En este artículo se detallan los pasos para configurar una VPN de sitio a sitio para montar recursos compartidos de archivos de Azure directamente en el entorno local. Si quiere enrutar el tráfico sincrónico para Azure File Sync a través de una VPN de sitio a sitio, consulte [Configuración del proxy y el firewall de Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
-## <a name="prerequisites"></a>Requisitos previos
-- Un recurso compartido de archivos de Azure que le gustaría montar en el entorno local. Puede usar un [recurso compartido de archivos de Azure estándar](storage-how-to-create-file-share.md) o [Premium](storage-how-to-create-premium-fileshare.md) con la VPN de sitio a sitio.
+## <a name="prerequisites"></a>Prerrequisitos
+- Un recurso compartido de archivos de Azure que le gustaría montar en el entorno local. Los recursos compartidos de archivos de Azure se implementan en cuentas de almacenamiento, que son construcciones que representan un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Puede encontrar más información sobre cómo implementar cuentas de almacenamiento y recursos compartidos de archivos de Azure en [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
+
+- Un punto de conexión privado para la cuenta de almacenamiento que contiene el recurso compartido de archivos de Azure que quiere montar localmente. Para más información sobre cómo crear un punto de conexión privado, consulte [Configuración de puntos de conexión de red de Azure Files](storage-files-networking-endpoints.md?tabs=azure-portal). 
 
 - Un dispositivo de red o un servidor en el centro de recursos local que sea compatible con Azure VPN Gateway. Azure Files es independiente del dispositivo de red local elegido, pero Azure VPN Gateway mantiene una [lista de los dispositivos probados](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Los diferentes dispositivos de red ofrecen distintas funciones, características de rendimiento y funcionalidades de administración, por lo que debe tenerlas en cuenta al seleccionar un dispositivo de red.
 
@@ -46,7 +48,7 @@ En la tabla de contenido de Azure Portal, seleccione **Crear un recurso** y busq
 
 Con el fin de implementar una instancia de Azure VPN Gateway, debe rellenar los campos siguientes:
 
-- **Nombre**: nombre del recurso de Azure para VPN Gateway. Este puede ser cualquier nombre que le resulte útil para la administración.
+- **Name**: nombre del recurso de Azure para VPN Gateway. Este puede ser cualquier nombre que le resulte útil para la administración.
 - **Región**: región en la que se implementará la instancia de VPN Gateway.
 - **Tipo de puerta de enlace**: con el fin de implementar una VPN de sitio a sitio, debe seleccionar **VPN**.
 - **Tipo de VPN**: puede elegir entre *Basada en rutas* o **Basada en directivas** en función de su dispositivo VPN. Las VPN basadas en rutas son compatibles con IKEv2, mientras que las VPN basadas en directivas solo admiten IKEv1. Para obtener más información sobre los dos tipos de puertas de enlace de VPN, consulte [Acerca de las puertas de enlace de VPN basadas en directivas y en rutas](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about).
@@ -63,7 +65,7 @@ Una puerta de enlace de red local es un recurso de Azure que representa al dispo
 
 Con el fin de implementar el recurso de puerta de enlace de red local, debe rellenar los campos siguientes:
 
-- **Nombre**: nombre del recurso de Azure para la puerta de enlace de red local. Este puede ser cualquier nombre que le resulte útil para la administración.
+- **Name**: nombre del recurso de Azure para la puerta de enlace de red local. Este puede ser cualquier nombre que le resulte útil para la administración.
 - **Dirección IP**: dirección IP pública de la puerta de enlace local en el entorno local.
 - **Espacio de direcciones**: intervalo de direcciones de la red que representa esta puerta de enlace de red local. Puede agregar varios intervalos de espacios de direcciones, aunque debe asegurarse de que los intervalos especificados no se superpongan con los de otras redes a las que quiera conectarse. 
 - **Configurar BGP**: solo debe configurar los valores de BGP si la configuración lo requiere. Para obtener más información acerca de esta configuración, consulte [Acerca de BGP con Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
@@ -76,27 +78,10 @@ Seleccione **Crear** para crear el recurso de la puerta de enlace de red local.
 ## <a name="configure-on-premises-network-appliance"></a>Configuración del dispositivo de red local
 Los pasos específicos para configurar el dispositivo de red local dependen del dispositivo de red que haya seleccionado la organización. Según el dispositivo que haya elegido la organización, la [lista de dispositivos probados](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) puede incluir un vínculo a las instrucciones del proveedor del dispositivo para configurarlo con Azure VPN Gateway.
 
-## <a name="create-private-endpoint-preview"></a>Creación de un punto de conexión privado (versión preliminar)
-Al crear un punto de conexión privado para la cuenta de almacenamiento, la cuenta de almacenamiento proporciona una dirección IP dentro del espacio de direcciones IP de la red virtual. Al montar el recurso compartido de archivos de Azure desde el entorno local mediante esta dirección IP privada, las reglas de enrutamiento autodefinidas por la instalación de VPN enrutarán la solicitud de montaje a la cuenta de almacenamiento a través de la VPN. 
-
-En la hoja de la cuenta de almacenamiento, seleccione **Conexiones de punto de conexión privado** en la tabla de contenido de la izquierda y **+ Punto de conexión privado** para crear un nuevo punto de conexión privado. El asistente resultante tiene varias páginas que debe completar:
-
-![Una captura de pantalla de la sección Aspectos básicos de la sección Crear punto de conexión privado](media/storage-files-configure-s2s-vpn/create-private-endpoint-1.png)
-
-En la pestaña **Aspectos básicos**, seleccione el grupo de recursos, el nombre y la región que desee para el punto de conexión privado. Estos pueden ser cualquier cosa que desee, no tienen que coincidir con la cuenta de almacenamiento en ningún aspecto, aunque debe crear el punto de conexión privado en la misma región que la red virtual en la que quiere crear el punto de conexión privado.
-
-En la pestaña **Recurso**, seleccione el botón de radio para **Conectarse a un recurso de Azure en mi directorio**. En **Tipo de recurso**, seleccione **Microsoft.Storage/storageAccounts** para el tipo de recurso. El campo **Recurso** es la cuenta de almacenamiento con el recurso compartido de archivos de Azure al que quiere conectarse. El recurso secundario de destino es **archivo**, ya que es para Azure Files.
-
-La pestaña **Configuración** permite seleccionar la red virtual específica y la subred a la que le gustaría agregar el punto de conexión privado. Seleccione la red virtual que creó anteriormente. Debe seleccionar una subred distinta de la subred en la que agregó el punto de conexión de servicio anteriormente.
-
-La pestaña **Configuración** también le permite configurar una zona DNS privada. Esto no es necesario, pero le permite usar una ruta de acceso UNC descriptiva (como `\\mystorageaccount.privatelink.file.core.windows.net\myshare`) en lugar de una ruta de acceso UNC con una dirección IP para montar el recurso compartido de archivos de Azure. Esto también puede realizarse con sus propios servidores DNS en la red virtual.
-
-Haga clic en **Revisar y crear** para crear el punto de conexión privado. Una vez creado el punto de conexión privado, verá dos nuevos recursos: un recurso de punto de conexión privado y una interfaz de red virtual emparejada. El recurso de interfaz de red virtual tendrá la dirección IP privada dedicada de la cuenta de almacenamiento. 
-
 ## <a name="create-the-site-to-site-connection"></a>Creación de la conexión de sitio a sitio
 Para completar la implementación de una VPN de sitio a sitio, debe crear una conexión entre el dispositivo de red local (representado por el recurso de puerta de enlace de red local) y la instancia de VPN Gateway. Para ello, vaya a la instancia de VPN Gateway que creó anteriormente. En la tabla de contenido de VPN Gateway, seleccione **Conexiones** y haga clic en **Agregar**. En el panel **Agregar conexión** se necesitan los siguientes campos:
 
-- **Nombre**: El nombre de la conexión Una instancia de VPN Gateway puede hospedar varias conexiones, por lo que debe elegir un nombre que le resulte útil para la administración y que distinga esta conexión concreta.
+- **Name**: El nombre de la conexión Una instancia de VPN Gateway puede hospedar varias conexiones, por lo que debe elegir un nombre que le resulte útil para la administración y que distinga esta conexión concreta.
 - **Tipo de conexión**: dad que se trata de una conexión S2S, seleccione **Sitio a sitio (IPSec)** en la lista desplegable.
 - **Puerta de enlace de red virtual**: este campo se selecciona automáticamente para la instancia de VPN Gateway con la que está realizando la conexión y no se puede cambiar.
 - **Puerta de enlace de red local**: esta es la puerta de enlace de red local que quiere conectar a su instancia de VPN Gateway. El panel de selección resultante debe tener el nombre de la puerta de enlace de red local que creó anteriormente.
@@ -111,7 +96,7 @@ El último paso para configurar una VPN de sitio a sitio es comprobar que funcio
 - [macOS](storage-how-to-use-files-mac.md)
 - [Linux](storage-how-to-use-files-linux.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 - [Introducción a las redes de Azure Files](storage-files-networking-overview.md)
 - [Configuración de una VPN de punto a sitio (P2S) en Windows para su uso con Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Configuración de una VPN de punto a sitio (P2S) en Linux para su uso con Azure Files](storage-files-configure-p2s-vpn-linux.md)

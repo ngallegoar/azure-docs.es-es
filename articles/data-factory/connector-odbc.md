@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.openlocfilehash: 6513cfc5432e969fc53aa72b075af194a064d178
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892132"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224976"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copia de datos con almacenes de datos ODBC como origen y destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -36,7 +36,7 @@ Puede copiar datos desde un origen ODBC a cualquier almacén de datos de recepto
 
 En concreto, este conector ODBC admite copiar datos con **cualquier almacén de datos compatible con ODBC** como origen o destino mediante la autenticación **básica** o **anónima**. Se requiere un **controlador ODBC de 64 bits**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar este conector ODBC, necesitará lo siguiente:
 

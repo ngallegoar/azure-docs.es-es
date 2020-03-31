@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: 0ec417b3c7a025d2d05bdd74ec683a2891c3b0de
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075173"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configuración de App Service con Application Gateway
@@ -21,14 +21,14 @@ Dado que el servicio de aplicaciones es multiinquilino, en lugar de una implemen
 
 Application Gateway proporciona un modificador llamado `Pick host name from backend address` que reemplaza el encabezado del host de la solicitud por el nombre de host del back-end cuando la solicitud se enruta de Application Gateway al back-end. Esta funcionalidad permite la compatibilidad con servidores back-end multiinquilino, como Azure App Service y API Management. 
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 >
 > - Crear un grupo de back-end y agregarle un App Service.
 > - Crear una configuración HTTP y un sondeo personalizado con los modificadores "Seleccionar nombre de host" habilitados.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Puerta de enlace de aplicaciones: Si no se dispone de una puerta de enlace de aplicaciones, consulte cómo [crear una puerta de enlace de aplicaciones](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 - Servicio de aplicaciones: Si no se tiene un servicio de aplicaciones existente, consulte la [documentación de servicio de aplicaciones](https://docs.microsoft.com/azure/app-service/).

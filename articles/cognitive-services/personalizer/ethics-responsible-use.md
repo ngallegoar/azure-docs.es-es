@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
 ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71720233"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Directrices para la implementación responsable de Personalizer

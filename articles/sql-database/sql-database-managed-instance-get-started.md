@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 2af153e5cf09cf331be016066e9c9210a0d39b03
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 25128442cd922f6b9130586e245695b6880f661c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838156"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80257621"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Inicio rápido: Creación de una Instancia administrada de Azure SQL Database
 
@@ -51,7 +51,7 @@ En los pasos siguientes se muestra cómo crear una instancia administrada:
 
    Use la tabla siguiente como referencia para obtener la información necesaria en esta pestaña.
 
-   | Configuración| Valor sugerido | DESCRIPCIÓN |
+   | Configuración| Valor sugerido | Descripción |
    | ------ | --------------- | ----------- |
    | **Suscripción** | Su suscripción. | Una suscripción en la que tenga permiso para crear recursos. |
    | **Grupos de recursos** | un grupo de recursos nuevo o existente.|Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Convenciones de nomenclatura](/azure/architecture/best-practices/resource-naming).|
@@ -74,7 +74,7 @@ En los pasos siguientes se muestra cómo crear una instancia administrada:
 
    Use la tabla siguiente como referencia para obtener la información necesaria en esta pestaña.
 
-   | Configuración| Valor sugerido | DESCRIPCIÓN |
+   | Configuración| Valor sugerido | Descripción |
    | ------ | --------------- | ----------- |
    | **Red virtual** | Seleccione **Crear una nueva red virtual** o una subred y red virtual válidas.| Si hay una red o subred que no esté disponible, se debe [modificar para cumplir los requisitos de la red](sql-database-managed-instance-configure-vnet-subnet.md) antes de seleccionarla como destino de la nueva instancia administrada. Para obtener información acerca los requisitos necesarios para configurar el entorno de red de una instancia administrada, consulte [Arquitectura de conectividad de una instancia administrada de Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md). |
    | **Tipo de conexión** | Elija entre los tipos de conexión proxy y redirigir.|Para más información acerca de los tipos de conexión, consulte [Directiva de conexión de Azure SQL](sql-database-connectivity-architecture.md#connection-policy).|
@@ -91,12 +91,12 @@ En los pasos siguientes se muestra cómo crear una instancia administrada:
 
    Use la tabla siguiente como referencia para obtener la información necesaria en esta pestaña.
 
-   | Configuración| Valor sugerido | DESCRIPCIÓN |
+   | Configuración| Valor sugerido | Descripción |
    | ------ | --------------- | ----------- |
    | **Intercalación** | Elija la intercalación que desea usar para la instancia administrada. Si migra bases de datos desde SQL Server, compruebe la intercalación de origen mediante `SELECT SERVERPROPERTY(N'Collation')` y use ese valor.| Para obtener información acerca de las intercalaciones, consulte [Configurar o cambiar la intercalación del servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Zona horaria** | Seleccione la zona horaria que la instancia administrada observará.|Para más información, consulte las [zonas horarias](sql-database-managed-instance-timezone.md).|
    | **Use as failover secondary** (Usar como secundaria de conmutación por error) | Seleccione **Sí**. | Habilite esta opción para usar la instancia administrada como secundaria del grupo de conmutación por error.|
-   | **Instancia administrada principal** [si en **Use as failover secondary** (Usar como secundaria de conmutación por error) se selecciona **Sí**] | Elija la instancia administrada principal existente que se unirá en la misma zona DNS con la instancia administrada que está creando. | Este paso habilitará la configuración posterior a la creación del grupo de conmutación por error. Para más información, consulte [Tutorial: Agregue una instancia administrada de SQL Database a un grupo de conmutación por error](sql-database-managed-instance-failover-group-tutorial.md).|
+   | **Instancia administrada principal** [si en **Use as failover secondary** (Usar como secundaria de conmutación por error) se selecciona **Sí**] | Elija la instancia administrada principal existente que se unirá en la misma zona DNS con la instancia administrada que está creando. | Este paso habilitará la configuración posterior a la creación del grupo de conmutación por error. Para más información, consulte el [Tutorial: Agregue una instancia administrada de SQL Database a un grupo de conmutación por error](sql-database-managed-instance-failover-group-tutorial.md).|
 
 ### <a name="review--create"></a>Revisar y crear
 
@@ -122,6 +122,10 @@ En los pasos siguientes se muestra cómo crear una instancia administrada:
 > 1. En Azure Portal, abra el grupo de recursos (en la pestaña **Aspectos básicos**) en el que va a implementar una instancia administrada.
 > 2. Seleccione **Implementaciones**.
 > 3. Seleccione la operación de implementación de instancia administrada en curso.
+
+> [!IMPORTANT]
+> Para poder obtener el estado de creación de instancia administrada, tiene que tener **permisos de lectura** para el grupo de recursos. Si no tiene este permiso o lo revoca mientras la instancia administrada se encuentra en proceso de creación, es posible que esto provoque que la instancia administrada no sea visible en la lista de implementaciones de grupo de recursos.
+>
 
 ## <a name="post-deployment-operations"></a>Operaciones posteriores a la implementación
 

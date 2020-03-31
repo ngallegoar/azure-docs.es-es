@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/11/2018
-ms.openlocfilehash: 01f2644874da032b95162f3f5721ab9dbea74265
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/12/2020
+ms.openlocfilehash: c073d3e51234e0ed8e524c2ae557d4158ad9e7d7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974712"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065117"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copia de datos de una base de datos de SQL Server local en Azure Blob Storage
 En este tutorial se utiliza la interfaz de usuario (IU) de Azure Data Factory para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local en Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube.
@@ -35,7 +35,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Inicio de la ejecución de una canalización.
 > * Supervisión de la ejecución de la canalización
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 ### <a name="azure-subscription"></a>Suscripción de Azure
 Antes de empezar, si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
@@ -91,15 +91,15 @@ En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para 
 #### <a name="create-the-adftutorial-container"></a>Creación del contenedor adftutorial
 En esta sección se crea un contenedor de blobs denominado **adftutorial** en la instancia de Blob Storage.
 
-1. En la ventana **Cuenta de almacenamiento**, vaya a **Información general** y, después, seleccione **Blobs**.
+1. En la ventana **Cuenta de almacenamiento**, vaya a **Información general** y, después, seleccione **Contenedores**.
 
     ![Selección de la opción Blobs](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-1. En la ventana **Blob service**, seleccione **Contenedor**.
+1. En la ventana **Contenedores**, seleccione **+ Contenedor** para crear un nuevo contenedor.
 
-1. En la ventana **Nuevo contenedor** en **Nombre**, escriba **adftutorial**. Después, seleccione **Aceptar**.
+1. En la ventana **Nuevo contenedor** en **Nombre**, escriba **adftutorial**. Seleccione **Crear**.
 
-1. En la lista de contenedores, seleccione **adftutorial**.
+1. En la lista de contenedores, seleccione el contenedor **adftutorial** que acaba de crear.
 
 1. Mantenga abierta la ventana **contenedor** de **adftutorial**. Úselo para comprobar la salida al final de este tutorial. Data Factory crea automáticamente la carpeta de salida de este contenedor, por lo que no es necesario que el usuario la cree.
 
@@ -143,29 +143,29 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
 1. En la pestaña **General** de la parte inferior de la ventana **Properties** (Propiedades), en **Name** (Nombre), escriba **SQLServerToBlobPipeline**.
 
-   ![Nombre de la canalización](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
-
 1. En el cuadro de herramientas **Activities** (Actividades), expanda **Move & Transform** (Mover y transformar). Arrastre y coloque la actividad **Copy** (Copiar) en la superficie de diseño de la canalización. Establezca el nombre de la actividad en **CopySqlServerToAzureBlobActivity**.
 
 1. En la ventana **Properties** (Propiedades), cambie a la pestaña **Source** (Origen) y haga clic en **+ New** (+ Nuevo).
 
 1. En el cuadro de diálogo **New Dataset** (Nuevo conjunto de datos), busque **SQL Server**. Seleccione **SQL Server** y, luego, **Continue** (Continuar).
+    ![Nuevo conjunto de datos de SqlServer](./media/tutorial-hybrid-copy-portal/create-sqlserver-dataset.png)
 
 1. En el cuadro de diálogo **Set Properties** (Establecer propiedades), en **Name** (Nombre), escriba **SqlServerDataset**. En **Linked service** (Servicio vinculado), seleccione **+ New** (+ Nuevo). En este paso se crea una conexión con el almacén de datos de origen (base de datos de SQL Server).
 
 1. En el cuadro de diálogo **New Linked Service** (Nuevo servicio vinculado) agregue **SqlServerLinkedService** en **Name** (Nombre). En **Connect via integration runtime** (Conectar mediante IR), seleccione **+New** (+ Nuevo).  En esta sección se crea una instancia de Integration Runtime autohospedada y se asocia con un equipo local con la base de datos de SQL Server. El entorno de ejecución de integración autohospedado es el componente que copia los datos de la base de datos de SQL Server de la máquina en Blob Storage.
 
-1. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione **Self-Hosted** (Autohospedado) y, después, seleccione **Next** (Siguiente).
+1. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione **Self-Hosted** (Autohospedado) y, después, seleccione **Continue** (Continuar).
 
-1. Como nombre, escriba **TutorialIntegrationRuntime**. Luego, seleccione **Siguiente**.
+1. Como nombre, escriba **TutorialIntegrationRuntime**. Seleccione **Crear**.
 
-1. En Settings (Configuración), seleccione **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida de este equipo). Esta acción instala Integration Runtime en la máquina y lo registra con Data Factory. Como alternativa, puede usar la instalación manual para descargar el archivo de instalación, ejecutarlo y registrar la instancia de Integration Runtime con la clave.
+1. En Settings (Configuración), seleccione **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida en este equipo). Esta acción instala el entorno de ejecución de integración en la máquina y la registra en Data Factory. Como alternativa, puede usar la instalación manual para descargar el archivo de instalación, ejecutarlo y registrar la instancia de Integration Runtime con la clave.
+    ![Configuración de Integration Runtime](./media/tutorial-hybrid-copy-portal/intergration-runtime-setup.png)
 
-1. En la ventana **Integration Runtime (Self-hosted) Express Setup** (Configuración rápida de Integration Runtime [autohospedado]), seleccione **Close** (Cerrar).
+1. En la ventana **Integration Runtime (Self-hosted) Express Setup** (Configuración rápida de Integration Runtime [autohospedado]), seleccione **Close** (Cerrar) cuando haya terminado el proceso.
 
     ![Configuración rápida del entorno de ejecución de integración (autohospedado)](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
 
-1. En el cuadro de diálogo **New Linked Service** (Nuevo servicio vinculado), confirme que **TutorialIntegrationRuntime** está seleccionado en **Connect via integration runtime** (Conectar a través de IR). A continuación, siga estos pasos:
+1. En el cuadro de diálogo **New Linked Service (SQL Server)** (Nuevo servicio vinculado [SQL Server]), confirme que **TutorialIntegrationRuntime** está seleccionado en **Connect via integration runtime** (Conectar a través de IR). A continuación, siga estos pasos:
 
     a. En **Name** (Nombre), escriba **SqlServerLinkedService**.
 
@@ -179,13 +179,17 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
     f. Seleccione **Test connection** (Probar conexión). Este paso permite confirmar que el servicio Data Factory puede conectarse a la base de datos de SQL Server mediante el entorno de ejecución de integración autohospedado que ha creado.
 
-    g. Para guardar el servicio vinculado, seleccione **Finish** (Finalizar).
+    g. Seleccione **Crear** para guardar el servicio vinculado.
+ 
+    ![Nuevo servicio vinculado (SQL Server)](./media/tutorial-hybrid-copy-portal/new-sqlserver-linked-service.png)
 
-1. Debería volver a la ventana con el conjunto de datos de origen abierto. En la pestaña **Connection** (Conexión) en la ventana **Properties** (Propiedades), realice los pasos siguientes:
+1. Una vez creado el servicio vinculado, se vuelve a la página **Set Properties** (Establecer propiedades) de SqlServerDataset. Siga estos pasos.
 
     a. En **Linked service** (Servicio vinculado) confirme que ve **SqlServerLinkedService**.
 
-    b. En **Table** (Tabla), seleccione **[dbo].[emp]** .
+    b. En **Nombre de la tabla**, seleccione **[dbo].[emp]** .
+    
+    c. Seleccione **Aceptar**.
 
 1. Vaya a la pestaña con **SQLServerToBlobPipeline** o seleccione **SQLServerToBlobPipeline** en la vista de árbol.
 
@@ -199,10 +203,11 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
 1. En el cuadro de diálogo **Set Properties** (Establecer propiedades), escriba **AzureBlobDataset** como nombre. Junto al cuadro de texto **Linked service** (Servicio vinculado), seleccione **+ New** (+Nuevo).
 
-1. En el cuadro de diálogo **New Linked Service (Azure Blob Storage)** [Nuevo servicio vinculado (Azure Blob Storage)], escriba **AzureStorageLinkedService** como nombre; en la lista de nombres **Storage account** (Cuenta de Storage) seleccione la cuenta de Storage. Pruebe la conexión y, a continuación, seleccione **Finish** (Finalizar) para implementar el servicio vinculado.
-1. Una vez creado el servicio vinculado, se vuelve a la página **Set Properties** (Establecer propiedades). Seleccione **Continuar**.
+1. En el cuadro de diálogo **New Linked Service (Azure Blob Storage)** [Nuevo servicio vinculado (Azure Blob Storage)], escriba **AzureStorageLinkedService** como nombre; en la lista de nombres **Storage account** (Cuenta de Storage) seleccione la cuenta de Storage. Pruebe la conexión y, a continuación, seleccione **Create** (Crear) para implementar el servicio vinculado.
 
-1. Debería volver a la ventana con el conjunto de datos receptor abierto. En la pestaña **Connection** (Conexión), realice los pasos siguientes:
+1. Una vez creado el servicio vinculado, se vuelve a la página **Set Properties** (Establecer propiedades). Seleccione **Aceptar**.
+
+1. Abra el conjunto de datos receptor. En la pestaña **Connection** (Conexión), realice los pasos siguientes:
 
     a. En **Linked service** (Servicio vinculado) confirme que **AzureStorageLinkedService** está seleccionado.
 
@@ -215,11 +220,13 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 
 1. Vaya a la pestaña con la canalización abierto o seleccione la canalización en la vista de árbol. En **Sink Dataset** (Conjunto de datos receptor) confirme que **AzureBlobDataset** está seleccionado.
 
-1. Para comprobar la configuración de la canalización, seleccione **Validate** (Validar) en la barra de herramientas de la canalización. Para cerrar **Pipeline Validation Report** (Informe de validación de la canalización), seleccione **Close** (Cerrar).
+1. Para comprobar la configuración de la canalización, seleccione **Validate** (Validar) en la barra de herramientas de la canalización. Para cerrar la **salida de la validación de la canalización**, seleccione el icono **>>** .
+    ![Comprobar la canalización](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
+    
 
 1. Para publicar las entidades que creó en Data Factory, seleccione **Publish All** (Publicar todo).
 
-1. Espere hasta ver el mensaje emergente **Publishing succeeded** (Publicación correcta). Para comprobar el estado de la publicación, seleccione el vínculo **Show Notifications** (Mostrar notificaciones) de la parte superior de la ventana. Para cerrar la ventana de notificaciones, seleccione **Close** (Cerrar).
+1. Espere hasta ver el mensaje emergente **Publishing completed** (Publicación finalizada). Para comprobar el estado de la publicación, seleccione el vínculo **Show Notifications** (Mostrar notificaciones) de la parte superior de la ventana. Para cerrar la ventana de notificaciones, seleccione **Close** (Cerrar).
 
 
 ## <a name="trigger-a-pipeline-run"></a>Desencadenamiento de una ejecución de la canalización
@@ -229,8 +236,10 @@ Seleccione **Add Trigger** (Agregar desencadenador) en la barra de herramientas 
 
 1. Vaya a la pestaña **Monitor** (Supervisar). Verá la canalización que ha desencadenado manualmente en el paso anterior.
 
-    ![La supervisión de la canalización se ejecuta](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
-1. Para ver las ejecuciones de actividad asociadas con la ejecución de canalización, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en la columna **Actions** (Acciones). Como solo hay una actividad en la canalización, solo se ven ejecuciones de actividad. Para ver detalles acerca de la operación de copia, seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna **Actions** (Acciones). Para volver a la vista Pipeline Runs (Ejecuciones de canalización), seleccione **Pipeline Runs** (Ejecuciones de canalización) en la parte superior.
+1. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo **SQLServerToBlobPipeline** en *NOMBRE DE CANALIZACIÓN*. 
+    ![Supervisión de las ejecuciones de canalización](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
+
+1. En la página **Ejecuciones de actividad**, seleccione el vínculo Detalles (icono de gafas) para ver los detalles de la operación de copia. Para volver a la vista Ejecuciones de canalización, seleccione **Ejecuciones de canalización** en la parte superior.
 
 ## <a name="verify-the-output"></a>Comprobación del resultado
 La canalización automáticamente la carpeta de salida *fromonprem* en el contenedor de blobs `adftutorial`. Confirme que ve el archivo *[pipeline().RunId].txt* en la carpeta de salida.

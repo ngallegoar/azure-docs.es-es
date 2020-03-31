@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a98a933113322509f6fda8678350e9415d0b4058
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184510"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471428"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Inicio rápido: Cree una instancia de Front Door para una aplicación web global de alta disponibilidad.
 
@@ -31,30 +31,30 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
 Inicie sesión en Azure Portal en https://portal.azure.com.
 
-## <a name="prerequisites"></a>Requisitos previos
-Esta guía de inicio rápido requiere que haya implementado dos instancias de una aplicación web que se ejecuten en distintas regiones de Azure (*Este de EE. UU.* y *Europa Occidental*). Las dos instancias de la aplicación web se ejecutan en modo Activo/activo, es decir, cualquiera de ellas puede asumir el tráfico en cualquier momento, a diferencia de una configuración Activo/en espera, donde uno actúa como una conmutación por error.
+## <a name="prerequisites"></a>Prerrequisitos
+Esta guía de inicio rápido requiere que haya implementado dos instancias de una aplicación web que se ejecuten en distintas regiones de Azure (*Este de EE. UU.* y *Oeste de Europa*). Las dos instancias de la aplicación web se ejecutan en modo Activo/activo, es decir, cualquiera de ellas puede asumir el tráfico en cualquier momento, a diferencia de una configuración Activo/en espera, donde uno actúa como una conmutación por error.
 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso** > **Web** > **Aplicación web** > **Crear** .
 2. En **Aplicación web**, escriba o seleccione la información siguiente y especifique la configuración predeterminada cuando no se especifica ninguna:
 
-     | Configuración         | Valor     |
+     | Configuración         | Value     |
      | ---              | ---  |
-     | NOMBRE           | Escriba un nombre único para la aplicación web  |
+     | Nombre           | Escriba un nombre único para la aplicación web  |
      | Resource group          | Seleccione **Nuevo** y, después, escriba *myResourceGroupFD1* |
      | Plan de App Service/Ubicación         | Seleccione **Nuevo**.  En el plan de App Service, escriba *myAppServicePlanEastUS* y, a continuación, seleccione **Aceptar**. 
-     |      Location  |   East US        |
+     |      Location  |   Este de EE. UU.        |
     |||
 
 3. Seleccione **Crear**.
 4. Cuando la aplicación web se implementa correctamente, se crea un sitio web predeterminado.
 5. Repita los pasos 1 a 3 para crear un segundo sitio web en otra región de Azure con la configuración siguiente:
 
-     | Configuración         | Valor     |
+     | Configuración         | Value     |
      | ---              | ---  |
-     | NOMBRE           | Escriba un nombre único para la aplicación web  |
+     | Nombre           | Escriba un nombre único para la aplicación web  |
      | Resource group          | Seleccione **Nuevo** y, después, escriba *myResourceGroupFD2* |
      | Plan de App Service/Ubicación         | Seleccione **Nuevo**.  En el plan de App Service, escriba *myAppServicePlanWestEurope* y, a continuación, seleccione **Aceptar**. 
-     |      Location  |   Europa occidental      |
+     |      Location  |   Oeste de Europa      |
     |||
 
 

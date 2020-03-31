@@ -1,15 +1,15 @@
 ---
-title: 'Tutorial: Copia de seguridad de máquinas virtuales de Azure a escala'
+title: 'Tutorial: Copia de seguridad de varias máquinas virtuales de Azure'
 description: En este tutorial, aprenderá a crear un almacén de Recovery Services, a definir una directiva de copia de seguridad y a realizar copias de seguridad simultáneas de varias máquinas virtuales.
 ms.date: 01/31/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f9306f2ef5c4b2a53dcba17cafca9ea13b8dab43
+ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171848"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80245249"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
@@ -24,7 +24,7 @@ Al realizar una copia de seguridad de datos en Azure, almacena esos datos en un 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -43,10 +43,10 @@ El almacén de Recovery Services contiene los datos de la copia de seguridad y l
     * escriba *myRecoveryServicesVault* en **Nombre**.
     * El id. de suscripción actual aparecerá en **Suscripción**. Si tiene suscripciones adicionales, puede elegir otra suscripción para el nuevo almacén.
     * En **Grupo de recursos**, seleccione **Usar existente** y elija *myResourceGroup*. Si *myResourceGroup* no existe, seleccione **Crear nuevo** y escriba *myResourceGroup*.
-    * En el menú desplegable **Ubicación**, elija *Europa Occidental*.
+    * En el menú desplegable **Ubicación**, elija *Oeste de Europa*.
     * Haga clic en **Crear** para crear el almacén de Recovery Services.
 
-Un almacén de Recovery Services debe estar en la misma ubicación que las máquinas virtuales que se están protegiendo. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. En este tutorial se crea un almacén de Recovery Services en *Europa Occidental*, porque es la ubicación donde se creó *myVM* (la máquina virtual creada con el inicio rápido).
+Un almacén de Recovery Services debe estar en la misma ubicación que las máquinas virtuales que se están protegiendo. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. En este tutorial se crea un almacén de Recovery Services en *Oeste de Europa*, porque es la ubicación donde se creó *myVM* (la máquina virtual creada con el inicio rápido).
 
 La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de Recovery Services.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: b9606c63ec7b53fb0b69918c21bdd9206f34c555
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73647574"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de la versión de Custom Vision Service
@@ -54,7 +54,7 @@ ms.locfileid: "73647574"
 
 ## <a name="january-22-2019"></a>22 de enero de 2019
 
-- Se ha agregado compatibilidad para nuevas regiones de Azure: Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Oeste de Europa, Norte de Europa, Sudeste Asiático, Este de Australia, India central, Sur de Reino Unido, Japón Oriental, Centro-norte de EE. UU. Se mantiene la compatibilidad para Centro-sur de EE. UU.
+- Se ha agregado compatibilidad para nuevas regiones de Azure: Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Oeste de Europa, Norte de Europa, Sudeste de Asia, Este de Australia, Centro de la India, Sur de Reino Unido, Este de Japón, Centro-norte de EE. UU. Se mantiene la compatibilidad para Centro-sur de EE. UU.
 
 ## <a name="december-12-2018"></a>12 de diciembre de 2018
 

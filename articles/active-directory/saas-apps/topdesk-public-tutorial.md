@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71950418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integración de Azure Active Directory con TOPdesk - Public
@@ -34,7 +34,7 @@ La integración de TOPdesk - Public con Azure AD proporciona las siguientes vent
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con TOPdesk - Public, necesita los siguientes elementos:
 
@@ -151,7 +151,7 @@ Para configurar el inicio de sesión único de Azure AD con TOPdesk - Public, re
 
 3. Haga clic en **Login Settings**(Configuración de inicio de sesión).
    
-    ![Configuración de inicio de sesión](./media/topdesk-public-tutorial/ic790599.png "Configuración de inicio de sesión")
+    ![Login Settings (Configuración de inicio de sesión)](./media/topdesk-public-tutorial/ic790599.png "Login Settings")
 
 4. Expanda el menú **Login Settings** (Configuración de inicio de sesión) y luego haga clic en **General**.
    
@@ -159,7 +159,7 @@ Para configurar el inicio de sesión único de Azure AD con TOPdesk - Public, re
 
 5. En la sección **Público** de la sección de configuración **Inicio de sesión SAML**, siga estos pasos:
    
-    ![Configuración técnica](./media/topdesk-public-tutorial/ic790601.png "Configuración técnica")
+    ![Technical Settings (Configuración técnica)](./media/topdesk-public-tutorial/ic790601.png "Configuración técnica")
    
     a. Haga clic en **Download** (Descargar) para descargar el archivo de metadatos público y luego guárdelo localmente en el equipo.
    
@@ -171,7 +171,7 @@ Para configurar el inicio de sesión único de Azure AD con TOPdesk - Public, re
    
 6. Lleve a cabo los siguientes pasos para crear un archivo de certificado:
     
-    ![Certificado](./media/topdesk-public-tutorial/ic790606.png "Certificado")
+    ![Certificate](./media/topdesk-public-tutorial/ic790606.png "Certificado")
     
     a. Abra el archivo de metadatos descargado de Azure Portal.
     
@@ -183,11 +183,11 @@ Para configurar el inicio de sesión único de Azure AD con TOPdesk - Public, re
 
 7. En la sección **Public** (Público), haga clic en **Add** (Agregar).
     
-    ![Inicio de sesión SAML](./media/topdesk-public-tutorial/ic790625.png "Inicio de sesión SAML")
+    ![SAML Login (Inicio de sesión de SAML)](./media/topdesk-public-tutorial/ic790625.png "Inicio de sesión SAML")
 
 8. En la página de diálogo del **SAML configuration assistant** (Asistente de configuración de SAML), realice los siguientes pasos:
     
-    ![Asistente para configuración de SAML](./media/topdesk-public-tutorial/ic790608.png "Asistente de configuración de SAML")
+    ![SAML Configuration Assistant (Asistente de configuración de SAML)](./media/topdesk-public-tutorial/ic790608.png "SAML configuration assistant")
     
     a. Para cargar el archivo de metadatos descargado de Azure Portal, en **Federation Metadata** (Metadatos de federación) haga clic en **Browse** (Examinar).
 
@@ -223,7 +223,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -261,7 +261,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en TOPdesk - Public, 
 
 2. En el menú de la parte superior, haga clic en **TOPdesk \> New \> Support Files \> Person** (TOPdesk > Nuevo > Archivos de soporte > Persona).
    
-    ![Persona](./media/topdesk-public-tutorial/ic790628.png "Persona")
+    ![Person](./media/topdesk-public-tutorial/ic790628.png "Person")
 
 3. En el cuadro de diálogo Nueva persona, realice los pasos siguientes:
    

@@ -15,10 +15,10 @@ ms.date: 02/27/2017
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: a71dbd1b38ff58ccf1eb7a4d50daad5b24922e2f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022756"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Uso de plantillas de proyecto de Visual Studio para empezar a crear soluciones de Batch
@@ -51,7 +51,7 @@ Como se muestra en el diagrama siguiente, un trabajo de proceso que usa estas pl
 
 ![Diagrama que muestra cómo interactúa el código de cliente con el servicio Batch][diagram01]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para utilizar las plantillas de Batch, necesita lo siguiente:
 
 * Un equipo con Visual Studio 2015 instalado. Las plantillas de proceso por lotes solo se admiten actualmente para Visual Studio 2015.

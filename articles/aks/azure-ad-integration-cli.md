@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo usar la CLI de Azure para crear un
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: fef22b1b2d81f76e95a15c0e3a746440b95df8ca
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d17ae12beecf9d83ef6d688af799787c5ccf322b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596613"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227648"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integración de Azure Active Directory con Azure Kubernetes Service mediante la CLI de Azure
 
@@ -27,9 +27,11 @@ Se aplican las siguientes limitaciones:
 
 Es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
+Vaya a [https://shell.azure.com](https://shell.azure.com) para abrir Cloud Shell en el explorador.
+
 Para mantener la coherencia y ayudar a ejecutar los comandos en este artículo, cree una variable para el nombre que quiera del clúster de AKS. En el ejemplo siguiente se usa el nombre *myakscluster*:
 
-```azurecli-interactive
+```console
 aksname="myakscluster"
 ```
 
@@ -209,8 +211,10 @@ kubectl get pods --all-namespaces
 Recibirá un símbolo del sistema de inicio de sesión para autenticarse con las credenciales de Azure AD mediante un explorador web. Una vez se haya autenticado correctamente, el comando `kubectl` muestra los pods del clúster de AKS, tal como se muestra en la salida del ejemplo siguiente:
 
 ```console
-$ kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces
+```
 
+```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.
 
 NAMESPACE     NAME                                    READY   STATUS    RESTARTS   AGE
@@ -229,7 +233,7 @@ El token de autenticación recibido para `kubectl` se almacena en caché. Solo s
 
 Si ve un mensaje de error de autorización una vez se haya registrado correctamente en un explorador web, tal como se muestra en la salida del ejemplo siguiente, compruebe las siguientes incidencias posibles:
 
-```console
+```output
 error: You must be logged in to the server (Unauthorized)
 ```
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: sngun
 ms.openlocfilehash: 8be17f0b624c5c34709fb420adb434b77dbc0d91
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721088"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
@@ -29,7 +29,7 @@ Aquí es donde entra en juego el controlador ODBC. Mediante el controlador ODBC,
 
 Empecemos con el controlador ODBC.
 
-## <a id="install"></a>Paso 1: Instalación del controlador ODBC de Azure Cosmos DB
+## <a name="step-1-install-the-azure-cosmos-db-odbc-driver"></a><a id="install"></a>Paso 1: Instalación del controlador ODBC de Azure Cosmos DB
 
 1. Descargue los controladores para su entorno:
 
@@ -48,7 +48,7 @@ Empecemos con el controlador ODBC.
 
     ![Administrador de orígenes de datos ODBC de Azure Cosmos DB](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Paso 2: Conexión a la base de datos de Azure Cosmos
+## <a name="step-2-connect-to-your-azure-cosmos-database"></a><a id="connect"></a>Paso 2: Conexión a la base de datos de Azure Cosmos
 
 1. Después de [instalar el controlador ODBC de Azure Cosmos DB](#install), en la ventana **Administrador de orígenes de datos ODBC**, haga clic en **Agregar**. Puede crear un DSN de usuario o de sistema. En este ejemplo, va a crear un DSN de usuario.
 
@@ -88,7 +88,7 @@ Empecemos con el controlador ODBC.
 
     ![Nuevo DSN de ODBC de Azure Cosmos DB en la pestaña DSN de usuario](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#container-mapping"></a>Paso 3: Creación de una definición de esquema con el método de asignación de contenedores
+## <a name="step-3-create-a-schema-definition-using-the-container-mapping-method"></a><a id="#container-mapping"></a>Paso 3: Creación de una definición de esquema con el método de asignación de contenedores
 
 Hay dos tipos de métodos de muestreo que puede usar: **asignación de contenedores** o **delimitadores de tabla**. En una sesión de muestreo, se pueden utilizar los dos métodos, pero solo puede usarse uno de ellos en cada contenedor. En el procedimiento siguiente, se crea un esquema para los datos de uno o varios contenedores mediante el método de asignación de contenedores. Este método de muestreo recupera los datos de la página de un contenedor para determinar la estructura de los datos. Transpone un contenedor a una tabla del lado ODBC. Este método de muestreo es rápido y eficaz cuando los datos de un contenedor son homogéneos. Si los datos de un contenedor son heterogéneos, es recomendable usar el [método de asignación de delimitadores de tabla](#table-mapping), ya que proporciona un método de muestreo más robusto para determinar las estructuras de datos del contenedor. 
 
@@ -109,7 +109,7 @@ Hay dos tipos de métodos de muestreo que puede usar: **asignación de contenedo
 
 1. Para utilizar este esquema con un DSN, abra la **ventana de Configuración de DSN del controlador ODBC de Azure Cosmos DB** (con el Administrador de orígenes de datos ODBC), haga clic en **Opciones avanzadas** y, luego, en el cuadro **Archivo de esquema**, desplácese al esquema guardado. Al guardar un archivo de esquema en un DSN existente se modifica la conexión de DSN para tener como ámbito los datos y la estructura definidos por el esquema.
 
-## <a id="table-mapping"></a>Paso 4: Creación de una definición de esquema mediante el método de asignación de delimitadores de tabla
+## <a name="step-4-create-a-schema-definition-using-the-table-delimiters-mapping-method"></a><a id="table-mapping"></a>Paso 4: Creación de una definición de esquema mediante el método de asignación de delimitadores de tabla
 
 Hay dos tipos de métodos de muestreo que puede usar: **asignación de contenedores** o **delimitadores de tabla**. En una sesión de muestreo, se pueden utilizar los dos métodos, pero solo puede usarse uno de ellos en cada contenedor. 
 

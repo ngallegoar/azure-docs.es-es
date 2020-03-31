@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
 ms.openlocfilehash: 6054c595bca26dc2a0432c53369a60a61e3efde0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841870"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
@@ -39,7 +39,7 @@ Si utiliza API Management en modo interno, puede conseguir los siguientes escena
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir los pasos que se describen en este artículo, debe tener:
 
@@ -50,7 +50,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 + **Una instancia de Azure API Management**. Para más información, vea [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 + Cuando se implementa un servicio API Management en una red virtual, se usa una [lista de puertos](./api-management-using-with-vnet.md#required-ports) que deben abrirse. 
 
-## <a name="enable-vpn"> </a>Creación de una instancia de API Management en una red virtual interna
+## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Creación de una instancia de API Management en una red virtual interna
 En las redes virtuales internas, el servicio API Management se hospeda detrás de un [equilibrador de carga interno (clásico)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Esta es la única opción disponible y no se puede cambiar.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Habilitación de una conexión de red virtual mediante Azure Portal
@@ -80,7 +80,7 @@ También puede habilitar la conectividad de la red virtual utilizando cmdlets de
 
 * Actualice una implementación existente de un servicio API Management dentro de una red virtual: Use el cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover un servicio API Management existente en una red virtual y configurarlo para utilizar el tipo de red virtual interna.
 
-## <a name="apim-dns-configuration"></a>Configuración de DNS
+## <a name="dns-configuration"></a><a name="apim-dns-configuration"></a>Configuración de DNS
 Cuando API Management está en modo de red virtual externa, el DNS está administrado por Azure. En el modo de red virtual interna, es usted quien tiene que administrar su propio enrutamiento.
 
 > [!NOTE]
@@ -122,7 +122,7 @@ Si utiliza un servidor DNS personalizado en una red virtual, también puede crea
 
 2. A continuación, puede crear registros en el servidor DNS para acceder a los puntos de conexión que solo están accesibles desde dentro de la red virtual.
 
-## <a name="routing"> </a> Enrutamiento
+## <a name="routing"></a><a name="routing"> </a> Enrutamiento
 
 * Se reservará una dirección IP virtual *privada* con equilibrio de carga desde el intervalo de subred y se usará para acceder a los puntos de conexión de servicio de API Management desde la red virtual. Esta dirección IP *privada* puede encontrarse en la hoja de información general del servicio en Azure Portal. Esta dirección debe registrarse en los servidores DNS usados por la red virtual.
 * También se reservará una dirección IP *pública* (VIP) con equilibrio de carga para proporcionar acceso al punto de conexión de servicio de administración a través del puerto 3443. Esta dirección IP *pública* puede encontrarse en la hoja de información general del servicio en Azure Portal. La dirección IP *pública* se usa solo con el tráfico del plano de control al punto de conexión `management` a través del puerto 3443 y puede bloquearse hasta la etiqueta de servicio [ApiManagement][ServiceTags].
@@ -130,7 +130,7 @@ Si utiliza un servidor DNS personalizado en una red virtual, también puede crea
 * Las direcciones IP privadas y públicas con equilibrio de carga pueden encontrarse en la hoja de información general de Azure Portal.
 * Si el servicio se quitó de la red virtual y luego se volvió a agregar a ella, pueden cambiar las direcciones IP asignadas para el acceso público y privado. Si esto sucede, puede ser necesario actualizar los registros de DNS, las reglas de enrutamiento y las listas de restricciones de IP dentro de la red virtual.
 
-## <a name="related-content"> </a>Contenido relacionado
+## <a name="related-content"></a><a name="related-content"> </a>Contenido relacionado
 Para más información, vea los siguientes artículos:
 * [Problemas comunes de configuración de red al establecer Azure API Management en una red virtual][Common network configuration problems]
 * [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../virtual-network/virtual-networks-faq.md)

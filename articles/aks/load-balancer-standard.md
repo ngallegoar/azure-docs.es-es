@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
 ms.openlocfilehash: 9c414572e1c3b2f046ae9a14139885e9927ab3bb
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622183"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227604"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Uso de un equilibrador de carga de SKU estándar en Azure Kubernetes Service (AKS)
 

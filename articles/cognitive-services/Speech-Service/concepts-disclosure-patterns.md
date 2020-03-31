@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: angle
 ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74776629"
 ---
 # <a name="disclosure-design-patterns"></a>Modelos de diseño de divulgación

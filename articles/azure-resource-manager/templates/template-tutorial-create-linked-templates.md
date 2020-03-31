@@ -5,14 +5,14 @@ author: mumian
 ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dab69c32f7277cd5d746e001b36118e673401bca
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e1cce566fb7aab286c57f32d9348e51dd0a7c1ee
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250129"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239336"
 ---
-# <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Creación de plantillas vinculadas de Azure Resource Manager
+# <a name="tutorial-create-linked-arm-templates"></a>Tutorial: Creación de plantillas de ARM vinculadas
 
 Obtenga información sobre cómo crear plantillas vinculadas de Azure Resource Manager. Con las plantillas vinculadas, puede hacer que una plantilla llame a otra. Resulta muy útil para el diseño modular de las plantillas. En este tutorial, usará la misma plantilla que se usa en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md), que crea una máquina virtual, una red virtual y otros recursos dependientes, incluida una cuenta de almacenamiento. Separe la creación de recursos de la cuenta de almacenamiento en una plantilla vinculada.
 
@@ -39,18 +39,18 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](use-vs-code-to-create-template.md).
 * Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Este es un ejemplo para generar una contraseña:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en Resource Manager Template Deployment](./template-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
+    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./template-tutorial-use-key-vault.md) También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
-Las plantillas de inicio rápido de Azure consisten en un repositorio de plantillas de Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Se trata de la misma plantilla que se usa en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md). Se guardan dos copias de la misma plantilla para usarlas de esta manera:
+Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Se trata de la misma plantilla que se usa en [Tutorial: Creación de plantillas de Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md). Se guardan dos copias de la misma plantilla para usarlas de esta manera:
 
 * **La plantilla principal**: cree todos los recursos, excepto la cuenta de almacenamiento.
 * **La plantilla vinculada**: cree la cuenta de almacenamiento.
@@ -165,7 +165,7 @@ La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada
 
 ## <a name="upload-the-linked-template"></a>Carga de la plantilla vinculada
 
-La plantilla principal y la plantilla vinculada deben ser accesibles desde donde se ejecuta la implementación. En este tutorial, use el método de implementación de Cloud Shell que utilizó en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md). La plantilla principal (azuredeploy.json) se carga en el shell. La plantilla vinculada (linkedTemplate.json) se debe compartir en algún lugar seguro. El siguiente script de PowerShell crea una cuenta de Azure Storage, carga la plantilla en dicha cuenta y genera un token de SAS para conceder acceso limitado al archivo de plantilla. Para simplificar el tutorial, el script descarga una plantilla vinculada completada de un repositorio de GitHub. Si desea usar la plantilla vinculada que creó, puede usar la instancia de [Cloud Shell](https://shell.azure.com) para cargar la plantilla vinculada y luego modificar el script para utilizar su propia plantilla vinculada.
+La plantilla principal y la plantilla vinculada deben ser accesibles desde donde se ejecuta la implementación. En este tutorial, use el método de implementación de Cloud Shell que utilizó en [Tutorial: Creación de plantillas de Resource Manager con recursos dependientes](./template-tutorial-create-templates-with-dependent-resources.md). La plantilla principal (azuredeploy.json) se carga en el shell. La plantilla vinculada (linkedTemplate.json) se debe compartir en algún lugar seguro. El siguiente script de PowerShell crea una cuenta de Azure Storage, carga la plantilla en dicha cuenta y genera un token de SAS para conceder acceso limitado al archivo de plantilla. Para simplificar el tutorial, el script descarga una plantilla vinculada completada de un repositorio de GitHub. Si desea usar la plantilla vinculada que creó, puede usar la instancia de [Cloud Shell](https://shell.azure.com) para cargar la plantilla vinculada y luego modificar el script para utilizar su propia plantilla vinculada.
 
 > [!NOTE]
 > El script limita el uso del token SAS a un plazo de ocho horas. Si necesita más tiempo para completar este tutorial, aumente la hora de expiración.

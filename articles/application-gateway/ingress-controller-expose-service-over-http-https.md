@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: c664141a8c89ccbdf37bd3f9a19cfa659982a47d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73795582"
 ---
 # <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Exponer un servicio de AKS a través de HTTP o HTTPS mediante Application Gateway 
 
 Estos tutoriales ayudan a ilustrar el uso de [los recursos de entrada de Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/) para exponer un servicio de Kubernetes de ejemplo mediante [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) a través de HTTP o HTTPS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Haber instalado el gráfico de Helm `ingress-azure`.
   - [**Implementación Greenfield**](ingress-controller-install-new.md): Si empieza desde cero, consulte estas instrucciones de instalación, en las que se describen los pasos para implementar un clúster de AKS con Application Gateway e instalar el controlador de entrada de Application Gateway en el clúster de AKS.

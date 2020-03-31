@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
 ms.openlocfilehash: 7ba273cddb6cf41872c4db1c34560c104b992787
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72286453"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configuración de SSL de un extremo a otro con Application Gateway mediante PowerShell

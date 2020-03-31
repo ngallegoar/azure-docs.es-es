@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
 ms.openlocfilehash: cb4b81f7c5e219c520078ecf34eba3f5e98da684
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75892575"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>Copia de datos con almacenes de datos de IBM Informix como origen y destino mediante Azure Data Factory
@@ -31,7 +31,7 @@ Este conector de Informix es compatible con las actividades siguientes:
 
 Puede copiar datos desde un origen Informix a cualquier almacén de datos receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar este conector de Informix, necesitará lo siguiente:
 
@@ -51,7 +51,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Informix
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Informix** | Sí |
-| connectionString | La cadena de conexión ODBC que excluye la parte de la credencial. Puede especificar la cadena de conexión o utilizar el DSN (nombre de origen de datos) de sistema que se ha configurado en la máquina de Integration Runtime (se necesita especificar la parte de la credencial en el servicio vinculado según corresponda). <br> También puede establecer una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte  [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md)  para obtener información detallada.| Sí |
+| connectionString | La cadena de conexión ODBC que excluye la parte de la credencial. Puede especificar la cadena de conexión o utilizar el DSN (nombre de origen de datos) de sistema que se ha configurado en la máquina de Integration Runtime (se necesita especificar la parte de la credencial en el servicio vinculado según corresponda). <br> También puede establecer una contraseña en Azure Key Vault y extraer la configuración de  `password`  de la cadena de conexión. Consulte  [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md)  para obtener información detallada.| Sí |
 | authenticationType | Tipo de autenticación que se usa para conectarse al almacén de datos de Informix.<br/>Los valores permitidos son: **Basic** (básica) y **Anonymous** (anónima). | Sí |
 | userName | Especifique el nombre de usuario si usa la autenticación básica. | No |
 | password | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |

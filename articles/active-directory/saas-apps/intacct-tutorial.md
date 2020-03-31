@@ -17,10 +17,10 @@ ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b28390dba009226d493f5bfc6a5270b067f5bba0
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73570580"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutorial: Integración de Sage Intacct con Azure Active Directory
@@ -33,7 +33,7 @@ En este tutorial, obtendrá información sobre cómo integrar Sage Intacct con A
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -90,10 +90,10 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 1. Además de lo anterior, la aplicación Sage Intacct espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
-    | NOMBRE  |  Atributo de origen|
+    | Nombre  |  Atributo de origen|
     | ---------------| --------------- |
     | Nombre de la empresa | **Id. de la empresa de Sage Intacct** |
-    | Nombre | El valor debe ser el mismo que el **id. de usuario** de Sage Intacct, que debe especificar en la **sección Creación de un usuario de prueba de Sage Intacct** incluida más adelante en este tutorial. |
+    | name | El valor debe ser el mismo que el **id. de usuario** de Sage Intacct, que debe especificar en la **sección Creación de un usuario de prueba de Sage Intacct** incluida más adelante en este tutorial. |
     | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | El valor debe ser el mismo que **Federated SSO User ID** (id. de usuario de SSO federado) de Sage Intacct, que debe especificar en la **sección Creación de un usuario de prueba de Sage Intacct** incluida más adelante en este tutorial. |
 
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
@@ -128,7 +128,7 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
    1. En el campo **Nombre**, escriba `B.Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -154,7 +154,7 @@ En esta sección, va a permitir que B.Simon acceda a Sage Intacct mediante el in
 
 1. Haga clic en la pestaña **Compañía** y luego haga clic en**Información de la compañía**.
 
-    ![Compañía](./media/intacct-tutorial/ic790037.png "Compañía")
+    ![Company](./media/intacct-tutorial/ic790037.png "Compañía")
 
 1. Haga clic en la pestaña **Seguridad** y luego haga clic en **Editar**.
 
@@ -190,7 +190,7 @@ Para configurar los usuarios de Azure AD para que puedan iniciar sesión en Sag
 
 1. Haga clic en la pestaña **Agregar**.
 
-    ![Agregar](./media/intacct-tutorial/ic790042.png "Agregar")
+    ![Add (Agregar)](./media/intacct-tutorial/ic790042.png "Sumar")
 
 1. En la sección **Información del usuario** , lleve a cabo estos pasos:
 

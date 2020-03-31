@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60885353"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Introducción a Azure Data Lake Store con la CLI de Azure
@@ -33,7 +33,7 @@ Aprenda a usar la CLI de Azure para crear una cuenta de Azure Data Lake Storage 
 La CLI de Azure es la forma de usar la línea de comandos de Azure para administrar los recursos de Azure. Se puede usar en macOS, Linux y Windows. Para más información, consulte la [introducción a la CLI de Azure](https://docs.microsoft.com/cli/azure). También puede examinar la [referencia de la CLI de Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls) para una lista completa de comandos y sintaxis.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de empezar este artículo, debe tener lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -63,7 +63,7 @@ En este artículo se utiliza un enfoque de autenticación más sencillo con Data
 
 ## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Creación de una cuenta de Azure Data Lake Storage Gen1
 
-1. Cree un nuevo grupo de recursos. En el siguiente comando, proporcione los valores de los parámetros que desee usar. Si el nombre de la ubicación contiene espacios, escríbalo entre comillas. Por ejemplo "East US 2". 
+1. Cree un nuevo grupo de recursos. En el siguiente comando, proporcione los valores de los parámetros que desee usar. Si el nombre de la ubicación contiene espacios, escríbalo entre comillas. Por ejemplo "Este de EE. UU. 2". 
    
     ```azurecli
     az group create --location "East US 2" --name myresourcegroup
@@ -236,4 +236,4 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 * [Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
-* [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Use Azure HDInsight with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md) (Uso de Azure HDInsight con Data Lake Storage Gen1)

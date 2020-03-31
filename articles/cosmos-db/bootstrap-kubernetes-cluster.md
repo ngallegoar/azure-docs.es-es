@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: sngun
 ms.openlocfilehash: 9dbbc914580d8d80a3f9b7d730574e24b44827c1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70093724"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Procedimientos de uso de Azure Kubernetes con Azure Cosmos DB (versión preliminar)
@@ -25,7 +25,7 @@ La API etcd de Azure Cosmos DB le permite usar Azure Cosmos DB como almacén d
 
 Para obtener información sobre la API etcd de Azure Cosmos DB, consulte el artículo de [introducción](etcd-api-introduction.md). Este artículo muestra cómo usar [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md) (aks-engine) para arrancar un clúster de Kubernetes en Azure que usa [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) en lugar de etcd instalado y configurado localmente. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 1. Instale la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Puede descargar la CLI de Azure específica para su sistema operativo e instalarla.
 

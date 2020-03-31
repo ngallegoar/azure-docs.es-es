@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: d15877107e49c57f8f33b8ec41caeb7d48230b91
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f853d6d59a4c23b7b52a2a0ba800ace58c997f6e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613872"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481592"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Unión de una máquina virtual de Windows Server a un dominio administrado
 
@@ -39,7 +39,7 @@ Para completar este tutorial, necesitará los siguientes recursos:
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
 * Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, [cree y configure una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Una cuenta de usuario que sea miembro del grupo de *administradores de Azure AD DC* en el inquilino de Azure AD.
+* Una cuenta de usuario que forma parte del dominio administrado de Azure AD DS.
     * Asegúrese de que se ha realizado el autoservicio de restablecimiento de contraseña o la sincronización de hash de contraseñas de Azure AD Connect para que la cuenta pueda iniciar sesión en el dominio administrado de Azure AD DS.
 * Un host de Azure Bastion implementado en la red virtual de Azure AD DS.
     * Si es necesario, [cree un host de Azure Bastion][azure-bastion].
@@ -74,7 +74,7 @@ Si ya tiene una máquina virtual que quiera unir a un dominio, vaya a la secció
 
 1. De forma predeterminada, las máquinas virtuales creadas en Azure no son accesibles desde Internet mediante RDP. Cuando RDP está habilitado, es probable que se produzcan ataques de inicio de sesión automatizado, lo que puede deshabilitar las cuentas con nombres comunes como *admin* o *administrador* si hubo varios intentos de inicio de sesión sucesivos con error.
 
-    RDP solo se debe habilitar cuando sea necesario y limitarse a un conjunto de intervalos IP autorizados. Esta configuración ayuda a mejorar la seguridad de la máquina virtual y reduce el área de posibles ataques. También puede crear y usar un host de Azure Bastion que solo permite el acceso mediante Azure Portal a través de SSL. En el siguiente paso de este tutorial, usará un host de Azure Bastion para conectarse de forma segura a la máquina virtual.
+    RDP solo se debe habilitar cuando sea necesario y limitarse a un conjunto de intervalos IP autorizados. Esta configuración ayuda a mejorar la seguridad de la máquina virtual y reduce el área de posibles ataques. También puede crear y usar un host de Azure Bastion que solo permite el acceso mediante Azure Portal a través de TLS. En el siguiente paso de este tutorial, usará un host de Azure Bastion para conectarse de forma segura a la máquina virtual.
 
     Por ahora, deshabilite las conexiones RDP directas a la máquina virtual.
 
@@ -153,7 +153,7 @@ Una vez que se ha creado la máquina virtual y se ha establecido una conexión 
 
     ![Especificación del dominio administrado de Azure AD DS al que unirse](./media/join-windows-vm/join-domain.png)
 
-1. Escriba las credenciales de dominio para unirse al dominio. Use las credenciales de un usuario que pertenezca al grupo de *administradores de Azure AD DC*. Solo los miembros de este grupo tienen privilegios para unir máquinas al dominio administrado de Azure AD DS. La cuenta debe formar parte del dominio administrado de Azure AD DS o del inquilino de Azure AD; las cuentas de directorios externos asociadas al inquilino de Azure AD no se pueden autenticar correctamente durante el proceso de unión al dominio. Las credenciales de la cuenta se pueden especificar de una de las siguientes maneras:
+1. Escriba las credenciales de dominio para unirse al dominio. Use las credenciales para un usuario que forme parte del dominio administrado de Azure AD DS. La cuenta debe formar parte del dominio administrado de Azure AD DS o del inquilino de Azure AD; las cuentas de directorios externos asociadas al inquilino de Azure AD no se pueden autenticar correctamente durante el proceso de unión al dominio. Las credenciales de la cuenta se pueden especificar de una de las siguientes maneras:
 
     * **Formato UPN**  (recomendado): escriba el sufijo del nombre principal de usuario (UPN) de la cuenta de usuario, según esté configurado en Azure AD. Por ejemplo, el sufijo UPN del usuario *contosoadmin* sería `contosoadmin@aaddscontoso.onmicrosoft.com`. Hay un par de casos de uso comunes en los que el formato UPN se puede usar de forma confiable para iniciar sesión en el dominio en lugar del formato *SAMAccountName*:
         * Si el prefijo UPN de un usuario es demasiado largo, por ejemplo *deehasareallylongname*, el valor de *SAMAccountName* (nombre de cuenta SAM) puede generarse automáticamente.
@@ -169,7 +169,7 @@ Una vez que se ha creado la máquina virtual y se ha establecido una conexión 
 1. Para completar el proceso de unión al dominio administrado de Azure AD DS, reinicie la máquina virtual.
 
 > [!TIP]
-> Puede unir a un dominio una máquina virtual mediante PowerShell con el cmdlet [Add-Computer][add-computer]. En el ejemplo siguiente se une el dominio *AADDSCONTOSO* y, a continuación, se reinicia la máquina virtual. Cuando se le pida, escriba las credenciales de un usuario que pertenezca al grupo de *administradores de Azure AD DC*:
+> Puede unir a un dominio una máquina virtual mediante PowerShell con el cmdlet [Add-Computer][add-computer]. En el ejemplo siguiente se une el dominio *AADDSCONTOSO* y, a continuación, se reinicia la máquina virtual. Cuando se le solicite, escriba las credenciales de un usuario que forme parte del dominio administrado de Azure AD DS:
 >
 > `Add-Computer -DomainName AADDSCONTOSO -Restart`
 >
@@ -218,7 +218,7 @@ Si recibe un mensaje que solicita credenciales para unirse al dominio, pero desp
 
 Después de probar cada uno de estos pasos de solución de problemas, intente unir de nuevo la máquina virtual Windows Server al dominio administrado.
 
-* Asegúrese de que la cuenta de usuario que especifique pertenece al grupo *Administradores de DC de AAD*.
+* Asegúrese de que la cuenta de usuario que especifique pertenece al dominio administrado de Azure AD DS.
 * Confirme que la cuenta forma parte del dominio administrado de Azure AD DS o del inquilino de Azure AD. Las cuentas de directorios externos asociadas al inquilino de Azure AD no se pueden autenticar correctamente durante el proceso de unión al dominio.
 * Pruebe a usar el formato UPN para especificar las credenciales, por ejemplo `contosoadmin@aaddscontoso.onmicrosoft.com`. El atributo *SAMAccountName* de su cuenta se puede generar automáticamente si hay varios usuarios con el mismo prefijo UPN en el inquilino o si el prefijo UPN es demasiado largo. En estos casos, el formato *SAMAccountName* de su cuenta puede que no sea el mismo que espera o que usa en su dominio en el entorno local.
 * Compruebe que [habilitó la sincronización de contraseñas][password-sync] en el dominio administrado. Sin este paso de configuración, los hashes de contraseña necesarios no estarán presentes en el dominio administrado de Azure AD DS para autenticar correctamente el intento de inicio de sesión.

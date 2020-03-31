@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
 ms.openlocfilehash: 8ebb4f0d1a06a7bf29dc46cd696b6acfd2527095
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927393"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230000"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binario en Azure Data Factory
 
@@ -29,13 +29,13 @@ Puede utilizar un conjunto de datos binarios en la [actividad de copia](copy-act
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos binarios.
 
-| Propiedad         | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad         | Descripción                                                  | Obligatorio |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| Tipo             | La propiedad type del conjunto de datos debe establecerse en **binario**. | Sí      |
-| location         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
-| compression | Grupo de propiedades para configurar la compresión de archivo. Configure esta sección si desea realizar la compresión o descompresión durante la ejecución de la actividad. | Sin |
-| Tipo | El códec de compresión usado para leer y escribir archivos binarios. <br>Los valores permitidos son **bzip2**, **gzip**, **deflate** y **ZipDeflate**. para usar al guardar el archivo.<br>Tenga en cuenta que cuando utilice la actividad de copia para descomprimir archivos ZipDeflate y escribir en el almacén de datos de receptores basado en archivos, los archivos se extraerán a la carpeta: `<path specified in dataset>/<folder named as source zip file>/`. | Sin       |
-| level | La razón de compresión. Se aplica cuando se utiliza el conjunto de datos en el receptor de la actividad de copia.<br>Los valores permitidos son **Optimal** o **Fastest**.<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal**: la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Sin       |
+| type             | La propiedad type del conjunto de datos debe establecerse en **binario**. | Sí      |
+| ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
+| compression | Grupo de propiedades para configurar la compresión de archivo. Configure esta sección si desea realizar la compresión o descompresión durante la ejecución de la actividad. | No |
+| type | El códec de compresión usado para leer y escribir archivos binarios. <br>Los valores permitidos son **bzip2**, **gzip**, **deflate** y **ZipDeflate**. para usar al guardar el archivo.<br>Tenga en cuenta que cuando utilice la actividad de copia para descomprimir archivos ZipDeflate y escribir en el almacén de datos de receptores basado en archivos, los archivos se extraerán a la carpeta `<path specified in dataset>/<folder named as source zip file>/`. | No       |
+| level | La razón de compresión. Se aplica cuando se utiliza el conjunto de datos en el receptor de la actividad de copia.<br>Los valores permitidos son **Optimal** o **Fastest**.<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal**: la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 A continuación se muestra un ejemplo de un conjunto de datos binarios en Azure Blob Storage:
 
@@ -73,19 +73,19 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 En la sección ***\*source\**** de la actividad de copia se admiten las siguientes propiedades.
 
-| Propiedad      | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Tipo          | La propiedad type del origen de la actividad de copia debe establecerse en **BinarySource**. | Sí      |
-| storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
+| type          | La propiedad type del origen de la actividad de copia debe establecerse en **BinarySource**. | Sí      |
+| storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
 
 ### <a name="binary-as-sink"></a>Binario como receptor
 
 En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes propiedades.
 
-| Propiedad      | DESCRIPCIÓN                                                  | Obligatorio |
+| Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Tipo          | La propiedad type del origen de la actividad de copia debe establecerse en: **BinarySink**. | Sí      |
-| storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
+| type          | La propiedad type del origen de la actividad de copia debe establecerse en: **BinarySink**. | Sí      |
+| storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

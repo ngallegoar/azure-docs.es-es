@@ -13,14 +13,14 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928256"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231576"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Movimiento de datos de SAP HANA mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que se usa:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](data-factory-sap-hana-connector.md)
 > * [Versión 2 (versión actual)](../connector-sap-hana.md)
 
@@ -41,7 +41,7 @@ Para habilitar la conectividad a la instancia de SAP HANA, instale los component
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con actividad de copia que mueva los datos desde un almacén de datos SAP HANA local mediante el uso de diferentes herramientas o API. 
 
-- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos. 
+- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos. 
 - Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
@@ -57,14 +57,14 @@ En las secciones siguientes, se proporcionan detalles sobre las propiedades JSON
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de SAP HANA.
 
-Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
+Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 server | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | string | Sí
 authenticationType | Tipo de autenticación. | cadena. "Basic" o "Windows" | Sí 
 username | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
 password | Contraseña del usuario. | string | Sí
 gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP HANA local. | string | Sí
-encryptedCredential | La cadena de credenciales cifrada. | string | Sin
+encryptedCredential | La cadena de credenciales cifrada. | string | No
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
@@ -79,9 +79,9 @@ Por otra parte, las propiedades disponibles en la sección **typeProperties** de
 
 Si el origen es de tipo **RelationalSource** (que incluye SAP HANA), están disponibles las propiedades siguientes en la sección typeProperties:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| query | Especifica la consulta SQL para leer datos de la instancia de SAP HANA. | Consulta SQL. | Sí |
+| Query | Especifica la consulta SQL para leer datos de la instancia de SAP HANA. | Consulta SQL. | Sí |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Ejemplo JSON: Copia de datos de SAP HANA a un blob de Azure
 En el siguiente ejemplo se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En este ejemplo, se muestra cómo copiar datos de una instancia de SAP HANA local a Azure Blob Storage. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.  
@@ -142,7 +142,7 @@ Este servicio vinculado vincula una cuenta de Azure Storage a la factoría de da
 
 Este conjunto de datos define el conjunto de datos de SAP HANA. Establezca el tipo del conjunto de datos de Data Factory en **RelationalTable**. Actualmente, no establece ninguna propiedad específica de tipo para un conjunto de datos de SAP HANA. La consulta en la definición de actividad de copia especifica qué datos leer de la instancia de SAP HANA. 
 
-Si se establece la propiedad "external" en "true", se informa al servicio Data Factory de que la tabla es externa a la factoría de datos y no la produce ninguna actividad de dicha factoría.
+Si se establece la propiedad external en true, se informa al servicio Data Factory de que la tabla es externa a la factoría de datos y que no la produce ninguna actividad de dicha factoría.
 
 Las propiedades de frecuencia e intervalo definen la programación. En este caso, los datos se leen de la instancia de SAP HANA cada hora. 
 
@@ -286,22 +286,22 @@ Tipo de SAP HANA | Tipo basado en .NET
 TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
-BIGINT | Int64
-REAL | Single
+bigint | Int64
+real | Single
 DOUBLE | Single
 DECIMAL | Decimal
 BOOLEAN | Byte
-VARCHAR | Cadena
-NVARCHAR | Cadena
+VARCHAR | String
+NVARCHAR | String
 CLOB | Byte[]
-ALPHANUM | Cadena
+ALPHANUM | String
 BLOB | Byte[]
 DATE | DateTime
 TIME | TimeSpan
-TIMESTAMP | DateTime
+timestamp | DateTime
 SECONDDATE | DateTime
 
-## <a name="known-limitations"></a>Limitaciones conocidas
+## <a name="known-limitations"></a>Restricciones conocidas
 Cuando se copian datos de SAP HANA, hay algunas limitaciones conocidas:
 
 - Las cadenas NVARCHAR se truncan al llegar a la longitud máxima de 4000 caracteres Unicode

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
 ms.openlocfilehash: 971871c28bd1b38b134c04b0334fbe99d1d655c1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440194"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse mediante Azure Data Factory
@@ -25,7 +25,7 @@ Este artículo muestra el uso de Azure Data Factory para copiar datos en Azure D
 > [!TIP]
 > Para obtener información general sobre cómo copiar datos desde SAP BW, incluida la Integración de Open Hub con SAP BW y el flujo de extracción delta, consulte [Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory](connector-sap-business-warehouse-open-hub.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - **Azure Data Factory**: Siga los pasos necesarios para [crear una factoría de datos](quickstart-create-data-factory-portal.md#create-a-data-factory), si aún no tiene ninguna.
 

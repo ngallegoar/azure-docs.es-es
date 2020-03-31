@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929064"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236320"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Movimiento de datos de PostgreSQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -32,7 +32,7 @@ En este artículo se explica el uso de la actividad de copia en Azure Data Facto
 
 Puede copiar datos de un almacén de datos de PostgreSQL local a cualquier almacén de datos receptor admitido. Consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como receptores. Data Factory solo admite actualmente el movimiento de datos de una base de datos de PostgreSQL a otros almacenes de datos, pero no viceversa.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 El servicio Factoría de datos admite la conexión a orígenes de PostgreSQL locales mediante Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace.
 
@@ -47,7 +47,7 @@ Para que Data Management Gateway se conecte a la base de datos de PostgreSQL, in
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva datos desde un almacén de datos de PostgreSQL local mediante el uso de diferentes herramientas o API.
 
-- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 - Puede usar las siguientes herramientas para crear una canalización:
   - Visual Studio
   - Azure PowerShell
@@ -55,7 +55,7 @@ Puede crear una canalización con una actividad de copia que mueva datos desde u
   - API de .NET
   - API DE REST
 
-    Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+    Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -70,15 +70,15 @@ Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de PostgreSQL.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesPostgreSql** |Sí |
 | server |Nombre del servidor de PostgreSQL. |Sí |
 | database |Nombre de la base de datos de PostgreSQL. |Sí |
-| schema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin |
+| esquema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |No |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos de PostgreSQL. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
-| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin |
+| username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |No |
+| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |No |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de PostgreSQL local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -86,7 +86,7 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 La sección typeProperties es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos de tipo **RelationalTable** (que incluye el conjunto de datos de PostgreSQL) tiene las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | tableName |Nombre de la tabla en la instancia de Base de datos de PostgreSQL a la que hace referencia el servicio vinculado. tableName distingue mayúsculas de minúsculas. |No (si se especifica **query** de **RelationalSource**) |
 
@@ -97,14 +97,14 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 
 Cuando el origen es de tipo **RelationalSource** (lo que incluye PostgreSQL), están disponibles las propiedades siguientes en la sección typeProperties:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| query |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: `"query": "select * from \"MySchema\".\"MyTable\""`. |No (si se especifica **tableName** de **dataset**) |
+| Query |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: `"query": "select * from \"MySchema\".\"MyTable\""`. |No (si se especifica **tableName** de **dataset**) |
 
 > [!NOTE]
 > Los nombres de esquema y tabla distinguen mayúsculas de minúsculas. Incluya los nombres entre comillas dobles `""` en la consulta.
 
-**Ejemplo:**
+**Ejemplo**:
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
@@ -145,7 +145,7 @@ En primer lugar, configure la puerta de enlace de administración de datos. Las 
     }
 }
 ```
-**Servicio vinculado de almacenamiento de blobs de Azure:**
+**Servicio vinculado de Azure Blob Storage:**
 
 ```json
 {
@@ -302,7 +302,7 @@ Como se mencionó en el artículo sobre [actividades del movimiento de datos](da
 
 Al mover datos a PostgreSQL, se usan las asignaciones siguientes de tipo PostgreSQL a tipo .NET.
 
-| Tipo de Base de datos de PostgreSQL | Alias de PostgresSQL | Tipo .NET Framework |
+| Tipo de Base de datos de PostgreSQL | Alias de PostgresSQL | Tipo de .NET Framework |
 | --- | --- | --- |
 | abstime | |Datetime |
 | bigint |int8 |Int64 |
@@ -312,38 +312,38 @@ Al mover datos a PostgreSQL, se usan las asignaciones siguientes de tipo Postgre
 | boolean |bool |Boolean |
 | Box | |Byte[], String |
 | bytea | |Byte[], String |
-| character [(n)] |char [(n)] |Cadena |
-| character varying [(n)] |varchar [(n)] |Cadena |
-| cid | |Cadena |
-| cidr | |Cadena |
+| character [(n)] |char [(n)] |String |
+| character varying [(n)] |varchar [(n)] |String |
+| cid | |String |
+| cidr | |String |
 | circle | |Byte[], String |
 | date | |Datetime |
-| daterange | |Cadena |
+| daterange | |String |
 | double precision |float8 |Double |
 | inet | |Byte[], String |
-| intarry | |Cadena |
-| int4range | |Cadena |
-| int8range | |Cadena |
+| intarry | |String |
+| int4range | |String |
+| int8range | |String |
 | integer |int, int4 |Int32 |
 | interval [fields] [(p)] | |TimeSpan |
-| json | |Cadena |
+| json | |String |
 | jsonb | |Byte[] |
 | line | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | money | |Decimal |
 | numeric [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |Cadena |
+| numrange | |String |
 | oid | |Int32 |
 | path | |Byte[], String |
 | pg_lsn | |Int64 |
 | point | |Byte[], String |
 | polygon | |Byte[], String |
 | real |float4 |Single |
-| smallint |int2 |Int16 |
+| SMALLINT |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |Cadena |
+| text | |String |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
 Para obtener más información sobre la asignación de columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).

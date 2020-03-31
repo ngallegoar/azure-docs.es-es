@@ -7,13 +7,13 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 965897afc8e23c123575de0c497d4071ff4ca85a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.custom: mvc, seodec18
+ms.openlocfilehash: a6c9eb354bce09a5f652895f4af34df1f6750bec
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358147"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80045758"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Compilación de una imagen personalizada para ejecutarla en App Service a partir de un registro privado
 
@@ -49,7 +49,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Compilación de la imagen desde el archivo de Docker
 
-En el repositorio de Git, examine _Dockerfile_. Este archivo describe el entorno de Python que se requiere para ejecutar la aplicación. Además, la imagen configura un servidor [SSH](https://www.ssh.com/ssh/protocol/) para una comunicación segura entre el contenedor y el host.
+En el repositorio de Git, examine _Dockerfile_. Este archivo describe el entorno de Python que se requiere para ejecutar la aplicación. Además, la imagen configura un servidor [SSH](https://www.ssh.com/ssh/protocol/) para una comunicación segura entre el contenedor y el host. La última línea del archivo _Dockerfile_, `ENTRYPOINT ["init.sh"]`, invoca a `init.sh` para iniciar el servicio SSH y el servidor de Python.
 
 ```Dockerfile
 FROM python:3.4
@@ -73,6 +73,8 @@ COPY init.sh /usr/local/bin/
     
 RUN chmod u+x /usr/local/bin/init.sh
 EXPOSE 8000 2222
+
+#service SSH start
 #CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
 ENTRYPOINT ["init.sh"]
 ```

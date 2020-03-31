@@ -5,16 +5,16 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 189d54454a1259d08400e3762b3fbf1c633474bd
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f88f141257e8e614f62c7441c313002b5735116d
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250045"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239191"
 ---
-# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Uso de condiciones en plantillas de Azure Resource Manager
+# <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Uso de condiciones en plantillas de Resource Manager
 
-Aprenda a implementar recursos de Azure según condiciones.
+Aprenda a implementar recursos de Azure en función de las condiciones de una plantilla de Azure Resource Manager (ARM).
 
 En el tutorial [Establecimiento del orden de implementación de los recursos](./template-tutorial-create-templates-with-dependent-resources.md), se crean una máquina virtual, una red virtual y algunos otros recursos dependientes incluidos en una cuenta de almacenamiento. En lugar de crear una nueva cuenta de almacenamiento, cada vez, dejará que la gente elija entre crear una nueva cuenta de almacenamiento y usar una existente. Para lograr este objetivo, definirá un parámetro adicional. Si el valor del parámetro es "new", se crea una nueva cuenta de almacenamiento. En caso contrario, se usa una cuenta de almacenamiento existente con el nombre proporcionado.
 
@@ -31,9 +31,9 @@ En este tutorial se describen las tareas siguientes:
 Este tutorial solo trata de un escenario básico de condiciones de uso. Para más información, consulte:
 
 * [Estructura de archivos de plantilla: Condición](conditional-resource-deployment.md).
-* [Implementación condicional de un recurso en una plantilla de Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Implementación de un recurso de forma condicional en una plantilla de Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Función de plantilla: If](./template-functions-logical.md#if).
-* [Funciones de comparación para las plantillas de Azure Resource Manager](./template-functions-comparison.md)
+* [Funciones de comparación para plantillas de Resource Manager](./template-functions-comparison.md)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -41,18 +41,18 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](use-vs-code-to-create-template.md).
 * Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Este es un ejemplo para generar una contraseña:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en Resource Manager Template Deployment](./template-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
+    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./template-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
-Las plantillas de inicio rápido de Azure consisten en un repositorio de plantillas de Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
 2. En **Nombre de archivo**, pegue el código URL siguiente:

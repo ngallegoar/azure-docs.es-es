@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 07/12/2019
 ms.author: dech
 ms.openlocfilehash: 7471544e920266c8d23ccc18f4370bbdf66c11a2
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74707283"
 ---
 # <a name="azure-cosmos-db-net-standard-sdk-for-sql-api-download-and-release-notes"></a>SDK de Azure Cosmos DB para .NET Standard para SQL API: descarga y notas de la versión
@@ -36,7 +36,7 @@ ms.locfileid: "74707283"
 |**Descarga del SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
 |**Documentación de la API**|[Documentación de referencia de API de .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**Muestras**|[Ejemplos de código de .NET](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage)|
-|**Primeros pasos**|[Introducción al SDK para .NET de Azure Cosmos DB](sql-api-get-started.md)|
+|**Introducción**|[Introducción al SDK para .NET de Azure Cosmos DB](sql-api-get-started.md)|
 |**Tutorial de la aplicación web**|[Desarrollo de aplicaciones web con Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Plataforma admitida actualmente**|[Microsoft .NET Standard 2.0](/dotnet/standard/net-standard)|
 
@@ -45,5 +45,5 @@ ms.locfileid: "74707283"
 ## <a name="faq"></a>Preguntas más frecuentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 

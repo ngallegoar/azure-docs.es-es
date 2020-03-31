@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: tamram
 ms.openlocfilehash: 27617da97ced9ac775beae71e4c25202944b2aba
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942060"
 ---
 La tabla siguiente describe la capacidad, escalabilidad y los objetivos de rendimiento de Table Storage.

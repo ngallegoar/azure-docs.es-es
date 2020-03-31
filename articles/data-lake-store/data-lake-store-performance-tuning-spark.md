@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: dc92e7d2fcc911aeb6d92b91dd2d430af3c502ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61436518"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de Spark en HDInsight y Azure Data Lake Storage Gen1
 
 Cuando ajuste el rendimiento de Spark, necesitará tener en cuenta el número de aplicaciones que se ejecutarán en su clúster.  De forma predeterminada, puede ejecutar 4 aplicaciones simultáneamente en su clúster HDI. (Nota: la configuración predeterminada está sujeta a cambios).  Puede decidir usar menos aplicaciones, por lo que puede sustituir la configuración predeterminada y utilizar más del clúster para esas aplicaciones.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
@@ -57,14 +57,14 @@ Para aumentar la simultaneidad de trabajos de uso intensivo de E/S, existen algu
 
 **Paso 1: Determine cuántas aplicaciones se ejecutan en el clúster**. Debe conocer cuántas aplicaciones se están ejecutando en el clúster, incluida la actual.  Los valores predeterminados para cada ajuste de Spark asume que hay 4 aplicaciones ejecutándose simultáneamente.  Por lo tanto, solo habrá un 25 % del clúster disponible para cada aplicación.  Para obtener un mejor rendimiento, puede sustituir los valores predeterminados cambiando el número de ejecutores.  
 
-**Paso 2: Establezca executor-memory**. Lo primero que se debe establecer es executor-memory.  La memoria dependerá el trabajo que va a ejecutar.  Puede aumentar la simultaneidad asignando menos memoria a cada ejecutor.  Si ve excepciones por memoria insuficiente cuando ejecuta el trabajo, aumente el valor para este parámetro.  Otra alternativa consiste en obtener más memoria mediante un clúster que tenga mayor cantidad de la misma o aumentar el número de nodos en el clúster.  Mientras más memoria tenga, más ejecutores podrá utilizar, lo que se traduce en una mayor simultaneidad.
+**Paso 2: Establezca executor-memory**. Lo primero que se debe establecer es executor-memory.  La memoria dependerá el trabajo que va a ejecutar.  Puede aumentar la simultaneidad asignando menos memoria a cada ejecutor.  Si ve excepciones por memoria insuficiente cuando ejecuta el trabajo, aumente el valor para este parámetro.  Otra alternativa consiste en obtener más memoria mediante un clúster que tenga mayor cantidad de la misma o aumentar el número de nodos en el clúster.  Mientras más memoria tenga, más ejecutores podrá utilizar, lo que se traduce en una mayor simultaneidad.
 
 **Paso 3: Establezca executor-cores**. En cargas de trabajo con uso intensivo de E/S que no tengan operaciones complejas, es recomendable empezar con un gran número de núcleos de ejecutor para aumentar el número de tareas paralelas por cada ejecutor.  Un buen punto de partida sería establecer executor-cores en 4.   
 
     executor-cores = 4
 Si aumenta el número de núcleos de ejecutor podrá tener mayor paralelismo, con lo que puede experimentar con diferentes valores para executor-cores.  Para los trabajos que tengan operaciones más complejas, reduzca el número de núcleos por ejecutor.  Si executor-cores se ha establecido en un número mayor que 4, puede que la recolección de elementos no utilizados sea ineficaz y el rendimiento se vea degradado.
 
-**Paso 4: Determine la cantidad de memoria YARN en el clúster**. Esta información está disponible en Ambari.  Vaya a YARN y examine la pestaña de configuración.  En esta ventana se muestra el tamaño de la memoria de YARN.  
+**Paso 4: Determine la cantidad de memoria YARN en el clúster**. Esta información está disponible en Ambari.  Vaya a YARN y vea la pestaña Configs (Configuraciones).  En esta ventana se muestra el tamaño de la memoria de YARN.  
 Tenga en cuenta que mientras está en la ventana puede ver también el tamaño predeterminado del contenedor YARN.  El tamaño del contenedor YARN es igual que la memoria por cada parámetro de ejecutor.
 
     Total YARN memory = nodes * YARN memory per node

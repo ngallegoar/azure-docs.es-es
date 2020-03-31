@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 4647d78255f611959bb86ca00ff6920bc823d49a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f497955b698d7ca390b40686e94d553a7cd5c948
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158572"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integración de Azure Active Directory con la plataforma de productividad ClickUp
 
@@ -34,7 +34,7 @@ La integración de la plataforma de productividad ClickUp con Azure AD proporcio
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con ClickUp, necesita los siguientes elementos:
 
@@ -120,7 +120,9 @@ Para configurar el inicio de sesión único de Azure AD con ClickUp, realice los
 
 1. En otra ventana del explorador web, inicie sesión en su inquilino de ClickUp como administrador.
 
-2. Haga clic en **User profile** (Perfil de usuario) y seleccione **Settings** (Configuración).
+2. Haga clic en **User profile** (Perfil de usuario) y, a continuación, seleccione **Settings** (Configuración).
+
+    ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/configure1.png)
 
@@ -163,7 +165,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -195,7 +197,9 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 1. En otra ventana del explorador web, inicie sesión en su inquilino de ClickUp como administrador.
 
-2. Haga clic en **User profile** (Perfil de usuario) y seleccione **Users** (Usuarios).
+2. Haga clic en **User profile** (Perfil de usuario) y, a continuación, seleccione **People** (Personas).
+   
+    ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/configure0.png)
 
     ![Configuración de ClickUp](./media/clickup-productivity-platform-tutorial/user1.png)
 

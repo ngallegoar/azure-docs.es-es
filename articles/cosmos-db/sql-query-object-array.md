@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870928"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225648"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabajar con matrices y objetos en Azure Cosmos DB
 
@@ -52,7 +52,7 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
-## <a id="Iteration"></a>Iteración
+## <a name="iteration"></a><a id="Iteration"></a>Iteración
 
 La API de SQL proporciona compatibilidad con la iteración en las matrices JSON, donde se ha agregado una nueva construcción mediante la [palabra clave IN](sql-query-keywords.md#in) en el origen FROM. En el ejemplo siguiente:
 

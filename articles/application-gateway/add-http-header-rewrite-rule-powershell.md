@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: absha
 ms.openlocfilehash: 47fe6a5247622e3ad3b3720955068580e0329913
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64947204"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Reescribir los encabezados HTTP de solicitud y respuesta con Azure Application Gateway mediante Azure PowerShell
@@ -37,13 +37,13 @@ Para configurar la reescritura de encabezados HTTP, es preciso completar estos p
 
    - **ActionSet**: Contiene las configuraciones de los encabezados de solicitud y respuesta especificados anteriormente.
 
-   - **Condición**: Configuración opcional. Las condiciones de reescritura evalúan el contenido de las solicitudes y respuestas HTTP(S). La acción de reescritura tendrá lugar si la solicitud o respuesta HTTP(S) coinciden con la condición de reescritura.
+   - **Condición**: Una configuración opcional. Las condiciones de reescritura evalúan el contenido de las solicitudes y respuestas HTTP(S). La acción de reescritura tendrá lugar si la solicitud o respuesta HTTP(S) coinciden con la condición de reescritura.
 
      Si asocia más de una condición con una acción, la acción se produce solo cuando se cumplen todas las condiciones. En otras palabras, se trata de una operación AND lógica.
 
-   - **RewriteRule**: Contiene varias combinaciones de acción de reescritura o condición de reescritura.
+   - **RewriteRule**: Contiene varias combinaciones de acción de reescritura y condición de reescritura.
 
-   - **RuleSequence**: Configuración opcional que ayuda a establecer el orden en que se ejecutan las reglas de reescritura. Esta configuración es útil cuando haya varias reglas de reescritura en un conjunto de reescritura. Una regla de reescritura que tiene un valor de secuencia de reglas más bajo se ejecuta primero. Si asigna el mismo valor de secuencia de reglas a dos reglas de reescritura, el orden de ejecución es no determinista.
+   - **RuleSequence**: Configuración opcional que ayuda a establecer el orden en que se ejecutan las reglas de reescritura. Esta configuración es útil cuando hay varias reglas de reescritura en un conjunto de reescritura. Una regla de reescritura que tiene un valor de secuencia de reglas más bajo se ejecuta primero. Si asigna el mismo valor de secuencia de reglas a dos reglas de reescritura, el orden de ejecución es no determinista.
 
      Si no se especifica explícitamente RuleSequence, se establece un valor predeterminado de 100.
 

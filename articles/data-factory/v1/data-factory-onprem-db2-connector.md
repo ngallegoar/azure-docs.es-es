@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931783"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
@@ -32,7 +32,7 @@ En este artículo se describe cómo se puede usar la actividad de copia en Azure
 
 Data Factory actualmente solo admite mover datos desde una base de datos DB2 a un [almacén de datos de receptor compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats). No se admite el movimiento de datos desde otros almacenes de datos a una base de datos DB2.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Data Factory admite la conexión a una base de datos DB2 local mediante la [puerta de enlace de administración de datos](data-factory-data-management-gateway.md). Para instrucciones paso a paso sobre cómo configurar la canalización de datos de la puerta de enlace para mover los datos, consulte el artículo [Movimiento de datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
 Se requiere una puerta de enlace incluso si DB2 está hospedada en una máquina virtual de IaaS de Azure. Puede instalarla en la misma máquina virtual de IaaS en la que está el almacén de datos. Si la puerta de enlace se puede conectar a la base de datos, es posible instalar la puerta de enlace en otra máquina virtual.
@@ -78,15 +78,15 @@ Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se
 ## <a name="db2-linked-service-properties"></a>Propiedades del servicio vinculado de DB2
 En la tabla siguiente se enumeran las propiedades JSON que son específicas de un servicio vinculado de DB2.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | **type** |Esta propiedad se debe establecer en **OnPremisesDB2**. |Sí |
-| **server** |Nombre del servidor DB2. |Sí |
+| **servidor** |Nombre del servidor DB2. |Sí |
 | **database** |Nombre de la base de datos DB2. |Sí |
-| **schema** |Nombre del esquema de la base de datos DB2. Esta propiedad distingue mayúsculas de minúsculas. |Sin |
+| **schema** |Nombre del esquema de la base de datos DB2. Esta propiedad distingue mayúsculas de minúsculas. |No |
 | **authenticationType** |Tipo de autenticación que se usa para conectarse a la base de datos DB2. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| **username** |Nombre de la cuenta de usuario si se usa autenticación Basic o Windows. |Sin |
-| **password** |Contraseña para la cuenta de usuario. |Sin |
+| **username** |Nombre de la cuenta de usuario si se usa autenticación Basic o Windows. |No |
+| **password** |Contraseña para la cuenta de usuario. |No |
 | **gatewayName** |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos DB2 local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -94,7 +94,7 @@ Para una lista de las secciones y propiedades disponibles para definir conjuntos
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección **typeProperties** del conjunto de datos de tipo **RelationalTable**, que incluye el conjunto de datos de DB2, tiene la propiedad siguiente:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | **tableName** |Nombre de la tabla en la instancia de base de datos DB2 a la que hace referencia el servicio vinculado. Esta propiedad distingue mayúsculas de minúsculas. |No (si se especifica la propiedad **query** de una actividad de copia de tipo **RelationalSource**) |
 
@@ -103,7 +103,7 @@ Para una lista de las secciones y propiedades disponibles para definir actividad
 
 En el caso de la actividad de copia, si el origen es de tipo **RelationalSource** (que incluye DB2), las propiedades siguientes están disponibles en la sección **typeProperties**:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
 | **consulta** |Use la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: `"query": "select * from "MySchema"."MyTable""` |No (si se especifica la propiedad **tableName** de un conjunto de datos) |
 
@@ -305,7 +305,7 @@ Como se mencionó en el artículo sobre [actividades del movimiento de datos](da
 
 Las asignaciones siguientes se usan cuando la actividad de copia convierte los datos de un tipo DB2 a un tipo .NET:
 
-| Tipo de base de datos DB2 | Tipo .NET Framework |
+| Tipo de base de datos DB2 | Tipo de .NET Framework |
 | --- | --- |
 | SmallInt |Int16 |
 | Entero |Int32 |
@@ -317,22 +317,22 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
 | Date |DateTime |
-| Hora |TimeSpan |
-| Timestamp |Datetime |
+| Time |TimeSpan |
+| Timestamp |DateTime |
 | Xml |Byte[] |
-| Char |Cadena |
-| VarChar |Cadena |
-| LongVarChar |Cadena |
-| DB2DynArray |Cadena |
+| Char |String |
+| VarChar |String |
+| LongVarChar |String |
+| DB2DynArray |String |
 | Binary |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |Cadena |
-| VarGraphic |Cadena |
-| LongVarGraphic |Cadena |
-| Clob |Cadena |
+| Graphic |String |
+| VarGraphic |String |
+| LongVarGraphic |String |
+| Clob |String |
 | Blob |Byte[] |
-| DbClob |Cadena |
+| DbClob |String |
 | SmallInt |Int16 |
 | Entero |Int32 |
 | BigInt |Int64 |
@@ -343,10 +343,10 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
 | Date |DateTime |
-| Hora |TimeSpan |
-| Timestamp |Datetime |
+| Time |TimeSpan |
+| Timestamp |DateTime |
 | Xml |Byte[] |
-| Char |Cadena |
+| Char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
 Para información sobre cómo asignar columnas en el conjunto de datos de origen a columnas en el conjunto de datos de receptor, consulte [Asignación de columnas de conjunto de datos en Azure Data Factory](data-factory-map-columns.md).

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d469d52a6db6c3640d07b46422ffe669a898dde8
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6ecf3bb5999296b2f5f8f5c25616fac8e0278cda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263003"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132521"
 ---
 # <a name="entity-functions"></a>Funciones de entidad
 
@@ -41,7 +41,7 @@ Para invocar una operación en una entidad, especifique:
 * **Identificador de entidad** de la entidad de destino.
 * **Nombre de la operación**, que es una cadena que especifica la operación que se va a realizar. Por ejemplo, la entidad `Counter` podría admitir las operaciones `add`, `get`o `reset`.
 * **Entrada de operación**, que es un parámetro de entrada opcional para la operación. Por ejemplo, la operación de agregar puede tomar una cantidad de entero como entrada.
-* **Tiempo programado*, que es un parámetro opcional para especificar el tiempo de entrega de la operación. Por ejemplo, una operación se puede programar de forma confiable para que se ejecute varios días después.
+* **Tiempo programado**, que es un parámetro opcional para especificar el tiempo de entrega de la operación. Por ejemplo, una operación se puede programar de forma confiable para que se ejecute varios días después.
 
 Las operaciones pueden devolver un valor de resultado o un resultado de error, como un error de JavaScript o una excepción de .NET. Las orquestaciones que llamaron a la operación pueden observar este resultado o error.
 
@@ -55,7 +55,7 @@ Actualmente, las dos API distintas para definir entidades son:
 
 **Sintaxis basada en clases (solo .NET)** , donde las entidades y las operaciones se representan mediante clases y métodos. Esta sintaxis genera código más fácilmente legible y permite invocar operaciones con seguridad de tipos. La sintaxis basada en clases es una capa fina en la parte superior de la sintaxis basada en funciones, por lo que ambas variantes se pueden usar indistintamente en la misma aplicación.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>Ejemplo: Sintaxis basada en funciones: C#
 
@@ -109,7 +109,7 @@ El estado de esta entidad es un objeto de tipo `Counter`, que contiene un campo 
 
 Para más información sobre la sintaxis basada en clases y cómo utilizarla, consulte [Definición de las clases de entidad](durable-functions-dotnet-entities.md#defining-entity-classes).
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ### <a name="example-javascript-entity"></a>Ejemplo: Entidad de JavaScript
 
@@ -171,7 +171,7 @@ En los siguientes ejemplos se muestran estas diversas formas de obtener acceso a
 
 Para acceder a las entidades desde una función de Azure normal, que también se conoce como función cliente, use el [enlace de cliente de entidad](durable-functions-bindings.md#entity-client). En el ejemplo siguiente se muestra una función desencadenada por la cola que señala una entidad mediante este enlace.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 > [!NOTE]
 > Para simplificar, en los siguientes ejemplos se muestra la sintaxis de tipo flexible para tener acceso a las entidades. En general, se recomienda tener [acceso a las entidades a través de interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) porque proporciona más comprobación de tipos.
@@ -189,7 +189,7 @@ public static Task Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -209,7 +209,7 @@ El término *señal* significa que la invocación de la API de entidad es unidir
 
 Las funciones de cliente también pueden consultar el estado de una entidad, tal y como se muestra en el ejemplo siguiente:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -223,7 +223,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -244,7 +244,7 @@ Las consultas de estado de la entidad se envían al almacén de seguimiento dura
 
 Las funciones de orquestador pueden acceder a las entidades mediante el uso de API en el [enlace de desencadenador de orquestación](durable-functions-bindings.md#orchestration-trigger). En el ejemplo de código siguiente se muestra una función de orquestador que llama y señala una `Counter`entidad.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -263,7 +263,7 @@ public static async Task Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -291,7 +291,7 @@ Solo las orquestaciones son capaces de llamar a las entidades y obtener una resp
 Una función de entidad puede enviar señales a otras entidades, o incluso a sí misma, mientras ejecuta una operación.
 Por ejemplo, podemos modificar el `Counter`ejemplo de la entidad anterior para que envíe una señal "alcanzada por un hito" a alguna entidad del monitor cuando el contador alcance el valor 100.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -306,7 +306,7 @@ Por ejemplo, podemos modificar el `Counter`ejemplo de la entidad anterior para q
         break;
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
     case "add":
@@ -321,7 +321,7 @@ Por ejemplo, podemos modificar el `Counter`ejemplo de la entidad anterior para q
 
 ---
 
-## <a name="entity-coordination"></a>Coordinación de entidades (actualmente solo .NET)
+## <a name="entity-coordination-currently-net-only"></a><a name="entity-coordination"></a>Coordinación de entidades (actualmente solo .NET)
 
 Puede haber ocasiones en las que necesite coordinar las operaciones entre varias entidades. Por ejemplo, en una aplicación de banca, es posible que tenga entidades que representen cuentas bancarias individuales. Cuando se transfieren fondos de una cuenta a otra, debe asegurarse de que la cuenta de origen tiene fondos suficientes. También debe asegurarse de que las actualizaciones de las cuentas de origen y de destino se realicen de forma transaccional.
 
