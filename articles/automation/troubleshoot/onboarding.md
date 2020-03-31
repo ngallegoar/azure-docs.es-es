@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75889331"
 ---
 # <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Solución de errores al incorporar Update Management, Change Tracking e Inventory
@@ -21,7 +21,7 @@ Al incorporar soluciones como Update Management, Change Tracking o Inventory, pu
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-### <a name="node-rename"></a>Escenario: Para cambiar el nombre de un nodo registrado, es necesario anular el registro o registrarse de nuevo
+### <a name="scenario-renaming-a-registered-node-requires-unregister--register-again"></a><a name="node-rename"></a>Escenario: Para cambiar el nombre de un nodo registrado, es necesario anular el registro o registrarse de nuevo
 
 #### <a name="issue"></a>Problema
 
@@ -36,7 +36,7 @@ Al cambiar el nombre de los nodos registrados, no actualiza el nombre del nodo e
 Anule el registro del nodo en State Configuration de Azure Automation y, a continuación, vuelva a registrarlo.  Los informes publicados en el servicio antes de ese momento ya no estarán disponibles.
 
 
-### <a name="resigning-cert"></a>Escenario: No se permite volver a firmar certificados a través del proxy HTTPS
+### <a name="scenario-re-signing-certificates-via-https-proxy-is-not-supported"></a><a name="resigning-cert"></a>Escenario: No se permite volver a firmar certificados a través del proxy HTTPS
 
 #### <a name="issue"></a>Problema
 
@@ -52,7 +52,7 @@ No hay ninguna solución alternativa para este problema.
 
 ## <a name="general-errors"></a>Errores generales
 
-### <a name="missing-write-permissions"></a>Escenario: error de incorporación con el mensaje: no se puede habilitar la solución
+### <a name="scenario-onboarding-fails-with-the-message---the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Escenario: error de incorporación con el mensaje: no se puede habilitar la solución
 
 #### <a name="issue"></a>Problema
 
@@ -74,7 +74,7 @@ Este error se produce porque faltan permisos en la máquina virtual, el área de
 
 Asegúrese de tener los permisos correctos para incorporar la máquina virtual. Revise los [permisos necesarios para incorporar máquinas](../automation-role-based-access-control.md#onboarding) y vuelva a intentar incorporar la solución. Si recibe el error `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, asegúrese de tener el permiso `Microsoft.OperationalInsights/workspaces/read` para averiguar si la máquina virtual está incorporada a un área de trabajo.
 
-### <a name="diagnostic-logging"></a>Escenario: Se produce un error en la incorporación con el mensaje: "No se pudo configurar la cuenta de Automation para el registro de diagnóstico"
+### <a name="scenario-onboarding-fails-with-the-message---failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Escenario: Se produce un error en la incorporación con el mensaje: "No se pudo configurar la cuenta de Automation para el registro de diagnóstico"
 
 #### <a name="issue"></a>Problema
 
@@ -92,7 +92,7 @@ Este error puede producirse si el plan de tarifa no coincide con el modelo de fa
 
 Cree manualmente el área de trabajo de Log Analytics y repita el proceso de incorporación para seleccionar el área de trabajo creada.
 
-### <a name="computer-group-query-format-error"></a>Escenario: ComputerGroupQueryFormatError
+### <a name="scenario-computergroupqueryformaterror"></a><a name="computer-group-query-format-error"></a>Escenario: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problema
 
@@ -106,7 +106,7 @@ Puede que haya cambiado la consulta, o puede que lo haya hecho el sistema.
 
 Puede eliminar la consulta para esta solución y reincorporar la solución, con lo que se vuelve a crear la consulta. La consulta puede encontrarse en el área de trabajo, en **Búsquedas guardadas**. El nombre de la consulta es **MicrosoftDefaultComputerGroup**, y la categoría de la consulta es el nombre de la solución asociada a esta consulta. Si se habilitan varias soluciones, **MicrosoftDefaultComputerGroup** se muestra varias veces en **Búsquedas guardadas**.
 
-### <a name="policy-violation"></a>Escenario: PolicyViolation
+### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>Escenario: PolicyViolation
 
 #### <a name="issue"></a>Problema
 
@@ -128,7 +128,7 @@ Para implementar correctamente la solución, debe considerar modificar la direct
 
 Compruebe las notificaciones en la esquina superior derecha de Azure Portal o desplácese hasta el grupo de recursos que contiene la cuenta de Automation y seleccione **Implementaciones** en **Configuración** para ver la implementación con errores. Para obtener más información sobre Azure Policy, visite: [Introducción a Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
-### <a name="unlink"></a>Escenario: Error al intentar desvincular un área de trabajo
+### <a name="scenario-errors-trying-to-unlink-a-workspace"></a><a name="unlink"></a>Escenario: Error al intentar desvincular un área de trabajo
 
 #### <a name="issue"></a>Problema
 
@@ -158,7 +158,7 @@ Una vez que quite las soluciones, puede desvincular el área de trabajo. Es impo
   * Quite los bloqueos sobre los componentes de soluciones de la cuenta de Automation en **Configuración** > **Bloqueos**.
   * Para conocer otros pasos para quitar la solución Start/Stop VMs during off-hours, consulte, [Eliminación de la solución Start/Stop VM during off-hours](../automation-solution-vm-management.md#remove-the-solution).
 
-## <a name="mma-extension-failures"></a>Errores de extensión MMA
+## <a name="mma-extension-failures"></a><a name="mma-extension-failures"></a>Errores de extensión MMA
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
@@ -168,7 +168,7 @@ La instalación de MMA o del Agente de Log Analytics para Linux puede generar er
 
 En la siguiente sección se describen diversos problemas con los que se puede encontrar al incorporar soluciones que pueden ocasionar errores en la implementación de la extensión MMA.
 
-### <a name="webclient-exception"></a>Escenario: Excepción durante una solicitud WebClient
+### <a name="scenario-an-exception-occurred-during-a-webclient-request"></a><a name="webclient-exception"></a>Escenario: Excepción durante una solicitud WebClient
 
 La extensión MMA en la máquina virtual no puede comunicarse con los recursos externos y la implementación produce un error.
 
@@ -196,7 +196,7 @@ Algunas de las posibles causas de este error son:
 
 Asegúrese de que los puertos y las direcciones adecuados están abiertos para la comunicación. Para obtener una lista de direcciones y puertos, consulte [Planeamiento de la red](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Escenario: No se pudo realizar la instalación debido a problemas transitorios en el entorno
+### <a name="scenario-install-failed-because-of-a-transient-environment-issues"></a><a name="transient-environment-issue"></a>Escenario: No se pudo realizar la instalación debido a problemas transitorios en el entorno
 
 La instalación de la extensión Microsoft Monitoring Agent no se pudo realizar durante la implementación debido a que hay otra instalación o acción que la bloquea.
 
@@ -227,7 +227,7 @@ Algunas de las posibles causas de este error son:
 
 Este es un error transitorio por naturaleza. Vuelva a intentar la implementación para instalar la extensión.
 
-### <a name="installation-timeout"></a>Escenario: Tiempo de expiración de la instalación
+### <a name="scenario-installation-timeout"></a><a name="installation-timeout"></a>Escenario: Tiempo de expiración de la instalación
 
 No se completó la instalación de la extensión de MMA debido a que se agotó el tiempo de espera.
 

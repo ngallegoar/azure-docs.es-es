@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: mayg
 ms.openlocfilehash: 367f29237a3f2a634f209026df47b0cbd6ffc97c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75899068"
 ---
 # <a name="replicate-machines-with-customer-managed-keys-cmk-enabled-disks"></a>Replicación de máquinas con discos habilitados para claves administradas por el cliente (CMK)
@@ -23,7 +23,7 @@ Debe crear los conjuntos de cifrado de disco en la región de destino para la su
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
-En este ejemplo la región principal de Azure es Asia Oriental y la secundaria es Asia Suroriental.
+En este ejemplo la región principal de Azure es Este de Asia y la secundaria es Sudeste de Asia.
 
 1. En el almacén, seleccione **+ Replicar**.
 2. Especifique los campos siguientes.

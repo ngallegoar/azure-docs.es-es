@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: ef81e74b07a351139aa8feefbdf1b89ea7e4994f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727190"
 ---
 # <a name="azure-infrastructure-integrity"></a>Integridad de la infraestructura de Azure
@@ -56,7 +56,7 @@ Azure garantiza que todos los roles en ejecución (roles web accesibles desde In
 Azure garantiza que la aplicación o el servicio implementados sean accesibles a través de protocolos estándar basados en web. Las instancias virtuales de los roles web accesibles desde Internet tendrán conectividad externa a Internet y los usuarios de la web podrán acceder a ellas directamente. Con el fin de proteger la confidencialidad e integridad de las operaciones que los roles de trabajo realizan en nombre de las instancias virtuales del rol web de acceso público, las instancias virtuales de rol de trabajo de procesamiento de back-end tienen conectividad externa a Internet, pero el usuario web externo no puede acceder directamente a ellas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
+Para más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
 
 - [Instalaciones de Azure, entornos locales y seguridad física](physical-security.md)
 - [Disponibilidad de la infraestructura de Azure](infrastructure-availability.md)

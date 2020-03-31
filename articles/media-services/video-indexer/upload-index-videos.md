@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77468769"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
@@ -58,7 +58,7 @@ En el artículo se muestra cómo cargar e indexar los vídeos con estas opciones
 
 Consulte la sección [Formatos de archivo/contenedor de entrada](../latest/media-encoder-standard-formats.md#input-containerfile-formats) para una lista de los formatos de archivo que puede usar con Video Indexer.
 
-## <a name="a-idwebsiteupload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Carga e indexación de un vídeo desde el sitio web de Video Indexer
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Carga e indexación de un vídeo desde el sitio web de Video Indexer
 
 > [!NOTE]
 > El nombre del vídeo no debe superar los 80 caracteres.
@@ -74,7 +74,7 @@ Consulte la sección [Formatos de archivo/contenedor de entrada](../latest/media
 
     Cuando Video Indexer ha terminado de analizar, recibirá una notificación con un vínculo a su vídeo y una breve descripción de lo que se ha encontrado en el vídeo. Por ejemplo: personas, temas u OCR.
 
-## <a name="a-idapisupload-and-index-with-api"></a><a id="apis"/>Carga e indexación con API
+## <a name="upload-and-index-with-api"></a><a id="apis"/>Carga e indexación con API
 
 Use la API para [Cargar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para cargar e indexar los vídeos según una dirección URL. En el ejemplo de código siguiente incluye el código con comentarios que muestra cómo cargar la matriz de bytes. 
 

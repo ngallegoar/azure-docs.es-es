@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 09/19/2019
 ms.author: iainfou
 ms.openlocfilehash: 959f1e3f25602938d769c574ea975c4bba9300e1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71258000"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conocidos: Alertas de configuración de red en Azure Active Directory Domain Services
@@ -38,7 +38,7 @@ Las siguientes reglas de seguridad de entrada y salida predeterminadas se aplica
 
 ### <a name="inbound-security-rules"></a>Reglas de seguridad de entrada
 
-| Priority | NOMBRE | Port | Protocolo | Source | Destino | . |
+| Priority | Nombre | Port | Protocolo | Source | Destination | Acción |
 |----------|------|------|----------|--------|-------------|--------|
 | 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Any | Allow |
 | 201      | AllowRD | 3389 | TCP | CorpNetSaw | Any | Allow |
@@ -49,7 +49,7 @@ Las siguientes reglas de seguridad de entrada y salida predeterminadas se aplica
 
 ### <a name="outbound-security-rules"></a>Reglas de seguridad de entrada
 
-| Priority | NOMBRE | Port | Protocolo | Source | Destino | . |
+| Priority | Nombre | Port | Protocolo | Source | Destination | Acción |
 |----------|------|------|----------|--------|-------------|--------|
 | 65000    | AllVnetOutBound | Any | Any | VirtualNetwork | VirtualNetwork | Allow |
 | 65001    | AllowAzureLoadBalancerOutBound | Any | Any |  Any | Internet | Allow |

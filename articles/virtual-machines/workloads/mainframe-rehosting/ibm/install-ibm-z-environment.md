@@ -13,10 +13,10 @@ ms.date: 04/02/2019
 tags: ''
 keywords: ''
 ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72025939"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Instalación del entorno de desarrollo y pruebas de IBM zD&T en Azure
@@ -39,12 +39,12 @@ Para más información, consulte la [introducción a zD&T](https://www.ibm.com/s
 
 En este artículo se muestra cómo configurar la versión Enterprise Edition del entorno de desarrollo y pruebas de Z (zD&T) en Azure. Luego, puede usar el servidor web de zD&T Enterprise Edition para crear y administrar entornos basados en Z en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 > [!NOTE]
 > IBM permite la instalación de zD&T Enterprise Edition únicamente en entornos de desarrollo y pruebas, *no* en entornos de producción.
 
-- Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+- Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 - Necesita acceso a los medios, que solo está disponibles para clientes y asociados de IBM. Para más información, póngase en contacto con su representante de IBM o consulte la información de contacto en el sitio web de [zD&T](https://www.ibm.com/us-en/marketplace/z-systems-development-test-environment).
 

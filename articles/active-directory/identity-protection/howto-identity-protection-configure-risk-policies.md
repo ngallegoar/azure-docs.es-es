@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75707012"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Instrucciones: Configuración y habilitación de directivas de riesgo
@@ -31,7 +31,7 @@ Ambas directivas se ocupan de automatizar la respuesta a las detecciones de ries
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 Si su organización desea permitir que los usuarios corrijan por sí mismos los riesgos cuando se detecten, los usuarios deben estar registrados para el autoservicio de restablecimiento de contraseña y Azure Multi-Factor Authentication. Se recomienda [habilitar la experiencia de registro de información de seguridad combinada](../authentication/howto-registration-mfa-sspr-combined.md) para obtener la mejor experiencia. Al permitir a los usuarios que se ocupen por sí mismos de solucionar los problemas, se les otorga un estado productivo en el que no es necesaria la intervención del administrador. Los administradores todavía pueden ver estos eventos e investigarlos después del hecho. 
 

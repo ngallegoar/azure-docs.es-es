@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75772234"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales habilitadas para Azure Disk Encryption en otra región de Azure
@@ -22,7 +22,7 @@ En este artículo se describe cómo replicar máquinas virtuales de Azure habili
 > Actualmente, Site Recovery admite ADE con y sin Azure Active Directory (AAD) para VM que ejecutan los sistemas operativos Windows y Linux.  En el caso de las máquinas que ejecutan ADE 1.1 (sin AAD), las VM deben usar discos administrados. No se admiten las máquinas virtuales con discos no administrados. Si cambia de ADE 0.1 (con AAD) a 1.1, debe deshabilitar la replicación y volver a habilitarla para una máquina virtual después de habilitar la versión 1.1.
 
 
-## <a id="required-user-permissions"></a> Permisos de usuario necesarios
+## <a name="required-user-permissions"></a><a id="required-user-permissions"></a> Permisos de usuario necesarios
 Site Recovery requiere que el usuario tenga permisos para crear el almacén de claves en la región de destino y que copie las claves desde el almacén de claves de la región de origen al de la región de destino.
 
 Para habilitar la replicación de máquinas virtuales habilitadas para Azure Disk Encryption desde Azure Portal, el usuario necesita los permisos siguientes en los almacenes de claves de la **región de origen y de destino**.
@@ -76,7 +76,7 @@ Para solucionar problemas de permisos, consulte [incidencias de permisos del alm
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
-En este ejemplo la región principal de Azure es Asia Oriental y la secundaria es Asia Suroriental.
+En este ejemplo la región principal de Azure es Este de Asia y la secundaria es Sudeste de Asia.
 
 1. En el almacén, seleccione **+ Replicar**.
 2. Especifique los campos siguientes.
@@ -133,7 +133,7 @@ Se puede usar [un script](#copy-disk-encryption-keys-to-the-dr-region-by-using-t
 
 ![Actualización de la ventana del cuadro de diálogo de configuración de ADE](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
-## <a id="trusted-root-certificates-error-code-151066"></a>Solución de problemas de permisos del almacén de claves durante la replicación de máquinas virtuales de Azure a Azure
+## <a name="troubleshoot-key-vault-permission-issues-during--azure-to-azure-vm-replication"></a><a id="trusted-root-certificates-error-code-151066"></a>Solución de problemas de permisos del almacén de claves durante la replicación de máquinas virtuales de Azure a Azure
 
 Azure Site Recovery requiere como mínimo permiso de lectura en el almacén de claves de la región de origen y permiso de escritura en el almacén de claves de la región de destino para poder leer el secreto y poder copiarlo en el almacén de claves de la región de destino. 
 

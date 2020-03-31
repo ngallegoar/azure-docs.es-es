@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113821"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Ejemplo: Creación de una aptitud personalizada con Bing Entity Search API
 
 En este ejemplo, obtiene información sobre cómo crear una aptitud personalizada de la API web. Esta aptitud aceptará ubicaciones, personajes públicos y organizaciones, y devolverá sus descripciones. En el ejemplo se usa una [función de Azure](https://azure.microsoft.com/services/functions/) para encapsular [Bing Entity Search API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) para que implemente la interfaz de la aptitud personalizada.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 + Si no está familiarizado con la interfaz de entrada o salida que debe implementar una aptitud personalizada, lea el artículo sobre la [interfaz de aptitud personalizada](cognitive-search-custom-skill-interface.md).
 

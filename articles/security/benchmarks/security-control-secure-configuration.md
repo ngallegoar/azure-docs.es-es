@@ -9,10 +9,10 @@ ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: 03564effeee36ddb3316d48329ccab8ccfce75b9
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934294"
 ---
 # <a name="security-control-secure-configuration"></a>Control de seguridad: Configuración segura
@@ -27,7 +27,7 @@ Establezca, implemente y administre activamente (realice un seguimiento, informe
 
 Use Azure Policy o Azure Security Center para mantener las configuraciones de seguridad para todos los recursos de Azure.
 
-Cómo configurar y administrar Azure Policy:
+Configuración y administración de Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -55,7 +55,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 Use la directiva de Azure [denegar] e [implementar si no existe] para aplicar la configuración segura en los recursos de Azure.
 
-Cómo configurar y administrar Azure Policy:
+Configuración y administración de Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

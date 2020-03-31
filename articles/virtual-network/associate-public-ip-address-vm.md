@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms.openlocfilehash: 5acda69ce08bc493d5349b084d1cfafc8432145b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647465"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Asociar una dirección IP pública a una máquina virtual

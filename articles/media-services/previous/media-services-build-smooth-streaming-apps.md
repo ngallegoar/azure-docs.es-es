@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 9ff961638aa170948d51793a21e86d18dd7e1d80
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69016787"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Generación de una aplicación de la Tienda Windows de Smooth Streaming  
@@ -32,7 +32,7 @@ Este tutorial contiene cuatro lecciones:
 3. Selección de secuencias de Smooth Streaming
 4. Selección de pistas de Smooth Streaming
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 > [!NOTE]
 > Los proyectos de la Tienda Windows versión 8.1 y versiones anteriores no se admiten en Visual Studio 2017.  Para más información, consulte [Compatibilidad y destinatarios de la plataforma de Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
 
@@ -66,13 +66,13 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
 1. En el menú **ARCHIVO**, haga clic en **Nuevo** y en **Proyecto**.
 1. En el diálogo Nuevo proyecto, escriba o seleccione los valores siguientes:
 
-    | NOMBRE | Valor |
+    | Nombre | Value |
     | --- | --- |
     | Grupo de plantillas |Instalado/Plantillas/Visual C#/Tienda Windows |
     | Plantilla |Aplicación vacía (XAML) |
-    | NOMBRE |SSPlayer |
+    | Nombre |SSPlayer |
     | Location |C:\SSTutorials |
-    | Nombre de la solución |SSPlayer |
+    | Nombre de solución |SSPlayer |
     | Crear directorio para la solución |(seleccionado) |
 
 1. Haga clic en **OK**.
@@ -82,7 +82,7 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
 1. En el Explorador de soluciones, haga clic con el botón derecho en **SSPlayer** y haga clic en **Agregar referencia**.
 1. Escriba o seleccione los valores siguientes:
 
-    | NOMBRE | Valor |
+    | Nombre | Value |
     | --- | --- |
     | Grupo de referencia |Windows/Extensiones |
     | Referencia |Seleccione el SDK de cliente Smooth Streaming de Microsoft para Windows 8 y el paquete en tiempo de ejecución de Microsoft Visual C++ |

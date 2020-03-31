@@ -9,10 +9,10 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: cb959b94807678187363d3132ece273584f13a0a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77590716"
 ---
 Ahorre en el uso de Azure Disk Storage con capacidad reservada. Las reservas de Azure Disk Storage combinadas con Azure Reserved Virtual Machine Instances permiten reducir el costo total de la máquina virtual. El descuento de reserva se aplica automáticamente a los discos coincidentes en el ámbito de reserva seleccionado. Debido a esta aplicación automática, no es necesario asignar una reserva a un disco administrado para obtener los descuentos.

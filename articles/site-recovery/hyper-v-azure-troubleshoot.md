@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
 ms.openlocfilehash: 0a3e5c922009353e4ba9ccab12cf70ea2b5992da
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73961481"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
@@ -123,7 +123,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 ### <a name="vss-failing-inside-the-hyper-v-host"></a>Fallo de VSS en el host de Hyper-V
 
 1. Busque en los registros de eventos errores VSS y recomendaciones:
-    - En el servidor host de Hyper-V, abra el registro de eventos de administrador de Hyper-V en **Visor de eventos** > **Registros de aplicaciones y servicios** > **Microsoft**  >  **Windows** > **Hyper-V** > **Administrador**.
+    - En el servidor host de Hyper-V, abra el registro de eventos de administrador de Hyper-V en **Visor de eventos** > **Registros de aplicaciones y servicios** > **Microsoft** > **Windows** > **Hyper-V** > **Administrador**.
     - Compruebe si existen eventos que indiquen errores de instantánea coherentes con la aplicación.
     - Un error habitual es: "Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available. The writer experienced a non-transient error (Hyper-V no pudo generar el conjunto de instantáneas VSS para la máquina virtual: hay más datos disponibles. El escritor ha experimentado un error transitorio). Restarting the VSS service might resolve issues if the service is unresponsive". (Hyper-V no ha podido generar el conjunto de instantáneas VSS para la máquina virtual "XYZ": El escritor ha experimentado un error no transitorio. Reiniciar el servicio VSS puede resolver el problema si el servicio no responde)
 

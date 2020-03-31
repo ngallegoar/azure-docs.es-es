@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: diberry
 ms.openlocfilehash: 03e8b658f7edf4640d738e5ea3af84953185d0f5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76986842"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Uso de Personalizer en Azure Notebook
@@ -64,7 +64,7 @@ El sistema recibe la solicitud y compara esa predicción con la opción conocida
 > Se trata de una simulación, por lo que el algoritmo de la recompensa es sencillo. En un escenario real, para determinar la puntuación de la recompensa el algoritmo deberá utilizar lógica de negocios, posiblemente con pesos para los diversos aspectos de la experiencia del cliente.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una cuenta de [Azure Notebook](https://notebooks.azure.com/).
 * Un [recurso Personalizer de Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).

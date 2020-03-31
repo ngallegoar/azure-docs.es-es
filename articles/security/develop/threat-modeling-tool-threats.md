@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: eb006482b851e9094b82ec3d0753b74c05296994
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68727840"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Amenazas de Microsoft Threat Modeling Tool
@@ -38,7 +38,7 @@ La Herramienta de modelado de amenazas le ayuda a dar respuesta a determinadas p
 
 Para ayudarle a formular mejor los tipos de pregunta planteados, Microsoft utiliza el modelo STRIDE, que clasifica los distintos tipos de amenazas y simplifica las conversaciones de seguridad global.
 
-| Categoría | DESCRIPCIÓN |
+| Category | Descripción |
 | -------- | ----------- |
 | **Suplantación de identidad** | Implica el acceso y uso ilícitos de la información de autenticación de otro usuario, como el nombre de usuario y la contraseña. |
 | **Alteración de datos** | Implica la modificación malintencionada de los datos. Entre los ejemplos se incluyen los cambios no autorizados realizados en los datos persistentes, como los que se encuentran en una base de datos, y la alteración de datos a medida que fluyen entre dos equipos a través de una red abierta, como Internet. |

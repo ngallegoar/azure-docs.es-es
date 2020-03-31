@@ -17,10 +17,10 @@ ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5a6da7e65a9a3e962a2df37b062792fbb990d04d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73159682"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Introducción a las directivas de red de Azure Kubernetes
@@ -42,7 +42,7 @@ Motor de ACS es una herramienta que genera una plantilla de Azure Resource Manag
 
 Para habilitar las directivas en clústeres implementados con motor de ACS, especifique el valor de la configuración de networkPolicy en el archivo de definición del clúster como "azure".
 
-#### <a name="example-configuration"></a>Configuración de ejemplo
+#### <a name="example-configuration"></a>Ejemplo de configuración
 
 En la siguiente configuración de ejemplo JSON se crea una nueva red virtual y una subred e se implementa un clúster de Kubernetes en ella con CNI de Azure. Se recomienda que utilice "Notepad" para editar el archivo JSON. 
 ```json
@@ -87,7 +87,7 @@ En la siguiente configuración de ejemplo JSON se crea una nueva red virtual y u
 
 ```
 ### <a name="creating-your-own-kubernetes-cluster-in-azure"></a>Creación de su propio clúster de Kubernetes en Azure
-La implementación puede utilizarse para proporcionar directivas de red para los pods en clústeres de Kubernetes que implemente usted mismo, sin necesidad de usar herramientas como el motor de ACS. En este caso, en primer lugar debe instalar el complemento de CNI y habilitarlo en todas las máquinas virtuales de un clúster. Para obtener instrucciones detalladas, consulte [Implementación del complemento para un clúster de Kubernetes](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+La implementación puede utilizarse para proporcionar directivas de red para los pods en clústeres de Kubernetes que implemente usted mismo, sin necesidad de usar herramientas como el motor de ACS. En este caso, en primer lugar debe instalar el complemento de CNI y habilitarlo en todas las máquinas virtuales de un clúster. Para instrucciones detalladas, consulte [Implementación del complemento para un clúster de Kubernetes que usted mismo haya implementado](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 
 Una vez implementado el clúster, ejecute el siguiente comando `kubectl` para descargar y aplicar la directiva de red de Azure *daemonset* en el clúster.
 

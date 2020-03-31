@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 748d10b994080b667885e5d0d5f4d688269e86ab
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68728046"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Mitigaciones de Microsoft Threat Modeling Tool
@@ -32,7 +32,7 @@ Visite **[Threat Modeling Tool](threat-modeling-tool.md)** .
 
 Las mitigaciones de la Herramienta de modelado de amenazas se clasifican según el marco de seguridad de aplicación web, que consta de las siguientes acciones:
 
-| Categoría | DESCRIPCIÓN |
+| Category | Descripción |
 | -------- | ----------- |
 | **[Auditoría y registro](threat-modeling-tool-auditing-and-logging.md)** | ¿Quién hizo qué y cuándo? La auditoría y el registro hacen referencia a cómo registra la aplicación los eventos relacionados con la seguridad. |
 | **[Autenticación](threat-modeling-tool-authentication.md)** | ¿Quién es usted? La autenticación es el proceso en el que una entidad demuestra la identidad de otra entidad, normalmente por medio de credenciales, como un nombre de usuario y una contraseña. |

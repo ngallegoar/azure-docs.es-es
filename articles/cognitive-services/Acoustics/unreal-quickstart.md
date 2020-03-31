@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: d3afcded894f72626a4f24bcbe85c34ac1329c29
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72242919"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Inicio rápido de Project Acoustics en Unreal y Wwise
@@ -49,7 +49,7 @@ Abra Wwise Launcher. En la pestaña **Plugins** (Complementos), en **Install New
 
    ![Wwise Launcher muestra el proyecto Acoustics Game de Unreal con la opción Integrate (Integrar) resaltada.](media/wwise-acoustics-game-project.png)
 
-### <a name="extend-wwise-unreal-plug-in-functionality"></a>Ampliación de la funcionalidad del complemento Unreal de Wwise
+### <a name="extend-wwise-unreal-plug-in-functionality"></a>Ampliación de la funcionalidad del complemento de Wwise para Unreal
 El complemento Unreal de Project Acoustics necesita que se exponga comportamiento adicional de la API del complemento Unreal de Wwise. Ejecute el archivo por lotes incluido con el complemento Unreal de Project Acoustics para automatizar estas modificaciones.
 * Dentro de *AcousticsGame\Plugins\ProjectAcoustics\Resources*, ejecute *PatchWwise.bat*.
 
@@ -59,7 +59,7 @@ El complemento Unreal de Project Acoustics necesita que se exponga comportamient
 
     ![El editor de código muestra "DXSDK" convertido en comentario](media/directx-sdk-comment.png)
 
-* Si compila con Visual Studio 2019: Para solucionar un error de vinculación con Wwise, cambie manualmente el valor predeterminado *VSVersion* de *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs* a **vc150**:
+* Si realiza la compilación con Visual Studio 2019: Para solucionar un error de vinculación con Wwise, cambie manualmente el valor predeterminado *VSVersion* de *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs* a **vc150**:
 
     ![El editor de código con VSVersion cambiado a "vc150"](media/vsversion-comment.png)
 

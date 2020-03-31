@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 4a947c01d63e3842ead91481e480024a54380144
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69015055"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introducción a la entrega de contenido a petición mediante Azure Portal
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a la v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Este tutorial le guía por los pasos para implementar un servicio básico de entrega de contenido de vídeo bajo demanda (VoD) con una aplicación de Azure Media Services (AMS) mediante Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Los siguientes elementos son necesarios para completar el tutorial:
 
 * Una cuenta de Azure. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -44,14 +44,14 @@ Este tutorial incluye las siguientes tareas:
 
 ## <a name="start-the-streaming-endpoint"></a>Inicio del punto de conexión de streaming
 
-Cuando se trabaja con Azure Media Services, uno de los escenarios más comunes es la entrega de vídeo mediante streaming con velocidad de bits adaptable. Media Services le proporciona empaquetado dinámico. Con el empaquetado dinámico, puede entregar su contenido codificado en MP4 con velocidad de bits adaptable en formatos de streaming Just-In-Time que son compatibles con Media Services. Los ejemplos incluyen Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming y Dynamic Adaptive Streaming sobre HTTP (DASH, también llamado MPEG-DASH). Mediante el uso de streaming con velocidad de bits adaptable de Media Services, puede entregar sus vídeos sin almacenar versiones empaquetadas previamente de cada uno de estos formatos de streaming.
+Cuando se trabaja con Azure Media Services, uno de los escenarios más comunes es la entrega de vídeo mediante streaming con velocidad de bits adaptable. Media Services proporciona empaquetado dinámico. Con el empaquetado dinámico, puede entregar su contenido codificado en MP4 con velocidad de bits adaptable en formatos de streaming Just-In-Time que son compatibles con Media Services. Los ejemplos incluyen Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming y Dynamic Adaptive Streaming sobre HTTP (DASH, también llamado MPEG-DASH). Mediante el uso de streaming con velocidad de bits adaptable de Media Services, puede entregar sus vídeos sin almacenar versiones empaquetadas previamente de cada uno de estos formatos de streaming.
 
 > [!NOTE]
 > Cuando se crea la cuenta de Azure Media Services, se agrega un punto de conexión de streaming predeterminado a la cuenta en estado **Detenido**. Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **En ejecución**. 
 
 Para iniciar el punto de conexión de streaming:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Seleccione **Configuración** > **Puntos de conexión de streaming**. 
 3. Seleccione el punto de conexión de streaming predeterminado. Aparecerá la ventana de **DETALLES DEL PUNTO DE CONEXIÓN DE STREAMING PREDETERMINADO** .
 4. Seleccione el icono **Iniciar**.
@@ -101,7 +101,7 @@ Para supervisar el progreso del trabajo de codificación, haga clic en **Configu
 ## <a name="publish-content"></a>Publicación de contenido
 Para proporcionar al usuario una dirección URL que pueda utilizarse para transmitir o descargar el contenido, primero debe publicar el recurso mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Azure Media Services admite dos tipos de localizadores: 
 
-* **Localizadores de streaming (OnDemandOrigin)** . Los localizadores de streaming se usan para el streaming adaptable. Ejemplos de streaming adaptable son HLS, Smooth Streaming y MPEG-DASH. Para crear un localizador de streaming, el recurso debe incluir un archivo .ism. 
+* **Localizadores de streaming (OnDemandOrigin)** . Los localizadores de streaming se usan para streaming adaptable. Ejemplos de streaming adaptable son HLS, Smooth Streaming y MPEG-DASH. Para crear un localizador de streaming, el recurso debe incluir un archivo .ism. 
 * **Localizadores progresivos (firma de acceso compartido)** . Los localizadores progresivos se usan para proporcionar vídeo mediante descarga progresiva.
 
 Para generar una dirección URL de streaming de HLS, anexe *(format=m3u8-aapl)* a la dirección URL:

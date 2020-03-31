@@ -9,24 +9,24 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: 89f981fcda8f40daff49ebdf796b896d90ce1754
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69900622"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box Gateway
 
-La seguridad es una preocupación importante para cualquiera que adopte una tecnología nueva, en especial cuando se utiliza la tecnología con información confidencial o de su propiedad. Azure Data Box Gateway le ayuda a asegurarse de que solo entidades autorizadas puedan ver, modificar o eliminar sus datos.
+La seguridad es una gran preocupación para cualquiera que adopte una tecnología nueva, en especial cuando se utiliza la tecnología con información confidencial o de su propiedad. Azure Data Box Gateway le ayuda a asegurarse de que solo entidades autorizadas puedan ver, modificar o eliminar sus datos.
 
 En este artículo se describen las características de seguridad de Azure Data Box Gateway que ayudan a proteger cada uno de los componentes de la solución y los datos almacenados en ellos.
 
 La solución Data Box Gateway consta de cuatro componentes principales que interactúan entre sí:
 
-- **Servicio Data Box Gateway hospedado en Azure**. Recurso de administración que se usa para crear el pedido del dispositivo, configurar el dispositivo y, a continuación, supervisar el pedido hasta que se realiza.
+- **Servicio Data Box Gateway hospedado en Azure**. El recurso de administración que se usa para crear el pedido del dispositivo, configurar el dispositivo y, a continuación, supervisar el pedido hasta que se realiza.
 - **Dispositivo Data Box Gateway**. Dispositivo virtual que aprovisiona en el hipervisor del sistema que proporciona. Este dispositivo virtual se usa para importar sus datos locales en Azure.
-- **Clientes/hosts conectados al dispositivo**. Clientes de la infraestructura que se conectan al dispositivo Data Box Gateway y contienen los datos que se deben proteger.
-- **Almacenamiento en la nube**. Ubicación de la plataforma Azure Cloud donde se almacenan los datos. Esta ubicación suele ser la cuenta de almacenamiento vinculada al recurso de Data Box Gateway que ha creado.
+- Los **clientes/hosts conectados al dispositivo**. Clientes de la infraestructura que se conectan al dispositivo Data Box Gateway y contienen los datos que se deben proteger.
+- El **almacenamiento en la nube**. La ubicación de la plataforma Azure Cloud donde se almacenan los datos. Esta ubicación suele ser la cuenta de almacenamiento vinculada al recurso de Data Box Gateway que ha creado.
 
 
 ## <a name="data-box-gateway-service-protection"></a>Protección del servicio Data Box Gateway
@@ -44,7 +44,7 @@ El dispositivo Data Box Gateway es un dispositivo virtual que se aprovisiona en 
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->
 
-### <a name="protect-the-device-via-activation-key"></a>Protección del dispositivo con una clave de activación
+### <a name="protect-the-device-via-activation-key"></a>Protege el dispositivo con una clave de activación
 
 Solo se permite a un dispositivo Data Box Gateway autorizado unirse al servicio Data Box Gateway que crea en su suscripción de Azure. Si quiere autorizar un dispositivo, debe usar una clave de activación para activarlo con el servicio Data Box Gateway.
 

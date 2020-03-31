@@ -9,10 +9,10 @@ ms.date: 10/25/2019
 ms.author: jehollan, glenga
 ms.custom: include file
 ms.openlocfilehash: fca8c3b0b1bd4d22720a6d15313e297d05b7fac9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76021007"
 ---
 1. Abrir Azure Portal desde [https://portal.azure.com](https://portal.azure.com)

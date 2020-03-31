@@ -11,18 +11,18 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: bc159452c81a673ca4a7ed46aa7eff19fd9209eb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73176030"
 ---
 # <a name="understanding-azure-ad-connect-14xxx-and-device-disappearance"></a>Descripción de Azure AD Connect 1.4.xx.x y desaparición del dispositivo
-Con la versión 1.4.xx.x de Azure AD Connect, algunos clientes pueden ver que algunos o todos sus dispositivos Windows desaparecen de Azure AD. Esto no es motivo de preocupación dado que estas identidades de los dispositivos nunca se usaron en Azure AD durante la autorización de acceso condicional. Este cambio no eliminará ningún dispositivo de Windows que se haya registrado correctamente con Azure AD para Unión a Azure AD híbrido.
+Con la versión 1.4.xx.x de Azure AD Connect, algunos clientes pueden ver que algunos o todos sus dispositivos Windows desaparecen de Azure AD. No hay motivo para preocuparse, ya que estas identidades de dispositivo no se usan en Azure AD durante la autorización de acceso condicional. Este cambio no eliminará ningún dispositivo de Windows que se haya registrado correctamente con Azure AD para Unión a Azure AD híbrido.
 
 Tenga en cuenta que si ve que estas eliminaciones de objetos de equipo o de dispositivo en Azure AD superan el umbral de eliminación de la exportación, se aconseja al cliente que permita su paso. [How To: allow deletes to flow when they exceed the deletion threshold](how-to-connect-sync-feature-prevent-accidental-deletes.md) (Instrucciones: Permitir que fluyan las eliminaciones una vez que superan el umbral de eliminación)
 
-## <a name="background"></a>Fondo
+## <a name="background"></a>Información previa
 Los dispositivos Windows registrados como "Unión a Azure AD híbrido" se representan en Azure AD como objetos de dispositivo. Estos objetos de dispositivo se pueden usar para obtener el acceso condicional. Los dispositivos Windows 10 se sincronizan con la nube a través de Azure AD Connect, los dispositivos Windows de nivel inferior, en cambio, se registran directamente con AD FS o con un inicio de sesión único de conexión directa.
 
 ## <a name="windows-10-devices"></a>Dispositivos Windows 10

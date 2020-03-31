@@ -11,10 +11,10 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 08/05/2019
 ms.openlocfilehash: 8eb8e4fccc17fe31def671cf6e8edb19d867b244
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822504"
 ---
 # <a name="azure-sql-database-advanced-threat-protection-for-single-or-pooled-databases"></a>Advanced Threat Protection de Azure SQL Database para bases de datos únicas o agrupadas

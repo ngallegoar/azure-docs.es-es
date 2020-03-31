@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: 8e223d0c6243bfddc1e5a56867c4c69de5e2a62e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822450"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solución de problemas de SQL Data Sync
@@ -43,7 +43,7 @@ Para obtener información general acerca de SQL Data Sync, consulte [Sincronizac
 
 - [¿Cómo trata Data Sync las referencias circulares? En otras palabras, ¿cuándo se sincronizan los mismos datos en varios grupos de sincronización y siguen cambiando como resultado?](#sync-circ)
 
-### <a name="sync-fails"></a> Se produce un error de sincronización en la interfaz de usuario del portal para las bases de datos locales asociadas al agente cliente
+### <a name="sync-fails-in-the-portal-ui-for-on-premises-databases-that-are-associated-with-the-client-agent"></a><a name="sync-fails"></a> Se produce un error de sincronización en la interfaz de usuario del portal para las bases de datos locales asociadas al agente cliente
 
 Se produce un error de SQL Data Sync en la interfaz de usuario del portal para las bases de datos locales asociadas al agente cliente. En el registro de eventos del equipo local que ejecuta el agente, verá los errores System.IO.IOException. Estos errores indican que el disco no tiene espacio suficiente.
 
@@ -51,7 +51,7 @@ Se produce un error de SQL Data Sync en la interfaz de usuario del portal para l
 
 - **Resolución**. Cree más espacio en la unidad en la que se encuentra el directorio %TEMP%.
 
-### <a name="sync-stuck"></a> Mi grupo de sincronización está atascado en el estado de procesamiento
+### <a name="my-sync-group-is-stuck-in-the-processing-state"></a><a name="sync-stuck"></a> Mi grupo de sincronización está atascado en el estado de procesamiento
 
 Un grupo de sincronización de SQL Data Sync lleva mucho tiempo en estado de procesamiento. No responde al comando **stop** y los registros no muestran ninguna entrada nueva.
 
@@ -80,7 +80,7 @@ Cualquiera de las condiciones siguientes puede hacer que un grupo de sincronizac
 > [!NOTE]
 > Si la información anterior no hace que el grupo de sincronización salga del estado de procesamiento, el Soporte técnico de Microsoft puede restablecer el estado del grupo de sincronización. Para restablecer el estado del grupo de sincronización, publique un mensaje en el [foro de Azure SQL Database](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted). En este mensaje, incluya el identificador de suscripción y el identificador del grupo de sincronización que es necesario reiniciar. Un ingeniero de Soporte técnico de Microsoft responderá a su mensaje y le informará cuando se haya restablecido el estado.
 
-### <a name="sync-baddata"></a> Veo datos erróneos en las tablas
+### <a name="i-see-erroneous-data-in-my-tables"></a><a name="sync-baddata"></a> Veo datos erróneos en las tablas
 
 Si se incluyen en una sincronización tablas que tienen el mismo nombre pero que son de esquemas de base de datos diferentes, verá datos erróneos en las tablas después de la sincronización.
 
@@ -88,7 +88,7 @@ Si se incluyen en una sincronización tablas que tienen el mismo nombre pero que
 
 - **Resolución**. Asegúrese de que los nombres de las tablas implicadas en una sincronización sean diferentes, aunque las tablas pertenezcan a esquemas de base de datos distintos.
 
-### <a name="sync-pkdata"></a> Tras una sincronización correcta, veo datos clave principales incoherentes
+### <a name="i-see-inconsistent-primary-key-data-after-a-successful-sync"></a><a name="sync-pkdata"></a> Tras una sincronización correcta, veo datos clave principales incoherentes
 
 Una sincronización se notifica como correcta, y en su registro no se muestran filas con errores ni omitidas, pero observa que los datos clave principales son incoherentes entre las bases de datos del grupo de sincronización.
 
@@ -96,7 +96,7 @@ Una sincronización se notifica como correcta, y en su registro no se muestran f
 
 - **Resolución**. Para evitar este problema, asegúrese de que no se modifica ningún dato en la columna de clave principal. Para corregir este problema después de que se haya producido, elimine la fila que tiene datos incoherentes de todos los puntos de conexión del grupo de sincronización. A continuación, vuelva a insertar la fila.
 
-### <a name="sync-perf"></a> Veo una degradación significativa del rendimiento
+### <a name="i-see-a-significant-degradation-in-performance"></a><a name="sync-perf"></a> Veo una degradación significativa del rendimiento
 
 El rendimiento disminuye considerablemente, posiblemente hasta tal punto que ni siquiera puede abrir la interfaz de usuario de Data Sync.
 
@@ -104,12 +104,12 @@ El rendimiento disminuye considerablemente, posiblemente hasta tal punto que ni 
 
 - **Resolución**. La mejor corrección es la prevención. Asegúrese de que no haya referencias circulares en los grupos de sincronización. Cualquier fila sincronizada por un grupo de sincronización no puede ser sincronizada por otro grupo de sincronización.
 
-### <a name="sync-nulls"></a>He recibido el mensaje: "No se puede insertar el valor NULL en la columna \<columna>. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir este error? 
+### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a>He recibido el mensaje: "No se puede insertar el valor NULL en la columna \<columna>. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir este error? 
 Este mensaje de error indica que se ha producido uno de los dos problemas siguientes:
 -  Una tabla no tiene ninguna clave principal. Para corregir este problema, agregue una clave principal a todas las tablas que va a sincronizar.
 -  Hay una cláusula WHERE en la instrucción CREATE INDEX. Data Sync no controla esta condición. Para solucionar este problema, quite la cláusula WHERE o realice los cambios manualmente en todas las bases de datos. 
  
-### <a name="sync-circ"></a> ¿Cómo trata Data Sync las referencias circulares? En otras palabras, ¿cuándo se sincronizan los mismos datos en varios grupos de sincronización y sigue cambiando como resultado?
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a><a name="sync-circ"></a> ¿Cómo trata Data Sync las referencias circulares? En otras palabras, ¿cuándo se sincronizan los mismos datos en varios grupos de sincronización y sigue cambiando como resultado?
 Data Sync no controla las referencias circulares, así que asegúrese de no usarlas. 
 
 ## <a name="client-agent-issues"></a>Problemas del agente cliente
@@ -134,7 +134,7 @@ Para solucionar problemas con el agente de cliente, consulte [Troubleshoot Data 
 
 - [¿Qué ocurre cuando se restaura una base de datos perdida o dañada?](#setup-restore)
 
-### <a name="setup-space"></a> Aparece un mensaje en el que se indica "espacio insuficiente en disco"
+### <a name="i-get-a-disk-out-of-space-message"></a><a name="setup-space"></a> Aparece un mensaje en el que se indica "espacio insuficiente en disco"
 
 - **Causa**. El mensaje "espacio insuficiente en disco" puede aparecer si es necesario eliminar archivos sobrantes. Esto puede deberse a un software antivirus o a archivos abiertos cuando se intentan realizar operaciones de eliminación.
 
@@ -143,7 +143,7 @@ Para solucionar problemas con el agente de cliente, consulte [Troubleshoot Data 
 > [!IMPORTANT]
 > No elimine los archivos mientras la sincronización esté en curso.
 
-### <a name="setup-delete"></a> No puedo eliminar mi grupo de sincronización
+### <a name="i-cant-delete-my-sync-group"></a><a name="setup-delete"></a> No puedo eliminar mi grupo de sincronización
 
 Se produce un error al intentar eliminar un grupo de sincronización. El error al eliminar un grupo de sincronización se puede producir en cualquier de los siguientes escenarios:
 
@@ -165,7 +165,7 @@ Se produce un error al intentar eliminar un grupo de sincronización. El error a
 
 - **Resolución**. Espere a que finalice el proceso de aprovisionamiento o sincronización y, después, vuelva a intentar eliminar el grupo de sincronización.
 
-### <a name="setup-unreg"></a> No puedo anular el registro de una base de datos de SQL Server local
+### <a name="i-cant-unregister-an-on-premises-sql-server-database"></a><a name="setup-unreg"></a> No puedo anular el registro de una base de datos de SQL Server local
 
 - **Causa**. Es muy probable que esté intentando anular el registro de una base de datos que ya se ha eliminado.
 
@@ -185,7 +185,7 @@ Se produce un error al intentar eliminar un grupo de sincronización. El error a
   1. Seleccione **Editar credenciales** y, después, escriba las credenciales de la base de datos.
   1. Continúe con la anulación del registro.
 
-### <a name="setup-perms"></a> No tengo suficientes privilegios para iniciar los servicios del sistema
+### <a name="i-dont-have-sufficient-privileges-to-start-system-services"></a><a name="setup-perms"></a> No tengo suficientes privilegios para iniciar los servicios del sistema
 
 - **Causa**. Este error se produce en dos situaciones:
   -   El nombre de usuario o la contraseña son incorrectos.
@@ -199,7 +199,7 @@ Se produce un error al intentar eliminar un grupo de sincronización. El error a
   1. Seleccione **Aplicar** y luego **Aceptar**.
   1. Cierre todas las ventanas.
 
-### <a name="setup-date"></a> Una base de datos tiene como estado "Obsoleto"
+### <a name="a-database-has-an-out-of-date-status"></a><a name="setup-date"></a> Una base de datos tiene como estado "Obsoleto"
 
 - **Causa**. SQL Data Sync quita del servicio las bases de datos que han estado sin conexión durante un mínimo de 45 días (contados a partir del momento en que la base de datos quedó sin conexión). Si una base de datos está sin conexión durante 45 días o más y después vuelve a conectarse, su estado se establece en **Obsoleto**.
 
@@ -213,7 +213,7 @@ Se produce un error al intentar eliminar un grupo de sincronización. El error a
   > [!WARNING]
   > Perderá todos los cambios que haya realizado en la base de datos mientras estaba sin conexión.
 
-### <a name="setup-date2"></a> Un grupo de sincronización tiene como estado "Obsoleto"
+### <a name="a-sync-group-has-an-out-of-date-status"></a><a name="setup-date2"></a> Un grupo de sincronización tiene como estado "Obsoleto"
 
 - **Causa**. Un grupo de sincronización puede quedar obsoleto si uno o más cambios no se pueden aplicar durante todo el período de retención de 45 días.
 
@@ -221,7 +221,7 @@ Se produce un error al intentar eliminar un grupo de sincronización. El error a
 
   Si el estado de un grupo de sincronización es **Obsoleto**, tiene que eliminar el grupo de sincronización y volver a crearlo.
 
-### <a name="setup-delete2"></a> Un grupo de sincronización no se puede eliminar durante los tres minutos posteriores a la desinstalación o detención del agente
+### <a name="a-sync-group-cant-be-deleted-within-three-minutes-of-uninstalling-or-stopping-the-agent"></a><a name="setup-delete2"></a> Un grupo de sincronización no se puede eliminar durante los tres minutos posteriores a la desinstalación o detención del agente
 
 No puede eliminar un grupo de sincronización durante los tres minutos posteriores a la desinstalación o detención del agente cliente de SQL Data Sync asociado.
 
@@ -234,7 +234,7 @@ No puede eliminar un grupo de sincronización durante los tres minutos posterior
     b.  Instale el agente en un equipo local (puede ser el mismo o un equipo diferente). A continuación, envíe la clave del agente que se genera en el portal para el agente que se muestra como sin conexión.  
     c. Intente eliminar el grupo de sincronización.
 
-### <a name="setup-restore"></a> ¿Qué ocurre cuando se restaura una base de datos perdida o dañada?
+### <a name="what-happens-when-i-restore-a-lost-or-corrupted-database"></a><a name="setup-restore"></a> ¿Qué ocurre cuando se restaura una base de datos perdida o dañada?
 
 Si restaura una base de datos perdida o dañada desde una copia de seguridad, puede que los datos de los grupos de sincronización a los que pertenece la base de datos no coincidan.
 

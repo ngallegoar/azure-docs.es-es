@@ -3,11 +3,11 @@ title: P+F sobre Azure Resource Health
 description: Introducción a Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f626dc4366cbdd9215704de97bb03fad19422eb
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75912782"
 ---
 # <a name="azure-resource-health-faq"></a>P+F sobre Azure Resource Health
@@ -46,7 +46,7 @@ Sí, cuando un recurso no está disponible, Resource Health incluye la causa pri
 En el portal, las acciones iniciadas por el usuario aparecen con un icono de notificación azul, mientras que los eventos planeados y no planeados se muestran con un icono de advertencia de color rojo. Se proporcionan más detalles en [Información general sobre Resource Health](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>¿Puedo integrar Resource Health con mis herramientas de supervisión?
-Resource Health tiene [compatibilidad](resource-health-alert-arm-template-guide.md) con las alertas basadas en el registro de actividad. Las alertas del registro de actividad usan [grupos de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) para notificar a los usuarios que se ha desencadenado una alerta. Los grupos de acciones son compatibles con una variedad de canales de notificación, como correo electrónico, SMS, webhook y acciones de ITSM.
+Resource Health tiene [compatibilidad con versión preliminar](resource-health-alert-arm-template-guide.md) para las alertas basadas en el registro de actividad. Las alertas del registro de actividad usan [grupos de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) para notificar a los usuarios que se ha desencadenado una alerta. Los grupos de acciones son compatibles con una variedad de canales de notificación, como correo electrónico, SMS, webhook y acciones de ITSM.
 
 ## <a name="where-do-i-find-resource-health"></a>¿Dónde se encuentra Resource Health?
 Después de iniciar sesión en Azure Portal, puede acceder a Resource Health de varias maneras:

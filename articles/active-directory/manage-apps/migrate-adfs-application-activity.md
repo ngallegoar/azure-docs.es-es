@@ -14,10 +14,10 @@ ms.date: 01/14/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 333e440fdd5f5062dda45fb12a83543c63e66c04
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978032"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Uso del informe de actividades de aplicaciones de AD FS (versión preliminar) para migrar aplicaciones a Azure AD
@@ -32,7 +32,7 @@ El informe de actividades de aplicaciones de AD FS (versión preliminar) de Azu
 
 Los datos de actividad de aplicaciones de AD FS están disponibles para los usuarios que tienen asignados cualquiera de estos roles de administrador: administrador global, lector de informes, lector de seguridad, administrador de aplicaciones o administrador de aplicaciones en la nube.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * En estos momentos, su organización debe usar AD FS para acceder a las aplicaciones.
 * Azure AD Connect Health debe estar habilitado en el inquilino de Azure AD.
