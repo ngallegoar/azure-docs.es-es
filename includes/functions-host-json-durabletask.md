@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 284aad7dd5b51268b1c8ff8a02f4489d6f1cd3d9
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6bb59db4c1b31033b1e116742dedc94621b1c60d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279377"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80116921"
 ---
 Configuración de [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
 
@@ -43,10 +43,11 @@ Configuración de [Durable Functions](../articles/azure-functions/durable-functi
 }
 ```
 
-### <a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
+### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
 
 ```json
 {
+ "extensions": {
   "durableTask": {
     "hubName": "MyTaskHub",
     "storageProvider": {
@@ -84,7 +85,9 @@ Configuración de [Durable Functions](../articles/azure-functions/durable-functi
     "extendedSessionIdleTimeoutInSeconds": 30,
     "useGracefulShutdown": false
   }
+  }
 }
+
 ```
 
 Los nombres de la central de tareas deben empezar por una letra y estar formados únicamente por letras y números. Si no se especifica, el nombre predeterminado de la central de tareas de la aplicación de función es **DurableFunctionsHub**. Para más información, consulte el artículo sobre las [centrales de tareas](../articles/azure-functions/durable-functions-task-hubs.md).

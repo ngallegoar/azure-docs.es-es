@@ -10,21 +10,24 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: d0e9fff56949125c5fa797e0e4ef7e1183448dd0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: cbe01ee9b8edeab349db484cea6c25dca32bf213
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168586"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218019"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio (clásico) con API Management
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 ## <a name="overview"></a>Información general
 En esta guía, se explica cómo empezar a usar rápidamente API Management para administrar los servicios web de Azure Machine Learning Studio (clásico).
 
 ## <a name="what-is-azure-api-management"></a>¿Qué es la Azure API Management?
 Azure API Management es un servicio de Azure que le permite administrar los extremos de la API de REST al definir el acceso del usuario, el límite de uso y la supervisión de panel. Consulte el [sitio de Azure API Management](https://azure.microsoft.com/services/api-management/) para más información. Para empezar a trabajar con Azure API Management, consulte [la guía de importación y publicación](/azure/api-management/import-and-publish). Esta otra guía, en la que está basada esta guía, aborda más temas, incluidos las configuraciones de notificación, el nivel de precios, el control de respuestas, la autenticación de los usuarios, la creación de productos, las suscripciones de desarrollador y los paneles de uso.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 Para completar a esta guía, necesita:
 
 * Una cuenta de Azure.
@@ -214,7 +217,7 @@ Haga clic en **Sí** para publicar el experimento.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Prueba del servicio web
-Un servicio web de AzureML consta de los extremos RRS (servicio de solicitud/respuesta) y BES (servicio de ejecución por lotes). RRS sirve para la ejecución sincrónica. BES sirve para la ejecución por lotes asincrónica. Para probar el servicio web con el origen de Python del ejemplo siguiente, puede que necesite descargar e instalar el SDK de Azure para Python (consulte: [Instalación de Python](/azure/python/python-sdk-azure-install)).
+Un servicio web de AzureML consta de los extremos RRS (servicio de solicitud/respuesta) y BES (servicio de ejecución por lotes). RRS sirve para la ejecución sincrónica. BES sirve para la ejecución por lotes asincrónica. Para probar el servicio web con el origen de Python del ejemplo siguiente, puede que necesite descargar e instalar el SDK de Azure para Python (consulte: [Cómo instalar Python](/azure/python/python-sdk-azure-install)).
 
 También necesitará el **área de trabajo**, el **servicio** y la **api_key** del experimento para el origen de ejemplo siguiente. Puede encontrar el área de trabajo y el servicio haciendo clic en **Solicitud-respuesta** o en **Ejecución de lotes** del experimento en el panel del servicio web.
 
@@ -245,9 +248,9 @@ Esta guía muestra un ejemplo de Python en funcionamiento. Necesitará modificar
 
     import urllib2
     import json
-    workspace = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE WORKSPACE ID>"
-    service = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE SERVICE ID>"
-    api_key = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE API KEY>"
+    workspace = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE WORKSPACE ID>"
+    service = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE SERVICE ID>"
+    api_key = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE API KEY>"
     data = {
     "Inputs": {
         "input1": {

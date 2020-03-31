@@ -6,22 +6,22 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
-ms.custom: fasttrack-edit
-ms.openlocfilehash: ffc5ee32541cfbbda2ae54fd229c1436f133d730
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: seodec18, fasttrack-edit
+ms.openlocfilehash: ec842530f3cae26b869a649617f279d204b98fcc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671523"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80047768"
 ---
-# <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service #
+# <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service
 
 Conexiones híbridas es tanto un servicio de Azure como una característica de Azure App Service. Como servicio tiene un uso y unas funcionalidades que van más allá de aquellas que se usan en App Service. Para más información sobre Conexiones híbridas y su uso fuera de App Service, consulte [Protocolo de Conexiones híbridas de Azure Relay][HCService].
 
 En App Service, Conexiones híbridas se puede usar para acceder a recursos de aplicaciones en otras redes. Proporciona acceso desde la aplicación a un punto de conexión de la aplicación. No permiten una posibilidad alternativa de acceder a su aplicación. Dado que se utiliza en App Service, cada conexión híbrida se correlaciona con una combinación única de host y puerto TCP. Esto significa que el punto de conexión híbrida puede estar en cualquier sistema operativo y en cualquier aplicación, siempre y cuando se acceda a un puerto de escucha TCP. La característica Conexiones híbridas no sabe lo que es el protocolo de aplicaciones ni sabe a qué se accede. Simplemente ofrece acceso a la red.  
 
 
-## <a name="how-it-works"></a>Cómo funciona ##
+## <a name="how-it-works"></a>Funcionamiento ##
 La característica Conexiones híbridas consta de dos llamadas salientes a Azure Service Bus Relay. Existe una conexión desde una biblioteca en el host donde la aplicación se ejecuta en App Service. También hay una conexión desde el Administrador de conexiones híbridas (HCM) a Service Bus Relay. HCM es un servicio de retransmisión que se implementa en la red que hospeda el recurso al que intenta acceder. 
 
 Mediante las dos conexiones unidas, la aplicación tiene un túnel TCP a una combinación fija de host:puerto al otro lado del HCM. La conexión usa TLS 1.2 para la seguridad y las claves de firma de acceso compartido (SAS) para la autenticación y la autorización.    
@@ -56,7 +56,7 @@ Las cosas que no se pueden hacer con las conexiones híbridas incluyen:
 - Compatibilidad con LDAP, porque puede requerir UDP.
 - Compatibilidad con Active Directory, porque un trabajo de App Service no se puede unir a un dominio.
 
-### <a name="prerequisites"></a>Requisitos previos ###
+### <a name="prerequisites"></a>Prerequisites ###
  - Se requiere Windows App Service. Solo está disponible en Windows.  
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Incorporación y creación de Conexiones híbridas en la aplicación ##
@@ -220,7 +220,7 @@ Cualquier usuario que tenga permisos suficientes en la retransmisión de Azure S
 
 Cualquier persona con `Reader` acceso a la Retransmisión podrá _ver_ la conexión híbrida al intentar agregarla a su aplicación web en Azure portal, pero no podrá _agregarla_ ya que carece de los permisos para recuperar la cadena de conexión que se usa para establecer la conexión de retransmisión. Para agregar correctamente la conexión híbrida, deben tener el permiso `listKeys` (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). El rol `Contributor` o cualquier otro rol que incluya este permiso en la Retransmisión permitirá a los usuarios usar la conexión híbrida y agregarla a su propia Web Apps.
 
-## <a name="troubleshooting"></a>solución de problemas ##
+## <a name="troubleshooting"></a>Solución de problemas ##
 
 El estado "Conectado" significa que hay al menos una instancia de HCM configurada con esa conexión híbrida y es capaz de conectarse a Azure. Si en el estado de la conexión híbrida no indica **Conectado**, la conexión híbrida no está configurada en ningún HCM que tenga acceso a Azure.
 

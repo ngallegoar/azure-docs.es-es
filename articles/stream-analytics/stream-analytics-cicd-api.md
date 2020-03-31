@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 78f2e06947c2b81ffe5e6cd8a88438db4dabf158
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 328ca7cd2c6f76095c8334ae6fdb4aa75fbb867d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426410"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292001"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementación de CI/CD para Stream Analytics en IoT Edge mediante API
 
@@ -57,7 +57,7 @@ Para crear un trabajo de Stream Analytics, llame al método PUT con la API Strea
 
 |Método|URL de la solicitud|
 |------|-----------|
-|PUT|https://management.azure.com/subscriptions/{**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview|
+|PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
 Ejemplo del comando mediante **curl**:
 
@@ -144,7 +144,7 @@ Para publicar un trabajo de Stream Analytics en IoT Edge, llame al método POST 
 
 |Método|URL de la solicitud|
 |------|-----------|
-|POST|https://management.azure.com/subscriptions/{**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview|
+|POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 
 Esta operación asincrónica devuelve un estado de 202 hasta que el trabajo se publique correctamente. El encabezado de la respuesta de la ubicación contiene el URI que se usa para obtener el estado del proceso. Mientras se ejecuta el proceso, una llamada al URI del encabezado de la ubicación devuelve un estado de 202. Cuando el proceso finaliza, el URI del encabezado de la ubicación devuelve un estado de 200. 
 

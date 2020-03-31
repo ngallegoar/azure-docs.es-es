@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386194"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
@@ -55,7 +55,7 @@ Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nub
 
     El cmdlet crea los siguientes archivos:
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** y **ServiceDefinition.csdef**: Archivos específicos de Azure necesarios para publicar la aplicación. Para obtener más información, consulte [Información general de la creación de un servicio hospedado para Azure].
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** y **ServiceDefinition.csdef**: estos archivos específicos de Azure son necesarios para publicar la aplicación. Para obtener más información, consulte [Información general de la creación de un servicio hospedado para Azure].
    * **deploymentSettings.json**: almacena la configuración local que utilizan los cmdlet de implementación de Azure PowerShell.
 4. Escriba el siguiente comando para agregar un rol web nuevo:
 

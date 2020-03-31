@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088185"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231900"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solución de problemas de mensajes de error específicos de RDP en una máquina virtual Windows en Azure
 Puede recibir un mensaje de error específico al usar la conexión Escritorio remoto a una máquina virtual (VM) Windows en Azure. Este artículo describe algunos de los mensajes de error más comunes que se pueden obtener, junto con los pasos de solución de problemas para resolverlos. Si tiene problemas para conectarse a la máquina virtual mediante RDP, pero no ve un mensaje de error específico, consulte la [Guía de solución de problemas de Escritorio remoto](troubleshoot-rdp-connection.md).
@@ -30,7 +30,7 @@ Para obtener información sobre mensajes de error específicos, vea los siguient
 * [Se desconectó la sesión remota porque no hay servidores de licencias de Escritorio remoto disponibles para proporcionar una licencia](#rdplicense).
 * [Escritorio remoto no encuentra el equipo "nombre"](#rdpname).
 * [Error de autenticación. No se puede conectar con la autoridad de seguridad local](#rdpauth).
-* [Error de seguridad de Windows: Las credenciales no han funcionado](#wincred).
+* [Error de Seguridad de Windows: Las credenciales no funcionaron](#wincred).
 * [Este equipo no se puede conectar al equipo remoto](#rdpconnect).
 
 <a id="rdplicense"></a>
@@ -79,7 +79,7 @@ Posibles soluciones:
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Error de seguridad de Windows: las credenciales no han funcionado.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Error de Seguridad de Windows: Las credenciales no funcionaron.
 Causa: la VM de destino no pudo validar el nombre y la contraseña de la cuenta.
 
 Un equipo con Windows puede validar las credenciales de una cuenta local o de una cuenta de dominio.

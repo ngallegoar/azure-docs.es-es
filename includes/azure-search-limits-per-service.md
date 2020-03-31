@@ -3,23 +3,23 @@ title: archivo de inclusión
 description: archivo de inclusión
 services: search
 author: HeidiSteen
-ms.service: search
+ms.service: cognitive-search
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 179f525b7b6a7e51889b14b66df6c537ca56bd75
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67186695"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80272924"
 ---
 El almacenamiento está limitado por el espacio en disco o el *número máximo* de índices, documentos u otros recursos de alto nivel, lo que ocurra primero. En la tabla siguiente se documentan los límites de almacenamiento. Para conocer los límites máximos sobre índices, documentos y otros objetos, consulte los [límites por recurso](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
-| Recurso | Gratuito | Básico<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
+| Resource | Gratuito | Básico<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Contrato de nivel de servicio (SLA)<sup>3</sup>  |Sin |Sí |Sí |Sí |Sí |Sí |Sí |Sí |
+| Contrato de nivel de servicio (SLA)<sup>3</sup>  |No |Sí |Sí |Sí |Sí |Sí |Sí |Sí |
 | Almacenamiento por partición |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
 | Particiones por servicio |N/D |1 |12 |12 |12 |3 |12 |12 |
 | Tamaño de la partición |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |

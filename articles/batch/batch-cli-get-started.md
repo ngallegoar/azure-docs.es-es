@@ -15,10 +15,10 @@ ms.date: 07/24/2018
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 30f71432ca008b87bddfb253f23ae3cef0ac390d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77020189"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Administración de recursos de Batch con la CLI de Azure

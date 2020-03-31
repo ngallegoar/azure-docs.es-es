@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 070e2108afb22539501c0e1808593c95a26b4576
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: d0b7288d5232e296a36708a08ea2ad9f8df5ee1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539321"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531063"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -23,6 +23,7 @@ Puede configurar todas las características que se tratan en este artículo usan
 
 ## <a name="accelerated-networking"></a>Redes aceleradas
 Azure Accelerated Networking mejora el rendimiento de la red al permitir la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual. Para obtener más información sobre el uso de redes acelerada, consulte los temas sobre redes aceleradas para máquinas virtuales [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) o [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Para usar las redes aceleradas con conjuntos de escalado, establezca enableAcceleratedNetworking en **true** en los valores de networkInterfaceConfigurations de su conjunto de escalado. Por ejemplo:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -42,7 +43,8 @@ Azure Accelerated Networking mejora el rendimiento de la red al permitir la virt
 
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Creación de un conjunto de escalado que hace referencia a una instancia de Azure Load Balancer existente
 Cuando se crea un conjunto de escalado mediante Azure Portal, se crea un nuevo equilibrador de carga para la mayoría de las opciones de configuración. Si crea un conjunto de escalado, que debe hacer referencia a un equilibrador de carga existente, puede hacerlo mediante la CLI. El siguiente script de ejemplo crea un equilibrador de carga y luego un conjunto de escalado que hace referencia a él:
-```bash
+
+```azurecli
 az network lb create \
     -g lbtest \
     -n mylb \
@@ -64,11 +66,13 @@ az vmss create \
     --lb mylb \
     --backend-pool-name mybackendpool
 ```
+
 >[!NOTE]
 > Después de crear el conjunto de escalado, no se puede modificar el puerto de back-end para una regla de equilibrio de carga que se usa en un sondeo de estado del equilibrador de carga. Para cambiar el puerto, puede quitar el sondeo de estado mediante la actualización del conjunto de escalado de máquinas virtuales de Azure, actualizar el puerto y, a continuación, volver a configurar el sondeo de estado. 
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Creación de un conjunto de escalado que hace referencia a una puerta de enlace de aplicaciones
 Para crear un conjunto de escalado que usa una puerta de enlace de aplicaciones, haga referencia al grupo de direcciones de back-end de la puerta de enlace de aplicaciones en la sección ipConfigurations del conjunto de escalado, como en esta configuración de plantilla ARM:
+
 ```json
 "ipConfigurations": [{
   "name": "{config-name}",
@@ -91,10 +95,13 @@ De forma predeterminada, los conjuntos de escalado adoptan los valores de DNS es
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Creación de un conjunto de escalado con servidores DNS configurables
 Para crear un conjunto de escalado con una configuración de DNS personalizada mediante la CLI de Azure, agregue el argumento **--dns-servers** al comando **vmss create**, seguido por las direcciones ip del servidor separadas por espacio. Por ejemplo:
+
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
+
 Para configurar servidores DNS personalizados en una plantilla de Azure, agregue una propiedad dnsSettings a la sección de networkInterfaceConfigurations del conjunto de escalado. Por ejemplo:
+
 ```json
 "dnsSettings":{
     "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -136,8 +143,9 @@ Para establecer el nombre de dominio en una plantilla de Azure, agregue una prop
 }
 ```
 
-El resultado, para un nombre DNS de máquina virtual individual, tendría la forma siguiente: 
-```
+El resultado, para un nombre DNS de máquina virtual individual, tendría la forma siguiente:
+
+```output
 <vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
@@ -159,17 +167,20 @@ Para crear un conjunto de escalado mediante una plantilla de Azure, asegúrese d
     }
 }
 ```
+
 Ejemplo de plantilla: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Consulta de las direcciones IP públicas de las máquinas virtuales en un conjunto de escalado
 Para enumerar las direcciones IP públicas asignadas para escalar máquinas virtuales del conjunto mediante la CLI, use el comando **az vmss list-instance-public-ips**.
 
 Para mostrar las direcciones IP públicas del conjunto de escalado con PowerShell, use el comando _Get-AzPublicIpAddress_. Por ejemplo:
+
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 También puede consultar las direcciones IP públicas haciendo referencia directamente al identificador de recurso de la configuración de la dirección IP pública. Por ejemplo:
+
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -195,6 +206,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 ```
 
 Ejemplo de salida de [Azure Resource Explorer](https://resources.azure.com) y API REST de Azure:
+
 ```json
 {
   "value": [
@@ -318,7 +330,8 @@ Los grupos de seguridad de red se pueden aplicar directamente a un conjunto de e
 
 Los grupos de seguridad de red también se pueden especificar directamente para un conjunto de escalado agregando una referencia a la sección de configuración IP de la interfaz de red de las propiedades de máquinas virtuales del conjunto de escalado.
 
-Por ejemplo: 
+Por ejemplo:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -362,7 +375,7 @@ Por ejemplo:
 
 Para comprobar que el grupo de seguridad de red está asociado con el conjunto de escalado, use el comando `az vmss show`. El siguiente ejemplo usa `--query` para filtrar los resultados y que solo aparezca la sección pertinente de la salida.
 
-```bash
+```azurecli
 az vmss show \
     -g myResourceGroup \
     -n myScaleSet \
@@ -378,7 +391,7 @@ az vmss show \
 
 Para comprobar que el grupo de seguridad de la aplicación está asociado con el conjunto de escalado, use el comando `az vmss show`. El siguiente ejemplo usa `--query` para filtrar los resultados y que solo aparezca la sección pertinente de la salida.
 
-```bash
+```azurecli
 az vmss show \
     -g myResourceGroup \
     -n myScaleSet \

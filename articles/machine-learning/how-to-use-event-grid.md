@@ -11,10 +11,10 @@ author: shivp950
 ms.reviewer: larryfr
 ms.date: 03/11/2020
 ms.openlocfilehash: fe6125682f669e453100488b7e0afc4c49409588
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79129731"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Creación de flujos de trabajo de aprendizaje automático controlados por eventos (versión preliminar)
@@ -34,7 +34,7 @@ Use Event Grid para habilitar escenarios comunes, como:
 > Actualmente, los eventos runStatusChanged solo se desencadenan cuando el estado de ejecución es **failed**
 >
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 * Acceso de colaborador o propietario al área de trabajo de Azure Machine Learning para la que se crearán los eventos.
 
 ### <a name="configure-eventgrid-using-the-azure-portal"></a>Configuración de EventGrid mediante Azure Portal

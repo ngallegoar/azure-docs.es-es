@@ -1,20 +1,18 @@
 ---
 title: Preparación de la solución de Dynamics 365
 description: Marco para empaquetar, instalar y desinstalar componentes
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricarod.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: bcb3bb63f305aeb98efda3baf0f6661bd7f67a7c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ac1e4fa541e945f20904ced114a36b58d14585ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824245"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278593"
 ---
 # <a name="dynamics-365-solution-preparation"></a>Preparación de la solución de Dynamics 365
 
@@ -24,7 +22,7 @@ Si ya es ISV de Dynamics 365 (xRM), lo más probable es que ya haya creado una s
 
 ![CRMScreenShot1](media/CRMScreenShot1.png)
 
-_**Nota:** En el siguiente ejemplo de paquete, supondremos que el nombre de la solución es "SampleSolution.zip"_
+_**Nota:** En el siguiente ejemplo de paquete, supondremos que el nombre de la solución es "SampleSolution.zip"._
 
 Si se ha hecho ISV recientemente, puede obtener más información sobre cómo crear una solución aquí: [https://msdn.microsoft.com/library/gg334530.aspx](https://msdn.microsoft.com/library/gg334530.aspx)
 

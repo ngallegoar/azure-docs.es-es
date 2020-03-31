@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
-ms.openlocfilehash: 5e90416b23b057ad5079a551242895802ac641c9
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 64c2e77ffc43ec98c13ce8c0cad002cdb2053241
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399117"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80296916"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creación de un área de trabajo para Azure Machine Learning con la CLI de Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo aprenderá a crear un área de trabajo de Azure Machine Learning mediante la CLI de Azure. La CLI de Azure proporciona comandos para administrar recursos de Azure. La extensión de aprendizaje automático de la CLI proporciona comandos para trabajar con recursos de Azure Machine Learning.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -36,11 +36,13 @@ En este artículo aprenderá a crear un área de trabajo de Azure Machine Learni
 
 Hay varias maneras de autenticarse en la suscripción a Azure desde la CLI. La manera más básica consiste en autenticarse interactivamente a través de un explorador. Para autenticarse de forma interactiva, abra una línea de comandos o un terminal y use el siguiente comando:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
 Si la CLI puede abrir el explorador predeterminado, lo hará y cargará una página de inicio de sesión. De lo contrario, tendrá que abrir un explorador y seguir las instrucciones de la línea de comandos. Las instrucciones implican navegar a [https://aka.ms/devicelogin](https://aka.ms/devicelogin) y escribir un código de autorización.
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
 Para obtener otros métodos de autenticación, consulte [Inicio de sesión con la CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
@@ -150,13 +152,13 @@ Para crear un área de trabajo que use los recursos existentes, debe proporciona
 
     1. Instale la extensión de Application Insights:
 
-        ```bash
+        ```azurecli-interactive
         az extension add -n application-insights
         ```
 
     2. Obtenga el Id. del servicio Application Insights:
 
-        ```bash
+        ```azurecli-interactive
         az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"
         ```
 

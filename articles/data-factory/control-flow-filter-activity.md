@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.openlocfilehash: 5794a2c754e2082fdf45ad689bdb89ea494541c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73679854"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Actividad de filtro en Azure Data Factory
@@ -36,16 +36,16 @@ Puede usar una actividad de filtro en una canalización para aplicar una expresi
 
 ## <a name="type-properties"></a>Propiedades de tipo
 
-Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
+Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad `Filter`. | Cadena | Sí
-Tipo | Se debe establecer en **filter**. | Cadena | Sí
-condition | Condición que se usará para filtrar la entrada. | Expression | Sí
+name | Nombre de la actividad `Filter`. | String | Sí
+type | Se debe establecer en **filter**. | String | Sí
+condición | Condición que se usará para filtrar la entrada. | Expression | Sí
 items | Matriz de entrada en la que se debe aplicar el filtro. | Expression | Sí
 
 ## <a name="example"></a>Ejemplo
 
-En este ejemplo, la canalización tiene dos actividades: **Filter** y **ForEach**. La actividad de filtro está configurada para filtrar la matriz de entrada correspondiente a los elementos con un valor mayor que 3. La actividad "Para cada uno" recorre en iteración los valores filtrados y establece la variable **test** en el valor actual.
+En este ejemplo, la canalización tiene dos actividades: **Filtro** y **Para cada uno**. La actividad de filtro está configurada para filtrar la matriz de entrada correspondiente a los elementos con un valor mayor que 3. La actividad "Para cada uno" recorre en iteración los valores filtrados y establece la variable **test** en el valor actual.
 
 ```json
 {
@@ -117,7 +117,7 @@ Consulte otras actividades de flujo de control compatibles con Data Factory:
 - [Actividad If Condition](control-flow-if-condition-activity.md)
 - [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
 - [Para cada actividad](control-flow-for-each-activity.md)
-- [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)
+- [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 - [Actividad Lookup](control-flow-lookup-activity.md)
 - [Actividad web](control-flow-web-activity.md)
 - [Actividad Until](control-flow-until-activity.md)

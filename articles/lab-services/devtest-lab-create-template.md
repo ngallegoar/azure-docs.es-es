@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61296171"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Crear una imagen personalizada a partir de un archivo VHD
@@ -33,7 +33,7 @@ ms.locfileid: "61296171"
 
 Los siguientes pasos le guían en la creación de una imagen personalizada a partir de un archivo VHD mediante el portal de Azure:
 
-1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
 
@@ -61,8 +61,8 @@ Los siguientes pasos le guían en la creación de una imagen personalizada a par
 1. También puede escribir el nombre, la oferta y el publicador del plan si la imagen que se usa para crear la imagen personalizada no es una imagen con licencia (publicada por Microsoft).
 
    - **Nombre del plan:** escriba el nombre de la imagen de Marketplace (SKU) a partir de la cual se crea esta imagen personalizada 
-   - **Oferta del plan:** especifique el producto (oferta) de la imagen de Marketplace a partir de la cual se crea esta imagen personalizada. 
-   - **Publicador del plan:** escriba el publicador de la imagen de Marketplace a partir de la cual se crea esta imagen personalizada.
+   - **Oferta del plan:** escriba el producto (oferta) de la imagen de Marketplace a partir de la cual se crea esta imagen personalizada 
+   - **Publicador del plan:** escriba el publicador de la imagen de Marketplace a partir de la cual se crea esta imagen personalizada
 
    > [!NOTE]
    > Si la imagen que usa para crear una imagen personalizada **no** es una imagen con licencia, estos campos están vacíos y se pueden rellenar si así lo decide. Si la imagen **es** una imagen con licencia, los campos se rellenan automáticamente con la información del plan. Si intenta cambiarlos en este caso, aparecerá un mensaje de advertencia.

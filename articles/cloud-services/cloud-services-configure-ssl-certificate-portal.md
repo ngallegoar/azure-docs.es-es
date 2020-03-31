@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: tagore
 ms.openlocfilehash: 6ddb7001f770a9d8aea38d1a4698e15c167aeaa4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386772"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233828"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configuración de SSL para una aplicación en Azure
 
@@ -132,7 +132,7 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
 
 Ahora que se actualizaron los archivos de definición del servicio y configuración del servicio, prepare su implementación para cargarla en Azure. Si va a usar **cspack**, no utilice la marca **/generateConfigurationFile**, puesto que así se sobrescribe la información del certificado que acaba de insertar.
 
-## <a name="step-3-upload-a-certificate"></a>Paso 3: Carga de un certificado
+## <a name="step-3-upload-a-certificate"></a>Paso 3: Cargar un certificado
 Conéctese a Azure Portal y...
 
 1. En la sección **Todos los recursos** del portal, seleccione su servicio en la nube.

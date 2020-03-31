@@ -4,16 +4,16 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 2/14/2020
 ms.author: rohink
-ms.openlocfilehash: b674f8e31eb61328f60bb24866f73d02653b655f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 3fbbb9d491eef202309c9e64f9a5a839a5d4516d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495476"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334677"
 ---
 **Zonas DNS públicas**
 
-| Resource | Límite predeterminado |
+| Resource | Límite |
 | --- | --- |
 | Zonas DNS públicas por suscripción |250 <sup>1</sup> |
 | Conjuntos de registros por zona DNS pública |10 000 <sup>1</sup> |

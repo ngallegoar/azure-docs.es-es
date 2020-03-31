@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 4fd7d345e5efbe6e4e86e5bb410e2df4dd917047
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773699"
 ---
 # <a name="create-or-modify-an-exchange-peering-using-powershell"></a>Creación o modificación de un emparejamiento de Exchange mediante PowerShell
@@ -33,19 +33,19 @@ Si lo prefiere, puede completar esta guía mediante el [portal](howto-exchange-p
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Iniciar sesión en la cuenta de Azure y seleccione la suscripción
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name=exchange-location></a>Obtención de la lista de ubicaciones de emparejamiento compatibles para el emparejamiento de Exchange
+### <a name="get-the-list-of-supported-peering-locations-for-exchange-peering"></a><a name=exchange-location></a>Obtención de la lista de ubicaciones de emparejamiento compatibles para el emparejamiento de Exchange
 [!INCLUDE [exchange-location](./includes/exchange-powershell-create-location.md)]
 
-### <a name=create></a>Creación de un emparejamiento de Exchange
+### <a name="create-an-exchange-peering"></a><a name=create></a>Creación de un emparejamiento de Exchange
 [!INCLUDE [exchange-peering](./includes/exchange-powershell-create-connection.md)]
 
-### <a name=get></a>Obtención de un emparejamiento de Exchange
+### <a name="get-exchange-peering"></a><a name=get></a>Obtención de un emparejamiento de Exchange
 [!INCLUDE [peering-exchange-get](./includes/exchange-powershell-get.md)]
 
-## <a name="modify"></a>Modificación de un emparejamiento de Exchange
+## <a name="modify-an-exchange-peering"></a><a name="modify"></a>Modificación de un emparejamiento de Exchange
 [!INCLUDE [peering-exchange-modify](./includes/exchange-powershell-modify.md)]
 
-## <a name=delete></a>Desaprovisionamiento de un emparejamiento de Exchange
+## <a name="deprovision-an-exchange-peering"></a><a name=delete></a>Desaprovisionamiento de un emparejamiento de Exchange
 
 [!INCLUDE [peering-exchange-delete](./includes/delete.md)]
 

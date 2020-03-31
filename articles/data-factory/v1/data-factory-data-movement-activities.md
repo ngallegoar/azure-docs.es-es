@@ -13,11 +13,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358532"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236520"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Movimiento de datos con la actividad de copia
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -77,7 +77,7 @@ Copiar actividad en Data Factory realiza una copia de los datos de un almacén d
 ### <a name="supported-file-formats"></a>Formatos de archivos admitidos
 Si desea usar la actividad de copia para **copiar los archivos tal cual** entre los dos almacenes de datos basados en archivos, puede omitir la [sección de formato](data-factory-create-datasets.md) en las definiciones de conjunto de datos de entrada y salida. Los datos se copian de forma eficaz sin procesos de serialización y deserialización.
 
-La actividad de copia también lee y escribe en archivos de formatos especificados: **texto, JSON, Avro, ORC y Parquet** y admite códecs de compresión **GZip, Deflate, BZip2 y ZipDeflate**. Consulte [Formatos de archivo y de compresión admitidos](data-factory-supported-file-and-compression-formats.md) para más información.
+La actividad de copia también lee y escribe en archivos de formatos especificados: (**texto, JSON, Avro, ORC y Parquet**) y admite códecs de compresión (**GZip, Deflate, BZip2 y ZipDeflate**). Consulte [Formatos de archivo y de compresión admitidos](data-factory-supported-file-and-compression-formats.md) para más información.
 
 Por ejemplo, puede realizar las siguientes actividades de copia:
 
@@ -86,7 +86,7 @@ Por ejemplo, puede realizar las siguientes actividades de copia:
 * Copiar archivos comprimidos del sistema de archivos local y, a continuación, descomprimirlos en Azure Data Lake Store.
 * Copiar datos en formato de texto comprimido GZip (CSV) desde Azure Blob Storage y escribirlos en Azure SQL Database.
 
-## <a name="global"></a>Movimiento de datos disponible globalmente
+## <a name="globally-available-data-movement"></a><a name="global"></a>Movimiento de datos disponible globalmente
 Azure Data Factory solo está disponible en las regiones Oeste de EE. UU., Este de EE. UU. y Norte de Europa. Sin embargo, el servicio que ofrece la actividad de copia está disponible globalmente en las siguientes regiones y zonas geográficas. La topología disponible globalmente garantiza un movimiento de datos eficiente que, normalmente, evita saltos entre regiones. Consulte la sección [Servicios por región](https://azure.microsoft.com/regions/#services) para conocer la disponibilidad de Data Factory y el movimiento de datos en una región.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Copia de datos entre almacenes de datos en la nube

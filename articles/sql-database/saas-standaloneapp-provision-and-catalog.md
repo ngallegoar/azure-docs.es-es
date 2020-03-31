@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
 ms.openlocfilehash: 02682a18f14e7ecbf5b42783ab84a1b55a4bb77b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74133133"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Aprovisionar y catalogar nuevos inquilinos mediante el patrón SaaS de aplicación por inquilino
@@ -67,7 +67,7 @@ Puede usar una plantilla de Azure Resource Manager para implementar y configurar
 
 Al final de este tutorial, tendrá un conjunto de aplicaciones de inquilino independientes, cuyas bases de datos estarán registrada en el catálogo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -81,7 +81,7 @@ En esta tarea, aprenderá a aprovisionar el catálogo que se usa para registrar 
 * **Aprovisionar la base de datos del catálogo** mediante una plantilla de administración de recursos de Azure. La base de datos se inicializa al importar un archivo bacpac.
 * **Registrar las aplicaciones de inquilino de ejemplo** que implementó anteriormente.  Cada inquilino se registra mediante una clave que se creó a partir de un valor hash del nombre de inquilino.  Asimismo, el nombre del inquilino también se almacena en una tabla de extensión del catálogo.
 
-1. En PowerShell ISE, abra *...\Learning Modules\UserConfig.psm* y actualice el valor **\<Usuario\>**  con el valor que usó al implementar las tres aplicaciones de ejemplo.  **Guarde el archivo**.
+1. En PowerShell ISE, abra *...\Learning Modules\UserConfig.psm* y actualice el valor **\<Usuario\>** con el valor que usó al implementar las tres aplicaciones de ejemplo.  **Guarde el archivo**.
 1. En PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* y establezca **$Scenario = 1**. Implemente el catálogo de inquilinos y registre a los inquilinos predefinidos.
 
 1. Agregue un punto de interrupción colocando el cursor en cualquier lugar de la línea que dice "`& $PSScriptRoot\New-Catalog.ps1`" y presione **F9**.

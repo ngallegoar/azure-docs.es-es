@@ -1,23 +1,22 @@
 ---
 title: Pestaña Marketplace de máquina virtual en Cloud Partner Portal para Azure Marketplace
 description: Se describe la pestaña Marketplace que se usa en la creación de una oferta de máquina virtual de Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 283274986c753fc8ad05b9b7b0dd87aea956bcce
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.author: dsindona
+ms.openlocfilehash: 567dc83e36020ef9af328f52dae89ef37b6e4908
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762899"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277728"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Pestaña Marketplace de la máquina virtual
 
-La pestaña **Marketplace** de la página **Nueva oferta** permite proporcionar a los clientes potenciales información de marketing, ventas y legal, así como acuerdos, y administrar los clientes potenciales generados a partir de Marketplace. Este largo formulario se divide en cuatro secciones: **Información general**, **Artefactos de Marketing**, **Administración de clientes potenciales** e **Información legal**.
+La pestaña **Marketplace** de la página **Nueva oferta** permite proporcionar a los clientes potenciales información de marketing, ventas y legal, así como acuerdos, y administrar los clientes potenciales generados a partir de Marketplace. Este largo formulario se divide en cuatro secciones: **Información general**, **Artefactos de marketing**, **Administración de clientes potenciales** y **Legal**.
 
 
 ## <a name="overview-section"></a>Sección Información general

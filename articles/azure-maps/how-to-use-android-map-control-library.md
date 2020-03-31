@@ -1,26 +1,26 @@
 ---
 title: Introducción al control de mapa de Android | Microsoft Azure Maps
 description: En este artículo, obtendrá una introducción a los controles de mapa de Android mediante Android SDK de Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ca4051e56f7d51ac7ac5fbe534cb8fc536d64a68
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 55bfb5030d0a168e7556240212fcd5f3be30a289
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368692"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335359"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introducción a Android SDK para Azure Maps
 
 Android SDK para Azure Maps es una biblioteca de mapas vectoriales para Android. En este artículo se ofrece orientación sobre los procesos para instalar Android SDK para Azure Maps y cargar un mapa.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps
 
@@ -109,7 +109,7 @@ El siguiente paso en la creación de la aplicación es instalar el Android SDK p
     * establecer la información de autenticación de Azure Maps
     * obtener la instancia del control de mapa en el método **onCreate**
 
-    La configuración de la información de autenticación en la clase `AzureMaps` de forma global mediante los métodos `setSubscriptionKey` o `setAadProperties` hace que no tenga que agregar su información de autenticación en cada vista. 
+    La configuración de la información de autenticación en la clase `AzureMaps` de forma global mediante los métodos `setSubscriptionKey` o `setAadProperties` hace que no tenga que agregar la información de autenticación en cada vista. 
 
     El control de mapa contiene sus propios métodos de ciclo de vida para administrar el ciclo de vida de OpenGL de Android. Estos métodos de ciclo de vida deben llamarse directamente desde la actividad contenedora. Para que la aplicación llame correctamente a los métodos de ciclo de vida del control de mapa, debe invalidar los siguientes métodos de ciclo de vida en la actividad que contiene el control de mapa. Además, debe llamar al método de control de mapa correspondiente. 
 
@@ -273,7 +273,7 @@ Este es un ejemplo de Azure Maps con el idioma establecido en "fr-FR" y la vista
 Obtenga información sobre cómo agregar datos de superposición en el mapa:
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer to an Android map](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)(Adición de una capa de símbolo a un mapa Android)
+> [Add a symbol layer to an Android map](how-to-add-symbol-to-android-map.md)(Adición de una capa de símbolo a un mapa Android)
 
 > [!div class="nextstepaction"]
 > [Adición de formas a un mapa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)

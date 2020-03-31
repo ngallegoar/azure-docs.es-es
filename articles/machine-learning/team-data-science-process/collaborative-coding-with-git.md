@@ -11,17 +11,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721904"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificación colaborativa con GIT
 
 En este artículo se describe cómo usar Git como el marco de desarrollo de código de colaboración para los proyectos de ciencia de datos. En el artículo se describe cómo vincular código de Azure Repos a elementos de trabajo de [Agile Development](agile-development.md) en Azure Boards, cómo realizar revisiones de código y cómo crear y combinar solicitudes de incorporación de cambios.
 
-## <a name='Linkaworkitemwithagitbranch-1'></a>Vinculación de un elemento de trabajo a una rama de Azure Repos 
+## <a name="link-a-work-item-to-an-azure-repos-branch"></a><a name='Linkaworkitemwithagitbranch-1'></a>Vinculación de un elemento de trabajo a una rama de Azure Repos 
 
 Azure DevOps proporciona una manera cómoda de conectar un caso de usuario o un elemento de trabajo de tareas de Azure Boards con una rama del repositorio Git de Azure Repos. Puede vincular el caso de usuario o la tarea directamente al código asociado. 
 
@@ -59,7 +59,7 @@ También puede vincular un elemento de trabajo a una rama existente. En la pági
 
 ![4](./media/collaborative-coding-with-git/4-link-to-an-existing-branch.png)
 
-## <a name='WorkonaBranchandCommittheChanges-2'></a>Trabajo en la rama y confirmación de los cambios 
+## <a name="work-on-the-branch-and-commit-changes"></a><a name='WorkonaBranchandCommittheChanges-2'></a>Trabajo en la rama y confirmación de los cambios 
 
 Después de realizar un cambio en el elemento de trabajo, como agregar un archivo de script de R a la rama `script` de la máquina local, puede confirmar el cambio desde la rama local a la rama de trabajo ascendente mediante los siguientes comandos de bash de Git:
 
@@ -72,7 +72,7 @@ git push origin script
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## <a name='CreateapullrequestonVSTS-3'></a>Creación de una solicitud de incorporación de cambios
+## <a name="create-a-pull-request"></a><a name='CreateapullrequestonVSTS-3'></a>Creación de una solicitud de incorporación de cambios
 
 Después de una o varias confirmaciones y envíos de cambios, cuando esté listo para combinar la rama de trabajo actual en su rama de base, puede crear y enviar una *solicitud de incorporación de cambios* en Azure Repos. 
 
@@ -84,7 +84,7 @@ En la pantalla **Nueva solicitud de incorporación de cambios**, si es necesario
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
-## <a name='ReviewandMerge-4'></a>Revisión y combinación
+## <a name="review-and-merge"></a><a name='ReviewandMerge-4'></a>Revisión y combinación
 
 Una vez que se crea la solicitud de incorporación de cambios, los revisores reciben una notificación por correo electrónico para revisar dicha solicitud. Los revisores prueban si los cambios funcionan y comprueban los cambios con el solicitante si es posible. Los revisores pueden realizar comentarios, solicitar cambios y aprobar o rechazar la solicitud de incorporación de cambios en función de su evaluación. 
 

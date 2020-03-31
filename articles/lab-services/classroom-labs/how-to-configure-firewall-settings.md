@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.topic: article
 ms.service: lab-services
 ms.openlocfilehash: fbd45af0c9b94f04fdaad9d9b5c8214a91a8db91
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443469"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Configuración del firewall para Azure Lab Services
@@ -39,9 +39,9 @@ Ahora conocemos la dirección IP pública del laboratorio.  Las reglas de entrad
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los artículos siguientes:
 
-- [Permiso al creador del laboratorio para seleccionar su ubicación](allow-lab-creator-pick-lab-location.md)
+- [Permiso para que el creador del laboratorio seleccione su ubicación](allow-lab-creator-pick-lab-location.md)
 - [Conexión de la red del laboratorio con una red virtual del mismo nivel en Azure Lab Services](how-to-connect-peer-virtual-network.md)
-- [Asociación o desasociación de una galería de imágenes compartidas](how-to-attach-detach-shared-image-gallery.md)
+- [Asociación o desasociación de una galería de imágenes compartidas en Azure Lab Services](how-to-attach-detach-shared-image-gallery.md)
 - [Cómo agregar un usuario como propietario de un laboratorio de clase en Azure Lab Services](how-to-add-user-lab-owner.md)
 - [Configuración del firewall para Azure Lab Services](how-to-configure-firewall-settings.md)
 - [Configuración de cuentas de laboratorio en Azure Lab Services](how-to-configure-lab-accounts.md)

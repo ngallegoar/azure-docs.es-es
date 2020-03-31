@@ -8,10 +8,10 @@ ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273698"
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos

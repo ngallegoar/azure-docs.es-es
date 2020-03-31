@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60581401"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Copia de seguridad de recursos compartidos o volúmenes de la matriz virtual de StorSimple

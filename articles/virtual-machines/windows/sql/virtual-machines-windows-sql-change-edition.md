@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: bd9622d3e34198402bc45e5d855d05b0c8e35eb8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77605458"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Cambio en contexto de la edición de SQL Server de la máquina virtual de Azure
@@ -29,7 +29,7 @@ La edición de SQL Server viene determinada por la clave de producto y se espec
 
 Una vez que se ha cambiado internamente la edición de SQL Server a la máquina virtual con SQL Server, debe actualizar la propiedad de edición de SQL Server en Azure Portal para que se refleje en la facturación. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para hacer un cambio local de la edición de SQL Server, necesita lo siguiente: 
 

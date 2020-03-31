@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.openlocfilehash: 8fae4255a577e7744fa045ef3da4ee5b784ed6b0
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79088031"
 ---
 # <a name="architecture-of-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Arquitectura de la plantilla de solución orientada al mantenimiento predictivo en empresas aeroespaciales
 En el diagrama siguiente se ofrece una introducción a la arquitectura de la [plantilla de solución orientada al mantenimiento predictivo](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1).
 
-Puede descargar una versión en tamaño completo del diagrama aquí: [Diagrama de arquitectura: Plantillas de soluciones de mantenimiento predictivo](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+Puede descargar una versión en tamaño completo del diagrama aquí: [diagrama de arquitectura: Plantilla de solución orientada al mantenimiento predictivo](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 ![Diagrama de arquitectura de la plantilla de solución orientada al mantenimiento predictivo][image]
 

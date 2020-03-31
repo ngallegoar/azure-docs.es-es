@@ -9,10 +9,10 @@ ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186285"
 ---
 En Azure, para abrir un puerto o crear un punto de conexión a una máquina virtual, debe crear un filtro de red en una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red asociado al recurso que va a recibir dicho tráfico.
@@ -29,7 +29,7 @@ Después de crear una máquina virtual configurada para atender las solicitudes 
 
    - **Intervalos de puertos de origen**: * (permite cualquier puerto de origen)
 
-   - **Valor de prioridad**: escriba un valor inferior a 65.500 (para que tenga mayor prioridad que la regla de entrada predeterminada de denegación de comodín).
+   - **Valor de prioridad**: escriba un valor inferior a 65 500 (para que tenga mayor prioridad que la regla de entrada predeterminada de denegación de comodín).
 
 3. Asociar el grupo de seguridad de red con la subred o la interfaz de red de máquina virtual.
 

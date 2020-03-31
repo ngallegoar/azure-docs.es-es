@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: b6b9d0f146fd98fd90aa8858e522449be571842c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: dcb63031e6c033ce2372dc05e588b0f54cb1609f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293171"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294817"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introducción al controlador de extensiones de configuración de estado deseado de Azure
 
@@ -38,16 +38,16 @@ Este artículo proporciona información sobre ambos escenarios de uso de la exte
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- **Máquina local**: Para interactuar con la extensión de VM de Azure, debe usar Azure Portal o el SDK de Azure PowerShell.
-- **Agente invitado**: La VM de Azure que cuenta con la configuración de DSC debe tener un SO que admita Windows Management Framework (WMF) 4.0 o posterior. La lista completa de las versiones compatibles del SO puede encontrarse en el [historial de versiones de la extensión DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Máquina local**: para interactuar con la extensión de máquina virtual de Azure, debe usar Azure Portal o el SDK de Azure PowerShell.
+- **Agente invitado**: la máquina virtual de Azure que cuenta con la configuración de DSC debe tener un SO que admita Windows Management Framework (WMF) 4.0 o posterior. La lista completa de las versiones compatibles del SO puede encontrarse en el [historial de versiones de la extensión DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
 ## <a name="terms-and-concepts"></a>Términos y conceptos
 
 Esta guía asume que está familiarizado con los conceptos siguientes:
 
-- **Configuración**: Un documento de configuración de DSC.
-- **Nodo**: Un destino para una configuración de DSC. En este documento, *nodo* siempre hace referencia a una máquina virtual de Azure.
-- **Datos de configuración**: Un archivo .psd1 que tiene datos del entorno de una configuración.
+- **Configuración**: un documento de configuración de DSC.
+- **Nodo**: un destino para una configuración de DSC. En este documento, *nodo* siempre hace referencia a una máquina virtual de Azure.
+- **Datos de configuración**: un archivo .psd1 que tiene datos del entorno de una configuración.
 
 ## <a name="architecture"></a>Architecture
 
@@ -73,7 +73,7 @@ Al usar la extensión DSC para registrar un nodo con el servicio de State Config
 - RegistrationKey: secreto compartido que se usa para registrar los nodos con el servicio
 - NodeConfigurationName: nombre de la configuración del nodo (MOF) para extraer desde el servicio y configurar el rol de servidor
 
-Esta información se encuentra en [Azure Portal](../../automation/automation-dsc-onboarding.md#azure-portal), pero también puede usar PowerShell.
+Esta información se encuentra en [Azure Portal](../../automation/automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal), pero también puede usar PowerShell.
 
 ```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
@@ -182,21 +182,21 @@ Para configurar DSC en el portal:
 
 El portal recopila la siguiente información:
 
-- **Módulos o script de configuración**: Este campo es obligatorio (el formulario no se ha actualizado para el [script de configuración predeterminada](#default-configuration-script)). Los scripts y módulos de configuración requieren un archivo. ps1 que tiene un script de configuración o un archivo .zip con un script de configuración. ps1 en la raíz. Si utiliza un archivo .zip, todos los recursos dependientes se deben incluir en las carpetas de módulo en el archivo .zip. Puede crear el archivo ZIP mediante el cmdlet **Publish-AzureVMDscConfiguration -OutputArchivePath** que se incluye en el SDK de Azure PowerShell. El archivo .zip se carga en el almacenamiento de blob de usuario y se protege mediante un token de SAS.
+- **Módulos o script de configuración**: este campo es obligatorio (el formulario no se ha actualizado para el [script de configuración predeterminada](#default-configuration-script)). Los scripts y módulos de configuración requieren un archivo. ps1 que tiene un script de configuración o un archivo .zip con un script de configuración. ps1 en la raíz. Si utiliza un archivo .zip, todos los recursos dependientes se deben incluir en las carpetas de módulo en el archivo .zip. Puede crear el archivo ZIP mediante el cmdlet **Publish-AzureVMDscConfiguration -OutputArchivePath** que se incluye en el SDK de Azure PowerShell. El archivo .zip se carga en el almacenamiento de blob de usuario y se protege mediante un token de SAS.
 
-- **Nombre completo del módulo de configuración**: Puede incluir varias funciones de configuración en un archivo .ps1. Escriba el nombre del script .ps1 de configuración seguido de \\ y el nombre de la función de configuración. Por ejemplo, si el script .ps1 tiene el nombre configuration.ps1 y la configuración es **IisInstall**, escriba **configuration.ps1\IisInstall**.
+- **Nombre completo del módulo de configuración**: puede incluir varias funciones de configuración en un archivo .ps1. Escriba el nombre del script .ps1 de configuración seguido de \\ y el nombre de la función de configuración. Por ejemplo, si el script .ps1 tiene el nombre configuration.ps1 y la configuración es **IisInstall**, escriba **configuration.ps1\IisInstall**.
 
-- **Argumentos de configuración**: Si la función de configuración adopta argumentos, escríbalos aquí con el formato **nombreArgumento1=valor1,nombreArgumento2=valor2**. Este formato es un formato distinto en el que se aceptan argumentos de configuración en cmdlets de PowerShell o las plantillas de Resource Manager.
+- **Argumentos de configuración**: si la función de configuración adopta argumentos, escríbalos aquí con el formato **argumentName1=value1,argumentName2=value2**. Este formato es un formato distinto en el que se aceptan argumentos de configuración en cmdlets de PowerShell o las plantillas de Resource Manager.
 
-- **Configuration Data PSD1 File** (Archivo PSD1 de datos de configuración): Este campo es opcional. Si la configuración requiere un archivo de datos de configuración en .psd1, utilice este campo para seleccionar el campo de datos y cargarlo en el almacenamiento de blobs de usuario. El archivo de datos de configuración se protege mediante un token SAS en el almacenamiento de blobs.
+- **Archivo PSD1 de datos de configuración**: este campo es opcional. Si la configuración requiere un archivo de datos de configuración en .psd1, utilice este campo para seleccionar el campo de datos y cargarlo en el almacenamiento de blobs de usuario. El archivo de datos de configuración se protege mediante un token SAS en el almacenamiento de blobs.
 
-- **Versión de WMF**: Especifica la versión de Windows Management Framework (WMF) que debe instalarse en la máquina virtual. Si se establece esta propiedad en latest, se instala la versión más reciente de WMF. Actualmente, los únicos valores posibles para esta propiedad son 4.0, 5.0, 5.1 y latest. Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es **latest**.
+- **Versión de WMF**: especifica la versión de Windows Management Framework (WMF) que debe instalarse en la máquina virtual. Si se establece esta propiedad en latest, se instala la versión más reciente de WMF. Actualmente, los únicos valores posibles para esta propiedad son 4.0, 5.0, 5.1 y latest. Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es **latest**.
 
-- **Recopilación de datos**: Determina si la extensión recopilará datos de telemetría. Para más información, consulte [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Colección de datos de la extensión DSC de Azure).
+- **Recopilación de datos**: determina si la extensión recopilará telemetría. Para más información, consulte [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Colección de datos de la extensión DSC de Azure).
 
-- **Versión**: Especifica la versión de la extensión DSC que se va a instalar. Para obtener información sobre las versiones, consulte [DSC extension version history](/powershell/scripting/dsc/getting-started/azuredscexthistory) (Historial de versiones de la extensión DSC).
+- **Versión**: especifica la versión de la extensión DSC que se va a instalar. Para obtener información sobre las versiones, consulte [DSC extension version history](/powershell/scripting/dsc/getting-started/azuredscexthistory) (Historial de versiones de la extensión DSC).
 
-- **Auto Upgrade Minor Version** (Actualización automática de versión secundaria): Este campo se asigna al modificador **AutoUpdate** en los cmdlets y permite que la extensión se actualice automáticamente a la versión más reciente durante la instalación. **Sí** indicará al controlador de la extensión que use la versión más reciente disponible, y **No** forzará la instalación de la **Versión** especificada. No seleccionar ni **Sí** ni **No** es igual que seleccionar **No**.
+- **Auto Upgrade Minor Version** (Actualización automática de versión secundaria): este campo se asigna al modificador **AutoUpdate** en los cmdlets y permite que la extensión se actualice automáticamente a la versión más reciente durante la instalación. **Sí** indicará al controlador de la extensión que use la versión más reciente disponible, y **No** forzará la instalación de la **Versión** especificada. No seleccionar ni **Sí** ni **No** es igual que seleccionar **No**.
 
 ## <a name="logs"></a>Registros
 

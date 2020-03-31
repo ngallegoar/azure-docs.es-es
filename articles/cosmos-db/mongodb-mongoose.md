@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 11/18/2019
-author: sivethe
-ms.author: sivethe
+ms.date: 03/20/2020
+author: timsander1
+ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: be3fd42f33fd66fe2bf5a773eafafba5d6982706
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 7f4d955583b82b224e3c963431c234ef4690198a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184776"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063732"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Conexión de una aplicación Mongoose de Node.js a Azure Cosmos DB
 
@@ -22,7 +22,7 @@ En este tutorial se muestra cómo usar el [marco Mongoose](https://mongoosejs.co
 
 Cosmos DB es el servicio de base de datos de varios modelos de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Cosmos DB.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -60,6 +60,7 @@ Cree una cuenta de Cosmos. Si ya tiene una cuenta que desea usar, puede ir direc
      > La marca ```--save``` agrega la dependencia al archivo package.json.
 
 1. Importe las dependencias en el archivo index.js.
+
     ```JavaScript
    var mongoose = require('mongoose');
    var env = require('dotenv').config();   //Use the .env file to load the variables

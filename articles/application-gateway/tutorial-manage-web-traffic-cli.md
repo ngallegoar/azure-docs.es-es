@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 07/20/2019
 ms.author: victorh
 ms.openlocfilehash: 3064def2eac0aaee5c04f7ab736cf539ae372cb4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68359887"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Administrar el tráfico web con Application Gateway mediante la CLI de Azure
 
 La puerta de enlace de aplicaciones se utiliza para administrar y proteger el tráfico web en los servidores que mantenga. Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) que use un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para los servidores back-end. En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual. El conjunto de escalado se agrega al grupo de back-end predeterminado de la puerta de enlace de la aplicación.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red

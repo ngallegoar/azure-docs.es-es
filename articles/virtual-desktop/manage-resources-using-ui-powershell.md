@@ -9,10 +9,10 @@ ms.date: 01/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 0838edb03c4868548f3d09f14d71ec7016e670a4
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127799"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Implementación de una herramienta de administración con PowerShell
@@ -44,7 +44,7 @@ Para poder implementar y configurar correctamente la herramienta de administraci
   - createWvdMgmtUxAppRegistration.ps1
   - updateWvdMgmtUxApiUrl.ps1
 
-Después de implementar y configurar la herramienta de administración, le recomendamos que pida a un usuario que inicie la interfaz de usuario de administración para asegurarse de que todo funciona correctamente. El usuario que inicie la interfaz de usuario de administración deberá tener una asignación de roles que le permita ver o editar el inquilino de Windows Virtual Desktop.
+Después de implementar y configurar la herramienta de administración, se recomienda pedir a un usuario que inicie la interfaz de usuario de administración para asegurarse de que todo funciona correctamente. El usuario que inicie la interfaz de usuario de administración deberá tener una asignación de roles que le permita ver o editar el inquilino de Windows Virtual Desktop.
 
 ## <a name="set-up-powershell"></a>Configurar PowerShell
 
@@ -153,7 +153,7 @@ Ahora que ha configurado la herramienta de administración, puede iniciarla en c
    > Si no concedió su consentimiento de administrador al configurar la herramienta de administración, cada usuario que inicie sesión deberá proporcionar su propio consentimiento de usuario para poder usarla.
 
 3. Cuando se le pida que elija un grupo de inquilinos, seleccione **Default Tenant Group** (grupo de inquilinos predeterminado) en la lista desplegable.
-4. Al seleccionar **Default Tenant Group**, debería aparecer un menú en la parte izquierda de la ventana. En este menú, busque el nombre de su grupo de inquilinos y selecciónelo.
+4. Al seleccionar **Default Tenant Group** (grupo de inquilinos predeterminado), debería aparecer un menú en la parte izquierda de la ventana. En este menú, busque el nombre de su grupo de inquilinos y selecciónelo.
    
    > [!NOTE]
    > Si tiene un grupo de inquilinos personalizado, escriba el nombre manualmente en lugar de elegirlo en la lista desplegable.

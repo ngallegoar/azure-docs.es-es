@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: ae2df6f47d99fc5d452a6d3ea70f2dd2e4e7416b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68359590"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de retirada de la familia 1 del SO invitado
@@ -32,7 +32,7 @@ Si se observa cualquiera de las situaciones siguientes, Cloud Services se ven af
 2. No se especifica ningún valor explícitamente para osFamily en el archivo ServiceConfiguration.cscfg del servicio en la nube. Actualmente, el sistema usa el valor predeterminado de "1" en este caso.
 3. Azure Portal muestra el valor de la familia del sistema operativo invitado como "Windows Server 2008".
 
-Para determinar la familia de SO que ejecuta cada servicio en la nube, puede ejecutar el siguiente script en Azure PowerShell, aunque antes debe [configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). Para más información sobre el script, consulte [Azure Guest OS Family 1 End of Life: June 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx) (Final de la vida de la familia 1 del SO invitado de Azure: junio de 2014).
+Para determinar la familia de SO que ejecuta cada servicio en la nube, puede ejecutar el siguiente script en Azure PowerShell, aunque antes debe [configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). Para más información acerca del script, consulte [Azure Guest OS Family 1 End of Life: June 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx) (Final de la vida de la familia 1 del SO invitado de Azure: junio de 2014).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

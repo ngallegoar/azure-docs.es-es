@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 633c3ffc8e266087c88116a15c43469727a9a50d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e5b07ac0e9421cbca034b17c573cab16641f49f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133649"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79214475"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Creación, configuración y administración de trabajos elásticos
 
@@ -35,7 +35,7 @@ Si no ha usado los trabajos elásticos, [aprenda más sobre los conceptos de aut
 
 1. Cree una credencial para la ejecución del trabajo en la *base de datos de trabajos* mediante [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
 2. Defina el grupo de destino (las bases de datos en las que se quiere ejecutar el trabajo) mediante [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
-3. Cree una credencial del agente de trabajos en cada base de datos en las que debe ejecutarse el trabajo [(agregue el usuario (o el rol) a cada base de datos del grupo)](sql-database-control-access.md). Para obtener un ejemplo, consulte el [tutorial de PowerShell](elastic-jobs-powershell.md).
+3. Cree una credencial del agente de trabajos en cada base de datos en las que debe ejecutarse el trabajo [(agregue el usuario (o el rol) a cada base de datos del grupo)](sql-database-manage-logins.md). Para obtener un ejemplo, consulte el [tutorial de PowerShell](elastic-jobs-powershell.md).
 4. Cree un trabajo mediante [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Agregue pasos de trabajo mediante [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 6. Ejecute un trabajo mediante [PowerShell](elastic-jobs-powershell.md#run-the-job) o [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
@@ -77,7 +77,7 @@ Actualmente, la versión preliminar está limitada a 100 trabajos simultáneos.
 
 Para asegurarse de que los recursos no están sobrecargados al ejecutar trabajos en las bases de datos de un grupo elástico de SQL, los trabajos se pueden configurar para limitar el número de bases de datos en las que puede ejecutarse un trabajo al mismo tiempo.
 
-Establezca el número de bases de datos simultáneas que ejecuta un trabajo estableciendo el parámetro `@max_parallelism` del procedimiento almacenado `sp_add_jobstep` en T-SQL o `Add-AzSqlElasticJobStep -MaxParallelism` en PowerShell.
+Establezca el número de bases de datos simultáneas que ejecuta un trabajo estableciendo el parámetro `sp_add_jobstep` del procedimiento almacenado `@max_parallelism` en T-SQL o `Add-AzSqlElasticJobStep -MaxParallelism` en PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Procedimientos recomendados para crear trabajos
 

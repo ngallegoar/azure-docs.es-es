@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: spelluru
 ms.openlocfilehash: c611ecdb5a2534f7368e533e3e19e6e3f96de57f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78190456"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Usar una galería de imágenes compartidas en Azure Lab Services
 En este artículo se explica cómo los profesores y administradores del laboratorio cómo pueden guardar una imagen de máquina virtual de plantilla para que otros usuarios puedan reutilizarla. Estas imágenes se guardan en una [galería de imágenes compartidas](../../virtual-machines/windows/shared-image-galleries.md) de Azure. Como primer paso, el administrador del laboratorio asocia una galería de imágenes compartidas existente a la cuenta de laboratorio. Una vez que se ha asociado la galería de imágenes compartidas, los laboratorios creados en la cuenta de laboratorio pueden guardar imágenes en la galería de imágenes compartidas. Otros profesores pueden seleccionar esta imagen de la galería de imágenes compartidas para crear una plantilla para sus clases. 
 
 > [!NOTE]
-> Actualmente, Azure Lab Services admite la creación de VM de plantillas basadas solo en imágenes de VM **generalizadas** (no imágenes especializadas) en una galería de imágenes compartidas. 
+> Actualmente, Azure Lab Services admite la creación de máquinas virtuales de plantilla basadas solo en imágenes de máquina virtual **generalizadas** (no imágenes especializadas) en una galería de imágenes compartidas. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 - Tener creada una galería de imágenes compartidas con [Azure PowerShell](../../virtual-machines/windows/shared-images.md) o con la [CLI de Azure](../../virtual-machines/linux/shared-images.md).
 - Haber asociado la galería de imágenes compartidas a la cuenta de laboratorio. Para obtener instrucciones detalladas, vea [Asociar o desasociar una galería de imágenes compartidas en Azure Lab Services](how-to-attach-detach-shared-image-gallery.md).
 

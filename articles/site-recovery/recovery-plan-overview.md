@@ -4,11 +4,11 @@ description: Obtenga información acerca de los planes de recuperación en Azure
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705860"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229100"
 ---
 # <a name="about-recovery-plans"></a>Acerca de los planes de recuperación
 

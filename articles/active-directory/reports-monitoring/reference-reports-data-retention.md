@@ -3,7 +3,7 @@ title: ¿Durante cuánto tiempo Azure AD almacena los datos de informes? | Micr
 description: Descubra durante cuánto tiempo Azure almacena los distintos tipos de datos de informes.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -13,18 +13,19 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: chadam
+ms.date: 03/24/2020
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52f8873527d92e621ef032f5bc3e82d3364a691
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 54636600c208f8f5df9fa2e25460c63dd9f46e85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989579"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239542"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>¿Durante cuánto tiempo Azure AD almacena los datos de informes?
+
 
 En este artículo, aprenderá sobre las directivas de retención de datos para los diferentes informes de actividad en Azure Active Directory. 
 
@@ -33,7 +34,7 @@ En este artículo, aprenderá sobre las directivas de retención de datos para l
 | Edición de Azure AD | Inicio de la recopilación |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | Cuándo suscribirse |
-| Azure AD Free <br /> Azure AD Basic | La primera vez que abra la [hoja de Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o use las [API de informes](https://aka.ms/aadreports)  |
+| Azure AD Free| La primera vez que abra la [hoja de Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o use las [API de informes](https://aka.ms/aadreports)  |
 
 ---
 
@@ -66,19 +67,19 @@ En el caso de las señales de seguridad, el proceso de recopilación se inicia c
 
 **Informes de actividad**    
 
-| Informe                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--            | :--                 | :--                 |
-| Registros de auditoría             | 7 días        |  7 días        | 30 días             | 30 días             |
-| Inicios de sesión               | N/D           |  N/D           | 30 días             | 30 días             |
-| Uso de Azure MFA        | 30 días       |  30 días       | 30 días             | 30 días             |
+| Informe                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--                 | :--                 |
+| Registros de auditoría             | 7 días        | 30 días             | 30 días             |
+| Inicios de sesión               | 7 días        | 30 días             | 30 días             |
+| Uso de Azure MFA        | 30 días       | 30 días             | 30 días             |
 
 Puede conservar los datos de actividad de auditoría e inicio de sesión durante un tiempo mayor que el período de retención predeterminado que se ha descrito anteriormente si los enruta a una cuenta de almacenamiento de Azure con Azure Monitor. Para obtener más información, consulte [Archivado de registros de Azure AD en una cuenta de Azure Storage](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Señales de seguridad**
 
-| Informe         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--            | :--                 | :--                 |
-| Usuarios en riesgo  | 7 días        | 7 días         | 30 días             | 90 días             |
-| Inicios de sesión no seguros | 7 días        | 7 días         |  30 días            | 90 días             |
+| Informe         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--                 | :--                 |
+| Usuarios en riesgo  | 7 días        | 30 días             | 90 días             |
+| Inicios de sesión no seguros | 7 días        | 30 días             | 90 días             |
 
 ---

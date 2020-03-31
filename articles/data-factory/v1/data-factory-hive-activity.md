@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74703350"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Hive en Azure Data Factory 
@@ -38,7 +38,7 @@ ms.locfileid: "74703350"
 La actividad de Hive de HDInsight en una [canalización](data-factory-create-pipelines.md) de Data Factory ejecuta consultas de Hive en [su propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en uno [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basado en Windows/Linux. Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 
 > [!NOTE] 
-> Si no está familiarizado con Azure Data Factory, vea [Introducción a Azure Data Factory](data-factory-introduction.md) y siga el tutorial sobre la [compilación de la primera canalización de datos](data-factory-build-your-first-pipeline.md) antes de leer este artículo. 
+> Si no está familiarizado con Azure Data Factory, lea [Introducción a Azure Data Factory](data-factory-introduction.md) y realice el tutorial de [compilación de la primera canalización de datos](data-factory-build-your-first-pipeline.md) antes de leer este artículo. 
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -72,17 +72,17 @@ La actividad de Hive de HDInsight en una [canalización](data-factory-create-pip
 }
 ```
 ## <a name="syntax-details"></a>Detalles de la sintaxis
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | name |Nombre de la actividad |Sí |
-| description |Texto que describe para qué se usa la actividad. |Sin |
+| description |Texto que describe para qué se usa la actividad. |No |
 | type |HDinsightHive |Sí |
-| inputs |Entradas consumidas por la actividad de Hive |Sin |
+| inputs |Entradas consumidas por la actividad de Hive |No |
 | outputs |Salidas producidas por la actividad de Hive |Sí |
 | linkedServiceName |Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos |Sí |
-| script |Especifica el script de Hive en línea |Sin |
-| scriptPath |Almacena el script de Hive en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin |
-| defines |Especifique parámetros como pares de clave y valor para referencia en el script de Hive con 'hiveconf' |Sin |
+| script |Especifica el script de Hive en línea |No |
+| scriptPath |Almacena el script de Hive en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |No |
+| defines |Especifique parámetros como pares de clave y valor para referencia en el script de Hive con 'hiveconf' |No |
 
 ## <a name="example"></a>Ejemplo
 Veamos un ejemplo de análisis de registros de juegos en el que desea identificar el tiempo dedicado por los usuarios a los juegos de su empresa. 
@@ -241,7 +241,7 @@ Para usar scripts de Hive parametrizados, haga lo siguiente
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-  ## <a name="see-also"></a>Otras referencias
+  ## <a name="see-also"></a>Consulte también
 * [Actividad de Pig](data-factory-pig-activity.md)
 * [Actividad MapReduce](data-factory-map-reduce.md)
 * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)

@@ -4,10 +4,10 @@ description: Supervisión del rendimiento de aplicaciones para máquinas virtual
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: d75e14dccef565f0029d06583e74d5693726dd99
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77661335"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implementación de Azure Application Insights Agent en máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales de Azure

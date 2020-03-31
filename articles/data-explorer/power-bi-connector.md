@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: a95d45481bed17e46429e3a22dff4b8cc62354a9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560497"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualización de datos mediante el conector de Azure Data Explorer para Power BI
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Power BI es una solución de análisis de negocios que le permite visualizar sus datos y compartir los resultados en su organización. Azure Data Explorer ofrece tres opciones para conectarse a los datos de Power BI: usar el conector integrado, importar una consulta de Azure Data Explorer o usar una consulta SQL. En este artículo, se le enseña a usar el conector integrado para obtener datos y visualizarlos en un informe de Power BI. El uso del conector nativo de Azure Data Explorer para crear paneles de Power BI es sencillo. El conector de Power BI admite los [modos de conectividad Importación y Direct Query](https://docs.microsoft.com/power-bi/desktop-directquery-about). Puede crear paneles con el modo de **importación** o el modo **DirectQuery** en función de los requisitos de rendimiento, escala y del escenario. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este artículo, necesitará lo siguiente:
 

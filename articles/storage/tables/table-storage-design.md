@@ -5,15 +5,15 @@ services: storage
 author: SnehaGunda
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 95272956da4567ec21e1c4603b88472e45373a39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8df639eea757c374554fa19e57c43cef79308e98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351179"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228292"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Diseño de tablas escalables y eficaces
 
@@ -132,7 +132,7 @@ El nombre de la cuenta, el nombre de la tabla y **PartitionKey** juntos identifi
 
 En Table service, un nodo individual da servicio a una o más particiones completas y el servicio se escala equilibrando dinámicamente la carga de las particiones entre los nodos. Si un nodo está bajo carga, Table Service puede *dividir* el intervalo de particiones atendidas por ese nodo en nodos diferentes; cuando el tráfico disminuye, el servicio puede *combinar* los intervalos de la partición de nodos silenciosos a un único nodo.  
 
-Para más información sobre los detalles internos de Table service y saber en particular cómo administra las particiones, consulte el artículo [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Microsoft Azure Storage: Un servicio de almacenamiento en nube altamente disponible de gran coherencia).  
+Para obtener más información acerca de los detalles internos de Table service y saber en particular cómo administra las particiones, consulte el artículo [Microsoft Azure Storage: Un servicio de almacenamiento en nube altamente disponible con gran coherencia](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ## <a name="entity-group-transactions"></a>Transacciones de grupo de entidad
 En Table service, las transacciones de grupo de entidad (EGT) son el único mecanismo integrado para realizar actualizaciones atómicas en varias entidades. Las EGT se conocen en ocasiones como *transacciones por lotes*. Las EGT solo pueden funcionar en entidades almacenadas en la misma partición (es decir, que comparten la misma clave de partición en una tabla determinada). Así que cada vez que necesite un comportamiento de transacciones atómico entre varias entidades, debe asegurarse de que esas entidades estén en la misma partición. Este suele ser un motivo para mantener varios tipos de entidad en la misma tabla (y partición) y no utilizar varias tablas para diferentes tipos de entidad. Una sola EGT puede operar en 100 entidades como máximo.  Si envía varias EGT simultáneas para procesamiento, es importante asegurarse de que esas EGT no se usan en las entidades que son comunes a todas las EGT, ya que de lo contrario se puede retrasar el procesamiento.
@@ -140,19 +140,8 @@ En Table service, las transacciones de grupo de entidad (EGT) son el único meca
 Las EGT también presentan posibles ventajas e inconvenientes que es necesario evaluar en el diseño. Es decir, usar más particiones aumenta la escalabilidad de la aplicación, porque Azure tiene más oportunidades para equilibrar la carga de solicitudes entre los nodos. Sin embargo, también podría ser un inconveniente al limitar la capacidad de la aplicación para realizar transacciones atómicas y mantener una fuerte coherencia de los datos. Además, existen objetivos de escalabilidad específicos en el nivel de una partición que podrían limitar el rendimiento de las transacciones que se puede esperar de un único nodo. Para obtener más información sobre los objetivos de escalabilidad de cuentas de almacenamiento estándar, consulte [Objetivos de escalabilidad para cuentas de almacenamiento estándar](../common/scalability-targets-standard-account.md). Para más información acerca de los objetivos de escalabilidad de Table service, consulte [Objetivos de escalabilidad y rendimiento para Table Storage](scalability-targets.md).
 
 ## <a name="capacity-considerations"></a>Consideraciones de capacidad
-En la tabla siguiente se describen algunos de los valores de clave a tener en cuenta al diseñar una solución de Table service:  
 
-| Capacidad total de una cuenta de Azure Storage | 500 TB |
-| --- | --- |
-| Número de tablas en una cuenta de Azure Storage |Solo limitadas por la capacidad de la cuenta de almacenamiento |
-| Número de particiones en una tabla |Solo limitadas por la capacidad de la cuenta de almacenamiento |
-| Número de entidades de una partición |Solo limitadas por la capacidad de la cuenta de almacenamiento |
-| Tamaño de una entidad individual |Hasta 1 MB con un máximo de 255 propiedades (incluyendo **PartitionKey**, **RowKey** y **Timestamp**) |
-| Tamaño de la **PartitionKey** |Una cadena de hasta 1 KB |
-| Tamaño de la **RowKey** |Una cadena de hasta 1 KB |
-| Tamaño de una transacción de un grupo de entidades |Una transacción puede incluir como máximo 100 entidades y la carga debe ser inferior a 4 MB. Un EGT solo puede actualizar una entidad una vez. |
-
-Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## <a name="cost-considerations"></a>Consideraciones sobre el costo
 El almacenamiento en tablas es relativamente económico, pero debe incluir las estimaciones de costos por el uso de capacidad y la cantidad de transacciones, como parte de la evaluación de cualquier solución de Table service. Sin embargo, en muchos escenarios, el almacenamiento de datos duplicados o sin normalizar para mejorar el rendimiento o la escalabilidad de su solución es un enfoque válido. Para obtener más información sobre los precios, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  

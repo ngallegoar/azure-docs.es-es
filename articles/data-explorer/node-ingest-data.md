@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 19da42437cfe1d7b63dfed4bd2b30716d691a0e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66494494"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>Ingesta de datos mediante la biblioteca de Node de Azure Data Explorer
@@ -20,7 +20,7 @@ El Explorador de datos de Azure es un servicio de exploración de datos altament
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Además de una suscripción a Azure, necesita lo siguiente para completar este artículo:
 
@@ -88,7 +88,7 @@ const blobPath = `https://${account}.blob.core.windows.net/${container}/${filePa
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Creación de una tabla en el clúster de prueba
 
-Cree una tabla que coincida con el esquema de los datos del archivo `StormEvents.csv`. Cuando se ejecuta este código, devuelve un mensaje similar al siguiente: *Para iniciar sesión, use un explorador web para abrir la página https://microsoft.com/devicelogin y escriba el código proporcionado para autenticarse*. Siga los pasos para iniciar sesión y, a continuación, vuelva a ejecutar el siguiente bloque de código. Los bloques de código subsiguientes que establecen una conexión requieren que vuelva a iniciar sesión.
+Cree una tabla que coincida con el esquema de los datos del archivo `StormEvents.csv`. Cuando se ejecuta este código, devuelve un mensaje similar al siguiente: *Para iniciar sesión, use un explorador web para abrir la página https://microsoft.com/devicelogin y escriba el código XXXXXXXXX para autenticarse*. Siga los pasos para iniciar sesión y, a continuación, vuelva a ejecutar el siguiente bloque de código. Los bloques de código subsiguientes que establecen una conexión requieren que vuelva a iniciar sesión.
 
 ```javascript
 const kustoClient = new KustoClient(kcsbData);

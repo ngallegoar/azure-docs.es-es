@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60632865"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228168"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usar el servicio StorSimple Device Manager para supervisar componentes y estados de hardware
 
@@ -79,17 +79,17 @@ Realice los pasos siguientes para ver el estado de hardware de un componente del
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Lista de componentes de la caja principal del dispositivo StorSimple
 En la tabla siguiente se describen los componentes físicos y lógicos que contiene la caja principal (presente en las series 8100 y 8600) del dispositivo StorSimple local.
 
-| Componente | Módulo | Type | Ubicación | ¿Unidad reemplazable en campo (FRU)? | DESCRIPCIÓN |
+| Componente | módulo | Tipo | Location | ¿Unidad reemplazable en campo (FRU)? | Descripción |
 | --- | --- | --- | --- | --- | --- |
 | Unidad en la ranura [0-11] |Unidades de disco |Física |Compartido |Sí |Hay una línea preesnte para cada una de las unidades SSD o HDD en el revestimiento principal. |
-| Sensor de temperatura ambiente |Revestimiento |Física |Compartido |Sin |Mide la temperatura del chasis. |
-| Sensor de temperatura de plano medio |Revestimiento |Física |Compartido |Sin |Mide la temperatura del plano medio. |
-| Alarma audible |Revestimiento |Física |Compartido |Sin |Indica si el subsistema de alarma audible del chasis es funcional. |
+| Sensor de temperatura ambiente |Revestimiento |Física |Compartido |No |Mide la temperatura del chasis. |
+| Sensor de temperatura de plano medio |Revestimiento |Física |Compartido |No |Mide la temperatura del plano medio. |
+| Alarma audible |Revestimiento |Física |Compartido |No |Indica si el subsistema de alarma audible del chasis es funcional. |
 | Revestimiento |Revestimiento |Física |Compartido |Sí |Indica la presencia de un chasis. |
-| Configuración del revestimiento |Revestimiento |Física |Compartido |Sin |Hace referencia al panel frontal del chasis. |
-| Sensores de voltaje de línea |PCM |Física |Compartido |Sin |En numerosos sensores de tensión de línea se muestra el estado, que indica si la tensión medida está dentro de la tolerancia. |
-| Sensores de corriente de línea |PCM |Física |Compartido |Sin |En numerosos sensores de corriente de línea se muestra el estado, que indica si la corriente medida está dentro de la tolerancia. |
-| Sensores de temperatura en el PCM |PCM |Física |Compartido |Sin |En numerosos sensores de temperatura como los sensores Inlet y Hotspot se muestra el estado, que indica si la temperatura medida está dentro de la tolerancia. |
+| Configuración del revestimiento |Revestimiento |Física |Compartido |No |Hace referencia al panel frontal del chasis. |
+| Sensores de voltaje de línea |PCM |Física |Compartido |No |En numerosos sensores de tensión de línea se muestra el estado, que indica si la tensión medida está dentro de la tolerancia. |
+| Sensores de corriente de línea |PCM |Física |Compartido |No |En numerosos sensores de corriente de línea se muestra el estado, que indica si la corriente medida está dentro de la tolerancia. |
+| Sensores de temperatura en el PCM |PCM |Física |Compartido |No |En numerosos sensores de temperatura como los sensores Inlet y Hotspot se muestra el estado, que indica si la temperatura medida está dentro de la tolerancia. |
 | Fuente de alimentación [0-1] |PCM |Física |Compartido |Sí |Hay una línea presente para cada fuente de alimentación en las dos PCM situadas en la parte posterior del dispositivo. |
 | Refrigeración [0-1] |PCM |Física |Compartido |Sí |Hay una línea presente para cada uno de los cuatro ventiladores de refrigeración que residen en los dos PCM. |
 | Batería [0-1] |PCM |Física |Compartido |Sí |Hay una línea presente para cada uno de los módulos de batería de reserva que están alojados en el PCM. |
@@ -106,42 +106,42 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 | Grupo de almacenamiento de la unidad de disco duro |N/D |Lógicos |Compartido |N/D |Muestra el estado del grupo de almacenamiento lógico que se crea desde las unidades de disco duro del dispositivo. |
 | Grupo de almacenamiento de la unidad de estado sólido |N/D |Lógicos |Compartido |N/D |Muestra el estado del grupo de almacenamiento lógico que se crea desde las unidades de estado sólido del dispositivo. |
 | Controller [0-1] [estado] |E/S |Física |Controller |Sí |Muestra el estado del controlador y si está en modo activo o en espera dentro del chasis. |
-| Sensores de temperatura en el controlador |E/S |Física |Controller |Sin |En numerosos sensores de temperatura como los sensores del módulo de E/S, de temperatura de la CPU, de DIMM y de PCI se muestra el estado, que indica si la temperatura se encuentra dentro de la tolerancia. |
-| Ampliador SAS |E/S |Física |Controller |Sin |Indica el estado del ampliador del SCSI acoplado en serie (SAS), que se usa para conectar el almacenamiento integrado al controlador. |
-| Conector SAS [0-1] |E/S |Física |Controller |Sin |Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS. |
-| Interconexión de plano medio de SBB |E/S |Física |Controller |Sin |Indica el estado del conector de plano medio, que se usa para conectar cada controlador al plano medio. |
-| Núcleo del procesador |E/S |Física |Controller |Sin |Indica el estado de los núcleos del procesador en cada controlador. |
-| Potencia de la electrónica del revestimiento |E/S |Física |Controller |Sin |Indica el estado del sistema de alimentación que usa el revestimiento. |
-| Diagnóstico de la electrónica del revestimiento |E/S |Física |Controller |Sin |Indica el estado de los subsistemas de diagnóstico que proporciona el controlador. |
-| Controlador de administración de placa base (BMC) |E/S |Física |Controller |Sin |Indica el estado del controlador de administración de placa base (BMC), que es un procesador de servicios especializado que supervisa el dispositivo de hardware a través de sensores y se comunica con el administrador del sistema a través de una conexión independiente. |
-| Ethernet |E/S |Física |Controller |Sin |Indica el estado de cada una de las interfaces de red, es decir, la administración y los puertos de datos proporcionados en el controlador. |
-| NVRAM |E/S |Física |Controller |Sin |Indica el estado de la NVRAM, una memoria de acceso aleatorio no volátil respaldada por la batería que sirve para conservar la información crítica para la aplicación en caso de error de alimentación. |
+| Sensores de temperatura en el controlador |E/S |Física |Controller |No |En numerosos sensores de temperatura como los sensores del módulo de E/S, de temperatura de la CPU, de DIMM y de PCI se muestra el estado, que indica si la temperatura se encuentra dentro de la tolerancia. |
+| Ampliador SAS |E/S |Física |Controller |No |Indica el estado del ampliador del SCSI acoplado en serie (SAS), que se usa para conectar el almacenamiento integrado al controlador. |
+| Conector SAS [0-1] |E/S |Física |Controller |No |Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS. |
+| Interconexión de plano medio de SBB |E/S |Física |Controller |No |Indica el estado del conector de plano medio, que se usa para conectar cada controlador al plano medio. |
+| Núcleo del procesador |E/S |Física |Controller |No |Indica el estado de los núcleos del procesador en cada controlador. |
+| Potencia de la electrónica del revestimiento |E/S |Física |Controller |No |Indica el estado del sistema de alimentación que usa el revestimiento. |
+| Diagnóstico de la electrónica del revestimiento |E/S |Física |Controller |No |Indica el estado de los subsistemas de diagnóstico que proporciona el controlador. |
+| Controlador de administración de placa base (BMC) |E/S |Física |Controller |No |Indica el estado del controlador de administración de placa base (BMC), que es un procesador de servicios especializado que supervisa el dispositivo de hardware a través de sensores y se comunica con el administrador del sistema a través de una conexión independiente. |
+| Ethernet |E/S |Física |Controller |No |Indica el estado de cada una de las interfaces de red, es decir, la administración y los puertos de datos proporcionados en el controlador. |
+| NVRAM |E/S |Física |Controller |No |Indica el estado de la NVRAM, una memoria de acceso aleatorio no volátil respaldada por la batería que sirve para conservar la información crítica para la aplicación en caso de error de alimentación. |
 
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Lista de componentes de la caja EBOD del dispositivo StorSimple
 En la tabla siguiente se describen los componentes físicos y lógicos que contiene la caja EBOD (presente solo en la serie 8600) del dispositivo StorSimple local.
 
-| Componente | Módulo | Type | Ubicación | ¿FRU? | DESCRIPCIÓN |
+| Componente | módulo | Tipo | Location | ¿FRU? | Descripción |
 | --- | --- | --- | --- | --- | --- |
 | Unidad en la ranura [0-11] |Unidades de disco |Física |Compartido |Sí |Hay una línea presente para cada una de las unidades HDD en el revestimiento de EBOD. |
-| Sensor de temperatura ambiente |Revestimiento |Física |Compartido |Sin |Mide la temperatura del chasis. |
-| Sensor de temperatura de plano medio |Revestimiento |Física |Compartido |Sin |Mide la temperatura del plano medio. |
-| Alarma audible |Revestimiento |Física |Compartido |Sin |Indica si el subsistema de alarma audible del chasis es funcional. |
+| Sensor de temperatura ambiente |Revestimiento |Física |Compartido |No |Mide la temperatura del chasis. |
+| Sensor de temperatura de plano medio |Revestimiento |Física |Compartido |No |Mide la temperatura del plano medio. |
+| Alarma audible |Revestimiento |Física |Compartido |No |Indica si el subsistema de alarma audible del chasis es funcional. |
 | Revestimiento |Revestimiento |Física |Compartido |Sí |Indica la presencia de un chasis. |
-| Configuración del revestimiento |Revestimiento |Física |Compartido |Sin |Hace referencia al OPS o panel frontal del chasis. |
-| Sensores de voltaje de línea |PCM |Física |Compartido |Sin |En numerosos sensores de tensión de línea se muestra el estado, que indica si la tensión medida está dentro de la tolerancia. |
-| Sensores de corriente de línea |PCM |Física |Compartido |Sin |En numerosos sensores de corriente de línea se muestra el estado, que indica si la corriente medida está dentro de la tolerancia. |
-| Sensores de temperatura en el PCM |PCM |Física |Compartido |Sin |En numerosos sensores de temperatura como los sensores Inlet y Hotspot se muestra el estado, que indica si la temperatura medida está dentro de la tolerancia. |
+| Configuración del revestimiento |Revestimiento |Física |Compartido |No |Hace referencia al OPS o panel frontal del chasis. |
+| Sensores de voltaje de línea |PCM |Física |Compartido |No |En numerosos sensores de tensión de línea se muestra el estado, que indica si la tensión medida está dentro de la tolerancia. |
+| Sensores de corriente de línea |PCM |Física |Compartido |No |En numerosos sensores de corriente de línea se muestra el estado, que indica si la corriente medida está dentro de la tolerancia. |
+| Sensores de temperatura en el PCM |PCM |Física |Compartido |No |En numerosos sensores de temperatura como los sensores Inlet y Hotspot se muestra el estado, que indica si la temperatura medida está dentro de la tolerancia. |
 | Fuente de alimentación [0-1] |PCM |Física |Compartido |Sí |Hay una línea presente para cada fuente de alimentación en las dos PCM situadas en la parte posterior del dispositivo. |
 | Refrigeración [0-1] |PCM |Física |Compartido |Sí |Hay una línea presente para cada uno de los cuatro ventiladores de refrigeración que residen en los dos PCM. |
 | Almacenamiento local [HDD] |N/D |Lógicos |Compartido |N/D |Muestra el estado del grupo de almacenamiento lógico que se crea desde las unidades de disco duro del dispositivo. |
 | Controller [0-1] [estado] |E/S |Física |Controller |Sí |Muestra el estado de los controladores en el módulo EBOD. |
-| Sensores de temperatura en el EBOD |E/S |Física |Controller |Sin |En numerosos sensores de temperatura de cada controlador se muestra el estado, que indica si la temperatura está dentro de la tolerancia. |
-| Ampliador SAS |E/S |Física |Controller |Sin |Indica el estado del ampliador SAS, que se usa para conectar el almacenamiento integrado al controlador. |
-| Conector SAS [0-2] |E/S |Física |Controller |Sin |Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS. |
-| Interconexión de plano medio de SBB |E/S |Física |Controller |Sin |Indica el estado del conector de plano medio, que se usa para conectar cada controlador al plano medio. |
-| Potencia de la electrónica del revestimiento |E/S |Física |Controller |Sin |Indica el estado del sistema de alimentación que usa el revestimiento. |
-| Diagnóstico de la electrónica del revestimiento |E/S |Física |Controller |Sin |Indica el estado de los subsistemas de diagnóstico que proporciona el controlador. |
-| Conexión al controlador del dispositivo |E/S |Física |Controller |Sin |Indica el estado de la conexión entre el módulo de E/S de EBOD y el controlador del dispositivo. |
+| Sensores de temperatura en el EBOD |E/S |Física |Controller |No |En numerosos sensores de temperatura de cada controlador se muestra el estado, que indica si la temperatura está dentro de la tolerancia. |
+| Ampliador SAS |E/S |Física |Controller |No |Indica el estado del ampliador SAS, que se usa para conectar el almacenamiento integrado al controlador. |
+| Conector SAS [0-2] |E/S |Física |Controller |No |Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS. |
+| Interconexión de plano medio de SBB |E/S |Física |Controller |No |Indica el estado del conector de plano medio, que se usa para conectar cada controlador al plano medio. |
+| Potencia de la electrónica del revestimiento |E/S |Física |Controller |No |Indica el estado del sistema de alimentación que usa el revestimiento. |
+| Diagnóstico de la electrónica del revestimiento |E/S |Física |Controller |No |Indica el estado de los subsistemas de diagnóstico que proporciona el controlador. |
+| Conexión al controlador del dispositivo |E/S |Física |Controller |No |Indica el estado de la conexión entre el módulo de E/S de EBOD y el controlador del dispositivo. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para utilizar el servicio StorSimple Device Manager para administrar el dispositivo, vaya a [Uso del servicio StorSimple Device Manager para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

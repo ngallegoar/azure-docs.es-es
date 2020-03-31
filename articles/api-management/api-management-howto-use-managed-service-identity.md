@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
 ms.openlocfilehash: 49576b805e6c6d01340e663bfb5d8e9013917625
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461601"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226596"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Uso de identidades administradas en Azure API Management
 
@@ -82,7 +82,7 @@ Por ejemplo, una plantilla de Azure Resource Manager completa podría tener el a
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Obtención de un certificado en Azure Key Vault
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerequisites
 1. El almacén de claves que contiene los certificados pfx debe estar en la misma suscripción de Azure y el mismo grupo de recursos que el servicio API Management. Se trata de un requisito de la plantilla de Azure Resource Manager.
 2. El tipo de contenido del secreto debe ser *application/x-pkcs12*. Puede usar el siguiente script para cargar el certificado:
 

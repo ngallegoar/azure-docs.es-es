@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
 ms.openlocfilehash: 0f6e379287323d9353acd887cf30d5c9c0065959
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74555380"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migración del certificado de una base de datos protegida por TDE a Instancia administrada de Azure SQL Database
@@ -32,14 +32,14 @@ Para ver una opción alternativa que emplea el servicio totalmente administrado 
 > [!IMPORTANT]
 > El certificado migrado se usa únicamente para la restauración de la base de datos protegida por TDE. Poco después de que se realiza la restauración, el certificado migrado se reemplaza por un protector diferente, ya sea un certificado administrado por el servicio o una clave asimétrica del almacén de claves, según el tipo de cifrado de datos transparentes que haya establecido en la instancia.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
 - Tener instalada la herramienta de la línea de comandos [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) en el servidor local o en otro equipo con acceso al certificado exportado como un archivo. La herramienta Pvk2Pfx forma parte del [kit de controladores de Windows para empresa](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), un entorno de línea de comandos autocontenido independiente.
 - Tener instalado [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell), versión 5.0 o superior.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Asegúrese de que dispone de lo siguiente:
 
@@ -58,7 +58,7 @@ Install-Module -Name Az.Sql
 Update-Module -Name Az.Sql
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
@@ -129,7 +129,7 @@ Si el certificado se guarda en el almacén de certificados de la máquina local 
 
 ## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Carga del certificado en Instancia administrada de Azure SQL Database mediante el cmdlet de Azure PowerShell
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Comience con los pasos de preparación de PowerShell:
 
@@ -156,7 +156,7 @@ Si el certificado se guarda en el almacén de certificados de la máquina local 
        -ManagedInstanceName "<managedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 Primero debe [configurar un almacén de Azure Key Vault](/azure/key-vault/key-vault-manage-with-cli2) con el archivo *.pfx*.
 

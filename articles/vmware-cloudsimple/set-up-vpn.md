@@ -1,6 +1,6 @@
 ---
-title: 'Azure VMware Solution (AVS): configuración de VPN entre la red local y la nube privada de AVS'
-description: Describe cómo configurar una conexión VPN de sitio a sitio o de punto a sitio entre la red local y la nube privada de AVS.
+title: 'Azure VMware Solution by CloudSimple: configuración de VPN entre la red local y la nube privada'
+description: Describe cómo configurar una conexión VPN de sitio a sitio o de punto a sitio entre la red local y la nube privada de CloudSimple.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,21 +8,21 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8188fac270eadb6e09cc3561ddefb05aa59ba661
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77087131"
 ---
-# <a name="configure-a-vpn-connection-to-your-avs-private-cloud"></a>Configuración de una conexión VPN a la nube privada de AVS
+# <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Configuración de una conexión VPN en la nube privada de CloudSimple
 
-Las puertas de enlace de VPN le permiten conectarse a la red de AVS desde la red local y desde un equipo cliente de forma remota. En este artículo, puede encontrar información sobre cómo configurar las puertas de enlace de VPN desde el portal de AVS. Una conexión VPN entre la red local y la red de AVS proporciona acceso a vCenter y a cargas de trabajo en la nube privada de AVS. AVS admite puertas de enlace de VPN de sitio a sitio y de punto a sitio.
+Las puertas de enlace de VPN le permiten conectarse a la red de CloudSimple desde la red local y desde un equipo cliente de forma remota.  En este artículo, puede encontrar información sobre cómo configurar las puertas de enlace de VPN desde el portal de CloudSimple.  Una conexión VPN entre la red local y la red de CloudSimple proporciona acceso a vCenter y a cargas de trabajo en la nube privada. CloudSimple admite puertas de enlace de VPN de sitio a sitio y de punto a sitio.
 
 ## <a name="vpn-gateway-types"></a>Tipos de puertas de enlace de VPN
 
-* Una conexión **VPN de punto a sitio** es la manera más sencilla de conectarse a la nube privada de AVS desde su equipo. Use la conectividad de VPN de punto a sitio para conectarse a la nube privada de AVS de forma remota.
-* La conexión **VPN de sitio a sitio** le permite configurar las cargas de trabajo de la nube privada de AVS para acceder a los servicios locales. También puede usar Active Directory local como origen de identidad para autenticarse en el servidor vCenter de la nube privada de AVS. Actualmente, se admite el tipo de **VPN basada en directivas**.
+* La conexión **VPN de punto a sitio** es la manera más sencilla de conectarse a la nube privada desde su equipo. Use la conectividad de VPN de punto a sitio para conectarse a la nube privada de forma remota.
+* La conexión **VPN de sitio a sitio** le permite configurar las cargas de trabajo de la nube privada para acceder a los servicios locales. También puede usar Active Directory local como origen de identidad para autenticarse en el servidor vCenter de la nube privada.  Actualmente, se admite el tipo de **VPN basada en directivas**.
 
 En una región, puede crear una puerta de enlace de VPN de punto a sitio y una puerta de enlace de VPN de sitio a sitio.
 
@@ -30,11 +30,11 @@ En una región, puede crear una puerta de enlace de VPN de punto a sitio y una p
 
 Para crear una puerta de enlace de VPN de punto a sitio, consulte [Creación de puerta de enlace de VPN de punto a sitio](vpn-gateway.md#create-point-to-site-vpn-gateway).
 
-### <a name="connect-to-avs-using-point-to-site-vpn"></a>Conexión a AVS mediante VPN de punto a sitio
+### <a name="connect-to-cloudsimple-using-point-to-site-vpn"></a>Conexión a CloudSimple mediante VPN de punto a sitio
 
-Para conectarse a AVS desde su equipo, es necesario el cliente VPN. Descargue el [cliente OpenVPN](https://openvpn.net/community-downloads/) para Windows o [Viscosity](https://www.sparklabs.com/viscosity/download/) para macOS y OS X.
+Para conectarse a CloudSimple desde su equipo, es necesario el cliente VPN.  Descargue el [cliente OpenVPN](https://openvpn.net/community-downloads/) para Windows o [Viscosity](https://www.sparklabs.com/viscosity/download/) para macOS y OS X.
 
-1. Inicie el portal de AVS y seleccione **Red**.
+1. Inicie el portal de CloudSimple y seleccione **Network** (Red).
 2. Seleccione **VPN Gateway** (Puerta de enlace de VPN).
 3. En la lista de puertas de enlace de VPN, haga clic en la puerta de enlace de VPN de punto a sitio.
 4. Seleccione **Usuarios**.
@@ -47,7 +47,7 @@ Para conectarse a AVS desde su equipo, es necesario el cliente VPN. Descargue el
     * Instrucciones para [importar la configuración en el cliente Windows](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-windows/#openvpn-open-source-openvpn-gui-program)
     * Instrucciones para [importar la configuración en macOS u OS X](https://www.sparklabs.com/support/kb/article/getting-started-with-viscosity-mac/#creating-your-first-connection)
 
-7. Conéctese a la puerta de enlace de VPN de AVS.
+7. Conéctese a la puerta de enlace de VPN de CloudSimple.
 
 En el ejemplo siguiente se muestra cómo importar la conexión mediante el **cliente Viscosity**.
 
@@ -73,23 +73,23 @@ Para conectarse a una VPN mediante el cliente Viscosity OpenVPN, seleccione la c
 
 ![VPN](media/vis03.png)
 
-### <a name="connecting-to-multiple-avs-private-clouds"></a>Conexión a varias nubes privadas de AVS
+### <a name="connecting-to-multiple-private-clouds"></a>Conexión a varias nubes privadas
 
-Una conexión VPN de punto a sitio resuelve los nombres DNS de la primera nube privada de AVS que cree. Si desea acceder a otras nubes privadas de AVS, debe actualizar el servidor DNS en el cliente VPN.
+Una conexión VPN de punto a sitio resuelve los nombres DNS de la primera nube privada que cree. Si desea acceder a otras nubes privadas, debe actualizar el servidor DNS en el cliente VPN.
 
-1. Inicie el [portal de AVS](access-cloudsimple-portal.md).
+1. Inicie el [portal de CloudSimple](access-cloudsimple-portal.md).
 
-2. Vaya a **Recursos** > **Nubes privadas de AVS** y seleccione la nube privada a la que desee conectarse.
+2. Vaya a **Recursos** > **Nubes privadas** y seleccione la nube privada a la que desee conectarse.
 
-3. En la página **Resumen** de la nube privada de AVS, copie la dirección IP del servidor DNS de la nube privada de AVS en **Información básica**.
+3. En la página **Resumen** de la nube privada, copie la dirección IP del servidor DNS de la nube privada en **Información básica**.
 
-    ![Servidores DNS de la nube privada de AVS](media/private-cloud-dns-server.png)
+    ![Servidores DNS de la nube privada](media/private-cloud-dns-server.png)
 
 4. Haga clic con el botón derecho en el icono Viscosity de la bandeja del sistema del equipo y seleccione **Preferencias**.
 
     ![VPN](media/vis00.png)
 
-5. Seleccione la conexión VPN de AVS.
+5. Seleccione la conexión VPN de CloudSimple.
 
     ![Conexión VPN](media/viscosity-client.png)
 
@@ -97,24 +97,24 @@ Una conexión VPN de punto a sitio resuelve los nombres DNS de la primera nube p
 
     ![Edición de la conexión VPN](media/viscosity-edit-connection.png)
 
-7. Haga clic en la pestaña **Redes** y escriba las direcciones IP del servidor DNS de la nube privada de AVS separadas por una coma o un espacio, con el dominio ```az.cloudsimple.io```. Seleccione **Ignore DNS settings sent by VPN server** (Omitir configuración DNS enviada por el servidor VPN).
+7. Haga clic en la pestaña **Redes** y escriba las direcciones IP del servidor DNS de la nube privada separadas por una coma o un espacio, con el dominio ```cloudsimple.io```.  Seleccione **Ignore DNS settings sent by VPN server** (Omitir configuración DNS enviada por el servidor VPN).
 
     ![Redes VPN](media/viscosity-edit-connection-networking.png)
 
 > [!IMPORTANT]
-> Para conectarse a su primera nube privada de AVS, quite esta configuración y conéctese al servidor VPN.
+> Para conectarse a su primera nube privada, quite esta configuración y conéctese al servidor VPN.
 
 ## <a name="site-to-site-vpn"></a>VPN de sitio a sitio
 
-Para crear una puerta de enlace de VPN de sitio a sitio, consulte [Creación de una puerta de enlace de VPN de sitio a sitio](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway). La conexión VPN de sitio a sitio desde su red local a la nube privada de AVS proporciona las siguientes ventajas. 
+Para crear una puerta de enlace de VPN de sitio a sitio, consulte [Creación de una puerta de enlace de VPN de sitio a sitio](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway).  La conexión VPN de sitio a sitio desde su red local a la nube privada proporciona las siguientes ventajas.  
 
-* Accesibilidad de su vCenter de nube privada de AVS desde cualquier estación de trabajo en la red local
+* Accesibilidad de su vCenter de nube privada desde cualquier estación de trabajo en la red local.
 * Uso de Active Directory local como origen de identidad de vCenter.
-* Transferencia cómoda de plantillas de máquina virtual, imágenes ISO y otros archivos de los recursos locales a vCenter de la nube privada de AVS
-* Accesibilidad de las cargas de trabajo que se ejecutan en la nube privada de AVS desde la red local
+* Transferencia cómoda de plantillas de máquina virtual, imágenes ISO y otros archivos de los recursos locales a vCenter de la nube privada.
+* Accesibilidad de las cargas de trabajo que se ejecutan en la nube privada desde la red local.
 
 Para configurar la puerta de enlace de VPN local en modo de alta disponibilidad, consulte [Configuración de una conexión VPN de alta disponibilidad](high-availability-vpn-connection.md).
 
 > [!IMPORTANT]
 >    1. Establezca la fijación de MSS de TCP en 1200 en el dispositivo VPN. O, si los dispositivos de VPN no admiten la fijación de MSS, también puede establecer el MTU en la interfaz de túnel en 1240 bytes.
-> 2. Una vez configurada la VPN de sitio a sitio, reenvíe las solicitudes DNS para *.cloudsimple.io a los servidores DNS de la nube privada de AVS. Siga las instrucciones de [Configuración de DNS local](on-premises-dns-setup.md).
+> 2. Una vez configurada la VPN de sitio a sitio, reenvíe las solicitudes DNS para *.cloudsimple.io a los servidores DNS de la nube privada.  Siga las instrucciones de [Configuración de DNS local](on-premises-dns-setup.md).

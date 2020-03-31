@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: 69686cad20bc4ce70bff2a92a216c9430522c301
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357485"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235584"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Administración de Azure Cache for Redis
 En este tema, se explica cómo realizar tareas de administración, como [reiniciar](#reboot) y [programar actualizaciones](#schedule-updates), en las instancias de Azure Cache for Redis.

@@ -9,10 +9,10 @@ ms.date: 10/30/2019
 ms.service: storage
 manager: dcscontentpm
 ms.openlocfilehash: 8b9b69fb32edab54fb2df558ea292df264e00cbb
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562282"
 ---
 # <a name="storage-account-container-recovery"></a>Recuperación de contenedores de cuenta de almacenamiento
@@ -41,7 +41,7 @@ Azure Storage ofrece resistencia de datos gracias a las réplicas automatizadas.
 
    |Tipo de contenido|LRS|ZRS|GRS|RA - GRS| 
    |---|---|---|---|---|
-   |Contenedor de almacenamiento|Sin|Sin|Sí|Sí| 
+   |Contenedor de almacenamiento|No|No|Sí|Sí| 
 
    * Se puede intentar restaurar el contenedor de la cuenta de almacenamiento, pero sin ninguna garantía. 
 

@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 902f3628235cc8a4524ddc4dd8a5327592fe47e7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793215"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236808"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos y composición de consultas en Azure Cognitive Search
 
@@ -80,7 +80,7 @@ Todos los demás parámetros de búsqueda son opcionales. Para la lista completa
 
 En la tabla siguiente se enumeran las API y los métodos basados en herramientas para el envío de consultas.
 
-| Metodología | DESCRIPCIÓN |
+| Metodología | Descripción |
 |-------------|-------------|
 | [Explorador de búsqueda (portal)](search-explorer.md) | Proporciona una barra de búsqueda y opciones para la selección del índice y la versión de API. Los resultados se devuelven como documentos JSON. Recomendado para exploración, prueba y validación. <br/>[Más información.](search-get-started-portal.md#query-index) | 
 | [Postman u otras herramientas de REST](search-get-started-postman.md) | Las herramientas de pruebas Web son una opción excelente para formular llamadas REST. La API REST es compatible con todas las operaciones posibles de Azure Cognitive Search. En este artículo, se explica cómo configurar el encabezado y el cuerpo de una solicitud HTTP para enviar solicitudes a Azure Cognitive Search.  |
@@ -157,7 +157,7 @@ Si desea que Azure Cognitive Search devuelva los resultados ordenados según un 
 ### <a name="hit-highlighting"></a>Resaltado de referencias
 En Azure Cognitive Search, resaltar la parte exacta de los resultados de búsqueda que coincide con la consulta de búsqueda es fácil mediante el uso de los parámetros **`highlight`** , **`highlightPreTag`** y **`highlightPostTag`** . Puede especificar qué campos *habilitados para búsquedas* deben tener su texto coincidente resaltado, así como especificar las etiquetas de cadena exactas que se anexarán al comienzo y al final del texto coincidente que devuelve Azure Cognitive Search.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Cómo funciona la búsqueda de texto completo en Azure Cognitive Search (arquitectura de análisis de consultas)](search-lucene-query-architecture.md)
 + [Explorador de búsqueda](search-explorer.md)

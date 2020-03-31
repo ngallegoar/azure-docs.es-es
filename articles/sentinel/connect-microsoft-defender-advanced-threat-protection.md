@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
 ms.openlocfilehash: ee2c917d02a442ebabc0e1b40bc245982af794f8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588219"
 ---
 # <a name="connect-alerts-from-microsoft-defender-advanced-threat-protection"></a>Conexión de alertas desde Protección contra amenazas avanzada de Microsoft Defender 
@@ -32,7 +32,7 @@ ms.locfileid: "77588219"
 
 Se pueden transmitir registros desde [Protección contra amenazas avanzada de Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) a Azure Sentinel con tan solo un clic. Esta conexión permite transmitir las alertas de Protección contra amenazas avanzada de Microsoft Defender a Azure Sentinel. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una licencia válida para Protección contra amenazas avanzada de Microsoft Defender habilitada, tal como se describe en [Validación del aprovisionamiento de licencias y configuración completa para Protección contra amenazas avanzada de Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 - Debe ser un administrador o un administrador de seguridad en el inquilino de Azure Sentinel.

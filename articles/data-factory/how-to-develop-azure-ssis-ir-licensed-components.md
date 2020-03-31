@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: 599b54f8a5d97ee5ed29ce4df16980f456ffb919
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74914579"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Instalación de componentes personalizados de pago o con licencia para la instancia de Integration Runtime para la integración de SSIS en Azure
@@ -38,7 +38,7 @@ En el siguiente diagrama se muestra la instalación típica, la activación y el
 
 ![Instalación de componentes con licencia](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
-## <a name="instructions"></a>Instrucciones
+## <a name="instructions"></a>Instructions
 1. Los ISV pueden ofrecer sus componentes con licencia en varios SKU o niveles (por ejemplo, nodo único, hasta 5 nodos, hasta 10 nodos, etc.). El ISV proporciona la clave de producto correspondiente al cliente durante la compra. El ISV puede proporcionar también un contenedor de blobs de Azure Storage con un script de instalación de ISV y los archivos asociados. Los clientes puedan copiar estos archivos en su propio contenedor de almacenamiento y modificarlos con su propia clave de producto (por ejemplo, al ejecutar `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Los clientes pueden aprovisionar o volver a configurar la instancia de Integration Runtime para la integración de SSIS en Azure con el URI de SAS de su contenedor como parámetro. Para más información, consulte [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md) (Instalación personalizada de la instancia de Integration Runtime para la integración de SSIS en Azure).
 
 2. Cuando la instancia de Integration Runtime para la integración de SSIS en Azure se aprovisiona o se vuelve a configurar, el programa de instalación de ISV se ejecuta en todos los nodos para consultar las variables de entorno de Windows, `SSIS_CLUSTERID` y `SSIS_CLUSTERNODECOUNT`. A continuación, la instancia de Integration Runtime para la integración de SSIS en AzureIS envía el identificador del clúster y la clave de producto del producto con licencia para que el servidor de activación de ISV genere una clave de activación.

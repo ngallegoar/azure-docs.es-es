@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
 ms.openlocfilehash: 8eee516beaaf26ed25bd20f9689d26fdb1eb9b40
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74546222"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Deshabilitación de los cifrados poco seguros y de la sincronización de hash de contraseñas para proteger un dominio administrado de Azure AD Domain Services
@@ -24,7 +24,7 @@ De forma predeterminada, Azure Active Directory Domain Services (Azure AD DS)
 
 En este artículo se muestra cómo deshabilitar los cifrados NTLM V1 y TLS v1 y la sincronización de hash de contraseñas de NTLM.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este artículo, necesita los siguientes recursos:
 
@@ -32,7 +32,7 @@ Para completar este artículo, necesita los siguientes recursos:
     * Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un inquilino de Azure Active Directory asociado a su suscripción, ya sea sincronizado con un directorio en el entorno local o con un directorio solo en la nube.
     * Si es necesario, [cree un inquilino de Azure Active Directory][create-azure-ad-tenant] o [asocie una suscripción a Azure con su cuenta][associate-azure-ad-tenant].
-* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
+* Un dominio administrado de Azure Active Directory Domain Services habilitado y configurado en su inquilino de Azure AD.
     * Si es necesario, [cree y configure una instancia de Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Instale y configure Azure PowerShell.
     * Si es necesario, siga las instrucciones para [instalar el módulo de Azure PowerShell y conectarse a la suscripción de Azure](/powershell/azure/install-az-ps).

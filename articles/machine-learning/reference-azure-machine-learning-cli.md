@@ -12,10 +12,10 @@ author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
 ms.openlocfilehash: 471b26ebc4bd4aecb814ec43c7eba56e3d764fa0
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402496"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Use la extensión de la CLI para Azure Machine Learning
@@ -31,7 +31,7 @@ La CLI de Azure Machine Learning es una extensión de la [CLI de Azure](https://
 
 La CLI no sustituye al SDK de Azure Machine Learning. Es una herramienta complementaria que está optimizada para administrar tareas con muchos parámetros y que están bien adaptadas para la automatización.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Para usar la CLI, debe tener una suscripción de Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -140,7 +140,7 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
 
     Para más información, consulte [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
-## <a id="experiments"></a>Ejecución de los experimentos
+## <a name="run-experiments"></a><a id="experiments"></a>Ejecución de los experimentos
 
 * Inicie la ejecución del experimento. Cuando use este comando, especifique el nombre del archivo runconfig (el texto que va antes de \*.runconfig, si mira el sistema de archivo) con respecto al parámetro -c.
 

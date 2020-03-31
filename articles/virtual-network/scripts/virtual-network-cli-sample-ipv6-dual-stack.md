@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: 0661c5231e2fce4d6a675c07be6b0ae914c99997
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1ef8742bc4f8de2d08d9bb4fc98b3df6f9420737
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201376"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235024"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Ejemplo de script de configuración de puntos de conexión IPv6 en la red virtual (versión preliminar)
 
@@ -27,22 +27,24 @@ Puede ejecutar el script desde Azure [Cloud Shell](https://shell.azure.com/bash)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 Para usar IPv6 para la característica Azure Virtual Network, debe configurar la suscripción solo una vez como se indica a continuación:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar el estado del registro ejecutando el siguiente comando de la CLI de Azure:
 
-```azurelci
+```azurecli
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 Una vez completado el registro, ejecute el siguiente comando:
 
-```azurelci
+```azurecli
 az provider register --namespace Microsoft.Network
 ```
 
@@ -261,6 +263,7 @@ az vm create \
 --image MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 
 ```
+
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
 Ejecute el siguiente comando para quitar el grupo de recursos, la VM y todos los recursos relacionados:

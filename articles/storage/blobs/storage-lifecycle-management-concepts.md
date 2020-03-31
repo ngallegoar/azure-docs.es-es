@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598313"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
@@ -292,7 +292,7 @@ Entre los filtros están los siguientes:
 | Nombre de filtro | Tipo de filtro | Notas | Es obligatorio |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matriz de valores de enumeración predefinidos. | La versión actual admite `blockBlob`. | Sí |
-| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Cada regla puede definir hasta 10 prefijos. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si quiere que todos los blobs de `https://myaccount.blob.core.windows.net/container1/foo/...` coincidan en una regla, prefixMatch es `container1/foo`. | Si no define prefixMatch, la regla se aplica a todos los blobs de la cuenta de almacenamiento.  | Sin |
+| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Cada regla puede definir hasta 10 prefijos. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si quiere que todos los blobs de `https://myaccount.blob.core.windows.net/container1/foo/...` coincidan en una regla, prefixMatch es `container1/foo`. | Si no define prefixMatch, la regla se aplica a todos los blobs de la cuenta de almacenamiento.  | No |
 
 ### <a name="rule-actions"></a>Acciones de regla
 

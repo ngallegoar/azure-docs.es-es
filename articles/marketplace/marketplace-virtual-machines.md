@@ -2,18 +2,18 @@
 title: Guía de publicación de ofertas de máquinas virtuales para Azure Marketplace
 description: En este artículo se describen los requisitos para publicar una máquina virtual y una evaluación gratuita de software para su implementación desde Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: ellacroi
-ms.openlocfilehash: 0f2047501b6c57b2bb98ff7e3c56498417644324
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 34de5f59e96a37282063741a1664f512697c167b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818992"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288723"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guía de publicación de ofertas de máquinas virtuales
 
@@ -23,14 +23,7 @@ Estas ofertas de transacción se implementan y facturan a través de Marketplace
 
 ## <a name="free-trial"></a>Versión de prueba gratuita 
 
-Puede disponer que los usuarios prueben la oferta mediante el acceso a licencias de software de tiempo limitado si se usa el modelo de facturación traiga su propia licencia (BYOL). A continuación encontrará los requisitos para implementar esta oferta. 
-
-|Requisitos  |Detalles  |
-|---------|---------|
-|Período de evaluación gratuita y experiencia de evaluación     |   Los clientes pueden probar la aplicación de forma gratuita durante un tiempo limitado. Los clientes no tienen que pagar ninguna tarifa de licencia o suscripción por la oferta. Los clientes no tienen que pagar por los servicios o productos de Microsoft subyacentes. Todas las opciones de la versión de prueba se implementan en la suscripción a Azure. Dispone de control exclusivo de la administración y optimización de costos. Puede elegir una evaluación gratuita o una demostración interactiva. Con independencia de lo que elija, la prueba gratuita debe ofrecer al cliente una cantidad preestablecida de tiempo para probar la oferta sin ningún costo adicional.|
-|Solución de fácil configuración y lista para usar    |  La aplicación debe ser fácil y rápida de configurar e instalar.       |
-|Disponibilidad/tiempo de actividad    |    La aplicación o plataforma SaaS debe tener un tiempo de actividad de al menos un 99,9 %.     |
-|Azure Active Directory     |    La oferta debe permitir el inicio de sesión único (SSO) federado de Azure Active Directory (Azure AD) con consentimiento habilitado.     |
+Puede disponer que los usuarios prueben la oferta mediante el acceso a licencias de software de tiempo limitado si se usa el modelo de facturación traiga su propia licencia (BYOL). 
 
 ## <a name="test-drive"></a>Versión de prueba
 

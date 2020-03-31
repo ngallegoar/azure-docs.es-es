@@ -8,10 +8,10 @@ ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77189100"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(EN DESUSO) Lanzamiento controlado de microservicios con Vamp en un clúster de DC/OS de Azure Container Service
@@ -197,7 +197,7 @@ Para combinar el nuevo servicio sava 1.1 con la implementación en ejecución:
 
 1. En la interfaz de usuario de Vamp, haga clic en **Blueprints** (Planos).
 
-2. Haga clic en **Agregar** y pegue el siguiente código YAML de plano: este plano describe una nueva variante de un servicio (sava:1.1.0) para implementarla en el clúster existente (sava_cluster).
+2. Haga clic en **Add** (Agregar) y pegue el siguiente código YAML de plano: este plano describe una nueva variante de un servicio (sava:1.1.0) para implementarla en el clúster existente (sava_cluster).
 
    ```YAML
    name: sava:1.1.0      # blueprint name

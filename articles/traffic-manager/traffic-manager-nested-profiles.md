@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: rohink
 ms.openlocfilehash: 282099cb274c1ea872a0df9c2753a939ef31421f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938567"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfiles anidados del Administrador de tráfico
@@ -30,7 +30,7 @@ Los ejemplos siguientes muestran cómo usar perfiles anidados de Traffic Manager
 
 ## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Ejemplo 1: Enrutamiento de tráfico combinado: de "rendimiento" y "ponderado"
 
-Supongamos que ha implementado una aplicación en las siguientes regiones de Azure: Oeste de EE. UU., Oeste de Europa y Asia Oriental. Usará el método de enrutamiento de tráfico de "rendimiento" de Traffic Manager para distribuir el tráfico a la región más cercana al usuario.
+Supongamos que ha implementado una aplicación en las siguientes regiones de Azure: Oeste de EE. UU., Oeste de Europa y Este de Asia. Usará el método de enrutamiento de tráfico de "rendimiento" de Traffic Manager para distribuir el tráfico a la región más cercana al usuario.
 
 ![Perfil único del Administrador de tráfico][4]
 
@@ -71,7 +71,7 @@ Sin embargo, suponga que prefiere que el tráfico de Oeste de Europa conmute por
 
 ![Enrutamiento de tráfico de "rendimiento" con conmutación por error preferencial][6]
 
-Dado que el punto de conexión de Oeste de Europa tiene una mayor prioridad que el punto de conexión del Oeste de EE. UU., todo el tráfico se enviará al primero cuando ambos puntos de conexión estén en línea. Si Oeste de Europa no funciona, su tráfico se dirige a Oeste de EE. UU. Con el perfil anidado, el tráfico se dirigirá a Asia Oriental solo si Oeste de Europa y Oeste de EE. UU. dan error.
+Dado que el punto de conexión de Oeste de Europa tiene una mayor prioridad que el punto de conexión del Oeste de EE. UU., todo el tráfico se enviará al primero cuando ambos puntos de conexión estén en línea. Si Oeste de Europa no funciona, su tráfico se dirige a Oeste de EE. UU. Con el perfil anidado, el tráfico se dirigirá a Este de Asia solo si Oeste de Europa y Oeste de EE. UU. dan error.
 
 Puede repetir este patrón con todas las regiones. Reemplace los tres puntos de conexión del perfil primario por tres perfiles secundarios, cada uno proporcionando una secuencia de conmutación por error ordenada por orden de prioridad.
 

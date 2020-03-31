@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67876205"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como destino de copia de seguridad con NetBackup
@@ -73,18 +73,18 @@ StorSimple ofrece las siguientes ventajas:
 -   Algoritmos de desduplicación y compresión únicos que usan la nube para lograr unos niveles de desduplicación sin precedentes
 -   Alta disponibilidad
 -   Replicación geográfica mediante el uso de la replicación geográfica de Azure
--   Integración de Azure
+-   Integración con Azure
 -   Cifrado de datos en la nube
 -   Mejor recuperación ante desastres y cumplimiento normativo
 
 Aunque StorSimple presenta dos escenarios de implementación principales (destino de copia de seguridad principal y secundario), es fundamentalmente un dispositivo de almacenamiento de bloques sin formato. StorSimple realiza toda la compresión y desduplicación. Envía y recupera datos perfectamente entre la nube y el sistema de archivos y de la aplicación.
 
-Para más información sobre StorSimple, consulte [Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida](storsimple-overview.md). También puede consultar las [especificaciones técnicas para Serie StorSimple 8000](storsimple-technical-specifications-and-compliance.md).
+Para obtener más información sobre StorSimple, consulte [Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida](storsimple-overview.md). También puede consultar las [especificaciones técnicas para Serie StorSimple 8000](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > El uso del dispositivo StorSimple como destino de copia de seguridad es compatible solo con StorSimple 8000 Update 3 y versiones posteriores.
 
-## <a name="architecture-overview"></a>Introducción a la arquitectura
+## <a name="architecture-overview"></a>Información general sobre la arquitectura
 
 Las tablas siguientes muestran la guía inicial de la relación entre el modelo del dispositivo y la arquitectura.
 
@@ -253,7 +253,7 @@ De acuerdo con los supuestos anteriores, cree un volumen en capas de StorSimple 
 | Retención de tipo de copia de seguridad | Tamaño (TiB) | Multiplicador de GFS\* | Capacidad total (TiB)  |
 |---|---|---|---|
 | Completa semanal | 1 | 4  | 4 |
-| Incremental diaria | 0,5 | 20 (los ciclos equivalen al número de semanas al mes) | 12 (2 para cuota adicional) |
+| Incremental diaria | 0.5 | 20 (los ciclos equivalen al número de semanas al mes) | 12 (2 para cuota adicional) |
 | Completa mensual | 1 | 12 | 12 |
 | Completa anual | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
@@ -406,7 +406,7 @@ En la tabla siguiente se muestra cómo configurar copias de seguridad para que s
 \* La capacidad total incluye 17 TiB de discos de StorSimple y 1 TiB de volumen RAID local.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Programación de ejemplo de GFS: Programación semanal, mensual y anual de rotación de GFS
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Ejemplo de programación GFS: programación semanal, mensual y anual de rotación de GFS
 
 | Semana | Completo | Incremental día 1 | Incremental día 2 | Incremental día 3 | Incremental día 4 | Incremental día 5 |
 |---|---|---|---|---|---|---|
@@ -472,7 +472,7 @@ Después de definir los grupos de disco inicial, debe definir tres directivas de
 | Retención de tipo de copia de seguridad | Tamaño (TiB) | Multiplicador de GFS\* | Capacidad total (TiB)  |
 |---|---|---|---|
 | Completa semanal |  1  |  4 | 4  |
-| Incremental diaria  | 0,5  | 20 (los ciclos son iguales al número de semanas por mes) | 12 (2 para cuota adicional) |
+| Incremental diaria  | 0.5  | 20 (los ciclos son iguales al número de semanas por mes) | 12 (2 para cuota adicional) |
 | Completa mensual  | 1 | 12 | 12 |
 | Completa anual | 1  | 10 | 10 |
 | Requisito de GFS  |     |     | 38 |
@@ -540,7 +540,7 @@ Un desastre puede deberse a una serie de factores. En la tabla siguiente encontr
 En este artículo se ha hecho referencia a los siguientes documentos:
 
 - [Configurar E/S de múltiples rutas para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Escenarios de almacenamiento: aprovisionamiento fino](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Escenarios de almacenamiento: el aprovisionamiento fino](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Using GPT drives](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD) (Uso de unidades de GPT)
 - [Habilitar y configurar las instantáneas de carpetas compartidas](https://technet.microsoft.com/library/cc771893.aspx)
 

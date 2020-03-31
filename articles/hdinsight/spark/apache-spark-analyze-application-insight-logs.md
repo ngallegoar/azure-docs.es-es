@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: 6fd7682f56fbe446904a4acdb39e78525f2523a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435235"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Análisis de registros de telemetría de Application Insights con Apache Spark en HDInsight
@@ -109,7 +109,7 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
    > [!NOTE]  
    > Para el resto de los pasos descritos en esta sección, se ha usado el directorio `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests`. La estructura de sus directorios puede ser diferente.
 
-6. Escriba el código siguiente en la celda siguiente: Reemplace `WASB_PATH` por la ruta de acceso del paso anterior.
+6. En la siguiente celda, escriba este código (reemplazando `WASB_PATH` por la ruta de acceso especificada en el paso anterior):
 
    ```python
    jsonFiles = sc.textFile('WASB_PATH')
@@ -252,7 +252,7 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
    > [!NOTE]  
    > Para el resto de los pasos descritos en esta sección, se ha usado el directorio `wasbs://appinsights@contosostore.blob.core.windows.net/contosoappinsights_{ID}/Requests`. Este directorio podría no existir, a menos que los datos de telemetría sean de una aplicación web.
 
-6. Escriba el código siguiente en la celda siguiente: Reemplace `WASB\_PATH` por la ruta de acceso del paso anterior.
+6. En la siguiente celda, escriba este código (reemplazando `WASB\_PATH` por la ruta de acceso especificada en el paso anterior):
 
    ```scala
    var jsonFiles = sc.textFile('WASB_PATH')
@@ -359,9 +359,9 @@ Para agregar la cuenta de Azure Storage a un clúster existente, use la informac
 
 Para más ejemplos de uso de Apache Spark para trabajar con datos y servicios de Azure, consulte los siguientes documentos:
 
-* [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con BI: Realización de análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para analizar la temperatura de un edificio mediante datos de HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 Para obtener información sobre cómo crear y ejecutar aplicaciones de Spark, consulte los siguientes documentos:

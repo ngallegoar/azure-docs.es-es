@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72755221"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Protección de las claves de Azure Cosmos con Azure Key Vault 
@@ -33,8 +33,8 @@ Los pasos siguientes son necesarios para almacenar y leer las claves de acceso d
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).  
 2. Seleccione **Crear un recurso > Seguridad > Key Vault**.  
 3. En la sección **Crear Key Vault**, proporcione la siguiente información:  
-   * **Name** (Nombre): proporcione un nombre único para el almacén de claves.  
-   * **Subscription** (Suscripción): elija la suscripción que va a utilizar.  
+   * **Nombre**: especifique un nombre único para el almacén de claves.  
+   * **Suscripción**: elija la suscripción que va a utilizar.  
    * En **Grupo de recursos** elija **Crear nuevo** y escriba un nombre para el grupo de recursos.  
    * En el menú desplegable Ubicación elija una ubicación.  
    * Deje las restantes opciones con sus valores predeterminados.  

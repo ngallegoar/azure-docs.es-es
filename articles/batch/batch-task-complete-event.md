@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
 ms.openlocfilehash: 0fee5f071d5c7005e466bf4c3d0c1d0a7db24731
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022926"
 ---
 # <a name="task-complete-event"></a>Evento de tarea completada
@@ -62,26 +62,26 @@ ms.locfileid: "77022926"
 |[`constraints`](#constraints)|Tipo complejo|Restricciones de ejecución que se aplican a esta tarea.|
 |[`executionInfo`](#executionInfo)|Tipo complejo|Contiene información sobre la ejecución de la tarea.|
 
-###  <a name="nodeInfo"></a> nodeInfo
+###  <a name="nodeinfo"></a><a name="nodeInfo"></a> nodeInfo
 
 |Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`poolId`|String|Identificador del grupo en el que se ejecutó la tarea.|
 |`nodeId`|String|Identificador del nodo en el que se ejecutó la tarea.|
 
-###  <a name="multiInstanceSettings"></a> multiInstanceSettings
+###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a> multiInstanceSettings
 
 |Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|Número de nodos de proceso que requiere la tarea.|
 
-###  <a name="constraints"></a> constraints
+###  <a name="constraints"></a><a name="constraints"></a> constraints
 
 |Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|Número máximo de veces que se puede reintentar la tarea. El servicio de Batch reintenta una tarea su el código de salida es distinto de cero.<br /><br /> Tenga en cuenta que este valor controla específicamente el número de reintentos. El servicio de Batch intentará una vez la tarea y podría reintentarla hasta alcanzar este límite. Por ejemplo, si el conteo de reintentos máximo es 3, Batch intenta una tarea hasta 4 veces (un intento inicial y 3 reintentos).<br /><br /> Si el conteo de intentos máximo es 0, el servicio de Batch no reintenta las tareas.<br /><br /> Si el conteo de intentos máximo es -1, el servicio de Batch reintenta las tareas sin ningún límite.<br /><br /> El valor predeterminado es 0 (sin ningún reintento).|
 
-###  <a name="executionInfo"></a> executionInfo
+###  <a name="executioninfo"></a><a name="executionInfo"></a> executionInfo
 
 |Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|

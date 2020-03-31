@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/13/2019
+ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: afd4836229c60ebef1536d4fa1ca4206a492e56d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d2dba0f657b418267db90c07014dc8996ed12a10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67186191"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059926"
 ---
 Después de crear un certificado raíz autofirmado, exporte el archivo .cer de clave pública de certificado de raíz (no la clave privada). Este archivo se cargará más adelante en Azure. Los pasos siguientes le ayudan a exportar el archivo .cer para el certificado raíz autofirmado:
 

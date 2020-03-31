@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 039a30d23c45471d88132f544c11df813fb4b8e6
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 63b947a27c3aa24b42252bf33febd031f7caefbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603741"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236768"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guía de planeamiento y operaciones de Azure Security Center
 Esta guía está destinada a profesionales de tecnología de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube que planean usar Azure Security Center.
@@ -179,7 +179,7 @@ Cuando elige por primera vez usar Security Center para su entorno actual de Azur
 
 Después de que procese todas las recomendaciones, la sección **Prevención** debería aparecer en verde para los recursos correspondientes. A partir de este momento, la supervisión continua resulta más sencilla, ya que solo tomará medidas en respuesta a los cambios en los iconos de recomendaciones y estado de seguridad.
 
-La sección **Detección** es más reactiva, ya que se trata de alertas sobre los problemas que están ocurriendo en ese momento o que ocurrieron en el pasado y se detectaron en los controles de Security Center y sistemas de terceros. El icono Alertas de seguridad mostrará gráficos de barras que representan el número de alertas de detección de amenazas encontradas cada día y su distribución entre las diversas categorías de gravedad (baja, media, alta). Para más información sobre Alertas de seguridad, lea [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
+La sección **Detección** es más reactiva, ya que se trata de alertas sobre los problemas que están ocurriendo en ese momento o que ocurrieron en el pasado y se detectaron en los controles de Security Center y sistemas de terceros. El icono Alertas de seguridad mostrará gráficos de barras que representan el número de alertas encontradas cada día y su distribución entre las diversas categorías de gravedad (baja, media, alta). Para más información sobre Alertas de seguridad, lea [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 Planee la visita a la opción de [inteligencia sobre amenazas](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) como parte de las operaciones de seguridad diarias. Ahí puede identificar las amenazas de seguridad en el entorno, como determinar si un determinado equipo es parte de una red de robots (botnet).
 
@@ -211,7 +211,7 @@ Puede usar [controles de aplicación adaptables](https://docs.microsoft.com/azur
 
 
 ## <a name="incident-response"></a>Respuesta a los incidentes
-Security Center detecta amenazas y alerta sobre ellas a medida que se producen. Las organizaciones deben estar al tanto de las nuevas alertas de seguridad y tomar medidas según sea necesario para investigarlas o solucionar el ataque. Para más información sobre cómo funciona la detección de amenazas de Security Center, consulte [Detección de las amenazas y respuesta por parte de Azure Security Center](security-center-alerts-overview.md#detect-threats).
+Security Center detecta amenazas y alerta sobre ellas a medida que se producen. Las organizaciones deben estar al tanto de las nuevas alertas de seguridad y tomar medidas según sea necesario para investigarlas o solucionar el ataque. Para más información sobre cómo funciona la detección contra amenazas de Security Center, lea [¿Cómo detecta Security Center las amenazas y responde a ellas?](security-center-alerts-overview.md#detect-threats).
 
 Aunque el objetivo de este artículo no es ayudarle a crear su propio plan de respuesta a incidentes, vamos a usar las respuestas de seguridad de Microsoft Azure en el ciclo de vida de la nube como base para las fases de la respuesta a incidentes. Estas fases se muestran en el diagrama siguiente:
 

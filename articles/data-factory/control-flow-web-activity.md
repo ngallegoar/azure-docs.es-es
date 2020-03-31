@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110021"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230052"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Actividad web en Azure Data Factory
 La actividad Web puede usarse para llamar a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso.
@@ -67,7 +67,7 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 name | Nombre de la actividad web | String | Sí
 type | Se debe establecer en **WebActivity**. | String | Sí
-method | Método de API de REST para el punto de conexión de destino. | String. <br/><br/>Tipos admitidos: "GET", "POST", "PUT" | Sí
+method | Método de API de REST para el punto de conexión de destino. | String. <br/><br/>Tipos admitidos: "GET", "POST" y "PUT" | Sí
 url | Punto de conexión y ruta de acceso de destino | Cadena (o expresión con un valor resultType de cadena). La actividad dará un error por tiempo de espera después de 1 minuto si no recibe una respuesta desde el punto de conexión. | Sí
 headers | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadena (o expresión con un valor resultType de cadena) | Sí, el encabezado Content-type es necesario. `"headers":{ "Content-Type":"application/json"}`
 body | Representa la carga útil que se envía al punto de conexión.  | Cadena (o expresión con un valor resultType de cadena). <br/><br/>Vea el esquema de la carga de solicitud en la sección [Solicitar un esquema de carga](#request-payload-schema). | Necesario para los métodos POST o PUT.

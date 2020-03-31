@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: 6bc319ea50da4ff6a654b2c9ab09bbe218695533
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278101"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
@@ -29,7 +29,7 @@ Para reducir la administración de configuración y el tiempo de aprovisionamien
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
-## <a name="already-provisioned"></a>Instalación de una aplicación con la extensión de script personalizado
+## <a name="install-an-app-with-the-custom-script-extension"></a><a name="already-provisioned"></a>Instalación de una aplicación con la extensión de script personalizado
 La extensión de script personalizado descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage o GitHub, o se pueden proporcionar a Azure Portal en el tiempo de ejecución de la extensión. Para más información sobre cómo instalar una aplicación con una extensión de script personalizado, consulte los siguientes tutoriales:
 
 - [CLI de Azure](tutorial-install-apps-cli.md)

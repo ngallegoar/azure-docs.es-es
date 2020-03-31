@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: 78455c90bab694b77a5e4a56d0b40518867d8d8c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77188361"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer"></a>Ingesta de datos de IoT Hub en Azure Data Explorer 
@@ -24,7 +24,7 @@ ms.locfileid: "77188361"
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer ofrece ingesta (carga de datos) desde IoT Hub, una plataforma de streaming de macrodatos y un servicio de ingesta de IoT.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * Cree [un clúster y una base de datos de prueba](create-cluster-database-portal.md) con el nombre de base de datos *testdb*.

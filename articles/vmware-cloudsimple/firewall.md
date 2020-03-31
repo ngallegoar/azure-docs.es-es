@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565033"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225068"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configuración de tablas de firewall y reglas para las nubes privadas
 
@@ -68,7 +68,7 @@ Las reglas de firewall determinan cómo trata el firewall determinados tipos de 
 > [!IMPORTANT]
 > Cada tabla de Firewall puede tener hasta diez reglas de entrada y veinte reglas de salida. Estos límites se pueden incrementar [poniéndose en contacto con soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="attach-vlans-subnet"></a>Asociación de redes VLAN o subredes
+## <a name="attach-vlanssubnets"></a><a name="attach-vlans-subnet"></a>Asociación de redes VLAN o subredes
 
 Después de definir una tabla de firewall, puede especificar las subredes que están sujetas a las reglas de la tabla.
 

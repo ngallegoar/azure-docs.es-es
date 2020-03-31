@@ -1,20 +1,18 @@
 ---
 title: Ofertas privadas | Azure Marketplace
 description: Ofertas privadas en Azure Marketplace para los editores de aplicaciones y servicios.
-services: Azure, Marketplace, Compute
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/1/2018
-ms.author: pabutler
-ms.openlocfilehash: 16903d4f9b1bad8a588b1a234ac84bc9c0150c4a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 67aba077304117ad357d4e004ce7bdb25ac58352
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827843"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285051"
 ---
 # <a name="private-offers"></a>Ofertas privadas
 

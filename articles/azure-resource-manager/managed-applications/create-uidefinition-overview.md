@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5fcc87e894cfab0075b33835a0673b133c629b73
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2956c76f5bec353639b39228b982db21b6932deb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649328"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294893"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para la experiencia de creación de aplicaciones administradas de Azure
 
@@ -96,6 +96,6 @@ El propio archivo createUiDefinition.json tiene un esquema simple. Su profundida
 - [Elementos](create-uidefinition-elements.md)
 - [Funciones](create-uidefinition-functions.md)
 
-Un esquema JSON actual para createUiDefinition está disponible aquí: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
+Un esquema JSON actual para createUiDefinition está disponible aquí: `https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json`.
 
 Para un archivo de interfaz de usuario de ejemplo, vea [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/Managed%20Application%20Sample%20Packages/201-managed-app-using-existing-vnet/createUiDefinition.json).

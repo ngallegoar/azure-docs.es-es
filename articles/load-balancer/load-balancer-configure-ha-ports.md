@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: allensu
-ms.openlocfilehash: c2e787a1f81d9f3d31b981c31a0249dd362b7bb9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c6b8ecb443408f23ae604bd9c8139cb0a2afcd12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225401"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477789"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configuración de los puertos de alta disponibilidad para un equilibrador de carga interno
 
@@ -31,7 +31,7 @@ En este artículo se proporciona un ejemplo de implementación de los puertos de
 En la ilustración se muestra la configuración del ejemplo de implementación siguiente que se describe en este artículo:
 
 - Los aplicaciones virtuales de red se implementan en el grupo back-end de un equilibrador de carga interno detrás de la configuración de los puertos de alta disponibilidad. 
-- La ruta definida por el usuario aplicada en las rutas de la subred DMZ enruta todo el tráfico a aplicaciones virtuales de red al realizar el salto siguiente como IP virtual del equilibrador de carga interno. 
+- La ruta definida por el usuario aplicada en las rutas de La subred perimetral enruta todo el tráfico a aplicaciones virtuales de red al realizar el salto siguiente como IP virtual del equilibrador de carga interno. 
 - El equilibrador de carga interno distribuye el tráfico a uno de los aplicaciones virtuales de red activos según el algoritmo del equilibrador de carga.
 - El dispositivo virtual de red procesa el tráfico y lo reenvía al destino original en la subred de back-end.
 - La ruta de devolución también puede ser la misma, si se configura la ruta definida por el usuario correspondiente en la subred de back-end. 
@@ -98,7 +98,7 @@ lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfigurati
 En el paso 4 del artículo sobre la [creación de un conjunto de equilibrador de carga interno](load-balancer-get-started-ilb-arm-cli.md), use el siguiente comando para crear la regla del equilibrador de carga para los puertos de alta disponibilidad:
 
 ```azurecli
-azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
+az network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

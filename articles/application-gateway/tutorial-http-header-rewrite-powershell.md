@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: absha
 ms.openlocfilehash: 2663c049245a7025b5948a64fc5008bb9e7dee90
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74173712"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Crear una instancia de Application Gateway y reescribir los encabezados HTTP
 
 Puede usar Azure PowerShell para configurar las [reglas de reescritura de encabezados HTTP de solicitud y respuesta](rewrite-http-headers.md) al crear una [SKU de Application Gateway de escalado automático y con redundancia de zona](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) existente.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 >
 > * Crear una red virtual de escalabilidad automática
 > * Creación de una dirección IP pública reservada
 > * Configurar una infraestructura para Application Gateway
-> * Especificar la configuración de la regla de reescritura de encabezados HTTP
+> * Especificar la configuración de la regla para volver a escribir el encabezado
 > * Especificación de la escalabilidad automática
 > * Creación de la puerta de enlace de aplicaciones
 > * Prueba de la puerta de enlace de aplicaciones
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este artículo es necesario ejecutar Azure PowerShell en local. Necesita tener instalado el módulo de Azure versión 1.0.0 o posterior. Ejecute `Import-Module Az` y, después, `Get-Module Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Después de verificar la versión de PowerShell, ejecute `Login-AzAccount` para crear una conexión con Azure.
 

@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: 4ad58bc2d61f063dce2c23f60a65dcbec48a2303
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825093"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233720"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Conectarse a Azure HDInsight y ejecutar consultas de Apache Hive con Herramientas de Data Lake para Visual Studio
 
@@ -26,7 +26,7 @@ Para obtener más información acerca de cómo conectarse a un clúster de Apach
 
 Data Lake Tools para Visual Studio se puede utilizar para acceder a Azure Data Lake Analytics y a HDInsight. Para más información acerca de Data Lake Tools, consulte [Desarrollo de scripts U-SQL mediante Data Lake Tools para Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este artículo y usar Herramientas de Data Lake para Visual Studio, se necesitan los siguientes elementos:
 
@@ -188,7 +188,7 @@ Para crear una tabla de Hive, puede usar la GUI o las consultas de Hive. Para ob
     ![Ventana Crear tabla, Hive, clúster de HDInsight, Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-create-hive-table.png)
 
 ### <a name="create-and-run-hive-queries"></a>Creación y ejecución de consultas de Hive
-Para crear y ejecutar consultas de Hive, tiene dos opciones:
+Para crear y ejecutar consultas de Hive tiene dos opciones:
 
 * Crear consultas ad hoc
 * Crear una aplicación de Hive

@@ -10,10 +10,10 @@ ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
 ms.openlocfilehash: d243224192b5761af45d387690f5fb41b84481e6
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588729"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Cosmos DB
@@ -28,7 +28,7 @@ En la tabla siguiente se enumeran las propiedades de los registros de recursos d
 | **time** | **TimeGenerated** | La fecha y hora (UTC) cuando se produjo la operación. |
 | **resourceId** | **Recurso** | La cuenta de Azure Cosmos DB para la cual los registros están habilitados.|
 | **category** | **Categoría** | En el caso de los registros de Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption** y **ControlPlaneRequests** son los tipos de registro disponibles. |
-| **operationName** | **OperationName** | Nombre de la operación. Este valor puede ser cualquiera de las operaciones siguientes: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
+| **operationName** | **OperationName** | Nombre de la operación. Este valor puede ser cualquiera de las siguientes operaciones: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
 | **properties** | N/D | El contenido de este campo se describe en las filas siguientes. |
 | **activityId** | **activityId_g** | GUID único para la operación registrada. |
 | **userAgent** | **userAgent_s** | Una cadena que especifica el agente de usuario de cliente que realiza la solicitud. El formato es {nombre de agente de usuario}/{versión}.|

@@ -1,7 +1,7 @@
 ---
 title: Presentación de información sobre una coordenada en un mapa | Microsoft Azure Maps
 description: Aprenda a mostrar información sobre una dirección del mapa cuando un usuario selecciona una coordenada.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 1a6b3b4665e6141fb4c95508a8d8405268de6d19
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 174bdc496e52a6ac8f2a2d631db92e0f21a819be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208529"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371435"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obtención de información de una coordenada
 
@@ -55,6 +55,9 @@ El tercer bloque de código agrega un agente de escucha de eventos para los clic
 El cambio de cursor, el objeto emergente y el evento de hacer clic se crean en el [agente de escucha de eventos de carga](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) del mapa. Esta estructura de código garantiza que el mapa se cargue por completo antes de recuperar la información de coordenadas.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [Procedimientos recomendados de uso del servicio de búsqueda](how-to-use-best-practices-for-search.md)
 
 Más información sobre las clases y los métodos utilizados en este artículo:
 

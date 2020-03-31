@@ -14,12 +14,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: daf26f346ab10906eb5c37c6d7d2bb24736417cb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d47ed3a4cd4fbdcb69b956d3c8418f70a71cf44f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698823"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230752"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Cómo y por qué se agregan aplicaciones a Azure AD
 
@@ -77,7 +77,7 @@ Al igual que los objetos de aplicación, las entidades de servicio se pueden cre
 * Cuando un administrador añade una aplicación desde la galería de aplicaciones (esto también creará un objeto de aplicación subyacente).
 * Al añadir una aplicación para usar el [Azure Active Directory Application Proxy](/azure/active-directory/manage-apps/application-proxy).
 * Al conectar una aplicación para inicio de sesión único utilizando SAML o inicio de sesión único (SSO) de contraseña.
-* Mediante programación con Graph API de Azure AD o PowerShell
+* Mediante programación con Microsoft Graph API o PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>¿Qué relación tienen los objetos de aplicación y las entidades de servicio?
 
@@ -100,13 +100,13 @@ Entre las aplicaciones que añade personalmente (representadas como **App (yours
 
 ### <a name="notes-and-exceptions"></a>Notas y excepciones
 
-* No todas las entidades de servicio señalan a un objeto de aplicación. Cuando se diseñó originalmente Azure AD, los servicios proporcionados a las aplicaciones eran más limitados y la entidad de servicio era suficiente para establecer una identidad de aplicación. La entidad de seguridad de servicio original era más cercana en cuanto a la forma a la cuenta de servicio de Windows Server Active Directory. Por este motivo, aún es posible crear entidades de servicio de otras maneras, como con Azure AD PowerShell, sin crear primero un objeto de aplicación. Graph API de Azure AD requiere un objeto de aplicación antes de crear una entidad de servicio.
+* No todas las entidades de servicio señalan a un objeto de aplicación. Cuando se diseñó originalmente Azure AD, los servicios proporcionados a las aplicaciones eran más limitados y la entidad de servicio era suficiente para establecer una identidad de aplicación. La entidad de seguridad de servicio original era más cercana en cuanto a la forma a la cuenta de servicio de Windows Server Active Directory. Por este motivo, aún es posible crear entidades de servicio de otras maneras, como con Azure AD PowerShell, sin crear primero un objeto de aplicación. Microsoft Graph API requiere un objeto de aplicación antes de crear una entidad de servicio.
 * Actualmente, no toda la información que se ha descrito anteriormente se expone mediante programación. Lo siguiente solo está disponible en la interfaz de usuario:
   * Reclama las reglas de transformación
   * Asignaciones de atributos (aprovisionamiento de usuarios)
-* Para más información sobre los objetos de aplicación y la entidad de servicio, consulte la documentación de referencia de Graph API de Azure AD.
-  * [Aplicación](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Entidad de seguridad de servicio](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+* Para obtener más información sobre los objetos de aplicación y la entidad de servicio, consulte la documentación de referencia de Microsoft Graph API:
+  * [Aplicación](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
+  * [Entidad de seguridad de servicio](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>¿Por qué se integran las aplicaciones con Azure AD?
 

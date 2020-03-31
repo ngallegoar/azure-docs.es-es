@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: spelluru
 ms.openlocfilehash: a4ba4206c01e492f2ae980c5806de1e72c7051c3
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73931151"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Uso de identidades administradas de Azure para implementar entornos en un laboratorio 
@@ -24,7 +24,7 @@ Como propietario de un laboratorio, puede usar una identidad administrada para i
 > [!NOTE]
 > Actualmente, se admite una única identidad asignada por el usuario por laboratorio. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 - [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
 ## <a name="use-azure-portal"></a>Usar Azure Portal

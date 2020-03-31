@@ -14,11 +14,11 @@ ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027798"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232580"
 ---
 # <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>Solución de problemas de errores de conexión transitorios en SQL Database
 
@@ -109,7 +109,7 @@ Para llevar a cabo esta prueba, desconecte el equipo de la red antes de iniciar 
 El programa deliberadamente escribe mal el nombre de usuario antes del primer intento de conexión. El error es:
 
 - **SqlException.Number** = 18456
-- Mensaje: "Error de inicio de sesión para el usuario 'WRONG_MyUserName'."
+- Mensaje: "Error de inicio de sesión para el usuario 'WRONG_MyUserName'".
 
 Como parte del primer reintento, el programa puede corregir el error ortográfico y, a continuación, intentar conectarse.
 
@@ -162,7 +162,7 @@ Supongamos que su aplicación tiene una lógica de reintento personalizada. Pued
 
 <a id="c-connection-string" name="c-connection-string"></a>
 
-### <a name="connection-connection-string"></a>Conexión: Cadena de conexión
+### <a name="connection-connection-string"></a>Conexión: cadena de conexión
 
 La cadena de conexión necesaria para conectarse a SQL Database es ligeramente diferente de la cadena que se utiliza para conectarse a SQL Server. Puede copiar la cadena de conexión para la base de datos en [Azure Portal](https://portal.azure.com/).
 
@@ -181,7 +181,7 @@ Si olvida configurar la dirección IP, el programa fallará con un mensaje de er
 Para obtener más información, consulte [Configuración del firewall en SQL Database](sql-database-configure-firewall-settings.md).
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
-### <a name="connection-ports"></a>Conexión: Puertos
+### <a name="connection-ports"></a>Conexión: puertos
 
 Por lo general, debe asegurarse de que solo el puerto 1433 está abierto para la comunicación saliente en el equipo que hospeda el programa cliente.
 
@@ -196,7 +196,7 @@ Para obtener información general acerca de la configuración de puertos y direc
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-462-or-later"></a>Conexión: ADO.NET 4.6.2 o versiones posteriores
+### <a name="connection-adonet-462-or-later"></a>Conexión: ADO.NET 4.6.2 o posteriores
 
 Si el programa usa clases ADO.NET como **System.Data.SqlClient.SqlConnection** para conectarse a SQL Database, le recomendamos que use .NET Framework 4.6.2, o cualquier versión posterior.
 
@@ -267,7 +267,7 @@ A veces un problema intermitente se diagnostica mejor mediante la detección de 
 
 El cliente puede ayudar al diagnóstico mediante el registro de todos los errores que encuentra. Puede correlacionar las entradas del registro con los datos de error que SQL Database registra internamente.
 
-Enterprise Library 6 (EntLib60) ofrece clases administradas de .NET para ayudar con el registro. Para más información, vea [5 - El procedimiento más sencillo: uso del bloque de aplicación de registro](https://msdn.microsoft.com/library/dn440731.aspx).
+Enterprise Library 6 (EntLib60) ofrece clases administradas de .NET para ayudar con el registro. Para obtener más información, consulte [5 - As easy as falling off a log: Use the Logging Application Block](https://msdn.microsoft.com/library/dn440731.aspx) (5 - El procedimiento más sencillo: uso del bloque de aplicación de registro).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -327,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Enterprise Library 6 (EntLib60) es un marco de clases de .NET que ayuda a implementar a clientes sólidos de servicios en la nube, uno de los cuales es el servicio SQL Database. Para buscar temas dedicados a cada área en la que puede ayudar EntLib60 en, vea [Enterprise Library 6 - April 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx) (Enterprise Library 6: abril de 2013).
 
-La lógica de reintento para controlar los errores transitorios es un área en la que puede ayudar EntLib60. Para más información, vea [4: Perseverancia, el secreto de todos los triunfos: uso del bloque de aplicación de control de errores transitorios](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+La lógica de reintento para controlar los errores transitorios es un área en la que puede ayudar EntLib60. Si desea obtener más información, consulte [4 - Perseverance, secret of all triumphs: Use the Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx) (4 - La perseverancia, el secreto de todos los triunfos: uso del bloque de aplicaciones de control de errores transitorios).
 
 > [!NOTE]
 > El código fuente de EntLib60 está disponible de forma pública para descargarlo desde el [Centro de descarga](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft no tiene previsto realizar más actualizaciones de mantenimiento o de característica en EntLib.
@@ -354,9 +354,9 @@ En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultH
 
 Estos son algunos vínculos a información sobre EntLib60:
 
-- Descarga gratis del libro: [Developer's Guide to Microsoft Enterprise Library, 2nd Edition](https://www.microsoft.com/download/details.aspx?id=41145) (Guía del desarrollador para Microsoft Enterprise Library, segunda edición).
+- Descarga gratis del libro [Developer's Guide to Microsoft Enterprise Library, 2nd Edition](https://www.microsoft.com/download/details.aspx?id=41145) (Guía del desarrollador para Microsoft Enterprise Library, segunda edición).
 - Procedimientos recomendados: [Orientación general sobre reintentos](../best-practices-retry-general.md) tiene una excelente explicación detallada de la lógica de reintento.
-- Descarga de NuGet: [Enterprise Library: Bloque de aplicación de control de errores transitorios 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Descarga de NuGet de [Enterprise Library - Transient Fault Handling Application Block 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (Enterprise Library: Bloque de aplicación de control de errores transitorios 6.0).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
@@ -368,7 +368,7 @@ Estos son algunos vínculos a información sobre EntLib60:
   - Recopilar la información contextual es útil para la depuración y el seguimiento, así como para los requisitos de registro generales y de auditoría.
 - El bloque de registro abstrae la funcionalidad de registro desde el destino de registro para que el código de la aplicación sea coherente, con independencia de la ubicación y del tipo de almacén de registro de destino.
 
-Para más información, vea [5 - El procedimiento más sencillo: uso del bloque de aplicación de registro](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Para obtener más información, consulte [5 - As easy as falling off a log: Use the Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx) (5 - El procedimiento más sencillo: uso del bloque de aplicación de registro).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 

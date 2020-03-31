@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: rohink
-ms.openlocfilehash: 709e89b94ba10db954aa5cf3f70aeffb0d239edb
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 4863ffd383cfcd46bad462156e26293d145fd418
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938617"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294865"
 ---
 # <a name="how-traffic-manager-works"></a>Funcionamiento de Traffic Manager
 
@@ -34,7 +34,7 @@ Cuando un cliente intenta conectarse a un servicio, debe resolver primero el nom
 
 ## <a name="traffic-manager-example"></a>Ejemplo de Traffic Manager
 
-Contoso Corp ha desarrollado un nuevo portal para asociados. La URL de este portal es https://partners.contoso.com/login.aspx. La aplicación está hospedada en tres regiones de Azure. Para mejorar la disponibilidad y maximizar el rendimiento global, usan Traffic Manager para distribuir el tráfico de cliente al punto de conexión disponible más próximo.
+Contoso Corp ha desarrollado un nuevo portal para asociados. La URL de este portal es `https://partners.contoso.com/login.aspx`. La aplicación está hospedada en tres regiones de Azure. Para mejorar la disponibilidad y maximizar el rendimiento global, usan Traffic Manager para distribuir el tráfico de cliente al punto de conexión disponible más próximo.
 
 Para lograr esta configuración, se han completado los pasos siguientes:
 
@@ -49,7 +49,7 @@ Para lograr esta configuración, se han completado los pasos siguientes:
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Conexión de clientes mediante Traffic Manager
 
-Continuando a partir del ejemplo anterior, cuando un cliente solicita la página https://partners.contoso.com/login.aspx, este realiza los pasos siguientes para resolver el nombre DNS y establecer una conexión:
+Continuando a partir del ejemplo anterior, cuando un cliente solicita la página `https://partners.contoso.com/login.aspx`, este realiza los pasos siguientes para resolver el nombre DNS y establecer una conexión:
 
 ![Establecimiento de la conexión mediante Traffic Manager][2]
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
 ms.openlocfilehash: d09f13a65a72c6c856a7fcd3d943ec116f3da43f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721870"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Hoja de referencia rápida de una canalización de datos automatizada para las predicciones de Azure Machine Learning
@@ -27,7 +27,7 @@ Esta hoja de referencia rápida lo guía por las decisiones que deberá tomar y 
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Descargar la hoja de referencia rápida de canalización de datos automatizada de Machine Learning
 Cuando descargue la hoja de referencia rápida, puede imprimirla en tamaño tabloide (11 x 17 pulg.).
 
-Descargue aquí la hoja de referencia rápida: **[Hoja de referencia rápida de canalización de datos automatizada Microsoft Azure Machine Learning](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Descargar aquí la hoja de referencia rápida: **[hoja de referencia rápida de canalización de datos automatizada de Microsoft Azure Machine Learning](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Información general de las funcionalidades de Microsoft Azure Machine Learning Studio (clásico)][op-cheat-sheet]
 

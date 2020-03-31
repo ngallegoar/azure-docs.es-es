@@ -11,10 +11,10 @@ ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
 ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073312"
 ---
 # <a name="monitoring-scheduled-events"></a>Supervisión de Scheduled Events
@@ -32,7 +32,7 @@ En este artículo, le guiaremos a través de la captura de mantenimiento de Sche
 
 ![Diagrama que muestra el ciclo de vida de los eventos](./media/notifications/events.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este ejemplo, tendrá que crear una [máquina virtual Windows en un conjunto de disponibilidad](tutorial-availability-sets.md). Scheduled Events proporciona notificaciones sobre los cambios que pueden afectar a cualquiera de las máquinas virtuales del conjunto de disponibilidad, el servicio en la nube, el conjunto de escalado de máquinas virtuales o a las máquinas virtuales independientes. Se va a ejecutar un [servicio](https://github.com/microsoft/AzureScheduledEventsService) que sondea los eventos programados en una de las máquinas virtuales, la cual actuará como recopilador para obtener los eventos de todas las demás máquinas virtuales del conjunto de disponibilidad.    
 

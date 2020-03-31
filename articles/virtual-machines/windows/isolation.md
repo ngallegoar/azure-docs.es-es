@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.openlocfilehash: 4d6c8bb2bc27c7202848229e749b62dd714e86fd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74029876"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Aislamiento de máquina virtual de Azure

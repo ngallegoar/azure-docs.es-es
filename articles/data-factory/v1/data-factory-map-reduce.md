@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74703152"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Invocar programas MapReduce desde la factoría de datos de Azure
@@ -39,7 +39,7 @@ ms.locfileid: "74703152"
 La actividad de MapReduce para HDInsight en una [canalización](data-factory-create-pipelines.md) de Data Factory ejecuta programas de MapReduce en un clúster de HDInsight basado en Windows/Linux [propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o en uno [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 
 > [!NOTE] 
-> Si no está familiarizado con Azure Data Factory, vea [Introducción a Azure Data Factory](data-factory-introduction.md) y siga el tutorial sobre la [compilación de la primera canalización de datos](data-factory-build-your-first-pipeline.md) antes de leer este artículo.  
+> Si no está familiarizado con Azure Data Factory, lea [Introducción a Azure Data Factory](data-factory-introduction.md) y realice el tutorial de [compilación de la primera canalización de datos](data-factory-build-your-first-pipeline.md) antes de leer este artículo.  
 
 ## <a name="introduction"></a>Introducción
 Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe el uso de la actividad MapReduce de HDInsight.
@@ -112,7 +112,7 @@ En la definición de JSON para la actividad de HDInsight:
    Puede usar la actividad MapReduce de HDInsight para ejecutar cualquier archivo jar de MapReduce en un clúster de HDInsight. En la siguiente definición de JSON de ejemplo de una canalización, la actividad de HDInsight se configura para ejecutar un archivo JAR de Mahout.
 
 ## <a name="sample-on-github"></a>Ejemplo en GitHub
-Puede descargar un ejemplo para usar la actividad MapReduce de HDInsight desde: [Ejemplos de Data Factory en GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON/MapReduce_Activity_Sample).  
+Puede descargar un ejemplo para usar la actividad MapReduce de HDInsight desde: [Ejemplos de factoría de datos en GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON/MapReduce_Activity_Sample).  
 
 ## <a name="running-the-word-count-program"></a>Ejecutar el programa de recuento de palabras
 La canalización de este ejemplo ejecuta el programa de asignación/reducción del recuento de palabras en el clúster de HDInsight de Azure.   
@@ -183,12 +183,12 @@ La canalización de este ejemplo tiene solo una actividad de tipo: HDInsightMapR
 
 | Propiedad | Notas |
 |:--- |:--- |
-| Tipo |El tipo debe establecerse en **HDInsightMapReduce**. |
+| type |El tipo debe establecerse en **HDInsightMapReduce**. |
 | className |El nombre de la clase es: **wordcount** |
 | jarFilePath |Ruta de acceso al archivo .jar que contiene la clase anterior. Si copia/pega el código siguiente, no olvide cambiar el nombre del clúster. |
 | jarLinkedService |Servicio vinculado a Azure Storage que contiene el archivo jar. Este servicio vinculado hace referencia al almacenamiento asociado al clúster de HDInsight. |
 | argumentos |El programa de recuento de palabras toma dos argumentos, una entrada y una salida. El archivo de entrada es el archivo davinci.txt. |
-| frecuencia/intervalo |Los valores de estas propiedades coinciden con el conjunto de datos de salida. |
+| frequency/interval |Los valores de estas propiedades coinciden con el conjunto de datos de salida. |
 | linkedServiceName |hace referencia al servicio vinculado a HDInsight creado anteriormente. |
 
 ```JSON
@@ -233,7 +233,7 @@ La canalización de este ejemplo tiene solo una actividad de tipo: HDInsightMapR
 ```
 
 ## <a name="run-spark-programs"></a>Ejecutar programas Spark
-Puede usar la actividad MapReduce para ejecutar programas Spark en su clúster de HDInsight Spark. Consulte [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) (Invocar programas Spark desde Data Factory de Azure) para obtener información detallada.  
+Puede usar la actividad MapReduce para ejecutar programas Spark en su clúster de HDInsight Spark. Consulte [Invocar programas Spark desde Azure Data Factory](data-factory-spark.md) para obtener más información.  
 
 [developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
@@ -245,7 +245,7 @@ Puede usar la actividad MapReduce para ejecutar programas Spark en su clúster d
 [Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: https://portal.azure.com
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Actividad de Hive](data-factory-hive-activity.md)
 * [Actividad de Pig](data-factory-pig-activity.md)
 * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)

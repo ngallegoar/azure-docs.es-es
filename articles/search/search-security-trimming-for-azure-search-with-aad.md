@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72794303"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtros de seguridad para limitar los resultados de Azure Cognitive Search mediante las identidades de Active Directory
@@ -30,7 +30,7 @@ En este artículo se tratan las tareas siguientes:
 > [!NOTE]
 > Los fragmentos de código de ejemplo de este artículo están escritos en C#. El código fuente completo se puede encontrar [en GitHub](https://aka.ms/search-dotnet-howto). 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 El índice de Azure Cognitive Search debe tener un [campo de seguridad](search-security-trimming-for-azure-search.md) para almacenar la lista de identidades de grupo que tengan acceso de lectura al documento. Este caso de uso supone una correspondencia uno a uno entre un elemento protegible (por ejemplo, la solicitud de la universidad de un individuo) y un campo de seguridad que especifica quién tiene acceso a ese elemento (personal de admisión).
 
@@ -63,7 +63,7 @@ Sin embargo, si no tiene usuarios existentes, puede utilizar Microsoft Graph API
 
 La pertenencia de usuarios y grupos podría ser muy fluida, especialmente en grandes organizaciones. El código que crea identidades de usuario y grupo debe ejecutarse con la frecuencia suficiente como para recoger los cambios en la pertenencia de la organización. Del mismo modo, el índice de Azure Cognitive Search requiere una programación de actualización similar para reflejar el estado actual de recursos y usuarios permitidos.
 
-### <a name="step-1-create-aad-grouphttpsdocsmicrosoftcomgraphapigroup-post-groupsviewgraph-rest-10"></a>Paso 1: Crear un [grupo de AAD](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
+### <a name="step-1-create-aad-group"></a>Paso 1: Crear un [grupo de AAD](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdocsmicrosoftcomgraphapiuser-post-usersviewgraph-rest-10"></a>Paso 2: Crear un [usuario de AAD](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+### <a name="step-2-create-aad-user"></a>Paso 2: Crear un [usuario de AAD](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -186,7 +186,7 @@ La respuesta incluye una lista filtrada de documentos, que consta de los que el 
 
 En este tutorial, ha aprendido técnicas para usar inicios de sesión de AAD para filtrar documentos en los resultados de Azure Cognitive Search, recortando los resultados de los documentos que no coinciden con el filtro proporcionado en la solicitud.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Control de acceso basado en identidades mediante filtros de Azure Cognitive Search](search-security-trimming-for-azure-search.md)
 + [Filtros de Azure Cognitive Search](search-filters.md)

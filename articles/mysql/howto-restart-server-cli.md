@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 146c531805ff22544797c44c8df32b0e5d1e83b0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: c1fd688fbfd892e3d0dfc3ebb1712dd931e0ed39
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774230"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063499"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Reinicio de un servidor de Azure Database for MySQL mediante la CLI de Azure
 En este tema se describe cómo reiniciar un servidor de Azure Database for MySQL. Es posible que deba reiniciar el servidor por motivos de mantenimiento, lo que causa una breve interrupción del servicio mientras el servidor realiza la operación.
@@ -20,7 +20,7 @@ Si el servicio está ocupado, se bloqueará el reinicio del servidor. Por ejempl
 
 El tiempo necesario para completar un reinicio depende el proceso de recuperación de MySQL. Para reducir el tiempo de reinicio, se recomienda que minimice la cantidad de actividades que se ejecutan en el servidor antes del reinicio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para completar esta guía, necesita:
 - Un [servidor de Azure Database for MySQL](quickstart-create-server-up-azure-cli.md)
 

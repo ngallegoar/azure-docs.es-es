@@ -10,16 +10,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 9d94b6627348d08c76fa040255ba0856a2ffa945
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 4f8bb1f20dcc3a7900e3347616018a6e156962d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168810"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218189"
 ---
 # <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>Uso de PowerShell para crear varios modelos y puntos de conexión de servicio web de Studio (clásico) a partir de un experimento
 
-El siguiente es un problema de aprendizaje automático habitual: quiere crear muchos modelos que tienen el mismo flujo de trabajo de entrenamiento y utilizan el mismo algoritmo. Pero desea que tengan conjuntos de datos de entrenamiento distintos como entrada. Este artículo muestra cómo hacer esto a escala en Azure Machine Learning Studio (clásico) simplemente con un solo experimento.
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
+Este es un problema común del aprendizaje automático: quiere crear muchos modelos que tienen el mismo flujo de trabajo de entrenamiento y utilizan el mismo algoritmo. Pero desea que tengan conjuntos de datos de entrenamiento distintos como entrada. Este artículo muestra cómo hacer esto a escala en Azure Machine Learning Studio (clásico) simplemente con un solo experimento.
 
 Por ejemplo, digamos que posee una empresa de franquicias de alquiler de bicicletas global. Desea crear un modelo de regresión para predecir la demanda de alquiler basada en datos históricos. Dispone de mil ubicaciones de alquiler en todo el mundo y ha recopilado un conjunto de datos para cada ubicación. Incluyen características importantes como la fecha, la hora e información meteorológica y sobre el tráfico que son específicas de cada ubicación.
 

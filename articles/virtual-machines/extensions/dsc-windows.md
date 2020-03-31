@@ -14,11 +14,11 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 592c731d1851ac36cf9b57864750df0603b6c3fd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073787"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227928"
 ---
 # <a name="powershell-dsc-extension"></a>Extensión DSC de PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "74073787"
 
 Microsoft, como editor de la extensión DSC de PowerShell, es quien presta los servicios de soporte técnico para esta solución. La extensión carga y aplica una configuración de DSC de PowerShell en una máquina virtual de Azure. La extensión DSC llama a DSC de PowerShell para aplicar la configuración de DSC recibida en la máquina virtual. En este documento se especifican las plataformas compatibles, configuraciones y opciones de implementación de la extensión de máquina virtual de DSC para Windows.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -97,7 +97,7 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 
 ### <a name="property-values"></a>Valores de propiedad
 
-| NOMBRE | Valor / ejemplo | Tipo de datos |
+| Nombre | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | string |
@@ -106,7 +106,7 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 
 ### <a name="settings-property-values"></a>Valores de la propiedad settings
 
-| NOMBRE | Tipo de datos | DESCRIPCIÓN
+| Nombre | Tipo de datos | Descripción
 | ---- | ---- | ---- |
 | settings.wmfVersion | string | Especifica la versión de Windows Management Framework que debe instalarse en la máquina virtual. Si se establece esta propiedad en "latest", se instalará la versión más reciente de WMF. Los únicos valores posibles actualmente para esta propiedad son "4.0", "5.0" y "latest". Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es "latest". |
 | settings.configuration.url | string | Especifica la ubicación de la dirección URL desde la que descargar el archivo zip de la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, deberá establecer la propiedad protectedSettings.configurationUrlSasToken en el valor de su token de SAS. Esta propiedad es necesaria si se definen settings.configuration.script o settings.configuration.function.
@@ -120,7 +120,7 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 
 ### <a name="protected-settings-property-values"></a>Valores protegidos de la propiedad settings
 
-| NOMBRE | Tipo de datos | DESCRIPCIÓN
+| Nombre | Tipo de datos | Descripción
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | string | Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad se cifrará. |
 | protectedSettings.configurationUrlSasToken | string | Especifica el token de SAS para acceder a la dirección URL definida en configuration.url. Esta propiedad se cifrará. |

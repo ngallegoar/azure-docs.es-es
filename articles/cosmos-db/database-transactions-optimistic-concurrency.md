@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74806531"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transacciones y control de simultaneidad optimista
@@ -47,7 +47,7 @@ Los procedimientos almacenados basados en JavaScript, los desencadenadores, las 
 
 La capacidad de ejecutar JavaScript directamente en el motor de base de datos proporciona rendimiento y la ejecución transaccional de las operaciones de base de datos en los elementos de un contenedor. Además, debido a que el motor de base de datos de Azure Cosmos DB admite de forma nativa JSON y JavaScript, no hay ningún error de coincidencia de impedancia entre los sistemas tipo de la aplicación y la base de datos.
 
-## <a name="optimistic-concurrency-control"></a>Control de concurrencia optimista
+## <a name="optimistic-concurrency-control"></a>Control de simultaneidad optimista
 
 El control de simultaneidad optimista le permite evitar la pérdida de actualizaciones y eliminaciones. Las operaciones simultáneas en conflicto están sujetas al bloqueo pesimista normal del motor de base de datos que hospeda la partición lógica que posee el elemento. Cuando dos operaciones simultáneas intentan actualizar la versión más reciente de un elemento de una partición lógica, uno de ellos tendrá prioridad y en el otro se producirá un error. No obstante, si una o dos operaciones que están intentando actualizar simultáneamente el mismo elemento habían leído anteriormente un valor más antiguo de este, la base de datos no sabrá si el valor leído anteriormente por cualquiera de las operaciones en conflicto, o por ambas, era realmente el valor más reciente de ese elemento. Afortunadamente, esta situación se puede detectar con el **control de simultaneidad optimista (OCC)** antes de permitir que las dos operaciones escriban el límite de la transacción en el motor de base de datos. El control de simultaneidad optimista protege los datos frente a cambios accidentales por sobrescritura realizados por otros. También impide que otros usuarios sobrescriban accidentalmente sus propios cambios.
 

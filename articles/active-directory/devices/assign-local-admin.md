@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 613c5e9f153f2e3f02ab35d3be16ef3b29d15634
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: dc1812d955590ec0c7372e1311c9d69f93b9957c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672724"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128878"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
@@ -47,7 +47,7 @@ Para ver y actualizar la pertenencia al rol de administrador global, consulte:
 
 En Azure Portal, puede administrar el rol de administrador de dispositivos en la página **Dispositivos**. Para abrir la página **Dispositivos**:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global o administrador de dispositivos.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
 1. Busque y seleccione *Azure Active Directory*.
 1. En la sección **Administrar**, haga clic en **Dispositivos**.
 1. En la página **Dispositivos**, haga clic en **Configuración del dispositivo**.

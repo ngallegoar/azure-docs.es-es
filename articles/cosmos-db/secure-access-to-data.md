@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 448b14168e85e75b7ed19e189600186ce11c2902
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756426"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227268"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Protección del acceso a los datos de Azure Cosmos DB
 
@@ -62,7 +62,7 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
 
-## Tokens de recursos <a id="resource-tokens"></a>
+## <a name="resource-tokens"></a>Tokens de recursos <a id="resource-tokens"></a>
 
 Los tokens de recursos proporcionan acceso a los recursos de la aplicación en una base de datos. Los tokens de recursos:
 
@@ -95,7 +95,7 @@ La generación y administración de los tokens de recursos las controlan las bib
 
 Para ver un ejemplo de un servicio de nivel intermedio que se usa para generarlo o los tokens de recursos del agente, consulte la [aplicación ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-## Usuarios<a id="users"></a>
+## <a name="users"></a>Usuarios<a id="users"></a>
 
 Los usuarios de Azure Cosmos DB están asociados a una base de datos de Cosmos.  Cada base de datos puede contener cero, o más, usuarios de Cosmos DB. En el siguiente código de ejemplo se muestra cómo crear un usuario de Cosmos DB mediante el [SDK de .NET v3 de Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement).
 
@@ -109,7 +109,7 @@ User user = await database.CreateUserAsync("User 1");
 > [!NOTE]
 > Cada usuario de Cosmos DB tiene un método ReadAsync() que se puede usar para recuperar la lista de [permisos](#permissions) asociados al usuario.
 
-## Permisos<a id="permissions"></a>
+## <a name="permissions"></a>Permisos<a id="permissions"></a>
 
 Un recurso de permiso está asociado a un usuario y está asignado en el contenedor, así como en el nivel de clave de partición. Cada usuario puede contener cero o más permisos. Un recurso de permiso proporciona acceso a un token de seguridad que el usuario necesita al intentar acceder a un contenedor específico o a los datos de una clave de partición específica. Hay dos niveles de acceso disponibles que puede proporcionar un recurso de permiso:
 

@@ -11,10 +11,10 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 03/05/2020
 ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78398330"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementación de un modelo de aprendizaje profundo para la inferencia con GPU
@@ -33,7 +33,7 @@ La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo i
 > [!NOTE]
 > La información de este artículo se basa en la información del artículo [Realización de implementaciones en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md). Aunque en ese artículo se trata de forma general la realización de implementaciones en Azure Container Service, este trata la implementación específica de GPU.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 

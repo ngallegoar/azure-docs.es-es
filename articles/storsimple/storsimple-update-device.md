@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: twooley
 ms.openlocfilehash: c9451afaefdd220b5f87d4650c7844f06926b03a
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75933435"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>Actualización del dispositivo de la serie StorSimple 8000
 > [!NOTE]
-> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Si tiene alguna pregunta sobre este paso, consulte [Preguntas frecuentes: Transición a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Información general
 Las características de actualización de StorSimple permiten mantener fácilmente actualizado el dispositivo de StorSimple. Según el tipo de actualización, puede aplicar las actualizaciones al dispositivo a través del Portal de Azure clásico o mediante la interfaz de Windows PowerShell. En este tutorial se describen los tipos de actualización y cómo instalar cada uno de ellos.
@@ -49,7 +49,7 @@ Se trata de actualizaciones no perturbadoras que se pueden instalar cuando el di
 * También puede instalar actualizaciones normales a través de Windows PowerShell para StorSimple. Para obtener más información, consulte [Instalación de actualizaciones normales a través de Windows PowerShell para StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
 
 ### <a name="maintenance-mode-updates"></a>Actualizaciones en modo de mantenimiento
-Se trata de actualizaciones con interrupciones, como las actualizaciones de firmware de disco. En estas actualizaciones es necesario que el dispositivo esté en modo de mantenimiento. Para más información, consulte [Paso 2: Acceder al modo de mantenimiento](#step2). No puede usar el Portal de Azure clásico para instalar las actualizaciones en modo de mantenimiento. En su lugar, debe usar Windows PowerShell para StorSimple. 
+Se trata de actualizaciones con interrupciones, como las actualizaciones de firmware de disco. En estas actualizaciones es necesario que el dispositivo esté en modo de mantenimiento. Para obtener más información, consulte [Paso 2: Acceso al modo de mantenimiento](#step2). No puede usar el Portal de Azure clásico para instalar las actualizaciones en modo de mantenimiento. En su lugar, debe usar Windows PowerShell para StorSimple. 
 
 Para obtener más información sobre cómo instalar las actualizaciones en modo de mantenimiento, consulte [Instalación de actualizaciones en modo de mantenimiento a través de Windows PowerShell para StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
@@ -89,7 +89,7 @@ En primer lugar, utilice una aplicación como PuTTY para tener acceso a la conso
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>Paso 2: Acceder al modo de mantenimiento <a name="step2">
+### <a name="step-2-enter-maintenance-mode-a-namestep2"></a>Paso 2: Acceso al modo de mantenimiento <a name="step2">
 Una vez esté conectado a la consola, mire a ver si hay actualizaciones que se deban instalar y active el modo de mantenimiento para hacerlo.
 
 [!INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]

@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: aa401150ee7a0f02e809ad702b8247e18081c8a3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74171558"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referencia del motor de reglas estándar de Azure CDN
 
-En el [motor de reglas estándar](cdn-standard-rules-engine.md) de Azure Content Delivery Network (Azure CDN), una regla consta de una o varias condiciones de coincidencia y una acción. En este artículo se muestran descripciones detalladas de las condiciones de coincidencia y las características disponibles en el motor de reglas estándar para Azure CDN.
+En el [motor de reglas estándar](cdn-standard-rules-engine.md) de Azure Content Delivery Network (Azure CDN), una regla consta de una o varias condiciones de coincidencia y una acción. En este artículo se muestran descripciones detalladas de las condiciones de coincidencia y las características disponibles en el motor de reglas estándar para Azure CDN.
 
 El motor de reglas está diseñado para ser la autoridad definitiva sobre cómo Azure CDN estándar procesa los tipos específicos de solicitudes.
 
@@ -54,7 +54,7 @@ Se usa un símbolo de porcentaje para indicar la codificación de direcciones UR
 
 El texto que se interpreta como un valor de carácter comodín asigna un significado adicional a los caracteres especiales. En la tabla siguiente se describe cómo se interpretan los caracteres especiales específicos en el motor de reglas estándar:
 
-Character | DESCRIPCIÓN
+Carácter | Descripción
 ----------|------------
 \ | Se usa una barra diagonal inversa para el escape de cualquier carácter especificado en esta tabla. Debe especificarse una barra diagonal inversa directamente antes del carácter especial al que debe aplicarse el escape. Por ejemplo, la sintaxis siguiente aplica el escape a un asterisco: `\*`
 % | Se usa un símbolo de porcentaje para indicar la codificación de direcciones URL (p. ej., `%20`).

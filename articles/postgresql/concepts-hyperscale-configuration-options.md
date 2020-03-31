@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 2/18/2020
 ms.openlocfilehash: 1c9b4b1099bda69764aa7a1a5a984a6316e1047d
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77462418"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-performance-options"></a>Opciones de rendimiento de Hiperescala (Citus) para Azure Database for PostgreSQL

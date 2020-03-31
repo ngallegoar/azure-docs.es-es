@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898573"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceptos, terminología y entidades de Azure Scheduler
@@ -84,11 +84,11 @@ El trabajo también incluye datos proporcionados por el sistema, como el siguien
 
 | Elemento | Obligatorio | Descripción | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Sin | La hora de inicio para el trabajo con un desplazamiento de zona horaria en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**startTime**](#start-time) | No | La hora de inicio para el trabajo con un desplazamiento de zona horaria en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Sí | Los detalles de la acción principal, que puede incluir un objeto **errorAction** | 
-| [**errorAction**](#error-action) | Sin | Los detalles de la acción secundaria que se ejecuta si se produce un error en la acción principal |
-| [**recurrence**](#recurrence) | Sin | Los detalles como la frecuencia y el intervalo para un trabajo periódico | 
-| [**retryPolicy**](#retry-policy) | Sin | Los detalles de la frecuencia de reintentos de una acción | 
+| [**errorAction**](#error-action) | No | Los detalles de la acción secundaria que se ejecuta si se produce un error en la acción principal |
+| [**recurrence**](#recurrence) | No | Los detalles como la frecuencia y el intervalo para un trabajo periódico | 
+| [**retryPolicy**](#retry-policy) | No | Los detalles de la frecuencia de reintentos de una acción | 
 | [**state**](#state) | Sí | Los detalles del estado actual del trabajo |
 | [**status**](#status) | Sí | Los detalles del estado actual del trabajo, que está controlado por el servicio |
 ||||
@@ -249,15 +249,15 @@ Un trabajo se vuelve a producir si la definición de JSON del trabajo incluye el
 | Propiedad | Obligatorio | Value | Descripción | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sí, cuando se usa **recurrence** | "Minute", "Hour", "Day", "Week", "Month", "Year" | La unidad de tiempo entre las repeticiones | 
-| **interval** | Sin | 1 a 1000, ambos inclusive | Un entero positivo que determina el número de unidades de tiempo entre cada repetición según la **frecuencia** | 
-| **schedule** | Sin | Varía | Los detalles de las programaciones más complejas y avanzadas. Consulte **hours**, **minutes**, **weekDays**, **months** y **monthDays** | 
-| **hours** | Sin | De 1 a 24 | Una matriz con las marcas de hora para saber cuándo ejecutar el trabajo | 
-| **minutes** | Sin | De 0 a 59 | Una matriz con las marcas de minutos para saber cuándo ejecutar el trabajo | 
-| **months** | Sin | De 1 a 12 | Una matriz con los meses en los que se puede ejecutar el trabajo | 
-| **monthDays** | Sin | Varía | Una matriz con los días del mes en los que se puede ejecutar el trabajo | 
-| **weekDays** | Sin | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matriz con los días de la semana en los que se puede ejecutar el trabajo | 
-| **count** | Sin | <*none*> | El número de repeticiones. El valor predeterminado es que se repita indefinidamente. No se puede usar **count** y **endTime** a la vez, pero se cumple la regla del que finaliza primero. | 
-| **endTime** | Sin | <*none*> | La fecha y hora en la que se detiene la periodicidad. El valor predeterminado es que se repita indefinidamente. No se puede usar **count** y **endTime** a la vez, pero se cumple la regla del que finaliza primero. | 
+| **interval** | No | 1 a 1000, ambos inclusive | Un entero positivo que determina el número de unidades de tiempo entre cada repetición según la **frecuencia** | 
+| **schedule** | No | Varía | Los detalles de las programaciones más complejas y avanzadas. Consulte **hours**, **minutes**, **weekDays**, **months** y **monthDays** | 
+| **hours** | No | De 1 a 24 | Una matriz con las marcas de hora para saber cuándo ejecutar el trabajo | 
+| **minutes** | No | De 0 a 59 | Una matriz con las marcas de minutos para saber cuándo ejecutar el trabajo | 
+| **months** | No | De 1 a 12 | Una matriz con los meses en los que se puede ejecutar el trabajo | 
+| **monthDays** | No | Varía | Una matriz con los días del mes en los que se puede ejecutar el trabajo | 
+| **weekDays** | No | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matriz con los días de la semana en los que se puede ejecutar el trabajo | 
+| **count** | No | <*none*> | El número de repeticiones. El valor predeterminado es que se repita indefinidamente. No se puede usar **count** y **endTime** a la vez, pero se cumple la regla del que finaliza primero. | 
+| **endTime** | No | <*none*> | La fecha y hora en la que se detiene la periodicidad. El valor predeterminado es que se repita indefinidamente. No se puede usar **count** y **endTime** a la vez, pero se cumple la regla del que finaliza primero. | 
 ||||
 
 Para obtener más información acerca de estos elementos, consulte [Creación de programaciones complejas y periodicidad avanzada](../scheduler/scheduler-advanced-complexity.md).
@@ -279,8 +279,8 @@ Para el caso de que un trabajo de Scheduler pueda producir un error, puede confi
 | Propiedad | Obligatorio | Value | Descripción | 
 |----------|----------|-------|-------------| 
 | **retryType** | Sí | **Fixed**, **None** | Determina si se especifica una directiva de reintentos (**fixed**) o no (**none**). | 
-| **retryInterval** | Sin | PT30S | Especifica el intervalo y la frecuencia entre los reintentos en [ formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). El valor mínimo es de 15 segundos, mientras que el valor máximo es de 18 meses. | 
-| **retryCount** | Sin | 4 | Especifica el número de reintentos. El valor máximo es 20. | 
+| **retryInterval** | No | PT30S | Especifica el intervalo y la frecuencia entre los reintentos en [ formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). El valor mínimo es de 15 segundos, mientras que el valor máximo es de 18 meses. | 
+| **retryCount** | No | 4 | Especifica el número de reintentos. El valor máximo es 20. | 
 ||||
 
 Para más información, consulte [Alta disponibilidad y confiabilidad de Scheduler](../scheduler/scheduler-high-availability-reliability.md).

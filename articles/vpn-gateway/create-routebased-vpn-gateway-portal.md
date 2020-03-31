@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 6156d689a29ee348f9b1974d1520eb7d186a8d8d
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78331356"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Creación de una instancia de VPN Gateway basada en rutas mediante Azure Portal
@@ -21,11 +21,11 @@ En este artículo se explica cómo crear rápidamente una instancia de Azure VPN
 
 Los pasos que se describen en este artículo crearán una red virtual, una subred, una subred de puerta de enlace y una instancia de VPN Gateway basada en rutas (puerta de enlace de red virtual). Una vez completada la creación de la puerta de enlace, puede crear las conexiones. Estos pasos requieren una suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="vnet"></a>Creación de una red virtual
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creación de una red virtual
 
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="gwvalues"></a>Configuración y creación de la puerta de enlace
+## <a name="configure-and-create-the-gateway"></a><a name="gwvalues"></a>Configuración y creación de la puerta de enlace
 
 En este paso, se crea la puerta de enlace para la red virtual. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada.
 
@@ -38,7 +38,7 @@ En este paso, se crea la puerta de enlace para la red virtual. La creación de u
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="viewgw"></a>Visualización de VPN Gateway
+## <a name="view-the-vpn-gateway"></a><a name="viewgw"></a>Visualización de VPN Gateway
 
 1. Después de crea la puerta de enlace, vaya a VNet1 en el portal. La instancia de VPN Gateway aparece en la página Información general como un dispositivo conectado.
 

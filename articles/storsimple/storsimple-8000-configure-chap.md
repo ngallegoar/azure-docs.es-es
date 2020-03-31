@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362855"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232236"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configurar CHAP para el dispositivo StorSimple
 
@@ -127,7 +127,7 @@ En la autenticación bidireccional, el destino autentica el iniciador y luego el
       
        ![Secreto CHAP mutuo del iniciador iSCSI](./media/storsimple-configure-chap/IC740949.png)
 5. Haga clic en la pestaña **Destinos** .
-6. Haga clic en el botón **Conectar** . 
+6. Haga clic en el botón **Conectar**. 
 7. En el cuadro de diálogo **Conectarse al destino**, haga clic en **Avanzado**.
 8. En el cuadro de diálogo **Propiedades avanzadas** :
    

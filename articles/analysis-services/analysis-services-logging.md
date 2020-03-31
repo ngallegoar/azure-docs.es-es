@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 05ba1d97d4eba92f492289375f85425f8920510b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0f13f297facedceb50920c0f6afca63fe1df0b48
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749752"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231688"
 ---
 # <a name="setup-diagnostic-logging"></a>Configuración del registro de diagnóstico
 
-Una parte importante de cualquier solución de Analysis Services es la supervisión de cómo se comportan los servidores en cuanto al rendimiento. Con los [registros de diagnóstico de recursos de Azure](../azure-monitor/platform/platform-logs-overview.md), puede supervisar los registros y enviarlos a [Azure Storage](https://azure.microsoft.com/services/storage/), transmitirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y exportarlos a [los registros de Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
+Una parte importante de cualquier solución de Analysis Services es la supervisión de cómo se comportan los servidores en cuanto al rendimiento. Con los [registros de recursos de Azure](../azure-monitor/platform/platform-logs-overview.md), puede supervisar los registros, enviarlos a [Azure Storage](https://azure.microsoft.com/services/storage/), transmitirlos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y exportarlos a [los registros de Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Registro de diagnóstico en Storage, Event Hubs o los registros de Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 

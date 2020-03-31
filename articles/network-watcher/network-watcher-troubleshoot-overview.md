@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: 199b4fc762919c2e3988f477c14d09fc23b0136b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840696"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introducción a la solución de problemas de recursos en Azure Network Watcher
@@ -105,7 +105,7 @@ Los archivos de registro de la solución de problemas de recursos se guardan en 
 > [!NOTE]
 > En algunos casos, solo se escribe un subconjunto de los archivos de registro en el almacenamiento.
 
-Para más instrucciones acerca de cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que se puede utilizar es el Explorador de Storage. Encontrará más información acerca del Explorador de Storage en el siguiente vínculo: [Explorador de Storage](https://storageexplorer.com/)
+Para más instrucciones acerca de cómo descargar archivos desde cuentas de Azure Storage, consulte [Introducción a Azure Blob Storage mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Otra herramienta que se puede utilizar es el Explorador de Storage. Encontrará más información acerca del Explorador de Storage en el siguiente vínculo: [Explorador de Storage](https://storageexplorer.com/).
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

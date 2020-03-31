@@ -5,11 +5,11 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 661e795f0e85f872b1072a8f641b8938115c5d7a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972449"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227384"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referencia sobre la configuración de Azure Blockchain Workbench
 
@@ -33,11 +33,11 @@ Cada flujo de trabajo definido especifica lo siguiente:
 
 Una aplicación de cadena de bloques contiene metadatos de configuración, flujos de trabajo y roles de los usuarios que pueden actuar o participar en la aplicación.
 
-| Campo | Description | Obligatorio |
+| Campo | Descripción | Obligatorio |
 |-------|-------------|:--------:|
 | ApplicationName | Nombre único de aplicación. El contrato inteligente correspondiente debe usar el mismo **ApplicationName** para la clase de contrato aplicable.  | Sí |
 | DisplayName | Nombre descriptivo para mostrar de la aplicación. | Sí |
-| Description | Descripción de la aplicación. | Sin |
+| Descripción | Descripción de la aplicación. | No |
 | ApplicationRoles | Colección de [ApplicationRoles](#application-roles). Roles de los usuarios que pueden actuar o participar en la aplicación.  | Sí |
 | Workflows | Colección de [flujos de trabajo](#workflows). Cada flujo de trabajo actúa como una máquina de estados que controla el flujo de la lógica de negocios. | Sí |
 
@@ -47,14 +47,14 @@ Para obtener un ejemplo, consulte [ejemplo de archivo de configuración](#config
 
 Se puede modelar la lógica de negocios de una aplicación como una máquina de estados en la que la realización de una acción provoca que el flujo de la lógica de negocios pase de un estado a otro. Un flujo de trabajo es una colección de estos estados y acciones. Cada flujo de trabajo consta de uno o varios contratos inteligentes que representan la lógica de negocios en archivos de código. Un contrato ejecutable es una instancia de un flujo de trabajo.
 
-| Campo | Description | Obligatorio | Longitud máxima |
+| Campo | Descripción | Obligatorio | Longitud máxima |
 |-------|-------------|:--------:|-----------:|
-| Name | Nombre único de flujo de trabajo. El contrato inteligente correspondiente debe usar el mismo **nombre** para la clase de contrato aplicable. | Sí | 50 |
+| Nombre | Nombre único de flujo de trabajo. El contrato inteligente correspondiente debe usar el mismo **nombre** para la clase de contrato aplicable. | Sí | 50 |
 | DisplayName | Nombre descriptivo para mostrar del flujo de trabajo. | Sí | 255 |
-| Description | Descripción del flujo de trabajo. | Sin | 255 |
+| Descripción | Descripción del flujo de trabajo. | No | 255 |
 | Iniciadores | Colección de [ApplicationRoles](#application-roles). Roles que se asignan a los usuarios que están autorizados para crear contratos en el flujo de trabajo. | Sí | |
 | StartState | Nombre del estado inicial del flujo de trabajo. | Sí | |
-| properties (Propiedades) | Colección de [identificadores](#identifiers). Representa los datos que se pueden leer fuera de la cadena o visualizar en una herramienta de experiencia del usuario. | Sí | |
+| Propiedades | Colección de [identificadores](#identifiers). Representa los datos que se pueden leer fuera de la cadena o visualizar en una herramienta de experiencia del usuario. | Sí | |
 | Constructor | Define los parámetros de entrada para la creación de una instancia del flujo de trabajo. | Sí | |
 | Functions | Una colección de [funciones](#functions) que se pueden ejecutar en el flujo de trabajo. | Sí | |
 | States | Una colección de [estados](#states) del flujo de trabajo. | Sí | |
@@ -65,7 +65,7 @@ Para obtener un ejemplo, consulte [ejemplo de archivo de configuración](#config
 
 Tipos de datos admitidos.
 
-| Tipo | Description |
+| Tipo | Descripción |
 |-------|-------------|
 | address  | Tipo de dirección de Blockchain, como *contratos* o *usuarios*. |
 | array    | Matriz de nivel único de tipo integer, booleano, money o time. Las matrices pueden ser estáticas o dinámicas. Use **ElementType** para especificar el tipo de datos de los elementos dentro de la matriz. Consulte la [configuración de ejemplo](#example-configuration-of-type-array). |
@@ -76,7 +76,7 @@ Tipos de datos admitidos.
 | money    | Tipo de datos Money. |
 | state    | Estado de flujo de trabajo. |
 | string  | Tipo de datos String. 4000 caracteres como máximo. Consulte la [configuración de ejemplo](#example-configuration-of-type-string). |
-| user     | Dirección de tipo usuario. |
+| usuario     | Dirección de tipo usuario. |
 | time     | Tipo de datos Time. |
 |`[ Application Role Name ]`| Cualquier nombre especificado en un rol de aplicación. Se limita solo a los usuarios de ese tipo de rol. |
 
@@ -168,7 +168,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 Define los parámetros de entrada de una instancia de un flujo de trabajo.
 
-| Campo | Description | Obligatorio |
+| Campo | Descripción | Obligatorio |
 |-------|-------------|:--------:|
 | Parámetros | Colección de [identificadores](#identifiers) necesarios para iniciar un contrato inteligente. | Sí |
 
@@ -201,11 +201,11 @@ Define los parámetros de entrada de una instancia de un flujo de trabajo.
 
 Define las funciones que se pueden ejecutar en el flujo de trabajo.
 
-| Campo | Description | Obligatorio | Longitud máxima |
+| Campo | Descripción | Obligatorio | Longitud máxima |
 |-------|-------------|:--------:|-----------:|
-| Name | El nombre único de la función. El contrato inteligente correspondiente debe usar el mismo **nombre** para la función aplicable. | Sí | 50 |
+| Nombre | El nombre único de la función. El contrato inteligente correspondiente debe usar el mismo **nombre** para la función aplicable. | Sí | 50 |
 | DisplayName | Nombre descriptivo para mostrar de la función. | Sí | 255 |
-| Description | Descripción de la función | Sin | 255 |
+| Descripción | Descripción de la función | No | 255 |
 | Parámetros | Colección de [identificadores](#identifiers) que se corresponden con los parámetros de la función. | Sí | |
 
 ### <a name="functions-example"></a>Ejemplo de funciones
@@ -249,14 +249,14 @@ Define las funciones que se pueden ejecutar en el flujo de trabajo.
 
 Una colección de estados únicos dentro de un flujo de trabajo. Cada estado captura un paso del flujo de control de la lógica de negocios. 
 
-| Campo | Description | Obligatorio | Longitud máxima |
+| Campo | Descripción | Obligatorio | Longitud máxima |
 |-------|-------------|:--------:|-----------:|
-| Name | Nombre único del estado. El contrato inteligente correspondiente debe usar el mismo **nombre** para el estado aplicable. | Sí | 50 |
+| Nombre | Nombre único del estado. El contrato inteligente correspondiente debe usar el mismo **nombre** para el estado aplicable. | Sí | 50 |
 | DisplayName | Nombre descriptivo para mostrar del estado. | Sí | 255 |
-| Description | Descripción del estado. | Sin | 255 |
+| Descripción | Descripción del estado. | No | 255 |
 | PercentComplete | Un valor entero que se muestra en la interfaz de usuario de Blockchain Workbench para mostrar el progreso en el flujo de control de la lógica de negocios. | Sí | |
 | Estilo | Sugerencia visual que indica si el estado representa un estado correcto o erróneo. Hay dos valores válidos: `Success` o `Failure`. | Sí | |
-| Transiciones | Colección de las [transiciones](#transitions) disponibles desde el estado actual hasta el siguiente conjunto de estados. | Sin | |
+| Transiciones | Colección de las [transiciones](#transitions) disponibles desde el estado actual hasta el siguiente conjunto de estados. | No | |
 
 ### <a name="states-example"></a>Ejemplo de estados
 
@@ -318,12 +318,12 @@ Una colección de estados únicos dentro de un flujo de trabajo. Cada estado cap
 
 Las acciones disponibles hasta el siguiente estado. Uno o varios roles de usuario pueden realizar una acción en cada estado donde, a su vez, una acción puede realizar la transición de un estado a otro en el flujo de trabajo. 
 
-| Campo | Description | Obligatorio |
+| Campo | Descripción | Obligatorio |
 |-------|-------------|:--------:|
-| AllowedRoles | Lista de roles de aplicación a los que se permite iniciar la transición. Todos los usuarios del rol especificado pueden llevar a cabo la acción. | Sin |
-| AllowedInstanceRoles | Lista de roles de usuario que participan o de los cuales se especifica en el contrato inteligente que tienen permiso para iniciar la transición. Los roles de instancia se definen en **Propiedades** en los flujos de trabajo. AllowedInstanceRoles representa a un usuario que participa en una instancia de un contrato inteligente. AllowedInstanceRoles le ofrece la posibilidad de restringir la ejecución de una acción en un rol de usuario en una instancia del contrato.  Por ejemplo, puede que desee permitir solo al usuario que creó el contrato (InstanceOwner) poder terminarlo, en lugar de a todos los usuarios del tipo de rol (Propietario) si especificó ese rol en AllowedRoles. | Sin |
+| AllowedRoles | Lista de roles de aplicación a los que se permite iniciar la transición. Todos los usuarios del rol especificado pueden llevar a cabo la acción. | No |
+| AllowedInstanceRoles | Lista de roles de usuario que participan o de los cuales se especifica en el contrato inteligente que tienen permiso para iniciar la transición. Los roles de instancia se definen en **Propiedades** en los flujos de trabajo. AllowedInstanceRoles representa a un usuario que participa en una instancia de un contrato inteligente. AllowedInstanceRoles le ofrece la posibilidad de restringir la ejecución de una acción en un rol de usuario en una instancia del contrato.  Por ejemplo, puede que desee permitir solo al usuario que creó el contrato (InstanceOwner) poder terminarlo, en lugar de a todos los usuarios del tipo de rol (Propietario) si especificó ese rol en AllowedRoles. | No |
 | DisplayName | Nombre descriptivo para mostrar de la transición. | Sí |
-| Description | Descripción de la transición. | Sin |
+| Descripción | Descripción de la transición. | No |
 | Función | El nombre de la función que va a iniciar la transición. | Sí |
 | NextStates | Una colección de los posibles estados siguientes después de una transición correcta. | Sí |
 
@@ -359,14 +359,14 @@ Las acciones disponibles hasta el siguiente estado. Uno o varios roles de usuari
 
 ```
 
-## <a name="application-roles"></a>Roles de la aplicación
+## <a name="application-roles"></a>Roles de aplicación
 
 Los roles de aplicación definen un conjunto de roles que se pueden asignar a los usuarios que deseen actuar o participar en la aplicación. Estos roles se pueden usar para restringir las acciones y la participación en la aplicación de cadena de bloques y en los flujos de trabajo correspondientes. 
 
-| Campo | Description | Obligatorio | Longitud máxima |
+| Campo | Descripción | Obligatorio | Longitud máxima |
 |-------|-------------|:--------:|-----------:|
-| Name | El nombre único del rol de aplicación. El contrato inteligente correspondiente debe usar el mismo **nombre** para el rol aplicable. Se reservan los nombres de tipo base. No puede asignar un nombre a un rol de aplicación con el mismo nombre como [Tipo](#type)| Sí | 50 |
-| Description | Descripción del rol de aplicación. | Sin | 255 |
+| Nombre | El nombre único del rol de aplicación. El contrato inteligente correspondiente debe usar el mismo **nombre** para el rol aplicable. Se reservan los nombres de tipo base. No puede asignar un nombre a un rol de aplicación con el mismo nombre como [Tipo](#type)| Sí | 50 |
+| Descripción | Descripción del rol de aplicación. | No | 255 |
 
 ### <a name="application-roles-example"></a>Ejemplo de roles de aplicación
 
@@ -382,15 +382,15 @@ Los roles de aplicación definen un conjunto de roles que se pueden asignar a lo
   }
 ]
 ```
-## <a name="identifiers"></a>Identifiers (Identificadores)
+## <a name="identifiers"></a>Identificadores
 
 Los identificadores representan una colección de información que se usa para describir las propiedades, el constructor y los parámetros de función del flujo de trabajo. 
 
-| Campo | Description | Obligatorio | Longitud máxima |
+| Campo | Descripción | Obligatorio | Longitud máxima |
 |-------|-------------|:--------:|-----------:|
-| Name | El nombre único de la propiedad o parámetro. El contrato inteligente correspondiente debe usar el mismo **nombre** para la propiedad o parámetro aplicables. | Sí | 50 |
+| Nombre | El nombre único de la propiedad o parámetro. El contrato inteligente correspondiente debe usar el mismo **nombre** para la propiedad o parámetro aplicables. | Sí | 50 |
 | DisplayName | Nombre descriptivo para mostrar de la propiedad o parámetro. | Sí | 255 |
-| Description | Descripción de la propiedad o parámetro. | Sin | 255 |
+| Descripción | Descripción de la propiedad o parámetro. | No | 255 |
 | Tipo | [Tipo de datos](#type) de la propiedad. | Sí |
 
 ### <a name="identifiers-example"></a>Ejemplo de identificadores

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226094"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229888"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Control de acceso en Azure Data Lake Storage Gen1
 
@@ -77,9 +77,9 @@ A continuación, hay algunos escenarios comunes para ayudarle a entender qué pe
 | Anexar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | Eliminar    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Crear    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Enumerar      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| Enumerar      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| Enumerar      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| List      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| List      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -133,7 +133,7 @@ Dado que no hay ningún "grupo principal" asociado a los usuarios de Data Lake S
 **Asignar el grupo propietario de un nuevo archivo o carpeta**
 
 * **Caso 1**: la carpeta raíz "/". Esta carpeta se crea cuando se crea una cuenta de Data Lake Storage Gen1. En este caso, el grupo propietario se establece en un GUID con solo ceros.  Este valor no permite ningún acceso.  Es un marcador de posición hasta el momento en el que se asigna un grupo.
-* **Caso 2** (cada dos casos): cuando se crea un nuevo elemento, se copia el grupo propietario de la carpeta primaria.
+* **Caso 2** (cada dos casos): cuando se crea un elemento, se copia el grupo propietario de la carpeta primaria.
 
 **Cambiar el grupo propietario**
 
@@ -297,6 +297,6 @@ No, pero las ACL predeterminada pueden usarse para establecer las ACL para archi
 * [ACL de POSIX en Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso de listas de control de acceso en Linux)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)

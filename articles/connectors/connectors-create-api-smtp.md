@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 60acd128495176cd0a90418c61edf53bdcd88e5a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77647576"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envío de correo electrónico desde la cuenta de SMTP con Azure Logic Apps
 
 Con Azure Logic Apps y el conector de SMTP (protocolo simple de transferencia de correo) puede crear tareas automatizadas y flujos de trabajo para el envío de correo electrónico desde la cuenta de SMTP. También puede hacer que otras acciones usen la salida de las acciones de SMTP. Por ejemplo, una vez enviado un correo electrónico desde SMTP, puede notificar al equipo de Slack con el conector correspondiente. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
@@ -55,8 +55,8 @@ Con Azure Logic Apps y el conector de SMTP (protocolo simple de transferencia de
    | **Dirección del servidor SMTP** | Sí | La dirección del servidor SMTP | 
    | **Nombre de usuario** | Sí | El nombre de usuario de la cuenta de SMTP | 
    | **Contraseña** | Sí | La contraseña de la cuenta de SMTP | 
-   | **Puerto del servidor SMTP** | Sin | El puerto específico del servidor SMTP que desea usar | 
-   | **¿Quiere habilitar SSL?** | Sin | Activar o desactivar el cifrado SSL. | 
+   | **Puerto del servidor SMTP** | No | El puerto específico del servidor SMTP que desea usar | 
+   | **¿Quiere habilitar SSL?** | No | Activar o desactivar el cifrado SSL. | 
    |||| 
 
 1. Proporcione la información necesaria para la acción seleccionada. 
@@ -65,7 +65,7 @@ Con Azure Logic Apps y el conector de SMTP (protocolo simple de transferencia de
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/smtpconnector/).
+Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](https://docs.microsoft.com/connectors/smtpconnector/).
 
 > [!NOTE]
 > En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).

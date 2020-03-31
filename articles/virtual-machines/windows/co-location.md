@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
 ms.openlocfilehash: b61a84f2b284177b7443be00efeea65e7eb8aaef
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171092"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231876"
 ---
 # <a name="co-locate-resource-for-improved-latency"></a>Colocación de un recurso para mejorar la latencia
 

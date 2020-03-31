@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
 ms.openlocfilehash: 048e5072c592cf2de32e533014c99034572a1c47
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79082904"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importación de claves protegidas con HSM en Key Vault
@@ -34,7 +34,7 @@ La transferencia de claves protegidas con HSM a Key Vault se admite a través de
 |Nombre del proveedor|Tipo de proveedor|Modelos de HSM compatibles|Método de transferencia de clave HSM compatible|
 |---|---|---|---|
 |nCipher|Fabricante|<ul><li>Familia nShield de HSM</li></ul>|[Use el método BYOK heredado](hsm-protected-keys-legacy.md)|
-|Thales|Fabricante|<ul><li>Familia SafeNet Luna HSM 7 con la versión del firmware 7.3 o posterior</li></ul>| [Use el nuevo método BYOK (versión preliminar)](hsm-protected-keys-vendor-agnostic-byok.md)|
+|Thales|Fabricante|<ul><li>Familia SafeNet Luna HSM 7 con la versión del firmware 7.3 o posterior</li></ul>| [Use el nuevo método BYOK (versión preliminar)](hsm-protected-keys-vendor-agnostic-byok.md)|
 |Fortanix|HSM como servicio|<ul><li>Self-Defending Key Management Service (SDKMS)</li></ul>|[Use el nuevo método BYOK (versión preliminar)](hsm-protected-keys-vendor-agnostic-byok.md)|
 
 

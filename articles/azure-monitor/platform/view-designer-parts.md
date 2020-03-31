@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 7dc4164cac1998a02ae62d7682f9630aa4faa619
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658564"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guía de referencia de los elementos de visualización del Diseñador de vistas en Azure Monitor
@@ -18,7 +18,7 @@ Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad d
 
 Para más información acerca del Diseñador de vistas, consulte:
 
-* [Diseñador de vistas](view-designer.md): proporciona información general del Diseñador de vistas y procedimientos para crear y editar vistas personalizadas.
+* [Diseñador de vistas](view-designer.md): proporciona información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
 * [Referencia de los iconos](view-designer-tiles.md): proporciona una referencia de la configuración de cada uno de los iconos disponibles en las vistas personalizadas.
 
 
@@ -137,7 +137,7 @@ El encabezado muestra un solo número que resume una columna de valor de una con
 | Navegación a través de un clic | Acción realizada al hacer clic en el encabezado.  Para más información, consulte [Configuración común](#click-through-navigation). |
 | **Anillo** |**&gt; Centro** |
 | Texto |Texto que se muestra en la parte inferior del valor dentro del anillo. |
-| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor.<ul><li>Suma: suma los valores de todos los registros.</li><li>Porcentaje: proporción de los registros devueltos por los valores de **Valores de resultado usados en la operación del centro** con respecto al número total de registros en la consulta.</li></ul> |
+| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor.<ul><li>Sum: suma los valores de todos los registros.</li><li>Percentage: proporción de los registros devueltos por los valores de **Result values used in center operation** (Valores de resultado usados en la operación del centro) con respecto al número total de registros en la consulta.</li></ul> |
 | Valores de resultado usados en la operación central |También puede seleccionar el signo más (+) para agregar uno o varios valores. Los resultados de la consulta se limitan a los registros con los valores de propiedad especificados. Si no se agrega ningún valor, se incluirán todos los registros en la consulta. |
 | **Opciones adicionales** |**&gt; Colores** |
 | Color 1<br>Color 2<br>Color 3 |Seleccione el color de cada uno de los valores que aparecen en el anillo. |
@@ -176,7 +176,7 @@ El encabezado presenta los resultados de dos consultas de registro en un períod
 | Leyenda |Texto que se muestra en la parte inferior de la llamada de la primera serie. |
 | Color |Color que se utiliza para las columnas de la serie. |
 | Consultar |Consulta que se ejecuta en la primera serie. El número de los registros en cada intervalo de tiempo se representa mediante las columnas de gráfico. |
-| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Suma: suma de los valores de todos los registros.</li><li>Promedio: promedio de los valores de todos los registros.</li><li>Último ejemplo: valor del último intervalo incluido en el gráfico.</li><li>Primer ejemplo: valor del primer intervalo incluido en el gráfico.</li><li>Recuento: número de todos los registros devueltos por la consulta.</li></ul> |
+| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Sum: suma de los valores de todos los registros.</li><li>Average: promedio de los valores de todos los registros.</li><li>Last Sample: valor del último intervalo incluido en el gráfico.</li><li>First Sample: valor del primer intervalo incluido en el gráfico.</li><li>Count: número de todos los registros devueltos por la consulta.</li></ul> |
 | **Lista** | |
 | Consultar |Consulta que se ejecuta en la lista. Se muestra el número de los registros devueltos por la consulta. |
 | Hide graph (Ocultar gráfico) |Seleccione este vínculo para deshabilitar el gráfico a la derecha de la columna numérica. |
@@ -232,7 +232,7 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 | **Gráfico de líneas** |**&gt; Llamada** |
 | Título de la llamada |Texto que se muestra en la parte superior del valor de la llamada. |
 | Nombre de la serie |Valor de propiedad de la serie que se va a utilizar para el valor de la llamada. Si no se proporciona ninguna serie, se utilizarán todos los registros de la consulta. |
-| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Promedio: promedio de los valores de todos los registros.</li><li>Recuento: número de todos los registros devueltos por la consulta.</li><li>Último ejemplo: valor del último intervalo incluido en el gráfico.</li><li>Máx.: valor máximo de los intervalos incluidos en el gráfico.</li><li>Mín.: valor mínimo de los intervalos incluidos en el gráfico.</li><li>Suma: suma de los valores de todos los registros.</li></ul> |
+| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Average: promedio de los valores de todos los registros.</li><li>Count: número de todos los registros devueltos por la consulta.</li><li>Last Sample: valor del último intervalo incluido en el gráfico.</li><li>Max: valor máximo de los intervalos incluidos en el gráfico.</li><li>Min: valor mínimo de los intervalos incluidos en el gráfico.</li><li>Sum: suma de los valores de todos los registros.</li></ul> |
 | **Gráfico de líneas** |**> Eje Y** |
 | Usar escala logarítmica |Seleccione este vínculo para usar una escala logarítmica en el eje Y. |
 | Unidades |Especifica las unidades de los valores que devuelve la consulta. Esta información se utiliza para mostrar etiquetas de gráfico que indican los tipos de valores y, de manera opcional, para convertirlos. El tipo *Unidad* especifica la categoría de la unidad y define los valores disponibles del tipo *Unidad actual*. Si selecciona un valor en *Convertir a*, los valores numéricos se convertirán del tipo *Unidad actual* al tipo *Convertir a*. |
@@ -312,12 +312,12 @@ La pila del gráfico de líneas muestra tres gráficos de líneas independientes
 ## <a name="common-settings"></a>Configuración común
 En las secciones siguientes se describe la configuración que es común a varios elementos de visualización.
 
-### <a name="name-value-separator"></a>Name and Value Separator (Separador de nombre y valor)
+### <a name="name-and-value-separator"></a><a name="name-value-separator"></a>Name and Value Separator (Separador de nombre y valor)
 El separador de nombre y valor es el delimitador de carácter único para analizar la propiedad text de una consulta de lista en varios valores. Si especifica un delimitador, puede proporcionar nombres para cada campo separándolos con el mismo delimitador del cuadro **Nombre**.
 
 Por ejemplo, una propiedad llamada *Location* que incluya valores como *Redmond-Building 41* y *Bellevue-Building 12*. Puede especificar un guión (-) para el separador de nombre y valor, y *City-Building* para el nombre. Este enfoque analiza cada valor en dos propiedades denominadas *City* y *Building*.
 
-### <a name="click-through-navigation"></a>Navegación a través de un clic
+### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navegación a través de un clic
 La navegación a través de un clic define la acción que se realizará al hacer clic en un encabezado o elemento de lista en una vista.  Así se abrirá una consulta en [Log Analytics](../../azure-monitor/log-query/portals.md) o se iniciará otra vista.
 
 En la tabla siguiente se describe la configuración de la navegación a través de un clic.
@@ -330,7 +330,7 @@ En la tabla siguiente se describe la configuración de la navegación a través 
 
 
 
-### <a name="sparklines"></a>Sparklines (Minigráficos)
+### <a name="sparklines"></a><a name="sparklines"></a>Sparklines (Minigráficos)
 Un minigráfico es un pequeño gráfico de líneas que muestra el valor de una entrada de lista en un periodo. Para los elementos de visualización con una lista, puede elegir si quiere mostrar una barra horizontal que indique el valor relativo de una columna numérica o un minigráfico que señale su valor en un período.
 
 En la tabla siguiente se describe la configuración de los minigráficos:
@@ -338,9 +338,9 @@ En la tabla siguiente se describe la configuración de los minigráficos:
 | Configuración | Descripción |
 |:--- |:--- |
 | Enable sparklines (Habilitar los minigráficos) |Seleccione este vínculo para mostrar un minigráfico en lugar de la barra horizontal. |
-| Operación |Si los minigráficos están habilitados, será la operación que se realizará en cada propiedad de la lista para calcular los valores del minigráfico.<ul><li>Último ejemplo: último valor de la serie en el intervalo de tiempo.</li><li>Máx.: valor máximo de la serie en el intervalo de tiempo.</li><li>Mín.: valor mínimo de la serie en el intervalo de tiempo.</li><li>Suma: suma de los valores de la serie en el intervalo de tiempo.</li><li>Resumen: utiliza el mismo comando `measure` que la consulta del encabezado.</li></ul> |
+| Operación |Si los minigráficos están habilitados, será la operación que se realizará en cada propiedad de la lista para calcular los valores del minigráfico.<ul><li>Last Sample: último valor de la serie en el intervalo de tiempo.</li><li>Max: valor máximo de la serie en el intervalo de tiempo.</li><li>Min: valor mínimo de la serie en el intervalo de tiempo.</li><li>Sum: suma de los valores de la serie en el intervalo de tiempo.</li><li>Summary: utiliza el mismo comando `measure` que la consulta del encabezado.</li></ul> |
 
-### <a name="thresholds"></a>Umbrales
+### <a name="thresholds"></a><a name="thresholds"></a>Umbrales
 Mediante los umbrales, puede mostrar un icono de color junto a cada elemento de una lista. Los umbrales le proporcionan un indicador visual rápido de los elementos que superan un valor concreto o se encuentran dentro de un rango determinado. Por ejemplo, puede mostrar un icono verde para los elementos que tienen un valor aceptable; amarillo si el valor está dentro de un rango que indica una advertencia y rojo si supera un valor de error.
 
 Al habilitar umbrales en un elemento, debe especificar uno o varios umbrales. Si el valor de un elemento es mayor que un valor de umbral y menor que el valor de umbral siguiente, se utiliza el color para ese valor. Si el elemento es mayor que el valor de umbral máximo, se usa otro color. 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176763"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224848"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Plantillas de perfil de usuario en Azure API Management
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
@@ -27,7 +27,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 -   [Perfil](#Profile)  
   
--   [Subscriptions](#Subscriptions)  
+-   [Suscripciones](#Subscriptions)  
   
 -   [Aplicaciones](#Applications)  
   
@@ -40,7 +40,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="Profile"></a> Perfil  
+##  <a name="profile"></a><a name="Profile"></a> Perfil  
  La plantilla de **perfil** le permite personalizar la sección de perfil de usuario de la página de perfil de usuario en el portal para desarrolladores.  
   
  ![Página de perfil del usuario](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Página de perfil de usuario de APIM")  
@@ -105,7 +105,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 > [!NOTE]
 >  Las plantillas de [perfil](#Profile), [aplicaciones](#Applications), y [suscripciones](#Subscriptions) comparten el mismo modelo de datos y reciben los mismos datos de plantilla.  
   
-|Propiedad|Escriba|DESCRIPCIÓN|  
+|Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nombre del usuario actual.|  
 |`lastName`|string|Apellido del usuario actual.|  
@@ -185,7 +185,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```  
   
-##  <a name="Subscriptions"></a> Suscripciones  
+##  <a name="subscriptions"></a><a name="Subscriptions"></a> Suscripciones  
  La plantilla de **suscripciones** le permite personalizar la sección de suscripciones de la página de perfil de usuario en el portal para desarrolladores.  
   
  ![Página de suscripción del usuario](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Página de suscripción de usuario de APIM")  
@@ -326,7 +326,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 > [!NOTE]
 >  Las plantillas de [perfil](#Profile), [aplicaciones](#Applications), y [suscripciones](#Subscriptions) comparten el mismo modelo de datos y reciben los mismos datos de plantilla.  
   
-|Propiedad|Escriba|DESCRIPCIÓN|  
+|Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nombre del usuario actual.|  
 |`lastName`|string|Apellido del usuario actual.|  
@@ -406,7 +406,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```  
   
-##  <a name="Applications"></a> Aplicaciones  
+##  <a name="applications"></a><a name="Applications"></a> Aplicaciones  
  La plantilla de **aplicaciones** le permite personalizar la sección de suscripciones de la página de perfil de usuario en el portal para desarrolladores.  
   
  ![Página de aplicaciones de la cuenta de usuario](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Página de aplicaciones de la cuenta de usuario de APIM")  
@@ -489,7 +489,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 > [!NOTE]
 >  Las plantillas de [perfil](#Profile), [aplicaciones](#Applications), y [suscripciones](#Subscriptions) comparten el mismo modelo de datos y reciben los mismos datos de plantilla.  
   
-|Propiedad|Escriba|DESCRIPCIÓN|  
+|Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
 |`firstName`|string|Nombre del usuario actual.|  
 |`lastName`|string|Apellido del usuario actual.|  
@@ -569,7 +569,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```  
   
-##  <a name="UpdateAccountInfo"></a> Update account info  
+##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a> Update account info  
  La plantilla para **actualizar información de cuenta** le permite personalizar la página **Actualizar información de cuenta** en el portal para desarrolladores.  
   
  ![Página de actualización de la cuenta del usuario en el Portal para desarrolladores](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Página de actualización de la cuenta de usuario en el Portal para desarrolladores de APIM")  

@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 44c35d6e997b4a9a6d3dfcf3e7eba5328b125fdf
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 93840af61a69599447588be01869a20290b2db94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770601"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062477"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configuración y acceso a los registros de consultas lentas con la CLI de Azure
 Puede descargar los registros de consultas lentas de Azure Database for MySQL mediante la CLI de Azure, la utilidad de línea de comandos de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para seguir esta guía, necesitará:
 - [Servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - La [CLI de Azure](/cli/azure/install-azure-cli) o Azure Cloud Shell en el explorador

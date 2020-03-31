@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76270838"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232192"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Uso del servicio StorSimple Device Manager para ver y administrar alertas de StorSimple
 
@@ -137,7 +137,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 * **Para los datos locales en el dispositivo**: durante algún tiempo, no se producirá ninguna interrupción y las lecturas se seguirán atendiendo. Sin embargo, cuando el número de operaciones de E/S pendientes aumenta y excede el límite, las lecturas pueden comenzar a fallar.
 
     Según la cantidad de datos en el dispositivo, las escrituras seguirán también produciéndose en las primeras horas después de la interrupción de la conectividad de la nube. Las escrituras se ralentizarán y finalmente comenzarán a fallar si se interrumpe la conectividad de la nube durante varias horas. (Hay almacenamiento temporal en el dispositivo para los datos que se van a insertar en la nube. Este área se vacía cuando se envían los datos. Si se produce un error en la conectividad, los datos de este área de almacenamiento no se insertarán en la nube y se producirá un error de E/S).
-* **Para los datos en la nube**: para la mayoría de errores de conectividad de la nube, se devuelve un error. Una vez restaurada la conectividad, se reanudarán las operaciones de E/S sin que el usuario tiene que incorporar el volumen en línea. En raras ocasiones, podría ser necesaria la intervención del usuario para recuperar el volumen en línea desde Azure Portal.
+* **Para los datos en la nube**: en la mayoría de los errores de conectividad de la nube, se devuelve un error. Una vez restaurada la conectividad, se reanudarán las operaciones de E/S sin que el usuario tiene que incorporar el volumen en línea. En raras ocasiones, podría ser necesaria la intervención del usuario para recuperar el volumen en línea desde Azure Portal.
 * **Para las instantáneas de nube en curso**: la operación se reintenta varias veces en 4 o 5 horas y, si no se restaura la conectividad, se produce un error en las instantáneas de nube.
 
 ### <a name="cluster-alerts"></a>Alertas de clúster

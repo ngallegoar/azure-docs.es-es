@@ -1,19 +1,18 @@
 ---
 title: Cómo rellenar el formulario de detalles del escaparate electrónico
 description: Se ha dejado de utilizar y se ha vinculado a los artículos de PC correspondientes; era "En este artículo se explican los valores del formulario de detalles del escaparate electrónico para una nueva aplicación de Microsoft Dynamics 365 Business Central".
-services: Azure, Marketplace, Cloud Partner Portal,
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: pabutler
-ms.openlocfilehash: 819f952eae42235ea4fcd5508d5aee341e446b11
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 51aea17247ed36c465086b5f5b1132ab1cd56922
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820013"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276043"
 ---
 # <a name="how-to-fill-out-the-storefront-details-form"></a>Cómo rellenar el formulario de detalles del escaparate electrónico
 

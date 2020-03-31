@@ -16,11 +16,11 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900831"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227652"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Asignación de licencias a usuarios según su pertenencia a un grupo en Azure Active Directory
 
@@ -57,7 +57,7 @@ En este ejemplo, el inquilino contiene un grupo de seguridad llamado **HR Depart
 
 Al asignar licencias a un grupo, Azure AD procesa todos los miembros existentes de ese grupo. Este proceso puede tardar algún tiempo, según el tamaño del grupo. En el paso siguiente se describe cómo comprobar si el proceso se ha completado y si es necesario hacer algo más para resolver los problemas.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Paso 2: Comprobación de que ha finalizado la asignación inicial
+## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Paso 2: Comprobación de que se ha completado la asignación inicial
 
 1. Vaya a **Azure Active Directory** > **Grupos**. Seleccione el grupo al que se asignaron las licencias.
 

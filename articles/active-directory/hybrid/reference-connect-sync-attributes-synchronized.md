@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766096"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227820"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronización de Azure AD Connect: Atributos sincronizados con Azure Active Directory
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect Sync: atributos sincronizados con Azure Active Directory
 En este tema se enumeran los atributos que se sincronizan mediante la sincronización de Azure AD Connect.  
 Los atributos se agrupan por la aplicación de Azure AD relacionada.
 
@@ -386,7 +386,7 @@ Este grupo es un conjunto de atributos que se pueden usar si no se emplea el dir
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
-| mailNickname |X |X |X | |
+| mailNickName |X |X |X | |
 | member | | |X | |
 | objectSID |X | | |Propiedad mecánica. Identificador de usuario de AD usado para mantener la sincronización entre Azure AD y AD. |
 | proxyAddresses |X |X |X | |

@@ -16,11 +16,11 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dbce2969ccb508c2bf3ee33730d0b112caa45c9e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033062"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224604"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migración desde Amazon Web Services (AWS) y otras plataformas a Managed Disks en Azure
 
@@ -73,7 +73,7 @@ Hay siete tipos de Managed Disks premium que se pueden usar con la máquina virt
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
 | Tamaño del disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1\.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOPS por disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
-| Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
+| Rendimiento de disco. | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
 **Discos administrados Estándar**
 

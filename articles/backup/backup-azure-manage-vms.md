@@ -5,11 +5,11 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989695"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226140"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Administración de las copias de seguridad de máquina virtual de Azure con el servicio Azure Backup
 

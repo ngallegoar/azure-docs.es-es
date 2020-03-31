@@ -14,11 +14,11 @@ ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
 ms.openlocfilehash: 9d8fce0772f13c6e009b2441ecd85779a7622c5c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981733"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224616"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 
@@ -50,7 +50,7 @@ Seleccione el tipo de carga de trabajo para el que va a implementar SQL Server e
 
 ![Configuración del almacenamiento de máquinas virtuales de SQL Server durante el aprovisionamiento](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
 
-La configuración del disco es totalmente personalizable, es decir, se pueden configurar la topología de almacenamiento, el tipo de disco y el IOPS necesarios para la carga de trabajo de SQL Server. También tiene la capacidad de usar UltraSSD (versión preliminar) como opción en **Tipo de disco** si la máquina virtual con SQL Server se encuentra en una de las regiones admitidas (Este de EE. UU. 2, Sudeste Asiático y Norte de Europa) y ha habilitado [discos Ultra para su suscripción](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
+La configuración del disco es totalmente personalizable, es decir, se pueden configurar la topología de almacenamiento, el tipo de disco y el IOPS necesarios para la carga de trabajo de SQL Server. También tiene la capacidad de usar UltraSSD (versión preliminar) como opción en **Tipo de disco** si la máquina virtual con SQL Server se encuentra en una de las regiones admitidas (Este de EE. UU. 2, Sudeste de Asia y Norte de Europa) y ha habilitado [discos Ultra para su suscripción](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
 
 Además, tiene la capacidad de establecer el almacenamiento en caché de los discos. Las máquinas virtuales de Azure tienen una tecnología de almacenamiento en caché multinivel llamada [Blob Cache](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) (Caché de blob) cuando se usa con [discos Prémium](/azure/virtual-machines/windows/disks-types#premium-ssd). Blob Cache usa una combinación de la RAM de la máquina virtual y el disco SSD local para almacenar en caché. 
 

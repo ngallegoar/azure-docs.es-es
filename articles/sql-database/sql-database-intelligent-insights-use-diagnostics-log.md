@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 12/19/2018
-ms.openlocfilehash: 8272867f5b6144b92dbffcf96cc539eb82f75801
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/10/2020
+ms.openlocfilehash: bb62b087451140261aee7aaa2fab0de14ea36283
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587358"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79209458"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Uso del registro de diagnóstico de rendimiento de Azure SQL Database de Intelligent Insights
 
-Esta página proporciona información sobre cómo usar el registro de diagnóstico de rendimiento de Azure SQL Database generado por [Intelligent Insights](sql-database-intelligent-insights.md), el formato y los datos que contiene según sus necesidades de desarrollo personalizadas. Este registro de diagnóstico se puede enviar a [registros de Azure Monitor](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage) o a una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
+Esta página proporciona información sobre cómo usar el registro de diagnóstico de rendimiento de Azure SQL Database generado por [Intelligent Insights](sql-database-intelligent-insights.md), el formato y los datos que contiene según sus necesidades de desarrollo personalizadas. Este registro de diagnóstico se puede enviar a [registros de Azure Monitor](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage) o a una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
 ## <a name="log-header"></a>Encabezado de registro
 
@@ -47,8 +47,8 @@ La propiedad de grupo elástico (elasticPoolName_s) indica a qué grupo elástic
 ```json
 "intervalStartTime_t": "2017-9-25 11:00", // start of the issue reported time stamp
 "intervalEndTme_t":"2017-9-25 12:00", // end of the issue reported time stamp
-"elasticPoolName_s" : "", // resource elastic pool (if applicable) 
-"databaseName_s" : "db_name",  // database name
+"elasticPoolName_s" : "", // resource elastic pool (if applicable)
+"databaseName_s" : "db_name", // database name
 "issueId_d" : 1525, // unique ID of the issue detected
 "status_s" : "Active" // status of the issue – possible values: "Active", "Verifying", and "Complete"
 ```
@@ -64,7 +64,7 @@ Los problemas de rendimiento detectados se notifican con la siguiente estructura
 "impact" : 1 to 3, // impact of the issue detected, possible values 1-3 (1 low, 2 moderate, 3 high impact)
 "category" : "Detectable performance pattern", // performance issue detected, see the table
 "details": <Details outputted> // details of an issue (see the table)
-}] 
+}]
 ```
 
 Los patrones de rendimiento detectable y los detalles que se transmiten al registro de diagnóstico se proporcionan en la tabla siguiente.
@@ -99,13 +99,13 @@ La propiedad de impacto (Impact) describe cuánto ha contribuido un comportamien
 
 ### <a name="impacted-queries"></a>Consultas afectadas
 
-En la sección siguiente del registro de Intelligent Insights se proporciona información sobre consultas concretas que resultaron afectadas por los problemas de rendimiento detectados. Esta información se divulga como una matriz de objetos insertados en la propiedad impact_s. La propiedad de impacto consta de entidades y métricas. Las entidades hacen referencia a una consulta determinada (tipo: Consulta). El código hash de consulta única se revela en la propiedad de valor (Value). Además, cada una de las consultas reveladas va seguida de una métrica y un valor, que indican que se detectó un problema de rendimiento.
+En la sección siguiente del registro de Intelligent Insights se proporciona información sobre consultas concretas que resultaron afectadas por los problemas de rendimiento detectados. Esta información se divulga como una matriz de objetos insertados en la propiedad impact_s. La propiedad de impacto consta de entidades y métricas. Las entidades hacen referencia a una consulta determinada (tipo: consulta). El código hash de consulta única se revela en la propiedad de valor (Value). Además, cada una de las consultas reveladas va seguida de una métrica y un valor, que indican que se detectó un problema de rendimiento.
 
 En el ejemplo de registro siguiente, se detectó que la consulta con el código hash 0x9102EXZ4 tenía una mayor duración de ejecución (Métrica: DurationIncreaseSeconds). El valor de 110 segundos indica que esta consulta en particular tardó 110 segundos más en ejecutarse. Dado que se pueden detectar varias consultas, esta sección del registro en particular podría incluir varias entradas de consulta.
 
 ```json
 "impact" : [{
-"entity" : { 
+"entity" : {
 "Type" : "Query", // type of entity - query
 "Value" : "query hash value", // for example "0x9102EXZ4" query hash value },
 "Metric" : "DurationIncreaseSeconds", // measured metric and the measurement unit (in this case seconds)
@@ -137,10 +137,8 @@ La última parte del registro de rendimiento de Intelligent Insights pertenece a
 El registro de rendimiento de Intelligent Insights se puede usar con [registros de Azure Monitor]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Conozca los conceptos de [Intelligent Insights](sql-database-intelligent-insights.md).
 - Aprenda a [solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Aprenda a [supervisar Azure SQL Database mediante Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
-
-
-

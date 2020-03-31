@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 299d5c8758a13edded63b99abb2f12ddf9fa14be
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759523"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importación de máquinas virtuales de otro laboratorio de Azure DevTest Labs
@@ -35,7 +35,7 @@ Esta característica le habilita para importar las máquinas virtuales de un lab
 El proceso tarda un rato en completarse y le afectan los siguientes factores:
 
 - La cantidad y el tamaño de los discos que están adjuntados a la máquina de origen (ya que es una operación de copia y no una operación de movimiento).
-- Distancia al destino (por ejemplo, de la región Este de EE. UU. a Sudeste Asiático).
+- Distancia al destino (por ejemplo, de la región Este de EE. UU. a Sudeste de Asia).
 
 Una vez completado el proceso, la máquina virtual de origen permanece apagada y la nueva se ejecuta en el laboratorio de destino.
 

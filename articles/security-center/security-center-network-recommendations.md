@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
 ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77431492"
 ---
 # <a name="protect-your-network-resources"></a>Protección de los recursos de red
@@ -81,7 +81,7 @@ Dado que el mapa es interactivo y dinámico, todos los nodos son seleccionables 
 
    -  **Estado de seguridad**: puede filtrar el mapa basándose en la gravedad (alta, media, baja) de los recursos de Azure.
    - **Recomendaciones**: puede seleccionar qué recursos se muestran según las recomendaciones activas en esos recursos. Por ejemplo, puede ver únicamente los recursos para los que Security Center recomienda habilitar los grupos de seguridad de red.
-   - **Zonas de red**: de manera predeterminada, el mapa muestra solo recursos accesibles desde Internet, también puede seleccionar VM internas.
+   - **Zonas de red**: de manera predeterminada, el mapa muestra solo recursos accesibles desde Internet, también puede seleccionar máquinas virtuales internas.
  
 2. Puede hacer clic en **Restablecer** en la esquina superior izquierda en cualquier momento para devolver el mapa al estado predeterminado.
 
@@ -114,7 +114,7 @@ Para explorar en profundidad un recurso:
 [![Mapa del tráfico de red](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
 
-## Redes heredadas <a name ="legacy-networking"></a>
+## <a name="legacy-networking"></a>Redes heredadas <a name ="legacy-networking"></a>
 
 Si no tiene el nivel estándar de Security Center, en esta sección se explica cómo obtener recomendaciones gratuitas de redes.
 

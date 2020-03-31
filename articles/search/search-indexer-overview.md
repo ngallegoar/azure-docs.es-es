@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2719bba0e88ba3125bd5ba163804e31885b286a2
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534530"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236860"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores de Azure Cognitive Search
 
@@ -68,7 +68,7 @@ Un indexador automatizará algunas tareas relacionadas con la ingesta de datos, 
 > [!Tip]
 > Aunque los indexadores no pueden generar un índice, el Asistente para **importar datos** del portal puede ayudarle. En la mayoría de los casos, el asistente puede inferir un esquema de índice de los metadatos existentes en el origen y presentar un esquema de índice preliminar que se pueda modificar en línea mientras el asistente esté activo. Una vez que el índice se crea en el servicio, la mayoría de las posteriores modificaciones se limitan a agregar nuevos campos. Tenga en cuenta al asistente para crear índices, pero no para revisarlos. Para obtener conocimientos prácticos, recorra el [tutorial del portal](search-get-started-portal.md).
 
-### <a name="step-3-create-and-schedule-the-indexer"></a>Paso 3: Creación y programación del indizador
+### <a name="step-3-create-and-schedule-the-indexer"></a>Paso 3: Creación y programación del indexador
 La definición del indexador es una construcción que reúne todos los elementos relacionados con la ingesta de datos. Los elementos necesarios incluyen un origen de datos y un índice. Los elementos opcionales incluyen una programación y asignaciones de campos. La asignación de campos solo es opcional si los campos de origen y los campos de índice se corresponden claramente. Para más información sobre la estructura de un indexador, consulte [Create Indexer (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer) [Crear el indexador (API de REST de Azure Cognitive Search)].
 
 <a id="RunIndexer"></a>

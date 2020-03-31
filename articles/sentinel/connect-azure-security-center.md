@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: e6e24a97a8b98bdd5447295880811914100563fe
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588542"
 ---
 # <a name="connect-data-from-azure-security-center"></a>Conectar datos de Azure Security Center
@@ -24,7 +24,7 @@ ms.locfileid: "77588542"
 
 Azure Sentinel permite conectar alertas de [Azure Security Center](../security-center/security-center-intro.md) y transmitirlos a Azure Sentinel. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Para exportar alertas desde Azure Security Center, debe tener el rol de lector de seguridad en la suscripción de los registros que transmita.
 

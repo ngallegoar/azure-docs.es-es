@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 5da3a2e5d003a191bff66af6599cae4d34ab60c6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74038085"
 ---
 # <a name="azcopy"></a>azcopy
@@ -40,7 +40,7 @@ Para notificar problemas o para más información acerca de la herramienta, cons
       
 **--output-type** Dé formato a la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es "text". (Valor predeterminado: "text").
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Introducción a AzCopy](storage-use-azcopy-v10.md)
 - [azcopy bench](storage-ref-azcopy-bench.md)

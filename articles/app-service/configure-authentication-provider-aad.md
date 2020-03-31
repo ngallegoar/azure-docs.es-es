@@ -4,13 +4,13 @@ description: Aprenda a configurar la autenticación de Azure Active Directory 
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 717336e0ddfe99c96afda4861f4de1239ee949bf
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.custom: seodec18, fasttrack-edit
+ms.openlocfilehash: fdad1f820d006c39fa135a29a5ec7377c47591f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913215"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80046444"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Azure AD
 
@@ -24,7 +24,7 @@ Siga estos procedimientos recomendados para configurar la aplicación y la auten
 - Configure cada aplicación de App Service con su propio registro.
 - Evite el uso compartido de permisos entre entornos mediante registros de aplicación independientes para ranuras de implementación independientes. Al probar nuevo código, esta práctica puede ayudar a evitar que los problemas afecten a la aplicación de producción.
 
-## <a name="express"> </a>Configuración rápida
+## <a name="configure-with-express-settings"></a><a name="express"> </a>Configuración rápida
 
 > [!NOTE]
 > La opción **Rápida** no está disponible en las nubes de las administraciones públicas. 
@@ -48,14 +48,14 @@ Siga estos procedimientos recomendados para configurar la aplicación y la auten
     > Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no interesar en las aplicaciones que tienen una página principal disponible públicamente así como en muchas aplicaciones de página única. Para tales aplicaciones, puede ser preferible **Permitir solicitudes anónimas (ninguna acción)** y que la aplicación inicie manualmente el inicio de sesión. Para más información, consulte [Flujo de autenticación](overview-authentication-authorization.md#authentication-flow).
 5. Seleccione **Guardar**.
 
-## <a name="advanced"> </a>Configuración avanzada
+## <a name="configure-with-advanced-settings"></a><a name="advanced"> </a>Configuración avanzada
 
 Puede configurar la aplicación manualmente si quiere usar un registro de aplicaciones de otro inquilino de Azure AD. Para completar esta configuración personalizada:
 
 1. Crear un registro en Azure AD.
 2. Proporcionar algunos detalles de registro a App Service.
 
-### <a name="register"> </a>Creación de un registro de aplicaciones en Azure AD para la aplicación App Service
+### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"> </a>Creación de un registro de aplicaciones en Azure AD para la aplicación App Service
 
 Para configurar la aplicación de App Service, necesitará la siguiente información:
 
@@ -85,7 +85,7 @@ Lleve a cabo los siguiente pasos:
 1. (Opcional) Para crear un secreto de cliente, seleccione **Certificates & secrets (Certificados y secretos)**  > **New client secret (Nuevo secreto de cliente)**  > **Add (Agregar)** . Copie el valor del secreto del cliente que se muestra en la página. No se volverá a mostrar.
 1. (Opcional) Para agregar varios valores en **Direcciones URL de respuesta**, seleccione **Autenticación**.
 
-### <a name="secrets"> </a>Habilitación de Azure Active Directory en la aplicación de App Service
+### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Habilitación de Azure Active Directory en la aplicación de App Service
 
 1. En [Azure Portal], busque y seleccione **App Services** y luego elija la aplicación. 
 1. En el panel izquierdo, en **Configuración**, seleccione **Autenticación/Autorización** > **Activado**.
@@ -122,7 +122,7 @@ Puede registrar clientes nativos para permitir la autenticación con una bibliot
 
 Ahora ha configurado una aplicación cliente nativa que puede acceder a la aplicación de App Service.
 
-## <a name="related-content"> </a>Pasos siguientes
+## <a name="next-steps"></a><a name="related-content"> </a>Pasos siguientes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

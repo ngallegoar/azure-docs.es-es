@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 1857c1154af5e3de72803f297e8a3151b0dd7aeb
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: d7d2bcf487c37fbb523b648d5aa4c572add5dfa9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330981"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297091"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingesta de streaming (versión preliminar)
 
@@ -20,7 +20,7 @@ Utilice la ingesta de streaming cuando precise una latencia baja con un tiempo d
 
 Use la ingesta en bloque en lugar de la ingesta de streaming cuando la cantidad de datos crezca más de 1 MB por segundo y tabla. Lea [Introducción a la ingesta de datos](/azure/data-explorer/ingest-data-overview) para conocer más sobre los distintos métodos de ingesta.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * Inicie sesión en la [interfaz de usuario web](https://dataexplorer.azure.com/).
@@ -72,7 +72,7 @@ Hay dos tipos de ingesta de streaming admitidos:
 
 ## <a name="limitations"></a>Limitaciones
 
-* La ingesta de streaming no admite [cursores de base de datos](/azure/kusto/management/databasecursor) ni [asignación de datos](/azure/kusto/management/mappings). Solo se admite la asignación de datos [creada previamente](/azure/kusto/management/tables#create-ingestion-mapping). 
+* La ingesta de streaming no admite [cursores de base de datos](/azure/kusto/management/databasecursor) ni [asignación de datos](/azure/kusto/management/mappings). Solo se admite la asignación de datos [creada previamente](/azure/kusto/management/create-ingestion-mapping-command). 
 * El rendimiento y la capacidad de la ingesta de streaming se escalan cuando aumentan los tamaños de las máquinas virtuales y los clústeres. Las ingestas simultáneas se limitan a seis ingestas por núcleo. Por ejemplo, en el caso de las SKU de 16 núcleos, como las D14 y L16, la carga máxima admitida es de 96 ingestas simultáneas. En el caso de las SKU de dos núcleos, como la D11, la carga máxima admitida es de 12 ingestas simultáneas.
 * El límite de tamaño de datos por solicitud de ingesta es de 4 MB.
 * Las actualizaciones de esquema, como la creación y modificación de tablas y asignaciones de ingesta, pueden tardar hasta cinco minutos en el servicio de ingesta de streaming.

@@ -1,19 +1,18 @@
 ---
 title: Cliente de prueba automática para la validación previa de una máquina virtual | Azure Marketplace
 description: Creación de un cliente de prueba automática para la validación previa de una imagen de máquina virtual para Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: pabutler
-ms.openlocfilehash: fc62875873f38630e592c79aebd6a138665ed6e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: fb568400cb60f108303909353bfa703e98ab6157
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809208"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286428"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creación de un cliente de prueba automática para la validación previa de una imagen de máquina virtual de Azure
 
@@ -63,13 +62,13 @@ Request body:    The Request body parameters should use the following JSON forma
 En la siguiente tabla se describen los campos de la API.
 
 
-|      Campo         |    DESCRIPCIÓN    |
+|      Campo         |    Descripción    |
 |  ---------------   |  ---------------  |
 |  Authorization     |  La cadena "Bearer xxxx-xxxx-xxxx-xxxxx" contiene el token de cliente de Azure Active Directory (AD), que se puede crear mediante PowerShell.          |
 |  DNSName           |  Nombre DNS de la máquina virtual que se va a probar    |
 |  Usuario              |  Nombre de usuario para iniciar sesión en la máquina virtual         |
 |  Contraseña          |  Contraseña para iniciar sesión en la máquina virtual          |
-|  OS                |  Sistema operativo de la máquina virtual: ya sea `Linux` o `Windows`          |
+|  SO                |  Sistema operativo de la máquina virtual: ya sea `Linux` o `Windows`          |
 |  PortNo            |  Número de puerto abierto para conectarse a la máquina virtual. Suele ser el número de puerto `22` para Linux y `5986` para Windows.          |
 |  |  |
 
@@ -220,7 +219,7 @@ La siguiente captura de pantalla muestra los resultados de la llamada de curl en
 
 Use los pasos siguientes para elegir el inquilino de Azure AD en el que desea crear la aplicación.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En la barra de menús superior, seleccione su cuenta y, en la lista Directorio, elija el inquilino de Active Directory en el que desea registrar la aplicación. O bien, seleccione el icono **Directorio + suscripción** para ver el filtro de suscripción Global. La captura de pantalla siguiente muestra un ejemplo de este filtro.
 
    ![Selección del filtro de suscripción](./media/stclient-subscription-filter.png)

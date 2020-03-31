@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902485"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224884"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuración de notificaciones y plantillas de correo electrónico en Azure API Management
 
@@ -26,11 +26,11 @@ Administración de API ofrece la posibilidad de configurar notificaciones de eve
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Si no tiene una instancia del servicio API Management, realice el inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
+Si no tiene una instancia del servicio de API Management, complete el tutorial siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="publisher-notifications"></a>Configuración de notificaciones
+## <a name="configure-notifications"></a><a name="publisher-notifications"></a>Configuración de notificaciones
 
 1.  Seleccione su instancia de **API MANAGEMENT**.
 2.  Haga clic en **Notificaciones** para ver las notificaciones disponibles.
@@ -58,7 +58,7 @@ Si no tiene una instancia del servicio API Management, realice el inicio rápido
 
 4.  Presione **Agregar**.
 
-## <a name="email-templates"> </a>Configuración de plantillas de notificación
+## <a name="configure-notification-templates"></a><a name="email-templates"> </a>Configuración de plantillas de notificación
 
 API Management proporciona plantillas de notificación para los mensajes de correo electrónico que se envían durante la administración y el uso del servicio. Se incluyen las siguientes plantillas de correo electrónico.
 

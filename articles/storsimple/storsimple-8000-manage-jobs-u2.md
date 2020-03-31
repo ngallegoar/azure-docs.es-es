@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720696"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228208"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Uso del servicio StorSimple Device Manager para ver y administrar trabajos (Versión Update 3 o posterior)
 
@@ -39,7 +39,7 @@ A continuación, los trabajos filtrados se tabulan en función de los siguientes
   
 * **Nombre**: copia de seguridad programada, copia de seguridad manual, restauración de copia de seguridad, clonación de volumen, conmutación por error de contenedores de volúmenes, creación de volúmenes anclados localmente, modificación de volumen, instalación de actualizaciones, recopilación de registros de soporte técnico o creación de dispositivos en la nube.
 * **Estado** : en ejecución, programados, con errores, cancelándose o completados con errores.
-* **Entidad** : los trabajos se pueden asociar a un volumen, una directiva de copia de seguridad o un dispositivo. Por ejemplo, un trabajo de clonación se asocia a un volumen, mientras que un trabajo de copia de seguridad programado está asociado a una directiva de copia de seguridad. Se crea un trabajo de dispositivo como resultado de una recuperación ante desastres (DR) o una operación de restauración.
+* **Entidad** : los trabajos se pueden asociados a un volumen, una directiva de copia de seguridad o un dispositivo. Por ejemplo, un trabajo de clonación se asocia a un volumen, mientras que un trabajo de copia de seguridad programado está asociado a una directiva de copia de seguridad. Se crea un trabajo de dispositivo como resultado de una recuperación ante desastres (DR) o una operación de restauración.
 * **Dispositivo** : el nombre del dispositivo en el que se inició el trabajo.
 * **Hora de inicio** : la hora a la que se inició el trabajo.
 * **Duración**: el tiempo necesario para completar el trabajo.

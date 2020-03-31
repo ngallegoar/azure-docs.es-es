@@ -8,18 +8,20 @@ ms.topic: article
 ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fb2da8acb0aa4d105f23ab5d1ad42f08a6ae722c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 17cd57fbcf9b1c14fb275a070bdefdd1282c4d6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595252"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370532"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Creación y administración de una instantánea de blob en .NET
 
-Una instantánea es una versión de solo lectura de un blob que se ha realizado en un momento dado. Las instantáneas son útiles para realizar copias de seguridad de blobs. En este artículo se muestra cómo crear y administrar instantáneas de blob mediante la [biblioteca cliente para .NET de Azure Storage](/dotnet/api/overview/azure/storage/client).
+Una instantánea es una versión de solo lectura de un blob que se ha realizado en un momento dado. Las instantáneas son útiles para realizar copias de seguridad de blobs. En este artículo se muestra cómo crear y administrar instantáneas de blob mediante la [biblioteca cliente para .NET de Azure Storage](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-blob-snapshots"></a>Sobre las instantáneas de blob
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 Una instantánea de un blob es idéntica a su blob base, salvo que el identificador URI tiene un valor **DateTime** anexado al URI del blob para indicar el momento en que se tomó la instantánea. Por ejemplo, si el identificador URI de blob en páginas es `http://storagesample.core.blob.windows.net/mydrives/myvhd`, el identificador URI de instantánea es similar a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
@@ -142,25 +144,25 @@ Se recomienda administrar las instantáneas con cuidado para evitar cargos adici
 
 En las siguientes situaciones, se muestra cómo se ven incrementados los cargos para un blob en bloques y sus instantáneas.
 
-#### <a name="scenario-1"></a>Escenario 1.
+#### <a name="scenario-1"></a>Escenario 1
 
 En el escenario 1, el blob de base no se ha actualizado después de realizarse la instantánea, así que se aplicarán cargos únicamente para los bloques 1, 2 y 3.
 
 ![Recursos de Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
 
-#### <a name="scenario-2"></a>Escenario 2.
+#### <a name="scenario-2"></a>Escenario 2
 
 En el escenario 2, el blob de base está actualizado, pero no así la instantánea. Se ha actualizado el bloque 3 y, aunque contiene los mismos datos y el mismo identificador, no es igual que el bloque 3 de la instantánea. Como resultado, se aplicarán cargos a la cuenta por cuatro bloques.
 
 ![Recursos de Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
-#### <a name="scenario-3"></a>Escenario 3.
+#### <a name="scenario-3"></a>Escenario 3
 
 En el escenario 3, el blob de base está actualizado, pero no así la instantánea. El bloque 3 se ha reemplazado por el bloque 4 en el blob de base, pero la instantánea sigue reflejando el bloque 3. Como resultado, se aplicarán cargos a la cuenta por cuatro bloques.
 
 ![Recursos de Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 
-#### <a name="scenario-4"></a>Escenario 4.
+#### <a name="scenario-4"></a>Escenario 4
 
 En la situación 4, el blob de base se ha actualizado totalmente y no contiene ninguno de los bloques originales. Como resultado, se aplicarán cargos a la cuenta por la totalidad de los ocho bloques únicos. Esta situación se puede dar si usa un método de actualización como [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] o [UploadFromByteArray][dotnet_UploadFromByteArray], ya que estos métodos reemplazan todos los contenidos de un blob.
 

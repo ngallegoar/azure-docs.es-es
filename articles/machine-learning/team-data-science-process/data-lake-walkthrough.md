@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9409f14b20684afa1a39d45e663ff316f405cc97
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76717911"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciencia de datos escalables con Azure Data Lake: tutorial completo
@@ -156,7 +156,7 @@ Para ejecutar U-SQL, abra Visual Studio, haga clic en **Archivo --> Nuevo --> Pr
 
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="ingest"></a>Ingesta de datos: leer datos de un blob público
+### <a name="data-ingestion-read-in-data-from-public-blob"></a><a name="ingest"></a>Ingesta de datos: leer datos de un blob público
 
 A la ubicación de los datos en el blob de Azure se hace referencia como **wasb://container\_name\@blob\_storage\_account\_name.blob.core.windows.net/blob_name** y puede extraerse mediante **Extractors.Csv()** . Sustituya el nombre de su propio contenedor y el nombre de la cuenta de almacenamiento en los siguientes scripts por container\_name\@blob\_storage\_account\_name en la dirección wasb. Dado que los nombres de archivo están en el mismo formato, podemos usar **trip\_data\_\{\*\}.csv** para leer los 12 archivos de carreras.
 
@@ -219,7 +219,7 @@ Del mismo modo se puede leer en los conjuntos de datos de tarifas. Haga clic con
 
  ![11](./media/data-lake-walkthrough/11-data-in-ADL.PNG)
 
-### <a name="quality"></a>Comprobaciones de la calidad de los datos
+### <a name="data-quality-checks"></a><a name="quality"></a>Comprobaciones de la calidad de los datos
 Después de que se hayan leído las tablas de carreras y tarifas, las comprobaciones de la calidad de los datos pueden realizarse de la manera siguiente. Los archivos CSV resultantes pueden ser la salida de Blob Storage de Azure o de Azure Data Lake Storage.
 
 Busque el número de placas de licencia y un número único de placas de licencia:
@@ -291,7 +291,7 @@ Busque los valores que faltan en algunas variables:
 
 
 
-### <a name="explore"></a>Exploración de datos
+### <a name="data-exploration"></a><a name="explore"></a>Exploración de datos
 Podemos realizar una exploración de datos con los siguientes scripts para comprenderlos mejor.
 
 Busque la distribución de las carreras con y sin propina:
@@ -358,7 +358,7 @@ Busque los percentiles de la distancia de las carreras:
     USING Outputters.Csv();
 
 
-### <a name="join"></a>Combinación de las tablas de carreras y tarifas
+### <a name="join-trip-and-fare-tables"></a><a name="join"></a>Combinación de las tablas de carreras y tarifas
 Las tablas de carreras y tarifas pueden combinarse por placa de licencia, hack_license y pickup_time.
 
     //join trip and fare table
@@ -400,7 +400,7 @@ Para cada nivel de recuento de pasajeros, calcule el número de registros, el im
     USING Outputters.Csv();
 
 
-### <a name="sample"></a>Muestreo de datos
+### <a name="data-sampling"></a><a name="sample"></a>Muestreo de datos
 En primer lugar, se selecciona aleatoriamente un 0,1 % de los datos de la tabla combinada:
 
     //random select 1/1000 data for modeling purpose
@@ -440,7 +440,7 @@ A continuación, se realiza un muestreo estratificado por la variable binaria ti
     USING Outputters.Csv();
 
 
-### <a name="run"></a>Ejecución de trabajos U-SQL
+### <a name="run-u-sql-jobs"></a><a name="run"></a>Ejecución de trabajos U-SQL
 Cuando termine la edición de los scripts U-SQL, puede enviarlos al servidor mediante su cuenta de Azure Data Lake Analytics. Haga clic en **Data Lake**, **Enviar trabajo**, seleccione su **cuenta de Analytics**, elija **Paralelismo** y haga clic en el botón **Enviar**.
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)

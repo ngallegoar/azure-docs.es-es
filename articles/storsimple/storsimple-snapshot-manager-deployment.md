@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 6d3e3d6cdf7a831bf09d9c4709c1a60d27683438
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75933377"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implementar el complemento MMC del Administrador de instantáneas StorSimple
@@ -66,7 +66,7 @@ Los pasos siguientes proporcionan una descripción general de las tareas de conf
    * Volúmenes dinámicos con reflejos (RAID 1)
    * Volúmenes compartidos de clúster
      
-     Para información sobre cómo crear volúmenes en el dispositivo StorSimple o el dispositivo virtual StorSimple, vaya al [Paso 6: Crear un volumen](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) en [Implementar el dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
+     Para obtener información sobre cómo crear volúmenes en el dispositivo StorSimple o en un dispositivo StorSimple virtual, consulte el [Paso 6: Crear un volumen](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) en [Implementar el dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="install-a-new-storsimple-snapshot-manager"></a>Instalación de un nuevo Administrador de instantáneas StorSimple
 Antes de instalar Administrador de instantáneas StorSimple, asegúrese de que los volúmenes creados en el dispositivo StorSimple o un dispositivo StorSimple virtual se montan, inicializan y formatean según se describe en [Configuración de los requisitos previos](#configure-prerequisites).
@@ -78,11 +78,11 @@ Antes de instalar Administrador de instantáneas StorSimple, asegúrese de que l
 
 Siga estos pasos para completar una instalación nueva de Administrador de instantáneas StorSimple. Si está instalando una actualización, vaya a [Actualización o reinstalación de Administrador de instantáneas StorSimple](#upgrade-or-reinstall-storsimple-snapshot-manager).
 
-* Paso 1: Instalar Administrador de instantáneas StorSimple 
-* Paso 2: Conectar Snapshot Manager de StorSimple con un dispositivo 
-* Paso 3: Comprobar la conexión con el dispositivo 
+* Paso 1: Instalación de Administrador de instantáneas StorSimple 
+* Paso 2: Conexión de Administrador de instantáneas StorSimple a un dispositivo 
+* Paso 3: Comprobación de la conexión con el dispositivo 
 
-### <a name="step-1-install-storsimple-snapshot-manager"></a>Paso 1: Instalar Administrador de instantáneas StorSimple
+### <a name="step-1-install-storsimple-snapshot-manager"></a>Paso 1: Instalación de Administrador de instantáneas StorSimple
 Use los pasos siguientes para instalar Administrador de instantáneas StorSimple.
 
 #### <a name="to-install-storsimple-snapshot-manager"></a>Para instalar Administrador de instantáneas StorSimple
@@ -101,7 +101,7 @@ Use los pasos siguientes para instalar Administrador de instantáneas StorSimple
    
     ![icono del escritorio](./media/storsimple-snapshot-manager-deployment/HCS_SSM_desktop_icon.png) 
 
-### <a name="step-2-connect-storsimple-snapshot-manager-to-a-device"></a>Paso 2: Conectar Snapshot Manager de StorSimple con un dispositivo
+### <a name="step-2-connect-storsimple-snapshot-manager-to-a-device"></a>Paso 2: Conexión de Administrador de instantáneas StorSimple a un dispositivo
 Siga estos pasos para conectar Administrador de instantáneas StorSimple a un dispositivo StorSimple.
 
 #### <a name="to-connect-storsimple-snapshot-manager-to-a-device"></a>Para conectar Administrador de instantáneas StorSimple a un dispositivo
@@ -123,7 +123,7 @@ Siga estos pasos para conectar Administrador de instantáneas StorSimple a un di
     Si el dispositivo no está disponible por alguna razón, Administrador de instantáneas StorSimple devuelve un mensaje de error. Haga clic en **Aceptar** para cerrar el mensaje de error y, luego, haga clic en **Cancelar** para cerrar el cuadro de diálogo **Configurar un dispositivo**.
 5. Cuando se conecta a un dispositivo, Administrador de instantáneas StorSimple importa cada grupo de volúmenes configurado para ese dispositivo, siempre que los grupos de volumen tengan asociadas copias de seguridad. Los grupos de volúmenes que no tienen copias de seguridad asociadas no se importan. Además, las directivas de copia de seguridad que se crearon para un grupo de volúmenes no se importan. Para ver los grupos importados, en el panel **Ámbito** haga clic con el botón derecho en la parte superior del nodo **Grupos de volúmenes** y haga clic en **Alternar grupos importados**.
 
-### <a name="step-3-verify-the-connection-to-the-device"></a>Paso 3: Comprobar la conexión con el dispositivo
+### <a name="step-3-verify-the-connection-to-the-device"></a>Paso 3: Comprobación de la conexión con el dispositivo
 Use los pasos siguientes para comprobar que Administrador de instantáneas StorSimple está conectado al dispositivo StorSimple.
 
 #### <a name="to-verify-the-connection"></a>Para comprobar la conexión
@@ -143,11 +143,11 @@ Antes de reinstalar Administrador de instantáneas StorSimple, realice una copia
 
 Si va a actualizar o reinstalar Administrador de instantáneas StorSimple, siga estos pasos:
 
-* Paso 1: Desinstalar Snapshot Manager de StorSimple 
-* Paso 2: Crear copia de seguridad de la base de datos de Snapshot Manager de StorSimple 
-* Paso 3: Reinstalar Snapshot Manager de StorSimple y restaurar la base de datos 
+* Paso 1: Desinstalación de Administrador de instantáneas StorSimple 
+* Paso 2: Copia de seguridad de la base de datos de Administrador de instantáneas StorSimple 
+* Paso 3: Instalación de Administrador de instantáneas StorSimple y restauración de la base de datos 
 
-### <a name="step-1-uninstall-storsimple-snapshot-manager"></a>Paso 1: Desinstalar Snapshot Manager de StorSimple
+### <a name="step-1-uninstall-storsimple-snapshot-manager"></a>Paso 1: Desinstalación de Administrador de instantáneas StorSimple
 Use los pasos siguientes para desinstalar Administrador de instantáneas StorSimple.
 
 #### <a name="to-uninstall-storsimple-snapshot-manager"></a>Para desinstalar Administrador de instantáneas StorSimple
@@ -162,7 +162,7 @@ Use los pasos siguientes para desinstalar Administrador de instantáneas StorSim
    > 
 5. Cuando finalice el proceso de desinstalación, aparece un mensaje **La instalación se realizó correctamente** . Haga clic en **Cerrar**.
 
-### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>Paso 2: Crear copia de seguridad de la base de datos de Snapshot Manager de StorSimple
+### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>Paso 2: Copia de seguridad de la base de datos de Administrador de instantáneas StorSimple
 Use los pasos siguientes para crear y guardar una copia de la base de datos de Administrador de instantáneas StorSimple.
 
 #### <a name="to-back-up-the-database"></a>Para realizar una copia de seguridad de la base de datos
@@ -188,7 +188,7 @@ Use los pasos siguientes para crear y guardar una copia de la base de datos de A
    2. En la página **Servicios**, seleccione **Microsoft StorSimple Management Service**.
    3. En el panel derecho, en **Microsoft StorSimple Management Service**, haga clic en **Reiniciar el servicio**. 
 
-### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>Paso 3: Reinstalar Snapshot Manager de StorSimple y restaurar la base de datos
+### <a name="step-3-reinstall-storsimple-snapshot-manager-and-restore-the-database"></a>Paso 3: Instalación de Administrador de instantáneas StorSimple y restauración de la base de datos
 Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descritos en [Instalación de un nuevo Administrador de instantáneas StorSimple](#install-a-new-storsimple-snapshot-manager). A continuación, use el siguiente procedimiento para restaurar la base de datos de Administrador de instantáneas StorSimple.
 
 #### <a name="to-restore-the-database"></a>Para restaurar la base de datos

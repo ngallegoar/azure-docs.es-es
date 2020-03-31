@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9e640c223c2fef844b9b53e1f4afa3a5d398c8c0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71349340"
 ---
 # <a name="st_isvaliddetailed-azure-cosmos-db"></a>ST_ISVALIDDETAILED (Azure Cosmos DB)
@@ -28,7 +28,7 @@ ST_ISVALIDDETAILED(<spatial_expr>)
 *spatial_expr*  
    Es cualquier expresión Point o Polygon de GeoJSON.  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve un valor JSON que contiene un valor booleano si la expresión de punto o polígono GeoJSON especificada es válida; si no es válida, devuelve también el motivo en forma de valor de cadena.  
   

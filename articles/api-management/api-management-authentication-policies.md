@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 5ca153f0d52b65aa1ee56d5757381f1f31c7eeb5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 828f738ff8923dc8194e2449f5fb0be74ef45ad7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120825"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473564"
 ---
 # <a name="api-management-authentication-policies"></a>Directivas de autenticación de Azure API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="AuthenticationPolicies"></a> Directivas de autenticación
+##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Directivas de autenticación
 
 -   [Autenticar con opción básica](api-management-authentication-policies.md#Basic) : autenticar con un servicio de back-end mediante la autenticación básica.
 
@@ -31,7 +31,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 -   [Autenticar con identidad administrada](api-management-authentication-policies.md#ManagedIdentity): autenticar con una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) para el servicio API Management.
 
-##  <a name="Basic"></a> Autenticación con Basic
+##  <a name="authenticate-with-basic"></a><a name="Basic"></a> Autenticación con Basic
  Use la directiva `authentication-basic` para realizar la autenticación con un servicio de back-end mediante autenticación Básica. Esta directiva establece eficazmente el encabezado de autorización HTTP en el valor correspondiente a las credenciales proporcionadas en la directiva.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
@@ -66,7 +66,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-##  <a name="ClientCertificate"></a> Autenticación Básica
+##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autenticación Básica
  Use la directiva `authentication-certificate` para realizar la autenticación con un servicio de back-end mediante un certificado de cliente. El certificado se debe [instalar primero en API Management](https://go.microsoft.com/fwlink/?LinkID=511599) y se identifica mediante su huella digital.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
@@ -106,7 +106,7 @@ En este ejemplo, el certificado de cliente se identifica mediante el nombre de r
   
 -   **Ámbitos de la directiva:** todos los ámbitos  
 
-##  <a name="ManagedIdentity"></a> Autenticación con una identidad administrada  
+##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a> Autenticación con una identidad administrada  
  Use la directiva `authentication-managed-identity` para autenticarse con un servicio de back-end mediante la identidad administrada del servicio de API Management. En esencia, esta directiva usa la identidad administrada para obtener un token de acceso de Azure Active Directory para acceder al recurso especificado. Después de obtener el token correctamente, la Directiva establecerá el valor del token en el `Authorization` encabezado mediante el esquema `Bearer`.
   
 ### <a name="policy-statement"></a>Instrucción de la directiva  
@@ -118,7 +118,7 @@ En este ejemplo, el certificado de cliente se identifica mediante el nombre de r
 ### <a name="example"></a>Ejemplo  
 #### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>Uso de una identidad administrada para autenticación con un servicio back-end
 ```xml  
-<authentication-managed-identity resource="https://graph.windows.net"/> 
+<authentication-managed-identity resource="https://graph.microsoft.com"/> 
 ```
 ```xml  
 <authentication-managed-identity resource="https://management.azure.com/"/> <!--Azure Resource Manager-->

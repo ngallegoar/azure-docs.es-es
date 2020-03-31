@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: 6fd23e3d41dda15b1ec439c1e8b02073722b8871
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073629"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233644"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Creación de redes virtuales para clústeres de Azure HDInsight
 
@@ -33,7 +33,7 @@ Otros requisitos previos de los ejemplos de este artículo son:
 > [!IMPORTANT]  
 > Si busca guías paso a paso sobre cómo conectar HDInsight con la red local mediante una instancia de Azure Virtual Network, consulte el documento [Conexión de HDInsight a la red local](connect-on-premises-network.md).
 
-## <a id="hdinsight-nsg"></a>Ejemplo: grupos de seguridad de red con HDInsight
+## <a name="example-network-security-groups-with-hdinsight"></a><a id="hdinsight-nsg"></a>Ejemplo: grupos de seguridad de red con HDInsight
 
 En los ejemplos de esta sección se muestra cómo crear reglas de grupo de seguridad de red que permiten a HDInsight comunicarse con los servicios de administración de Azure. Antes de usar los ejemplos, ajuste las direcciones IP para que coincidan con las de la región de Azure que esté usando. Puede encontrar esta información en [Direcciones IP de administración de HDInsight](hdinsight-management-ip-addresses.md).
 
@@ -45,7 +45,7 @@ La siguiente plantilla de administración de recursos crea una red virtual que r
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Use el siguiente script de PowerShell para crear una red virtual que restringe el tráfico de entrada y permite el tráfico de las direcciones IP para la región de Europa del Norte.
+Use el siguiente script de PowerShell para crear una red virtual que restringe el tráfico de entrada y permite el tráfico de las direcciones IP para la región de Norte de Europa.
 
 > [!IMPORTANT]  
 > Cambie las direcciones IP de `hdirule1` y `hdirule2` de este ejemplo para que coincidan con la región de Azure que utiliza. Puede encontrar esta información en [Direcciones IP de administración de HDInsight](hdinsight-management-ip-addresses.md).
@@ -158,7 +158,7 @@ Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
 Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 ```
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 Use los pasos siguientes para crear una red virtual que restringe el tráfico de entrada pero permite el tráfico desde las direcciones IP requeridas por HDInsight.
 
@@ -211,7 +211,7 @@ En el siguiente código se muestra cómo habilitar el acceso mediante SSH desde 
 az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
 ```
 
-## <a id="example-dns"></a> Ejemplo: Configuración de DNS
+## <a name="example-dns-configuration"></a><a id="example-dns"></a> Ejemplo: configuración de DNS
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Resolución de nombres entre una red virtual y una red local conectada
 

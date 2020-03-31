@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/19/2019
 ms.author: magattus
 ms.openlocfilehash: 87debe8e858f4c42b1027b865dd72c7444b37fac
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77499882"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura de Azure CDN según Metro 

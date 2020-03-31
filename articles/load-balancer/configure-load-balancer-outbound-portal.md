@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: allensu
 ms.openlocfilehash: b75f49155991bfc71f788ad88f166c0bec281841
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77589695"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Configuración del equilibrio de carga y las reglas de salida en Standard Load Balancer mediante Azure Portal

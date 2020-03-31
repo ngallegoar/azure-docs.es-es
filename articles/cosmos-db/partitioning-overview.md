@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 551703b5dcca082904197010366ee059998dde4b
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621880"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227284"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Las consultas que tienen acceso a datos dentro de una sola partición lógica so
 
 Para obtener más información sobre cómo Azure Cosmos DB administra las particiones, vea el artículo de [Particiones lógicas](partition-data.md). No es necesario conocer los detalles internos para compilar o ejecutar las aplicaciones, pero se recopilan aquí para que pueda consultarlos.
 
-## <a id="choose-partitionkey"></a>Elegir una clave de partición
+## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Elegir una clave de partición
 
 A continuación, encontrará una guía clara para elegir una clave de partición:
 

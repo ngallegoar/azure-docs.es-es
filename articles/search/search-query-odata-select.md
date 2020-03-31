@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113107"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintaxis de $select de OData en Azure Cognitive Search
@@ -111,6 +111,6 @@ Un resultado de ejemplo podría tener este aspecto:
 ## <a name="next-steps"></a>Pasos siguientes  
 
 - [Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search](search-pagination-page-layout.md)
-- [Introducción al lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [Información general sobre el lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
 - [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

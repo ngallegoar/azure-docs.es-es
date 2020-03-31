@@ -17,16 +17,16 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: a1ade6e823201419c3a742a36c66a50a9dc09976
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72c8b4d57b5064af34665cff1386179e62324938
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728804"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235075"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrado del tráfico de red con un grupo de seguridad de red mediante la CLI de Azure
 
-Puede filtrar el tráfico de red entrante y saliente de una subred de una red virtual con un grupo de seguridad de red. Los grupos de seguridad de red contienen reglas de seguridad que filtran el tráfico de red por dirección IP, puerto y protocolo. Las reglas de seguridad se aplican a los recursos implementados en una subred. En este artículo, aprenderá a:
+Puede filtrar el tráfico de red entrante y saliente de una subred de una red virtual con un grupo de seguridad de red. Los grupos de seguridad de red contienen reglas de seguridad que filtran el tráfico de red por dirección IP, puerto y protocolo. Las reglas de seguridad se aplican a los recursos implementados en una subred. En este artículo aprenderá a:
 
 * Crear un grupo de seguridad de red y reglas de seguridad
 * Crear una red virtual y asociar un grupo de seguridad de red a una subred
@@ -164,7 +164,7 @@ az vm create \
 
 La máquina virtual tarda en crearse unos minutos. Una vez creada la máquina virtual, se devuelve una salida similar a la del siguiente ejemplo: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmWeb",
@@ -196,7 +196,7 @@ La máquina virtual tarda en crearse unos minutos. Una vez creada la máquina vi
 
 ## <a name="test-traffic-filters"></a>Probar los filtros de tráfico
 
-Use el siguiente comando para crear una sesión SSH con la máquina virtual *myVmMgmt*. Reemplace *\<publicIpAddress>* por la dirección IP pública de la máquina virtual. En el ejemplo anterior, la dirección IP era *13.90.242.231*.
+Use el siguiente comando para crear una sesión SSH con la máquina virtual *myVmMgmt*. Reemplace *\<publicIpAddress>* por la dirección IP pública de la VM. En el ejemplo anterior, la dirección IP era *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -236,7 +236,7 @@ Cierre la sesión de la máquina virtual *myVmMgmt*. Para confirmar que puede ac
 
 Cuando ya no se necesiten, use [az group delete](/cli/azure/group) para quitar el grupo de recursos y todos los recursos que contenga.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

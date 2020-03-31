@@ -11,10 +11,10 @@ ms.subservice: common
 services: storage
 tags: ''
 ms.openlocfilehash: d3a3763a8964810626bcdc47da230a9ee406f1f8
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74196476"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Recurso compartido de archivos de Azure: no se pudieron eliminar archivos del recurso compartido de archivos de Azure
@@ -36,7 +36,7 @@ cuota insuficiente para procesar este comando.
 
 El error 1816 se muestra cuando se alcanza el límite superior de identificadores abiertos simultáneos que se permiten para un archivo en el equipo donde se está montando el recurso compartido de archivos. Para obtener más información, consulte [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
 
-## <a name="resolution"></a>Resolución
+## <a name="resolution"></a>Solución
 
 Reduzca el número de identificadores abiertos al cerrar algunos.
 

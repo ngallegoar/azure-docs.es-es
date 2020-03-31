@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: fa7f72989d47499127714eddfa6b5e98aa80178c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73749223"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Windows mediante Ejecutar comando
@@ -61,7 +61,7 @@ The entity was not found in this Azure location
 |**ResetRDPCert**|Quita el certificado SSL asociado al agente de escucha RDP y restaura la seguridad de este a los valores predeterminados. Use este script si ve algún problema con el certificado.|
 |**SetRDPPort**|Establece el número de puerto especificado por el usuario o predeterminado para las conexiones del Escritorio remoto. Habilita las reglas de firewall para el acceso entrante al puerto.|
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 El siguiente ejemplo utiliza el comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) para ejecutar un script de shell en una máquina virtual Windows de Azure.
 

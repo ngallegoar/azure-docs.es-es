@@ -8,10 +8,10 @@ ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 97af40bd1f57acb5b26d3b6216984dfb8e3a5181
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68699796"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desarrollo con C++ para Azure Files
@@ -40,8 +40,8 @@ Para compilar los ejemplos, debe instalar la biblioteca de cliente de Azure Stor
 
 Para instalar el cliente de Azure Storage 2.4.0 para C++, puede usar uno de los métodos siguientes:
 
-* **Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de Azure Storage para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).
-* **Windows:** En Visual Studio, haga clic en **Herramientas &gt; Administrador de paquetes NuGet &gt; Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione **ENTRAR**.
+* **Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de Azure Storage para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
+* **Windows:** : en Visual Studio, haga clic en **Herramientas&gt;Administrador de paquetes de NuGet&gt;Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione **ENTRAR**.
   
 
 ```powershell
@@ -118,7 +118,7 @@ azure::storage::cloud_file_share share =
 share.delete_share_if_exists();
 ```
 
-## <a name="create-a-directory"></a>Creación de directorios
+## <a name="create-a-directory"></a>Creación de un directorio
 
 Para organizar el almacenamiento, coloque los archivos en los subdirectorios, en lugar de mantenerlos todos en el directorio raíz. Azure Files permite crear tantos directorios como permita su cuenta. El código siguiente creará un directorio llamado **Mi directorio de ejemplo** bajo el directorio raíz, así como un subdirectorio denominado **mi subdirectorio de ejemplo**.
 

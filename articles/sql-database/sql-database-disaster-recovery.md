@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
 ms.openlocfilehash: d28edd28dcbe31bfe63c2d0a9c3e975967efef04
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826579"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228672"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de una base de datos de Azure SQL o conmutación por error a una base de datos secundaria
 
@@ -97,7 +97,7 @@ Para obtener más información sobre cómo cambiar las cadenas de conexión, con
 
 ### <a name="configure-firewall-rules"></a>Configuración de las reglas del firewall
 
-Es preciso que se asegure de que las reglas del firewall configuradas tanto en el servidor como en la base de datos coinciden con las configuradas en el servidor principal y en la base de datos principal. Para obtener más información, consulte [Cómo configurar el firewall (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+Es preciso que se asegure de que las reglas del firewall configuradas tanto en el servidor como en la base de datos coinciden con las configuradas en el servidor principal y en la base de datos principal. Para obtener más información, consulte [Configuración del firewall (Azure SQL Database)](sql-database-configure-firewall-settings.md).
 
 ### <a name="configure-logins-and-database-users"></a>Configuración de inicios de sesión de y de usuarios de la base de datos
 

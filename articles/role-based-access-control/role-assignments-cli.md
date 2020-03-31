@@ -15,17 +15,17 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: b32df50715d5e7276861e0696df1bd6ceb3f684e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471999"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225376"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-cli"></a>Incorporación o eliminación de asignaciones de roles con RBAC de Azure y la CLI de Azure
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] En este artículo se describe cómo asignar roles con la CLI de Azure.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para agregar o quitar asignaciones de roles, debe tener:
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/04/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1caa80469504d52d3103fb2776fb3e7210971690
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024405"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Time Series Insights mediante plantillas de Azure Resource Manager
@@ -63,7 +63,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
      | --- | --- |
      | eventHubNamespaceName | El espacio de nombres del centro de eventos de origen. |
      | eventHubName | El nombre del centro de eventos de origen. |
-     | consumerGroupName | El nombre del grupo de consumidores que usará el servicio Time Series Insights para leer los datos del centro de eventos. **NOTA:** Para evitar la contención de los recursos, este grupo de consumidores tiene que estar dedicado al servicio Time Series Insights y no se debe compartir con otros lectores. |
+     | consumerGroupName | El nombre del grupo de consumidores que usará el servicio Time Series Insights para leer los datos del centro de eventos. **NOTA:** Para evitar la contención de los recursos, este grupo de consumidores debe estar dedicado al servicio Time Series Insights y no se debe compartir con otros lectores. |
      | environmentName | El nombre del entorno. El nombre no puede incluir los caracteres `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, ni ningún carácter de control. Todos los demás caracteres se permiten.|
      | eventSourceName | El nombre del recurso de secundarios del origen de eventos. El nombre no puede incluir los caracteres `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, ni ningún carácter de control. Todos los demás caracteres se permiten. |
 
@@ -73,7 +73,7 @@ En el procedimiento siguiente se describe cómo usar PowerShell para implementar
 
      | Parámetro | Descripción |
      | --- | --- |
-     | existingEventHubResourceId | Un identificador de recurso opcional de un centro de eventos existente que se conectará al entorno de Time Series Insights mediante el origen de eventos. **NOTA:** El usuario que implementa la plantilla tiene que tener privilegios para realizar la operación listkeys en el centro de eventos. Si no se pasa ningún valor, se crea un nuevo centro de eventos mediante la plantilla. |
+     | existingEventHubResourceId | Un identificador de recurso opcional de un centro de eventos existente que se conectará al entorno de Time Series Insights mediante el origen de eventos. **NOTA:** El usuario que implementa la plantilla debe tener privilegios para realizar la operación listkeys en el centro de eventos. Si no se pasa ningún valor, se crea un nuevo centro de eventos mediante la plantilla. |
      | environmentDisplayName | Un nombre descriptivo opcional que se muestra en las herramientas o las interfaces de usuario en el lugar del nombre del entorno. |
      | environmentSkuName | El nombre de la SKU. Para más información, lea la [página de precios de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
      | environmentSkuCapacity | La capacidad unitaria de la SKU. Para más información, lea la [página de precios de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|

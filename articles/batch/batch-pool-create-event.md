@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
 ms.openlocfilehash: dea025b274278aa5fed2900c95b4a274541ffef9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022196"
 ---
 # <a name="pool-create-event"></a>Evento de creación del grupo
@@ -75,14 +75,14 @@ ms.locfileid: "77022196"
 |`maxTasksPerNode`|Int32|El número máximo de tareas que pueden ejecutarse simultáneamente en un solo nodo de ejecución en el grupo.|
 |`vmFillType`|String|Define cómo el servicio de Batch distribuye las tareas entre los nodos de proceso del grupo. Los valores válidos son Spread o Pack.|
 
-###  <a name="bk_csconf"></a> cloudServiceConfiguration
+###  <a name="cloudserviceconfiguration"></a><a name="bk_csconf"></a> cloudServiceConfiguration
 
 |Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`osFamily`|String|La familia del SO invitado de Azure para instalar en las máquinas virtuales en el grupo.<br /><br /> Los valores posibles son:<br /><br /> **2**: familia 2 de SO, que equivale a Windows Server 2008 R2 SP1.<br /><br /> **3**: familia 3 de SO, que equivale a Windows Server 2012.<br /><br /> **4**: familia 4 de SO, que equivale a Windows Server 2012 R2.<br /><br /> Para obtener más información, consulte [Versiones del SO invitado de Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 |`targetOSVersion`|String|La versión del SO invitado de Azure para instalar en las máquinas virtuales en el grupo.<br /><br /> El valor predeterminado es **\*** , que especifica la versión del sistema operativo más reciente para la familia especificada.<br /><br /> Para otros valores permitidos, consulte [Versiones del SO invitado de Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
-###  <a name="bk_vmconf"></a> virtualMachineConfiguration
+###  <a name="virtualmachineconfiguration"></a><a name="bk_vmconf"></a> virtualMachineConfiguration
 
 |Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
@@ -90,7 +90,7 @@ ms.locfileid: "77022196"
 |`nodeAgentId`|String|El SKU agente del nodo de Batch proporcionado en el nodo de ejecución.|
 |[`windowsConfiguration`](#bk_winconf)|Tipo complejo|Especifica la configuración del sistema operativo de Windows en la máquina virtual. Esta propiedad no se debe especificar si el imageReference hace referencia a una imagen del sistema operativo de Linux.|
 
-###  <a name="bk_imgref"></a> imageReference
+###  <a name="imagereference"></a><a name="bk_imgref"></a> imageReference
 
 |Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
@@ -99,13 +99,13 @@ ms.locfileid: "77022196"
 |`sku`|String|El SKU de la imagen.|
 |`version`|String|La versión de la imagen.|
 
-###  <a name="bk_winconf"></a> windowsConfiguration
+###  <a name="windowsconfiguration"></a><a name="bk_winconf"></a> windowsConfiguration
 
 |Nombre del elemento|Tipo|Notas|
 |------------------|----------|-----------|
 |`enableAutomaticUpdates`|Boolean|Indica si la máquina virtual está habilitada para las actualizaciones automáticas. Si esta propiedad no se especifica, se usa el valor predeterminado.|
 
-###  <a name="bk_netconf"></a> networkConfiguration
+###  <a name="networkconfiguration"></a><a name="bk_netconf"></a> networkConfiguration
 
 |Nombre del elemento|Tipo|Notas|
 |------------------|--------------|----------|

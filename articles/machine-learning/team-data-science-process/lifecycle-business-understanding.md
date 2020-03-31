@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76710336"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Fase de descripción de negocio del ciclo de vida del Proceso de ciencia de datos en equipo
@@ -40,8 +40,8 @@ Esta es una representación visual del ciclo de vida de TDSP:
 ## <a name="how-to-do-it"></a>Modo de hacerlo
 En esta fase se abordan dos tareas principales: 
 
-   * **Definición de objetivos**: Trabaje con el cliente y con otras partes interesadas para comprender e identificar los problemas de la empresa. Formule preguntas que definan los objetivos empresariales y a las que puedan aplicarse las técnicas de ciencia de datos.
-   * **Identificación de los orígenes de datos**: Busque los datos pertinentes que lo ayuden a responder a las preguntas que definen los objetivos del proyecto.
+   * **Definición de objetivos**: trabaje con el cliente y con otras partes interesadas para comprender e identificar los problemas de la empresa. Formule preguntas que definan los objetivos empresariales y a las que puedan aplicarse las técnicas de ciencia de datos.
+   * **Identifique los orígenes de datos**: busque los datos pertinentes que lo ayuden a responder a las preguntas que definen los objetivos del proyecto.
 
 ### <a name="define-objectives"></a>Definición de objetivos
 1. Un objetivo fundamental de este paso consiste en identificar las principales variables empresariales que el análisis deberá predecir. Estas variables se denominan *objetivos del modelo* y las métricas asociadas a ellas se utilizan para determinar el éxito del proyecto. Dos ejemplos de estos destinos son la previsión de ventas o la probabilidad de que un pedido sea fraudulento.
@@ -77,9 +77,9 @@ Por ejemplo, puede descubrir que los sistemas existentes tienen que recopilar y 
 ## <a name="artifacts"></a>Artefactos
 Estos son los resultados de esta fase:
 
-   * [Documento marco](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): Se ofrece una plantilla estándar en la definición de estructura del proyecto de TDSP. El documento marco es un documento en cambio continuo. La plantilla se actualiza a lo largo del proyecto a medida que se descubren nuevos elementos y cambian las necesidades empresariales. La clave consiste en realizar iteraciones de este documento e incorporarle la información oportuna según se avance a lo largo del proceso de descubrimiento. Es importante que el cliente y las demás partes interesadas se impliquen en la realización de cambios y que se les informe claramente sobre las razones que los motivan.  
-   * [Orígenes de datos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): La sección de **orígenes de datos sin procesar** del informe de **definiciones de datos** que se encuentra en la carpeta de **informe de datos** del proyecto TDSP contiene los orígenes de datos. En esta sección se especifican las ubicaciones originales y de destino para los datos sin procesar. En las fases posteriores, deberá rellenar más detalles, tales como los scripts para mover los datos al entorno de análisis.  
-   * [Diccionarios de datos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): En este documento se proporcionan descripciones de los datos facilitados por el cliente. Estas descripciones incluyen información sobre el esquema (tipos de datos e información sobre las reglas de validación, si hay) y los diagramas de relación de entidades, si están disponibles.
+   * [Documento marco](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): se ofrece una plantilla estándar en la definición de estructura del proyecto de TDSP. El documento marco es un documento en cambio continuo. La plantilla se actualiza a lo largo del proyecto a medida que se descubren nuevos elementos y cambian las necesidades empresariales. La clave consiste en realizar iteraciones de este documento e incorporarle la información oportuna según se avance a lo largo del proceso de descubrimiento. Es importante que el cliente y las demás partes interesadas se impliquen en la realización de cambios y que se les informe claramente sobre las razones que los motivan.  
+   * [Orígenes de datos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): la sección de **orígenes de datos sin procesar** del informe de **definiciones de datos** que se encuentra en la carpeta de **informe de datos** del proyecto TDSP contiene los orígenes de datos. En esta sección se especifican las ubicaciones originales y de destino para los datos sin procesar. En las fases posteriores, deberá rellenar más detalles, tales como los scripts para mover los datos al entorno de análisis.  
+   * [Diccionarios de datos](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): este documento proporciona descripciones de los datos facilitados por el cliente. Estas descripciones incluyen información sobre el esquema (tipos de datos e información sobre las reglas de validación, si hay) y los diagramas de relación de entidades, si están disponibles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

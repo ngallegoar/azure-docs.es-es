@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 2c186decf68d167ab2c5ab7696c2dfb51d77a071
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773751"
 ---
 # <a name="create-or-modify-an-exchange-peering-using-the-portal"></a>Creación o modificación de un emparejamiento de Exchange mediante el portal
@@ -30,7 +30,7 @@ Si lo prefiere, puede completar esta guía con [PowerShell](howto-exchange-power
 ### <a name="sign-in-to-portal-and-select-your-subscription"></a>Inicio de sesión en el portal y selección de su suscripción
 [!INCLUDE [Account](./includes/account-portal.md)]
 
-### <a name=create></a>Creación de un emparejamiento de Exchange
+### <a name="create-an-exchange-peering"></a><a name=create></a>Creación de un emparejamiento de Exchange
 
 Puede crear una nueva solicitud de emparejamiento mediante el recurso **Emparejamiento**.
 
@@ -40,13 +40,13 @@ Puede crear una nueva solicitud de emparejamiento mediante el recurso **Empareja
 #### <a name="configure-connections-and-submit"></a>Configuración de conexiones y envío
 [!INCLUDE [exchange-peering-configuration](./includes/exchange-portal-configuration.md)]
 
-### <a name=get></a>Comprobación de un emparejamiento de Exchange
+### <a name="verify-an-exchange-peering"></a><a name=get></a>Comprobación de un emparejamiento de Exchange
 [!INCLUDE [peering-exchange-get-portal](./includes/exchange-portal-get.md)]
 
-## <a name="modify"></a>Modificación de un emparejamiento de Exchange
+## <a name="modify-an-exchange-peering"></a><a name="modify"></a>Modificación de un emparejamiento de Exchange
 [!INCLUDE [peering-exchange-modify-portal](./includes/exchange-portal-modify.md)]
 
-## <a name="delete"></a>Desaprovisionamiento de emparejamiento de Exchange
+## <a name="deprovision-an-exchange-peering"></a><a name="delete"></a>Desaprovisionamiento de un emparejamiento de Exchange
 [!INCLUDE [peering-exchange-delete-portal](./includes/delete.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176490"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226556"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de plantilla de Azure API Management
 Azure API Management proporciona los siguientes tipos de recursos para su uso en las plantillas del portal para desarrolladores.  
@@ -31,7 +31,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="strings"></a> Recursos de cadena  
+##  <a name="string-resources"></a><a name="strings"></a> Recursos de cadena  
  API Management proporciona un conjunto completo de recursos de cadena para su uso en el portal para desarrolladores. Estos recursos están localizados en todos los idiomas admitidos por API Management. El conjunto predeterminado de plantillas utiliza estos recursos para encabezados de páginas etiquetas y cualquier cadena constante que se muestren en el portal para desarrolladores. Para usar un recurso de cadena en sus plantillas, especifique el prefijo de la cadena del recurso seguido por el nombre de la cadena, como se muestra en el siguiente ejemplo.  
   
 ```  
@@ -111,46 +111,46 @@ Se admiten las siguientes opciones de localización:
   
 -   [UserProfile](#UserProfile)  
   
-###  <a name="ApisStrings"></a> ApisStrings  
+###  <a name="apisstrings"></a><a name="ApisStrings"></a> ApisStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |PageTitleApis|API existentes|  
   
-###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
+###  <a name="appdetailsstrings"></a><a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Versión preliminar de la aplicación|  
 |WebApplicationsRequirementsHeader|Requisitos|  
 |WebApplicationsScreenshotAlt|Instantánea|  
 |WebApplicationsScreenshotsHeader|Capturas de pantalla|  
   
-###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
+###  <a name="applicationliststrings"></a><a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|¿Está seguro de que desea quitar la aplicación?|  
 |WebDevelopersAppNotPublished|No publicado|  
 |WebDevelopersAppNotSubmitted|No enviado|  
 |WebDevelopersAppTableCategoryHeader|Category|  
-|WebDevelopersAppTableNameHeader|NOMBRE|  
+|WebDevelopersAppTableNameHeader|Nombre|  
 |WebDevelopersAppTableStateHeader|State|  
-|WebDevelopersEditLink|Edit|  
+|WebDevelopersEditLink|Editar|  
 |WebDevelopersRegisterAppLink|Registre la aplicación|  
 |WebDevelopersRemoveLink|Remove|  
 |WebDevelopersSubmitLink|Enviar|  
 |WebDevelopersYourApplicationsHeader|Sus aplicaciones|  
   
-###  <a name="AppStrings"></a> AppStrings  
+###  <a name="appstrings"></a><a name="AppStrings"></a> AppStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |WebApplicationsHeader|APLICACIONES|  
   
-###  <a name="CommonResources"></a> CommonResources  
+###  <a name="commonresources"></a><a name="CommonResources"></a> CommonResources  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |NoItemsToDisplay|No se encontró ningún resultado.|  
 |GeneralExceptionMessage|Se ha producido algún problema. Podría ser un problema temporal o un error. Vuelva a intentarlo.|  
@@ -159,9 +159,9 @@ Se admiten las siguientes opciones de localización:
 |AzureActiveDirectory|Azure Active Directory|  
 |HttpLargeRequestMessage|El cuerpo de la solicitud HTTP es demasiado extenso.|  
   
-###  <a name="CommonStrings"></a> CommonStrings  
+###  <a name="commonstrings"></a><a name="CommonStrings"></a> CommonStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |ButtonLabelCancel|Cancelar|  
 |ButtonLabelSave|Save|  
@@ -169,7 +169,7 @@ Se admiten las siguientes opciones de localización:
 |NoItemsToDisplay|No hay ningún elemento para mostrar.|  
 |PagerButtonLabelFirst|Primero|  
 |PagerButtonLabelLast|Último|  
-|PagerButtonLabelNext|Pasos siguientes|  
+|PagerButtonLabelNext|Siguiente|  
 |PagerButtonLabelPrevious|Anterior|  
 |PagerLabelPageNOfM|Página {0} de {1}|  
 |PasswordTooShort|La contraseña es demasiado extensa.|  
@@ -181,11 +181,11 @@ Se admiten las siguientes opciones de localización:
 |PagerLabelPageSize|Tamaño de página|  
 |CurtainLabelLoading|Cargando...|  
 |TablePlaceholderNothingToDisplay|No hay ningún dato para el intervalo de tiempo y el ámbito seleccionados.|  
-|ButtonLabelClose|cierre|  
+|ButtonLabelClose|Cerrar|  
   
-###  <a name="Documentation"></a> Documentation  
+###  <a name="documentation"></a><a name="Documentation"></a> Documentation  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Encabezado "{0}" no válido|  
 |WebDocumentationInvalidRequestErrorMessage|Dirección URL de solicitud no válida|  
@@ -302,7 +302,7 @@ Se admiten las siguientes opciones de localización:
 |OAuth2UnsupportedTokenType|El tipo de token "{0}" no se admite.|  
 |OAuth2InvalidState|Respuesta no válida del servidor de autorización|  
 |OAuth2GrantType_AuthorizationCode|Código de autorización|  
-|OAuth2GrantType_Implicit|Implícita|  
+|OAuth2GrantType_Implicit|Implícito|  
 |OAuth2GrantType_ClientCredentials|Credenciales de cliente|  
 |OAuth2GrantType_ResourceOwnerPassword|Contraseña del propietario del recurso|  
 |WebDocumentation302Code|302 (encontrado)|  
@@ -331,9 +331,9 @@ Se admiten las siguientes opciones de localización:
 |SectionHeadingCodeSamples|Ejemplos de código|  
 |TextblockOpenidConnectHeaderDescription|Token de identificador de OpenID Connect obtenido de <i\>{0}</i\>. Tipos de concesión admitidos: <i\>{1}</i\>.|  
   
-###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
+###  <a name="errorpagestrings"></a><a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |LinkLabelBack|atrás|  
 |LinkLabelHomePage|página principal|  
@@ -349,20 +349,20 @@ Se admiten las siguientes opciones de localización:
 |TitlePotentialCause|Causa posible|  
 |TitlePotentialSolution|Es posible que se trate únicamente de un problema temporal. Hay varias soluciones que puede probar.|  
   
-###  <a name="IssuesStrings"></a> IssuesStrings  
+###  <a name="issuesstrings"></a><a name="IssuesStrings"></a> IssuesStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
-|WebIssuesIndexTitle|Problemas|  
+|WebIssuesIndexTitle|Issues|  
 |WebIssuesNoActiveSubscriptions|No tiene ninguna suscripción activa. Debe suscribirse a un producto para informar de un problema.|  
 |WebIssuesNotSignin|No ha iniciado sesión. {0} para informar de un problema o publicar un comentario.|  
 |WebIssuesReportIssueButton|Informar sobre un problema|  
 |WebIssuesSignIn|iniciar sesión|  
 |WebIssuesStatusReportedBy|Estado: {0} &#124; notificado por {1}|  
   
-###  <a name="NotFoundStrings"></a> NotFoundStrings  
+###  <a name="notfoundstrings"></a><a name="NotFoundStrings"></a> NotFoundStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |LinkLabelHomePage|página principal|  
 |LinkLabelSendUsEmail|envíenos un correo electrónico|  
@@ -375,9 +375,9 @@ Se admiten las siguientes opciones de localización:
 |TitlePotentialCause|Causa posible|  
 |TitlePotentialSolution|Posible solución|  
   
-###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
+###  <a name="productdetailsstrings"></a><a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |WebProductsAgreement|Al suscribirse al producto {0}, acepta los `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Términos de uso|  
@@ -386,7 +386,7 @@ Se admiten las siguientes opciones de localización:
 |WebProductsYouAreNotSubscribed|Está suscrito a este producto.|  
 |WebProductsYouRequestedSubscription|Ha solicitado una suscripción a este producto.|  
 |ErrorYouNeedToAgreeWithLegalTerms|Debe aceptar los términos de uso antes de continuar.|  
-|ButtonLabelAddSubscription|Agregar suscripción|  
+|ButtonLabelAddSubscription|Agregar una suscripción|  
 |LinkLabelChangeSubscriptionName|cambiar|  
 |ButtonLabelConfirm|Confirm|  
 |TextblockMultipleSubscriptionsCount|Tiene {0} suscripciones a este producto:|  
@@ -397,23 +397,23 @@ Se admiten las siguientes opciones de localización:
 |TextblockSubscriptionDescription|Se creará una nueva suscripción de la siguiente manera:|  
 |TextblockSubscriptionLimitReached|Ha alcanzado el límite de suscripciones.|  
   
-###  <a name="ProductsStrings"></a> ProductsStrings  
+###  <a name="productsstrings"></a><a name="ProductsStrings"></a> ProductsStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |PageTitleProducts|Productos|  
   
-###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
+###  <a name="providerinfostrings"></a><a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|Los administradores han deshabilitado el inicio de sesión actualmente.|  
 |TextboxExternalIdentitiesSigninInvitation|O bien inicie sesión con|  
 |TextboxExternalIdentitiesSigninInvitationPrimary|Inicie sesión con:|  
   
-###  <a name="SigninResources"></a> SigninResources  
+###  <a name="signinresources"></a><a name="SigninResources"></a> SigninResources  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |PrincipalNotFound|No se encuentra la entidad de seguridad o la firma no es válida.|  
 |ErrorSsoAuthenticationFailed|Error de autenticación SSO.|  
@@ -477,7 +477,7 @@ Se admiten las siguientes opciones de localización:
 |ButtonLabelChangePassword|Cambiar contraseña|  
 |ButtonLabelChangeAccountInfo|Cambiar información de la cuenta|  
 |ButtonLabelCloseAccount|Cerrar cuenta|  
-|WebAuthenticationInvalidCaptchaErrorMessage|El texto escrito no coincide con el de la imagen. Vuelva a intentarlo.|  
+|WebAuthenticationInvalidCaptchaErrorMessage|El texto escrito no coincide con el de la imagen. Inténtelo de nuevo.|  
 |ValidationErrorCredentialsInvalid|El correo electrónico o la contraseña no son válidos. Corrija los errores y vuelva a intentarlo.|  
 |WebAuthenticationRequestIsNotValid|La solicitud no es válida.|  
 |WebAuthenticationUserIsNotConfirm|Confirme el registro antes de tratar de iniciar sesión.|  
@@ -507,9 +507,9 @@ Se admiten las siguientes opciones de localización:
 |DialogHeadingTermsOfUse|Términos de uso|  
 |ValidationMessageConsentNotAccepted|Debe aceptar los términos de uso antes de continuar.|  
   
-###  <a name="SigninStrings"></a> SigninStrings  
+###  <a name="signinstrings"></a><a name="SigninStrings"></a> SigninStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|¿Ha olvidado la contraseña?|  
 |WebAuthenticationIfAdministrator|Si es administrador, debe iniciar sesión en `<a href="{0}"\>here</a\>`.|  
@@ -519,9 +519,9 @@ Se admiten las siguientes opciones de localización:
 |WebAuthenticationSigninTitle|Iniciar sesión|  
 |WebAuthenticationSignUpNow|Regístrese ahora|  
   
-###  <a name="SignupStrings"></a> SignupStrings  
+###  <a name="signupstrings"></a><a name="SignupStrings"></a> SignupStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |PageTitleSignup|Suscripción|  
 |WebAuthenticationAlreadyAMember|¿Ya es miembro?|  
@@ -529,9 +529,9 @@ Se admiten las siguientes opciones de localización:
 |WebAuthenticationSigninNow|Inicie sesión ahora|  
 |ButtonLabelSignup|Suscripción|  
   
-###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
+###  <a name="subscriptionliststrings"></a><a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|¿Está seguro de que desea cancelar esta suscripción?|  
 |SubscriptionRenewConfirmation|¿Está seguro de que desea renovar esta suscripción?|  
@@ -543,18 +543,18 @@ Se admiten las siguientes opciones de localización:
 |ButtonLabelRenewSubscription|Renovación|  
 |WebDevelopersSubscriptionRequested|Solicitud realizada el {0}|  
 |WebDevelopersSubscriptionRequestedState|Solicitada|  
-|WebDevelopersSubscriptionTableNameHeader|NOMBRE|  
+|WebDevelopersSubscriptionTableNameHeader|Nombre|  
 |WebDevelopersSubscriptionTableStateHeader|State|  
 |WebDevelopersUsageStatisticsLink|Informes de análisis|  
 |WebDevelopersYourSubscriptions|Sus suscripciones|  
 |SubscriptionPropertyLabelRequestedDate|Solicitud realizada el|  
 |SubscriptionPropertyLabelStartedDate|Iniciado el|  
 |PageTitleRenameSubscription|Cambiar el nombre de la suscripción|  
-|SubscriptionPropertyLabelName|Nombre de la suscripción|  
+|SubscriptionPropertyLabelName|Nombre de suscripción|  
   
-###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
+###  <a name="subscriptionstrings"></a><a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |SectionHeadingCloseAccount|¿Desea para cerrar su cuenta?|  
 |PageTitleDeveloperProfile|Perfil|  
@@ -563,16 +563,16 @@ Se admiten las siguientes opciones de localización:
 |InformationMessageKeyWasRegenerated|¿Está seguro de que desea regenerar esta clave?|  
 |ButtonLabelShowKey|Presentación|  
   
-###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
+###  <a name="updateprofilestrings"></a><a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Actualizar perfil|  
 |PageTitleUpdateProfile|Actualizar información de cuenta|  
   
-###  <a name="UserProfile"></a> UserProfile  
+###  <a name="userprofile"></a><a name="UserProfile"></a> UserProfile  
   
-|NOMBRE|Texto|  
+|Nombre|Texto|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Cambiar información de la cuenta|  
 |ButtonLabelChangePassword|Cambiar contraseña|  
@@ -590,11 +590,11 @@ Se admiten las siguientes opciones de localización:
 |SubscriptionStateSuspended|Suspended|  
 |DefaultSubscriptionNameTemplate|{0} (valor predeterminado)|  
 |SubscriptionNameTemplate|Acceso de desarrollador n.º{0}|  
-|TextboxLabelSubscriptionName|Nombre de la suscripción|  
+|TextboxLabelSubscriptionName|Nombre de suscripción|  
 |ValidationMessageSubscriptionNameRequired|El nombre de suscripción no puede estar vacío.|  
 |ApiManagementUserLimitReached|Este servicio ha alcanzado el número máximo de usuarios permitidos. Actualice a un plan de tarifa superior.|  
   
-##  <a name="glyphs"></a> Recursos de glifo  
+##  <a name="glyph-resources"></a><a name="glyphs"></a> Recursos de glifo  
  Las plantillas del portal para desarrolladores de API Management puede usar los glifos de [Glyphicons de Bootstrap](https://getbootstrap.com/components/#glyphicons). Este conjunto de glifos incluye más de 250 glifos en formato de fuente del conjunto [Glyphicon Halflings](https://glyphicons.com/). Para utilizar un glifo de este conjunto, utilice la siguiente sintaxis.  
   
 ```html  

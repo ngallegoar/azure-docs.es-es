@@ -5,20 +5,20 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 5c5e9154260a255d9e9b8bc5775a479df7e41522
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 7ec4c7a61725fa02f00bf38048182d640666ae8f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767507"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528904"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Aumento automático del almacenamiento en Azure Database for MariaDB mediante Azure Portal
 En este artículo se describe cómo configurar el almacenamiento en el servidor Azure Database for MariaDB para que aumente sin que ello afecte a la carga de trabajo.
 
 Cuando un servidor alcanza el límite de almacenamiento asignado, se marca como de solo lectura. Sin embargo, si habilita el aumento automático de almacenamiento en el servidor, acomodará los datos que se vayan acumulando. Para servidores con menos de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en 5 GB tan pronto como el almacenamiento disponible se encuentre por debajo de 1 GB o el 10 % del almacenamiento aprovisionado. En cuanto a servidores con más de 100 GB de almacenamiento aprovisionado, el tamaño del almacenamiento aprovisionado se incrementa en un 5 % cuando el espacio de almacenamiento disponible es inferior al 5 % del tamaño de almacenamiento aprovisionado. Se aplican los límites máximos de almacenamiento según lo especificado [aquí](https://docs.microsoft.com/azure/mariadb/concepts-pricing-tiers#storage).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para completar esta guía, necesita:
 - Un [servidor de Azure Database for MariaDB](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 

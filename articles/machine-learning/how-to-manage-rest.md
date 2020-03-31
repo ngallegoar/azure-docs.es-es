@@ -10,10 +10,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.openlocfilehash: 419dbd998abc5cbd2da64a990e13d46f3fb2efbe
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77580635"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creación, ejecución y eliminación de recursos de Azure Machine Learning mediante REST
@@ -32,7 +32,7 @@ En este artículo aprenderá a:
 > * Usar solicitudes DELETE para limpiar recursos 
 > * Usar una autorización basada en claves para puntuar los modelos implementados
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Una **suscripción de Azure** en la que tenga derechos administrativos Si no tiene este tipo de suscripción, pruebe con una [suscripción personal gratuita o de pago](https://aka.ms/AMLFree)
 - Un [área de trabajo de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)

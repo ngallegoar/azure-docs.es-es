@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 6812393b01172cda5d2fa4dcbe9de2bf4264a99f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9cec91ccc80b9072b1a3da756f26f47eb88b951c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980769"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232436"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migración de una base de datos de SQL Server a Azure SQL Database
 
@@ -62,7 +62,7 @@ En la lista siguiente se incluyen recomendaciones para mejorar el rendimiento du
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>Optimización del rendimiento una vez completada la migración
 
-[Actualice las estadísticas](https://msdn.microsoft.com/library/ms187348.aspx) con un examen completo una vez completada la migración.
+[Actualice las estadísticas](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql) con un examen completo una vez completada la migración.
 
 ## <a name="method-2-use-transactional-replication"></a>Método 2: Uso de la replicación transaccional
 

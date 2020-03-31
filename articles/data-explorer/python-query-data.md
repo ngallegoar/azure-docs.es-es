@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: ebd65f2dcbb0040b764290627bbfd2901aa9a7d3
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443982"
 ---
 # <a name="query-data-using-the-azure-data-explorer-python-library"></a>Consulta de datos mediante la biblioteca de Python de Azure Data Explorer
@@ -22,7 +22,7 @@ El Explorador de datos de Azure proporciona un [biblioteca de cliente de datos p
 
 Este artículo también está disponible como [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 3.4+](https://www.python.org/downloads/)
 
@@ -77,7 +77,7 @@ KCSB.authority_id = AAD_TENANT_ID
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>Conectarse al Explorador de datos de Azure y ejecutar una consulta
 
-Ejecute una consulta en el clúster y almacene el resultado en un marco de datos. Cuando se ejecuta este código, devuelve un mensaje similar al siguiente: *Para iniciar sesión, use un explorador web para abrir la página https://microsoft.com/devicelogin y escriba el código F3W4VWZDM para realizar la autenticación*. Siga los pasos para iniciar sesión y después vuelva a ejecutar el siguiente bloque de código.
+Ejecute una consulta en el clúster y almacene el resultado en un marco de datos. Cuando se ejecuta este código, devuelve un mensaje similar al siguiente: *Para iniciar sesión, use un explorador web para abrir la página https://microsoft.com/devicelogin y escriba el código F3W4VWZDM para autenticarse*. Siga los pasos para iniciar sesión y después vuelva a ejecutar el siguiente bloque de código.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB)

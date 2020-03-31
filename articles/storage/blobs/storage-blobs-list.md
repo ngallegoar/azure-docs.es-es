@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b51016b1b73b51cd1f1ec827f05fc9a93dd4cb38
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: eb62883859a3efeb1c05deb38d8a40fba76e9cdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650714"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79137927"
 ---
 # <a name="list-blobs-with-net"></a>Enumeración de blobs con .NET
 
 Al enumerar blobs desde el código, puede especificar una serie de opciones para administrar cómo se devuelven los resultados de Azure Storage. Puede especificar el número de resultados que se van a devolver en cada conjunto de resultados y luego recuperar los conjuntos subsiguientes. Puede especificar un prefijo para devolver los blobs cuyos nombres comienzan por ese carácter o cadena. También puede enumerar los blobs en una estructura de lista plana o de forma jerárquica. Una lista jerárquica devuelve los blobs como si estuvieran organizados en carpetas. 
 
-En este artículo se muestra cómo enumerar blobs con [la biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client).  
+En este artículo se muestra cómo enumerar blobs con [la biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
 ## <a name="understand-blob-listing-options"></a>Descripción de las opciones de enumeración de blobs
 

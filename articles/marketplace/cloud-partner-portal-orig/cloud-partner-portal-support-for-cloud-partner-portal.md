@@ -1,19 +1,18 @@
 ---
 title: Soporte técnico para Cloud Partner Portal | Azure Marketplace
 description: Obtenga soporte técnico en Cloud Partner Portal.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pabutler
-ms.openlocfilehash: 30fc0ea4a8baba4f0677c9cceb12a7887d205f21
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d27482fbec91700f24e5d0f25d4796ab24f1a9e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827670"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276179"
 ---
 # <a name="get-support-for-cloud-partner-portal"></a>Obtención de soporte técnico en Cloud Partner Portal
 

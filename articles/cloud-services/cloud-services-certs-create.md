@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357512"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226136"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Introducción a los certificados para Azure Cloud Services
 Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates)). En este tema se proporciona información general de ambos tipos de certificado y se explica cómo [crearlos](#create) y cómo implementarlos en Azure.
@@ -58,7 +58,7 @@ Puede utilizar cualquier herramienta disponible para crear un certificado autofi
     > No se puede adquirir un certificado SSL para el dominio cloudapp.net (ni para ningún dominio relacionado con Azure); el nombre del firmante del certificado debe coincidir con el nombre de dominio personalizado que se usa para obtener acceso a la aplicación. Por ejemplo, **contoso.net**, no **contoso.cloudapp.net**.
 
 * Mínimo de cifrado de 2.048 bits.
-* **Solo certificado de servicio**: el certificado de cliente debe encontrarse en el almacén de certificados *Personal*.
+* **Solo certificados de servicio**: el certificado de cliente debe encontrarse en el almacén de certificados *Personal* .
 
 Hay dos métodos sencillos para crear un certificado en Windows, con la utilidad `makecert.exe` o con IIS.
 

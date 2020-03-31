@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 7cbd2dfab7d0d9ee0df730eb15fa2c4b4952c85b
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.date: 3/18/2020
+ms.openlocfilehash: e8917a0a5678c4c6b72352a0d4c1523bfea3c96d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399184"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537217"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Herramientas de administración y controladores de MySQL compatibles con Azure Database for MySQL
 En este artículo se describen las herramientas de administración y los controladores compatibles con Azure Database for MySQL.

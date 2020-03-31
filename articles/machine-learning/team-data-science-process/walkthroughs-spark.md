@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864152"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Tutoriales de ciencia de datos de HDInsight Spark con PySpark y Scala en Azure
@@ -45,7 +45,7 @@ En el tutorial sobre el [uso de Scala con Spark en Azure](scala-walkthrough.md) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información general sobre el proceso de ciencia de datos en equipo, consulte la [información general sobre el proceso de ciencia de datos en equipo](overview.md).
+Para información general sobre el proceso de ciencia de datos en equipo, consulte la [información general sobre el proceso de ciencia de datos en equipo](overview.md).
 
 Para obtener una explicación del ciclo de vida del proceso de ciencia de datos en equipo, consulte [Ciclo de vida del proceso de ciencia de datos en equipo](lifecycle.md). Este ciclo de vida describe el proceso, de principio a fin, que suelen seguir los proyectos al ejecutarlos. 
 

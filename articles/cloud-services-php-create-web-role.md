@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 82bb5f153a2c70d3b26f295925f8e48693bc49b9
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 54410e1e70a2ec0d3a9e2f853dc9556cd05996ad
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146867"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297261"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Creación de roles web y de trabajo para PHP
 
@@ -26,13 +26,13 @@ ms.locfileid: "71146867"
 
 En esta guía se explica cómo crear roles de trabajo o web de PHP en un entorno de desarrollo de Windows, elegir una versión específica de PHP de versiones "integradas" disponibles, cambiar la configuración de PHP, habilitar extensiones y, por último, implementar en Azure. También se describe cómo configurar un rol web o de trabajo para usar un tiempo de ejecución de PHP (con las extensiones y la configuración personalizada) proporcionado por el usuario.
 
-Azure proporciona tres modelos de proceso para ejecutar aplicaciones: Azure App Service, Azure Virtual Machines y Azure Cloud Services. Los tres modelos admiten PHP. Cloud Services, que incluye roles web y de trabajo, ofrece el modelo *Plataforma como servicio (PaaS)* . Dentro de un servicio en la nube, un rol web proporciona un servidor web de Internet Information Services (IIS) dedicado para hospedar aplicaciones web front-end. Un rol de trabajo puede ejecutar tareas asincrónicas, de ejecución prolongada o perpetuas, independientes de la entrada o la interacción del usuario.
+Azure ofrece tres modelos de proceso para la ejecución de aplicaciones: Azure App Service, Azure Virtual Machines y Azure Cloud Services. Los tres modelos admiten PHP. Cloud Services, que incluye roles web y de trabajo, ofrece el modelo *Plataforma como servicio (PaaS)* . Dentro de un servicio en la nube, un rol web proporciona un servidor web de Internet Information Services (IIS) dedicado para hospedar aplicaciones web front-end. Un rol de trabajo puede ejecutar tareas asincrónicas, de ejecución prolongada o perpetuas, independientes de la entrada o la interacción del usuario.
 
 Para más información sobre estas opciones, consulte [Cálculo de las opciones de hospedaje proporcionadas por Azure](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>Descarga del SDK de Azure para PHP
 
-El [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php) tiene varios componentes. En este artículo se usarán dos de ellos: Azure PowerShell y emuladores de Azure. Estos dos componentes se pueden instalar a través del instalador de la plataforma web de Microsoft. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
+El [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php) tiene varios componentes. Este artículo usará dos de ellos: los emuladores de Azure PowerShell y de Azure. Estos dos componentes se pueden instalar a través del instalador de la plataforma web de Microsoft. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-a-cloud-services-project"></a>Creación de un proyecto de Cloud Services
 
@@ -56,53 +56,6 @@ Para un rol de trabajo, use este comando:
 
 > [!NOTE]
 > El `roleName` es opcional. Si se omite, el nombre de rol se generará automáticamente. El primer rol web creado será `WebRole1`, el segundo será `WebRole2` y así sucesivamente. El primer rol de trabajo creado será `WorkerRole1`, el segundo será `WorkerRole2` y así sucesivamente.
->
->
-
-## <a name="specify-the-built-in-php-version"></a>de la versión de PHP integrada
-
-Al agregar un rol web o de trabajo de PHP a un proyecto, los archivos de configuración del proyecto se modifican para que PHP se instale en cada instancia de trabajo o web de la aplicación cuando se implementa. Para ver la versión de PHP que se instalará de forma predeterminada, ejecute el comando siguiente:
-
-    PS C:\myProject> Get-AzureServiceProjectRoleRuntime
-
-La salida del comando anterior tendrá un aspecto similar al que se muestra a continuación. En este ejemplo, la marca `IsDefault` se define en `true` para PHP 5.3.17, indicando que será la versión de PHP instalada de forma predeterminada.
-
-```
-Runtime Version     PackageUri                      IsDefault
-------- -------     ----------                      ---------
-Node 0.6.17         http://nodertncu.blob.core...   False
-Node 0.6.20         http://nodertncu.blob.core...   True
-Node 0.8.4          http://nodertncu.blob.core...   False
-IISNode 0.1.21      http://nodertncu.blob.core...   True
-Cache 1.8.0         http://nodertncu.blob.core...   True
-PHP 5.3.17          http://nodertncu.blob.core...   True
-PHP 5.4.0           http://nodertncu.blob.core...   False
-```
-
-Puede definir la versión del tiempo de ejecución de PHP con cualquier versión de PHP de la lista. Por ejemplo, para definir la versión de PHP (para un rol con nombre `roleName`) como 5.4.0, use el comando siguiente:
-
-    PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
-
-> [!NOTE]
-> Las versiones PHP disponibles pueden cambiar en el futuro.
->
->
-
-## <a name="customize-the-built-in-php-runtime"></a>del tiempo de ejecución de PHP integrado
-
-Tiene el control total de la configuración del tiempo de ejecución de PHO instalado al seguir los pasos anteriores, incluida la modificación de la configuración de `php.ini` y la habilitación de las extensiones.
-
-Para personalizar el tiempo de ejecución de PHP integrado, siga estos pasos:
-
-1. Agregue una carpeta nueva, con el  nombre `php`, al directorio `bin` del rol web. Si se trata de un rol de trabajo, agréguelo al directorio raíz del rol.
-2. En la carpeta `php`, cree otra carpeta denominada `ext`. Coloque los archivos de extensión `.dll` (por ejemplo, `php_mongo.dll`) que desee habilitar en esta carpeta.
-3. Agregue un archivo `php.ini` a la carpeta `php`. Habilite todas las extensiones personalizadas y defina todas las directivas de PHP en este archivo. Por ejemplo, si desea activar `display_errors` y habilitar la extensión `php_mongo.dll`, el contenido del archivo `php.ini` será el siguiente:
-
-        display_errors=On
-        extension=php_mongo.dll
-
-> [!NOTE]
-> Cualquier configuración que no defina explícitamente en el archivo `php.ini` que proporcione se definirá automáticamente con los valores predeterminados. Sin embargo, tenga en cuenta que puede agregar un archivo `php.ini` completo.
 >
 >
 

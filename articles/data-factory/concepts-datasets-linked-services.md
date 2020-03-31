@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
 ms.openlocfilehash: 878ad98b118fa02a6659584ac60e3343a948cd20
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928472"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225560"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -33,7 +33,7 @@ Una factoría de datos puede tener una o más canalizaciones. Una **canalizació
 
 Antes de crear un conjunto de datos, debe crear un [**servicio vinculado**](concepts-linked-services.md) para vincular su almacén de datos a la factoría de datos. Los servicios vinculados son muy similares a las cadenas de conexión que definen la información de conexión necesaria para que Data Factory se conecte a recursos externos. Considérelos de esta forma: el conjunto de datos representa la estructura de los datos dentro de los almacenes de datos vinculados y el servicio vinculado define la conexión al origen de datos. Por ejemplo, un servicio vinculado Azure Storage vincula una cuenta de almacenamiento a la factoría de datos. Un conjunto de datos de blobs de Azure representa el contenedor de blobs y la carpeta dentro de esa cuenta de Azure Storage que contiene los blobs de entrada que se van a procesar.
 
-Este es un escenario de ejemplo. Para copiar datos de Blob Storage a una base de datos SQL, creará dos servicios vinculados: Microsoft Azure Storage y Azure SQL Database. Después, creará dos conjuntos de datos: el conjunto de datos de un blob de Azure (que hace referencia al servicio vinculado Azure Storage) y el conjunto de datos de Azure SQL Table (que hace referencia al servicio vinculado Azure SQL Database). Los servicios vinculados de Azure Storage y Azure SQL Database contienen cadenas de conexión que Data Factory usa en tiempo de ejecución para conectarse a las instancias de Azure Storage y Azure SQL Database, respectivamente. El conjunto de datos Azure Blob especifica el contenedor de blobs y la carpeta de blobs que contiene los blobs de entrada de Blob Storage. El conjunto de datos Azure SQL Table especifica la tabla de SQL de la base de datos SQL en la que se van a copiar los datos.
+Este es un escenario de ejemplo. Para copiar datos de Blob Storage a una base de datos SQL, creará dos servicios vinculados: Azure Storage y Azure SQL Database. Después, crerá dos conjuntos de datos: el conjunto de datos Azure Blob (que hace referencia al servicio vinculado de Azure Storage) y el conjunto de datos Azure SQL Table (que hace referencia al servicio vinculado de Azure SQL Database). Los servicios vinculados de Azure Storage y Azure SQL Database contienen cadenas de conexión que Data Factory usa en tiempo de ejecución para conectarse a las instancias de Azure Storage y Azure SQL Database, respectivamente. El conjunto de datos Azure Blob especifica el contenedor de blobs y la carpeta de blobs que contiene los blobs de entrada de Blob Storage. El conjunto de datos Azure SQL Table especifica la tabla de SQL de la base de datos SQL en la que se van a copiar los datos.
 
 En el siguiente diagrama se muestra la relación entre la canalización, la actividad, el conjunto de datos y el servicio vinculado en Data Factory:
 
@@ -67,12 +67,12 @@ Un conjunto de datos de Data Factory se define con el siguiente formato JSON:
 ```
 La tabla siguiente describe las propiedades del JSON anterior:
 
-Propiedad | DESCRIPCIÓN | Obligatorio |
+Propiedad | Descripción | Obligatorio |
 -------- | ----------- | -------- |
-Nombre | Nombre del conjunto de datos. Consulte [Azure Data Factory - Naming rules](naming-rules.md) (Azure Data Factory: reglas de nomenclatura). |  Sí |
-Tipo | Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Dataset types](#dataset-type) (Tipo de conjunto de datos). | Sí |
-structure | Esquema del conjunto de datos. Para obtener más información, consulte [esquema del conjunto de datos](#dataset-structure-or-schema). | Sin |
-typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejemplo: blob de Azure, tabla de Azure SQL). Para más información sobre los tipos admitidos y sus propiedades, consulte [Tipo de conjunto de datos](#dataset-type). | Sí |
+name | Nombre del conjunto de datos. Consulte [Azure Data Factory - Naming rules](naming-rules.md) (Azure Data Factory: reglas de nomenclatura). |  Sí |
+type | Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Dataset types](#dataset-type) (Tipo de conjunto de datos). | Sí |
+structure | Esquema del conjunto de datos. Para obtener más información, consulte [esquema del conjunto de datos](#dataset-structure-or-schema). | No |
+typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejemplo: Azure Blob o SQL Azure Table). Para más información sobre los tipos admitidos y sus propiedades, consulte [Tipo de conjunto de datos](#dataset-type). | Sí |
 
 ### <a name="data-flow-compatible-dataset"></a>Conjunto de datos compatible con Data Flow
 
@@ -112,12 +112,12 @@ Cuando importe el esquema de un conjunto de datos de Data Flow, seleccione el bo
 
 La tabla siguiente describe las propiedades del JSON anterior:
 
-Propiedad | DESCRIPCIÓN | Obligatorio |
+Propiedad | Descripción | Obligatorio |
 -------- | ----------- | -------- |
-Nombre | Nombre del conjunto de datos. Consulte [Azure Data Factory - Naming rules](naming-rules.md) (Azure Data Factory: reglas de nomenclatura). |  Sí |
-Tipo | Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Dataset types](#dataset-type) (Tipo de conjunto de datos). | Sí |
-schema | Esquema del conjunto de datos. Para obtener más detalles, consulte [Conjuntos de datos compatibles con Data Flow](#dataset-type). | Sin |
-typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejemplo: blob de Azure, tabla de Azure SQL). Para más información sobre los tipos admitidos y sus propiedades, consulte [Tipo de conjunto de datos](#dataset-type). | Sí |
+name | Nombre del conjunto de datos. Consulte [Azure Data Factory - Naming rules](naming-rules.md) (Azure Data Factory: reglas de nomenclatura). |  Sí |
+type | Tipo de conjunto de datos. Especifique uno de los tipos admitidos por Data Factory (por ejemplo: AzureBlob, AzureSqlTable). <br/><br/>Para más información, consulte [Dataset types](#dataset-type) (Tipo de conjunto de datos). | Sí |
+esquema | Esquema del conjunto de datos. Para obtener más detalles, consulte [Conjuntos de datos compatibles con Data Flow](#dataset-type). | No |
+typeProperties | Las propiedades de tipo son diferentes para cada tipo (por ejemplo: Azure Blob o SQL Azure Table). Para más información sobre los tipos admitidos y sus propiedades, consulte [Tipo de conjunto de datos](#dataset-type). | Sí |
 
 
 ## <a name="dataset-example"></a>Ejemplo de conjunto de datos
@@ -178,12 +178,12 @@ La sección **structure** o **schema** (compatible con Data Flow) del conjuntos 
 
 Cada columna de la estructura contiene las siguientes propiedades:
 
-Propiedad | DESCRIPCIÓN | Obligatorio
+Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 name | Nombre de la columna. | Sí
-type | Tipo de datos de la columna. Data Factory admite los siguientes tipos de datos provisionales: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset y Timespan** | Sin
-culture | Referencia cultural basada en .NET que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. | Sin
-format | Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | Sin
+type | Tipo de datos de la columna. Data Factory admite los siguientes tipos de datos provisionales como valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset y Timespan**. | No
+culture | Referencia cultural basada en .NET que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. | No
+format | Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | No
 
 ### <a name="example"></a>Ejemplo
 En el ejemplo siguiente, supongamos que los datos del blob de origen presentan el formato CSV y que contienen tres columnas: userid, name y lastlogindate. Son del tipo Int64, cadena y fecha y hora con un formato de fecha y hora personalizado mediante los nombres abreviados de los días de la semana en francés.

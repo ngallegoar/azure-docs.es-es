@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 8/25/2017
 ms.author: alkohli
 ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60576958"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232220"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Reemplazo de una unidad de disco en un dispositivo de la serie StorSimple 8000
 
@@ -46,7 +46,7 @@ Este procedimiento explica cómo pueden activarse o desactivarse los bloqueos an
    
     **Figura 1** Bloqueo antisabotaje activado
    
-   | Etiqueta | DESCRIPCIÓN |
+   | Etiqueta | Descripción |
    |:--- |:--- |
    | 1 |Orificio indicador |
    | 2 |Bloqueo antisabotaje |

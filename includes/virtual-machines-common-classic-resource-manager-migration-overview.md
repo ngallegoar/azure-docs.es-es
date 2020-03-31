@@ -9,10 +9,10 @@ ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
 ms.openlocfilehash: 4e07334e859f2c1401547cc3f88988830b71c5e1
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77192712"
 ---
 En este artículo se describe la forma de migrar recursos de infraestructura como servicio (IaaS) de los modelos de implementación clásicos a Resource Manager y detalla cómo conectar los recursos de los dos modelos de implementación que coexisten en su suscripción mediante el uso de puertas de enlace de sitio a sitio de red virtual. Se puede leer más información sobre [características y ventajas de Azure Resource Manager](../articles/azure-resource-manager/management/overview.md). 

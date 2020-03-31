@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.openlocfilehash: 2d2bb5440e6d23a4cb5781244ba33ab4c5be2612
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252584"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Supervisión y ajuste en Azure Database for PostgreSQL: Single Server
@@ -55,10 +55,10 @@ La característica [Recomendaciones de rendimiento](concepts-performance-recomme
 
 ## <a name="planned-maintenance-notification"></a>Notificación de mantenimiento planeado
 
-Las **notificaciones de mantenimiento planeado** le permiten recibir alertas de mantenimiento planeado futuro para su instancia de Azure Database for PostgreSQL - Un solo servidor. Estas notificaciones se integran con el mantenimiento planeado de [Service Health](../service-health/overview.md) y le permiten ver todo el mantenimiento programado para sus suscripciones en un mismo lugar. También ayuda a escalar la notificación a las audiencias adecuadas de distintos grupos de recursos, ya que puede tener distintos contactos responsables para los distintos recursos. Recibirá la notificación sobre el próximo mantenimiento 72 horas antes del evento.
+Las **notificaciones de mantenimiento planeado** le permiten recibir alertas de mantenimiento planeado futuro para su instancia de Azure Database for PostgreSQL - Un solo servidor. Estas notificaciones se integran con el mantenimiento planeado de [Service Health](../service-health/overview.md) y le permiten ver todo el mantenimiento programado para sus suscripciones en un mismo lugar. También ayuda a escalar la notificación a las audiencias adecuadas de distintos grupos de recursos, ya que puede tener distintos contactos responsables para los distintos recursos. Recibirá la notificación sobre el próximo mantenimiento 72 horas antes del evento.
 
 > [!Note]
-> Intentaremos por todos los medios proporcionar la **notificación de mantenimiento planeado** 72 horas antes para todos los eventos. Sin embargo, en los casos de revisiones críticas o de seguridad, es posible que las notificaciones se envíen más cerca del evento o se omitan.
+> Intentaremos por todos los medios proporcionar la **notificación de mantenimiento planeado** con una antelación de 72 horas para todos los eventos. Sin embargo, en los casos de revisiones críticas o de seguridad, es posible que las notificaciones se envíen más cerca del evento o se omitan.
 
 ### <a name="to-receive-planned-maintenance-notification"></a>Para recibir una notificación de mantenimiento planeado
 

@@ -1,18 +1,18 @@
 ---
 title: La importancia de las notificaciones push en las aplicaciones móviles con Visual Studio App Center y Azure Notification Hubs
 description: Obtenga información sobre servicios como Visual Studio App Center que le permiten interactuar con los usuarios de la aplicación móvil.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 1717bf6da849218f60bae7dafca20cb304286976
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: bc59857cdb843dfff54e69f2226f13cfe70df8f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453143"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235328"
 ---
 # <a name="engage-with-your-application-users-by-sending-push-notifications"></a>Interacción con los usuarios de la aplicación enviando notificaciones push
 

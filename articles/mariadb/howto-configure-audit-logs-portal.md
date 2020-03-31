@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e3c87143652895c57b464cba229a0e68049ffeb2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: d31b7531e00199ea63c7b057dacff1b67d7cedc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767524"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528938"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de auditoría en Azure Portal
 
@@ -20,7 +20,7 @@ Puede configurar los [registros de auditoría de Azure Database for MariaDB](con
 > [!IMPORTANT]
 > La funcionalidad del registro de auditoría se encuentra actualmente en versión preliminar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para seguir esta guía, necesitará:
 
@@ -30,7 +30,7 @@ Para seguir esta guía, necesitará:
 
 Habilite y configure el registro de auditoría.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Seleccione un servidor de Azure Database for MariaDB.
 

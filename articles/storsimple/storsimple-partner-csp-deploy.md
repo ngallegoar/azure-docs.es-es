@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77466916"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implementación de StorSimple Virtual Array para el programa de proveedores de soluciones en la nube
@@ -29,7 +29,7 @@ Los asociados del programa de proveedores de soluciones en la nube (CSP) pueden 
 
 En este artículo se describe cómo un asociado de CSP puede agregar un cliente o una suscripción nueva a un cliente existente y, luego, crear un servicio para implementar una instancia de StorSimple Virtual Array en CSP.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de comenzar, asegúrese de lo siguiente:
 
@@ -44,7 +44,7 @@ Si agrega un cliente, se crea automáticamente una suscripción. Para agregar un
 
      ![Panel del Centro de partners](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. En el panel de la izquierda, haga clic en **Clientes**. En el panel de la derecha, haga clic en **Agregar clientes**. Escriba los detalles del cliente. Haga clic en **Siguiente: Suscripciones** para crear una suscripción de cliente.
+2. En el panel de la izquierda, haga clic en **Clientes**. En el panel de la derecha, haga clic en **Agregar clientes**. Escriba los detalles del cliente. Haga clic en **Next: Subscriptions** (Siguiente: suscripciones) para crear una suscripción de cliente.
 
     ![Agregar un cliente](./media/storsimple-partner-csp-deploy/image2.png)
 
@@ -103,5 +103,5 @@ En algunos casos, es posible que tenga un cliente existente y que necesite agreg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si tiene más preguntas sobre StorSimple en CSP, vaya a [StorSimple para el programa de proveedores de soluciones en la nube: Frequently asked questions](storsimple-partner-csp-faq.md) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes).
+- Si tiene más preguntas sobre StorSimple en CSP, vaya a [StorSimple in CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple en CSP: preguntas más frecuentes).
 - Si está listo para implementar StorSimple, vaya a [Deploy StorSimple Virtual Array for Cloud Solution Provider Program](storsimple-partner-csp-deploy.md) (Implementación de StorSimple Virtual Array para el programa Proveedor de soluciones en la nube).

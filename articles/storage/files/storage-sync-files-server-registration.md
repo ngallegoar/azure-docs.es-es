@@ -8,11 +8,11 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 2656716560b981481273c3032fc0c7b1a06be8a2
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597650"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228276"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Administración de servidores registrados con Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -22,7 +22,7 @@ En el artículo siguiente se ilustra cómo registrar y administrar un servidor c
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registro y anulación del registro de un servidor con el servicio de sincronización de almacenamiento
 Al registrar un servidor con Azure File Sync se establece una relación de confianza entre Windows Server y Azure. A continuación, se puede usar esta relación para crear *puntos de conexión de servidor* en el servidor, que representan carpetas concretas que deben sincronizarse con un recurso compartido de archivos de Azure (también conocido como *punto de conexión de nube*). 
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Prerequisites
 Para registrar un servidor con un servicio de sincronización de almacenamiento, debe preparar el servidor con los requisitos previos necesarios:
 
 * El servidor debe ejecutar una versión compatible de Windows Server. Para más información, consulte [Requisitos del sistema de Azure File Sync e interoperabilidad](storage-sync-files-planning.md#windows-file-server-considerations).

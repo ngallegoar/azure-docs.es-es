@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
 ms.openlocfilehash: 3917101ee7ac151cf624e5be0f51ccf01c8cb1cc
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161892"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
@@ -48,7 +48,7 @@ Para obtener instrucciones al respecto, consulte los siguientes documentos:
 2. [Creación de un emparejamiento de red virtual con el mismo modelo de implementación](../virtual-network/tutorial-connect-virtual-networks-portal.md)
 3. [Creación de un emparejamiento de red virtual con distintos modelos de implementación](../virtual-network/create-peering-different-deployment-models.md)
 
-## <a name="permissions"></a>Permisos
+## <a name="permissions"></a><a name="permissions"></a>Permisos
 
 Las cuentas que use para crear un emparejamiento de redes virtuales deben tener los rol o permisos necesarios. En el ejemplo siguiente, si fuera a emparejar dos redes virtuales Hub-RM and Spoke-Classic, la cuenta debe tener los siguientes roles o permisos mínimos para cada red virtual:
     

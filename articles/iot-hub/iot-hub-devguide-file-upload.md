@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.openlocfilehash: 35e10c0f9babca7719ff496e7068ad1564670fee
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77209161"
 ---
 # <a name="upload-files-with-iot-hub"></a>Carga de archivos con IoT Hub
@@ -125,7 +125,7 @@ Cada centro de IoT tiene las siguientes opciones de configuración para las noti
 
 | Propiedad | Descripción | Intervalo y valor predeterminado |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Controla si las notificaciones de carga de archivos se escriben en el punto de conexión de notificaciones de archivo. |Bool. Valor predeterminado: verdadero. |
+| **enableFileUploadNotifications** |Controla si las notificaciones de carga de archivos se escriben en el punto de conexión de notificaciones de archivo. |Bool. Valor predeterminado: True. |
 | **fileNotifications.ttlAsIso8601** |TTL predeterminado para las notificaciones de carga de archivos. |Intervalo ISO_8601 hasta 48H (1 minuto como mínimo). Valor predeterminado: 1 hora. |
 | **fileNotifications.lockDuration** |Duración del bloqueo de la cola de notificaciones de carga de archivos. |De 5 a 300 segundos (5 segundos como mínimo). Valor predeterminado: 60 segundos. |
 | **fileNotifications.maxDeliveryCount** |Número máximo de entregas en la cola de notificaciones de carga de archivos. |De 1 a 100. Valor predeterminado: 100. |

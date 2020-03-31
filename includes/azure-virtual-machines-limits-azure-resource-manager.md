@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: cynthn
-ms.openlocfilehash: 8607fd6f01ea02841017d09dac7236812f2330b9
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 90dc5a067c05cadb3d5e102435b2e3d3de803e28
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133734"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334603"
 ---
-| Resource | Límite predeterminado |
+| Resource | Límite |
 | --- | --- |
 | Máquinas virtuales por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |25 000<sup>1</sup> por región. |
 | Total de núcleos de máquina virtual por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por región. Póngase en contacto con el soporte técnico para aumentar el límite. |

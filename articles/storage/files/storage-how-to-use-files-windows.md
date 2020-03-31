@@ -8,11 +8,11 @@ ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4bd9c64e1b9219f6752172d9dc518af71ad67e70
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598592"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232292"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -30,8 +30,8 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 | Windows 8.1 | SMB 3.0 | Sí | Sí |
 | Windows Server 2012 R2 | SMB 3.0 | Sí | Sí |
 | Windows Server 2012 | SMB 3.0 | Sí | Sí |
-| Windows 7<sup>3</sup> | SMB 2.1 | Sí | Sin |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sí | Sin |
+| Windows 7<sup>3</sup> | SMB 2.1 | Sí | No |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sí | No |
 
 <sup>1</sup>Windows 10, versiones 1507, 1607, 1709, 1803, 1809, 1903 y 1909.  
 <sup>2</sup>Windows Server, versiones 1809, 1903 y 1909.  
@@ -40,10 +40,10 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 > [!Note]  
 > Siempre se recomienda disponer de la KB más reciente para su versión de Windows.
 
-## <a name="prerequisites"></a>Prerrequisitos 
+## <a name="prerequisites"></a>Prerequisites 
 * **Nombre de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará el nombre de la cuenta de almacenamiento.
 
-* **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria). Actualmente no se admiten claves SAS para el montaje.
+* **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria) de la cuenta de almacenamiento. Actualmente no se admiten claves SAS para el montaje.
 
 * **Asegúrese de que el puerto 445 está abierto**: el protocolo SMB requiere que esté abierto el puerto TCP 445; las conexiones producirán errores si el puerto 445 está bloqueado. Otra forma de comprobar si el firewall está bloqueando el puerto 445 es usar el cmdlet `Test-NetConnection`. Puede obtener información sobre [diversos métodos para solucionar el bloqueo del puerto 445 aquí](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 

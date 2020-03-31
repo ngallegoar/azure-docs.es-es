@@ -17,16 +17,16 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: ff5897766bb56b76a34940ecd786773fd844a336
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fa94b93e081ab6334c39b848068f50682f5f1f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683111"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235068"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante la CLI de Azure
 
-De forma predeterminada, Azure enruta automáticamente el tráfico entre todas las subredes de una red virtual. Sin embargo, puede crear sus propias rutas para invalidar las predeterminadas de Azure. La posibilidad de crear rutas personalizadas resulta de utilidad si, por ejemplo, quiere enrutar el tráfico entre subredes por medio de una aplicación virtual de red (NVA). En este artículo, aprenderá a:
+De forma predeterminada, Azure enruta automáticamente el tráfico entre todas las subredes de una red virtual. Sin embargo, puede crear sus propias rutas para invalidar las predeterminadas de Azure. La posibilidad de crear rutas personalizadas resulta de utilidad si, por ejemplo, quiere enrutar el tráfico entre subredes por medio de una aplicación virtual de red (NVA). En este artículo aprenderá a:
 
 * Creación de una tabla de rutas
 * Creación de una ruta
@@ -51,11 +51,11 @@ Antes de poder crear una tabla de rutas, debe crear un grupo de recursos con [az
 az group create \
   --name myResourceGroup \
   --location eastus
-``` 
+```
 
 Cree una tabla de rutas con [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). En el ejemplo siguiente se crea una tabla de rutas denominada *myRouteTablePublic*. 
 
-```azurecli-interactive 
+```azurecli-interactive
 # Create a route table
 az network route-table create \
   --resource-group myResourceGroup \
@@ -74,7 +74,7 @@ az network route-table route create \
   --address-prefix 10.0.1.0/24 \
   --next-hop-type VirtualAppliance \
   --next-hop-ip-address 10.0.2.4
-``` 
+```
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Asociación de una tabla de rutas a una subred
 
@@ -123,7 +123,7 @@ Una aplicación virtual de red es una máquina virtual que realiza una función 
 
 Cree una aplicación virtual de red en la subred *DMZ* con [az vm create](/cli/azure/vm). Cuando se crea una máquina virtual, Azure crea una dirección IP pública y la asigna a la máquina virtual de forma predeterminada. El parámetro `--public-ip-address ""` indica a Azure que no cree ni asigne una dirección IP pública a la máquina virtual, dado que no es necesario que esta esté conectada a Internet. Si las claves SSH no existen en la ubicación de claves predeterminada, el comando las crea. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.
 
-```azure-cli-interactive
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVmNva \
@@ -155,6 +155,7 @@ az vm extension set \
   --publisher Microsoft.Azure.Extensions \
   --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
 ```
+
 El comando puede tardar un minuto en ejecutarse.
 
 ## <a name="create-virtual-machines"></a>Creación de máquinas virtuales
@@ -192,7 +193,7 @@ az vm create \
 
 La máquina virtual tarda en crearse unos minutos. Después de crear la máquina virtual, la CLI de Azure muestra información similar a la del ejemplo siguiente: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmPrivate",
@@ -204,13 +205,14 @@ La máquina virtual tarda en crearse unos minutos. Después de crear la máquina
   "resourceGroup": "myResourceGroup"
 }
 ```
+
 Anote el valor de **publicIpAddress**. En un paso posterior, usaremos esta dirección para obtener acceso a la máquina virtual desde Internet.
 
 ## <a name="route-traffic-through-an-nva"></a>Enrutamiento del tráfico a través de una aplicación virtual de red
 
 Use el siguiente comando para crear una sesión de SSH con la máquina virtual *myVmPrivate*. Reemplace *\<publicIpAddress>* por la dirección IP pública de la VM. En el ejemplo anterior, la dirección IP era *13.90.242.231*.
 
-```bash 
+```bash
 ssh azureuser@<publicIpAddress>
 ```
 
@@ -218,7 +220,7 @@ Cuando se le solicite una contraseña, escriba la que seleccionó en [Creación 
 
 Use el siguiente comando para instalar traceroute en la máquina virtual *myVmPrivate*:
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -230,7 +232,7 @@ traceroute myVmPublic
 
 La respuesta es similar al siguiente ejemplo:
 
-```bash
+```output
 traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
@@ -239,13 +241,13 @@ Puede ver si el tráfico se enruta directamente de la máquina virtual *myVmPriv
 
 Use el siguiente comando para usar SSH en la máquina virtual *myVmPublic* desde la máquina virtual *myVmPrivate*:
 
-```bash 
+```bash
 ssh azureuser@myVmPublic
 ```
 
 Use el siguiente comando para instalar traceroute en la máquina virtual *myVmPublic*:
 
-```bash 
+```bash
 sudo apt-get install traceroute
 ```
 
@@ -257,11 +259,12 @@ traceroute myVmPrivate
 
 La respuesta es similar al siguiente ejemplo:
 
-```bash
+```output
 traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 1  10.0.2.4 (10.0.2.4)  0.781 ms  0.780 ms  0.775 ms
 2  10.0.1.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
+
 Puede ver que el primer salto es 10.0.2.4, que es la dirección IP privada de la aplicación virtual de red. El segundo salto es 10.0.1.4, la dirección IP privada de la máquina virtual *myVmPrivate*. La ruta agregada a la tabla de rutas *myRouteTablePublic* y asociada a la subred *Pública* hizo que Azure enrutara el tráfico mediante la NVA, en lugar de a la subred *Privada* directamente.
 
 Cierre las sesiones SSH tanto de la máquina virtual *myVmPublic* como de *myVmPrivate*.
@@ -270,7 +273,7 @@ Cierre las sesiones SSH tanto de la máquina virtual *myVmPublic* como de *myVmP
 
 Cuando ya no se necesiten, use [az group delete](/cli/azure/group) para quitar el grupo de recursos y todos los recursos que contenga.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

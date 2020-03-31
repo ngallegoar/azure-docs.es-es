@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356549"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225904"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Administración de una cuenta de Azure Cosmos
 
@@ -19,25 +19,25 @@ En este artículo se describe cómo administrar varias tareas en una cuenta de A
 
 ## <a name="create-an-account"></a>Crear una cuenta
 
-### <a id="create-database-account-via-portal"></a>Azure Portal
+### <a name="azure-portal"></a><a id="create-database-account-via-portal"></a>Azure Portal
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-### <a id="create-database-account-via-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="create-database-account-via-cli"></a>Azure CLI
 
 Consulte [Creación de una cuenta de Azure Cosmos DB mediante la CLI de Azure](manage-with-cli.md#create-an-azure-cosmos-db-account).
 
-### <a id="create-database-account-via-ps"></a>Azure PowerShell.
+### <a name="azure-powershell"></a><a id="create-database-account-via-ps"></a>Azure PowerShell.
 
 Consulte [Creación de una cuenta de Azure Cosmos DB mediante PowerShell](manage-with-powershell.md#create-account).
 
-### <a id="create-database-account-via-arm-template"></a>Plantilla de Azure Resource Manager
+### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Plantilla de Azure Resource Manager
 
 Esta plantilla de Azure Resource Manager creará una cuenta de Azure Cosmos para la API SQL configurada con dos regiones y opciones para seleccionar el nivel de coherencia, la conmutación automática por error y la arquitectura multimaestro. Para implementar esta plantilla, haga clic en Implementar en Azure en la página Léame, [Creación de una cuenta de Azure Cosmos DB](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Incorporación o eliminación de regiones de una cuenta de base de datos
 
-### <a id="add-remove-regions-via-portal"></a>Azure Portal
+### <a name="azure-portal"></a><a id="add-remove-regions-via-portal"></a>Azure Portal
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
@@ -55,31 +55,31 @@ En el modo de escritura de región individual, no puede quitar la región de esc
 
 En el modo de escritura de varias regiones, puede agregar o quitar cualquier región, siempre que tenga al menos una región.
 
-### <a id="add-remove-regions-via-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="add-remove-regions-via-cli"></a>Azure CLI
 
 Consulte [Agregar o quitar regiones con la CLI de Azure](manage-with-cli.md#add-or-remove-regions).
 
-### <a id="add-remove-regions-via-ps"></a>Azure PowerShell.
+### <a name="azure-powershell"></a><a id="add-remove-regions-via-ps"></a>Azure PowerShell.
 
 Consulte [Agregar o quitar regiones con PowerShell](manage-with-powershell.md#update-account).
 
-## <a id="configure-multiple-write-regions"></a>Configuración de varias regiones de escritura
+## <a name="configure-multiple-write-regions"></a><a id="configure-multiple-write-regions"></a>Configuración de varias regiones de escritura
 
-### <a id="configure-multiple-write-regions-portal"></a>Azure Portal
+### <a name="azure-portal"></a><a id="configure-multiple-write-regions-portal"></a>Azure Portal
 
 Abra la pestaña **Replicar datos globalmente** y seleccione **Habilitar** para habilitar las escrituras en varias regiones. Después de habilitar las escrituras en varias regiones, todas las regiones de lectura que actualmente tiene en la cuenta se convertirán en regiones de lectura y escritura.
 
 ![Captura de pantalla de la cuenta de Azure Cosmos que configura la arquitectura multimaestro](./media/how-to-manage-database-account/single-to-multi-master.png)
 
-### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
 Consulte [Habilitar regiones de varias escrituras con la CLI de Azure](manage-with-cli.md#enable-multiple-write-regions).
 
-### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell.
+### <a name="azure-powershell"></a><a id="configure-multiple-write-regions-ps"></a>Azure PowerShell.
 
 Consulte [Habilitar regiones de varias escrituras con PowerShell](manage-with-powershell.md#multi-master).
 
-### <a id="configure-multiple-write-regions-arm"></a>plantilla de Resource Manager
+### <a name="resource-manager-template"></a><a id="configure-multiple-write-regions-arm"></a>plantilla de Resource Manager
 
 Es posible migrar una cuenta desde un maestro único a una arquitectura multimaestro mediante la implementación de la plantilla de Resource Manager que se usa para crear la cuenta y estableciendo `enableMultipleWriteLocations: true`. La plantilla de Azure Resource Manager siguiente es una plantilla mínima que implementará una cuenta de Azure Cosmos para SQL API con dos regiones y varias ubicaciones de escritura habilitadas.
 
@@ -139,11 +139,11 @@ Es posible migrar una cuenta desde un maestro único a una arquitectura multimae
 }
 ```
 
-## <a id="automatic-failover"></a>Habilitación de la conmutación por error automática en una cuenta de Azure Cosmos
+## <a name="enable-automatic-failover-for-your-azure-cosmos-account"></a><a id="automatic-failover"></a>Habilitación de la conmutación por error automática en una cuenta de Azure Cosmos
 
 La opción de conmutación automática por error permite que Azure Cosmos DB conmute por error en la región con la prioridad de conmutación por error más alta sin acción del usuario si una región deja de estar disponible. Cuando la conmutación automática por error está habilitada, es posible modificar la prioridad de región. La cuenta debe tener dos o más regiones para habilitar la conmutación automática por error.
 
-### <a id="enable-automatic-failover-via-portal"></a>Azure Portal
+### <a name="azure-portal"></a><a id="enable-automatic-failover-via-portal"></a>Azure Portal
 
 1. En la cuenta de Azure Cosmos, abra el panel **Replicar datos globalmente**.
 
@@ -157,11 +157,11 @@ La opción de conmutación automática por error permite que Azure Cosmos DB c
 
    ![Menú Conmutación por error automática del portal](./media/how-to-manage-database-account/automatic-failover.png)
 
-### <a id="enable-automatic-failover-via-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
 Consulte [Habilitar la conmutación automática por error con la CLI de Azure](manage-with-cli.md#enable-automatic-failover).
 
-### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell.
+### <a name="azure-powershell"></a><a id="enable-automatic-failover-via-ps"></a>Azure PowerShell.
 
 Consulte [Habilitar la conmutación automática por error con PowerShell](manage-with-powershell.md#enable-automatic-failover).
 
@@ -172,7 +172,7 @@ Una vez que una cuenta de Cosmos se configura para la conmutación automática p
 > [!IMPORTANT]
 > No se puede modificar la región de escritura (prioridad de conmutación por error de cero) cuando la cuenta está configurada para la conmutación automática por error. Para cambiar la región de escritura, debe deshabilitar la conmutación automática por error y realizar una conmutación por error manual.
 
-### <a id="set-failover-priorities-via-portal"></a>Azure Portal
+### <a name="azure-portal"></a><a id="set-failover-priorities-via-portal"></a>Azure Portal
 
 1. En la cuenta de Azure Cosmos, abra el panel **Replicar datos globalmente**.
 
@@ -188,15 +188,15 @@ Una vez que una cuenta de Cosmos se configura para la conmutación automática p
 
    ![Menú Conmutación por error automática del portal](./media/how-to-manage-database-account/automatic-failover.png)
 
-### <a id="set-failover-priorities-via-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>Azure CLI
 
 Consulte [Establecimiento de la prioridad de conmutación por error con la CLI de Azure](manage-with-cli.md#set-failover-priority).
 
-### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell.
+### <a name="azure-powershell"></a><a id="set-failover-priorities-via-ps"></a>Azure PowerShell.
 
 Consulte [Establecimiento de la prioridad de conmutación por error con PowerShell](manage-with-powershell.md#modify-failover-priority).
 
-## <a id="manual-failover"></a>Realización de una conmutación por error manual en una cuenta de Azure Cosmos
+## <a name="perform-manual-failover-on-an-azure-cosmos-account"></a><a id="manual-failover"></a>Realización de una conmutación por error manual en una cuenta de Azure Cosmos
 
 > [!IMPORTANT]
 > La cuenta de Azure Cosmos debe estar configurada para la conmutación por error manual para que esta operación se realice correctamente.
@@ -206,7 +206,7 @@ El proceso para realizar una conmutación por error manual implica cambiar la re
 > [!NOTE]
 > Las cuentas de arquitectura multimaestro no se puede conmutar por error de manera manual. Para las aplicaciones que usan el SDK de Azure Cosmos, el SDK detectará cuando una región deja de estar disponible y luego redirige automáticamente a la región más cercana siguiente si se usa una API de hospedaje múltiple en el SDK.
 
-### <a id="enable-manual-failover-via-portal"></a>Azure Portal
+### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Azure Portal
 
 1. Vaya a la cuenta de Azure Cosmos y abra el menú **Replicar datos globalmente**.
 
@@ -220,11 +220,11 @@ El proceso para realizar una conmutación por error manual implica cambiar la re
 
    ![Menú Conmutación por error del portal](./media/how-to-manage-database-account/manual-failover.png)
 
-### <a id="enable-manual-failover-via-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>Azure CLI
 
 Consulte [Desencadenamiento de una conmutación por error manual con la CLI de Azure](manage-with-cli.md#trigger-manual-failover).
 
-### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell.
+### <a name="azure-powershell"></a><a id="enable-manual-failover-via-ps"></a>Azure PowerShell.
 
 Consulte [Desencadenamiento de una conmutación por error manual con PowerShell](manage-with-powershell.md#trigger-manual-failover).
 

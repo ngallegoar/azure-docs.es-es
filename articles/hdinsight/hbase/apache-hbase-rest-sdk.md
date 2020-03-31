@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: eba7d7ad009b2ef0442a916983489489eb5cceb8
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74806667"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Uso del SDK de .NET para Apache HBase
 
-[Apache HBase](apache-hbase-overview.md) proporciona dos opciones principales para trabajar con los datos: [Consultas de Apache Hive y llamadas a la API RESTful de HBase](apache-hbase-tutorial-get-started-linux.md). Puede trabajar directamente con la API de REST con el comando `curl` o una utilidad similar.
+[Apache HBase](apache-hbase-overview.md) proporciona dos opciones principales para trabajar con los datos: [las consultas de Apache Hive y las llamadas a la API RESTful de HBase](apache-hbase-tutorial-get-started-linux.md). Puede trabajar directamente con la API de REST con el comando `curl` o una utilidad similar.
 
 Para las aplicaciones de C# y .NET, la [biblioteca cliente de REST de Microsoft HBase para .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) proporciona una biblioteca cliente, además de la API de REST de HBase.
 
@@ -60,7 +60,7 @@ if (!client.ListTablesAsync().Result.name.Contains("RestSDKTable"))
 
 Esta nueva tabla tiene familias de dos columnas, t1 y t2. Dado que las familias de columnas se almacenan por separado en HFiles diferentes, resulta útil tener una familia de columnas independiente para los datos consultados con más frecuencia. En el siguiente ejemplo para [insertar datos](#insert-data), se agregan columnas a la familia de columnas t1.
 
-## <a name="delete-a-table"></a>Eliminación de una tabla
+## <a name="delete-a-table"></a>Eliminar una tabla
 
 Para eliminar una tabla:
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.openlocfilehash: e1157a695d34c75b237391427b37365421366ef8
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77523177"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desarrollo y configuración de Azure Functions con Azure SignalR Service

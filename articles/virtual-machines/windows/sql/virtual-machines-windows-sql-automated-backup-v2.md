@@ -15,10 +15,10 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 458012982531e228f7c4968f29e79e8b2e29aa48
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651445"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automated Backup v2 para Azure Virtual Machines (Resource Manager)
@@ -31,7 +31,7 @@ Automated Backup v2 configura automáticamente [Automated Backup para Microsoft 
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 Para utilizar Automated Backup v2, revise los siguientes requisitos previos:
 
 **Sistema operativo**:
@@ -107,7 +107,7 @@ Tiene una VM con SQL Server que contiene varias bases de datos de gran tamaño.
 El lunes, se habilita Automated Backup v2 con las siguientes opciones:
 
 - Programación de copia de seguridad: Manual
-- Frecuencia de copia de seguridad completa: Diario
+- Frecuencia de copia de seguridad completa: Diaria
 - Hora de inicio de copia de seguridad completa: 22:00
 - Período de tiempo de copia de seguridad completa: 6 horas
 
@@ -172,7 +172,7 @@ Set-AzVMSqlServerExtension -VMName $vmname `
     -Version "2.0" -Location $region 
 ```
 
-### <a id="verifysettings"></a> Verificación de la configuración actual
+### <a name="verify-current-settings"></a><a id="verifysettings"></a> Verificación de la configuración actual
 Si ha habilitado la copia de seguridad automatizada durante el aprovisionamiento, puede usar PowerShell para comprobar la configuración actual. Ejecute el comando **Get-AzVMSqlServerExtension** y examine la propiedad **AutoBackupSettings**:
 
 ```powershell
@@ -328,7 +328,7 @@ Otra opción es aprovechar las ventajas de la característica integrada Correo e
 ## <a name="next-steps"></a>Pasos siguientes
 Automated Backup v2 configura Managed Backup en Azure Virtual Machines. Por lo tanto, es importante [revisar la documentación de la Copia de seguridad administrada](https://msdn.microsoft.com/library/dn449496.aspx) para comprender el comportamiento y las implicaciones.
 
-Puede encontrar directrices adicionales sobre la copia de seguridad y la restauración para SQL Server en VM de Azure en el siguiente artículo: [Copias de seguridad y restauración para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+Puede encontrar directrices adicionales sobre la copia de seguridad y la restauración para SQL Server en Azure Virtual Machines en el siguiente artículo: [Copias de seguridad y restauración para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
 Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 

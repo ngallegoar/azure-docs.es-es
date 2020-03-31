@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277126"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228172"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600.
 
@@ -256,7 +256,7 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 6. Presione INTRO en la consola para comprobar que la conexión funciona. Debería aparecer un menú de consola serie.
 
 > [!NOTE]
-> **Administración de Lights-Out**: cuando el dispositivo está instalado en un centro de datos remoto o en una sala de equipos con acceso limitado, asegúrese de que las conexiones serie a ambos controladores estén siempre conectadas a un conmutador de consola serie o un equipo similar. Esto permite el control remoto de fuera de banda y las operaciones de soporte si hay interrupciones de red o errores inesperados.
+> **Administración de Lights-Out** : cuando el dispositivo está instalado en un centro de datos remoto o en una sala de equipos con acceso limitado, asegúrese de que las conexiones serie a ambos controladores estén siempre conectadas a un conmutador de consola serie o un equipo similar. Esto permite el control remoto de fuera de banda y las operaciones de soporte si hay interrupciones de red o errores inesperados.
 > 
 > 
 

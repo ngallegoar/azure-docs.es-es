@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.openlocfilehash: a1c52007ea86ca0812c4a73a92ce81db6ddadc7b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74038018"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualización de datos desde Azure Data Explorer en Grafana
@@ -24,7 +24,7 @@ Use el vídeo siguiente para aprender a usar el complemento Azure Data Explorer 
 
 Además, puede [configurar el origen de datos](#configure-the-data-source) y [visualizar los datos](#visualize-data), tal como se detalla en el artículo siguiente.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este artículo, necesitará lo siguiente:
 
@@ -32,7 +32,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 * El [complemento de Azure Data Explorer](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) para Grafana
 
-* Un clúster que incluya los datos de ejemplo de StormEvents. Para más información, consulte [Guía de inicio rápido: Creación de un clúster y de la base de datos de Azure Data Explorer](create-cluster-database-portal.md) e [Ingesta de datos de ejemplo en Azure Data Explorer](ingest-sample-data.md).
+* Un clúster que incluya los datos de ejemplo de StormEvents. Para más información, consulte [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md)(Inicio rápido: crear un clúster y una base de datos del Explorador de datos de Azure) y [Ingest sample data into Azure Data Explorer](ingest-sample-data.md)Introducir datos de ejemplo en el Explorador de datos de Azure.
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
@@ -56,7 +56,7 @@ Con la entidad de servicio asignada al rol *visores*, ahora puede especificar pr
 
     ![Propiedades de la conexión](media/grafana/connection-properties.png)
 
-    | UI de Grafana | Portal de Azure | CLI de Azure |
+    | UI de Grafana | Portal de Azure | Azure CLI |
     | --- | --- | --- |
     | Id. de suscripción | ID. DE SUSCRIPCIÓN | SubscriptionId |
     | Identificador de inquilino | Identificador de directorio | tenant |

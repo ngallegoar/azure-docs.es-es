@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: ea63b0784c0f8680e544179dfcd927f59336b3ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: adcd4d9e81eecad9540a4ef1be5e675f940ffb8d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467134"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367999"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>Visualización de datos de Interactive Query Apache Hive con Microsoft Power BI mediante consulta directa en HDInsight
 
@@ -23,10 +23,10 @@ En este artículo se describe cómo conectar Microsoft Power BI a clústeres de 
 
 Puede aprovechar el [controlador ODBC de Apache Hive](../hadoop/apache-hadoop-connect-hive-power-bi.md) para realizar la importación a través del conector ODBC genérico en Power BI Desktop. Sin embargo, no se recomienda para las cargas de trabajo de BI dada la naturaleza no interactiva del motor de consulta de Hive. El [conector de HDInsight Interactive Query](./apache-hadoop-connect-hive-power-bi-directquery.md) y el [conector de HDInsight Apache Spark](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) son las mejores opciones para su rendimiento.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Antes de seguir los pasos de este artículo, debe disponer de los siguientes elementos:
 
-* **Clúster de HDInsight**. El clúster puede ser un clúster de HDInsight con Apache Hive o un clúster de Interactive Query recién lanzado. Para crear clústeres, vea [Crear clúster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+* **Clúster de HDInsight**. El clúster puede ser un clúster de HDInsight con Apache Hive o un clúster de Interactive Query recién lanzado. Para crear clústeres, vea [Crear clúster](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** . Puede descargar una copia desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## <a name="load-data-from-hdinsight"></a>Carga de datos desde HDInsight
@@ -47,7 +47,7 @@ La tabla de Hive `hivesampletable` incluye todos los clústeres de HDInsight.
 
 6. En la ventana **HDInsight Interactive Query**, escriba la información siguiente y luego seleccione **Aceptar**:
 
-    |Propiedad | Valor |
+    |Propiedad | Value |
     |---|---|
     |Server |Escriba el nombre de clúster, por ejemplo,  *myiqcluster.azurehdinsight.net*.|
     |Base de datos |Escriba **Predeterminada** para este artículo.|

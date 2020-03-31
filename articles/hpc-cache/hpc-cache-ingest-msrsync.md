@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 4f8863d706d623d613ac156cf202c3b7b12f2ae0
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168427"
 ---
 # <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Ingesta de datos de Azure HPC Cache: método msrsync
@@ -23,7 +23,7 @@ La herramienta ``msrsync`` se puede usar para mover datos a un destino de almace
 
 ``msrsync`` divide el directorio de origen en "cubos" separados y luego ejecuta procesos de tipo ``rsync`` individuales en cada cubo.
 
-Las pruebas preliminares que se realizan con una máquina virtual de cuatro núcleos mostraron una eficacia mejor al usar 64 procesos. Use la opción de ``msrsync`` ``-p`` para establecer el número de procesos en 64.
+Las pruebas preliminares que se realizan con una máquina virtual de cuatro núcleos mostraron una eficacia mejor al usar 64 procesos. Use la opción de ``msrsync````-p`` para establecer el número de procesos en 64.
 
 Tenga en cuenta que ``msrsync`` solo se puede escribir en y desde volúmenes locales. El origen y el destino deben ser accesibles como montajes locales en la estación de trabajo que se usa para emitir el comando.
 

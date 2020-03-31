@@ -15,10 +15,10 @@ ms.date: 04/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 30301832381bdc7b5f001eec2c449c571f9fd671
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79086227"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
@@ -109,7 +109,7 @@ Esta ventana muestra el identificador de cada aplicación en su cuenta y las pro
 
 * **Paquetes**: el número de versiones asociadas a la aplicación.
 * **Versión predeterminada**: la versión de la aplicación que se instala si no indica ninguna versión al especificar la aplicación para un grupo. Esta configuración es opcional.
-* **Permitir actualizaciones**: el valor que especifica si se permiten las actualizaciones, eliminaciones y adiciones en el paquete. Si se establece en **No**, las actualizaciones y eliminaciones se deshabilitan para la aplicación. Solo se pueden agregar versiones nuevas del paquete de aplicación. El valor predeterminado es **Sí**.
+* **Permitir actualizaciones**: el valor que especifica si se permiten actualizaciones, eliminaciones y adiciones en el paquete. Si se establece en **No**, las actualizaciones y eliminaciones se deshabilitan para la aplicación. Solo se pueden agregar versiones nuevas del paquete de aplicación. El valor predeterminado es **Sí**.
 
 Si desea ver la estructura de archivos del paquete de aplicación en su nodo de ejecución, diríjase a su cuenta de Batch en el portal. En la cuenta de Batch, diríjase a **Grupos**. Seleccione el grupo que contiene los nodos de ejecución en los que está interesado.
 
@@ -127,8 +127,8 @@ Para consultar los detalles de una aplicación, selecciónela en la ventana **Ap
 En los detalles de la aplicación, puede configurar los siguientes valores de la aplicación.
 
 * **Permitir actualizaciones**: especifica si se pueden actualizar o eliminar sus paquetes de aplicación. Consulte "Actualización o eliminación de un paquete de aplicación" más adelante en este artículo.
-* **Versión predeterminada**: especifica el paquete de aplicación predeterminado que se implementa en los nodos de proceso.
-* **Nombre para mostrar**: especifica un nombre descriptivo que la solución de Batch puede usar al mostrar información de la aplicación, por ejemplo, en la interfaz de usuario de un servicio que proporciona a los clientes a través de Batch.
+* **Versión predeterminada**: especifique el paquete de aplicación predeterminado que se implementa en los nodos de proceso.
+* **Nombre para mostrar**: especifica un nombre "descriptivo" que la solución de Batch puede usar al mostrar información de la aplicación, por ejemplo, en la interfaz de usuario de un servicio que proporciona a los clientes a través de Batch.
 
 ### <a name="add-a-new-application"></a>Adición de una nueva aplicación
 Para crear una aplicación, agregue un paquete de aplicación y especifique un identificador de aplicación nuevo y exclusivo. El primer paquete de aplicación que agregue con el nuevo identificador de aplicación también crea la nueva aplicación.

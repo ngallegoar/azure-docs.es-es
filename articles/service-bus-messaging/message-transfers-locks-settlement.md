@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: aschhab
 ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759285"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230092"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferencias, bloqueos y liquidación de mensajes
 
@@ -96,7 +96,7 @@ Con un cliente AMQP de bajo nivel, Service Bus también acepta transferencias "p
 
 ## <a name="settling-receive-operations"></a>Liquidación de las operaciones de recepción
 
-Para las operaciones de recepción, los clientes de la API de Service Bus habilitan dos modos explícitos diferentes: *Receive-and-Delete* (Recepción y eliminación) y *Peek-Lock* (Inspección y bloqueo).
+Para las operaciones de recepción, los clientes de la API de Service Bus habilitan dos modos explícitos diferentes: *Receive-and-Delete* y *Peek-Lock*.
 
 ### <a name="receiveanddelete"></a>ReceiveAndDelete
 

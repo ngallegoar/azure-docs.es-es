@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 4fbb86f4fbda9b8e521f7465bb8bb3d18602ca13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60894193"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Operaciones de agregado en tablas de Cassandra API de Azure Cosmos DB de Spark 
@@ -89,15 +89,15 @@ Elija una de las siguientes [opciones de almacenamiento]( https://spark.apache.o
 
 * MEMORY_ONLY: se trata de la opción de almacenamiento predeterminada. Almacena RDD como objetos Java deserializados en la máquina virtual Java. Si el RDD no cabe en la memoria, algunas particiones no se almacenarán en caché y se volverán a calcular sobre la marcha cada vez que se necesiten.
 
-* MEMORY_AND_DISK: Almacena RDD como objetos Java deserializados en la máquina virtual Java. Si el RDD no cabe en la memoria, almacene las particiones que no entran en el disco y, cuando sea necesario, léalos desde la ubicación en la que estén almacenados.
+* MEMORY_AND_DISK: almacena RDD como objetos Java deserializados en la máquina virtual Java. Si el RDD no cabe en la memoria, almacene las particiones que no entran en el disco y, cuando sea necesario, léalos desde la ubicación en la que estén almacenados.
 
-* MEMORY_ONLY_SER (Java/Scala): almacena RDD como objetos Java serializados (una matriz de un byte por partición). Con esta opción el espacio es más eficiente en comparación con objetos deserializados, especialmente al utilizar un serializador rápido, pero más intensivo en la CPU a la hora de leer.
+* MEMORY_ONLY_SER (Java/Scala): almacena RDD como objetos Java serializados: una matriz de un byte por partición. Con esta opción el espacio es más eficiente en comparación con objetos deserializados, especialmente al utilizar un serializador rápido, pero más intensivo en la CPU a la hora de leer.
 
 * MEMORY_AND_DISK_SER (Java/Scala): esta opción de almacenamiento es similar a MEMORY_ONLY_SER, con la única diferencia de que deja desbordar las particiones que no caben en la memoria del disco en lugar de recalcularlas cuando es necesario.
 
 * DISK_ONLY: solo almacena las particiones RDD en el disco.
 
-* MEMORY_ONLY_2, MEMORY_AND_DISK_2…: igual que los niveles anteriores, pero replica cada partición en dos nodos de clúster.
+* MEMORY_ONLY_2, MEMORY_AND_DISK_2...: igual que los niveles anteriores, pero replica cada partición en dos nodos de clúster.
 
 * OFF_HEAP (experimental): es similar a MEMORY_ONLY_SER, pero almacena los datos en la memoria fuera del montón y requiere que la memoria fuera del montón esté habilitada de antemano. 
 
@@ -225,7 +225,7 @@ select min(book_price) from books_vw;
 
 ## <a name="max-operation"></a>Operación máxima
 
-### <a name="rdd-api"></a>API de RDD
+### <a name="rdd-api"></a>RDD API
 
 ```scala
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).max
@@ -368,4 +368,4 @@ select book_name,book_price from books_vw order by book_price desc limit 3;
 
 Para realizar operaciones de copia de tabla, vea:
 
-* [Table copy operations](cassandra-spark-table-copy-ops.md) (Operaciones de copia en la tabla)
+* [Table copy operations](cassandra-spark-table-copy-ops.md) (Operaciones de copia en tabla)

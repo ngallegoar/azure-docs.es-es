@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 8ca5c411db5644182f7e87f1ee1c63f3cbc4d2e9
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73200410"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Redirigir el tráfico web en función de la dirección URL mediante Azure PowerShell
@@ -21,7 +21,7 @@ Se puede usar Azure PowerShell para configurar el enrutamiento de tráfico web a
 
 Para habilitar el enrutamiento de tráfico, se crean [reglas de enrutamiento](application-gateway-url-route-overview.md) asignadas a los agentes de escucha que escuchan en puertos específicos para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red
@@ -56,7 +56,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 Tanto si tiene una red virtual existente como si quiere crear una nueva, debe asegurarse de que contiene una subred que solo se usa para puertas de enlace de aplicaciones. En este artículo, se creará una subred para la puerta de enlace de aplicaciones y una subred para los conjuntos de escalado. Se crea una dirección IP pública para permitir el acceso a los recursos de la puerta de enlace de aplicaciones.
 
-Cree las configuraciones de subred llamadas *myAGSubnet* y *myBackendSubnet* mediante [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Cree la red virtual llamada *myVNet* mediante [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) con las configuraciones de subred. Y, por último, cree la dirección IP pública llamada *myAGPublicIPAddress* con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estos recursos se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados.
+Cree las configuraciones de subred llamadas *myAGSubnet* y *myBackendSubnet* mediante [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Cree la red virtual llamada *myVNet* mediante [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) con las configuraciones de subred. Y, por último, cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estos recursos se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `

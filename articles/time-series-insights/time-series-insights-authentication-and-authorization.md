@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.custom: seodec18
 ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76984601"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights

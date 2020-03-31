@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 44a05ecb273bdf7582300c3b6a9110e2ada0994c
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471829"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opciones para migrar datos desde la serie 5000-7000 de StorSimple 
@@ -95,8 +95,8 @@ A. Si bien los servicios podrían seguir funcionando, Microsoft ya no podrá pro
 
 A. Dependiendo de su escenario, los usuarios de la serie 5000-7000 de StorSimple tienen las siguientes opciones de migración. 
 
- - **Actualización a la serie 8000**: use esta opción si quiere permanecer en la plataforma de StorSimple. 
- - **Migración a Azure File Sync**: use esta opción si quiere cambiar al formato nativo de Azure. Puede usar Azure File Sync para la administración centralizada de recursos compartidos de archivos. 
+ - **Actualización a la serie 8000**: use esta opción si desea permanecer en la plataforma de StorSimple. 
+ - **Migración a Azure File Sync**: use esta opción si desea cambiar al formato nativo de Azure. Puede usar Azure File Sync para la administración centralizada de recursos compartidos de archivos. 
 
 Puede ponerse en contacto con el soporte técnico de Microsoft para analizar las opciones de migración que no aparecen aquí.
 

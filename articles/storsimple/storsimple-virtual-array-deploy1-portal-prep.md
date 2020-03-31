@@ -9,11 +9,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273833"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228104"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implementación de la matriz virtual de StorSimple: preparación de Azure Portal
 
@@ -87,7 +87,7 @@ Antes de comenzar, asegúrese de que:
 
 Utilice las siguientes instrucciones detalladas para preparar su portal para el servicio StorSimple Device Manager.
 
-## <a name="step-1-create-a-new-service"></a>Paso 1: Creación de un nuevo servicio
+## <a name="step-1-create-a-new-service"></a>Paso 1: Crear un nuevo servicio
 
 Una instancia individual del servicio StorSimple Device Manager puede administrar varias instancias de StorSimple Virtual Array. Siga estos pasos para crear una instancia del servicio StorSimple Device Manager. Si tiene un servicio StorSimple Device Manager existente para administrar sus matrices virtuales, omita este paso y vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2-get-the-service-registration-key).
 
@@ -137,7 +137,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/).
    * VMDK para VMWare ESXi 5.0, 5.5, 6.0 o 6.5
 5. Descargue y descomprima el archivo en una unidad local y tome nota de dónde se encuentra el archivo sin comprimir.
 
-## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Paso opcional: Configurar una nueva cuenta de almacenamiento para el servicio
+## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Paso opcional: Configurar una cuenta de almacenamiento nueva para el servicio
 
 Este paso es opcional y solo se debe llevar a cabo si no habilitó la creación automática de una cuenta de almacenamiento con su servicio.
 

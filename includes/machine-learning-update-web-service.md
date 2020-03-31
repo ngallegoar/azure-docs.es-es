@@ -2,14 +2,14 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 01/10/2019
+ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 469d87a828df19ca30260cada9dcea43859be9e0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d36bf2db05113656a77e76ff900d95910f313c73
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902028"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477262"
 ---
 Para actualizar un servicio web, utilice el método `update`. Puede actualizar el servicio web para que use un nuevo modelo, un nuevo script de entrada o nuevas dependencias que se pueden especificar en una configuración de inferencia. Para más información, consulte la documentación de [Webservice.update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
 

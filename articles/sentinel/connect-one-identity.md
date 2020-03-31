@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588151"
 ---
 # <a name="connect-one-identity-safeguard"></a>Conexión de One Identity Safeguard
 El conector de datos de One Identity Safeguard mejora el conector de formato de evento común (CEF) estándar con protección para los paneles específicos de las sesiones privilegiadas. Use este conector para empezar a usar fácilmente los eventos generados por el dispositivo para su visualización, alertas, investigaciones, etc.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Permisos de lectura y escritura en el área de trabajo de Azure Sentinel.
 

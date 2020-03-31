@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: a25d76b4b8a6f516de70604146bd1b236ba3ca1e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588032"
 ---
 # <a name="connect-trend-micro-deep-security"></a>Conectar Deep Security de Trend Micro
@@ -26,7 +26,7 @@ ms.locfileid: "77588032"
 El conector de Deep Security de Trend Micro le permite conectar fácilmente los registros de Deep Security con Azure Sentinel para ver paneles, crear alertas personalizadas y mejorar la investigación. Gracias a esto, dispondrá de más información sobre la red de la organización y podrá mejorar las capacidades de las operaciones de seguridad.
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Permisos de lectura y escritura en el área de trabajo de Azure Sentinel.
 

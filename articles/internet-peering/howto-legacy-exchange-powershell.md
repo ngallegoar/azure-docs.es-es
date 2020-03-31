@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: aa11f329cf0a0cb27d58b940b42731a2ec41c272
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774003"
 ---
 # <a name="convert-a-legacy-exchange-peering-to-azure-resource-using-powershell"></a>Conversión de un emparejamiento de Exchange heredado en un recurso de Azure mediante PowerShell
@@ -32,7 +32,7 @@ Si lo prefiere, puede completar esta guía mediante el [portal](howto-legacy-exc
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Iniciar sesión en la cuenta de Azure y seleccione la suscripción
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name= get></a>Obtener el emparejamiento de Exchange heredado para la conversión
+### <a name="get-legacy-exchange-peering-for-conversion"></a><a name= get></a>Obtener el emparejamiento de Exchange heredado para la conversión
 A continuación se muestra un ejemplo para obtener el emparejamiento de Exchange heredado en la ubicación de emparejamiento de Seattle:
 
 ```powershell

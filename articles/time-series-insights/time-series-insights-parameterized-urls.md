@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 02/04/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9dfe499a7d6084a23fd71ab98db472befe71fc04
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024371"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Uso compartido de una vista personalizada mediante una dirección URL con parámetros

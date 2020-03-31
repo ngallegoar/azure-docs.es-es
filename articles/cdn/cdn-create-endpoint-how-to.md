@@ -15,16 +15,16 @@ ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: afd9599dd1e396dea6975c397688e4b97371fd6d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593933"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creación de un punto de conexión de Azure CDN
-Este artículo describe toda la configuración para crear un punto de conexión de [Azure Content Delivery Network (CDN)](cdn-overview.md) en un perfil de CDN existente. Una vez haya creado un perfil y un punto de conexión, podrá iniciar la entrega de contenido a sus clientes. Para una guía de inicio rápido sobre cómo crear un perfil y un punto de conexión, consulte [Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).
+Este artículo describe toda la configuración para crear un punto de conexión de [Azure Content Delivery Network (CDN)](cdn-overview.md) en un perfil de CDN existente. Una vez haya creado un perfil y un punto de conexión, podrá iniciar la entrega de contenido a sus clientes. Para una guía de inicio rápido sobre cómo crear un perfil y un punto de conexión, consulte [Guía de inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para poder crear un punto de conexión de CDN, debe haber creado al menos un perfil de CDN, que puede contener uno o varios puntos de conexión de CDN. Puede usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio. Dado que los precios de CDN se aplican en el nivel de perfil de CDN, debe crear varios perfiles de CDN si desea utilizar una combinación de los planes de tarifa de Azure CDN. Para crear un perfil de CDN, consulte [Creación de un nuevo perfil de CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal

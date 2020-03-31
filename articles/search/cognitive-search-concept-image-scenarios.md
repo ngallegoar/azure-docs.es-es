@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76838265"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de enriquecimiento con IA
@@ -89,7 +89,7 @@ Cuando *imageAction* se establece en un valor distinto de "none", el nuevo campo
 
 ## <a name="image-related-skills"></a>Habilidades relacionadas con la imagen
 
-Hay dos aptitudes cognitivas integradas que toman las imágenes como entrada: [OCR](cognitive-search-skill-ocr.md) y [análisis de la imagen](cognitive-search-skill-image-analysis.md). 
+Hay dos habilidades cognitivas integradas que se usan para tomar imágenes como entrada: [OCR](cognitive-search-skill-ocr.md) y [Análisis de imágenes](cognitive-search-skill-image-analysis.md). 
 
 Actualmente, estas habilidades solo funcionan con imágenes generadas a partir del paso de averiguación de documentos. Por lo tanto, la única entrada compatible es `"/document/normalized_images"`.
 

@@ -4,10 +4,10 @@ description: Supervise los contadores de rendimiento de .NET, tanto del sistema 
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.openlocfilehash: 94d2520c17867f6d70caffd002a76365a425986f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669886"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de rendimiento de sistema en Application Insights
@@ -149,7 +149,7 @@ La compatibilidad con los contadores de rendimiento en ASP.Net Core es limitada:
 ## <a name="alerts"></a>Alertas
 Al igual que otras métricas, puede [establecer una alerta](../../azure-monitor/app/alerts.md) para advertirle si un contador de rendimiento queda fuera de un límite especificado. Abra el panel de alertas y haga clic en Agregar alerta.
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 
 * [Seguimiento de dependencias](../../azure-monitor/app/asp-net-dependencies.md)
 * [Seguimiento de excepciones](../../azure-monitor/app/asp-net-exceptions.md)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ce56c406c884471c445b25343d5c42f9edcbe4c4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176560"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226568"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Plantillas de página en Azure API Management
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
@@ -38,7 +38,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="SignIn"></a> Sign in  
+##  <a name="sign-in"></a><a name="SignIn"></a> Sign in  
  La plantilla **sign in** le permite personalizar la página de inicio de sesión en el portal para desarrolladores.  
   
  ![Página de inicio de sesión](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Plantillas del portal para desarrolladores de la página de inicio de sesión de APIM")  
@@ -137,7 +137,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }
 ```  
   
-##  <a name="SignUp"></a> Sign up  
+##  <a name="sign-up"></a><a name="SignUp"></a> Sign up  
  La plantilla **sign up** le permite personalizar la página de registro en el portal para desarrolladores.  
   
  ![Página de registro](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Plantillas del portal para desarrolladores de la página de registro de APIM")  
@@ -185,7 +185,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```  
   
-##  <a name="PageNotFound"></a> Page not found  
+##  <a name="page-not-found"></a><a name="PageNotFound"></a> Page not found  
  La plantilla **page not found** le permite personalizar la página de página no encontrada en el portal para desarrolladores.  
   
  ![Página no encontrada](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "Plantillas del portal para desarrolladores de página no encontrada de APIM")  
@@ -227,7 +227,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 ### <a name="data-model"></a>Modelo de datos  
   
-|Propiedad|Escriba|DESCRIPCIÓN|  
+|Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
 |referenceCode|string|Código generado si esta página se mostró como resultado de un error interno.|  
 |errorCode|string|Código generado si esta página se mostró como resultado de un error interno.|  

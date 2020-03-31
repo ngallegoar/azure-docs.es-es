@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2019
 ms.openlocfilehash: 0b0352632491dbfc46ed4819653c6cb902eee4ce
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74923715"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copia de datos desde SAP Cloud for Customer (C4C) mediante Azure Data Factory
@@ -47,7 +47,7 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado SAP Cloud for Customer:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **SapCloudForCustomer**. | Sí |
 | url | Dirección URL del servicio de OData de SAP C4C. | Sí |
@@ -58,7 +58,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP Cloud f
 >[!IMPORTANT]
 >Para copiar datos en SAP Cloud for Customer, [cree un IR de Azure](create-azure-integration-runtime.md#create-azure-ir) explícitamente con una ubicación próxima a SAP Cloud for Customer y asocie el servicio vinculado como en el ejemplo siguiente:
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -87,12 +87,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de SAP Cloud for Customer, establezca la propiedad type del conjunto de datos en **SapCloudForCustomerResource**. Se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **SapCloudForCustomerResource** |Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **SapCloudForCustomerResource**. |Sí |
 | path | Especifique la ruta de acceso de la entidad de OData de SAP C4C. |Sí |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -119,14 +119,14 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de SAP Cloud for Customer, establezca el tipo de origen en la actividad de copia en **SapCloudForCustomerSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **SapCloudForCustomerSource**  | Sí |
-| query | Especifique la consulta de OData personalizada para leer datos. | Sin |
+| type | La propiedad type debe establecerse en: **SapCloudForCustomerSource**.  | Sí |
+| Query | Especifique la consulta de OData personalizada para leer datos. | No |
 
 Consulta de ejemplo para obtener datos de un día concreto: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -162,13 +162,13 @@ Consulta de ejemplo para obtener datos de un día concreto: `"query": "$filter=C
 
 Para copiar datos de SAP Cloud for Customer, establezca el tipo de receptor en la actividad de copia en **SapCloudForCustomerSink**. Se admiten las siguientes propiedades en la sección **sink** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **SapCloudForCustomerSink**  | Sí |
+| type | La propiedad type debe establecerse en: **SapCloudForCustomerSink**.  | Sí |
 | writeBehavior | El comportamiento de escritura de la operación. Puede ser "Insert" o "Update". | No. El valor predeterminado es "Insert". |
 | writeBatchSize | Tamaño de lote de la operación de escritura. El tamaño de lote para obtener un rendimiento óptimo puede ser diferente para otra tabla o servidor. | No. El valor predeterminado es 10. |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[

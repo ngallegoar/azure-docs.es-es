@@ -1,18 +1,18 @@
 ---
 title: Diferentes fases en el desarrollo de aplicaciones móviles con Visual Studio App Center y Servicios de Azure
 description: Obtenga información sobre las distintas fases implicadas en el desarrollo de aplicaciones móviles y cómo servicios de Microsoft tales como Visual Studio App Center pueden ayudarle a crear una aplicación móvil de alta calidad.
-author: elamalani
+author: codemillmatt
 ms.assetid: 12bbb070-9b3c-1234-5678-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 2693155281c6ceb9cb737960df6d3201c0983c50
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 8d0fbc12f3048b6a9c81d53c9a9cd0a1998d4f88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454379"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240054"
 ---
 # <a name="different-stages-in-mobile-application-development"></a>Diferentes fases en el desarrollo de aplicaciones móviles
 La creación de una aplicación móvil implica varias fases. Puede aprovechar fácilmente las ventajas de los servicios, las herramientas y las tecnologías de Microsoft para crear aplicaciones móviles de alta calidad.

@@ -8,11 +8,11 @@ ms.date: 12/06/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 0f024bac535ed792d8480c991e470cf5d85932b8
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083020"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225916"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidad con Azure Cosmos DB
 

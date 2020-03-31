@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273958"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232232"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Implementación del dispositivo StorSimple local (Update 3 u otra posterior)
 
@@ -43,11 +43,11 @@ Siga estos pasos obligatorios para configurar el dispositivo StorSimple y conect
 | **IMPLEMENTACIÓN PASO A PASO** |Estos pasos son obligatorios para implementar el dispositivo StorSimple en producción. |
 | [Paso 1: Crear un nuevo servicio](#step-1-create-a-new-service) |Configure la administración y el almacenamiento en la nube para el dispositivo StorSimple. *Omita este paso si tiene un servicio existente para otros dispositivos StorSimple*. |
 | [Paso 2: Obtener la clave de registro del servicio](#step-2-get-the-service-registration-key) |Esta clave se usa para registrar y conectar el dispositivo StorSimple con el servicio de administración. |
-| [Paso 3: Configurar y registrar el dispositivo mediante Windows PowerShell para StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Conecte el dispositivo a la red y regístrelo con Azure para completar la instalación mediante el servicio de administración. |
-| [Paso 4: Completar la instalación mínima del dispositivo](#step-4-complete-minimum-device-setup)</br>[Procedimiento recomendado: Actualizar el dispositivo de StorSimple](#scan-for-and-apply-updates) |Use el servicio de administración para realizar la instalación del dispositivo y habilitarlo para proporcionar almacenamiento. |
+| [Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Conecte el dispositivo a la red y regístrelo con Azure para completar la instalación mediante el servicio de administración. |
+| [Paso 4: Completar la instalación mínima del dispositivo](#step-4-complete-minimum-device-setup)</br>[Procedimiento recomendado: actualización del dispositivo StorSimple](#scan-for-and-apply-updates) |Use el servicio de administración para realizar la instalación del dispositivo y habilitarlo para proporcionar almacenamiento. |
 | [Paso 5: Crear un contenedor de volúmenes](#step-5-create-a-volume-container) |Cree un contenedor para aprovisionar los volúmenes. Un contenedor de volúmenes tiene la configuración de la cuenta de almacenamiento, el ancho de banda y el cifrado de todos los volúmenes que contiene. |
 | [Paso 6: Crear un volumen](#step-6-create-a-volume) |Aprovisione volúmenes de almacenamiento en el dispositivo StorSimple para los servidores. |
-| [Paso 7: Montar, inicializar y formatear un volumen](#step-7-mount-initialize-and-format-a-volume)</br>[Opcional: Configurar MPIO](storsimple-8000-configure-mpio-windows-server.md) |Conecte los servidores al almacenamiento iSCSI proporcionado por el dispositivo. De forma opcional, puede configurar MPIO para asegurarse de que los servidores pueden tolerar errores de vínculo, red e interfaz. |
+| [Paso 7: Montar, inicializar y formatear un volumen](#step-7-mount-initialize-and-format-a-volume)</br>[Opcional: configurar MPIO](storsimple-8000-configure-mpio-windows-server.md) |Conecte los servidores al almacenamiento iSCSI proporcionado por el dispositivo. De forma opcional, puede configurar MPIO para asegurarse de que los servidores pueden tolerar errores de vínculo, red e interfaz. |
 | [Paso 8: Realizar una copia de seguridad](#step-8-take-a-backup) |Configure la directiva de copia de seguridad para proteger los datos. |
 |  | |
 | **OTROS PROCEDIMIENTOS** |Puede que necesite hacer referencia a estos procedimientos mientras implementa la solución. |
@@ -87,7 +87,7 @@ Antes de comenzar, asegúrese de que:
 ## <a name="step-by-step-deployment"></a>IMPLEMENTACIÓN PASO A PASO
 Use las siguientes instrucciones paso a paso para implementar el dispositivo StorSimple en el centro de datos.
 
-## <a name="step-1-create-a-new-service"></a>Paso 1: Creación de un nuevo servicio
+## <a name="step-1-create-a-new-service"></a>Paso 1: Crear un nuevo servicio
 El servicio de Administrador de dispositivos de StorSimple puede administrar varios dispositivos StorSimple. Siga estos pasos para crear una instancia del servicio StorSimple Device Manager.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
@@ -106,12 +106,12 @@ Siga estos pasos en Azure Portal.
 
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
-## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Paso 3: Configurar y registrar el dispositivo mediante Windows PowerShell para StorSimple
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple
 Use Windows PowerShell para StorSimple para completar la configuración inicial del dispositivo StorSimple, tal como se explica en el procedimiento siguiente. Deberá usar software de emulación de terminales para completar este paso. Para obtener más información, consulte [Uso de PuTTY para conectarse a la consola serie del dispositivo](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-8000-configure-and-register-device-u2](../../includes/storsimple-8000-configure-and-register-device-u2.md)]
 
-## <a name="step-4-complete-minimum-device-setup"></a>Paso 4: Completar la instalación mínima del dispositivo
+## <a name="step-4-complete-minimum-device-setup"></a>Paso 4: Completar el programa de instalación mínima del dispositivo
 Para proceder a la configuración mínima del dispositivo StorSimple, debe hacer lo siguiente: 
 
 * Proporcione un nombre descriptivo para el dispositivo.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: robinsh
 ms.openlocfilehash: a1918a99efcdcc5764140093ad422f7887ca3c88
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954697"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desarrollo para dispositivos restringidos con los SDK para C de Azure IoT
@@ -27,13 +27,13 @@ El SDK para C está disponible en forma de paquete desde apt-get, NuGet y MBED. 
 
 Compile el SDK para C para dispositivos restringidos.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerequisites
 
 Siga esta [guía de configuración del SDK para C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) para preparar el entorno de desarrollo para la compilación del SDK para C. Antes de llegar al paso de compilación con cmake, puede invocar cmake con marcas para eliminar las características no utilizadas.
 
 ### <a name="remove-additional-protocol-libraries"></a>Eliminación de las bibliotecas de protocolos adicionales
 
-El SDK de C admite actualmente cinco protocolos: MQTT, MQTT sobre WebSocket, AMQP, AMQP sobre WebSocket y HTTPS. La mayoría de los escenarios requiere uno o dos protocolos en ejecución en un cliente; por lo tanto, puede eliminar las bibliotecas de protocolo que no se usan del SDK. Puede encontrar información adicional acerca de cómo elegir el protocolo de comunicación apropiado para su escenario en [Elegir un protocolo de comunicación para IoT Hub](iot-hub-devguide-protocols.md). Por ejemplo, MQTT es un protocolo ligero que es a menudo más adecuado para dispositivos restringidos.
+El SDK para C admite cinco protocolos actualmente: MQTT, MQTT sobre WebSocket, AMQPs, AMQP sobre WebSocket y HTTPS. La mayoría de los escenarios requiere uno o dos protocolos en ejecución en un cliente; por lo tanto, puede eliminar las bibliotecas de protocolo que no se usan del SDK. Puede encontrar información adicional acerca de cómo elegir el protocolo de comunicación apropiado para su escenario en [Elegir un protocolo de comunicación para IoT Hub](iot-hub-devguide-protocols.md). Por ejemplo, MQTT es un protocolo ligero que es a menudo más adecuado para dispositivos restringidos.
 
 Puede eliminar las bibliotecas de AMQP y HTTP mediante el siguiente comando de cmake:
 

@@ -10,12 +10,12 @@ ms.date: 02/25/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6b36694c2fe1bf264c876944b054d39371db616c
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 7ae5f59a1bd96362d5466b2f6363185ba168d942
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77614293"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228328"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -61,7 +61,7 @@ En la tabla siguiente se muestran los tipos de cuentas de almacenamiento que adm
 
 |    Tipo de cuenta de almacenamiento    |    Regiones admitidas    |    Servicios admitidos    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    Uso general v2<sup>1</sup>    | Sudeste de Asia<br /> Norte de Europa<br />  Oeste de Europa<br /> Centro de Francia<br /> Japón Oriental<br /> Sur de Reino Unido 2<br /> Centro de EE. UU.<br /> Este de EE. UU.<br /> Este de EE. UU. 2<br /> Oeste de EE. UU. 2    |    Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
+|    Uso general v2<sup>1</sup>    | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br />  Oeste de Europa<br /> Centro de Francia<br /> Japón Oriental<br /> Norte de Sudáfrica<br /> Sur de Reino Unido 2<br /> Centro de EE. UU.<br /> Este de EE. UU.<br /> Este de EE. UU. 2<br /> Oeste de EE. UU. 2    |    Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
 |    BlockBlobStorage<sup>1</sup>    | Oeste de Europa<br /> Este de EE. UU.    |    Solo blobs en bloques    |
 |    FileStorage    | Oeste de Europa<br /> Este de EE. UU.    |    Solo Azure Files    |
 
@@ -109,10 +109,12 @@ GZRS y RA-GZRS están disponibles actualmente en las versiones preliminares de l
 - Sudeste de Asia
 - Norte de Europa
 - Oeste de Europa
+- Japón Oriental
 - Sur de Reino Unido 2
 - Este de EE. UU.
 - Este de EE. UU. 2
 - Centro de EE. UU.
+- Oeste de EE. UU. 2
 
 Microsoft sigue habilitando GZRS y RA-GZRS en otras regiones de Azure. Revise periódicamente la página [Actualizaciones de servicios Azure](https://azure.microsoft.com/updates/) para información sobre las regiones admitidas.
 
@@ -146,9 +148,9 @@ En la tabla siguiente se muestra el grado de permanencia y disponibilidad de los
 | Escenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (versión preliminar)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Un nodo de un centro de datos deja de estar disponible                                                                 | Sí                             | Sí                              | Sí                                  | Sí                                  |
-| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                              | Sí                              | Sí                                  | Sí                                  |
-| Se produce un apagón en toda la región                                                                                     | Sin                              | Sin                               | Sí                                  | Sí                                  |
-| Acceso de lectura a los datos en la región secundaria si la región primaria deja de estar disponible | Sin                              | Sin                               | Sí (con RA-GRS)                                   | Sí (con RA-GZRS)                                 |
+| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | No                              | Sí                              | Sí                                  | Sí                                  |
+| Se produce un apagón en toda la región                                                                                     | No                              | No                               | Sí                                  | Sí                                  |
+| Acceso de lectura a los datos en la región secundaria si la región primaria deja de estar disponible | No                              | No                               | Sí (con RA-GRS)                                   | Sí (con RA-GZRS)                                 |
 | Porcentaje de durabilidad de los objetos a lo largo de un año determinado<sup>1</sup>                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
 | Tipos de cuenta de almacenamiento admitidos<sup>2</sup>                                                                   | GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
 | SLA de disponibilidad para las solicitudes de lectura<sup>1</sup>  | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GRS | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) para GZRS<br /><br />Al menos un 99,9 % (99,99 % para el nivel de acceso esporádico) para RA-GZRS |

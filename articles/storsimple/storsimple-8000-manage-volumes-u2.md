@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278847"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228176"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar el servicio Administrador de dispositivos de StorSimple para administrar volúmenes (Update 3 o posterior)
 
@@ -26,7 +26,7 @@ El servicio StorSimple Device Manager es una extensión de Azure Portal que perm
 Los volúmenes de StorSimple pueden ser:
 
 * **Volúmenes anclados localmente**: los datos de estos volúmenes se mantienen en el dispositivo StorSimple local en todo momento.
-* **Volúmenes en capas**: los datos de estos volúmenes pueden volcarse en la nube.
+* **Volúmenes en capas**: los datos de estos volúmenes pueden escribirse en la nube.
 
 Un volumen de archivo es un tipo de volumen en capas. El tamaño del fragmento de desduplicación más grande utilizado para los volúmenes de archivo permite que el dispositivo transfiera a la nube segmentos más grandes de datos.
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
 ms.openlocfilehash: c8d028a981d7811ed2c864db5750afc83ab93b2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878875"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Acceso a Azure Data Lake Storage Gen1 desde máquinas virtuales de una red virtual de Azure
@@ -50,7 +50,7 @@ Cuando se utilizan rutas, UDR o rutas intercambiables a través de BGP, para blo
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Habilitación de la conectividad en las máquinas virtuales restringidas mediante ExpressRoute
 Cuando se configura un circuito ExpressRoute, los servidores locales pueden tener acceso a Data Lake Storage Gen1 a través de pares públicos. Para obtener más información sobre cómo configurar ExpressRoute para pares públicos, consulte las [preguntas más frecuentes de ExpressRoute](../expressroute/expressroute-faqs.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Protección de los datos almacenados en Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
 

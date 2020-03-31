@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 9fbde84c499ba5b086ce812de63602c626b416b0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74179327"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)
@@ -31,14 +31,14 @@ Este artículo le guía por los pasos necesarios para configurar una puerta de e
 ## <a name="what-is-required-to-create-an-application-gateway"></a>¿Qué se necesita para crear una puerta de enlace de aplicaciones?
 
 * **Grupo de servidores back-end:** lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la red virtual, pero a otra subred de la puerta de enlace de aplicaciones, o deben ser IP/VIP públicas.
-* **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en las cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
-* **Puerto de front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
-* **Agente de escucha:** tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
+* **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
+* **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
+* **Agente de escucha** : tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
 * **Regla:** enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se dirigirá el tráfico cuando llega a un agente de escucha concreto. Actualmente, solo se admite la regla *básica* . La regla *básica* es la distribución de carga round robin.
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-La diferencia entre el uso del Portal de Azure clásico y Azure Resource Manager es el orden en que se crea la puerta de enlace de aplicaciones y los elementos que es necesario configurar.
+La diferencia entre Azure Portal y Azure Resource Manager es el orden en el que se crea la puerta de enlace de aplicaciones y los elementos que es necesario configurar.
 Con Resource Manager, todos los elementos que componen una puerta de enlace de aplicaciones se configuran individualmente y, luego, se unen para crear el recurso de la puerta de enlace de aplicaciones.
 
 Estos son los pasos necesarios para crear una puerta de enlace de aplicaciones:
@@ -86,7 +86,7 @@ New-AzResourceGroup -Name appgw-rg -location "West US"
 
 Azure Resource Manager requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear una puerta de enlace de aplicaciones usan el mismo grupo de recursos.
 
-En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-rg" y la ubicación "West US".
+En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-rg" y la ubicación "Oeste de EE. UU.".
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Creación de una red virtual y una subred para la puerta de enlace de aplicaciones
 
@@ -106,7 +106,7 @@ Este paso asigna el intervalo de direcciones 10.0.0.0/24 a la variable de subred
 $vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
-Este paso crea una red virtual denominada "appgwvnet" en el grupo de recursos "appgw-rg" para la región West US con el prefijo 10.0.0.0/16 y la subred 10.0.0.0/24.
+Este paso crea una red virtual denominada "appgwvnet" en el grupo de recursos "appgw-rg" para la región Oeste de EE. UU. con el prefijo 10.0.0.0/16 y la subred 10.0.0.0/24.
 
 ### <a name="step-3"></a>Paso 3
 

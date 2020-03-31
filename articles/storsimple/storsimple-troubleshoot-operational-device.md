@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: twooley
 ms.openlocfilehash: ca79e4240c1a82e46bea44a9d018a3c681920480
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75933290"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>Solución de problemas de un dispositivo de StorSimple operativo
 > [!NOTE]
-> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Si tiene alguna pregunta sobre este paso, consulte [Preguntas frecuentes: Transición a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
 
 ## <a name="overview"></a>Información general
 En este artículo se proporcionan instrucciones útiles para solucionar problemas de configuración que se pueden encontrar una vez que el dispositivo de StorSimple está implementado y operativo. Se describen los problemas comunes, las causas posibles y los pasos recomendados para ayudarle a resolver los problemas que pueden producirse al ejecutar Microsoft Azure StorSimple. Esta información se aplica tanto al dispositivo físico local de StorSimple como al dispositivo virtual.
@@ -47,7 +47,7 @@ En la tabla siguiente se describen los errores que pueden surgir al ejecutar el 
 
 | No. | Mensaje o condición de error | Causas posibles | Acción recomendada |
 |:--- |:--- |:--- |:--- |
-| 1 |Error 350032: El dispositivo ya está desactivado. |Verá este error si ejecuta al Asistente para instalación en un dispositivo que está desactivado. |[Póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para conocer los pasos siguientes. No se puede poner en servicio un dispositivo desactivado. Puede ser necesario un restablecimiento de fábrica para que el dispositivo pueda volver a activarse. |
+| 1 |Error 350032: El dispositivo ya se ha desactivado. |Verá este error si ejecuta al Asistente para instalación en un dispositivo que está desactivado. |[Póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para conocer los pasos siguientes. No se puede poner en servicio un dispositivo desactivado. Puede ser necesario un restablecimiento de fábrica para que el dispositivo pueda volver a activarse. |
 | 2 |Invoke-HcsSetupWizard: ERROR_INVALID_FUNCTION (excepción de HRESULT: 0x80070001) |Se produce un error en la actualización del servidor DNS. La configuración de DNS es global y se aplica en todas las interfaces de red habilitadas. |Habilite la interfaz y vuelva a aplicar la configuración de DNS. Esto puede interrumpir la red en otras interfaces habilitadas, ya que esta configuración es global. |
 | 3 |El dispositivo parece estar en línea en el portal de servicios de StorSimple Manager, pero al intentar completar la instalación mínima y guardar la configuración, se produce un error en la operación. |Durante la instalación inicial, no se configuró el proxy web, aunque había un servidor proxy local. |Use el [cmdlet Test-HcsmConnection][2] para localizar el error. [Póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) si no puede corregir el problema. |
 | 4 |Invoke-HcsSetupWizard: El valor no está dentro del intervalo esperado. |Este error se debe a una máscara de subred incorrecta. Las posibles causas son: <ul><li> La máscara de subred falta o está vacía.</li><li>El formato del prefijo Ipv6 es incorrecto.</li><li>La interfaz está habilitada para la nube, pero la puerta de enlace falta o es incorrecta.</li></ul>Tenga en cuenta que DATA 0 se habilita automáticamente para la nube si se configura mediante el Asistente para instalación. |Para determinar el problema, utilice la subred 0.0.0.0 o 256.256.256.256 y, a continuación, examine la salida. Escriba los valores correctos para la máscara de subred, la puerta de enlace y el prefijo de Ipv6, según sea necesario. |

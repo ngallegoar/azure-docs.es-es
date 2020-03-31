@@ -3,7 +3,7 @@ title: Creación y carga de un VHD de SUSE Linux en Azure
 description: Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un sistema operativo SUSE Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: mimckitt
+author: gbowerman
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: mimckitt
-ms.openlocfilehash: d64fc55159ddc3ce88397879958a63bf30808ad9
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.author: guybo
+ms.openlocfilehash: 7bfe0aabbf2318643b59d57519be1475648a12ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251586"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066566"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparación de una máquina virtual SLES u openSUSE para Azure
 
@@ -141,7 +141,7 @@ Como alternativa a la creación de su propio VHD, SUSE también publica imágene
 7. Se recomienda editar el archivo "/etc/sysconfig/network/dhcp" y cambiar el parámetro `DHCLIENT_SET_HOSTNAME` por lo siguiente:
    
      DHCLIENT_SET_HOSTNAME="no"
-8. **Importante:** En "/etc/sudoers", convierta en comentario o quite las líneas siguientes, si existen:
+8. **Importante:** en "/etc/sudoers", realice un comentario o quite las siguientes líneas si existen:
      
      ```
      Defaults targetpw   # ask for the password of the target user i.e. root

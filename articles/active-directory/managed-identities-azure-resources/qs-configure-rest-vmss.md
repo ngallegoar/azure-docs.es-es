@@ -16,11 +16,11 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429992"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227736"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante llamadas a la API REST
 
@@ -337,7 +337,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
    az account get-access-token
    ``` 
 
-4. Cree una identidad asignada por el usuario mediante las instrucciones que se encuentran aquí: [Creación de una identidad administrada asignada por el usuario](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+4. Cree una identidad administrada asignada por el usuario mediante las instrucciones que se encuentran aquí: [Creación de una identidad administrada asignada por el usuario](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 5. Cree un conjunto de escalado de máquinas virtuales con CURL para llamar al punto de conexión REST de Azure Resource Manager. En el ejemplo siguiente se crea un conjunto de escalado de máquinas virtuales denominado *myVMSS* en el grupo de recursos *myResourceGroup* con una identidad administrada asignada por el usuario `ID1`, como se identificó en el cuerpo de la solicitud por el valor `"identity":{"type":"UserAssigned"}`. Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
  

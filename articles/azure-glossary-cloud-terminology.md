@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978756"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234856"
 ---
-# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma de Azure
+# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma Azure
 
 El glosario de Microsoft Azure es un breve diccionario de terminología de la nube para la plataforma Azure. Consulte también:
 
@@ -43,17 +43,17 @@ Los recursos de proceso que [Azure App Service](app-service/overview.md) proporc
 Una colección de máquinas virtuales que se administran de forma conjunta para proporcionar confiabilidad y redundancia a las aplicaciones. El uso de un conjunto de disponibilidad garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible.  
 Consulte [Administración de la disponibilidad de las máquinas virtuales con Windows](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y [Administración de la disponibilidad de las máquinas virtuales con Linux](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="classic-model"></a>modelo de implementación clásica de Azure
+## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>modelo de implementación clásica de Azure
 Uno de los dos [modelos de implementación](resource-manager-deployment-model.md) utilizados para implementar recursos en Azure (el nuevo modelo es Azure Resource Manager). Algunos servicios de Azure admiten solo el modelo de implementación Resource Manager, otros son compatibles con el modelo de implementación clásica y otros admiten ambos. La documentación para cada servicio de Azure especifica qué modelos admite.
 
-## <a name="cli"></a>Interfaz de la línea de comandos (CLI) de Azure
+## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Interfaz de la línea de comandos (CLI) de Azure
 Una interfaz de la línea de comandos que se puede utilizar para administrar los servicios de Azure desde Windows, OSX y Linux.  Algunos servicios o características de un servicio pueden administrarse solo a través de PowerShell o la CLI. Consulte [CLI de Azure](/cli/azure)
 
-## <a name="powershell"></a>Azure PowerShell.
+## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell.
 Una interfaz de la línea de comandos para administrar los servicios de Azure a través de una línea de comandos desde equipos con Windows. Algunos servicios o características de un servicio pueden administrarse solo a través de PowerShell o la CLI.
 Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
 
-## <a name="arm-model"></a>Modelo de implementación de Azure Resource Manager
+## <a name="azure-resource-manager-deployment-model"></a><a name="arm-model"></a>Modelo de implementación de Azure Resource Manager
 Uno de los dos [modelos de implementación](resource-manager-deployment-model.md) utilizados para implementar recursos en Microsoft Azure (el otro es el modelo de implementación clásica). Algunos servicios de Azure admiten solo el modelo de implementación Resource Manager, otros son compatibles con el modelo de implementación clásica y otros admiten ambos. La documentación para cada servicio de Azure especifica qué modelos admite.
 
 ## <a name="fault-domain"></a>dominio de error
@@ -70,7 +70,7 @@ Vea [Replicación geográfica activa para Azure SQL Database](sql-database/sql-d
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>imagen
-Un archivo que contiene la configuración del sistema operativo y la aplicación que puede utilizarse para crear cualquier cantidad de máquinas virtuales. En Azure existen dos tipos de imágenes: Imagen de máquina virtual e imagen del sistema operativo. Una imagen de máquina virtual incluye un sistema operativo y todos los discos conectados a una máquina virtual cuando se crea la imagen. Una imagen de sistema operativo contiene solo un sistema operativo generalizado sin configuraciones de disco de datos.  
+Un archivo que contiene la configuración del sistema operativo y la aplicación que puede utilizarse para crear cualquier cantidad de máquinas virtuales. En Azure existen dos tipos de imágenes: imagen de máquina virtual e imagen de sistema operativo. Una imagen de máquina virtual incluye un sistema operativo y todos los discos conectados a una máquina virtual cuando se crea la imagen. Una imagen de sistema operativo contiene solo un sistema operativo generalizado sin configuraciones de disco de datos.  
 Vea [Navegación y selección de las imágenes de máquina virtual Windows en Azure con Powershell o la CLI](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="limits"></a>límites
@@ -102,7 +102,7 @@ Vea [Información general del Azure Resource Manager](azure-resource-manager/man
 Un contenedor en Resource Manager que incluye los recursos relacionados de una aplicación. El grupo de recursos puede incluir todos los recursos de una aplicación o solo aquellos que se agrupan juntos lógicamente. Puede decidir cómo desea asignar los recursos a los grupos de recursos en función de lo que más convenga a su organización.  
 Vea [Información general del Azure Resource Manager](azure-resource-manager/management/overview.md)
 
-## <a name="arm-template"></a>plantilla de Resource Manager
+## <a name="resource-manager-template"></a><a name="arm-template"></a>plantilla de Resource Manager
 Un archivo JSON que define de forma declarativa uno o varios recursos de Azure y que define las dependencias entre los recursos implementados. La plantilla se puede usar para implementar los recursos de manera repetida y uniforme.  
 Vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md)
 
@@ -112,13 +112,13 @@ Vea [Información general del Azure Resource Manager](azure-resource-manager/man
 
 ## <a name="role"></a>rol
 Un medio para controlar el acceso que se puede asignar a usuarios, grupos y servicios. Los roles pueden realizar acciones como crear, administrar y leer en recursos de Azure.  
-Consulte [RBAC: roles integrados](role-based-access-control/built-in-roles.md)
+Vea [RBAC: roles integrados](role-based-access-control/built-in-roles.md)
 
-## <a name="sla"></a>contrato de nivel de servicio (SLA)
+## <a name="service-level-agreement-sla"></a><a name="sla"></a>contrato de nivel de servicio (SLA)
 El contrato que describe los compromisos de Microsoft en cuanto a tiempo de actividad y conectividad. Cada servicio de Azure tiene un acuerdo de nivel de servicio específico.  
 Vea [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/)
 
-## <a name="sas"></a>firma de acceso compartido (SAS)
+## <a name="shared-access-signature-sas"></a><a name="sas"></a>firma de acceso compartido (SAS)
 Firma que le permite otorgar acceso limitado a un recurso, sin exponer su clave de cuenta. Por ejemplo, [Azure Storage usa SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) para conceder acceso de cliente a objetos como blobs. [IoT Hub usa SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) para conceder a los dispositivos permiso para enviar telemetría.
 
 ## <a name="storage-account"></a>Cuenta de almacenamiento
@@ -137,16 +137,16 @@ Consulte [Uso de etiquetas para organizar los recursos de Azure](resource-group-
 La colección de máquinas virtuales en un conjunto de disponibilidad que se actualizan al mismo tiempo. Las máquinas virtuales que se encuentran en el mismo dominio de actualización se reinician en conjunto durante el mantenimiento planeado. Azure no reinicia nunca más de un dominio de actualización a la vez. Así es como funcionan los dominios de actualización.  
 Consulte [Administración de la disponibilidad de las máquinas virtuales con Windows](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y [Administración de la disponibilidad de las máquinas virtuales con Linux](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="vm"></a>máquina virtual
+## <a name="virtual-machine"></a><a name="vm"></a>máquina virtual
 La implementación de software de un equipo físico que ejecuta un sistema operativo. Se pueden ejecutar varias máquinas virtuales a la vez en un mismo hardware. En Azure, hay máquinas virtuales disponibles en diferentes tamaños.  
 Consulte [Documentación sobre máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-## <a name="vm-extension"></a>extensión de máquina virtual
+## <a name="virtual-machine-extension"></a><a name="vm-extension"></a>extensión de máquina virtual
 Un recurso que implementa comportamientos o características que cooperan en el funcionamiento de otros programas o le permiten interactuar con un equipo en ejecución. Por ejemplo, podría utilizar la extensión de acceso a máquinas virtuales para restablecer o modificar los valores de acceso remoto en una máquina virtual de Azure.
 <!-- This definition seems obscure to me; maybe a list of examples would work better than a conceptual definition? -->
 Consulte [Acerca de las características y extensiones de las máquinas virtuales (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Acerca de las características y extensiones de las máquinas virtuales (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="vnet"></a>red virtual
+## <a name="virtual-network"></a><a name="vnet"></a>red virtual
 Una red que proporciona conectividad entre los recursos de Azure que se encuentra aislada del resto de inquilinos de Azure. Una instancia de [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) le permite establecer conexiones entre redes virtuales y entre una red virtual y una red local. Puede controlar por completo los bloques de direcciones IP, la configuración DNS, las directivas de seguridad y las tablas de rutas dentro de una red virtual.  
 Consulte [Información general sobre redes virtuales](virtual-network/virtual-networks-overview.md)  
 

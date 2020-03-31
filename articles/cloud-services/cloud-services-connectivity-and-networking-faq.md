@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
 ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77019407"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividad y redes en Azure Cloud Services: Preguntas más frecuentes (P+F)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividad y redes en Azure Cloud Services: preguntas más frecuentes (P+F)
 
 Este artículo incluye preguntas frecuentes sobre conectividad y redes para [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Para obtener información del tamaño, consulte la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md).
 

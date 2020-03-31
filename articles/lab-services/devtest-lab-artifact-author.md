@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66399200"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creación de artefactos personalizados para la máquina virtual de DevTest Labs
@@ -53,14 +53,14 @@ En el ejemplo siguiente se muestran las secciones que componen la estructura bá
       }
     }
 
-| Nombre del elemento | ¿Necesario? | DESCRIPCIÓN |
+| Nombre del elemento | ¿Necesario? | Descripción |
 | --- | --- | --- |
-| $schema |Sin |Ubicación del archivo de esquema JSON. El archivo de esquema JSON puede ayudarle a probar la validez del archivo de definición. |
+| $schema |No |Ubicación del archivo de esquema JSON. El archivo de esquema JSON puede ayudarle a probar la validez del archivo de definición. |
 | title |Sí |Nombre del artefacto que se muestra en el laboratorio. |
 | description |Sí |Descripción del artefacto que se muestra en el laboratorio. |
-| iconUri |Sin |Identificador URI del icono que se muestra en el laboratorio. |
+| iconUri |No |Identificador URI del icono que se muestra en el laboratorio. |
 | targetOsType |Sí |Sistema operativo de la máquina virtual en que se instala el artefacto. Las opciones admitidas son Windows y Linux. |
-| parameters |Sin |Los valores que se proporcionan cuando el comando de instalación del artefacto se ejecuta en un equipo. Esto le ayuda a personalizar el artefacto. |
+| parámetros |No |Los valores que se proporcionan cuando el comando de instalación del artefacto se ejecuta en un equipo. Esto le ayuda a personalizar el artefacto. |
 | runCommand |Sí |Comando de instalación de artefacto que se ejecuta en una máquina virtual. |
 
 ### <a name="artifact-parameters"></a>Parámetros de artefacto
@@ -76,9 +76,9 @@ Para definir los parámetros, use la estructura siguiente:
       }
     }
 
-| Nombre del elemento | ¿Necesario? | DESCRIPCIÓN |
+| Nombre del elemento | ¿Necesario? | Descripción |
 | --- | --- | --- |
-| Tipo |Sí |Tipo del valor de parámetro. Consulte la lista siguiente de los tipos permitidos. |
+| type |Sí |Tipo del valor de parámetro. Consulte la lista siguiente de los tipos permitidos. |
 | DisplayName |Sí |Nombre del parámetro que se muestra a un usuario en el laboratorio. |
 | description |Sí |Descripción del parámetro que se muestra en el laboratorio. |
 
@@ -122,7 +122,7 @@ Normalmente, se utilizan expresiones con funciones para construir un valor. **Al
 En la lista siguiente se muestran las funciones comunes:
 
 * **parameters(parameterName)** : devuelve un valor de parámetro que se proporciona cuando se ejecuta el comando de artefacto.
-* **concat(arg1, arg2, arg3,….. )** : combina varios valores de cadena. Esta función puede tomar diversos argumentos.
+* **concat(arg1, arg2, arg3,…)** : combina varios valores de cadena. Esta función puede tomar diversos argumentos.
 
 En el ejemplo siguiente se muestra cómo utilizar expresiones y funciones para construir un valor:
 

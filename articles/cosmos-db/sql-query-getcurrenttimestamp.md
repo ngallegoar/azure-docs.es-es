@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: b816c63da56025fe6e9cbaece2cde5dcd01585d4
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71351012"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
@@ -23,11 +23,11 @@ ms.locfileid: "71351012"
 GetCurrentTimestamp ()  
 ```  
   
-## <a name="return-types"></a>Tipos de valor devuelto
+## <a name="return-types"></a>Tipos de valores devueltos
   
   Devuelve un valor numérico, el número actual de milisegundos que han transcurrido desde la época de Unix, es decir, el número de milisegundos que han transcurrido desde las 00:00:00 del jueves, 1 de enero de 1970.
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
   GetCurrentTimestamp() es una función no determinista.
   

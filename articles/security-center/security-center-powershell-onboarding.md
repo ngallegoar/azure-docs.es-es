@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
 ms.openlocfilehash: 5aaaf539c07a7ba2c2463d5bfd1f452853f52379
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603695"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatización de la incorporación de Azure Security Center mediante PowerShell
@@ -41,7 +41,7 @@ En este ejemplo, se habilitará Security Center en una suscripción con el ident
 
 6. Asigne [directivas de seguridad predeterminadas](tutorial-security-policy.md) de Security Center.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Estos pasos deben realizarse antes de ejecutar los cmdlets de Security Center:
 

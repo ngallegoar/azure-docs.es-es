@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: billgib
 ms.date: 12/04/2018
 ms.openlocfilehash: a54e8e5629f6f8ad688b6fe11bbf50fc038095bf
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73818525"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restauración de un solo inquilino con una aplicación SaaS de base de datos por inquilino
@@ -43,7 +43,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 Hay dos patrones simples para restaurar los datos de un inquilino individual. Debido a que las bases de datos de inquilino están aisladas entre sí, restaurar un inquilino no afecta los datos de los demás inquilinos. La característica de restauración a un momento dado (PITR) de Azure SQL Database se usa en ambos patrones. Esta característica siempre crea una base de datos nueva.
 
-* **Restauración en paralelo**: en el primer patrón, se crea una base de datos en paralelo junto a la base de datos actual del inquilino. A continuación, el inquilino recibe acceso de solo lectura a la base de datos restaurada. Los datos restaurados se pueden revisar y potencialmente usar para sobrescribir los valores de datos actuales. Del diseñador de la aplicación depende determinar cómo el inquilino accede a la base de datos restaurada y las opciones de recuperación que se proporcionan. En algunos escenarios, es posible que todo lo que se necesite sea simplemente permitir que el inquilino revise los datos en un punto anterior.
+* **Restauración en paralelo**: en el primer patrón, se crea una base de datos en paralelo junto con la base de datos actual del inquilino. A continuación, el inquilino recibe acceso de solo lectura a la base de datos restaurada. Los datos restaurados se pueden revisar y potencialmente usar para sobrescribir los valores de datos actuales. Del diseñador de la aplicación depende determinar cómo el inquilino accede a la base de datos restaurada y las opciones de recuperación que se proporcionan. En algunos escenarios, es posible que todo lo que se necesite sea simplemente permitir que el inquilino revise los datos en un punto anterior.
 
 * **Restauración en contexto**: el segundo patrón resulta útil si se perdieron o dañaron datos y el inquilino quiere revertir a un punto anterior. El inquilino queda sin conexión mientras se restaura la base de datos. La base de datos original se elimina y se cambia el nombre de la base de datos restaurada. La cadena de copia de seguridad de la base de datos original sigue siendo accesible después de la eliminación, para que pueda restaurar la base de datos a un momento dado anterior si es necesario.
 
@@ -125,7 +125,7 @@ Después de que restaure la base de datos, tardará otros 10 a 15 minutos antes 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Restauración de una base de datos en una base de datos en paralelo (lado a lado).

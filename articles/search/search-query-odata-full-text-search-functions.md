@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 06eb29f2f3245d3f4fd047fb86b2b57fb1f0989e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793346"
 ---
 # <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funciones de búsqueda de texto completo de OData en Azure Cognitive Search: `search.ismatch` y `search.ismatchscoring`
@@ -54,10 +54,10 @@ search_mode ::= "'any'" | "'all'"
 También está disponible un diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
+> [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
 
 > [!NOTE]
-> Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
+> Consulte [Referencia de la sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
 ### <a name="searchismatch"></a>search.ismatch
 
@@ -69,7 +69,7 @@ La función `search.ismatch` evalúa la consulta de búsqueda de texto completo 
 
 Los parámetros se definen en la tabla siguiente:
 
-| Nombre de parámetro | type | DESCRIPCIÓN |
+| Nombre de parámetro | Tipo | Descripción |
 | --- | --- | --- |
 | `search` | `Edm.String` | La consulta de búsqueda (en la sintaxis de consulta Lucene [simple](query-simple-syntax.md) o [completa](query-lucene-syntax.md)). |
 | `searchFields` | `Edm.String` | Lista separada por comas de los campos de búsqueda en los que se va buscar; el valor predeterminado son todos los campos de búsqueda del índice. Cuando se usa la [búsqueda clasificada por campos](query-lucene-syntax.md#bkmk_fields) en el parámetro `search`, los especificadores de campo de la consulta de Lucene invalidan los campos especificados en este parámetro. |

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276902"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228252"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple
 

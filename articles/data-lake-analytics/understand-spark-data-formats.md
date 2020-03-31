@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
 ms.openlocfilehash: 36f39503ca32f1ee4b422ae7b1cf9abf48716f07
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73648169"
 ---
 # <a name="understand-differences-between-u-sql-and-spark-data-formats"></a>Descripción de las diferencias entre los formatos de datos de Spark y U-SQL
@@ -52,5 +52,5 @@ Después de esta transformación, puede copiar los datos como se describe en el 
 - [Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
 - [.NET para Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
 - [Transformación de datos mediante la actividad de Spark en Azure Data Factory](../data-factory/transform-data-using-spark.md)
-- [Transformación de datos mediante la actividad de Hive de Hadoop en Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
-- [Qué es Apache Spark en Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)
+- [Transformación de datos mediante la actividad de Hive de Hadoop en Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
+- [Qué es Apache Spark en Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176638"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226580"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Plantillas de problema en Azure API Management
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
@@ -34,7 +34,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="IssueList"></a> Issue list  
+##  <a name="issue-list"></a><a name="IssueList"></a> Issue list  
  La plantilla **Issue list** le permite personalizar el cuerpo de la página de lista de problemas en el portal para desarrolladores.  
   
  ![Lista de problemas en el Portal para desarrolladores](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Lista de problemas de APIM en el Portal para desarrolladores")  
@@ -98,7 +98,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 ### <a name="data-model"></a>Modelo de datos  
   
-|Propiedad|Escriba|DESCRIPCIÓN|  
+|Propiedad|Tipo|Descripción|  
 |--------------|----------|-----------------|  
 |`Issues`|Colección de entidades de [problema](api-management-template-data-model-reference.md#Issue).|Los problemas visibles para el usuario actual.|  
 |`Paging`|Entidad [Paging](api-management-template-data-model-reference.md#Paging).|La información de paginación de la colección de aplicaciones.|  

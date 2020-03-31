@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8156f8706828afae30889b3250cf0b26252bf394
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77598483"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -191,7 +191,7 @@ Los clústeres de conmutación por error de Windows Server son la base de una in
 
 Un clúster de conmutación por error es un grupo de 1+n servidores independientes (nodos) que colaboran para aumentar la disponibilidad de aplicaciones y servicios. Si se produce un error de nodo, los clústeres de conmutación por error de Windows Server calculan el número de errores que se pueden producir y mantiene un clúster en buen estado para proporcionar aplicaciones y servicios. Para conseguir clústeres de conmutación por error, puede elegir entre distintos modos de cuórum.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 Antes de comenzar las tareas de este artículo, consulte el siguiente artículo:
 
 * [Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -209,9 +209,9 @@ El servicio Azure Load Balancer proporciona un *equilibrador de carga interno* p
 
 Implemente el equilibrador de carga interno en el grupo de recursos que contiene los nodos del clúster. A continuación, configure todas las reglas de reenvío de puertos necesarias utilizando los puertos de sondeo del equilibrador de carga interno. Los clientes se pueden conectar por medio del nombre de host virtual. El servidor DNS resuelve la dirección IP del clúster y el equilibrador de carga interno controla el enrutamiento de puerto al nodo activo del clúster.
 
-![Figura 1: Configuración de clústeres de conmutación por error de Windows en Azure sin un disco compartido][sap-ha-guide-figure-1001]
+![Figura 1: Configuración de clústeres de conmutación por error de Windows en Azure sin un disco compartido][sap-ha-guide-figure-1001]
 
-_**Ilustración 1:** Configuración de clústeres de conmutación por error de Windows Server en Azure sin un disco compartido_
+_**Figura 1:** Configuración de clústeres de conmutación por error de Windows Server en Azure sin un disco compartido_
 
 ### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>Alta disponibilidad de ASCS/SCS de SAP con discos compartidos de clúster
 En Windows, una instancia de ASCS/SCS de SAP contiene servicios centrales de SAP, el servidor de mensajes de SAP, procesos del servidor de colas y archivos de host global de SAP. Los archivos de host global de SAP almacenan archivos centrales para todo el sistema SAP.
@@ -230,15 +230,15 @@ Una instancia de ASCS/SCS de SAP tiene los siguientes componentes:
     \\\\<nombre de host virtual ASCS/SCS\>\sapmnt\\&lt;SID&gt;\SYS\..
 
 
-![Ilustración 2: Procesos, estructura de archivos y recurso compartido de archivos sapmnt de host global de una instancia de ASCS/SCS de SAP][sap-ha-guide-figure-8001]
+![Figura 2: Procesos, estructura de archivos y recurso compartido de archivos sapmnt de host global de una instancia de ASCS/SCS de SAP][sap-ha-guide-figure-8001]
 
-_**Ilustración 2:** Procesos, estructura de archivos y recurso compartido de archivos sapmnt de host global de una instancia de ASCS/SCS de SAP_
+_**Figura 2:** Procesos, estructura de archivos y recurso compartido de archivos sapmnt de host global de una instancia de ASCS/SCS de SAP_
 
 En una configuración de alta disponibilidad, se agrupan instancias de ASCS/SCS de SAP. Usamos *discos compartidos de clúster* (unidad S en nuestro ejemplo) para colocar los archivos de ASCS/SCS de SAP y los archivos de host global de SAP.
 
-![Ilustración 3: Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido][sap-ha-guide-figure-8002]
+![Figura 3: Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido][sap-ha-guide-figure-8002]
 
-_**Ilustración 3:** Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido_
+_**Figura 3:** Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido_
 
 > [!IMPORTANT]
 > Estos dos componentes se ejecutan en la misma instancia de ASCS/SCS de SAP:
@@ -247,9 +247,9 @@ _**Ilustración 3:** Arquitectura de alta disponibilidad de ASCS/SCS de SAP con
 >
 
 
-![Ilustración 4: Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido][sap-ha-guide-figure-8003]
+![Figura 4: Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido][sap-ha-guide-figure-8003]
 
-_**Ilustración 4:** Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido_
+_**Figura 4:** Arquitectura de alta disponibilidad de ASCS/SCS de SAP con disco compartido_
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>Discos compartidos en Azure con SIOS DataKeeper
 
@@ -265,9 +265,9 @@ Para crear un recurso de disco compartido para un clúster:
 
 Obtenga más información sobre [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
-![Ilustración 5: Configuración de clústeres de conmutación por error de Windows Server en Azure con SIOS DataKeeper][sap-ha-guide-figure-1002]
+![Figura 5: Configuración de clústeres de conmutación por error de Windows Server en Azure con SIOS DataKeeper][sap-ha-guide-figure-1002]
 
-_**Ilustración 5:** Configuración de clústeres de conmutación por error de Windows en Azure con SIOS DataKeeper_
+_**Figura 5:** Configuración de clústeres de conmutación por error de Windows Server en Azure con SIOS DataKeeper_
 
 > [!NOTE]
 > No necesita discos compartidos para obtener alta disponibilidad con algunos productos de DBMS, como SQL Server. SQL Server Always On replica archivos de registro y datos de DBMS desde el disco local de un nodo del clúster hasta el disco local de otro nodo del clúster. En este caso, la configuración de clúster de Windows no necesita un disco compartido.

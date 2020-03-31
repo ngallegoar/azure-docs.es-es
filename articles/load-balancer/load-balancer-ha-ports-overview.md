@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: c6529e2585a7fca2d160d093d303afa02e6f9379
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5ada709350802344bfa65cce269735baa416edf6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215073"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234445"
 ---
 # <a name="high-availability-ports-overview"></a>Introducción a los puertos de alta disponibilidad
 
@@ -32,7 +32,7 @@ Las reglas de equilibrio de carga de puertos de alta disponibilidad se configura
 
 ## <a name="why-use-ha-ports"></a>¿Por qué usar puertos de alta disponibilidad?
 
-### <a name="nva"></a>Dispositivos virtuales de red
+### <a name="network-virtual-appliances"></a><a name="nva"></a>Dispositivos virtuales de red
 
 Puede usar dispositivos virtuales de red (NVA) para proteger la carga de trabajo de Azure frente a varios tipos de amenazas de seguridad. Cuando se usan NVA en estos escenarios, deben ser confiables y de alta disponibilidad y escalar horizontalmente a petición.
 
@@ -97,7 +97,6 @@ Puede configurar *un* recurso público Load Balancer Estándar para los recursos
 - Las reglas de equilibrio de carga de puertos de alta disponibilidad solo están disponibles para la instancia interna de Standard Load Balancer.
 - No se admite la combinación de una regla de equilibrio de carga de puertos HA y una regla de equilibrio de carga de puertos no HA.
 - Los fragmentos IP existentes se reenviarán mediante reglas de equilibrio de carga de puertos de alta disponibilidad al mismo destino que el primer paquete.  No se admite la fragmentación de IP en un paquete UDP o TCP.
-- Las reglas de equilibrio de carga de puertos de alta disponibilidad no están disponibles para IPv6.
 - La simetría de flujo (principalmente en escenarios de NVA) se admite con instancias de back-end y una NIC única (y una sola configuración de IP), solo si se usa como se muestra en el diagrama anterior y mediante reglas de equilibrio de carga de los puertos de alta disponibilidad. No se proporciona para ningún otro escenario. Esto significa que dos o más recursos de Load Balancer y sus respectivas reglas toman decisiones independientes y nunca se coordinan. Consulte la descripción y el diagrama de los [dispositivos virtuales de red](#nva). Si usa varias NIC o sitúa la aplicación virtual de red entre una instancia pública y una privada de Load Balancer, la simetría de flujo no está disponible.  Para solucionar este problema, puede alterar el origen del primer paquete del flujo de entrada a la IP de la aplicación para permitir que las respuestas lleguen a la misma NVA.  Sin embargo, se recomienda encarecidamente utilizar una sola NIC y la arquitectura de referencia que se ha mostrado en el diagrama anterior.
 
 

@@ -16,10 +16,10 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: b1578547fbca4caaecb209021569f0fbb2f1ae24
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790634"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Aprovisionamiento de máquinas virtuales de SQL Server con Azure PowerShell

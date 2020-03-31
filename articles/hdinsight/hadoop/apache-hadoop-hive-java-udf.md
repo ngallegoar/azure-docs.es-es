@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/20/2019
 ms.openlocfilehash: 73a2a612a4eeb4a59f12abf0660fffb092f0547f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74327207"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utilización de una función definida por el usuario de Java con Apache Hive en HDInsight
 
 Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) que funcione con Apache Hive. La función de Java definida por el usuario de este ejemplo convierte una tabla de cadenas de texto a caracteres en minúscula.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * [Kit de desarrolladores de Java (JDK), versión 8](https://aka.ms/azure-jdks)
@@ -150,7 +150,7 @@ cd C:\HDI
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
     ```
 
-    Luego, copie y pegue el código Java siguiente en el nuevo archivo. A continuación, cierre el archivo.
+    Luego, copie y pegue el código Java siguiente en el nuevo archivo. y ciérrelo.
 
     ```java
     package com.microsoft.examples;
@@ -249,7 +249,7 @@ En los siguientes comandos, reemplace `sshuser` por el nombre de usuario real, s
         | colorado      | Colorado      |
         +---------------+---------------+--+
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Al ejecutar el trabajo de Hive, es posible que se produzca un error similar al texto siguiente:
 

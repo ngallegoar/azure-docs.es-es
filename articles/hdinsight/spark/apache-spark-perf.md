@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.openlocfilehash: 3d8f4a28961be7e0ece517e00026d9711d8f67e9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198878"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimización de trabajos de Apache Spark en HDInsight
@@ -63,7 +63,7 @@ Cuando se crea un nuevo clúster de Spark, puede seleccionar Azure Blob Storage 
 | Azure Blob Storage (seguro) | **wasbs:** //url/ | **Estándar** | Sí | Clúster transitorio |
 | Azure Data Lake Storage Gen 2| **abfs:** //url/ | **Más rápido** | Sí | Clúster transitorio |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **Más rápido** | Sí | Clúster transitorio |
-| HDFS local | **hdfs:** //url/ | **El más rápido** | Sin | Clúster 24/7 interactivo |
+| HDFS local | **hdfs:** //url/ | **El más rápido** | No | Clúster 24/7 interactivo |
 
 Puede encontrar una descripción completa de las opciones de almacenamiento disponibles para los clústeres de HDInsight en [Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
 

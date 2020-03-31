@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386177"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube

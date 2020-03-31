@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
 ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74269445"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Enumeración de los recursos de Azure Storage en C++

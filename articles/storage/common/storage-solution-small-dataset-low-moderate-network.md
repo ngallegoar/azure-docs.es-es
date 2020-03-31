@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
 ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60397284"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferencia de pequeños conjuntos de datos con ancho de banda de red de bajo a moderado
  
 En este artículo encontrará información general sobre las soluciones para la transferencia de datos cuando tiene un ancho de banda de red de bajo a moderado en su entorno y vaya a transferir pequeños conjuntos de datos. En el artículo también se describen las opciones recomendadas de transferencia de datos y la matriz de funcionalidades clave para este escenario.
 
-Para obtener una visión general de todas las opciones de transferencia de datos disponibles, vaya a [Choose an Azure data transfer solution](storage-choose-data-transfer-solution.md) (Elección de una solución de transferencia de datos de Azure).
+Para una visión general de todas las opciones de transferencia de datos disponibles, vaya a [Choose an Azure data transfer solution](storage-choose-data-transfer-solution.md) (Elección de una solución de transferencia de datos de Azure).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -39,7 +39,7 @@ Las opciones recomendadas en este escenario son las siguientes:
 
 - **Herramientas de scripting y programación**: como AzCopy, PowerShell, la CLI de Azure y las API REST de Azure Storage.
 
-    - **AzCopy**: use esta herramienta de línea de comandos para copiar fácilmente datos desde y hacia Azure Blobs, Files y Table Storage con un rendimiento óptimo. AzCopy admite la simultaneidad y el paralelismo, y permite reanudar operaciones de copia cuando si se interrumpen.
+    - **AzCopy**: use esta herramienta de la línea de comandos para copiar fácilmente datos desde y hacia Azure Blobs, Files y Table Storage con un rendimiento óptimo. AzCopy admite la simultaneidad y el paralelismo, y permite reanudar operaciones de copia cuando si se interrumpen.
     - **Azure PowerShell**: para usuarios que se sienten cómodos con la administración del sistema, use el módulo de Azure Storage en Azure PowerShell para transferir datos.
     - **CLI de Azure**: use esta herramienta multiplataforma para poder administrar los servicios de Azure y cargar datos en Azure Storage.
     - **API/SDK REST de Azure Storage**: al crear una aplicación, puede desarrollarla en función de las API REST y los SDK de Azure Storage y usar las bibliotecas de cliente de Azure que se ofrecen en varios lenguajes.
@@ -47,18 +47,18 @@ Las opciones recomendadas en este escenario son las siguientes:
 
 ## <a name="comparison-of-key-capabilities"></a>Comparación de funcionalidades clave
 
-En la tabla siguiente se resumen las diferencias de las funcionalidades clave.
+En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 
 | Característica | Explorador de Azure Storage | Portal de Azure | AzCopy<br>Azure PowerShell<br>Azure CLI | API REST o SDK de Azure Storage |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Disponibilidad | Descargar e instalar <br>Herramientas independientes | Herramientas de exploración de Azure Portal basadas en la web | Texto de línea de comandos |Interfaces programables en. NET, Java, Python, JavaScript, C++, Go, Ruby y PHP |
-| Interfaz gráfica | Sí | Sí | No | Sin |
+| Interfaz gráfica | Sí | Sí | No | No |
 | Plataformas compatibles | Windows, Mac, Linux | Basadas en web |Windows, Mac, Linux |Todas las plataformas |
-| Operaciones de Blob Storage permitidas<br>para blobs y carpetas | Cargar<br>Descargar<br>administración | Cargar<br>Descargar<br>administración |Cargar<br>Descargar<br>administración | Sí, es personalizable |
-| Almacenamiento de Data Lake Gen1 permitido<br>operaciones de archivos y carpetas | Cargar<br>Descargar<br>administración | Sin |Cargar<br>Descargar<br>administración                   | Sin |
-| Operaciones de File Storage permitidas<br>para archivos y directorios | Cargar<br>Descargar<br>administración | Cargar<br>Descargar<br>administración   |Cargar<br>Descargar<br>administración | Sí, es personalizable |
-| Operaciones de Table Storage permitidas<br>para tablas |administración | Sin |Compatibilidad con tablas en AzCopy v7 |Sí, es personalizable|
-| Instancia de Queue Storage permitida | administración | Sin  |Sin | Sí, es personalizable|
+| Operaciones de Blob Storage permitidas<br>para blobs y carpetas | Cargar<br>Descargar<br>Administrar | Cargar<br>Descargar<br>Administrar |Cargar<br>Descargar<br>Administrar | Sí, es personalizable |
+| Almacenamiento de Data Lake Gen1 permitido<br>operaciones de archivos y carpetas | Cargar<br>Descargar<br>Administrar | No |Cargar<br>Descargar<br>Administrar                   | No |
+| Operaciones de File Storage permitidas<br>para archivos y directorios | Cargar<br>Descargar<br>Administrar | Cargar<br>Descargar<br>Administrar   |Cargar<br>Descargar<br>Administrar | Sí, es personalizable |
+| Operaciones de Table Storage permitidas<br>para tablas |Administrar | No |Compatibilidad con tablas en AzCopy v7 |Sí, es personalizable|
+| Instancia de Queue Storage permitida | Administrar | No  |No | Sí, es personalizable|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

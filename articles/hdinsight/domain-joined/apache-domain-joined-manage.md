@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: 93880269edd72477f3aa85b2dbdc9d9f3ec8ef25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435954"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Administración de clústeres de HDInsight con Enterprise Security Package
@@ -65,7 +65,7 @@ El uso de API estándar ayuda desde el punto de vista de la seguridad. También 
 - **Administración**: puede administrar el código y automatizar trabajos con las API estándar (Livio, HS2, etc.)
 - **Auditoría**: con SSH, no hay forma de auditar qué usuarios accedieron mediante SSH al clúster. Este no será el caso si los trabajos se construyen a través de puntos de conexión estándar, ya que se ejecutan en el contexto del usuario.
 
-### <a name="beeline"></a>Uso de BeeLine
+### <a name="use-beeline"></a><a name="beeline"></a>Uso de BeeLine
 
 Instale Beeline en la máquina, conéctese a través de la red pública de Internet y use los siguientes parámetros:
 
@@ -87,13 +87,13 @@ Para buscar el nombre de dominio completo de un nodo principal, use la informaci
 
 Un clúster de HDInsight sin Enterprise Security Package tiene dos cuentas de usuario que se crean durante la creación del clúster:
 
-- **Administrador de Ambari**: esta cuenta también se conoce como *usuario de Hadoop* o *usuario HTTP*. Esta cuenta se puede usar para iniciar sesión en Ambari en `https://CLUSTERNAME.azurehdinsight.net`. También puede usarse para ejecutar consultas en vistas de Ambari, ejecutar trabajos mediante herramientas externas (por ejemplo, PowerShell, Templeton o Visual Studio) y autenticarse con el controlador ODBC de Hive y herramientas de BI (por ejemplo, Excel, Power BI o Tableau).
+- **Administrador de Ambari**: esta cuenta es también conocida como *usuario de Hadoop* o *usuario de HTTP*. Esta cuenta se puede usar para iniciar sesión en Ambari en `https://CLUSTERNAME.azurehdinsight.net`. También puede usarse para ejecutar consultas en vistas de Ambari, ejecutar trabajos mediante herramientas externas (por ejemplo, PowerShell, Templeton o Visual Studio) y autenticarse con el controlador ODBC de Hive y herramientas de BI (por ejemplo, Excel, Power BI o Tableau).
 
 Un clúster de HDInsight con Enterprise Security Package tiene tres nuevos usuarios además del administrador de Ambari.
 
-- **Administrador de Ranger**:  esta es la cuenta de administrador local de Apache Ranger. No es un usuario de dominio de Active Directory. Esta cuenta se puede usar para configurar directivas y crear otros administradores de usuarios o administradores delegados (para que esos usuarios puedan administrar directivas). De forma predeterminada, el nombre de usuario es *admin* y la contraseña es la misma que la contraseña de administrador de Ambari. En la página de configuración de Ranger se puede actualizar la contraseña.
+- **Administrador de Ranger**: esta cuenta es la cuenta de administrador local de Apache Ranger. No es un usuario de dominio de Active Directory. Esta cuenta se puede usar para configurar directivas y crear otros administradores de usuarios o administradores delegados (para que esos usuarios puedan administrar directivas). De forma predeterminada, el nombre de usuario es *admin* y la contraseña es la misma que la contraseña de administrador de Ambari. En la página de configuración de Ranger se puede actualizar la contraseña.
 
-- **Usuario de dominio administrador de clúster**: esta cuenta es un usuario de dominio de Active Directory designado como administrador de clúster de Hadoop, incluido Ambari y Ranger. Se deben proporcionar las credenciales del usuario durante la creación del clúster. Este usuario tiene los privilegios siguientes:
+- **Usuario de dominio administrador de clúster**: esta cuenta es un usuario de dominio de Active Directory designado como administrador de clúster de Hadoop, por ejemplo Ambari y Ranger. Se deben proporcionar las credenciales del usuario durante la creación del clúster. Este usuario tiene los privilegios siguientes:
     - Unir máquinas al dominio y colocarlas en la unidad organizativa que especifique durante la creación del clúster.
     - Crear entidades de servicio dentro de la unidad organizativa que especifique durante la creación del clúster.
     - Crear entradas de DNS inversas.

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.author: jingwang
 ms.openlocfilehash: b215531fdc1a1bb07b33c427623d5cd4f5f8219a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252476"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copia de datos desde un servidor FTP mediante Azure Data Factory
@@ -42,7 +42,7 @@ En concreto, este conector FTP admite las siguientes funcionalidades:
 
 El conector de FTP es compatible con el servidor FTP que se ejecuta en modo pasivo. No se admite el modo activo.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -58,15 +58,15 @@ Las siguientes propiedades son compatibles con el servicio vinculado de FTP:
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **FtpServer**. | Sí |
+| type | La propiedad type debe establecerse en **FtpServer**. | Sí |
 | host | Especifique el nombre o dirección IP del servidor FTP. | Sí |
-| port | Especifique el puerto en el que se está realizando la escucha del servidor FTP.<br/>Los valores permitidos son: enteros; el valor predeterminado es **21**. | Sin |
-| enableSsl | Especificar si desea usar FTP a través del canal SSL/TLS.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin |
-| enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados de servidor SSL al usar FTP sobre el canal SSL/TLS.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin |
-| authenticationType | Especifique el tipo de autenticación.<br/>Los valores permitidos son: **Basic**, **Anonymous** | Sí |
-| userName | Especifique el usuario que tiene acceso al servidor FTP. | Sin |
-| password | Especifique la contraseña del usuario (userName). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sin |
+| port | Especifique el puerto en el que se está realizando la escucha del servidor FTP.<br/>Los valores permitidos son: enteros; el valor predeterminado es **21**. | No |
+| enableSsl | Especificar si desea usar FTP a través del canal SSL/TLS.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | No |
+| enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados de servidor SSL al usar FTP sobre el canal SSL/TLS.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | No |
+| authenticationType | Especifique el tipo de autenticación.<br/>Los valores permitidos son: **Básica** y **Anónima**. | Sí |
+| userName | Especifique el usuario que tiene acceso al servidor FTP. | No |
+| password | Especifique la contraseña del usuario (userName). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |No |
 
 >[!NOTE]
 >El conector FTP permite el acceso al servidor FTP sin cifrado o con cifrado de SSL/TLS explícito, pero no permite el cifrado SSL/TLS implícito.
@@ -131,8 +131,8 @@ Las propiedades siguientes se admiten para FTP en la configuración `location` d
 | Propiedad   | Descripción                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | La propiedad type de `location` en el conjunto de datos se debe establecer en **FtpServerLocation**. | Sí      |
-| folderPath | Ruta de acceso a la carpeta. Si quiere usar el carácter comodín para filtrar la carpeta, omita este valor y especifique la configuración del origen de actividad. | Sin       |
-| fileName   | Nombre de archivo en la propiedad folderPath indicada. Si quiere usar el carácter comodín para filtrar los archivos, omita este valor y especifique la configuración del origen de actividad. | Sin       |
+| folderPath | Ruta de acceso a la carpeta. Si quiere usar el carácter comodín para filtrar la carpeta, omita este valor y especifique la configuración del origen de actividad. | No       |
+| fileName   | Nombre de archivo en la propiedad folderPath indicada. Si quiere usar el carácter comodín para filtrar los archivos, omita este valor y especifique la configuración del origen de actividad. | No       |
 
 **Ejemplo**:
 
@@ -173,11 +173,11 @@ Las propiedades siguientes se admiten para FTP en la configuración `storeSettin
 | Propiedad                 | Descripción                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La propiedad type de `storeSettings` se debe establecer en **FtpReadSettings**. | Sí                                           |
-| recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin                                            |
-| wildcardFolderPath       | Ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sin                                            |
+| recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | No                                            |
+| wildcardFolderPath       | Ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | No                                            |
 | wildcardFileName         | Nombre de archivo con caracteres comodín en la propiedad folderPath o wildcardFolderPath indicada para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí, si no se ha especificado `fileName` en el conjunto de datos |
-| useBinaryTransfer | Especifique si se usar el modo de transferencia binario. Los valores son True para el modo binario (valor predeterminado) y False para ASCII. |Sin |
-| maxConcurrentConnections | Número de conexiones para conectarse al almacén de datos de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | Sin |
+| useBinaryTransfer | Especifique si se usar el modo de transferencia binario. Los valores son True para el modo binario (valor predeterminado) y False para ASCII. |No |
+| maxConcurrentConnections | Número de conexiones para conectarse al almacén de datos de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | No |
 
 **Ejemplo**:
 
@@ -254,10 +254,10 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **FileShare** |Sí |
 | folderPath | Ruta de acceso a la carpeta. Se admite el filtro de comodín, los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br/><br/>Ejemplos: rootfolder/subfolder/ver más en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). |Sí |
-| fileName | **Filtro de nombre o de comodín** para los archivos de la ruta "folderPath" especificada. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los archivos de la carpeta. <br/><br/>Para filtrar, los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"fileName": "*.csv"`<br/>- Ejemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape si el nombre de archivo real contiene un comodín o este carácter de escape. |Sin |
-| format | Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si quiere analizar archivos con un formato concreto, se admiten los siguientes tipos de formato de archivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |No (solo para el escenario de copia binaria) |
-| compression | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Estos son los tipos que se admiten: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Estos son los niveles que se admiten: **Optimal** y **Fastest**. |Sin |
-| useBinaryTransfer | Especifique si se usar el modo de transferencia binario. Los valores son True para el modo binario (valor predeterminado) y False para ASCII. |Sin |
+| fileName | **Filtro de nombre o de comodín** para los archivos de la ruta "folderPath" especificada. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los archivos de la carpeta. <br/><br/>Para filtrar, los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"fileName": "*.csv"`<br/>- Ejemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape si el nombre de archivo real contiene un comodín o este carácter de escape. |No |
+| format | Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar archivos con un formato concreto, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |No (solo para el escenario de copia binaria) |
+| compression | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Los niveles admitidos son **Optimal** y **Fastest**. |No |
+| useBinaryTransfer | Especifique si se usar el modo de transferencia binario. Los valores son True para el modo binario (valor predeterminado) y False para ASCII. |No |
 
 >[!TIP]
 >Para copiar todos los archivos en una carpeta, especifique solo **folderPath**.<br>Para copiar un único archivo con un nombre determinado, especifique **folderPath** con el elemento de carpeta y **fileName** con el nombre de archivo.<br>Para copiar un subconjunto de archivos en una carpeta, especifique **folderPath** con el elemento de carpeta y **fileName** con el filtro de comodín.
@@ -293,13 +293,13 @@ Para información detallada sobre las propiedades, consulte [Actividad de elimin
 }
 ```
 
-### <a name="legacy-copy-activity-source-model"></a>Modelo de origen de actividad de copia heredada
+### <a name="legacy-copy-activity-source-model"></a>Modelo de origen de la actividad de copia heredada
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource** |Sí |
-| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establezca en true y el receptor sea un almacén basado en archivos, la carpeta o subcarpeta vacías no se copiarán ni crearán en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | Sin |
-| maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | Sin |
+| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establezca en true y el receptor sea un almacén basado en archivos, la carpeta o subcarpeta vacías no se copiarán ni crearán en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | No |
+| maxConcurrentConnections | Número de conexiones para conectarse al almacén de almacenamiento de forma simultánea. Solo se especifica cuando se quiere limitar la conexión simultánea al almacén de datos. | No |
 
 **Ejemplo**:
 

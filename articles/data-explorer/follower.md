@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 447e8a67cedbb8f78e4db9602f603fefd382693c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: f6dbdb54c1c5a5d477c3ccb988963758faab83b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162946"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79140021"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Uso de la base de datos del seguidor para adjuntar bases de datos en Azure Data Explorer
 
@@ -26,7 +26,7 @@ Se adjunta una base de datos a otro clúster mediante la funcionalidad del segui
 * Un solo clúster puede seguir bases de datos de varios clústeres de responsables. 
 * Un clúster puede contener bases de datos del seguidor y del responsable.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 1. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 1. [Cree el clúster y la base de datos](/azure/data-explorer/create-cluster-database-portal) del responsable y el seguidor.
@@ -164,7 +164,7 @@ En esta sección aprenderá a adjuntar una base de datos a un clúster existente
         },
         "defaultPrincipalsModificationKind": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "Union",
             "metadata": {
                 "description": "The default principal modification kind."
             }
@@ -180,13 +180,10 @@ En esta sección aprenderá a adjuntar una base de datos a un clúster existente
     "variables": {},
     "resources": [
         {
-            "name": "[parameters('attachedDatabaseConfigurationsName')]",
+            "name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
             "type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
             "apiVersion": "2019-09-07",
             "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Kusto/clusters', parameters('followerClusterName'))]"
-            ],
             "properties": {
                 "databaseName": "[parameters('databaseName')]",
                 "clusterResourceId": "[parameters('leaderClusterResourceId')]",

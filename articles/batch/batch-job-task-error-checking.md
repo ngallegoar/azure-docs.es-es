@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/10/2019
 ms.author: markscu
 ms.openlocfilehash: 4ace0de6d252680eb64990277b9478adf752f54d
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79087011"
 ---
 # <a name="job-and-task-error-checking"></a>Comprobación de errores de trabajos y tareas
@@ -67,7 +67,7 @@ Se pueden producir errores en las tareas del trabajo por varias razones:
 
 En todos los casos, se debe comprobar si hay errores en las siguientes propiedades y obtener información sobre los errores:
 - La propiedad [executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutioninformation) de las tareas contiene varias propiedades que proporcionan información sobre un error. [result](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutionresult) indica si se ha producido un error en la tarea por cualquier motivo, con `exitCode` y `failureInfo` que proporcionan más información sobre el error.
-- La tarea siempre se moverá a un [estado](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate) de `completed`, independientemente de si se ha realizado correctamente o no.
+- La tarea siempre se moverá a un `completed`estado[ de ](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate), independientemente de si se ha realizado correctamente o no.
 
 Se deben tener en cuenta el impacto de los errores de las tareas en el trabajo y las dependencias de las tareas.  Se puede especificar la propiedad [exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) de una tarea para configurar una acción para las dependencias y para el trabajo.
 - En el caso de las dependencias, [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) controla si las tareas que dependen de la tarea con errores se bloquean o se ejecutan.

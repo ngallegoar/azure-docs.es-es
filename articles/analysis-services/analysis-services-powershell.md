@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2c8f4c0541d97a189087af692658cfe794eaaf7e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73572688"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Administración de Azure Analysis Services con PowerShell
@@ -44,7 +44,7 @@ Documentation: [referencia de SqlServer](/powershell/module/sqlserver)
 
 ### <a name="supported-cmdlets"></a>Cmdlets compatibles
 
-|Cmdlet|DESCRIPCIÓN|
+|Cmdlet|Descripción|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Agrega un miembro a un rol de base de datos.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Realiza una copia de seguridad de una base de datos de Analysis Services.|  

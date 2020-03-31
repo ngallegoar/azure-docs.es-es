@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76270462"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224768"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Creación de un inquilino de Azure AD para Red Hat OpenShift en Azure
 
@@ -33,7 +33,7 @@ Para crear un inquilino:
 
     ![Captura de pantalla del portal que muestra el nombre del inquilino en la parte superior derecha][tenantcallout]  
 
-8. Tome nota del *Identificador de inquilino*, para que pueda especificar más adelante dónde desea crear el clúster de Red Hat OpenShift en Azure. Ahora debería ver la hoja de información general de Azure Active Directory del nuevo inquilino en el portal. Seleccione **Propiedades** y copie el valor del **Identificador de directorio**. En el tutorial [Creación de un clúster de Red Hat OpenShift en Azure](tutorial-create-cluster.md), se hará referencia a este valor como `TENANT`.
+8. Tome nota del *Identificador de inquilino*, para que pueda especificar más adelante dónde desea crear el clúster de Red Hat OpenShift en Azure. Ahora debería ver la hoja de información general de Azure Active Directory del nuevo inquilino en el portal. Seleccione **Propiedades** y copie el valor del **Identificador de directorio**. En el tutorial `TENANT`Creación de un clúster de Red Hat OpenShift en Azure[, se hará referencia a este valor como ](tutorial-create-cluster.md).
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.openlocfilehash: 78bc629598c0635b7760285d0507b7a85a4ab551
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126866"
 ---
 # <a name="refresh-with-logic-apps"></a>Actualización con Logic Apps
@@ -28,7 +28,7 @@ Todas las llamadas se deben autenticar con un token válido de Azure Active Dire
 > [!IMPORTANT]
 > En los ejemplos siguientes, se supone que el firewall de Azure Analysis Services está deshabilitado. Si el firewall está habilitado, la dirección IP pública del iniciador de la solicitud debe figurar en la lista blanca del firewall de Azure Analysis Services. Para más información sobre los intervalos de IP de Azure Logic Apps de cada región, consulte este tema sobre los [límites y la configuración de Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#configuration).
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Prerequisites
 
 #### <a name="create-a-service-principal-spn"></a>Creación de una entidad de servicio (SPN)
 

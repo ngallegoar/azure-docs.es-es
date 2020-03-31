@@ -10,11 +10,11 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315774"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229892"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Desarrollo de scripts U-SQL mediante Data Lake Tools para Visual Studio
 
@@ -35,7 +35,7 @@ En este artículo se describe cómo puede usar Visual Studio para crear cuentas
 >    - [Para Visual Studio 2017 y 2019](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
 >    - [Para Visual Studio 2013 y 2015](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * **Visual Studio**: se admiten todas las ediciones, excepto Express.
 

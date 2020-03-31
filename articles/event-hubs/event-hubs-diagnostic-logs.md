@@ -17,18 +17,18 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162317"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configuración de registros de diagnóstico de Azure Event Hubs
 
 Puede ver dos tipos de registros para Event Hubs de Azure:
 
-* **[Registros de actividad](../azure-monitor/platform/platform-logs-overview.md)** : Estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre habilitados.
-* **[Registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)** : Puede configurar registros de diagnóstico para obtener una vista más completa de todo lo que ocurre con un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
+* **[Registros de actividad](../azure-monitor/platform/platform-logs-overview.md)** : estos registros contienen información sobre las operaciones realizadas en un trabajo. Los registros están siempre habilitados.
+* **[Registros de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)** : puede configurar registros de diagnóstico para obtener una vista más completa de todo lo que ocurre con un trabajo. Los registros de diagnóstico incluyen la actividad desde el momento en que se crea el trabajo hasta que este se elimina, incluidas las actualizaciones y actividades que se realizan durante la ejecución del trabajo.
 
 ## <a name="enable-diagnostic-logs"></a>Habilitar registros de diagnóstico
 

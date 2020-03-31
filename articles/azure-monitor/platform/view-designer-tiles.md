@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
 ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658513"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guía de referencia de los iconos del Diseñador de vistas en Azure Monitor
@@ -18,8 +18,8 @@ Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad d
 
 Para más información acerca del Diseñador de vistas, consulte:
 
-* [Diseñador de vistas](view-designer.md): proporciona información general del Diseñador de vistas y procedimientos para crear y editar vistas personalizadas.
-* [Referencia de los elementos de visualización](view-designer-parts.md): proporciona una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
+* [Diseñador de vistas](view-designer.md): proporciona información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
+* [Referencia de los elementos de visualización](view-designer-parts.md): proporciona una guía de referencia de la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
 
 
 En la tabla siguiente se describen los iconos disponibles del Diseñador de vistas:  
@@ -90,7 +90,7 @@ El icono **Anillo** muestra un solo número que resume una columna de valor de u
 | Consultar |Consulta que se ejecuta en el anillo. La primera propiedad es un valor de texto y la segunda, un valor numérico. Normalmente, esta consulta usa la palabra clave *measure* para resumir los resultados. |
 | **Anillo** |**&gt; Centro** |
 | Texto |Texto que se muestra en la parte inferior del valor dentro del anillo. |
-| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor.<ul><li>Suma: suma los valores de todos los registros con el valor de propiedad.</li><li>Porcentaje: porcentaje de los valores sumados de los registros con el valor de propiedad en comparación con los valores de suma de todos los registros.</li></ul> |
+| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor.<ul><li>Sum: suma los valores de todos los registros con el valor de propiedad.</li><li>Percentage: porcentaje de los valores sumados de los registros con el valor de propiedad en comparación con los valores de suma de todos los registros.</li></ul> |
 | Valores de resultado usados en la operación central |También puede seleccionar el signo más (+) para agregar uno o varios valores. Los resultados de la consulta se limitan a los registros con los valores de propiedad especificados. Si no se agrega ningún valor, se incluirán todos los registros en la consulta. |
 | **Anillo** |**&gt; Opciones adicionales** |
 | Colores |Color que se muestra en cada una de las tres propiedades principales. Para especificar colores alternativos para valores de propiedad concretos, utilice *Advanced Color Mapping* (Asignación de color avanzada). |
@@ -136,7 +136,7 @@ Este icono tiene tanto un gráfico de líneas que muestra varias series de una c
 | **Gráfico de líneas** |**&gt; Llamada** |
 | Título de la llamada | Texto que se muestra en la parte superior del valor de la llamada. |
 | Nombre de la serie |Valor de propiedad de la serie que se usará como valor de la llamada. Si no se proporciona ninguna serie, se utilizarán todos los registros de la consulta. |
-| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Promedio: promedio de los valores de todos los registros.</li><li>Recuento: número de todos los registros devueltos por la consulta.</li><li>Último ejemplo: valor del último intervalo incluido en el gráfico.</li><li>Máx.: valor máximo de los intervalos incluidos en el gráfico.</li><li>Mín.: valor mínimo de los intervalos incluidos en el gráfico.</li><li>Suma: suma de los valores de todos los registros.</li></ul> |
+| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Average: promedio de los valores de todos los registros.</li><li>Count: número de todos los registros devueltos por la consulta.</li><li>Last Sample: valor del último intervalo incluido en el gráfico.</li><li>Max: valor máximo de los intervalos incluidos en el gráfico.</li><li>Min: valor mínimo de los intervalos incluidos en el gráfico.</li><li>Sum: suma de los valores de todos los registros.</li></ul> |
 | **Gráfico de líneas** |**> Eje Y** |
 | Usar escala logarítmica |Seleccione este vínculo para usar una escala logarítmica en el eje Y. |
 | Unidades |Especifica las unidades de los valores que devuelve la consulta. Esta información se utiliza para mostrar etiquetas de gráfico que indican los tipos de valores y, de manera opcional, para convertirlos. El tipo *Unidad* especifica la categoría de la unidad y define los valores disponibles del tipo *Unidad actual*. Si selecciona un valor en *Convertir a*, los valores numéricos se convertirán del tipo *Unidad actual* al tipo *Convertir a*. |
@@ -160,12 +160,12 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 | Leyenda |Texto que se muestra en la parte inferior de la llamada de la primera serie. |
 | Color |Color que se utiliza para las columnas de la primera serie. |
 | Consulta de gráfico |Consulta que se ejecuta en la primera serie. El número de registros en cada intervalo de tiempo se representa mediante las columnas de gráfico. |
-| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Promedio: promedio de los valores de todos los registros.</li><li>Recuento: número de todos los registros devueltos por la consulta.</li><li>Último ejemplo: valor del último intervalo incluido en el gráfico.</li><li>Máx.: valor máximo de los intervalos incluidos en el gráfico.</li></ul> |
+| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Average: promedio de los valores de todos los registros.</li><li>Count: número de todos los registros devueltos por la consulta.</li><li>Last Sample: valor del último intervalo incluido en el gráfico.</li><li>Max: valor máximo de los intervalos incluidos en el gráfico.</li></ul> |
 | **Segundo gráfico** | |
 | Leyenda |Texto que se muestra en la parte inferior de la llamada de la segunda serie. |
 | Color |Color que se utiliza para las columnas de la segunda serie. |
 | Consulta de gráfico |Consulta que se ejecuta en la segunda serie. El número de registros en cada intervalo de tiempo se representa mediante las columnas de gráfico. |
-| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Promedio: promedio de los valores de todos los registros.</li><li>Recuento: número de todos los registros devueltos por la consulta.</li><li>Último ejemplo: valor del último intervalo incluido en el gráfico.</li><li>Máx.: valor máximo de los intervalos incluidos en el gráfico. |
+| Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Average: promedio de los valores de todos los registros.</li><li>Count: número de todos los registros devueltos por la consulta.</li><li>Last Sample: valor del último intervalo incluido en el gráfico.</li><li>Max: valor máximo de los intervalos incluidos en el gráfico. |
 | **Avanzadas** |**&gt; Comprobación del flujo de datos** |
 | habilitado |Seleccione este vínculo si debe habilitarse la comprobación del flujo de datos en el icono. Este enfoque proporciona un mensaje alternativo si no hay datos disponibles. Normalmente, este enfoque se utiliza para ofrecer un mensaje durante el período temporal en el que se instala la vista y los datos están disponibles. |
 | Consultar |Consulta que se ejecuta para determinar si los datos están disponibles para la vista. Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |

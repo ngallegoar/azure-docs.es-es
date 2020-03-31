@@ -8,13 +8,13 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: c71af799f614e9cd28221d79634666cbc3b2c987
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60827043"
 ---
-# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Solución de problemas: Error al conectarse a un clúster en el Explorador de datos de Azure
+# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Solución de problemas: error al conectarse a un clúster en el Explorador de datos de Azure
 
 Si no es capaz de conectarse a un clúster en el Explorador de datos de Azure, siga estos pasos.
 
@@ -22,11 +22,11 @@ Si no es capaz de conectarse a un clúster en el Explorador de datos de Azure, s
 
 1. Asegúrese de que tiene los permisos adecuados. Si no es así, obtendrá una respuesta de *no autorizado*.
 
-    Para obtener más información acerca de los permisos, consulte [Administrar permisos de bases de datos](manage-database-permissions.md). Si es necesario, hable con su administrador de clústeres para que pueda agregarlo al rol adecuado.
+    Para más información acerca de los permisos, consulte [Administración de permisos de bases de datos](manage-database-permissions.md). Si es necesario, hable con su administrador de clústeres para que pueda agregarlo al rol adecuado.
 
 1. Compruebe que el clúster todavía no se ha eliminado: revise el registro de actividad en su suscripción.
 
-1. Compruebe el [panel de mantenimiento de servicios de Azure](https://azure.microsoft.com/status/). Busque el estado del Explorador de datos de Azure en la región donde intenta conectarse a un clúster.
+1. Compruebe el [panel de mantenimiento de los servicios de Azure](https://azure.microsoft.com/status/). Busque el estado del Explorador de datos de Azure en la región donde intenta conectarse a un clúster.
 
     Si el estado no es **Bueno** (marca de verificación verde), intente conectarse al clúster cuando mejore el estado.
 

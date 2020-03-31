@@ -1,19 +1,18 @@
 ---
 title: Versión de prueba de la oferta de aplicación de Azure | Azure Marketplace
 description: Cómo configurar la versión de prueba para una oferta de aplicación de Azure en Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: 3855c600fe35c37ac15783995551a769e00532be
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2f35dd69c1f29350049ed8f62dd9cbb0e60a7718
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826131"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289012"
 ---
 # <a name="azure-applications-test-drive-tab"></a>Pestaña Versión de prueba de aplicaciones de Azure
 
@@ -54,11 +53,11 @@ La captura de pantalla siguiente muestra todos los formularios de Versión de pr
 
 En la tabla siguiente se describen los campos obligatorios para configurar la versión de prueba de la aplicación administrada.  Los campos anexados con un asterisco son obligatorios.
 
-|      Campo         |  DESCRIPCIÓN      |
+|      Campo         |  Descripción      |
 |  ---------------   |  ---------------  |
 | **Descripción\***  |  Describe lo que puede realizarse en la versión de prueba. Puede usar etiquetas HTML básicas para dar formato a esta descripción. Por ejemplo, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; y títulos.                |
 | **Manual del usuario\***  |  Cargue un manual del usuario que los clientes puedan usar para completar la experiencia de versión de prueba. Este documento debe ser un archivo PDF.    |
-| **Vídeo de demostración de la versión de prueba** |  Tutorial en vídeo opcional de la versión de prueba. Un cliente puede ver este vídeo antes de realizar una prueba. Proporcione una dirección URL de YouTube o Vimeo para el vídeo. Si selecciona **+ Agregar vídeo**, se le solicitará que proporcione la siguiente información:<ul><li>NOMBRE</li><li>URL</li><li>Miniatura (formato PNG, 533 x 324 píxeles)</li></ul>  |
+| **Vídeo de demostración de la versión de prueba** |  Tutorial en vídeo opcional de la versión de prueba. Un cliente puede ver este vídeo antes de realizar una prueba. Proporcione una dirección URL de YouTube o Vimeo para el vídeo. Si selecciona **+ Agregar vídeo**, se le solicitará que proporcione la siguiente información:<ul><li>Nombre</li><li>URL</li><li>Miniatura (formato PNG, 533 x 324 píxeles)</li></ul>  |
 | **Instancias\***      | Configure el número de instancias que desea, en qué regiones y la rapidez con la que sus clientes pueden obtener la versión de prueba. Para más información, consulte [Publicación de una versión de prueba](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive).           |
 | **Duración de la versión de prueba (horas)\*** | Escriba un número entero para el número de horas. El intervalo permitido es de 1 a 999. |
 | **Plantilla ARM de la versión de prueba\***     | Cargue un archivo comprimido (.zip) que tenga las plantillas de Azure Resource Manager para su aplicación. Para más información, consulte [Versión de prueba de Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive). |

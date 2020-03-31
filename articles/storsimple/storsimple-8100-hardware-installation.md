@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277083"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232120"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100.
 
@@ -232,7 +232,7 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 2. Identifique el controlador activo en la placa posterior del dispositivo. Un LED que parpadeará en azul indica que el controlador está activo.
 3. Utilice los cables serie proporcionados (si es necesario, el convertidor de USB a serie de su equipo portátil) y conecte la consola o el equipo (con la emulación de terminales en el dispositivo) al puerto serie del controlador activo.
 4. Instale los controladores de serie a USB (incluidos con el dispositivo) en el equipo.
-5. Configure la conexión serie del modo indicado a continuación: 115 200 baudios, 8 bits de datos, 1 bit de parada, sin paridad y el control del flujo establecido en Ninguno.
+5. Configure la conexión serie del modo indicado a continuación: 115.200 baudios, 8 bits de datos, 1 bit de parada, sin paridad y el control del flujo establecido en Ninguno.
 6. Presione INTRO en la consola para comprobar que la conexión funciona. Debería aparecer un menú de consola serie.
 
 > [!NOTE]

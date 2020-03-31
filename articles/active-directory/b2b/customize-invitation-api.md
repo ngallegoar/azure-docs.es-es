@@ -12,11 +12,11 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272863"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230852"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Personalización y API de colaboración B2B de Active Directory Azure
 
@@ -91,7 +91,7 @@ Puede usar PowerShell para agregar e invitar a usuarios externos a una organizac
 New-AzureADMSInvitation
 ```
 
-Puede usar las siguientes opciones:
+Puede utilizar las siguientes opciones:
 
 * -InvitedUserDisplayName
 * -InvitedUserEmailAddress
@@ -115,7 +115,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > Asegúrese de que tiene la versión más reciente del módulo de AzureAD PowerShell o del módulo AzureADPreview PowerShell. 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 Consulte la referencia de API de invitación en [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 

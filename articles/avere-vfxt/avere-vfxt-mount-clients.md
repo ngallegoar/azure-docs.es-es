@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: b8486b5a33226b1faa5e3874144129dbe7a1a2f2
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76153418"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montaje del clúster de Avere de vFXT
@@ -28,7 +28,7 @@ Para equilibrar las solicitudes de cliente entre todos los nodos del clúster, d
 > [!TIP]
 > Otros métodos para equilibrar la carga pueden ser apropiados para sistemas grandes o complicados; [abra una incidencia de soporte técnico](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) para obtener ayuda.
 >
-> Si prefiere usar un servidor DNS para el equilibrio de carga automático del lado servidor, debe configurar y administrar su propio servidor DNS en Azure. En ese caso, puede configurar el DNS round robin para el clúster de vFXT según este documento: [Configuración de DNS del clúster de Avere](avere-vfxt-configure-dns.md).
+> Si prefiere usar un servidor DNS para el equilibrio de carga automático del lado servidor, debe configurar y administrar su propio servidor DNS en Azure. En ese caso, puede configurar el DNS round robin para el clúster de vFXT según este documento: [Avere cluster DNS configuration](avere-vfxt-configure-dns.md) (Configuración de DNS del clúster de Avere).
 
 ### <a name="sample-balanced-client-mounting-script"></a>Script de ejemplo para el montaje de cliente equilibrado
 

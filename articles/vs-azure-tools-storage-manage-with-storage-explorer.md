@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356185"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235876"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
@@ -23,7 +23,7 @@ Explorador de Microsoft Azure Storage es una aplicación independiente que fac
 
 ![Explorador de Microsoft Azure Storage][0]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
@@ -235,7 +235,7 @@ Puede acceder a un recurso que no esté en su suscripción. Necesita que un usua
 
 En este ejemplo se usa Data Lake Storage Gen1. Azure Data Lake Storage Gen2 ya está disponible. Para más información, consulte [¿Qué es Azure Data Lake Storage Gen1?](./data-lake-store/data-lake-store-overview.md).
 
-## Generación de una firma de acceso compartido en el Explorador de Storage<a name="generate-a-sas-in-storage-explorer"></a>
+## <a name="generate-a-shared-access-signature-in-storage-explorer"></a>Generación de una firma de acceso compartido en el Explorador de Storage<a name="generate-a-sas-in-storage-explorer"></a>
 
 ### <a name="account-level-shared-access-signature"></a>Firma de acceso compartido en el nivel de cuenta
 

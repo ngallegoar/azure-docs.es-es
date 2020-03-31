@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 02f109f250fa9bcd4c77cecd0b1b3e4514ecd8bc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721139"
 ---
 # <a name="feature-engineering-in-data-science"></a>Ingeniería de características en ciencia de datos
@@ -25,8 +25,8 @@ Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)
 
 La ingeniería de características intenta aumentar la eficacia predictiva de los algoritmos de aprendizaje creando características de los datos sin procesar que facilitan el proceso de aprendizaje. La ingeniería y la selección de características forman parte del proceso TDSP descrito en [¿Cuál es el ciclo de vida de la ciencia de datos en equipos (TDSP)?](overview.md) La selección y la ingeniería de características son partes del paso del **desarrollo de características** del TDSP. 
 
-* **Diseño de características**: este proceso trata de crear más características pertinentes a partir de las que tengamos sin procesar en los datos, así como de mejorar la eficacia predictiva del algoritmo de aprendizaje.
-* **Selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
+* **Ingeniería de características**: Este proceso trata de crear más características pertinentes a partir de las que tengamos sin procesar en los datos, así como de mejorar la eficacia predictiva del algoritmo de aprendizaje.
+* **selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
 
 Normalmente, la **ingeniería de características** se aplica primero para generar características adicionales y, a continuación, se realiza el paso de **selección de características** para eliminar características irrelevantes, redundantes o altamente correlacionadas.
 
@@ -69,7 +69,7 @@ La comparación de los resultados de rendimiento de los cuatro modelos se resume
 
 Las características A+B+C muestran los mejores resultados. La tasa de errores disminuye cuando se incluyen conjuntos de datos adicionales en los datos de entrenamiento. Esto verifica la presunción con respecto a que los conjuntos de características B y C proporcionan información pertinente adicional para la tarea de regresión. Sin embargo, agregar la característica D no parece proporcionar reducción adicional ninguna en lo que respecta a la tasa de errores.
 
-## <a name="example2"></a> Ejemplo 2: Creación de características en minería de texto
+## <a name="example-2-creating-features-in-text-mining"></a><a name="example2"></a> Ejemplo 2: Creación de características en minería de texto
 El diseño de características se aplica ampliamente en las tareas relacionadas con la minería de texto, como la clasificación de documentos y el análisis de opiniones. Por ejemplo, cuando quiere clasificar documentos en varias categorías, una hipótesis típica es que las palabras/frases incluidas que se encuentran en una categoría de documento tienen menos probabilidades de presentarse en otra categoría de documento. Dicho de otro modo, la frecuencia de la distribución de palabras/frases puede caracterizar distintas categorías de documento. En las aplicaciones de minería de texto, debido a que partes individuales de contenidos de texto normalmente sirven como los datos de entrada, es necesario el proceso de diseño de características para crear las características que implican las frecuencias de palabras/frases.
 
 Para llevar a cabo esta tarea, se aplica una técnica llamada **hash de características** que permite convertir eficazmente las características arbitrarias de texto en índices. En lugar de asociar cada característica de texto (palabras/frases) a un índice determinado, este método funciona mediante la aplicación de una función de hash a las características y el uso de sus valores de hash como índices directamente.

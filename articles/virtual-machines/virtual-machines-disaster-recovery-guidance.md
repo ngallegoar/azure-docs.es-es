@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
 ms.openlocfilehash: f2dc43e1f07d449bf2f8ed39ce4523c99b551dae
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77115610"
 ---
 # <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>Qué hacer si se produce una interrupción del servicio de Azure que afecta a las VM de Azure
@@ -28,7 +28,7 @@ Para ayudarlo a administrar estos eventos poco frecuentes, le proporcionamos las
 Puede configurar Azure Site Recovery para las VM de modo que pueda recuperar la aplicación con un solo clic en cuestión de minutos. Puede realizar replicaciones en la región de Azure que elija, no solo en regiones emparejadas. Puede empezar por [replicar las máquinas virtuales](https://aka.ms/a2a-getting-started). Puede [crear un plan de recuperación](../site-recovery/site-recovery-create-recovery-plans.md) para poder automatizar el proceso de conmutación por error al completo para la aplicación. Puede [probar las conmutaciones por error](../site-recovery/site-recovery-test-failover-to-azure.md) antes sin necesidad de que ni la aplicación de producción ni la replicación en curso se vean afectadas. Si se interrumpe una región primaria, no tiene más que [iniciar una conmutación por error](../site-recovery/site-recovery-failover.md) y traer la aplicación a la región de destino.
 
 
-## <a name="option-2-wait-for-recovery"></a>Opción 2: Espera para la recuperación
+## <a name="option-2-wait-for-recovery"></a>Opción 2: espera para recuperación
 En este caso, no se requieren acciones por su parte. Sabe que trabajaremos con rapidez para que el servicio de Azure vuelva a estar disponible. El estado actual del servicio se puede ver en el [panel de estado de los servicios de Azure](https://azure.microsoft.com/status/).
 
 Esta es la mejor opción si no configuró Azure Site Recovery, el almacenamiento con redundancia geográfica con acceso de lectura o el almacenamiento con redundancia geográfica antes de la interrupción. Si ha configurado el almacenamiento con redundancia geográfica o el almacenamiento con redundancia geográfica con acceso de lectura para la cuenta de almacenamiento donde se almacenan los discos duros virtuales de la máquina virtual (VHD), puede fijarse en cómo recuperar el VHD de la imagen base y tratar de aprovisionar una nueva máquina virtual desde ahí. Esta no es la mejor opción, ya que no hay ninguna garantía de sincronización de datos. Por lo tanto, no se garantiza que esta opción funcione.

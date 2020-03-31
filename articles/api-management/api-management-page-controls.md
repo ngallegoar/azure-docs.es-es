@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176608"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224868"
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página de Azure API Management
 Azure API Management proporciona los siguientes controles para su uso en las plantillas del portal para desarrolladores.  
@@ -47,7 +47,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
 -   [subscribe-button](#subscribe-button)  
 -   [subscription-cancel](#subscription-cancel)  
   
-##  <a name="app-actions"></a> app-actions  
+##  <a name="app-actions"></a><a name="app-actions"></a> app-actions  
  El control `app-actions` proporciona una interfaz de usuario para la interacción con aplicaciones en la página del perfil de usuario del portal para desarrolladores.  
   
  ![control app&#45;actions](./media/api-management-page-controls/APIM-app-actions-control.png "control app-actions de APIM")  
@@ -60,7 +60,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
   
 ### <a name="parameters"></a>Parámetros  
   
-|Parámetro|DESCRIPCIÓN|  
+|Parámetro|Descripción|  
 |---------------|-----------------|  
 |appId|El identificador de la aplicación.|  
   
@@ -69,7 +69,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
   
 -   [Aplicaciones](api-management-user-profile-templates.md#Applications)  
   
-##  <a name="basic-signin"></a> basic-signin  
+##  <a name="basic-signin"></a><a name="basic-signin"></a> basic-signin  
  El control `basic-signin` ofrece un control para la recolección de información de inicio de sesión del usuario en la página de inicio de sesión del portal para desarrolladores.  
   
  ![control basic&#45;signin](./media/api-management-page-controls/APIM-basic-signin-control.png "control basic-signin de APIM")  
@@ -88,7 +88,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
   
 -   [Sign in](api-management-page-templates.md#SignIn)  
   
-##  <a name="paging-control"></a> paging-control  
+##  <a name="paging-control"></a><a name="paging-control"></a> paging-control  
  El control `paging-control` proporciona funcionalidad de paginación en las páginas del portal para desarrolladores que muestran una lista de elementos.  
   
  ![control paging-control](./media/api-management-page-controls/APIM-paging-control.png "control paging-control de APIM")  
@@ -111,7 +111,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
   
 -   [Product list](api-management-product-templates.md#ProductList)  
   
-##  <a name="providers"></a> providers  
+##  <a name="providers"></a><a name="providers"></a> providers  
  El control `providers` proporciona un control para la selección de proveedores de autenticación en la página de inicio de sesión del portal para desarrolladores.  
   
  ![control providers](./media/api-management-page-controls/APIM-providers-control.png "control providers de APIM")  
@@ -130,7 +130,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
   
 -   [Sign in](api-management-page-templates.md#SignIn)  
   
-##  <a name="search-control"></a> search-control  
+##  <a name="search-control"></a><a name="search-control"></a> search-control  
  El control `search-control` proporciona funcionalidad de búsqueda en las páginas del portal para desarrolladores que muestran una lista de elementos.  
   
  ![control search-control](./media/api-management-page-controls/APIM-search-control.png "control search-control de APIM")  
@@ -151,7 +151,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
   
 -   [Product list](api-management-product-templates.md#ProductList)  
   
-##  <a name="sign-up"></a> sign-up  
+##  <a name="sign-up"></a><a name="sign-up"></a> sign-up  
  El control `sign-up` proporciona un control para la recolección de información de perfil de usuario en la página de inicio de sesión del portal para desarrolladores.  
   
  ![control sign&#45;up](./media/api-management-page-controls/APIM-sign-up-control.png "control sign-up de APIM")  
@@ -170,7 +170,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
   
 -   [Sign up](api-management-page-templates.md#SignUp)  
   
-##  <a name="subscribe-button"></a> subscribe-button  
+##  <a name="subscribe-button"></a><a name="subscribe-button"></a> subscribe-button  
  El control `subscribe-button` proporciona un control para la suscripción de un usuario a un producto.  
   
  ![control subscribe&#45;button](./media/api-management-page-controls/APIM-subscribe-button-control.png "control subscribe-button de APIM")  
@@ -189,7 +189,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
   
 -   [Producto](api-management-product-templates.md#Product)  
   
-##  <a name="subscription-cancel"></a> subscription-cancel  
+##  <a name="subscription-cancel"></a><a name="subscription-cancel"></a> subscription-cancel  
  El control `subscription-cancel` proporciona un control para la cancelación de una suscripción a un producto en la página de perfil de usuario del portal para desarrolladores.  
   
  ![control subscription&#45;cancel](./media/api-management-page-controls/APIM-subscription-cancel-control.png "control subscription-cancel de APIM")  
@@ -204,7 +204,7 @@ Para más información sobre cómo trabajar con plantillas, consulte [Cómo pers
   
 ### <a name="parameters"></a>Parámetros  
   
-|Parámetro|DESCRIPCIÓN|  
+|Parámetro|Descripción|  
 |---------------|-----------------|  
 |subscriptionId|El identificador de la suscripción para cancelar.|  
 |cancelUrl|Dirección URL de cancelación de la suscripción.|  

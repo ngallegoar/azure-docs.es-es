@@ -9,10 +9,10 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 6ce94590a1d0de6941c27d972bdd1c4194080e95
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77153084"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Espacio de nombres jerárquico de Azure Data Lake Storage Gen2
@@ -23,11 +23,11 @@ La adición de un **espacio de nombres jerárquico** es un mecanismo clave que p
 
 Las siguientes ventajas están asociadas a los sistemas de archivos que implementan un espacio de nombres jerárquico sobre los datos de blob:
 
-- **Manipulación atómica de directorios**: los almacenamientos de objetos se aproximan a una jerarquía de directorios mediante la adopción de una convención de inserción de barras diagonales (/) en el nombre del objeto para indicar los segmentos de ruta. Aunque esta convención funciona para la organización de objetos, no proporciona asistencia para acciones como mover o eliminar directorios, ni para cambiarles el nombre. Sin directorios reales, las aplicaciones podrían tener que procesar millones de blobs individuales para lograr realizar las tareas de nivel de directorio. Por el contrario, un espacio de nombres jerárquico procesa estas tareas mediante la actualización de una sola entrada (el directorio principal).
+- **Manipulación atómica de directorios:** los almacenamientos de objetos se aproximan a una jerarquía de directorios mediante la adopción de una convención de inserción de barras diagonales (/) en el nombre del objeto para indicar los segmentos de ruta. Aunque esta convención funciona para la organización de objetos, no proporciona asistencia para acciones como mover o eliminar directorios, ni para cambiarles el nombre. Sin directorios reales, las aplicaciones podrían tener que procesar millones de blobs individuales para lograr realizar las tareas de nivel de directorio. Por el contrario, un espacio de nombres jerárquico procesa estas tareas mediante la actualización de una sola entrada (el directorio principal).
 
     Esta notable optimización es especialmente significativa para muchos marcos de análisis de macrodatos. Con frecuencia, herramientas como Hive, Spark, etc. escriben la salida en ubicaciones temporales y, a continuación, cambian el nombre de la ubicación al finalizar el trabajo. Sin un espacio de nombres jerárquico, muchas veces este cambio de nombre puede tardar más tiempo que el propio proceso de análisis. La disminución de la latencia de trabajo equivale a la reducción del costo total de propiedad (TCO) de las cargas de trabajo de análisis.
 
-- **Estilo de interfaz familiar**: tanto los desarrolladores como los usuarios comprenden correctamente los sistemas de archivos. Al moverse a la nube, no es necesario aprender un nuevo paradigma de almacenamiento, ya que la interfaz del sistema de archivo que presenta Data Lake Storage Gen2 es el mismo paradigma que usan los equipos, grandes y pequeños.
+- **Estilo de interfaz familiar:** tanto los desarrolladores como los usuarios comprenden correctamente los sistemas de archivos. Al moverse a la nube, no es necesario aprender un nuevo paradigma de almacenamiento, ya que la interfaz del sistema de archivo que presenta Data Lake Storage Gen2 es el mismo paradigma que usan los equipos, grandes y pequeños.
 
 Uno de los motivos por los que históricamente los almacenamientos de objetos no admiten espacios de nombres jerárquicos es porque estos limitan la escala. Sin embargo, el espacio de nombres jerárquico de Data Lake Storage Gen2 se escala linealmente y no degrada la capacidad de datos ni el rendimiento.
 

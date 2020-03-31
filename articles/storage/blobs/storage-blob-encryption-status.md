@@ -10,15 +10,15 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 5cef0e94a43b3ef16d45f7f43658f962e07b5345
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74707591"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Comprobación del estado de cifrado de un blob
 
-Cada blob en bloques, blob en anexos o blob en páginas que se escribió en Azure Storage después del 20 de octubre de 2017 está cifrado con Azure Storage. Los blobs creados antes de esta fecha siguen estando cifrados mediante un proceso en segundo plano.
+Cada blob en bloques, blob en anexos o blob en páginas que se escribió en Azure Storage después del 20 de octubre de 2017 está cifrado con Azure Storage. Los blobs creados antes de esta fecha se siguen cifrando mediante un proceso en segundo plano.
 
 En este artículo se muestra cómo determinar si un blob determinado se ha cifrado.
 
@@ -26,7 +26,7 @@ En este artículo se muestra cómo determinar si un blob determinado se ha cifra
 
 Use Azure Portal, PowerShell o la CLI de Azure para determinar si un determinado blob está cifrado.
 
-### <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+### <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 Para usar Azure Portal para comprobar si un blob se ha cifrado, siga estos pasos:
 
@@ -37,7 +37,7 @@ Para usar Azure Portal para comprobar si un blob se ha cifrado, siga estos pasos
 
     ![Captura de pantalla que muestra cómo comprobar la propiedad Servidor cifrado en Azure Portal](media/storage-blob-encryption-status/blob-encryption-property-portal.png)
 
-### <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Para usar PowerShell con el fin de comprobar si se ha cifrado un blob, consulte la propiedad **IsServerEncrypted** del mismo. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 
@@ -56,7 +56,7 @@ Para determinar cuándo se creó el blob, compruebe el valor de la propiedad **F
 $blob.ICloudBlob.Properties.IsServerEncrypted
 ```
 
-### <a name="azure-clitabcli"></a>[CLI de Azure](#tab/cli)
+### <a name="azure-cli"></a>[CLI de Azure](#tab/cli)
 
 Para usar la CLI de Azure con el fin de comprobar si se ha cifrado un blob, consulte la propiedad **IsServerEncrypted** del mismo. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
 ms.openlocfilehash: 7805b9b3f000b2bc2e45272ab9ff469d5711e581
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110207"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
@@ -44,13 +44,13 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET.
 > IoT Hub ofrece compatibilidad con SDK en muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java, Python y Javascript, mediante los [SDK de dispositivo IoT de Azure](iot-hub-devguide-sdks.md). Para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general a Azure IoT Hub consulte la [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md).
 >
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 * Visual Studio
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
 
-* Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Asegúrese de que está abierto el puerto 8883 del firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y saber cómo solucionar este problema, consulte [Conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="receive-messages-in-the-device-app"></a>Recepción de mensajes en la aplicación de dispositivo
 

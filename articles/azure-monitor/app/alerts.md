@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.reviewer: lagayhar
 ms.subservice: alerts
-ms.openlocfilehash: 80759c94d7cc5b60b6e38a34b85fb64c3c18fd2e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 28fd59556a586b85a6d3caf188d9e02c11d31e3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666724"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295076"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definición de alertas en Application Insights
 
@@ -24,65 +24,6 @@ Hay varios tipos de alertas:
 * [**Alertas de registro**](../../azure-monitor/platform/alerts-unified-log.md) se usan para describir aquellas alertas en que la señal de alerta se basa en una consulta de Kusto personalizada.
 * Las [**pruebas web**][availability] le informan de que el sitio no está disponible en Internet o responde lentamente. [Más información][availability].
 * [**Diagnósticos proactivos**](../../azure-monitor/app/proactive-diagnostics.md) se configuran automáticamente para que le notifiquen acerca de patrones de rendimiento no habituales.
-
-## <a name="set-a-metric-alert"></a>Establecimiento de una alerta de métrica
-
-Abra la pestaña Reglas de alerta y, a continuación, utilice el botón Agregar.
-
-![En la pestaña Reglas de alerta, elija Agregar alerta. Establezca la aplicación como el recurso que se va a medir, proporcione un nombre para la alerta y elija una métrica.](./media/alerts/01-set-metric.png)
-
-* Establezca el recurso antes de las demás propiedades. **Elija el recurso "(components)"** si desea establecer alertas sobre métricas de rendimiento o de uso.
-* El nombre que asigne a la alerta debe ser único dentro del grupo de recursos (no solo en la aplicación).
-* Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el valor de umbral.
-* Si activa la casilla "Enviar correo electrónico a propietarios, colaboradores y lectores", las alertas se envían por correo electrónico a todos los usuarios con acceso a este grupo de recursos. Para expandir dicho conjunto de usuarios, agréguelos al [grupo de recursos o suscripción](../../azure-monitor/app/resources-roles-access-control.md) (no al recurso).
-* Si especifica "Correos electrónicos adicionales", las alertas se envían a esos usuarios o grupos (independientemente de que haya activado la casilla anterior). 
-* Establezca una [dirección de webhook](../../azure-monitor/platform/alerts-webhooks.md) si ha configurado una aplicación web para responder a las alertas. Se llamará a esta dirección cuando la alerta se active y cuando se haya resuelto. (Pero tenga en cuenta que, en la actualidad, los parámetros de consulta no se pasan como propiedades de webhook).
-* Puede habilitar o deshabilitar la alerta: consulte los botones de la parte superior.
-
-*No puedo ver el botón Agregar alerta*
-
-* ¿Está usando una cuenta de organización? Puede establecer alertas si tiene acceso de propietario o colaborador a este recurso de aplicación. Eche un vistazo a la pestaña Access Control. [Más información sobre el control de acceso][roles].
-
-> [!NOTE]
-> En la hoja de alertas, verá que ya hay una alerta configurada: [Proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md) La alerta automática supervisa una métrica determinada: el índice de errores de las solicitudes. A menos que decida deshabilitar esta opción, no es necesario establecer su propio índice de errores de las solicitudes.
-> 
-> 
-
-## <a name="see-your-alerts"></a>Visualización de alertas
-Recibirá un correo electrónico cuando un alerta cambia el estado entre inactivo y activo. 
-
-En la pestaña de reglas Alerta se muestra el estado actual de cada alerta.
-
-Hay un resumen de la actividad reciente en la lista desplegable de alertas:
-
-![Lista desplegable de alertas](./media/alerts/010-alert-drop.png)
-
-El historial de cambios de estado está en el registro de actividad:
-
-![En la pestaña de información general, haga clic en Configuración, Registros de auditoría](./media/alerts/09-alerts.png)
-
-## <a name="how-alerts-work"></a>Funcionamiento de las alertas
-* Una alerta tiene tres estados: nunca activada, activada y resuelta. "Activada" significa que la condición especificada tenía el valor true cuando se evaluó por última vez.
-* Se genera una notificación cuando una alerta cambia de estado. (Si la condición de alerta ya tenía el valor true cuando creó la alerta, es posible que no reciba una notificación hasta que la condición cambie al valor false).
-* Si ha activado la casilla de correos electrónicos o si ha proporcionado direcciones de correo electrónico, cada notificación generará un correo. También puede consultar la lista desplegable de notificaciones.
-* Una alerta se evalúa cada vez que llega una métrica, pero no en caso contrario.
-* La evaluación agrega la métrica durante el período anterior y, luego, la compara con el umbral para determinar el nuevo estado.
-* El período que elija especifica el intervalo en el que se agregan métricas. No afecta a la frecuencia con la que se evalúa la alerta: depende de la frecuencia de llegada de métricas.
-* Si no llega ningún dato para una métrica concreta durante un tiempo, este intervalo tiene efectos diferentes en la evaluación de la alerta y en los gráficos del Explorador de métricas. En el Explorador de métricas, si no se ve ningún dato durante más tiempo que el intervalo de muestreo del gráfico, el gráfico mostrará un valor de 0. Pero una alerta basada en la misma métrica no se volverá a evaluar, y el estado de la alerta permanecerá sin cambios. 
-  
-    Cuando finalmente llegan datos, el gráfico se desplazará a un valor distinto de cero. La alerta se evaluará en función de los datos disponibles para el período especificado. Si el nuevo punto de datos es el único disponible en el período, el agregado se basará en ese punto.
-* Una alerta puede parpadear con frecuencia entre los estados de alerta y correcto, incluso si se establece un período largo. Esto puede suceder si el valor de métrica se sitúa alrededor del umbral. No hay ninguna histéresis en el umbral: la transición a alerta se produce en el mismo valor que la transición a correcto.
-
-## <a name="what-are-good-alerts-to-set"></a>¿Qué alertas es conveniente establecer?
-Depende de la aplicación. Para empezar, es mejor no establecer demasiadas métricas. Observe durante un tiempo sus gráficos de métrica mientras se ejecuta la aplicación para hacerse una idea de cómo se comporta normalmente. Este procedimiento le ayudará a encontrar maneras de mejorar su rendimiento. A continuación, configure alertas para que le avisen cuando las métricas salgan de la zona normal. 
-
-Las alertas más populares son:
-
-* Las [métricas del explorador][client], especialmente los **tiempos de carga de página** del explorador, son convenientes para las aplicaciones web. Si la página tiene muchos scripts, debe buscar **excepciones del explorador**. Para obtener estas métricas y alertas, tiene que configurar [la supervisión de páginas web][client].
-* **Tiempo de respuesta del servidor** para las aplicaciones web del lado servidor. Además de configurar alertas, eche un vistazo a esta métrica para ver si varía desproporcionadamente con tasas de solicitud altas: la variación puede indicar que la aplicación se está quedando sin recursos. 
-* **Excepciones de servidor** : para verlas, deberá realizar alguna [configuración adicional](../../azure-monitor/app/asp-net-exceptions.md).
-
-No olvide que los [diagnósticos proactivos de frecuencia de errores](../../azure-monitor/app/proactive-failure-diagnostics.md) permiten supervisar automáticamente la velocidad a la que la aplicación responde a solicitudes con códigos de error.
 
 ## <a name="how-to-set-an-exception-alert-using-custom-log-search"></a>Establecimiento de una alerta de excepción con búsqueda de registros personalizada
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 1/23/2020
 ms.author: enewman
 ms.openlocfilehash: 0c257589a2e93ac4c15a639e7156d0c0944b033c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76851339"
 ---
 # <a name="set-up-a-lab-to-teach-data-mobile-application-development-with-android-studio"></a>Configuración de un laboratorio para enseñar el desarrollo de aplicaciones móviles con Android Studio
@@ -39,7 +39,7 @@ Una vez creada la máquina de plantilla, [inicie la máquina y conéctese a ella
 4. Descargar e instalar Android Studio.
 5. Configurar el Emulador de Visual Studio para Android Studio.
 
-## <a name="add-hyper-v-role"></a>Agregar un rol de Hyper-V
+## <a name="add-hyper-v-role"></a>Agregar un rol de Hyper-V.
 
 Hyper-V debe estar habilitado para la instalación correcta del Emulador de Visual Studio para Android.  Siga las instrucciones del artículo sobre la [habilitación de la virtualización anidada en una plantilla de máquina virtual](how-to-enable-nested-virtualization-template-vm.md).
 

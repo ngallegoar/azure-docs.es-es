@@ -1,6 +1,6 @@
 ---
-title: 'Azure VMware Solutions (AVS): tablas de firewall'
-description: Obtenga información sobre las tablas de firewall de la nube privada de AVS y las reglas de firewall.
+title: 'Azure VMware Solution by CloudSimple: tablas de firewall'
+description: Obtenga información sobre las tablas de firewall de la nube privada de CloudSimple y las reglas de firewall.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 631ccb33e14586edce71752826f134c1e50819c4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025051"
 ---
 # <a name="firewall-tables-overview"></a>Información general sobre las tablas de firewall
 
-Una tabla de firewall enumera las reglas para filtrar el tráfico de red hacia y desde los recursos de la nube privada de AVS. Puede aplicar tablas de firewall a una VLAN o subred. Las reglas controlan el tráfico de red entre una red de origen o una dirección IP y una red de destino o una dirección IP.
+Una tabla de firewall enumera las reglas para filtrar el tráfico de red hacia y desde los recursos de la nube privada. Puede aplicar tablas de firewall a una VLAN o subred. Las reglas controlan el tráfico de red entre una red de origen o una dirección IP y una red de destino o una dirección IP.
 
 ## <a name="firewall-rules"></a>Reglas de firewall
 
@@ -26,27 +26,28 @@ En la siguiente tabla se describen los parámetros de una regla de firewall.
 | Propiedad | Detalles |
 | ---------| --------|
 | **Nombre** | Nombre que identifica de forma única la regla de firewall y su finalidad. |
-| **Prioridad** | Número entre 100 y 4096, donde 100 es la prioridad más alta. Las reglas se procesan en el orden de prioridad. Cuando el tráfico encuentra una coincidencia de regla, el procesamiento de la regla se detiene. Como resultado, las reglas con menor prioridad que tengan los mismos atributos que las reglas con una prioridad mayor no se procesarán. Procure evitar las reglas en conflicto. |
-| **Seguimiento de estado** | El seguimiento puede ser sin estado (nube privada de AVS, Internet o VPN) o con estado (IP pública).  |
+| **Prioridad** | Número entre 100 y 4096, donde 100 es la prioridad más alta. Las reglas se procesan en el orden de prioridad. Cuando el tráfico encuentra una coincidencia de regla, el procesamiento de la regla se detiene. Como resultado, las reglas con menor prioridad que tengan los mismos atributos que las reglas con una prioridad mayor no se procesarán.  Procure evitar las reglas en conflicto. |
+| **Seguimiento de estado** | El seguimiento puede ser sin estado (nube privada, Internet o VPN) o con estado (IP pública).  |
 | **Protocolo** | Algunas opciones son Cualquiera, TCP o UDP. Si necesita ICMP, use Cualquiera. |
 | **Dirección** | Si la regla se aplica al tráfico entrante o al saliente. |
 | **Acción** | Permita o deniegue el tipo de tráfico definido en la regla. |
-| **Origen** | Una dirección IP, un bloque de enrutamiento de interdominios sin clases (CIDR) (por ejemplo, 10.0.0.0/24) o cualquier dirección IP.  La especificación de un intervalo, una etiqueta de servicio o un grupo de seguridad de aplicaciones le permite crear menos reglas de seguridad. |
+| **Origen** | Una dirección IP, un bloque de enrutamiento de interdominios sin clases (CIDR) (por ejemplo, 10.0.0.0/24) o Cualquiera.  La especificación de un intervalo, una etiqueta de servicio o un grupo de seguridad de aplicaciones le permite crear menos reglas de seguridad. |
 | **Puerto de origen** | Puerto de red del que procede el tráfico.  Puede especificar un puerto individual o un intervalo de puertos, como 443 u 8000-8080. La especificación de intervalos le permite crear menos reglas de seguridad. |
-| **Destino** | Una dirección IP, un bloque de enrutamiento de interdominios sin clases (CIDR) (por ejemplo, 10.0.0.0/24) o cualquier dirección IP.  La especificación de un intervalo, una etiqueta de servicio o un grupo de seguridad de aplicaciones le permite crear menos reglas de seguridad.  |
+| **Destino** | Una dirección IP, un bloque de enrutamiento de interdominios sin clases (CIDR) (por ejemplo, 10.0.0.0/24) o Cualquiera.  La especificación de un intervalo, una etiqueta de servicio o un grupo de seguridad de aplicaciones le permite crear menos reglas de seguridad.  |
 | **Puerto de destino** | Puerto al que fluye el tráfico de red.  Puede especificar un puerto individual o un intervalo de puertos, como 443 u 8000-8080. La especificación de intervalos le permite crear menos reglas de seguridad.|
 
 ### <a name="stateless"></a>Sin estado
 
-Una regla sin estado solo examina paquetes individuales y los filtra en función de la regla. Es posible que se necesiten reglas adicionales para el flujo de tráfico en la dirección inversa. Use reglas sin estado para el tráfico entre los siguientes puntos:
+Una regla sin estado solo examina paquetes individuales y los filtra en función de la regla.  
+Es posible que se necesiten reglas adicionales para el flujo de tráfico en la dirección inversa.  Use reglas sin estado para el tráfico entre los siguientes puntos:
 
-* Subredes de nubes privadas de AVS
-* Subred local y una subred de nube privada de AVS
-* Tráfico de Internet de nubes privadas de AVS
+* Subredes de nubes privadas
+* Subred local y una subred de nube privada
+* Tráfico de Internet de nubes privadas
 
 ### <a name="stateful"></a>Con estado
 
- Una regla con estado tienen en cuenta las que pasan por ella. Se crea un registro de flujo para las conexiones existentes. Se permite o deniega la comunicación en función del estado de conexión del registro de flujo. Use este tipo de regla con las direcciones IP públicas para filtrar el tráfico de Internet.
+ Una regla con estado tienen en cuenta las que pasan por ella. Se crea un registro de flujo para las conexiones existentes. Se permite o deniega la comunicación en función del estado de conexión del registro de flujo.  Use este tipo de regla con las direcciones IP públicas para filtrar el tráfico de Internet.
 
 ### <a name="default-rules"></a>Reglas predeterminadas
 
@@ -56,8 +57,8 @@ Las reglas predeterminadas siguientes se crean en cada tabla de firewall.
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
 |65000|allow-all-to-internet|Con estado|Salida|IP pública o tráfico de Internet|All|Any|Any|Any|Any|Allow|
 |65001|deny-all-from-internet|Con estado|Entrada|IP pública o tráfico de Internet|All|Any|Any|Any|Any|Denegar|
-|65002|allow-all-to-intranet|Sin estado|Salida|Nube privada de AVS interna o tráfico de VPN|All|Any|Any|Any|Any|Allow|
-|65003|allow-all-from-intranet|Sin estado|Entrada|Nube privada de AVS interna o tráfico de VPN|All|Any|Any|Any|Any|Allow|
+|65002|allow-all-to-intranet|Sin estado|Salida|Nube privada interna o tráfico de VPN|All|Any|Any|Any|Any|Allow|
+|65003|allow-all-from-intranet|Sin estado|Entrada|Nube privada interna o tráfico de VPN|All|Any|Any|Any|Any|Allow|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

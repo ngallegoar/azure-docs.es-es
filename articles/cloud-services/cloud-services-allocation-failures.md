@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 470778e5c441bb05ffc7c5e1c5ef97a6c30d3359
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155635"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225952"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Solución de errores de asignación al implementar Cloud Services de Azure
 ## <a name="summary"></a>Resumen

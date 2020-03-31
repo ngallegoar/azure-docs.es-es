@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: f0ea24133d7b6acdc4b099ee21a8711a2d99095d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74775711"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor de Azure Database for PostgreSQL con un único servidor mediante la CLI de Azure
 
 Periódicamente, se realizan copias de seguridad de los servidores de Azure Database for PostgreSQL para habilitar las características de restauración. Con esta característica, puede restaurar el servidor y todas sus bases de datos en un servidor nuevo a un momento dado anterior.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para completar esta guía, necesita:
 - Un [servidor y una base de datos de Azure Database for PostgreSQL](quickstart-create-server-database-azure-cli.md).
 
@@ -68,7 +68,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 El comando `az postgres server restore` requiere los siguientes parámetros:
 
-| Configuración | Valor sugerido | DESCRIPCIÓN  |
+| Configuración | Valor sugerido | Descripción  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupo de recursos donde existe el servidor de origen.  |
 | name | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
@@ -108,12 +108,12 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 El comando `az postgres server georestore` requiere los siguientes parámetros:
 
-| Configuración | Valor sugerido | DESCRIPCIÓN  |
+| Configuración | Valor sugerido | Descripción  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nombre del grupo de recursos al que pertenece el nuevo servidor.|
 |name | mydemoserver-georestored | Nombre del nuevo servidor. |
 |source-server | mydemoserver | Nombre del servidor existente cuyas copias de seguridad con redundancia geográfica se usan. |
-|location | estado | Ubicación del nuevo servidor. |
+|ubicación | estado | Ubicación del nuevo servidor. |
 |sku-name| GP_Gen4_8 | Este parámetro establece el plan de tarifa, la generación del proceso y el número de núcleos virtuales del nuevo servidor. GP_Gen4_8 se asigna a un servidor Gen 4 de uso general con ocho núcleos virtuales.|
 
 Al crear un nuevo servidor mediante una restauración geográfica, hereda el mismo tamaño de almacenamiento y plan de tarifa que el servidor de origen. Estos valores no se pueden cambiar durante la creación. Después de crea el nuevo servidor, se puede escalar verticalmente su tamaño de almacenamiento.

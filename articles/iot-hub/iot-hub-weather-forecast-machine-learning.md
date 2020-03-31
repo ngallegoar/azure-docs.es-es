@@ -11,10 +11,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 02/10/2020
 ms.author: robinsh
 ms.openlocfilehash: b71b86c14c55c312ef420a4d8517140fdded4072
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77122228"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning
@@ -132,13 +132,13 @@ En esta sección, validará el modelo, configurará un servicio web predictivo b
 1. En [Azure Portal](https://portal.azure.com/), haga clic en **Crear un recurso** > **Internet de las cosas** > **Trabajo de Stream Analytics**.
 1. Escriba la siguiente información para el trabajo.
 
-   **Nombre del trabajo**: Nombre del trabajo. El nombre debe ser único globalmente.
+   **Nombre del trabajo**: el nombre del trabajo. El nombre debe ser único globalmente.
 
    **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
 
    **Ubicación**: use la misma ubicación que el grupo de recursos.
 
-   **Anclar al panel**: active esta opción para facilitar el acceso al centro de IoT desde el panel.
+   **Anclar al panel**: active esta opción para facilitar el acceso al IoT Hub desde el panel.
 
    ![Creación de un trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
@@ -152,9 +152,9 @@ En esta sección, validará el modelo, configurará un servicio web predictivo b
 
    **Alias de entrada**: el alias único para la entrada.
 
-   **Origen**: seleccione **Centro de IoT**.
+   **Origen**: seleccione **IoT Hub**.
 
-   **Grupo de consumidores**: seleccione el grupo de consumidores que se ha creado.
+   **Grupo de consumidores**: seleccione el grupo de consumidores que ha creado.
 
    ![Adición de una entrada al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
@@ -167,13 +167,13 @@ En esta sección, validará el modelo, configurará un servicio web predictivo b
 
    **Alias de salida**: el alias único para la salida.
 
-   **Receptor**: Seleccione **Blob Storage**.
+   **Receptor**: seleccione **Blob Storage**.
 
-   **Cuenta de almacenamiento**: la cuenta de almacenamiento para el almacenamiento de blobs. Puede crear una cuenta de almacenamiento o usar una existente.
+   **Cuenta de almacenamiento**: la cuenta de almacenamiento para Blob Storage. Puede crear una cuenta de almacenamiento o usar una existente.
 
    **Contenedor**: el contenedor donde se guarda el blob. Puede crear un contenedor o usar uno existente.
 
-   **Formato de serialización de eventos**: Seleccione **CSV**.
+   **Formato de serialización de eventos**: seleccione **CSV**.
 
    ![Adición de una salida al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
@@ -184,15 +184,15 @@ En esta sección, validará el modelo, configurará un servicio web predictivo b
 1. En **Topología de trabajo**, haga clic en **Funciones** > **Agregar**.
 1. Escriba la siguiente información:
 
-   **Alias de función**: Escriba `machinelearning`.
+   **Alias de función**: escriba `machinelearning`.
 
-   **Tipo de función**: Seleccione **Azure ML**.
+   **Tipo de función**: seleccione **Azure ML**.
 
    **Opción de importación**: seleccione **Importar de una suscripción distinta**.
 
-   **URL**: escriba la DIRECCIÓN URL DEL SERVICIO WEB que ha anotado del libro de Excel.
+   **Dirección URL**: escriba la DIRECCIÓN URL DEL SERVICIO WEB que anotó del libro de Excel.
 
-   **Clave**: escriba la CLAVE DE ACCESO que ha anotado del libro de Excel.
+   **Clave**: escriba la CLAVE DE ACCESO que anotó del libro de Excel.
 
    ![Adición de una función al trabajo de Stream Analytics en Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 

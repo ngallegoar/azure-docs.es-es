@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793229"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Referencia de sintaxis de expresiones de OData para Azure Cognitive Search
@@ -212,9 +212,9 @@ search_mode ::= "'any'" | "'all'"
 Para explorar visualmente la gramática del lenguaje de OData admitida por Azure Cognitive Search, pruebe el diagrama de sintaxis interactivo:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/)
+> [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/)
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Consulte también  
 
 - [Filtros de Azure Cognitive Search](search-filters.md)
 - [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

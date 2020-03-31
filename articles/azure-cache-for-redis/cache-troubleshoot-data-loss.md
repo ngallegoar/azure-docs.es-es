@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: d54506b94f076f0a3d967f88bd4e2960a1ca6396
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75530908"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Solución de problemas de pérdida de datos en Azure Cache for Redis
