@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee5f2edbae28276f8485ae774a5b1c52e1af2fd1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72756398"
 ---
 # <a name="email-notifications-in-pim"></a>Notificaciones por correo electrónico en PIM
@@ -51,8 +51,8 @@ El destinatario de estos correos electrónicos para roles de Azure AD depende de
 | Usuario | La activación de roles está pendiente de aprobación | La solicitud de activación de roles está completa | PIM está habilitado |
 | --- | --- | --- | --- |
 | Administrador de roles con privilegios</br>(Activado/apto) | Sí</br>(solo si no se especifican aprobadores explícitos) | Sí* | Sí |
-| Administrador de seguridad</br>(Activado/apto) | Sin | Sí* | Sí |
-| Administrador global</br>(Activado/apto) | Sin | Sí* | Sí |
+| Administrador de seguridad</br>(Activado/apto) | No | Sí* | Sí |
+| Administrador global</br>(Activado/apto) | No | Sí* | Sí |
 
 \* Si el parámetro [**Notificaciones**](pim-how-to-change-default-settings.md#notifications) se establece en **Habilitar**.
 
@@ -68,7 +68,7 @@ Se envía un correo electrónico de resumen semanal de Privileged Identity Manag
 
 Este correo electrónico incluye cuatro iconos:
 
-| Icono | DESCRIPCIÓN |
+| Icono | Descripción |
 | --- | --- |
 | **Users activated** (Activaciones de usuarios) | Número de veces que los usuarios activaron su rol apto dentro del inquilino. |
 | **Users made permanent** (Usuarios convertidos en permanentes) | Número de veces que los usuarios con una asignación apta se hicieron permanentes. |

@@ -17,10 +17,10 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008264"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Informe de uso y conclusiones en el portal de Azure Active Directory
@@ -31,7 +31,7 @@ Con el informe de uso y conclusiones, puede obtener una vista centrada en la apl
 *   ¿Qué aplicaciones tienen los inicios de sesión con más errores? 
 *   ¿Cuáles son los principales errores de inicio de sesión para cada aplicación?
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerrequisitos 
 
 Para obtener acceso a los datos del informe de uso y conclusiones, necesita:
 

@@ -16,12 +16,12 @@ ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 634e3532e13fcba5c9b802bd77c9530c0a831eb8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 20ec63efe16f1120ca6e7d07c8917d8ad2b3a0e0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422515"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230316"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Aprobación o denegación de solicitudes de acceso en la administración de derechos de Azure AD
 
@@ -43,7 +43,7 @@ El primer paso para aprobar o denegar solicitudes de acceso es buscar y abrir la
 
 Si no tiene el correo electrónico, puede encontrar las solicitudes de acceso pendientes de aprobación mediante estos pasos.
 
-1. Inicie sesión en el portal Mi acceso en [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
+1. Inicie sesión en el portal Mi acceso en [https://myaccess.microsoft.com](https://myaccess.microsoft.com).  (Para el Gobierno de EE. UU., el dominio del vínculo del portal Mi acceso será `myaccess.microsoft.us`).
 
 1. En el menú izquierdo, haga clic en **Aprobaciones** para ver una lista de las solicitudes de acceso pendientes de aprobación.
 

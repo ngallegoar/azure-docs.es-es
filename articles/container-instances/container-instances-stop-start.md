@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo detener o iniciar un grupo de cont
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: c9f8afea33c65df940d02823ec394697d2786d6a
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533423"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Detener o iniciar contenedores manualmente en Azure Container Instances

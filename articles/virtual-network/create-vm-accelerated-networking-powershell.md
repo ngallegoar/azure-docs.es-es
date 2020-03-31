@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
 ms.openlocfilehash: 16837782af2f08e27363091dc21587a100194cd8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083695"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225188"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>Creación de una máquina virtual Windows con Accelerated Networking mediante Azure PowerShell
 
@@ -40,7 +40,7 @@ Las ventajas de Accelerated Networking solo se aplican a la máquina virtual don
 
 ## <a name="limitations-and-constraints"></a>Limitaciones y restricciones
 
-### <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+### <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 Se admiten las siguientes distribuciones de fábrica desde la galería de Azure:
 * **Windows Server 2016 Datacenter** 
 * **Windows Server 2012 R2 Datacenter**
@@ -60,7 +60,7 @@ Está disponible en todas las regiones públicas de Azure y la nube de Azure Gov
 Un tamaño de máquina virtual admitido sin tener habilitado Accelerated Networking solo puede tener la característica habilitada cuando se detiene o se desasigna la máquina virtual.
 
 ### <a name="deployment-through-azure-resource-manager"></a>Implementación mediante Azure Resource Manager
-Las máquinas virtuales (clásicas) no se pueden implementar con redes aceleradas.
+Las máquinas virtuales (clásicas) no se pueden implementar con Accelerated Networking.
 
 ## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Creación de una máquina virtual Windows con redes aceleradas de Azure
 ## <a name="portal-creation"></a>Creación del portal
@@ -293,9 +293,9 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet"
 ```
 
-Después de reiniciar, espere a que las actualizaciones finalicen y la función virtual aparecerá dentro de la máquina virtual.  (Asegúrese de que usa un tamaño admitido de sistema operativo y máquina virtual).
+Después de reiniciar, espere a que las actualizaciones finalicen y la función virtual aparecerá dentro de la VM.  (Asegúrese de que usa un tamaño admitido de sistema operativo y máquina virtual).
 
-### <a name="resizing-existing-vms-with-accelerated-networking"></a>Cambio del tamaño de las máquinas virtuales existentes con las redes aceleradas
+### <a name="resizing-existing-vms-with-accelerated-networking"></a>Cambio del tamaño de las VM existentes con Accelerated Networking
 
 Las VM con Accelerated Networking habilitado solo pueden cambiar al tamaño de VM que admitan Accelerated Networking.  
 

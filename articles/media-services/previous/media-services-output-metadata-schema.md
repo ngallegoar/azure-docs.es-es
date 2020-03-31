@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 3f0c6b60e2be625d1f869c3eda4acb9dfd3c6e9e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74886819"
 ---
 # <a name="output-metadata"></a>Metadatos de salida
@@ -33,68 +33,68 @@ En este artículo se describen los elementos y los tipos del esquema XML en que 
 
 Puede encontrar el código del esquema completo y un ejemplo de XML al final de este artículo.  
 
-## <a name="AssetFiles"></a> Elemento raíz AssetFiles
+## <a name="assetfiles-root-element"></a><a name="AssetFiles"></a> Elemento raíz AssetFiles
 Colección de entradas AssetFile para el trabajo de codificación.  
 
 ### <a name="child-elements"></a>Elementos secundarios
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Un elemento AssetFile que forma parte de la colección de AssetFiles. |
 
-## <a name="AssetFile"></a> Elemento AssetFile
+## <a name="assetfile-element"></a><a name="AssetFile"></a> Elemento AssetFile
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Tipo | DESCRIPCIÓN |
+| Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **Nombre**<br/><br/> Obligatorio |**xs:string** |Nombre del archivo de recursos multimedia. |
 | **Tamaño**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:long** |Tamaño del archivo de recursos en bytes. |
 | **Duration**<br/><br/> Obligatorio |**xs:duration** |Duración de la reproducción del contenido. |
 
 ### <a name="child-elements"></a>Elementos secundarios
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 | --- | --- |
 | **Sources** |Colección de archivos multimedia de entrada/origen, que se procesa para producir este AssetFile. Para más información, consulte el elemento Source. |
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico puede contener cero o más pistas de vídeo intercaladas en un formato de contenedor adecuado. Para más información, consulte el elemento VideoTracks. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico puede contener cero o más pistas de audio intercaladas en un formato de contenedor adecuado. Se trata de la colección de todas esas pistas de audio. Para más información, consulte el elemento AudioTracks. |
 
-## <a name="Sources"></a> Elemento Sources
+## <a name="sources-element"></a><a name="Sources"></a> Elemento Sources
 Colección de archivos multimedia de entrada/origen, que se procesa para producir este AssetFile.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="child-elements"></a>Elementos secundarios
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 | --- | --- |
 | **Origen**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Un archivo de entrada/origen que se usa al generar este recurso. Para más información, consulte el elemento Source. |
 
-## <a name="Source"></a> Elemento Source
+## <a name="source-element"></a><a name="Source"></a> Elemento Source
 Un archivo de entrada/origen que se usa al generar este recurso.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Tipo | DESCRIPCIÓN |
+| Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **Nombre**<br/><br/> Obligatorio |**xs:string** |Nombre de archivo de origen de entrada. |
 
-## <a name="VideoTracks"></a> Elemento VideoTracks
+## <a name="videotracks-element"></a><a name="VideoTracks"></a> Elemento VideoTracks
 Cada AssetFile físico puede contener cero o más pistas de vídeo intercaladas en un formato de contenedor adecuado. El elemento **VideoTracks** representa una colección de todas las pistas de vídeo.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="child-elements"></a>Elementos secundarios
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Una determinada pista de vídeo en el AssetFile primario. Para más información, consulte el elemento VideoTrack. |
 
-## <a name="VideoTrack"></a> Elemento VideoTrack
+## <a name="videotrack-element"></a><a name="VideoTrack"></a> Elemento VideoTrack
 Una determinada pista de vídeo en el AssetFile primario.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Tipo | DESCRIPCIÓN |
+| Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Índice de base cero de esta pista de vídeo. **Nota:**  este **identificador** no es necesariamente el objeto TrackID que se usa en un archivo MP4. |
 | **FourCC**<br/><br/> Obligatorio |**xs:string** |Código FourCC de códec de vídeo. |
@@ -110,23 +110,23 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).
 | **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Velocidad de bits media de destino para esta pista de vídeo, tal como se ha solicitado mediante la codificación preestablecida, en kilobits por segundo. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Velocidad de bits media máxima para GOP, en kilobits por segundo. |
 
-## <a name="AudioTracks"></a> Elemento AudioTracks
+## <a name="audiotracks-element"></a><a name="AudioTracks"></a> Elemento AudioTracks
 Cada AssetFile físico puede contener cero o más pistas de audio intercaladas en un formato de contenedor adecuado. El elemento **AudioTracks** representa una colección de todas las pistas de audio.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="child-elements"></a>Elementos secundarios
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Una determinada pista de audio en el AssetFile primario. Para más información, consulte el elemento AudioTrack. |
 
-## <a name="AudioTrack"></a> Elemento AudioTrack
+## <a name="audiotrack-element"></a><a name="AudioTrack"></a> Elemento AudioTrack
 Una determinada pista de audio en el AssetFile primario.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Tipo | DESCRIPCIÓN |
+| Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Índice de base cero de esta pista de audio. **Nota:**  no es necesariamente el objeto TrackID que se usa en un archivo MP4. |
 | **Codec** |**xs:string** |Cadena de códec de pista de audio. |
@@ -137,17 +137,17 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Obligatorio |**xs:int** |Bits por muestra para el tipo de formato wFormatTag. |
 
 ### <a name="child-elements"></a>Elementos secundarios
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Parámetros de resultado de medición de la sonoridad. Para más información, consulte el elemento LoudnessMeteringResultParameters. |
 
-## <a name="LoudnessMeteringResultParameters"></a> Elemento LoudnessMeteringResultParameters
+## <a name="loudnessmeteringresultparameters-element"></a><a name="LoudnessMeteringResultParameters"></a> Elemento LoudnessMeteringResultParameters
 Parámetros de resultado de medición de la sonoridad.  
 
 Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| NOMBRE | Tipo | DESCRIPCIÓN |
+| Nombre | Tipo | Descripción |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Versión del kit de desarrollo de medición de sonoridad profesional **Dolby**. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obligatorio |**xs:int** |DialogNormalization generado mediante DPLM, requerido si LoudnessMetering está establecido. |
@@ -509,7 +509,7 @@ Puede encontrar un ejemplo de XML en [Ejemplo de XML](#xml).
 
 
 
-## <a name="xml"></a> Ejemplo de XML
+## <a name="xml-example"></a><a name="xml"></a> Ejemplo de XML
 
 El siguiente código XML es un ejemplo del archivo de metadatos de salida.  
 

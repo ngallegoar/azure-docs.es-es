@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 79c24eb078cc3de764ecc1c814e5b8772777eab6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78199502"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Uso del cifrado dinámico común de PlayReady o Widevine
@@ -98,17 +98,17 @@ Con el cifrado dinámico, crea un recurso que contiene un conjunto de archivos M
 
 Para obtener instrucciones acerca de cómo codificar, consulte [Codificación de un recurso mediante Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
+## <a name="create-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
 En Media Services, la clave de contenido contiene la clave con la que desea cifrar un recurso.
 
 Para más información, consulte [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido
+## <a name="configure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido
 Media Services admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. Debe configurar la directiva de autorización de claves de contenido. El cliente (reproductor) debe cumplir la directiva antes de que se entregue al cliente la clave de contenido. La directiva de autorización de claves de acceso puede tener una o más restricciones de autorización, ya sea restricciones de apertura o de token.
 
 Para más información, consulte [Configuración de la directiva de autorización de claves de contenido](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a id="configure_asset_delivery_policy"></a>Configuración de una directiva de entrega de recursos
+## <a name="configure-an-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configuración de una directiva de entrega de recursos
 Configure la directiva de entrega de sus recursos. Algunos de los elementos que incluye la configuración de la directiva de entrega de recursos son los siguientes:
 
 * La dirección URL de adquisición de licencias de DRM.
@@ -117,7 +117,7 @@ Configure la directiva de entrega de sus recursos. Algunos de los elementos que 
 
 Para más información, consulte [Configuración de una directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Creación de un localizador de streaming a petición para obtener una URL de streaming
+## <a name="create-an-ondemand-streaming-locator-to-get-a-streaming-url"></a><a id="create_locator"></a>Creación de un localizador de streaming a petición para obtener una URL de streaming
 Debe suministrar al usuario la URL de streaming para Smooth Streaming, DASH o HLS.
 
 > [!NOTE]

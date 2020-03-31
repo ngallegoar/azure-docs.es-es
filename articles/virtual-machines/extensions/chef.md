@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
 ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76544725"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensión de máquina virtual de Chef para Linux y Windows
 
 Chef Software proporciona una plataforma de automatización de DevOps para Linux y Windows que permite la administración de las configuraciones de servidor físicas y virtuales. La extensión de máquina virtual de Chef es una extensión que habilita Chef en máquinas virtuales.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b17026e4cfbe69e36c8e459aa259fe16b1c9d80d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74014420"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalación y uso de las vistas de Log Analytics para Azure Active Directory
@@ -31,7 +31,7 @@ Las vistas de Log Analytics para Azure Active Directory le ayudan a analizar y a
 * Registros de auditoría: el [informe de actividad de registros de auditoría](concept-audit-logs.md) le proporciona acceso al historial de todas las tareas llevadas a cabo en el inquilino.
 * Registros de inicio de sesión: Con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar las vistas de Log Analytics, necesita:
 
@@ -51,8 +51,8 @@ Para usar las vistas de Log Analytics, necesita:
 
 2. Cuando se encuentre en el área de trabajo, seleccione **Workspace Summary** (Resumen del área de trabajo). Debería ver las tres vistas siguientes:
 
-    * **Azure AD Account Provisioning Events** (Eventos de aprovisionamiento de la cuenta de AD): Esta vista muestra informes relacionados con la auditoría de la actividad de aprovisionamiento, como el número de nuevos usuarios aprovisionados y errores de aprovisionamiento, el número de usuarios actualizados y errores de actualización y el número de usuarios desaprovisionados y los errores correspondientes.    
-    * **Sign-ins Events** (Eventos de inicio de sesión): esta vista muestra los informes más importantes relacionados con la supervisión de la actividad de inicio de sesión, como los inicios de sesión por aplicación, usuario y dispositivo, así como una vista resumida que muestra el número de inicios de sesión a lo largo del tiempo.
+    * **Azure AD Account Provisioning Events** (Eventos de aprovisionamiento de la cuenta de Azure AD): Esta vista muestra informes relacionados con la auditoría de la actividad de aprovisionamiento, como el número de nuevos usuarios aprovisionados y errores de aprovisionamiento, el número de usuarios actualizados y errores de actualización y el número de usuarios desaprovisionados y los errores correspondientes.    
+    * **Sign-ins Events** (Eventos de inicio de sesión): Esta vista muestra los informes más importantes relacionados con la supervisión de la actividad de inicio de sesión, como los inicios de sesión por aplicación, usuario y dispositivo, así como una vista resumida que muestra el número de inicios de sesión a lo largo del tiempo.
 
 3. Seleccione cualquiera de estas vistas para pasar a los informes individuales. También puede establecer alertas sobre cualquiera de los parámetros del informe. Por ejemplo, vamos a establecer una alerta para cada vez que se produzca un error de inicio de sesión. Para ello, seleccione primero la vista **Sign-ins Events** (Eventos de inicio de sesión), seleccione **Sign-in errors over time** (Errores de inicio de sesión a lo largo del tiempo) y, a continuación, seleccione **Analytics** (Análisis) para abrir la página de detalles, con la consulta real detrás del informe. 
 

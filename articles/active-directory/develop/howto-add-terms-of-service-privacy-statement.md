@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300016"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedimientos: Configuración de las condiciones del servicio y a la declaración de privacidad para una aplicación
@@ -55,7 +55,7 @@ Cuando las condiciones del servicio y la declaración de privacidad estén prepa
 * [Con JSON del objeto de aplicación](#app-object-json)
 * [Uso de Microsoft Graph API](#msgraph-rest-api)
 
-### <a name="azure-portal"></a>Mediante Azure Portal
+### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Mediante Azure Portal
 Siga estos pasos en Azure Portal.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
@@ -66,7 +66,7 @@ Siga estos pasos en Azure Portal.
 
     ![Las propiedades de la aplicación incluyen las direcciones URL de las condiciones del servicio y de la declaración de privacidad.](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
-### <a name="app-object-json"></a>Con JSON del objeto de aplicación
+### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>Con JSON del objeto de aplicación
 
 Si desea modificar directamente JSON del objeto de aplicación, puede usar el editor de manifiestos en Azure Portal o el Portal de registro de aplicaciones para incluir vínculos en las condiciones del servicio y la declaración de privacidad de la aplicación.
 
@@ -77,7 +77,7 @@ Si desea modificar directamente JSON del objeto de aplicación, puede usar el ed
     }
 ```
 
-### <a name="msgraph-rest-api"></a>Uso de Microsoft Graph API
+### <a name="using-the-microsoft-graph-api"></a><a name="msgraph-rest-api"></a>Uso de Microsoft Graph API
 
 Para actualizar mediante programación todas las aplicaciones, puede usar la Microsoft Graph API para la actualización de todas las aplicaciones, de modo que incluyan vínculos en los documentos de los términos del servicio y de la declaración de privacidad.
 

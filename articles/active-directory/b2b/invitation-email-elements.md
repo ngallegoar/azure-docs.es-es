@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65768364"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
@@ -53,7 +53,7 @@ Si aún no ha configurado la imagen del perfil, se muestra un icono con las inic
 
   ![Captura de pantalla que muestra la invitación con las iniciales del invitador](media/invitation-email-elements/inviters-initials.png)
 
-### <a name="body"></a>Cuerpo
+### <a name="body"></a>Body
 El cuerpo contiene el mensaje que el invitador redacta al [invitar a un usuario invitado al directorio, grupo o aplicación](add-users-administrator.md) o al [usar la API de invitación](customize-invitation-api.md). Al ser un área de texto, por motivos de seguridad no se procesan las etiquetas HTML.
 
   ![Captura de pantalla que muestra el cuerpo del correo electrónico de invitación](media/invitation-email-elements/invitation-email-body.png)

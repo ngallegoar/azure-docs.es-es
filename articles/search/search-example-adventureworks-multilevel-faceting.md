@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: 8672fa0911d1a031205bb3340fa0c03ab9492a28
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792944"
 ---
 # <a name="example-multi-level-facets-in-azure-cognitive-search"></a>Ejemplo: Facetas de varios niveles en Azure Cognitive Search
@@ -97,6 +97,6 @@ Esta técnica escalará para abarcar escenarios más complejos, como árboles ta
 > [!TIP]
 > El número de facetas devueltas afecta la velocidad de la consulta. Para admitir conjuntos taxonómicos de gran tamaño, considere la posibilidad de agregar un campo **Edm.String** en facetas para contener el valor taxonómico de nivel superior de cada documento. Luego, aplique la misma técnica anterior, pero solo realice la consulta de faceta de colección (filtrada en el campo de taxonomía raíz) cuando el usuario se expanda a un nodo de nivel superior. O bien, si no se requiere una recuperación del 100 %, simplemente disminuya el recuento de facetas a un número razonable y asegúrese de que las entradas de facetas se ordenan por recuento.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 [Ejemplo: Modelado de la base de datos del inventario de AdventureWorks para Azure Cognitive Search](search-example-adventureworks-modeling.md).

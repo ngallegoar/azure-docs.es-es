@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954348"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228940"
 ---
 # <a name="manage-process-servers"></a>Administración de servidores de proceso
 
@@ -138,4 +138,4 @@ Si hay un software antivirus en ejecución en un servidor de procesos de escalab
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
-- El directorio de instalación del servidor de procesos. Por ejemplo:  C:\Program Files (x86)\Microsoft Azure Site Recovery
+- El directorio de instalación del servidor de procesos. Por ejemplo: C:\Program Files (x86)\Microsoft Azure Site Recovery

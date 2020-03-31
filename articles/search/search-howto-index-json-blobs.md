@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 37fc78971124240077a59d4ad99aa06cc408dbae
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533970"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Indexación de blobs JSON con el indexador de blobs de Azure Cognitive Search
@@ -118,7 +118,7 @@ El orden de las operaciones requiere que los objetos se creen y se llamen en est
 
 Los blobs JSON de Azure Blob Storage suelen ser un documento JSON único o una "matriz" JSON. El indexador de blobs de Azure Cognitive Search puede analizar cualquier construcción, según cómo configure el parámetro **parsingMode** en la solicitud.
 
-| Documento JSON | parsingMode | DESCRIPCIÓN | Disponibilidad |
+| Documento JSON | parsingMode | Descripción | Disponibilidad |
 |--------------|-------------|--------------|--------------|
 | Uno por blob | `json` | Analiza los blobs JSON como un único fragmento de texto. Cada blob JSON se convierte en un único documento de Azure Cognitive Search. | Por lo general, está disponible en la API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) y el SDK de [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
 | Varios por blob | `jsonArray` | Analiza una matriz JSON en el blob, donde cada elemento de la matriz se convierte en un documento de Azure Cognitive Search independiente.  | Por lo general, está disponible en la API [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) y el SDK de [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
@@ -282,7 +282,7 @@ El SDK de .NET tiene paridad completa con la API REST. Se recomienda que revise 
 
 Los blobs JSON pueden asumir varias formas. El parámetro **parsingMode** en el indexador JSON determina cómo se analiza el contenido del blob JSON y se estructura en un índice de Azure Cognitive Search:
 
-| parsingMode | DESCRIPCIÓN |
+| parsingMode | Descripción |
 |-------------|-------------|
 | `json`  | Indexe cada blob como un solo documento. Este es el valor predeterminado. |
 | `jsonArray` | Elija este modo si los blobs están compuestos por matrices JSON y necesita que cada elemento de la matriz se convierta en un documento independiente en Azure Cognitive Search. |
@@ -424,7 +424,7 @@ También puede hacer referencia a elementos individuales de la matriz mediante u
 >
 >
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Indexadores de Azure Cognitive Search](search-indexer-overview.md)
 + [Indexación de Azure Blob Storage con Azure Cognitive Search](search-howto-index-json-blobs.md)

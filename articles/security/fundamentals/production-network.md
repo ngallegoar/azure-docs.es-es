@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726701"
 ---
 # <a name="the-azure-production-network"></a>Red de producción de Azure
@@ -79,7 +79,7 @@ Las características adicionales de seguridad integradas en las funcionalidades 
      - El enrutador de acceso en el perímetro bloquea los paquetes salientes dirigidos a una dirección que está dentro de la red de Azure, debido a sus rutas estáticas configuradas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
+Para más información sobre lo que hace Microsoft para proteger la infraestructura de Azure, consulte:
 
 - [Instalaciones de Azure, entornos locales y seguridad física](physical-security.md)
 - [Disponibilidad de la infraestructura de Azure](infrastructure-availability.md)

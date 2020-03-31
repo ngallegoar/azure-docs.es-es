@@ -18,10 +18,10 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: 673431e2ddfc9a641bb1c640891daac79350cb3a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78253165"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Administración de la filtración de datos a cuentas de Azure Storage con directivas de punto de conexión de servicio de red virtual mediante Azure PowerShell
@@ -34,10 +34,10 @@ En este artículo aprenderá a:
 * Cree una red virtual.
 * Agregue una subred y habilite un punto de conexión de servicio para Azure Storage.
 * Cree dos cuentas de Azure Storage y permita el acceso de red a estas desde la subred creada anteriormente.
-* Cree una directiva de punto de conexión de servicio para permitir el acceso solo a una de las cuentas de almacenamiento.
-* Implemente una máquina virtual (VM) en la subred.
-* Confirme el acceso a la cuenta de almacenamiento permitida desde la subred.
-* Compruebe que se ha denegado el acceso a la cuenta de almacenamiento no permitida desde la subred.
+* Crear una directiva de punto de conexión de servicio para permitir el acceso solo a una de las cuentas de almacenamiento.
+* Implementar una máquina virtual (VM) en la subred.
+* Confirmar el acceso a la cuenta de almacenamiento permitida desde la subred.
+* Confirmar que se ha denegado el acceso a la cuenta de almacenamiento no permitida desde la subred.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -384,4 +384,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aplicado una directiva de punto de conexión de servicio a través de un punto de conexión de servicio de Azure Virtual Network para Azure Storage. Ha creado cuentas de Azure Storage y limitado el acceso de red solo a determinadas cuentas de almacenamiento (por tanto, denegado a otras) desde una subred de la red virtual. Para obtener más información sobre las directivas de punto de conexión de servicio, consulte [Información general sobre las directivas de punto de conexión de servicio](virtual-network-service-endpoint-policies-overview.md).
+En este artículo, ha aplicado una directiva de punto de conexión de servicio a través de un punto de conexión de servicio de Azure Virtual Network para Azure Storage. Ha creado cuentas de Azure Storage y limitado el acceso de red solo a determinadas cuentas de almacenamiento (por tanto, denegado a otras) desde una subred de la red virtual. Para más información sobre las directivas de punto de conexión de servicio, consulte [Información general sobre las directivas de punto de conexión de servicio](virtual-network-service-endpoint-policies-overview.md).

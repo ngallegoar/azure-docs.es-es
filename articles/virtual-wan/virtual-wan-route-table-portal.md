@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ms.openlocfilehash: 0807b535adc45093b439dba5ab8a0ea26b2a0721
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402939"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Cree una tabla de rutas de concentrador de Virtual WAN para dispositivos virtuales de red: Portal de Azure
@@ -40,11 +40,11 @@ Compruebe que se cumplen los criterios siguientes:
 
     * Las redes virtuales no requieren ninguna subred de puerta de enlace.
 
-## <a name="signin"></a>1. Iniciar sesión
+## <a name="1-sign-in"></a><a name="signin"></a>1. Iniciar sesión
 
 Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
-## <a name="vwan"></a>2. Creación de una instancia de Virtual WAN
+## <a name="2-create-a-virtual-wan"></a><a name="vwan"></a>2. Creación de una instancia de Virtual WAN
 
 Cree una WAN virtual. Use los valores de ejemplo siguientes:
 
@@ -54,7 +54,7 @@ Cree una WAN virtual. Use los valores de ejemplo siguientes:
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="hub"></a>3. Crear un concentrador
+## <a name="3-create-a-hub"></a><a name="hub"></a>3. Crear un concentrador
 
 Cree el concentrador. Use los valores de ejemplo siguientes:
 
@@ -64,7 +64,7 @@ Cree el concentrador. Use los valores de ejemplo siguientes:
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="route"></a>4. Creación y aplicación de una tabla de rutas de concentrador
+## <a name="4-create-and-apply-a-hub-route-table"></a><a name="route"></a>4. Creación y aplicación de una tabla de rutas de concentrador
 
 Actualice el concentrador con una tabla de rutas de concentrador. Use los valores de ejemplo siguientes:
 
@@ -78,7 +78,7 @@ Actualice el concentrador con una tabla de rutas de concentrador. Use los valore
 5. En la columna **Si el prefijo de destino es**, agregue los espacios de direcciones. En la columna **Enviar al próximo salto**, agregue la dirección IP privada de interfaz con red NVA de la red perimetral.
 6. Haga clic en **Confirmar** para actualizar el recurso del centro de conectividad con la configuración de la tabla de rutas.
 
-## <a name="connections"></a>5. Creación de las conexiones de red virtual
+## <a name="5-create-the-vnet-connections"></a><a name="connections"></a>5. Creación de las conexiones de red virtual
 
 Cree una conexión de red virtual desde cada red virtual de radio indirecta (VNet1 y VNet2) al centro de conectividad. Estas conexiones de red virtual se representan mediante flechas azules en la ilustración anterior. Después, cree una conexión de red virtual desde la red virtual de NVA al centro de conectividad (flecha negra de la ilustración).
 

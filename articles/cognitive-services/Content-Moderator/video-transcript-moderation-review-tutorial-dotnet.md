@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 2fbd4270221cb23a4f99a0f8155bb1de76472f31
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976985"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderación de vídeos y transcripciones
@@ -32,7 +32,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > - Moderar la transcripción con el servicio de moderación de texto
 > - Agregar la transcripción moderada a la revisión del vídeo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Regístrese en el sitio web [Herramienta de revisión de Content Moderator](https://contentmoderator.cognitive.microsoft.com/) y cree etiquetas personalizadas. Consulte[Uso de etiquetas](Review-Tool-User-Guide/tags.md) si necesita ayuda con este paso.
 
@@ -44,7 +44,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 Edite el archivo `App.config` y agregue el nombre del inquilino de Active Directory, los puntos de conexión de servicio y las claves de la suscripción que indica `#####`. Necesita la siguiente información:
 
-|Clave|DESCRIPCIÓN|
+|Clave|Descripción|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|Punto de conexión para la API de Azure Media Services|
 |`ClientSecret`|Clave de suscripción de Azure Media Services|
@@ -60,7 +60,7 @@ La clase `Program` en `Program.cs` es el punto de entrada principal para la apli
 
 ### <a name="methods-of-program-class"></a>Métodos de la clase Program
 
-|Método|DESCRIPCIÓN|
+|Método|Descripción|
 |-|-|
 |`Main`|Analiza la línea de comandos, recopila la información del usuario y empieza a procesar.|
 |`ProcessVideo`|Comprime, carga, modera y crea las revisiones del vídeo.|
@@ -88,7 +88,7 @@ Si no hay argumentos de línea de comandos, `Main()` llama a `GetUserInputs()`. 
 
 Independientemente de si las opciones del programa proceden de la línea de comandos o de la entrada interactiva del usuario, `Main()` llama a `Initialize()` para crear las instancias siguientes:
 
-|Clase|DESCRIPCIÓN|
+|Clase|Descripción|
 |-|-|
 |`AMSComponent`|Comprime los archivos de vídeo antes de enviarlos para moderación.|
 |`AMSconfigurations`|Interfaz para los datos de configuración de la aplicación, que se encuentra en `App.config`.|
@@ -121,7 +121,7 @@ El código que comprime un solo archivo de vídeo es la clase `AmsComponent` en 
 
 [!code-csharp[CompressVideo](~/VideoReviewConsoleApp/Microsoft.ContentModerator.AMSComponent/AMSComponentClient/AMSComponent.cs?range=31-59)]
 
-El código sigue estos pasos:
+Este código realiza los pasos siguientes:
 
 - Realiza comprobaciones para asegurarse de que la configuración de `App.config` contiene todos los datos necesarios
 - Realiza comprobaciones para asegurarse de que el binario `ffmpeg` está presente

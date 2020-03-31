@@ -4,10 +4,10 @@ description: Obtenga información sobre la ejecución de comando de diagnóstico
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: ea4432c9e92c4a0380517e39678814e2d1cb3bfc
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456423"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Comprobación del mantenimiento de un registro de contenedor de Azure
@@ -53,7 +53,7 @@ az acr check-health --ignore-errors
 az acr check-health --name myregistry --ignore-errors
 ```      
 
-Salida de ejemplo:
+Salida del ejemplo:
 
 ```console
 $ az acr check-health --name myregistry --ignore-errors --yes

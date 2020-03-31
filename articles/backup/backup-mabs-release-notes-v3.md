@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ms.openlocfilehash: b47d83e0e3714f3f035397acaadeac9cda39d12a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172276"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de la versión de Microsoft Azure Backup Server
@@ -19,7 +19,7 @@ Este artículo describe los problemas conocidos y las soluciones alternativas pa
 
 **Descripción:** Errores de copia de seguridad y restauración de orígenes de datos agrupados como un clúster de Hyper-V, un clúster de SQL (SQL AlwaysOn) o Exchange en un grupo de disponibilidad de base de datos (DAG) después de actualizar MABS v2 a MABS v3.
 
-**Solución alternativa**: Para evitar estos errores, abra SQL Server Management Studio (SSMS) y ejecute el siguiente script SQL en la BD de DPM:
+**Solución alternativa:** Para evitar estos errores, abra SQL Server Management Studio (SSMS) y ejecute el siguiente script SQL en la BD de DPM:
 
 ```sql
     IF EXISTS (SELECT * FROM dbo.sysobjects
@@ -52,7 +52,7 @@ Este artículo describe los problemas conocidos y las soluciones alternativas pa
 
 **Descripción:** Error al actualizar de MABS v2 a MABS v3 en la configuración regional en ruso con el código **4387**.
 
-**Solución alternativa**: Realice los pasos siguientes para actualizar a MABS v3 con el paquete de instalación de ruso:
+**Solución alternativa:** Realice los pasos siguientes para actualizar a MABS v3 con el paquete de instalación de ruso:
 
 1. [Realice una copia de seguridad](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) de su base de datos SQL y desinstale MABS v2 (seleccione conservar los datos protegidos durante la desinstalación).
 2. Actualice a SQL 2017 (Enterprise) y desinstale Reporting como parte de la actualización.

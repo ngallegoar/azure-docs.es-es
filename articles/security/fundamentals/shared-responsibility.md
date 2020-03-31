@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/16/2019
 ms.author: terrylan
 ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72518148"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Responsabilidad compartida en la nube
@@ -35,10 +35,10 @@ Para todos los tipos de implementación de nube, es propietario de los datos y l
 
 Con independencia del tipo de implementación, siempre conserva las siguientes responsabilidades:
 
-- Datos
+- data
 - Puntos de conexión
 - Cuenta
-- administración de acceso
+- Administración de acceso
 
 ## <a name="cloud-security-advantages"></a>Ventajas de seguridad en la nube
 La nube ofrece importantes ventajas para solucionar los desafíos de seguridad de la información de larga duración. En un entorno local, las organizaciones probablemente tengan responsabilidades inadecuadas y recursos limitados disponibles para invertir en seguridad, de tal manera que se crea un entorno donde los atacantes pueden aprovechar vulnerabilidades a todos los niveles.

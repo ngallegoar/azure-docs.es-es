@@ -16,11 +16,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516790"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232104"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Implementar una matriz virtual de StorSimple: Aprovisionamiento en Hyper-V
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
@@ -188,7 +188,7 @@ Realice los pasos siguientes para iniciar la matriz virtual y conectarse a ella.
 7. Utilice el comando `Get-HcsIpAddress` para enumerar las interfaces de red habilitadas en la matriz virtual. Si el dispositivo tiene una única interfaz de red habilitada, el nombre predeterminado asignado a esta interfaz es `Ethernet`.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image29m.png)
-8. Utilice el cmdlet `Set-HcsIpAddress` para configurar la red. Consulte el ejemplo siguiente:
+8. Utilice el cmdlet `Set-HcsIpAddress` para configurar la red. Vea el ejemplo siguiente:
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 

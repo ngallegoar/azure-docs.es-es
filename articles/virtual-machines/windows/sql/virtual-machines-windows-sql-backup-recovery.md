@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: e4c126bbac73accb984f1040a7fea1740d919233
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392817"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226640"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Copias de seguridad y restauración para SQL Server en Azure Virtual Machines
 
@@ -39,7 +39,7 @@ En la tabla siguiente se proporciona información sobre varias opciones de copia
 
 En las siguientes secciones se describe cada opción con más detalle. La sección final de este artículo proporciona un resumen en forma de una matriz de características.
 
-## <a id="automated"></a> Copia de seguridad automatizada
+## <a name="automated-backup"></a><a id="automated"></a> Copia de seguridad automatizada
 
 Copia de seguridad automatizada proporciona un servicio de copia de seguridad automático para las ediciones de SQL Server Standard y Enterprise que se ejecutan en una VM de Windows en Azure. Este servicio se proporciona por la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md), que se instala automáticamente en las imágenes de máquina virtual de Windows de SQL Server en Azure Portal.
 
@@ -58,7 +58,7 @@ Para obtener más información sobre cómo configurar Copia de seguridad automat
 - **SQL Server 2016/2017**: [Automated Backup v2 para Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014**: [Automated Backup para SQL Server 2014 en Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a>Azure Backup para máquinas virtuales de SQL
+## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a>Azure Backup para máquinas virtuales de SQL
 
 [Azure Backup](/azure/backup/) proporciona una función de copia de seguridad de clase empresarial para las instancias de SQL Server que se ejecutan en máquinas virtuales de Azure. Todas las copias de seguridad se almacenan y administran en un almacén de Recovery Services. Esta solución ofrece varias ventajas, especialmente para las empresas:
 
@@ -79,7 +79,7 @@ Para obtener una introducción rápida de cómo funciona junto con una demostrac
 
 La solución de Azure Backup para máquinas virtuales de SQL se encuentra disponible con carácter general. Para obtener más información, consulte [Back up SQL Server database to Azure](../../../backup/backup-azure-sql-database.md) (Copia de seguridad de base de datos de SQL Server en Azure).
 
-## <a id="manual"></a> Copia de seguridad manual
+## <a name="manual-backup"></a><a id="manual"></a> Copia de seguridad manual
 
 Si desea administrar manualmente operaciones de copia de seguridad y restauración en sus VM de SQL, tiene a su disposición varias opciones, en función de la versión de SQL Server que utilice. Para obtener información general de copia de seguridad y restauración, consulte uno de los siguientes artículos según la versión de SQL Server:
 

@@ -6,11 +6,11 @@ ms.subservice: process-automation
 ms.date: 02/25/2020
 ms.topic: conceptual
 ms.openlocfilehash: cbf181b9a6d3860854c7b61cca0e6c50810cced9
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616058"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235492"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
@@ -347,7 +347,7 @@ El siguiente es un correo electrónico de ejemplo que se envía cuando la soluci
 
 ![Página de la solución Update Management de Automation](media/automation-solution-vm-management/email.png)
 
-## <a name="add-exclude-vms"></a>Agregar o excluir VM
+## <a name="addexclude-vms"></a><a name="add-exclude-vms"></a>Agregar o excluir VM
 
 La solución proporciona la capacidad de agregar VM como destino de la solución o excluir específicamente las máquinas de la solución.
 

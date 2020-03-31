@@ -4,11 +4,11 @@ description: Busque registros generados por Seguimiento, NLog o Log4Net.
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.openlocfilehash: 273d5a2f4e1155541e159332312bdaa68aa175d7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77665993"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234792"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de .NET, .NET Core y Python en Application Insights
 
@@ -193,19 +193,19 @@ Utilice los [adaptadores de registro de Java](../../azure-monitor/app/java-trace
 * Si usa System.Diagnostics.Trace, asegúrese de que lo ha [configurado en *web.config*](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
 * Asegúrese de que tiene la última versión de Application Insights. En Visual Studio, vaya a **Herramientas** > **Extensiones y actualizaciones** y abra la pestaña **Actualizaciones**. Si **Developer Analytics Tools** está instalado, selecciónelo para actualizarlo.
 
-### <a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía"
+### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía"
 Probablemente haya instalado el paquete NuGet del adaptador de registro sin instalar Application Insights. En el Explorador de soluciones, haga clic con el botón derecho en *ApplicationInsights.config* y seleccione **Actualizar Application Insights**. Se le pedirá que inicie sesión en Azure y que cree un recurso de Application Insights o que vuelva a usar uno existente. Esto debería corregir el problema.
 
 ### <a name="i-can-see-traces-but-not-other-events-in-diagnostic-search"></a>Puedo ver seguimientos en la búsqueda de diagnóstico, pero no otros eventos
 El paso de todos los eventos y solicitudes por la canalización puede llevar un rato.
 
-### <a name="limits"></a>¿Qué cantidad de datos se conserva?
+### <a name="how-much-data-is-retained"></a><a name="limits"></a>¿Qué cantidad de datos se conserva?
 Hay varios factores que afectan a la cantidad de datos que se conservan. Para obtener más información, vea la sección [Límites](../../azure-monitor/app/api-custom-events-metrics.md#limits) de la página de métricas de eventos de cliente.
 
 ### <a name="i-dont-see-some-log-entries-that-i-expected"></a>No veo algunas entradas del registro que esperaba
 Si usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior y la aplicación envía grandes cantidades de datos, la característica de muestreo adaptativo puede operar y enviar solamente una parte de los datos de telemetría. [Aprenda más sobre el muestreo.](../../azure-monitor/app/sampling.md)
 
-## <a name="add"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="add"></a>Pasos siguientes
 
 * [Diagnóstico de errores y excepciones en ASP.NET][exceptions]
 * [Más información sobre la búsqueda][diagnostic]

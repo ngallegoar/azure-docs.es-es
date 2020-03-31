@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: fd00e4105ce4edae9d014df2a83c5ae3aaf778da
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68854261"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Tutorial de diseño de Project Acoustics en Unity
@@ -36,7 +36,7 @@ Project Acoustics emplea métodos comunes de procesamiento de señales digitales
 Project Acoustics proporciona una serie de controles de diseño acústico específicos de la fuente. Esto le permite controlar la mezcla en una escena y hacer que algunas fuentes destaquen más que otras.
 
 ### <a name="adjust-distance-based-attenuation"></a>Ajuste de la atenuación basada en la distancia
-El DSP de audio que proporciona el complemento espacializador de **Project Acoustics** para Unity respeta la atenuación basada en la distancia de cada origen, integrada en el Editor Unity. Los controles de la atenuación basada en la distancia están en el componente **Audio Source** (Origen de datos) que se encuentra en el panel **Inspector** de orígenes de sonido, en **3D Sound Settings** (Ajustes de sonido 3D):
+El DSP de audio que proporciona el complemento espacializador de **Project Acoustics** para Unity respeta la atenuación basada en la distancia de cada origen, integrada en el editor de Unity. Los controles de la atenuación basada en la distancia están en el componente **Audio Source** (Origen de datos) que se encuentra en el panel **Inspector** de orígenes de sonido, en **3D Sound Settings** (Ajustes de sonido 3D):
 
 ![Captura de pantalla del panel de opciones de atenuación de distancia de Unity](media/distance-attenuation.png)
 

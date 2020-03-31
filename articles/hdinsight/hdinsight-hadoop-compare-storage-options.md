@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 98d71434ac9e3f712be0cbd8c505b7d5a537e7cc
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79095551"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight
@@ -45,15 +45,15 @@ Puede crear un clúster mediante diversas combinaciones de servicios para el alm
 | Versión de HDInsight | Almacenamiento principal | Almacenamiento secundario | Compatible |
 |---|---|---|---|
 | 3.6 y 4.0 | Uso general V1, uso general V2 | Uso general V1, uso general V2, BlobStorage (blobs en bloques) | Sí |
-| 3.6 y 4.0 | Uso general V1, uso general V2 | Data Lake Storage Gen2 | Sin |
+| 3.6 y 4.0 | Uso general V1, uso general V2 | Data Lake Storage Gen2 | No |
 | 3.6 y 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Sí |
 | 3.6 y 4.0 | Data Lake Storage Gen2* | Uso general V1, uso general V2, BlobStorage (blobs en bloques) | Sí |
-| 3.6 y 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Sin |
+| 3.6 y 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sí |
 | 3.6 | Data Lake Storage Gen1 | Uso general V1, uso general V2, BlobStorage (blobs en bloques) | Sí |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Sin |
-| 4.0 | Data Lake Storage Gen1 | Any | Sin |
-| 4.0 | Uso general V1, uso general V2 | Data Lake Storage Gen1 | Sin |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
+| 4.0 | Data Lake Storage Gen1 | Any | No |
+| 4.0 | Uso general V1, uso general V2 | Data Lake Storage Gen1 | No |
 
 * Podría tratarse de una o varias cuentas de Data Lake Storage Gen2, siempre y cuando todas estén configuradas para usar la misma identidad administrada para el acceso al clúster.
 
@@ -159,7 +159,7 @@ Varios trabajos de WebHCat, incluidos Apache Hive, MapReduce, streaming de Apach
 
 Los blobs se pueden usar para datos estructurados y no estructurados. Los contenedores de blobs almacenan los datos como pares de clave-valor y no tienen jerarquía de directorios. No obstante, el nombre de clave puede incluir un carácter de barra diagonal ( / ) para que parezca que el archivo está almacenado dentro de una estructura de directorios. Por ejemplo, la clave de un blob puede ser `input/log1.txt`. No existe un directorio `input`, pero debido a la barra diagonal en el nombre de clave, la clave se parece a una ruta de acceso de archivo.
 
-### <a id="benefits"></a>Ventajas de Azure Storage
+### <a name="benefits-of-azure-storage"></a><a id="benefits"></a>Ventajas de Azure Storage
 Los clústeres de proceso y los recursos de almacenamiento que no están colocados tienen costos de rendimiento implícitos. Estos costos se mitigan gracias a la manera en que los clústeres de cálculo se crean cerca de los recursos de la cuenta de almacenamiento dentro de la región de Azure. En esta región, los nodos de proceso pueden acceder eficazmente a los datos a través de la red de alta velocidad dentro de Azure Storage.
 
 Al almacenar los datos en Azure Storage en lugar de HDFS, disfruta de varias ventajas:
@@ -215,7 +215,7 @@ Data Lake Storage Gen1 puede almacenar cualquier dato en su formato nativo, tal 
 
 Los contenedores de datos de Data Lake Storage Gen1 son básicamente carpetas y archivos. Se opera en los datos almacenados mediante los SDK, Azure Portal y Azure Powershell. Siempre que ponga los datos en el almacén mediante estas interfaces y los contenedores adecuados, puede almacenar cualquier tipo de datos. Data Lake Storage Gen1 no realiza ningún control especial de datos según el tipo de datos que almacene.
 
-## <a name="DataLakeStoreSecurity"></a>Seguridad de datos en Data Lake Storage Gen1
+## <a name="data-security-in-data-lake-storage-gen1"></a><a name="DataLakeStoreSecurity"></a>Seguridad de datos en Data Lake Storage Gen1
 Data Lake Storage Gen1 usa Azure Active Directory para la autenticación y listas de control de acceso (ACL) para administrar el acceso a los datos.
 
 | **Característica** | **Descripción** |
