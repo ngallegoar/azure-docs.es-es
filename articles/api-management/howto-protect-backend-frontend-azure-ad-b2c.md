@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: fde48d63bd343fbed1f82e60819131ffb043a795
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 55acea360de11c5fcc699d65daf92cf24dfd691d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967630"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475483"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Protección del back-end de SPA con OAuth 2.0, Azure Active Directory B2C y Azure API Management
 
@@ -250,7 +250,7 @@ Deberá agregar bloques de direcciones con formato CIDR al panel restricciones d
 
    > [!NOTE]
    > La sección siguiente es opcional y no es aplicable al nivel **Consumo**, que no es compatible con el portal para desarrolladores.
-   > Si no va a usar el portal para desarrolladores o no puede usarlo, ya que usa el nivel Consumo, omita este paso y vaya directamente a ["Compilación de la aplicación JavaScript de página única para consumir la API"](##build-the-javascript-spa-to-consume-the-api).
+   > Si no va a usar el portal para desarrolladores o no puede usarlo, ya que usa el nivel Consumo, omita este paso y vaya directamente a ["Compilación de la aplicación JavaScript de página única para consumir la API"](#build-the-javascript-spa-to-consume-the-api).
 
 ## <a name="optional-configure-the-developer-portal"></a>[Opcional] Configuración del portal para desarrolladores
 
@@ -461,8 +461,5 @@ Los pasos anteriores se pueden adaptar y editar para permitir gran cantidad de u
 * Obtenga más información sobre [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-scenarios.md).
 * Consulte más [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre la administración de API.
 * Para conocer otras formas de proteger el servicio back-end, consulte [Autenticación de certificado mutua](api-management-howto-mutual-certificates.md).
-* Considere la posibilidad de usar Graph API de Azure AD para asignar notificaciones personalizadas y usar una directiva de API Management para validar que están presentes en el token.
-
 * [Creación de una instancia del servicio de API Management](get-started-create-service-instance.md).
-
 * [Administración de su primera API en Administración de API de Azure](import-and-publish.md).

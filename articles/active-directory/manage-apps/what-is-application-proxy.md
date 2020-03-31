@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f23b20d460952ae582c292c8015851b9dc2ea98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7047dfd0f02ffe95dcacfdf4ddc014047a338513
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108172"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79481201"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Uso de Azure AD Application Proxy para publicar aplicaciones locales para usuarios remotos
 
@@ -122,7 +122,7 @@ Otra ventaja importante de la implementación de Application Proxy es la extensi
 
 Para más información sobre la migración de las aplicaciones a Azure AD, consulte las notas del producto [Migrating Your Applications to Azure Active Directory](https://aka.ms/migrateapps/whitepaper) (Migración de las aplicaciones a Azure Active Directory).
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 En el siguiente diagrama se ilustra de manera general cómo los servicios de autenticación de Azure AD y Application Proxy trabajan juntos para proporcionar un inicio de sesión único a las aplicaciones locales para los usuarios finales.
 
@@ -145,7 +145,7 @@ En el siguiente diagrama se ilustra de manera general cómo los servicios de aut
 |Active Directory (AD)|Active Directory se ejecuta en el entorno local para realizar la autenticación de las cuentas de dominio. Cuando se configura el inicio de sesión único, el conector se comunica con AD para realizar cualquier autenticación adicional necesaria.|
 |Aplicación local|Por último, el usuario puede acceder a una aplicación local.|
 
-Azure AD Application Proxy consiste en el servicio Application Proxy basado en la nube y un conector local. El conector atiende las solicitudes del servicio Application Proxy y controla las conexiones con las aplicaciones internas. Es importante tener en cuenta que todas las comunicaciones se producen a través de SSL y siempre se originan en el conector del servicio Application Proxy. Es decir, las comunicaciones son exclusivamente de salida. El conector usa un certificado de cliente para autenticarse en el servicio Application Proxy para todas las llamadas. La única excepción de la seguridad de la conexión es el momento de la instalación inicial, donde se establece el certificado de cliente. Consulte la sección [En segundo plano](application-proxy-security.md#under-the-hood) de Application Proxy para más información.
+Azure AD Application Proxy consiste en el servicio Application Proxy basado en la nube y un conector local. El conector atiende las solicitudes del servicio Application Proxy y controla las conexiones con las aplicaciones internas. Es importante tener en cuenta que todas las comunicaciones se producen a través de TLS y siempre se originan en el conector del servicio Application Proxy. Es decir, las comunicaciones son exclusivamente de salida. El conector usa un certificado de cliente para autenticarse en el servicio Application Proxy para todas las llamadas. La única excepción de la seguridad de la conexión es el momento de la instalación inicial, donde se establece el certificado de cliente. Consulte la sección [En segundo plano](application-proxy-security.md#under-the-hood) de Application Proxy para más información.
 
 ### <a name="application-proxy-connectors"></a>Conectores de Application Proxy
 
@@ -180,7 +180,7 @@ Para más información sobre cómo elegir dónde instalar los conectores, consul
 
 ## <a name="other-use-cases"></a>Otros casos de uso
 
-Hasta ahora, nos hemos centrado en el uso de Application Proxy para publicar aplicaciones locales de forma externa, a la vez que permitimos el inicio de sesión único en todas las aplicaciones en la nube y locales. Sin embargo, hay otros casos de uso para Application Proxy que merece la pena mencionar. Entre ellos se incluyen los siguientes:
+Hasta ahora, nos hemos centrado en el uso de Application Proxy para publicar aplicaciones locales de forma externa, a la vez que permitimos el inicio de sesión único en todas las aplicaciones en la nube y locales. Sin embargo, hay otros casos de uso para Application Proxy que merece la pena mencionar. Incluyen:
 
 * **Publicación de forma segura de API REST**. Si tiene lógica de negocio o API que se ejecutan localmente o se hospedan en máquinas virtuales en la nube, Application Proxy proporciona un punto de conexión público para el acceso a la API. El acceso al punto de conexión de la API le permite controlar la autenticación y la autorización sin necesidad de puertos de entrada. Proporciona seguridad adicional mediante las características de Azure AD Premium, como la autenticación multifactor y el acceso condicional basado en dispositivos para equipos de sobremesa, iOS, MAC y dispositivos Android que utilizan Intune. Para más información, consulte [How to enable native client applications to interact with proxy applications](application-proxy-configure-native-client-application.md) (Cómo habilitar las aplicaciones cliente nativas para que interactúen con las aplicaciones proxy) y [Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad).
 * **Servicios de Escritorio remoto** **(RDS)** . Las implementaciones de RDS estándar requieren conexiones de entrada abiertas. Sin embargo, la implementación de [RDS con Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) tiene una conexión de salida permanente desde el servidor que ejecuta el servicio de conexión. De esta forma, puede ofrecer más aplicaciones a los usuarios finales mediante la publicación de aplicaciones locales mediante Servicios de Escritorio remoto. También puede reducir la superficie de ataque de la implementación con un conjunto limitado de controles de verificación en dos pasos y de acceso condicional a RDS.

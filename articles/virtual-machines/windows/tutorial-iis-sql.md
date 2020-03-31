@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 286d00ce718a34dea15a075984cc3b2a5e4cfec3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 762d67a291ec33e13ca9e7311b0cf11da140dd6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064661"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154277"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutorial: Instalación de la pila SQL, IIS y .NET en una máquina virtual Windows con Azure PowerShell
 
@@ -137,8 +137,8 @@ En este tutorial, ha instalado una pila SQL&#92;IIS&#92;.NET con Azure PowerShel
 > * Creación de una máquina virtual que ejecute SQL Server
 > * Instalación de la extensión de SQL Server
 
-Pase al siguiente tutorial para aprender a proteger un servidor web IIS con certificados SSL.
+Pase al siguiente tutorial para aprender a proteger un servidor web IIS con certificados TLS/SSL.
 
 > [!div class="nextstepaction"]
-> [Protección de un servidor web IIS con certificados SSL](tutorial-secure-web-server.md)
+> [Protección de un servidor web IIS con certificados TLS/SSL](tutorial-secure-web-server.md)
 

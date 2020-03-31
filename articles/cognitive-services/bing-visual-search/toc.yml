@@ -41,6 +41,10 @@
       href: tutorial-visual-search-image-upload.md
     - name: Recorte y búsqueda de un área de una imagen
       href: tutorial-visual-search-crop-area-results.md
+    - name: Búsqueda de imágenes similares de búsquedas anteriores
+      href: tutorial-visual-search-insights-token.md
+    - name: Creación de una aplicación web de una sola página
+      href: tutorial-bing-visual-search-single-page-app.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código
@@ -63,10 +67,6 @@
     - name: Cambio de tamaño y recorte de miniaturas
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md
-    - name: Búsqueda de una imagen mediante tokens de conclusiones de imágenes
-      href: tutorial-visual-search-insights-token.md
-    - name: Creación de una aplicación web de una sola página
-      href: tutorial-bing-visual-search-single-page-app.md
 - name: Referencia
   items:
     - name: API REST v7

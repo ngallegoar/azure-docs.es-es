@@ -4,16 +4,16 @@ description: Use la herramienta Azure IoT Explorer para interactuar con el dispo
 author: miagdp
 ms.author: miag
 ms.date: 12/27/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: fd180404ca18b5ea84c745a543ae7e87bf16c27d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 963421fa1ef06599448c9a4197f0d7a6ad2e142d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529633"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159190"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalación y uso de Azure IoT Explorer
 
@@ -24,7 +24,7 @@ En este artículo aprenderá a:
 - Instale y configure la herramienta Azure IoT Explorer.
 - Use la herramienta para interactuar con los dispositivos y probarlos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar la herramienta Azure IoT Explorer, necesitará lo siguiente:
 

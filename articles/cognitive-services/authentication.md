@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
 ms.openlocfilehash: 1c13c2cc4d4e562d3512de90338d874091dfeef6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74423933"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticación de solicitudes en Azure Cognitive Services
@@ -25,7 +25,7 @@ Cada solicitud a una instancia de Azure Cognitive Services debe incluir un encab
 * [Autenticación con un token](#authenticate-with-an-authentication-token)
 * [Autenticación mediante Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de hacer una solicitud, necesita una cuenta de Azure y una suscripción a Azure Cognitive Services. Si ya tiene una cuenta, siga adelante y vaya a la sección siguiente. Si no tiene una cuenta, tenemos una guía para que la configure en unos minutos: [Creación de una cuenta de Cognitive Services para Azure](cognitive-services-apis-create-account.md).
 
@@ -35,7 +35,7 @@ Puede obtener la clave de suscripción en [Azure Portal](cognitive-services-apis
 
 Revisemos rápidamente los encabezados de autenticación disponibles para su uso con Azure Cognitive Services.
 
-| Encabezado | DESCRIPCIÓN |
+| Encabezado | Descripción |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Utilice este encabezado para autenticarse con una clave de suscripción para un servicio específico o una clave de suscripción a varios servicios. |
 | Ocp-Apim-Subscription-Region | Este encabezado solo es necesario cuando se utiliza una clave de suscripción multiservicio con la [Translator Text API](./Translator/reference/v3-0-reference.md). Utilice este encabezado para especificar la región de la suscripción. |
@@ -161,7 +161,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 [!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 * [¿Qué es Cognitive Services?](welcome.md)
 * [Precios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)

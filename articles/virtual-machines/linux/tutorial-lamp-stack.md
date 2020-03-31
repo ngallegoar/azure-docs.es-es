@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 3b1f4ef9d4e36c35cc72716125392aaff05eab6d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2a636ae5609d9cb5c81782af5a419a27d7880106
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034468"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154379"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Instalación de un servidor web LAMP en una máquina virtual Linux en Azure
 
@@ -122,10 +122,10 @@ En este tutorial, implementó un servidor LAMP en Azure. Ha aprendido a:
 > * Comprobación de la instalación y configuración
 > * Instalación de WordPress en el servidor LAMP
 
-Pase al siguiente tutorial para aprender a proteger servidores web con certificados SSL.
+Pase al siguiente tutorial para aprender a proteger servidores web con certificados TLS/SSL.
 
 > [!div class="nextstepaction"]
-> [Protección de un servidor web con SSL](tutorial-secure-web-server.md)
+> [Protección de servidores web con TLS](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

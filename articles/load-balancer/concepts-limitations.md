@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: aab6a4de7be57df1f691861533a4528a0bcae571
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: a94b51e49951948974b8f42f6c89cd3c84f95d65
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605637"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80064274"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes y limitaciones de Load Balancer
 Azure Load Balancer contiene varios componentes clave para su funcionamiento.  Estos componentes se pueden configurar en la suscripción mediante Azure Portal, la CLI de Azure o Azure PowerShell.  
@@ -50,10 +50,13 @@ Las instancias de Load Balancer Básico tienen un ámbito limitado (conjunto de 
 * **Reglas de equilibrio de carga**: las reglas de equilibrio de carga son las que indican a Load Balancer lo que se debe hacer en cada momento. 
 * **Reglas NAT de entrada**: las reglas NAT de entrada reenvían el tráfico desde un puerto específico de una dirección IP de front-end específica a un puerto específico de una instancia de back-end específica dentro de la red virtual. El **[reenvío de puertos](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** se realiza mediante la misma distribución basada en hash que el equilibrio de carga. Los escenarios comunes para esta funcionalidad son las sesiones Protocolo de escritorio remoto (RDP) o Secure Shell (SSH) en las instancias de máquina virtual individuales dentro de una red virtual de Azure. Puede asignar varios puntos de conexión internos a puertos en la misma dirección IP de front-end. Puede usar las direcciones IP de front-end para administrar de forma remota las máquinas virtuales sin un cuadro de salto adicional.
 * **Reglas de salida**: una **[regla de salida](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** configura una traducción de direcciones de red (NAT) de salida para todas las máquinas virtuales o instancias identificadas por el grupo de back-end de la instancia de Standard Load Balancer que se van a traducir para el front-end.
-Load Balancer Básico no es admite reglas de salida.
-![Equilibrador de carga de Azure](./media/load-balancer-overview/load-balancer-overview.png)
 
-## <a name = "load-balancer-concepts"></a>Conceptos de Load Balancer
+  Load Balancer Básico no es admite reglas de salida.
+
+  ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
+* **Protocolos de transporte**: Load Balancer no es compatible con ICMP; los pings de ICMP a un equilibrador de carga público agotarán el tiempo de espera. Para hacer ping a un equilibrador de carga público, use ping de TCP.
+
+## <a name="load-balancer-concepts"></a><a name = "load-balancer-concepts"></a>Conceptos de Load Balancer
 
 Load Balancer proporciona las siguientes funcionalidades básicas para las aplicaciones TCP y UDP:
 
@@ -88,7 +91,7 @@ En la siguiente imagen se muestra la distribución basada en hash:
   * Actualización sencilla y recuperación ante desastres de servicios, ya que el front-end se puede asignar dinámicamente a otra instancia del servicio.
   * Facilita la administración de la lista de control de acceso (ACL). Las ACL que se expresan como direcciones IP de front-end no cambian a medida que los servicios se escalan o bajan horizontalmente o se vuelve a implementar. La traducción de las conexiones salientes a un número menor de direcciones IP que las máquinas reduce la carga de la implementación de listas de destinatarios seguras.
 
-  Standard Load Balancer emplea un [algoritmo de SNAT sólido, escalable y predecible](load-balancer-outbound-connections.md#snat). Estos son los principios clave que se deben recordar al trabajar con Standard Load Balancer:
+  Standard Load Balancer emplea un [algoritmo de SNAT sólido, escalable y predecible](load-balancer-outbound-connections.md#snat). Estos son los principios claves que hay que recordar cuando se trabaja con Load Balancer Estándar:
 
     - Las reglas de equilibrio de carga deducen cómo se programa SNAT. Las reglas de equilibrio de carga son específicas del protocolo. SNAT es específica del protocolo y la configuración debe reflejarlo en lugar de crear un efecto secundario.
 
@@ -102,7 +105,7 @@ En la siguiente imagen se muestra la distribución basada en hash:
 
         Ambos permitirán la conectividad de salida desde la red virtual hacia afuera. 
 
-        Si _solo_ tiene un equilibrador de carga estándar interno asociado con el grupo de back-end en el que se encuentra el recurso de máquina virtual, la máquina virtual solo puede acceder a los recursos de red virtual y los [puntos de conexión de servicio de la red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).  Para crear una conexión de salida, siga los pasos descritos en el párrafo anterior.
+        Si _solo_ tiene una instancia de Standard Load Balancer interna asociada con el grupo de back-end en el que se encuentra el recurso de máquina virtual, la máquina virtual solo puede acceder a los recursos de red virtual y los [puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).  Para crear una conexión de salida, siga los pasos descritos en el párrafo anterior.
 
         La conectividad de salida de un recurso de máquina virtual no se asocia a las SKU Estándar, permanece como antes.
 
@@ -125,7 +128,7 @@ Consulte la [explicación detallada sobre los puertos de alta disponibilidad](lo
 Para la comparación, Load Balancer Básico selecciona un único front-end de forma aleatoria y no se puede controlar cuál se selecciona.
 ## <a name="load-balancer-types"></a>Tipos de Load Balancer
 
-### <a name = "publicloadbalancer"></a>Equilibrador de carga público
+### <a name="public-load-balancer"></a><a name = "publicloadbalancer"></a>Equilibrador de carga público
 
 Una Load Balancer pública asigna la dirección IP pública y el puerto del tráfico entrante a la dirección IP privada y al puerto de la máquina virtual. Load Balancer asigna el tráfico de la otra manera en torno al tráfico de respuesta de la máquina virtual. Puede distribuir determinados tipos de tráfico entre varias máquinas virtuales o servicios aplicando reglas de equilibrio de carga. Por ejemplo, puede distribuir la carga del tráfico de solicitudes web entre varios servidores web.
 
@@ -144,7 +147,7 @@ Los clientes de Internet envían solicitudes de páginas web a la dirección IP 
 
 Azure Load Balancer distribuye el tráfico de red equitativamente entre varias instancias de máquina virtual de forma predeterminada. También puede configurar la afinidad de la sesión. Para más información, consulte [Configurar el modo de distribución para Azure Load Balancer](load-balancer-distribution-mode.md).
 
-### <a name = "internalloadbalancer"></a>Equilibrador de carga interno
+### <a name="internal-load-balancer"></a><a name = "internalloadbalancer"></a>Equilibrador de carga interno
 
 Un equilibrador de carga interno solo dirige el tráfico a los recursos que están dentro de una red virtual o que usan una VPN para acceder a la infraestructura de Azure, a diferencia de un equilibrador de carga público. La infraestructura de Azure restringe el acceso a las direcciones IP de front-end con equilibrio de carga de una red virtual. Las direcciones IP de front-end y las redes virtuales no se exponen nunca directamente a un punto de conexión de Internet. Las aplicaciones de línea de negocio internas se ejecutan en Azure y se accede a ellas desde Azure o desde recursos locales.
 
@@ -162,7 +165,7 @@ Un equilibrador de carga interno permite los siguientes tipos de equilibrio de c
 
 *Ilustración: Equilibrar las aplicaciones de niveles múltiples mediante Load Balancer público e interno*
 
-## <a name="skus"></a> Comparación de las SKU de Load Balancer
+## <a name="load-balancer-sku-comparison"></a><a name="skus"></a> Comparación de las SKU de Load Balancer
 
 El equilibrador de carga admite las SKU básica y estándar. Estas SKU difieren en la escala, las características y los precios del escenario. Cualquier escenario que sea posible con el Load Balancer Básico se puede crear con Standard Load Balancer. Las API de ambas SKU son similares y se invocan a través de la especificación de una SKU. La API que admite SKU para el equilibrador de carga y la dirección IP pública está disponible a partir de la API `2017-08-01`. Ambas SKU comparten la misma estructura y API generales.
 
@@ -176,7 +179,7 @@ Las máquinas virtuales independientes, los conjuntos de disponibilidad y los co
 
 Para más información, consulte [Límites del equilibrador de carga](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Para más información de Load Balancer Estándar, consulte los artículos de [introducción](load-balancer-standard-overview.md), [precios](https://aka.ms/lbpricing) y [Acuerdo de Nivel de Servicio](https://aka.ms/lbsla).
 
-## <a name = "limitations"></a>Limitaciones
+## <a name="limitations"></a><a name = "limitations"></a>Limitaciones
 
 - Las SKU no son mutables. No se puede cambiar la SKU de un recurso existente.
 - Un recurso de máquina virtual independiente, un recurso de conjunto de disponibilidad o un recurso de conjunto de escalado de máquinas virtuales puede hacer referencia únicamente a una SKU, nunca a ambas.

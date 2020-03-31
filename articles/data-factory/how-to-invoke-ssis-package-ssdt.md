@@ -13,10 +13,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/31/2019
 ms.openlocfilehash: 5f21623af9b89bbb020063dfb72f7b60e65a6ebe
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927723"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Ejecución de paquetes SSIS en Azure desde SSDT
@@ -24,7 +24,7 @@ En este artículo se describe la característica de los proyectos de SQL Server 
 
 Con esta característica, puede crear un nuevo Azure-SSIS Integration Runtime o adjuntar uno existente a los proyectos de SSIS y, después, ejecutar los paquetes en él.  Admitimos la ejecución de paquetes que se van a implementar en el catálogo de SSIS (SSISDB) en el modelo de implementación de proyectos y los que se van a implementar en sistemas de archivos, recursos compartidos de archivos o Azure Files en el modelo de implementación de paquetes. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para usar esta característica, descargue e instale la extensión SSDT con proyectos de SSIS para Visual Studio más reciente desde [aquí](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) o como un programa de instalación independiente desde [aquí](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer).
 
 ## <a name="azure-enable-ssis-projects"></a>Proyectos de SSIS habilitados para Azure

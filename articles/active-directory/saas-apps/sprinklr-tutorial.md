@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 9e4025d040783bff1cd85fb46d571e3a89967892
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67089659"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Tutorial: Integración de Azure Active Directory con Sprinklr
@@ -34,7 +34,7 @@ La integración de Sprinklr con Azure AD proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Sprinklr, necesita los siguientes elementos:
 
@@ -136,7 +136,7 @@ Para configurar el inicio de sesión único de Azure AD con Sprinklr, siga estos
 
 1. Vaya a **Administrar socios \> Inicio de sesión único** en el panel de la izquierda.
 
-    ![Administración de asociado](./media/sprinklr-tutorial/ic782908.png "Administración de asociados")
+    ![Administrar asociado](./media/sprinklr-tutorial/ic782908.png "Administrar socio")
 
 1. Haga clic en **+Add Single Sign On**(+ Agregar inicios de sesión únicos).
 
@@ -191,7 +191,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -237,7 +237,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 1. En el cuadro de diálogo **Edit user** (Editar usuario), realice los siguientes pasos:
 
-    ![Edición de usuarios](./media/sprinklr-tutorial/ic782916.png "Edición de usuarios")
+    ![Editar usuario](./media/sprinklr-tutorial/ic782916.png "Edit user")
 
     a. En los cuadros de texto **Correo electrónico**, **Nombre** y **Apellido**, escriba la información de una cuenta de usuario de Azure AD que desee aprovisionar.
 
@@ -254,7 +254,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 1. Vaya a **Role**(Rol) y luego lleve a cabo los siguientes pasos:
 
-    ![Roles de asociados](./media/sprinklr-tutorial/ic782917.png "Roles de asociados")
+    ![Roles de asociados](./media/sprinklr-tutorial/ic782917.png "Roles de socios")
 
     a. En la lista **Global**, seleccione **ALL_Permissions** (Todos los permisos).  
 

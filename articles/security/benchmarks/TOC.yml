@@ -32,11 +32,23 @@
   items:
     - name: Introducción a la base de referencia de Azure
       href: security-baselines-overview.md
+    - name: Base de referencia de seguridad de Azure Cache for Redis
+      href: ../../azure-cache-for-redis/security-baseline.md
     - name: Base de referencia de seguridad de Batch
       href: ../../batch/security-baseline.md
-    - name: Base de referencia de seguridad de Key Vault
-      href: ../../key-vault/security-baseline.md
+    - name: Base de referencia de seguridad de Container Registry
+      href: ../../container-registry/security-baseline.md
+    - name: "Base de referencia de seguridad de Cosmos\_DB"
+      href: ../../cosmos-db/security-baseline.md
     - name: Base de referencia de seguridad de HDInsight
       href: ../../hdinsight/security-baseline.md
+    - name: Base de referencia de seguridad de Key Vault
+      href: ../../key-vault/security-baseline.md
+    - name: Base de referencia de seguridad de MariaDB
+      href: ../../mariadb/security-baseline.md
+    - name: Base de referencia de seguridad de MySQL
+      href: ../../mysql/security-baseline.md
+    - name: Base de referencia de seguridad de PostgreSQL
+      href: ../../postgresql/security-baseline.md
     - name: Base de referencia de seguridad de SQL Database
       href: ../../sql-database/security-baseline.md

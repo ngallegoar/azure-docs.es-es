@@ -4,11 +4,11 @@ description: La configuración del servicio incluye la forma en que el servicio 
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623721"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218574"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Configuración del bucle de aprendizaje de Personalizer
 

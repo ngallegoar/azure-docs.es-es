@@ -1,19 +1,18 @@
 ---
 title: Configuración de SKU para una oferta de aplicación de Azure | Azure Marketplace
 description: Cómo configurar las SKU para una aplicación administrada de Azure aplicación y una plantilla de solución de Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: 2430d7e6fa74438c148d3cb849510be06243faa0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.author: dsindona
+ms.openlocfilehash: 043394a1303456ce5b209bb84b5afaf09f6beba4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543161"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80289080"
 ---
 # <a name="azure-application-skus-tab"></a>Pestaña SKU de aplicación de Azure
 

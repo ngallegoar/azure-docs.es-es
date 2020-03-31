@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/09/2020
-ms.openlocfilehash: a31c6229220142acea9ded571128ab54c50d34b7
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: d37b4648c0a37f16fe5c9d8794bd78417c5780ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79125687"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257893"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Características de optimización del rendimiento de la actividad de copia
 
@@ -92,7 +92,7 @@ En la tabla siguiente se muestra el comportamiento de la copia en paralelo:
 | Entre almacenes de archivos | `parallelCopies` determina el paralelismo **en el nivel de archivo**. La fragmentación dentro de cada archivo se produce por debajo, de forma automática y transparente. Está diseñada con el objetivo de utilizar el tamaño de fragmento más adecuado para que un tipo de almacén de datos determinado cargue datos en paralelo. <br/><br/>El número real de copias en paralelo que usa la actividad de copia en tiempo de ejecución no es superior al número de archivos que se tiene. Si el comportamiento de copia tiene el valor **mergeFile** para combinar el archivo en un receptor, la actividad de copia no puede aprovechar las ventajas del paralelismo en el nivel de archivo. |
 | Del almacén de archivos a un almacén que no es de archivos | - Cuando se copian datos en Azure SQL Database o Azure Cosmos DB, la copia en paralelo predeterminada también depende del nivel de receptor (número de DTU/RU).<br>- Cuando se copian datos en Azure Table, la copia en paralelo predeterminada es 4. |
 | De un almacén que no es de archivos al almacén de archivos | - Cuando se copian datos desde almacenes de datos con la opción de partición habilitada (incluidos [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) y [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)), la copia en paralelo predeterminada es 4. El número real de copias en paralelo que usa la actividad de copia en tiempo de ejecución no es superior al número de particiones de datos que se tiene. Si usa el entorno de ejecución de integración autohospedado y copia en Azure Blob/ADLS Gen2, tenga en cuenta que la copia en paralelo máxima efectiva es 4 o 5 por nodo de IR.<br>- En otros escenarios, la copia en paralelo no surte efecto. Aunque se especifique el paralelismo, no se aplica. |
-| Entre almacenes que no son de archivos | - Cuando se copian datos en Azure SQL Database o Azure Cosmos DB, la copia en paralelo predeterminada también depende del nivel de receptor (número de DTU/RU).<br/>- Cuando se copian datos en Azure Table, la copia en paralelo predeterminada es 4. |
+| Entre almacenes que no son de archivos | - Cuando se copian datos en Azure SQL Database o Azure Cosmos DB, la copia en paralelo predeterminada también depende del nivel de receptor (número de DTU/RU).<br/>- Cuando se copian datos desde almacenes de datos con la opción de partición habilitada (incluidos [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) y [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)), la copia en paralelo predeterminada es 4.<br>- Cuando se copian datos en Azure Table, la copia en paralelo predeterminada es 4. |
 
 Para controlar la carga en las máquinas que hospedan los almacenes de datos o para ajustar el rendimiento de la copia, puede reemplazar el valor predeterminado y especificar un valor para la propiedad `parallelCopies`. El valor debe ser un entero mayor o igual que 1. En tiempo de ejecución, y para obtener el mejor rendimiento, la actividad de copia usa un valor inferior o igual al valor que ha establecido.
 
@@ -144,10 +144,10 @@ Configure el valor **enableStaging** de la actividad de copia para especificar s
 
 | Propiedad | Descripción | Valor predeterminado | Obligatorio |
 | --- | --- | --- | --- |
-| enableStaging |Especifique si desea copiar los datos a través de un almacén provisional. |False |Sin |
+| enableStaging |Especifique si desea copiar los datos a través de un almacén provisional. |False |No |
 | linkedServiceName |Especifique el nombre de un servicio vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la instancia de Storage que se usa como almacenamiento provisional. <br/><br/> Storage no se puede usar con una firma de acceso compartido para cargar datos en SQL Data Warehouse mediante PolyBase. Puede usarlo en todos los demás casos. |N/D |Sí, cuando el valor de **enableStaging** está establecido en True. |
-| path |Especifique la ruta de acceso de Almacenamiento de blobs que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio crea un contenedor para almacenar los datos temporales. <br/><br/> Especifique una ruta de acceso solo si usa Almacenamiento con una firma de acceso compartido o si necesita que los datos temporales estén en una ubicación específica. |N/D |Sin |
-| enableCompression |Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. |False |Sin |
+| path |Especifique la ruta de acceso de Almacenamiento de blobs que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio crea un contenedor para almacenar los datos temporales. <br/><br/> Especifique una ruta de acceso solo si usa Almacenamiento con una firma de acceso compartido o si necesita que los datos temporales estén en una ubicación específica. |N/D |No |
+| enableCompression |Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. |False |No |
 
 >[!NOTE]
 > Si usa una copia almacenada provisionalmente con la compresión habilitada, no se admite la autenticación de MSI o de la entidad de servicio para el almacenamiento provisional de un servicio vinculado de blob.

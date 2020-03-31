@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 17bed17b536f6e88fc821fd83e09a1d6ea218bc3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74130473"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
@@ -82,7 +82,7 @@ Cuando se aprovisiona una instancia de Application Gateway, se configura automá
 
 En la tabla siguiente se enumeran los valores asociados con el sondeo de estado predeterminado.
 
-| Propiedad de sondeo | Valor | DESCRIPCIÓN |
+| Propiedad de sondeo | Value | Descripción |
 | --- | --- | --- |
 | Dirección URL de sondeo |`http://127.0.0.1/` |Ruta de acceso URL |
 | Intervalo |30 |Intervalo de sondeo en segundos |
@@ -106,9 +106,9 @@ Las sondas de estado personalizadas dotan al comportamiento de sondeo predetermi
 
 Se han agregado las siguientes propiedades adicionales:
 
-| Propiedad de sondeo | DESCRIPCIÓN |
+| Propiedad de sondeo | Descripción |
 | --- | --- |
-| NOMBRE |Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
+| Nombre |Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
 | Protocolo |Protocolo usado para enviar el sondeo. El sondeo utiliza el protocolo definido en la configuración de HTTP del back-end. |
 | Host |Nombre de host para enviar el sondeo. Solo es aplicable cuando se ha configurado un entorno multisitio en la instancia de Application Gateway. Es diferente al nombre de host de máquina virtual. |
 | Path |Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. La sonda se envía a \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\> |

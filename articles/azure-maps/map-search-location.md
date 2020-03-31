@@ -1,7 +1,7 @@
 ---
 title: Presentación de los resultados de la búsqueda en un mapa | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre cómo realizar una solicitud de búsqueda mediante el SDK web de Microsoft Azure Maps y mostrar los resultados en el mapa.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 13daf20e364b1e629b3ae13be2c9406da3702211
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e82a1daee381c7bad19c83fa735d0028bef2010e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209654"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371397"
 ---
 # <a name="show-search-results-on-the-map"></a>Presentación de los resultados de la búsqueda en el mapa
 
@@ -59,6 +59,9 @@ La solicitud de búsqueda, el origen de datos, la capa de símbolos y los límit
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+> [!div class="nextstepaction"]
+> [Procedimientos recomendados de uso del servicio de búsqueda](how-to-use-best-practices-for-search.md)
+
 Más información sobre la **búsqueda aproximada**:
 
 > [!div class="nextstepaction"]
@@ -72,7 +75,7 @@ Más información sobre las clases y los métodos utilizados en este artículo:
 Consulte los siguientes artículos para obtener ejemplos de código completo:
 
 > [!div class="nextstepaction"]
-> [Obtención de información de una coordenada](./map-get-information-from-coordinate.md)
+> [Obtención de información de una coordenada](map-get-information-from-coordinate.md)
 <!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
-> [Presentación de indicaciones de ruta de A a B](./map-route.md)
+> [Presentación de indicaciones de ruta de A a B](map-route.md)

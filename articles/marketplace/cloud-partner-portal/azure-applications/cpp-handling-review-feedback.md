@@ -1,19 +1,18 @@
 ---
 title: Administración de los comentarios de revisión de aplicaciones de Azure | Azure Marketplace
 description: Explica cómo usar Azure DevOps para administrar los comentarios de revisión de ofertas de aplicaciones de Azure para Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.author: pabutler
-ms.openlocfilehash: ef4aff57948034fb369bd74564306b7b8674b377
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b5f290bae908ac753801eef2c9b8394ca1bb7a40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827584"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285306"
 ---
 # <a name="handling-review-feedback"></a>Administración de los comentarios de revisión
 

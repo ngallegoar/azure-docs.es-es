@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
 ms.openlocfilehash: b24b69716e472082abfdb388e7d79e88a8e23e64
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72754786"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Costo total de propiedad (TCO) con Azure Cosmos DB
@@ -59,10 +59,10 @@ El modelo de aprovisionamiento sin servidor de Azure Cosmos DB elimina la necesi
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre la [rentabilidad del modelo de precios de Azure Cosmos DB para los clientes](total-cost-ownership.md)
-* Más información sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md)
-* Más información sobre la [optimización del costo del rendimiento](optimize-cost-throughput.md)
+* Obtenga más información sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md).
+* Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).
 * Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
 * Obtenga más información sobre la [optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md).
-* Sobre la [Optimización del costo de las consultas](optimize-cost-queries.md)
+* Obtenga más información sobre la [optimización del costo de las consultas](optimize-cost-queries.md).
 * Más información sobre la [optimización del costo de las cuentas de Cosmos de varias regiones](optimize-cost-regions.md)
 * Más información sobre el [costo total de (no) propiedad de un servicio en la nube de bases de datos NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)

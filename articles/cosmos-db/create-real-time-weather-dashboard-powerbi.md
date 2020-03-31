@@ -8,10 +8,10 @@ ms.date: 09/04/2019
 ms.author: bharathb
 ms.reviewer: sngun
 ms.openlocfilehash: d225a14edddcad58c08094dbc758d67df8f834e6
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70376485"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Creación de un panel en tiempo real mediante Azure Cosmos DB y Power BI
@@ -23,7 +23,7 @@ En este artículo se describen los pasos necesarios para crear un panel meteorol
 Hay varias maneras de configurar paneles de informes en los datos almacenados en Azure Cosmos DB. En función de los requisitos de obsolescencia y del tamaño de los datos, en la tabla siguiente se describe la configuración de informes para cada escenario:
 
 
-|Escenario |Configuración |
+|Escenario |Configurar |
 |---------|---------|
 |1. Generación de informes ad hoc (sin actualización)    |  [Conector de Azure Cosmos DB con Power BI con el modo de importación](powerbi-visualize.md)       |
 |2. Generación de informes ad hoc con actualización periódica   |  [Conector de Azure Cosmos DB con Power BI con el modo de importación (actualización periódica programada)](powerbi-visualize.md)       |
@@ -68,11 +68,11 @@ Configure una canalización de ingesta para cargar [datos meteorológicos](https
    En función de la columna y el tipo de datos que se encuentren en el conjunto de datos de origen, puede cambiar los campos RangeStart y RangeEnd en consecuencia.
 
    
-   |Propiedad  |Tipo de datos  |Filtrar  |
+   |Propiedad  |Tipo de datos  |Filter  |
    |---------|---------|---------|
    |_ts     |   Numeric      |  [_ts] > Duration.TotalSeconds(RangeStart - #datetime(1970, 1, 1, 0, 0, 0)) y [_ts] < Duration.TotalSeconds(RangeEnd - #datetime(1970, 1, 1, 0, 0, 0)))       |
-   |Fecha (por ejemplo:- 2019-08-19)     |   Cadena      | [Document.date]> DateTime.ToText(RangeStart,"yyyy-MM-dd") y [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
-   |Fecha (por ejemplo:- 2019-08-11 12:00:00)   |  Cadena       |  [Document.date]> DateTime.ToText(RangeStart," yyyy-mm-dd HH:mm:ss") y [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
+   |Fecha (por ejemplo:- 2019-08-19)     |   String      | [Document.date]> DateTime.ToText(RangeStart,"yyyy-MM-dd") y [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
+   |Fecha (por ejemplo:- 2019-08-11 12:00:00)   |  String       |  [Document.date]> DateTime.ToText(RangeStart," yyyy-mm-dd HH:mm:ss") y [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
 
 
 1. **Definir la directiva de actualización**: defina la directiva de actualización; para ello, vaya a la pestaña **Actualización incremental** en el menú **contextual** de la tabla. Establezca la directiva de actualización para que se actualice **cada día** y almacene los datos del último mes.

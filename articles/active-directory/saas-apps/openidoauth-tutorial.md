@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbf9cde8dd2032e81abe0fb2572c2181d4ba21ee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160221"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048415"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configuración de una aplicación OpenID/OAuth desde la galería de aplicaciones de Azure AD
 
@@ -71,7 +71,7 @@ El usuario o administrador puede entonces dar su consentimiento a la aplicación
 > [!NOTE]
 > Si está poniendo la aplicación a disposición de usuarios de varios directorios, necesitará un mecanismo para determinar en qué inquilino se encuentran. Para buscar un usuario, una aplicación de un único inquilino solo tiene que buscar en su propio directorio. Una aplicación multiinquilino debe identificar un usuario específico en todos los directorios de Azure AD.
 > 
-> Para realizar esta tarea, Azure AD proporciona un punto de conexión de autenticación común donde cualquier aplicación multiinquilino puede dirigir solicitudes de inicio de sesión, en lugar de un punto de conexión específico del inquilino. Este punto de conexión es [https://login.microsoftonline.com/common](https://login.microsoftonline.com/common) para todos los directorios de Azure AD. Un punto de conexión específico del inquilino podría ser [https://login.microsoftonline.com/contoso.onmicrosoft.com](https://login.microsoftonline.com/contoso.onmicrosoft.com). 
+> Para realizar esta tarea, Azure AD proporciona un punto de conexión de autenticación común donde cualquier aplicación multiinquilino puede dirigir solicitudes de inicio de sesión, en lugar de un punto de conexión específico del inquilino. Este punto de conexión es `https://login.microsoftonline.com/common` para todos los directorios de Azure AD. Un punto de conexión específico del inquilino podría ser `https://login.microsoftonline.com/contoso.onmicrosoft.com`. 
 >
 > Es importante considerar el punto de conexión común a la hora de desarrollar su aplicación. Requerirá la lógica necesaria para administrar varios inquilinos durante el inicio de sesión, el cierre de sesión y la validación de tokens.
 
@@ -133,7 +133,7 @@ Los siguientes pasos muestran cómo funciona la experiencia de consentimiento pa
 
     ![Página de consentimiento](./media/openidoauth-tutorial/consentpage.png)
 
-Un usuario normal puede dar su consentimiento a algunos permisos. Otros permisos requieren el consentimiento del administrador de inquilinos.
+Un usuario normal puede dar su consentimiento a algunos permisos. Otros permisos requieren el consentimiento de un administrador del inquilino.
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>Diferencia entre consentimiento del administrador y consentimiento del usuario
 
@@ -144,14 +144,14 @@ Como administrador, también puede dar su consentimiento para permisos delegados
 > [!NOTE]
 > Ahora es obligatorio conceder explícitamente el consentimiento con el botón **Conceder consentimiento de administrador** para las aplicaciones de página única (SPA) que usan ADAL.js. En caso contrario, se produce un error en la aplicación cuando se solicita el token de acceso.
 
-Los permisos de solo aplicación siempre requieren el consentimiento del administrador de inquilinos. Si la aplicación solicita un permiso de solo aplicación y un usuario intenta iniciar sesión en la aplicación, aparece un mensaje de error. El mensaje indica que el usuario no puede dar su consentimiento.
+Los permisos de solo aplicación siempre requieren el consentimiento de un administrador del inquilino. Si la aplicación solicita un permiso de solo aplicación y un usuario intenta iniciar sesión en la aplicación, aparece un mensaje de error. El mensaje indica que el usuario no puede dar su consentimiento.
 
 Si la aplicación usa permisos que requieren el consentimiento del administrador, necesita tener un gesto, como un botón o un vínculo donde el administrador pueda iniciar la acción. La solicitud que la aplicación envía para esta acción es la solicitud de autorización habitual de OAuth2 o OpenID Connect. Esta solicitud incluye el parámetro de cadena de consulta *prompt=admin_consent*. 
 
-Una vez que el administrador ha dado su consentimiento y la entidad de servicio se crea en el inquilino del cliente, las posteriores solicitudes de inicio de sesión no necesitan el parámetro *prompt=admin_consent*. Dado que el administrador ha decido que los permisos solicitados son aceptables, en adelante no se solicitará consentimiento a ningún otro usuario.
+Una vez que el administrador ha dado su consentimiento y se crea la entidad de servicio en el inquilino del cliente, las posteriores solicitudes de inicio de sesión no necesitan el parámetro *prompt=admin_consent*. Dado que el administrador ha decido que los permisos solicitados son aceptables, en adelante no se solicitará consentimiento a ningún otro usuario.
 
 Un administrador de inquilinos puede deshabilitar la posibilidad de que los usuarios normales den su consentimiento a las aplicaciones. Si esta capacidad está deshabilitada, para que la aplicación se use en el inquilino siempre se solicitará el consentimiento del administrador. Si quiere probar la aplicación con el consentimiento de usuario final deshabilitado, puede encontrar el modificador de configuración en [Azure Portal](https://portal.azure.com/). Específicamente, en la sección [Configuración de usuario](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) en **Aplicaciones empresariales**.
 
-El parámetro *prompt=admin_consent* también se puede utilizar en las aplicaciones que solicitan permisos que no requieren el consentimiento del administrador. Por ejemplo, una aplicación que requiere una experiencia en la que el administrador del inquilino se "registra" una vez, y no se solicita a otros usuarios que den su consentimiento a partir de entonces.
+El parámetro *prompt=admin_consent* también se puede utilizar en las aplicaciones que solicitan permisos que no requieren el consentimiento del administrador. Por ejemplo, una aplicación que requiere una experiencia en la que el administrador del inquilino se "registra" una vez y no se solicita a otros usuarios que den su consentimiento a partir de entonces.
 
 Imagine que una aplicación requiere el consentimiento del administrador y un administrador inicia sesión sin que se envíe el parámetro *prompt=admin_consent*. Cuando el administrador dé correctamente su consentimiento a la aplicación, solo se aplicará para su cuenta de usuario. Los usuarios normales seguirán sin poder iniciar sesión ni dar su consentimiento a la aplicación. Esta característica resulta útil si desea brindar al administrador de inquilinos la posibilidad de explorar su aplicación antes de permitir el acceso a otros usuarios.

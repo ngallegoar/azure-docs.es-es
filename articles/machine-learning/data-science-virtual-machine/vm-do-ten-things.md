@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: dc8a870d692108f3a33b89a1c3826d421dfd1f63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 147f43148c0f804adf70f1a792ba1b8a772fdae4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824394"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294488"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Diez cosas que puede hacer en Windows Data Science Virtual Machine
 
@@ -40,7 +40,7 @@ En este artículo, aprenderá a usar DSVM para realizar tareas de ciencia de dat
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Necesita una suscripción de Azure. Puede [suscribirse a una evaluación gratuita](https://azure.microsoft.com/free/).
 * Las instrucciones para el aprovisionamiento de Data Science Virtual Machine en Azure Portal están disponibles en [Creación de una máquina virtual](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
@@ -134,7 +134,7 @@ IrisPredictor(3,2,3,4)
 > 
 
 ### <a name="build-and-operationalize-r-models"></a>Compilación y puesta en marcha de modelos de R
-Los modelos de R compilados en Data Science Virtual Machine, o en cualquier otro lugar, se pueden implementar en Azure Machine Learning de forma similar a como se hace para Python. Estos son los pasos que se deben seguir:
+Los modelos de R compilados en Data Science Virtual Machine, o en cualquier otro lugar, se pueden implementar en Azure Machine Learning de forma similar a como se hace para Python. He aquí los pasos:
 
 1. Cree un archivo settings.json para proporcionar el identificador del área de trabajo y el token de autenticación. 
 2. Escriba un contenedor para la función de predicción del modelo.
@@ -142,7 +142,7 @@ Los modelos de R compilados en Data Science Virtual Machine, o en cualquier otro
 
 Use el procedimiento y los fragmentos de código que se indican a continuación para configurar, compilar, publicar y consumir un modelo como un servicio web en Azure Machine Learning.
 
-#### <a name="set-up"></a>Instalación
+#### <a name="set-up"></a>Configurar
 
 Cree un archivo settings.json en un directorio denominado ```.azureml``` en el directorio particular. Escriba los parámetros de su área de trabajo de Azure Machine Learning.
 
@@ -265,7 +265,7 @@ En los recursos disponibles en github.com, puede encontrar más información sob
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob Storage es un servicio de almacenamiento en nube confiable y económico para muchos y pocos datos. En esta sección se describe cómo mover los datos a Blob Storage y cómo acceder a los datos almacenados en un blob de Azure.
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerrequisitos
 
 * Cree una cuenta de Azure Blob Storage desde [Azure Portal](https://portal.azure.com).
 
@@ -367,7 +367,7 @@ Los datos se leen como una trama de datos:
 ### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake Store es un repositorio de hiperescala para cargas de trabajo de análisis de macrodatos compatible con el sistema de archivos distribuido Hadoop (HDFS). Funciona con Hadoop, Spark y Azure Data Lake Analytics. En esta sección aprenderá a mover datos a Azure Data Lake Store y ejecutar análisis con Azure Data Lake Analytics.
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerrequisitos
 
 * Cree una instancia de Azure Data Lake Analytics en [Azure Portal](https://portal.azure.com).
 
@@ -452,7 +452,7 @@ Aparece la información del archivo:
 ### <a name="hdinsight-hadoop-clusters"></a>Clústeres de HDInsight Hadoop
 Azure HDInsight es un servicio administrado de Apache Hadoop, Spark, HBase y Storm en la nube. Puede trabajar fácilmente con los clústeres de Azure HDInsight desde Data Science Virtual Machine.
 
-#### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>Prerrequisitos
 
 * Cree una cuenta de Azure Blob Storage desde [Azure Portal](https://portal.azure.com). Esta cuenta de almacenamiento se utiliza para almacenar datos para clústeres de HDInsight.
 
@@ -836,7 +836,7 @@ Después de importar los datos, puede ir a Jupyter y abrir el cuaderno titulado 
 ## <a name="use-power-bi-reports-and-dashboards"></a>Uso de informes y paneles de Power BI 
 Puede visualizar el archivo JSON denominado Volcano del ejemplo de Azure Cosmos DB anterior en Power BI Desktop para obtener información visual sobre los datos. En este [artículo de Power BI](../../cosmos-db/powerbi-visualize.md)encontrará una explicación detallada de los pasos que se deben seguir. Los pasos generales son los siguientes:
 
-1. Abra Power BI Desktop y seleccione **Obtener datos**. Especifique la URL como: https://cahandson.blob.core.windows.net/samples/volcano.json.
+1. Abra Power BI Desktop y seleccione **Obtener datos**. Especifique la URL como: `https://cahandson.blob.core.windows.net/samples/volcano.json`.
 2. Debería ver los registros JSON importados como una lista. Convierta la lista en una tabla para que Power BI pueda trabajar con ella.
 4. Seleccione el icono de expandir (flecha) para expandir las columnas.
 5. Observe que la ubicación es un campo de **Registro**. Expanda el registro y seleccione solo las coordenadas. **Coordenada** es una columna de la lista.

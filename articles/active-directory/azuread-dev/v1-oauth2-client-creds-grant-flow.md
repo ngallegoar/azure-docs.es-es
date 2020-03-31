@@ -2,27 +2,23 @@
 title: Autenticación entre servicios de Azure AD mediante OAuth2.0 | Microsoft Docs
 description: Este artículo describe cómo utilizar los mensajes HTTP para implementar la autenticación entre servicios mediante el flujo de concesión de credenciales de cliente de OAuth2.0.
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 24c9c4385f23b68e9a3efb65d2582457219fa10d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: f2d1eaec80c8925eb7b38af848e29e944f1ebf69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163393"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154549"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Llamadas entre servicios mediante las credenciales del cliente (secreto compartido o certificado)
 
@@ -64,7 +60,7 @@ Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre 
 | resource |requerido |Escriba el URI del identificador de la aplicación del servicio web de recepción. Para buscar el URI del identificador de la aplicación, en Azure Portal, haga clic en **Azure Active Directory** y en **Registros de aplicaciones**, haga clic en la aplicación de servicio y, a continuación, en **Configuración** y en **Propiedades**. |
 
 #### <a name="example"></a>Ejemplo
-El siguiente elemento HTTP POST solicita un [token de acceso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para el servicio web https://service.contoso.com/. El parámetro `client_id` permite identificar el servicio web que solicita el token de acceso.
+El siguiente elemento HTTP POST solicita un [token de acceso](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para el servicio web `https://service.contoso.com/`. El parámetro `client_id` permite identificar el servicio web que solicita el token de acceso.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1
@@ -88,7 +84,7 @@ Una solicitud de token de acceso entre servicios con un certificado contiene los
 Tenga en cuenta que los parámetros son casi iguales que en el caso de solicitud con un secreto compartido, salvo que el parámetro client_secret se sustituye por dos parámetros: client_assertion_type y client_assertion.
 
 #### <a name="example"></a>Ejemplo
-El siguiente elemento HTTP POST solicita un token de acceso para el servicio web https://service.contoso.com/ con un certificado. El parámetro `client_id` permite identificar el servicio web que solicita el token de acceso.
+El siguiente elemento HTTP POST solicita un token de acceso para el servicio web `https://service.contoso.com/` con un certificado. El parámetro `client_id` permite identificar el servicio web que solicita el token de acceso.
 
 ```
 POST /<tenant_id>/oauth2/token HTTP/1.1

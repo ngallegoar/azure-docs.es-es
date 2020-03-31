@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: e035c1ff4c8e16fbf40883b54e3153eab9729040
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6abb4f632535f1bda7e9f337f111ba372a624f2b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894277"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239615"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usar Azure Kubernetes Service con Apache Kafka en HDInsight
 
@@ -24,7 +24,7 @@ Aprenda a usar Azure Kubernetes Service (AKS) con [Apache Kafka](https://kafka.a
 > [!NOTE]  
 > Este documento se centra en los pasos necesarios para permitir que Azure Kubernetes Service se comunique con Kafka en HDInsight. El ejemplo en sí es simplemente un cliente de Kafka básico para demostrar que la configuración funciona.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Una suscripción de Azure
@@ -37,7 +37,7 @@ En este documento se supone que está familiarizado con la creación y el uso de
 
 También se supone que ha examinado el [tutorial de Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). En este artículo se crea un servicio de contenedor, un clúster de Kubernetes y un registro de contenedor, y se configura la utilidad `kubectl`.
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 
 ### <a name="network-topology"></a>Topología de red
 
@@ -77,7 +77,7 @@ Si aún no dispone de un clúster AKS, use uno de los siguientes documentos para
 
 1. Cree la red siguiendo las directrices a continuación para ciertas propiedades:
 
-    |Propiedad | Valor |
+    |Propiedad | Value |
     |---|---|
     |Espacio de direcciones|Debe usar un espacio de direcciones que no se superponga con el usado por la red del clúster de AKS.|
     |Location|Use la misma __ubicación__ para la red virtual que la que usó para el clúster de AKS.|
@@ -90,7 +90,7 @@ Si aún no dispone de un clúster AKS, use uno de los siguientes documentos para
 
 1. Seleccione __+ Agregar__ y use los siguientes valores para rellenar el formulario:
 
-    |Propiedad |Valor |
+    |Propiedad |Value |
     |---|---|
     |Nombre del emparejamiento de \<esta VN> a la red virtual remota|escriba un nombre único para esta configuración de emparejamiento.|
     |Virtual network|Seleccione la red virtual para el **clúster de AKS**.|
@@ -124,7 +124,7 @@ Use los pasos siguientes para configurar Kafka para anunciar direcciones IP en l
 
 5. Para configurar Kafka y anunciar direcciones IP, agregue el texto siguiente en la parte inferior del campo __kafka-env-template__:
 
-    ```
+    ```bash
     # Configure Kafka to advertise IP addresses instead of FQDN
     IP_ADDRESS=$(hostname -i)
     echo advertised.listeners=$IP_ADDRESS
@@ -176,7 +176,7 @@ En este momento, Kafka y Azure Kubernetes Service se están comunicando a travé
 
 5. Inicie sesión en su instancia de Azure Container Registry (ACR) y busque el nombre de loginServer:
 
-    ```bash
+    ```azurecli
     az acr login --name <acrName>
     az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
     ```
@@ -235,4 +235,4 @@ Use los vínculos siguientes para aprender a usar a Apache Kafka en HDInsight:
 
 * [Uso de Apache Spark con Apache Kafka en HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Conectarse a Apache Kafka a través de una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
+* [Conexión a Apache Kafka a través de una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)

@@ -3,7 +3,7 @@ documentType: LandingData
 title: Escalabilidad
 metadata:
   title: 'Azure SQL Database: escalabilidad'
-  meta.description: Learn how to scale your Azure SQL Database.
+  description: Obtenga información sobre la forma en que Azure SQL Database le permite escalar fácilmente cualquier base de datos gracias a la posibilidad de agregar más potencia de proceso (escalabilidad vertical) o más unidades de base de datos (escalabilidad horizontal).
   services: sql-database
   ms.subservice: scale-out
   author: jovanpop-msft
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: null
   ms.topic: overview
   ms.date: 01/25/2019
-  ms.author: jovanpop-msft
+  ms.author: jovanpop
 sections:
   - items:
       - type: paragraph

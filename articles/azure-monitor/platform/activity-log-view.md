@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d2423d04ead9040cce53d847d24efe75be680d94
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77668832"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80397305"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Visualización y recuperación de eventos del registro de actividad de Azure
 
@@ -168,35 +168,6 @@ Obtención de registros de actividad sin filtro ni selección:
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
-
-
-## <a name="activity-logs-analytics-monitoring-solution"></a>Solución de supervisión de Activity Log Analytics
-La solución de supervisión de Azure Log Analytics incluye varias vistas y consultas de registros para analizar las entradas del registro de actividad en el área de trabajo de Log Analytics.
-
-### <a name="prerequisites"></a>Prerrequisitos
-Debe crear una configuración de diagnóstico para enviar el registro de actividad de la suscripción a un área de trabajo de Log Analytics. Consulte el artículo sobre la [recopilación de registros de plataforma de Azure en el área de trabajo de Log Analytics de Azure Monitor](resource-logs-collect-workspace.md)
-
-### <a name="install-the-solution"></a>Instalar la solución
-Use el procedimiento [Instalación de una solución de supervisión](../insights/solutions.md#install-a-monitoring-solution) para instalar la solución **Activity Log Analytics**. No se necesita ninguna configuración adicional.
-
-### <a name="use-the-solution"></a>Uso de la solución
-Haga clic en **Registros** en la parte superior de la página **Registro de actividad** para abrir la [solución de supervisión de Activity Log Analytics](activity-log-collect.md) para la suscripción. También puede acceder a todas las soluciones de supervisión de la suscripción en Azure Portal, mediante el menú **Supervisar**. Seleccione **Más** en la sección **Información detallada** para abrir la página **Información general** con los iconos de la solución. El icono **Registros de actividad de Azure** muestra un recuento del número de registros **AzureActivity** del área de trabajo.
-
-![Icono Registros de actividad de Azure](media/collect-activity-logs/azure-activity-logs-tile.png)
-
-
-Haga clic en el icono **Registros de actividad de Azure** para abrir la vista **Registros de actividad de Azure**. La vista incluye los elementos de visualización de la tabla siguiente. Cada uno de ellos muestra hasta otros diez elementos que coinciden con sus criterios para el intervalo de tiempo especificado. Puede ejecutar una consulta de registros que devuelve todos los registros coincidentes; para ello, haga clic en **Ver todo** en la parte inferior del elemento.
-
-![Panel Registros de actividad de Azure](media/collect-activity-logs/activity-log-dash.png)
-
-| Elemento de visualización | Descripción |
-| --- | --- |
-| Entradas del registro de actividad de Azure | Muestra un gráfico de barras de los principales totales del registro de entrada del registro de actividad del intervalo de fechas seleccionado y una lista de los 10 principales llamadores de actividad. Haga clic en el gráfico de barras para ejecutar una búsqueda de registros de `AzureActivity`. Haga clic en un elemento de llamador para ejecutar una búsqueda de registros que devuelva todas las entradas de registro de actividad de ese elemento. |
-| Registros de actividad por estado | Muestra un gráfico de anillos del estado del registro de actividad de Azure para el intervalo de fechas seleccionado y una lista de los diez principales registros de estado. Haga clic en el gráfico para ejecutar una consulta de registros de `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Haga clic en un elemento de estado para ejecutar una búsqueda de registros que devuelva todas las entradas de registro de actividad de ese registro de estado. |
-| Registros de actividad por recurso | Muestra el número total de recursos con registros de actividad y enumera los diez principales recursos con recuentos de registro para cada recurso. Haga clic en el área total para ejecutar una búsqueda de registros de `AzureActivity | summarize AggregatedValue = count() by Resource`, que muestra todos los recursos de Azure disponibles para la solución. Haga clic en un recurso para ejecutar una consulta de registros que devuelva todos los registros de actividad de ese recurso. |
-| Registros de actividad por proveedor de recursos | Muestra el número total de proveedores de recursos que producen registros de actividad y enumera los diez principales. Haga clic en el área total para ejecutar una consulta de registros de `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, que muestra todos los proveedores de recursos de Azure. Haga clic en un proveedor de recursos para ejecutar una consulta de registros que devuelva todos los registros de actividad para el proveedor. |
-
-
 
 
 ## <a name="next-steps"></a>Pasos siguientes

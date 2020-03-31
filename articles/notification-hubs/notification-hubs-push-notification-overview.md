@@ -13,16 +13,16 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/20/2020
+ms.date: 03/23/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: dad71d473ecb6107a5cf0d8f5953667f07bfce5c
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: f5b59d1669d89c73b93199d1f833da149003d399
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526780"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80159343"
 ---
 # <a name="what-is-azure-notification-hubs"></a>¿Qué es Azure Notification Hubs?
 
@@ -42,7 +42,7 @@ Las notificaciones push son una forma de comunicación de aplicación a usuario,
 Las notificaciones push son vitales para las aplicaciones de consumidor, ya que aumentan el uso y la interacción de las aplicaciones, así como para las aplicaciones empresariales, ya que comunican información empresarial actualizada. Es la mejor forma de comunicación de aplicación a usuario porque ahorra energía para los dispositivos móviles, es flexible para los remitentes de notificaciones y está disponible cuando las aplicaciones correspondientes no están activas.
 
 > [!NOTE]
-> Azure Notification Hubs no es compatible con las notificaciones push de voz sobre IP (VoIP).
+> Azure Notification Hubs no es compatible oficialmente con las notificaciones push de Voz sobre IP (VoIP); sin embargo, [este artículo describe cómo puede usar las notificaciones de VoIP de APNS](voip-apns.md) mediante Azure Notification Hubs.
 
 Para obtener más información acerca de las notificaciones push de algunas plataformas populares, consulte los temas siguientes:
 

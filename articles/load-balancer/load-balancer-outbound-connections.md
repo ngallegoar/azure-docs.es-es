@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: a6b0ebf811d662046d1a9a89fb75a0ab137569c3
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 411c06e19b932b441f27a3c7578d847c6dfc1f7a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616549"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336990"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -36,7 +36,7 @@ Son varios los [escenarios de salida](#scenarios). Puede combinar estos escenari
 >[!IMPORTANT] 
 >Standard Load Balancer y la IP pública estándar presentan capacidades nuevas y comportamientos diferentes en la conectividad saliente.  No son lo mismo que las SKU de nivel Básico.  Si quiere conectividad saliente al trabajar con las SKU de nivel Estándar, debe definirlas con las direcciones IP públicas estándar o con la instancia pública de Load Balancer estándar.  Esto incluye establecer conectividad saliente cuando se usa una instancia interna de Standard Load Balancer.  Se recomienda que use siempre las reglas de salida en una instancia pública de Load Balancer estándar.  El [escenario 3](#defaultsnat) no está disponible con la SKU de nivel Estándar.  Esto significa que cuando se usa una instancia interna de Standard Load Balancer, es necesario seguir los pasos para establecer la conectividad saliente para las máquinas virtuales en el grupo de back-end si se quiere contar con conectividad saliente.  En el contexto de la conectividad saliente, una máquina virtual independiente, todas las máquinas virtuales en un conjunto de disponibilidad y todas las instancias de VMSS se comportan como un grupo. Es decir que, si una máquina virtual en un conjunto de disponibilidad está asociada con una SKU de nivel Estándar, todas las instancias de máquina virtual dentro de dicho conjunto de disponibilidad ahora siguen las mismas reglas que están asociadas con la SKU de nivel Estándar, incluso si una instancia individual no está directamente asociada con ella. Este comportamiento también se observa en el caso de una máquina virtual independiente con varias tarjetas de interfaz de red conectadas a un equilibrador de carga. Si una NIC se agrega como independiente, tendrá el mismo comportamiento. Revise cuidadosamente todo el documento para entender los conceptos generales, consulte [Standard Load Balancer](load-balancer-standard-overview.md) para conocer las diferencias entre las SKU y consulte las [reglas de salida](load-balancer-outbound-rules-overview.md).  Al usar las reglas de salida, obtiene un control avanzado de todos los aspectos de la conectividad saliente.
 
-## <a name="scenarios"></a>Información general de los escenarios
+## <a name="scenario-overview"></a><a name="scenarios"></a>Información general de los escenarios
 
 Cuando se usan [recursos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), se definen explícitamente Azure Load Balancer y los recursos relacionados.  Actualmente, Azure proporciona tres métodos diferentes para lograr la conectividad saliente con los recursos de Azure Resource Manager. 
 
@@ -48,7 +48,7 @@ Cuando se usan [recursos de Azure Resource Manager](https://docs.microsoft.com/a
 
 Si no quiere que una máquina virtual se comunique con puntos de conexión situados fuera de Azure en el espacio de direcciones IP públicas, puede usar grupos de seguridad de red (NSG) para bloquear el acceso según sea necesario. En la sección [Impedir la conectividad saliente](#preventoutbound) se proporciona información sobre los grupos de seguridad de red. Las instrucciones sobre cómo diseñar, implementar y administrar una red virtual sin acceso de salida escapan del ámbito de este artículo.
 
-### <a name="ilpip"></a>Escenario 1: Máquina virtual con dirección IP pública
+### <a name="scenario-1-vm-with-public-ip-address"></a><a name="ilpip"></a>Escenario 1: Máquina virtual con dirección IP pública
 
 En este escenario, la máquina virtual tiene una dirección IP pública asignada. En lo que se refiere a las conexiones salientes, no importa si la máquina virtual tiene la carga equilibrada o no. Este escenario tiene prioridad sobre las demás. Cuando se usa una dirección IP pública, la máquina virtual usa la dirección IP pública para todos los flujos salientes.  
 
@@ -56,7 +56,7 @@ Una dirección IP pública asignada a una máquina virtual es una relación 1:1 
 
 Si la aplicación inicia muchos flujos de salida y experimenta el agotamiento de puertos SNAT, considere la posibilidad de asignar una [dirección IP pública para mitigar las restricciones de SNAT](#assignilpip). Revise la sección [Administración de agotamiento de SNAT](#snatexhaust) en su totalidad.
 
-### <a name="lb"></a>Escenario 2: máquina virtual de carga equilibrada sin dirección IP pública
+### <a name="scenario-2-load-balanced-vm-without-a-public-ip-address"></a><a name="lb"></a>Escenario 2: máquina virtual de carga equilibrada sin dirección IP pública
 
 En este escenario, la máquina virtual forma parte de un grupo de servidores back-end de Load Balancer. La máquina virtual no tiene ninguna dirección IP pública asignada. El recurso Load Balancer debe configurarse con una regla de equilibrador de carga que cree un vínculo entre el front-end de dirección IP pública y el grupo de back-end.
 
@@ -72,7 +72,7 @@ Cuando hay [varias direcciones IP públicas asociadas a Load Balancer básico](l
 
 Para supervisar el mantenimiento de las conexiones salientes con Load Balancer básico, puede usar los [logs de Azure Monitor para Load Balancer](load-balancer-monitor-log.md) y [registros de eventos de alerta](load-balancer-monitor-log.md#alert-event-log).
 
-### <a name="defaultsnat"></a>Escenario 3: Máquina virtual independiente sin dirección IP pública
+### <a name="scenario-3-standalone-vm-without-a-public-ip-address"></a><a name="defaultsnat"></a>Escenario 3: Máquina virtual independiente sin dirección IP pública
 
 En este escenario, la máquina virtual no forma parte de un grupo público de un grupo de Load Balancer (ni tampoco de un grupo de Standard Load Balancer interno) y no tiene asignada una dirección IP pública. Cuando la máquina virtual crea un flujo de salida, Azure traduce la dirección IP de origen privado del flujo de salida en una dirección IP de origen público. La dirección IP pública usada para este flujo de salida no es configurable y no cuenta para el límite de recursos de IP pública de la suscripción. Esta dirección IP pública no le pertenece y no se puede reservar. Si vuelve a implementar la máquina virtual, el conjunto de disponibilidad o el conjunto de escalado de máquinas virtuales, esta dirección IP pública se publicará y se solicitará una nueva dirección IP pública. No use este escenario para direcciones IP permitidas. En su lugar, utilice uno de los otros dos escenarios en el que declare explícitamente el escenario de salida y la dirección IP pública que se utilizará para la conectividad de salida.
 
@@ -83,13 +83,13 @@ Para realizar esta función, Azure usa SNAT con enmascaramiento de puertos ([PAT
 
 Los puertos SNAT se asignan previamente, como se describe en la sección [Descripción de SNAT y PAT](#snat).  El número de máquinas virtuales que comparten un conjunto de disponibilidad determina qué nivel preasignación se aplica.  Una máquina virtual independiente sin un conjunto de disponibilidad es en efecto un grupo de uno, cuando se trata de determinar la preasignación (1024 puertos SNAT). Los puertos SNAT son un recurso finito que puede agotarse. Es importante entender cómo se [consumen](#pat). Para comprender cómo realizar el diseño de cara a este consumo y solucionar los posibles problemas, revise la sección [Administración de agotamiento de SNAT](#snatexhaust).
 
-### <a name="combinations"></a>Combinación de varios escenarios
+### <a name="multiple-combined-scenarios"></a><a name="combinations"></a>Combinación de varios escenarios
 
 Los escenarios descritos en las secciones anteriores se pueden combinar para conseguir un resultado concreto. Cuando hay varios escenarios, se aplica un orden de prioridad: el [escenario 1](#ilpip) tiene prioridad sobre el [escenario 2](#lb) y el [3](#defaultsnat). [El escenario 2](#lb) invalida el [escenario 3](#defaultsnat).
 
 Un ejemplo sería una implementación de Azure Resource Manager donde la aplicación depende en gran medida de las conexiones salientes a un número limitado de destinos, peor también recibe flujos de entrada a través de un servidor front-end de Load Balancer. En este caso, puede combinar los escenarios 1 y 2 como ayuda. Para ver patrones adicionales, revise [Administración de agotamiento de SNAT](#snatexhaust).
 
-### <a name="multife"></a> Varios servidores front-end para flujos de salida
+### <a name="multiple-frontends-for-outbound-flows"></a><a name="multife"></a> Varios servidores front-end para flujos de salida
 
 #### <a name="standard-load-balancer"></a>Standard Load Balancer
 
@@ -111,25 +111,25 @@ Normalmente, la opción `disableOutboundSnat` tiene como valor predeterminado _f
 
 Load Balancer básico elige un único servidor front-end para usarlo con los flujos de salida cuando hay [varios servidores front-end de direcciones IP (públicas)](load-balancer-multivip-overview.md) candidatos para los flujos de salida. Esta selección no es configurable y el algoritmo de selección se debe considerar aleatorio. Puede designar una dirección IP específica para los flujos de salida, como se describe en [Combinación de varios escenarios](#combinations).
 
-### <a name="az"></a>Zonas de disponibilidad
+### <a name="availability-zones"></a><a name="az"></a>Zonas de disponibilidad
 
 Cuando se usa [Load Balancer estándar con zonas de disponibilidad](load-balancer-standard-availability-zones.md), los servidores front-end con redundancia de zona pueden proporcionar conexiones SNAT salientes con redundancia de zona y la programación de SNAT sobrevive a los errores en la zona.  Cuando se utilizan servidores front-end de zona, las conexiones SNAT salientes comparten su destino con la zona a la que pertenecen.
 
-## <a name="snat"></a>Descripción de SNAT y PAT
+## <a name="understanding-snat-and-pat"></a><a name="snat"></a>Descripción de SNAT y PAT
 
-### <a name="pat"></a>SNAT de enmascaramiento de puertos (PAT)
+### <a name="port-masquerading-snat-pat"></a><a name="pat"></a>SNAT de enmascaramiento de puertos (PAT)
 
 Cuando un recurso de Load Balancer público está asociado con instancias de máquina virtual, se reescribe cada origen de conexión de salida. El origen se reescribe del espacio de direcciones IP privadas de la red virtual a la dirección IP pública de servidor front-end del equilibrador de carga. En el espacio de direcciones IP públicas, la tupla de cinco elementos del flujo (dirección IP de origen, puerto de origen, protocolo de transporte IP, dirección IP de destino, puerto de destino) debe ser única.  SNAT de enmascaramiento de puertos se puede usar con los protocolos IP UDP o TCP.
 
 Para conseguir esto, se usan puertos efímeros (puertos SNAT) después de volver a escribir la dirección IP de origen privada, dado que varios flujos se originan desde una única dirección IP pública. El algoritmo SNAT de enmascaramiento de puertos asigna los puertos SNAT de forma diferente para UDP que para TCP.
 
-#### <a name="tcp"></a>Puertos TCP SNAT
+#### <a name="tcp-snat-ports"></a><a name="tcp"></a>Puertos TCP SNAT
 
 Se consume un puerto SNAT por cada flujo a una combinación única de dirección IP y puerto de destino. En el caso de varios flujos TCP a la misma dirección IP, puerto y protocolo de destino, cada flujo TCP consume un solo puerto SNAT. Esto garantiza que los flujos son únicos si se han originado desde la misma dirección IP pública y se dirigen a la misma dirección IP, puerto y protocolo de destino. 
 
 Si hay varios flujos, cada uno de ellos dirigido a una dirección IP, un puerto y un protocolo de destino diferentes, se comparte un solo puerto SNAT. La dirección IP, el puerto y el protocolo de destino hacen que los flujos sean únicos, sin necesidad de usar puertos de origen adicionales para distinguirlos en el espacio de direcciones IP públicas.
 
-#### <a name="udp"></a> Puertos UDP SNAT
+#### <a name="udp-snat-ports"></a><a name="udp"></a> Puertos UDP SNAT
 
 Los puertos UDP SNAT se administran mediante un algoritmo diferente que los puertos TCP SNAT.  Load Balancer utiliza un algoritmo que se conoce como "NAT de cono restringido de puertos" para UDP.  Se consume un puerto SNAT por cada flujo, con independencia de la combinación de dirección IP y puerto de destino.
 
@@ -145,7 +145,7 @@ Los puertos UDP SNAT suelen agotarse mucho más rápidamente que los puertos TCP
 
 Revise la sección [Administración de agotamiento de SNAT](#snatexhaust) para conocer los patrones de mitigación de las condiciones que suelen provocar el agotamiento de puertos SNAT.
 
-### <a name="preallocatedports"></a>Preasignación de puertos efímeros para SNAT de enmascaramiento de puertos (PAT)
+### <a name="ephemeral-port-preallocation-for-port-masquerading-snat-pat"></a><a name="preallocatedports"></a>Preasignación de puertos efímeros para SNAT de enmascaramiento de puertos (PAT)
 
 Para determinar el número de puertos SNAT asignados previamente disponibles, Azure usa un algoritmo basado en el tamaño del grupo de servidores back-end cuando se usa SNAT de enmascaramiento de puertos ([PAT](#pat)). Los puertos SNAT son puertos efímeros disponibles para una determinada dirección IP de origen pública.
 
@@ -188,46 +188,46 @@ Las asignaciones de puertos SNAT son específicas del protocolo de transporte IP
 
 - Si se agotó el tiempo de expiración, el puerto se libera.
 
-## <a name="problemsolving"></a> Solución de problemas 
+## <a name="problem-solving"></a><a name="problemsolving"></a> Solución de problemas 
 
 Esta sección está diseñada para ayudar a mitigar el agotamiento de SNAT, que puede producirse con las conexiones salientes en Azure.
 
-### <a name="snatexhaust"></a>Administración del agotamiento de puertos SNAT (PAT)
+### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Administración del agotamiento de puertos SNAT (PAT)
 Los [puertos efímeros](#preallocatedports) usados para [PAT](#pat) son un recurso agotable, como se describe en [Máquina virtual independiente sin una dirección IP pública](#defaultsnat) y [Máquina virtual de carga equilibrada sin dirección IP pública](#lb).
 
 Si sabe que se van a iniciar muchas conexiones TCP o UDP salientes a la misma dirección IP y puerto de destino, y observa errores en las conexiones salientes, o el soporte técnico está avisando del agotamiento de los puertos SNAT ([puertos efímeros](#preallocatedports) asignados previamente usados por [PAT](#pat)), dispone de varias opciones generales para mitigar este problema. Revise estas opciones y vea cuál está disponible y resulta mejor para su escenario. Es posible que una o varias de ellas puedan ayudar a administrar este escenario.
 
 Si tiene problemas para entender el comportamiento de las conexiones de salida, puede usar las estadísticas de pila IP (netstat). O bien, puede ser útil observar el comportamiento de la conexión mediante capturas de paquetes. Estas capturas de paquetes se pueden realizar en el sistema operativo invitado de la instancia o se puede usar [Network Watcher para la captura de paquetes](../network-watcher/network-watcher-packet-capture-manage-portal.md).
 
-#### <a name="connectionreuse"></a>Modificación de la aplicación para reutilizar las conexiones 
+#### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Modificación de la aplicación para reutilizar las conexiones 
 Puede reducir la demanda de puertos efímeros utilizados para SNAT mediante la reutilización de conexiones en la aplicación. Esto se aplica especialmente en el caso de protocolos como HTTP/1.1 donde la reutilización de las conexiones es la opción predeterminada. Y, a su vez, se pueden beneficiar otros protocolos que usan HTTP como transporte (por ejemplo, REST). 
 
 La reutilización es siempre preferible a conexiones individuales atómicas para cada solicitud. La reutilización tiene como resultado transacciones TCP muy eficientes y con un mayor rendimiento.
 
-#### <a name="connection pooling"></a>Modificación de la aplicación para usar la agrupación de conexiones
+#### <a name="modify-the-application-to-use-connection-pooling"></a><a name="connection pooling"></a>Modificación de la aplicación para usar la agrupación de conexiones
 Puede emplear un esquema de agrupación de conexiones en la aplicación, donde las solicitudes se distribuyan internamente a través de un conjunto fijo de conexiones (cada una reutilizada siempre que sea posible). Este esquema limita el número de puertos efímeros en uso y crea un entorno más predecible. También puede aumentar el rendimiento de las solicitudes al permitir varias operaciones simultáneas cuando una sola conexión bloquea la respuesta de una operación.  
 
 La agrupación de conexiones puede existir ya en el marco de trabajo que se use para desarrollar la aplicación o su configuración. Se puede combinar la agrupación de conexiones con la reutilización de conexiones. Así, sus múltiples conexiones consumen un número fijo y predecible de puertos para la misma dirección IP y el mismo puerto de destino. Las solicitudes también se benefician del uso eficiente de transacciones TCP que reducen la latencia y la utilización de recursos. Las transacciones UDP también pueden beneficiarse, dado que administrar el número de flujos de UDP puede evitar, a su vez, condiciones de administración del agotamiento de los puertos SNAT.
 
-#### <a name="retry logic"></a>Modificación de la aplicación para utilizar lógica de reintento menos agresiva
+#### <a name="modify-the-application-to-use-less-aggressive-retry-logic"></a><a name="retry logic"></a>Modificación de la aplicación para utilizar lógica de reintento menos agresiva
 Cuando se agotan los [puertos efímeros asignados previamente](#preallocatedports) usados para [PAT](#pat) o se producen errores de la aplicación, los reintentos agresivos o por fuerza bruta sin lógica de retroceso y decadencia causan que se produzca el agotamiento o su persistencia. Puede reducir la demanda de puertos efímeros mediante el uso de una lógica de reintento menos agresiva. 
 
 Los puertos efímeros tienen un tiempo de inactividad de 4 minutos (no ajustable). Si los reintentos son demasiado agresivos, el agotamiento no tiene ninguna oportunidad de solucionarlo por sí mismo. Por lo tanto, una parte fundamental del diseño es considerar cómo y con qué frecuencia la aplicación vuelve a intentar las transacciones.
 
-#### <a name="assignilpip"></a>Asignación de una IP pública a cada máquina virtual
+#### <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Asignación de una IP pública a cada máquina virtual
 La asignación de una dirección IP pública cambia el escenario a [IP pública a una máquina virtual](#ilpip). Todos los puertos efímeros de la dirección IP pública que se usan para cada máquina virtual están disponibles para la máquina virtual. (En contraste con los escenarios donde los puertos efímeros de una dirección IP pública se comparten con todas las máquinas virtuales asociadas al grupo back-end respectivo). Existen ventajas e inconvenientes que deben considerarse, como el costo adicional de las direcciones IP públicas y el posible impacto de la creación de listas de permitidos con un gran número de direcciones IP individuales.
 
 >[!NOTE] 
 >Esta opción no está disponible para roles de trabajo web.
 
-#### <a name="multifesnat"></a> Uso de varios servidores front-end
+#### <a name="use-multiple-frontends"></a><a name="multifesnat"></a> Uso de varios servidores front-end
 
 Cuando se usa Load Balancer estándar público, se asignan [varias direcciones IP de servidor front-end para las conexiones salientes](#multife) y [se multiplica el número de puertos SNAT disponibles](#preallocatedports).  Cree una configuración de IP de servidor front-end, una regla y el grupo de servidores back-end para desencadenar la programación de SNAT para la dirección IP pública del servidor front-end.  La regla no tiene que funcionar y no es necesario que el sondeo de estado sea correcto.  Si usa varios servidores front-end para la entrada también (en lugar de simplemente para la salida), debe usar además sondeos de estado personalizados para garantizar la confiabilidad.
 
 >[!NOTE]
 >En la mayoría de los casos, el agotamiento de puertos SNAT indica que el diseño es incorrecto.  Asegúrese de saber por qué está agotando los puertos antes de usar más servidores front-end para agregar puertos SNAT.  Puede estar enmascarando un problema que podría provocar un error más adelante.
 
-#### <a name="scaleout"></a>Escalado horizontal
+#### <a name="scale-out"></a><a name="scaleout"></a>Escalado horizontal
 
 Los [puertos preasignados](#preallocatedports) se asignan según el tamaño del grupo de back-end y se agrupan en niveles para minimizar la interrupción cuando algunos de los puertos tengan que reasignarse para alojar el siguiente nivel de tamaño superior de grupo de back-end.  Puede que tenga la opción de aumentar la intensidad de la utilización de puerto SNAT para un front-end determinado ajustando el grupo de back-end a un tamaño máximo para un nivel determinado.  Esto requiere que la aplicación se escale horizontalmente de forma eficaz.
 
@@ -235,20 +235,20 @@ Por ejemplo, dos máquinas virtuales en el grupo back-end tendrían 1024 puertos
 
 Si se escala horizontalmente al siguiente nivel de grupo de back-end de mayor tamaño, algunas de las conexiones salientes podrían agotar el tiempo de espera si hubiera que reasignar los puertos.  Si solo usa algunos de los puertos SNAT, no importa si se escala horizontalmente al siguiente mayor tamaño de grupo de back-end.  La mitad de los puertos existentes se volverá a asignar cada vez que cambie al siguiente nivel de grupo de back-end.  Si no quiere que suceda esto, tendrá que adaptar la implementación al tamaño del nivel.  O bien, asegúrese de que la aplicación puede detectar y volver a intentar según se requiera.  Las conexiones persistentes de TCP pueden ayudar a detectar cuándo dejan de funcionar los puertos SNAT por una reasignación.
 
-### <a name="idletimeout"></a>Uso de conexiones persistentes para restablecer el tiempo de espera de inactividad saliente
+### <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Uso de conexiones persistentes para restablecer el tiempo de espera de inactividad saliente
 
 Las conexiones salientes tienen un tiempo de espera de inactividad de 4 minutos. Este tiempo de espera se ajusta desde [Reglas de salida](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Pero también puede usar conexiones persistentes de transporte (por ejemplo, TCP) o de capa de aplicación para actualizar un flujo de inactividad y restablecer este tiempo de espera de inactividad en caso necesario.  
 
 Al utilizar conexiones persistentes de TCP, es suficiente con habilitarlas en un lado de la conexión. Por ejemplo, es suficiente habilitarlas solo en el servidor para restablecer el temporizador de inactividad del flujo y no se necesita para ambos lados en conexiones persistentes de TCP iniciadas.  Existen conceptos similares existen para la capa de aplicación, incluidas las configuraciones de cliente/servidor de base de datos.  Compruebe el lado del servidor para ver qué opciones existen para conexiones persistentes específicas de la aplicación.
 
-## <a name="discoveroutbound"></a>Detección de la dirección IP pública que usa una máquina virtual
+## <a name="discovering-the-public-ip-that-a-vm-uses"></a><a name="discoveroutbound"></a>Detección de la dirección IP pública que usa una máquina virtual
 Hay muchas maneras de determinar la dirección IP de origen público de una conexión saliente. OpenDNS proporciona un servicio que puede mostrar la dirección IP pública de la máquina virtual. 
 
 Mediante el comando nslookup, puede enviar una consulta DNS del nombre myip.opendns.com para la resolución de OpenDNS. El servicio devuelve la dirección IP de origen que se usó para enviar la consulta. Si ejecuta la siguiente consulta desde la máquina virtual, la respuesta es la dirección IP pública que se usa para esa máquina virtual:
 
     nslookup myip.opendns.com resolver1.opendns.com
 
-## <a name="preventoutbound"></a>Impedir la conectividad saliente
+## <a name="preventing-outbound-connectivity"></a><a name="preventoutbound"></a>Impedir la conectividad saliente
 En ocasiones, no es aconsejable permitir que una máquina virtual cree un flujo de salida. O bien, puede que exista un requisito para administrar a qué destinos se puede llegar con los flujos de salida o qué destinos pueden comenzar los flujos de entrada. En este caso, puede usar los [grupos de seguridad de red](../virtual-network/security-overview.md) para administrar los destinos a los que puede llegar la máquina virtual. También puede usar los NSG para administrar qué destino público puede iniciar los flujos de entrada.
 
 Cuando aplique un grupo de seguridad de red a una máquina virtual de carga equilibrada, preste atención a las [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) y a las [reglas de seguridad predeterminadas](../virtual-network/security-overview.md#default-security-rules). Debe asegurarse de que la máquina virtual puede recibir solicitudes de sondeo de mantenimiento desde Azure Load Balancer. 
@@ -256,7 +256,6 @@ Cuando aplique un grupo de seguridad de red a una máquina virtual de carga equi
 Si un grupo de seguridad de red bloquea las solicitudes de sondeo de mantenimiento de la etiqueta predeterminada AZURE_LOADBALANCER, se producirá un error en el sondeo de mantenimiento de la máquina virtual y esta se marca como inactiva. Load Balancer dejará de enviar nuevos flujos a esa máquina virtual.
 
 ## <a name="limitations"></a>Limitaciones
-- DisableOutboundSnat no está disponible como opción al configurar una regla de equilibrio de carga en el portal.  Use en su lugar herramientas de cliente, plantilla o REST.
 - Solo se puede acceder a los roles de trabajo web sin una red virtual y otros servicios de plataforma de Microsoft si se usa un equilibrador de carga estándar debido a un efecto secundario del funcionamiento de los servicios previos a la red virtual y otros servicios de plataforma. No dependa de este efecto secundario, porque el propio servicio o la plataforma subyacente pueden cambiar sin previo aviso. Siempre debe pensar que necesita crear conectividad de salida de manera explícita si lo desea al usar solo un equilibrador de carga estándar interno. El escenario 3 del [SNAT predeterminado](#defaultsnat) que se describe en este artículo no está disponible.
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,24 +1,26 @@
 ---
 title: Novedades de Azure Migrate
 description: Obtenga información sobre las novedades y actualizaciones recientes del servicio Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/30/2019
-ms.author: raynew
+ms.date: 03/22/2020
 ms.custom: mvc
-ms.openlocfilehash: 63b6783a2f36d5bc9e84ce8291e7025b27359b6c
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 9767f3ea31b57d23c8a6772ff5eb6500f7550802
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666093"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80127588"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novedades de Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) le ayuda a detectar, evaluar y migrar servidores, aplicaciones y datos locales a la nube de Microsoft Azure. En este artículo se resumen las nuevas características de Azure Migrate.
+[Azure Migrate](migrate-services-overview.md) le ayuda a detectar, evaluar y migrar servidores, aplicaciones y datos locales a la nube de Microsoft Azure. En este artículo se resumen las nuevas versiones y características de Azure Migrate.
 
+## <a name="update-march-2020"></a>Actualización (marzo de 2020)
 
+Ahora hay disponible una instalación basada en scripts para configurar el [dispositivo de Azure Migrate](migrate-appliance.md):
+
+- La instalación basada en script es una alternativa a la instalación .OVA (VMware)/VHD (Hyper-V) del dispositivo.
+- Proporciona un script de instalador de PowerShell que se puede usar para configurar el dispositivo para VMware/Hyper-V en una máquina existente que ejecute Windows Server 2016.
 
 ## <a name="update-november-2019"></a>Actualización (noviembre de 2019)
 
@@ -38,18 +40,9 @@ Se han agregado a Azure Migrate nuevas herramientas para la evaluación y la mig
 
 [Más información](migrate-services-overview.md) sobre el uso de herramientas y ofertas de ISV para la evaluación y la migración en Azure Migrate.
 
-## <a name="release-version-july-2019"></a>Versión de lanzamiento (julio de 2019)
+## <a name="azure-migrate-current-version"></a>Versión actual de Azure Migrate
 
-En julio de 2019 se publicó la versión actual de Azure Migrate.
-
-- **Versión actual**: use esta versión para crear proyectos de Azure Migrate, detectar máquinas locales y organizar valoraciones y migraciones.
-- **Versión anterior**: Para clientes que usaban la versión anterior de Azure Migrate (solo se admitía la evaluación de VM de VMware locales), ahora debería usar la versión actual. En la versión anterior, ya no puede crear nuevos proyectos de Azure Migrate ni realizar nuevas detecciones. Todavía puede obtener acceso a los proyectos existentes. Para hacerlo, en Azure Portal > **Todos los servicios**, busque **Azure Migrate**. En las notificaciones de Azure Migrate, hay un vínculo para acceder a antiguos proyectos de Azure Migrate.
-
-
-### <a name="azure-migrate-features"></a>Características de Azure Migrate
-
-La versión actual de Azure Migrate proporciona varias características nuevas:
-
+La versión actual de Azure Migrate (publicada en julio de 2019) proporciona varias características nuevas:
 
 - **Plataforma de migración unificada**: Ahora, Azure Migrate ofrece un único portal para centralizar, administrar y realizar el seguimiento del proceso de migración a Azure, con un flujo de implementación mejorado y una experiencia de portal.
 - **Herramientas de evaluación y migración**: Azure Migrate proporciona herramientas nativas y se integra con otros servicios de Azure, así como con herramientas de fabricante de software independiente (ISV). [Más información](migrate-services-overview.md#isv-integration) acerca de la integración de ISV.
@@ -62,6 +55,11 @@ La versión actual de Azure Migrate proporciona varias características nuevas:
  - **Valoración y migración de bases de datos**: desde Azure Migrate, puede evaluar las bases de datos locales para la migración a Azure mediante Azure Database Migration Assistant. Puede migrar bases de datos con Azure Database Migration Service.
 - **Migración de aplicaciones web**: puede evaluar las aplicaciones web con una dirección URL de punto de conexión pública mediante Azure App Service. Para la migración de aplicaciones de .NET internas, puede descargar y ejecutar App Service Migration Assistant.
 - **Data Box**: importe grandes cantidades de datos sin conexión a Azure mediante Azure Data Box en Azure Migrate.
+
+## <a name="azure-migrate-previous-version"></a>Versión anterior de Azure Migrate
+
+Si usaba la versión anterior de Azure Migrate (solo se admitía la valoración de máquinas virtuales de VMware locales), ahora debería usar la versión actual. En la versión anterior, ya no puede crear nuevos proyectos de Azure Migrate ni realizar nuevas detecciones. Todavía puede obtener acceso a los proyectos existentes. Para hacerlo, en Azure Portal > **Todos los servicios**, busque **Azure Migrate**. En las notificaciones de Azure Migrate, hay un vínculo para acceder a antiguos proyectos de Azure Migrate.
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

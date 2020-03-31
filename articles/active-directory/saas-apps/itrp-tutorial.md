@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67656693"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integración de Azure Active Directory con ITRP
@@ -35,7 +35,7 @@ Para más información acerca de la integración de aplicaciones SaaS con Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con ITRP, necesita los siguientes elementos:
 
@@ -139,17 +139,17 @@ Para configurar el inicio de sesión único de Azure AD con ITRP, haga lo sigui
 
 1. En la parte superior de la ventana, seleccione el icono **Settings** (Configuración):
 
-    ![Icono de configuración](./media/itrp-tutorial/ic775570.png "Settings icon")
+    ![Icono Configuración](./media/itrp-tutorial/ic775570.png "Icono Configuración")
 
 1. En el panel izquierdo, haga clic en **Single Sign-On** (Inicio de sesión único):
 
-    ![Selección de inicio de sesión único](./media/itrp-tutorial/ic775571.png "Select Single Sign-On")
+    ![Selección de Inicio de sesión único](./media/itrp-tutorial/ic775571.png "Seleccionar Inicio de sesión único")
 
 1. Siga estos pasos en la sección de configuración de **Single Sign-On** (Inicio de sesión único).
 
-    ![Sección de inicio de sesión único](./media/itrp-tutorial/ic775572.png "Single Sign-On section")
+    ![Sección Inicio de sesión único](./media/itrp-tutorial/ic775572.png "Sección Inicio de sesión único")
 
-    ![Sección de inicio de sesión único](./media/itrp-tutorial/ic775573.png "Single Sign-On section")
+    ![Sección Inicio de sesión único](./media/itrp-tutorial/ic775573.png "Sección Inicio de sesión único")
 
     1. Seleccione **Habilitado**.
 
@@ -221,19 +221,19 @@ Para crear una cuenta de usuario, siga estos pasos:
 
 1. En la parte superior de la ventana, seleccione el icono **Records** (Registros):
 
-    ![Icono registros](./media/itrp-tutorial/ic775575.png "Records icon")
+    ![Icono Registros](./media/itrp-tutorial/ic775575.png "Icono Registros")
 
 1. En el menú, seleccione **People** (Personas):
 
-    ![Seleccionar personas](./media/itrp-tutorial/ic775587.png "Select People")
+    ![Selección de personas](./media/itrp-tutorial/ic775587.png "Selección de personas")
 
 1. Seleccione el signo de más ( **+** ) para agregar a una nueva persona:
 
-    ![Selección del signo de más](./media/itrp-tutorial/ic775576.png "Select the plus sign")
+    ![Selección del signo más](./media/itrp-tutorial/ic775576.png "Selección del signo más")
 
 1. En el cuadro de diálogo **Add New Person** (Agregar nueva persona), realice los pasos siguientes.
 
-    ![Cuadro de diálogo para agregar nueva persona](./media/itrp-tutorial/ic775577.png "Add New Person dialog box")
+    ![Cuadro de diálogo Agregar nueva persona](./media/itrp-tutorial/ic775577.png "Cuadro de diálogo Agregar nueva persona")
 
     1. Escriba el nombre y la dirección de correo electrónico de una cuenta de Azure AD válida que quiera agregar.
 

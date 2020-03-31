@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: a711303b95eb4acb9c226ce052466bf65d15a038
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 6db2c907abc495ca3c88e1e73e885043a8f19997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612774"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481541"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -66,9 +66,9 @@ El certificado que solicite o cree debe cumplir los siguientes requisitos. Si se
 * **Nombre del firmante**: el nombre del firmante del certificado debe ser el dominio administrado. Por ejemplo, si el dominio se denomina *aaddscontoso.com*, el nombre del firmante del certificado debe ser **aaddscontoso.com*.
     * El nombre DNS o el nombre alternativo del firmante del certificado debe ser un certificado comodín, para asegurarse de que LDAP seguro funcione correctamente con Azure AD Domain Services. Los controladores de dominio usan nombres aleatorios y se pueden quitar o agregar para asegurarse de que el servicio sigue estando disponible.
 * **Uso de claves**: el certificado debe configurarse para las *firmas digitales* y el *cifrado de claves*.
-* **Propósito del certificado** : el certificado debe ser válido para la autenticación del servidor SSL.
+* **Propósito del certificado**: el certificado debe ser válido para la autenticación del servidor TLS.
 
-En este tutorial crearemos un certificado autofirmado para LDAP seguro mediante el cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Abra una ventana de PowerShell como **Administrador** y ejecute los siguientes comandos. Reemplace la variable *$dnsName* por el nombre DNS que usa su propio dominio administrado, como *aaddscontoso.com*:
+Hay varias herramientas disponibles para crear un certificado autofirmado como OpenSSL, Keytool, MakeCert, el cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate], etc. En este tutorial crearemos un certificado autofirmado para LDAP seguro mediante el cmdlet [New-SelfSignedCertificate][New-SelfSignedCertificate]. Abra una ventana de PowerShell como **Administrador** y ejecute los siguientes comandos. Reemplace la variable *$dnsName* por el nombre DNS que usa su propio dominio administrado, como *aaddscontoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -142,7 +142,7 @@ Antes de poder usar el certificado digital creado en el paso anterior con el dom
 1. Como este certificado se utiliza para descifrar datos, debe controlar cuidadosamente el acceso. Se puede usar una contraseña para proteger su uso. Sin la contraseña correcta, el certificado no se puede aplicar a un servicio.
 
     En la página **Seguridad**, elija la opción de **Contraseña** para proteger el archivo de certificado *.PFX*. Escriba y confirme una contraseña y, después, seleccione **Siguiente**. Esta contraseña se usará en la sección siguiente para habilitar LDAP seguro para el dominio administrado de Azure AD DS.
-1. En la página **Archivo que se va a exportar**, especifique el nombre de archivo y la ubicación donde desea exportar el certificado como, por ejemplo, *C:\Users\nombreDeCuenta\azure-ad-ds.pfx*.
+1. En la página **Archivo que se va a exportar**, especifique el nombre de archivo y la ubicación donde desea exportar el certificado como, por ejemplo, *C:\Users\nombreDeCuenta\azure-ad-ds.pfx*. Anote la contraseña y la ubicación del archivo *.PFX*, ya que necesitará esta información en los pasos siguientes.
 1. En la página de revisión, seleccione **Finalizar** para exportar el certificado a un archivo de certificado *.PFX*. Se muestra un cuadro de diálogo de confirmación cuando el certificado se ha exportado correctamente.
 1. Mantenga MMC abierto para usarlo en la sección siguiente.
 

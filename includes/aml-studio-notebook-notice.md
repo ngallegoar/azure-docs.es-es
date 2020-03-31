@@ -1,0 +1,20 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: machine-learning
+ms.service: machine-learning
+ms.custom: include file
+ms.topic: include
+author: peterclu
+ms.author: peterclu
+ms.date: 03/12/2020
+ms.openlocfilehash: 900eea5b7807b718274690bc34a32213bfe7ea7c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79204073"
+---
+> [!NOTE]
+> La característica Notebooks (versión preliminar) en Studio (Classic) se cerrará el 13 de abril de 2020. Después del 13 de abril, se quitará la pestaña Notebooks junto con los cuadernos guardados. Para obtener instrucciones sobre cómo puede descargar sus cuadernos, consulte [este artículo](../articles/machine-learning/studio/download-notebooks-data.md).
+      

@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: a875cc8f5e69be8b940f9d177d3b915bfaa2c973
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595685"
 ---
 # <a name="train-a-model"></a>Entrenamiento de un modelo
@@ -38,7 +38,7 @@ Para entrenar un modelo:
 
     -  Frases de destino: muestra el número de frases extraídas del archivo de destino.
 
-    ![Entrenar modelo](media/how-to/how-to-train-model.png)
+    ![Entrenamiento de un modelo](media/how-to/how-to-train-model.png)
 
 3.  Haga clic en el botón Entrenar.
 

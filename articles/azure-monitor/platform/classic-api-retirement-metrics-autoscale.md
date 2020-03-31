@@ -4,12 +4,12 @@ description: Las API de métricas y escalabilidad automática, también llamadas
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 980f4e840f7778c6ea3025db9b37a3454267bac7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9dfa6b278587f4ed79b1c3cd9eff1defd09ec0bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663562"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294655"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Retirada de Azure Monitor de las API del modelo de implementación clásica para métricas y escalabilidad automática
 
@@ -35,7 +35,7 @@ Este artículo es aplicable a usted si usa los siguientes componentes:
 
 Si no está seguro de si el código o las herramientas personalizadas están llamando a las API clásicas, observe lo siguiente:
 
-- Revise el identificador URI al que se hace referencia en el código o la herramienta. Las API clásicas usan el URI https://management.core.windows.net. Debería utilizar el URI más reciente para las API basadas en Resource Manager que empiezan por https://management.azure.com/.
+- Revise el identificador URI al que se hace referencia en el código o la herramienta. Las API clásicas usan el URI https://management.core.windows.net. Debería utilizar el URI más reciente para las API basadas en Resource Manager que empiezan por `https://management.azure.com/`.
 
 - Compare el nombre del ensamblado en la máquina. El ensamblado clásico anterior se encuentra en https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
 

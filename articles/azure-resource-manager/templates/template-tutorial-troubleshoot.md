@@ -5,16 +5,16 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ab12b206d5bb82956a8b607368af44ea0eaca40e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471040"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239248"
 ---
-# <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Tutorial: Solución de problemas en las implementaciones de plantillas de Resource Manager
+# <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Solución de problemas de las implementaciones de plantillas de Resource Manager
 
-Aprenda a solucionar errores en las implementaciones de plantillas de Resource Manager. En este tutorial, se configuran dos errores en una plantilla y se aprende a usar los registros de actividad y el historial de implementación para resolver los problemas.
+Aprenda a solucionar errores en las implementaciones de plantillas de Azure Resource Manager. En este tutorial, se configuran dos errores en una plantilla y se aprende a usar los registros de actividad y el historial de implementación para resolver los problemas.
 
 Hay dos tipos de errores relacionados con la implementación de plantillas:
 
@@ -35,11 +35,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Creación de una plantilla problemática
 

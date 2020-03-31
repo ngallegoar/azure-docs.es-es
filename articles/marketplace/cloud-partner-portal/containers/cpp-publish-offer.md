@@ -1,19 +1,18 @@
 ---
 title: Publicación de una oferta de imágenes de contenedor de Azure | Azure Marketplace
 description: Cómo publicar una oferta de contenedor de Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: cf422e3d77fa0722fe10a52073cf89ab2a76dcc0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c612d2234e6c3c4e93c3c984242bb283ed85c27f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823174"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279987"
 ---
 # <a name="publish-container-offer"></a>Publicación de oferta de contenedor
 
@@ -28,7 +27,7 @@ El diagrama siguiente muestra los pasos principales del proceso de publicación 
 En la tabla siguiente se describe cada uno de los pasos de publicación: También se proporciona un tiempo estimado para finalizar cada paso.
 
 
-|  **Paso de publicación**           | **Hora**    | **Descripción**                                                            |
+|  **Paso de publicación**           | **Time**    | **Descripción**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar requisitos previos         | 15 minutos   | Se validan la información y la configuración de la oferta.                        |
 | Certificación                  | 1 semana | El equipo de certificación de Azure analiza la oferta. Se examina la oferta en busca de virus, malware, cumplimiento de seguridad y problemas de seguridad. La oferta se comprueba para ver si cumple todos los criterios de elegibilidad. Para más información, consulte las secciones de [requisitos previos](./cpp-prerequisites.md) y [preparación de los recursos técnicos](./cpp-create-technical-assets.md). Si se detecta un problema, se proporcionan comentarios. |

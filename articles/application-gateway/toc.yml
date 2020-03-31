@@ -15,6 +15,9 @@
       href: quick-create-powershell.md
     - name: 'Creación de puerta de enlace de aplicaciones: CLI de Azure'
       href: quick-create-cli.md
+    - name: 'Creación de puerta de enlace de aplicaciones: plantilla de Resource Manager'
+      displayName: Resource Manager
+      href: quick-create-template.md
 - name: Tutoriales
   items:
     - name: Protección con SSL
@@ -47,6 +50,8 @@
           href: application-gateway-components.md
         - name: Información general sobre la configuración
           href: configuration-overview.md
+    - name: Soporte de tráfico elevado
+      href: high-traffic-support.md
     - name: SKU de escalado automático v2
       href: application-gateway-autoscaling-zone-redundant.md
     - name: Enrutamiento

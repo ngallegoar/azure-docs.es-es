@@ -4,16 +4,16 @@ description: En este tutorial aprenderá a entrenar un modelo de Machine Learnin
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/10/2020
+ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a5c754373ba9437c631e62acbb5d6d246db4c862
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 57630b789233dd23e61398f445b434e4ba08b48e
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650765"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80236016"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Entrenamiento e implementación de un modelo de Azure Machine Learning
 
@@ -62,7 +62,9 @@ Cargaremos archivos de cuaderno de ejemplo en un nuevo proyecto de Azure Noteboo
 
 1. En la página usuario de la nueva cuenta, seleccione **My projects** (Mis proyectos)en la barra de menús superior.
 
-1. En el cuadro de diálogo **Create New Project** (Crear nuevo proyecto), proporcione un **nombre de proyecto** que también conforme automáticamente el **identificador del proyecto**.
+1. Agregue un nuevo proyecto, para lo que debe seleccionar el botón **+** .
+
+1. En el cuadro de diálogo **Create New Project** (Crear nuevo proyecto), en **Project Name**, escriba un nombre de proyecto. 
 
 1. Deje **Public** (Público) y **README** (Léame) sin seleccionar, ya que no hace falta que el proyecto sea público o tenga un archivo Léame.
 
@@ -73,6 +75,8 @@ Cargaremos archivos de cuaderno de ejemplo en un nuevo proyecto de Azure Noteboo
 1. Seleccione **Choose files** (Elegir archivos).
 
 1. Vaya a **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Seleccione todos los archivos de la lista y haga clic en **Open** (Abrir).
+
+1. Active la casilla **I trust the content of these files** (Confío en el contenido de estos archivos).
 
 1. Seleccione **Cargar** para empezar a cargarlos y, a continuación, seleccione **Listo** una vez completado el proceso.
 
@@ -96,7 +100,7 @@ Vamos a revisar los archivos cargados en el proyecto de Azure Notebooks. Las act
 
 * **Test\_FD003.txt:** este archivo contiene los datos que usaremos como conjunto de prueba al validar el clasificador entrenado. Decidimos usar los datos de prueba tal, y como se proporcionan para el concurso original, como nuestro conjunto de pruebas por su sencillez.
 
-* **RUL\_FD003.txt:** este archivo contiene la vida útil restante del último ciclo de todos los dispositivos en el archivo Test\_FD003.txt. Consulte los archivos readme.txt y Damage Propagation Modeling.pdf (modelado de propagación de daños) en C:\\source\\IoTEdgeAndMlSample\\data\\Turbofan para obtener una explicación detallada de los datos.
+* **RUL\_FD003.txt:** este archivo contiene la vida útil restante (RUL) del último ciclo de todos los dispositivos en el archivo Test\_FD003.txt. Consulte los archivos readme.txt y Damage Propagation Modeling.pdf (modelado de propagación de daños) en C:\\source\\IoTEdgeAndMlSample\\data\\Turbofan para obtener una explicación detallada de los datos.
 
 * **Utils.py:** contiene un conjunto de funciones de utilidad de Python para trabajar con los datos. El primer cuaderno contiene una explicación detallada de las funciones.
 
@@ -110,24 +114,22 @@ Ahora que se ha creado el proyecto, puede ejecutar los cuadernos.
 
     ![Seleccionar el primer cuaderno que se ejecutará](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
-1. Si se le pide, elija el kernel 3.6 de Python en el cuadro de diálogo y seleccione **Set Kernel** (Establecer kernel).
-
 1. Si el cuaderno aparece como **Not Trusted** (No de confianza), haga clic en el widget **No de confianza** en la parte superior derecha del cuaderno. Cuando se muestre el cuadro de diálogo, seleccione **Trust** (Confiar).
 
-1. En el cuaderno, desplácese hacia abajo hasta la celda que sigue a las instrucciones de **Set global properties** (Establecer propiedades globales) que comienza con el código `AZURE_SUBSCRIPTION_ID =` y rellene los valores de la suscripción, la configuración y los recursos de Azure.
-
-    ![Establecimiento de las propiedades globales en el cuaderno](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
-
-1. Ejecute la celda seleccionando **Run** (Ejecutar) en la barra de herramientas.
+1. Para obtener unos mejores óptimos, lea la documentación de cada celda y ejecútela de forma individual. Seleccione **Ejecutar** en la barra de herramientas. Más adelante, le resultará conveniente ejecutar varias celdas. Puede obviar las advertencias de actualización y desuso.
 
     Cuando se ejecuta una celda, muestra un asterisco entre corchetes ([\*]). Cuando se completa la operación de la celda, el asterisco se reemplaza por un número y es posible que se muestre el resultado pertinente. Las celdas de un cuaderno se compilan secuencialmente y no puede haber más de una en ejecución a la vez.
 
-    Siga las instrucciones del cuaderno. También puede usar opciones de ejecución del menú **Cell** (Celda), `Ctrl` + `Enter` para ejecutar una celda y `Shift` + `Enter` para ejecutar una celda y pasar a la celda siguiente.
+    También puede usar opciones de ejecución del menú **Cell** (Celda), `Ctrl` + `Enter` para ejecutar una celda y `Shift` + `Enter` para ejecutar una celda y pasar a la celda siguiente.
 
     > [!TIP]
     > Para las operaciones de celda coherentes, evite ejecutar el mismo cuaderno desde varias pestañas del explorador.
 
-1. Desplácese hacia abajo hasta la celda que sigue inmediatamente al texto de información general de **Create a workspace** (Crear un área de trabajo) y ejecute esa celda. En la salida de la celda, busque el vínculo que le indica que inicie sesión para autenticarse. 
+1. En la celda que sigue a las instrucciones de **Set global properties** (Establecer propiedades globales), escriba los valores de la suscripción, la configuración y los recursos de Azure. Luego, ejecute la celda.
+
+    ![Establecimiento de las propiedades globales en el cuaderno](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
+
+1. En la celda anterior a **Detalles del área de trabajo**, después de que se haya ejecutado, busque el vínculo en que se le solicita que inicie sesión para autenticarse:
 
     ![Solicitud de inicio de sesión para la autenticación de dispositivos](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
 
@@ -135,17 +137,17 @@ Ahora que se ha creado el proyecto, puede ejecutar los cuadernos.
 
     ![Aplicación de autenticación en la confirmación del dispositivo](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
 
-1. En este punto, puede ejecutar el resto de las celdas. Lo ideal es ejecutar todas las celdas para que el código de las celdas se ejecute secuencialmente. Seleccione **Run All** (Ejecutar todas) en el menú **Cell** (Celda). Desplácese hacia arriba a través del cuaderno y revise cómo se completan las operaciones de celda.
+1. En la celda que precede a **Explorar los resultados**, copie el valor del identificador de ejecución y péguelo en la celda posterior a **Reconstituir una ejecución**.
 
-    En la sección **Explore the data** (Exploración de los datos), puede revisar las celdas de la subsección **Sensor readings and RUL** (Lecturas de sensores y RUL) que representan gráficos de dispersión de las mediciones de sensores.
+   ![Copiar el identificador de ejecución entre celdas](media/tutorial-machine-learning-edge-04-train-model/automl-id.png)
 
-    ![Gráficos de dispersión de lecturas de sensores](media/tutorial-machine-learning-edge-04-train-model/sensor-readings.png)
+1. Ejecute las restantes celdas en el cuaderno.
 
-1. Guarde el cuaderno y vuelva a la página del proyecto; para ello, haga clic en el nombre del proyecto en la esquina superior derecha del cuaderno o vuelva en el explorador.
+1. Guarde el cuaderno y vuelva a la página del proyecto.
 
-1. Abra **02-turbofan\_deploy\_model.ipynb** y repita los pasos de este procedimiento para ejecutar el segundo cuaderno.
+1. Abra el archivo **02-turbofan\_deploy\_model.ipynb** y ejecute todas las celdas. Tendrá que iniciar sesión para autenticarse en la celda posterior a **Configurar área de trabajo**.
 
-1. Guarde el cuaderno y vuelva a la página del proyecto; para ello, haga clic en el nombre del proyecto en la esquina superior derecha del cuaderno o vuelva en el explorador.
+1. Guarde el cuaderno y vuelva a la página del proyecto.
 
 ### <a name="verify-success"></a>Comprobación de que la operación se ha completado correctamente
 
@@ -161,11 +163,21 @@ Para confirmar que los cuadernos se han completado correctamente, compruebe si s
     | ./aml_config/model_config.json | Archivo de configuración que se necesitará para implementar el modelo en el área de trabajo de Machine Learning **turbofanDemo** en Azure. |
     | myenv.yml| Proporciona información sobre las dependencias para el modelo de Machine Learning implementado.|
 
-1. Compruebe en Azure Portal que el área de trabajo de Machine Learning **turboFanDemo** existe en el grupo de recursos.
+1. Compruebe que se han creado los siguientes recursos de Azure. Algunos nombres de recursos se anexan con caracteres aleatorios.
+
+    | Recurso de Azure | Nombre |
+    | --- | --- |
+    | Área de trabajo de Machine Learning | turborfanDemo |
+    | Container Registry | turbofandemoxxxxxxxx |
+    | Applications Insights | turbofaninsightxxxxxxxx |
+    | Key Vault | turbofankeyvaultbxxxxxxxx |
+    | Storage | turbofanstoragexxxxxxxxx |
 
 ### <a name="debugging"></a>Depuración
 
-Puede insertar instrucciones de Python en el cuaderno para su depuración, principalmente el comando `print()`. Si ve variables u objetos que no están definidos, ejecute las celdas en las que se declaren o se hayan creado instancias de ellos primero.
+Puede insertar instrucciones de Python en el cuaderno para su depuración, como por ejemplo, el comando `print()` para mostrar valores. Si ve variables u objetos que no están definidos, ejecute las celdas en las que se declaren o se hayan creado instancias de ellos primero.
+
+Si necesita poner al día los cuadernos, es posible que tenga que eliminar tanto los archivos como los recursos de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

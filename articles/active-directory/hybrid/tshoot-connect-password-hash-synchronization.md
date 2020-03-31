@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60383267"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227800"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Solución de problemas de sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 
@@ -173,13 +173,13 @@ En el resto de esta sección se describen los resultados concretos que devuelve 
 
 #### <a name="the-active-directory-object-isnt-exported-to-azure-ad"></a>El objeto de Active Directory no se ha exportado a Azure AD
 
-La sincronización de hash de contraseñas para esta cuenta de Active Directory local no se realiza porque no hay un objeto correspondiente en el inquilino de Azure AD. Se devuelve el error siguiente:
+La sincronización de hash de contraseñas para esta cuenta de Active Directory local no se realiza porque no hay un objeto correspondiente en el inquilino de Azure AD. Se devuelve el siguiente error:
 
 ![Falta objeto de Azure AD](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnotexported.png)
 
 #### <a name="user-has-a-temporary-password"></a>El usuario tiene una contraseña incorrecta
 
-Actualmente, Azure AD Connect no admite la sincronización de contraseñas temporales con Azure AD. Una contraseña se considera temporal si la opción **Change password at next logon** (Cambiar la contraseña en el siguiente inicio de sesión) se establece como activada en el usuario de Active Directory local. Se devuelve el error siguiente:
+Actualmente, Azure AD Connect no admite la sincronización de contraseñas temporales con Azure AD. Una contraseña se considera temporal si la opción **Change password at next logon** (Cambiar la contraseña en el siguiente inicio de sesión) se establece como activada en el usuario de Active Directory local. Se devuelve el siguiente error:
 
 ![La contraseña temporal no se exporta](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
 
@@ -351,7 +351,7 @@ Puede solucionar fácilmente los problemas relacionados con la sincronización d
 
 La columna de estado puede presentar los siguientes valores:
 
-| Status | DESCRIPCIÓN |
+| Status | Descripción |
 | --- | --- |
 | Correcto |La contraseña se sincronizó correctamente. |
 | FilteredByTarget |La contraseña se establece en **El usuario debe cambiar la contraseña en el siguiente inicio de sesión**. La contraseña no se ha sincronizado. |

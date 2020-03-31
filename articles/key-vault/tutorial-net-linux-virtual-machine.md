@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 8c5b3fcc1cb2ac481be0b435c48ce213c716edde
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 05968fdd9e2ddfd89bd9310c744d9ee699f440d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198174"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472731"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: Uso de una máquina virtual Linux y una aplicación .NET para almacenar secretos en Azure Key Vault
 
@@ -43,7 +43,7 @@ Antes de avanzar, lea acerca de los [conceptos básicos de Key Vault](basic-conc
 
 ## <a name="understand-managed-service-identity"></a>Managed Service Identity
 
-Azure Key Vault puede almacenar las credenciales de forma segura para que no estén en el código, pero debe autenticarse en Azure Key Vault para recuperarlas. Sin embargo, para autenticarse en Key Vault, necesita una credencial. Se trata de un problema clásico de arranque. Con Azure y Azure Active Directory (Azure AD), Managed Service Identity (MSI) puede proporcionar una identidad de arranque que permite comenzar fácilmente.
+Azure Key Vault puede almacenar credenciales de forma segura para que no estén en el código, pero para recuperarlas debe autenticarse en Azure Key Vault. Sin embargo, para autenticarse en Key Vault, necesita una credencial. Se trata de un problema clásico de arranque. Con Azure y Azure Active Directory (Azure AD), Managed Service Identity (MSI) puede proporcionar una identidad de arranque que permite comenzar fácilmente.
 
 Cuando se habilita MSI para un servicio de Azure como Virtual Machines, App Service o Functions, Azure crea una entidad de servicio para la instancia del servicio en Azure Active Directory. Inserta las credenciales de la entidad de servicio en la instancia del servicio.
 
@@ -114,7 +114,7 @@ az vm create \
 
 La creación de la máquina virtual y los recursos auxiliares tarda unos minutos en realizarse. En la salida de ejemplo siguiente se muestra que la operación de creación de la máquina virtual se realizó correctamente.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -139,7 +139,7 @@ az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourRe
 
 La salida del comando debe ser:
 
-```azurecli
+```output
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}

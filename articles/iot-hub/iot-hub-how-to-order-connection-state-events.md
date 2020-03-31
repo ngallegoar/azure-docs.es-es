@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.openlocfilehash: 210c2e74305ba99b4ac3a12625d0b7f5fc47ba43
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954250"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB
@@ -20,7 +20,7 @@ Azure Event Grid le ayuda a compilar aplicaciones basadas en eventos y a integra
 
 El número de secuencia es una representación de cadena de un número hexadecimal. Puede usar la comparación de cadenas para identificar el número más grande. Si va a convertir la cadena a hexadecimal, el número será de 256 bits. El número de secuencia es estrictamente ascendente por lo que el registro más reciente tendrá un número mayor que el de los otros eventos. Esto resulta útil si tiene conexiones y desconexiones frecuentes de dispositivo y quiere asegurarse de que solo el evento más reciente se usa para desencadenar una acción de nivel inferior, ya que Azure Event Grid no admite la ordenación de eventos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede [crear una gratis](https://azure.microsoft.com/pricing/free-trial/).
 

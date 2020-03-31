@@ -1,19 +1,18 @@
 ---
 title: Configuración de la oferta de aplicación de Azure | Azure Marketplace
 description: Defina la configuración de una oferta de aplicación de Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: c5e00f77ffeec61fb4fee4b4e8eb72b7c7ed1077
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d111471e909a091d8c887f13ad89d1da50cf72b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827540"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280123"
 ---
 # <a name="azure-application-offer-settings-tab"></a>Pestaña Configuración de la oferta de aplicación de Azure
 
@@ -27,7 +26,7 @@ La página **Aplicaciones de Azure > Nueva oferta** se abre con el foco sobre la
 
 En **Identidad de la oferta**, debe proporcionar información para los campos descritos en la tabla siguiente.  
 
-|    Campo         |       DESCRIPCIÓN                                                            |
+|    Campo         |       Descripción                                                            |
 |  ---------       |     ---------------                                                          |
 | **Id. de oferta\***       | Identificador único (en el perfil de un publicador) de la oferta. Este identificador es visible en las direcciones URL del producto y en los informes de Insights. Tiene una longitud máxima de 50 caracteres y puede usar caracteres alfanuméricos en minúscula y guiones (-). (El identificador no puede terminar con un guión). **Nota:** Este campo no se puede modificar una vez lanzada una oferta. <br> Por ejemplo, si Contoso publica una oferta con el identificador de oferta **sample-container**, se le asigna la dirección URL de Azure Marketplace `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-container?tab=Overview`. |
 | **Id. del anunciante\***     | Identificador único de la organización en Azure Marketplace. Todas las ofertas se deben asociar al identificador de publicador. No se puede cambiar este valor después de guardar la oferta. |

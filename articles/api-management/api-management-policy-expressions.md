@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 6614e70d130abe46067c657bda3ccdd7000caddc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845277"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224864"
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
 En este artículo se describe la sintaxis de expresiones de directiva en C# 7. Cada expresión tiene acceso a la variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada de forma implícita y a un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.
@@ -33,12 +33,12 @@ Para obtener más información:
 - Para descargar las declaraciones de directiva, vaya a [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) en el repositorio de GitHub.
 
 
-## <a name="Syntax"></a> Sintaxis
+## <a name="syntax"></a><a name="Syntax"></a> Sintaxis
 Las expresiones de declaración única se incluyen en `@(expression)`, donde `expression` es una instrucción de expresión bien formada de C#.
 
 Las expresiones de múltiples declaraciones se incluyen en `@{expression}`. Todas las rutas de código de las expresiones de múltiples declaraciones deben terminar con una declaración `return`.
 
-## <a name="PolicyExpressionsExamples"></a> Ejemplos
+## <a name="examples"></a><a name="PolicyExpressionsExamples"></a> Ejemplos
 
 ```
 @(true)
@@ -65,13 +65,13 @@ Las expresiones de múltiples declaraciones se incluyen en `@{expression}`. Toda
 }
 ```
 
-## <a name="PolicyExpressionsUsage"></a>Uso
+## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>Uso
 Las expresiones pueden utilizarse como valores de atributos o valores de texto en cualquier [directiva](api-management-policies.md) de API Management, a menos que la referencia de la directiva especifique lo contrario.
 
 > [!IMPORTANT]
 > Al utilizar expresiones de directiva, solo hay una verificación limitada de estas cuando se define la directiva. La puerta de enlace ejecuta las expresiones en tiempo de ejecución, y las excepciones generadas por las expresiones de directiva generan un error en tiempo de ejecución.
 
-## <a name="CLRTypes"></a>Tipos de .NET framework que se permiten en expresiones de directiva
+## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a>Tipos de .NET framework que se permiten en expresiones de directiva
 En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en las expresiones de directiva y sus miembros.
 
 |Tipo|Miembros compatibles|
@@ -205,7 +205,7 @@ En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en
 |System.Xml.Linq.XText|All|
 |System.Xml.XmlNodeType|All|
 
-## <a name="ContextVariables"></a> Variable de contexto
+## <a name="context-variable"></a><a name="ContextVariables"></a> Variable de contexto
 Una variable denominada `context` está disponible implícitamente en todas las [expresiones](api-management-policy-expressions.md#Syntax) de directiva. Sus miembros proporcionan información relativa a `\request`. Todos los miembros de `context` son de solo lectura.
 
 |Variable de contexto|Métodos, propiedades y valores de parámetro admitidos|

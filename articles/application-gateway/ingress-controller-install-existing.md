@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: dec43a4d7eb5a9546fcd77cce972b93542ea3b10
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 048ab7249b27839890bab3e677154ca3c7a0cc98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795955"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239435"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Instalación de un controlador de entrada de Application Gateway (AGIC) con una instancia de Application Gateway existente
 
@@ -27,7 +27,7 @@ AGIC supervisa los recursos de [entrada](https://kubernetes.io/docs/concepts/ser
 - [Instalación del controlador de entrada mediante Helm](#install-ingress-controller-as-a-helm-chart)
 - [Instancia de Application Gateway compartida o de varios clústeres](#multi-cluster--shared-application-gateway): Instale AGIC en un entorno en el que se comparta la instancia de Application Gateway entre uno o varios clústeres de AKS y otros componentes de Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Este documento asume que ya tiene instaladas las siguientes herramientas e infraestructura:
 - [AKS](https://azure.microsoft.com/services/kubernetes-service/) con [redes avanzadas](https://docs.microsoft.com/azure/aks/configure-azure-cni) habilitadas
 - [Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/create-zone-redundant) en la misma red virtual que AKS
@@ -81,13 +81,13 @@ Use [Cloud Shell](https://shell.azure.com/) para ejecutar todos los comandos sig
 
 1. Cree una identidad de Azure **en el mismo grupo de recursos que los nodos de AKS**. Es importante elegir el grupo de recursos correcto. El grupo de recursos requerido en el siguiente comando *no* es al que se hace referencia en el panel del portal de AKS. Este es el grupo de recursos de las máquinas virtuales de `aks-agentpool`. Normalmente, el grupo de recursos comienza con `MC_` y contiene el nombre de su instancia de AKS. Por ejemplo: `MC_resourceGroup_aksABCD_westus`
 
-    ```bash
+    ```azurecli
     az identity create -g <agent-pool-resource-group> -n <identity-name>
     ```
 
 1. Para los comandos de asignación de roles que aparecen a continuación, necesitamos obtener `principalId` para la identidad recién creada:
 
-    ```bash
+    ```azurecli
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
@@ -95,7 +95,7 @@ Use [Cloud Shell](https://shell.azure.com/) para ejecutar todos los comandos sig
 
     Obtenga la lista de identificadores de la instancia de Application Gateway de su suscripción con: `az network application-gateway list --query '[].id'`
 
-    ```bash
+    ```azurecli
     az role assignment create \
         --role Contributor \
         --assignee <principalId> \
@@ -104,7 +104,7 @@ Use [Cloud Shell](https://shell.azure.com/) para ejecutar todos los comandos sig
 
 1. Conceda a la identidad acceso de `Reader` al grupo de recursos de Application Gateway. El identificador del grupo de recursos tendrá el siguiente aspecto: `/subscriptions/A/resourceGroups/B`. Puede obtener todos los grupos de recursos con: `az group list --query '[].id'`
 
-    ```bash
+    ```azurecli
     az role assignment create \
         --role Reader \
         --assignee <principalId> \
@@ -116,7 +116,7 @@ También es posible proporcionar a AGIC acceso a ARM a través de un secreto de 
 
 1. Cree una entidad de servicio de Active Directory y codifíquela con base64. La codificación base64 es necesaria para que el blob JSON se guarde en Kubernetes.
 
-```bash
+```azurecli
 az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0
 ```
 

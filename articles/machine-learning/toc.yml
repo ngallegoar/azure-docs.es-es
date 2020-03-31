@@ -95,6 +95,9 @@
     - name: Entrenamiento del modelo
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
+    - name: Entrenamiento distribuido
+      displayName: 'parallellization, deep learning, deep neural network, dnn'
+      href: concept-distributed-training.md
     - name: Administración de modelos (MLOps)
       displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
@@ -111,6 +114,9 @@
     - name: Automated Machine Learning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
+    - name: Administración de los riesgos de Machine Learning
+      displayName: 'automl, auto ml, risks'
+      href: concept-manage-ml-pitfalls.md
     - name: Instancia de proceso
       displayName: 'resource, dsvm, Data Science Virtual Machine'
       href: concept-compute-instance.md
@@ -184,39 +190,47 @@
           href: concept-train-model-git-integration.md
     - name: Trabajar con datos
       items:
-        - name: Conexión a datos en Azure Storage
-          displayName: 'blob, get, fileshare, access storage, mount, download'
-          href: how-to-access-data.md
-        - name: Obtención de datos desde un almacén de datos
-          displayName: 'data, data set, register, access data'
-          href: how-to-create-register-datasets.md
-        - name: Entrenamiento con conjuntos de datos
-          displayName: 'data, dataset, mount'
-          href: how-to-train-with-datasets.md
-        - name: Importación de datos en el diseñador
-          displayName: 'designer, data, import, dataset, datastore'
-          href: how-to-designer-import-data.md
-        - name: Detección de desfase en conjuntos de datos
-          displayName: 'data, dataset'
-          href: how-to-monitor-datasets.md
-        - name: Creación de versión y seguimiento de conjuntos de datos
-          displayName: 'data, data set'
-          href: how-to-version-track-datasets.md
-        - name: Obtención de datos etiquetados
-          displayName: 'data, dataset, labeling'
-          href: how-to-create-labeling-projects.md
-        - name: Etiquetado de imágenes
-          displayName: 'data, dataset, labeling'
-          href: how-to-label-images.md
-        - name: Creación de conjuntos de datos con etiquetas
-          displayName: 'data, labels, torchvision'
-          href: how-to-use-labeled-dataset.md
-        - name: Ingesta de datos con Azure Data Factory
-          displayName: 'data, ingestion, adf'
-          href: how-to-data-ingest-adf.md
-        - name: DevOps para la ingesta de datos
-          displayName: 'data, ingestion, devops'
-          href: how-to-cicd-data-ingestion.md
+        - name: Etiquetado de datos
+          items:
+            - name: Obtención de datos etiquetados
+              displayName: 'data, dataset, labeling'
+              href: how-to-create-labeling-projects.md
+            - name: Etiquetado de imágenes
+              displayName: 'data, dataset, labeling'
+              href: how-to-label-images.md
+            - name: Creación de conjuntos de datos con etiquetas
+              displayName: 'data, labels, torchvision'
+              href: how-to-use-labeled-dataset.md
+        - name: Obtener datos
+          items:
+            - name: Ingesta de datos con Azure Data Factory
+              displayName: 'data, ingestion, adf'
+              href: how-to-data-ingest-adf.md
+            - name: DevOps para la ingesta de datos
+              displayName: 'data, ingestion, devops'
+              href: how-to-cicd-data-ingestion.md
+            - name: Importación de datos en el diseñador
+              displayName: 'designer, data, import, dataset, datastore'
+              href: how-to-designer-import-data.md
+        - name: Acceso a los datos
+          items:
+            - name: Conectar a Azure Storage
+              displayName: 'blob, get, fileshare, access, mount, download, data lake'
+              href: how-to-access-data.md
+            - name: Obtención de datos desde un almacén de datos
+              displayName: 'data, data set, register, access data'
+              href: how-to-create-register-datasets.md
+        - name: Administración y consumo de datos
+          items:
+            - name: Entrenamiento con conjuntos de datos
+              displayName: 'data, dataset, mount'
+              href: how-to-train-with-datasets.md
+            - name: Detección de desfase en conjuntos de datos
+              displayName: 'data, dataset'
+              href: how-to-monitor-datasets.md
+            - name: Creación de versión y seguimiento de conjuntos de datos
+              displayName: 'data, data set'
+              href: how-to-version-track-datasets.md
     - name: Entrenamiento de modelos
       items:
         - name: Uso de estimadores para ML
@@ -337,6 +351,7 @@
         - name: Desencadenar una canalización
           href: how-to-trigger-published-pipeline.md
         - name: Depuración y solución de problemas de canalizaciones
+          displayName: designer
           href: how-to-debug-pipelines.md
         - name: Depuración de canalizaciones en Application Insights
           displayname: 'pipelines, log, monitor'

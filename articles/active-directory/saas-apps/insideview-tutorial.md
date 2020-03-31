@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100084"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integración de Azure Active Directory con InsideView
@@ -35,7 +35,7 @@ Para más información acerca de la integración de aplicaciones SaaS con Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con InsideView, necesita los siguientes elementos:
 
@@ -131,11 +131,11 @@ Para configurar el inicio de sesión único de Azure AD con InsideView, haga lo 
 
 1. En la parte superior de la ventana, seleccione **Admin** (Administrador), **SingleSignOn Settings** (Configuración de inicio de sesión único) y **Add SAML** (Agregar SAML).
    
-   ![Configuración de inicio de sesión único de SAML](./media/insideview-tutorial/ic794135.png "SAML single sign-on settings")
+   ![Configuración del inicio de sesión único de SAML](./media/insideview-tutorial/ic794135.png "Configuración del inicio de sesión único de SAML")
 
 1. En la sección **Add a New SAML** (Agregar un nuevo SAML), realice estos pasos.
 
-    ![Sección para agregar un nuevo SAML](./media/insideview-tutorial/ic794136.png "Add a New SAML section")
+    ![Sección Agregar un nuevo SAML](./media/insideview-tutorial/ic794136.png "Sección Agregar un nuevo SAML")
 
     1. En el cuadro de texto **STS Name** (Nombre STS), escriba el nombre de la configuración.
 

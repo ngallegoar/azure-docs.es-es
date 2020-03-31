@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 29addcd62afd193af83196b2d942e9778ff3f031
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67099407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutorial: Integración de Azure Active Directory con Jitbit Helpdesk
@@ -34,7 +34,7 @@ La integración de Jitbit Helpdesk con Azure AD proporciona las siguientes venta
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Jitbit Helpdesk, se necesitan los siguientes elementos:
 
@@ -145,7 +145,7 @@ Para configurar el inicio de sesión único de Azure AD con Jitbit Helpdesk, rea
 
 1. En la sección **Configuración de autenticación** , realice estos pasos:
 
-    ![Configuración de la autenticación](./media/jitbit-helpdesk-tutorial/ic777683.png "Configuración de la autenticación")
+    ![Configuración de la autenticación](./media/jitbit-helpdesk-tutorial/ic777683.png "Configuración de autenticación")
 
     a. Seleccione **Enable SAML 2.0 single sign on** (Habilitar inicio de sesión único de SAML 2.0) para iniciar sesión mediante inicio de sesión único (SSO) con **OneLogin**.
 
@@ -178,7 +178,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -228,7 +228,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jitbit Helpdesk, d
 
 1. En la sección Crear, escriba los datos de la cuenta de Azure AD que desee aprovisionar como sigue:
 
-    ![Crear](./media/jitbit-helpdesk-tutorial/ic777686.png "Crear")
+    ![Creación](./media/jitbit-helpdesk-tutorial/ic777686.png "Crear")
 
    a. En el cuadro de texto **Nombre de usuario**, escriba el nombre de un usuario, por ejemplo, **Britta Simon**.
 
@@ -238,7 +238,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jitbit Helpdesk, d
 
    d. En el cuadro de texto **Apellidos**, escriba el apellido del usuario, en este caso **Simon**.
 
-   e. Haga clic en **Create**(Crear).
+   e. Haga clic en **Crear**.
 
 > [!NOTE]
 > Puede usar cualquier herramienta de creación de cuentas de usuario de Jitbit Helpdesk u otras API proporcionadas por Jitbit Helpdesk para aprovisionar cuentas de usuario de Azure AD.

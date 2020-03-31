@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986aa000102cfed01666c8a95c00847ecc0cd651
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 40fd8217285643aa7d706d194d7f78ba0634dd32
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047260"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048957"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Amazon Web Services (AWS)
 
@@ -337,7 +337,10 @@ En esta sección, concederá acceso a B.Simon a Amazon Web Services (AWS) para q
     ![Captura de pantalla de la sección Configuración, con la opción Activado resaltada](./media/amazon-web-service-tutorial/provisioning2.png)
 
 > [!NOTE]
-> El servicio de aprovisionamiento solo importará roles de AWS en Azure AD. Este servicio no aprovisionará a los usuarios y grupos de Azure AD otra vez en AWS.
+> El servicio de aprovisionamiento solo importa roles de AWS en Azure AD. El servicio no aprovisiona los usuarios y grupos de Azure AD en AWS.
+
+> [!NOTE]
+> Después de guardar las credenciales de aprovisionamiento, debe esperar a que se ejecute el ciclo de sincronización inicial. Normalmente, la sincronización tarda aproximadamente 40 minutos en finalizar. Puede ver el estado en la parte inferior de la página **Aprovisionamiento**, en **Estado actual**.
 
 ### <a name="create-amazon-web-services-aws-test-user"></a>Creación de un usuario de prueba de Amazon Web Services (AWS)
 
@@ -367,9 +370,9 @@ Al hacer clic en el icono de Amazon Web Services (AWS) en el Panel de acceso, au
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

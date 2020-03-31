@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
 ms.openlocfilehash: 7f7e957502419b766f7da63048e8168192ea20da
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286644"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237412"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicación con el centro de IoT mediante el protocolo AMQP
 
@@ -26,7 +26,7 @@ Para conectarse a un centro de IoT mediante el uso de AMQP, un cliente puede uti
 
 La siguiente información es necesaria para el cliente del servicio:
 
-| Information | Valor |
+| Information | Value |
 |-------------|--------------|
 | Nombre de host del centro de IoT | `<iot-hub-name>.azure-devices.net` |
 | Nombre de clave | `service` |
@@ -65,7 +65,7 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 
 Para obtener información sobre el intercambio de mensajes de la nube al dispositivo entre el servicio y el centro de IoT y entre el dispositivo y el centro de IoT, consulte [Envío de mensajes de la nube al dispositivo desde IoT Hub](iot-hub-devguide-messages-c2d.md). El cliente del servicio utiliza dos vínculos para enviar mensajes y recibir comentarios sobre los mensajes enviados previamente desde los dispositivos, como se describe en la tabla siguiente:
 
-| Creado por | Tipo de vínculo | Ruta de acceso del vínculo | DESCRIPCIÓN |
+| Creado por | Tipo de vínculo | Ruta de acceso del vínculo | Descripción |
 |------------|-----------|-----------|-------------|
 | Servicio | Vínculo de emisor | `/messages/devicebound` | El servicio envía a este vínculo los mensajes de la nube al dispositivo destinados a dispositivos. Los mensajes enviados mediante este vínculo tienen la propiedad `To` establecida en la ruta de acceso del vínculo de receptor del dispositivo de destino, `/devices/<deviceID>/messages/devicebound`. |
 | Servicio | Vínculo de receptor | `/messages/serviceBound/feedback` | El servicio recibe en este vínculo los mensajes de comentarios de finalización, rechazo y abandono que proceden de los dispositivos. Para más información acerca de los mensajes de comentarios, consulte [Envío de mensajes de la nube al dispositivo desde IoT Hub](./iot-hub-devguide-messages-c2d.md#message-feedback). |
@@ -222,7 +222,7 @@ Para conectarse a un centro de IoT mediante el uso de AMQP, un dispositivo puede
 
 La siguiente información es necesaria para el cliente del dispositivo:
 
-| Information | Valor |
+| Information | Value |
 |-------------|--------------|
 | Nombre de host del centro de IoT | `<iot-hub-name>.azure-devices.net` |
 | Clave de acceso | Una clave principal o secundaria asociada al dispositivo. |
@@ -259,7 +259,7 @@ send_client = uamqp.SendClient(uri, debug=True)
 
 Se admiten las siguientes rutas de acceso de vínculo como operaciones de dispositivo:
 
-| Creado por | Tipo de vínculo | Ruta de acceso del vínculo | DESCRIPCIÓN |
+| Creado por | Tipo de vínculo | Ruta de acceso del vínculo | Descripción |
 |------------|-----------|-----------|-------------|
 | Dispositivos | Vínculo de receptor | `/devices/<deviceID>/messages/devicebound` | Cada dispositivo de destino recibe en este vínculo los mensajes de la nube al dispositivo destinados a dispositivos. |
 | Dispositivos | Vínculo de emisor | `/devices/<deviceID>/messages/events` | Los mensajes del dispositivo a la nube que se envían desde un dispositivo se envían mediante este vínculo. |

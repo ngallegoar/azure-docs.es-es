@@ -24,6 +24,8 @@
           href: cloud-governed-management-for-on-premises.md
         - name: Cuatro pasos para una base de identidad sólida
           href: four-steps.md
+        - name: Elección de un método de autenticación de identidad híbrida
+          href: choose-ad-authn.md
     - name: Azure AD Connect y Connect Health
       items:
         - name: ¿Qué es Azure AD Connect y Connect Health?

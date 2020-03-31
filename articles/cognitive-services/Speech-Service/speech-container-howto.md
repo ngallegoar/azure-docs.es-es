@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 2beee81bc365d00e59a62cacabacc5f5d6b62a42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367757"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79474788"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalación y ejecución de contenedores del servicio de voz (versión preliminar)
 
@@ -28,8 +28,8 @@ Los contenedores de Voz permiten a los clientes compilar una arquitectura de apl
 
 | Función | Características | Más reciente |
 |--|--|--|
-| Voz a texto | Transcribe registros continuos de voz en tiempo real o de audio por lotes a texto con resultados intermedios. | 2.0.0 |
-| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Voz personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.0.0 |
+| Voz a texto | Transcribe registros continuos de voz en tiempo real o de audio por lotes a texto con resultados intermedios. | 2.1.1 |
+| Conversión de voz a texto personalizada | Con un modelo personalizado del [portal de Habla personalizada](https://speech.microsoft.com/customspeech), transcribe las grabaciones continuas de voz en tiempo real o de audio por lotes a texto con resultados inmediatos. | 2.1.1 |
 | Texto a voz | Convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.3.0 |
 | Conversión de texto a voz personalizada | Con un modelo personalizado del [portal de Voz personalizada](https://aka.ms/custom-voice-portal), convierte texto a voz de sonido natural con entrada de texto sin formato o Lenguaje de marcado de síntesis de voz (SSML). | 1.3.0 |
 
@@ -164,7 +164,7 @@ Todas las etiquetas, a excepción de `latest` tienen el formato siguiente y dist
 La etiqueta siguiente es un ejemplo del formato:
 
 ```
-2.0.0-amd64-en-us-preview
+2.1.1-amd64-en-us-preview
 ```
 
 Para ver todas las configuraciones regionales admitidas del contenedor de **conversión de voz a texto**, consulte las [etiquetas de imágenes de la conversión de voz a texto](../containers/container-image-tags.md#speech-to-text).
@@ -180,7 +180,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 ```
 
 > [!NOTE]
-> Los valores de `locale` y `voice` de los contenedores de Voz personalizados los determina el modelo personalizado que ingiere el contenedor.
+> Los valores de `locale` y `voice` de los contenedores de voz personalizados los determina el modelo personalizado que ingiere el contenedor.
 
 # <a name="text-to-speech"></a>[Texto a voz](#tab/tts)
 
@@ -225,7 +225,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 ```
 
 > [!NOTE]
-> Los valores de `locale` y `voice` de los contenedores de Voz personalizados los determina el modelo personalizado que ingiere el contenedor.
+> Los valores de `locale` y `voice` de los contenedores de voz personalizados los determina el modelo personalizado que ingiere el contenedor.
 
 ***
 
@@ -261,7 +261,7 @@ Este comando:
 
 # <a name="custom-speech-to-text"></a>[Conversión de voz a texto personalizada](#tab/cstt)
 
-El contenedor *Conversión de voz a texto personalizada* se basa en un modelo de voz personalizado. El modelo personalizado se debe [entrenar](how-to-custom-speech-train-model.md) con el [portal de Voz personalizada](https://speech.microsoft.com/customspeech).
+El contenedor *Conversión de voz a texto personalizada* se basa en un modelo de voz personalizado. El modelo personalizado se debe [entrenar](how-to-custom-speech-train-model.md) con el [portal de Habla personalizada](https://speech.microsoft.com/customspeech).
 
 > [!IMPORTANT]
 > El modelo de Voz personalizada debe entrenarse desde una de las siguientes versiones del modelo:
@@ -270,22 +270,22 @@ El contenedor *Conversión de voz a texto personalizada* se basa en un modelo de
 > * **20190701 (v4.17 unificada)**<br>
 > ![Modelo de contenedor de entrenamiento de Voz personalizada](media/custom-speech/custom-speech-train-model-container-scoped.png)
 
-El **identificador de modelo** de voz personalizada es necesario para ejecutar el contenedor. Se puede encontrar en la página de **entrenamiento** del portal de Voz personalizada. En el portal de Voz personalizada, vaya a la página de **entrenamiento** y seleccione el modelo.
+El **identificador de modelo** de Habla personalizada es necesario para ejecutar el contenedor. Se puede encontrar en la página de **entrenamiento** del portal de Habla personalizada. En el portal de Habla personalizada, vaya a la página de **entrenamiento** y seleccione el modelo.
 <br>
 
-![Página de entrenamiento de Voz personalizada](media/custom-speech/custom-speech-model-training.png)
+![Página de entrenamiento de voz personalizada](media/custom-speech/custom-speech-model-training.png)
 
 Obtenga el **identificador de modelo** que se va a usar como argumento para el parámetro `ModelId` del comando `docker run`.
 <br>
 
-![Detalles del modelo de voz personalizada](media/custom-speech/custom-speech-model-details.png)
+![Detalles del modelo de voz personalizado](media/custom-speech/custom-speech-model-details.png)
 
 En la tabla siguiente se representan los diversos parámetros de `docker run` y las descripciones correspondientes:
 
 | Parámetro | Descripción |
 |---------|---------|
 | `{VOLUME_MOUNT}` | El [montaje de volumen](https://docs.docker.com/storage/volumes/) del equipo host, que docker usa para conservar el modelo personalizado. Por ejemplo, *C:\CustomSpeech* donde la *unidad C* está en la máquina host. |
-| `{MODEL_ID}` | El **identificador de modelo** de Voz personalizada de la página de **entrenamiento** del portal de Voz personalizada. |
+| `{MODEL_ID}` | El **identificador de modelo** de Habla personalizada de la página de **entrenamiento** del portal de Habla personalizada. |
 | `{ENDPOINT_URI}` | El punto de conexión es necesario para la medición y la facturación. Para más información, consulte cómo [recopilar los parámetros necesarios](#gathering-required-parameters). |
 | `{API_KEY}` | Se necesita la clave de API. Para más información, consulte cómo [recopilar los parámetros necesarios](#gathering-required-parameters). |
 
@@ -347,7 +347,7 @@ En la tabla siguiente se representan los diversos parámetros de `docker run` y 
 | Parámetro | Descripción |
 |---------|---------|
 | `{VOLUME_MOUNT}` | El [montaje de volumen](https://docs.docker.com/storage/volumes/) del equipo host, que docker usa para conservar el modelo personalizado. Por ejemplo, *C:\CustomSpeech* donde la *unidad C* está en la máquina host. |
-| `{MODEL_ID}` | El **identificador de modelo** de Voz personalizada de la página de **entrenamiento** del portal de Voz personalizada. |
+| `{MODEL_ID}` | El **identificador de modelo** de Habla personalizada de la página de **entrenamiento** del portal de Habla personalizada. |
 | `{ENDPOINT_URI}` | El punto de conexión es necesario para la medición y la facturación. Para más información, consulte cómo [recopilar los parámetros necesarios](#gathering-required-parameters). |
 | `{API_KEY}` | Se necesita la clave de API. Para más información, consulte cómo [recopilar los parámetros necesarios](#gathering-required-parameters). |
 

@@ -10,11 +10,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928127"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236352"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Movimiento de datos de MongoDB mediante Azure Data Factory
 
@@ -30,7 +30,7 @@ En este artículo se explica el uso de la actividad de copia en Azure Data Facto
 
 Puede copiar datos desde un almacén de datos de MongoDB local a cualquier almacén de datos del receptor admitido. Consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como receptores. Data Factory solo admite actualmente el movimiento de datos de un almacén de datos de MongoDB a otros almacenes de datos, pero no el movimiento de datos de otros almacenes de datos a una base de datos de MongoDB.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para que el servicio Azure Data Factory pueda conectarse a la base de datos de MongoDB local, debe instalar los siguientes componentes:
 
 - Versiones admitidas de MongoDB: 2.4, 2.6, 3.0, 3.2, 3.4 y 3.6.
@@ -44,7 +44,7 @@ Para que el servicio Azure Data Factory pueda conectarse a la base de datos de M
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con actividad de copia que mueva los datos desde un almacén de datos MongoDB local mediante el uso de diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
 Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
@@ -61,7 +61,7 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades JSON 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de **OnPremisesMongoDB** .
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesMongoDb** |Sí |
 | server |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
@@ -79,7 +79,7 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos de tipo **MongoDbCollection** tiene las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | collectionName |Nombre de la colección en la base de datos de MongoDB. |Sí |
 
@@ -90,9 +90,9 @@ Por otra parte, las propiedades disponibles en la sección **typeProperties** de
 
 Si el origen es de tipo **MongoDbSource** , estarán disponibles las propiedades siguientes en la sección typeProperties:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| query |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL-92. Por ejemplo: select * from MyTable. |No (si se especifica **collectionName** de **dataset**) |
+| Query |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL-92. Por ejemplo: select * from MyTable. |No (si se especifica **collectionName** de **dataset**) |
 
 
 
@@ -290,7 +290,7 @@ Como se mencionó en el artículo sobre [actividades del movimiento de datos](da
 
 Al mover datos a MongoDB, se usarán las asignaciones siguientes de tipos MongoDB a tipos .NET.
 
-| Tipo de MongoDB | Tipo .NET Framework |
+| Tipo de MongoDB | Tipo de .NET Framework |
 | --- | --- |
 | Binary |Byte[] |
 | Boolean |Boolean |
@@ -298,8 +298,8 @@ Al mover datos a MongoDB, se usarán las asignaciones siguientes de tipos MongoD
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Cadena |
-| string |Cadena |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalizado en columnas acopladas con “_” como separador anidado |
 
@@ -321,17 +321,17 @@ Puede utilizar el [Asistente para copia](data-factory-data-movement-activities.m
 ### <a name="example"></a>Ejemplo
 Por ejemplo, la tabla “ExampleTable” que aparece a continuación es una tabla de MongoDB que tiene una columna con una matriz de objetos en cada celda: Facturas y una columna con una matriz de tipos escalares: Clasificaciones.
 
-| _id | Nombre del cliente | Facturas | Nivel de servicios | Clasificaciones |
+| _id | Nombre del cliente | Facturas | Nivel de servicio | Clasificaciones |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:”123”, artículo:”tostadora”, precio:”456”, descuento:”0.2”}, {invoice_id:”124”, artículo:”horno”, precio: ”1235”, descuento: ”0.2”}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id:”135”, artículo:”frigorífico”, precio: ”12543”, descuento: ”0.0”}] |Gold |[1,2] |
+| 1111 |ABC |[{invoice_id:”123”, artículo:”tostadora”, precio:”456”, descuento:”0.2”}, {invoice_id:”124”, artículo:”horno”, precio: ”1235”, descuento: ”0.2”}] |Plata |[5,6] |
+| 2222 |XYZ |[{invoice_id:”135”, artículo:”frigorífico”, precio: ”12543”, descuento: ”0.0”}] |Oro |[1,2] |
 
 El controlador generará varias tablas virtuales que representan a esta tabla. La primera tabla virtual es la tabla base y se denomina “ExampleTable”, tal y como se muestra a continuación. La tabla base contiene todos los datos de la tabla original, pero los datos de las matrices se han omitido y se ampliarán en las tablas virtuales.
 
-| _id | Nombre del cliente | Nivel de servicios |
+| _id | Nombre del cliente | Nivel de servicio |
 | --- | --- | --- |
-| 1111 |ABC |Silver |
-| 2222 |XYZ |Gold |
+| 1111 |ABC |Plata |
+| 2222 |XYZ |Oro |
 
 Las siguientes tablas muestran las tablas virtuales que representan las matrices originales en el ejemplo. Estas tablas contienen lo siguiente:
 
@@ -345,7 +345,7 @@ Tabla “ExampleTable_Invoices”:
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |tostadora |456 |0,2 |
 | 1111 |1 |124 |horno |1235 |0,2 |
-| 2222 |0 |135 |frigorífico |12543 |0.0 |
+| 2222 |0 |135 |frigorífico |12543 |0,0 |
 
 Tabla “ExampleTable_Ratings”:
 
@@ -356,7 +356,7 @@ Tabla “ExampleTable_Ratings”:
 | 2222 |0 |1 |
 | 2222 |1 |2 |
 
-## <a name="map-source-to-sink-columns"></a>Asignación de origen a columnas de receptor
+## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
 Para obtener más información sobre la asignación de columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Lectura repetible de orígenes relacionales

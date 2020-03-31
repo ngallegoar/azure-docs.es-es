@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de clasificación de imágenes: Entrenamiento de modelos'
 titleSuffix: Azure Machine Learning
-description: Aprenda a entrenar un modelo de clasificación de imágenes con scikit-learn en un cuaderno de Jupyter en Python con Azure Machine Learning. Este tutorial es la primera de una serie de dos partes.
+description: Use Azure Machine Learning para entrenar un modelo de clasificación de imágenes con scikit-learn en un cuaderno de Jupyter en Python. Este tutorial es la primera parte de una serie de dos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5a2ff4d78c1e0e67b390f607da69cc299e2dce4a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 8cf46db06a4a2f8fa86f97dab5a8477cf427c999
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116479"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80159094"
 ---
-# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn mediante Azure Machine Learning
+# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este tutorial, entrenará un modelo de aprendizaje automático en los recursos de proceso remotos. Usará el flujo de trabajo de entrenamiento e implementación de Azure Machine Learning en un cuaderno de Jupyter en Python.  A continuación, puede utilizar el cuaderno como plantilla para entrenar su propio modelo de Machine Learning con sus propios datos. Este tutorial es la **primera de dos partes**.  
@@ -34,7 +34,7 @@ Aprenda a realizar las siguientes acciones:
 
 En la [segunda parte de este tutorial](tutorial-deploy-models-with-aml.md), aprenderá a seleccionar un modelo e implementarlo.
 
-Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 >[!NOTE]
 > El código de este artículo se ha probado con la versión 1.0.65 del [SDA de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
@@ -57,7 +57,7 @@ El tutorial y el archivo **utils.py** que lo acompaña también está disponible
 > Cambie ahora al cuaderno de Jupyter Notebook si desea leer a medida que ejecuta el código. 
 > Para ejecutar una sola celda de código en un cuaderno, haga clic en la celda y presione **Mayús + Entrar**. O bien, ejecute el cuaderno completo, para lo que debe elegir **Ejecutar todo** en la barra de herramientas superior.
 
-## <a name="start"></a>Configuración de su entorno de desarrollo
+## <a name="set-up-your-development-environment"></a><a name="start"></a>Configuración de su entorno de desarrollo
 
 Toda la configuración para el trabajo de desarrollo puede realizarse en un cuaderno de Python. La configuración incluye las siguientes acciones:
 

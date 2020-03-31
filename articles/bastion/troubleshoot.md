@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: cherylmc
 ms.openlocfilehash: de112ff441bb53a0b3bc7f4ffa4456f1c241682c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73510321"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Solución de problemas de Azure Bastion
 
 Este artículo le mostrará cómo solucionar problemas de Azure Bastion.
 
-## <a name="nsg"></a>No se puede crear un grupo de seguridad de red en AzureBastionSubnet
+## <a name="unable-to-create-an-nsg-on-azurebastionsubnet"></a><a name="nsg"></a>No se puede crear un grupo de seguridad de red en AzureBastionSubnet
 
 **P:** Cuando intento crear un NSG en la subred de Azure Bastion, aparece el siguiente error: *"El grupo de seguridad de red <NSG name> no tiene las reglas necesarias para la subred de Azure Bastion AzureBastionSubnet"* .
 
@@ -31,7 +31,7 @@ Este artículo le mostrará cómo solucionar problemas de Azure Bastion.
 Hay un ejemplo de las reglas de los grupos de seguridad de red disponible como referencia en esta [plantilla de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
 Para más información, consulte [Guía sobre los grupos de seguridad de red para Azure Bastion](bastion-nsg.md).
 
-## <a name="sshkey"></a>No se puede usar mi clave SSH con Azure Bastion
+## <a name="unable-to-use-my-ssh-key-with-azure-bastion"></a><a name="sshkey"></a>No se puede usar mi clave SSH con Azure Bastion
 
 **P:** Al intentar examinar el archivo de clave SSH, aparece el siguiente error: *"La clave privada de SSH debe empezar por -----BEGIN RSA PRIVATE KEY----- y acabar por -----END RSA PRIVATE KEY-----"* .
 
@@ -67,19 +67,19 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-## <a name="domain"></a>No se puede iniciar sesión en mi máquina virtual de Windows unida a un dominio
+## <a name="unable-to-sign-in-to-my-windows-domain-joined-virtual-machine"></a><a name="domain"></a>No se puede iniciar sesión en mi máquina virtual de Windows unida a un dominio
 
 **P:** No puedo conectarme a mi máquina virtual de Windows que está unida a un dominio.
 
 **R:** Azure Bastion admite el inicio de sesión de máquina virtual unida a un dominio solo para el inicio de sesión de dominio basado en nombre de usuario y contraseña. Al especificar las credenciales de dominio en Azure Portal, use el formato UPN (username@domain) en lugar del formato de *dominio/nombre de usuario* para iniciar sesión. Esto es compatible con las máquinas virtuales unidas a un dominio o unidas de forma híbrida (tanto unidas a un dominio como a Azure AD). No es compatible para las máquinas virtuales unidas únicamente a Azure AD.
 
-## <a name="filetransfer"></a>Problemas de transferencia de archivos
+## <a name="file-transfer-issues"></a><a name="filetransfer"></a>Problemas de transferencia de archivos
 
 **P:** ¿Azure Bastion es compatible con la transferencia de archivos?
 
 **R:** Por el momento, la transferencia de archivos no es compatible. Estamos trabajando en agregar esta compatibilidad.
 
-## <a name="blackscreen"></a>Pantalla negra en Azure Portal
+## <a name="black-screen-in-the-azure-portal"></a><a name="blackscreen"></a>Pantalla negra en Azure Portal
 
 **P:** Cuando intento conectarme con Azure Bastion, aparece una pantalla negra en Azure Portal.
 

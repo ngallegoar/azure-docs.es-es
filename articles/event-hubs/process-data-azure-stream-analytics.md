@@ -9,10 +9,10 @@ ms.date: 07/09/2019
 ms.topic: article
 ms.service: event-hubs
 ms.openlocfilehash: 531426656fe833752c9c4685688c00de3894895b
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69991946"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Procesamiento de datos de un centro de eventos con Azure Stream Analytics 
@@ -26,7 +26,7 @@ Estas son las principales ventajas de la integración de Azure Event Hubs y Azur
 
 ## <a name="end-to-end-flow"></a>Flujo integral
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 1. Vaya al **espacio de nombres de Event Hubs** y acceda al **centro de eventos** que contiene los datos de entrada. 
 1. Seleccione **Procesar datos** en la página del centro de eventos.  
 
@@ -74,7 +74,7 @@ Estas son las principales ventajas de la integración de Azure Event Hubs y Azur
       ![Definición de la salida e inicio del trabajo](./media/process-data-azure-stream-analytics/set-output-start-job.png)
 
 
-## <a name="known-limitations"></a>Limitaciones conocidas
+## <a name="known-limitations"></a>Restricciones conocidas
 Cuando se prueba la consulta, los resultados tardan aproximadamente seis segundos en cargarse. Estamos trabajando para mejorar el rendimiento de las pruebas. Sin embargo, cuando se implementa en producción, la latencia de Azure Stream Analytics es inferior a un segundo.
 
 ## <a name="streaming-units"></a>Unidades de streaming

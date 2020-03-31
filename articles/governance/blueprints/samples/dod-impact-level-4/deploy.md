@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de nivel 4 de impacto del DoD
 description: Pasos de implementación para el ejemplo de plano técnico de nivel 4 de impacto del DoD, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 087b5947f86d33e44cd72754b79acd457674d545
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c92e24327bc1879b8fea89cf85a50f845e473810
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154703"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415316"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Implementación del ejemplo de plano técnico de nivel 4 de impacto del DoD
 
@@ -132,7 +132,8 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |\[Versión preliminar\]: Nivel 4 de impacto de DoD|Asignación de directiva|MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción|Puede encontrar información sobre los efectos de las directivas en [Comprender los efectos de Azure Policy](../../../policy/concepts/effects.md).|
 |\[Versión preliminar\]: Nivel 4 de impacto de DoD|Asignación de directiva|MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción|Puede encontrar información sobre los efectos de las directivas en [Comprender los efectos de Azure Policy](../../../policy/concepts/effects.md).|
 |\[Versión preliminar\]: Nivel 4 de impacto de DoD|Asignación de directiva|La copia de seguridad con redundancia geográfica a largo plazo debe estar habilitada para las instancias de Azure SQL Database.|Puede encontrar información sobre los efectos de las directivas en [Comprender los efectos de Azure Policy](../../../policy/concepts/effects.md).|
-
+|Ubicaciones permitidas|Asignación de directiva|Ubicaciones permitidas|Esta directiva permite restringir las ubicaciones que la organización puede especificar al implementar los recursos. Úsela para aplicar los requisitos de cumplimiento de replicación geográfica.|
+|Ubicaciones permitidas para grupos de recursos|Asignación de directiva |Ubicaciones permitidas|Esta directiva permite restringir las ubicaciones en las que la organización puede crear grupos de recursos. Úsela para aplicar los requisitos de cumplimiento de replicación geográfica.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

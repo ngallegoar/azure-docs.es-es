@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/05/2020
-ms.openlocfilehash: 035f819cfaad82373f7cb55a7bb2d14fc53bb49b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/26/2020
+ms.openlocfilehash: 96a72541255ad0059abe5ad280f1728518dbf68c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064638"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234733"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
@@ -33,8 +33,8 @@ Microsoft proporciona las siguientes utilidades para escalar clústeres:
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<NombreDeClúster> -TargetInstanceCount \<NuevoTamaño>|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
-|[CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<GrupoDeRecursos> --name \<NombreDeClúster> --target-instance-count \<NuevoTamaño>|
-|[CLI de Azure](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<NombreDeClúster> \<NúmeroDeInstanciasDeDestino> |
+|[CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<GrupoDeRecursos> --name \<NombreDeClúster> --workernode-count \<NuevoTamaño>|
+|[CLI de Azure clásica](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<NombreDeClúster> \<NúmeroDeInstanciasDeDestino> |
 |[Azure Portal](https://portal.azure.com)|Abra el panel del clúster de HDInsight, seleccione **Tamaño de clúster** en el menú izquierdo y, luego, en el panel Tamaño de clúster, escriba el número de nodos de trabajo y seleccione Guardar.|  
 
 ![Opción de escalado de clústeres de Azure Portal](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
@@ -88,7 +88,7 @@ A continuación se muestra cómo el efecto de cambiar el número de nodos de dat
 
     El siguiente es un comando de la CLI de ejemplo para volver a equilibrar la topología de Storm:
 
-    ```cli
+    ```console
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
@@ -142,11 +142,11 @@ Cuando HDFS detecta que el número esperado de copias del bloque no están dispo
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Ejemplos de errores cuando el modo seguro está activado
 
-```
+```output
 org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Name node is in safe mode.
 ```
 
-```
+```output
 org.apache.http.conn.HttpHostConnectException: Connect to active-headnode-name.servername.internal.cloudapp.net:10001 [active-headnode-name.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 ```
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 39a1e224173dc021cf49b535957eb4b49f4c91ee
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: b0ddf6dda99ee666e3052b5a70e51c7e4208a374
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834334"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80347103"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management
 
@@ -26,13 +26,13 @@ API Management permite acceder de forma segura al servicio back-end de una API c
 
 Para obtener más información sobre cómo administrar certificados con la API de REST de API Management, consulte <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Entidad de certificado de la API REST de Azure API Management</a>.
 
-## <a name="prerequisites"> </a>Requisitos previos
+## <a name="prerequisites"></a><a name="prerequisites"> </a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Esta guía muestra cómo configurar la instancia de servicio de API Management para acceder al servicio back-end de una API con la autenticación de certificados de cliente. Antes de seguir los pasos de este artículo, debe tener el servicio back-end configurado para la autenticación de certificados de cliente ([para configurar la autenticación de certificados en Azure App Service, consulte este artículo][to configure certificate authentication in Azure WebSites refer to this article]). Debe acceder al certificado y a la contraseña para cargarlos al servicio API Management.
 
-## <a name="step1"> </a>Carga de un certificado
+## <a name="upload-a-certificate"></a><a name="step1"> </a>Carga de un certificado
 
 > [!NOTE]
 > En lugar de un certificado cargado, puede usar un certificado almacenado en el servicio [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) como se muestra en este [ejemplo](https://github.com/galiniliev/api-management-policy-snippets/blob/galin/AkvCert/examples/Look%20up%20Key%20Vault%20certificate%20using%20Managed%20Service%20Identity%20and%20call%20backend.policy.xml).
@@ -54,9 +54,9 @@ Siga los pasos que se describen a continuación para cargar un nuevo certificado
 Una vez cargado el certificado, se muestra en **Certificados**.  Si tiene muchos certificados, tome nota de la huella digital del certificado deseado con el fin de [configurar una API para realizar la autenticación de puerta de enlace con un certificado de cliente][Configure an API to use a client certificate for gateway authentication].
 
 > [!NOTE]
-> Para desactivar la validación de la cadena de certificados cuando se utiliza, por ejemplo, un certificado autofirmado, siga los pasos descritos en esta [sección](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end) de preguntas más frecuentes.
+> Para desactivar la validación de la cadena de certificados cuando se utiliza, por ejemplo, un certificado autofirmado, siga los pasos descritos en esta [sección](api-management-faq.md#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end) de preguntas más frecuentes.
 
-## <a name="step1a"> </a>Eliminar un certificado de cliente
+## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Eliminar un certificado de cliente
 
 Para eliminar un certificado, haga clic en el menú contextual **...** y seleccione **Eliminar** junto a este.
 
@@ -66,7 +66,7 @@ Si alguna API está usando el certificado, aparecerá una pantalla de advertenci
 
 ![Error al eliminar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-delete-failure.png)
 
-## <a name="step2"> </a>Configurar una API para realizar la autenticación de puerta de enlace con un certificado de cliente
+## <a name="configure-an-api-to-use-a-client-certificate-for-gateway-authentication"></a><a name="step2"> </a>Configurar una API para realizar la autenticación de puerta de enlace con un certificado de cliente
 
 1. Haga clic en **API** en el menú **API Management** de la izquierda y vaya a la API.
     ![Habilitar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)

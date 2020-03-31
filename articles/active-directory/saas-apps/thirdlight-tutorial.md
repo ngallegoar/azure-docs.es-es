@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 448d46cd21a63488c4f567d5555fe6406fc0fa73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67089087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>Tutorial: Integración de Azure Active Directory con ThirdLight
@@ -34,7 +34,7 @@ Si desea más información acerca de la integración de aplicaciones SaaS con Az
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con ThirdLight, necesita los siguientes elementos:
 
@@ -134,11 +134,11 @@ Para configurar el inicio de sesión único de Azure AD con ThirdLight, siga est
 
 1. Vaya a **Configuration** > **System Administration** > **SAML2** (Configuración > Administración del sistema > SAML2):
 
-    ![Administración del sistema](./media/thirdlight-tutorial/ic805843.png "Administración del sistema")
+    ![System Administration (Administración del sistema)](./media/thirdlight-tutorial/ic805843.png "Administración del sistema")
 
 1. En la sección de configuración de SAML2, siga estos pasos.
   
-    ![Sección de configuración de SAML2](./media/thirdlight-tutorial/ic805844.png "SAML2 configuration section")
+    ![Sección de configuración de SAML2](./media/thirdlight-tutorial/ic805844.png "Sección de configuración de SAML2")
 
     1. Seleccione **Habilitar inicio de sesión único de SAML2**.
 

@@ -64,6 +64,14 @@
       href: load-balancer-security-controls.md
 - name: Procedimientos
   items:
+    - name: Conjuntos de escalado de máquinas virtuales
+      items:
+        - name: Uso con una instancia de Azure Load Balancer (Azure Portal)
+          href: configure-vm-scale-set-portal.md
+        - name: Uso con una instancia de Azure Load Balancer (PowerShell)
+          href: configure-vm-scale-set-powershell.md
+        - name: Uso con una instancia de Azure Load Balancer (CLI)
+          href: configure-vm-scale-set-cli.md
     - name: Actualización de la versión Básico de un equilibrador de carga a la versión Estándar
       items:
         - name: Actualización de la versión Básico de un equilibrador de carga público

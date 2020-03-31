@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9e3c5c12157a007bcad59a78b4623ff4d5a0041f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818033"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222592"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Protección de una base de datos única o agrupada
 
@@ -42,7 +42,7 @@ Para más información, consulte los artículos [Información general sobre las 
 > [!TIP]
 > El siguiente módulo de Microsoft Learn le ayuda a aprender de forma gratuita sobre cómo [proteger la instancia de Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar el tutorial, asegúrese de que cuenta con estos requisitos previos:
 
@@ -149,7 +149,7 @@ Para más información acerca de la configuración de Azure AD, consulte:
 
 ## <a name="manage-database-access"></a>Administración del acceso a las bases de datos
 
-Para administrar el acceso de la base de datos, agregue usuarios a la base de datos o permita el acceso de los usuarios con cadenas de conexión segura. Las cadenas de conexión son útiles para las aplicaciones externas. Para más información, consulte [Control de acceso de Azure SQL](sql-database-control-access.md) y [Autenticación de Azure AD](sql-database-aad-authentication.md).
+Para administrar el acceso de la base de datos, agregue usuarios a la base de datos o permita el acceso de los usuarios con cadenas de conexión segura. Las cadenas de conexión son útiles para las aplicaciones externas. Para más información, consulte [Control y concesión de acceso de la base de datos a SQL Database y SQL Data Warehouse](sql-database-manage-logins.md) y [Usar la autenticación de Azure Active Directory para autenticación con SQL](sql-database-aad-authentication.md).
 
 Para agregar usuarios, elija el tipo de autenticación de base de datos:
 
@@ -157,7 +157,7 @@ Para agregar usuarios, elija el tipo de autenticación de base de datos:
 
 - **Autenticación de Azure AD**, que usa identidades administradas por Azure AD.
 
-### <a name="sql-authentication"></a>Autenticación de SQL
+### <a name="sql-authentication"></a>Autenticación SQL
 
 Para agregar un usuario con la autenticación de SQL:
 

@@ -8,10 +8,10 @@ ms.topic: guide
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: a4a5b058666fab3e9048a7d92726dccd1360ff37
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74184253"
 ---
 # <a name="azure-internet-analyzer-faq-preview"></a>Preguntas frecuentes sobre Azure Internet Analyzer (versión preliminar)
@@ -22,7 +22,7 @@ Estas son las preguntas más frecuentes sobre Azure Internet Analyzer: si tiene 
 
 La versión preliminar está disponible solo para algunos clientes. Si está interesado en participar en la versión preliminar, siga los pasos que se describen a continuación:
 
-1. Inicie sesión en el [Azure Portal](https://ms.portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com).
 2. Vaya a la página de **Suscripciones**.
 3. Haga clic en la suscripción de Azure con la que planea usar Internet Analyzer.
 4. Vaya a la configuración de **Proveedores de recursos** en la suscripción.
@@ -41,7 +41,7 @@ No, el uso de la versión preliminar de Azure Internet Analyzer es gratuito. Dur
 
 ## <a name="what-scenarios-is-internet-analyzer-designed-to-address"></a>¿Para qué escenarios está diseñado Internet Analyzer?
 
-Internet Analyzer está diseñado para proporcionar información sobre el rendimiento de la red en función de la población de usuarios. Para ayudar a tomar las mejores decisiones de rendimiento para los usuarios, Internet Analyzer compara el rendimiento de dos puntos de conexión de Internet con su propia población de usuarios. Aunque Internet Analyzer puede responder a una multitud de preguntas, algunas de las más comunes son:
+Internet Analyzer está diseñado para proporcionar información sobre el rendimiento de la red en función de la población de usuarios. Para ayudar a tomar las mejores decisiones de rendimiento para los usuarios, Internet Analyzer compara el rendimiento de dos puntos de conexión de Internet con su propia población de usuarios. Aunque Internet Analyzer puede responder a muchas preguntas, algunas de las más habituales son:
 
 * ¿Cuál es el impacto, en cuanto a rendimiento, de la migración a la nube? 
     * *Prueba sugerida: personalizado (la infraestructura local actual) frente a Azure (cualquier punto de conexión preconfigurado)*
@@ -66,17 +66,17 @@ Cada prueba que cree en Internet Analyzer consta de dos puntos de conexión: el 
 Los siguientes puntos de conexión preconfigurados están disponibles durante la versión preliminar:
 * **Regiones de Azure**
     * Sur de Brasil
-    * India Central
+    * Centro de la India
     * Centro de EE. UU.
-    * Asia oriental
-    * East US
-    * Oeste de Japón
-    * Europa del Norte
+    * Este de Asia
+    * Este de EE. UU.
+    * Japón Occidental
+    * Norte de Europa
     * Norte de Sudáfrica
-    * Sudeste asiático
+    * Sudeste de Asia
     * Norte de Emiratos Árabes Unidos
     * Oeste de Reino Unido  
-    * Europa occidental
+    * Oeste de Europa
     * Oeste de EE. UU.
     * Oeste de EE. UU. 2
 * **Varias combinaciones de regiones de Azure**
@@ -84,16 +84,16 @@ Los siguientes puntos de conexión preconfigurados están disponibles durante la
     * Este de EE. UU., Asia Oriental
     * Oeste de Europa, Sur de Brasil
     * Oeste de Europa, Sudeste Asiático
-    * Oeste de Europa, Norte de Emiratos Árabes
+    * Oeste de Europa, Norte de Emiratos Árabes Unidos
     * Oeste de EE. UU., Este de EE. UU.
     * Oeste de EE. UU., Oeste de Europa
-    * Oeste de EE. UU., Norte de Emiratos Árabes
-    * Oeste de Europa, Norte de Emiratos Árabes, Sudeste Asiático
+    * Oeste de EE. UU., Norte de Emiratos Árabes Unidos
+    * Oeste de Europa, Norte de Emiratos Árabes Unidos, Sudeste Asiático
     * Oeste de EE. UU., Oeste de Europa, Asia Oriental
-    * Oeste de EE. UU., Norte de Europa, Sudeste Asiático, Norte de Emiratos Árabes, Norte de Sudáfrica 
+    * Oeste de EE. UU., Norte de Europa, Sudeste Asiático, Norte de Emiratos Árabes Unidos, Norte de Sudáfrica 
 * **Azure + Azure Front Door**: implementados en una o varias de las combinaciones de regiones de Azure de la lista anterior.
 * **Azure + Azure CDN de Microsoft**: implementados en una o varias de las combinaciones de regiones de Azure de la lista anterior.
-* **Azure + Azure Traffic Manager**: implementado en cualquier combinación de varias de las regiones de Azure mencionadas anteriormente
+* **Azure + Azure Traffic Manager**: implementados en cualquier combinación de varias de las regiones de Azure de la lista anterior.
 
 ## <a name="how-is-internet-analyzer-different-from-other-monitoring-services-provided-by-azure"></a>¿En qué se diferencia Internet Analyzer de otros servicios de supervisión proporcionados por Azure?
 

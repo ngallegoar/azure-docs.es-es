@@ -7,11 +7,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461596"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226520"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Uso del SDK de Azure Mobile Apps para Android
 
@@ -42,7 +42,7 @@ Si decide no completar el tutorial de inicio rápido, realice las tareas siguien
 * En Android Studio, [actualice los archivos de compilación de Gradle](#gradle-build).
 * [Habilite permisos de Internet](#enable-internet).
 
-### <a name="gradle-build"></a>Actualización del archivo de compilación de Gradle
+### <a name="update-the-gradle-build-file"></a><a name="gradle-build"></a>Actualización del archivo de compilación de Gradle
 
 Cambie ambos archivos **build.gradle** :
 
@@ -72,7 +72,7 @@ Cambie ambos archivos **build.gradle** :
 
     Actualmente, la versión más reciente es la 3.4.0. Las versiones compatibles se enumeran [en Bintray][14].
 
-### <a name="enable-internet"></a>Habilitación de permisos de Internet
+### <a name="enable-internet-permission"></a><a name="enable-internet"></a>Habilitación de permisos de Internet
 
 Para obtener acceso a Azure, la aplicación debe tener habilitado el permiso de INTERNET. Si aún no está habilitado, agregue la siguiente línea de código a su archivo **AndroidManifest.xml** :
 
@@ -281,7 +281,7 @@ La segunda sobrecarga se utiliza cuando el nombre de tabla es diferente del nomb
 MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 ```
 
-## <a name="query"></a>Consulta de una tabla de back-end
+## <a name="query-a-backend-table"></a><a name="query"></a>Consulta de una tabla de back-end
 
 En primer lugar, obtenga una referencia de tabla.  A continuación, ejecute una consulta en la referencia de tabla.  Una consulta es cualquier combinación de:
 
@@ -292,7 +292,7 @@ En primer lugar, obtenga una referencia de tabla.  A continuación, ejecute una 
 
 Las cláusulas deben presentarse en el orden anterior.
 
-### <a name="filter"></a>Filtrado de los resultados
+### <a name="filtering-results"></a><a name="filter"></a>Filtrado de los resultados
 
 La forma general de una consulta es:
 
@@ -305,7 +305,7 @@ List<MyDataTable> results = mDataTable
 
 En el ejemplo anterior se devuelven todos los resultados (hasta el tamaño máximo de página establecido por el servidor).  El método `.execute()` ejecuta la consulta en el back-end.  La consulta se convierte en una consulta [OData v3][19] antes de transmitirse al back-end de Mobile Apps.  A la recepción, el back-end de Mobile Apps convierte la consulta en una instrucción SQL antes de ejecutarla en la instancia de SQL Azure.  Dado que la actividad de red tarda algún tiempo, el método `.execute()` devuelve [`ListenableFuture<E>`][18].
 
-### <a name="filtering"></a>Filtrado de datos devueltos
+### <a name="filter-returned-data"></a><a name="filtering"></a>Filtrado de datos devueltos
 
 La ejecución de la consulta siguiente devuelve todos los elementos de la tabla **ToDoItem** en los que **complete** es igual a **false**.
 
@@ -377,7 +377,7 @@ List<ToDoItem> results = mToDoTable
 
 Para obtener más información y ver ejemplos de filtrado, consulte [Exploring the richness of the Android client query model (Exploración de la riqueza del modelo de consulta del cliente Android)][20].
 
-### <a name="sorting"></a>Ordenación de datos devueltos
+### <a name="sort-returned-data"></a><a name="sorting"></a>Ordenación de datos devueltos
 
 El código siguiente devuelve todos los elementos de una tabla de **ToDoItems** cuyo campo *text* sigue un orden ascendente. *mToDoTable* es la referencia a la tabla del back-end que ha creado anteriormente:
 
@@ -390,7 +390,7 @@ List<ToDoItem> results = mToDoTable
 
 El primer parámetro del método **orderBy** es una cadena igual al nombre del campo por el que realizar la ordenación. El segundo parámetro usa la enumeración **QueryOrder** para especificar si la ordenación será ascendente o descendente.  Si filtra con el método ***where***, este debe invocarse ***antes*** del método ***orderBy***.
 
-### <a name="selection"></a>Selección de columnas específicas
+### <a name="select-specific-columns"></a><a name="selection"></a>Selección de columnas específicas
 
 El código siguiente ilustra cómo devolver todos los elementos de una tabla de **ToDoItems**, pero solo muestra los campos **complete** y **text**. **mToDoTable** es la referencia a la tabla de back-end que se ha creado previamente.
 
@@ -403,7 +403,7 @@ List<ToDoItemNarrow> result = mToDoTable
 
 Los parámetros para la función de selección son los nombres de las cadenas de las columnas de la tabla que desea devolver.  El método **select** debe ir después de métodos como **where** y **orderBy**. Puede ir seguido de métodos de paginación como **skip** y **top**.
 
-### <a name="paging"></a>Devolución de datos en páginas
+### <a name="return-data-in-pages"></a><a name="paging"></a>Devolución de datos en páginas
 
 Los datos **SIEMPRE** se devuelven en páginas.  El servidor establece el número máximo de registros devueltos.  Si el cliente solicita más registros, el servidor devuelve entonces el número máximo de registros.  De forma predeterminada, el tamaño máximo de página en el servidor es de 50 registros.
 
@@ -447,7 +447,7 @@ Una solicitud de todos los registros con este método crea dos solicitudes como 
 > [!TIP]
 > La elección del tamaño de página adecuado es un equilibrio entre el uso de memoria mientras tiene lugar la solicitud, el uso de ancho de banda y el retraso en la recepción completa de los datos.  El valor predeterminado (50 registros) es adecuado para todos los dispositivos.  Si usa exclusivamente dispositivos de memoria más grande, aumente hasta 500.  Hemos encontrado que si se aumenta el tamaño de página por encima de 500 registros da lugar a retrasos inaceptables y problemas de memoria graves.
 
-### <a name="chaining"></a>Procedimientos: de métodos de consulta
+### <a name="how-to-concatenate-query-methods"></a><a name="chaining"></a>Procedimientos: de métodos de consulta
 
 Se pueden concatenar los métodos usados en la consulta de tablas de back-end. Gracias al encadenamiento de consultas, se pueden seleccionar columnas específicas de filas filtradas que se ordenan y paginan. Puede crear filtros lógicos complejos.  Cada método de consulta devuelve un objeto Query. Para finalizar las series de métodos y ejecutar la consulta, llame al método **execute** . Por ejemplo:
 
@@ -472,7 +472,7 @@ Los métodos de consulta encadenadas se deben ordenar de la siguiente forma:
 3. Métodos de selección (**select**)
 4. Métodos de paginación (**skip** y **top**)
 
-## <a name="binding"></a>Enlace de datos a la interfaz de usuario
+## <a name="bind-data-to-the-user-interface"></a><a name="binding"></a>Enlace de datos a la interfaz de usuario
 
 El enlace de datos implica tres componentes:
 
@@ -482,7 +482,7 @@ El enlace de datos implica tres componentes:
 
 En nuestro código de muestra, devolvemos los datos de la tabla SQL Azure de Mobile Apps **ToDoItem** en una matriz. Esta actividad es uno de los patrones más comunes para las aplicaciones de datos.  Las consultas en bases de datos normalmente devuelven una serie de filas que el cliente recibe en una lista o una matriz. En este ejemplo, la matriz es el origen de datos.  El código especifica un diseño de pantalla que define la vista de los datos que aparecerán en el dispositivo.  Los dos están vinculados mediante un adaptador, que en este código es una extensión de la clase **ArrayAdapter&lt;ToDoItem&gt;** .
 
-#### <a name="layout"></a>Definición del diseño
+#### <a name="define-the-layout"></a><a name="layout"></a>Definición del diseño
 
 El diseño lo definen varios fragmentos de código XML. Dado el diseño existente, el código siguiente representa el elemento **ListView** que queremos rellenar con nuestros datos de servidor.
 
@@ -511,7 +511,7 @@ En el código anterior, el atributo *listitem* especifica el identificador del d
 </LinearLayout>
 ```
 
-#### <a name="adapter"></a>Definición del adaptador
+#### <a name="define-the-adapter"></a><a name="adapter"></a>Definición del adaptador
 Como el origen de datos de nuestra vista es una matriz de **ToDoItem**, se realiza una subclase en nuestro adaptador desde una clase **ArrayAdapter&lt;ToDoItem&gt;** . Esta subclase producirá una vista para cada **ToDoItem** que use el diseño de **row_list_to_do**.  En el código, definimos la siguiente clase que es una extensión de la clase **ArrayAdapter&lt;E&gt;** :
 
 ```java
@@ -569,7 +569,7 @@ El segundo parámetro para el constructor ToDoItemAdapter es una referencia al d
     listViewToDo.setAdapter(mAdapter);
 ```
 
-#### <a name="use-adapter"></a>Uso del adaptador para enlazar con la interfaz de usuario
+#### <a name="use-the-adapter-to-bind-to-the-ui"></a><a name="use-adapter"></a>Uso del adaptador para enlazar con la interfaz de usuario
 
 Ahora ya puede usar el enlace de datos. El código siguiente muestra cómo obtener los elementos de la tabla y rellena el adaptador local con los elementos devueltos.
 
@@ -604,7 +604,7 @@ Llame al adaptador en cualquier momento para modificar la tabla **ToDoItem** . C
 
 Puede encontrar un ejemplo completo en el [proyecto de inicio rápido de Android][21].
 
-## <a name="inserting"></a>Inserción de datos en el back-end
+## <a name="insert-data-into-the-backend"></a><a name="inserting"></a>Inserción de datos en el back-end
 
 Cree instancias de la clase *ToDoItem* y configure sus propiedades.
 
@@ -634,7 +634,7 @@ Los valores de identificador de cadena proporcionan las siguientes ventajas:
 
 Los valores de identificador de cadena son **OBLIGATORIOS** para poder utilizar la sincronización sin conexión.  No se puede cambiar un identificador una vez que se almacena en la base de datos de back-end.
 
-## <a name="updating"></a>Actualización de los datos en una aplicación móvil
+## <a name="update-data-in-a-mobile-app"></a><a name="updating"></a>Actualización de los datos en una aplicación móvil
 
 Para actualizar los datos de una tabla, pase el nuevo objeto al método **update()** .
 
@@ -646,7 +646,7 @@ mToDoTable
 
 En este ejemplo, *item* es una referencia a una fila de la tabla *ToDoItem*, en la que se le han realizado algunos cambios.  Se actualiza la fila con el mismo campo **id** .
 
-## <a name="deleting"></a>Eliminación de datos en una aplicación móvil
+## <a name="delete-data-in-a-mobile-app"></a><a name="deleting"></a>Eliminación de datos en una aplicación móvil
 
 El código siguiente muestra cómo eliminar datos de una tabla especificando el objeto de datos.
 
@@ -663,7 +663,7 @@ mToDoTable
     .delete(myRowId);
 ```
 
-## <a name="lookup"></a>Búsqueda de un elemento específico por el identificador
+## <a name="look-up-a-specific-item-by-id"></a><a name="lookup"></a>Búsqueda de un elemento específico por el identificador
 
 Busque un elemento con un campo **id** concreto con el método **lookUp()** :
 
@@ -673,11 +673,11 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Procedimientos: con datos sin tipo
+## <a name="how-to-work-with-untyped-data"></a><a name="untyped"></a>Procedimientos: con datos sin tipo
 
 El modelo de programación sin tipo proporciona un control exacto de la serialización de JSON.  Existen algunos escenarios comunes donde recomendamos usar un modelo de programación sin tipo. Por ejemplo, si la tabla de back-end contiene muchas columnas y solo necesita hacer referencia a un subconjunto de ellas.  El modelo con tipo precisa definir todas las columnas especificadas en el back-end de Mobile Apps de su clase de datos.  La mayoría de las llamadas de API para obtener acceso a los datos son similares a las llamadas de programación con tipo. La diferencia principal es que en el modelo sin tipo se invocan métodos en el objeto **MobileServiceJsonTable**, en lugar del objeto **MobileServiceTable**.
 
-### <a name="json_instance"></a>Creación de una instancia de tabla sin tipo
+### <a name="create-an-instance-of-an-untyped-table"></a><a name="json_instance"></a>Creación de una instancia de tabla sin tipo
 
 Como en el modelo con tipo, se empieza obteniendo una referencia de tabla, aunque en este caso se trate de un objeto **MobileServicesJsonTable** . Obtenga la referencia llamando al método **getTable** en una instancia del cliente:
 
@@ -689,7 +689,7 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 
 Cuando haya creado una instancia de **MobileServiceJsonTable**, tendrá disponible prácticamente la misma API que con el modelo de programación con tipo. En algunos casos, los métodos toman un parámetro sin tipo en lugar de uno con tipo.
 
-### <a name="json_insert"></a>Inserción de una tabla sin tipo
+### <a name="insert-into-an-untyped-table"></a><a name="json_insert"></a>Inserción de una tabla sin tipo
 El código siguiente muestra cómo realizar una inserción. El primer paso es crear un [JsonObject][1], que forma parte de la biblioteca de [gson][3].
 
 ```java
@@ -711,7 +711,7 @@ Si necesita obtener el identificador del objeto insertado, use el método **getA
 ```java
 String id = insertedItem.getAsJsonPrimitive("id").getAsString();
 ```
-### <a name="json_delete"></a>Eliminación de una tabla sin tipo
+### <a name="delete-from-an-untyped-table"></a><a name="json_delete"></a>Eliminación de una tabla sin tipo
 El código siguiente muestra cómo eliminar una instancia, en este caso, la misma instancia de un **JsonObject** que se creó en el ejemplo de *insert* anterior. El código es el mismo que con el caso con tipo, pero el método tiene una firma diferente, ya que hace referencia a un elemento **JsonObject**.
 
 ```java
@@ -725,7 +725,7 @@ También puede eliminar una instancia directamente usando su identificador:
 mToDoTable.delete(ID);
 ```
 
-### <a name="json_get"></a>Devolución de todas las filas de una tabla sin tipo
+### <a name="return-all-rows-from-an-untyped-table"></a><a name="json_get"></a>Devolución de todas las filas de una tabla sin tipo
 El código siguiente muestra cómo recuperar una tabla completa. Puesto que está utilizando una tabla de JSON, solamente puede recuperar de manera selectiva algunas de las columnas de la tabla.
 
 ```java
@@ -764,7 +764,7 @@ public void showAllUntyped(View view) {
 
 En el modelo con tipo se encuentra disponible el mismo conjunto de métodos de filtrado y paginación que con el modelo sin tipo.
 
-## <a name="offline-sync"></a>Implementación de la sincronización sin conexión
+## <a name="implement-offline-sync"></a><a name="offline-sync"></a>Implementación de la sincronización sin conexión
 
 El SDK de cliente de Azure Mobile Apps también implementa la sincronización de datos sin conexión mediante una base de datos SQLite que almacena una copia de los datos de servidor de manera local.  Las operaciones realizadas en una tabla sin conexión no necesitan conectividad móvil para funcionar.  La sincronización sin conexión favorece la resistencia y el rendimiento; a cambio, la resolución de conflictos conlleva una lógica más compleja.  El SDK de cliente de Azure Mobile Apps implementa las siguientes características:
 
@@ -863,7 +863,7 @@ Si tiene lugar un conflicto durante una operación `.push()`, se produce una exc
 
 Cuando todos los conflictos estén marcados como desea, llame de nuevo a `.push()` para resolverlos.
 
-## <a name="custom-api"></a>Llamada a una API personalizada
+## <a name="call-a-custom-api"></a><a name="custom-api"></a>Llamada a una API personalizada
 
 Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una operación de inserción, actualización, eliminación o lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON.
 
@@ -889,7 +889,7 @@ public void completeItem(View view) {
 
 El método **invokeApi** se llama en el cliente, el cual envía una solicitud de POST a la nueva API personalizada. El resultado devuelto por la API personalizada se muestra en un cuadro de diálogo de mensaje, al igual que todos los errores. Otras versiones de **invokeApi** le permiten enviar opcionalmente un objeto en el cuerpo de solicitud, especificar el método HTTP y enviar parámetros de consulta con la solicitud. También se proporcionan versiones sin tipo de **invokeApi** .
 
-## <a name="authentication"></a>Adición de autenticación a la aplicación
+## <a name="add-authentication-to-your-app"></a><a name="authentication"></a>Adición de autenticación a la aplicación
 
 Los tutoriales ya describen detalladamente cómo agregar estas características.
 
@@ -908,7 +908,7 @@ Hay que realizar cuatro pasos para habilitar la autenticación en su aplicación
 
 Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar el SID de un usuario autenticado para modificar las solicitudes.  Para obtener más información, consulte [Introducción a la autenticación] y la documentación de los procedimientos del SDK de servidor.
 
-### <a name="caching"></a>Autenticación: Flujo de servidor
+### <a name="authentication-server-flow"></a><a name="caching"></a>Autenticación: Flujo de servidor
 
 El código siguiente inicia un proceso de inicio de sesión del flujo de servidor mediante el proveedor de Google:  Hace falta configuración adicional debido a los requisitos de seguridad del proveedor de Google:
 
@@ -994,13 +994,13 @@ Obtenga el identificador del usuario que ha iniciado sesión desde una clase **M
 > [!WARNING]
 > El esquema de dirección URL mencionado distingue mayúsculas de minúsculas.  Asegúrese de que todas las apariciones de `{url_scheme_of_you_app}` coincidan en las mayúsculas y minúsculas.
 
-### <a name="caching"></a>Almacenamiento en caché de tokens de autenticación
+### <a name="cache-authentication-tokens"></a><a name="caching"></a>Almacenamiento en caché de tokens de autenticación
 
 El almacenamiento en caché de los tokens de autenticación requiere el almacenamiento del identificador de usuario y el token de autenticación localmente en el dispositivo. La próxima vez que se inicie la aplicación, compruebe la caché y, si estos valores están presentes, puede omitir el procedimiento de inicio de sesión y rehidratar el cliente con estos datos. No obstante, estos datos son confidenciales y deben almacenarse cifrados por seguridad en caso de que le roben el teléfono.  Puede ver un ejemplo completo de cómo almacenar tokens de autenticación en la memoria caché en la [sección Almacenamiento en caché de tokens de autenticación][7].
 
 Si trata de utilizar un token caducado, recibirá como respuesta *401 unauthorized* . Puede controlar los errores de autenticación usando filtros.  Los filtros interceptan las solicitudes al back-end de App Service. El código de filtro probará la respuesta a un error 401, desencadenará el proceso de inicio de sesión y, luego, reanudará la solicitud que generó el 401.
 
-### <a name="refresh"></a>Uso de tokens de actualización
+### <a name="use-refresh-tokens"></a><a name="refresh"></a>Uso de tokens de actualización
 
 El token devuelto por la característica Autenticación y autorización de Azure App Service tiene una duración definida de una hora.  Después de este período, es necesario volver a autenticar al usuario.  Si usa un token de larga duración que haya recibido mediante la autenticación de flujo de cliente, entonces puede volver a autenticar con Autenticación y autorización de Azure App Service usando el mismo token.  Se genera otro token de Azure App Service con una nueva duración.
 
@@ -1070,7 +1070,7 @@ Consulte el ejemplo de código completo en la siguiente sección.
 
 Reemplace el método `onSuccess()` por cualquier código que desee usar en un inicio de sesión correcto.  La cadena `{provider}` es un proveedor válido: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount** o **twitter**.  Si ha implementado autenticación personalizada, también puede usar la etiqueta de proveedor de autenticación personalizada.
 
-### <a name="adal"></a>Autenticación de usuarios con la biblioteca de autenticación de Active Directory (ADAL)
+### <a name="authenticate-users-with-the-active-directory-authentication-library-adal"></a><a name="adal"></a>Autenticación de usuarios con la biblioteca de autenticación de Active Directory (ADAL)
 
 Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. La opción del inicio de sesión de flujo de cliente es, con frecuencia, preferible al uso de los métodos `loginAsync()` , ya que proporciona una experiencia UX más nativa y permite realizar más personalizaciones.
 
@@ -1170,7 +1170,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-## <a name="filters"></a>Ajuste de la comunicación cliente-servidor
+## <a name="adjust-the-client-server-communication"></a><a name="filters"></a>Ajuste de la comunicación cliente-servidor
 
 La conexión de cliente es normalmente una conexión HTTP básica que usa la biblioteca HTTP subyacente que se suministra con el SDK de Android.  Hay varios motivos por los que desearía cambiar esta conexión:
 
@@ -1267,7 +1267,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 }
 ```
 
-### <a name="conversions"></a>Configuración de serialización automática
+### <a name="configure-automatic-serialization"></a><a name="conversions"></a>Configuración de serialización automática
 
 Puede especificar una estrategia de conversión que se aplique a todas las columnas mediante la API de [gson][3]. La biblioteca de cliente Android utiliza la biblioteca [gson][3] en segundo plano para serializar los objetos de Java en datos JSON que se envían a Azure App Service.  El siguiente código utiliza el método **setFieldNamingStrategy()** para establecer la estrategia. Este ejemplo eliminará el carácter inicial (una "m") y, después, pondrá el siguiente carácter en minúscula (en cada nombre de campo). Por ejemplo, convertiría "mld" en "id".  Implemente una estrategia de conversión para reducir la necesidad de anotaciones `SerializedName()` en la mayoría de los campos.
 

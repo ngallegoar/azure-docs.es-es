@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 91283b453e71e476d247e752b24e9eec0047a814
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 455d7a0c1b3826060ade1083ec6eea99e397574b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776801"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79534854"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Diseño de una instancia de Azure Database for MariaDB con la CLI de Azure
 
@@ -23,7 +23,7 @@ Azure Database for MariaDB es un servicio de base de datos relacional de la nube
 > * Creación de una instancia de Azure Database for MariaDB
 > * Configuración del firewall del servidor
 > * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para crear una base de datos
-> * Carga de datos de ejemplo
+> * Carga de datos de muestra
 > * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
@@ -185,7 +185,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 El comando `az mariadb server restore` necesita los parámetros siguientes:
 
-| Configuración | Valor sugerido | DESCRIPCIÓN  |
+| Configuración | Valor sugerido | Descripción  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupo de recursos en el que existe el servidor de origen.  |
 | name | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
@@ -194,7 +194,7 @@ El comando `az mariadb server restore` necesita los parámetros siguientes:
 
 Al restaurar un servidor a un momento dado, se crea un servidor que se copia como servidor original a un momento dado que especifique. Los valores de ubicación y plan de tarifa del servidor restaurado son los mismos que los del servidor de origen.
 
-El comando es sincrónico y se devolverá después de que se haya restaurado el servidor. Una vez finalizada la restauración, busque el servidor que ha creado. Compruebe que los datos se han restaurado del modo esperado.
+El comando es sincrónico y se devolverá después de que se haya restaurado el servidor. Una vez finalizada la restauración, busque el servidor que se ha creado. Compruebe que los datos se han restaurado del modo esperado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial aprendió lo siguiente:
@@ -202,7 +202,7 @@ En este tutorial aprendió lo siguiente:
 > * Creación de un servidor de Azure Database for MariaDB
 > * Configuración del firewall del servidor
 > * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para crear una base de datos
-> * Carga de datos de ejemplo
+> * Carga de datos de muestra
 > * Consultar datos
 > * Actualización de datos
 > * Restauración de datos

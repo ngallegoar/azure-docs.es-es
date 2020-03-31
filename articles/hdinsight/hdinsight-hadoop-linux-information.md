@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934552"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233620"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Información sobre el uso de HDInsight en Linux
 
 Los clústeres de Azure HDInsight proporcionan Apache Hadoop en un entorno conocido de Linux, que se ejecuta en la nube de Azure. En la mayoría de los casos, debiera funcionar exactamente como cualquier otra instalación de Hadoop en Linux. Este documento detalla las diferencias específicas que debe tener en cuenta.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Muchos de los pasos de este documento utilizan las siguientes utilidades, que pueden tener que instalarse en el sistema.
 
@@ -111,7 +111,7 @@ Cuando se usa Azure Storage o Data Lake Storage, no tiene que hacer nada especia
 
 En HDInsight, los recursos de almacenamiento de datos (Azure Blob Storage y Azure Data Lake Storage) se desacoplan de los recursos de proceso. Por lo tanto, puede crear clústeres de HDInsight para realizar cálculos según lo necesite y luego eliminar el clúster cuando el trabajo haya finalizado, manteniendo mientras tanto sus archivos de datos persistentes de forma segura en un almacenamiento en la nube durante todo el tiempo que lo necesite.
 
-### <a name="URI-and-scheme"></a>Identificador URI y esquema
+### <a name="uri-and-scheme"></a><a name="URI-and-scheme"></a>Identificador URI y esquema
 
 Algunos comandos pueden pedirle que especifique el esquema como parte del identificador URI al acceder a un archivo. Por ejemplo, el componente Storm-HDFS le pide que especifique el esquema. Cuando se usa un almacenamiento no predeterminado (almacenamiento agregado como almacenamiento "adicional" al clúster), debe utilizar siempre el esquema como parte del identificador URI.
 
@@ -208,7 +208,7 @@ Si usa __Azure Data Lake Storage__, consulte los siguientes vínculos para ver l
 * [Java](../data-lake-store/data-lake-store-get-started-java-sdk.md)
 * [Python](../data-lake-store/data-lake-store-get-started-python.md)
 
-## <a name="scaling"></a>Escalar el clúster
+## <a name="scaling-your-cluster"></a><a name="scaling"></a>Escalar el clúster
 
 La característica de escalado de clúster permite cambiar de forma dinámica la cantidad de nodos de datos que usa un clúster. Puedes realizar operaciones de escala mientras se están ejecutando otros trabajos o procesos en un clúster.  Consulte también [Escalabilidad de clústeres de HDInsight](./hdinsight-scaling-best-practices.md).
 

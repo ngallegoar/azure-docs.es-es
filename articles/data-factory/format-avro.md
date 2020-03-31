@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: jingwang
 ms.openlocfilehash: 1717969aeb24a153f986c70ef60db1aac5c840fb
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78267784"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Formato Avro en Azure Data Factory
@@ -30,7 +30,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | La propiedad type del conjunto de datos debe establecerse en **Avro**. | Sí      |
 | ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
-| avroCompressionCodec | El códec de compresión que se usará al escribir en archivos Avro. Al leer desde archivos Avro, Data Factory determina automáticamente el códec de compresión según los metadatos del archivo.<br>Los tipos admitidos son "**none**" (valor predeterminado), "**deflate**", "**snappy**". Tenga en cuenta que la actividad de copia no es compatible actualmente con Snappy cuando hay archivos Avro de lectura y escritura. | Sin       |
+| avroCompressionCodec | El códec de compresión que se usará al escribir en archivos Avro. Al leer desde archivos Avro, Data Factory determina automáticamente el códec de compresión según los metadatos del archivo.<br>Los tipos admitidos son "**none**" (valor predeterminado), "**deflate**", "**snappy**". Tenga en cuenta que la actividad de copia no es compatible actualmente con Snappy cuando hay archivos Avro de lectura y escritura. | No       |
 
 > [!NOTE]
 > No se admiten espacios en blanco en el nombre de columna de los archivos Avro.
@@ -70,7 +70,7 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La propiedad type del origen de la actividad de copia debe establecerse en **AvroSource**. | Sí      |
-| storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
+| storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
 
 ### <a name="avro-as-sink"></a>Avro como receptor
 
@@ -79,7 +79,7 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La propiedad type del origen de la actividad de copia debe establecerse en **AvroSink**. | Sí      |
-| storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
+| storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
 
 ## <a name="data-type-support"></a>Compatibilidad con tipos de datos
 

@@ -1,5 +1,5 @@
 ---
-title: Envío de notificaciones push a Android con Azure Notification Hubs y Firebase Cloud Messaging | Microsoft Docs
+title: Envío de notificaciones push a Android mediante Azure Notification Hubs y Firebase | Microsoft Docs
 description: En este tutorial aprenderá a usar Azure Notification Hubs y Google Cloud Messaging para enviar notificaciones push a dispositivos Android.
 services: notification-hubs
 documentationcenter: android
@@ -18,14 +18,14 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 1af109405118754daa08adf848f1da3f04534455
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e0682a33540cafd8ebab1bb248d462b30ee4dc2a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387508"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127533"
 ---
-# <a name="tutorial-send-push-notifications-to-android-devices-using-google-firebase-cloud-messaging"></a>Tutorial: Envío de notificaciones push a dispositivos Android mediante Google firebase Cloud Messaging
+# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase"></a>Tutorial: Envío de notificaciones push a dispositivos Android mediante Firebase
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -42,7 +42,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Conectar la aplicación al centro.
 > * Probar la aplicación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/free/). 
 
@@ -86,7 +86,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 
 El centro está ahora configurado para trabajar con Firebase Cloud Messaging. También tiene las cadenas de conexión que son necesarias para enviar notificaciones a un dispositivo y registrar una aplicación para recibir notificaciones.
 
-## <a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
+## <a name="connect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
 
 ### <a name="add-google-play-services-to-the-project"></a>Incorporación de los servicios de Google Play al proyecto
 
@@ -407,7 +407,7 @@ El centro está ahora configurado para trabajar con Firebase Cloud Messaging. Ta
     }
     ```
 
-9. El método `ToastNotify` usa el control *"Hello World"* `TextView` para informar del estado y de las notificaciones de forma persistente en la aplicación. En el diseño **res** > **layout** > **activity_main.xml**, agregue el siguiente identificador para ese control.
+9. El método `ToastNotify` usa el control *"Hola mundo"* `TextView` para informar del estado y de las notificaciones de forma persistente en la aplicación. En el diseño **res** > **layout** > **activity_main.xml**, agregue el siguiente identificador para ese control.
 
     ```java
     android:id="@+id/text_hello"

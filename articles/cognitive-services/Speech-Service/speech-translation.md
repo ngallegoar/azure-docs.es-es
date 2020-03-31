@@ -8,16 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: a05a2bf81a278322bc4e07ed959aedb828c39b73
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: f51288da6af3580ba7592950cde4f17d7adad529
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815462"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052616"
 ---
 # <a name="what-is-speech-translation"></a>¿Qué es la traducción de voz?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 La traducción de voz del servicio de voz permite la traducción de voz a voz y voz a texto de secuencias de audio en varios idiomas en tiempo real. Con el SDK de voz, sus aplicaciones, herramientas y los dispositivos tienen acceso a las transcripciones de origen y a las salidas de traducción del audio proporcionadas. Se devuelven resultados provisionales de transcripción y traducción cuando se detecta la voz y los resultados finales se pueden convertir en voz sintetizada.
 
@@ -31,9 +33,9 @@ Estas son las características disponibles en el SDK de voz y las API REST de Sp
 
 | Caso de uso | SDK | REST |
 |----------|-----|------|
-| Traducción de voz a texto con resultados de reconocimiento. | Sí | Sin |
-| Traducción de voz a voz. | Sí | Sin |
-| Resultados de reconocimiento y traducción provisionales. | Sí | Sin |
+| Traducción de voz a texto con resultados de reconocimiento. | Sí | No |
+| Traducción de voz a voz. | Sí | No |
+| Resultados de reconocimiento y traducción provisionales. | Sí | No |
 
 ## <a name="get-started-with-speech-translation"></a>Introducción a la traducción de voz
 

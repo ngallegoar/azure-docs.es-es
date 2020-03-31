@@ -14,7 +14,8 @@
           href: kubernetes-walkthrough.md
         - name: Uso de Azure Portal
           href: kubernetes-walkthrough-portal.md
-        - name: Usar una plantilla de Resource Manager
+        - name: Uso de una plantilla de Resource Manager
+          displayName: Resource Manager
           href: kubernetes-walkthrough-rm-template.md
     - name: Desarrollo de aplicaciones
       expanded: true
@@ -73,6 +74,8 @@
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
+    - name: Reparación automática de nodo
+      href: node-auto-repair.md
     - name: Procedimientos recomendados
       items:
         - name: Información general
@@ -123,6 +126,8 @@
           href: upgrade-cluster.md
         - name: Procesamiento de actualizaciones de sistema operativo del nodo
           href: node-updates-kured.md
+        - name: Configuración de un clúster de AKS
+          href: cluster-configuration.md
         - name: Integración de ACR con un clúster de AKS
           href: cluster-container-registry-integration.md
         - name: Creación de nodos virtuales
@@ -198,7 +203,7 @@
       items:
         - name: Creación de una entidad de servicio
           href: kubernetes-service-principal.md
-        - name: Uso de identidades administradas (versión preliminar)
+        - name: Uso de identidades administradas
           href: use-managed-identity.md
         - name: Limitación del acceso al archivo de configuración de clúster
           href: control-kubeconfig-access.md
@@ -216,6 +221,8 @@
           href: limit-egress-traffic.md
         - name: Habilitar la integración de Azure Active Directory
           items:
+            - name: "Integración de Azure\_AD (versión preliminar)"
+              href: azure-ad-v2.md
             - name: Uso de la CLI de Azure
               href: azure-ad-integration-cli.md
             - name: Uso de Azure Portal

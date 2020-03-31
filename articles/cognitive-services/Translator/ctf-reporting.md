@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595943"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Cómo usar los informes de Collaborative Translation Framework (CTF)
 
 > [!NOTE]
-> Este método está obsoleto. No está disponible en la versión 3.0 de Translator Text API.
+> Este método es desusado. No está disponible en la versión 3.0 de Translator Text API.
 > 
 > Collaborative Translations Framework (CTF), que se utilizaba antes para la versión 2.0 de Translator Text API, ha quedado en desuso a partir del 1 de febrero de 2018. Las funciones AddTranslation y AddTranslationArray permiten a los usuarios proporcionar correcciones a través del marco Collaborative Translation Framework. Después del 31 de enero de 2018, estas dos funciones no aceptan nuevos envíos de frases, y los usuarios reciben un mensaje de error. Estas funciones se retiraron y no se reemplazarán.
 
@@ -34,7 +34,7 @@ El punto de conexión de la API de informes de CTF es https://api.microsofttrans
 
 
 ## <a name="methods"></a>Métodos
-| NOMBRE |    DESCRIPCIÓN|
+| Nombre |    Descripción|
 |:---|:---|
 | Método GetUserTranslationCounts | Obtiene los recuentos de las traducciones creadas por el usuario. |
 | Método GetUserTranslations | Recupera las traducciones creadas por el usuario. |
@@ -72,15 +72,15 @@ Este método obtiene el recuento de traducciones que se crean por el usuario. Pr
 
 **Parámetros**
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |:---|:---|
 | appId | **Obligatorio** Si se usa el encabezado de autorización, deje el campo appid vacío o incluya una cadena que contenga "Bearer" + " " + token de acceso.|
 | uriPrefix | **Opcional** Una cadena que contiene el prefijo del URI de la traducción.|
-| De | **Opcional** Una cadena que representa el código de idioma del texto de traducción. |
+| desde | **Opcional** Una cadena que representa el código de idioma del texto de traducción. |
 | to | **Opcional** Una cadena que representa el código de idioma al que se va a traducir el texto.|
 | minRating| **Opcional** Un valor entero que representa la clasificación de calidad mínima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
 | maxRating| **Opcional** Un valor entero que representa la clasificación de calidad máxima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
-| user | **Opcional** Una cadena que se utiliza para filtrar los resultados según el autor del envío. |
+| usuario | **Opcional** Una cadena que se utiliza para filtrar los resultados según el autor del envío. |
 | category| **Opcional** Una cadena que contiene la categoría o el dominio de la traducción. Este parámetro admite solo la opción predeterminada general.|
 | minDateUtc| **Opcional** La fecha desde la que desea recuperar las traducciones. La fecha debe tener el formato UTC. |
 | maxDateUtc| **Opcional** La fecha hasta la que desea recuperar las traducciones. La fecha debe tener el formato UTC. |
@@ -94,12 +94,12 @@ Este método obtiene el recuento de traducciones que se crean por el usuario. Pr
 
 El conjunto de resultados contiene la matriz de **UserTranslationCount**. Cada UserTranslationCount tiene los siguientes elementos:
 
-| Campo | DESCRIPCIÓN |
+| Campo | Descripción |
 |:---|:---|
 | Count| Número de resultados que se recupera|
 | De | Idioma de origen|
 | Rating| Clasificación que se aplica por el remitente en la llamada al método AddTranslation()|
-| Para| Idioma de destino|
+| A| Idioma de destino|
 | Identificador URI| URI que se aplica en la llamada al método AddTranslation()|
 | Usuario| Nombre del usuario|
 
@@ -143,15 +143,15 @@ Este método recupera las traducciones creadas por el usuario. Proporciona las t
 
 **Parámetros**
 
-| Parámetro | DESCRIPCIÓN |
+| Parámetro | Descripción |
 |:---|:---|
 | appId | **Obligatorio** Si se usa el encabezado de autorización, deje el campo appid vacío o incluya una cadena que contenga "Bearer" + " " + token de acceso.|
 | uriPrefix| **Opcional** Una cadena que contiene el prefijo del URI de la traducción.|
-| De| **Opcional** Una cadena que representa el código de idioma del texto de traducción.|
+| desde| **Opcional** Una cadena que representa el código de idioma del texto de traducción.|
 | to| **Opcional** Una cadena que representa el código de idioma al que se va a traducir el texto.|
 | minRating| **Opcional** Un valor entero que representa la clasificación de calidad mínima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
 | maxRating| **Opcional** Un valor entero que representa la clasificación de calidad máxima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
-| user| **Opcional. Una cadena que se utiliza para filtrar los resultados según el autor del envío**|
+| usuario| **Opcional. Una cadena que se utiliza para filtrar los resultados según el autor del envío**|
 | category| **Opcional** Una cadena que contiene la categoría o el dominio de la traducción. Este parámetro admite solo la opción predeterminada general.|
 | minDateUtc| **Opcional** La fecha desde la que desea recuperar las traducciones. La fecha debe tener el formato UTC.|
 | maxDateUtc| **Opcional** La fecha hasta la que desea recuperar las traducciones. La fecha debe tener el formato UTC.|
@@ -165,13 +165,13 @@ Este método recupera las traducciones creadas por el usuario. Proporciona las t
 
 El conjunto de resultados contiene la matriz de **UserTranslation**. Cada UserTranslation tiene los siguientes elementos:
 
-| Campo | DESCRIPCIÓN |
+| Campo | Descripción |
 |:---|:---|
 | CreatedDateUtc| La fecha de creación de la entrada mediante AddTranslation()|
 | De| Idioma de origen|
 | OriginalText| Texto de lenguaje de origen que se usa al enviar la solicitud|
 |Rating |Clasificación que se aplica por el remitente en la llamada al método AddTranslation()|
-|Para|    Idioma de destino|
+|A|    Idioma de destino|
 |TranslatedText|    Traducción tal y como se envió en la llamada al método AddTranslation()|
 |Identificador URI|   URI que se aplica en la llamada al método AddTranslation()|
 |Usuario   |Nombre del usuario|

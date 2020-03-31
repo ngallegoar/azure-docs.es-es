@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: twooley
 ms.openlocfilehash: 7e33ecbbb49fc2b0683d0757da36deec72796806
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638908"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operaciones del sistema de archivos en Data Lake Storage Gen1 mediante el SDK de .NET
@@ -27,7 +27,7 @@ En este artículo, aprenderá a realizar operaciones del sistema de archivos en 
 
 Para instrucciones sobre cómo realizar operaciones de administración de cuentas en Data Lake Storage Gen1 mediante el SDK de .NET, consulte [Operaciones de administración de cuentas en Data Lake Storage Gen1 con el SDK de .NET](data-lake-store-get-started-net-sdk.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Visual Studio 2013 o superior**. En las instrucciones de este artículo se usa Visual Studio 2019.
 

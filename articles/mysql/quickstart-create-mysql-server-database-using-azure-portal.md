@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: bbf2e3204cb1e703aba445822bfb699fae13a112
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/20/2020
+ms.openlocfilehash: 50a3eebaa18674a0d0a7e9da88b8d3386e5016c5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454312"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067797"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Creación de un servidor de Azure Database for MySQL mediante Azure Portal
 
@@ -57,7 +57,7 @@ Para crear un servidor de Azure Database for MySQL, siga estos pasos:
 
    ![Crear servidor: ventana de plan de tarifa](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
-4. Seleccione **Crear** para realizar el aprovisionamiento del servidor. El aprovisionamiento puede tardar hasta 20 minutos.
+4. Seleccione **Revisar y crear** para realizar el aprovisionamiento del servidor. El aprovisionamiento puede tardar hasta 20 minutos.
    
 5. Haga clic en **Notificaciones** en la barra de herramientas (icono de campana) para supervisar el proceso de implementación.
    
@@ -171,7 +171,7 @@ Ya está conectado al servidor de Azure Database for MySQL y ha creado una base 
 ## <a name="connect-to-the-server-by-using-the-mysql-workbench-gui-tool"></a>Conexión al servidor mediante la herramienta de interfaz gráfica de usuario MySQL Workbench
 Para conectarse al servidor mediante la herramienta de interfaz gráfica de usuario MySQL Workbench, siga estos pasos:
 
-1.  Abra la aplicación MySQL Workbench en el equipo cliente. MySQL Workbench se puede descargar e instalar desde [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/) (Descargar MySQL Workbench).
+1.    Abra la aplicación MySQL Workbench en el equipo cliente. MySQL Workbench se puede descargar e instalar desde [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/) (Descargar MySQL Workbench).
 
 2. Cree una nueva conexión. Seleccione el icono del signo más (+) situado junto al encabezado **MySQL Connections** (Conexiones MySQL).
 
@@ -202,9 +202,9 @@ Hay dos forma de eliminar los recursos que ha creado en la guía de inicio rápi
 
 Para eliminar todo el grupo de recursos, incluido el servidor recién creado, siga estos pasos:
 
-1.  Elimine el grupo de recursos en Azure Portal. En el menú de la izquierda, seleccione **Grupos de recursos** y, después, el nombre del grupo de recursos (en el ejemplo, **myresourcegroup**).
+1.    Elimine el grupo de recursos en Azure Portal. En el menú de la izquierda, seleccione **Grupos de recursos** y, después, el nombre del grupo de recursos (en el ejemplo, **myresourcegroup**).
 
-2.  En la página del grupo de recursos, seleccione **Eliminar**. Luego, escriba el nombre del grupo de recursos, en nuestro **myresourcegroup**, en el cuadro para confirmar la eliminación y seleccione **Eliminar**.
+2.    En la página del grupo de recursos, seleccione **Eliminar**. Luego, escriba el nombre del grupo de recursos, en nuestro **myresourcegroup**, en el cuadro para confirmar la eliminación y seleccione **Eliminar**.
 
 Para eliminar solo el servidor recién creado, siga estos pasos:
 

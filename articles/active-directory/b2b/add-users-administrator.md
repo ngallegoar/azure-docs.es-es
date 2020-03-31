@@ -12,11 +12,11 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cf2ca3bde0cfee97adee8bb875df1522e95b1f53
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869326"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230864"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal
 
@@ -54,7 +54,7 @@ Para agregar usuarios de colaboración B2B al directorio, siga estos pasos:
    - **Dirección de correo (obligatorio)** . La dirección de correo del usuario invitado.
    - **Mensaje personal (opcional)** Incluye un mensaje de bienvenida personal al usuario invitado.
    - **Grupos**: Puede agregar al usuario invitado a uno o varios de los grupos existentes, o puede hacerlo después.
-   - **Rol del directorio**: Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. 
+   - **Rol del directorio**. Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. 
 
 7. Seleccione **Invitar** para enviar automáticamente la invitación al usuario invitado. 
  
@@ -71,7 +71,7 @@ Si necesita agregar manualmente usuarios de colaboración B2B a un grupo, siga e
 3. En **Administrar**, seleccione **Grupos**.
 4. Seleccione un grupo (o haga clic en **Nuevo grupo** para crear uno). Es una buena idea incluir en la descripción del grupo que el grupo contiene los usuarios invitados B2B.
 5. Seleccione **Miembros**. 
-6. Realice una de las operaciones siguientes:
+6. Realice una de las siguientes acciones:
    - Si el usuario invitado ya existe en el directorio, busque el usuario B2B. Seleccione el usuario y haga clic en **Seleccionar** para agregar el usuario al grupo.
    - Si el usuario invitado no existe ya en el directorio, invítelo al grupo; para ello, escriba su dirección de correo electrónico en el cuadro de búsqueda, escriba un mensaje personal opcional y, a continuación, haga clic en **Seleccionar**. La invitación se dirige automáticamente al usuario invitado.
      
@@ -93,7 +93,7 @@ Para agregar usuarios de colaboración B2B a una aplicación, siga estos pasos:
 
 6. Seleccione **Agregar usuario**.
 7. En **Agregar asignación**, seleccione **Usuarios y grupos**.
-8. Realice una de las operaciones siguientes:
+8. Realice una de las siguientes acciones:
    - Si el usuario invitado ya existe en el directorio, busque el usuario B2B. Seleccione el usuario, haga clic en **Seleccionar** y luego haga clic en **Asignar** para agregar el usuario a la aplicación.
    - Si el usuario invitado no existe en el directorio, en **Seleccione un miembro o invite a un usuario externo**, escriba la dirección de correo electrónico del usuario. En el cuadro de mensaje, escriba un mensaje personal opcional. Debajo del cuadro de mensaje, haga clic en **Invitar**.
            

@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71203657"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Administración del servicio de certificados de OPC Vault
@@ -35,8 +35,8 @@ Después de implementar OPC Vault, debe crear el certificado de CA de raíz. Sin
 6. Seleccione **Guardar**.
 7. Si en este momento se encuentra con un error de tipo "prohibido", es porque las credenciales de usuario no tienen permiso de administrador para modificar o crear un nuevo certificado raíz. De forma predeterminada, el usuario que implementó el servicio tiene roles de administrador y de firma con el servicio. Es necesario agregar otros usuarios a los roles de Aprobador, Escritor o Administrador, según corresponda en el registro de aplicación de Azure Active Directory (Azure AD).
 8. Seleccione **Detalles**. Se debería mostrar la información actualizada.
-9. Seleccione **Renovar certificado de CA** para emitir el primer certificado de CA del emisor o para renovar el certificado del emisor. Después seleccione **Aceptar**.
-10. Después de unos segundos, verá los **Detalles del certificado**. Para descargar el certificado de CA y la CRL más recientes para distribuirlas a las aplicaciones OPC UA, seleccione **Emisor** o **CRL**.
+9. Seleccione **Renovar certificado de CA** para emitir el primer certificado de CA del emisor o para renovar el certificado del emisor. Después, seleccione **Aceptar**.
+10. Después de unos segundos, verá los **Detalles del certificado**. Para descargar el certificado de CA y la CRL más recientes para distribuirlos a las aplicaciones OPC UA, seleccione **Emisor** o **CRL**.
 
 Ahora, el servicio de administración de certificados de OPC UA está listo para emitir certificados para las aplicaciones OPC UA.
 
@@ -65,7 +65,7 @@ De manera predeterminada, un usuario autenticado en el inquilino puede iniciar s
 
 ### <a name="add-user"></a>Agregar usuario
 
-1. Abra Azure Portal.
+1. Abra Azure Portal.
 2. Vaya a **Azure Active Directory** > **Aplicaciones empresariales**.
 3. Elija el registro del microservicio de OPC Vault (de manera predeterminada, el valor de `resourceGroupName-service`).
 4. Vaya a **Usuarios y grupos**.
@@ -77,7 +77,7 @@ De manera predeterminada, un usuario autenticado en el inquilino puede iniciar s
 
 ### <a name="remove-user"></a>Quitar usuario
 
-1. Abra Azure Portal.
+1. Abra Azure Portal.
 2. Vaya a **Azure Active Directory** > **Aplicaciones empresariales**.
 3. Elija el registro del microservicio de OPC Vault (de manera predeterminada, el valor de `resourceGroupName-service`).
 4. Vaya a **Usuarios y grupos**.
@@ -92,7 +92,7 @@ De manera predeterminada, la identidad del servicio solo tiene permisos limitado
 
 #### <a name="for-an-approver-role-the-following-permissions-must-be-added-to-key-vault"></a>Para un rol Aprobador, se deben agregar los permisos siguientes a Key Vault:
 
-1. Abra Azure Portal.
+1. Abra Azure Portal.
 2. Vaya al grupo `resourceGroupName` de OPC Vault usado durante la implementación.
 3. Vaya a la instancia de Key Vault `resourceGroupName-xxxxx`.
 4. Vaya a **Directivas de acceso**.
@@ -106,7 +106,7 @@ De manera predeterminada, la identidad del servicio solo tiene permisos limitado
 
 #### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>Para un rol de Administrador, se deben agregar los permisos siguientes a Key Vault:
 
-1. Abra Azure Portal.
+1. Abra Azure Portal.
 2. Vaya al grupo `resourceGroupName` de OPC Vault usado durante la implementación.
 3. Vaya a la instancia de Key Vault `resourceGroupName-xxxxx`.
 4. Vaya a **Directivas de acceso**.
@@ -120,7 +120,7 @@ De manera predeterminada, la identidad del servicio solo tiene permisos limitado
 
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Quitar la directiva de acceso de usuario de Azure Key Vault
 
-1. Abra Azure Portal.
+1. Abra Azure Portal.
 2. Vaya al grupo `resourceGroupName` de OPC Vault usado durante la implementación.
 3. Vaya a la instancia de Key Vault `resourceGroupName-xxxxx`.
 4. Vaya a **Directivas de acceso**.

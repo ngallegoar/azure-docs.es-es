@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 57d801177233c18db6d41d52add0e5ad862b3d87
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 838a4123bd5007f987f27674862409445967a2d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772550"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528105"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Recomendaciones de rendimiento en Azure Database for MariaDB
 
@@ -45,7 +45,7 @@ Actualmente, solo se admiten las recomendaciones de *Crear índice*.
 
 ### <a name="create-index-recommendations"></a>Recomendaciones para crear índice
 
-Las recomendaciones de *Crear índice* sugieren nuevos índices para acelerar las consultas que se ejecutan con mayor frecuencia o que consumen mucho tiempo en la carga de trabajo. Este tipo de recomendación requiere que [Almacén de consultas](concepts-query-store.md) esté habilitado. Almacén de consultas recopila información de consultas y proporciona estadísticas detalladas de tiempo de ejecución y frecuencia de las consulta, que el análisis usa para hacer la recomendación.
+Las recomendaciones de *Crear índice* sugieren nuevos índices para acelerar las consultas que se ejecutan con mayor frecuencia o que consumen mucho tiempo en la carga de trabajo. Este tipo de recomendación requiere que [Almacén de consultas](concepts-query-store.md) esté habilitado. Almacén de consultas recopila información de consultas y proporciona estadísticas detalladas de tiempo de ejecución y frecuencia de las consultas, que el análisis usa para hacer la recomendación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

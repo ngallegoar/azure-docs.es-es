@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450158"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226144"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Copia de seguridad de una máquina virtual de Azure mediante Azure Backup a través de la API REST
 
@@ -102,13 +102,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 El identificador URI de *GET* tiene todos los parámetros necesarios. No se necesita ningún cuerpo de solicitud adicional.
 
-#### <a name="responses-1"></a>Respuestas
+#### <a name="responses"></a><a name="responses-1"></a>Respuestas
 
 |Nombre  |Tipo  |Descripción  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       Aceptar |
 
-#### <a name="example-responses-1"></a>Respuestas de ejemplo
+#### <a name="example-responses"></a><a name="example-responses-1"></a>Respuestas de ejemplo
 
 Una vez que se emite la solicitud *GET*, se devuelve una respuesta 200 (OK).
 
@@ -323,7 +323,7 @@ Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra opera
 |---------|---------|---------|
 |202 - Aceptado     |         |     Accepted    |
 
-#### <a name="example-responses-3"></a>Respuestas de ejemplo
+#### <a name="example-responses"></a><a name="example-responses-3"></a>Respuestas de ejemplo
 
 Una vez enviada la solicitud *POST* para una copia de seguridad a petición, la respuesta inicial es 202 (Accepted) con un encabezado de ubicación o Azure-async-header.
 
@@ -433,7 +433,7 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-#### <a name="responses-2"></a>Respuestas
+#### <a name="responses"></a><a name="responses-2"></a>Respuestas
 
 La protección *DELETE* es una [operación asincrónica](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa que esta operación crea otra que tiene que ser seguida por separado.
 

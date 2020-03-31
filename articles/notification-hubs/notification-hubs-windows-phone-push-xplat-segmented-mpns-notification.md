@@ -1,5 +1,5 @@
 ---
-title: Envío de notificaciones push a Windows Phone concretos mediante Azure Notification Hubs | Microsoft Docs
+title: Envío de notificaciones push a dispositivos con Windows Phone concretos mediante Azure Notification Hubs | Microsoft Docs
 description: En este tutorial aprenderá a usar Azure Notification Hubs para enviar notificaciones push a dispositivos Windows Phone 8 o Windows Phone 8.1 concretos (no a todos) registrados en el back-end de la aplicación.
 services: notification-hubs
 documentationcenter: windows
@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 88326b07a96dcc8ce7a72f8709a88c2662f48707
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 72ecb5bdb6bb024c5e4422548dd11888c03e4799
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213397"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80126939"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Tutorial: Notificaciones push a dispositivos Windows Phone concretos mediante Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a dispositivos con Windows Phone concretos mediante Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -43,7 +43,7 @@ En este tutorial, aprenderá a:
 > * Envío de notificaciones con etiquetas
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete el [Tutorial: Notificaciones push a aplicaciones de Windows Phone concretos mediante Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). In este tutorial se actualizar la aplicación, con el fin de que pueda registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías.
 

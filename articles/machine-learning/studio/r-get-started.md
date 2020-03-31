@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 9e010a5179f2da2d5bbce5526d59ac075a9270b0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 1b347707b3c656bd692a29f0fd748c1503be4fb8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169257"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218009"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Introducción al lenguaje de programación R en Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
 
@@ -47,7 +49,7 @@ En esta sección abordaremos distintos pasos a medida que aprenda a crear, proba
 * Con los datos preparados, realizamos un análisis de las correlaciones existentes entre varias de las variables de nuestro conjunto de datos.
 * Por último, crearemos un modelo de previsión de serie temporal estacional para la producción de leche.
 
-## <a id="mlstudio"></a>Interactuación con el lenguaje R en Machine Learning Studio (clásico)
+## <a name="interact-with-r-language-in-machine-learning-studio-classic"></a><a id="mlstudio"></a>Interactuación con el lenguaje R en Machine Learning Studio (clásico)
 
 En esta sección se guía al usuario por algunos aspectos básicos de la interacción con el lenguaje de programación R en el entorno de Machine Learning Studio (clásico). El lenguaje R proporciona una herramienta eficaz para crear módulos de manipulación de datos y de análisis personalizado en el entorno de Azure Machine Learning Studio (clásico).
 
@@ -139,7 +141,7 @@ Existe un tutorial de introducción a RStudio disponible en [Using the RStudio I
 
 En la [Guía de la documentación de RStudio](#appendixa) más adelante, encontrará información adicional sobre el uso de RStudio.  
 
-## <a id="scriptmodule"></a>Obtención de datos dentro y fuera del módulo Ejecutar script de R
+## <a name="get-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Obtención de datos dentro y fuera del módulo Ejecutar script de R
 
 En esta sección, veremos cómo introducir y extraer datos del módulo [Ejecutar script R][execute-r-script]. Revisaremos cómo controlar los distintos tipos de datos leídos dentro y fuera del módulo [Ejecutar script R][execute-r-script].
 
@@ -147,7 +149,7 @@ El código completo de esta sección se encuentra en [MachineLearningSamples-Not
 
 ### <a name="load-and-check-data-in-machine-learning-studio-classic"></a>Carga y comprobación de datos en Machine Learning Studio (clásico)
 
-#### <a id="loading"></a>Carga del conjunto de datos
+#### <a name="load-the-dataset"></a><a id="loading"></a>Carga del conjunto de datos
 
 En primer lugar, cargaremos el archivo **csdairydata.csv** en Azure Machine Learning Studio (clásico).
 
@@ -347,7 +349,7 @@ Si nos desplazamos hacia abajo, se puede ver el resultado de gráficos de nuestr
 
 *Ilustración 8. Salida gráfica desde el puerto de dispositivo R.*  
 
-## <a id="filtering"></a>Transformación y filtrado de datos
+## <a name="data-filtering-and-transformation"></a><a id="filtering"></a>Transformación y filtrado de datos
 
 En esta sección se realizarán operaciones básicas de filtrado y transformación de datos de productos lácteos de California. Al final de esta sección, dispondrá de datos en formato adecuado para la creación de un modelo analítico.  
 
@@ -643,7 +645,7 @@ Como puede, observar, los valores se han transformado. La producción de leche a
 
 En este momento nuestros datos se limpian y estamos preparados el modelado. Según el resumen de visualización de la salida del conjunto de datos de resultado del módulo [Ejecutar script R][execute-r-script], verá que la columna "Month" es "Categorical" con 12 valores únicos, nuevamente tal como deseaba.
 
-## <a id="timeseries"></a>Análisis de correlación y objetos de series temporales
+## <a name="time-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>Análisis de correlación y objetos de series temporales
 
 En esta sección se explorarán objetos básicos de series temporales R y se analizarán las correlaciones entre algunas de las variables. Nuestro objetivo es producir una trama de datos que contiene la información de correlación en pares en varios intervalos de salida.
 
@@ -942,7 +944,7 @@ La ejecución del código genera la salida que se muestra en la ilustración 19 
 
 *Ilustración 19. Resultados del análisis de correlación.*
 
-## <a id="seasonalforecasting"></a>Ejemplo de serie temporal: previsión estacional
+## <a name="time-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>Ejemplo de serie temporal: previsión estacional
 
 Nuestros datos están ahora en un formato adecuado para el análisis y hemos determinado que no hay correlaciones significativas entre las variables. Vamos a continuar y a crear un modelo de previsión de serie temporal. Mediante este modelo, realizaremos una previsión de la producción de leche para California para los 12 meses de 2013.
 
@@ -1300,7 +1302,7 @@ La ejecución de este código genera el resultado que se muestra en la ilustraci
 
 Según estos resultados, podemos ver que el hecho de agregar factores estacionales al modelo reduce significativamente el error RMS. No es sorprendente que el error RMS de los datos de entrenamiento sea menor que el del pronóstico.
 
-## <a id="appendixa"></a>Guía de la documentación de RStudio
+## <a name="guide-to-rstudio-documentation"></a><a id="appendixa"></a>Guía de la documentación de RStudio
 
 RStudio cuenta con una documentación bastante extensa. Estos son algunos vínculos a secciones claves de la documentación de RStudio para ayudarle a comenzar.
 
@@ -1308,7 +1310,7 @@ RStudio cuenta con una documentación bastante extensa. Estos son algunos víncu
 * **Edición y ejecución de código R**: RStudio proporciona un entorno integrado para editar y ejecutar código R. Consulte [Editing and Executing Code](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) (Edición y ejecución de código) para obtener más información.
 * **Depuración**: RStudio incluye eficaces capacidades de depuración. Consulte [Debugging with RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) (Depuración con RStudio) para obtener más información acerca de estas características. Para obtener información acerca de las características de solución de problemas en el punto de interrupción, consulte [Breakpoint Troubleshooting](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting) (Solución de problemas de punto de interrupción).
 
-## <a id="appendixb"></a>Lecturas adicionales
+## <a name="further-reading"></a><a id="appendixb"></a>Lecturas adicionales
 
 Este tutorial de programación de R cubre los aspectos básicos de lo que necesita para usar el lenguaje R con Azure Machine Learning Studio (clásico). Si no está familiarizado con el código R, encontrará dos introducciones disponibles en CRAN:
 

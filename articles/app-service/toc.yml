@@ -265,6 +265,8 @@
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Solución de problemas
       items:
+        - name: Solución de errores intermitentes en la conexión de salida
+          href: troubleshoot-intermittent-outbound-connection-errors.md
         - name: Solución de problemas con Visual Studio
           href: troubleshoot-dotnet-visual-studio.md
         - name: Solución de problemas de aplicaciones Node.js

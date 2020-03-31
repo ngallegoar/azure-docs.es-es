@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 8c9390ea498647d34e8643ed4be596372ffb8696
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 01fb5393217834bc0196da25c4a56314ca7eae2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293392"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294532"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Códigos de error de la API de REST de Azure Key Vault
  
@@ -99,7 +99,7 @@ Es importante que se identifiquen correctamente todos los valores en el token pa
 
 ### <a name="troubleshooting-401"></a>Solución del 401
 
-Los 401 deben investigarse desde la perspectiva de la generación de tokens, antes de que se realice la solicitud al almacén de claves. En general, el código se usa para solicitar el token. Una vez que se recibe el token, se pasa a la solicitud de Key Vault. Si el código se ejecuta localmente, puede usar Fiddler para capturar la solicitud o respuesta a https://login.microsoftonline.com. Una solicitud tiene este aspecto:
+Los 401 deben investigarse desde la perspectiva de la generación de tokens, antes de que se realice la solicitud al almacén de claves. En general, el código se usa para solicitar el token. Una vez que se recibe el token, se pasa a la solicitud de Key Vault. Si el código se ejecuta localmente, puede usar Fiddler para capturar la solicitud o respuesta a `https://login.microsoftonline.com`. Una solicitud tiene este aspecto:
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1
