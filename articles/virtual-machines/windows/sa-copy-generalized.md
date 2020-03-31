@@ -16,10 +16,10 @@ ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
 ms.openlocfilehash: f25968fb74f0f10b1d498866c036dd04d4d5d134
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073377"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Creación de una imagen de máquina virtual no administrada a partir de una máquina virtual de Azure
@@ -31,7 +31,7 @@ En este artículo se muestra cómo usar Azure PowerShell para crear una imagen d
  
 
 ## <a name="generalize-the-vm"></a>Generalización de la máquina virtual 
-En esta sección se muestra cómo generalizar la máquina virtual Windows para usarla como imagen. La generalización de una máquina virtual elimina toda la información personal de la cuenta, entre otras cosas, y prepara la máquina para usarse como imagen. Para más información acerca de Sysprep, consulte [Uso de Sysprep: Introducción](https://technet.microsoft.com/library/bb457073.aspx).
+En esta sección se muestra cómo generalizar la máquina virtual Windows para usarla como imagen. La generalización de una máquina virtual elimina toda la información personal de la cuenta, entre otras cosas, y prepara la máquina para usarse como imagen. Para obtener más información sobre Sysprep, vea [Uso de Sysprep: Introducción](https://technet.microsoft.com/library/bb457073.aspx).
 
 Asegúrese de que los roles de servidor que se ejecutan en la máquina sean compatibles con Sysprep. Para más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 

@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 95181d0eb23d5956b2c6af52c77f85714b107345
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73100156"
 ---
 # <a name="common-issues"></a>Problemas comunes
@@ -42,7 +42,7 @@ sudo docker logs eventgridmodule
 
 * Si es comunicación de módulo a módulo, asegúrese de que está realizando la llamada en el puerto **4438** y el nombre del módulo coincide con lo que se implementa. 
 
-  Por ejemplo, si el módulo de Event Grid se implementó con el nombre **eventgridmodule**, entonces la dirección URL debe ser **https://eventgridmodule:4438** . Asegúrese de que el uso de mayúsculas y el número de puerto son correctos.
+  Por ejemplo, si el módulo de Event Grid se implementó con el nombre **eventgridmodule**, la dirección URL debe ser **https://eventgridmodule:4438** . Asegúrese de que el uso de mayúsculas y el número de puerto son correctos.
     
 * Si se trata de un módulo que no es de IoT, asegúrese de que el puerto de Event Grid está asignado en el equipo host durante la implementación, por ejemplo:
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 94a376c01229de20e6a1264da3f29532becefa8a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: c683e9847864de4e3409fb6dbd533497a5ae3cea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368662"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060993"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitación y creación de recursos compartidos de archivos grandes
 
 Cuando se habilitan recursos compartidos de archivos de gran tamaño en la cuenta de almacenamiento, los recursos compartidos de archivos se pueden escalar verticalmente hasta 100 TiB. Esta escalabilidad se puede habilitar para los recursos compartidos de archivos existentes en las cuentas de almacenamiento existentes.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - Si planea usar la CLI de Azure, [instale la versión más reciente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -78,7 +78,7 @@ En primer lugar, [instale la versión más reciente de PowerShell](https://docs.
 
 Para crear una cuenta de almacenamiento que tenga habilitados recursos compartidos de archivos grandes, use el siguiente comando. Reemplace `<yourStorageAccountName>`, `<yourResourceGroup>` y `<yourDesiredRegion>` por su información.
 
-```PowerShell
+```powershell
 ## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
@@ -112,7 +112,7 @@ az storage account update --name <yourStorageAccountName> -g <yourResourceGroup>
 
 Para habilitar recursos compartidos de archivos grandes en una cuenta existente, use el siguiente comando. Reemplace `<yourStorageAccountName>` y `<yourResourceGroup>` por su propia información.
 
-```PowerShell
+```powershell
 Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
 ```
 
@@ -142,7 +142,7 @@ az storage share create --account-name <yourStorageAccountName> --account-key <y
 
 Para crear un recurso compartido de archivos grande, use el siguiente comando. Reemplace `<YourStorageAccountName>`, `<YourStorageAccountKey>` y `<YourStorageAccountFileShareName>` por su información.
 
-```PowerShell
+```powershell
 ##Config
 $storageAccountName = "<YourStorageAccountName>"
 $storageAccountKey = "<YourStorageAccountKey>"
@@ -175,7 +175,7 @@ az storage share update --account-name <yourStorageAccountName> --account-key <y
 
 Para establecer la cuota en el tamaño máximo, use el siguiente comando. Reemplace `<YourStorageAccountName>`, `<YourStorageAccountKey>` y `<YourStorageAccountFileShareName>` por su información.
 
-```PowerShell
+```powershell
 ##Config
 $storageAccountName = "<YourStorageAccountName>"
 $storageAccountKey = "<YourStorageAccountKey>"

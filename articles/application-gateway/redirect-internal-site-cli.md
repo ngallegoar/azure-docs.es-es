@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 7d37e36a4cdfed462904e2d02871345ad89d7ac9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74074550"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante la CLI de Azure
 
 Puede usar la CLI de Azure para configurar el [redireccionamiento del tráfico web](multiple-site-overview.md) al crear una [puerta de enlace de aplicaciones](overview.md). En este tutorial, definirá un grupo de back-end mediante un conjunto de escalado de máquinas virtuales. A continuación, configurará reglas y agentes de escucha basados en dominios de su propiedad para asegurarse de que el tráfico web llega al grupo adecuado. En este tutorial se da por supuesto que posee varios dominios y se usan ejemplos de *www\.contoso.com* y *www\.contoso.org*.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red
@@ -217,7 +217,7 @@ Cambie la dirección para su otro dominio, por ejemplo http:\//www.contoso.org, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > * Configuración de la red
 > * Creación de una puerta de enlace de aplicaciones

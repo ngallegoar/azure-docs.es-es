@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 9e4e890ab5491e46ffe5ea0e1c168d168f9cc729
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77468616"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Conmutación por error a un dispositivo físico de la serie StorSimple 8000
@@ -32,7 +32,7 @@ Para aprender más sobre la conmutación por error de dispositivos y cómo se us
 Para conmutar por error un dispositivo físico StorSimple a un dispositivo StorSimple Cloud Appliance, vaya a [Fail over to a StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md) (Conmutación por error a un dispositivo StorSimple Cloud Appliance). Para conmutar por error un dispositivo físico a sí mismo, vaya a [Fail over to the same StorSimple physical device](storsimple-8000-device-failover-same-device.md) (Conmutación por error al mismo dispositivo físico StorSimple).
 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Asegúrese de haber revisado las consideraciones sobre la conmutación por error de dispositivos. Para más información, vaya a [Consideraciones comunes para la conmutación por error de dispositivo](storsimple-8000-device-failover-disaster-recovery.md).
 

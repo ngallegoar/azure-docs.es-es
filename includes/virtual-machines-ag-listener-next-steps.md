@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 27b09ea9cc7ce3cf2559304a26d0c04f3ea30b54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186267"
 ---
 Además de conectar automáticamente los clientes a la réplica principal, un agente de escucha se puede utilizar para redirigir las cargas de trabajo de solo lectura a las secundarias. Esto puede mejorar el rendimiento y la escalabilidad de la solución en general. Para más información, consulte [Use ReadIntent Routing with Azure Always On availability group listener](https://go.microsoft.com/fwlink/?LinkId=522515) (Uso del enrutamiento ReadIntent con el agente de escucha del grupo de disponibilidad de Azure Always On).

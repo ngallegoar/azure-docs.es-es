@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
 ms.openlocfilehash: 109316acb73d3c5f00186298c1f8840c516e5790
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73510593"
 ---
 # <a name="deploy-a-self-hosted-azure-api-management-gateway-to-kubernetes"></a>Implementación de una puerta de enlace autohospedada de Azure API Management en Kubernetes
@@ -27,9 +27,9 @@ En este artículo se detallan los pasos para implementar una puerta de enlace au
 > La característica de puerta de enlace autohospedada se encuentra en versión preliminar. Durante la versión preliminar, la puerta de enlace autohospedada solo está disponible en los niveles Desarrollador y Premium sin cargo adicional. El nivel de Desarrollador está limitado a una única implementación de puerta de enlace autohospedada.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
-- Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
+- Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 - Cree un clúster de Kubernetes. [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) es una buena opción para fines de desarrollo y evaluación. En el caso de las cargas de trabajo de producción, puede usar [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) o un clúster de Kubernetes en una nube externa.
 - [Aprovisione un recurso de puerta de enlace en la instancia de API Management](api-management-howto-provision-self-hosted-gateway.md).
 

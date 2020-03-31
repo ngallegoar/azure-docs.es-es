@@ -16,10 +16,10 @@ ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: c8314b04c05e2ecba2715b807171b5c1a2fa988a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646870"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migración de una Base de datos SQL Server a SQL Server en una máquina virtual de Azure

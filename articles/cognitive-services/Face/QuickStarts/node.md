@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Detección de caras en una imagen con la API REST de Azure y Node.js'
+title: 'Guía de inicio rápido: Detección de caras en una imagen con la API REST de Azure y Node.js'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial, usará la API REST de Azure Face con Node.js para detectar caras en una imagen.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/06/2019
 ms.author: pafarley
 ms.openlocfilehash: 7897c1602a8b9ed6a1fea68e80d57cd5bae1c004
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76165945"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Inicio rápido: Detección de caras en una imagen mediante Face REST API y Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST de Face y Node.js
 
 En esta guía de inicio rápido, usará la API REST de Azure Face con Node.js para detectar caras humanas en una imagen.
 

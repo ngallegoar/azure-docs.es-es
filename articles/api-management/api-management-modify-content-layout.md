@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
 ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430632"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificación del contenido y el diseño de páginas en el portal para desarrolladores de Azure API Management
@@ -30,7 +30,7 @@ Existen tres maneras fundamentales de personalizar el portal para desarrolladore
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="page-structure"> </a>Estructura de las páginas del portal para desarrolladores
+## <a name="structure-of-developer-portal-pages"></a><a name="page-structure"> </a>Estructura de las páginas del portal para desarrolladores
 
 El portal para desarrolladores se basa en el sistema de administración de contenido. El diseño de cada página se compila en función de un conjunto de pequeños elementos de página conocidos como widgets:
 
@@ -42,7 +42,7 @@ Todos los widgets son editables.
 
 En las páginas del día a día, a menudo solo se modificaría el widget Contenido, que tendrá contenido diferente para cada página.
 
-## <a name="modify-layout-widget"> </a>Modificación del contenido de un widget de diseño
+## <a name="modifying-the-contents-of-a-layout-widget"></a><a name="modify-layout-widget"> </a>Modificación del contenido de un widget de diseño
 
 El portal para desarrolladores es accesible desde Azure Portal.
 
@@ -55,7 +55,7 @@ El portal para desarrolladores es accesible desde Azure Portal.
 
 Ahora debe aparecer el nuevo encabezado en todas las páginas del portal para desarrolladores.
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"></a><a name="next-steps"> </a>Pasos siguientes
 * [Actualizar los estilos usados para los elementos de página en el portal para desarrolladores][customize-styles]
 * [Modificar las plantillas usadas en las páginas generadas por el portal][portal-templates] (por ejemplo, documentos de API, productos, autenticación de usuario, etc.)
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 59c1b6e6c281a736a79d110bd7d943344bcd5130
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840985"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatización de la auditoría de grupos de seguridad de red con la vista de grupo de seguridad de Azure Network Watcher

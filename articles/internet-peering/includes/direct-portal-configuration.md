@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 2a42ba8809e6895c9eea9f8762513b7fcaa9eb3a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773967"
 ---
 1. En la página **Create a Peering** (Crear un emparejamiento), en **Aspectos básicos**, rellene los campos como se muestra a continuación.
@@ -57,7 +57,7 @@ ms.locfileid: "75773967"
     > [!div class="mx-imgBorder"]
     > ![Configuración de emparejamiento: pestaña Final](../media/setup-direct-conf-tab-final.png)
 
-1. Observe cómo el portal ejecuta una validación básica de la información especificada. Esta información se muestra en una cinta en la parte superior, con el texto *Ejecutando la validación final...* .
+1. Observe que el portal ejecuta una validación básica de la información especificada. Esta información se muestra en una cinta en la parte superior, con el texto *Ejecutando la validación final...* .
 
     > [!div class="mx-imgBorder"]
     > ![Pestaña Validación del emparejamiento](../media/setup-direct-review-tab-validation.png)

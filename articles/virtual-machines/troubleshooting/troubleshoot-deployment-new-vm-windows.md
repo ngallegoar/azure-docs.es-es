@@ -16,10 +16,10 @@ ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981402"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solución de problemas de implementación al crear una nueva máquina virtual Windows en Azure
@@ -43,13 +43,13 @@ Para iniciar la solución de problemas, recopile los registros de actividad para
 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** Si el sistema operativo es Windows generalizado y se carga o captura con la configuración generalizada, no habrá errores. De forma similar, si el sistema operativo es Windows especializado y se carga o captura con la configuración especializada, no habrá errores.
+**Y:** si el sistema operativo es Windows generalizado y se carga o captura con la configuración generalizada, no habrá errores. De forma similar, si el sistema operativo es Windows especializado y se carga o captura con la configuración especializada, no habrá errores.
 
 **Errores de carga:**
 
-**N<sup>1</sup>:** Si el sistema operativo es Windows generalizado y se carga como especializado, aparecerá un error de tiempo de espera de aprovisionamiento con la VM bloqueada en la pantalla de OOBE.
+**N<sup>1</sup>:** si el sistema operativo es Windows generalizado y se carga como especializado, aparecerá un error de tiempo de espera de aprovisionamiento con la máquina virtual bloqueada en la pantalla de OOBE.
 
-**N<sup>2</sup>:** Si el sistema operativo es Windows especializado y se carga como generalizado, recibirá un error de aprovisionamiento con la VM bloqueada en la pantalla de OOBE porque la nueva VM se ejecuta con el nombre del equipo, el nombre de usuario y la contraseña originales.
+**N<sup>2</sup>:** si el sistema operativo es Windows especializado y se carga como generalizado, recibirá un error de aprovisionamiento con la máquina virtual bloqueada en la pantalla de OOBE porque la nueva máquina virtual se ejecuta con el nombre del equipo, el nombre de usuario y la contraseña originales.
 
 **Resolución**
 
@@ -57,9 +57,9 @@ Para resolver estos errores, use [Add-AzVhd para cargar el disco duro virtual or
 
 **Errores de captura:**
 
-**N<sup>3</sup>:** Si el sistema operativo es Windows generalizado y se captura como especializado, recibirá un error de tiempo de espera de aprovisionamiento porque la VM original no se puede usar, ya que está marcada como generalizada.
+**N<sup>3</sup>:** si el sistema operativo es Windows generalizado y se captura como especializado, recibirá un error de tiempo de espera de aprovisionamiento porque la máquina virtual original no se puede utilizar, ya que está marcada como generalizada.
 
-**N<sup>4</sup>:** Si el sistema operativo es Windows especializado y se captura como generalizado, recibirá un error de aprovisionamiento porque la nueva VM se está ejecutando con el nombre del equipo, el nombre de usuario y la contraseña originales. Además, no se puede utilizar la máquina virtual original ya que está marcada como especializada.
+**N<sup>4</sup>:** si el sistema operativo es Windows especializado y se captura como generalizado, recibirá un error de aprovisionamiento porque la nueva máquina virtual se está ejecutando con el nombre del equipo, el nombre de usuario y la contraseña originales. Además, no se puede utilizar la máquina virtual original ya que está marcada como especializada.
 
 **Resolución**
 
@@ -68,7 +68,7 @@ Para resolver estos errores, elimine la imagen actual del portal y [vuelva a cap
 ## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: Imagen de galería/marketplace/personalizada; error de asignación
 Este error se produce en situaciones en las que la nueva solicitud de máquina virtual está anclada en un clúster que no admite el tamaño de la máquina virtual que se solicita o no tiene espacio libre disponible para alojar la solicitud.
 
-**Causa 1:** El clúster no admite el tamaño de VM solicitado.
+**Causa 1:** el clúster no admite el tamaño de la máquina virtual solicitada.
 
 **Solución 1:**
 
@@ -79,7 +79,7 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
   * Después de detener todas las máquinas virtuales, cree la nueva máquina virtual con el tamaño deseado.
   * Inicie la nueva máquina virtual en primer lugar y luego seleccione cada una de las máquinas virtuales detenidas y haga clic en **Iniciar**.
 
-**Causa 2:** El clúster no tiene recursos disponibles.
+**Causa 2:** el clúster no tiene recursos disponibles.
 
 **Solución 2:**
 

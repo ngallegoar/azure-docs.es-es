@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113124"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>Función `search.in` de OData en Azure Cognitive Search
@@ -59,7 +59,7 @@ También está disponible un diagrama de sintaxis interactivo:
 > [Diagrama de la sintaxis de OData para Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#search_in_call)
 
 > [!NOTE]
-> Consulte [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
+> Consulte [Referencia de la sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md) para obtener la EBNF completa.
 
 La función `search.in` prueba si un determinado campo de cadena o variable de rango es igual a uno de una lista de valores dada. La igualdad entre la variable y cada valor de la lista se determina distinguiendo entre mayúsculas y minúsculas, del mismo modo que para el operador `eq`. Por lo tanto, una expresión como `search.in(myfield, 'a, b, c')` es equivalente a `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, salvo que `search.in` ofrecerá un rendimiento mucho mejor.
 
@@ -70,7 +70,7 @@ Hay dos sobrecargas de la función `search.in`:
 
 Los parámetros se definen en la tabla siguiente:
 
-| Nombre de parámetro | type | DESCRIPCIÓN |
+| Nombre de parámetro | Tipo | Descripción |
 | --- | --- | --- |
 | `variable` | `Edm.String` | Referencia de campo de cadena (o variable de rango en un campo de colección de cadenas en el caso de que `search.in` se use en una expresión `any` o `all`). |
 | `valueList` | `Edm.String` | Cadena que contiene una lista delimitada de valores que deben coincidir con el parámetro `variable`. Si no se especifica el parámetro `delimiters`, los delimitadores predeterminados son espacio y coma. |
@@ -88,7 +88,7 @@ Busque todos los hoteles cuyo nombre sea "Sea View motel" o "Budget hotel". Las 
 
     search.in(HotelName, 'Sea View motel,Budget hotel', ',')
 
-Busque todos los hoteles cuyo nombre sea "Sea View motel" o "Budget hotel" separados por "|"):
+Buscar todos los hoteles cuyo nombre sea "Sea View motel" o "Budget hotel" separados por "|"):
 
     search.in(HotelName, 'Sea View motel|Budget hotel', '|')
 
@@ -96,7 +96,7 @@ Busque todos los hoteles con habitaciones que tengan la etiqueta "wifi" o "tub":
 
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub')))
 
-Busque una coincidencia en las frases de una colección, como "heated towel racks" o "hairdryer included" en las etiquetas.
+Buscar una coincidencia en las frases de una colección, como "heated towel racks" o "hairdryer included" en las etiquetas.
 
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 

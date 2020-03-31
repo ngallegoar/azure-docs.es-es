@@ -4,12 +4,12 @@ description: Aprenda a usar rápidamente Azure API Management y a enrutar el tr�
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc
-ms.openlocfilehash: 201d617ce15216ba168bc484f644e165d5ae0e71
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7bd781a21a32ca29fe3f5dd2f4432dbf1e5ca411
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465343"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292138"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar API Management con Service Fabric en Azure
 
@@ -196,7 +196,7 @@ Rellene los siguientes parámetros vacíos en *apim.parameters.json* para la imp
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
 |serviceFabricCertificate|&lt;cadena codificada en base 64&gt;|
 |url_path|/api/values|
-|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080|
+|clusterHttpManagementEndpoint|`https://mysfcluster.southcentralus.cloudapp.azure.com:19080`|
 |inbound_policy|&lt;Cadena XML&gt;|
 
 *certificatePassword* y *serviceFabricCertificateThumbprint* deben coincidir con el certificado usado para configurar el clúster.

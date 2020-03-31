@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 42f52581d8f2f80deb5d6250ed54ab64fc1ba4d3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849061"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-excel"></a>Visualización de datos mediante el conector de Azure Data Explorer para Excel
@@ -31,7 +31,7 @@ El conector nativo de Excel para Azure Data Explorer ofrece la posibilidad de ex
 
     ![Ventana de Azure Data Explorer (Kusto)](media/excel-connector/adx-connection-window.png)
     
-    |Campo   |DESCRIPCIÓN |
+    |Campo   |Descripción |
     |---------|---------|
     |**Clúster**   |   Nombre del clúster (obligatorio)      |    
     |**Base de datos**     |    Nombre de base de datos      |    
@@ -39,7 +39,7 @@ El conector nativo de Excel para Azure Data Explorer ofrece la posibilidad de ex
     
     **Opciones avanzadas:**
 
-     |Campo   |DESCRIPCIÓN |
+     |Campo   |Descripción |
     |---------|---------|
     |**Limitar el número de registro de resultados de consulta**     |     Limita el número de registros cargados en Excel.  |    
     |**Limitar el tamaño de los datos del resultado de una consulta en bytes**    |    Limita el tamaño de los datos.      |   

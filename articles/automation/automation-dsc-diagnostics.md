@@ -10,10 +10,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 578fcf4cd03a2d4fc8400b9e84f53206750a588c
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77430727"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Reenvío de datos de informes de Azure Automation State Configuration a registros de Azure Monitor
@@ -31,7 +31,7 @@ Con los registros de Azure Monitor, puede:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para empezar a enviar los informes de Automation State Configuration a los registros de Azure Monitor, necesita:
 
@@ -140,7 +140,7 @@ Diagnósticos de Azure Automation crea dos categorías de registros en los regis
 | NodeName_s |El nombre del nodo administrado. |
 | NodeComplianceStatus_s |Si el nodo es compatible. |
 | DscReportStatus |Si la comprobación de cumplimiento se ejecutó correctamente. |
-| ConfigurationMode | Cómo se aplica la configuración al nodo. Los valores posibles son: <ul><li>*ApplyOnly*: DSC se aplica la configuración y es lo único que hace, salvo que se inserte una nueva configuración en el nodo de destino o cuando se extrae una nueva configuración de un servidor. Después de la aplicación inicial de una nueva configuración, DSC no comprueba si se ha producido una desviación desde un estado configurado previamente. DSC intenta aplicar la configuración hasta que sea la correcta antes de que el valor de *ApplyOnly* surta efecto. </li><li>*ApplyAndMonitor*: Este es el valor predeterminado. El LCM aplica las nuevas configuraciones. Después de la aplicación inicial de una nueva configuración, si el nodo de destino se desvía del estado deseado, DSC notifica la discrepancia en los registros. DSC intenta aplicar la configuración hasta que sea la correcta antes de que el valor de *ApplyAndMonitor* surta efecto.</li><li>*ApplyAndAutoCorrect*: DSC aplica las nuevas configuraciones. Después de la aplicación inicial de una nueva configuración, si el nodo de destino se desvía del estado deseado, DSC notifica la discrepancia en los registros y vuelve a aplicar la configuración actual.</li></ul> |
+| ConfigurationMode | Cómo se aplica la configuración al nodo. Los valores posibles son: <ul><li>*ApplyOnly*: DSC se aplica la configuración y es lo único que hace, salvo que se inserte una nueva configuración en el nodo de destino o cuando se extrae una nueva configuración de un servidor. Después de la aplicación inicial de una nueva configuración, DSC no comprueba si se ha producido una desviación desde un estado configurado previamente. DSC intenta aplicar la configuración hasta que sea la correcta antes de que el valor de *ApplyOnly* surta efecto. </li><li>*ObjectID*: es el valor predeterminado. El LCM aplica las nuevas configuraciones. Después de la aplicación inicial de una nueva configuración, si el nodo de destino se desvía del estado deseado, DSC notifica la discrepancia en los registros. DSC intenta aplicar la configuración hasta que sea la correcta antes de que el valor de *ApplyAndMonitor* surta efecto.</li><li>*ApplyAndAutoCorrect*: DSC aplica las configuraciones nuevas. Después de la aplicación inicial de una nueva configuración, si el nodo de destino se desvía del estado deseado, DSC notifica la discrepancia en los registros y vuelve a aplicar la configuración actual.</li></ul> |
 | HostName_s | El nombre del nodo administrado. |
 | IPAddress | La dirección IPv4 del nodo administrado. |
 | Category | DscNodeStatus. |

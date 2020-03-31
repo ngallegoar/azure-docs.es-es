@@ -6,11 +6,11 @@ ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
 ms.openlocfilehash: fc9db23f7733f97ca207e834d4543fbdb1b9db5c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671501"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234656"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -34,10 +34,10 @@ En la tabla siguiente se resumen los tipos de muestreo disponibles para cada SDK
 |-|-|-|-|
 | ASP.NET | [Sí (activado de forma predeterminada)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sí](#configuring-fixed-rate-sampling-for-aspnet-applications) | Solo si no hay otro muestreo en vigor |
 | ASP.NET Core | [Sí (activado de forma predeterminada)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sí](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Solo si no hay otro muestreo en vigor |
-| Azure Functions | [Sí (activado de forma predeterminada)](#configuring-adaptive-sampling-for-azure-functions) | Sin | Solo si no hay otro muestreo en vigor |
-| Java | Sin | [Sí](#configuring-fixed-rate-sampling-for-java-applications) | Solo si no hay otro muestreo en vigor |
-| Python | Sin | [Sí](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Solo si no hay otro muestreo en vigor |
-| Todos los demás | Sin | Sin | [Sí](#ingestion-sampling) |
+| Azure Functions | [Sí (activado de forma predeterminada)](#configuring-adaptive-sampling-for-azure-functions) | No | Solo si no hay otro muestreo en vigor |
+| Java | No | [Sí](#configuring-fixed-rate-sampling-for-java-applications) | Solo si no hay otro muestreo en vigor |
+| Python | No | [Sí](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Solo si no hay otro muestreo en vigor |
+| Todos los demás | No | No | [Sí](#ingestion-sampling) |
 
 > [!NOTE]
 > La información de la mayor parte de esta página se aplica a las versiones actuales de los SDK de Application Insights. Para obtener información sobre las versiones anteriores de los SDK, [consulte la sección siguiente](#older-sdk-versions).

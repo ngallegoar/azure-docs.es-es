@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
 ms.openlocfilehash: 9a7521f61dc59bd954629a05638c159ab0e70556
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658496"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Creación de vistas personalizadas mediante el Diseñador de vistas en Azure Monitor
@@ -22,7 +22,7 @@ Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad d
 Para más información acerca del Diseñador de vistas, consulte:
 
 * [Referencia de los iconos](view-designer-tiles.md): proporciona una guía de referencia de la configuración de cada uno de los iconos disponibles en las vistas personalizadas.
-* [Referencia de los elementos de visualización](view-designer-parts.md): proporciona una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
+* [Referencia de los elementos de visualización](view-designer-parts.md): proporciona una guía de referencia de la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
 
 
 ## <a name="concepts"></a>Conceptos
@@ -69,7 +69,7 @@ Puede crear una vista nueva en el Diseñador de vistas seleccionando **Diseñado
 Utilice el Diseñador de vistas para crear vistas nuevas o modificar las existentes. 
 
 El Diseñador de vistas tiene tres paneles: 
-* **Diseño**: contiene la vista personalizada que se crea o se edita. 
+* **Diseño**: contiene la vista personalizada que crea o edita. 
 * **Controles**: contiene los iconos y los elementos que se agregan al panel **Diseño**. 
 * **Propiedades**: muestra las propiedades de los iconos o elementos seleccionados.
 

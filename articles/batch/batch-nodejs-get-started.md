@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shg
 ms.openlocfilehash: c112fb0b2d0eb3b8a66731948f48c8038a2296f8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023657"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introducción al SDK de Batch para Node.js
@@ -279,13 +279,13 @@ Puede cargar el script en una cuenta de Azure Storage y generar un URI de SAS pa
 
 La tarea de preparación se especifica durante el envío de un trabajo de Azure Batch. Estos son los parámetros de configuración de la tarea de preparación:
 
-* **Identificador**: identificador único de la tarea de preparación.
-* **commandLine**: línea de comandos para ejecutar el ejecutable de la tarea.
+* **ID**: identificador único de la tarea de preparación
+* **commandLine**: comando para ejecutar la tarea
 * **resourceFiles**: matriz de objetos que proporciona detalles de los archivos que se deben descargar para que la tarea se ejecute.  Las opciones son
-    - blobSource: el URI de SAS del archivo.
-    - filePath: ruta de acceso local para descargar y guardar el archivo.
-    - fileMode: solo es aplicable para nodos de Linux; está en formato octal con un valor predeterminado de 0770.
-* **waitForSuccess**: si se establece en true, la tarea no se ejecuta si existen errores en la tarea de preparación.
+    - blobSource: el URI de SAS del archivo
+    - filePath: ruta de acceso local para descargar y guardar el archivo
+    - fileMode: fileMode solo es aplicable para nodos de Linux, está en formato octal con un valor predeterminado de 0770
+* **waitForSuccess**: si se establece en true, la tarea no se ejecuta si existen errores en la tarea de preparación
 * **runElevated**: establézcalo en true si se necesitan privilegios elevados para ejecutar la tarea.
 
 El fragmento de código siguiente muestra el ejemplo de script de configuración de la tarea de preparación:
@@ -317,8 +317,8 @@ Una vez creado el trabajo para procesar archivos CSV, se crearán las tareas par
 
 Si observamos el [script de Python](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), vemos que acepta dos parámetros:
 
-* container name (nombre del contenedor): el contenedor de almacenamiento del que se van a descargar los archivos.
-* pattern (patrón): parámetro opcional de un patrón de nombre de archivo
+* container name: (nombre del contenedor) el contenedor de almacenamiento desde el que se van a descargar los archivos
+* pattern: (patrón) parámetro opcional de un patrón de nombre de archivo
 
 Suponiendo que tenemos cuatro contenedores denominados "con1", "con2", "con3" y "con4", el siguiente código muestra el envío de tareas al trabajo de Azure Batch denominado "process csv" (procesar archivos CSV) que creamos anteriormente.
 

@@ -1,20 +1,18 @@
 ---
 title: Determinar la opción de publicación en Azure Marketplace | Azure Marketplace
 description: En este artículo se describen los criterios de idoneidad y los requisitos de publicación de los asociados que intentan comprender cómo publicar aplicaciones en Azure Marketplace.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 43ca74faadf7890f1274afc4905af79237918f4a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: a471e756cd4c3f174538f51eb657df2e3216bd54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827784"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285068"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guía de publicación por tipo de oferta
 
@@ -47,6 +45,6 @@ Por último, consulte los [**requisitos de Azure AD**](https://docs.microsoft.co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-*   Revise los requisitos de idoneidad de las opciones de publicación por tipo de oferta para finalizar la selección y la configuración de la oferta.
-*   Revise los patrones de publicación por escaparate para ver ejemplos de cómo la solución se asigna a un tipo de oferta y configuración.
+*    Revise los requisitos de idoneidad de las opciones de publicación por tipo de oferta para finalizar la selección y la configuración de la oferta.
+*    Revise los patrones de publicación por escaparate para ver ejemplos de cómo la solución se asigna a un tipo de oferta y configuración.
 

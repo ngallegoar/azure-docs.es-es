@@ -1,19 +1,18 @@
 ---
 title: Plantilla de implementación de Azure VHD | Azure Marketplace
 description: Muestra la plantilla de Azure Resource Manager necesaria para implementar una nueva máquina virtual de Azure desde un disco duro virtual de usuario.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: ddaf9213980e666ea69c700ad26b9db52886c9cb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2db8c05d086c7b4e8537a1c17b1ca84eedb19857
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821422"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277878"
 ---
 # <a name="virtual-hard-disk-deployment-template"></a>Plantilla de implementación de disco duro virtual 
 

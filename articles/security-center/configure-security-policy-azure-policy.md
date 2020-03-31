@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77430948"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configuración de una directiva de seguridad mediante la API de REST
@@ -115,7 +115,7 @@ En este ejemplo se muestra cómo quitar una asignación:
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
  ```
 
-## Referencia de los nombres de directiva <a name="policy-names"></a>
+## <a name="policy-names-reference"></a>Referencia de los nombres de directiva <a name="policy-names"></a>
 
 |Nombre de directiva de Security Center|El nombre de la directiva aparece en Azure Policy |Nombre de parámetro del efecto de directiva|
 |----|----|----|

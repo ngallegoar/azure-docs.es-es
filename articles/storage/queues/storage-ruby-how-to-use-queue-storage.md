@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: c7211bc805f4ed1d026faedbfdc9d53d3c1dfd93
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68721283"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Uso del almacenamiento de colas de Ruby
@@ -61,7 +61,7 @@ Para obtener estos valores desde una cuenta de almacenamiento de Azure Resource 
 4. En la hoja Claves de acceso que aparece, verá la clave de acceso 1 y 2. Puede usar cualquiera de estas. 
 5. Haga clic en el icono de copia para copiar la clave en el Portapapeles. 
 
-## <a name="how-to-create-a-queue"></a>Instrucciones: Creación de una cola
+## <a name="how-to-create-a-queue"></a>Creación de una cola
 El siguiente código crea un objeto **Azure::QueueService** , que permite trabajar con colas.
 
 ```ruby
@@ -78,14 +78,14 @@ rescue
 end
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Instrucciones: Inserción de un mensaje en una cola
+## <a name="how-to-insert-a-message-into-a-queue"></a>Inserción de un mensaje en una cola
 Para insertar un mensaje en una cola, utilice el método **create_message()** para crear un nuevo mensaje y agregarlo a la cola.
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Instrucciones: Inspección del siguiente mensaje
+## <a name="how-to-peek-at-the-next-message"></a>Inspección del siguiente mensaje
 Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peek\_messages()** . De forma predeterminada, **peek\_messages()** inspecciona un único mensaje. También puede indicar cuántos mensajes desea inspeccionar.
 
 ```ruby
@@ -93,7 +93,7 @@ result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Instrucciones: Extracción del siguiente mensaje de la cola
+## <a name="how-to-dequeue-the-next-message"></a>Extracción del siguiente mensaje de la cola
 Puede borrar un mensaje de una cola en dos pasos.
 
 1. Al llamar a **list\_messages()** , obtiene, de forma predeterminada, el siguiente mensaje en una cola. También puede indicar cuántos mensajes desea obtener. Los mensajes devueltos por **list\_messages()** se hacen invisibles para cualquier otro código que lea mensajes de esta cola. Usted proporciona el tiempo de espera de la visibilidad en segundos a modo de parámetro.
@@ -107,7 +107,7 @@ azure_queue_service.delete_message("test-queue",
   messages[0].id, messages[0].pop_receipt)
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Instrucciones: Cambio del contenido de un mensaje en cola
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Cambio del contenido de un mensaje en cola
 Puede cambiar el contenido de un mensaje local en la cola. El código siguiente usa el método **update_message()** para actualizar un mensaje. Este método devolverá una tupla que contiene la recepción de confirmación del mensaje en cola y un valor de fecha y hora UTC que representa el momento en que el mensaje estará visible en la cola.
 
 ```ruby
@@ -117,7 +117,7 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
   30)
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Instrucciones: Opciones adicionales para quitar mensajes de la cola
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Opciones adicionales para extraer mensajes de la cola
 Hay dos formas de personalizar la recuperación de mensajes de una cola.
 
 1. En primer lugar, puede obtener un lote de mensajes.
@@ -133,7 +133,7 @@ azure_queue_service.list_messages("test-queue", 300
 end
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Instrucciones: Obtención de la longitud de la cola
+## <a name="how-to-get-the-queue-length"></a>Obtención de la longitud de la cola
 Puede obtener una estimación del número de mensajes existentes en la cola. El método **get\_queue\_metadata()** solicita a Queue service que devuelva el recuento aproximado de mensajes y metadatos sobre la cola.
 
 ```ruby
@@ -141,7 +141,7 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
   "test-queue")
 ```
 
-## <a name="how-to-delete-a-queue"></a>Instrucciones: Eliminación de una cola
+## <a name="how-to-delete-a-queue"></a>Eliminación de una cola
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **delete\_queue()** en el objeto de cola.
 
 ```ruby

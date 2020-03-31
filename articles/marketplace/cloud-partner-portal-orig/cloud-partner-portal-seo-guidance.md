@@ -1,19 +1,18 @@
 ---
 title: Guía de SEO de Azure Marketplace
 description: Se proporcionan instrucciones para maximizar la optimización de motor de búsqueda (SEO).
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: pabutler
-ms.openlocfilehash: 7115798faadc3209413d22a384433417ec0ddff0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 761cdc2233bce3619d4c2c9ce1d7d7177d3bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819583"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280157"
 ---
 # <a name="azure-marketplace-seo-guidance"></a>Guía de SEO de Azure Marketplace
 
@@ -32,9 +31,9 @@ A continuación se muestran los campos más importantes que deben tenerse en cue
 |  --------------------    | ----------                   | ---------------                                                                   |
 | Nombre de la oferta               |  Alto      | Una coincidencia exacta o cercana a una coincidencia completa con la consulta de búsqueda dará como resultado una clasificación alta.                       |
 | Nombre de publicador           |  Alto      | Una coincidencia exacta o cercana a una coincidencia completa con la consulta de búsqueda dará como resultado una clasificación alta.                       |
-| Descripción breve        |  Mediano    | El nombre de las aplicaciones o del publicador casi siempre garantizará una clasificación alta, aunque puede que no sea lo más relevante. En este caso, una descripción breve es fundamental. Mantenga el texto conciso y directo. Deben incluirse las palabras clave y los términos de búsqueda esperados para obtener los mejores resultados.  Por ejemplo “Este es el mejor Retail POS basado totalmente en Dynamics 365” es menos eficaz que “Retail POS (punto de venta) para Dynamics 365”.  | 
+| Descripción breve        |  Media    | El nombre de las aplicaciones o del publicador casi siempre garantizará una clasificación alta, aunque puede que no sea lo más relevante. En este caso, una descripción breve es fundamental. Mantenga el texto conciso y directo. Deben incluirse las palabras clave y los términos de búsqueda esperados para obtener los mejores resultados.  Por ejemplo “Este es el mejor Retail POS basado totalmente en Dynamics 365” es menos eficaz que “Retail POS (punto de venta) para Dynamics 365”.  | 
 | Descripción larga         |  Bajo       | La descripción ofrece una manera de ahondar más. Las descripciones más eficaces tienen una longitud razonable y usan las palabras clave.  Una descripción directa con las palabras clave será más beneficiosa que un texto largo. Asegúrese de que los términos clave, como “IoT”, están presentes en la descripción.  |
-| Categorías de productos       | Mediano     |  Las categorías de productos se determinan mediante una combinación de opciones de publicador y Microsoft. Seleccione adecuadamente estas categorías para que los usuarios puedan encontrar fácilmente las aplicaciones en la categoría correcta. |
+| Categorías de productos       | Media     |  Las categorías de productos se determinan mediante una combinación de opciones de publicador y Microsoft. Seleccione adecuadamente estas categorías para que los usuarios puedan encontrar fácilmente las aplicaciones en la categoría correcta. |
 |  |  |  |
 
 

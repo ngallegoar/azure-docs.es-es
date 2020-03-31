@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 231d1efa02ec80e8ad56a8895d4262d774480111
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73824095"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implementación de dependencias para el desarrollo local
@@ -36,13 +36,13 @@ En este artículo se explica cómo implementar solo los servicios de la platafor
 
 3. Una vez completado el script, puede optar por guardar el archivo .env.  El archivo de entorno .env es el archivo de configuración de todos los servicios y herramientas que quiere ejecutar en el equipo de desarrollo.  
 
-## <a name="troubleshooting-deployment-failures"></a>Errores de solución de problemas de implementación
+## <a name="troubleshooting-deployment-failures"></a>Solución de problemas con errores de implementación
 
 ### <a name="resource-group-name"></a>Definición de un nombre de grupo de recursos
 
-Asegúrese de usar un nombre de grupo de recursos corto y sencillo.  El nombre se usa también para denominar recursos como si tuviera que cumplir con los requisitos de nomenclatura de recursos.  
+Asegúrese de usar un nombre de grupo de recursos corto y sencillo.  El nombre se usa también para denominar recursos y debe cumplir los requisitos de nomenclatura de los recursos.  
 
-### <a name="azure-active-directory-aad-registration"></a>Registro de Azure Active Directory (AAD)
+### <a name="azure-active-directory-aad-registration"></a>Registro de Azure Active Directory (AAD)
 
 El script de implementación intenta registrar aplicaciones de AAD en Azure Active Directory.  En función de sus derechos para el inquilino de AAD seleccionado, esto podría generar un error.   Hay tres opciones:
 

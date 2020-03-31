@@ -9,10 +9,10 @@ ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: conceptual
 ms.date: 10/13/2016
 ms.openlocfilehash: f5adbb75e6852551976aa040a1a1c723d2e3f59b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71309729"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Use the Vertex Execution View in Data Lake Tools for Visual Studio (Usar la vista de ejecución de vértices de Data Lake Tools para Visual Studio)
@@ -41,7 +41,7 @@ El panel inferior central muestra información sobre cada vértice:
 * Nombre del proceso: nombre de la instancia de vértice. Se compone de distintas partes de StageName|VertexName|VertexRunInstance. Por ejemplo, el vértice SV7_Split[62].v1 corresponde a la segunda instancia en ejecución (.v1, índice que comienza desde 0) del número de vértice 62 en Stage SV7_Split.
 * Escritura/lectura de datos total: los datos leídos/escritos por este vértice.
 * Estado de salida/estado: el estado final cuando finaliza el vértice.
-* Código de salida/Tipo de error: el error del vértice.
+* Código de salida/tipo d error: el error cuando produce un error en el vértice.
 * Motivo de la creación: motivo por el que se creó el vértice.
 * Latencia de cola PN/latencia de proceso/latencia de recurso: el tiempo que tarda el vértice en esperar a los recursos, procesar los datos y permanecer en la cola.
 * GUID del creador/proceso: GUID del vértice de ejecución actual o su creador.

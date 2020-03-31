@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
 ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75750792"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Registro y auditoría de seguridad de Azure
@@ -62,7 +62,7 @@ En [Integración de alertas de Security Center](../../security-center/security-c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Auditoría y registro](management-monitoring-overview.md): proteja los datos mediante el mantenimiento de la visibilidad y la rápida respuesta a las alertas de seguridad puntuales.
+- [Auditoría y registro](management-monitoring-overview.md): proteja los datos mediante el mantenimiento de la visibilidad y la rápida respuesta a las alertas de seguridad puntuales
 
 - [Registro de seguridad y recopilación de registros de auditoría en Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): aplique esta configuración para asegurarse de que las instancias de Azure están recopilando los registros de seguridad y auditoría correctos.
 

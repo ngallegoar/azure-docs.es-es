@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
 ms.openlocfilehash: e5c8bc2fe64d489c9e8490a63f4d7c4680f21ce0
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71846396"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Compatibilidad con sistemas operativos de 32 bits en máquinas virtuales de Azure

@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78933589"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferencia de datos con AzCopy y Blob Storage

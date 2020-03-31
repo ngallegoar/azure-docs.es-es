@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864237"
 ---
 # <a name="team-data-science-process-project-planning"></a>Plantilla de planeamiento del proyecto del proceso de ciencia de datos en equipo
@@ -35,7 +35,7 @@ Para obtener descripciones de cada una de estas fases, consulte [El ciclo de vid
  
 ## <a name="microsoft-project-template"></a>Plantilla de Microsoft Project
 
-La plantilla de Microsoft Project para el proceso de ciencia de datos en equipos está disponible desde aquí: [Plantilla de Microsoft Project](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
+La plantilla de Microsoft Project para el proceso de ciencia de datos en equipo está disponible desde aquí: [Plantilla de Microsoft Project](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.mpp) 
 
 Cuando abra el plan, haga clic en el vínculo situado más a la izquierda del proceso de ciencia de datos en equipo. Cambie el nombre y la descripción y, a continuación, añada otros recursos de equipo que necesite. Calcule las fechas requeridas a partir de su experiencia.
 
@@ -48,7 +48,7 @@ Cada tarea tiene una nota. Abra esas notas para ver qué recursos se han creado 
 
 ## <a name="excel-template"></a>Plantilla de Excel
 
-Si no tiene acceso a Microsoft Project, también hay una hoja de cálculo de Excel con los mismos datos disponible para su descarga aquí: [Plantilla de Excel](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx), puede usarla en cualquier herramienta que quiera.
+Si no tiene acceso a Microsoft Project, también hay una hoja de cálculo de Excel con los mismos datos disponible para su descarga aquí: [Plantilla de Excel](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) Puede utilizarla en cualquier herramienta que desee.
 
 Use estas plantillas bajo su responsabilidad. Son de aplicación las [renuncias de responsabilidad habituales](https://www.gnu.org/licenses/gpl-3.0.en.html).
 

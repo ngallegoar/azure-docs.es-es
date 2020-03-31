@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: eba5df587d6bd6dda6083314cfb94836c6669393
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73683140"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory
@@ -74,7 +74,7 @@ Factoría de datos de Azure se usa para coordinar el procesamiento y el movimien
 
       ![URI del lote](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
-### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Escenario: experimentos mediante entradas y salidas de servicios web que hacen referencia a datos de Azure Blob Storage
+### <a name="scenario-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Escenario: Experimentos mediante entradas y salidas de servicios web que hacen referencia a datos de Azure Blob Storage
 En este escenario, el servicio web de Azure Machine Learning realiza predicciones mediante datos de un archivo de un almacenamiento de blobs de Azure y almacena los resultados de predicción en el almacenamiento de blobs. El siguiente JSON define una canalización de Data Factory con una actividad AzureMLBatchExecution. La actividad tiene el conjunto de datos **DecisionTreeInputBlob** como entrada y **DecisionTreeResultBlob** como salida. **DecisionTreeInputBlob** se pasa como entrada al servicio web mediante la propiedad JSON **webServiceInput**. **DecisionTreeResultBlob** se pasa como salida al servicio web mediante la propiedad JSON **webServiceOutputs**.
 
 > [!IMPORTANT]
@@ -192,7 +192,7 @@ Es recomendable que siga el tutorial [Compilación de la primera canalización c
     }
     ```
 
-    si el archivo .csv no tiene la fila del encabezado, es posible que aparezca un error como el siguiente: **Error en la actividad: error de lectura de la cadena. Token inesperado: StartObject. Path '', line 1, position 1**.
+    Si el archivo CSV no tiene la fila de encabezado, es posible que vea el siguiente error: **Error en actividad: error de lectura de la cadena. Token inesperado: StartObject. Path '', line 1, position 1**.
 3. Cree el **conjunto de datos** de **salida** de Azure Data Factory. En este ejemplo se usa la creación de particiones para crear una ruta de acceso de salida única para cada ejecución de segmento. Sin la creación de particiones, la actividad sobrescribiría el archivo.
 
     ```JSON
@@ -234,7 +234,7 @@ Es recomendable que siga el tutorial [Compilación de la primera canalización c
       }
     }
     ```
-4. Cree un **servicio vinculado** del tipo: **AzureMLLinkedService**; para ello, proporcione la clave de API y la dirección URL de ejecución de lotes del modelo.
+4. Cree un **servicio vinculado** de tipo **AzureMLLinkedService**; para ello, proporcione la clave de API y la URL de ejecución de lotes.
 
     ```JSON
     {
@@ -301,24 +301,24 @@ Es recomendable que siga el tutorial [Compilación de la primera canalización c
       }
       ```
 
-      Las fechas y horas de inicio (**start**) y de finalización (**end**) deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
+      Las fechas y horas de inicio (**start**) y de finalización (**end**) deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
 
       > [!NOTE]
       > La especificación de la entrada para la actividad AzureMLBatchExecution es opcional.
       >
       >
 
-### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Escenario: experimentos mediante módulos lector y escritor para hacer referencia a datos de varios almacenamientos
+### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Escenario: Experimentos mediante módulos Lector y Escritor para hacer referencia a datos de varios almacenamientos
 Otro escenario común al crear experimentos de Azure Machine Learning Studio es usar módulos Lector y Escritor. El módulo lector se usa para cargar datos en un experimento y el módulo escritor para guardar los datos de los experimentos. Para obtener información sobre los módulos lector y escritor, consulte los temas [Lector](https://msdn.microsoft.com/library/azure/dn905997.aspx) y [Escritor](https://msdn.microsoft.com/library/azure/dn905984.aspx) en MSDN Library.
 
-Al usar los módulos lector y escritor, es recomendable emplear un parámetro de servicio web para cada propiedad de estos módulos. Estos parámetros web permiten configurar los valores en tiempo de ejecución. Por ejemplo, pueden crear un experimento con un módulo lector que usa una base de datos de Azure SQL: XXX.database.windows.net. Una vez implementado el servicio web, quiere habilitar los consumidores del servicio web con el fin de especificar otro servidor Azure SQL Server denominado YYY.database.windows.net. Puede usar un parámetro de servicio web para permitir que se configure este valor.
+Al usar los módulos lector y escritor, es recomendable emplear un parámetro de servicio web para cada propiedad de estos módulos. Estos parámetros web permiten configurar los valores en tiempo de ejecución. Por ejemplo, podría crear un experimento con un módulo lector que usa una base de datos de Azure SQL: XXX.database.windows.net. Una vez implementado el servicio web, quiere habilitar los consumidores del servicio web con el fin de especificar otro servidor Azure SQL Server denominado YYY.database.windows.net. Puede usar un parámetro de servicio web para permitir que se configure este valor.
 
 > [!NOTE]
 > Las entradas y salidas de servicio web son diferentes de los parámetros de servicio web. En el primer escenario, ha visto cómo pueden especificarse una entrada y una salida para un servicio web de Azure Machine Learning Studio. En este escenario, se pasan parámetros para un servicio web que corresponden a las propiedades de los módulos lector y escritor.
 >
 >
 
-Echemos un vistazo a un escenario de uso de parámetros de servicio web. Tiene un servicio web de Azure Machine Learning implementado que usa un módulo lector para leer datos de uno de los orígenes de datos compatibles con Azure Machine Learning (por ejemplo: Azure SQL Database). Después de realizar la ejecución de lotes, los resultados se escriben con un módulo escritor (Azure SQL Database).  No hay entradas ni salidas de servicio web definidas en los experimentos. En este caso, se recomienda que configure los parámetros de servicio web pertinentes para los módulos lector y escritor. De esta forma, se podrán configurar los módulos lector y escritor cuando se use la actividad AzureMLBatchExecution. Los parámetros de servicio web se especifican en la sección **globalParameters** de la actividad JSON como se indica a continuación.
+Echemos un vistazo a un escenario de uso de parámetros de servicio web. Tiene un servicio web implementado de Azure Machine Learning que usa un módulo lector para leer datos de uno de los orígenes de datos admitidos por Azure Machine Learning (por ejemplo: Azure SQL Database). Después de realizar la ejecución de lotes, los resultados se escriben con un módulo escritor (Azure SQL Database).  No hay entradas ni salidas de servicio web definidas en los experimentos. En este caso, se recomienda que configure los parámetros de servicio web pertinentes para los módulos lector y escritor. De esta forma, se podrán configurar los módulos lector y escritor cuando se use la actividad AzureMLBatchExecution. Los parámetros de servicio web se especifican en la sección **globalParameters** de la actividad JSON como se indica a continuación.
 
 ```JSON
 "typeProperties": {
@@ -347,7 +347,7 @@ También puede usar [Funciones de Factoría de datos](data-factory-functions-var
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Uso de un módulo lector para leer datos de varios archivos de blob de Azure
 La canalización de macrodatos con actividades como Pig y Hive puede generar uno o varios archivos de salida sin extensiones. Por ejemplo, cuando se especifica una tabla externa de Hive, los datos de dicha tabla se pueden almacenar en el almacenamiento de blobs de Azure con el siguiente nombre 000000_0. Puede usar el módulo lector en un experimento para leer varios archivos y usarlos para realizar predicciones.
 
-Al usar el módulo lector en un experimento de Azure Machine Learning, puede especificar Blob de Azure como entrada. Los archivos de Azure Blob Storage pueden ser los archivos de salida (ejemplo: 000000_0) que genera un script de Pig y Hive que se ejecuta en HDInsight. El módulo de lector permite leer archivos (sin extensiones) mediante la configuración de la propiedad **Path to container, directory/blob**(Ruta de acceso al contenedor, directorio o blob). La **ruta de acceso al contenedor** apunta al contenedor y el **directorio o blob** apunta a la carpeta que contiene los archivos, tal y como se muestra en la siguiente imagen. Tenga en cuenta que el asterisco (\*) **especifica que todos los archivos de la carpeta o contenedor (es decir, data/aggregateddata/year=2014/month-6/\*)** se leen como parte del experimento.
+Al usar el módulo lector en un experimento de Azure Machine Learning, puede especificar Blob de Azure como entrada. Los archivos en Blob Storage de Azure pueden ser los archivos de salida (por ejemplo, 000000_0) que se generan mediante un script de Pig y Hive en HDInsight. El módulo de lector permite leer archivos (sin extensiones) mediante la configuración de la propiedad **Path to container, directory/blob**(Ruta de acceso al contenedor, directorio o blob). La **ruta de acceso al contenedor** apunta al contenedor y el **directorio o blob** apunta a la carpeta que contiene los archivos, tal y como se muestra en la siguiente imagen. Tenga en cuenta que el asterisco (\*) **especifica que todos los archivos de la carpeta o contenedor (es decir, data/aggregateddata/year=2014/month-6/\*)** se leen como parte del experimento.
 
 ![Propiedades de Blob de Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -404,8 +404,8 @@ Al usar el módulo lector en un experimento de Azure Machine Learning, puede esp
 
 En el ejemplo JSON anterior:
 
-* El servicio web implementado de Azure Machine Learning usa un módulo lector y otro escritor para leer y escribir datos desde y hacia una base de datos de Azure SQL. Este servicio web expone los cuatro parámetros siguientes:  nombre del servidor de bases de datos, nombre de base de datos, nombre de la cuenta del usuario del servidor y contraseña de la cuenta de usuario del servidor.
-* Las fechas y horas de inicio (**start**) y de finalización (**end**) deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
+* El servicio web implementado de Azure Machine Learning usa un módulo lector y otro escritor para leer y escribir datos desde y hacia una base de datos de Azure SQL. Este servicio web expone los cuatro parámetros siguientes: nombre de servidor de base de datos, nombre de base de datos, nombre de cuenta de usuario de servidor y contraseña de cuenta de usuario de servidor.
+* Las fechas y horas de inicio (**start**) y de finalización (**end**) deben estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx) .
 
 ### <a name="other-scenarios"></a>Otros escenarios
 #### <a name="web-service-requires-multiple-inputs"></a>El servicio web requiere varias entradas
@@ -553,7 +553,7 @@ Un escenario común para el uso de parámetros de servicio web es el uso de Lect
 Para obtener información acerca del lector o escritor de SQL/blob de Azure, consulte los temas [Lector ](https://msdn.microsoft.com/library/azure/dn905997.aspx)y [Escritor](https://msdn.microsoft.com/library/azure/dn905984.aspx) en MSDN Library. El ejemplo de la sección anterior utilizó el lector de Blob de Azure y el lector de Blob de Azure. En esta sección se trata el uso del lector SQL Azure y el escritor SQL Azure.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-**P:** Mis canalizaciones de macrodatos han generado varios archivos. ¿Puedo usar la actividad AzureMLBatchExecution para trabajar en todos los archivos?
+**P:** Tengo varios archivos generados por medio de mis canalizaciones de macrodatos. ¿Puedo usar la actividad AzureMLBatchExecution para trabajar en todos los archivos?
 
 **R:** Sí. Consulte **Uso de un módulo lector para leer datos de varios archivos de blob de Azure** para obtener más información.
 
@@ -627,8 +627,8 @@ También puede usar [Funciones de Factoría de datos](data-factory-functions-var
 >
 >
 
-## <a name="see-also"></a>Otras referencias
-* [Entrada de blog de Azure: Introducción a Azure Data Factory y a Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+## <a name="see-also"></a>Consulte también
+* [Entrada de blog de Azure: Introducción a la factoría de datos de Azure y a Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 

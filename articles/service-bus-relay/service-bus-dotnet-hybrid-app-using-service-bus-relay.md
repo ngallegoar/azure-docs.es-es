@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: spelluru
 ms.openlocfilehash: b86d535e4cbc275b3ee777d7c70146f7711c502c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71212977"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Exposición de un servicio WCF local a una aplicación web en la nube con Azure Relay
@@ -32,7 +32,7 @@ En este tutorial, hará lo siguiente:
 
 > [!div class="checklist"]
 >
-> * Instale los requisitos previos del tutorial.
+> * Instalar los requisitos previos del tutorial.
 > * Revise el escenario.
 > * Cree un espacio de nombres.
 > * Cree un servidor local.
@@ -41,11 +41,11 @@ En este tutorial, hará lo siguiente:
 > * Implemente la aplicación web en Azure.
 > * Ejecute la aplicación en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
-* Una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Suscripción a Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * [Visual Studio 2015 o posterior](https://www.visualstudio.com). En los ejemplos de este tutorial se usa Visual Studio 2019.
 * SDK de Azure para .NET. Instálelo desde la [página de descargas de SDK](https://azure.microsoft.com/downloads/).
 
@@ -94,7 +94,7 @@ En primer lugar, cree un sistema de catálogo de productos local ficticio.  Este
    ![Configuración del nuevo proyecto][11]
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **ProductsServer** y después seleccione **Administrar paquetes NuGet**.
-1. Seleccione **Examinar** y, después, busque y elija **WindowsAzure.ServiceBus**. Seleccione **Instalar**y acepte las condiciones de uso.
+1. Seleccione **Examinar** y, después, busque y elija **WindowsAzure.ServiceBus**. Seleccione **Instalar** y acepte las condiciones de uso.
 
    ![Selección de un paquete NuGet][13]
 

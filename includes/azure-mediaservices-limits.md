@@ -4,17 +4,17 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 49150daa783280f47cb9401434ebfab8f6204090
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2fe091a4ff0295ecadfd69ba3f2d4ca59e9612e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224394"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334684"
 ---
 >[!NOTE]
 >En relación con los recursos que no están fijados, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services para obtener límites mayores.
 
-| Resource | Límite predeterminado | 
+| Resource | Límite | 
 | --- | --- | 
 | Cuentas de Azure Media Services en una suscripción única | 25 (fijo) |
 | Unidades reservadas de multimedia por cuenta de Media Services |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
@@ -54,8 +54,8 @@ A partir del 1 de abril de 2017, se eliminarán automáticamente los registros d
 
 En la tabla siguiente se muestran los límites en cada una de las unidades reservadas de multimedia (S1, S2 y S3). Si el archivo de origen es mayor que los límites definidos en la tabla, se producirá un error en el trabajo de codificación. Si codifica orígenes de resolución en 4K de larga duración, debe usar unidades reservadas de multimedia S3 para lograr el rendimiento necesario. Si tiene contenido de 4K mayor que el límite de 260 GB en las unidades reservadas de multimedia S3, abra una incidencia de soporte técnico.
 
-|Tipo de unidad reservada de medios   |Tamaño máximo de entrada (GB)|
+|Tipo de unidad reservada de medios    |Tamaño máximo de entrada (GB)|
 |---|---|
-|S1 |   26|
-|S2 | 60|
-|S3 |260|
+|S1 |    26|
+|S2    | 60|
+|S3    |260|

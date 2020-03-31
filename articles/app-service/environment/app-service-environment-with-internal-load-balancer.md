@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d8ed6b1806e1cbb0ca7419c5892a4a84bc62e541
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0c03905017629e28e41cce2adaa65eac347b8185
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688723"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294734"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso de un equilibrador de carga interno con un entorno de App Service
 
@@ -93,8 +93,8 @@ Si desea probar el flujo con sus propios certificados y probar el acceso HTTP y 
 4. Cree una aplicación web en el ASE recién creado. 
 5. Si no dispone de ninguna en esa red virtual, cree una máquina virtual (no en la misma subred que el ASE, ya que se producirían errores).
 6. Establezca el DNS del subdominio. Puede utilizar un carácter comodín con el subdominio en el DNS o, si quiere realizar algunas pruebas sencillas, editar el archivo de hosts de la máquina virtual para establecer el nombre de la aplicación web en la dirección IP virtual. Si el nombre de subdominio del ASE es .ilbase.com, el de la aplicación web es mytestapp y la dirección, en consecuencia, es mytestapp.ilbase.com, establezca dicha dirección en el archivo de hosts. (en Windows, el archivo hosts se encuentra en _C:\Windows\System32\drivers\etc\)
-7. Utilice un explorador en esa VM y vaya a https://mytestapp.ilbase.com (o a la dirección que corresponda según el nombre de la aplicación web en el subdominio).
-8. Use un explorador en esa máquina virtual y vaya a https://mytestapp.ilbase.com. Si utiliza un certificado autofirmado, acepte el aviso de seguridad. 
+7. Utilice un explorador en esa VM y vaya a `https://mytestapp.ilbase.com` (o a la dirección que corresponda según el nombre de la aplicación web en el subdominio).
+8. Use un explorador en esa máquina virtual y vaya a `https://mytestapp.ilbase.com`. Si utiliza un certificado autofirmado, acepte el aviso de seguridad. 
 
 La dirección IP del ILB aparece en las Propiedades como la dirección IP virtual.
 

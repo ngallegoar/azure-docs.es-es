@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: c09d0532b845472d0ccaac1ad57e3772630bb5c9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74932066"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>Script de PowerShell: transformación de datos en la nube con Azure Data Factory
@@ -25,7 +25,7 @@ Este script de PowerShell de ejemplo crea una canalización que transforma los d
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 * **Cuenta de Azure Storage**. Cree un script de Python y un archivo de entrada y cárguelos en Azure Storage. La salida del programa Spark se almacena en esta cuenta de almacenamiento. El clúster de Spark a petición usa la misma cuenta de almacenamiento que el almacenamiento principal.  
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Carga del script de Python en la cuenta de Blob Storage

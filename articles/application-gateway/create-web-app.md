@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74089513"
 ---
 # <a name="configure-app-service-with-application-gateway-using-powershell"></a>Configuración de App Service con Application Gateway mediante PowerShell
@@ -166,4 +166,4 @@ Una manera de restringir el acceso a las aplicaciones web es usar [Restricciones
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo configurar el redireccionamiento, visite: [Configuración del redireccionamiento en Application Gateway con PowerShell](redirect-overview.md).
+Para aprender a configurar el redireccionamiento, visite: [Configuración del redireccionamiento en Application Gateway con PowerShell](redirect-overview.md).

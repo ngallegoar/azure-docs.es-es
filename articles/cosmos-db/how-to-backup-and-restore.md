@@ -8,10 +8,10 @@ ms.date: 09/01/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 19ca835ca8211202cd358ac2ec3695675183a372
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70240759"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restauración de los datos desde una copia de seguridad en Azure Cosmos DB 
@@ -57,7 +57,7 @@ Se recomienda eliminar el contenedor o la base de datos inmediatamente después 
 
 Luego puede obtener información sobre cómo migrar los datos nuevamente a la cuenta original siguiendo los artículos a continuación:
 
-* Para hacer una solicitud de restauración, póngase en contacto con el servicio de soporte técnico de Azure y [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-* [Use la fuente de cambios de Cosmos DB](change-feed.md) para mover datos a Azure Cosmos DB.
+* Para hacer una solicitud de restauración, póngase en contacto con el servicio de soporte técnico de Azure y [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
+* [Uso de la fuente de cambios en Cosmos DB](change-feed.md) para mover datos a Azure Cosmos DB.
 
 * [Uso de Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) para mover datos a Azure Cosmos DB.

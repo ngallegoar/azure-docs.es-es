@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 49dc69eb73bd19509b5e14c5a4976cfa7208545a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 97f265d76ac70891e9cefc0ef6651e439706ed23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392345"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334853"
 ---
 **Volumen de colección de datos y retención** 
 
@@ -35,21 +35,21 @@ ms.locfileid: "75392345"
 
 **Azure Portal**
 
-| Category | límites | Comentarios |
+| Category | Límite | Comentarios |
 |:---|:---|:---|
 | Número máximo de registros devueltos por una consulta de registro | 10 000 | Para reducir los resultados, use un ámbito de consulta, intervalo de tiempo y filtros en la consulta. |
 
 
 **API de recopilador de datos**
 
-| Category | límites | Comentarios |
+| Category | Límite | Comentarios |
 |:---|:---|:---|
 | Tamaño máximo de una sola publicación | 30 MB | Dividir volúmenes más grandes en varias publicaciones. |
 | Tamaño máximo de los valores de campo  | 32 KB | Los campos de más de 32 KB se truncan. |
 
 **API de búsqueda**
 
-| Category | límites | Comentarios |
+| Category | Límite | Comentarios |
 |:---|:---|:---|
 | Número máximo de registros devueltos por una única consulta | 500.000 | |
 | Tamaño máximo de los datos devueltos | 64 000 000 bytes (~61 MiB)| |
@@ -58,7 +58,7 @@ ms.locfileid: "75392345"
 
 **Límites generales del área de trabajo**
 
-| Category | límites | Comentarios |
+| Category | Límite | Comentarios |
 |:---|:---|:---|
 | Número máximo de columnas en una tabla         | 500 | |
 | Número máximo de caracteres para el nombre de columna | 500 | |

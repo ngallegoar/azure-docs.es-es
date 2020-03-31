@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 2823a33b25812a69ad463433bacd9710655c9176
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: d700dfcf5a7b6e9ada2a755335689ffa571e4c3d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67186722"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334613"
 ---
 #### <a name="process-automation"></a>Automatización de procesos
 
-| Recurso | Límite máximo |Notas|
+| Resource | Límite |Notas|
 | --- | --- |---|
 | Cantidad máxima de trabajos nuevos que se puede enviar cada 30 segundos por cuenta de Automation (trabajos no programados) |100 |Si se alcanza este límite, se producirá un error en las siguientes solicitudes para crear un trabajo. El cliente recibe una respuesta de error.|
 | Cantidad máxima de trabajos en ejecución simultáneos en la misma instancia de tiempo por cuenta de Automation (trabajos no programados) |200 |Si se alcanza este límite, se producirá un error en las siguientes solicitudes para crear un trabajo. El cliente recibe una respuesta de error.|
@@ -28,7 +28,7 @@ ms.locfileid: "67186722"
 | Tiempo de ejecución de trabajos, nivel Gratis |500 minutos por suscripción por mes del calendario ||
 | Cantidad máxima de espacio en disco permitida por espacio aislado<sup>1</sup> |1 GB |Se aplica solo a los espacios aislados de Azure.|
 | Cantidad máxima de memoria que se asigna a un espacio aislado<sup>1</sup> |400 MB |Se aplica solo a los espacios aislados de Azure.|
-| Número máximo de sockets de red permitido por espacio aislado<sup>1</sup> |1000 |Se aplica solo a los espacios aislados de Azure.|
+| Número máximo de sockets de red permitido por espacio aislado<sup>1</sup> |1,000 |Se aplica solo a los espacios aislados de Azure.|
 | Tiempo de ejecución máximo permitido por runbook <sup>1</sup> |3 horas |Se aplica solo a los espacios aislados de Azure.|
 | Número máximo de cuentas de Automation en una suscripción |Sin límite ||
 | Número máximo de grupos de Hybrid Worker por cuenta de Automation|4\.000||
@@ -51,8 +51,8 @@ En la siguiente tabla se muestran los límites del elemento sometido a seguimien
 |Registro|250||
 |Software de Windows|250|No se incluye el costo de las actualizaciones de software.|
 |Paquetes Linux|1250||
-|Services|250||
-|Daemon|250||
+|Servicios|250||
+|Demonio|250||
 
 #### <a name="update-management"></a>Administración de actualizaciones
 

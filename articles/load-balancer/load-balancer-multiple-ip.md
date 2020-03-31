@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076997"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Equilibrio de carga en varias configuraciones de IP mediante Azure Portal
@@ -42,7 +42,7 @@ En nuestro escenario, usamos la siguiente configuración:
 - Azure Load Balancer se utiliza para exponer dos direcciones IP de servidor front-end, una para cada sitio web. Las direcciones de servidor front-end se utilizan para distribuir el tráfico a la configuración IP correspondiente para cada sitio web.
 - Se usa el mismo número de puerto para las direcciones IP de servidor front-end y las de grupo back-end.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En nuestro ejemplo de escenario se da por supuesto que tiene un grupo de recursos denominado **contosofabrikam** con la siguiente configuración:
 
@@ -130,7 +130,7 @@ Para cada sitio web (contoso.com y fabrikam.com), configure el grupo de direccio
 
 Después de configurar el grupo de servidores front-end, las direcciones IP se muestran en la configuración **Configuración de direcciones IP de front-end** del equilibrador de carga. 
     
-### <a name="step-4-configure-the-back-end-pool"></a>Paso 4: Configuración del grupo back-end
+### <a name="step-4-configure-the-back-end-pool"></a>Paso 4: Configuración del grupo de servidores back-end
 
 Para cada sitio web (contoso.com y fabrikam.com), configure el grupo de direcciones de servidores back-end en el equilibrador de carga:
         

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/15/2018
-ms.openlocfilehash: e809c88d8a0a0efeb12e9f2a472a497349fdfa1b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 03/11/2020
+ms.openlocfilehash: bee627ade4f66206cd5254fc32bc7aa9973c7bee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927506"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131309"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -79,7 +79,7 @@ Si el almacén de datos en la nube es compatible con HTTPS o TLS, todas las tran
 Algunos almacenes de datos admiten el cifrado de datos en reposo. Se recomienda habilitar el mecanismo de cifrado de datos para estos almacenes. 
 
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-El Cifrado de datos transparente (TDE) de Azure SQL Data Warehouse ayuda a proteger frente a las amenazas de actividad malintencionada al realizar el cifrado y el descifrado en tiempo real de los datos en reposo. Este comportamiento es transparente para el cliente. Para más información, consulte [Proteger una base de datos en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+El Cifrado de datos transparente (TDE) de Azure SQL Data Warehouse ayuda a proteger frente a las amenazas de actividad malintencionada al realizar el cifrado y el descifrado en tiempo real de los datos en reposo. Este comportamiento es transparente para el cliente. Para más información, consulte [Proteger una base de datos en SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database admite también el Cifrado de datos transparente (TDE), que ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos sin que haya que efectuar cambios en la aplicación. Este comportamiento es transparente para el cliente. Para más información, consulte [Cifrado de datos transparente para SQL Database y Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
@@ -135,7 +135,7 @@ Azure Virtual Network es una representación lógica de la red en la nube. Puede
 
 En la tabla siguiente, se resumen las recomendaciones de configuración de red y del entorno de ejecución de integración autohospedado en función de diferentes combinaciones de ubicaciones de origen y de destino para el movimiento de datos híbridos.
 
-| Origen      | Destino                              | Network configuration (Configuración de red)                    | Configuración de Integration Runtime                |
+| Source      | Destination                              | Network configuration (Configuración de red)                    | Configuración de Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | VPN de IPSec (de punto a sitio o de sitio a sitio) | El entorno de ejecución de integración autohospedado se debe instalar en una máquina virtual de Azure en una red virtual.  |
 | Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | ExpressRoute (Emparejamiento privado)           | El entorno de ejecución de integración autohospedado se debe instalar en una máquina virtual de Azure en una red virtual.  |
@@ -151,9 +151,9 @@ Las siguientes imágenes muestran el uso del entorno de ejecución de integraci�
 
 ![Conexión VPN de IPSec con la puerta de enlace](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> Configuraciones de firewall y configuración de direcciones IP permitidas
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> Configuraciones de firewall y configuración de direcciones IP permitidas
 
-#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para redes locales o privadas  
+#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para redes locales o privadas    
 En una empresa, se ejecuta un firewall corporativo en el enrutador central de la organización. El Firewall de Windows se ejecuta como demonio en la máquina local con Integration Runtime autohospedado instalado. 
 
 En la tabla siguiente se proporcionan el puerto de salida y los requisitos de dominio para el firewall corporativo:
@@ -165,7 +165,7 @@ En la tabla siguiente se proporcionan el puerto de salida y los requisitos de do
 
 En la tabla siguiente, se proporcionan los requisitos del puerto de entrada para el Firewall de Windows.
 
-| Puertos de entrada | DESCRIPCIÓN                              |
+| Puertos de entrada | Descripción                              |
 | ------------- | ---------------------------------------- |
 | 8060 (TCP)    | Requerido por el cmdlet de cifrado de PowerShell como se describe en el [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md) o en la aplicación de administrador de credenciales para establecer de forma segura credenciales para almacenes de datos locales en el entorno de ejecución de integración. |
 

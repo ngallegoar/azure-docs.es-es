@@ -3,17 +3,17 @@ title: Habilitación de Peering Service en un emparejamiento directo mediante el
 titleSuffix: Azure
 description: Habilitación de Peering Service en un emparejamiento directo mediante el portal
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: d6b67c42ef8a5ba5ae98894775d1f56cee39ba8b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 3/18/2020
+ms.author: derekol
+ms.openlocfilehash: 87a65826a338f4098ae24c33939ea7f9d4475e36
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75773875"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80129935"
 ---
 # <a name="enable-peering-service-on-a-direct-peering-using-the-portal"></a>Habilitación de Peering Service en un emparejamiento directo mediante el portal
 
@@ -29,10 +29,10 @@ Si lo prefiere, puede completar esta guía con [PowerShell](howto-peering-servic
 
 ## <a name="enable-peering-service-on-a-direct-peering"></a>Habilitación de Peering Service en un emparejamiento directo
 
-### <a name= get></a>Visualización de un emparejamiento directo
+### <a name="view-direct-peering"></a><a name= get></a>Visualización de un emparejamiento directo
 [!INCLUDE [peering-direct-get-portal](./includes/direct-portal-get.md)]
 
-### <a name= get></a>Habilitación del emparejamiento directo para Peering Service
+### <a name="enable-the-direct-peering-for-peering-service"></a><a name= get></a>Habilitación del emparejamiento directo para Peering Service
 
 Después de abrir el emparejamiento directo en el paso anterior, habilítelo para Peering Service.
 [!INCLUDE [peering-direct-modify](./includes/peering-service-direct-portal.md)]

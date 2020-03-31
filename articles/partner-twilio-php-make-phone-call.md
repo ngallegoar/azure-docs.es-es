@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: fb1623c4a409f1c6cba94bad56d773e166d2b182
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69637318"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Realización de una llamada telefónica con Twilio en una aplicación PHP en Azure
@@ -116,7 +116,7 @@ Este código se ha proporcionado para mostrar la funcionalidad básica usando Tw
 
 Para obtener más información sobre Twilio, vea [https://www.twilio.com/docs][twilio_docs].
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Uso de Twilio para capacidades de voz y SMS en PHP](partner-twilio-php-how-to-use-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console

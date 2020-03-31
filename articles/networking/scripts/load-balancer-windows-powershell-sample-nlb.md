@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: allensu
 ms.openlocfilehash: 1f0ff6cad90a4e5578a4f0c578a7da5cbbb75457
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74067082"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Equilibrio de carga del tráfico a las máquinas virtuales para lograr una alta disponibilidad

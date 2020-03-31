@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
 ms.openlocfilehash: 3ca00a03976ae38b7956616b8287220a7bc5998c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825854"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Obtención de detalles de la recuperación ante desastres
@@ -30,7 +30,7 @@ Obtener los detalles de una recuperación ante desastres implica lo siguiente:
 
 Dependiendo de cómo [diseñó su aplicación para la continuidad del negocio](sql-database-business-continuity.md), el flujo de trabajo para la ejecución del proceso de obtención de detalles puede variar. En este artículo se describen los procedimientos recomendados de obtención de detalles de la recuperación ante desastres en el contexto de Azure SQL Database.
 
-## <a name="geo-restore"></a>Restauración geográfica
+## <a name="geo-restore"></a>Geo-restore
 
 Para evitar la posible pérdida de datos durante la obtención de detalles de la recuperación ante desastres, obtenga los detalles con un entorno de prueba mediante la creación de una copia del entorno de producción y utilizando dicho entorno para comprobar el flujo de trabajo de conmutación por error de la aplicación.
 

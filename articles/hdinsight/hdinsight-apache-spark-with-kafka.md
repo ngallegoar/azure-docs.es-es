@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ms.openlocfilehash: d868cdd346c79cf77d4f8c1ea6e4b20adcd99b6c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74327392"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Ejemplo de streaming de Apache Spark (DStream) con Apache Kafka en HDInsight
@@ -51,7 +51,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
 1. Utilice los datos siguientes para rellenar las entradas de la sección **Implementación personalizada**:
 
-    |Propiedad |Valor |
+    |Propiedad |Value |
     |---|---|
     |Resource group|cree un grupo o seleccione uno existente.|
     |Location|seleccione una ubicación geográfica próxima a usted.|

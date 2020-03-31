@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: a9b271b5f7d4e53dbf871d03dd43b62b9299aa53
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71309926"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Uso de un proyecto de base de datos de U-SQL para desarrollar una base de datos de U-SQL para Azure Data Lake

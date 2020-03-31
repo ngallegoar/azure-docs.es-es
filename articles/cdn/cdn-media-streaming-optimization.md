@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: c6ed546735058e330368151adb0df7323f943050
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593670"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optimización del streaming multimedia con Azure CDN 
@@ -77,7 +77,7 @@ Puede configurar el punto de conexión de la red de entrega de contenido (CDN) p
  
 Después de crear el punto de conexión, aplica la optimización para todos los archivos que coincidan con determinados criterios. En la sección siguiente se describe este proceso. 
 
-### <a name="caching"></a>Almacenamiento en caché
+### <a name="caching"></a>Almacenamiento en memoria caché
 
 Si **Azure CDN Estándar de Akamai** detecta que el recurso es un fragmento o manifiesto de streaming, usa tiempos de expiración de almacenamiento en caché diferentes a los de la entrega web general. (Vea la lista completa en la tabla siguiente). Como siempre, se respetan los encabezados Cache-Control o Expires enviados desde el origen. Si el recurso no es un recurso multimedia, almacena en caché mediante los tiempos de expiración para la entrega web general.
 

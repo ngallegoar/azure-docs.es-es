@@ -4,19 +4,17 @@ description: Exportación de una base de datos de Azure SQL a un archivo BACPAC 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: ''
-ms.devlang: ''
-ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b96d2e69b757774afe177341caffe2f3cbf00e2b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.topic: conceptual
+ms.openlocfilehash: 0bc72f0ad58829a3ff6545b5c4741ddc20916c31
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823450"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80061629"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportación de una base de datos de Azure SQL Database a un archivo BACPAC
 
@@ -87,7 +85,7 @@ $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $ResourceGroupName -
   -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
 ```
 
-Para comprobar el estado de la solicitud de exportación, utilice el cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus). Si se ejecuta inmediatamente después de la solicitud, normalmente devuelve **Estado: En curso**. Cuando vea **Estado: Correcto**, la exportación se ha terminado.
+Para comprobar el estado de la solicitud de exportación, utilice el cmdlet [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus). Si se ejecuta inmediatamente después de la solicitud, normalmente devuelve **Status: InProgress**. Cuando vea **Estado: Correcto**, la exportación se habrá completado.
 
 ```powershell
 $exportStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink

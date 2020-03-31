@@ -4,10 +4,10 @@ description: Aprenda sobre el ciclo de vida de la definición de un plano técni
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74404592"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Ciclo de vida de una instancia de Azure Blueprint

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
 ms.openlocfilehash: 971d311dfb54d417a8f66f504d01f08f8bcfc48b
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74942092"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copia de archivos nuevos y cambiados por LastModifiedDate con Azure Data Factory

@@ -7,10 +7,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: fa70b7419e1877ab2daba49ad154cdfd5a8d2cba
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458960"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Adición de la autenticación a la aplicación Xamarin.Android
@@ -21,10 +21,10 @@ En este tema se muestra cómo autenticar usuarios de una aplicación móvil desd
 
 Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero debe completar el tutorial [Creación de una aplicación Xamarin.Android]. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de autenticación al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios de aplicaciones
+## <a name="register-your-app-for-authentication-and-configure-app-services"></a><a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios de aplicaciones
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adición de la aplicación a las direcciones URL de redirección externa permitidas
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Adición de la aplicación a las direcciones URL de redirección externa permitidas
 
 La autenticación segura requiere que se defina un nuevo esquema de dirección URL para la aplicación. Esto permite que el sistema de autenticación se redirija a la aplicación una vez completado el proceso de autenticación. En este tutorial, se usará el esquema de dirección URL _appname_. Sin embargo, puede utilizar cualquier otro esquema de dirección URL que elija. Debe ser único para la aplicación móvil. Para habilitar la redirección en el lado de servidor:
 
@@ -38,14 +38,14 @@ La autenticación segura requiere que se defina un nuevo esquema de dirección U
 
 5. Haga clic en **Save**(Guardar).
 
-## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o emulador. Compruebe que se produce una excepción no controlada con el código de estado 401 (No autorizado) después de iniciarse la aplicación. Esto sucede porque la aplicación intenta obtener acceso al back-end de la aplicación móvil como usuario sin autenticar. La tabla *TodoItem* ahora requiere autenticación.
 
 Luego, actualizará la aplicación cliente para solicitar recursos del back-end de la aplicación móvil con un usuario autenticado.
 
-## <a name="add-authentication"></a>Incorporación de autenticación a la aplicación
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 La aplicación se actualiza para requerir a los usuarios que pulsen el botón **Iniciar sesión** y que se autentiquen para que se muestren los datos.
 
 1. Agregue el siguiente código a la clase **TodoActivity** :

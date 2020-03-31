@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: dapine
 ms.openlocfilehash: bfbaa03469ee04ff900a215aadd8c814efcba761
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79037533"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Uso de Docker Compose para implementar varios contenedores
@@ -25,7 +25,7 @@ En este artículo se muestra cómo implementar varios contenedores de Azure Cogn
 
 Puede ser útil coordinar varias imágenes de contenedor en un solo equipo host. En este artículo, reuniremos los contenedores de lectura y de Form Recognizer.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Este procedimiento requiere varias herramientas que se deben instalar y ejecutar localmente:
 

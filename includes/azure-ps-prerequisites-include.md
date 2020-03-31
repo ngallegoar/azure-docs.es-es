@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: victorh
 ms.openlocfilehash: 0c161510d106343d88e7c77c72a1d1750fe25040
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186240"
 ---
-## <a name="prerequisite-install-the-azure-powershell-module"></a>Requisito previo: Instalación del módulo de Azure PowerShell
+## <a name="prerequisite-install-the-azure-powershell-module"></a>Requisito previo: instalar el módulo de Azure PowerShell
 
 Para seguir los pasos de este artículo, es preciso [instalar y configurar el módulo Azure PowerShell](/powershell/azureps-cmdlets-docs). Asegúrese de completar todas las instrucciones. Una vez finalizada la instalación, inicie sesión en Azure y seleccione su suscripción.
 

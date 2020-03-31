@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/19/2019
 ms.author: spelluru
 ms.openlocfilehash: 7f05665f4bcc5449c1a81fa24582b333b0a944e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60822841"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>SDK de Event Grid para administración y publicación

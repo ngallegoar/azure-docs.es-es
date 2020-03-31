@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 3bb58334e96bf5378fb78b70125f9c7994a7c2fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435642"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorización de usuarios para Apache Ambari Views
@@ -232,7 +232,7 @@ Para ver la lista de permisos concedidos a cada rol, haga clic en el signo de in
 
 ![Permisos de los vínculos del menú de roles de Apache Ambari](./media/hdinsight-authorize-users-to-ambari/roles-menu-permissions.png "Permisos de los vínculos del menú de roles de Apache Ambari")
 
-En esta página, hay dos vistas diferentes que puede usar para administrar roles para los usuarios y los grupos: Block (bloque) y List (lista).
+En esta página, hay dos vistas diferentes que puede usar para administrar roles para los usuarios y grupos: Block (Bloque) y List (Lista).
 
 ### <a name="block-view"></a>Vista de bloque
 

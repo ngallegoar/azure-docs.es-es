@@ -5,13 +5,13 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 2/18/2020
-ms.openlocfilehash: 0e2eb4ab13319779ae209e58253c6a5f2ccb75da
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 3/16/2020
+ms.openlocfilehash: 80c061f72ce827df8f8354a5881c032c6f874fe1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462435"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063140"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Use Azure Portal para configurar alertas métricas en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -101,7 +101,7 @@ A medida que el disco se aproxime al límite de espacio, pruebe estas técnicas 
 
 * Revise la directiva de retención de datos. Mueva los datos más antiguos al almacenamiento en frío, si es factible.
 * Considere la posibilidad de [agregar nodos](howto-hyperscale-scaling.md#add-worker-nodes) al grupo de servidores y reequilibrar las particiones. El reequilibrio distribuye los datos entre más equipos.
-* Considere la posibilidad de [aumentar la capacidad](howto-hyperscale-scaling.md#increase-vcores) de los nodos de trabajo. Cada trabajo puede tener hasta 2 TiB de almacenamiento. Sin embargo, se deben intentar agregar nodos antes de cambiar el tamaño de los nodos, ya que la adición de nodos se completa más rápidamente.
+* Considere la posibilidad de [aumentar la capacidad](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) de los nodos de trabajo. Cada trabajo puede tener hasta 2 TiB de almacenamiento. Sin embargo, se deben intentar agregar nodos antes de cambiar el tamaño de los nodos, ya que la adición de nodos se completa más rápidamente.
 
 ### <a name="cpu-usage"></a>Uso de CPU
 

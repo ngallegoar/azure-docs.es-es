@@ -9,10 +9,10 @@ ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: b2ba30bddfc6364c79e1bb01d30cde63b261a07f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978022"
 ---
 # <a name="repairing-an-export-job"></a>Reparación de un trabajo de exportación
@@ -30,10 +30,10 @@ El comando para reparar un trabajo de importación es **RepairExport**.
 
 Se pueden modificar los parámetros siguientes con **RepairExport**:  
   
-|Parámetro|DESCRIPCIÓN|  
+|Parámetro|Descripción|  
 |---------------|-----------------|  
 |**/r:&lt;ArchivoReparación\>**|Necesario. Ruta de acceso al archivo de reparación, que realiza un seguimiento del progreso de la reparación y le permite reanudar una reparación interrumpida. Cada unidad debe tener un solo archivo de reparación. Cuando inicie una reparación para una unidad determinada, pasará la ruta de acceso a un archivo de reparación que aún no existe. Para reanudar una reparación interrumpida, debe pasar el nombre de un archivo de reparación existente. Siempre se debe especificar el archivo de reparación correspondiente a la unidad de destino.|  
-|**/logdir:&lt;DirectorioRegistro\>**|Opcional. El directorio de registro. Los archivos de registro detallados se escribirán en este directorio. Si no se especifica un directorio de registro, se usará el directorio actual como directorio de registro.|  
+|**/logdir:&lt;DirectorioRegistro\>**|Opcional. Directorio de registro. Los archivos de registro detallados se escribirán en este directorio. Si no se especifica un directorio de registro, se usará el directorio actual como directorio de registro.|  
 |**/d:&lt;DirectorioDestino\>**|Necesario. El directorio para validar y reparar. Suele ser el directorio raíz de la unidad de exportación, pero podría también ser un recurso compartido de archivos de red que contiene una copia de los archivos exportados.|  
 |**/bk:&lt;ClaveBitLocker\>**|Opcional. Debe especificar la clave de BitLocker si desea que la herramienta desbloquee una unidad de cifrado donde se almacenan los archivos exportados.|  
 |**/sn:&lt;NombreCuentaAlmacenamiento\>**|Necesario. El nombre de la cuenta de almacenamiento para el trabajo de exportación.|  

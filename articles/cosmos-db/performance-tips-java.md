@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.openlocfilehash: 3b7d221c2afc952f40da035c6e2c282b3b932aa5
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69616754"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Sugerencias de rendimiento para Azure Cosmos DB y Java
@@ -29,7 +29,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 ## <a name="networking"></a>Redes
 <a id="direct-connection"></a>
 
-1. **Modo de conexión: uso de DirectHttps**
+1. **Modo de conexión: Uso de DirectHttps**
 
     El modo en que un cliente se conecta a Azure Cosmos DB tiene implicaciones importantes sobre el rendimiento, especialmente en los términos de la latencia observada en el lado cliente. Hay un valor de configuración clave disponible para configurar el cliente [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy) – [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode).  Las dos opciones de ConnectionModes disponibles son:
 
@@ -146,7 +146,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     response.getRequestCharge();
     ```             
 
-    El cargo de solicitud devuelto en este encabezado es una fracción de la capacidad de proceso aprovisionada. Por ejemplo, si tiene 2000 RU/segundo aprovisionadas, y si la consulta anterior devuelve 1000 documentos de 1 KB, el costo de la operación será 1000. Por lo tanto, al cabo de un segundo, el servidor respetará solo dos de estas solicitudes antes de limitar la velocidad de las solicitudes posteriores. Para más información, consulte [Unidades de solicitud](request-units.md) y la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner).
+    El cargo de solicitud devuelto en este encabezado es una fracción de la capacidad de proceso aprovisionada. Por ejemplo, si tiene 2000 RU/segundo aprovisionadas, y si la consulta anterior devuelve 1000 documentos de 1 KB, el costo de la operación será 1000. Por lo tanto, al cabo de un segundo, el servidor atenderá solo dos de estas solicitudes antes de limitar la velocidad de las solicitudes posteriores. Para más información, consulte [Unidades de solicitud](request-units.md) y la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner).
    <a id="429"></a>
 1. **Administración de la limitación de velocidad y la tasa de solicitudes demasiado grande**
 

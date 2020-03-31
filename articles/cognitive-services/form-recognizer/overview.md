@@ -9,14 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6b19dc11438274ecf6218d5c0bd8c9ef3dafbf01
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118543"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052431"
 ---
 # <a name="what-is-form-recognizer"></a>¿Qué es Form Recognizer?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer texto, pares clave-valor, así como datos de tablas de documentos de formularios. Ingiere texto de formularios y genera datos estructurados que incluyen las relaciones del archivo original. Obtendrá rápidamente resultados precisos a la medida de su contenido específico sin necesidad de una intervención manual pesada o una amplia experiencia en ciencia de datos. Form Recognizer consta de modelos personalizados, el modelo de recibo pregenerado y la API de diseño. Puede llamar a los modelos de Form Recognizer mediante una API REST para reducir la complejidad e integrarla en su flujo de trabajo o aplicación.
 
@@ -49,7 +51,7 @@ Form Recognizer también incluye un modelo para leer los recibos de compras en i
 
 ## <a name="layout-api"></a>API de diseño
 
-Form Recognizer también puede extraer texto y estructuras de tablas (los números de fila y columna asociados al texto) mediante el reconocimiento óptico de caracteres (OCR) de alta definición. 
+Form Recognizer también puede extraer texto y estructuras de tablas (los números de fila y columna asociados al texto) mediante el reconocimiento óptico de caracteres (OCR) de alta definición.
 
 ## <a name="get-started"></a>Introducción
 
@@ -59,9 +61,9 @@ Siga un inicio rápido para comenzar a extraer datos de los formularios. Se reco
   * Entrenamiento sin etiquetas
     * [Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de los datos del formulario mediante la API REST con cURL](quickstarts/curl-train-extract.md)
     * [Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de datos del formulario mediante la API REST con Python](quickstarts/python-train-extract.md)
-  * Entrenamiento con etiquetas 
+  * Entrenamiento con etiquetas
     * [Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo](quickstarts/label-tool.md)
-    * [Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la API REST y Python](quickstarts/python-labeled-data.md) 
+    * [Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la API REST y Python](quickstarts/python-labeled-data.md)
 * Recibos pregenerados: extraiga datos de recibos de compra de EE. UU.
   * [Inicio rápido: Extracción de datos de recibos con cURL](quickstarts/curl-receipts.md)
   * [Inicio rápido: Extracción de datos de recibos con Python](quickstarts/python-receipts.md)
@@ -92,7 +94,7 @@ Los requisitos de entrada para el modelo de recibo son ligeramente diferentes.
 
 * El formato debe ser JPEG, PNG, BMP, PDF (texto o escaneado) o TIFF.
 * El tamaño del archivo debe ser inferior a 20 MB.
-* Las imágenes deben tener unas dimensiones entre 50 x 50 píxeles y 10 000 x 10 000 píxeles. 
+* Las imágenes deben tener unas dimensiones entre 50 x 50 píxeles y 10 000 x 10 000 píxeles.
 * Los archivos PDF deben tener unas dimensiones de 17 x 17 pulgadas como máximo, lo que se corresponde con los tamaños de papel Legal o A3 y más pequeños.
 * En el caso de PDF y TIFF, solo se procesan las primeras 200 páginas (con una suscripción de nivel gratuitos, solo se procesan las dos primeras páginas).
 

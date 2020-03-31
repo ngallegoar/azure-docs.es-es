@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 08299a589dc6e8f768cba7ef976e109ef1fb69d7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75773615"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Implementación de módulos de IoT Edge a escala con Visual Studio Code
@@ -24,7 +24,7 @@ Para más información, consulte el artículo [Descripción de las implementacio
 
 En este artículo, configurará Visual Studio Code y la extensión de IoT. A continuación, aprenderá a implementar módulos en un conjunto de dispositivos IoT Edge.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure.
 * Un [dispositivo de IoT Edge](how-to-register-device.md#register-with-visual-studio-code) que tenga instalado el entorno de ejecución de Azure IoT Edge.

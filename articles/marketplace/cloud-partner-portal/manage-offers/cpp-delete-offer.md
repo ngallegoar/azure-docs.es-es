@@ -1,19 +1,18 @@
 ---
 title: Eliminación de las ofertas de Marketplace | Azure Marketplace
 description: Eliminación de las ofertas de los Marketplaces de Azure y AppSource mediante Cloud Partner Portal
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pabutler
-ms.openlocfilehash: 6a75fbb0c4b9c364342a406a8076128346943101
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: fa8ee834bd6d9261c47c540e9517c200c894b6c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826778"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286462"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Eliminación de las ofertas o SKU de Azure Marketplace y AppSource
 
@@ -36,7 +35,7 @@ Puede eliminar una SKU publicada de Azure Marketplace si sigue estos pasos:
 
 1.  Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2.  En la página **Todas las ofertas**, seleccione la oferta.  La oferta debe mostrarse en la pestaña **Editor**.
-3.  En la barra de herramientas izquierda, seleccione la pestaña**SKU**. 
+3.  En la barra de herramientas izquierda, seleccione la pestaña **SKU**. 
 4.  Seleccione la SKU que quiera eliminar y haga clic en el botón **Eliminar**.
 5.  [Vuelva a publicar](./cpp-publish-offer.md) la oferta en Azure Marketplace.
 

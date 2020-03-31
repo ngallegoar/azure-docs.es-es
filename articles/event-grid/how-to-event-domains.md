@@ -8,10 +8,10 @@ ms.author: babanisa
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.openlocfilehash: 1d07227249806b7d54523af66817a170c19354ee
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72786551"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Administrar temas y publicar eventos con dominios de eventos
@@ -35,7 +35,7 @@ Para más información acerca de dominios de eventos, consulte [Dominios de even
 
 Para administrar grandes conjuntos de temas, cree un dominio de eventos.
 
-# <a name="azure-clitabazurecli"></a>[CLI de Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -48,7 +48,7 @@ az eventgrid domain create \
   -l <location>
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```azurepowershell-interactive
 # If you have not already installed the module, do it now.
 # This module is required for preview features.
@@ -86,7 +86,7 @@ La administración de acceso a temas se realiza mediante [asignación de roles](
 
 Event Grid tiene dos roles integrados, que puede utilizar para asignar acceso a determinados usuarios a varios temas dentro de un dominio. Estos roles son `EventGrid EventSubscription Contributor (Preview)`, que permite la creación y eliminación de suscripciones, y `EventGrid EventSubscription Reader (Preview)`, que permite solo enumerar las suscripciones a eventos.
 
-# <a name="azure-clitabazurecli"></a>[CLI de Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
 El siguiente comando de la CLI de Azure limita `alice@contoso.com` para crear y eliminar suscripciones de eventos solo en el tema `demotopic1`:
 
 ```azurecli-interactive
@@ -96,7 +96,7 @@ az role assignment create \
   --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 El siguiente comando de PowerShell limita `alice@contoso.com` para crear y eliminar suscripciones de eventos solo en el tema `demotopic1`:
 
 ```azurepowershell-interactive
@@ -117,7 +117,7 @@ Suscribirse a un tema en un dominio es lo mismo que suscribirse a cualquier otro
 
 Normalmente, el usuario al que concedió acceso en la sección anterior crearía la suscripción. Para simplificar este artículo, cree la suscripción. 
 
-# <a name="azure-clitabazurecli"></a>[CLI de Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -126,7 +126,7 @@ az eventgrid event-subscription create \
   --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
 New-AzureRmEventGridSubscription `
@@ -175,7 +175,7 @@ Publicar eventos en un dominio es lo mismo que [publicar en un tema personalizad
 }]
 ```
 
-# <a name="azure-clitabazurecli"></a>[CLI de Azure](#tab/azurecli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azurecli)
 Para obtener el punto de conexión del dominio con la CLI de Azure, use
 
 ```azurecli-interactive
@@ -192,7 +192,7 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 Para obtener el punto de conexión del dominio con PowerShell, use
 
 ```azurepowershell-interactive

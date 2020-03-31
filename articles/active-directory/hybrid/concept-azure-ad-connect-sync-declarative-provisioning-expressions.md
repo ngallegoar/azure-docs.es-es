@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Expresiones de aprovisionamiento declarativo | Microsoft Docs'
+title: 'Azure AD Connect: expresiones de aprovisionamiento declarativo | Microsoft Docs'
 description: Explica las expresiones declarativas de aprovisionamiento.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60245500"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronización de Azure AD Connect: Explicación de las expresiones declarativas de aprovisionamiento
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronización de Azure AD Connect: conocimiento de expresiones de aprovisionamiento declarativo
 La sincronización de Azure AD Connect se basa en el aprovisionamiento declarativo, que se introdujo en Forefront Identity Manager 2010. Permite implementar la lógica de negocios de integración de identidades completa sin necesidad de escribir código compilado.
 
 Una parte esencial del aprovisionamiento declarativo es el lenguaje de expresiones que se usa en flujos de atributos. El lenguaje usado es un subconjunto de Microsoft® Visual Basic® para Aplicaciones. Este lenguaje se usa en Microsoft Office, y los usuarios con experiencia en VBScript también lo reconocerán. El lenguaje de expresiones de aprovisionamiento declarativo solo utiliza funciones y no es un lenguaje estructurado. No hay métodos ni instrucciones. En su lugar, las funciones se anidan al flujo de programa rápido.
@@ -36,10 +36,10 @@ Los atributos están fuertemente tipados. Las funciones solo aceptan atributos d
 * Las funciones tienen un nombre seguido de argumentos entre paréntesis: FunctionName(argumento 1, argumento N).
 * Los atributos se especifican entre corchetes: [attributeName]
 * Los parámetros se identifican por signos de porcentaje: %ParameterName%
-* Las constantes de cadena aparecen entre comillas: por ejemplo, "Contoso" (nota: se deben usar comillas rectas "", no tipográficas “”)
+* Las constantes de cadena aparecen entre comillas: por ejemplo, "Contoso" (Nota: se deben usar comillas rectas "", no tipográficas "")
 * Los valores numéricos se expresan sin comillas y se espera que sean decimales. Los valores hexadecimales van precedidos de &H. Por ejemplo, 98052, &HFF
-* Los valores booleanos se expresan con constantes: True y False.
-* Las constantes y los literales integrados se expresan solo con su nombre: NULL, CRLF, IgnoreThisFlow
+* Los valores booleanos se expresan con constantes: True, False.
+* Las constantes y los literales integrados se expresan solo con su nombre: NULL, CRLF o IgnoreThisFlow
 
 ### <a name="functions"></a>Functions
 El aprovisionamiento declarativo usa muchas funciones que ofrecen la posibilidad de transformar los valores de atributo. Dichas funciones se pueden anidar de manera que el resultado de una función se pase a otra función.
@@ -74,7 +74,7 @@ Pueden utilizarse los siguientes operadores:
 * **Comparación**: &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Matemáticos**: +, -, \*, -
 * **Cadena**: &amp; (concatenar)
-* **Lógico**: &&amp;amp;amp;amp; (and), || (or)
+* **Lógico**: &amp;&amp; (and), || (or)
 * **Orden de evaluación**: ( )
 
 Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, \* (multiplicador) no se evalúa antes que la resta (-). 2\*(5+3) no es lo mismo que 2\*5+3. Los paréntesis () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
@@ -82,7 +82,7 @@ Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de
 ## <a name="multi-valued-attributes"></a>Atributos con varios valores
 Las funciones pueden operar tanto atributos con un solo valor como con varios valores. Para los atributos con varios valores, la función opera sobre cada valor y aplica la misma función a cada valor.
 
-Por ejemplo  
+Por ejemplo:  
 `Trim([proxyAddresses])` Use la función Trim en todos los valores del atributo proxyAddress.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"` Para cada valor con un signo @-sign, reemplace el dominio por @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Busque la dirección SIP y quítela de los valores.
@@ -99,5 +99,5 @@ Por ejemplo
 
 **Temas de referencia**
 
-* [Sincronización de Azure AD Connect: Referencia de funciones](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect Sync: referencia de funciones](reference-connect-sync-functions-reference.md)
 

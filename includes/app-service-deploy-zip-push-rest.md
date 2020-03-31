@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
 ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769680"
 ---
-## <a name="rest"></a>Implementación de un archivo ZIP con las API REST 
+## <a name="deploy-zip-file-with-rest-apis"></a><a name="rest"></a>Implementación de un archivo ZIP con las API REST 
 
 Puede usar el [servicio de implementación de las API de REST](https://github.com/projectkudu/kudu/wiki/REST-API) para implementar el archivo .zip en su aplicación en Azure. Para ello, envíe una solicitud POST a https://<app_name>.scm.azurewebsites.net/api/zipdeploy. La solicitud POST debe contener el archivo .zip en el cuerpo del mensaje. Las credenciales de implementación de la aplicación se proporcionan en la solicitud mediante la autenticación de HTTP BASIC. Para obtener más información, consulte la [referencia de implementación para la inserción del archivo .zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 

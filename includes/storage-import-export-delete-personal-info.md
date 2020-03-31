@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67186528"
 ---
 ## <a name="deleting-personal-information"></a>Eliminación de información personal
@@ -27,7 +27,7 @@ La información personal es importante para el servicio Import/Export (a través
 - Dirección
 - City
 - Código postal
-- Estado
+- State
 - País/región/provincia
 - Id. de unidad
 - Número de cuenta del transportista
@@ -40,8 +40,8 @@ La información de contacto personal se puede eliminar de las maneras siguientes
 - Los datos guardados con el trabajo se eliminan junto con el trabajo. Los usuarios pueden eliminar manualmente los trabajos y los trabajos completados se eliminan automáticamente después de 90 días. Puede eliminar manualmente los trabajos a través de la API REST o de Azure Portal. Para eliminar el trabajo en Azure Portal, vaya a su trabajo de importación y exportación y haga clic en *Eliminar* en la barra de comandos. Para más información sobre cómo eliminar un trabajo de importación y exportación mediante la API REST, consulte [Cancelación y eliminación de trabajos de Azure Import/Export](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
 - La información de contacto que se guarda en la configuración del portal se puede quitar eliminando esta configuración. Puede eliminar la configuración del portal si realiza estos pasos:
-  - Inicie sesión en el [Azure Portal](https://portal.azure.com).
-  - Haga clic en el icono *Configuración* ![icono de configuración de Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
+  - Inicie sesión en [Azure Portal](https://portal.azure.com).
+  - Haga clic en el icono *Configuración*![icono de configuración de Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
   - Haga clic en *Exportar todas las opciones de configuración* (para guardar la configuración actual en un archivo `.json`).
   - Haga clic en *Eliminar todas las opciones de configuración y los paneles privados* para eliminar todas las opciones de configuración, incluida la información de contacto de guardada.
 

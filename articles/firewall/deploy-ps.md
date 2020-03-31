@@ -8,10 +8,10 @@ ms.date: 4/10/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 7f48012ca1f97c2e28380d95da37863c4bc17f63
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73831835"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implementación y configuración de Azure Firewall mediante Azure PowerShell
@@ -33,7 +33,7 @@ En este artículo, creará una red virtual única simplificada con tres subredes
 
 ![Infraestructura de red del tutorial](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Configurar un entorno de red de prueba
@@ -47,7 +47,7 @@ Si lo prefiere, puede realizar los pasos de este procedimiento mediante [Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 En este procedimiento es necesario ejecutar PowerShell de forma local. Debe tener instalados el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Después de verificar la versión de PowerShell, ejecute `Connect-AzAccount` para crear una conexión con Azure.
 

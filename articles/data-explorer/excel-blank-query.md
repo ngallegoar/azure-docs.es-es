@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 4999000e2084922b43b8085034f545d4b5c644a9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849095"
 ---
 # <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>Visualización de datos mediante una consulta de Kusto de Azure Data Explorer importada en Microsoft Excel
 
 Azure Data Explorer proporciona dos opciones para conectarse a datos de Excel: usar el conector nativo o importar una consulta desde Azure Data Explorer. En este artículo se muestra cómo importar una consulta de Azure Data Explorer a Excel para visualizar datos. Agregue la consulta de Kusto como origen de datos de Excel para realizar visualizaciones o cálculos adicionales en los datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * Una cuenta de correo electrónico organizativa que sea miembro de Azure Active Directory, para que pueda conectarse al [clúster de ayuda de Azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/Samples) 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: aadcc13d2397f10ea40f06d1259c86b9a179c38b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74121672"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introducción a Azure Cache for Redis de nivel Prémium
@@ -19,7 +19,7 @@ Azure Cache for Redis es una memoria caché distribuida y administrada que ayuda
 Premium es un nuevo nivel destinado a las empresas que incluye todas las características del nivel Estándar y otras adicionales, como un mejor rendimiento, cargas de trabajo más grandes, recuperación ante desastres, importación/exportación y seguridad mejorada. Siga leyendo para obtener más información acerca de las características adicionales de la memoria caché del nivel Premium.
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>Mejor rendimiento en comparación con el nivel Estándar o Básico
-**Mejor rendimiento respecto a los niveles Standard o Basic.** Las memorias caché de nivel Premium se implementan en hardware con procesadores más rápidos que ofrece un mejor rendimiento en comparación con el nivel Standard o Basic. Además, el rendimiento de dichas memorias caché es superior y sus latencias son más bajas. 
+**Mejor rendimiento respecto a los niveles Standard o Basic.** Las memorias caché de nivel Premium se implementan en hardware con procesadores más rápidos que ofrece un mejor rendimiento en comparación con el nivel Standard o Basic. Las cachés de nivel Premium tienen un mayor rendimiento y latencias más bajas. 
 
 **El rendimiento de una memoria caché de nivel Premium es superior al de una memoria caché de nivel Standard del mismo tamaño .** Por ejemplo, el rendimiento de una memoria caché de 53 GB P4 (Premium) es de 250 000 solicitudes por segundo, en comparación con 150 000 para una memoria C6 (Standard).
 
@@ -40,7 +40,7 @@ Para empezar a usar la agrupación en clústeres, consulte [How to configure clu
 ## <a name="enhanced-security-and-isolation"></a>Aislamiento y seguridad mejorados
 Las memorias caché creadas en los niveles Basic o Standard están disponibles en Internet. El acceso a las mismas se restringe mediante la clave de acceso. Con el nivel Premium puede asegurarse de que solo los clientes de una red determinada puedan tener acceso a la memoria caché. Puede implementar Azure Cache for Redis en [Azure Virtual Network (VNet)](https://azure.microsoft.com/services/virtual-network/). Además, puede usar todas las características de la red virtual, como las subredes y las directivas de control de acceso, entre otras, para restringir aún más el acceso a Redis.
 
-Para más información, consulte [How to configure Virtual Network support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md) (Configuración de la compatibilidad con Virtual Network para una instancia de Azure Cache for Redis de nivel Prémium).
+Para más información, consulte [How to configure Virtual Network support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md) (Configuración de la compatibilidad con Virtual Network para una instancia de Azure Cache for Redis Prémium).
 
 ## <a name="importexport"></a>Import/Export
 Import/Export es una operación de administración de datos de Azure Cache for Redis que permite importar datos en Azure Cache for Redis o exporta datos de Azure Cache for Redis mediante la importación y exportación de una instantánea de base de datos de Azure Cache for Redis (RDB) desde una memoria caché prémium a un blob en páginas en una cuenta de Azure Storage. Permite migrar entre diferentes instancias de Azure Cache for Redis o rellenar la memoria caché de datos antes de su uso.

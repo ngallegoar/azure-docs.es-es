@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: 998e160edce25b9d466a1db090abcefeb7870172
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073682"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual del agente de Network Watcher para Windows
@@ -30,7 +30,7 @@ ms.locfileid: "74073682"
 
 En este documento se especifican las plataformas compatibles y las opciones de implementación de la extensión de máquina virtual del agente de Network Watcher para Windows. La instalación del agente no interrumpe la máquina virtual ni requiere reiniciarla. Puede implementar la extensión en máquinas virtuales que implemente. Si la máquina virtual se ha implementado mediante un servicio de Azure, consulte la documentación del servicio para decidir si permite o no la instalación de extensiones en la máquina virtual.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -64,7 +64,7 @@ El siguiente JSON muestra el esquema para la extensión del agente de Network Wa
 
 ### <a name="property-values"></a>Valores de propiedad
 
-| NOMBRE | Valor / ejemplo |
+| Nombre | Valor / ejemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
@@ -93,7 +93,7 @@ Set-AzVMExtension `
 
 ## <a name="troubleshooting-and-support"></a>Solución de problemas y soporte técnico
 
-### <a name="troubleshooting"></a>solución de problemas
+### <a name="troubleshooting"></a>Solución de problemas
 
 Puede recuperar los datos sobre el estado de las implementaciones de extensiones desde Azure Portal y mediante PowerShell. Para ver el estado de implementación de las extensiones de una VM determinada, ejecute el comando siguiente con el módulo de Azure PowerShell:
 

@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3b93ee38666b93253c7cda6c756d4f58daaea236
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082157"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas de inicio de sesión en una aplicación desde el panel de acceso

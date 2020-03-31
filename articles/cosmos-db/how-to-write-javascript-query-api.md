@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
 ms.openlocfilehash: 221a3118808a044ef1b1b822b9c95772bf792f34
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441707"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Escritura de procedimientos almacenados y desencadenadores en Azure Cosmos DB con la API de consulta de Javascript
 
 Azure Cosmos DB permite realizar consultas optimizadas mediante una interfaz fluida de JavaScript sin ningún conocimiento del lenguaje de SQL que puede usarse para escribir procedimientos almacenados o desencadenadores. Para más información sobre la compatibilidad con la API de consulta de JavaScript en Azure Cosmos DB, consulte el artículo [Working with JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) (Trabajo con la API de consulta integrada de lenguaje de JavaScript en Azure Cosmos DB).
 
-## <a id="stored-procedures"></a>Procedimiento almacenado mediante la API de consulta de JavaScript
+## <a name="stored-procedure-using-the-javascript-query-api"></a><a id="stored-procedures"></a>Procedimiento almacenado mediante la API de consulta de JavaScript
 
 El ejemplo de código siguiente es un ejemplo de cómo se usa la API de consulta de JavaScript en el contexto de un procedimiento almacenado. El procedimiento almacenado inserta un elemento de Azure Cosmos especificado mediante un parámetro de entrada y actualiza un documento de metadatos mediante el método `__.filter()`, con los valores minSize, maxSize y totalSize basados en la propiedad de tamaño del elemento de entrada.
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386857"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Información general de Azure Cloud Services
@@ -23,9 +23,9 @@ Más control también significa menos facilidad de uso. A menos que necesite opc
 
 Hay dos tipos de roles de Azure Cloud Services. La única diferencia entre ambos es cómo se hospeda el rol en las máquinas virtuales:
 
-* **Rol web**: Implementa y hospeda automáticamente la aplicación a través de IIS.
+* **Rol Web**: implementa y hospeda automáticamente la aplicación a través de IIS.
 
-* **Rol de trabajo**: No usa IIS y ejecuta la aplicación independiente.
+* **Rol de trabajo**: no usa IIS y ejecuta la aplicación independiente.
 
 Por ejemplo, una aplicación simple podría utilizar solo un rol web, para dar servicio a un sitio web. Una aplicación más compleja podría utilizar un rol web para tratar las solicitudes entrantes provenientes de los usuarios y luego transmitirlas a un rol de trabajo para su procesamiento. (Esta comunicación podría usar [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) o [Azure Queue Storage](../storage/common/storage-introduction.md)).
 

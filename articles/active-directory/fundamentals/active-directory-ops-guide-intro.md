@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: c815256e60e5ca6582220d247d587a4488c4a55a
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74534772"
 ---
 # <a name="azure-active-directory-operations-reference-guide"></a>Guía de referencia de operaciones de Azure Active Directory
@@ -36,7 +36,7 @@ Algunas de estas recomendaciones podrían no aplicarse al entorno de todos los c
 
 Cada sección de esta guía de referencia recomienda asignar las partes interesadas para planear e implementar correctamente las tareas clave. En la tabla siguiente se describe la lista de todas las partes interesadas de esta guía:
 
-| Parte interesada | DESCRIPCIÓN |
+| Parte interesada | Descripción |
 | :- | :- |
 | Equipo de operaciones IAM | Este equipo controla la administración de las operaciones diarias del sistema de Administración de identidades y acceso |
 | Equipo de productividad | Este equipo posee y administra las aplicaciones de productividad como el correo electrónico, el uso compartido de archivos y la colaboración, la mensajería instantánea y las conferencias. |

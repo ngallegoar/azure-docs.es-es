@@ -9,10 +9,10 @@ ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
 ms.openlocfilehash: 1bc33047d31262af443cddc418853fbacd88aec1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022006"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configuración del modo de transporte de IPsec para emparejamiento privado de ExpressRoute
@@ -99,7 +99,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 
 * **Máquinas virtuales Windows de Azure:** vm1, vm2
 
-## <a name="creategpo"></a>1. Creación de un GPO
+## <a name="1-create-a-gpo"></a><a name="creategpo"></a>1. Creación de un GPO
 
 1. Para crear un nuevo GPO vinculado a una unidad organizativa, abra el complemento de administración de directivas de grupo y busque la unidad organizativa a la que se vinculará el GPO. En el ejemplo, la unidad organizativa se denomina **IPSecOU**. 
 
@@ -111,7 +111,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 
    [![11]][11]
 
-## <a name="enablelink"></a>2. Habilitación del vínculo de GPO
+## <a name="2-enable-the-gpo-link"></a><a name="enablelink"></a>2. Habilitación del vínculo de GPO
 
 Para aplicar el GPO a la unidad organizativa, no solo se debe vincular el GPO a esta, sino que también se debe habilitar el vínculo.
 
@@ -120,7 +120,7 @@ Para aplicar el GPO a la unidad organizativa, no solo se debe vincular el GPO a 
 
    [![12]][12]
 
-## <a name="filteraction"></a>3. Definición de la acción de filtrado IP
+## <a name="3-define-the-ip-filter-action"></a><a name="filteraction"></a>3. Definición de la acción de filtrado IP
 
 1. En la lista desplegable, haga clic en **Directiva de seguridad de IP en Active Directory** y, a continuación, haga clic en **Administrar listas de filtros IP y acciones de filtrado...** .
 
@@ -151,7 +151,7 @@ Para aplicar el GPO a la unidad organizativa, no solo se debe vincular el GPO a 
 
    [![23]][23]
 
-## <a name="filterlist1"></a>4. Definición de una lista de filtros IP
+## <a name="4-define-an-ip-filter-list"></a><a name="filterlist1"></a>4. Definición de una lista de filtros IP
 
 Cree una lista de filtros que especifique el tráfico HTTP cifrado con el puerto de destino 8080.
 
@@ -188,7 +188,7 @@ Cree una lista de filtros que especifique el tráfico HTTP cifrado con el puerto
 
    [![32]][32]
 
-## <a name="filterlist2"></a>5. Edición de la lista de filtros IP
+## <a name="5-edit-the-ip-filter-list"></a><a name="filterlist2"></a>5. Edición de la lista de filtros IP
 
 Para cifrar el mismo tipo de tráfico en dirección opuesta (desde el host local a la máquina virtual de Azure), es necesario un segundo filtro IP. El proceso de configuración del nuevo filtro es el mismo proceso que el usado para configurar el primer filtro IP. Las únicas diferencias son la subred de origen y de destino.
 
@@ -207,7 +207,7 @@ Para cifrar el mismo tipo de tráfico en dirección opuesta (desde el host local
 
 Si el cifrado es necesario entre una ubicación local y una subred de Azure para proteger una aplicación, en lugar de modificar la lista de filtros IP existente, puede agregar una nueva lista de filtros IP en su lugar. La asociación de dos listas de filtros IP a la misma directiva IPsec proporciona una mayor flexibilidad porque una lista de filtros IP específica se puede modificar o quitar en cualquier momento sin que afecte a otras listas de filtros IP.
 
-## <a name="ipsecpolicy"></a>6. Creación de una directiva de seguridad IPsec 
+## <a name="6-create-an-ipsec-security-policy"></a><a name="ipsecpolicy"></a>6. Creación de una directiva de seguridad IPsec 
 
 Cree una directiva IPsec con reglas de seguridad.
 
@@ -224,7 +224,7 @@ Cree una directiva IPsec con reglas de seguridad.
 
    [![40]][40]
 
-## <a name="editipsec"></a>7. Edición de la directiva de seguridad IPsec
+## <a name="7-edit-the-ipsec-security-policy"></a><a name="editipsec"></a>7. Edición de la directiva de seguridad IPsec
 
 Agregue a la directiva IPsec la **lista de filtros IP** y la **acción de filtrado** que configuró previamente.
 
@@ -261,7 +261,7 @@ Agregue a la directiva IPsec la **lista de filtros IP** y la **acción de filtra
 
 La directiva IPsec requiere que todas las conexiones HTTP en el puerto de destino 8080 utilicen el modo de transporte de IPsec. Dado que HTTP es un protocolo de texto sin cifrado, tener habilitada la directiva de seguridad garantiza que los datos se cifren cuando se transfieren a través del emparejamiento privado de ExpressRoute. La directiva de seguridad IP para Active Directory es más difícil de configurar que Firewall de Windows con seguridad avanzada, pero permite más personalización de la conexión IPsec.
 
-## <a name="assigngpo"></a>8. Asignación del GPO de IPsec a la unidad organizativa
+## <a name="8-assign-the-ipsec-gpo-to-the-ou"></a><a name="assigngpo"></a>8. Asignación del GPO de IPsec a la unidad organizativa
 
 1. Consulte la directiva. La directiva de grupo de seguridad está definida, pero aún no se ha asignado.
 
@@ -271,7 +271,7 @@ La directiva IPsec requiere que todas las conexiones HTTP en el puerto de destin
 
    [![50]][50]
 
-## <a name="checktraffic"></a>Comprobación del cifrado de tráfico
+## <a name="check-traffic-encryption"></a><a name="checktraffic"></a>Comprobación del cifrado de tráfico
 
 Para comprobar el GPO de cifrado aplicado en la unidad organizativa, instale IIS en todas las máquinas virtuales de Azure y en el host1. Cada IIS se personaliza para responder a solicitudes HTTP en el puerto 8080.
 Para comprobar el cifrado, puede instalar un analizador de protocolos (sniffer) de red (por ejemplo, Wireshark) en todos los equipos de la unidad organizativa.

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: ec0fe8f66ef2ad2458b4ffad0e848591793e5b05
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75649348"
 ---
 # <a name="deploy-associations-for-a-managed-application-using-azure-policy"></a>Implementación de asociaciones para aplicaciones administradas mediante Azure Policy
@@ -29,7 +29,7 @@ Para más información sobre las asociaciones, consulte [Información general so
 
 ## <a name="how-to-use-the-deploy-associations-built-in-policy"></a>Uso de la directiva integrada de implementación de asociaciones 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 Si la aplicación administrada necesita permisos sobre la suscripción para realizar una acción, la implementación de los recursos de asociación de la directiva no funcionará sin conceder los permisos.
 
 ### <a name="policy-assignment"></a>Asignación de directiva

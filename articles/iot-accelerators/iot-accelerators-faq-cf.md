@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: c84452ff71fa34a65b2e56ec753b68bf551c7e35
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73826275"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
@@ -68,7 +68,7 @@ Si ha implementado la solución de www.azureiotsolutions.com, no puede iniciar s
 1. Es el nombre de usuario que se va a utilizar es: `docker`.
 1. La contraseña que se utilice depende de la versión que se usó en la implementación:
     * Para las soluciones implementadas con el script build.ps1 antes del 1 de junio de 2017, la contraseña es: `Passw0rd`.
-    * Para las soluciones implementadas con el script build.ps1 después del 1 de junio de 2017, la contraseña es: `<name of your deployment>.config.user`. La contraseña se almacena en el valor **VmAdminPassword**. La contraseña se genera aleatoriamente durante la implementación a menos que la especifique con el parámetro `-VmAdminPassword` del script `build.ps1`.
+    * Para las soluciones implementadas con el script build.ps1 después del 1 de junio de 2017, la contraseña es: `<name of your deployment>.config.user`. La contraseña se almacena en el valor **VmAdminPassword**. La contraseña se genera aleatoriamente durante la implementación a menos que la especifique con el parámetro `build.ps1` del script `-VmAdminPassword`.
 
 ### <a name="how-do-i-stop-and-start-all-docker-processes-in-the-simulation-vm"></a>¿Cómo se puede detener e iniciar todos los procesos de docker en la máquina virtual de simulación?
 

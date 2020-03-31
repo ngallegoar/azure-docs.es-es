@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: twooley
 ms.openlocfilehash: cf3893706afcb4c4cc5b90dd3d2431ecedc71d0a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73839056"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copia de datos entre Data Lake Storage Gen1 y Azure SQL Database mediante Sqoop
@@ -24,7 +24,7 @@ Las aplicaciones de macrodatos son una opción natural para procesar datos no es
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) es una herramienta diseñada para transferir datos entre bases de datos relacionales y un repositorio de macrodatos, como Data Lake Storage Gen1. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS) como Azure SQL Database a Data Lake Storage Gen1. Después, puede transformar y analizar los datos mediante cargas de trabajo de macrodatos y exportar los datos a un RDBMS. En este artículo, use una base de datos de Azure SQL como la base de datos relacional para importar y exportar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de empezar, debe disponer de lo siguiente:
 
@@ -139,4 +139,4 @@ Para obtener información sobre cómo optimizar el rendimiento del trabajo de Sc
 * [Copia de datos de los blobs de Azure Storage en Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
-* [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Use Azure HDInsight with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md) (Uso de Azure HDInsight con Data Lake Storage Gen1)

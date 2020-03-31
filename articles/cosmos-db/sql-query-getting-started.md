@@ -7,25 +7,25 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
 ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873342"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introducción a las consultas SQL
 
-Las cuentas de API SQL de Azure Cosmos DB admiten la realización de consulta de elementos mediante SQL (lenguaje de consulta estructurado) como lenguaje de consulta de JSON. Los objetivos de diseño del lenguaje de consulta de Azure Cosmos DB son:
+Las cuentas de la API SQL para Azure Cosmos DB admiten la realización de consultas mediante el Lenguaje de consulta estructurado (SQL) como lenguaje de consulta de JSON. Los objetivos de diseño del lenguaje de consulta de Azure Cosmos DB son:
 
 * Admitir SQL, uno de los lenguajes de consulta más conocidos, en lugar de inventar uno nuevo. SQL proporciona un modelo de programación formal para consultas enriquecidas a través de elementos JSON.  
 
-* Usar el modelo de programación de JavaScript como base para el lenguaje de consulta. El sistema de tipos de JavaScript, la evaluación de expresiones y la invocación de funciones son las bases de la API de SQL. Estas bases proporcionan un modelo de programación natural para características como proyecciones relacionales, navegación jerárquica por elementos JSON, autocombinaciones, consultas espaciales e invocación de funciones definidas por el usuario (UDF) escritas íntegramente en JavaScript.
+* Usar el modelo de programación de JavaScript como base para el lenguaje de consulta. El sistema de tipos de JavaScript, la evaluación de expresiones y la invocación de funciones son las bases de la API de SQL. Estas bases proporcionan un modelo de programación natural para características como las proyecciones relacionales, la navegación jerárquica por elementos JSON, autocombinaciones, las consultas espaciales y la invocación de funciones definidas por el usuario (UDF) escritas íntegramente en JavaScript.
 
 ## <a name="upload-sample-data"></a>Cargar datos de ejemplo
 
-En la cuenta de API de SQL de Cosmos DB, cree un contenedor denominado `Families`. Cree dos elementos JSON sencillos en el contenedor. Puede ejecutar la mayoría de las consultas de ejemplo en la documentación de consultas de Azure Cosmos DB con este conjunto de datos.
+En la cuenta de la API de SQL para Cosmos DB, cree un contenedor denominado `Families`. Cree dos elementos JSON sencillos en el contenedor. Puede ejecutar la mayoría de las consultas de ejemplo en la documentación de consultas de Azure Cosmos DB con este conjunto de datos.
 
-### <a name="create-json-items"></a>Crear elementos JSON
+### <a name="create-json-items"></a>Creación de elementos JSON
 
 Con el siguiente código se crean dos elementos JSON sencillos sobre familias. Los elementos JSON sencillos para las familias Andersen y Wakefield incluyen a los padres, los hijos, sus mascotas, la dirección y la información de registro. El primer elemento tiene cadenas, números, valores booleanos, matrices y propiedades anidadas.
 
@@ -156,9 +156,9 @@ Los resultados son:
     ]
 ```
 
-## <a name="remarks"></a>Comentarios
+## <a name="remarks"></a>Observaciones
 
-Los ejemplos anteriores muestran varios aspectos del lenguaje de consulta de Cosmos DB:  
+Los ejemplos anteriores muestran varios aspectos del lenguaje de consulta de Cosmos DB:  
 
 * Como la API de SQL trabaja en valores JSON, trata con entidades en forma de árbol en lugar de con filas y columnas. Puede hacer referencia a los nodos de árbol de cualquier profundidad arbitraria, como `Node1.Node2.Node3…..Nodem`, de forma similar a la referencia de dos partes de `<table>.<column>` en SQL ANSI.
 

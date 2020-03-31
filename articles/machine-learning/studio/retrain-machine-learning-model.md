@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 804aeee112d060c411a4e37b5d19e4766307b0a0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 218c1c98a2ed775ae86c1657156991879708cc7a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169168"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79217933"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Nuevo entrenamiento e implementación de un modelo de aprendizaje automático
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Una forma de garantizar que los modelos de aprendizaje automático siguen siendo precisos y se basan en los datos más adecuados disponibles, es volver a entrenarlos. En este artículo se muestra cómo volver a entrenar e implementar un modelo de aprendizaje automático como un nuevo servicio web en Studio (clásico). Si está pensando en volver a entrenar un servicio web clásico, [vea este artículo de procedimientos.](retrain-classic-web-service.md)
 
@@ -59,7 +61,7 @@ En este ejemplo, se utiliza C# para crear la aplicación de reciclado. También 
 
 Use los pasos siguientes para llamar a las API de nuevo entrenamiento:
 
-1. Cree una aplicación de consola en C# mediante Visual Studio: **Nuevo** > **Proyecto** > **Visual C#**  > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)** .
+1. Cree una nueva aplicación de consola de C# en Visual Studio: **Nuevo** > **Proyecto** > **Visual C#**  > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)** .
 1. Inicie sesión en el portal de servicio web Machine Learning.
 1. Haga clic en el servicio web con el que está trabajando.
 1. Haga clic en **Consume**(Consumo).

@@ -10,11 +10,11 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938846"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231372"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 

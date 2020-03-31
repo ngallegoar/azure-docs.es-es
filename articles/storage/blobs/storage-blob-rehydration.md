@@ -10,10 +10,10 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
 ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77614800"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Rehidratación de los datos de blob desde el nivel de archivo

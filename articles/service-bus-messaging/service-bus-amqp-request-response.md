@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/23/2020
 ms.author: aschhab
 ms.openlocfilehash: 338b411eade35fa357f64131c64b8ef2034c92b0
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76761090"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud
@@ -187,7 +187,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes.|  
+|statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes|  
 |statusDescription|string|No|Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
@@ -301,7 +301,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes.|  
+|statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes|  
 |statusDescription|string|No|Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una asignación con las siguientes entradas:  
@@ -337,7 +337,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes.|  
+|statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes|  
 |statusDescription|string|No|Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una asignación con las siguientes entradas:  
@@ -442,7 +442,7 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
   
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes.|  
+|statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; hay más mensajes.<br /><br /> 204: sin contenido; no hay más mensajes|  
 |statusDescription|string|No|Descripción del estado.|  
   
 El cuerpo del mensaje de respuesta debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  

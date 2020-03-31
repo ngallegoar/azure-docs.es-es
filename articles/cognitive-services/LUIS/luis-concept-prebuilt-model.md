@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: e0b5b95a7524b60a7c3367035a15a7158fa7908a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74280831"
 ---
 # <a name="prebuilt-models"></a>Modelos creados previamente
@@ -26,7 +26,7 @@ Los modelos creados previamente proporcionan dominios, intenciones, expresiones 
 
 LUIS proporciona tres tipos de modelos precompilados. Cada modelo se puede agregar a su aplicación en cualquier momento. 
 
-|Tipo de modelo|Incluye|
+|Tipo de modelo|Includes|
 |--|--|
 |[Dominio](luis-reference-prebuilt-domains.md)|Intenciones, expresiones, entidades|
 |Intenciones|Intenciones, expresiones|

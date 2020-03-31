@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 2e5eb0acd2a94f7726fbacefbe6e1022c8cebae2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864186"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Tutoriales de ciencia de datos de Azure Data Lake con U-SQL
@@ -34,4 +34,4 @@ En el tutorial sobre cómo [usar Azure Data Lake para la ciencia de datos](dat
 
 Para información general sobre el proceso de ciencia de datos en equipo, consulte la [información general sobre el proceso de ciencia de datos en equipo](overview.md).
 
-Para una explicación del ciclo de vida del proceso de ciencia de datos en equipo, consulte [Ciclo de vida del proceso de ciencia de datos en equipo](lifecycle.md). Este ciclo de vida describe el proceso que suelen seguir los proyectos al ejecutarlos. 
+Para obtener una explicación del ciclo de vida del proceso de ciencia de datos en equipo, consulte [Ciclo de vida del proceso de ciencia de datos en equipo](lifecycle.md). Este ciclo de vida describe el proceso que suelen seguir los proyectos al ejecutarlos. 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
 ms.openlocfilehash: 56c25b7c77809a5cb7f4e539cff8e1815cd9976f
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77031719"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Configuración del almacenamiento y la escalabilidad de Apache Kafka en HDInsight
@@ -25,7 +25,7 @@ El diagrama siguiente proporciona una comparación entre Kafka en HDInsight ante
 
 ![Arquitectura de Kafka con discos administrados](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-## <a name="configure-managed-disks-azure-portal"></a>Configuración de discos administrados: Portal de Azure
+## <a name="configure-managed-disks-azure-portal"></a>Configuración de Managed Disks: Azure Portal
 
 1. Siga los pasos que se explican en [Creación de un clúster de HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md) para comprender los pasos habituales para crear un clúster mediante el portal. No termine el proceso de creación del portal.
 
@@ -36,7 +36,7 @@ El diagrama siguiente proporciona una comparación entre Kafka en HDInsight ante
 
     ![Sección de tamaño del clúster con los discos por nodo de trabajo resaltada](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
 
-## <a name="configure-managed-disks-resource-manager-template"></a>Configuración de discos administrados: Plantilla de Resource Manager
+## <a name="configure-managed-disks-resource-manager-template"></a>Configuración de Managed Disks: Plantilla de Resource Manager
 
 Para controlar el número de discos usados por los nodos de trabajo en un clúster de Kafka, utilice la siguiente sección de la plantilla:
 

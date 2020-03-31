@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/12/2019
 ms.author: spelluru
 ms.openlocfilehash: f7c9feedddab1aea031cb3a8879e868aae04df00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65236876"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Direcciones IP compartidas en Azure DevTest Labs
@@ -36,9 +36,9 @@ Las máquinas virtuales creadas en este laboratorio usarán una dirección IP co
 
 ![Nueva máquina virtual](media/devtest-lab-shared-ip/new-vm.png)
 
-- **Compartida:** todas las máquinas virtuales creadas como **Compartida** se colocan en un grupo de recursos (RG). Se asigna una sola dirección IP al grupo de recursos y todas las máquinas virtuales usarán esa dirección IP.
-- **Pública:** todas las máquinas virtuales creadas tienen su propia dirección IP y se crean en su propio grupo de recursos.
-- **Privada:** todas las máquinas virtuales que se crean usan una dirección IP privada. No es posible conectarse a estas máquinas virtuales directamente desde Internet con Escritorio remoto.
+- **Compartido:** todas las máquinas virtuales creadas como **Compartido** se colocan en un solo grupo de recursos. Se asigna una sola dirección IP al grupo de recursos y todas las máquinas virtuales usarán esa dirección IP.
+- **Público:** todas las máquinas virtuales que se crean tienen su propia dirección IP y se crean en su propio grupo de recursos.
+- **Privado:** todas las máquinas virtuales que se crean usan una dirección IP privada. No es posible conectarse a estas máquinas virtuales directamente desde Internet con Escritorio remoto.
 
 Siempre que se agrega una máquina virtual con dirección IP compartida habilitada a la subred, DevTest Labs la agrega automáticamente a un equilibrador de carga y asigna un número de puerto TCP en la dirección IP pública, que se reenvía al puerto RDP de la máquina virtual.  
 

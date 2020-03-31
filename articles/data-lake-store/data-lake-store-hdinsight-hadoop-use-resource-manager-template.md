@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66161386"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Creación de un clúster de HDInsight con Azure Data Lake Storage Gen1 mediante las plantillas de Azure Resource Manager
@@ -34,7 +34,7 @@ Para los tipos de clúster compatibles, Data Lake Storage Gen1 se puede usar com
 
 ## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>Uso de Data Lake Storage Gen1 para el almacenamiento de clústeres de HDInsight
 
-Estas son algunas consideraciones importantes que deben tenerse en cuenta al usar HDInsight con Data Lake Storage Gen1:
+Estas son algunos puntos importantes que se deben tener en cuenta al usar HDInsight con Data Lake Storage Gen1:
 
 * Opción para crear clústeres de HDInsight con acceso a Data Lake Storage Gen1 como almacenamiento predeterminado está disponible para la versión 3.5 y 3.6 de HDInsight.
 
@@ -42,7 +42,7 @@ Estas son algunas consideraciones importantes que deben tenerse en cuenta al usa
 
 En este artículo, aprovisionamos un clúster de Hadoop con Data Lake Storage Gen1 como almacenamiento adicional. Para instrucciones sobre cómo crear un clúster de Hadoop con Data Lake Storage Gen1 como almacenamiento predeterminado, consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1 mediante Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -147,4 +147,4 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en D
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Copia de datos de los blobs de Azure Storage en Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
-* [Uso de Data Lake Storage Gen1 con clústeres de Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Usar Data Lake Storage Gen1 con clústeres de Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)

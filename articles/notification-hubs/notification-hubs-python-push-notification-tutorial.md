@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 1ff8c382813654b1dee38a99bf2cc0ca67afbedd
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76313834"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Uso de Notification Hubs desde Python
@@ -301,7 +301,7 @@ hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
 La URL HTTP de la solicitud de envío del centro de notificación se anexa con una cadena de consulta de "prueba" como resultado.
 
-## <a name="complete-tutorial"></a>Finalización del tutorial
+## <a name="complete-the-tutorial"></a><a name="complete-tutorial"></a>Finalización del tutorial
 
 Ahora puede completar el tutorial de introducción mediante el envío de notificaciones desde un back-end de Python.
 

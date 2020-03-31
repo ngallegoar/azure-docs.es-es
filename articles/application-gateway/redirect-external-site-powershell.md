@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 6596cdb2df0a916c49086f80466db60b02a81467
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74047754"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento externo mediante Azure PowerShell
 
 Puede usar Azure PowerShell para configurar el [redireccionamiento del tráfico web](multiple-site-overview.md) al crear una [puerta de enlace de aplicaciones](overview.md). En este tutorial, va a configurar un agente de escucha y una regla que redirigirán el tráfico web que llega a la puerta de enlace de aplicaciones de sitio externo.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red

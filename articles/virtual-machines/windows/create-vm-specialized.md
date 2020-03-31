@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460187"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224668"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creación de una VM de Windows desde un disco especializado mediante PowerShell
 
@@ -37,7 +37,7 @@ En este artículo se muestra cómo usar los discos administrados. Si tiene una i
 
 Se recomienda limitar el número de implementaciones simultáneas a 20 máquinas virtuales desde una sola instantánea o VHD. 
 
-## <a name="option-1-use-an-existing-disk"></a>Opción 1: Uso de un disco existente
+## <a name="option-1-use-an-existing-disk"></a>Opción 1: usar un disco existente
 
 Si tenía una VM que ha eliminado y quiere volver a usar el disco del sistema operativo para crear una nueva VM, use [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
 
@@ -50,7 +50,7 @@ $osDisk = Get-AzDisk `
 ```
 Ahora puede adjuntar este disco como disco del sistema operativo a una [nueva VM](#create-the-new-vm).
 
-## <a name="option-2-upload-a-specialized-vhd"></a>Opción 2: Carga de un disco duro virtual especializado
+## <a name="option-2-upload-a-specialized-vhd"></a>Opción 2: cargar un VHD especializado
 
 Puede cargar el VHD de una máquina virtual especializada creada con una herramienta de virtualización local, como Hyper-V, o de una máquina virtual exportada desde otra nube.
 
@@ -66,7 +66,7 @@ Use el disco duro virtual tal cual para crear una nueva máquina virtual.
 
 Ahora puede cargar un disco duro virtual directamente en un disco administrado. Para obtener instrucciones al respecto, consulte [Carga de un disco duro virtual en Azure mediante Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
-## <a name="option-3-copy-an-existing-azure-vm"></a>Opción 3: Copia de una máquina virtual de Azure existente
+## <a name="option-3-copy-an-existing-azure-vm"></a>Opción 3: copiar una VM de Azure existente
 
 Puede crear una copia de una máquina virtual que use discos administrados mediante la realización de una instantánea de la máquina virtual, para usarla después para crear un disco administrado y una máquina virtual.
 

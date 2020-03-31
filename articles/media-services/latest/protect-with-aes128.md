@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: 126700e6290650221a9cb9711b22472301409fca
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974179"
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Tutorial: Cifrado de vídeo con AES-128 y uso del servicio de entrega de claves
@@ -51,7 +51,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los siguientes requisitos son necesarios para completar el tutorial.
 
@@ -103,7 +103,7 @@ En este tutorial, se crea la entrada del trabajo basada en un archivo que se ing
 
 ## <a name="wait-for-the-job-to-complete"></a>Espere a que el trabajo se complete.
 
-El trabajo tarda un tiempo en completarse. Cuando lo hace, desea recibir una notificación. En el ejemplo de código siguiente se muestra cómo sondear el servicio para conocer el estado del [trabajo](https://docs.microsoft.com/rest/api/media/jobs). El sondeo no es un procedimiento recomendado para aplicaciones de producción debido a la posible latencia. El sondeo se puede limitar si se sobreutiliza en una cuenta. Los desarrolladores deben utilizar en su lugar Event Grid. Para más información, vea [Enrutamiento de eventos a un punto de conexión web personalizado](job-state-events-cli-how-to.md).
+El trabajo tarda un tiempo en completarse. Cuando lo hace, desea recibir una notificación. En el ejemplo de código siguiente se muestra cómo sondear el servicio para conocer el estado del [trabajo](https://docs.microsoft.com/rest/api/media/jobs). El sondeo no es un procedimiento recomendado para aplicaciones de producción debido a la posible latencia. El sondeo se puede limitar si se sobreutiliza en una cuenta. Los desarrolladores deben utilizar en su lugar Event Grid. Para más información, consulte [Enrutamiento de eventos a un punto de conexión web personalizado](job-state-events-cli-how-to.md).
 
 El **trabajo** pasa normalmente por los siguientes estados: **Programado**, **En cola**, **Procesando**, **Finalizado** (el estado final). Si el trabajo ha encontrado un error, obtendrá el estado **Error**. Si el trabajo está en proceso de cancelación, obtendrá los mensajes **Cancelando** y **Cancelado** cuando haya terminado.
 
@@ -143,7 +143,7 @@ El objeto ContentKeyIdentifierClaim se usa en la **directiva de clave de conteni
 
 ## <a name="build-a-dash-streaming-url"></a>Generación de una dirección URL de streaming de DASH
 
-Ahora que se ha creado el [Localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming. Para crear una dirección URL, debe concatenar el nombre de host de [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) y la ruta de acceso del **Localizador de streaming**. En este ejemplo, se utiliza el **punto de conexión de streaming** *predeterminado*. Cuando cree su primera cuenta de Media Services, el **punto de conexión de streaming** *predeterminado* estará en estado detenido, por lo que deberá llamar a **Start**.
+Ahora que se ha creado el [Localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming. Para crear una dirección URL, debe concatenar el nombre de host de [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) y la ruta de acceso del **Localizador de streaming**. En este ejemplo, se usa el *punto de conexión de* **streaming predeterminado**. Cuando cree su primera cuenta de Media Services, este *punto de conexión de streaming* **predeterminado** estará en un estado detenido, por lo que deberá llamar a **Iniciar**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetMPEGStreamingUrl)]
 
@@ -169,7 +169,7 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

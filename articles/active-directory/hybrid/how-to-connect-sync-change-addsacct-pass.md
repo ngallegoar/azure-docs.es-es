@@ -1,5 +1,5 @@
 ---
-title: 'Sincronización de Azure AD Connect:  Cambio de la contraseña de la cuenta de AD DS | Microsoft Docs'
+title: 'Azure AD Connect Sync: cambio de la contraseña de la cuenta de AD DS | Microsoft Docs'
 description: En este tema se describe cómo actualizar Azure AD Connect después de cambiar la contraseña de la cuenta de AD DS.
 services: active-directory
 keywords: cuenta de AD DS, cuenta de Active Directory, contraseña
@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35e04be046e20883f60c576745a29342add68a81
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60241582"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Cambio de la contraseña de la cuenta de AD DS

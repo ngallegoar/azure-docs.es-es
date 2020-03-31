@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: a9d078fe9aab12b9044733d17a1437801d5130a4
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74763684"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Configuración de parámetros de servidor en Azure Database for PostgreSQL con un único servidor en Azure Portal 
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor de Azure Database for PostgreSQL a través de Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 Para seguir esta guía, necesitará:
 - [Un servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md)
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 5c5e1a8cee8cdad0659ae00829d170bf3fa7bf87
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.date: 03/10/2020
+ms.openlocfilehash: 303da4dcb68a79e69254f6610afc0003bf0aa22c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941423"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477007"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Configuración de la conectividad SSL en Azure Database for PostgreSQL: servidor único
 
@@ -28,9 +28,6 @@ Del mismo modo, las cadenas de conexión que están predefinidas en la configura
 ## <a name="configure-enforcement-of-ssl"></a>Configuración de la aplicación de SSL
 
 Si lo desea, puede deshabilitar el establecimiento de la conectividad SSL. Microsoft Azure recomienda habilitar siempre la opción de configuración **Enforce SSL connection** (Establecer conexión SSL) para mayor seguridad.
-
-> [!NOTE]
-> Actualmente, la versión de TLS admitida para Azure Database for PostgreSQL es TLS 1.0, TLS 1.1, TLS 1.2.
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 

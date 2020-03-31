@@ -16,10 +16,10 @@ ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
 ms.openlocfilehash: 237081380445f2b2e4168ee3afe9a3ed7544fc89
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900198"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>Recopilar detalles sobre todas las máquinas virtuales de una suscripción con PowerShell

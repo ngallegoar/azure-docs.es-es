@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: manayar
 ms.openlocfilehash: fa1dda2907e8400491c8d18897bb41fb9cff49fd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76274431"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Escalado automático vertical con conjuntos de escalado de máquinas virtuales

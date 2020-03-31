@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
 ms.openlocfilehash: 4440fec98d1f561da6375bcaadba4282076cc53b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71299473"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Requisitos previos de Azure Security Center for IoT
@@ -42,31 +42,31 @@ Las conclusiones cognitivas y los informes de Azure Security Center para IoT e
 
 Actualmente, Azure Security Center para IoT es compatible con IoT Hub en las siguientes regiones de Azure:
   - Centro de EE. UU.  
-  - East US 
+  - Este de EE. UU. 
   - Este de EE. UU. 2
-  - Centro occidental de EE.UU.
+  - Centro-Oeste de EE. UU.
   - Oeste de EE. UU.
   - Oeste de EE. UU. 2
   - Centro-Sur de EE. UU.
   - Centro-Norte de EE. UU
   - Centro de Canadá
   - Este de Canadá 
-  - Europa del Norte    
+  - Norte de Europa    
   - Sur de Brasil
   - Centro de Francia  
   - Oeste de Reino Unido 
   - Sur de Reino Unido 2
-  - Europa occidental 
+  - Oeste de Europa 
   - Norte de Europa 
-  - Oeste de Japón  
-  - Este de Japón  
+  - Japón Occidental  
+  - Japón Oriental  
   - Sudeste de Australia
   - Este de Australia
-  - Asia oriental   
-  - Sudeste asiático
-  - Corea Central
+  - Este de Asia   
+  - Sudeste de Asia
+  - Centro de Corea del Sur
   - Corea del Sur 
-  - India Central
+  - Centro de la India
   - Sur de la India
 
 Azure Security Center para IoT enruta todo el tráfico desde todas las regiones europeas hasta el centro de datos de Oeste de Europa, y desde todas las regiones restantes hasta el centro de datos regional de Centro de EE. UU.  

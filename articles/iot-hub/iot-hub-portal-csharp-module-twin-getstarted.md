@@ -10,10 +10,10 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954620"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introducción a la identidad de módulo y los módulos gemelos de IoT Hub con el portal y un dispositivo .NET
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 > Para más información acerca de los diversos SDK que puede usar para crear ambas aplicaciones para que se ejecuten en dispositivos y en el back-end de la solución, consulte el artículo de los [SDK de Azure IoT](iot-hub-devguide-sdks.md).
 >
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * Visual Studio.
 
@@ -94,7 +94,7 @@ La identidad de módulo y el módulo gemelo se encuentran en versión preliminar
 
 Necesita la cadena de conexión del módulo para la aplicación de consola. Siga estos pasos:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Vaya al centro de IoT y seleccione **Dispositivos IoT**. Abra **myFirstDevice** y verá que **myFirstModule** se creó correctamente.
 

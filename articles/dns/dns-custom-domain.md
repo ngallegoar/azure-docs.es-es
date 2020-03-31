@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 7/13/2019
 ms.author: rohink
 ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356571"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231704"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar Azure DNS para proporcionar la configuración de un dominio personalizado para un servicio de Azure
 
 Azure DNS proporciona DNS para un dominio personalizado de cualquiera de los recursos de Azure que admiten dominios personalizados o que tienen un nombre de dominio completo (FQDN). Por ejemplo, tiene una aplicación web de Azure y quiere que los usuarios puedan acceder a estas a través de contoso.com o www\.contoso.com como un FQDN. Este artículo le guiará a través de la configuración del servicio de Azure con Azure DNS para usar dominios personalizados.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para poder usar Azure DNS con su dominio personalizado, primero debe delegarlo a Azure DNS. Visite [Delegación de un dominio en Azure DNS](./dns-delegate-domain-azure-dns.md) para obtener instrucciones sobre cómo configurar los servidores de nombres para su delegación. Una vez que el dominio se ha delegado a la zona de Azure DNS, es posible configurar los registros DNS necesarios.
 

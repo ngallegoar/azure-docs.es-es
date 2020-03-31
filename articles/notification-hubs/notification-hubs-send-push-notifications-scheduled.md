@@ -18,19 +18,19 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: ef5eedaa903480ae670f9bc48d0af89744a99d22
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71213007"
 ---
-# <a name="how-to-send-scheduled-notifications"></a>Instrucciones: Envío de notificaciones programadas
+# <a name="how-to-send-scheduled-notifications"></a>Envío de notificaciones programadas
 
 Si tiene un escenario en el que desea enviar una notificación en algún momento del futuro, pero no tiene una forma sencilla de activar el código de back-end para enviar la notificación. Notification Hubs de nivel estándar admite una característica que le permite programar notificaciones para hasta siete días en el futuro.
 
 
 ## <a name="schedule-your-notifications"></a>Programación de las notificaciones
-Cuando envíe una notificación, simplemente use la clase [`ScheduledNotification` ](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) en los SDK de Notification Hubs, tal como se muestra en el ejemplo siguiente:
+Cuando envíe una notificación, simplemente use la clase [`ScheduledNotification`](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) en los SDK de Notification Hubs, tal como se muestra en el ejemplo siguiente:
 
 ```csharp
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");

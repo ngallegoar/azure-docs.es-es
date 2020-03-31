@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 54085d602246d38adb970ed02f451241ca7ba19d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726403"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Uso del almacenamiento de blobs desde iOS
@@ -134,7 +134,7 @@ Para confirmar que esto funciona, examine el [Explorador de Microsoft Azure Stor
 De manera predeterminada, los permisos de un contenedor se configuran para el acceso **Privado** . Sin embargo, los contenedores proporcionan varias opciones diferentes para acceder a ellos:
 
 - **Privado**: el propietario de la cuenta es el único que puede leer los datos del contenedor y de los blobs.
-- **Blob**: Los datos de blob dentro de este contenedor pueden leerse a través de una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes no pueden enumerar los blobs incluidos en el contenedor mediante una solicitud anónima.
+- **Blob**: los datos de los blobs de este contenedor se pueden leer a través de una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes no pueden enumerar los blobs incluidos en el contenedor mediante una solicitud anónima.
 - **Contenedor**: los datos del contenedor y de los blobs se pueden leer mediante una solicitud anónima. Los clientes pueden enumerar los blobs del contenedor a través de una solicitud anónima, pero no pueden enumerar los contenedores que están en la cuenta de almacenamiento.
 
 En el ejemplo siguiente se muestra cómo crear un contenedor con permiso de acceso de **Contenedor** que permita el acceso público, de solo lectura, a todos los usuarios de Internet:
@@ -224,12 +224,12 @@ En el ejemplo siguiente se muestra cómo enumerar todos los blobs en un contened
 - **prefix** : puede especificar el prefijo que se va a usar para la lista de blobs. Solo se enumerarán los blobs que comiencen por dicho prefijo.
 - **useFlatBlobListing**: como se mencionó en la sección [Asignación de nombres y referencia a contenedores y blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata), aunque Blob service es un esquema plano de almacenamiento, puede crear una jerarquía virtual asignando a los blobs el nombre de la información de la ruta de acceso. Sin embargo, actualmente no se admiten listas que no sean planas. Esta característica estará disponible próximamente. Por el momento, este valor debe ser **SÍ**.
 - **blobListingDetails** : puede especificar qué elementos desea incluir al enumerar los blobs
-  - _AZSBlobListingDetailsNone_: se enumeran solo los blobs confirmados y no se devuelven los metadatos de los blobs.
-  - _AZSBlobListingDetailsSnapshots_: se enumeran los blobs confirmados y las instantáneas de los blobs.
-  - _AZSBlobListingDetailsMetadata_: se recuperan los metadatos de los blobs que se devuelven en la lista.
-  - _AZSBlobListingDetailsUncommittedBlobs_: se enumeran los blobs confirmados y sin confirmar.
-  - _AZSBlobListingDetailsCopy_: se incluyen propiedades de copia en la lista.
-  - _AZSBlobListingDetailsAll_: se enumeran todos los blobs confirmados, blobs sin confirmar e instantáneas disponibles y se devuelven todos los metadatos y estados de copia de dichos blobs.
+  - _AZSBlobListingDetailsNone_: solo muestra los blobs confirmados y no devuelve los metadatos de blob.
+  - _AZSBlobListingDetailsSnapshots_: muestra los blobs confirmados y las instantáneas de blob.
+  - _AZSBlobListingDetailsMetadata_: recupera los metadatos de cada blob que se devuelve.
+  - _AZSBlobListingDetailsUncommittedBlobs_: muestra los blobs confirmados y sin confirmar.
+  - _AZSBlobListingDetailsCopy_: incluye las propiedades de copia en la lista.
+  - _AZSBlobListingDetailsAll_: muestra todos los blobs confirmados, blobs sin confirmar e instantáneas disponibles. Además, se devuelven todos los metadatos y estados de copia de dichos blobs.
 - **maxResults** : el número máximo de resultados que se devuelven para esta operación. Utilice -1 para no establecer un límite.
 - **completionHandler** : el bloque de código que se ejecutará con los resultados de la operación de lista.
 

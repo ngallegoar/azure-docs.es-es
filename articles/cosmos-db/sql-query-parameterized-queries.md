@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
 ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74870826"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Consultas parametrizadas en Azure Cosmos DB
 
-Cosmos DB admite consultas con parámetros que se expresen con la notación @ ya conocida. El uso de SQL con parámetros permite controlar y evitar de forma sólida la entrada por parte de los usuarios, y evita la exposición accidental de datos a través de la inyección de código SQL.
+Cosmos DB admite consultas con parámetros que se expresen con la notación @ ya conocida. El uso de SQL con parámetros permite controlar y evitar de forma coherente la entrada por parte de los usuarios, e impide la exposición accidental de datos a través de la inyección de código SQL.
 
 ## <a name="examples"></a>Ejemplos
 
@@ -50,7 +50,7 @@ En el ejemplo siguiente se establece el argumento TOP con una consulta parametr
     }
 ```
 
-Los valores de los parámetros pueden ser cualquier tipo de JSON válido: cadenas, números, booleanos, null o incluso matrices o JSON anidado. Dado que Cosmos DB no tiene ningún esquema, los parámetros no se validan respecto a ningún tipo.
+Los valores de los parámetros pueden ser cualquier tipo de JSON válido: cadenas, números, booleanos, null o incluso matrices o JSON anidado. Dado que Cosmos DB no tiene ningún esquema, los parámetros no se validan con respecto a ningún tipo.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

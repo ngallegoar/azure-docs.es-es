@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 9f3802ada79ee87d1a04634f7caac3b1b4286dce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978039"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutorial: Uso de Custom Vision con un dispositivo IoT para notificar estados visuales
@@ -33,7 +33,7 @@ Este tutorial le mostrará cómo:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [!INCLUDE [create-resources](includes/create-resources.md)]
     > [!IMPORTANT]
@@ -56,7 +56,7 @@ La aplicación de alertas visuales de IoT se ejecuta en un bucle continuo, que c
 
 Los siguientes archivos administran la funcionalidad principal de la aplicación.
 
-| Archivo | DESCRIPCIÓN |
+| Archivo | Descripción |
 |-------------|-------------|
 | [MainPage.xaml](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | Este archivo define la interfaz de usuario de XAML. Hospeda el control de la cámara web y contiene las etiquetas usadas para las actualizaciones de estado.|
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Este código controla el comportamiento de la interfaz de usuario de XAML. Contiene el código de procesamiento de la máquina de estado.|
@@ -78,7 +78,7 @@ Para que la aplicación de alertas visuales de IoT se ejecute en su equipo o dis
     1. En el script _IoTHub\IotHubWrapper.cs_, actualice la variable `s_connectionString` con la cadena de conexión adecuada para el dispositivo. 
     1. En Azure Portal, cargue la instancia de IoT Hub, haga clic en **Dispositivos IoT** en **Exploradores**, seleccione el dispositivo de destino (o cree uno si es necesario) y busque la cadena de conexión que se muestra en **Cadena de conexión principal**. La cadena contendrá el nombre de IoT Hub, el identificador de dispositivo y la clave de acceso compartida, con el siguiente formato: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}`.
 
-## <a name="run-the-app"></a>Ejecución de la aplicación
+## <a name="run-the-app"></a>Ejecución la aplicación
 
 Si va a ejecutar la aplicación en su equipo, seleccione **Máquina local** como dispositivo de destino en Visual Studio y seleccione **x64** o **x86** como plataforma de destino. Luego, presione F5 para ejecutar el programa. La aplicación debe iniciarse y mostrar la fuente en directo desde la cámara y un mensaje de estado.
 

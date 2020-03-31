@@ -1,19 +1,18 @@
 ---
 title: Publicar una oferta de máquina virtual en Azure Marketplace
 description: Se enumeran los pasos necesarios para publicar una oferta de máquina virtual existente en Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
-ms.author: pabutler
-ms.openlocfilehash: 1b07f3f3edab47f8f75835dffd4cc3f89f17ab63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: c35f721131b997dcfdb0f23a91a39329168b757c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824409"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277351"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Publicación de una oferta de máquina virtual
 
@@ -25,7 +24,7 @@ En la tabla siguiente se describen estos pasos y se proporciona una estimación 
 <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **Paso de publicación**           | **Hora**    | **Descripción**                                                            |
+|  **Paso de publicación**           | **Time**    | **Descripción**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar requisitos previos         | 15 minutos   | Se validan la información y la configuración de la oferta.                        |
 | Validación de la versión de prueba (opcional) | 2 horas | Si ha seleccionado habilitar Versión de prueba, Microsoft valida la configuración de la versión de prueba, su implementación y la replicación a través de las regiones seleccionadas. |

@@ -9,10 +9,10 @@ ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 4b1a42e25a6d8c7b4a3c24dffcb858ffe63dd10b
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71671043"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
@@ -23,7 +23,7 @@ Microsoft Azure proporciona varias características en Azure Storage para almace
 
 En la tabla siguiente se compara Azure Files, Azure Blobs y Azure Disks y se muestran los escenarios de ejemplo adecuados para cada uno.
 
-| Característica | DESCRIPCIÓN | Cuándo se deben usar |
+| Característica | Descripción | Cuándo se usa |
 |--------------|-------------|-------------|
 | **Archivos de Azure** | Proporciona una interfaz SMB, bibliotecas de cliente y una [interfaz de REST](/rest/api/storageservices/file-service-rest-api) que permite el acceso desde cualquier lugar a archivos almacenados. | Cuando desee migrar mediante lift-and-shift una aplicación a la nube que ya usa las API del sistema de archivos nativo para compartir datos entre ella y otras aplicaciones que se ejecutan en Azure.<br/><br/>Cuando desee almacenar herramientas de desarrollo y depuración a las que es necesario acceder desde muchas máquinas virtuales. |
 | **Azure Blobs** | Proporciona bibliotecas de cliente y una [interfaz de REST](/rest/api/storageservices/blob-service-rest-api) que permite que los datos no estructurados se almacenen y se acceda a ellos a gran escala en blobs en bloques.<br/><br/>También admite [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) para soluciones de análisis de macrodatos empresariales. | Cuando desea que la aplicación admita escenarios de streaming y de acceso aleatorio.<br/><br/>Cuando desea poder tener acceso a datos de aplicación desde cualquier lugar.<br/><br/>Desea crear una instancia empresarial de Data Lake en Azure y realizar análisis de macrodatos. |

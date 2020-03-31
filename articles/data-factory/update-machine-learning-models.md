@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.openlocfilehash: 3313c9c362a9b82cf7ed8db63479aaa5cf0c777e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73683247"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
@@ -56,11 +56,11 @@ El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure
 }
 ```
 
-| Propiedad                      | DESCRIPCIÓN                              | Obligatorio |
+| Propiedad                      | Descripción                              | Obligatorio |
 | :---------------------------- | :--------------------------------------- | :------- |
-| Nombre                          | Nombre de la actividad en la canalización     | Sí      |
-| description                   | Texto que describe para qué se usa la actividad.  | Sin       |
-| Tipo                          | Para la actividad de actualización de recurso de Azure Machine Learning, el tipo de actividad es **AzureMLUpdateResource**. | Sí      |
+| name                          | Nombre de la actividad en la canalización     | Sí      |
+| description                   | Texto que describe para qué se usa la actividad.  | No       |
+| type                          | Para la actividad de actualización de recurso de Azure Machine Learning, el tipo de actividad es **AzureMLUpdateResource**. | Sí      |
 | linkedServiceName             | Servicio vinculado de Azure Machine Learning que contiene la propiedad updateResourceEndpoint. | Sí      |
 | trainedModelName              | Nombre del módulo del modelo entrenado del experimento de servicio web que se actualizará | Sí      |
 | trainedModelLinkedServiceName | Nombre del servicio vinculado de Azure Storage que contiene el archivo ilearner cargado por la operación de actualización | Sí      |
@@ -127,7 +127,7 @@ Esta es una definición de un servicio vinculado de ejemplo:
 El escenario siguiente proporciona más detalles. Tiene un ejemplo para volver a entrenar y actualizar modelos de Azure Machine Learning Studio a partir de una canalización de Azure Data Factory.
 
 
-## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Sample: Volver a entrenar y actualizar un modelo de Azure Machine Learning
+## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Ejemplo: Volver a entrenar y actualizar un modelo de Azure Machine Learning
 
 Esta sección proporciona una canalización de ejemplo que usa la **actividad Ejecución de lotes de Azure Machine Learning Studio** para volver a entrenar un modelo. La canalización usa también la **actividad Actualizar recurso de Azure Machine Learning Studio** para actualizar el modelo en el servicio web de puntuación. La sección también proporciona fragmentos JSON para todos los servicios vinculados, conjuntos de datos y canalización en el ejemplo.
 

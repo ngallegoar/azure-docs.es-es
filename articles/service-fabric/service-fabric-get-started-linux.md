@@ -4,11 +4,11 @@ description: Instale el SDK y el motor en tiempo de ejecución, y cree un clúst
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 572b1509f45a7f5bf2c63619809f01d17c3493d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457897"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229304"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ En los pasos descritos en este artículo se supone que va a instalar de forma na
 No se admite la instalación del SDK ni del entorno de tiempo de ejecución de Service Fabric en el subsistema Windows para Linux. Puede administrar las entidades de Service Fabric hospedadas en otra parte de la nube o del entorno local mediante la interfaz de la línea de comandos (CLI) de Azure Service Fabric, ya que está admitida. Para más información acerca de cómo instalar la CLI, consulte [Configuración de la CLI de Service Fabric](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Se admiten estas versiones de sistemas operativos para desarrollo.
 

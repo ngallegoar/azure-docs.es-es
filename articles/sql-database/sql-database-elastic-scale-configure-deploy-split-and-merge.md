@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 50dbca0b3a761b72134eaa6cfed57e231be4ef13
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421035"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementación de un servicio de división y combinación para mover datos entre bases de datos particionadas
@@ -36,7 +36,7 @@ La herramienta de división y combinación permite mover los datos entre bases d
 
 Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** , donde *x.x.xxx.x* refleja el número de la versión. Busque los archivos del servicio de división y combinación en el subdirectorio **content\splitmerge\service** y los scripts de PowerShell de división y combinación (y las .dll de cliente necesarias) en el subdirectorio **content\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de división y combinación. Vaya a [Azure Portal](https://portal.azure.com). Cree una nueva **SQL Database**. Asigne un nombre a la base de datos y cree un nuevo administrador y una contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
 
@@ -57,7 +57,7 @@ Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatab
 1. Cree una nueva base de datos o elija una base de datos existente que sirva como la base de datos de estado para las operaciones de división y combinación y recupere la cadena de conexión de esa base de datos.
 
    > [!IMPORTANT]
-   > En este momento, la base de datos de estado debe usar la intercalación latina (SQL\_Latin1\_General\_CP1\_CI\_AS). Para obtener más información, vea [Nombre de intercalación de Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > En este momento, la base de datos de estado debe usar la intercalación latina (SQL\_Latin1\_General\_CP1\_CI\_AS). Para más información, vea [Nombre de intercalación de Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
 
    Con Base de datos SQL de Azure, la cadena de conexión suele tener el formato:
 
@@ -327,7 +327,7 @@ Es posible ver un ejemplo de esto en el script SetupSampleSplitMergeEnvironment.
 
 El servicio División y combinación no crea la base de datos de destino (o esquema para cualquier tabla de la base de datos) por usted. Deben crearse previamente antes de enviar una solicitud al servicio.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Es posible que cuando ejecute los scripts de ejemplo de PowerShell vea el siguiente mensaje:
 

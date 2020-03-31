@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698637"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228120"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Notas de la versión de la serie StorSimple 8000 Update 4
 
@@ -66,10 +66,10 @@ Se realizaron las siguientes mejoras clave y correcciones de errores en Update 4
 
 En las tablas siguientes se proporciona un resumen de los problemas corregidos en Update 4.    
 
-| Sin | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| No | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- |
 | 1 |Conmutación por error |En la versión anterior, después de la conmutación por error, existía un error relacionado con la limpieza que se observaba en el sitio del cliente. Este problema está corregido en esta versión. |Sí |Sí |
-| 2 |Volúmenes anclados localmente |En la versión anterior, se producía un error relacionado con la creación de los volúmenes anclados localmente que podía generar errores al crear los volúmenes. La causa raíz de este problema se corrigió en esta versión. |Sí |Sin |
+| 2 |Volúmenes anclados localmente |En la versión anterior, se producía un error relacionado con la creación de los volúmenes anclados localmente que podía generar errores al crear los volúmenes. La causa raíz de este problema se corrigió en esta versión. |Sí |No |
 | 3 |Paquete de soporte |En la versión anterior, existían problemas relacionados con el paquete de soporte que podían generar una excepción System.OutOfMemory u otros errores que podían impedir la creación del paquete de soporte. Estos errores se corrigieron en esta versión. |Sí |Sí |
 | 4 |Supervisión |En la versión anterior, existía un problema relacionado con la supervisión de gráficos para los volúmenes anclados localmente, donde el consumo se mostraba en EB. Este error se solucionó en esta versión. |Sí |Sí |
 | 5 |Migración |En la versión anterior, había varios problemas relacionados con la confiabilidad de la migración desde dispositivos de las series 5000 a 7000 a los dispositivos de la serie 8000. Estos problemas se solucionaron en esta versión. |Sí |Sí |

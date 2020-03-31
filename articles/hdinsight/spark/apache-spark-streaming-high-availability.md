@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: ac51b77e1ffc2b476b0a73dac9b6917552a86ce4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74807160"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Creación de trabajos de Apache Spark Streaming de alta disponibilidad con YARN

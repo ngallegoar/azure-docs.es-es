@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cabd3f7693c6b6b86bf0324bdafdfe1377d1ece8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082185"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228800"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario.
 
@@ -33,8 +33,8 @@ El escenario de Site Recovery para la replicación entre los centros de datos f�
 Los asociados existentes pueden incorporar nuevos clientes al escenario hasta que finalice el soporte técnico.
 - Durante la 2018 y 2019, se lanzarán dos actualizaciones:
 
-    - Actualización 7: corrige problemas de cumplimiento y configuración de red y proporciona compatibilidad con TLS 1.2.
-    - Actualización 8: agrega compatibilidad para sistemas operativos Linux RHEL/CentOS 7.3/7.4/7.5 y para SUSE 12.
+    - Actualización 7: Corrige problemas de cumplimiento y configuración de red y proporciona compatibilidad con TLS 1.2.
+    - Actualización de 8: Agrega compatibilidad para sistemas operativos Linux RHEL/CentOS 7.3/7.4/7.5 y para SUSE 12
     - Después de la actualizaciones 8, no se publicarán más actualizaciones. Habrá soporte técnico de revisiones limitadas para los sistemas operativos agregados en la actualización 8 y correcciones de errores basadas en el mejor esfuerzo.
 
 ## <a name="host-servers"></a>Servidores host
@@ -71,10 +71,10 @@ Solo se pueden replicar máquinas Linux con el almacenamiento siguiente:
 Host: formación de equipos NIC | Sí 
 Host: VLAN | Sí 
 Host: IPv4 | Sí 
-Host: IPv6 | Sin 
-VM invitada: formación de equipos NIC | Sin
+Host: IPv6 | No 
+VM invitada: formación de equipos NIC | No
 VM invitada: IPv4 | Sí
-VM invitada: IPv6 | Sin
+VM invitada: IPv6 | No
 VM invitada: Windows/Linux - dirección IP estática | Sí
 VM invitada: múltiples NIC | Sí
 
@@ -98,14 +98,14 @@ VMDK | Sí
 VHD/VHDX | N/D 
 VM de 2 generación | N/D 
 Disco en clúster compartido | Sí 
-Disco cifrado | Sin 
+Disco cifrado | No 
 UEFI| Sí 
-NFS | Sin 
-SMB 3.0 | Sin 
+NFS | No 
+SMB 3.0 | No 
 RDM | Sí 
 Disco > 1 TB | Sí 
 Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí 
-Espacios de almacenamiento | Sin 
+Espacios de almacenamiento | No 
 Agregar/quitar disco en caliente | Sí 
 Excluir el disco | Sí 
 Varias rutas (MPIO) | N/D 
@@ -114,8 +114,8 @@ Varias rutas (MPIO) | N/D
 
 **Acción** | **Compatible** 
 --- | --- 
-Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin 
-Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin 
+Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) | No 
+Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | No 
 
 ## <a name="mobility-service-and-updates"></a>Mobility Service y actualizaciones
 

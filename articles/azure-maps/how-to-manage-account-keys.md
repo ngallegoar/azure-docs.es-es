@@ -1,19 +1,19 @@
 ---
 title: Administración de la cuenta de Azure Maps en Azure Portal | Microsoft Azure Maps
 description: En este artículo, obtendrá información sobre cómo usar Azure Portal para administrar una cuenta de Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1186c3ab0fc333896f3be4db5d103bcd6d12abf9
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 42247cc576e55c7c504e9832017af336439b11b9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209977"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335549"
 ---
 # <a name="manage-your-azure-maps-account"></a>Administrar la cuenta de Azure Maps
 

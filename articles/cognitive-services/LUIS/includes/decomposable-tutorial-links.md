@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: diberry
 ms.openlocfilehash: f292fe5d658133c670c2813f2133492663493257
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74383685"
 ---
 Para aprovechar las ventajas de los [conceptos que se pueden descomponer](../luis-concept-model.md#v3-authoring-model-decomposition), empiece con la entidad de aprendizaje automático. Siga los pasos del [tutorial de la entidad de aprendizaje automático](../tutorial-machine-learned-entity.md) sobre cómo crear este tipo de entidad, incluidos ejemplos de:

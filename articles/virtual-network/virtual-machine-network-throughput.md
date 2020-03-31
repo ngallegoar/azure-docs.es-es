@@ -16,11 +16,11 @@ ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
 ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356320"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225304"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Ancho de banda de la red de máquinas virtuales
 
@@ -41,7 +41,7 @@ El rendimiento de salida esperado y el número de interfaces de red compatibles 
 El límite de rendimiento se aplica a la máquina virtual. El rendimiento no se ve afectado por los siguientes factores:
 - **Número de interfaces de red**: el límite de ancho de banda es el cúmulo de todo el tráfico saliente de la máquina virtual.
 - **Redes aceleradas**: aunque la característica puede ser útil para lograr el límite publicado, no cambia el límite.
-- **Destino del tráfico**: todos los destinos cuentan para el límite de salida.
+- **Destino del tráfico**: todos los destinos se cuentan para el límite de salida.
 - **Protocolo**: todo el tráfico saliente a través de todos los protocolos cuenta para el límite.
 
 ## <a name="network-flow-limits"></a>Límites de flujo de red

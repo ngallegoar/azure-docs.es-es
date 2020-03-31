@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
 ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445222"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usa comandos de la extensión de MongoDB para administrar los datos almacenados en la API de Azure Cosmos DB para MongoDB 
@@ -30,7 +30,7 @@ De forma predeterminada, la API de Azure Cosmos DB para MongoDB es compatible co
 * [Actualizar una colección](#update-collection)
 * [Obtener una colección](#get-collection)
 
-## <a id="create-database"></a> Crear una base de datos
+## <a name="create-database"></a><a id="create-database"></a> Crear una base de datos
 
 El comando de extensión de creación de base de datos crea una nueva base de datos de MongoDB. El nombre de la base de datos se usa desde el contexto de la base de datos donde se ejecuta el comando. El formato del comando CreateDatabase es el siguiente:
 
@@ -72,7 +72,7 @@ use test
 db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 ```
 
-## <a id="update-database"></a> Actualizar una base de datos
+## <a name="update-database"></a><a id="update-database"></a> Actualizar una base de datos
 
 El comando de extensión de actualización de la base de datos actualiza las propiedades asociadas con la base de datos especificada. Actualmente, solo se puede actualizar la propiedad "offerThroughput".
 
@@ -105,7 +105,7 @@ use test
 db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 ```
 
-## <a id="get-database"></a> Obtener una base de datos
+## <a name="get-database"></a><a id="get-database"></a> Obtener una base de datos
 
 El comando de extensión de obtención de una base de datos devuelve el objeto de base de datos. El nombre de la base de datos se usa desde el contexto de la base de datos donde se ejecuta el comando.
 
@@ -145,7 +145,7 @@ use test
 db.runCommand({customAction: "GetDatabase"});
 ```
 
-## <a id="create-collection"></a> Crear una colección
+## <a name="create-collection"></a><a id="create-collection"></a> Crear una colección
 
 El comando de extensión de creación de colección crea una nueva colección de MongoDB. El nombre de la base de datos se usa desde el contexto de la base de datos donde se ejecuta el comando. El formato del comando CreateCollection es el siguiente:
 
@@ -191,7 +191,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", offerThroughput: 1000, shardKey: "a.b" });
 ```
 
-## <a id="update-collection"></a> Actualizar una colección
+## <a name="update-collection"></a><a id="update-collection"></a> Actualizar una colección
 
 El comando de extensión de actualización de la colección actualiza las propiedades asociadas con la colección especificada.
 
@@ -226,7 +226,7 @@ use test
 db.runCommand({customAction: "UpdateCollection", collection: "testCollection", offerThroughput: 1200 });
 ```
 
-## <a id="get-collection"></a> Obtener una colección
+## <a name="get-collection"></a><a id="get-collection"></a> Obtener una colección
 
 El comando personalizado de obtención de una colección devuelve el objeto de colección.
 
@@ -271,7 +271,7 @@ use test
 db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 ```
 
-## <a id="default-output"></a> Salida predeterminada de un comando personalizado
+## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a> Salida predeterminada de un comando personalizado
 
 Si no se especifica, la respuesta personalizada contiene un documento con los siguientes campos:
 

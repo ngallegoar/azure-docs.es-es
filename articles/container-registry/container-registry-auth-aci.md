@@ -4,10 +4,10 @@ description: Aprenda a proporcionar acceso a las imágenes de su registro de con
 ms.topic: article
 ms.date: 04/23/2018
 ms.openlocfilehash: b1bc8119c495dea99c6bdc4923db198d041a1e9e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456507"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticación con Azure Container Registry desde Azure Container Instances
@@ -40,7 +40,7 @@ az container create \
     --registry-password <service-principal-password>
 ```
 
-## <a name="sample-scripts"></a>Scripts de ejemplo
+## <a name="sample-scripts"></a>Muestras de scripts
 
 Puede encontrar los scripts del ejemplo anterior para la CLI de Azure en GitHub, así como versiones para Azure PowerShell:
 

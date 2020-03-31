@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e50e406e74c0b78f41830c4ea7c5b10830002ed3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72886695"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulación de detecciones de riesgo en Identity Protection
@@ -98,7 +98,7 @@ Para probar una directiva de seguridad de riesgo del usuario, realice los pasos 
    1. En **Asignaciones**
       1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
          1. Opcionalmente, puede optar por excluir usuarios de la directiva.
-      1. **Condiciones** - **Riesgo de usuario**, la recomendación de Microsoft es establecer esta opción en **Alto**.
+      1. **Condiciones** - **Riesgo de usuario**: la recomendación de Microsoft es establecer esta opción en **Alto**.
    1. En **Controles**
       1. **Acceso**: la recomendación de Microsoft es **Permitir el acceso** y **Requerir cambio de contraseña**.
    1. **Aplicar directiva** - **Desactivado**
@@ -118,7 +118,7 @@ Para probar la directiva de riesgo de inicio de sesión, realice los pasos sigui
    1. En **Asignaciones**
       1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
          1. Opcionalmente, puede optar por excluir usuarios de la directiva.
-      1. **Condiciones** - **Riesgo de inicio de sesión**, la recomendación de Microsoft es establecer esta opción en **Medio y superior**.
+      1. **Condiciones** - **Riesgo de inicio de sesión**: la recomendación de Microsoft es establecer esta opción en **Medio y superior**.
    1. En **Controles**
       1. **Acceso**: la recomendación de Microsoft es **Permitir el acceso** y **Requerir autenticación multifactor**.
    1. **Aplicar directiva** - **Activado**
@@ -129,6 +129,6 @@ Para probar la directiva de riesgo de inicio de sesión, realice los pasos sigui
 
 - [¿Qué es el riesgo?](concept-identity-protection-risks.md)
 
-- [How To: Configuración y habilitación de directivas de riesgo](howto-identity-protection-configure-risk-policies.md)
+- [Cómo: Configuración y habilitación de directivas de riesgo](howto-identity-protection-configure-risk-policies.md)
 
 - [Azure Active Directory Identity Protection](overview-identity-protection.md)

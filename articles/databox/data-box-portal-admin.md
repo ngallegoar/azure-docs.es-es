@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987471"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229784"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Use Azure Portal para administrar Azure Data Box y Azure Data Box Heavy
 
@@ -48,7 +48,7 @@ Realice los pasos siguientes para clonar un pedido.
 
     ![Clonación del pedido 1](media/data-box-portal-admin/clone-order1.png)
 
-2.  Todos los detalles del pedido permanecen iguales. El nombre del pedido es el del pedido original seguido de *-Clone*. Seleccione la casilla para confirmar que ha revisado la información de privacidad. Haga clic en **Create**(Crear).
+2.  Todos los detalles del pedido permanecen iguales. El nombre del pedido es el del pedido original seguido de *-Clone*. Seleccione la casilla para confirmar que ha revisado la información de privacidad. Haga clic en **Crear**.
 
 El clon se crea en unos minutos y el portal se actualiza para mostrar el nuevo pedido.
 
@@ -65,7 +65,7 @@ Solo se pueden eliminar pedidos completados o cancelados. Realice los siguientes
 
     ![Eliminación del pedido de Data Box 1](media/data-box-portal-admin/delete-order1.png)
 
-3. Escriba el nombre del pedido cuando se le pida que confirme su eliminación. Hacer clic en **Eliminar**.
+3. Escriba el nombre del pedido cuando se le pida que confirme su eliminación. Haga clic en **Eliminar**.
 
 ## <a name="download-shipping-label"></a>Descarga de la etiqueta de envío
 
@@ -197,7 +197,7 @@ También puede ver la cadena de los registros de custodia que incluyen los regis
 
 Cuando cambie el estado del dispositivo en el portal, se le notificará por correo electrónico.
 
-|Estado del pedido |DESCRIPCIÓN |
+|Estado del pedido |Descripción |
 |---------|---------|
 |Ordered (Realizado)     | Se ha realizado correctamente un pedido. <br>Si el dispositivo está disponible, Microsoft identifica uno para el envío y lo prepara. <br> Si el dispositivo no está disponible inmediatamente, el pedido se procesará cuando el dispositivo esté disponible. El pedido puede tardar varios días o un par de meses en procesarse. Si el pedido no se puede completar en 90 días, se cancela el pedido y se le notifica.         |
 |Processed (Procesado)     | El procesamiento del pedido está completado. Según su pedido, el dispositivo se prepara para su envío en el centro de datos.         |

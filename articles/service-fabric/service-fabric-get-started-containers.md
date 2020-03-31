@@ -4,11 +4,11 @@ description: Cree la primera aplicación contenedora en Windows en Azure Service
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.openlocfilehash: 8e1de48874655721f708bfd1dfdda8d975f94c4b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906251"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229316"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 
@@ -24,7 +24,7 @@ Para ejecutar una aplicación que existe en un contenedor de Windows en un clús
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un equipo de desarrollo en el que se ejecute:
   * Visual Studio 2015 o Visual Studio 2019.

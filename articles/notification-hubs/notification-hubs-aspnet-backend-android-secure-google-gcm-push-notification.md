@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 419a9f9b5ce698c7516edd55856cbea9891ba029
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71212183"
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Envío de notificaciones push seguras a Azure Notification Hubs
@@ -145,4 +145,4 @@ Para ejecutar la aplicación, realice las siguientes acciones:
 1. Asegúrese de que **AppBackend** se ha implementado en Azure. Si usa Visual Studio, ejecute la aplicación de API web **AppBackend** . Se mostrará una página web ASP.NET.
 2. En Eclipse, ejecute la aplicación en un dispositivo Android físico o en el emulador.
 3. En la interfaz de usuario de la aplicación Android, escriba un nombre de usuario y contraseña. Esta información puede ser cualquier cadena, pero deben tener el mismo valor.
-4. En la interfaz de usuario de la aplicación Android, haga clic en **Log in**(Iniciar sesión). A continuación, haga clic en **Send push**(Enviar inserción).
+4. En la interfaz de usuario de la aplicación Android, haga clic en **Log in**(Iniciar sesión). A continuación, haga clic en **Enviar inserción**.

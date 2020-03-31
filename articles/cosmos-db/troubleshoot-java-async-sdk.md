@@ -10,10 +10,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65519978"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Solución de problemas al usar el SDK de Java Async con las cuentas de la API de SQL de Azure Cosmos DB
@@ -27,7 +27,7 @@ Comience con esta lista:
 * Revise los [consejos de rendimiento](performance-tips-async-java.md) y siga las prácticas sugeridas.
 * Lea el resto de este artículo y, si no encuentra una solución, registre un [problema de GitHub](https://github.com/Azure/azure-cosmosdb-java/issues).
 
-## <a name="common-issues-workarounds"></a>Problemas comunes y soluciones alternativas
+## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problemas comunes y soluciones alternativas
 
 ### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>Problemas de red, error de tiempo de espera de lectura de Netty, rendimiento bajo, latencia alta
 
@@ -38,16 +38,16 @@ Comience con esta lista:
 #### <a name="connection-throttling"></a>Limitación de la conexión
 La limitación de la conexión puede deberse a un [Límite de conexiones en una máquina host] o al [agotamiento de puertos SNAT (PAT) de Azure].
 
-##### <a name="connection-limit-on-host"></a>Límite de conexiones en una máquina host
+##### <a name="connection-limit-on-a-host-machine"></a><a name="connection-limit-on-host"></a>Límite de conexiones en una máquina host
 Algunos sistemas Linux, como Red Hat, tienen un límite máximo para el número total de archivos abiertos. En Linux, los sockets se implementan como archivos, por lo que este número también limita el número total de conexiones.
-Ejecute el siguiente comando.
+Ejecute el siguiente comando:
 
 ```bash
 ulimit -a
 ```
 El número máximo permitido de archivos abiertos, que se identifican como "nofile", debe al menos doblar el tamaño del grupo de conexiones. Para más información, consulte [Consejos de rendimiento](performance-tips-async-java.md).
 
-##### <a name="snat"></a>Agotamiento de puertos SNAT (PAT) de Azure
+##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Agotamiento de puertos SNAT (PAT) de Azure
 
 Si la aplicación está implementada en Azure Virtual Machines sin una dirección IP pública, los [puertos SNAT de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) se usan de manera predeterminada para establecer conexiones con cualquier punto de conexión fuera de la máquina virtual. El número de conexiones permitidas desde la máquina virtual hasta el punto de conexión de Azure Cosmos DB está limitado por la [configuración de Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
@@ -58,7 +58,7 @@ Si la aplicación está implementada en Azure Virtual Machines sin una direcció
     Cuando se habilita el punto de conexión de servicio, las solicitudes ya no se envían desde una dirección IP pública a Azure Cosmos DB. En su lugar, se envían la red virtual y la identidad de la subred. Este cambio puede producir caídas de firewall si solo se permiten direcciones IP públicas. Si usa un firewall, cuando se habilite el punto de conexión de servicio, agregue una subred al firewall mediante las [ACL de Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Asignar una dirección IP pública a la máquina virtual de Azure.
 
-##### <a name="cant-connect"></a>No se puede conectar con el servicio: firewall
+##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>No se puede conectar con el servicio: firewall
 ``ConnectTimeoutException`` indica que el SDK no puede conectar con el servicio.
 Es posible que obtenga un error similar al siguiente cuando use el modo directo:
 ```
@@ -73,7 +73,7 @@ Consulte también las indicaciones de [Límite de conexiones en una máquina hos
 Si usa un Proxy HTTP, asegúrese de que pueda admitir el número de conexiones configuradas en el SDK de `ConnectionPolicy`.
 En caso contrario, se encontrará con problemas de conexión.
 
-#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Patrón de codificación no válido: bloqueo del subproceso de E/S de Netty
+#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Patrón de codificación no válido: bloquea el subproceso de E/S de Netty
 
 El SDK usa la biblioteca de E/S de [Netty](https://netty.io/) para comunicarse con Azure Cosmos DB. El SDK tiene API asincrónicas y usa API de E/S de Netty sin bloqueo. El trabajo de E/S del SDK se realiza en subprocesos de E/S de Netty. El número de subprocesos de E/S de Netty está configurado para ser el mismo que el número de núcleos de CPU de la máquina de la aplicación. 
 
@@ -196,7 +196,7 @@ Una vez que identifique con qué otra dependencia del proyecto mantiene RxJava-1
 Para obtener más información, vea la [guía sobre cómo excluir dependencias transitivas](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
 
 
-## <a name="enable-client-sice-logging"></a>Habilitar el registro del SDK de cliente
+## <a name="enable-client-sdk-logging"></a><a name="enable-client-sice-logging"></a>Habilitar el registro del SDK de cliente
 
 El SDK de Java Async usa SLF4j como fachada de registro que admite el registro en plataformas populares como log4j y logback.
 
@@ -235,7 +235,7 @@ log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 
 Para obtener más información, revise el [registro manual de sfl4j](https://www.slf4j.org/manual.html).
 
-## <a name="netstats"></a>Estadísticas de red de SO
+## <a name="os-network-statistics"></a><a name="netstats"></a>Estadísticas de red de SO
 Ejecute el comando netstat para hacerse una idea de cuántas conexiones se encuentran en el estado `ESTABLISHED` y en el estado `CLOSE_WAIT`.
 
 En Linux, puede ejecutar el comando siguiente.

@@ -16,11 +16,11 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34051a31c6ccf69356f330d7c5ecb009f760857a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895946"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231804"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Asignación de roles de recursos de Azure en Privileged Identity Management
 
@@ -51,9 +51,9 @@ Siga estos pasos para hacer que un usuario sea elegible para un rol de directori
 
     ![Lista de recursos de Azure para administrar](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-1. Seleccione el recurso que quiera administrar, por ejemplo, una suscripción o un grupo de administración.
+1. Seleccione el recurso que desea administrar, por ejemplo, una suscripción o un grupo de administración.
 
-1. En Administrar, seleccione **Roles** para ver la lista de roles para los recursos de Azure.
+1. En Administrar, seleccione **Roles** para ver la lista de roles de los recursos de Azure.
 
     ![Roles de recursos de Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
@@ -107,9 +107,9 @@ Siga estos pasos para actualizar o quiotar una asignación de roles existente.
 
 1. Seleccione **Azure resources** (Recursos de Azure).
 
-1. Seleccione el recurso que quiera administrar, por ejemplo, una suscripción o un grupo de administración.
+1. Seleccione el recurso que desea administrar, por ejemplo, una suscripción o un grupo de administración.
 
-1. En Administrar, seleccione **Roles** para ver la lista de roles para los recursos de Azure.
+1. En Administrar, seleccione **Roles** para ver la lista de roles de los recursos de Azure.
 
     ![Roles de recursos de Azure: seleccionar rol](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
 
@@ -126,5 +126,5 @@ Siga estos pasos para actualizar o quiotar una asignación de roles existente.
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Ampliación o renovación de roles de recursos de Azure en Privileged Identity Management](pim-resource-roles-renew-extend.md)
-- [Configuración del rol de recursos de Azure AD en Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Configuración de las opciones de rol de recursos de Azure en Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
 - [Asignación de roles de Azure AD en Privileged Identity Management](pim-how-to-add-role-to-user.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: d959f4948d6b848f3b399c1310add06991d72012
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806327"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servicio Voz para datos de telefonía
@@ -121,7 +121,7 @@ Otro escenario es la integración directa con el protocolo de inicio de sesión 
 
  El servicio Voz funciona bien con los modelos integrados. Sin embargo, es posible que desee personalizar y optimizar más la experiencia para su producto o entorno. Las opciones de personalización abarcan desde la optimización de modelos acústicos a fuentes de voz únicas para su marca. Una vez que haya creado un modelo personalizado, podrá usarlo con cualquiera de las características del servicio Voz en tiempo real o en modo por lotes.
 
-| Servicio de voz | Modelo | DESCRIPCIÓN |
+| Servicio de voz | Modelo | Descripción |
 | -------------- | ----- | ----------- |
 | Voz a texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Cree un modelo acústico personalizado para las aplicaciones, herramientas o dispositivos usados en entornos concretos como en un automóvil o en una planta de producción, cada uno con unas condiciones de grabación específicas. Los ejemplos incluyen el habla con acento, ruidos de fondo específicos o el uso de un micrófono específico para la grabación. |
 |                | [Modelo de lenguaje](how-to-customize-language-model.md) | Cree un modelo de lenguaje personalizado para mejorar la transcripción de gramática y vocabulario específicos del sector, como terminología médica o jerga de TI. |
@@ -138,7 +138,7 @@ El código de ejemplo está disponible en GitHub para cada una de las caracterí
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-- [Speech SDK](speech-sdk-reference.md)
+- [Acerca del SDK de Voz](speech-sdk-reference.md)
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
 - [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)

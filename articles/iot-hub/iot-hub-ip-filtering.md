@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/22/2017
 ms.author: robinsh
 ms.openlocfilehash: a6bd8a766f3205358a65ef2fd0816643e4261cab
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68414311"
 ---
 # <a name="use-ip-filters"></a>Uso de filtros IP
 
 La seguridad es un aspecto importante de cualquier solución de IoT basada en Azure IoT Hub. En ciertas ocasiones necesitará especificar explícitamente las direcciones IP desde las que se pueden conectar los dispositivos como parte de la configuración de seguridad. La característica de *filtro IP* le permite configurar reglas para rechazar o aceptar tráfico de direcciones IPv4 específicas.
 
-## <a name="when-to-use"></a>Cuándo se deben usar
+## <a name="when-to-use"></a>Cuándo se usa
 
 Hay dos casos específicos cuando resulta útil bloquear los puntos de conexión de IoT Hub para determinadas direcciones IP:
 
@@ -32,7 +32,7 @@ Las reglas de filtro IP se aplican en el nivel de servicio de IoT Hub. Por lo ta
 
 Cualquier intento de conexión desde una dirección IP que coincida con una regla IP de rechazo en su centro de IoT recibe un código de estado 401 no autorizado y la descripción. El mensaje de respuesta no menciona la regla IP.
 
-## <a name="default-setting"></a>Configuración predeterminada
+## <a name="default-setting"></a>Valor predeterminado
 
 De forma predeterminada, la cuadrícula de **filtro IP** del portal para un centro de IoT está vacía. Este ajuste predeterminado indica que el centro acepta conexiones de cualquier dirección IP. Esta configuración predeterminada es equivalente a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0.
 

@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74703368"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformación de datos mediante Hadoop Streaming Activity en Azure Data Factory
@@ -41,7 +41,7 @@ Puede usar la actividad HDInsightStreamingActivity para invocar un trabajo de st
 La actividad de streaming de HDInsight en una [canalización](data-factory-create-pipelines.md) de Data Factory ejecuta programas de streaming de Hadoop en un clúster de HDInsight basado en Windows/Linux [propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o en uno [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 
 > [!NOTE] 
-> Si no está familiarizado con Azure Data Factory, vea [Introducción a Azure Data Factory](data-factory-introduction.md) y siga el tutorial sobre la [compilación de la primera canalización de datos](data-factory-build-your-first-pipeline.md) antes de leer este artículo. 
+> Si no está familiarizado con Azure Data Factory, lea [Introducción a Azure Data Factory](data-factory-introduction.md) y realice el tutorial de [compilación de la primera canalización de datos](data-factory-build-your-first-pipeline.md) antes de leer este artículo. 
 
 ## <a name="json-sample"></a>Ejemplo de JSON
 El clúster de HDInsight se rellena automáticamente con los programas de ejemplo (wc.exe y cat.exe) y los datos (davinci.txt). De forma predeterminada, el nombre del contenedor usado por el clúster de HDInsight es el nombre del propio clúster. Por ejemplo, si el nombre del clúster es myhdicluster, el nombre del contenedor de blobs asociado sería myhdicluster. 
@@ -222,7 +222,7 @@ El clúster de HDInsight se rellena automáticamente con los programas de ejempl
     }
 }
 ```
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Actividad de Hive](data-factory-hive-activity.md)
 * [Actividad de Pig](data-factory-pig-activity.md)
 * [Actividad MapReduce](data-factory-map-reduce.md)

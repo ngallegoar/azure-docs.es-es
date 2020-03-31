@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: spelluru
 ms.openlocfilehash: 29816d158cf1428727b7ff17bcc2c347f402dedf
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77134526"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especificación de un grupo de recursos para máquinas virtuales de laboratorio en Azure DevTest Labs

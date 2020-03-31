@@ -1,18 +1,18 @@
 ---
 title: Supervisión y depuración con métricas de Azure Cosmos DB
 description: Use las métricas de Azure Cosmos DB para depurar problemas comunes y supervisar la base de datos.
-ms.service: cosmos-db
 author: kanshiG
-ms.author: sngun
+ms.author: govindk
+ms.reviewer: sngun
+ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.reviewer: sngun
-ms.openlocfilehash: ef457fe8c21bc7e62f910a78913069df32bea1a3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b65bc6097d4841c79a68d4313ac7a3f89f6d1dbb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275694"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065934"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Supervisión y depuración con métricas de Azure Cosmos DB
 
@@ -113,4 +113,4 @@ Ha aprendido a supervisar y depurar problemas con las métricas proporcionadas e
 
 * Para obtener información sobre cómo ver las métricas desde Azure Monitor, consulte el artículo [Obtener métricas desde Azure Monitor](cosmos-db-azure-monitor-metrics.md). 
 * [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md)
-* [Sugerencias de rendimiento para Azure Cosmos DB](performance-tips.md)
+* [Sugerencias de rendimiento para Azure Cosmos DB](performance-tips.md)

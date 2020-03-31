@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68736371"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Detección de orígenes de datos en Azure Data Catalog
@@ -37,7 +37,7 @@ Aunque la búsqueda de texto libre predeterminada es sencilla e intuitiva, tambi
 | --- | --- | --- |
 | Búsqueda básica |Búsqueda básica que usa uno o varios términos de búsqueda. Los resultados son los recursos que tienen alguna propiedad que coincide con uno o varios de los términos especificados. |`sales data` |
 | Ámbito de propiedad |Devuelve solamente los orígenes de datos para los que el término de búsqueda coincide con la propiedad especificada. |`name:finance` |
-| Operadores booleanos |Se puede ampliar o reducir una búsqueda mediante operaciones booleanas. |`finance NOT corporate` |
+| operadores booleanos |Se puede ampliar o reducir una búsqueda mediante operaciones booleanas. |`finance NOT corporate` |
 | Agrupación con paréntesis |Use paréntesis para agrupar partes de la consulta y así conseguir aislamiento lógico, especialmente en combinación con los operadores booleanos. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Operadores de comparación |Use comparaciones distintas de la igualdad de propiedades que tengan tipos de datos numéricos y de fechas. |`modifiedTime > "11/05/2014"` |
 

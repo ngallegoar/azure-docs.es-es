@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73242468"
 ---
 # <a name="event-schemas"></a>Esquemas de eventos
@@ -54,16 +54,16 @@ El esquema EventGrid consta de un conjunto de propiedades necesarias con la que 
 
 Todos los eventos tienen los datos de nivel superior siguientes:
 
-| Propiedad | type | Obligatorio | DESCRIPCIÓN |
+| Propiedad | Tipo | Obligatorio | Descripción |
 | -------- | ---- | ----------- |-----------
-| topic | string | Sin | Debe coincidir con el tema en el que se publica. Si no se especifica, Event Grid lo rellena con el nombre del tema en el que se publica. |
+| topic | string | No | Debe coincidir con el tema en el que se publica. Si no se especifica, Event Grid lo rellena con el nombre del tema en el que se publica. |
 | subject | string | Sí | Ruta al asunto del evento definida por el anunciante. |
 | eventType | string | Sí | El tipo de evento de este origen del evento, por ejemplo, BlobCreated. |
 | eventTime | string | Sí | La hora de generación del evento en función de la hora UTC del proveedor. |
-| id | string | Sin | Identificador único para el evento |
-| data | object | Sin | Se usa para capturar datos de eventos específicos para la entidad de publicación. |
+| id | string | No | Identificador único para el evento |
+| datos | object | No | Se usa para capturar datos de eventos específicos para la entidad de publicación. |
 | dataVersion | string | Sí | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
-| metadataVersion | string | Sin | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+| metadataVersion | string | No | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 ### <a name="example--eventgrid-schema-event"></a>Ejemplo: evento del esquema EventGrid
 

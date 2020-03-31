@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/12/2019
 ms.openlocfilehash: adba1eb61676dbebcb356490b14b279ebe69c644
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930160"
 ---
 # <a name="azure-data-factory-mapping-data-flow-union-transformation"></a>Transformación Unión del flujo de datos de asignación de Azure Data Factory
@@ -21,7 +21,7 @@ Unión combina varias secuencias de datos en una, y la unión SQL de esas secuen
 
 Puede combinar un número n de secuencias en la tabla de configuración. Para ello, seleccione el icono "+" junto a cada fila configurada, incluidos los datos de origen y las secuencias de transformaciones existentes en el flujo de datos.
 
-![Transformación Unión](media/data-flow/union.png "Unión")
+![Transformación Unión](media/data-flow/union.png "Union")
 
 En este caso, puede combinar los metadatos dispares de varios orígenes (en este ejemplo, tres archivos de origen diferentes) y combinarlos en una única secuencia:
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 3f80169808b1e6420f04b786d2bb06bde9c96231
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73479654"
 ---
 # <a name="text-split-cognitive-skill"></a>Aptitud cognitiva División de texto
@@ -29,7 +29,7 @@ Microsoft.Skills.Text.SplitSkill
 
 Los parámetros distinguen mayúsculas de minúsculas.
 
-| Nombre de parámetro     | DESCRIPCIÓN |
+| Nombre de parámetro     | Descripción |
 |--------------------|-------------|
 | textSplitMode      | "pages" o "sentences" | 
 | maximumPageLength | Si textSplitMode se establece en "pages", se refiere a la longitud de página máxima medida por `String.Length`. El valor mínimo es 100.  Si textSplitMode se establece en "pages", el algoritmo intentará dividir el texto en fragmentos con un tamaño máximo definido en "maximumPageLenth". En este caso, el algoritmo hará todo lo posible para dividir el texto con un límite de oraciones con lo que el tamaño del fragmento puede ser ligeramente menor que "maximumPageLength". | 
@@ -38,14 +38,14 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud
 
-| Nombre de parámetro       | DESCRIPCIÓN      |
+| Nombre de parámetro       | Descripción      |
 |----------------------|------------------|
 | text  | Texto que se dividirá en subcadenas. |
 | languageCode  | (Opcional) Código de idioma para el documento. Si no conoce el idioma (es decir, debe dividir el texto de la entrada en [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), es seguro quitar esta entrada.  |
 
 ## <a name="skill-outputs"></a>Salidas de la aptitud 
 
-| Nombre de parámetro     | DESCRIPCIÓN |
+| Nombre de parámetro     | Descripción |
 |--------------------|-------------|
 | textItems | Una matriz de subcadenas que se han extraído. |
 
@@ -130,7 +130,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 ## <a name="error-cases"></a>Casos de error
 Si no se admite un idioma, se genera una advertencia y el texto se divide en límites de carácter.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 + [Aptitudes integradas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)

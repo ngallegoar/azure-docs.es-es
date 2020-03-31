@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440368"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Actividad Until en Azure Data Factory
@@ -56,7 +56,7 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 name | Nombre de la actividad `Until`. | String | Sí
 type | Debe establecerse en **Until**. | String | Sí
 expresión | Expresión que debe evaluarse como "true" o "false" | Expresión.  | Sí
-timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | String. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. El valor máximo es: 90 días. | No
+timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | String. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. El valor máximo es 90 días. | No
 Actividades | Conjunto de actividades que se ejecutan hasta que la expresión se evalúa como `true`. | Matriz de actividades. |  Sí
 
 ## <a name="example-1"></a>Ejemplo 1
@@ -246,7 +246,7 @@ La canalización establece **folderPath** en el valor de los parámetros **outpu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Estos comandos presuponen que ha guardado los archivos JSON en la siguiente carpeta: C:\ADF. 
+Estos comandos presuponen que ha guardado los archivos JSON en la carpeta C:\ADF. 
 
 ```powershell
 Connect-AzAccount

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60630655"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de supervisión de StorSimple para administrar su dispositivo
@@ -136,7 +136,7 @@ La siguiente ilustración sirve para identificar los LED en el controlador princ
 Use la siguiente tabla para saber si el módulo del controlador está funcionando correctamente.  
 
 ### <a name="controller-indicator-leds"></a>Indicadores LED de controlador
-| LED | DESCRIPCIÓN |
+| LED | Descripción |
 | --- | --- |
 | LED de identificación (azul) |Indica que el módulo se está identificando. Si el LED azul parpadea en un controlador en funcionamiento, quiere decir que es el controlador activo y el otro, el controlador en modo de espera. Para más información, consulte [Identificar el controlador activo en el dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de error (ámbar) |Indica un error en el controlador. |
@@ -200,7 +200,7 @@ Un dispositivo StorSimple cuenta con alarmas audibles asociadas al revestimiento
 En la siguiente tabla se describen los distintos estados de alarma.  
 
 ### <a name="alarm-states"></a>Estados de alarma
-| Estado de alarma | . | Acción cuando el botón Silenciar está presionado |
+| Estado de alarma | Acción | Acción cuando el botón Silenciar está presionado |
 | --- | --- | --- |
 | S0 |Modo normal: silencioso |Pitido doble |
 | S1 |Modo de error: 1 segundo activado/1 segundo desactivado |Transición a S2 o a S3 (ver notas) |
@@ -219,7 +219,7 @@ Puede desactivar la alarma audible presionando el botón Silencio del panel de o
 En la siguiente tabla se describen las diversas condiciones de alarma.
 
 ### <a name="alarm-conditions"></a>Condiciones de alarma
-| Status | Gravedad | Alarma | LED del panel de operaciones |
+| Status | severity | Alarma | LED del panel de operaciones |
 | --- | --- | --- | --- |
 | Alerta de PCM: pérdida de corriente continua de un único PCM |Error: no hay pérdida de redundancia |S1 |Error de módulo |
 | Alerta de PCM: pérdida de corriente continua de un único PCM |Error: pérdida de redundancia |S1 |Error de módulo |

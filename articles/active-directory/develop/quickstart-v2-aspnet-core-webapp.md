@@ -75,7 +75,7 @@ En este inicio rápido, utilizará un código de ejemplo para aprender cómo una
 > Hemos configurado el proyecto con los valores de las propiedades de su aplicación y está preparado para ejecutarse. 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Escriba_la_información_de_la_cuenta_admitida_aquí
+> > Enter_the_Supported_Account_Info_Here
 > [!div renderon="docs"]
 > #### <a name="step-3-run-your-visual-studio-project"></a>Paso 3: Ejecución del proyecto de Visual Studio
 > 1. Extraiga el archivo ZIP en una carpeta local de la carpeta raíz (por ejemplo, **C:\Azure-Samples**)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: makromer
 ms.openlocfilehash: 3fe3403ad06d82ba5ccd33d2718bf0e5eff64490
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73164630"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Controlar las filas de errores de truncamiento de SQL en Data Factory con asignación de flujos de datos

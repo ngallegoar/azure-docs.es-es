@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: 2912777c001a36ec913e2cfd618091ada5aa107a
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74807143"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Eliminación de un clúster de HDInsight con el explorador, PowerShell o la CLI de Azure
@@ -24,7 +24,7 @@ La facturación del clúster de HDInsight se inicia una vez creado el clúster y
 
 ## <a name="azure-portal"></a>Portal de Azure
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Desde el menú de la izquierda, vaya a **Todos los servicios** > **Analytics** > **Clústeres de HDInsight** y seleccione su clúster.
 
@@ -40,7 +40,7 @@ Reemplace `CLUSTERNAME` por el nombre del clúster de HDInsight en el siguiente 
 Remove-AzHDInsightCluster -ClusterName CLUSTERNAME
 ```
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 
 Reemplace `CLUSTERNAME` por el nombre del clúster de HDInsight y `RESOURCEGROUP` por el nombre del grupo de recursos en el código siguiente.  Desde un símbolo del sistema, escriba lo siguiente para eliminar el clúster:
 

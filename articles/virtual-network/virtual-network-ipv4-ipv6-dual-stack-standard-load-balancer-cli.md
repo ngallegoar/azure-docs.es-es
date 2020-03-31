@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/17/2019
 ms.author: kumud
-ms.openlocfilehash: f182ecc88f6b3362df4f3476a889fe15fb8e22e9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa895a294e26b6c74ab72afa3136feac2b2ec986
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75368393"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240245"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Implementación de una aplicación de pila doble IPv6 en Azure Virtual Network: CLI (versión preliminar)
 
@@ -40,17 +40,20 @@ Para usar IPv6 para la característica Azure Virtual Network, debe configurar la
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 Se tarda hasta 30 minutos en completar el registro de características. Puede comprobar el estado del registro ejecutando el siguiente comando de la CLI de Azure:
 
-```azurelci
+```azurecli
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 Una vez completado el registro, ejecute el siguiente comando:
 
-```azurelci
+```azurecli
 az provider register --namespace Microsoft.Network
 ```
+
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Para poder generar la red virtual de doble pila, debe crear primero un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *DsResourceGroup01* en la ubicación *eastus*:
@@ -156,6 +159,7 @@ Cree un sondeo de estado con [az network lb probe create](https://docs.microsoft
 ```azurecli
 az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
 ```
+
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
 Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Defina la configuración de la IP de front-end para el tráfico entrante y el grupo de IP de back-end para el tráfico entrante, junto con los puertos de origen y destino requeridos. 
@@ -362,6 +366,7 @@ Cree la máquina virtual *dsVM0* de la siguiente manera:
 --availability-set dsAVset \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest  
 ```
+
 Cree la máquina virtual *dsVM1* de la siguiente manera:
 
 ```azurecli

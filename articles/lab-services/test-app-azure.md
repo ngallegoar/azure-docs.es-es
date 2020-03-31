@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
 ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65872344"
 ---
 # <a name="test-your-app-in-azure"></a>Prueba de las aplicaciones en Azure 
@@ -24,7 +24,7 @@ En este artículo se proporciona los pasos para probar la aplicación en Azure c
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerequisites 
 1. [Cree una suscripción a Azure](https://azure.microsoft.com/free/) si no tiene una e inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Siga las instrucciones de [este artículo](devtest-lab-create-lab.md) para crear un laboratorio con Azure DevTest Labs. Ancle el laboratorio al panel para que pueda encontrarlo fácilmente la próxima vez que inicie sesión. Azure DevTest Labs le permite crear recursos en Azure rápidamente, reducir los desperdicios y controlar los costos. Para más información sobre DevTest Labs, consulte [Introducción](devtest-lab-overview.md). 
 3. Cree una cuenta de Azure Storage en el grupo de recursos del laboratorio mediante las instrucciones del artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md). En la página **Crear cuenta de almacenamiento**, seleccione **Usar existente** en **Grupo de recursos** y seleccione el **grupo de recursos del laboratorio**. 

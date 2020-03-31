@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67080479"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar la manera en que la solución de factoría conectada muestra los datos de los servidores de OPC UA
@@ -81,7 +81,7 @@ Para obtener más información sobre el acelerador de la solución de factoría 
 
 * [Permisos en el sitio azureiotsolutions.com][lnk-permissions]
 * [Preguntas frecuentes sobre factoría conectada](iot-accelerators-faq-cf.md)
-* [Preguntas más frecuentes][lnk-faq]
+* [P+F][lnk-faq]
 
 
 [img-oee-kpi]: ./media/iot-accelerators-connected-factory-customize/oeenadkpi.png

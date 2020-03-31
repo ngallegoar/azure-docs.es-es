@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 6ac9e362314cc45e6adbdcf1390f70cbe6b05de8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075958"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Equilibrio de carga en varias configuraciones de IP mediante PowerShell

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954373"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
@@ -29,7 +29,7 @@ En este artículo se proporcionan instrucciones para instalar un destino maestro
 
 Publique cualquier comentario o pregunta que tenga al final del artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Para elegir el host en el que se va a implementar el destino maestro, determine si la conmutación por recuperación va a ser en una máquina virtual local existente o en una nueva máquina virtual. 
     * En el caso de una máquina virtual existente, el host del destino maestro debe tener acceso a los almacenes de datos de la máquina virtual.

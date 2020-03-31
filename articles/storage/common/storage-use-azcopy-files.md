@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: 8aa0e5304825b3f016694a40b3fc1e176518237a
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77526695"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferencia de datos con AzCopy y File Storage 
@@ -204,7 +204,7 @@ Las opciones `--include-pattern` y `--exclude-pattern` solo se aplican a los nom
 
 Puede usar AzCopy para copiar archivos a otras cuentas de almacenamiento. La operación de copia es sincrónica, por lo que cuando el comando devuelve un resultado, eso indica que se han copiado todos los archivos.
 
-AzCopy usa interfaces [API](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)[de servidor a servidor](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url), por lo que los datos se copian directamente entre servidores de almacenamiento. En estas operaciones de copia no se usa el ancho de banda de red del equipo. Para aumentar el rendimiento de estas operaciones puede establecer el valor de la variable de entorno `AZCOPY_CONCURRENCY_VALUE`. Para obtener más información, consulte [Optimización del rendimiento](storage-use-azcopy-configure.md#optimize-throughput).
+AzCopy usa interfaces [API](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url)[de servidor a servidor](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), por lo que los datos se copian directamente entre servidores de almacenamiento. En estas operaciones de copia no se usa el ancho de banda de red del equipo. Para aumentar el rendimiento de estas operaciones puede establecer el valor de la variable de entorno `AZCOPY_CONCURRENCY_VALUE`. Para obtener más información, consulte [Optimización del rendimiento](storage-use-azcopy-configure.md#optimize-throughput).
 
 En esta sección se incluyen los ejemplos siguientes:
 

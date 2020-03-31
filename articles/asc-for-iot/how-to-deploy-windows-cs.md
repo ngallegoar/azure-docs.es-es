@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: acc99f260931de7fd8c7566a3ff6daf43f34c5ef
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68597210"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Implementación del agente de seguridad basado en C# de Azure Security Center for IoT para Windows
@@ -28,12 +28,12 @@ En esta guía se explica cómo instalar el agente de seguridad basado en C# de A
 
 En esta guía, aprenderá a: 
 > [!div class="checklist"]
-> * Instalación
+> * Instalar
 > * Comprobación de la implementación
 > * Desinstalación del agente
 > * Solución de problemas 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 Para obtener información sobre otras plataformas y tipos de agente, vea [Elegir el agente de seguridad correcto](how-to-deploy-agent.md).
 
@@ -98,7 +98,7 @@ Para desinstalar el agente:
     .\InstallSecurityAgent.ps1 -Uninstall
     ``` 
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si el agente no se inicia, active el registro (el registro está *desactivado* de forma predeterminada) para más información.
 
@@ -125,7 +125,7 @@ Para activar el registro:
      Restart-Service "ASC IoT Agent"
      ```
      
-   o
+   or
 
     **CMD**
      ```
@@ -139,8 +139,8 @@ Para activar el registro:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Lea la [introducción](overview.md) del servicio Azure Security Center para IoT.
-- Obtenga más información sobre la [arquitectura](architecture.md) de Azure Security Center para IoT.
+- Lea la [introducción](overview.md) del servicio Azure Security Center para IoT
+- Obtenga más información sobre la [arquitectura](architecture.md) de Azure Security Center para IoT
 - Habilite el [servicio](quickstart-onboard-iot-hub.md)
 - Lea las [preguntas más frecuentes](resources-frequently-asked-questions.md)
 - Obtenga información acerca de las [alertas](concept-security-alerts.md)

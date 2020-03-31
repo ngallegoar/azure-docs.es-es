@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 47ee66393e3e1678576b12a70b767f35cb3bc635
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73044766"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introducción a un espacio aislado de Apache Hadoop, un emulador en una máquina virtual
 
 Aprenda a instalar el espacio aislado de Apache Hadoop desde Hortonworks en una máquina virtual para obtener información sobre el ecosistema de Hadoop. El espacio aislado proporciona un entorno de desarrollo local para comprender Hadoop, el sistema de archivos distribuido de Hadoop (HDFS) y el envío de trabajos. Cuando se haya familiarizado con Hadoop, puede empezar a usarlo en Azure mediante la creación de un clúster de HDInsight. Para obtener más información sobre cómo empezar, consulte [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 * [Oracle VirtualBox](https://www.virtualbox.org/). Descárguelo e instálelo [aquí](https://www.virtualbox.org/wiki/Downloads).
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
 ms.openlocfilehash: ca1d1a5761e62b2838a474dcb83f450987972998
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73928970"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>Agregación de eventos de Azure Security Center para IoT
@@ -64,7 +64,7 @@ Cada evento agregado representa un período de 24 horas de alertas recopiladas.
 ## <a name="event-aggregation-twin-configuration"></a>Configuración gemela de agregación de eventos
 Realice cambios en la configuración de la agregación de eventos de Azure Security Center para IoT dentro del [objeto de configuración del agente](how-to-agent-configuration.md) de la identidad gemela del módulo **azureiotsecurity**.
 
-| Nombre de la configuración | Valores posibles | Detalles | Comentarios |
+| Nombre de la configuración | Valores posibles | Detalles | Observaciones |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | Habilitar o deshabilitar la agregación de eventos para los eventos de creación de procesos |
 | aggregationIntervalProcessCreate | Cadena de intervalo de tiempo ISO8601 | Intervalo de agregación para eventos de creación de proceso |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: 877467b65d346c871dd93f4b3f96b2c1664fa4b9
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73906792"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparación del enrutamiento de mensajes y Event Grid para IoT Hub
@@ -21,7 +21,7 @@ Azure IoT Hub proporciona la capacidad de transmitir datos desde los dispositivo
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-**[Enrutamiento de mensajes de IoT Hub](iot-hub-devguide-messages-d2c.md)** : esta característica de IoT Hub permite a los usuarios enrutar los mensajes del dispositivo a la nube a los puntos de conexión de servicio, como contenedores de Azure Storage, Event Hubs, colas de Service Bus y temas de Service Bus. El enrutamiento también proporciona una funcionalidad de consulta para filtrar los datos antes de enrutarlos a los puntos de conexión. Además de los datos de telemetría del dispositivo, también puede enviar [eventos que no son de telemetría](iot-hub-devguide-messages-d2c.md#non-telemetry-events) que se pueden utilizar para desencadenar acciones. 
+**[Enrutamiento de mensajes de IoT Hub](iot-hub-devguide-messages-d2c.md)** : esta característica de IoT Hub permite a los usuarios enrutar los mensajes del dispositivo a la nube a los puntos de conexión de servicio como contenedores de Azure Storage, Event Hubs, colas de Service Bus y temas de Service Bus. El enrutamiento también proporciona una funcionalidad de consulta para filtrar los datos antes de enrutarlos a los puntos de conexión. Además de los datos de telemetría del dispositivo, también puede enviar [eventos que no son de telemetría](iot-hub-devguide-messages-d2c.md#non-telemetry-events) que se pueden utilizar para desencadenar acciones. 
 
 **Integración de IoT Hub con Event Grid**: Azure Event Grid es un servicio de enrutamiento de eventos totalmente administrado que utiliza un modelo de publicación-suscripción. Hub IoT y Event Grid trabajan juntos para [integrar eventos de IoT Hub en servicios de Azure y no de Azure](iot-hub-event-grid.md), en tiempo casi real. IoT Hub publica [eventos de dispositivo](iot-hub-event-grid.md#event-types) y eventos de telemetría.
 

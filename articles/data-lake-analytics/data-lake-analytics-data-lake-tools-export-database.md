@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.openlocfilehash: e5a52de0342e864cb108d8d590583fe64f72e3b6
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71315788"
 ---
 # <a name="export-a-u-sql-database"></a>Exportación de una base de datos de U-SQL
@@ -37,7 +37,7 @@ Todas las cuentas de Data Lake Analytics para las que tiene permiso se muestran 
 
      Si la opción de menú **exportar** no está disponible, deberá [actualizar la herramienta a la última versión](https://aka.ms/adltoolsvs).
 
-### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Paso 2: Configurar los objetos que desea exportar
+### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Paso 2: Configure los objetos que desea exportar
 
 Si solo necesita una pequeña parte de una base de datos grande, puede configurar un subconjunto de objetos que desea exportar en el Asistente para exportación. 
 
@@ -51,7 +51,7 @@ En este paso, puede comprobar los objetos seleccionados en la casilla **Exportar
 
 También puede configurar otras opciones para el destino de exportación. Las descripciones de configuración se muestran en la tabla siguiente:
 
-|Configuración|DESCRIPCIÓN|
+|Configuración|Descripción|
 |-------------|-----------|
 |Nombre del destino|Este nombre indica el lugar en el que desea guardar los recursos de base de datos exportados. Por ejemplo, ensamblados, archivos adicionales y datos de ejemplo. Se creará una carpeta con este nombre en la carpeta raíz de datos locales.|
 |Directorio del proyecto|Esta ruta de acceso define donde desea guardar el script U-SQL exportado. Todas las definiciones de objeto de base de datos se guardan en esta ubicación.|
@@ -61,7 +61,7 @@ También puede configurar otras opciones para el destino de exportación. Las de
 
 ![Asistente para exportación de bases de datos: exportación de listas de objetos y otras configuraciones](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-configuration.png)
 
-### <a name="step-4-check-the-export-results"></a>Paso 4: Comprobar los resultados de la exportación
+### <a name="step-4-check-the-export-results"></a>Paso 4: Compruebe los resultados de la exportación
 
 Una vez finalizada la exportación, puede ver los resultados exportados en la ventana de registros del asistente. En el ejemplo siguiente se muestra cómo buscar scripts U-SQL y recursos de bases de datos exportados, incluidos ensamblados, archivos adicionales y datos de ejemplo:
 
@@ -78,7 +78,7 @@ Para importar la base de datos exportada en otra cuenta de Data Lake Analytics, 
 1. Cargue los recursos exportados, incluidos los ensamblados, los archivos adicionales y los datos de ejemplo en la cuenta de Azure Data Lake Store predeterminada de la cuenta de Data Lake Analytics en la que desea importar. Puede encontrar la carpeta de recursos exportados en la carpeta raíz de datos locales. Cargue toda la carpeta en la raíz de la cuenta de Data Lake Store.
 2. Cuando acabe el proceso de carga, envíe el script de U-SQL exportado a la cuenta de Data Lake Analytics en la que desea importar la base de datos.
 
-## <a name="known-limitations"></a>Limitaciones conocidas
+## <a name="known-limitations"></a>Restricciones conocidas
 
 Actualmente, si seleccionó **Esquema y datos** en el paso 3, la herramienta ejecuta un trabajo de U-SQL para exportar los datos almacenados en tablas. Por este motivo, el proceso de exportación de datos podría ser lento y conllevar algunos costos. 
 

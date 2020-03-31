@@ -8,10 +8,10 @@ ms.date: 02/21/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: e2e3c7763a13c8850554b079a426ed4172b74d28
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77599629"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Habilitación de la autenticación de Azure Active Directory Domain Services en Azure Files
@@ -23,7 +23,7 @@ Para obtener información general sobre la autenticación de Azure AD a través
 > [!NOTE]
 > Azure Files admite la autenticación Kerberos con Azure AD DS con cifrado RC4-HMAC. Todavía no se admite el cifrado de Kerberos con AES.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Antes de habilitar Azure AD a través de SMB para recursos compartido de archivos para recursos compartido de archivos de Azure, asegúrese de haber completado los requisitos previos siguientes:
 

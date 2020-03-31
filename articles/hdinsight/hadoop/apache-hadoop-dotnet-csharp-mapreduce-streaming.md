@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
 ms.openlocfilehash: 025b5c5c1e3b8543111e112202906ef6f1fdb482
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74561797"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Uso de C# con el streaming de MapReduce en Apache Hadoop en HDInsight
@@ -39,7 +39,7 @@ A continuación se expone el proceso básico que se emplea para realizar streami
 
 Para más información, consulte [Hadoop Streaming](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Visual Studio.
 
@@ -248,7 +248,7 @@ En el procedimiento siguiente se describe cómo ejecutar un trabajo de MapReduce
    youth   17
    ```
 
-## <a name="run-a-job-using-powershell"></a>Ejecución de un trabajo: Con PowerShell
+## <a name="run-a-job-using-powershell"></a>Ejecución de un trabajo: Usar PowerShell
 
 Sírvase del siguiente script de PowerShell para ejecutar un trabajo de MapReduce y descargar los resultados.
 

@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72028799"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>El firewall de SO invitado de máquina virtual de Azure está bloqueando el tráfico entrante
@@ -43,7 +43,7 @@ Los perfiles del firewall del sistema invitado están configurados para bloquear
 
 ## <a name="solution"></a>Solución
 
-Antes de seguir estos pasos, tome una instantánea del disco del sistema de la máquina virtual afectada como copia de seguridad. Para más información, consulte  [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estos pasos, tome una instantánea del disco del sistema de la máquina virtual afectada como copia de seguridad. Para más información, consulte  [Crear una instantánea](../windows/snapshot-copy-managed-disk.md).
 
 Para corregir el problema, utilice uno de los métodos de [Uso de herramientas remotas para solucionar problemas con la VM de Azure](remote-tools-troubleshoot-azure-vm-issues.md) para conectarse de forma remota a la máquina virtual y, a continuación, edite las reglas de firewall del sistema operativo invitado a fin de **permitir** el tráfico RDP.
 
@@ -113,7 +113,7 @@ Conéctese a la [consola serie y abra una instancia de PowerShell](serial-consol
     > [!Note]
     > Las siguientes directrices se aplican a la directiva de firewall, dependiendo de cómo se configure:
     >    * *BlockInbound*: se bloqueará todo el tráfico entrante, a menos que tenga una regla en vigor para permitir ese tráfico.
-    >    * *BlockInboundAlways*: se omitirán todas las reglas del firewall y se bloqueará todo el tráfico.
+    >    * *BlockInboundAlways*: se omitirán todas las reglas de firewall y se bloqueará todo el tráfico.
 
 2.  Edite *DefaultInboundAction* para establecer estos perfiles en **Permitir** el tráfico. Para ello, ejecute el siguiente comando:
 

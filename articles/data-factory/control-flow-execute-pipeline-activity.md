@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440439"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Actividad de ejecución de canalización en Azure Data Factory
@@ -62,7 +62,7 @@ La actividad de ejecución de canalización permite que una canalización de Dat
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 name | Nombre de la actividad de ejecución de canalización. | String | Sí
-type | Se debe establecer en: **ExecutePipeline**. | String | Sí
+type | Se debe establecer en **ExecutePipeline**. | String | Sí
 pipeline | Referencia a la canalización dependiente que invoca esta canalización. Un objeto de referencia de canalización tiene dos propiedades: **referenceName** y **type**. La propiedad referenceName especifica el nombre de la canalización de referencia. La propiedad type se debe establecer en PipelineReference. | PipelineReference | Sí
 parámetros | Parámetros que se deben pasar a la canalización invocada | Objeto JSON que asigna nombres de parámetro a los valores de argumento | No
 waitOnCompletion | Define si la ejecución de la actividad espera que finalice la ejecución de la canalización dependiente. El valor predeterminado es False. | Boolean | No

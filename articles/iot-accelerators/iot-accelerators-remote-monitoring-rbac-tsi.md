@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65827171"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Configurar controles de acceso para el explorador de telemetría de Time Series Insights
@@ -25,7 +25,7 @@ Las directivas de acceso a datos conceden permisos para emitir consultas de dato
 
 Siga estos pasos para conceder acceso a datos a una entidad de seguridad de usuario:
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. Busque el entorno de Time Series Insights. Escriba **Time Series** en el cuadro de **búsqueda**. Seleccione **Entorno de Time Series** en los resultados de búsqueda. 
 

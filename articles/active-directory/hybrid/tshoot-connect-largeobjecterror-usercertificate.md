@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62095496"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronización de Azure AD Connect: Control de errores LargeObject causados por el atributo userCertificate
@@ -42,13 +42,13 @@ Para obtener la lista de objetos en el inquilino con errores LargeObject, siga u
 ## <a name="mitigation-options"></a>Opciones de mitigación
 Hasta que se resuelva el error LargeObject, no se pueden exportar a Azure AD otros cambios de atributo en el mismo objeto. Para resolver el error, puede considerar las siguientes opciones:
 
- * Actualice a la compilación 1.1.524.0 o posterior de Azure AD Connect. En la compilación 1.1.524.0 de Azure AD Connect, las reglas de sincronización originales se han actualizado para no exportar los atributos userSMIMECertificate y userCertificate, si estos tienen más de 15 valores. Para más información acerca cómo actualizar Azure AD Connect, consulte el artículo [Azure AD Connect: actualización de una versión anterior a la versión más reciente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+ * Actualice a la compilación 1.1.524.0 o posterior de Azure AD Connect. En la compilación 1.1.524.0 de Azure AD Connect, las reglas de sincronización originales se han actualizado para no exportar los atributos userSMIMECertificate y userCertificate, si estos tienen más de 15 valores. Para más información acerca cómo actualizar Azure AD Connect, consulte el artículo [Azure AD Connect: actualización de una versión anterior a la versión más reciente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)
 
  * Implemente una **regla de sincronización de salida** en Azure AD Connect que exporte un **valor null en lugar de los valores reales para objetos con más de 15 valores de certificado**. Esta opción es adecuada si no necesita que ninguno de los valores de certificado se exporte a Azure AD para objetos con más de 15 valores. Para más información sobre cómo implementar esta regla de sincronización, consulte la sección siguiente [Implementación de la regla de sincronización para limitar la exportación del atributo userCertificate](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
  * Reduzca el número de valores de certificado en el objeto de AD local (15 o menos) mediante la eliminación de los valores que ya no están en uso por su organización. Esto es adecuado si el sobredimensionamiento del atributo está causado por los certificados expirados o sin usar. Puede usar [el script de PowerShell disponible aquí](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f) para buscar, hacer una copia de seguridad y eliminar certificados expirados en el AD local. Antes de eliminar los certificados, se recomienda que los compruebe con los administradores de infraestructura de clave pública de su organización.
 
- * Configure Azure AD Connect para que el atributo userCertificate no se exporte a Azure AD. En general, no se recomienda esta opción ya que el atributo lo puede usar Microsoft Online Services para habilitar escenarios concretos. En particular:
+ * Configure Azure AD Connect para que el atributo userCertificate no se exporte a Azure AD. En general, no se recomienda esta opción ya que el atributo lo puede usar Microsoft Online Services para habilitar escenarios concretos. En concreto:
     * El atributo userCertificate del objeto de usuario lo usan los clientes de Outlook y Exchange Online para el cifrado y la firma de mensajes. Para más información sobre esta característica, consulte el artículo [S/MIME para la firma y el cifrado de mensajes](https://technet.microsoft.com/library/dn626158(v=exchg.150).aspx).
 
     * El atributo userCertificate del objeto Computer lo utiliza Azure AD para permitir que dispositivos unidos a un dominio de Windows 10 local se conecten a Azure AD. Para más información sobre esta característica, consulte el artículo [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy).
@@ -90,7 +90,7 @@ Debería haber una regla de sincronización existente que esté habilitada y con
 
 2. Configure los filtros de búsqueda con los siguientes valores:
 
-    | Atributo | Valor |
+    | Atributo | Value |
     | --- | --- |
     | Dirección |**Outbound** |
     | Tipo de objeto del metaverso |**Person** |
@@ -105,7 +105,7 @@ Debería haber una regla de sincronización existente que esté habilitada y con
 7. En la pantalla de edición, seleccione la pestaña **Scoping filter** (Filtro de ámbito).
 8. Anote la configuración del filtro de ámbito. Si se usa la regla de sincronización integrada, debe haber exactamente **un grupo de filtro de ámbito que contiene dos cláusulas**, incluido:
 
-    | Atributo | Operador | Valor |
+    | Atributo | Operator | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Usuario |
     | cloudMastered | NOTEQUAL | True |
@@ -115,10 +115,10 @@ La nueva regla de sincronización debe tener el mismo **filtro de ámbito** y un
 1. En el Editor de reglas de sincronización, haga clic en el botón **Agregar nueva regla**.
 2. En la pestaña **Descripción**, proporcione la siguiente configuración:
 
-    | Atributo | Valor | Detalles |
+    | Atributo | Value | Detalles |
     | --- | --- | --- |
-    | NOMBRE | *Proporcione un nombre*. | Por ejemplo, *"Fuera de AAD – Reemplazo personalizado para userCertificate"* |
-    | DESCRIPCIÓN | *Proporcione una descripción* | Por ejemplo, *"Si el atributo userCertificate tiene más de 15 valores, la exportación es NULL".* |
+    | Nombre | *Proporcione un nombre*. | Por ejemplo, *"Fuera de AAD – Reemplazo personalizado para userCertificate"* |
+    | Descripción | *Proporcione una descripción* | Por ejemplo, *"Si el atributo userCertificate tiene más de 15 valores, la exportación es NULL".* |
     | Sistema conectado | *Seleccione Azure AD Connector* |
     | Tipo de objeto de sistema conectado | **user** | |
     | Propiedades de objeto de metaverso | **person** | |
@@ -129,7 +129,7 @@ La nueva regla de sincronización debe tener el mismo **filtro de ámbito** y un
 4. Omita pestaña **Join rules** (Reglas de unión).
 5. Vaya a la pestaña **Transformations** (Transformaciones) para agregar una nueva transformación mediante la configuración siguiente:
 
-    | Atributo | Valor |
+    | Atributo | Value |
     | --- | --- |
     | Tipo de flujo |**Expression** |
     | Atributo de destino |**userCertificate** |
@@ -137,7 +137,7 @@ La nueva regla de sincronización debe tener el mismo **filtro de ámbito** y un
     
 6. Haga clic en el botón **Agregar** para crear la regla de sincronización.
 
-### <a name="step-4-verify-the-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Paso 4 Comprobar la nueva regla de sincronización en un objeto existente con el error LargeObject
+### <a name="step-4-verify-the-new-sync-rule-on-an-existing-object-with-largeobject-error"></a>Paso 4. Comprobar la nueva regla de sincronización en un objeto existente con el error LargeObject
 Esto sirve para comprobar que la regla de sincronización creada funciona correctamente en un objeto de AD existente con el error LargeObject antes de aplicarla a otros objetos:
 1. Vaya a la pestaña **Operations** (Operaciones) de Synchronization Service Manager.
 2. Seleccione la exportación más reciente de la operación de Azure AD y haga clic en uno de los objetos con errores LargeObject.

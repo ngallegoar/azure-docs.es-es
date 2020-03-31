@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
-ms.openlocfilehash: e45baba74d7bf752718e5e36a148a91987cd3ffb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082422"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79209415"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Cómo usar Azure SQL Database
 
 En esta sección puede encontrar varias guías, scripts y explicaciones que pueden ayudarle a administrar y configurar su base de datos de Azure SQL. También puede encontrar guías de paso a paso específicas para una [base de datos única](sql-database-howto-single-database.md) y una [instancia administrada](sql-database-howto-managed-instance.md).
 
-## <a name="load-data"></a>Carga de datos
+## <a name="load-data"></a>Cargar datos
 
 - [Copia de una base de datos única o agrupada en Azure](sql-database-copy.md)
 - [Importación de una base de datos desde un archivo BACPAC](sql-database-import.md)
@@ -43,7 +43,7 @@ En esta sección puede encontrar varias guías, scripts y explicaciones que pued
 
 - [Ajuste manual](sql-database-performance-guidance.md)
 - [Uso de DMV para supervisar el rendimiento](sql-database-monitoring-with-dmvs.md)
-- [Uso del almacén de consultas para supervisar el rendimiento](sql-database-operate-query-store.md)
+- [Uso del almacén de consultas para supervisar el rendimiento](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Solución de problemas de rendimiento con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Uso del registro de diagnóstico de Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md)
 - [Supervisión del espacio OLTP en memoria](sql-database-in-memory-oltp-monitoring.md)

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 3010c1d597907e7d5c7f82c8b42721dc1f934f6f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74781860"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Procedimientos recomendados de administración de clústeres de HDInsight
@@ -28,7 +28,7 @@ Aprenda los procedimientos recomendados para la administración de clústeres de
 | Plantillas de inicio rápido | [Plantillas de inicio rápido de HDInsight](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
 | Ejemplos de Azure | [Ejemplos de Azure en HDInsight](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
 | Portal de Azure | [Creación de clústeres basados en Linux en HDInsight mediante Azure Portal](./spark/apache-spark-intellij-tool-plugin.md) |
-| CLI de Azure | [Creación de clústeres de HDInsight mediante la CLI de Azure](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
+| Azure CLI | [Creación de clústeres de HDInsight mediante la CLI de Azure](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Creación de clústeres basados en Linux en HDInsight con Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Creación de clústeres de Apache Hadoop mediante la API REST de Azure](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
 | SDK (.NET, Python, Java) | [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable), [Go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |

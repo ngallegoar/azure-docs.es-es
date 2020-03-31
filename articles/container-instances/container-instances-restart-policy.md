@@ -3,12 +3,12 @@ title: Reiniciar de la directiva para tareas de una sola ejecución
 description: Aprenda a usar Azure Container Instances para ejecutar tareas hasta su terminación, como compilaciones, pruebas o trabajos de representación de imágenes.
 ms.topic: article
 ms.date: 04/15/2019
-ms.openlocfilehash: f814b1c99827c07f8dadfb0cfd80c87a93377cdc
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533453"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131491"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Ejecución de tareas en contenedores con directivas de reinicio
 
@@ -22,7 +22,7 @@ En los ejemplos presentados en este artículo se usa la CLI de Azure. Debe tener
 
 Cuando se crea un [grupo de contenedores](container-instances-container-groups.md) en Azure Container Instances, se puede especificar una de tres configuraciones de directiva de reinicio.
 
-| Directiva de reinicio   | DESCRIPCIÓN |
+| Directiva de reinicio   | Descripción |
 | ---------------- | :---------- |
 | `Always` | Siempre se reinician los contenedores del grupo de contenedores. Este es el valor de configuración **predeterminado** aplicado cuando no se especifica ninguna directiva de reinicio durante la creación del contenedor. |
 | `Never` | Nunca se reinician los contenedores del grupo de contenedores. Los contenedores se ejecutan al menos una vez. |
@@ -57,7 +57,10 @@ az container create \
 Azure Container Instances inicia el contenedor y, luego, lo detiene cuando su aplicación (o script, en este caso) se cierra. Cuando Azure Container Instances detiene un contenedor cuya directiva de reinicio es `Never` o `OnFailure`, el estado del contenedor se establece en **Terminado**. Puede comprobar el estado de un contenedor con el comando [az container show][az-container-show]:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
+az container show \
+    --resource-group myResourceGroup \
+    --name mycontainer \
+    --query containers[0].instanceView.currentState.state
 ```
 
 Salida de ejemplo:

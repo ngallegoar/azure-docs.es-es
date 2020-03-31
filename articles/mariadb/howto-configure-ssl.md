@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: a0fb1bdf1aac9b3c5a2d8c83d0597326de38caaf
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 668b72fa89916de6d2aa5971543b0ec085de8263
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767371"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530689"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MariaDB
 Azure Database for MariaDB permite conectar el servidor de Azure Database for MariaDB con aplicaciones cliente mediante Capa de sockets seguros (SSL). Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.
@@ -61,7 +61,7 @@ Ejecute el comando **status** de mysql para comprobar que se ha conectado al ser
 ```sql
 status
 ```
-Confirme que la conexión está cifrada revisando la salida, que debería mostrar:  **SSL: El cifrado en uso es AES256-SHA** 
+Confirme que la conexión está cifrada mediante la revisión de la salida, que debe mostrar: **SSL: Cipher in use is AES256-SHA** (SSL: el cifrado en uso es AES256-SHA). 
 
 ## <a name="sample-code"></a>Código de ejemplo
 Para establecer una conexión segura a Azure Database for MariaDB a través de SSL desde la aplicación, consulte los siguientes ejemplos de código:

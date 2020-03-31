@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: manayar
 ms.openlocfilehash: 923967a902f611ce845fbdc096fd2c02e681bb6e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76272426"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales
@@ -46,7 +46,7 @@ Entre los aspectos que debe considerar se incluyen:
     Azure Resource Explorer es una herramienta indispensable de solución de problemas que muestra el estado de los recursos de Azure Resource Manager. Haga clic en la suscripción y examine el grupo de recursos que se están diagnosticando. En el proveedor de recursos de Compute, mire el conjunto de escalado de máquinas virtuales que ha creado y compruebe la vista de instancias, en la que se muestra el estado de una implementación. Compruebe también la vista de instancias del conjunto de escalado de máquinas virtuales. Después, entre en el proveedor de recursos de Microsoft.Insights y compruebe que las reglas de escalado automático están bien.
 * ¿Funciona la extensión Diagnóstico y emite los datos de rendimiento?
   
-    **Actualización:** el escalado automático de Azure se ha mejorado para usar una canalización de métricas basada en host que ya no requiere la instalación de una extensión de diagnóstico. Los siguientes párrafos ya no se aplican si crea una aplicación de escalado automático con la nueva canalización. Un ejemplo de plantillas de Azure que se han convertido para usar la canalización del host está disponible aquí: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **Actualización:** El escalado automático de Azure se ha mejorado para usar una canalización de métricas basada en host que ya no requiere la instalación de una extensión de diagnóstico. Los siguientes párrafos ya no se aplican si crea una aplicación de escalado automático con la nueva canalización. Un ejemplo de plantillas de Azure que se han convertido para usar la canalización del host está disponible aquí: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     El uso de métricas basadas en host para el escalado automático es mejor por las razones siguientes:
   

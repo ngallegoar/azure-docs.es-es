@@ -1,6 +1,6 @@
 ---
-title: 'Azure VMware Solution: elección de una solución de equilibrio de carga para nubes privadas de AVS'
-description: Se describen las opciones de equilibrio de carga que implementan una aplicación en una nube privada de AVS.
+title: 'Azure VMware Solution by CloudSimple: elección de una solución de equilibrio de carga para nubes privadas de CloudSimple'
+description: Se describen las opciones de equilibrio de carga que implementan una aplicación en una nube privada.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 405bc9d95b8d82e2181e2fb828d6bcc00c8c4639
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77014885"
 ---
-# <a name="choose-a-load-balancing-solution-for-avs-private-clouds"></a>Elección de una solución de equilibrio de carga para nubes privadas de AVS
+# <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Elección de una solución de equilibrio de carga para nubes privadas de CloudSimple
 
-Al implementar una aplicación en una nube privada de AVS, puede elegir cualquiera de las diversas opciones para el equilibrio de carga.
+Al implementar una aplicación en una nube privada de CloudSimple, puede elegir cualquiera de las diversas opciones para el equilibrio de carga.
 
-Puede elegir un equilibrador de carga virtual o basado en software en la nube privada de AVS o incluso usar el equilibrador de carga de Azure L7 que se ejecuta en la suscripción de Azure para ejecutar el front-end de las VM de nivel web que se ejecutan en la nube privada de AVS. A continuación, se enumeran algunas opciones:
+Puede elegir un equilibrador de carga virtual o basado en software en la nube privada de CloudSimple o incluso usar el equilibrador de carga de Azure L7 que se ejecuta en la suscripción de Azure para ejecutar el front-end de las VM de nivel web que se ejecutan en la nube privada de CloudSimple. A continuación, se enumeran algunas opciones:
 
 ## <a name="virtual-load-balancers"></a>Equilibradores de carga virtuales
 
@@ -29,13 +29,13 @@ Algunos proveedores populares son: NginX: http://nginx.org/en/docs/http/load_bal
 
 ## <a name="azure-l7-load-balancer"></a>Equilibrador de carga de Azure L7
 
-Cuando se usa Azure Application Gateway como equilibrador de carga L7 para la aplicación que se ejecuta en una nube privada de AVS, no es necesario administrar el software del equilibrador de carga. Azure administra el software del equilibrador de carga. Todas las VM de nivel web de la nube privada de AVS usan direcciones IP privadas y no requieren reglas NAT adicionales ni direcciones IP públicas para resolver nombres. Las VM de nivel web se comunican con Azure Application Gateway a través de una conexión privada, de baja latencia y de ancho de banda alto.
+Cuando se usa Azure Application Gateway como equilibrador de carga L7 para la aplicación que se ejecuta en una nube privada, no es necesario administrar el software del equilibrador de carga. Azure administra el software del equilibrador de carga. Todas las VM de nivel web de la nube privada usan direcciones IP privadas y no requieren reglas NAT adicionales ni direcciones IP públicas para resolver nombres. Las VM de nivel web se comunican con Azure Application Gateway a través de una conexión privada, de baja latencia y de ancho de banda alto.
 
 Para más información sobre cómo configurar esta solución, consulte la guía de soluciones sobre el uso de Azure Application Gateway como equilibrador de carga L7.
 
 ## <a name="azure-internal-load-balancer"></a>Equilibrador de carga interno de Azure
 
-Si elige ejecutar la aplicación en una implementación híbrida en la que el nivel de front-end web se está ejecutando en una red virtual de Azure en su suscripción a Azure y el nivel de base de datos de la aplicación se ejecuta en VM de VMware en la nube privada de AVS, puede usar el equilibrador de carga interno de Azure (equilibrador de carga L4) delante de las VM de nivel de base de datos para la administración del tráfico.
+Si elige ejecutar la aplicación en una implementación híbrida en la que el nivel de front-end web se está ejecutando en una red virtual de Azure en su suscripción a Azure y el nivel de base de datos de la aplicación se ejecuta en VM de VMware en la nube privada de CloudSimple, puede usar el equilibrador de carga interno de Azure (equilibrador de carga L4) delante de las VM de nivel de base de datos para la administración del tráfico.
 
 Para más información, consulte la documentación de [equilibrador de carga interno](../load-balancer/concepts-limitations.md#internalloadbalancer) de Azure.
 

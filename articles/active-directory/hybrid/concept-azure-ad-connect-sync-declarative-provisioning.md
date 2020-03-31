@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Conocimiento del aprovisionamiento declarativo | Microsoft Docs'
+title: 'Azure AD Connect: conocimiento del aprovisionamiento declarativo | Microsoft Docs'
 description: Explica el modelo de configuración de aprovisionamiento declarativo en Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60246230"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: Descripción del aprovisionamiento declarativo
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: conocimiento del aprovisionamiento declarativo
 Este tema explica el modelo de configuración de Azure AD Connect. El modelo se denomina aprovisionamiento declarativo y permite cambiar una configuración con facilidad. Muchas cosas descritas en este tema son avanzadas y no son necesarias para la mayoría de los escenarios de los clientes.
 
 ## <a name="overview"></a>Información general
@@ -53,7 +53,7 @@ El ámbito de esta imagen se debe leer como (departamento = IT AND país = Dinam
 
 El módulo de ámbito admite las siguientes operaciones:
 
-| Operación | DESCRIPCIÓN |
+| Operación | Descripción |
 | --- | --- |
 | EQUAL, NOTEQUAL |Una comparación de cadenas que evalúa si el valor es igual al valor del atributo. Para los atributos con varios valores, consulte ISIN e ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Una comparación de cadenas que evalúa si el valor es menor que el valor en el atributo. |
@@ -66,7 +66,7 @@ El módulo de ámbito admite las siguientes operaciones:
 | ISBITSET, ISNOTBITSET |Evalúa si hay un determinado bit establecido. Por ejemplo, se puede usar para evaluar los bits de userAccountControl para ver si un usuario está habilitado o deshabilitado. |
 | ISMEMBEROF, ISNOTMEMBEROF |El valor debe contener un DN para un grupo en el espacio conector. Si el objeto es un miembro del grupo especificado, la regla está en el ámbito. |
 
-## <a name="join"></a>Unión
+## <a name="join"></a>Join
 El módulo de unión en la canalización de sincronización es responsable de encontrar la relación entre el objeto en el origen y un objeto en el destino. En una regla de entrada, esta relación sería un objeto en un espacio conector que busca una relación con un objeto en el metaverso.  
 ![Unión entre cs y mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
 El objetivo es ver si ya hay un objeto en el metaverso, creado por otro conector, al que debe estar asociado. Por ejemplo, en un bosque de cuenta-recurso, el usuario del bosque de cuentas debe unirse al usuario del bosque de recursos.
@@ -164,4 +164,4 @@ En este escenario, debe cambiar el ámbito de las reglas de sincronización para
 
 **Temas de referencia**
 
-* [Sincronización de Azure AD Connect: Referencia de funciones](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect Sync: referencia de funciones](reference-connect-sync-functions-reference.md)

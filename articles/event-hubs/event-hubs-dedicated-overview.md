@@ -16,10 +16,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: f67be1d31125b21048deca4d9cafcc76f4ffc3b1
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72516747"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
@@ -61,7 +61,7 @@ La oferta de Event Hubs dedicado se factura aplicando una tarifa mensual fija co
 | Grupos de consumidores | 20 por centro de eventos | Sin límite por CU, 1000 por centro de eventos |
 | Conexiones asincrónicas | 1000 incluidas, 5000 como máximo | 100 000 incluidos y como máximo |
 | Retención de mensajes | 7 días, 84 GB incluidas por TU | 90 días, 10 TB incluidas por TU |
-| Capture | Pago por hora | Se incluye |
+| Capturar | Pago por hora | Se incluye |
 
 ## <a name="how-to-onboard"></a>¿Cómo incorporarlo?
 

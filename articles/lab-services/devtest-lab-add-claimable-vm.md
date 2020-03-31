@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 13d642597fdf5d0eae6c6fd4f0cab16181f033c2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383955"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233108"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Creación y administración de VM reclamables en Azure DevTest Labs
 Una imagen virtual reclamable se agrega a un laboratorio de forma similar a como se [agrega una máquina virtual estándar](devtest-lab-add-vm.md): desde una *base* que es una [imagen personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), o [imagen de Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial le guía por el proceso de utilización de Azure Portal para agregar una máquina virtual reclamable a un laboratorio de DevTest Labs, y muestra los procesos que sigue un usuario para reclamar la VM y anular la reclamación de esta.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Pasos para agregar una máquina virtual reclamable a un laboratorio de Azure DevTest Labs
-1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la sección **DevOps**. Si selecciona * (asterisco) junto a **DevTest Labs** en la sección **DevOps**. Esta acción agrega **DevTest Labs** al menú de navegación izquierdo para facilitarle el acceso la próxima vez. A continuación, puede seleccionar **DevTest Labs** en el menú de navegación izquierdo.
 
     ![Todos los servicios. Selección de DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)

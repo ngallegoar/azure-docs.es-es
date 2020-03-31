@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058118"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Solución de problemas de conectividad de aplicaciones en una máquina virtual en Azure
@@ -84,7 +84,7 @@ Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
 
 En máquinas virtuales basadas en Windows y Linux, use el comando **netstat -a** para mostrar los puertos de escucha activos. Examine la salida para los puertos esperados en el que debe escuchar su aplicación. Reinicie la aplicación o configúrela para que use los puertos esperados según sea necesario e intente de nuevo el acceso a la aplicación de forma local.
 
-## <a id="step2"></a>Paso 2: Acceso a la aplicación desde otra máquina virtual de la misma red virtual
+## <a name="step-2-access-application-from-another-vm-in-the-same-virtual-network"></a><a id="step2"></a>Paso 2: Acceso a la aplicación desde otra máquina virtual de la misma red virtual
 Intente obtener acceso a la aplicación desde otra VM (que esté en la misma red virtual) con el nombre de host de la VM o con su dirección IP de proveedor, privada o pública asignada por Azure. Para las máquinas virtuales creadas con el modelo de implementación clásica, no use la dirección IP pública del servicio en la nube.
 
 ![iniciar la aplicación desde una máquina virtual diferente](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -104,7 +104,7 @@ Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
 
 En una máquina virtual basada en Windows, use el Firewall de Windows con seguridad avanzada para determinar si las reglas de firewall excluyen el tráfico entrante y saliente de la aplicación.
 
-## <a id="step3"></a>Paso 3: Acceso a la aplicación desde fuera de la red virtual
+## <a name="step-3-access-application-from-outside-the-virtual-network"></a><a id="step3"></a>Paso 3: Acceso a la aplicación desde fuera de la red virtual
 Intente acceder a la aplicación desde una máquina de fuera de la red virtual, como la máquina virtual en la que se está ejecutando la aplicación. Use una red diferente como equipo cliente de origen.
 
 ![iniciar la aplicación desde un equipo situado fuera de la red virtual](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
@@ -141,7 +141,7 @@ Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimet
 Para más información, consulte [Información general sobre la supervisión de red de Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
-[Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](troubleshoot-rdp-connection.md)
+[Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](troubleshoot-rdp-connection.md)
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](troubleshoot-ssh-connection.md)
 

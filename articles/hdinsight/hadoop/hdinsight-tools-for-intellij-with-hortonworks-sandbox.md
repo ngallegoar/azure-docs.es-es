@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 05/16/2018
 ms.openlocfilehash: 65a15a8506b88e95e14af8c87bcbe33087301519
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647839"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox

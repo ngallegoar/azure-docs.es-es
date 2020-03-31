@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 04/05/2018
 ms.author: labrenne
 ms.openlocfilehash: b1f4fb0207d4f659861dbd3fdfd1b2d502409935
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022467"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Supervisión y depuración de una aplicación .NET de Azure Batch con Application Insights
@@ -37,7 +37,7 @@ Hay una solución de C# de ejemplo con código que acompaña este artículo disp
 
 * [Recurso de Application Insights](../azure-monitor/app/create-new-resource.md )
   
-   * Cree un nuevo *recurso* de Application Insights mediante Azure Portal. Seleccione el **Tipo de aplicación** *General*.
+   * Cree un nuevo *recurso* de Application Insights mediante Azure Portal. Seleccione el *Tipo de aplicación* **General**.
 
    * Copie la [clave de instrumentación](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) del portal. Se necesita más adelante en este artículo.
   

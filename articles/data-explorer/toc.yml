@@ -15,6 +15,8 @@
       href: web-query-data.md
 - name: Tutoriales
   items:
+    - name: Escritura de consultas
+      href: write-queries.md
     - name: Ingesta de blobs de E2E mediante programación
       items:
         - name: 'C#'
@@ -32,14 +34,22 @@
         - name: Información general de ingesta de datos
           displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
           href: ingest-data-overview.md
+        - name: Propiedades de la ingesta de datos
+          href: ingestion-properties.md
+        - name: Formatos para la ingesta de datos
+          href: ingestion-supported-formats.md
     - name: Lenguaje de consulta Kusto
       items:
         - name: Guía de referencia rápida
           href: kql-quick-reference.md
     - name: Introducción a la visualización de datos
       href: viz-overview.md
-    - name: Introducción a la seguridad
-      href: security.md
+    - name: Seguridad
+      items:
+        - name: Introducción a la seguridad
+          href: security.md
+        - name: Línea de base de seguridad
+          href: security-baseline.md
 - name: Guías paso a paso
   items:
     - name: Creación de un clúster y una base de datos
@@ -60,6 +70,8 @@
           href: ingest-data-one-click.md
         - name: Ingesta de streaming
           href: ingest-data-streaming.md
+        - name: Uso de LightIngest
+          href: lightingest.md
         - name: Centro de eventos
           items:
             - name: Portal de Azure
@@ -106,8 +118,6 @@
           href: ingest-json-formats.md
     - name: Consultar datos
       items:
-        - name: Escritura de consultas
-          href: write-queries.md
         - name: Consulta de datos en Azure Data Lake
           href: data-lake-query-data.md
         - name: Consulta de datos en Azure Monitor
@@ -158,12 +168,22 @@
           href: k2bridge.md
     - name: Seguridad
       items:
+        - name: Aislamiento de red (red virtual)
+          items:
+            - name: 'Creación de un clúster en una red virtual: Azure Portal'
+              href: vnet-create-cluster-portal.md
+            - name: Implementación de un clúster en una red virtual
+              href: vnet-deployment.md
+            - name: 'Solución de problemas de creación, conectividad y operación de clústeres de red virtual'
+              href: vnet-deploy-troubleshoot.md
         - name: Administración de la seguridad del clúster
           href: manage-cluster-security.md
         - name: Configuración de identidades administradas
           href: managed-identities.md
         - name: Configuración de claves administradas por el cliente
           items:
+            - name: Portal
+              href: customer-managed-keys-portal.md
             - name: 'C#'
               href: customer-managed-keys-csharp.md
             - name: Plantilla del Administrador de recursos de Azure
@@ -214,10 +234,6 @@
               href: delete-data.md
             - name: Tratamiento de datos duplicados
               href: dealing-with-duplicates.md
-    - name: Implementación
-      items:
-        - name: Implementación del clúster en la red virtual
-          href: vnet-deployment.md
     - name: Supervisión
       items:
         - name: Uso de registros de diagnóstico para supervisar la ingesta
@@ -236,6 +252,12 @@
               href: data-factory-template.md
             - name: Ejecución de comandos de control mediante Azure Data Factory
               href: data-factory-command-activity.md
+        - name: Conector de Microsoft Flow
+          items:
+            - name: Conector de Microsoft Flow
+              href: flow.md
+            - name: Ejemplos de uso de conectores de Microsoft Flow
+              href: flow-usage.md
         - name: Conector de Apache Spark
           href: spark-connector.md
         - name: Conexión desde Databricks con Python

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
 ms.openlocfilehash: 96ffa34166797945afc04c66b03fe151d26c65bc
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76292865"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalización de las configuraciones de red de la máquina virtual de Azure de destino
@@ -31,7 +31,7 @@ Al replicar máquinas virtuales de Azure, se pueden proporcionar las siguientes 
 - [Dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) tanto de la subred como de la NIC
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Asegúrese de planear las configuraciones de recuperación de antemano.
 - Cree los recursos de red por adelantado. Proporciónelos como una entrada para que el servicio de Azure Site Recovery pueda respetar esta configuración y asegúrese de que la máquina virtual de conmutación por error se adhiere a ella.

@@ -16,10 +16,10 @@ ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
 ms.openlocfilehash: c76f57d15cd4cbdad5ded3b7545aab4d57272a50
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033491"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Cómo ampliar la unidad de sistema operativo de una máquina virtual

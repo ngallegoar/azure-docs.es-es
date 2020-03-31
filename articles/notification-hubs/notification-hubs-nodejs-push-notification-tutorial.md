@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71213193"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envío de notificaciones push seguras con Azure Notification Hubs y Node.js
@@ -100,7 +100,7 @@ El objeto `NotificationHubService` expone las siguientes instancias de objeto pa
 - **Windows Phone**: use el objeto `MpnsService`, que está disponible en `notificationHubService.mpns`
 - **Plataforma universal de Windows**: use el objeto `WnsService`, que está disponible en `notificationHubService.wns`
 
-### <a name="how-to-send-push-notifications-to-android-applications"></a>Procedimientos para: Envío de notificaciones push a aplicaciones de Android
+### <a name="how-to-send-push-notifications-to-android-applications"></a>Envío de notificaciones push a aplicaciones de Android
 
 El objeto `GcmService` proporciona un método `send` que se puede usar para enviar notificaciones push a las aplicaciones de Android. El método `send` acepta los siguientes parámetros:
 
@@ -125,7 +125,7 @@ notificationHubService.gcm.send(null, payload, function(error){
 });
 ```
 
-### <a name="how-to-send-push-notifications-to-ios-applications"></a>Procedimientos para: Envío de notificaciones push a aplicaciones de iOS
+### <a name="how-to-send-push-notifications-to-ios-applications"></a>Envío de notificaciones push a aplicaciones de iOS
 
 Igual que en el caso de las aplicaciones de Android descrito anteriormente, el objeto `ApnsService` proporciona un método `send` que se puede usar para enviar notificaciones de inserción a las aplicaciones iOS. El método `send` acepta los siguientes parámetros:
 
@@ -148,7 +148,7 @@ notificationHubService.apns.send(null, payload, function(error){
 });
 ```
 
-### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Procedimientos para: Envío de notificaciones push a aplicaciones de Windows Phone
+### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>Envío de notificaciones push a aplicaciones de Windows Phone
 
 El objeto `MpnsService` proporciona un método `send` que se puede usar para enviar notificaciones de inserción a las aplicaciones de Windows Phone. El método `send` acepta los siguientes parámetros:
 
@@ -172,7 +172,7 @@ notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
 });
 ```
 
-### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Procedimientos para: Envío de notificaciones push a aplicaciones de la Plataforma universal de Windows (UWP)
+### <a name="how-to-send-push-notifications-to-universal-windows-platform-uwp-applications"></a>Envío de notificaciones push a aplicaciones de la Plataforma universal de Windows (UWP)
 
 El objeto `WnsService` proporciona un método `send` que se puede usar para enviar notificaciones de inserción a las aplicaciones de la Plataforma universal de Windows.  El método `send` acepta los siguientes parámetros:
 

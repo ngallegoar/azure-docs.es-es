@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: 6396f8292a4c54f7fce237439f37c3e8156d59e8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74169053"
 ---
 # <a name="fqdn-tags-overview"></a>Información general de las etiquetas FQDN
@@ -28,7 +28,7 @@ En la siguiente tabla se muestran las etiquetas FQDN actuales que puede usar. Mi
 
 ## <a name="current-fqdn-tags"></a>Etiquetas FQDN actuales
 
-|Etiqueta FQDN  |DESCRIPCIÓN  |
+|Etiqueta FQDN  |Descripción  |
 |---------|---------|
 |Windows Update     |Permite el acceso saliente a Microsoft Update como se describe en [How to Configure a Firewall for Software Updates](https://technet.microsoft.com/library/bb693717.aspx) (Cómo configurar el firewall para las actualizaciones de software).|
 |Diagnósticos de Windows|Permite el acceso saliente a todos los [puntos de conexión de Diagnósticos de Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
@@ -42,4 +42,4 @@ En la siguiente tabla se muestran las etiquetas FQDN actuales que puede usar. Mi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre cómo implementar una instancia de Azure Firewall, consulte [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](tutorial-firewall-deploy-portal.md).
+Para aprender a implementar una instancia de Azure Firewall, consulte el [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](tutorial-firewall-deploy-portal.md).

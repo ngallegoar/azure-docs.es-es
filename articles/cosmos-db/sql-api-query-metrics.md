@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69614822"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
@@ -38,7 +38,7 @@ Cuando se emite una consulta a Azure Cosmos DB, el SDK realiza estos pasos lógi
 
 Los SDK ofrecen diversas opciones para la ejecución de consultas. Por ejemplo, en .NET estas opciones están disponibles en la clase `FeedOptions`. En la tabla siguiente se describen estas opciones y de qué manera pueden afectar el tiempo de ejecución de consulta. 
 
-| Opción | DESCRIPCIÓN |
+| Opción | Descripción |
 | ------ | ----------- |
 | `EnableCrossPartitionQuery` | Se debe establecer en true para cualquier consulta que se deba ejecutar entre más de una partición. Esta es una marca explícita que le permite realizar compensaciones conscientes de rendimiento durante el tiempo de desarrollo. |
 | `EnableScanInQuery` | Se debe establecer en true si ha decidido no indexar, pero quiere ejecutar la consulta de todos modos mediante una exploración. Solo es aplicable si la indexación para la ruta de filtro solicitada está deshabilitada. | 
@@ -124,7 +124,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 
 Los encabezados de respuesta principales devueltos por la consulta incluyen los siguientes:
 
-| Opción | DESCRIPCIÓN |
+| Opción | Descripción |
 | ------ | ----------- |
 | `x-ms-item-count` | El número de elementos devueltos en la respuesta. Esto depende del valor de `x-ms-max-item-count` proporcionado, del número de elementos que se pueden incluir en el tamaño máximo de la carga de respuesta, del rendimiento aprovisionado y del tiempo de ejecución de consultas. |  
 | `x-ms-continuation:` | El token de continuación para reanudar la ejecución de la consulta, si hay más resultados disponibles. | 
@@ -237,7 +237,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 ```
 
-| Métrica | Unidad | DESCRIPCIÓN | 
+| Métrica | Unidad | Descripción | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | milisegundos | Tiempo de ejecución de consulta | 
 | `queryCompileTimeInMs` | milisegundos | Tiempo de compilación de consulta  | 
@@ -259,7 +259,7 @@ Los SDK del cliente pueden realizar internamente varias operaciones de consulta 
 
 Estos son algunos ejemplos de consultas y cómo interpretar algunas de las métricas devueltas en la ejecución de consultas: 
 
-| Consultar | Métrica de ejemplo | DESCRIPCIÓN | 
+| Consultar | Métrica de ejemplo | Descripción | 
 | ------ | -----| ----------- |
 | `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | El número de documentos recuperados es 100 + 1 para coincidir con la cláusula TOP. El tiempo de la consulta se invierte mayormente en `WriteOutputTime` y `DocumentLoadTime` dado que es un examen. | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount es ahora mayor (500 + 1 para coincidir con la cláusula TOP). | 

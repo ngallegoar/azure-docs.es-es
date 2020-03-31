@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73890648"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumen de características de solicitud de datos del cliente
@@ -29,7 +29,7 @@ Los administradores de inquilinos pueden usar Azure Portal o las API de REST del
 > [!NOTE]
 > Los dispositivos que se han aprovisionado en Azure IoT Hub a través de Device Provisioning Service tienen datos adicionales almacenados en el servicio de Azure IoT Hub. Consulte la [documentación de referencia de Azure IoT Hub](../iot-hub/iot-hub-customer-data-requests.md) para saber cómo realizar una solicitud completa de un dispositivo determinado.
 
-## <a name="deleting-customer-data"></a>Eliminar datos de cliente
+## <a name="deleting-customer-data"></a>Eliminación de datos del cliente
 
 Device Provisioning Service almacena inscripciones y datos de registros. Las inscripciones contienen información sobre los dispositivos que se pueden aprovisionar y los datos de registros muestran los dispositivos que ya pasaron por el proceso de aprovisionamiento.
 
@@ -43,7 +43,7 @@ También se pueden realizar operaciones para eliminar inscripciones y datos de r
 * Para eliminar la información de inscripción de un grupo de dispositivos, puede usar [Device Enrollment Group - Delete](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup) (Grupo de inscripción de dispositivos: Eliminar).
 * Para eliminar la información sobre los dispositivos que se hayan aprovisionado, puede usar [Registration State - Delete Registration State](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate) (Estado de registro: Eliminar estado de registro).
 
-## <a name="exporting-customer-data"></a>Exportación de los datos de cliente
+## <a name="exporting-customer-data"></a>Exportación de datos del cliente
 
 Device Provisioning Service almacena inscripciones y datos de registros. Las inscripciones contienen información sobre los dispositivos que se pueden aprovisionar y los datos de registros muestran los dispositivos que ya pasaron por el proceso de aprovisionamiento.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247250"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227092"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalización de valores preestablecidos de Media Encoder Standard  
 
@@ -32,7 +32,7 @@ Este artículo le muestra cómo personalizar un valor preestablecido tomando el 
 > [!NOTE]
 > Los valores preestablecidos personalizados que se describen en este artículo no se pueden usar en las transformaciones de [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) o en los comandos de CLI. Para obtener más información, consulte la [Guía de migración de la v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
-## <a id="customizing_presets"></a> Personalización de un valor preestablecido de MES
+## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Personalización de un valor preestablecido de MES
 
 ### <a name="original-preset"></a>Valor preestablecido original
 
@@ -113,7 +113,7 @@ Abra el archivo **CustomPreset_JSON.json** y quite en primer lugar tres capas de
     }  
 ```
 
-## <a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Media Services
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Media Services
 
 En el ejemplo de código siguiente se usa el último SDK para .NET de Media Services para realizar las siguientes tareas:
 
@@ -264,7 +264,7 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Procedimiento de codificación con una transformación personalizada mediante la CLI](../latest/custom-preset-cli-howto.md)
 - [Codificación con Media Services v3](../latest/encoding-concept.md)

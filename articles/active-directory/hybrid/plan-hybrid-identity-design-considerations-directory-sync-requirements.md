@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60381168"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinación de los requisitos de sincronización de directorios
@@ -75,6 +75,6 @@ También deberá determinar los requisitos de seguridad y las restricciones de l
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de los requisitos de autenticación multifactor](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d2e9fcd6f6292c1da76e725e90deda4547b3682d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975523"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Supervisar y ajustar Azure Database for PostgreSQL: Hiperescala (Citus)
@@ -27,7 +27,7 @@ Además de ver los gráficos de las métricas, puede configurar alertas. Para ob
 
 Estas métricas están disponibles para los nodos de Hiperescala (Citus):
 
-|Métrica|Nombre de métrica para mostrar|Unidad|DESCRIPCIÓN|
+|Métrica|Nombre de métrica para mostrar|Unidad|Descripción|
 |---|---|---|---|
 |active_connections|Conexiones activas|Count|Número de conexiones activas al servidor.|
 |cpu_percent|Porcentaje de CPU|Percent|Porcentaje de CPU en uso.|

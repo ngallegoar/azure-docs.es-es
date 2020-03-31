@@ -1,19 +1,18 @@
 ---
 title: Pestaña Contactos de la oferta de Dynamics 365 for Customer Engagement| Azure Marketplace
 description: Este artículo de CPP está en desuso, vinculado al artículo de PC. Anteriormente era "Configure la información de contacto para la oferta de Dynamics 365 for Customer Engagement en AppSource Marketplace".
-services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: ChJenk
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
-ms.openlocfilehash: a7f52979678713f73f08ea36f626b7889d1cd88a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8c7973d267f083180f2dd73c55fbf90fef25e9ce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818752"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278474"
 ---
 # <a name="azure-application-contacts-tab"></a>Pestaña Contactos de una aplicación de Azure
 

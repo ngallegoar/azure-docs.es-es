@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 41b2fb754f1d6ead3a7475ca146ab99758aa8134
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246870"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante la CLI de Azure

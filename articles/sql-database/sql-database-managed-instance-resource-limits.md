@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 12d457d8d5e57dc4db16d9a191c7795a5f013574
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: b2871ec87e4d7f337c26b3ff3de83c1c3c88aea2
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605013"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365385"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de instancia administrada de Azure SQL Database
 
@@ -71,8 +71,8 @@ Instancia administrada tiene dos niveles de servicio: [De uso general](sql-datab
 | Tamaño máximo de base de datos | Hasta el tamaño de instancia disponible actualmente (máximo 2 TB - 8 TB, según el número de núcleos virtuales). | Hasta el tamaño de instancia disponible actualmente (máximo 1 TB - 4 TB, según el número de núcleos virtuales). |
 | Tamaño máximo de tempDB | Limitado a 24 GB/núcleo virtual (96 - 1,920 GB) y el tamaño de almacenamiento de instancia disponible actualmente.<br/>Agregue más núcleos virtuales para obtener más espacio para TempDB.<br/> El tamaño del archivo de registro está limitado a 120 GB.| Hasta el tamaño de almacenamiento de instancia disponible actualmente. |
 | Número máximo de bases de datos por instancia | 100, a menos que se alcance el límite del tamaño de almacenamiento de la instancia. | 100, a menos que se alcance el límite del tamaño de almacenamiento de la instancia. |
-| Número máximo de archivos de base de datos por instancia | Hasta 280, a menos que se alcance el límite de tamaño de almacenamiento de instancia o [espacio de almacenamiento de Azure Premium Disk Storage](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | 32 767 archivos por base de datos, a menos que se alcance el límite del tamaño de almacenamiento de la instancia. |
-| Tamaño máximo del archivo de datos | Limitado al tamaño de almacenamiento de instancia disponible actualmente (máximo 2 TB - 8 TB) y el [espacio de asignación Azure Premium Disk Storage](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitado al tamaño de almacenamiento de instancias disponible actualmente (hasta 1 TB - 4 TB). |
+| Número máximo de archivos de base de datos por instancia | Hasta 280, a menos que se alcance el límite de tamaño de almacenamiento de instancia o [espacio de almacenamiento de Azure Premium Disk Storage](sql-database-release-notes.md#exceeding-storage-space-with-small-database-files). | 32 767 archivos por base de datos, a menos que se alcance el límite del tamaño de almacenamiento de la instancia. |
+| Tamaño máximo del archivo de datos | Limitado al tamaño de almacenamiento de instancia disponible actualmente (máximo 2 TB - 8 TB) y el [espacio de asignación Azure Premium Disk Storage](sql-database-release-notes.md#exceeding-storage-space-with-small-database-files). | Limitado al tamaño de almacenamiento de instancias disponible actualmente (hasta 1 TB - 4 TB). |
 | Tamaño máximo del archivo de registro | Limitado a 2 TB y el tamaño de almacenamiento de instancias disponible actualmente. | Limitado a 2 TB y el tamaño de almacenamiento de instancias disponible actualmente. |
 | Datos/IOPS de registro (aproximado) | Hasta 30 000 - 40 000 IOPS por instancia*, 500 - 7500 por archivo<br/>\*[Aumentar el tamaño del archivo para obtener más IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 000 - 200 000 (2500 IOPS/núcleo virtual)<br/>Agregue más núcleos virtuales para obtener un mejor rendimiento de E/S. |
 | Límite de rendimiento de escritura en el registro (por instancia) | 3 MB/s por núcleo virtual<br/>Máx. 22 MB/s | 4 MB/s por núcleo virtual<br/>Máx. 48 MB/s |

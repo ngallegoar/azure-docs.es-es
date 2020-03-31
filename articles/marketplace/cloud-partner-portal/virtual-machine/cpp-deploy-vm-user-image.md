@@ -1,19 +1,18 @@
 ---
 title: Implementación de una VM de Azure desde un disco duro virtual de usuario | Azure Marketplace
 description: Explica cómo implementar una imagen de disco duro virtual de usuario para crear una instancia de máquina virtual de Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 8421e9b7b7e2b7d13054e977da83be044b4e6af7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 957bc187b0123338947f62333c913cf82a6c66a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816636"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277963"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implementación de una máquina virtual de Azure desde un disco duro virtual de usuario
 
@@ -67,4 +66,4 @@ New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgNa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez implementada la máquina virtual, está listo para [certificar la imagen de máquina virtual](./cpp-certify-vm.md).
+Una vez implementada la VM, está listo para [certificar la imagen de VM](./cpp-certify-vm.md).

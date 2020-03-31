@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: efa2885ce0534c5d78bb08bbf24da59850f6ea22
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075188"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Compatibilidad de Application Gateway con back-ends multiinquilino como App Service
@@ -57,7 +57,7 @@ El reemplazo del encabezado de host en la **configuración de HTTP** solo afecta
 Puede haber escenarios en los que el nombre de host de la respuesta de App Service pueda dirigir el explorador del usuario final al nombre de host *. azurewebsites.net, en lugar de al dominio asociado con Application Gateway. Este problema puede ocurrir cuando:
 
 - Ha configurado el redireccionamiento en su instancia de App Service. El redireccionamiento puede ser tan sencillo como agregar una barra diagonal final a la solicitud.
-- Tiene la autenticación de Azure AD, lo que provoca el redireccionamiento.
+- Tiene autenticación de Azure AD, lo que provoca el redireccionamiento.
 
 Para resolver estos casos, consulte [Solución de problemas de redireccionamiento a la dirección URL de App Service](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
 

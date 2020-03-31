@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 8b0db4a1e55b53165e40e176834d66b62926e24b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421560"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Moving data between scaled-out cloud databases (Mover datos entre bases de datos en la nube escaladas horizontalmente)
@@ -212,14 +212,14 @@ El servicio División y combinación proporciona la tabla **RequestStatus** en l
 
 ### <a name="azure-diagnostics"></a>Diagnóstico de Azure
 
-El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Puede controlar la configuración de diagnósticos como se explica aquí: [Habilitación de diagnósticos en Azure Cloud Services y Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación.
+El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Para controlar la configuración de diagnóstico, consulte la información explicada aquí: [Habilitación de diagnósticos en Azure Cloud Services y Azure Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación.
 
 ## <a name="deploy-diagnostics"></a>Implementar diagnósticos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager de PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 Para habilitar la supervisión y el diagnóstico mediante el uso de la configuración de diagnóstico para el rol web y el rol de trabajo proporcionado por el paquete NuGet, ejecute los siguientes comandos con Azure PowerShell:
 
@@ -239,7 +239,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
     -Slot Production -Role "SplitMergeWorker"
 ```
 
-Puede encontrar más información sobre cómo configurar e implementar la configuración de diagnósticos aquí: [Habilitación de diagnósticos en Azure Cloud Services y Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md).
+Puede encontrar más información sobre cómo configurar e implementar los ajustes de diagnóstico aquí: [Habilitación de diagnósticos en Azure Cloud Services ](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
 ## <a name="retrieve-diagnostics"></a>Recuperar diagnósticos
 

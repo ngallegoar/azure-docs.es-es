@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 168ec65cfd0ff4e87c33324daa353b554111c8aa
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73838551"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Realización de una llamada telefónica con Twilio en una aplicación Java en Azure
@@ -186,7 +186,7 @@ Este código se ha proporcionado para mostrar la funcionalidad básica usando Tw
 
 Para obtener más información sobre Twilio, vea [https://www.twilio.com/docs][twilio_docs].
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Uso de Twilio para capacidades de voz y SMS en Java][howto_twilio_voice_sms_java]
 * [Incorporación de un certificado raíz al almacén de certificados CA de Java][add_ca_cert]
 

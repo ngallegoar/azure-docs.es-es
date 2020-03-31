@@ -3,7 +3,7 @@ title: Código de archivo de evento de XEvent
 description: Brinda PowerShell y Transact-SQL para un ejemplo de código de dos fases que muestra el destino de archivo de evento en un evento extendido en Azure SQL Database. Azure Storage es una parte necesaria en este escenario.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: 00f31bdf147c4711715cd600fa8a8fd4bac2162a
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a9bf28fb1b3c5278d25b417fc646d2ad3d6f1abc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422478"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79213991"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino del archivo de evento para eventos extendidos en SQL Database
 
@@ -34,12 +34,12 @@ En este tema se presenta un ejemplo de código de dos fases:
   - Para asignar el contenedor de Azure Storage a un destino de archivo de evento.
   - Para crear e iniciar la sesión del evento, etc.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos en el módulo Az y en los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 - Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Cualquier base de datos donde pueda crear una tabla.

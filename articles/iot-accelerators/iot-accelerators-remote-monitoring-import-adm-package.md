@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61443452"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importación de un paquete de administración de dispositivos automática en el acelerador de soluciones de supervisión remota
@@ -47,7 +47,7 @@ Ahora tendrá un archivo que contiene la configuración de administración de di
 
 Siga estos pasos para importar una configuración de administración de dispositivos automática como un paquete en la solución:
 
-1. Vaya a la página **Paquetes** de la interfaz de usuario web de supervisión remota:  ![Página de paquetes](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
+1. Vaya a la página **Paquetes** de la interfaz de usuario web de supervisión remota: ![Página de paquetes](media/iot-accelerators-remote-monitoring-import-adm-package/packagepage.png)
 
 1. Haga clic en **+ Nuevo paquete**, elija **Configuración** como el tipo de paquete y haga clic en **Examinar** para seleccionar el archivo **configuration.json** que guardó en la sección anterior:
 
