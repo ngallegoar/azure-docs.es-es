@@ -17,10 +17,10 @@ ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67108463"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
@@ -70,7 +70,7 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
    - Dirección URL interna: `https://\<rdhost\>.com/`, donde `\<rdhost\>` es la raíz común que comparten Acceso web y Puerta de enlace de Escritorio remoto.
    - Dirección URL externa: este campo se rellena automáticamente según el nombre de la aplicación, pero puede modificarlo. Los usuarios visitarán esta dirección URL cuando tengan acceso a RDS.
    - Método de autenticación previa: Azure Active Directory
-   - Traducir URL en encabezados: Sin
+   - Traducir URL en encabezados: No
 2. Asigne usuarios a la aplicación publicada de RD. Asegúrese también de que todos tienen acceso a RDS.
 3. Deje el método de inicio de sesión único de la aplicación como **Se desactivó el inicio de sesión único de Azure AD**. Se solicita a los usuarios que se autentiquen una vez en Azure AD y una vez en Acceso web de Escritorio remoto, pero tienen inicio de sesión único en Puerta de enlace de Escritorio remoto.
 4. Seleccione **Azure Active Directory** y **Registros de aplicaciones**. Elija la aplicación en la lista.

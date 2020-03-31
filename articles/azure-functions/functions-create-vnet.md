@@ -7,10 +7,10 @@ ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
 ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433209"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integración de Functions con una red virtual de Azure
@@ -32,7 +32,7 @@ El siguiente diagrama muestra la arquitectura de la solución que se ha creado:
 
 La ejecución de Functions en el plan Premium tiene las mismas capacidades de hospedaje que las aplicaciones web en Azure App Service, que incluye la característica de integración de red virtual. Para obtener más información sobre la integración de red virtual, incluida la solución de problemas y la configuración avanzada, vea [Integración de su aplicación con una red virtual de Azure](../app-service/web-sites-integrate-with-vnet.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este tutorial, es importante que comprenda el direccionamiento IP y las subredes. Puede empezar con [este artículo que trata los aspectos básicos del direccionamiento y las subredes](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Hay muchos más artículos y vídeos disponibles en línea.
 

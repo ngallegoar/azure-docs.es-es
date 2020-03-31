@@ -4,10 +4,10 @@ description: Conozca los pasos relacionados con la seguridad y los artefactos qu
 ms.date: 11/13/2019
 ms.topic: conceptual
 ms.openlocfilehash: daa7722fa37547929aa21b76b870f70143ae71ab
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76156631"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Etapas de implementación de un plano técnico

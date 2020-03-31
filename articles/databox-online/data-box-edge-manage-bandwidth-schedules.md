@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: f7b762d5502986c306de240519688aa639f58445
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60756892"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-edge"></a>Uso de Azure Portal para administrar las programaciones de ancho de banda en Azure Data Box Edge  
@@ -21,12 +21,12 @@ En este artículo se describe cómo administrar usuarios en Azure Data Box Edge.
 
 Puede agregar, modificar o eliminar las programaciones de ancho de banda de Data Box Edge a través de Azure Portal.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Adición de una programación
 > * Modificar una programación
-> * Eliminar una programación
+> * Eliminación de una programación
 
 
 ## <a name="add-a-schedule"></a>Adición de una programación

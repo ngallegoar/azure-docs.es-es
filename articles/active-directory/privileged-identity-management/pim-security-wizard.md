@@ -15,11 +15,11 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847049"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231808"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Asistente para seguridad de roles de Azure AD en Privileged Identity Management
 
@@ -37,7 +37,7 @@ El segundo paso del asistente le ofrece la oportunidad de cambiar las asignacion
 
 ## <a name="run-the-wizard"></a>Ejecutar el asistente
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Abra **Azure AD Privileged Identity Management**.
 

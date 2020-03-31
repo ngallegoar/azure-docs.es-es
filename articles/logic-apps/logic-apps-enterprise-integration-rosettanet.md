@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 2cc2ac08b9624c1d1d9bee9ce91a7c91189d7f2c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792424"
 ---
 # <a name="exchange-rosettanet-messages-for-b2b-enterprise-integration-in-azure-logic-apps"></a>Intercambiar mensajes de RosettaNet para la integración empresarial B2B en Azure Logic Apps
@@ -51,9 +51,9 @@ Estos son algunos conceptos y términos que son únicos para la especificación 
 
   Para un PIP acción única, la única respuesta es un mensaje de señal de confirmación. Para un PIP de doble acción, el iniciador recibe un mensaje de respuesta y responde con una confirmación, además del flujo de mensajes de acción única.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) para almacenar el contrato y otros artefactos B2B. Esta cuenta de integración debe estar asociada con una suscripción a Azure.
 
@@ -79,7 +79,7 @@ Para agregar una configuración de procesos PIP a la cuenta de integración, sig
 
    ![Agregar detalles de PIP de RosettaNet](media/logic-apps-enterprise-integration-rosettanet/add-rosettanet-pip.png)
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre** | Sí | El nombre de PIP |
    | **Código de PIP** | Sí | El código de PIP de tres dígitos. Para más información, consulte [PIP de RosettaNet](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
@@ -110,7 +110,7 @@ Para agregar una configuración de procesos PIP a la cuenta de integración, sig
 
    ![Agregar detalles del acuerdo](media/logic-apps-enterprise-integration-rosettanet/add-agreement-details.png)
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre** | Sí | Nombre del acuerdo |
    | **Tipo de contrato** | Sí | Seleccione **RosettaNet**. |
@@ -129,11 +129,11 @@ Para agregar una configuración de procesos PIP a la cuenta de integración, sig
 
    1. Para habilitar la firma o cifrado para los mensajes entrantes, en **Mensajes**, seleccione **Debe firmarse el mensaje** o **Debe cifrarse el mensaje**, respectivamente.
 
-      | Propiedad | Obligatorio | DESCRIPCIÓN |
+      | Propiedad | Obligatorio | Descripción |
       |----------|----------|-------------|
-      | **Debe firmarse el mensaje** | Sin | Firme los mensajes entrantes con el certificado seleccionado. |
+      | **Debe firmarse el mensaje** | No | Firme los mensajes entrantes con el certificado seleccionado. |
       | **Certificate** | Sí, si la firma está habilitada | El certificado que se va a usar para firmar |
-      | **Habilitar el cifrado de mensajes** | Sin | Cifre los mensajes entrantes con el certificado seleccionado. |
+      | **Habilitar el cifrado de mensajes** | No | Cifre los mensajes entrantes con el certificado seleccionado. |
       | **Certificate** | Sí, si el cifrado está habilitado | El certificado que se usará para el cifrado |
       ||||
 
@@ -145,19 +145,19 @@ Para agregar una configuración de procesos PIP a la cuenta de integración, sig
 
    1. Para habilitar la firma o el cifrado para los mensajes salientes, en **Mensajes**, seleccione **Habilitar la firma de mensajes** o **Habilitar el cifrado de mensajes**, respectivamente. En cada selección, seleccione el algoritmo y el [certificado](./logic-apps-enterprise-integration-certificates.md) correspondientes, que agregó anteriormente a la cuenta de integración, que se usarán para la firma o el cifrado.
 
-      | Propiedad | Obligatorio | DESCRIPCIÓN |
+      | Propiedad | Obligatorio | Descripción |
       |----------|----------|-------------|
-      | **Habilitar la firma de mensajes** | Sin | Firme los mensajes salientes con el algoritmo y el certificado de firma seleccionado. |
+      | **Habilitar la firma de mensajes** | No | Firme los mensajes salientes con el algoritmo y el certificado de firma seleccionado. |
       | **Algoritmo de firma** | Sí, si la firma está habilitada | El algoritmo de firma para usar, según el certificado seleccionado |
       | **Certificate** | Sí, si la firma está habilitada | El certificado que se va a usar para firmar |
-      | **Habilitar el cifrado de mensajes** | Sin | Cifre los mensajes salientes con el algoritmo y el certificado de cifrado seleccionados. |
+      | **Habilitar el cifrado de mensajes** | No | Cifre los mensajes salientes con el algoritmo y el certificado de cifrado seleccionados. |
       | **Algoritmo de cifrado** | Sí, si el cifrado está habilitado | El algoritmo de cifrado para usar, según el certificado seleccionado |
       | **Certificate** | Sí, si el cifrado está habilitado | El certificado que se usará para el cifrado |
       ||||
 
    1. En **Puntos de conexión**, especifique las direcciones URL necesarias para enviar mensajes de acción y confirmaciones.
 
-      | Propiedad | Obligatorio | DESCRIPCIÓN |
+      | Propiedad | Obligatorio | Descripción |
       |----------|----------|-------------|
       | **Dirección URL de acción** |  Sí | La dirección URL que se usará para enviar mensajes de acción. La dirección URL es un campo obligatorio tanto para los mensajes sincrónicos como asincrónicos. |
       | **Acknowledgment URL** (Dirección URL de confirmación) | Sí | La dirección URL que se usará para enviar mensajes de confirmación. La dirección URL es un campo obligatorio para los mensajes asincrónicos. |
@@ -199,7 +199,7 @@ Para acelerar el desarrollo y recomendar patrones de integración, puede usar pl
 
    ![Proporcione los detalles de la acción](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Mensaje** | Sí | El mensaje de RosettaNet para descodificar.  |
    | **Encabezados** | Sí | Los encabezados HTTP que proporcionan los valores de la versión, que es la versión de RNIF, y el tipo de respuesta, que indica el tipo de comunicación entre los asociados y que puede ser sincrónico o asincrónico. |
@@ -228,7 +228,7 @@ Para acelerar el desarrollo y recomendar patrones de integración, puede usar pl
 
    ![Proporcione los detalles de la acción](media/logic-apps-enterprise-integration-rosettanet/encode-action-details.png)
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Mensaje** | Sí | El mensaje de RosettaNet para codificar.  |
    | **Asociado host** | Sí | El nombre del asociado host. |

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
 ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073743"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226884"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensión del controlador de GPU de NVIDIA para Linux
 
@@ -30,7 +30,7 @@ Puede consultar [aquí](
 https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup) instrucciones sobre la instalación manual de los controladores y las versiones que son compatibles actualmente.
 También se dispone de una extensión para instalar controladores de GPU de NVIDIA en [MVs de la serie N para Windows](hpccompute-gpu-windows.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -70,20 +70,20 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 }
 ```
 
-### <a name="properties"></a>properties (Propiedades)
+### <a name="properties"></a>Propiedades
 
-| NOMBRE | Valor / ejemplo | Tipo de datos |
+| Nombre | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
-| Tipo | NvidiaGpuDriverLinux | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Configuración
 
 Todos los parámetros son opcionales. El comportamiento predeterminado consiste en no actualizar el kernel si no es necesario para la instalación del controlador, instalar el controlador compatible más reciente y el kit de herramientas CUDA (según corresponda).
 
-| NOMBRE | DESCRIPCIÓN | Valor predeterminado | Valores válidos | Tipo de datos |
+| Nombre | Descripción | Valor predeterminado | Valores válidos | Tipo de datos |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Actualice el kernel, incluso si no es necesario para la instalación del controlador | false | true, false | boolean |
 | driverVersion | NV: versión del controlador de GRID<br> NC o ND: versión del kit de herramientas CUDA. Los controladores más recientes del CUDA elegido se instalan automáticamente. | latest | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
@@ -136,7 +136,7 @@ Set-AzVMExtension
     }'
 ```
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 
 El siguiente ejemplo refleja los ejemplos anteriores de PowerShell y Azure Resource Manager y también agrega una configuración personalizada de ejemplo para la instalación del controlador no predeterminado. En concreto, actualiza el kernel del sistema operativo e instala un controlador específico para la versión del kit de herramientas CUDA.
 

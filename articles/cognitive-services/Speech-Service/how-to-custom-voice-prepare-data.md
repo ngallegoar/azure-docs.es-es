@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74805984"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparación de los datos para crear una voz personalizada
@@ -31,7 +31,7 @@ En algunos casos, puede que no tenga listo el conjunto de datos adecuado y quier
 
 En esta tabla se enumeran los tipos de datos y cómo se usa cada uno para crear un modelo personalizado de texto a voz.
 
-| Tipo de datos | DESCRIPCIÓN | Cuándo se deben usar | Servicio adicional necesario | Cantidad para entrenar un modelo | Configuraciones regionales |
+| Tipo de datos | Descripción | Cuándo se usa | Servicio adicional necesario | Cantidad para entrenar un modelo | Configuraciones regionales |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
 | **Expresiones individuales + transcripción relacionada** | Una colección (.zip) de archivos de audio (.wav) como expresiones individuales. Cada archivo de audio debe tener una longitud de 15 segundos o menos y estar emparejado con una transcripción con formato (.txt). | Grabaciones profesionales con transcripciones relacionadas | Listo para el entrenamiento. | Sin requisitos fijos para en-US y zh-CN. Más de 2000 expresiones diferentes para otras configuraciones regionales. | [Todas las configuraciones regionales de voz personalizada](language-support.md#customization) |
 | **Audio largo + transcripciones (beta)** | Una colección (.zip) de archivos de audio largos sin segmentar (más de 20 segundos), emparejados con una transcripción (.txt) que contiene todas las palabras habladas. | Tiene archivos de audio y transcripciones relacionadas, pero no están segmentados en expresiones. | Segmentación (mediante transcripción por lotes).<br>Transformación del formato de audio cuando sea necesario. | Sin requisitos fijos  | [Todas las configuraciones regionales de voz personalizada](language-support.md#customization) |
@@ -57,7 +57,7 @@ Cada archivo de audio debe contener una sola expresión (una sola frase o un sol
 
 Al preparar el audio, siga estas directrices.
 
-| Propiedad | Valor |
+| Propiedad | Value |
 | -------- | ----- |
 | Formato de archivo | RIFF (.wav), agrupado en un archivo ZIP |
 | Frecuencia de muestreo | Al menos 16 000 Hz |
@@ -74,7 +74,7 @@ Al preparar el audio, siga estas directrices.
 
 El archivo de transcripción es un archivo de texto sin formato. Use estas directrices para preparar sus transcripciones.
 
-| Propiedad | Valor |
+| Propiedad | Value |
 | -------- | ----- |
 | Formato de archivo | Texto sin formato (.txt) |
 | Formato de codificación | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE o UTF-16-BE. Con zh-CN, no se admiten las codificaciones ANSI/ASCII y UTF-8. |
@@ -98,13 +98,13 @@ Es importante que las transcripciones tengan una precisión del 100 % respecto 
 En algunos casos, puede que no disponga de audio segmentado. Nosotros proporcionamos un servicio (beta) a través del portal de voz personalizada para ayudarle a segmentar los archivos de audio largos y crear transcripciones. Tenga en cuenta que este servicio se cobrará en función de su uso de la suscripción de voz a texto.
 
 > [!NOTE]
-> El servicio de segmentación de audio largo aprovechará la característica de transcripción de voz a texto por lotes, que solo admite usuarios de la suscripción estándar (S0). Durante el procesamiento de la segmentación, los archivos de audio y las transcripciones también se enviarán al servicio Custom Speech para refinar el modelo de reconocimiento y así pueda mejorar la precisión de los datos. Durante este proceso no se conserva ningún dato. Después de realizar la segmentación, solo las expresiones segmentadas y sus transcripciones de asignación se almacenarán para su descarga y entrenamiento.
+> El servicio de segmentación de audio largo aprovechará la característica de transcripción de voz a texto por lotes, que solo admite usuarios de la suscripción estándar (S0). Durante el procesamiento de la segmentación, los archivos de audio y las transcripciones también se enviarán al servicio Habla personalizada para refinar el modelo de reconocimiento y así pueda mejorar la precisión de los datos. Durante este proceso no se conserva ningún dato. Después de realizar la segmentación, solo las expresiones segmentadas y sus transcripciones de asignación se almacenarán para su descarga y entrenamiento.
 
 ### <a name="audio-files"></a>Archivos de audio
 
 Al preparar el audio para la segmentación, siga estas directrices.
 
-| Propiedad | Valor |
+| Propiedad | Value |
 | -------- | ----- |
 | Formato de archivo | RIFF (.wav) con una frecuencia de muestreo de al menos 16 khz y 16 bits en PCM o .mp3 con una velocidad de bits de al menos 256 KBps, agrupado en un archivo ZIP |
 | Nombre de archivo | Caracteres ASCII y Unicode admitidos. No se permiten nombres duplicados. |
@@ -118,7 +118,7 @@ Todos los archivos de audio se deben agrupar en un archivo ZIP. Puede poner arch
 
 Las transcripciones deben estar preparadas de acuerdo con las especificaciones enumeradas en esta tabla. Cada archivo de audio debe coincidir con una transcripción.
 
-| Propiedad | Valor |
+| Propiedad | Value |
 | -------- | ----- |
 | Formato de archivo | Texto sin formato (.txt), agrupado en un archivo ZIP |
 | Nombre de archivo | Use el mismo nombre que el archivo de audio relacionado. |
@@ -139,7 +139,7 @@ Al preparar el audio, siga estas directrices.
 > [!NOTE]
 > El servicio de segmentación de audio largo aprovechará la característica de transcripción de voz a texto por lotes, que solo admite usuarios de la suscripción estándar (S0).
 
-| Propiedad | Valor |
+| Propiedad | Value |
 | -------- | ----- |
 | Formato de archivo | RIFF (.wav) con una frecuencia de muestreo de al menos 16 khz y 16 bits en PCM o .mp3 con una velocidad de bits de al menos 256 KBps, agrupado en un archivo ZIP |
 | Nombre de archivo | Caracteres ASCII y Unicode admitidos. No se permiten nombres duplicados. |

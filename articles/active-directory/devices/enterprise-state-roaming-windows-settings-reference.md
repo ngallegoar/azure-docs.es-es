@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7abc402f1fc2e449e7aac5effdb01b6b941100
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672629"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referencia de la configuración de movilidad de Windows 10
@@ -28,10 +28,10 @@ Consulte la tabla siguiente para ver un resumen de los dispositivos y tipos de c
 
 | Tipo de cuenta y operación | Escritorio | Móvil |
 | --- | --- | --- |
-| Azure Active Directory: sincronización |Sí |Sin |
-| Azure Active Directory: copia de seguridad/restauración |Sin |Sin |
+| Azure Active Directory: sincronización |Sí |No |
+| Azure Active Directory: copia de seguridad/restauración |No |No |
 | Cuenta de Microsoft: sincronización |Sí |Sí |
-| Cuenta de Microsoft: copia de seguridad/restauración |Sin |Sí |
+| Cuenta de Microsoft: copia de seguridad/restauración |No |Sí |
 
 ## <a name="what-is-backup"></a>¿Qué es una copia de seguridad?
 

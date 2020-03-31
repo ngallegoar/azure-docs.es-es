@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66473790"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Referencia de PowerShell ADConnectivityTools
@@ -33,7 +33,7 @@ Detecta problemas de DNS locales.
 Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObject] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 Ejecuta pruebas de conectividad de DNS locales.
 Para configurar el conector de Active Directory, el usuario debe tener la resolución de nombres tanto del bosque al que intenta conectarse como de los controladores de dominio asociados a este bosque.
@@ -52,7 +52,7 @@ Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM" -DCs "MYDC1.CONTOSO.COM","MYD
 Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARÁMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -120,7 +120,7 @@ Determina si existe un bosque especificado.
 Confirm-ForestExists [-Forest] <String> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 Consulta un servidor DNS para obtener las direcciones IP asociadas con un bosque.
 
@@ -132,7 +132,7 @@ Consulta un servidor DNS para obtener las direcciones IP asociadas con un bosque
 Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARÁMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -175,7 +175,7 @@ Confirm-FunctionalLevel -Forest <String> [-RunWithCurrentlyLoggedInUserCredentia
 Confirm-FunctionalLevel -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 Comprueba que el nivel funcional del bosque de AD es igual o mayor que una versión MinAdForestVersion determinada (WindowsServer2003).
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -200,7 +200,7 @@ Confirm-FunctionalLevel -Forest "test.contoso.com" -RunWithCurrentlyLoggedInUser
 Confirm-FunctionalLevel -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARÁMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -268,7 +268,7 @@ Detecta problemas de conectividad de la red local.
 Confirm-NetworkConnectivity [-DCs] <Array> [-SkipDnsPort] [-ReturnResultAsPSObject] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 Ejecuta pruebas de conectividad de la red local.
 
@@ -289,7 +289,7 @@ Confirm-NetworkConnectivity -SkipDnsPort -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO
 Confirm-NetworkConnectivity -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO.COM" -Verbose
 ```
 
-### <a name="parameters"></a>PARÁMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-dcs"></a>-DCs
 
@@ -358,7 +358,7 @@ Determina si un bosque especificado y sus controladores de dominio asociados son
 Confirm-TargetsAreReachable [-Forest] <String> [-DCs] <Array> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 Ejecuta pruebas de "ping" (si un equipo puede comunicarse con un equipo de destino a través de la red o de Internet)
 
@@ -376,7 +376,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM" -DCs "MYDC1.CONTOSO.COM",
 Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARÁMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -435,7 +435,7 @@ Confirm-ValidDomains [-Forest <String>] [-RunWithCurrentlyLoggedInUserCredential
 Confirm-ValidDomains -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 Validar que todos los dominios del FQDN del bosque obtenido sean accesibles mediante un intento de recuperación de DomainGuid y DomainDN.
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -460,7 +460,7 @@ Confirm-ValidDomains -Forest "test.contoso.com" -RunWithCurrentlyLoggedInUserCre
 Confirm-ValidDomains -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARÁMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -527,7 +527,7 @@ Validar si un usuario tiene credenciales de administrador de empresa.
 Confirm-ValidEnterpriseAdminCredentials [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 Busca si el usuario proporcionado tiene credenciales de administrador de empresa.
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -546,7 +546,7 @@ Confirm-ValidEnterpriseAdminCredentials -DomainName test.contoso.com -Verbose
 Confirm-ValidEnterpriseAdminCredentials -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARÁMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
@@ -582,7 +582,7 @@ Get-DomainFQDNData [[-DomainFQDNDataType] <String>] [-RunWithCurrentlyLoggedInUs
  [-ReturnExceptionOnError] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 Intenta obtener un objeto domainFQDN de las credenciales proporcionadas.
 Si el objeto domainFQDN es válido, se devolverá DomainFQDNName RootDomainName, según la elección del usuario.
@@ -602,7 +602,7 @@ Get-DomainFQDNData -DomainFQDNDataType DomainFQDNName -Verbose
 Get-DomainFQDNData -DomainFQDNDataType RootDomainName -RunWithCurrentlyLoggedInUserCredentials
 ```
 
-### <a name="parameters"></a>PARÁMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-domainfqdndatatype"></a>-DomainFQDNDataType
 
@@ -670,7 +670,7 @@ Recupera un objeto ForestFQDN de una combinación de cuenta y contraseña.
 Get-ForestFQDN [-Forest] <String> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 Intenta obtener un objeto ForestFQDN de las credenciales proporcionadas.
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -689,7 +689,7 @@ Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -Verbose
 Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARÁMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -741,7 +741,7 @@ Start-ConnectivityValidation [-Forest] <String> [-AutoCreateConnectorAccount] <B
  [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 Ejecuta todos los mecanismos disponibles que comprueban que las credenciales de AD sean válidas.
 
@@ -753,7 +753,7 @@ Ejecuta todos los mecanismos disponibles que comprueban que las credenciales de 
 Start-ConnectivityValidation -Forest "test.contoso.com" -AutoCreateConnectorAccount $True -Verbose
 ```
 
-### <a name="parameters"></a>PARÁMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -824,7 +824,7 @@ Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSC
  [-ValidCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPTION
 
 Ejecuta pruebas de conectividad de la red local.
 
@@ -842,7 +842,7 @@ Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM"
 Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM" -DCs "DC1.TEST.CONTOSO.COM", "DC2.TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARÁMETROS
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 

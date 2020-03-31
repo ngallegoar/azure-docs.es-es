@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 999dbb8c36c4e0413f287b2a73cf39ab4acd15f5
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610053"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Desarrollo de aplicaciones de C# para Service Fabric con Visual Studio Code
@@ -21,7 +21,7 @@ En este artículo se muestra cómo compilar, implementar y depurar una aplicaci�
 > [!IMPORTANT]
 > Las aplicaciones de Java para Service Fabric se pueden desarrollar en máquinas Windows, pero solo se pueden implementar en clústeres Linux de Azure. En Windows no se admite la depuración de aplicaciones de Java.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por supuesto que ya ha instalado VS Code, la extensión Service Fabric Reliable Services para VS Code y todas las dependencias necesarias para el entorno de desarrollo. Para obtener más información, consulte la [introducción](./service-fabric-get-started-vs-code.md#prerequisites).
 

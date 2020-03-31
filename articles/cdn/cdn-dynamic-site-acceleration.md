@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: 08e705d3c3623d4d02ccaea609eb0555aa1c8e33
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593919"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleración de sitios dinámicos a través de Azure CDN
@@ -147,7 +147,7 @@ Compresión adaptable de imágenes | Extensiones de archivo
 --- | ---  
 Compresión JPEG | .jpg, .jpeg, .jpe, .jig, .jgig, .jgi
 
-## <a name="caching"></a>Almacenamiento en caché
+## <a name="caching"></a>Almacenamiento en memoria caché
 
 Con DSA, el almacenamiento en caché está desactivado de forma predeterminada en la red CDN, incluso cuando el origen incluye encabezados `Cache-Control` o `Expires` en la respuesta. DSA se usa normalmente con recursos dinámicos que no se deben almacenar en caché porque son únicos para cada cliente. El almacenamiento en caché puede anular este comportamiento.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: bced6a9e6c59dc32657dbabef986e29e0447b28b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60947227"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos mediante Azure Site Recovery Deployment Planner 
@@ -167,7 +167,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>Monedas admitidas
 Azure Site Recovery Deployment Planner puede generar el informe de costos en cualquiera de las siguientes monedas.
 
-|Moneda|NOMBRE||Moneda|NOMBRE||Moneda|NOMBRE|
+|Moneda|Nombre||Moneda|Nombre||Moneda|Nombre|
 |---|---|---|---|---|---|---|---|
 |ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileño (R$)|
 |CAD|Dólar canadiense ($)||CHF|Franco suizo (CHF)||DKK|Corona danesa (kr)|

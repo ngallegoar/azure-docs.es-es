@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: e58cbe85f30ea09adde45d55bb7b80c710c45495
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792431"
 ---
 # <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Agregar entidades a la cuenta de integración para Azure Logic Apps
@@ -27,15 +27,15 @@ Para definir los detalles acerca de los mensajes intercambiados con los asociado
 
 En un acuerdo, especifica los detalles para el tratamiento de mensajes entrantes y salientes desde la perspectiva del asociado host. Para los mensajes entrantes, la **Configuración de recepción** especifica de qué manera el asociado host recibe los mensajes del asociado invitado en el acuerdo. Para los mensajes salientes, la **Configuración de envío** especifica de qué manera el asociado host envía los mensajes al asociado invitado.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) para almacenar los asociados, el acuerdo y otros artefactos B2B. Esta cuenta de integración debe estar asociada con una suscripción a Azure.
 
 ## <a name="create-partner"></a>Creación de un asociado
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 1. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" y seleccione **Cuentas de integración**.
 
@@ -53,7 +53,7 @@ En un acuerdo, especifica los detalles para el tratamiento de mensajes entrantes
 
    ![Elija "Agregar" y proporcione los detalles del asociado](./media/logic-apps-enterprise-integration-partners/add-partners.png)
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre** | Sí | El nombre del asociado |
    | **Calificador** | Sí | El cuerpo de autenticación que proporciona identidades de negocio únicas a las organizaciones, por ejemplo, **D-U-N-S (Dun & Bradstreet)** . <p>Los asociados pueden optar por una identidad de negocio definida mutuamente. Para estos escenarios, seleccione **Definidos mutuamente** para EDIFACT o **Definidos mutuamente (X12)** para X12. <p>Para RosettaNet, seleccione solo **DUNS**, que es el estándar. |
@@ -84,14 +84,14 @@ Elija el icono de **Asociados**.
 
    Para RosettaNet, bajo **Propiedades de asociado de RosettaNet**, puede especificar esta información adicional:
 
-   | Propiedad | Obligatorio | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
-   | **Clasificación de asociados** | Sin | Tipo de organización del asociado |
-   | **Código de la cadena de suministro** | Sin | Código de cadena de suministro del asociado, por ejemplo, "Tecnologías de la información" o "Componentes electrónicos" |
-   | **Nombre de contacto** | Sin | Nombre de contacto del asociado |
-   | **Correo electrónico** | Sin | Dirección de correo electrónico del asociado |
-   | **Fax** | Sin | Número de fax del asociado |
-   | **Teléfono** | Sin | Número de teléfono del asociado |
+   | **Clasificación de asociados** | No | Tipo de organización del asociado |
+   | **Código de la cadena de suministro** | No | Código de cadena de suministro del asociado, por ejemplo, "Tecnologías de la información" o "Componentes electrónicos" |
+   | **Nombre de contacto** | No | Nombre de contacto del asociado |
+   | **Correo electrónico** | No | Dirección de correo electrónico del asociado |
+   | **Fax** | No | Número de fax del asociado |
+   | **Teléfono** | No | Número de teléfono del asociado |
    ||||
 
 1. Cuando haya terminado, elija **Aceptar** para guardar los cambios.

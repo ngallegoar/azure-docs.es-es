@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 2a449c55a0998f1a114f6aa9d2c067e48cc0cdce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b95863c1ae53bd0642aec356f55aba1faf8ef09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443677"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535789"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Patrones de soluciones de Azure Stream Analytics
 
@@ -92,7 +92,7 @@ Otro patrón común es el almacenamiento de datos en tiempo real, también conoc
 
 ![Almacenamiento de datos ASA](media/stream-analytics-solution-patterns/datawarehousing.png)
 
-Es una forma de mejorar el rendimiento con algún inconveniente de latencia es archivar los eventos en Azure Blob Storage y luego [importarlos en SQL Data Warehouse con Polybase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). Debe unir manualmente la salida desde Stream Analytics al almacenamiento de blobs y realizar la entrada desde el almacenamiento de blobs a SQL Data Warehouse mediante el [archivo de los datos por marca de tiempo](stream-analytics-custom-path-patterns-blob-storage-output.md) y la importación periódica.
+Es una forma de mejorar el rendimiento con algún inconveniente de latencia es archivar los eventos en Azure Blob Storage y luego [importarlos en SQL Data Warehouse con Polybase](../synapse-analytics/sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). Debe unir manualmente la salida desde Stream Analytics al almacenamiento de blobs y realizar la entrada desde el almacenamiento de blobs a SQL Data Warehouse mediante el [archivo de los datos por marca de tiempo](stream-analytics-custom-path-patterns-blob-storage-output.md) y la importación periódica.
 
 En este patrón de uso, Azure Stream Analytics se usa como un motor ETL casi en tiempo real. Los eventos recién llegados se transforman y almacenan continuamente para el consumo del servicio de análisis descendente.
 

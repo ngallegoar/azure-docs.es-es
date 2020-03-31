@@ -7,11 +7,11 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083775"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229040"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Administración del acceso de Site Recovery con el control de acceso basado en rol (RBAC)
 
@@ -76,5 +76,5 @@ Considere el uso de los [roles integrados](../role-based-access-control/built-in
 * Aprenda a administrar el acceso con:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI de Azure](../role-based-access-control/role-assignments-cli.md)
-  * [API DE REST](../role-based-access-control/role-assignments-rest.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
 * [Solución de problemas del control de acceso basado en rol](../role-based-access-control/troubleshooting.md): Obtenga sugerencias acerca de cómo solucionar problemas comunes.

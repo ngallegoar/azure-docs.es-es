@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61464953"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configuración de la telemetría de Azure Media Services con .NET 
@@ -32,7 +32,7 @@ Puede utilizar los datos de telemetría de una de las maneras siguientes:
 
 - Leer datos directamente desde Azure Table Storage (por ejemplo, mediante el SDK de Storage). Para obtener la descripción de las tablas de almacenamiento de telemetría, consulte la sección sobre el **uso de información de telemetría** de [este](https://msdn.microsoft.com/library/mt742089.aspx) artículo.
 
-o
+Or
 
 - Aproveche la compatibilidad del SDK de .NET de Media Services para leer los datos de almacenamiento. En este ar se muestra cómo habilitar la telemetría de la cuenta de AMS especificada y cómo consultar las métricas usando el SDK de .NET de Azure Media Services.  
 

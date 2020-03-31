@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64918434"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de administración de contenido para la solución de identidad híbrida
@@ -67,6 +67,6 @@ Al planear la solución de identidad híbrida, asegúrese de que puede responder
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de los requisitos de control de acceso](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: a70abd1cddb866037926bbbc881682d50599366b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76699264"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 
 Mediante Azure Active Directory (Azure AD) se puede personalizar el tipo de notificación de la notificación de rol en el token de respuesta que se recibe después de autorizar una aplicación.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una suscripción a Azure AD con configuración de directorios.
 - Una suscripción que tenga el inicio de sesión único (SSO) habilitado. El inicio de sesión único se debe configurar con la aplicación.

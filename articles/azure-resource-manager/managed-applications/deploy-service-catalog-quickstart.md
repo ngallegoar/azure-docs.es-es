@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3fa9709e096e908907772c940fc5e2f2895b7eb3
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 9a69296ddfc93fd7e8a6650df91876829631f5d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649300"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473071"
 ---
-# <a name="deploy-service-catalog-app-through-azure-portal"></a>Implementación de aplicaciones del catálogo de servicios mediante Azure Portal
+# <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Inicio rápido: Implementación de aplicaciones del catálogo de servicios mediante Azure Portal
 
 En el [inicio rápido anterior](publish-managed-app-definition-quickstart.md), publicó una definición de aplicación administrada. En este inicio rápido, creará una aplicación del catálogo de servicios a partir de esa definición.
 

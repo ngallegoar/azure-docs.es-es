@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
 ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65952686"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creación, modificación o eliminación del prefijo de una dirección IP pública
@@ -48,8 +48,8 @@ Los prefijos de las direcciones IP públicas tienen un cargo. Para obtener infor
    |Configuración|¿Necesario?|Detalles|
    |---|---|---|
    |Subscription|Sí|Debe existir en la misma [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que el recurso al cual desee asociar la dirección IP pública.|
-   |Grupos de recursos|Sí|Puede existir en la misma suscripción que el [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) al cual desee asociar la dirección IP pública o en otra diferente.|
-   |NOMBRE|Sí|El nombre debe ser único dentro del grupo de recursos que seleccione.|
+   |Resource group|Sí|Puede existir en la misma suscripción que el [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) al cual desee asociar la dirección IP pública o en otra diferente.|
+   |Nombre|Sí|El nombre debe ser único dentro del grupo de recursos que seleccione.|
    |Region|Sí|Debe existir en la misma [región](https://azure.microsoft.com/regions) que las direcciones IP públicas que asignará a direcciones del intervalo.|
    |Tamaño del prefijo|Sí| El tamaño del prefijo que necesita. A/28 o 16 direcciones IP es el valor predeterminado.
 
@@ -70,9 +70,9 @@ Una vez que cree un prefijo, debe crear las direcciones IP estáticas a partir d
 
    |Configuración|¿Necesario?|Detalles|
    |---|---|---|
-   |NOMBRE|Sí|El nombre de la dirección IP pública debe ser único dentro del grupo de recursos que seleccione.|
-   |Tiempo de espera de inactividad (minutos)|Sin|Cantidad de minutos para mantener una conexión TCP o HTTP abierta sin que dependa del envío de mensajes de mantenimiento de los clientes. |
-   |Etiqueta de nombre DNS|Sin|Debe ser único dentro de la región de Azure en la que cree el nombre (entre todas las suscripciones y todos los clientes). Azure registra automáticamente el nombre y la dirección IP en el DNS para que pueda conectarse a un recurso con el nombre. Azure anexa una subred predeterminada, como *location.cloudapp.azure.com* (en que location es la ubicación seleccionada), al nombre que proporcione para crear el nombre DNS cualificado completo. Para obtener más información, consulte [Utilizar Azure DNS con una dirección IP pública de Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+   |Nombre|Sí|El nombre de la dirección IP pública debe ser único dentro del grupo de recursos que seleccione.|
+   |Tiempo de espera de inactividad (minutos)|No|Cantidad de minutos para mantener una conexión TCP o HTTP abierta sin que dependa del envío de mensajes de mantenimiento de los clientes. |
+   |Etiqueta de nombre DNS|No|Debe ser único dentro de la región de Azure en la que cree el nombre (entre todas las suscripciones y todos los clientes). Azure registra automáticamente el nombre y la dirección IP en el DNS para que pueda conectarse a un recurso con el nombre. Azure anexa una subred predeterminada, como *location.cloudapp.azure.com* (en que location es la ubicación seleccionada), al nombre que proporcione para crear el nombre DNS cualificado completo. Para obtener más información, consulte [Utilizar Azure DNS con una dirección IP pública de Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
 También puede usar los comandos CLI y PS que tiene a continuación con los parámetros --public-ip-prefix (CLI) y -PublicIpPrefix (PS), para crear un recurso de dirección IP pública. 
 
@@ -100,7 +100,7 @@ También puede usar los comandos CLI y PS que tiene a continuación con los par�
 
 Para realizar tareas en prefijos de direcciones IP públicas, su cuenta debe estar asignada al rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un rol [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones adecuadas que se muestran en la tabla siguiente:
 
-| .                                                            | NOMBRE                                                           |
+| Acción                                                            | Nombre                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | Leer el prefijo de una dirección IP pública                                |
 | Microsoft.Network/publicIPPrefixes/write                          | Crear o actualizar el prefijo de una dirección IP pública                    |

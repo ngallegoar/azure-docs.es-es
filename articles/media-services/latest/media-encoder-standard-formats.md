@@ -15,11 +15,11 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888077"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227128"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Códecs y formatos de Standard Encoder
 
@@ -62,7 +62,7 @@ or
 | MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10) |Hasta 422 Perfil |
 | MPEG-1 |Sí |
 | VC-1/WMV9 |Sí |
-| Canopus HQ/HQX |Sin |
+| Canopus HQ/HQX |No |
 | MPEG-4, parte 2 |Sí |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Sí |
 | YUV420 sin comprimir o intermedio |Sí |
@@ -86,10 +86,10 @@ or
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sí |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sí |
 | AMR (velocidad múltiple adaptable) |Sí |
-| AES (SMPTE 331M y 302M, AES3-2003) |Sin |
-| Dolby® E |Sin |
-| Dolby® Digital (AC3) |Sin |
-| Dolby® Digital Plus (E-AC3) |Sin |
+| AES (SMPTE 331M y 302M, AES3-2003) |No |
+| Dolby® E |No |
+| Dolby® Digital (AC3) |No |
+| Dolby® Digital Plus (E-AC3) |No |
 
 ## <a name="output-formats-and-codecs"></a>Códecs y formatos de salida
 La siguiente tabla enumera los códecs y los formatos de archivo compatibles para exportación.

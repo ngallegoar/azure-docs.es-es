@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65139289"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230116"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronización de Azure AD Connect: Scheduler
 En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (motor de sincronización).

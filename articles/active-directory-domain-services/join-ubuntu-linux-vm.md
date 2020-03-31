@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
 ms.openlocfilehash: bc5371ccbd3ba66117d5c613090b70ce7f07d51e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78298848"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Unión de una máquina virtual Ubuntu Linux a un dominio administrado de Azure AD Domain Services

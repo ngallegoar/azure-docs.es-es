@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b1336d10b091be4f3eb2a711401cafd3f58221fe
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399484"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)
@@ -34,8 +34,8 @@ En la tabla siguiente se describen los tipos de almacenamiento disponibles y sus
 | Caso de uso | Complemento de volumen | Lectura/escritura una vez | Solo lectura varias veces | Lectura/escritura varias veces | Compatibilidad con contenedores de Windows Server |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Configuración compartida       | Archivos de Azure   | Sí | Sí | Sí | Sí |
-| Datos de la aplicación estructurados        | Azure Disks   | Sí | Sin  | Sin  | Sí |
-| Datos no estructurados, operaciones del sistema de archivos | [BlobFuse][blobfuse] | Sí | Sí | Sí | Sin |
+| Datos de la aplicación estructurados        | Azure Disks   | Sí | No  | No  | Sí |
+| Datos no estructurados, operaciones del sistema de archivos | [BlobFuse][blobfuse] | Sí | Sí | Sí | No |
 
 Los dos tipos principales de almacenamiento proporcionados para volúmenes en AKS están respaldados por Azure Disks o Azure Files. Para mejorar la seguridad, ambos tipos de almacenamiento usan Azure Storage Service Encryption (SSE) de manera predeterminada para cifrar los datos en reposo. Actualmente no se pueden cifrar los discos con Azure Disk Encryption en el nivel de nodo de AKS.
 

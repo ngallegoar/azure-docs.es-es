@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109496"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitación de la escritura diferida de dispositivo
@@ -40,10 +40,10 @@ Esto ofrece seguridad adicional y la garantía de que el acceso a las aplicacion
 > <li>Los dispositivos deben encontrarse en el mismo bosque que los usuarios. Puesto que los dispositivos deben volver a escribirse en un único bosque, esta característica no admite actualmente una implementación con varios bosques de usuarios.</li>
 > <li>Solo se puede agregar un objeto de configuración de registro de dispositivo al bosque de Active Directory local. Esta característica no es compatible con una topología en la que el Active Directory local está sincronizado a varios directorios de Azure AD.</li>
 
-## <a name="part-1-install-azure-ad-connect"></a>Parte 1: Instalación de Azure AD Connect
+## <a name="part-1-install-azure-ad-connect"></a>Parte 1: Instalación de Azure AD Connect
 Instale Azure AD Connect mediante la configuración rápida o personalizada. Microsoft recomienda empezar con todos los usuarios y grupos sincronizados correctamente antes de habilitar la escritura diferida de dispositivos.
 
-## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Parte 2: habilitar la escritura diferida de dispositivos en Azure AD Connect
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Parte 2: habilitar la escritura diferida de dispositivos en Azure AD Connect
 1. Ejecute de nuevo el Asistente para la instalación. Seleccione **Configurar opciones de dispositivo** en la página Tareas adicionales y haga clic en **Siguiente**. 
 
     ![Configurar opciones de dispositivo](./media/how-to-connect-device-writeback/deviceoptions.png)
@@ -85,7 +85,7 @@ La reescritura de dispositivos debería funcionar ahora correctamente. Tenga en 
 ## <a name="enable-conditional-access"></a>Habilitación del acceso condicional
 Encontrará a su disposición instrucciones detalladas para habilitar este escenario en [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>La casilla de reescritura sigue deshabilitada
 Si la casilla para la reescritura de dispositivos no se habilita a pesar de haber seguido los pasos anteriores, los siguientes pasos le guiarán por lo que el Asistente para la instalación comprueba antes de habilitar la casilla.
 

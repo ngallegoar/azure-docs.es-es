@@ -16,15 +16,15 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015450"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227016"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Uso del codificador Premium con varios archivos de entrada y propiedades de los componentes
 ## <a name="overview"></a>Información general
-Hay escenarios en los que podría ser necesario personalizar las propiedades de los componentes, especificar el contenido XML de lista de clips o enviar varios archivos de entrada al enviar una tarea con el procesador de multimedia del **flujo de trabajo de Codificador multimedia Premium** . A continuación, se indican algunos ejemplos:
+Hay escenarios en los que podría ser necesario personalizar las propiedades de los componentes, especificar el contenido XML de lista de clips o enviar varios archivos de entrada al enviar una tarea con el procesador de multimedia del **flujo de trabajo de Codificador multimedia Premium** . Ejemplos:
 
 * Superposición de texto en vídeo y definición del valor de texto (por ejemplo, la fecha actual) en tiempo de ejecución para cada vídeo de entrada
 * Personalización del XML de la lista de clips (para especificar uno o varios archivos de código fuente, con o sin recorte, etc.)
@@ -466,7 +466,7 @@ Para realizar la codificación, siga estos pasos:
 
 * El recurso codificado contendrá pistas de audio en varios idiomas que podrán seleccionarse en Azure Media Player.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Introducción de la codificación Premium en Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Uso de la codificación Premium en Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Codificación de contenido a petición con Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)

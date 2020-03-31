@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: juliako
 ms.openlocfilehash: a3d4568dd237491f28ae2880bdd78dd236870c3f
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74899824"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Crear una entrada de trabajo desde una dirección URL de HTTPS

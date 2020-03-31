@@ -4,10 +4,10 @@ description: En este artículo se describe cómo actualizar Azure Monitor para c
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.openlocfilehash: a7f40cb0523c2366c47da228e49311c2f9579212
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76715909"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Actualización de Azure Monitor para contenedores para habilitar métricas
@@ -29,7 +29,7 @@ La actualización del clúster para admitir estas nuevas capacidades se puede re
 
 Cada proceso asigna el rol **Publicador de métricas de supervisión** a la entidad de servicio del clúster para que los datos recopilados por el agente se puedan publicar en el recurso del clúster. El rol Publicador de métricas de supervisión tiene permiso únicamente para insertar métricas en el recurso; no puede modificar ningún estado, actualizar el recurso ni leer datos. Para obtener más información sobre este rol, vea [Rol Publicador de métricas de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, confirme lo siguiente:
 

@@ -13,10 +13,10 @@ ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74969911"
 ---
 # <a name="content-key-policies"></a>Directivas de clave de contenido

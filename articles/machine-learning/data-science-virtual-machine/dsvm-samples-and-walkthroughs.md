@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900043"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Ejemplos de Azure Data Science Virtual Machines
@@ -23,14 +23,14 @@ Azure Data Science Virtual Machine (DSVM) incluye un conjunto completo de códig
 > [!NOTE]
 > Para más información acerca de cómo ejecutar los cuadernos de Jupyter Notebook en Data Science Virtual Machine, consulte la sección [Acceso a Jupyter](#access-jupyter).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para ejecutar estos ejemplos, tiene que haber aprovisionado una instancia de Data Science Virtual Machine. Vea las guías de inicio rápido para [Windows](./provision-vm.md) y [Ubuntu](./dsvm-ubuntu-intro.md).
 
 ## <a name="available-samples"></a>Ejemplos disponibles
-| Categoría de ejemplos | DESCRIPCIÓN | Ubicaciones |
+| Categoría de ejemplos | Descripción | Ubicaciones |
 | ------------- | ------------- | ------------- |
-| Lenguaje R  | Los ejemplos ilustran escenarios como la conexión con almacenes de datos en la nube basados en Azure y una comparación entre Microsoft Machine Learning Server y el lenguaje R de código abierto. También se explica cómo poner en marcha modelos en Microsoft Machine Learning Server y SQL Server. <br/> [Lenguaje R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
+| Lenguaje R  | Los ejemplos ilustran escenarios como la conexión con almacenes de datos en la nube basados en Azure y una comparación entre Microsoft Machine Learning Server y el lenguaje R de código abierto. También se explica cómo poner en marcha modelos en Microsoft Machine Learning Server y SQL Server. <br/> [Lenguaje R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Lenguaje Python  | Ejemplos que explican escenarios como la conexión con los almacenes de datos en la nube basados en Azure y cómo trabajar con Azure Machine Learning.  <br/> [Lenguaje Python](#python-language) | <br/>`~notebooks` <br/><br/>|
 | Lenguaje Julia  | Proporciona una descripción detallada del trazado y el aprendizaje profundo en Julia. También explica cómo llamar a C y Python desde Julia. <br/> [Lenguaje Julia](#julia-language) |<br/> Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux:<br/> `~notebooks/julia`<br/><br/> |
 | Azure Machine Learning  | Explica cómo crear modelos de aprendizaje automático y aprendizaje profundo con Machine Learning. Implemente los modelos en cualquier lenguaje. Utilice el ajuste de hiperparámetros inteligente y el aprendizaje automático automatizado. También puede usar la administración de modelos y el aprendizaje distribuido. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
@@ -60,7 +60,7 @@ Inicie sesión con la misma contraseña que ha usado para el inicio de sesión e
 **Página de inicio de Jupyter**
 <br/>![Página de inicio de Jupyter](./media/jupyter-home.png)<br/>
 
-## <a name="r-language"></a>Lenguaje R 
+## <a name="r-language"></a>Lenguaje R 
 <br/>![Ejemplos de R](./media/r-language-samples.png)<br/>
 
 ## <a name="python-language"></a>Lenguaje Python

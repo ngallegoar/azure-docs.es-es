@@ -12,17 +12,17 @@ ms.author: mlandzic
 ms.reviewer: vanto, carlrab
 ms.date: 11/05/2019
 ms.openlocfilehash: ddffda5229c9c0d33c563e3ae7b4a884f0f92dff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73691395"
 ---
 # <a name="manage-transparent-data-encryption-in-a-managed-instance-using-your-own-key-from-azure-key-vault"></a>Administración del Cifrado de datos transparente en una instancia administrada con la propia clave desde Azure Key Vault
 
-Este ejemplo de script de PowerShell configura el cifrado de datos transparente (TDE) con una clave administrada por el cliente para Instancia administrada de Azure SQL, mediante una clave de Azure Key Vault. Esto se conoce normalmente como escenario de Bring Your Own Key para TDE. Para más información sobre el cifrado de datos transparente con compatibilidad con una clave administrada por el cliente, consulte [BYOK de TDE con Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
+Este ejemplo de script de PowerShell configura el cifrado de datos transparente (TDE) con una clave administrada por el cliente para Instancia administrada de Azure SQL, mediante una clave de Azure Key Vault. Con frecuencia esto se denomina escenario de Bring Your Own Key para TDE. Para más información sobre el cifrado de datos transparente con compatibilidad con una clave administrada por el cliente, consulte [BYOK de TDE con Azure SQL](../transparent-data-encryption-byok-azure-sql.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una instancia administrada existente. Consulte [Use PowerShell para crear una instancia administrada de Azure SQL Database](sql-database-create-configure-managed-instance-powershell.md).
 
@@ -36,7 +36,7 @@ Tanto el uso local de PowerShell como el de Azure Cloud Shell requiere AZ PowerS
 
 Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
-## <a name="sample-scripts"></a>Scripts de ejemplo
+## <a name="sample-scripts"></a>Muestras de scripts
 
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/transparent-data-encryption/setup-tde-byok-sqlmi.ps1 "Set up BYOK TDE for SQL Managed Instance")]
 

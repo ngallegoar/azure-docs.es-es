@@ -3,24 +3,25 @@ title: Solución de problemas de copia de seguridad de bases de datos de SQL Se
 description: Información para solución de problemas para realizar copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 69cae196e7fad70d75fb12709e5bf0d618bbc81c
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 8d49adb0ab741903ccb2989cfeb4ceaef2e8a38d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602330"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408623"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solución de problemas de la copia de seguridad de base de datos de SQL Server con Azure Backup
 
 En este artículo se proporciona información para la solución de problemas de las bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure.
 
-Para más información sobre el proceso y las limitaciones de las copias de seguridad, consulte [Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
+Para más información sobre el proceso y las limitaciones de las copias de seguridad, consulte [Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure](sql-support-matrix.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Permisos de SQL Server
 
 Para configurar la protección de una base de datos de SQL Server en una máquina virtual, debe instalar en ella la extensión **AzureBackupWindowsWorkload**. Si aparece el error **UserErrorSQLNoSysadminMembership**, significa que la instancia de SQL Server no tiene los permisos de copia de seguridad requeridos. Para corregir este error, siga los pasos descritos en [Establecer permisos de máquina virtual](backup-azure-sql-database.md#set-vm-permissions).
 
 ## <a name="troubleshoot-discover-and-configure-issues"></a>Solución de problemas de detección y configuración
+
 Después de crear y configurar un almacén de Recovery Services, la detección de bases de datos y la configuración de la copia de seguridad es un proceso de dos pasos.<br>
 
 ![sql](./media/backup-azure-sql-database/sql.png)
@@ -37,7 +38,23 @@ Durante la configuración de copia de seguridad, si la máquina virtual de SQL y
 
 Si hay que registrar la máquina virtual de SQL en el nuevo almacén, se debe anular el registro del almacén anterior.  La anulación del registro de una máquina virtual de SQL del almacén requiere que se detenga la protección de todos los orígenes de datos protegidos y, después, se pueden eliminar los datos cuya copia de seguridad se ha realizado. La eliminación de datos de copia de seguridad es una operación destructiva.  Una vez que haya revisado y tomado todas las precauciones para anular el registro de la máquina virtual de SQL, registre la misma máquina virtual en un nuevo almacén y vuelva a intentar la operación de copia de seguridad.
 
+## <a name="troubleshoot-backup-and-recovery-issues"></a>Solución de incidencias de copia de seguridad y recuperación  
 
+En ocasiones, es posible que se produzcan errores aleatorios en las operaciones de restauración y copia de seguridad, o dichas operaciones pueden dejar de responder. Los programas antivirus en la máquina virtual pueden ser la causa de ello. Como procedimiento recomendado, se sugieren los siguientes pasos:
+
+1. Excluya las siguientes carpetas del examen del antivirus:
+
+    `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+
+    Reemplace `C:\` por la letra de su unidad *SystemDrive*.
+
+1. Excluya del examen del antivirus los siguientes tres procesos en ejecución de la máquina virtual:
+
+    - IaasWLPluginSvc.exe
+    - IaasWorkloadCoordinaorService.exe
+    - TriggerExtensionJob.exe
+
+1. SQL también ofrece algunas instrucciones sobre cómo trabajar con programas antivirus. Consulte [este artículo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) para más información.
 
 ## <a name="error-messages"></a>Mensajes de error
 
@@ -149,7 +166,6 @@ La operación está bloqueada porque el almacén ha alcanzado su límite máximo
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
 La máquina virtual no es capaz de ponerse en contacto con el servicio Azure Backup debido a problemas de conectividad de Internet. | La máquina virtual necesita conectividad de salida con el servicio Azure Backup y los servicios Azure Storage o Azure Active Directory.| - Si usa NSG para restringir la conectividad, debe usar la etiqueta de servicio AzureBackup para permitir el acceso saliente de Azure Backup al servicio Azure Backup o los servicios Azure Storage y Azure Active Directory. Siga estos [pasos](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) para conceder acceso.<br>- Asegúrese de que DNS está resolviendo los puntos de conexión de Azure.<br>- Compruebe si la máquina virtual está detrás de un equilibrador de carga que bloquea el acceso a Internet. Mediante la asignación de una dirección IP pública a las máquinas virtuales, la detección funcionará.<br>- Compruebe que no hay ningún firewall/antivirus/proxy que esté bloqueando las llamadas a los tres servicios de destino anteriores.
-
 
 ## <a name="re-registration-failures"></a>Errores de repetición del registro
 

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/17/2020
 ms.author: radeltch
-ms.openlocfilehash: fb73bf6af46ce8303e1be80d1bfc7303f95cda06
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 9d3d0ddbd1282827f17cd82228fcf0f3fba3a60f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927337"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471989"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -301,7 +301,6 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    [...]
    <b>SBD_STARTMODE="always"</b>
    [...]
-   <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
    Cree el archivo de configuración de `softdog`

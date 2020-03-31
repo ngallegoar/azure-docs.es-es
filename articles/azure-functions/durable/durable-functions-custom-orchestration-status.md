@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 31b7d51293878c9d0e8567b6b4bd58c48d75ec63
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76766268"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Estado de orquestación personalizada en Durable Functions (Azure Functions)
@@ -24,7 +24,7 @@ El estado de orquestación personalizada le permite establecer un valor de estad
 
 Los clientes pueden comprobar el estado del punto de conexión y ver la interfaz de usuario del progreso que muestra la fase de ejecución actual. En el siguiente ejemplo se muestra el progreso de uso compartido:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -51,7 +51,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Función de orquestador `E1_HelloSequence`:
 
@@ -85,7 +85,7 @@ module.exports = async function(context, name) {
 
 A continuación, el cliente recibirá la salida de la orquestación solo si el campo `CustomStatus` está establecido en "London":
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -118,7 +118,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -156,7 +156,7 @@ module.exports = async function(context, req) {
 
 Otro escenario interesante es segmentar los usuarios mediante la devolución de resultados de salida personalizados, en función de características o interacciones únicas. Con la ayuda del estado de orquestación personalizada, el código del lado cliente seguirá siendo genérico. Todas las modificaciones principales se realizarán en el lado servidor, tal como se muestra en el ejemplo siguiente:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -194,7 +194,7 @@ public static void Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -233,7 +233,7 @@ module.exports = df.orchestrator(function*(context) {
 
 El orquestador puede proporcionar instrucciones únicas a los clientes a través del estado personalizado. Las instrucciones del estado personalizado se asignarán a los pasos descritos en el código de orquestación:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -261,7 +261,7 @@ public static async Task<bool> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -294,7 +294,7 @@ module.exports = df.orchestrator(function*(context) {
 
 En el ejemplo siguiente, el estado personalizado se establece en primer lugar;
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
@@ -309,7 +309,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773681"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introducción a la entrega de contenido a petición mediante REST  
@@ -36,7 +36,7 @@ Haga clic en la imagen para verla a tamaño completo.
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Los siguientes requisitos previos son necesarios para empezar a desarrollar con las API de REST de Media Services.
 
 * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -79,11 +79,11 @@ Para iniciar el punto de conexión de streaming, haga lo siguiente:
 4. Haga clic en el icono de inicio.
 5. Haga clic en el botón Save (Guardar) para guardar los cambios.
 
-## <a id="connect"></a>Conexión a la cuenta de Media Services con API de REST
+## <a name="connect-to-the-media-services-account-with-rest-api"></a><a id="connect"></a>Conexión a la cuenta de Media Services con API de REST
 
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a id="upload"></a>Creación de un nuevo recurso y carga de un archivo de vídeo con la API de REST
+## <a name="create-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>Creación de un nuevo recurso y carga de un archivo de vídeo con la API de REST
 
 En Media Services, cargue los archivos digitales en un recurso. La entidad **Asset** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos).  Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
@@ -405,7 +405,7 @@ Si se realiza correctamente, se devuelve lo siguiente:
     HTTP/1.1 204 No Content
     ...
 
-## <a id="encode"></a>Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
+## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
 
 Después de introducir los recursos en Media Services, los elementos multimedia se pueden codificar, transmultiplexar, agregar una marca de agua, entre otras opciones, antes de entregarse a los clientes. Estas actividades se programan y se ejecutan en varias instancias de rol en segundo plano para garantizar la disponibilidad y alto rendimiento. Estas actividades se denominan trabajos y cada trabajo está compuesto de tareas atómicas que realizan el trabajo real en el archivo del recurso (para más información, consulte las descripciones de [trabajo](https://docs.microsoft.com/rest/api/media/operations/job) y [tarea](https://docs.microsoft.com/rest/api/media/operations/task)).
 
@@ -692,7 +692,7 @@ En el código siguiente se muestra cómo solicitar el identificador del recurso 
        ]
     }
 
-## <a id="publish_get_urls"></a>Publicación del recurso y obtención de direcciones URL de streaming y de descarga progresiva con API de REST
+## <a name="publish-the-asset-and-get-streaming-and-progressive-download-urls-with-rest-api"></a><a id="publish_get_urls"></a>Publicación del recurso y obtención de direcciones URL de streaming y de descarga progresiva con API de REST
 
 Para transmitir o descargar un recurso, necesita "publicarlo" mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Media Services admite dos tipos de localizadores: OnDemandOrigin, usados para transmitir contenido (por ejemplo, MPEG DASH, HLS o Smooth Streaming) y localizadores de firma de acceso (SAS), que se usan para descargar archivos multimedia. 
 
@@ -910,7 +910,7 @@ Para transmitir MPEG DASH, anexe(format=mpd-time-csf) después de "/manifest".
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-## <a id="play"></a>Reproducción del contenido
+## <a name="play-your-content"></a><a id="play"></a>Reproducción del contenido
 Para transmitir vídeo, use [Reproductor de Azure Media Services](https://aka.ms/azuremediaplayer).
 
 Para probar la descarga progresiva, pegue una dirección URL en un explorador (por ejemplo, Internet Explorer, Chrome o Safari).

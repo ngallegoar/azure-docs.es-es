@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74885643"
 ---
 # <a name="streaming-endpoints-overview"></a>Información general de los puntos de conexión de streaming  
@@ -50,7 +50,7 @@ Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}.streamin
 A partir de la versión de enero de 2017 de Media Services, existen dos tipos de streaming: **Estándar** (versión preliminar) y **Premium**. Estos tipos forman parte de la versión "2.0" de los puntos de conexión de streaming.
 
 
-|Tipo|DESCRIPCIÓN|
+|Tipo|Descripción|
 |--------|--------|  
 |**Estándar**|El punto de conexión de streaming predeterminado es de tipo **Estándar** y se puede cambiar al tipo Premium mediante el ajuste de unidades de streaming.|
 |**Premium** |Esta opción es la preferible para escenarios profesionales en los que se requiere mayor escala o control. El cambio a un tipo **Premium** se realiza ajustando las unidades de streaming.<br/>Los puntos de conexión de streaming dedicados residen en un entorno aislado y no compiten por los recursos.|
@@ -102,7 +102,7 @@ Para obtener información del contrato de nivel de servicio, consulte [Precios y
 
 ## <a name="migration-between-types"></a>Migración entre tipos
 
-De | Para | .
+De | A | Acción
 ---|---|---
 Clásico|Estándar|Necesidad de solicitar la participación
 Clásico|Premium| Escala (unidades de streaming adicionales)

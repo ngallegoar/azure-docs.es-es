@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2ad7b769dc890917e5364fe57582acdfe16acac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75475646"
 ---
 # <a name="get-all-application-proxy-apps-with-a-token-lifetime-policy"></a>Obtención de todas las aplicaciones de Application Proxy con una directiva de vigencia de tokens

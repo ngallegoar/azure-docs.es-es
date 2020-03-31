@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: yulili
 ms.openlocfilehash: 37eed03ed839411f1acf5d963d4118a3c6d2c379
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975931"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Inicio rápido: Síntesis de voz en Objective-C para macOS mediante el SDK de Voz
 
 En este artículo, aprenderá a crear una aplicación macOS en Objective-C mediante el SDK de Voz de Cognitive Services para sintetizar voz a partir de texto y reproducirla con la salida de audio predeterminada.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, presentamos una lista de requisitos previos:
 

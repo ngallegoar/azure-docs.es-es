@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
 ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67304780"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Creación de un subclip de vídeo al codificar mediante Azure Media Services: .NET
 
-Puede recortar un vídeo, o crear un subclip de este al codificarlo mediante la opción [Trabajo](https://docs.microsoft.com/rest/api/media/jobs). Esta funcionalidad se puede usar con cualquier elemento [Transformación](https://docs.microsoft.com/rest/api/media/transforms) que se compila mediante los valores preestablecidos [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset).
+Puede recortar un vídeo, o crear un subclip de este al codificarlo mediante la opción [Trabajo](https://docs.microsoft.com/rest/api/media/jobs). Esta funcionalidad se puede usar con cualquier elemento [Transformación](https://docs.microsoft.com/rest/api/media/transforms) compilado mediante los valores preestablecidos [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset).
 
 En el siguiente código C# de ejemplo se crea un trabajo que recorta un vídeo en un recurso cuando envía un trabajo de codificación. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar los pasos descritos en este tema, ha de:
 

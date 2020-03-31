@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: fb0630f3f7a4acebcfe5dcad343030c9d1184263
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976407"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Información general de plantillas de licencias de PlayReady de Media Services
@@ -60,7 +60,7 @@ Media Services también define un conjunto de clases de .NET que se puede usar p
 
 Para un ejemplo completo que usa clases .NET para configurar la plantilla de licencia de PlayReady, consulte [Uso del cifrado dinámico de PlayReady y servicio de entrega de licencias](media-services-protect-with-playready-widevine.md).
 
-## <a id="classes"></a>Clases .NET de Media Services que se usan para configurar las plantillas de licencia
+## <a name="media-services-net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Clases .NET de Media Services que se usan para configurar las plantillas de licencia
 Las clases siguientes son las clases principales de .NET que se usan para configurar las plantillas de licencia de PlayReady de Media Services. Estas clases se asignan a los tipos definidos en [Esquema XML de plantilla de licencia de PlayReady](media-services-playready-license-template-overview.md#schema).
 
 La clase [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) se usa para serializar y deserializar hacia y desde el código XML de la plantilla de licencia de Media Services.
@@ -73,7 +73,7 @@ Como la clase de "nivel superior" en la jerarquía de plantillas, la plantilla d
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
 [PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx): Esta clase representa una plantilla de licencia que se usa para crear licencias de PlayReady que se van a devolver a los usuarios. Contiene los datos de la clave de contenido en la licencia. También incluye los derechos o restricciones que debe aplicar el entorno de tiempo de ejecución DRM de PlayReady cuando se usa la clave de contenido.
 
-### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
+### <a name="playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx): Esta clase representa el derecho PlayRight de una licencia de PlayReady. Concede al usuario la capacidad de reproducir contenido sujeto a cualquier restricción configurada en la licencia y en el propio derecho PlayRight (para la directiva de reproducción específica). Gran parte de la directiva de un derecho PlayRight tiene que ver con las restricciones de salida que controlan los tipos de salidas sobre las que se pueden reproducir el contenido. También incluye las restricciones que se deben incluir cuando se usa una salida específica. Por ejemplo, si la opción DigitalVideoOnlyContentRestriction está habilitada, el entorno de tiempo de ejecución de DRM permite que el vídeo se muestre sobre las salidas digitales. (Las salidas de vídeo analógicas no pueden transmitir el contenido).
 
 > [!IMPORTANT]
@@ -83,7 +83,7 @@ Como la clase de "nivel superior" en la jerarquía de plantillas, la plantilla d
 
 Para un ejemplo de los niveles de protección que admite Silverlight, consulte [Silverlight support for output protections](https://go.microsoft.com/fwlink/?LinkId=617318).
 
-## <a id="schema"></a>Esquema XML de la plantilla de licencia de PlayReady
+## <a name="playready-license-template-xml-schema"></a><a id="schema"></a>Esquema XML de la plantilla de licencia de PlayReady
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
@@ -308,7 +308,7 @@ Para un ejemplo de los niveles de protección que admite Silverlight, consulte [
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

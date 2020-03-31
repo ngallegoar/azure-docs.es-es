@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 47fe4494ad37566f7849b5b123cfb77323d3edd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463640"
 ---
 # <a name="h264-multiple-bitrate-720p"></a>H264 Multiple Bitrate 720p
@@ -29,7 +29,7 @@ ms.locfileid: "61463640"
  Este valor predeterminado genera un conjunto de 6 archivos MP4 alineados con GOP, que abarcan desde 3400 kbps hasta 400 kbps y audio AAC estéreo. Para información detallada sobre el perfil, la velocidad de bits, la frecuencia de muestreo, etc. de este valor predeterminado, examine el código XML o JSON definido más adelante. Para obtener explicaciones de lo que cada elemento significa en estos nombres predeterminados y los valores válidos para cada elemento, vea el tema sobre el [esquema de Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Cuando se modifiquen los valores `Width` y `Height` en las capas, asegúrese de que la relación de aspecto no cambia. Por ejemplo:  1920x1080, 1280x720, 1080x576, 640x360. No debe utilizar una combinación de relaciones de aspecto, como: 1280x720, 720x480, 640x360.  
+>  Cuando se modifiquen los valores `Width` y `Height` en las capas, asegúrese de que la relación de aspecto no cambia. Por ejemplo: 1920x1080, 1280x720, 1080x576, 640x360. No debe utilizar una combinación de relaciones de aspecto, como: 1280x720, 720x480, 640x360.  
   
  XML  
   

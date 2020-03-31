@@ -4,10 +4,10 @@ description: Aprenda a usar Azure Data Box para propagar los datos de grandes co
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.openlocfilehash: a031a8cac357e7d212f8f6a3a5dbec749fbccc21
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672962"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Copia de seguridad sin conexión de Azure Backup con Azure Data Box

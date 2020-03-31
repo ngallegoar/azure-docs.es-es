@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934144"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Implementación en hosts dedicados
@@ -18,7 +18,7 @@ ms.locfileid: "76934144"
 
 La SKU dedicada es adecuada para cargas de trabajo de contenedor que requieren aislamiento de la carga de trabajo desde una perspectiva de servidor físico.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * El límite predeterminado de cualquier suscripción para usar la SKU dedicada es 0. Si desea usar esta SKU para las implementaciones de contenedores de producción, cree una [solicitud de soporte técnico de Azure][azure-support] para aumentar el límite.
 

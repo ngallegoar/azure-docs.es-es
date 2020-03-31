@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74851526"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
@@ -170,7 +170,7 @@ Credential Scanner se basa en un conjunto de buscadores de contenido que se suel
 
 Un buscador de contenido se define de la siguiente manera:
 
-- **Nombre**: el nombre descriptivo del buscador que se usará en el archivo de salida de Credential Scanner. Se recomienda usar la convención de nomenclatura en mayúsculas y minúsculas para los nombres de los buscadores.
+- **Name**: el nombre descriptivo del buscador que se usará en el archivo de salida de Credential Scanner. Se recomienda usar la convención de nomenclatura en mayúsculas y minúsculas para los nombres de los buscadores.
 - **RuleId**: el identificador opaco estable del buscador:
     - A un buscador predeterminado de Credential Scanner se asigna le asigna un valor **RuleId** como CSCAN0010, CSCAN0020 o CSCAN0030. El último dígito se reserva para la combinación o la división posible de grupos de buscadores a través de expresiones regulares (regex).
     - El valor **RuleId** de un buscador personalizado debe tener su propio espacio de nombres. Algunos ejemplos son CSCAN-\<Namespace\>0010, CSCAN-\<Namespace\>0020 y CSCAN-\<Namespace\>0030.

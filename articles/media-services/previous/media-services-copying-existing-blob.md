@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a1da207a295b40f8d455635d687083bf69e90fdf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67068888"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiado de un blob existente en un recurso de Media Services
@@ -42,7 +42,7 @@ En el artículo se muestran dos ejemplos de código:
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>Copia de blobs entre dos cuentas de AMS  
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Dos cuentas de Media Services. Vea el artículo [Cómo crear una cuenta de Media Services](media-services-portal-create-account.md).
 
@@ -160,7 +160,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Copia de blobs de una cuenta de almacenamiento a una cuenta de AMS 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de almacenamiento desde la que se van a copiar los blobs.
 - Una cuenta de AMS en la que se van a copiar los blobs.

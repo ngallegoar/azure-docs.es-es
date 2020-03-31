@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954660"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configuración de la recuperación ante desastres para una aplicación web basada en IIS de niveles múltiples
@@ -26,7 +26,7 @@ Una buena solución de recuperación ante desastres admite el modelado de planes
 
 En este artículo se describe cómo proteger una aplicación web basada en Internet Information Services (IIS) mediante [Azure Site Recovery](site-recovery-overview.md). También se describen los procedimientos recomendados para replicar en Azure una aplicación web basada en IIS de tres capas, cómo llevar a cabo un simulacro de recuperación ante desastres y cómo conmutar por error la aplicación a Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, asegúrese de que sabe cómo realizar las tareas siguientes:
 
@@ -62,7 +62,7 @@ Escenario | En un sitio secundario | En Azure
 --- | --- | ---
 Hyper-V | Sí | Sí
 VMware | Sí | Sí
-Servidor físico | Sin | Sí
+Servidor físico | No | Sí
 Azure|N/D|Sí
 
 ## <a name="replicate-virtual-machines"></a>Replicación de máquinas virtuales
@@ -74,7 +74,7 @@ Si usa una dirección IP estática, puede especificar la dirección IP que quier
 ![Captura de pantalla que muestra cómo establecer la dirección IP de destino en el panel de red y proceso de Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
 
 ## <a name="create-a-recovery-plan"></a>Creación de un plan de recuperación
-Un plan de recuperación admite la secuenciación de distintas capas en una aplicación de varios niveles durante una conmutación por error. La secuenciación ayuda a mantener la coherencia de la aplicación. Cuando cree un plan de recuperación para una aplicación web de varias capas, complete los pasos descritos en [Creación de un plan de recuperación mediante Site Recovery](site-recovery-create-recovery-plans.md).
+Un plan de recuperación admite la secuenciación de distintas capas en una aplicación de varios niveles durante una conmutación por error. La secuenciación ayuda a mantener la coherencia de la aplicación. Cuando cree un plan de recuperación para una aplicación web de varios niveles, complete los pasos descritos en [Creación de un plan de recuperación mediante Site Recovery](site-recovery-create-recovery-plans.md).
 
 ### <a name="add-virtual-machines-to-failover-groups"></a>Adición de máquinas virtuales a grupos de conmutación por error
 Por lo general, una aplicación web de IIS de varias capas consta de los siguientes componentes:

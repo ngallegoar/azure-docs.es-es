@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358086"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235216"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Patrones de expresiones de enlace de Azure Functions
 

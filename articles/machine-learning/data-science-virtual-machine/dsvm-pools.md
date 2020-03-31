@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: c5b7f4eaac91e79dde625ea00bfb6b1ea8782b31
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: cc0efc0a076ddc3fc9425999f1e38b4a32dec7a3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530619"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477347"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Crear un grupo compartido de máquinas virtuales de Data Science Virtual Machine
 
@@ -35,11 +35,13 @@ En [GitHub](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts
 
 Para crear el conjunto de escalado a partir de la plantilla de Azure Resource Manager, especifique los valores del archivo de parámetros en la CLI de Azure:
 
-```
+```azurecli-interactive
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "West US 2"]
 az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json --parameters @[[PARAMETER JSON FILE]]
 ```
+
 Para los comandos anteriores se supone que tiene:
+
 * Una copia del archivo de parámetros con los valores especificados para su instancia del conjunto de escalado.
 * El número de instancias de VM.
 * Punteros al recurso compartido de Azure Files.
@@ -57,18 +59,3 @@ Virtual Machine Scale Sets es compatible con el escalado automático. Puede esta
 
 * [Configuración de una identidad común](dsvm-common-identity.md)
 * [Almacenamiento seguro de las credenciales para acceder a recursos en la nube](dsvm-secure-access-keys.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

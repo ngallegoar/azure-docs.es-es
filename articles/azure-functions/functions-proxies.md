@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849197"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
@@ -21,7 +21,7 @@ En este artículo se explica cómo configurar y usar Azure Functions Proxies. Co
 > [!NOTE] 
 > Se aplica la facturación estándar de Functions a las ejecuciones de proxy. Para más información, consulte los [precios de Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
-## <a name="create"></a>Creación de un proxy
+## <a name="create-a-proxy"></a><a name="create"></a>Creación de un proxy
 
 En esta sección se explica cómo crear un proxy en el portal de Functions.
 
@@ -30,31 +30,31 @@ En esta sección se explica cómo crear un proxy en el portal de Functions.
 3. Proporcione un nombre para el proxy.
 4. Configure el punto de conexión expuesto en esta aplicación de función; para ello, especifique la **plantilla de ruta** y los **métodos HTTP**. Estos parámetros se comportan según las reglas de los [desencadenadores HTTP].
 5. Establezca la **dirección URL de back-end** en otro punto de conexión. El punto de conexión podría tratarse de una función en otra aplicación de función o podría ser cualquier otra API. El valor no necesita ser estático y puede hacer referencia a la [configuración de la aplicación] y a [parámetros de la solicitud de cliente original].
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 
 El proxy ahora existe como un nuevo punto de conexión en la Function App. Desde una perspectiva de cliente, es equivalente a un HttpTrigger en Azure Functions. Puede probar el nuevo proxy; para ello, copie la dirección URL del proxy y pruébela con el cliente HTTP favorito.
 
-## <a name="modify-requests-responses"></a>Modificación de solicitudes y respuestas
+## <a name="modify-requests-and-responses"></a><a name="modify-requests-responses"></a>Modificación de solicitudes y respuestas
 
 Con Azure Functions Proxies, puede modificar solicitudes y respuestas del back-end. Estas transformaciones pueden usar variables, como se define en [Uso de variables].
 
-### <a name="modify-backend-request"></a>Modificación de la solicitud de back-end
+### <a name="modify-the-back-end-request"></a><a name="modify-backend-request"></a>Modificación de la solicitud de back-end
 
 De forma predeterminada, la solicitud de back-end se inicializa como copia de la solicitud original. Además de establecer la dirección URL de back-end, se pueden realizar cambios en el método HTTP, los encabezados y los parámetros de cadena de consulta. Los valores modificados pueden hacer referencia a la [configuración de la aplicación] y a los [parámetros de la solicitud de cliente original].
 
 Las solicitudes de back-end pueden modificarse en el portal expandiendo la sección *Invalidación de solicitud* de la página de detalles del proxy. 
 
-### <a name="modify-response"></a>Modificación de la respuesta
+### <a name="modify-the-response"></a><a name="modify-response"></a>Modificación de la respuesta
 
 De forma predeterminada, la respuesta del cliente se inicializa como copia de la respuesta de back-end. Puede realizar cambios en el código de estado, la expresión del motivo, los encabezados y el cuerpo de la respuesta. Los valores modificados pueden hacer referencia a la [configuración de la aplicación], a [parámetros de la solicitud de cliente original] y a [parámetros de la respuesta de back-end].
 
 Las solicitudes de back-end pueden modificarse en el portal expandiendo la sección *Invalidación de respuesta* de la página de detalles del proxy. 
 
-## <a name="using-variables"></a>Uso de variables
+## <a name="use-variables"></a><a name="using-variables"></a>Uso de variables
 
 La configuración de un proxy no necesita ser estática. Puede condicionarlo para que use variables de la solicitud de cliente original, la respuesta de back-end o la configuración de la aplicación.
 
-### <a name="reference-localhost"></a>Funciones locales de referencia
+### <a name="reference-local-functions"></a><a name="reference-localhost"></a>Funciones locales de referencia
 Puede utilizar `localhost` para hacer referencia a una función dentro de la misma aplicación de función directamente, sin una solicitud de proxy de ida y vuelta.
 
 `"backendurl": "https://localhost/api/httptriggerC#1"` hará referencia a una función desencadenada mediante HTTP local en la ruta `/api/httptriggerC#1`
@@ -63,7 +63,7 @@ Puede utilizar `localhost` para hacer referencia a una función dentro de la mis
 >[!Note]  
 >Si la función usa los niveles de autorización de *función, administrador o sistema*, deberá proporcionar el código y el valor de clientId, según la URL de la función original. En este caso, la referencia tendría el siguiente aspecto: `"backendurl": "https://localhost/api/httptriggerC#1?code=<keyvalue>&clientId=<keyname>"` Se recomienda almacenar estas claves en la [configuración de la aplicación] y hacer referencia a ellas en los servidores proxy. De esta forma, se evita tener que almacenar los secretos en el código fuente. 
 
-### <a name="request-parameters"></a>Referencia a los parámetros de solicitud
+### <a name="reference-request-parameters"></a><a name="request-parameters"></a>Referencia a los parámetros de solicitud
 
 Puede usar parámetros de solicitud como entradas para la propiedad de dirección URL de back-end o como parte de la modificación de solicitudes y respuestas. Algunos parámetros pueden enlazarse desde la plantilla de ruta especificada en la configuración de proxy base, y otros pueden proceder de propiedades de la solicitud entrante.
 
@@ -79,7 +79,7 @@ Además de los parámetros de la plantilla de ruta, pueden usarse los siguientes
 * **{request.headers.\<nombreDeEncabezado\>}** : encabezado que puede leerse desde la solicitud original. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea leer. Si el encabezado no se incluye en la solicitud, el valor será una cadena vacía.
 * **{request.querystring.\<nombreDeParámetro\>}** : Parámetro de cadena de consulta que puede leerse de la solicitud original. Reemplace *\<nombreDeParámetro\>* por el nombre del parámetro que desea leer. Si el parámetro no se incluye en la solicitud, el valor será una cadena vacía.
 
-### <a name="response-parameters"></a>Referencia a parámetros de respuesta de back-end
+### <a name="reference-back-end-response-parameters"></a><a name="response-parameters"></a>Referencia a parámetros de respuesta de back-end
 
 Los parámetros de respuesta pueden utilizarse como parte de la modificación de la respuesta al cliente. Se pueden usar los siguientes valores en la configuración:
 
@@ -87,7 +87,7 @@ Los parámetros de respuesta pueden utilizarse como parte de la modificación de
 * **{backend.response.statusReason}** : frase de motivo HTTP que se devuelve en la respuesta de back-end.
 * **{backend.response.headers.\<nombreDeEncabezado\>}** : encabezado que puede leerse desde la respuesta de back-end. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea leer. Si el encabezado no se incluye en la respuesta, el valor será una cadena vacía.
 
-### <a name="use-appsettings"></a>Referencia a la configuración de la aplicación
+### <a name="reference-application-settings"></a><a name="use-appsettings"></a>Referencia a la configuración de la aplicación
 
 También puede hacer referencia a la [configuración de la aplicación definida para la aplicación de función](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) rodeando el nombre de la configuración con signos de porcentaje (%).
 
@@ -96,7 +96,7 @@ Por ejemplo, en la dirección URL de back-end *https://%ORDER_PROCESSING_HOST%/a
 > [!TIP] 
 > Use la configuración de la aplicación para hosts back-end si tiene varias implementaciones o entornos de prueba. De este modo, puede asegurarse de que siempre se comunica con el back-end correcto para ese entorno.
 
-## <a name="debugProxies"></a>Solución de problemas con Proxies
+## <a name="troubleshoot-proxies"></a><a name="debugProxies"></a>Solución de problemas con Proxies
 
 Si añade la marca `"debug":true` a cualquier proxy de su `proxies.json`, se habilitará el registro de depuración. Los registros se almacenan en `D:\home\LogFiles\Application\Proxies\DetailedTrace` y son accesibles mediante herramientas avanzadas (kudu). Las respuestas HTTP también contendrán un encabezado `Proxy-Trace-Location` con una dirección URL para acceder al archivo de registro.
 
@@ -144,7 +144,7 @@ Cada proxy tiene un nombre descriptivo, como *proxy1* en el ejemplo anterior. El
 > [!NOTE] 
 > La propiedad *route* de Azure Functions Proxies no respeta la propiedad *routePrefix* de la configuración del host de Function App. Si quiere incluir un prefijo como `/api`, se debe incluir en la propiedad *route*.
 
-### <a name="disableProxies"></a> Deshabilitación de servidores proxy individuales
+### <a name="disable-individual-proxies"></a><a name="disableProxies"></a> Deshabilitación de servidores proxy individuales
 
 Puede deshabilitar servidores proxy individuales añadiendo `"disabled": true` al proxy en el archivo `proxies.json`. Esto hará que las solicitudes que cumplan matchCondition devuelvan un error 404.
 ```json
@@ -162,24 +162,24 @@ Puede deshabilitar servidores proxy individuales añadiendo `"disabled": true` a
 }
 ```
 
-### <a name="applicationSettings"></a> Configuración de la aplicación
+### <a name="application-settings"></a><a name="applicationSettings"></a> Configuración de la aplicación
 
 El comportamiento del proxy puede controlarse mediante varias opciones de configuración de la aplicación. Opciones que se describen en [Referencia de configuración de aplicación para Azure Functions](./functions-app-settings.md).
 
 * [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azure_function_proxy_disable_local_call)
 * [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azure_function_proxy_backend_url_decode_slashes)
 
-### <a name="reservedChars"></a> Caracteres reservados (formato de cadena)
+### <a name="reserved-characters-string-formatting"></a><a name="reservedChars"></a> Caracteres reservados (formato de cadena)
 
 Los proxies leen todas las cadenas de un archivo JSON usando \ como un símbolo de escape. Los proxies también interpretan las llaves. Consulte a continuación un conjunto completo de ejemplos.
 
-|Character|Carácter de escape|Ejemplo|
+|Carácter|Carácter de escape|Ejemplo|
 |-|-|-|
 |{ o }|{{ o }}|`{{ example }}` --> `{ example }`
 | \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
 |"|\\\"| `\"example\"` --> `"example"`
 
-### <a name="requestOverrides"></a>Definición de un objeto requestOverrides
+### <a name="define-a-requestoverrides-object"></a><a name="requestOverrides"></a>Definición de un objeto requestOverrides
 
 El objeto requestOverrides define los cambios realizados en la solicitud cuando se llama al recurso de back-end. El objeto se define mediante las siguientes propiedades:
 
@@ -210,7 +210,7 @@ Una configuración de ejemplo puede tener el siguiente aspecto:
 }
 ```
 
-### <a name="responseOverrides"></a>Definición de un objeto responseOverrides
+### <a name="define-a-responseoverrides-object"></a><a name="responseOverrides"></a>Definición de un objeto responseOverrides
 
 El objeto requestOverrides define los cambios realizados en la respuesta que se pasa de nuevo al cliente. El objeto se define mediante las siguientes propiedades:
 

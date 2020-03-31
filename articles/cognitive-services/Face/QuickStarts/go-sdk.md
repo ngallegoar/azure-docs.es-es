@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 2db40150167a8f16242b2feb15b77820fa1970a9
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76961231"
 ---
 # <a name="quickstart-face-client-library-for-go"></a>Inicio rápido: Biblioteca cliente de Face para Go
@@ -30,7 +30,7 @@ Use la biblioteca cliente del servicio Face para Go para la:
 
 [Documentación de referencia](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [Descarga de SDK](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 * La versión más reciente de [Go](https://golang.org/dl/).
@@ -63,7 +63,7 @@ Con la clave y el punto de conexión del recurso que ha creado, cree dos variabl
 
 Siga las instrucciones adecuadas para su sistema operativo.
 <!-- replace the below endpoint and key examples -->
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
@@ -72,7 +72,7 @@ setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
 
 Después de agregar la variable de entorno, reinicie la ventana de la consola.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
@@ -81,7 +81,7 @@ export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
 
 Después de agregar la variable de entorno, ejecute `source ~/.bashrc` desde la ventana de consola para que los cambios surtan efecto.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 Edite `.bash_profile` y agregue la variable de entorno:
 

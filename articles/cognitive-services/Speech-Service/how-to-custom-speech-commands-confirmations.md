@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: encorona
 ms.openlocfilehash: afa197c83b4f66f12863de4185ef7763447f3ed9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75453367"
 ---
 # <a name="how-to-add-a-confirmation-to-a-custom-command-preview"></a>Instrucciones: Adición de una confirmación a un comando personalizado (versión preliminar)
 
 En este artículo, aprenderá a agregar una confirmación a un comando.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe haber completado los pasos descritos en los siguientes artículos:
 

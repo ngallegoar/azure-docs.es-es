@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61244236"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Cómo generar vistas en miniatura mediante el Codificador multimedia estándar con .NET 
@@ -281,7 +281,7 @@ Tenga en cuenta el uso de macro {Resolution} en el nombre de archivo. Indica al 
 
 Aunque todos los ejemplos anteriores han explicado cómo enviar una tarea de codificación que solo generará imágenes, también puede combinar la codificación de audio y vídeo con generación de miniaturas. El siguiente valor preestablecido JSON y XML indica a **Media Encoder Standard** que genere una miniatura durante la codificación.
 
-### <a id="json"></a>Valor preestablecido JSON
+### <a name="json-preset"></a><a id="json"></a>Valor preestablecido JSON
 Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artículo.
 
 ```json
@@ -346,7 +346,7 @@ Para obtener información sobre el esquema, consulte [este](https://msdn.microso
     }
 ```
 
-### <a id="xml"></a>Valor preestablecido XML
+### <a name="xml-preset"></a><a id="xml"></a>Valor preestablecido XML
 Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artículo.
 
 ```csharp
@@ -401,7 +401,7 @@ Para obtener información sobre el esquema, consulte [este](https://msdn.microso
     </Preset>   
 ```
 
-## <a id="code_sample"></a>Codificación de vídeo y generación de miniaturas con .NET
+## <a name="encode-video-and-generate-thumbnail-with-net"></a><a id="code_sample"></a>Codificación de vídeo y generación de miniaturas con .NET
 
 En el ejemplo de código siguiente se usa el último SDK para .NET de Media Services para realizar las siguientes tareas:
 
@@ -571,6 +571,6 @@ Puede comprobar el [progreso del trabajo](media-services-check-job-progress.md) 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general sobre la codificación de Media Services](media-services-encode-asset.md)
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/28/2020
 ms.custom: seodec18
 ms.openlocfilehash: 794f671b36b5aeb9f19cf5d80e488500cedb1098
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78207153"
 ---
 # <a name="configure-your-app-service-app-to-use-twitter-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Twitter
@@ -20,7 +20,7 @@ En este artículo se muestra cómo configurar Azure App Service para usar Twitte
 
 Para llevar a cabo el procedimiento descrito en este artículo, debe tener una cuenta de Twitter asociada a una dirección de correo electrónico verificada y a un número de teléfono. Para crear una cuenta de Twitter, vaya a [twitter.com].
 
-## <a name="register"> </a>Registrar una aplicación con Twitter
+## <a name="register-your-application-with-twitter"></a><a name="register"> </a>Registrar una aplicación con Twitter
 
 1. Inicie sesión en [Azure Portal] y vaya a la aplicación. Copie el valor de **Dirección URL**. Lo usará para configurar la aplicación de Twitter.
 1. Vaya al sitio web para [desarrolladores de Twitter], inicie sesión con las credenciales de la cuenta de Twitter y seleccione **Create an app** (Crear una aplicación).
@@ -35,7 +35,7 @@ Para llevar a cabo el procedimiento descrito en este artículo, debe tener una c
    > [!NOTE]
    > La clave secreta de API es una credencial de seguridad importante. por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación.
 
-## <a name="secrets"> </a>Adición de información de Twitter a su aplicación
+## <a name="add-twitter-information-to-your-application"></a><a name="secrets"> </a>Adición de información de Twitter a su aplicación
 
 1. Vaya a la aplicación en [Azure Portal].
 1. Haga clic en **Configuración** > **Autenticación/autorización** y asegúrese de que la opción **Autenticación de App Service** está **Activada**.
@@ -56,7 +56,7 @@ Para llevar a cabo el procedimiento descrito en este artículo, debe tener una c
 
 De este modo ya estará listo para usar Twitter para realizar la autenticación en la aplicación.
 
-## <a name="related-content"> </a>Pasos siguientes
+## <a name="next-steps"></a><a name="related-content"> </a>Pasos siguientes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

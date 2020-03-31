@@ -7,10 +7,10 @@ ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
 ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75456582"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
@@ -50,7 +50,7 @@ En Azure Logic Apps, la puerta de enlace de datos local admite los [conectores l
 
 Azure Logic Apps admite operaciones de lectura y escritura a través de la puerta de enlace de datos. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Aunque la puerta de enlace por sí sola no incurre en costos adicionales, el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) se aplica a estos conectores y a otras operaciones en Azure Logic Apps.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Ya ha [instalado la puerta de enlace de datos local en un equipo local](../logic-apps/logic-apps-gateway-install.md).
 

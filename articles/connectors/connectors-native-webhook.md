@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 tags: connectors
 ms.openlocfilehash: 1578ca030bc8bab971a44e1afcce1d1ab9e1d5e9
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78674082"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creación y ejecución de flujos de trabajo basados en eventos automatizados mediante webhooks HTTP en Azure Logic Apps
@@ -85,10 +85,10 @@ Este desencadenador integrado llama al punto de conexión de suscripción en el 
    |----------|----------|-------------|
    | **Suscripción: método** | Sí | Método que se va a usar al suscribirse al punto de conexión de destino. |
    | **Suscripción: URI** | Sí | Dirección URL que se va a usar al suscribirse al punto de conexión de destino. |
-   | **Suscripción: cuerpo** | Sin | Cuerpo del mensaje que se va a incluir en la solicitud de suscripción. En este ejemplo se incluye la dirección URL de devolución de llamada que identifica de forma única al suscriptor, que es la aplicación lógica, mediante el uso de la expresión `@listCallbackUrl()` para recuperar la dirección URL de devolución de llamada de la aplicación lógica. |
-   | **Cancelación de suscripción: método** | Sin | Método que se va a usar al cancelar la suscripción del punto de conexión de destino. |
-   | **Cancelación de suscripción: URI** | Sin | Dirección URL que se va a usar al cancelar la suscripción del punto de conexión de destino. |
-   | **Cancelación de suscripción: cuerpo** | Sin | Cuerpo del mensaje opcional que se va a incluir en la solicitud de cancelación de suscripción. <p><p>**Nota**: Esta propiedad no admite el uso de la función `listCallbackUrl()`. Sin embargo, el desencadenador incluye y envía automáticamente los encabezados, `x-ms-client-tracking-id` y `x-ms-workflow-operation-name`, que el servicio de destino puede usar para identificar de forma única al suscriptor. |
+   | **Suscripción: cuerpo** | No | Cuerpo del mensaje que se va a incluir en la solicitud de suscripción. En este ejemplo se incluye la dirección URL de devolución de llamada que identifica de forma única al suscriptor, que es la aplicación lógica, mediante el uso de la expresión `@listCallbackUrl()` para recuperar la dirección URL de devolución de llamada de la aplicación lógica. |
+   | **Cancelación de suscripción: método** | No | Método que se va a usar al cancelar la suscripción del punto de conexión de destino. |
+   | **Cancelación de suscripción: URI** | No | Dirección URL que se va a usar al cancelar la suscripción del punto de conexión de destino. |
+   | **Cancelación de suscripción: cuerpo** | No | Cuerpo del mensaje opcional que se va a incluir en la solicitud de cancelación de suscripción. <p><p>**Nota**: Esta propiedad no admite el uso de la función `listCallbackUrl()`. Sin embargo, el desencadenador incluye y envía automáticamente los encabezados, `x-ms-client-tracking-id` y `x-ms-workflow-operation-name`, que el servicio de destino puede usar para identificar de forma única al suscriptor. |
    ||||
 
 1. Para agregar otras propiedades del desencadenador, abra la lista **Agregar nuevo parámetro**.
@@ -131,10 +131,10 @@ Esta acción integrada llama al punto de conexión de suscripción en el servici
    |----------|----------|-------------|
    | **Suscripción: método** | Sí | Método que se va a usar al suscribirse al punto de conexión de destino. |
    | **Suscripción: URI** | Sí | Dirección URL que se va a usar al suscribirse al punto de conexión de destino. |
-   | **Suscripción: cuerpo** | Sin | Cuerpo del mensaje que se va a incluir en la solicitud de suscripción. En este ejemplo se incluye la dirección URL de devolución de llamada que identifica de forma única al suscriptor, que es la aplicación lógica, mediante el uso de la expresión `@listCallbackUrl()` para recuperar la dirección URL de devolución de llamada de la aplicación lógica. |
-   | **Cancelación de suscripción: método** | Sin | Método que se va a usar al cancelar la suscripción del punto de conexión de destino. |
-   | **Cancelación de suscripción: URI** | Sin | Dirección URL que se va a usar al cancelar la suscripción del punto de conexión de destino. |
-   | **Cancelación de suscripción: cuerpo** | Sin | Cuerpo del mensaje opcional que se va a incluir en la solicitud de cancelación de suscripción. <p><p>**Nota**: Esta propiedad no admite el uso de la función `listCallbackUrl()`. Sin embargo, la acción incluye y envía automáticamente los encabezados, `x-ms-client-tracking-id` y `x-ms-workflow-operation-name`, que el servicio de destino puede usar para identificar de forma única al suscriptor. |
+   | **Suscripción: cuerpo** | No | Cuerpo del mensaje que se va a incluir en la solicitud de suscripción. En este ejemplo se incluye la dirección URL de devolución de llamada que identifica de forma única al suscriptor, que es la aplicación lógica, mediante el uso de la expresión `@listCallbackUrl()` para recuperar la dirección URL de devolución de llamada de la aplicación lógica. |
+   | **Cancelación de suscripción: método** | No | Método que se va a usar al cancelar la suscripción del punto de conexión de destino. |
+   | **Cancelación de suscripción: URI** | No | Dirección URL que se va a usar al cancelar la suscripción del punto de conexión de destino. |
+   | **Cancelación de suscripción: cuerpo** | No | Cuerpo del mensaje opcional que se va a incluir en la solicitud de cancelación de suscripción. <p><p>**Nota**: Esta propiedad no admite el uso de la función `listCallbackUrl()`. Sin embargo, la acción incluye y envía automáticamente los encabezados, `x-ms-client-tracking-id` y `x-ms-workflow-operation-name`, que el servicio de destino puede usar para identificar de forma única al suscriptor. |
    ||||
 
 1. Para agregar otras propiedades de la acción, abra la lista **Agregar nuevo parámetro**.

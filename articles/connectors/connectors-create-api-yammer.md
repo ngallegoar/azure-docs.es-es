@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 194c08d034d44ba0a4472b3b516fc45d1d262d28
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789076"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Supervisión y administración de la cuenta de Yammer con Azure Logic Apps
@@ -24,9 +24,9 @@ Con Azure Logic Apps y el conector Yammer, puede crear tareas y flujos de trabaj
 
 Puede usar desencadenadores que obtengan respuestas de su cuenta de Yammer y permitan que la salida esté disponible para otras acciones. Puede usar acciones que realicen tareas con su cuenta de Yammer. También puede hacer que otras acciones usen la salida de las acciones de Yammer. Por ejemplo, cuando aparezcan nuevos mensajes en fuentes o grupos, puede compartir esos mensajes con el conector Slack. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * Sus credenciales de usuario y la cuenta de Yammer
 
@@ -40,7 +40,7 @@ Puede usar desencadenadores que obtengan respuestas de su cuenta de Yammer y per
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
 
 1. Elija una ruta de acceso: 
 

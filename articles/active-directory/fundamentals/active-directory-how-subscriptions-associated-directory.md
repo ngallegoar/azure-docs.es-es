@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b8f44e9a1e43da2b9ce6c817898c1722fba715c4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978972"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230456"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -57,7 +57,7 @@ Antes de poder asociar o agregar la suscripción, realice las siguientes tareas:
 
 - Asegúrese de que no usa una suscripción de proveedores de servicios en la nube de Azure (CSP) (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), una suscripción interna de Microsoft (MS-AZR-0015P) o una suscripción a Microsoft Imagine (MS-AZR-0144P).
 
-## Asociación de una suscripción a un directorio<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
+## <a name="associate-a-subscription-to-a-directory"></a>Asociación de una suscripción a un directorio<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
 
 Para asociar una suscripción existente al directorio de Azure AD, siga estos pasos:
 

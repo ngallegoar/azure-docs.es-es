@@ -11,17 +11,17 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: b036dd9c440e01bf32b35ee01c1d39d4ce6e129b
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 8cb6cf49e302122849dc2402bcff008e72e15608
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402699"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472365"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Descripción de las matrices de puertas programables por campo (FPGA) y procedimiento para realizar la implementación
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo se proporciona una introducción a las matrices de puertas programables por campo (FPGA) y se muestra cómo se pueden implementar los modelos mediante Azure Machine Learning en una FPGA de Azure. 
+En este artículo se proporciona una introducción a las matrices de puertas programables por campo (FPGA) y se muestra cómo se pueden implementar los modelos mediante Azure Machine Learning en una FPGA de Azure.
 
 Las FPGA contienen una matriz de bloques de lógica programables y una jerarquía de interconexiones reconfigurables. Las interconexiones permiten que estos bloques se configuren de distintas maneras después de su fabricación. Las FPGA ofrecen una combinación de capacidad de programación y rendimiento en comparación con otros chips.
 
@@ -52,7 +52,7 @@ FPGA en Azure es compatible con:
 
 + Escenarios de reconocimiento y clasificación de imágenes
 + Implementación de TensorFlow
-+ Hardware de FPGA de Intel 
++ Hardware de FPGA de Intel
 
 Actualmente están disponibles los siguientes modelos de DNN:
   - ResNet 50
@@ -81,12 +81,9 @@ En los siguientes escenarios se usan FPGA:
 
 + [Asignación de uso de terrenos](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
 
-
-
-## <a name="example-deploy-models-on-fpgas"></a>Ejemplo: Implementación de modelos en FPGA 
+## <a name="example-deploy-models-on-fpgas"></a>Ejemplo: Implementación de modelos en FPGA
 
 Puede implementar un modelo como servicio web en FPGA con modelos acelerados mediante hardware de Azure Machine Learning. El uso de las FPGA brinda una inferencia de latencia ultrabaja, incluso con un tamaño de lote único. Inferencia o modelo de puntuación, es la fase donde se usa el modelo implementado para la predicción, frecuentemente en datos de producción.
-
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
@@ -94,7 +91,7 @@ Puede implementar un modelo como servicio web en FPGA con modelos acelerados med
 
 - Cuota de FPGA. Use la CLI de Azure para comprobar si dispone de cuota:
 
-    ```shell
+    ```azurecli-interactive
     az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
     ```
 
@@ -117,7 +114,7 @@ Puede implementar un modelo como servicio web en FPGA con modelos acelerados med
  
 - El SDK de Python para modelos acelerados por hardware:
 
-    ```shell
+    ```bash
     pip install --upgrade azureml-accel-models
     ```
 

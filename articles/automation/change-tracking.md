@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
 ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844809"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
@@ -60,7 +60,7 @@ Las distribuciones Linux siguientes son compatibles oficialmente. Aunque tambié
 * Debian GNU/Linux 8 y 9
 * Ubuntu Linux 14.04 LTS y 16.04 LTS
 
-## <a name="onboard"></a>Habilitación de Change Tracking e Inventario
+## <a name="enable-change-tracking-and-inventory"></a><a name="onboard"></a>Habilitación de Change Tracking e Inventario
 
 Para iniciar el seguimiento de cambios, debe habilitar la solución Change Tracking e Inventory. Hay muchas maneras de incorporar máquinas a la solución Change Tracking e Inventory. Las siguientes son las maneras recomendadas y admitidas para incorporar la solución:
 

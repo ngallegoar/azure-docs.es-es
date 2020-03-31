@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/12/2019
 ms.author: cherylmc
 ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75436841"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Cambiar un emparejamiento público a emparejamiento de Microsoft
@@ -22,7 +22,7 @@ El emparejamiento público de Azure tiene 1 dirección IP de NAT asociada a cad
 
 Una vez que se habilita el emparejamiento público, podrá conectarse a todos los servicios de Azure. No se permite elegir de forma selectiva servicios para los que anunciemos rutas. Por su parte, el emparejamiento de Microsoft es una conectividad bidireccional donde la conexión puede iniciarse desde el servicio de Microsoft Azure, junto con la WAN. Para más información sobre cómo enrutar emparejamientos y dominios de enrutamiento, vea [Circuitos ExpressRoute y dominios de enrutamiento](expressroute-circuit-peerings.md).
 
-## <a name="before"></a>Antes de empezar
+## <a name="before-you-begin"></a><a name="before"></a>Antes de empezar
 
 Para conectarse al emparejamiento de Microsoft, necesita configurar y administrar NAT. Puede que su proveedor de conectividad haya configurado y administrado NAT como un servicio administrado. Si tiene previsto acceder a servicios de PaaS y SaaS de Azure en el emparejamiento de Microsoft, es importante cambiar correctamente el tamaño del grupo de direcciones IP de NAT. Para más información sobre NAT para ExpressRoute, vea [Requisitos NAT para el emparejamiento de Microsoft](expressroute-nat.md#nat-requirements-for-microsoft-peering). Cuando se conecta a Microsoft mediante Azure ExpressRoute (emparejamiento de Microsoft), tendrá varios vínculos a Microsoft. Un vínculo es la conexión existente de Internet y el otro se realiza a través de ExpressRoute. Una parte del tráfico a Microsoft puede ir a través de Internet pero volver a través de ExpressRoute o viceversa.
 
@@ -36,7 +36,7 @@ Consulte [Enrutamiento asimétrico con varias rutas de acceso de red](https://do
 * Si usa el emparejamiento público y actualmente tiene reglas de red IP para las direcciones IP públicas que se usan para acceder a [Azure Storage](../storage/common/storage-network-security.md) o [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), tiene que asegurarse de que el grupo de IP de NAT configurado con el emparejamiento de Microsoft se incluye en la lista de direcciones IP públicas de la cuenta de Azure Storage o Azure SQL.<br>
 * Para cambiar a un emparejamiento de Microsoft sin sufrir tiempos de inactividad, realice los pasos de este artículo en el orden en el que aparecen.
 
-## <a name="create"></a>1. Crear el emparejamiento de Microsoft
+## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. Crear el emparejamiento de Microsoft
 
 Si no ha creado el emparejamiento de Microsoft, use cualquiera de los siguientes artículos para crearlo. Si su proveedor de conectividad presta servicios administrados de nivel 3, puede pedirle que habilite el emparejamiento de Microsoft en su circuito.
 
@@ -58,7 +58,7 @@ En los siguientes artículos encontrará instrucciones detalladas para habilitar
 * [Creación del emparejamiento de Microsoft con Azure PowerShell](expressroute-howto-routing-arm.md#msft)<br>
 * [Creación del emparejamiento de Microsoft con la CLI de Azure](howto-routing-cli.md#msft)
 
-## <a name="validate"></a>2. Confirmar que el emparejamiento de Microsoft está habilitado
+## <a name="2-validate-microsoft-peering-is-enabled"></a><a name="validate"></a>2. Confirmar que el emparejamiento de Microsoft está habilitado
 
 Compruebe que el emparejamiento de Microsoft está habilitado y que los prefijos públicos anunciados están en estado configurado.
 
@@ -66,7 +66,7 @@ Compruebe que el emparejamiento de Microsoft está habilitado y que los prefijos
 * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)<br>
 * [CLI de Azure](howto-routing-cli.md#getmsft)
 
-## <a name="routefilter"></a>3. Configurar un filtro de ruta y adjuntarlo al circuito
+## <a name="3-configure-and-attach-a-route-filter-to-the-circuit"></a><a name="routefilter"></a>3. Configurar un filtro de ruta y adjuntarlo al circuito
 
 De forma predeterminada, los emparejamientos de Microsoft nuevos no publican ningún prefijo hasta que se adjunta un filtro de ruta al circuito. Cuando se crea una regla de filtro de ruta, puede especificar la lista de comunidades de servicio correspondientes a las regiones de Azure que quiere usar para los servicios de PaaS de Azure. Esto le proporciona flexibilidad para filtrar las rutas según sus necesidades, como se muestra en la siguiente captura de pantalla:
 
@@ -78,14 +78,14 @@ Para configurar filtros de ruta, use cualquiera de los siguientes artículos:
 * [Configuración de filtros de ruta para el emparejamiento de Microsoft: PowerShell](how-to-routefilter-powershell.md)<br>
 * [Configuración de filtros de ruta para el emparejamiento de Microsoft: CLI de Azure](how-to-routefilter-cli.md)
 
-## <a name="delete"></a>4. Eliminar el emparejamiento público
+## <a name="4-delete-the-public-peering"></a><a name="delete"></a>4. Eliminar el emparejamiento público
 
 Tras constatar que el emparejamiento de Microsoft está configurado y que los prefijos que se van a usar se anuncian correctamente en el emparejamiento de Microsoft, puede eliminar el emparejamiento público. Para eliminar el emparejamiento público, use cualquiera de los siguientes artículos:
 
 * [Eliminación del emparejamiento público de Azure con Azure PowerShell](about-public-peering.md#powershell)
 * [Eliminación del emparejamiento público de Azure con la CLI](about-public-peering.md#cli)
   
-## <a name="view"></a>5. Visualización de emparejamientos
+## <a name="5-view-peerings"></a><a name="view"></a>5. Visualización de emparejamientos
   
 Puede ver una lista de todos los circuitos y emparejamientos de ExpressRoute en Azure Portal. Para obtener más información, consulte [Visualización de detalles del emparejamiento de Microsoft](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 

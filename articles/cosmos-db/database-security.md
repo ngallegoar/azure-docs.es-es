@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo Azure Cosmos DB proporciona protec
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0c97d70ea3e5c7fdd14b0f97c5e393359f2b948e
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 30991f17970eefe1a140cdd70e1f6b305160349c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79087222"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537336"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Seguridad en Azure Cosmos DB: introducción
 
@@ -66,8 +66,8 @@ Analicemos cada uno de ellas en detalle.
 |Replicación global|Azure Cosmos DB ofrece una distribución global llave en mano, lo que permite replicar los datos en cualquiera de los centros de datos de todo el mundo de Azure con solo hacer clic en un botón. Gracias a la replicación global, podrá realizar un escalado a nivel internacional y proporcionar un acceso de latencia baja a datos de todo el mundo.<br><br>En el contexto de seguridad, la replicación global garantiza la protección de los datos frente a errores regionales.<br><br>Obtenga más información en [Distribución de datos global con DocumentDB](distribute-data-globally.md).|
 |Conmutaciones por error regionales|Si se han replicado los datos en más de un centro de datos, Azure Cosmos DB sustituirá automáticamente las operaciones en caso de que se desconecte un centro de datos regional. Puede crear una lista de prioridades de regiones de conmutación por error con las regiones en las que se replicarán los datos. <br><br>Obtenga más información en [Conmutaciones por error regionales de Azure Cosmos DB](high-availability.md).|
 |Replicación local|Incluso dentro de un solo centro de datos, Azure Cosmos DB replica automáticamente los datos para lograr una alta disponibilidad, lo que posibilita diversos [niveles de coherencia](consistency-levels.md). Esta replicación garantiza un [Acuerdo de Nivel de Servicio con disponibilidad](https://azure.microsoft.com/support/legal/sla/cosmos-db) del 99,99 % para todas las cuentas de una sola región y todas las cuentas de varias regiones con coherencia moderada y disponibilidad de lectura del 99,999 % para todas las cuentas de base de datos de varias regiones.|
-|Copias de seguridad en línea automatizadas|Las copias de seguridad de las bases de datos de Azure Cosmos se realizan de manera periódica y se guardan en un almacén con redundancia geográfica. <br><br>Obtenga más información en [Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB](online-backup-and-restore.md).|
-|Restauración de los datos eliminados|Las copias de seguridad automatizadas en línea se pueden utilizar para recuperar los datos que puede que haya eliminado accidentalmente hasta unos 30 días después del suceso. <br><br>Obtenga más información en [Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB](online-backup-and-restore.md).|
+|Copias de seguridad en línea automatizadas|Las copias de seguridad de las bases de datos de Azure Cosmos se realizan de manera periódica y se guardan en un almacén con redundancia geográfica. <br><br>Obtenga más información en [Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).|
+|Restauración de los datos eliminados|Las copias de seguridad automatizadas en línea se pueden utilizar para recuperar los datos que puede que haya eliminado accidentalmente hasta unos 30 días después del suceso. <br><br>Obtenga más información en [Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).|
 |Protección y aislamiento de datos confidenciales|Todos los datos de las regiones incluidos en Novedades ahora se cifran en reposo.<br><br>Los datos personales y otros datos confidenciales se pueden aislar en contenedores específicos. Además, se puede limitar el acceso de escritura-lectura o de solo lectura a usuarios concretos.|
 |Supervisión de los ataques|Use los [registros de auditoría y los registros de actividad](logging.md) para supervisar la actividad normal y la anómala de su cuenta. Puede ver qué operaciones se realizaron en los recursos, quién inició la operación, cuando se produjo, el estado y mucha más información, como se muestra en la captura de pantalla que sigue a esta tabla.|
 |Respuesta a ataques|Una vez que se ha puesto en contacto con el equipo de asistencia técnica de Azure para informar de un posible ataque, se inicia un proceso de respuesta a incidentes de 5 pasos. El objetivo de dicho proceso es restaurar las operaciones y la seguridad de los servicios a su estado normal lo antes posible después de que se detecte un problema y se inicie una investigación.<br><br>Obtenga más información en [Microsoft Azure Security Response in the Cloud](https://aka.ms/securityresponsepaper) (Respuesta de seguridad de Microsoft Azure en la nube).|

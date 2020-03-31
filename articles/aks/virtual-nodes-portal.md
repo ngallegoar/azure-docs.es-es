@@ -4,12 +4,12 @@ description: Aprenda a usar el Azure Portal para crear un clúster de Azure Kube
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 664bbdc94963b84e4fed6845dfd23d2407ca3898
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: ea93ea4a68fad213fe5bd1dc61abcb2deaef2c9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592567"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473598"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales en Azure Portal
 
@@ -29,7 +29,7 @@ az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" 
 
 El proveedor *Microsoft.ContainerInstance* debería notificar como *Registrado*, tal como se muestra en el siguiente ejemplo de salida:
 
-```
+```output
 Namespace                    RegistrationState
 ---------------------------  -------------------
 Microsoft.ContainerInstance  Registered
@@ -111,15 +111,13 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-get] para devolver una lista de los nodos del clúster.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 La salida de ejemplo siguiente muestra el nodo de máquina virtual único creado y luego el nodo virtual para Linux, *virtual-node-aci-linux*:
 
-```
-$ kubectl get nodes
-
+```output
 NAME                           STATUS    ROLES     AGE       VERSION
 virtual-node-aci-linux         Ready     agent     28m       v1.11.2
 aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
@@ -168,9 +166,11 @@ kubectl apply -f virtual-node.yaml
 
 Use el comando [kubectl get pods][kubectl-get] con el argumento `-o wide` para generar una lista de los pods y el nodo programado. Observe que el pod `virtual-node-helloworld` se ha programado en el nodo `virtual-node-linux`.
 
+```console
+kubectl get pods -o wide
 ```
-$ kubectl get pods -o wide
 
+```output
 NAME                                     READY     STATUS    RESTARTS   AGE       IP           NODE
 virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.0.4   virtual-node-aci-linux
 ```
@@ -184,27 +184,25 @@ Se asigna una dirección IP interna al pod de la subred de red virtual de Azure 
 
 Para probar el pod que se ejecuta en el nodo virtual, vaya a la aplicación de demostración con un cliente web. Como se asigna una dirección IP interna al pod, puede probar rápidamente esta conectividad desde otro pod en el clúster de AKS. Cree un pod de prueba y asóciele una sesión de terminal:
 
-```azurecli-interactive
+```console
 kubectl run -it --rm virtual-node-test --image=debian
 ```
 
 Instale `curl` en el pod mediante `apt-get`:
 
-```azurecli-interactive
+```console
 apt-get update && apt-get install -y curl
 ```
 
 Ahora acceda a la dirección de su pod mediante `curl`, como *http://10.241.0.4* . Proporcione su propia dirección IP interna mostrada en el comando `kubectl get pods` anterior:
 
-```azurecli-interactive
+```console
 curl -L http://10.241.0.4
 ```
 
 Se muestra la aplicación de demostración, tal como se muestra en la siguiente salida de ejemplo reducida:
 
-```
-$ curl -L 10.241.0.4
-
+```output
 <html>
 <head>
   <title>Welcome to Azure Container Instances!</title>

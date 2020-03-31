@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74896098"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Conexión a la API de Media Services v3: Node.js
 
 En este artículo se muestra cómo conectar con el SDK de node.js de Azure Media Services v3 con el método de inicio de sesión de la entidad de servicio.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Instale Node.js](https://nodejs.org/en/download/).
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services.
@@ -54,7 +54,7 @@ En este artículo se muestra cómo conectar con el SDK de node.js de Azure Medi
 
 Se deben especificar los siguientes paquetes:
 
-|Paquete|DESCRIPCIÓN|
+|Paquete|Descripción|
 |---|---|
 |`azure-arm-mediaservices`|SDK de Azure Media Services. <br/>Para asegurarse de que usa el paquete más reciente de Azure Media Services, consulte [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/) (Instalación de azure-arm-mediaservices para NPM).|
 |`azure-storage`|SDK de Storage. Se utiliza cuando se cargan los archivos en los recursos.|
@@ -116,7 +116,7 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 
 ## <a name="run-your-app"></a>Ejecutar la aplicación
 
-Abra el símbolo del sistema. Busque el directorio del ejemplo y ejecute los comandos siguientes:
+Abra un símbolo del sistema. Busque el directorio del ejemplo y ejecute los comandos siguientes:
 
 ```
 npm install 

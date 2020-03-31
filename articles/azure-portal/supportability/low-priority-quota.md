@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: 3e6dddfc458f390f5648e23a8a2af8d714de4bf2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842815"
 ---
 # <a name="spot-quota-increase-limits-for-all-vm-series"></a>Cuota al contado: aumento de los límites para todas las series de máquinas virtuales
@@ -54,9 +54,9 @@ Para solicitar un aumento del límite de cuota al contado en todas las series de
 
 1. En **Suscripción**, seleccione la suscripción cuya cuota quiere aumentar.
 
-   ![Selección de una suscripción para aumentar la cuota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
+   ![Selección de una suscripción para el aumento de cuota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. Seleccione **Tipo de cuota** y, luego, **Compute-VM (cores-vCPUs) subscription limit increases** (El límite de la suscripción a proceso/máquina virtual [núcleos/vCPU] aumenta).
+1. Seleccione **Tipo de cuota** y, luego, **Compute-VM (cores-vCPUs) subscription limit increases** (Aumento del límite de suscripción para VM de proceso [núcleos/vCPU]).
 
    ![Selección de un tipo de cuota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
@@ -101,7 +101,7 @@ Para solicitar un aumento del límite de cuota al contado en todas las series de
 
 1. Seleccione la suscripción cuya cuota quiere aumentar.
 
-   ![Suscripciones para seleccionar cambios](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
+   ![Suscripciones que puede seleccionar para los cambios](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 
 1. En el panel izquierdo, seleccione **Uso y cuotas**.
 
@@ -111,7 +111,7 @@ Para solicitar un aumento del límite de cuota al contado en todas las series de
 
    ![Selección para aumentar la cuota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. Seleccione **Tipo de cuota** y, luego, **Compute-VM (cores-vCPUs) subscription limit increases** (El límite de la suscripción a proceso/máquina virtual [núcleos/vCPU] aumenta).
+1. Seleccione **Tipo de cuota** y, luego, **Compute-VM (cores-vCPUs) subscription limit increases** (Aumento del límite de suscripción para VM de proceso [núcleos/vCPU]).
 
    ![Selección de un tipo de cuota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 

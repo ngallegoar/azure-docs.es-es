@@ -17,11 +17,11 @@ ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
 ms.openlocfilehash: 8b95bb45436f45dc0e62fb12d6ab1b24c37372e1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357542"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235960"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -149,7 +149,7 @@ Cuando el destino del tráfico es una dirección IP que está fuera de los prefi
 
 Para ver una tabla de enrutamiento completa con explicaciones de las rutas, consulte el [ejemplo de enrutamiento](#routing-example).
 
-## <a name="default-route"></a>Prefijo de dirección 0.0.0.0/0
+## <a name="00000-address-prefix"></a><a name="default-route"></a>Prefijo de dirección 0.0.0.0/0
 
 Una ruta con el prefijo de dirección 0.0.0.0/0 indica a Azure cómo enrutar el tráfico destinado a una dirección IP que no está dentro del prefijo de dirección de cualquier otra ruta en la tabla de rutas de una subred. Cuando se crea una subred, Azure crea un ruta [predeterminada](#default) para el prefijo de dirección 0.0.0.0/0, con el tipo de próximo salto **Internet**. Si no reemplaza esta ruta, Azure enruta a Internet todo el tráfico destinado a direcciones IP no incluidas en el prefijo de dirección de otra ruta. La excepción es que el tráfico dirigido a las direcciones IP públicas de los servicios de Azure permanece en la red troncal de Azure y no se enruta a Internet. Si reemplaza esta ruta por una ruta [personalizado](#custom-routes), el tráfico cuyo destino sean direcciones que no estén dentro de los prefijos de dirección de cualquier otra ruta de la tabla de rutas se envía a una aplicación virtual de red o a una puerta de enlace de red virtual, en función de lo que se especifique en una ruta personalizada.
 

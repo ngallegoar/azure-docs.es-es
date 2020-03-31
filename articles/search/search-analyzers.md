@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75460721"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizadores para procesamientos textuales en Búsqueda cognitiva de Azure
@@ -56,7 +56,7 @@ Algunos analizadores predefinidos, como **Pattern** o **Stop**, admiten un conju
 3. Opcionalmente, en lugar de una propiedad **analyzer**, puede establecer diferentes analizadores para indexación y consulta mediante los parámetros de campo **indexAnalyzer** y **searchAnalyzer**. Si una de esas actividades requiere una transformación específica que otras no necesitan, usará diferentes analizadores para la recuperación y la preparación de los datos.
 
 > [!NOTE]
-> No es posible usar un [analizador de lenguaje](index-add-language-analyzers.md) distinto en el momento de la indización que en el momento de la consulta para un campo. Esta capacidad está reservada para [analizadores personalizados](index-add-custom-analyzers.md). Por esta razón, si intenta establecer las propiedades **searchAnalyzer** o **indexAnalyzer** en el nombre de un analizador de lenguaje, la API de REST devolverá una respuesta de error. En su lugar, debe usar la propiedad del **analizador**.
+> No es posible usar un [analizador de lenguaje](index-add-language-analyzers.md) distinto en el momento de la indización que en el momento de la consulta para un campo. Esta capacidad está reservada para [analizadores personalizados](index-add-custom-analyzers.md). Por lo tanto, si intenta establecer las propiedades **searchAnalyzer** o **indexAnalyzer** en el nombre de un analizador de lenguaje, la API REST devolverá una respuesta de error. En su lugar, debe usar la propiedad del **analizador**.
 
 No se permite asignar **analyzer** o **indexAnalyzer** a un campo que ya se ha creado físicamente. Si alguno de estos puntos no está claro, revise la siguiente tabla para ver un desglose de las acciones necesarias en una recompilación y porqué.
  

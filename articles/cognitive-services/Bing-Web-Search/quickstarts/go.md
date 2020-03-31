@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Realizar una búsqueda web con Go: API de REST Bing Web Search'
+title: 'Inicio rápido: Realizar una búsqueda web con Go: API de REST Bing Web Search'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía de inicio rápido para enviar solicitudes a la API de REST Bing Web Search mediante Go y reciba una respuesta JSON.
 services: cognitive-services
@@ -13,17 +13,17 @@ ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
 ms.openlocfilehash: 589f7884f390ae57df4e946bcd34ca3bda629ed8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978805"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Guía de inicio rápido: Realizar búsquedas en la Web con la API de REST Bing Web Search y Go
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Inicio rápido: Realizar búsquedas en la Web con la API de REST Bing Web Search y Go
 
 Use este inicio rápido para realizar la primera llamada a Bing Web Search API y recibir una respuesta JSON. Esta aplicación de Go envía una solicitud de búsqueda a la API y muestra la respuesta. Si bien esta aplicación está escrita en Go, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
 
 * [Archivos binarios de Go](https://golang.org/dl/)

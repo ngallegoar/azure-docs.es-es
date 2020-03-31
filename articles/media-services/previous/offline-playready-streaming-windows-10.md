@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.openlocfilehash: 350b8d111652511627ddf67236f63248a5489015
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74970455"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Streaming de PlayReady sin conexión para Windows 10  
@@ -72,7 +72,7 @@ Recurso 2:
 * URL de descarga progresiva: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL (entorno local): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
-Para la prueba de reproducción, he usado una aplicación universal de Windows en Windows 10. En los [Ejemplos universales de Windows 10](https://github.com/Microsoft/Windows-universal-samples), encontrará un reproductor básico de ejemplo denominado [Ejemplo de streaming adaptable](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Solo tenemos que agregar el código para seleccionar el vídeo descargado y usarlo como el origen, en lugar del origen de streaming adaptable. Los cambios se realizan en el controlador de eventos de clic del botón:
+Para la prueba de reproducción, he usado una aplicación universal de Windows en Windows 10. En los [ejemplos universales de Windows 10](https://github.com/Microsoft/Windows-universal-samples), encontrará un reproductor básico de ejemplo denominado [Ejemplo de streaming adaptable](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Solo tenemos que agregar el código para seleccionar el vídeo descargado y usarlo como el origen, en lugar del origen de streaming adaptable. Los cambios se realizan en el controlador de eventos de clic del botón:
 
 ```csharp
 private async void LoadUri_Click(object sender, RoutedEventArgs e)
@@ -128,7 +128,7 @@ En resumen, hemos obtenido el modo sin conexión en Azure Media Services:
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

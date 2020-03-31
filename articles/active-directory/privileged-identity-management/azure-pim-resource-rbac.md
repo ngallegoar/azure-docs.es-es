@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4bf65ad595fb1ab70eb6613b6d54ac2a4f69141e
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78329647"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visualización de la actividad y del historial de auditoría para los roles de recursos de Azure en Privileged Identity Management
@@ -117,7 +117,7 @@ Mi auditoría permite ver la actividad del rol personal.
 
 1. Inicie sesión en [Azure Portal](https://aad.portal.azure.com) con los permisos del rol Administrador de roles con privilegios y abra Azure AD.
 1. Seleccione **Registros de auditoría**.
-1. Use el filtro **Servicio** para mostrar solo los eventos de auditoría del servicio privileged Identity Management. En la página **Registros de auditoría**, puede:
+1. Use el filtro **Servicio** para mostrar solo los eventos de auditoría del servicio Privileged Identity Management. En la página **Registros de auditoría**, puede:
 
     - Ver el motivo de un evento de auditoría en la columna **Razón para el estado**.
     - Consultar el aprobador en la columna **Iniciado por (actor)** para el evento "Solicitud para agregar al miembro al rol aprobada".

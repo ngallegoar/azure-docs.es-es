@@ -15,10 +15,10 @@ ms.date: 02/06/2019
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: f7d14da6c7436120e013c979b108f61b82640d13
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647890"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configuración de uno o varios agentes de escucha de grupo de disponibilidad AlwaysOn: Resource Manager
@@ -129,7 +129,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a> Script de ejemplo: agregar una dirección IP a un equilibrador de carga existente con PowerShell
+## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a> Script de ejemplo: agregar una dirección IP a un equilibrador de carga existente con PowerShell
 Para utilizar más de un grupo de disponibilidad, agregue una dirección IP adicional al equilibrador de carga. Cada dirección IP requiere su regla de equilibrio de carga, puerto de sondeo y puerto de front-end propios.
 
 El puerto de front-end es el que las aplicaciones usan para conectarse a la instancia de SQL Server. Las direcciones IP para los diferentes grupos de disponibilidad pueden usar el mismo puerto de front-end.

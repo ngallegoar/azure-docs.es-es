@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60384720"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos paralelos del servicio de sincronización de Azure AD Connect
@@ -38,7 +38,7 @@ Tienen varios sufijos UPN en su instancia de Active Directory local, pero solo s
 ### <a name="userprincipalname"></a>userPrincipalName
 Un usuario tiene los siguientes valores de atributo en un dominio no comprobado:
 
-| Atributo | Valor |
+| Atributo | Value |
 | --- | --- |
 | userPrincipalName local | lee.sperry@fabrikam.com |
 | shadowUserPrincipalName de Azure AD | lee.sperry@fabrikam.com |
@@ -53,7 +53,7 @@ El mismo proceso para incluir solo dominios comprobados también se produce para
 
 Para un usuario del buzón, de forma local o en Exchange Online, aparecen únicamente los valores para los dominios comprobados. Debería ser parecido a esto:
 
-| Atributo | Valor |
+| Atributo | Value |
 | --- | --- |
 | proxyAddresses local | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | ProxyAddresses de Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
@@ -74,6 +74,6 @@ ProxyCalc puede tardar algún tiempo en procesar un cambio en un usuario y no es
 ### <a name="quarantined-attribute-values"></a>Valores de atributo en cuarentena
 Los atributos paralelos también se utilizan cuando hay valores de atributo duplicados. Para más información, consulte [Resistencia de atributos duplicados](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Sincronización de Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

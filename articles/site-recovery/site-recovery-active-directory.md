@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 8c1f85217db12b60cdcd8ea0bdb65792b8d02648
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084583"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229112"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configuración de la recuperación ante desastres para Active Directory y DNS
 
@@ -22,7 +22,7 @@ Puede usar [Site Recovery](site-recovery-overview.md) para crear un plan de recu
 
 En este artículo se explica cómo crear una solución de recuperación ante desastres para Active Directory. Incluye los requisitos previos e instrucciones de conmutación por error. Debe estar familiarizado con Active Directory y Site Recovery antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si va a replicar en Azure, [prepare los recursos de Azure](tutorial-prepare-azure.md), entre los que se incluyen una suscripción, una red virtual de Azure, una cuenta de almacenamiento y un almacén de Recovery Services.
 * Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-azure.md) de todos los componentes.

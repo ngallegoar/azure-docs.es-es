@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: d2f4ddfbff791fbfeb2eb006a628c0fdeb4fdce1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975200"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Diseño híbrido de subsistemas de DRM 
@@ -99,9 +99,9 @@ Según las explicaciones de la sección anterior, en los cinco siguientes escena
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Sí|Sí|Ejemplo 1|
 |AMS|AMS|Aplicaciones de terceros|Sí|Sí|Ejemplo 2|
-|AMS|Aplicaciones de terceros|AMS|Sí|Sin|Ejemplo 3|
-|AMS|Aplicaciones de terceros|Externo|Sin|Sin|Ejemplo 4|
-|Aplicaciones de terceros|Aplicaciones de terceros|AMS|Sí|Sin|    
+|AMS|Aplicaciones de terceros|AMS|Sí|No|Ejemplo 3|
+|AMS|Aplicaciones de terceros|Externo|No|No|Ejemplo 4|
+|Aplicaciones de terceros|Aplicaciones de terceros|AMS|Sí|No|    
 
 En los ejemplos, la protección de PlayReady funciona para DASH y Smooth Streaming. Las direcciones URL de vídeo siguientes son direcciones URL de Smooth Streaming. Para obtener las direcciones URL de DASH correspondientes, simplemente anexe "(format=mpd-time-csf)". Puede usar el [reproductor multimedia de prueba de Azure](https://aka.ms/amtest) para probar en un explorador. Permite configurar qué protocolo de streaming usar y en qué tecnología. IE11 y Microsoft Edge en Windows 10 admiten PlayReady a través de EME. Para más información, vea los [detalles sobre la herramienta de prueba](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
@@ -129,7 +129,7 @@ En los ejemplos, la protección de PlayReady funciona para DASH y Smooth Streami
 
 ## <a name="additional-notes"></a>Notas adicionales
 
-* Widevine es un servicio que ofrece Google Inc. y está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
+* Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
 
 ## <a name="summary"></a>Resumen
 

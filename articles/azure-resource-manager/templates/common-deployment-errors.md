@@ -4,12 +4,12 @@ description: Describe cómo solucionar errores comunes al implementar recursos e
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.openlocfilehash: 58519056bd59f449fe26aa2fee3620f3ed28cc31
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: bc1568c53cdb5518f694d77a2f28f3cf77296ee2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154523"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460388"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -114,7 +114,7 @@ Para ver los mensajes y códigos de error de implementación con PowerShell, use
 Para ver los mensajes y códigos de error de implementación con la CLI de Azure, use:
 
 ```azurecli-interactive
-az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+az deployment group operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
 ```
 
 En el portal, seleccione la notificación.
@@ -172,7 +172,7 @@ Actualmente, la CLI de Azure no admite activar el registro de depuración, pero 
 Examine las operaciones de implementación con el siguiente comando:
 
 ```azurecli
-az group deployment operation list \
+az deployment group operation list \
   --resource-group examplegroup \
   --name exampledeployment
 ```
@@ -180,7 +180,7 @@ az group deployment operation list \
 Examine el contenido de la solicitud con el siguiente comando:
 
 ```azurecli
-az group deployment operation list \
+az deployment group operation list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.request
@@ -189,7 +189,7 @@ az group deployment operation list \
 Examine el contenido de la respuesta con el siguiente comando:
 
 ```azurecli
-az group deployment operation list \
+az deployment group operation list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.response

@@ -12,13 +12,13 @@ ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: f3d00688feb0f9d42e80cdbb51753483e53c388d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930740"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Guía de inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y Python
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y Python
 
 Utilice este inicio rápido para empezar a enviar solicitudes de búsqueda a Bing Image Search API. Esta aplicación de Python envía una consulta de búsqueda a la API y muestra la dirección URL de la primera imagen de los resultados. Si bien esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
@@ -30,7 +30,7 @@ Para ejecutar este ejemplo como Jupyter Notebook en [MyBinder](https://mybinder.
 El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py) con anotaciones y control de errores adicionales.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Python 2.x o 3.x](https://www.python.org/)
 * [Python Imaging Library (PIL)](https://pillow.readthedocs.io/en/stable/index.html)

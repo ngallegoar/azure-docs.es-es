@@ -8,10 +8,10 @@ ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: e339f0c7ca0807eec3e160eeb3464044c2ef29ba
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720952"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Actualizar el tipo de almacenamiento de un disco administrado
@@ -22,7 +22,7 @@ Esta funcionalidad no se admite para discos no administrados. Sin embargo, puede
 
  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Debido a que la conversión requiere reiniciar la máquina virtual, debería programar la migración del almacenamiento de discos durante una ventana de mantenimiento existente previamente.
 * Si el disco es no administrado, primero [debe convertirlo en un disco administrado](convert-unmanaged-to-managed-disks.md) para poder cambiar entre las opciones de almacenamiento.

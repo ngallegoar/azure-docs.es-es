@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 16f7f91e02d118d9f9a295ebb79a6cd0187dd9fd
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68596470"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticación del agente de seguridad 
@@ -58,7 +58,7 @@ Al [implementar un agente de seguridad](how-to-deploy-agent.md), los detalles de
 Estos argumentos se documentan en la siguiente tabla.
 
 
-|Nombre de parámetro de Linux | Nombre de parámetro de Windows | Parámetro abreviado |DESCRIPCIÓN|Opciones|
+|Nombre de parámetro de Linux | Nombre de parámetro de Windows | Parámetro abreviado |Descripción|Opciones|
 |---------------------|---------------|---------|---------------|---------------|
 |authentication-identity|AuthenticationIdentity|aui|Identidad de autenticación| **SecurityModule** o **Device**|
 |authentication-method|AuthenticationMethod|aum|Método de autenticación|**SymmetricKey** o **SelfSignedCertificate**|
@@ -107,7 +107,7 @@ Edite _LocalConfiguration.json_ con los siguientes parámetros:
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 - [Información general de los agentes de seguridad](security-agent-architecture.md)
 - [Implementación de un agente de seguridad](how-to-deploy-agent.md)
 - [Acceso a datos de seguridad sin procesar](how-to-security-data-access.md)

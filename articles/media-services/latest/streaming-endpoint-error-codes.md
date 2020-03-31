@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65411371"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Errores de punto de conexión de streaming (origen) 
@@ -198,7 +198,7 @@ El servidor actualmente no puede recibir solicitudes. Este error puede deberse a
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Códigos de error de codificación](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
 - [Conceptos de Azure Media Services](concepts-overview.md)

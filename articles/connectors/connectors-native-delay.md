@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74787343"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Retraso de la ejecución de la siguiente acción en Azure Logic Apps
@@ -28,9 +28,9 @@ Aquí se muestran algunos ejemplos de uso de estas acciones:
 
 * Retrasar el flujo de trabajo hasta que finalice una llamada HTTP antes de reanudarse y recuperar datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * Conocimientos básicos sobre [aplicaciones lógicas](../logic-apps/logic-apps-overview.md). Antes de realizar una acción, debe iniciar su aplicación lógica con un desencadenador. Puede usar el desencadenador que desee y agregar otras acciones antes de añadir una acción de retraso. En este tema se usa un desencadenador de Office 365 Outlook. Si es la primera vez que interactúa con las aplicaciones lógicas, consulte el artículo sobre [cómo crear la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -42,7 +42,7 @@ Aquí se muestran algunos ejemplos de uso de estas acciones:
 
    Para agregar la acción de retraso entre pasos, mueva el puntero sobre la flecha que conecta los pasos. Elija el signo más (+) que aparece y, a continuación, seleccione **Agregar una acción**.
 
-1. En el cuadro de búsqueda, escriba "retraso" como filtro. En la lista de acciones, seleccione esta acción: **Retraso**
+1. En el cuadro de búsqueda, escriba "retraso" como filtro. En la lista de acciones, seleccione esta acción: **Delay**
 
    ![Adición de la acción "Retraso"](./media/connectors-native-delay/add-delay-action.png)
 
@@ -50,10 +50,10 @@ Aquí se muestran algunos ejemplos de uso de estas acciones:
 
    ![Establecer la cantidad de tiempo de retraso](./media/connectors-native-delay/delay-time-intervals.png)
 
-   | Propiedad | Nombre JSON | Obligatorio | type | DESCRIPCIÓN |
+   | Propiedad | Nombre JSON | Obligatorio | Tipo | Descripción |
    |----------|-----------|----------|------|-------------|
-   | Count | count | Sí | Integer | El número de unidades de tiempo de retraso |
-   | Unidad | unit | Sí | Cadena | La unidad de tiempo: `Second`, `Minute`, `Hour`, `Day`, `Week` o `Month`. |
+   | Count | count | Sí | Entero | El número de unidades de tiempo de retraso |
+   | Unidad | unit | Sí | String | La unidad de tiempo: `Second`, `Minute`, `Hour`, `Day`, `Week` o `Month`. |
    ||||||
 
 1. Agregue las demás acciones que desee ejecutar en el flujo de trabajo.
@@ -76,9 +76,9 @@ Aquí se muestran algunos ejemplos de uso de estas acciones:
 
    ![Especificar la marca de tiempo de cuándo se debe finalizar el retraso](./media/connectors-native-delay/delay-until-timestamp.png)
 
-   | Propiedad | Nombre JSON | Obligatorio | type | DESCRIPCIÓN |
+   | Propiedad | Nombre JSON | Obligatorio | Tipo | Descripción |
    |----------|-----------|----------|------|-------------|
-   | Timestamp | timestamp | Sí | Cadena | La fecha y hora de finalización para reanudar el flujo de trabajo con este formato: <p>YYYY-MM-DDThh:mm:ssZ <p>Por ejemplo, si desea el 18 de septiembre de 2017 a las 14:00, especifique "2017-09-18T14:00:00Z". <p>**Nota:** Este formato de hora debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). |
+   | Timestamp | timestamp | Sí | String | La fecha y hora de finalización para reanudar el flujo de trabajo con este formato: <p>YYYY-MM-DDThh:mm:ssZ <p>Por ejemplo, si desea el 18 de septiembre de 2017 a las 14:00, especifique "2017-09-18T14:00:00Z". <p>**Nota:** Este formato de hora debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). |
    ||||||
 
 1. Agregue las demás acciones que desee ejecutar en el flujo de trabajo.

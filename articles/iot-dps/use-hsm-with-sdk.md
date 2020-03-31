@@ -9,17 +9,17 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: c85d958074ea5d41d32f71350164c3c983e372a2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976662"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Procedimientos de uso de diferentes mecanismos de atestación con el SDK de cliente del servicio Device Provisioning para C
 
 Este artículo muestra cómo usar diferentes [mecanismos de atestación](concepts-security.md#attestation-mechanism) con el SDK de cliente del servicio Device Provisioning para C. Puede usar un dispositivo físico o un simulador. El servicio de aprovisionamiento admite la autenticación de dos tipos de mecanismos de atestación: X.509 y Módulo de plataforma segura (TPM).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Prepare el entorno de desarrollo tal como se indica en la sección "Preparación del entorno de desarrollo" de la guía [Creación y aprovisionamiento de un dispositivo simulado](./quick-create-simulated-device.md).
 

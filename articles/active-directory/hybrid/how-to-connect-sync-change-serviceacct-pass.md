@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65139394"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Cambiar la contraseña de la cuenta de servicio de ADSync
@@ -93,14 +93,14 @@ Abandone la clave de cifrado existente para poder crear otra clave de cifrado:
 #### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>Especificar la contraseña de la cuenta de conector de AD DS
 Cuando las contraseñas existentes almacenadas en la base de datos ya no se pueden descifrar, tiene que proporcionar el servicio de sincronización con la contraseña de la cuenta de conector de AD DS. El servicio de sincronización cifra las contraseñas con la nueva clave de cifrado:
 
-1. Inicie el Synchronization Service Manager (INICIO → Servicio de sincronización).
+1. Inicie el Synchronization Service Manager (INICIO → Synchronization Service).
 </br>![Sync Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
 2. Vaya a la pestaña **Conectores**.
 3. Seleccione el **AD Connector** (conector de AD) que corresponda a su AD local. Si tiene más de un conector de AD, repita los pasos siguientes para cada uno de ellos.
 4. En **Acciones**, seleccione **Propiedades**.
-5. En el cuadro de diálogo emergente, seleccione **Connect to Active Directory Forest** (Conectarse al bosque de Active Directory):
+5. En el cuadro de diálogo emergente, seleccione **Connect to Active Directory Forest** (Conectar con el bosque de Active Directory):
 6. Escriba la contraseña de la cuenta de AD DS en el cuadro de texto **Contraseña**. Si no conoce la contraseña, debe establecerla en un valor conocido antes de realizar este paso.
-7. Haga en **Aceptar** para guardar la nueva contraseña y cerrar el cuadro de diálogo emergente.
+7. Haga clic en **OK** (Aceptar) para guardar la nueva contraseña y cerrar el cuadro de diálogo emergente.
 ![Utilidad de clave de cifrado de sincronización de Azure AD Connect](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
 #### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>Reinicializar la contraseña de la cuenta de servicio de ADSync

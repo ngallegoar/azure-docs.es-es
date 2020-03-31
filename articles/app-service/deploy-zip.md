@@ -6,10 +6,10 @@ ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
 ms.openlocfilehash: 716f6813e37aec086a7d496e001fe2ca0f4aab57
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75945175"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implementación de una aplicación en Azure App Service con un archivo ZIP o WAR
@@ -28,7 +28,7 @@ Para obtener más información, consulte la [documentación de Kudu](https://git
 
 La implementación del archivo WAR implementa su archivo [WAR](https://wikipedia.org/wiki/WAR_(file_format)) en Azure App Service para ejecutar la aplicación web de Java. Consulte [Implementación de un archivo WAR](#deploy-war-file).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar los pasos en este artículo, [cree una aplicación de App Service](/azure/app-service/) o use alguna aplicación que haya creado para otro tutorial.
 

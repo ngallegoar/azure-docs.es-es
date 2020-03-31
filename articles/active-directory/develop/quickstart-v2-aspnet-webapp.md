@@ -99,7 +99,7 @@ En este inicio rápido, utilizará un código de ejemplo para aprender cómo una
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Escriba_la_información_de_la_cuenta_admitida_aquí
+> > Enter_the_Supported_Account_Info_Here
 
 ## <a name="more-information"></a>Más información
 

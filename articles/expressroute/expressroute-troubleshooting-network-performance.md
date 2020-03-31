@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74869653"
 ---
 # <a name="troubleshooting-network-performance"></a>Solución de problemas de rendimiento de red
@@ -97,7 +97,7 @@ Hay tres pasos básicos para usar este kit de herramientas para pruebas de rendi
 
     Los resultados detallados de todas las pruebas de iPerf y PSPing están en archivos de texto individuales en el directorio de herramientas de AzureCT en "C:\ACTTools".
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 Si la prueba de rendimiento no ofrece los resultados esperados, averigüe por qué debe aplicar un proceso detallado progresivo. Dado el número de componentes de la ruta, un enfoque sistemático suele ofrecer una ruta más rápida para la resolución que saltar de un lado a otro y realizar las mismas pruebas varias veces innecesariamente.
 
 >[!NOTE]
@@ -183,15 +183,15 @@ Configuración de la prueba:
 | Seattle | Oeste de EE. UU. 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
 | Seattle | Oeste de EE. UU.          |  1094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
 | Seattle | Centro de EE. UU.       |  2357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
-| Seattle | Centro-Sur de EE. UU |  2877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
+| Seattle | Centro-sur de EE. UU. |  2877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
 | Seattle | Centro-Norte de EE. UU |  2792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s |
 | Seattle | Este de EE. UU. 2        |  3769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbits/s |
-| Seattle | East US          |  3699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s |
-| Seattle | Este de Japón       |  7705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbits/s |
+| Seattle | Este de EE. UU.          |  3699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s |
+| Seattle | Japón Oriental       |  7705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbits/s |
 | Seattle | Sur de Reino Unido 2         |  7708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s |
-| Seattle | Europa occidental      |  7834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
+| Seattle | Oeste de Europa      |  7834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
 | Seattle | Este de Australia   | 12 484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s |
-| Seattle | Sudeste asiático   | 12 989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s |
+| Seattle | Sudeste de Asia   | 12 989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s |
 | Seattle | Sur de Brasil *   | 10 930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s |
 | Seattle | Sur de la India      | 12 918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s |
 

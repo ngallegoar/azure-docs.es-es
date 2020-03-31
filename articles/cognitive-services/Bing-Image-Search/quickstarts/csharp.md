@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Búsqueda de imágenes: API de REST Bing Image Search y C#'
+title: 'Inicio rápido: Búsqueda de imágenes: API de REST Bing Image Search y C#'
 titleSuffix: Azure Cognitive Services
 description: Use esta guía de inicio rápido para enviar solicitudes de búsqueda de imágenes a la API de REST Bing Image Search mediante C# y reciba respuestas JSON.
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 12/06/2019
 ms.author: aahi
 ms.openlocfilehash: e52101b873e03cd6fcd847e9aa2a2d801f8f583d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74918869"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Guía de inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y C#
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y C#
 
 Utilice este inicio rápido para empezar a enviar solicitudes de búsqueda a Bing Image Search API. Esta aplicación de C# envía una consulta de búsqueda a la API y muestra la dirección URL de la primera imagen de los resultados. Si bien esta aplicación está escrita en C#, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) con anotaciones y control de errores adicionales.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 * Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://www.visualstudio.com/downloads/).
 * El marco [Json.NET](https://www.newtonsoft.com/json), disponible como un paquete NuGet.
 * Si usa Linux o MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).

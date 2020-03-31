@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900883"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Administración de puntos de conexión de streaming con el Portal de Azure 
@@ -60,7 +60,7 @@ Para agregar/quitar el punto de conexión de streaming mediante el Portal de Azu
     ![extremo de streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a id="configure_streaming_endpoints"></a>Configuración del extremo de streaming
+## <a name="configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configuración del extremo de streaming
 Punto de conexión de streaming le permite configurar las siguientes propiedades:
 
 * Control de acceso
@@ -89,7 +89,7 @@ Aparecerá una breve descripción de los campos.
 
 Para obtener más información, consulte [este](media-services-portal-scale-streaming-endpoints.md) artículo.
 
-## <a id="enable_cdn"></a>Habilitación de la integración de Azure CDN
+## <a name="enable-azure-cdn-integration"></a><a id="enable_cdn"></a>Habilitación de la integración de Azure CDN
 
 Cuando se crea una nueva cuenta, la integración de Azure CDN de punto de conexión de streaming está habilitada de forma predeterminada.
 

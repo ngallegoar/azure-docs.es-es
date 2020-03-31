@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ca192c28757df189e531aee0ba2d8da288ba7e6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68381242"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único
@@ -68,7 +68,7 @@ También puede descargar la extensión para Chrome y Firefox desde los siguiente
 
 -   [Extensión del Panel de acceso para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extensión del Panel de acceso para Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Extensión del panel de acceso para Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## <a name="setting-up-a-group-policy-for-internet-explorer"></a>Configuración de una directiva de grupo para Internet Explorer
 
@@ -86,17 +86,17 @@ Siga el tutorial [Implementación de la extensión de panel de acceso para Inter
 
 Siga la guía de [Solución de problemas de la extensión del Panel de acceso para Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) para acceder a la herramienta de diagnóstico, junto con instrucciones paso a paso sobre cómo configurar la extensión para IE.
 
-## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Cómo configurar el inicio de sesión único con contraseña para una aplicación ajena a la galería
+## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
 Para configurar una aplicación desde la galería de Azure AD, realice los siguientes pasos:
 
 -   [Incorporación de una aplicación ajena a la galería](#add-a-non-gallery-application)
 
--   [Configurar la aplicación para el inicio de sesión único con contraseña](#configure-the-application-for-password-single-sign-on)
+-   [Configuración de la aplicación para el inicio de sesión único con contraseña](#configure-the-application-for-password-single-sign-on)
 
 -   [Asignación de usuarios a la aplicación](#assign-users-to-the-application)
 
-### <a name="add-a-non-gallery-application"></a>Incorporar una aplicación ajena a la galería
+### <a name="add-a-non-gallery-application"></a>Incorporación de una aplicación ajena a la galería
 
 Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
@@ -144,7 +144,7 @@ Para configurar el inicio de sesión único para una aplicación, siga los pasos
 
 11. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios, haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
 
-### <a name="assign-users-to-the-application"></a>Asignar usuarios a la aplicación
+### <a name="assign-users-to-the-application"></a>Asignación de usuarios a la aplicación
 
 Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes:
 

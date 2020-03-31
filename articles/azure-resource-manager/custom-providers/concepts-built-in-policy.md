@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: hich
 ms.openlocfilehash: 536b95eb07619d0ce2d02ec01e1f51ed52c1b5e1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75649204"
 ---
 # <a name="deploy-associations-for-a-custom-provider-using-azure-policy"></a>Implementación de asociaciones para proveedores personalizados mediante Azure Policy
@@ -29,7 +29,7 @@ Para más información sobre las asociaciones, consulte [Información general so
 
 ## <a name="how-to-use-the-deploy-associations-built-in-policy"></a>Uso de la directiva integrada de implementación de asociaciones 
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 Si el proveedor personalizado necesitara permisos sobre el ámbito de la directiva para realizar una acción, la implementación del recurso de asociación de la directiva no funcionaría sin conceder los permisos.
 
 ### <a name="policy-assignment"></a>Asignación de directiva

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76156784"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Inicio rápido: conexión a una aplicación de comandos personalizados con el SDK de Voz (versión preliminar)
@@ -26,7 +26,7 @@ En este artículo, hará lo siguiente:
 - Publicación de una aplicación de comandos personalizados y obtención de un identificador de aplicación (id. de aplicación)
 - Creación de una aplicación cliente con el SDK de Voz para que pueda comunicarse con su aplicación de comandos personalizados
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Se requiere una aplicación de comandos personalizados para completar este artículo. Si aún no ha creado una aplicación de comandos personalizados, puede hacerlo en estos inicios rápidos anteriores:
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60349851"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Actualización automática
@@ -37,9 +37,9 @@ La actualización automática está habilitada de forma predeterminada en los si
 
 Se puede ver el estado actual de la actualización automática con el cmdlet de PowerShell `Get-ADSyncAutoUpgrade`. Este cmdlet tiene los siguientes estados:
 
-| Estado | Comentario |
+| State | Comentario |
 | --- | --- |
-| Enabled |La actualización automática está habilitada. |
+| habilitado |La actualización automática está habilitada. |
 | Suspended |Solo lo establece el sistema. **Actualmente**, el sistema no cumple los requisitos para recibir actualizaciones automáticas. |
 | Disabled |La actualización automática está deshabilitada. |
 
@@ -50,7 +50,7 @@ En la actualización automática se utiliza Azure AD Connect Health como infraes
 
 Si la IU de **Synchronization Service Manager** se está ejecutando en el servidor, la actualización se suspenderá hasta que la IU se cierre.
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 Si la instalación de Connect no se actualiza según lo esperado, siga estos pasos para detectar dónde se produce el error.
 
 En primer lugar, no debe esperar que la actualización automática se intente el primer día que se lanza una nueva versión. Hay una aleatoriedad intencional antes intentar una actualización, por lo que no se alarme si la instalación no se actualiza inmediatamente.
@@ -67,7 +67,7 @@ Ahora puede ver los registros de eventos asociados con el estado de la actualiza
 
 El código de resultado tiene un prefijo con información general sobre el estado.
 
-| Prefijo del código de resultado | DESCRIPCIÓN |
+| Prefijo del código de resultado | Descripción |
 | --- | --- |
 | Correcto |La instalación se actualizó correctamente. |
 | UpgradeAborted |Una condición temporal detuvo la actualización. Se reintentará nuevo y se espera que se complete correctamente más tarde. |
@@ -75,7 +75,7 @@ El código de resultado tiene un prefijo con información general sobre el estad
 
 Aquí presentamos una lista de los mensajes más comunes que se encuentran. No aparecen todos, pero el mensaje de resultado debe identificar claramente el problema.
 
-| Mensaje de resultado | DESCRIPCIÓN |
+| Mensaje de resultado | Descripción |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |No se pudo escribir en el registro. |

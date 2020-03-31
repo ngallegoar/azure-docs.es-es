@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: jeffya
 ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975659"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Registro del MXChip IoT DevKit con IoT Hub mediante el aprovisionamiento automático con el servicio Azure IoT Hub Device Provisioning
@@ -60,7 +60,7 @@ Para guardar un UDS en DevKit:
 
 1. En DevKit, mantenga presionado el **botón A**, presione y suelte el botón de **reinicio** y, a continuación, suelte el **botón A**. El DevKit entra en modo de configuración.
 
-1. Presione `F1` para abrir la paleta de comandos, escriba y seleccione **Azure IoT Device Workbench: Configurar opciones de dispositivo... > Config Unique Device String (Configurar cadena de dispositivo única)** .
+1. Haga clic en `F1` para abrir la paleta de comandos, escriba y seleccione **Azure IoT Device Workbench: Configurar opciones de dispositivo... > Config Unique Device String (Configurar cadena de dispositivo única)** .
   ![Configurar UDS](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
 
 1. Anote la cadena UDS generada. La necesitará para generar el certificado X.509. A continuación, presione `Enter`.

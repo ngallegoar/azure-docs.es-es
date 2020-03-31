@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174647"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230368"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificación de los roles de recurso de un paquete de acceso en la administración de derechos de Azure AD
 
@@ -33,7 +33,7 @@ Este vídeo proporciona información general acerca de cómo cambiar un paquete 
 
 ## <a name="check-catalog-for-resources"></a>Comprobación del catálogo de recursos
 
-Si necesita agregar recursos a un paquete de acceso, debe comprobar si los recursos que necesita están disponibles en el catálogo. Si es un administrador de paquetes de acceso, no podrá agregar recursos a un catálogo, ni siquiera aunque sea el propietario. Solo podrá utilizar los recursos disponibles en el catálogo.
+Si necesita agregar recursos a un paquete de acceso, debe comprobar si los recursos que necesita están disponibles en el catálogo. Si es un administrador de paquetes de acceso, no podrá agregar recursos a un catálogo, ni siquiera aunque sea el propietario. Está limitado a usar los recursos disponibles en el catálogo.
 
 **Rol necesario:** Administrador global, administrador de usuarios, propietario del catálogo o administrador de paquetes de acceso.
 
@@ -183,5 +183,5 @@ Cuando se quita un miembro de un equipo, también se quita del grupo de Office 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md)
-- [Uso de Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales](../develop/active-directory-enterprise-app-role-management.md)
+- [Cómo: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales](../develop/active-directory-enterprise-app-role-management.md)
 - [Introducción a SharePoint Online](/sharepoint/introduction)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c3452fc68f7add40979513d3e3956f1c93e327f0
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: eddfcacd01a67fffa8e3e992e021ed1771d25944
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943949"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471343"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Línea de base de seguridad de Azure para HDInsight
 
@@ -854,10 +854,10 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 **Instrucciones**: use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.), incluidos los clústeres de Azure HDInsight, dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y de que puede enumerar todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 
-Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
+Aunque los recursos clásicos de Azure se pueden detectar a través de Azure Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
 
 
-Creación de consultas con Azure Graph:
+Creación de consultas con Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -930,7 +930,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de las suscri
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Creación de consultas con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 **Supervisión de Azure Security Center**: no disponible actualmente
@@ -950,7 +950,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 **Instrucciones**: use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.), incluidos los clústeres de Azure HDInsight, dentro de las suscripciones.  Quite los recursos de Azure no aprobados que detecte. En el caso de los nodos del clúster de Azure HDInsight, implemente una solución de terceros para quitar software no aprobado o alertas al respecto.
 
 
-Creación de consultas con Azure Graph:
+Creación de consultas con Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 

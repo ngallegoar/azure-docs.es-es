@@ -5,15 +5,15 @@ services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: 7c60728ab501d03e9c40928e730225575e76efbc
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: b447f44d0c95693e560fd5bbfbff8c8daeec964e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023827"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157694"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Agrupación de varias acciones para ejecutar desde una o varias reglas
 
@@ -21,7 +21,7 @@ ms.locfileid: "77023827"
 
 En Azure IoT Central, cree reglas para que se ejecuten acciones cuando se cumpla una condición. Las reglas se basan en la telemetría de dispositivo o en los eventos. Por ejemplo, puede notificar a un operador cuando la temperatura en un dispositivo supera un umbral. En este artículo se describe cómo usar *grupos de acciones* de [Azure Monitor](../../azure-monitor/overview.md) para asociar varias acciones a una regla de IoT Central. Puede asociar un grupo de acciones a varias reglas. Un [grupo de acciones](../../azure-monitor/platform/action-groups.md) es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una aplicación creada con un plan de tarifa estándar
 - Una suscripción y cuenta de Azure para crear y administrar grupos de acciones de Azure Monitor

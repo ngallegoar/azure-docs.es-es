@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b448e6ce7c8b4522d5e7bdbafb39eccca982fdee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848517"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Conclusiones y uso de los métodos de autenticación (versión preliminar)
@@ -33,7 +33,7 @@ Los siguientes roles pueden tener acceso al uso y las conclusiones:
 
 No se necesita ninguna licencia adicional para acceder al uso y las conclusiones. La información acerca de las licencias de la autenticación multifactor y el autoservicio de restablecimiento de contraseña (SSPR) de Azure puede encontrarse en el [sitio web de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Para obtener acceso al uso y las conclusiones del método de autenticación:
 
@@ -65,7 +65,7 @@ Al hacer clic en los iconos o las conclusiones de **Usuarios registrados**, **Us
 
 El informe de detalles de registro muestra la siguiente información para cada usuario:
 
-- NOMBRE
+- Nombre
 - Nombre de usuario
 - Estado de registrado (todos, registrados, no registrados)
 - Estado de habilitado (todos, habilitados, no habilitados)
@@ -80,7 +80,7 @@ Al hacer clic en los gráficos Registros o Restablecimientos, se le llevará a l
 
 El informe de detalles de restablecimientos muestra los eventos de registro y restablecimiento de los últimos 30 días, que incluyen:
 
-- NOMBRE
+- Nombre
 - Nombre de usuario
 - Característica (todas, registro, restablecimiento)
 - Método de autenticación (notificación de la aplicación, código de la aplicación, llamada telefónica, llamada de Office, SMS, correo electrónico, preguntas de seguridad)

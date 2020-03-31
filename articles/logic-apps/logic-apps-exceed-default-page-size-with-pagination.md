@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 04/11/2019
 ms.openlocfilehash: 75d9660eb35b5d7ddc644d177c11ae489e2853dc
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792113"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obtención de más datos, elementos o registros con la paginación en Azure Logic Apps
@@ -33,14 +33,14 @@ Esta es una lista con solo algunos de los conectores donde puede superar el tama
 * [HTTP](https://docs.microsoft.com/azure/connectors/connectors-native-http)
 * [IBM DB2](https://docs.microsoft.com/connectors/db2/)
 * [Microsoft Teams](https://docs.microsoft.com/connectors/teams/)
-* [Oracle Database](https://docs.microsoft.com/connectors/oracle/)
+* [Base de datos de Oracle](https://docs.microsoft.com/connectors/oracle/)
 * [Salesforce](https://docs.microsoft.com/connectors/salesforce/)
 * [SharePoint](https://docs.microsoft.com/connectors/sharepointonline/)
 * [SQL Server](https://docs.microsoft.com/connectors/sql/)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * La aplicación lógica y la acción donde quiere activar la paginación. Si no tiene una aplicación lógica, consulte [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

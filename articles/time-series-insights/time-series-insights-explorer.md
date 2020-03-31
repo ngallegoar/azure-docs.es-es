@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: b8c2ba54fcc69ba126bf5f68aed99b25f8156155
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76046180"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
@@ -37,7 +37,7 @@ Azure Time Series Insights es un servicio de análisis, almacenamiento y adminis
 >[!NOTE]
 >Reproduzca el vídeo anterior, <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Introducción a Time Series Insights mediante un acelerador de solución de Azure IoT"</a>.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de que pueda usar el explorador de Time Series Insights, debe:
 

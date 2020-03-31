@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a22c0cc922e021edc37dfbb2d89fdd20c77b2c87
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848772"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solución de problemas del autoservicio de restablecimiento de contraseñas
@@ -97,7 +97,7 @@ Un procedimiento recomendado para solucionar problemas con la escritura diferida
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Si el origen del evento es ADSync
 
-| Código | Nombre o mensaje | DESCRIPCIÓN |
+| Código | Nombre o mensaje | Descripción |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "A restriction prevents the password from being changed to the current one specified" (Una restricción impide que la contraseña se modifique por la que ha especificado actualmente). | Este evento se produce cuando el servicio de escritura diferida de contraseñas intenta establecer una contraseña en su directorio local que no cumple los requisitos del dominio en cuanto al filtrado, la vigencia de la contraseña, el historial o la complejidad. <br> <br> Si tiene una vigencia mínima de la contraseña y ha cambiado recientemente la contraseña dentro de ese margen de tiempo, no puede volver a cambiarla hasta que alcance la duración especificada en el dominio. Para las pruebas, la vigencia mínima debe establecerse en 0. <br> <br> Si tiene habilitados los requisitos del historial de contraseñas, debe seleccionar una contraseña que no se haya utilizado en las últimas *N* veces, donde *N* es la configuración del historial de contraseñas. Si selecciona una contraseña que se haya usado en las últimas *N* veces, verá un error en este caso. Para las pruebas, el historial mínimo debe establecerse en 0. <br> <br> Si tiene requisitos de complejidad de contraseña, todos ellos se aplican cuando el usuario intenta cambiar o restablecer una contraseña. <br> <br> Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación. |
 | 6329 | MMS(3040): admaexport.cpp(2837): el servidor no contiene el control de directiva de contraseña LDAP. | Este problema se produce si el control LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) no está habilitado en los controladores de dominio. Para usar la característica de escritura diferida de contraseña, debe habilitar el control. Para ello, los controladores de dominio deben estar en Windows Server 2008R2 o una versión posterior. |
@@ -105,7 +105,7 @@ Un procedimiento recomendado para solucionar problemas con la escritura diferida
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>El origen del evento es PasswordResetService
 
-| Código | Nombre o mensaje | DESCRIPCIÓN |
+| Código | Nombre o mensaje | Descripción |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Este evento indica que el servicio local detectó una solicitud de restablecimiento de contraseña para un usuario federado, con autenticación de paso a través o con sincronización de hash de contraseñas, que se origina en la nube. Este evento es el primero en cada operación de escritura diferida de contraseñas. |
 | 31002 | PasswordResetSuccess | Este evento indica que un usuario seleccionó una contraseña nueva durante una operación de restablecimiento de contraseña. Determinamos que dicha contraseña cumple los requisitos de las contraseñas corporativas. La escritura diferida de la contraseña se realizó correctamente en el entorno de Active Directory local. |

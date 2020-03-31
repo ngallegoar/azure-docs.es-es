@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 08/05/2019
 ms.author: raynew
 ms.openlocfilehash: 15cd729063545914f791de39a075af9084f72bef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426564"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
@@ -61,7 +61,7 @@ La replicación funciona de la manera siguiente:
 7. Las máquinas replicadas se comunican con el servidor de configuración (puerto HTTPS 443 de entrada) para la administración de la replicación. Las máquinas envían los datos de replicación al servidor de procesos (puerto HTTPS 9443 de entrada) (se puede modificar).
 8. El tráfico se replica en los puntos de conexión públicos del almacenamiento de Azure a través de Internet. Como alternativa, puede usar el emparejamiento público de Azure ExpressRoute. No se admite la replicación del tráfico a través de una VPN de sitio a sitio desde un sitio local en Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Esto es lo que va a necesitar para configurar este escenario.
 
@@ -145,7 +145,7 @@ Para cada equipo que quiera replicar, busque la dirección IP:
 1. En Azure Portal, seleccione **Crear un recurso** > **Herramientas de administración** > **Backup y Site Recovery**.
 2. En **Nombre**, escriba un nombre descriptivo para identificar el almacén. 
 3. En **Grupo de recursos**, cree o seleccione un grupo de recursos. Estamos usando **contosoRG**.
-4. En **Ubicación** especifique la región de Azure. se va a usar **Europa Occidental**.
+4. En **Ubicación** especifique la región de Azure. se va a usar **Oeste de Europa**.
 5. Para acceder rápidamente al almacén desde el panel, seleccione **Anclar al panel** > **Crear**.
 
    ![Crear un nuevo almacén](./media/azure-stack-site-recovery/new-vault-settings.png)

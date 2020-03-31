@@ -13,11 +13,11 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: 0ff8b85a15d94ded2d702e0df247f9ebc4d3f923
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062275"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231728"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Una su dispositivo de trabajo a la red de su organización
 Una su dispositivo Windows 10 de trabajo a la red de su organización para poder tener acceso a recursos potencialmente restringidos.

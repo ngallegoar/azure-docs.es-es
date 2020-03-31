@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87c96eae9361306ea821f9b654dfef14f6d8f298
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848041"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS
@@ -23,7 +23,7 @@ ms.locfileid: "74848041"
 Use la sección Autenticación de IIS del Servidor Azure Multi-Factor Authentication (MFA) para habilitar y configurar la autenticación de IIS para la integración con aplicaciones web de Microsoft IIS. El Servidor Azure MFA instala un complemento que puede filtrar las solicitudes realizadas al servidor web IIS para agregar Azure Multi-Factor Authentication. El complemento IIS proporciona compatibilidad para la autenticación basada en formularios y la autenticación HTTP de Windows integrada. También se pueden configurar IP de confianza para eximir direcciones IP internas de la autenticación en dos fases.
 
 > [!IMPORTANT]
-> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación, como de costumbre.
+> A partir del 1 de julio de 2019, Microsoft ya no ofrecerá el Servidor MFA para implementaciones nuevas. Los clientes nuevos que quieran exigir la autenticación multifactor a sus usuarios deberán usar Azure Multi-Factor Authentication basado en la nube. Los clientes existentes que hayan activado el Servidor MFA antes del 1 de julio podrán descargar la versión más reciente y las actualizaciones futuras, así como generar credenciales de activación como de costumbre.
 
 ![Autenticación de IIS en el Servidor MFA](./media/howto-mfaserver-iis/iis.png)
 

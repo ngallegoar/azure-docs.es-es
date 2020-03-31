@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/31/2016
 ms.openlocfilehash: b6746baaede777eb8c2afcae9eb3fe80b669c468
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792847"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Actualizaciones de esquema para Azure Logic Apps de la versión preliminar del 1 de agosto de 2015
@@ -288,7 +288,7 @@ Ahora puede crear una acción HTTP similar y dejar sin modificaciones la secció
 
 Vamos a recorrer estas propiedades una a una:
 
-| Propiedad de acción | DESCRIPCIÓN |
+| Propiedad de acción | Descripción |
 | --- | --- |
 | `type` | `Http` en lugar de `APIapp` |
 | `metadata.apiDefinitionUrl` | Para usar esta acción en el Diseñador de aplicación lógica, incluya el punto de conexión de metadatos, que se construye a partir de: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |

@@ -4,10 +4,10 @@ description: Obtenga información acerca de cómo solucionar problemas al crear,
 ms.date: 01/15/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76157090"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solución de problemas de errores con instancias de Azure Blueprint
@@ -30,7 +30,7 @@ Es habitual que el error se deba a un artefacto y no al plano técnico en su con
 
 ## <a name="general-errors"></a>Errores generales
 
-### <a name="policy-violation"></a>Escenario: Infracción de la directiva
+### <a name="scenario-policy-violation"></a><a name="policy-violation"></a>Escenario: Infracción de la directiva
 
 #### <a name="issue"></a>Problema
 
@@ -47,7 +47,7 @@ Una directiva puede entrar en conflicto con la implementación por una serie de 
 
 Cambie el plano técnico para que no entre en conflicto con las directivas en los detalles del error. Si este cambio no es posible, una opción alternativa es hacer que el ámbito de la asignación de directivas cambie para que el plano técnico deje de estar en conflicto con la directiva.
 
-### <a name="escape-function-parameter"></a>Escenario: El parámetro de plano técnico es una función
+### <a name="scenario-blueprint-parameter-is-a-function"></a><a name="escape-function-parameter"></a>Escenario: El parámetro de plano técnico es una función
 
 #### <a name="issue"></a>Problema
 
@@ -63,7 +63,7 @@ Para pasar una función como parámetro, escape la cadena completa con `[`, de m
 
 ## <a name="delete-errors"></a>Eliminación de errores
 
-### <a name="assign-delete-timeout"></a>Escenario: Tiempo de espera de eliminación de asignaciones
+### <a name="scenario-assignment-deletion-timeout"></a><a name="assign-delete-timeout"></a>Escenario: Tiempo de espera de eliminación de asignaciones
 
 #### <a name="issue"></a>Problema
 

@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671656"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229580"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 La característica Copia de seguridad y restauración de [Azure App Service](overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación. Puede configurar las copias de seguridad de modo que se conserven durante un período de tiempo indefinido. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación.

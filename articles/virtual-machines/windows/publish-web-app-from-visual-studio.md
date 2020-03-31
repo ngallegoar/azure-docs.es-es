@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71970877"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicación de una aplicación web ASP.NET en una máquina virtual de Azure desde Visual Studio
 
 En este documento se describe cómo publicar una aplicación web ASP.NET en una máquina virtual de Azure mediante la característica de publicación **Microsoft Azure Virtual Machines** de Visual Studio 2019.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 A fin de utilizar Visual Studio para publicar un proyecto de ASP.NET en una máquina virtual de Azure, la máquina virtual debe estar correctamente configurada.
 
 - La máquina debe configurarse para ejecutar una aplicación web ASP.NET y tener WebDeploy instalado.
@@ -125,7 +125,7 @@ Para configurar una canalización de entrega continua conAzure Pipelines, consul
 [Selector de máquinas virtuales de Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
 [Inicio de sesión de WebDeploy]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
 [Error de certificado]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
-[Ventana de salida]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
+[Ventana Salida]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
 [Página de publicación: botón Publicar]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
 [Página de publicación: botón Configuración]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
 [Configuración de publicación: página de conexión]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png

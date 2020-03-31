@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806069"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Creación de transcripciones con etiqueta humana
@@ -29,7 +29,7 @@ Las transcripciones con etiqueta humana para audio inglés deben proporcionarse 
 
 Estos son algunos ejemplos:
 
-| Caracteres para evitar | Sustitución | Notas |
+| Caracteres para evitar | Substitution | Notas |
 | ------------------- | ------------ | ----- |
 | “Hello world” | "Hello world" | Las comillas de apertura y cierre se han sustituido por los caracteres ASCII adecuados. |
 | John’s day | John's day | El apóstrofo se ha sustituido por el carácter ASCII adecuado. |
@@ -84,7 +84,7 @@ Las transcripciones con etiqueta humana de audio en chino mandarín deben codifi
 
 Estos son algunos ejemplos:
 
-| Caracteres para evitar | Sustitución   | Notas |
+| Caracteres para evitar | Substitution   | Notas |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | Las comillas de apertura y cierre se han sustituido por los caracteres adecuados. |
 | 需要什么帮助? | 需要什么帮助？| El signo de interrogación se ha sustituido por el carácter adecuado. |

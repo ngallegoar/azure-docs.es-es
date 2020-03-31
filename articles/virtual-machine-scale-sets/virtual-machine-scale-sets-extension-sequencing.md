@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278049"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Secuenciación del aprovisionamiento de extensiones en conjuntos de escalado de máquinas virtuales
@@ -21,7 +21,7 @@ Cuando se usan varias extensiones en una máquina virtual, es importante asegura
 
 En este artículo se detalla cómo puede secuenciar las extensiones a fin de configurarlas para las instancias de máquina virtual de los conjuntos de escalado de máquinas virtuales.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este artículo se da por hecho que está familiarizado con:
 -   [Extensiones](../virtual-machines/extensions/overview.md) de máquina virtual de Azure
 -   [Modificación](virtual-machine-scale-sets-upgrade-scale-set.md) de conjuntos de escalado de máquinas virtuales

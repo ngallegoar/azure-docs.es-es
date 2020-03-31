@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
 ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426315"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desarrollo de funciones definidas por el usuario de .NET Standard para trabajos de Azure Stream Analytics (versión preliminar)
@@ -19,12 +19,12 @@ ms.locfileid: "75426315"
 Azure Stream Analytics ofrece un lenguaje de consulta similar a SQL para realizar transformaciones y cálculos sobre transmisiones de datos del evento. Hay muchas funciones integradas, pero algunos escenarios complejos requieren flexibilidad adicional. Con las funciones definidas por el usuario (UDF) de .NET Standard, puede invocar sus propias funciones escritas en cualquier lenguaje de .NET Standard (C#, F#, etc.) para ampliar el lenguaje de consulta de Stream Analytics. Las UDF le permiten realizar cálculos matemáticos complejos, importar modelos de aprendizaje automático personalizados mediante ML.NET y usar una lógica personalizada de imputación para datos que faltan. La característica UDF para trabajos de Stream Analytics está actualmente en versión preliminar y no debe usarse en las cargas de trabajo de producción.
 
 La función definida por el usuario de .NET para trabajos en la nube está disponible en:
-* Centro occidental de EE.UU.
-* Europa del Norte
-* East US
+* Centro-Oeste de EE. UU.
+* Norte de Europa
+* Este de EE. UU.
 * Oeste de EE. UU.
 * Este de EE. UU. 2
-* Europa occidental
+* Oeste de Europa
 
 Si está interesado en usar esta característica en cualquier otra región, puede [solicitar acceso](https://aka.ms/ccodereqregion).
 

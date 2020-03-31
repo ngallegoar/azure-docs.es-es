@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 5f61009ee7b43be618e37acb4a783a54dbf11e55
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789178"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Supervisión y administración de Slack con Azure Logic Apps
@@ -25,9 +25,9 @@ Con Azure Logic Apps y el conector Slack, puede crear tareas y flujos de trabajo
 
 Puede usar desencadenadores que obtengan respuestas de su cuenta de Slack y permitan que la salida esté disponible para otras acciones. Puede usar acciones que realicen tareas con su cuenta de Slack. También puede hacer que otras acciones usen la salida de las acciones de Slack. Por ejemplo, cuando se crea un nuevo archivo, puede enviar un correo electrónico con el conector Office 365 Outlook. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * La cuenta y las credenciales de usuario de [Slack](https://slack.com/).
 
@@ -41,7 +41,7 @@ Puede usar desencadenadores que obtengan respuestas de su cuenta de Slack y perm
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
 
 1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "slack" como filtro. En la lista de desencadenadores, seleccione el que desee. 
 
@@ -49,7 +49,7 @@ Puede usar desencadenadores que obtengan respuestas de su cuenta de Slack y perm
 
    Para las aplicaciones lógicas existentes, en el último paso donde desea agregar una acción, elija **Nuevo paso**. 
    En el cuadro de búsqueda, escriba "slack" como filtro. 
-   En la lista de acciones, seleccione la acción que desee.
+   En la lista de acciones, seleccione la que desee.
 
    Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
    Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.

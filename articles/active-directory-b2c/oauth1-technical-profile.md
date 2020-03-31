@@ -12,10 +12,10 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7f734844859d44e66bddbc2ddd999659e52f9668
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184084"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OAuth1 en una directiva personalizada en Azure Active Directory B2C
@@ -71,12 +71,12 @@ El perfil técnico también muestra la notificaciones no proporcionadas por el p
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | client_id | Sí | El identificador de la aplicación del proveedor de identidades. |
-| ProviderName | Sin | Nombre del proveedor de identidades. |
+| ProviderName | No | Nombre del proveedor de identidades. |
 | request_token_endpoint | Sí | La dirección URL del punto de conexión del token de solicitud de acuerdo con RFC 5849. |
 | authorization_endpoint | Sí | La dirección URL del punto de conexión de autorización de acuerdo con RFC 5849. |
 | access_token_endpoint | Sí | La dirección URL del punto de conexión del token de acuerdo con RFC 5849. |
-| ClaimsEndpoint | Sin | La dirección URL del punto de conexión de la información de usuario. |
-| ClaimsResponseFormat | Sin | El formato de respuesta de las notificaciones.|
+| ClaimsEndpoint | No | La dirección URL del punto de conexión de la información de usuario. |
+| ClaimsResponseFormat | No | El formato de respuesta de las notificaciones.|
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 

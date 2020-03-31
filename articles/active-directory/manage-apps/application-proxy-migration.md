@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4790dc7ebeeee3407e89bcf38d7e3f25699ed328
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67108408"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparación de soluciones de acceso remoto
@@ -34,7 +34,7 @@ Use esta tabla para comprender cómo se comparan Threat Management Gateway (TMG)
 
 | Característica | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| Autenticación de certificados | Sí | Sí | - | - |
+| Autenticación de certificado | Sí | Sí | - | - |
 | Publicar de forma selectiva las aplicaciones de explorador | Sí | Sí | Sí | Sí |
 | Autenticación previa e inicio de sesión único | Sí | Sí | Sí | Sí | 
 | Firewall de capa 2/3 | Sí | Sí | - | - |
@@ -47,7 +47,7 @@ Use esta tabla para comprender cómo se comparan Threat Management Gateway (TMG)
 | Autenticación con encabezados | - | Sí | - | Sí, con PingAccess | 
 | Seguridad de escala en la nube | - | - | - | Sí | 
 | Acceso condicional | - | Sí | - | Sí |
-| No existe ningún componente en la zona desmilitarizada (DMZ) | - | - | - | Sí |
+| No existe ningún componente en la red perimetral (DMZ) | - | - | - | Sí |
 | No hay conexiones entrantes | - | - | - | Sí |
 
 En la mayoría de los escenarios, se recomienda Azure AD Application Proxy como la solución actual. Web Application Proxy solo se prefiere en los escenarios que requieran un servidor proxy para AD FS y no pueda usar dominios personalizados en Azure Active Directory. 

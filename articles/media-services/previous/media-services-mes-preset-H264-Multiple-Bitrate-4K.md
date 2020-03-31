@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74887024"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 Multiple Bitrate 4K
@@ -32,7 +32,7 @@ ms.locfileid: "74887024"
 >  Debe obtener el tipo de unidad reservada premium con codificación 4K. Para obtener más información, consulte [Escalación de Encoding](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
 > [!NOTE]
->  Cuando se modifiquen los valores `Width` y `Height` en las capas, asegúrese de que la relación de aspecto no cambia. Por ejemplo:  1920x1080, 1280x720, 1080x576, 640x360. No debe utilizar una combinación de relaciones de aspecto, como: 1280x720, 720x480, 640x360.  
+>  Cuando se modifiquen los valores `Width` y `Height` en las capas, asegúrese de que la relación de aspecto no cambia. Por ejemplo: 1920x1080, 1280x720, 1080x576, 640x360. No debe utilizar una combinación de relaciones de aspecto, como: 1280x720, 720x480, 640x360.  
   
  XML  
   

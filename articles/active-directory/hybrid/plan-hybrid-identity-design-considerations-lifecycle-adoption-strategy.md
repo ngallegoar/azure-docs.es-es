@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 85f600c8bd46e699e80bf7b596574dc01467ef79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109311"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinación de la estrategia de adopción de ciclo de vida de identidad híbrida
@@ -36,7 +36,7 @@ El control de acceso es una función crucial en un sistema centralizado de aprov
 
 Las cuentas en empresas de TI sofisticadas incluyen cientos de parámetros que definen las autoridades y estos detalles se pueden controlar mediante el sistema de aprovisionamiento. Los nuevos usuarios pueden identificarse con los datos que proporcione desde el origen de autoridad. La capacidad de aprobación de solicitudes de acceso inicia los procesos que aprueban (o rechazan) el aprovisionamiento de recursos para ellos.
 
-| Fase de administración del ciclo de vida | Local | Nube | Híbrido |
+| Fase de administración del ciclo de vida | En el entorno local | Nube | Híbrido |
 | --- | --- | --- | --- |
 | Aprovisionamiento y administración de cuentas |Mediante el rol del servidor Servicios de dominio de Active Directory® (AD DS), puede crear una infraestructura escalable, segura y administrable para la administración de recursos y usuarios, así como proporcionar compatibilidad con aplicaciones habilitadas para directorio, como Microsoft® Exchange Server. <br><br> [Puede aprovisionar grupos en AD DS a través de un administrador de identidad.](https://technet.microsoft.com/library/ff686261.aspx) <br>[Puede aprovisionar usuarios en AD DS](https://technet.microsoft.com/library/ff686263.aspx). <br><br> Los administradores pueden usar el control de acceso para administrar el acceso de usuarios a los recursos compartidos por seguridad. En Active Directory, el control de acceso se administra en el nivel de objeto; para ello, se establecen distintos niveles de acceso, o permisos, a los objetos, como Control total, Escritura, Lectura o Sin acceso. El control de acceso en Active Directory define cómo los distintos usuarios pueden usar objetos de Active Directory. De forma predeterminada, los permisos de los objetos de Active Directory se establecen en la configuración más segura. |Hay que crear una cuenta para cada usuario que vaya a tener acceso a un servicio de nube de Microsoft. También puede cambiar las cuentas de usuario o eliminarlas cuando ya no sean necesarias. De forma predeterminada, los usuarios no tienen permisos de administrador, pero puede asignárselos si lo desea. <br><br> Dentro de Azure Active Directory, una de las principales características es la capacidad para administrar el acceso a los recursos. Estos recursos pueden formar parte del directorio, como en el caso de los permisos para administrar objetos a través de roles en el directorio o los recursos externos al directorio, como las aplicaciones SaaS, los servicios de Azure y los sitios de SharePoint o los recursos publicados en modo local. <br><br> En el centro de la solución de administración de acceso de Azure Active Directory se encuentra el grupo de seguridad. El propietario de los recursos (o el administrador del directorio) puede asignar un grupo para proporcionar determinados derechos de acceso a los recursos que posee. Los miembros del grupo recibirán el derecho de acceso y el propietario del recurso puede delegar el derecho de administración de la lista de miembros de un grupo en otra persona como, por ejemplo, un administrador de departamento o un administrador de soporte técnico.<br> <br> La sección Administración de grupos en Azure AD proporciona más información sobre la administración del acceso mediante grupos. |Amplíe las identidades de Active Directory a la nube por medio de la sincronización y la federación. |
 
@@ -92,7 +92,7 @@ Proceso de sincronización de identidades
 
 Revise la siguiente tabla para comparar las opciones de sincronización:
 
-| Opción de administración de sincronización | Ventajas | Desventajas |
+| Opción de administración de sincronización | Ventajas | Inconvenientes |
 | --- | --- | --- |
 | Basada en la sincronización (a través de DirSync o AADConnect) |Usuarios y grupos se sincronizan desde una ubicación local y la nube. <br>  **Control de directivas**: Se pueden establecer directivas de cuenta a través de Active Directory, lo que proporciona al administrador la capacidad de administrar directivas de contraseñas, estaciones de trabajo, restricciones, controles de bloqueo, etc., sin tener que hacer más tareas en la nube.  <br>  **Control de acceso**: Puede restringir el acceso al servicio en la nube para que se pueda acceder a los servicios a través del entorno corporativo, a través de servidores en línea o ambos. <br>  Menos llamadas al soporte técnico: Si los usuarios tienen que recordar menos contraseñas, es menos probable que las olviden. <br>  Seguridad: La información y las identidades de usuarios están protegidas porque todos los servidores y servicios usados en el inicio de sesión único se controlan de forma local. <br>  Compatibilidad con la autenticación sólida: Puede usar la autenticación sólida (también denominada autenticación en dos fases) con el servicio en la nube. Sin embargo, si usa la autenticación sólida, debe emplear el inicio de sesión único. | |
 | Basada en la federación (a través de AD FS) |Habilitada por el servicio de token de seguridad (STS). Al configurar un STS para proporcionar acceso de inicio de sesión único con un servicio en la nube de Microsoft, va a crear una confianza federada entre su STS local y el dominio federado que especificó en el inquilino de Azure AD. <br> Permite a los usuarios finales utilizar el mismo conjunto de credenciales para obtener acceso a varios recursos <br>los usuarios finales no tienen que mantener varios conjuntos de credenciales. Sin embargo, los usuarios deben proporcionar sus credenciales para cada uno de los recursos participantes. Se admiten escenarios de B2B y B2C. |Requiere personal especializado para la implementación y el mantenimiento de servidores AD FS locales dedicados. Existen restricciones para el uso de la autenticación sólida, si va a usar AD FS para su STS. Para obtener más información, consulte la página sobre la [configuración de opciones avanzadas de AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
@@ -102,6 +102,6 @@ Revise la siguiente tabla para comparar las opciones de sincronización:
 > 
 > 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

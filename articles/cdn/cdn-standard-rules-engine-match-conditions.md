@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900192"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Condiciones de coincidencia en el motor de reglas estándar de Azure CDN
@@ -58,7 +58,7 @@ Identifica las solicitudes en función de la información de las cookies de la s
 
 Nombre de la cookie | Operator | Valor de la cookie | Transformación de mayúsculas y minúsculas
 ------------|----------|--------------|---------------
-Cadena | [Lista de operadores estándar](#standard-operator-list) | Cadena, Int | Sin transformación, en mayúsculas, en minúsculas
+String | [Lista de operadores estándar](#standard-operator-list) | Cadena, Int | Sin transformación, en mayúsculas, en minúsculas
 
 #### <a name="key-information"></a>Información importante
 
@@ -77,7 +77,7 @@ Identifica las solicitudes en función de los argumentos definidos para el méto
 
 Nombre de argumento | Operator | Valor de argumento | Transformación de mayúsculas y minúsculas
 --------------|----------|----------------|---------------
-Cadena | [Lista de operadores estándar](#standard-operator-list) | Cadena, Int | Sin transformación, en mayúsculas, en minúsculas
+String | [Lista de operadores estándar](#standard-operator-list) | Cadena, Int | Sin transformación, en mayúsculas, en minúsculas
 
 ### <a name="query-string"></a>Cadena de consulta
 
@@ -132,7 +132,7 @@ Identifica las solicitudes que usan un encabezado específico en la solicitud.
 
 Nombre de encabezado | Operator | Valor de encabezado | Transformación de mayúsculas y minúsculas
 ------------|----------|--------------|---------------
-Cadena | [Lista de operadores estándar](#standard-operator-list) | Cadena, Int | Sin transformación, en mayúsculas, en minúsculas
+String | [Lista de operadores estándar](#standard-operator-list) | Cadena, Int | Sin transformación, en mayúsculas, en minúsculas
 
 ### <a name="request-method"></a>Método de solicitud
 
@@ -206,7 +206,7 @@ Identifica las solicitudes que incluyen la ruta de acceso especificada en la dir
 
 #### <a name="required-fields"></a>Campos obligatorios
 
-Operator | Valor | Transformación de caso
+Operator | Value | Transformación de caso
 ---------|-------|---------------
 [Lista de operadores estándar](#standard-operator-list) | Cadena, Int | Sin transformación, en mayúsculas, en minúsculas
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 70256046089a59df1de79b78124c5d60fde77080
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705945"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Streaming de FairPlay sin conexión para iOS con Media Services v3
@@ -46,7 +46,7 @@ En este artículo se trata la compatibilidad con el modo sin conexión de FairPl
 > [!NOTE]
 > DRM sin conexión solo se factura para hacer una única solicitud de una licencia al descargar el contenido. Los errores no se facturan.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de implementar DRM sin conexión para FairPlay en un dispositivo iOS 10 o superior:
 

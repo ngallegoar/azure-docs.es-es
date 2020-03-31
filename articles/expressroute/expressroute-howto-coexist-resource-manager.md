@@ -9,10 +9,10 @@ ms.date: 12/11/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 5a7ac1b6a9f75655f7e07cc8af89b676ec611421
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905465"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configuración de conexiones ExpressRoute y de sitio a sitio coexistentes con PowerShell
@@ -83,7 +83,7 @@ Hay dos conjuntos diferentes de procedimientos que puede elegir. El procedimient
 [!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 
-## <a name="new"></a>Creación de una nueva red virtual y conexiones coexistentes
+## <a name="to-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Creación de una nueva red virtual y conexiones coexistentes
 Este procedimiento le guía en la creación de una red virtual y conexiones de sitio a sitio y ExpressRoute que coexisten. Los cmdlets que se usan en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones.
 
 1. Inicie sesión y seleccione su suscripción.
@@ -185,7 +185,7 @@ Este procedimiento le guía en la creación de una red virtual y conexiones de s
     New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
     ```
 
-## <a name="add"></a>Para configurar conexiones coexistentes para una red virtual ya existente
+## <a name="to-configure-coexisting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Para configurar conexiones coexistentes para una red virtual ya existente
 Si tiene una red virtual con una sola una puerta de enlace de red virtual (por ejemplo, una puerta de enlace de VPN de sitio a sitio) y desea agregar una segunda puerta de enlace de otro tipo (por ejemplo, una puerta de enlace de ExpressRoute), compruebe el tamaño de la subred de la puerta de enlace. Si la subred de la puerta de enlace es/27, o mayor, puede omitir los pasos siguientes y seguir los de la sección anterior para agregar una puerta de enlace VPN de sitio a sitio o una puerta de enlace de ExpressRoute. Si la subred de la puerta de enlace es /28 o /29, primero debe eliminar la puerta de enlace de red virtual y aumentar el tamaño de la subred de la puerta de enlace. Los pasos de esta sección le muestran cómo hacerlo.
 
 Los cmdlets que se usan en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones.

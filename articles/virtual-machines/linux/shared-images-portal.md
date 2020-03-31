@@ -14,10 +14,10 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
 ms.openlocfilehash: 44df85a94ad26d3abcd48f01c31e7aa093c1123f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978703"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Creación de una instancia de Azure Shared Image Gallery mediante el portal
@@ -30,7 +30,7 @@ La galería es un recurso de nivel superior que proporciona control de acceso ba
 
 La característica de galería de imágenes compartidas tiene varios tipos de recursos. En este artículo, usaremos o crearemos los siguientes elementos:
 
-| Resource | DESCRIPCIÓN|
+| Resource | Descripción|
 |----------|------------|
 | **Imagen administrada** | Una imagen básica que se puede usar por sí sola o para crear una **versión de imagen** de una galería de imágenes. Las imágenes administradas se crean a partir de máquinas virtuales [generalizadas](shared-image-galleries.md#generalized-and-specialized-images). Una imagen administrada es un tipo de VHD especial que se puede usar para crear varias máquinas virtuales y que ahora se puede usar para crear versiones de imágenes compartidas. |
 | **Instantánea** | Una copia de un disco duro virtual que se puede usar para crear una **versión de imagen**. Se pueden tomar instantáneas de una máquina virtual [especializada](shared-image-galleries.md#generalized-and-specialized-images) (que no se ha generalizado) y, después, usarse por sí solas o con instantáneas de discos de datos para crear una versión de imagen especializada.

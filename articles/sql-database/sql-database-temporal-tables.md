@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
 ms.openlocfilehash: 98fd2658f3fbcb0e7e29114d29f8dc6ed39eedf2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820720"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introducción a las tablas temporales de Azure SQL Database
@@ -188,7 +188,7 @@ ALTER TABLE dbo.WebsiteUserInfo
 También puede usar la versión más reciente de [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) para cambiar el esquema de tabla temporal mientras esté conectado a la base de datos (modo en línea) o como parte del proyecto de base de datos (modo sin conexión).
 
 ## <a name="controlling-retention-of-historical-data"></a>Control de la retención de datos históricos
-Con tablas temporales con versión del sistema, la tabla de historial puede aumentar el tamaño de la base de datos más que las tablas convencionales. Una tabla de historial grande y creciente puede ser un problema debido a los costos de almacenamiento puro y a la imposición de un impuesto de rendimiento sobre las consultas temporales. Por lo tanto, el desarrollo de una directiva de retención de datos para administrar datos en la tabla de historial es un aspecto importante del planeamiento y la administración del ciclo de vida de cada tabla temporal. Con Azure SQL Database, dispone de los siguientes enfoques para administrar datos históricos en la tabla temporal:
+Con tablas temporales con versión del sistema, la tabla de historial puede aumentar el tamaño de la base de datos más que las tablas convencionales. Una tabla de historial de gran tamaño y creciente puede ser un problema debido a los costos de almacenamiento puro y a la imposición de un impuesto de rendimiento sobre las consultas temporales. Por lo tanto, al desarrollar una directiva de retención de datos para administrar datos en la tabla de historial es un aspecto importante de la planeación y la administración del ciclo de vida de cada tabla temporal. Con Azure SQL Database, dispone de los siguientes enfoques para administrar datos históricos en la tabla temporal:
 
 * [Partición de tabla](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
 * [Script de limpieza personalizado](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)

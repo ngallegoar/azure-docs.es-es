@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10dfcf337dc75a202e781e931f38783291a72fe7
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67272752"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Una aplicación asignada no aparece en el panel de acceso
@@ -399,7 +399,7 @@ Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
 Tras un breve período, podrá ver el panel de configuración de la aplicación.
 
-#### <a name="configure-the-application-for-password-single-sign-on-1"></a> Configuración de la aplicación para el inicio de sesión único con contraseña
+#### <a name="configure-the-application-for-password-single-sign-on"></a><a name="configure-the-application-for-password-single-sign-on-1"></a> Configuración de la aplicación para el inicio de sesión único con contraseña
 
 Para configurar el inicio de sesión único para una aplicación, siga los pasos siguientes:
 
@@ -439,7 +439,7 @@ Puede que un usuario no vea una aplicación en su Panel de acceso porque no ha s
 
 -   [Asignación de una licencia a un usuario](#how-to-assign-a-user-a-license)
 
-### <a name="check-if-a-user-is-assigned-to-the-application"></a>Comprobación de si un usuario está asignado a la aplicación
+### <a name="check-if-a-user-is-assigned-to-the-application"></a>Comprobar si un usuario está asignado a la aplicación
 
 Para comprobar si un usuario está asignado a la aplicación, siga estos pasos:
 
@@ -499,7 +499,7 @@ Para asignar uno o varios usuarios a una aplicación directamente, siga los paso
 
 Tras un breve período, los usuarios que seleccionó podrán iniciar estas aplicaciones en el panel de acceso.
 
-### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Comprobación de si un usuario posee una licencia relacionada con la aplicación
+### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Comprobar si un usuario posee una licencia relacionada con la aplicación
 
 Para comprobar las licencias asignadas de un usuario, siga estos pasos:
 
@@ -575,7 +575,7 @@ Para comprobar la pertenencia de un grupo, siga estos pasos:
 
 7. Haga clic en **Grupos**.
 
-8. Compruebe si el usuario forma parte de un grupo que se ha asignado a la aplicación.
+8. Compruebe si el usuario forma parte de un grupo al que se ha asignado la aplicación.
 
    * Si desea quitar el usuario del grupo, **haga clic en la fila** del grupo y seleccione Eliminar.
 
@@ -637,7 +637,7 @@ Tras un breve período, los usuarios que seleccionó podrán iniciar estas aplic
 
 9. Haga clic en **Licencias** para ver qué licencias tiene asignadas el grupo.
 
-   * Si el grupo está asignado a una licencia de Office, esto permitirá que determinadas aplicaciones de Office aparezcan en el Panel de acceso del usuario.
+   * Si el grupo está asignado a una licencia de Office, esto permitirá que determinadas aplicaciones de Office aparezcan en el panel de acceso del usuario.
 
 ### <a name="how-to-assign-a-license-to-a-group"></a>Asignación de una licencia a un grupo
 

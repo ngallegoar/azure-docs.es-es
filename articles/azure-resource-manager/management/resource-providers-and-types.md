@@ -3,12 +3,12 @@ title: Proveedores de recursos y tipos de recursos
 description: Describe los proveedores de recursos que admiten el Administrador de recursos, sus esquemas y las versiones disponibles de API y las regiones que pueden hospedar los recursos.
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.openlocfilehash: ce68762dae14f98a751cb4b619b75ff04a5f655b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 82b8251006a1a2d4edd198eca843489d3720f8d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474558"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234088"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
@@ -84,7 +84,7 @@ Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, Registr
 
 Que devuelve resultados similares a:
 
-```powershell
+```output
 ProviderNamespace                RegistrationState
 -------------------------------- ------------------
 Microsoft.ClassicCompute         Registered
@@ -102,7 +102,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 
 Que devuelve resultados similares a:
 
-```powershell
+```output
 ProviderNamespace : Microsoft.Batch
 RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
@@ -119,7 +119,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 
 Que devuelve resultados similares a:
 
-```powershell
+```output
 {ProviderNamespace : Microsoft.Batch
 RegistrationState : Registered
 ResourceTypes     : {batchAccounts}
@@ -136,7 +136,7 @@ Para ver los tipos de recursos de un proveedor, use:
 
 Que devuelve:
 
-```powershell
+```output
 batchAccounts
 operations
 locations
@@ -153,7 +153,7 @@ Para obtener las versiones de API de un tipo de recurso, use:
 
 Que devuelve:
 
-```powershell
+```output
 2017-05-01
 2017-01-01
 2015-12-01
@@ -171,7 +171,7 @@ Para obtener las ubicaciones compatibles con un tipo de recurso, use:
 
 Que devuelve:
 
-```powershell
+```output
 West Europe
 East US
 East US 2
@@ -189,7 +189,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 
 Que devuelve resultados similares a:
 
-```azurecli
+```output
 Provider                         Status
 -------------------------------- ----------------
 Microsoft.ClassicCompute         Registered
@@ -217,7 +217,7 @@ az provider show --namespace Microsoft.Batch
 
 Que devuelve resultados similares a:
 
-```azurecli
+```output
 {
     "id": "/subscriptions/####-####/providers/Microsoft.Batch",
     "namespace": "Microsoft.Batch",
@@ -236,7 +236,7 @@ az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceT
 
 Que devuelve:
 
-```azurecli
+```output
 Result
 ---------------
 batchAccounts
@@ -255,7 +255,7 @@ az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceTyp
 
 Que devuelve:
 
-```azurecli
+```output
 Result
 ---------------
 2017-05-01
@@ -275,7 +275,7 @@ az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceTyp
 
 Que devuelve:
 
-```azurecli
+```output
 Result
 ---------------
 West Europe

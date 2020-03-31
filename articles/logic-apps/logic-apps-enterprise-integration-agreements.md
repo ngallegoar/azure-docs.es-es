@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790744"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Crear y administrar acuerdos entre socios comerciales en Azure Logic Apps
@@ -28,9 +28,9 @@ En este artículo se muestra cómo crear un acuerdo AS2, EDIFACT o X12 que puede
 
 Para crear acuerdos para intercambiar mensajes de RosettaNet, consulte [Intercambio de mensajes de RosettaNet](../logic-apps/logic-apps-enterprise-integration-rosettanet.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene ninguna suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) para almacenar el contrato y otros artefactos B2B. Esta cuenta de integración debe estar asociada con una suscripción a Azure.
 
@@ -40,7 +40,7 @@ Para crear acuerdos para intercambiar mensajes de RosettaNet, consulte [Intercam
 
 ## <a name="create-agreements"></a>Crear acuerdos
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "integración" como filtro. En los resultados, seleccione este recurso: **Cuentas de integración**
 
    ![Búsqueda de la cuenta de integración](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
@@ -57,7 +57,7 @@ En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro
 
    ![Elección de "Agregar"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
    | **Nombre** | Sí | <*agreement-name*> | Escriba el nombre del acuerdo. |
    | **Tipo de contrato** | Sí | **AS2**, **X12** o **EDIFACT** | El tipo de protocolo para el acuerdo. Al crear el archivo de contrato, el contenido del archivo debe coincidir con el tipo de contrato. | |  

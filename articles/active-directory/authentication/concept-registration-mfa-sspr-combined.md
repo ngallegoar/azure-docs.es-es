@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4cb5aca128679b21072a2a3daa503dc43a8e2885
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942892"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de información de seguridad combinado (vista preliminar)
@@ -49,15 +49,15 @@ El registro combinado admite los siguientes métodos y acciones de autenticació
 
 |   | Register | Change | Eliminar |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sí (máximo de 5) | Sin | Sí |
-| Aplicación autenticadora distinta | Sí (máximo de 5) | Sin | Sí |
-| Token de hardware | Sin | Sin | Sí |
+| Microsoft Authenticator | Sí (máximo de 5) | No | Sí |
+| Aplicación autenticadora distinta | Sí (máximo de 5) | No | Sí |
+| Token de hardware | No | No | Sí |
 | Teléfono | Sí | Sí | Sí |
 | Teléfono alternativo | Sí | Sí | Sí |
-| Teléfono del trabajo | Sin | Sin | Sin |
+| Teléfono del trabajo | No | No | No |
 | Email | Sí | Sí | Sí |
-| Preguntas de seguridad | Sí | Sin | Sí |
-| Contraseñas de aplicación | Sí | Sin | Sí |
+| Preguntas de seguridad | Sí | No | Sí |
+| Contraseñas de aplicación | Sí | No | Sí |
 | Claves de seguridad FIDO2<br />*Modo administrado solo desde la página [Información de seguridad](https://mysignins.microsoft.com/security-info)*| Sí | Sí | Sí |
 
 > [!NOTE]

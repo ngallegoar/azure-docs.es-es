@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7e2a8cad7cd4410a95a6ebd60ada22de456737bf
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67462532"
 ---
 # <a name="azure-ad-registered-devices"></a>Dispositivos registrados en Azure AD
@@ -38,7 +38,7 @@ El objetivo de los dispositivos registrados en Azure AD es proporcionar a los u
 |   | Windows Hello |
 |   | PIN |
 |   | Biométrica o patrón para otros dispositivos |
-| **Administración de dispositivos** | Administración de dispositivos móviles (por ejemplo, Microsoft Intune) |
+| **Administración de dispositivos** | Administración de dispositivos móviles (por ejemplo, Microsoft Intune) |
 |   | Administración de aplicaciones móviles |
 | **Principales funcionalidades** | SSO a los recursos en la nube |
 |   | Acceso condicional cuando los dispositivos están inscritos en Intune |
@@ -61,5 +61,5 @@ Otro usuario quiere acceder a su correo electrónico de la organización en su t
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Administración de identidades de dispositivos con Azure Portal](device-management-azure-portal.md).
-- [Administración de dispositivos obsoletos en Azure AD](manage-stale-devices.md).
+- [Administración de identidades de dispositivos con Azure Portal](device-management-azure-portal.md)
+- [Administración de dispositivos obsoletos en Azure AD](manage-stale-devices.md)

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925490"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228908"
 ---
 # <a name="scale-with-additional-process-servers"></a>Escalado de servidores de procesos adicionales
 
@@ -35,13 +35,13 @@ Compruebe los requisitos de tamaño que se resumen en la tabla. En general, si d
 
 | **Servidores de procesos adicionales** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
 | --- | --- | --- | --- |
-|4 vCPU (2 sockets * 2 núcleos \@ 2,5 GHz), 8 GB de memoria |< 300 GB |250 GB o menos |Replicar 85 máquinas o menos. |
+|4 vCPU (2 sockets * 2 núcleos \@ 2,5 GHz), 8 GB de memoria |300 GB |250 GB o menos |Replicar 85 máquinas o menos. |
 |8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 12 GB de memoria |600 GB |250 GB a 1 TB |Replicar entre 85 y 150 máquinas. |
 |12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz), 24 GB de memoria |1 TB |1 TB a 2 TB |Replicar entre 150 y 225 máquinas. |
 
 Donde cada máquina de origen protegida está configurada con 3 discos de 100 GB cada uno.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 En la tabla siguiente se resumen los requisitos previos para el servidor de procesos adicional.
 

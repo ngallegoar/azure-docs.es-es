@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278363"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuración de MPIO en un host de StorSimple que ejecuta CentOS
@@ -60,7 +60,7 @@ Un dispositivo de StorSimple conectado a un host Linux puede configurarse para a
 
 Con el siguiente procedimiento explicamos cómo configurar las múltiples rutas cuando un dispositivo StorSimple con dos interfaces de red está conectado a un host con dos interfaces de red.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En esta sección se detallan los requisitos previos de configuración para el servidor CentOS y el dispositivo de StorSimple.
 
 ### <a name="on-centos-host"></a>En el host CentOS

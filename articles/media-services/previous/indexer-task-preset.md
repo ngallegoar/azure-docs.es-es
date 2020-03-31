@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 29753759af341f82429f12b6710ae9c32dcb4103
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74896042"
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Valores predefinidos de tarea para Azure Media Indexer 
@@ -30,7 +30,7 @@ En este tema se describe el valor predefinido de tarea necesario para pasar al t
 
 En la tabla siguiente se explican los elementos y los atributos de la configuración de XML.
 
-|NOMBRE|Necesario|DESCRIPCIÓN|
+|Nombre|Necesario|Descripción|
 |---|---|---|
 |Entrada|true|Archivos de recursos que desea indexar.<br/>Azure Media Indexer es compatible con los siguientes formatos de archivo multimedia: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Puede especificar los nombres de archivo en los atributos **name** o **list** del elemento **input** (tal y como se muestra a continuación). Si no especifica qué archivo de recursos indexar, se seleccionará el principal. Si no hay ningún archivo de recurso principal establecido, se indexa el primer recurso de entrada.<br/><br/>Para especificar explícitamente el nombre de archivo de recurso, haga:<br/>```<input name="TestFile.wmv" />```<br/><br/>También puede indexar varios archivos de recursos al mismo tiempo (hasta 10). Para ello, siga estos pasos:<br/>- Cree un archivo de texto (archivo de manifiesto) y asígnele una extensión .lst.<br/>- Agregue una lista de todos los nombres de archivos de recursos en el recurso de entrada a este archivo de manifiesto.<br/>- Agregue (cargue) el archivo de manifiesto al recurso.<br/>- Especifique el nombre del archivo de manifiesto en el atributo list de la entrada.<br/>```<input list="input.lst">```<br/><br/>**Nota:** Si agrega más de 10 archivos al archivo de manifiesto, el trabajo de indexación producirá un error con el código 2006.|
 |metadata|false|Metadatos de los archivos de recursos especificados.<br/>```<metadata key="..." value="..." />```<br/><br/>Puede proporcionar valores para claves predefinidas. <br/><br/>Actualmente se admiten las siguientes claves:<br/><br/>**title** y **description**: se usan para actualizar el modelo de lenguaje y así mejorar la precisión del reconocimiento de voz.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**username** y **password**: se usan para la autenticación al descargar archivos de internet mediante http o https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Los valores de username y password se aplican a todas las direcciones URL de los elementos multimedia del manifiesto de entrada.|

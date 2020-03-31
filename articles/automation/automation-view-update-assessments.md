@@ -6,11 +6,11 @@ ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310091"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235452"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Visualización de las evaluaciones de actualizaciones de Azure Update Management
 
@@ -45,7 +45,7 @@ En las siguientes tablas, se muestran las clasificaciones de las actualizaciones
 |Herramientas     | Utilidad o característica que ayuda a realizar una o más tareas.        |
 |Actualizaciones     | Actualización de una aplicación o archivo que están instalados actualmente.        |
 
-### <a name="linux-2"></a>Linux
+### <a name="linux"></a><a name="linux-2"></a>Linux
 
 |clasificación  |Descripción  |
 |---------|---------|

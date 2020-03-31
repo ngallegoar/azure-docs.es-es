@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
 ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789280"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante Azure Logic Apps
@@ -33,9 +33,9 @@ Puede usar desencadenadores que supervisen eventos en el servidor SFTP y permiti
 
 El conector SFTP controla solo los archivos que tengan un tamaño de *50 MB o menos* y no admite la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). Para archivos de mayor tamaño, use el [conector SFTP-SSH](../connectors/connectors-sftp-ssh.md). Para conocer otras diferencias entre el conector SFTP y el conector SFTP-SSH, consulte [Comparación de SFTP-SSH y SFTP](../connectors/connectors-sftp-ssh.md#comparison) en el artículo sobre SFTP-SSH.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * La dirección del servidor SFTP y las credenciales de cuenta, que permiten que la aplicación lógica acceda a la cuenta de SFTP. Para usar el protocolo [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/), también necesita acceso a una clave privada SSH y a la contraseña de clave privada SSH.
 
@@ -55,7 +55,7 @@ El conector SFTP controla solo los archivos que tengan un tamaño de *50 MB o m
 
 Los desencadenadores de SFTP funcionan al sondear el sistema de archivos SFTP y buscar archivos que se hayan modificado desde el último sondeo. Algunas herramientas le permiten conservar la marca de tiempo cuando cambian los archivos. En estos casos, tiene que deshabilitar esta característica para que el desencadenador funcione. Estas son algunas opciones de configuración habituales:
 
-| Cliente SFTP | . |
+| Cliente SFTP | Acción |
 |-------------|--------|
 | WinSCP | Vaya a **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** (Opciones > Preferencias > Transferir > Editar > Conservar marca de tiempo >Deshabilitar). |
 | FileZilla | Vaya a **Transfer** > **Preserve timestamps of transferred files** > **Disable** (Transferir > Conservar marca de tiempo de archivos transferidos > Deshabilitar). |
@@ -73,7 +73,7 @@ Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba
 
    O bien
 
-   Para las aplicaciones lógicas existentes, en el último paso donde desea agregar una acción, elija **Nuevo paso**. En el cuadro de búsqueda, escriba "sftp" como filtro. En la lista de acciones, seleccione la acción que desee.
+   Para las aplicaciones lógicas existentes, en el último paso donde desea agregar una acción, elija **Nuevo paso**. En el cuadro de búsqueda, escriba "sftp" como filtro. En la lista de acciones, seleccione la que desee.
 
    Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. Elija el signo más ( **+** ) que aparece y seleccione **Agregar una acción**.
 

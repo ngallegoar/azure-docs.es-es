@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/23/2019
 ms.author: chlandsi
 ms.openlocfilehash: 31f5339c70d52019400ca5f1fe873de4790a3bd6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75380531"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Swift para iOS mediante el SDK de Voz
@@ -23,7 +23,7 @@ También hay inicios rápidos disponibles para la [síntesis de voz](~/articles/
 
 En este artículo aprenderá a crear una aplicación iOS en Swift mediante el SDK de Voz de Azure Cognitive Services para transcribir a texto la voz grabada con un micrófono.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, necesitará lo siguiente:
 

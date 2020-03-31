@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c515fef4997720435c64bd5f3ae7b18f8921fc5d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75475274"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concesión del consentimiento del administrador para todo el inquilino a una aplicación
@@ -25,7 +25,7 @@ Aprenda a simplificar la experiencia del usuario mediante la concesión del cons
 
 Para más información acerca de cómo dar consentimiento a las aplicaciones, consulte [Marco de consentimiento de Azure Active Directory](../develop/consent-framework.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para conceder el consentimiento del administrador para todo el inquilino, debe iniciar sesión como [Administrador global](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [Administrador de aplicaciones](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) o [Administrador de aplicaciones en la nube](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
 

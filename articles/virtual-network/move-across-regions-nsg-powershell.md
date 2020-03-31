@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: 0cbd8f61cb1b4cb8eae6b30625fb3039ff75adde
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75641492"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Traslado del grupo de seguridad de red (NSG) de Azure a otra región mediante Azure PowerShell
@@ -20,7 +20,7 @@ Hay varios escenarios en los que puede que deba mover los NSG existentes de una 
 Los grupos de seguridad de Azure no se pueden mover de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar las reglas de seguridad y configuración existentes de un NSG.  Después, puede preparar el recurso en otra región exportando el NSG a una plantilla y modificando los parámetros para que coincidan con la región de destino, y luego implementar la plantilla en la nueva región.  Para más información sobre Resource Manager y sus plantillas, consulte [Exportación de grupos de recursos a plantillas](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Asegúrese de que el grupo de seguridad de red de Azure se encuentra en la región de Azure desde la que quiere moverlo.
 

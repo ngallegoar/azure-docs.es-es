@@ -66,7 +66,7 @@ Las aplicaciones tienen que estar representadas por un objeto de aplicación en 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Escriba_la_información_de_la_cuenta_admitida_aquí
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
 > ## <a name="step-1-get-the-sample-app"></a>Paso 1: Obtención de la aplicación de ejemplo

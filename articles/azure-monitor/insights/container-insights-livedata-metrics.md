@@ -3,12 +3,12 @@ title: Vista de los métricas en tiempo real con Azure Monitor para contenedores
 description: En este artículo se describe cómo ver las métricas en tiempo real sin usar kubectl con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: fbb08a8ed3deeff061065916241ee2d724603be3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404945"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79216579"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Cómo ver métricas en tiempo real
 
@@ -20,7 +20,7 @@ En este artículo se proporciona una introducción detallada y le ayuda a entend
 >No se admiten los clústeres de AKS habilitados como [clústeres privados](https://azure.microsoft.com/updates/aks-private-cluster/) con esta característica. Esta característica se basa en el acceso directo a la API de Kubernetes a través de un servidor proxy desde el explorador. La habilitación de la seguridad de red para bloquear la API de Kubernetes desde este proxy bloqueará este tráfico. 
 
 >[!NOTE]
->Esta característica está disponible en todas las regiones de Azure, incluida Azure China. Actualmente no está disponible en Azure Gobierno de EE. UU.
+>Esta característica está disponible en todas las regiones de Azure, incluida Azure China. Actualmente no está disponible en Azure US Gov
 
 Para obtener ayuda para configurar o solucionar problemas de la característica de datos en directo (versión preliminar), revise la [guía de instalación](container-insights-livedata-setup.md).
 
@@ -34,7 +34,7 @@ Esta característica realiza una operación de sondeo en los puntos de conexión
 
 El intervalo de sondeo se configura desde la lista desplegable **Configurar intervalo**, lo que le permite establecer el sondeo de los nuevos datos cada 1, 5, 15 y 30 segundos. 
 
-![Intervalo de sondeo desplegable de Go Live](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.ping.png)
+![Intervalo de sondeo desplegable de Go Live](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
 >Se recomienda establecer el intervalo de sondeo en un segundo mientras se soluciona un problema durante un breve período de tiempo. Estas solicitudes pueden afectar la disponibilidad y limitación de la API de Kubernetes en el clúster. Después, vuelva a establecer el intervalo de sondeo más largo. 

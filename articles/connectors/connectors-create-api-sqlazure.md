@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 tags: connectors
 ms.openlocfilehash: 93b63d332f00c31a352c11e483fc3ce5cb45a922
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789209"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatización de flujos de trabajo en SQL Server o Azure SQL Database mediante Azure Logic Apps
@@ -22,9 +22,9 @@ Puede crear aplicaciones lógicas que se ejecutan cuando las desencadenan evento
 
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para información técnica específica del conector, así como sobre las limitaciones y los problemas conocidos, consulte la [página de referencia sobre el conector de SQL Server](https://docs.microsoft.com/connectors/sql/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * Una [base de datos SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) o una [base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md)
 

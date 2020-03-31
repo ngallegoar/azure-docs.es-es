@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76714414"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tareas para el líder del proyecto en el proceso de ciencia de datos en equipo
@@ -36,7 +36,7 @@ Para el Paso 6: Configuración del control de seguridad del repositorio del proy
 > [!NOTE] 
 > En este artículo se utiliza Azure Repos para configurar un proyecto de TDSP, ya que se explica cómo implementar TDSP en Microsoft. Si el equipo usa otras plataformas de hospedaje de código, las tareas del responsable de proyecto son las mismas, pero la manera de realizarlas puede ser diferente.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este tutorial se da por supuesto que el [administrador del grupo](group-manager-tasks.md) y el [responsable de equipo](team-lead-tasks.md) han configurado los siguientes recursos y permisos:
 

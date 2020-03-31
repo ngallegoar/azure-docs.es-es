@@ -82,7 +82,7 @@ Para este inicio rápido se requiere [.NET Core 2.2](https://www.microsoft.com/n
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Escriba_la_información_de_la_cuenta_admitida_aquí
+> > Enter_the_Supported_Account_Info_Here
     
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Paso 3: Configuración del proyecto de Visual Studio

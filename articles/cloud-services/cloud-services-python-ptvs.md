@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360725"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Roles web y de trabajo de Python con herramientas de Python para Visual Studio
 
 En este artículo se ofrece información general sobre el uso de roles web y de trabajo de Python con [herramientas de Python para Visual Studio][Python Tools for Visual Studio]. Obtenga información acerca de cómo usar Visual Studio para crear e implementar un servicio en la nube básico que usa Python.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 * [Visual Studio 2013, 2015 o 2017](https://www.visualstudio.com/)
 * [Herramientas de Python para Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Herramientas de Azure SDK para VS 2013][Azure SDK Tools for VS 2013] o  

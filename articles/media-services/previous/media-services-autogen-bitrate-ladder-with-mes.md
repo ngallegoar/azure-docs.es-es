@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74896016"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Uso de Media Encoder Standard para generar automáticamente una escalera de velocidad de bits  
@@ -34,7 +34,7 @@ Si su intención es codificar el vídeo de origen solo para streaming, deberá u
 
 Si su intención es codificar el vídeo de origen para streaming, así como generar archivos MP4 para la descarga progresiva, debería usar el valor preestablecido "Content Adaptive Multiple Bitrate MP4" al crear una tarea de codificación. Cuando se use el valor preestablecido **Content Adaptive Multiple Bitrate MP4**, el codificador MES aplicará la misma lógica de codificación que la mostrada anteriormente, pero el recurso de salida contendrá los archivos MP4 en los que el audio y el vídeo están intercalados. Puede usar uno de estos archivos MP4 (por ejemplo, la versión de velocidad de bits más alta) como un archivo de descarga progresiva.
 
-## <a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Media Services
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Media Services
 
 En el ejemplo de código siguiente se usa el último SDK para .NET de Media Services para realizar las siguientes tareas:
 
@@ -167,7 +167,7 @@ namespace AdaptiveStreamingMESPresest
 }
 ```
 
-## <a id="output"></a>Salida
+## <a name="output"></a><a id="output"></a>Salida
 
 Esta sección muestra tres niveles de salida generados por MES como resultado de la codificación con el valor preestablecido **Adaptive Streaming**. 
 
@@ -208,6 +208,6 @@ Un origen con un alto de "360" y una tasa de fotogramas de "29.970" genera 3 niv
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general sobre la codificación de Media Services](media-services-encode-asset.md)
 

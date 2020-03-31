@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: alkohli
 ms.openlocfilehash: 907647725dd6795b3b6482476de7442fbbf66114
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65917241"
 ---
 # <a name="enable-compute-network-on-your-azure-data-box-edge"></a>Habilitar la red de procesos en Azure Data Box Edge
@@ -27,7 +27,7 @@ Para configurar la red, deberá seguir los siguientes pasos:
 
 En este tutorial usará un módulo de aplicaciones de servidor web para demostrar el escenario.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar, necesitará:
 

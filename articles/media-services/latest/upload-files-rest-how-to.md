@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705775"
 ---
 # <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>Carga de archivos en una cuenta de Media Services v3 mediante REST
@@ -26,7 +26,7 @@ En Media Services, cargue los archivos digitales en un contenedor de blobs asoci
 
 En este artículo se muestra cómo cargar un archivo local con REST.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar los pasos descritos en este tema, ha de:
 

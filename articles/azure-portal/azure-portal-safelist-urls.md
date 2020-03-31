@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: c5bba7296a05cfbb72698a991ece1ef298689bd1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76900666"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Guardado en la lista de IP seguras de las direcciones URL de Azure Portal en el servidor proxy o firewall
@@ -26,7 +26,7 @@ A menudo, los administradores de red implementan servidores proxy, firewalls u o
 
 Los puntos de conexión de URL a la lista de IP seguras de Azure Portal son específicos de la nube de Azure donde está implementada la organización. Para permitir el tráfico de red a estos puntos de conexión a fin de omitir restricciones, seleccione la nube. Luego agregue la lista de direcciones URL al servidor proxy o firewall.
 
-#### <a name="public-cloudtabpublic-cloud"></a>[Nube pública](#tab/public-cloud)
+#### <a name="public-cloud"></a>[Nube pública](#tab/public-cloud)
 
 ```
 *.aadcdn.microsoftonline-p.com
@@ -50,7 +50,7 @@ Los puntos de conexión de URL a la lista de IP seguras de Azure Portal son espe
 *.windows-int.net
 ```
 
-#### <a name="us-government-cloudtabus-government-cloud"></a>[Gobierno de gobierno de Estados Unidos](#tab/us-government-cloud)
+#### <a name="us-government-cloud"></a>[Gobierno de gobierno de Estados Unidos](#tab/us-government-cloud)
 
 ```
 *.azure.us
@@ -63,7 +63,7 @@ Los puntos de conexión de URL a la lista de IP seguras de Azure Portal son espe
 *.windowsazure.us
 ```
 
-#### <a name="china-government-cloudtabchina-government-cloud"></a>[Nube del gobierno de China](#tab/china-government-cloud)
+#### <a name="china-government-cloud"></a>[Nube del gobierno de China](#tab/china-government-cloud)
 
 ```
 *.azure.cn

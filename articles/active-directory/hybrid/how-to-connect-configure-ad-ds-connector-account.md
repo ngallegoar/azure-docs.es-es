@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb80c3a94e63a886e4a16c0b8fa445b2a8a34e4
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72515822"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS 
@@ -136,7 +136,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Este cmdlet establecerá los siguientes permisos: 
  
 
-|type |NOMBRE |Access |Se aplica a| 
+|Tipo |Nombre |Acceso |Se aplica a| 
 |-----|-----|-----|-----|
 |Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos del dispositivo descendientes| 
 |Allow |Cuenta del conector de AD DS|Lectura de todas las propiedades |Objetos InetOrgPerson descendientes| 
@@ -162,7 +162,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Este cmdlet establecerá los siguientes permisos: 
 
-|type |NOMBRE |Access |Se aplica a|
+|Tipo |Nombre |Acceso |Se aplica a|
 |-----|-----|-----|-----| 
 |Allow|Cuenta del conector de AD DS|Propiedad de lectura/escritura|Objetos del usuario descendientes|
 
@@ -182,7 +182,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Este cmdlet establecerá los siguientes permisos: 
 
-|type |NOMBRE |Access |Se aplica a|
+|Tipo |Nombre |Acceso |Se aplica a|
 |-----|-----|-----|-----| 
 |Allow |Cuenta del conector de AD DS |Replicación de los cambios de directorio |Solo este objeto (raíz del dominio)| 
 |Allow |Cuenta del conector de AD DS |Replicación de todos los cambios de directorio |Solo este objeto (raíz del dominio)| 
@@ -202,7 +202,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Este cmdlet establecerá los siguientes permisos: 
 
-|type |NOMBRE |Access |Se aplica a|
+|Tipo |Nombre |Acceso |Se aplica a|
 |-----|-----|-----|-----| 
 |Allow |Cuenta del conector de AD DS |Restablecimiento de contraseña |Objetos del usuario descendientes| 
 |Allow |Cuenta del conector de AD DS |Escritura del elemento lockoutTime de la propiedad |Objetos del usuario descendientes| 
@@ -222,7 +222,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 Este cmdlet establecerá los siguientes permisos: 
 
-|type |NOMBRE |Access |Se aplica a|
+|Tipo |Nombre |Acceso |Se aplica a|
 |-----|-----|-----|-----| 
 |Allow |Cuenta del conector de AD DS |Lectura/escritura genérica |Todos los atributos del grupo de tipo de objeto y subobjetos| 
 |Allow |Cuenta del conector de AD DS |Creación o eliminación de los objetos secundarios |Todos los atributos del grupo de tipo de objeto y subobjetos| 
@@ -245,7 +245,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Este cmdlet establecerá los siguientes permisos:  
  
 
-|type |NOMBRE |Access |Se aplica a|
+|Tipo |Nombre |Acceso |Se aplica a|
 |-----|-----|-----|-----| 
 |Allow |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos del usuario descendientes| 
 |Allow |Cuenta del conector de AD DS |Lectura y escritura de todas las propiedades |Objetos InetOrgPerson descendientes| 
@@ -267,7 +267,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Este cmdlet establecerá los siguientes permisos: 
 
-|type |NOMBRE |Access |Se aplica a|
+|Tipo |Nombre |Acceso |Se aplica a|
 |-----|-----|-----|-----| 
 |Allow |Cuenta del conector de AD DS |Lectura de todas las propiedades |Objetos PublicFolder descendientes| 
 
@@ -292,7 +292,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Este cmdlet establecerá los siguientes permisos: 
 
-|type |NOMBRE |Access |Se aplica a|
+|Tipo |Nombre |Acceso |Se aplica a|
 |-----|-----|-----|-----| 
 |Allow |SYSTEM |Control total |Este objeto 
 |Allow |Administradores de empresas |Control total |Este objeto 

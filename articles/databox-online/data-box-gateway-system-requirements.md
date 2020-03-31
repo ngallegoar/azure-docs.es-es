@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65442388"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229844"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisitos del sistema de Azure Data Box Gateway
 
@@ -29,7 +29,7 @@ Los requisitos del sistema del dispositivo virtual de Data Box Gateway incluyen:
 
 El sistema host subyacente para Data Box Gateway puede dedicar los recursos siguientes para aprovisionar el dispositivo virtual:
 
-| Especificaciones                                          | DESCRIPCIÓN              |
+| Especificaciones                                          | Descripción              |
 |---------------------------------------------------------|--------------------------|
 | Procesadores virtuales (núcleos)   | Cuatro como mínimo |
 | Memoria  | 8 GB como mínimo|
@@ -59,7 +59,7 @@ El sistema host subyacente para Data Box Gateway puede dedicar los recursos sigu
 [!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
 
-## <a name="supported-storage-types"></a>Tipos de almacenamiento admitidos
+## <a name="supported-storage-types"></a>Tipos de almacenamiento compatibles
 
 [!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 

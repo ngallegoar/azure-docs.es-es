@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f368ad7cf9b83195e35a2283de7a3644cc9fc317
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 65167169248d83ebfec2c49c308673ec9315934e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77019764"
 ---
 # <a name="migrating-data-to-azure-vmware-solution-by-using-azure-data-box"></a>Migración de datos a la solución de VMware en Azure con Azure Data Box
 
 La solución en la nube Microsoft Azure Data Box le permite enviar terabytes de datos a Azure de forma rápida, económica y confiable. La transferencia de datos segura se acelera mediante el envío de un dispositivo de almacenamiento de Data Box de propiedad. Cada dispositivo de almacenamiento tiene una capacidad de almacenamiento máximo utilizable de 80 TB y se transporta al centro de datos mediante un operador regional. El dispositivo tiene una carcasa resistente para proteger los datos durante el envío.
 
-Al utilizar un dispositivo Data Box, puede realizar una migración masiva de los datos de VMware a la nube privada de AVS. Los datos del entorno de VMware vSphere local se copian en Data Box mediante el protocolo Network File System (NFS). La migración de datos en bloque implica guardar una copia en un momento dado de las máquinas virtuales, la configuración y los datos asociados en el dispositivo Data Box y enviarlos manualmente a Azure.
+Al utilizar un dispositivo Data Box, puede realizar una migración de forma masiva de los datos de VMware a la nube privada. Los datos del entorno de VMware vSphere local se copian en Data Box mediante el protocolo Network File System (NFS). La migración de datos en bloque implica guardar una copia en un momento dado de las máquinas virtuales, la configuración y los datos asociados en el dispositivo Data Box y enviarlos manualmente a Azure.
 
 En este artículo, aprenderá lo siguiente:
 
@@ -27,7 +27,7 @@ En este artículo, aprenderá lo siguiente:
 * Copia de datos desde el entorno VMware local al dispositivo Data Box mediante NFS.
 * Preparación para la devolución del dispositivo Data Box.
 * Preparación de los datos del blob para copiarlos en la solución de VMware en Azure.
-* Copia de los datos de Azure a la nube privada de AVS.
+* Copia de los datos de Azure a la nube privada.
 
 ## <a name="scenarios"></a>Escenarios
 
@@ -44,11 +44,11 @@ Utilice Data Box en los escenarios siguientes para la migración de datos en blo
 
 * Cree una red virtual y una cuenta de almacenamiento en la misma región donde se aprovisiona la solución de VMware en Azure.
 
-* Cree una [conexión de red virtual de Azure](cloudsimple-azure-network-connection.md) desde la nube privada de AVS a la red virtual donde se ha creado la cuenta de almacenamiento mediante los pasos mencionados en el artículo [Conexión de la red virtual de Azure a AVS mediante ExpressRoute](virtual-network-connection.md).
+* Cree una [conexión de red virtual de Azure](cloudsimple-azure-network-connection.md) desde la nube privada a la red virtual donde se ha creado la cuenta de almacenamiento mediante los pasos mencionados en el artículo [Conexión de la red virtual de Azure a CloudSimple mediante ExpressRoute](virtual-network-connection.md).
 
 ## <a name="set-up-data-box-for-nfs"></a>Configuración del dispositivo de Data Box para NFS
 
-Conéctese a la interfaz de usuario web local del dispositivo Data Box siguiendo los pasos descritos en la sección "Conexión al dispositivo" del [Tutorial: Cableado y conexión de un dispositivo Azure Data Box](../databox/data-box-deploy-set-up.md). Configure el dispositivo Data Box para permitir el acceso a los clientes NFS:
+Conéctese a la interfaz de usuario web local del dispositivo Data Box siguiendo los pasos descritos en la sección "Conexión al dispositivo" del [Tutorial: Cableado y conexión de un dispositivo Azure Data Box](../databox/data-box-deploy-set-up.md).  Configure el dispositivo Data Box para permitir el acceso a los clientes NFS:
 
 1. En la interfaz de usuario web local, vaya a la página **Connect and copy** (Conectar y copiar). En **NFS settings** (Configuración de NFS), haga clic en **NFS client access** (Acceso de cliente NFS). 
 
@@ -95,7 +95,7 @@ El recurso compartido NFS del dispositivo Data Box debe montarse como un almacé
 
    ![Incorporación de un nuevo almacén de datos: configuración de NFS](media/databox-migration-add-datastore-nfs-configuration.png)
 
-6. En el paso 4, seleccione los hosts ESXi en los que desea montar el almacén de datos y, después, seleccione **Next** (Siguiente). En un clúster, seleccione todos los hosts para garantizar la migración de las máquinas virtuales.
+6. En el paso 4, seleccione los hosts ESXi en los que desea montar el almacén de datos y, después, seleccione **Next** (Siguiente).  En un clúster, seleccione todos los hosts para garantizar la migración de las máquinas virtuales.
 
    ![Incorporación de un nuevo almacén de datos: selección de hosts](media/databox-migration-add-datastore-nfs-select-hosts.png)
 
@@ -103,7 +103,7 @@ El recurso compartido NFS del dispositivo Data Box debe montarse como un almacé
 
 ## <a name="copy-data-to-the-data-box-nfs-datastore"></a>Copia de datos al almacén de datos NFS del dispositivo Data Box
 
-Las máquinas virtuales se pueden migrar o clonar en el nuevo almacén de datos. Las máquinas virtuales no utilizadas que desee migrar se pueden migrar al almacén de datos NFS del dispositivo Data Box mediante la opción **Storage vMotion**. Las máquinas virtuales activas se pueden clonar al almacén de datos NFS de Data Box.
+Las máquinas virtuales se pueden migrar o clonar en el nuevo almacén de datos.  Las máquinas virtuales no utilizadas que desee migrar se pueden migrar al almacén de datos NFS del dispositivo Data Box mediante la opción **Storage vMotion**. Las máquinas virtuales activas se pueden clonar al almacén de datos NFS de Data Box.
 
 * Identifique y enumere las máquinas virtuales que se pueden **mover**.
 * Identifique y enumere las máquinas virtuales que se deben **clonar**.
@@ -157,7 +157,7 @@ Las máquinas virtuales se clonarán y almacenarán en el almacén de datos NFS 
 
 ### <a name="copy-iso-files-to-the-data-box-datastore"></a>Copia de archivos ISO en el almacén de datos del dispositivo Data Box
 
-1. Desde la interfaz de usuario web del vCenter local, vaya a **Storage** (Almacenamiento). Seleccione **Databox-Datastore** y, después, seleccione **Files** (Archivos). Cree una carpeta para almacenar los archivos ISO.
+1. Desde la interfaz de usuario web del vCenter local, vaya a **Storage** (Almacenamiento).  Seleccione **Databox-Datastore** y, después, seleccione **Files** (Archivos). Cree una carpeta para almacenar los archivos ISO.
 
     ![Copia de archivos ISO: creación de una nueva carpeta](media/databox-migration-create-folder.png)
 
@@ -213,28 +213,28 @@ Siga los pasos descritos en el artículo [Devolución de Azure Data Box y compro
 
 ## <a name="copy-data-from-azure-storage-to-azure-vmware-solution"></a>Copia de datos del almacenamiento de Azure a la solución de VMware en Azure
 
-Los datos copiados en el dispositivo Data Box estarán disponibles en la cuenta de almacenamiento de Azure después de que el estado del pedido del dispositivo Data Box se muestre como completado. En ese momento los datos podrán copiarse en la solución de VMware en Azure. Los datos de la cuenta de almacenamiento deben copiarse en el almacén de datos vSAN de la nube privada de AVS mediante el protocolo NFS. 
+Los datos copiados en el dispositivo Data Box estarán disponibles en la cuenta de almacenamiento de Azure después de que el estado del pedido del dispositivo Data Box se muestre como completado. En ese momento los datos podrán copiarse en la solución de VMware en Azure. Los datos de la cuenta de almacenamiento deben copiarse en el almacén de datos vSAN de la nube privada mediante el protocolo NFS. 
 
-En primer lugar, copie los datos del almacenamiento de blobs en un disco administrado de una máquina virtual Linux en Azure mediante **AzCopy**. Haga que el disco administrado esté disponible mediante NFS, monte el recurso compartido NFS como un almacén de datos en la nube privada de AVS y, después, copie los datos. Este método permite una copia más rápida de los datos en la nube privada de AVS.
+En primer lugar, copie los datos del almacenamiento de blobs en un disco administrado de una máquina virtual Linux en Azure mediante **AzCopy**. Haga que el disco administrado esté disponible mediante NFS, monte el recurso compartido NFS como un almacén de datos en la nube privada y, después, copie los datos. Este método permite una copia más rápida de los datos en la nube privada.
 
-### <a name="copy-data-to-your-avs-private-cloud-using-a-linux-virtual-machine-and-managed-disks-and-then-export-as-nfs-share"></a>Copia de datos en la nube privada de AVS con una máquina virtual Linux y discos administrados, y exportación como recurso compartido NFS
+### <a name="copy-data-to-your-private-cloud-using-a-linux-virtual-machine-and-managed-disks-and-then-export-as-nfs-share"></a>Copia de datos en la nube privada con una máquina virtual Linux y discos administrados, y exportación como recurso compartido NFS
 
-1. Cree una [máquina virtual Linux](../virtual-machines/linux/quick-create-portal.md) en Azure, en la misma región donde se creó la cuenta de almacenamiento y que tiene una conexión de red virtual de Azure a la nube privada de AVS.
+1. Cree una [máquina virtual Linux](../virtual-machines/linux/quick-create-portal.md) en Azure, en la misma región donde se creó la cuenta de almacenamiento y que tiene una conexión de red virtual de Azure a la nube privada.
 
-2. Cree un disco administrado cuya capacidad de almacenamiento sea mayor que la cantidad de datos de blob y [conéctelo a la máquina virtual Linux](../virtual-machines/linux/attach-disk-portal.md). Si la cantidad de datos de blob es mayor que la capacidad del disco administrado más grande disponible, se deben copiar los datos en varios pasos o se deben usar varios discos administrados.
+2. Cree un disco administrado cuya capacidad de almacenamiento sea mayor que la cantidad de datos de blob y [conéctelo a la máquina virtual Linux](../virtual-machines/linux/attach-disk-portal.md).  Si la cantidad de datos de blob es mayor que la capacidad del disco administrado más grande disponible, se deben copiar los datos en varios pasos o se deben usar varios discos administrados.
 
 3. Conéctese a la máquina virtual Linux y monte el disco administrado.
 
 4. Instale [AzCopy en la máquina virtual Linux](../storage/common/storage-use-azcopy-v10.md).
 
-5. Descargue los datos del almacenamiento de blobs de Azure en el disco administrado mediante AzCopy. Sintaxis del comando: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`. Reemplace `<storage-account-name>` por el nombre de la cuenta de almacenamiento de Azure y `<container-name>` por el contenedor que contiene los datos copiados mediante el dispositivo Data Box.
+5. Descargue los datos del almacenamiento de blobs de Azure en el disco administrado mediante AzCopy.  Sintaxis del comando: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`.  Reemplace `<storage-account-name>` por el nombre de la cuenta de almacenamiento de Azure y `<container-name>` por el contenedor que contiene los datos copiados mediante el dispositivo Data Box.
 
 6. Instale el servidor NFS en la máquina virtual Linux:
 
     - En una distribución Ubuntu/Debian: `sudo apt install nfs-kernel-server`.
     - En una distribución Enterprise Linux: `sudo yum install nfs-utils`.
 
-7. Cambie el permiso de la carpeta en el disco administrado donde se copiaron los datos del almacenamiento de blobs de Azure. Cambie los permisos para todas las carpetas que desea exportar como recurso compartido NFS.
+7. Cambie el permiso de la carpeta en el disco administrado donde se copiaron los datos del almacenamiento de blobs de Azure.  Cambie los permisos para todas las carpetas que desea exportar como recurso compartido NFS.
 
     ```bash
     chmod -R 755 /<folder>/<subfolder>
@@ -247,7 +247,7 @@ En primer lugar, copie los datos del almacenamiento de blobs en un disco adminis
     sudo vi /etc/exports
     ```
     
-    Escriba las siguientes líneas en el archivo para cada dirección IP de host ESXi de la nube privada de AVS. Si va a crear recursos compartidos para varias carpetas, agregue todas las carpetas.
+    Escriba las siguientes líneas en el archivo para cada dirección IP de host ESXi de la nube privada.  Si va a crear recursos compartidos para varias carpetas, agregue todas las carpetas.
 
     ```bash
     /<folder>/<subfolder> <ESXiNode1IP>(rw,sync,no_root_squash,no_subtree_check)
@@ -261,11 +261,11 @@ En primer lugar, copie los datos del almacenamiento de blobs en un disco adminis
 10. Reinicie el servidor de kernel NFS con el comando `sudo systemctl restart nfs-kernel-server`.
 
 
-### <a name="mount-the-linux-virtual-machine-nfs-share-as-a-datastore-on-an-avs-private-cloud-vcenter-cluster-and-then-copy-data"></a>Montaje del recurso compartido NFS de la máquina virtual Linux como almacén de datos en un clúster de vCenter de la nube privada de AVS y copia de los datos
+### <a name="mount-the-linux-virtual-machine-nfs-share-as-a-datastore-on-a-private-cloud-vcenter-cluster-and-then-copy-data"></a>Montaje del recurso compartido NFS de la máquina virtual Linux como almacén de datos en un clúster de vCenter de nube privada y, después, copia de los datos
 
-El recurso compartido NFS de la máquina virtual Linux debe montarse como un almacén de datos en el clúster de vCenter de la nube privada de AVS. Una vez montado, se pueden copiar los datos del almacén de datos NFS al almacén de datos vSAN de la nube privada de AVS.
+El recurso compartido NFS de la máquina virtual Linux debe montarse como un almacén de datos en el clúster de vCenter de la nube privada. Una vez montado, se pueden copiar los datos desde el almacén de datos NFS al almacén de datos vSAN de la nube privada.
 
-1. Inicie sesión en el servidor vCenter de la nube privada de AVS.
+1. Inicie sesión en el servidor vCenter de la nube privada.
 
 2. Haga clic con el botón secundario en **Datacenter** (Centro de recursos), seleccione **Storage** (Almacenamiento), después **New Datastore** (Nuevo almacén de datos) y, a continuación, seleccione **Next** (Siguiente).
 
@@ -279,11 +279,11 @@ El recurso compartido NFS de la máquina virtual Linux debe montarse como un alm
 
    ![Incorporación de un nuevo almacén de datos: versión de NFS](media/databox-migration-add-datastore-nfs-version.png)
 
-5. En el paso 3, especifique el nombre del almacén de datos, la ruta de acceso y el servidor. Puede usar la dirección IP de la máquina virtual Linux como servidor. La ruta de acceso de la carpeta tendrá el formato `/<folder>/<subfolder>/`.
+5. En el paso 3, especifique el nombre del almacén de datos, la ruta de acceso y el servidor.  Puede usar la dirección IP de la máquina virtual Linux como servidor.  La ruta de acceso de la carpeta tendrá el formato `/<folder>/<subfolder>/`.
 
    ![Incorporación de un nuevo almacén de datos: configuración de NFS](media/databox-migration-add-datastore-nfs-configuration.png)
 
-6. En el paso 4, seleccione los hosts ESXi en los que desea montar el almacén de datos y, después, seleccione **Next** (Siguiente). En un clúster, seleccione todos los hosts para garantizar la migración de las máquinas virtuales.
+6. En el paso 4, seleccione los hosts ESXi en los que desea montar el almacén de datos y, después, seleccione **Next** (Siguiente).  En un clúster, seleccione todos los hosts para garantizar la migración de las máquinas virtuales.
 
    ![Incorporación de un nuevo almacén de datos: selección de hosts](media/databox-migration-add-datastore-nfs-select-hosts.png)
 
@@ -291,13 +291,13 @@ El recurso compartido NFS de la máquina virtual Linux debe montarse como un alm
 
 ### <a name="add-virtual-machines-and-virtual-machine-templates-from-an-nfs-datastore-to-the-inventory"></a>Adición de máquinas virtuales y plantillas de máquina virtual desde el almacén de datos NFS al inventario
 
-1. Desde la interfaz de usuario web de vCenter de la nube privada de AVS, vaya a **Almacenamiento**. Seleccione el almacén de datos NFS de la máquina virtual Linux y, después, seleccione **Files** (Archivos).
+1. Desde la interfaz de usuario web de vCenter de la nube privada, vaya a **Storage** (Almacenamiento).  Seleccione el almacén de datos NFS de la máquina virtual Linux y, después, seleccione **Files** (Archivos).
 
     ![Selección de archivos de un almacén de datos NFS](media/databox-migration-datastore-select-files.png)
 
-2. Seleccione una carpeta que contenga una máquina virtual o una plantilla de máquina virtual. En el panel de detalles, seleccione un archivo .vmx para una máquina virtual o un archivo .vmtx para una plantilla de máquina virtual.
+2. Seleccione una carpeta que contenga una máquina virtual o una plantilla de máquina virtual.  En el panel de detalles, seleccione un archivo .vmx para una máquina virtual o un archivo .vmtx para una plantilla de máquina virtual.
 
-3. Seleccione **Register VM** (Registrar VM) para registrar la máquina virtual en su instancia de vCenter de la nube privada de AVS.
+3. Seleccione **Register VM** (Registrar máquina virtual) para registrar la máquina virtual en vCenter de la nube privada.
 
     ![Registro de una máquina virtual](media/databox-migration-datastore-register-vm.png)
 
@@ -305,29 +305,29 @@ El recurso compartido NFS de la máquina virtual Linux debe montarse como un alm
 
 4. Repita los pasos 3 y 4 para todas las máquinas virtuales y plantillas de máquina virtual.
 
-5. Vaya a la carpeta que contiene los archivos ISO. Seleccione los archivos ISO y, a continuación, seleccione **Copy to** (Copiar en) para copiar los archivos en una carpeta en el almacén de archivos vSAN.
+5. Vaya a la carpeta que contiene los archivos ISO.  Seleccione los archivos ISO y, a continuación, seleccione **Copy to** (Copiar en) para copiar los archivos en una carpeta en el almacén de archivos vSAN.
 
-Las máquinas virtuales y las plantillas de máquina virtual ahora están disponibles en su instancia de vCenter de la nube privada de AVS. Estas máquinas virtuales se deben mover desde el almacén de datos NFS al almacén de datos vSAN antes de poder encenderlas. Puede utilizar la opción **storage vMotion** y seleccione el almacén de datos vSAN como destino para las máquinas virtuales.
+Ahora las máquinas virtuales y las plantillas de máquina virtual están disponibles en el vCenter de la nube privada. Estas máquinas virtuales se deben mover desde el almacén de datos NFS al almacén de datos vSAN antes de poder encenderlas. Puede utilizar la opción **storage vMotion** y seleccione el almacén de datos vSAN como destino para las máquinas virtuales.
 
 Las plantillas de máquina virtual se deben clonar desde el almacén de datos NFS de la máquina virtual Linux al almacén de datos vSAN.
 
 ### <a name="clean-up-your-linux-virtual-machine"></a>Limpieza de la máquina virtual Linux
 
-Cuando todos los datos se hayan copiado a la nube privada de AVS, puede quitar de esta el almacén de datos NFS:
+Cuando todos los datos se hayan copiado a la nube privada, puede quitar el almacén de datos NFS de esta.
 
 1. Asegúrese de que todas las máquinas virtuales y las plantillas se han movido y clonado en el almacén de datos vSAN.
 
 2. Quite del inventario todas las plantillas de máquina virtual del almacén de datos NFS.
 
-3. Desmonte el almacén de datos de la máquina virtual Linux de su instancia de vCenter de la nube privada de AVS.
+3. Desmonte el almacén de datos de la máquina virtual Linux del vCenter de la nube privada.
 
 4. Elimine la máquina virtual y el disco administrado de Azure.
 
-5. Si no desea mantener los datos transferidos mediante un dispositivo Data Box en la cuenta de almacenamiento, elimine la cuenta de almacenamiento de Azure. 
+5. Si no desea mantener los datos transferidos mediante un dispositivo Data Box en la cuenta de almacenamiento, elimine la cuenta de almacenamiento de Azure.  
     
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre el dispositivo [Data Box](../databox/data-box-overview.md).
-* Obtenga más información sobre las diferentes opciones para [migrar las cargas de trabajo a la nube privada de AVS](migrate-workloads.md).
+* Más información sobre las diferentes opciones para [migrar las cargas de trabajo a la nube privada](migrate-workloads.md).

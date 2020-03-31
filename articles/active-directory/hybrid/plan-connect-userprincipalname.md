@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60382134"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Rellenado de userPrincipalName de Azure AD
@@ -25,7 +25,7 @@ El valor del atributo UserPrincipalName es el nombre de usuario de Azure AD que 
 ## <a name="upn-terminology"></a>Terminología de UPN
 En este artículo se usa la siguiente terminología:
 
-|Término|DESCRIPCIÓN|
+|Término|Descripción|
 |-----|-----|
 |Dominio inicial|El dominio predeterminado (onmicrosoft.com) del inquilino de Azure AD. Por ejemplo, contoso.onmicrosoft.com.|
 |Dirección de enrutamiento de correo electrónico en línea de Microsoft (MOERA)|Azure AD calcula la dirección MOERA del atributo MailNickName de Azure AD y el dominio inicial de Azure AD como &lt;MailNickName&gt;&#64;&lt;dominio inicial&gt;.|

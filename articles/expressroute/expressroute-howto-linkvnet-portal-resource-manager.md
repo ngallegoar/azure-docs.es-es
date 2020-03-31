@@ -9,11 +9,11 @@ ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74022186"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233760"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Conexión de una red virtual con un circuito de ExpressRoute mediante el portal
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ Puede compartir un circuito ExpressRoute entre varias suscripciones. En la ilust
 
 - Cada una de las nubes más pequeñas dentro de la nube de gran tamaño se usa para representar las suscripciones que pertenecen a diferentes departamentos dentro de una organización.
 - Cada departamento de la organización puede usar su propia suscripción para implementar sus servicios, pero puede compartir un único circuito ExpressRoute para volver a conectarse a la red local.
-- Un solo departamento (en este ejemplo: IT) puede poseer el circuito de ExpressRoute. Otras suscripciones de la organización pueden usar el circuito ExpressRoute y autorizaciones asociadas con dicho circuito, incluidas las suscripciones vinculadas a otros inquilinos de Azure Active Directory e inscripciones al Contrato Enterprise.
+- Un solo departamento (en este ejemplo: TI) puede ser el propietario de ExpressRoute. Otras suscripciones de la organización pueden usar el circuito ExpressRoute y autorizaciones asociadas con dicho circuito, incluidas las suscripciones vinculadas a otros inquilinos de Azure Active Directory e inscripciones al Contrato Enterprise.
 
   > [!NOTE]
   > Los cargos de conectividad y ancho de banda de un circuito dedicado recaerán en el propietario del circuito ExpressRoute. Todas las redes virtuales comparten el mismo ancho de banda.

@@ -4,10 +4,10 @@ description: Configuración de una tarea de Azure Container Registry (Tarea de A
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 47b2a50784cf56b089fea0981e5a06d581b8ba3a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842507"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticación entre registros en una tarea de ACR mediante una identidad administrada por Azure 
@@ -26,7 +26,7 @@ Los pasos que se muestran en este ejemplo utilizan una identidad administrada, b
 
 En un escenario real, una organización puede mantener un conjunto de imágenes base usadas por todos los equipos de desarrollo para compilar sus aplicaciones. Estas imágenes base se almacenan en un registro corporativo, para el que cada equipo de desarrollo solo tiene derechos de extracción. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo necesitará dos registros de contenedor de Azure:
 

@@ -13,10 +13,10 @@ ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
 ms.openlocfilehash: c3a85de3a201a89d6d9500e4f4b2df9e667e3537
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840543"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Vista de latencias relativas a las regiones de Azure desde ubicaciones específicas
@@ -124,7 +124,7 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > A diferencia de cuando se especifica una sola ubicación, si no especifica una o especifica varias, como "Oeste de EE. UU.2", "Oeste de EE. UU.", debe especificar un proveedor de servicios de Internet cuando se ejecuta el comando. 
 
-## <a name="view-available"></a>Vista de los países, las regiones, los estados, las ciudades y los proveedores disponibles
+## <a name="view-available-countriesregions-states-cities-and-providers"></a><a name="view-available"></a>Vista de los países, las regiones, los estados, las ciudades y los proveedores disponibles
 
 Hay datos disponibles para proveedores de servicios de Internet, países, regiones, estados y ciudades específicos. Para ver una lista de todos los proveedores de servicios de Internet, los países, las regiones, los estados y las ciudades disponibles para los cuales puede ver datos, escriba el comando siguiente:
 

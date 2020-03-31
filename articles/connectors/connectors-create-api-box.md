@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
 ms.openlocfilehash: c7f97ff33742eb545cbfbd7521ba135584851e5e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666778"
 ---
 # <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Creación y administración de archivos en Box mediante Azure Logic Apps
@@ -27,7 +27,7 @@ En este artículo se muestra cómo puede crear y administrar archivos de Box den
   Si estas acciones obtienen una respuesta, dejan la salida a disposición de otras acciones. 
   Por ejemplo, cuando se modifique un archivo en Box, puede enviarlo por correo electrónico mediante Office 365.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una [cuenta de Box](https://www.box.com/home)
 

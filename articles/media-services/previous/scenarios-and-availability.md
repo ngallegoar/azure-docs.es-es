@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4766f22cd84b2aab00f6dcc4064dbeea8018f694
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77564984"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227012"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Escenarios y disponibilidad de características de Media Services en centros de datos
 
@@ -104,7 +104,7 @@ Para obtener información acerca de la disponibilidad en los centros de datos, c
     Si utiliza un localizador SAS, el contenido se descarga desde Azure Blob Storage. En este caso, no necesita tener puntos de conexión de streaming en estado iniciado.
 4. Descargue contenido de forma progresiva.
 
-## <a id="live_scenarios"></a>Entrega de eventos de streaming en vivo 
+## <a name="delivering-live-streaming-events"></a><a id="live_scenarios"></a>Entrega de eventos de streaming en vivo 
 
 1. Ingiera contenido en vivo mediante el uso de varios protocolos de streaming en vivo (por ejemplo, RTMP o Smooth Streaming).
 2. (Opcionalmente) Codifique la transmisión en un flujo de datos con velocidad de bits adaptable.
@@ -143,7 +143,7 @@ Azure Media Services proporciona las herramientas que necesita para crear aplica
 
 Media Services admite la integración con Azure CDN. Para obtener información sobre cómo habilitar Azure CDN, consulte [Administración de extremos de streaming en una cuenta de Media Services](media-services-portal-manage-streaming-endpoints.md).
 
-## <a id="scaling"></a>Escalado de una cuenta de Media Services
+## <a name="scaling-a-media-services-account"></a><a id="scaling"></a>Escalado de una cuenta de Media Services
 
 Los clientes de AMS pueden escalar los puntos de conexión de streaming, el procesamiento multimedia y el almacenamiento en sus cuentas de AMS.
 
@@ -161,7 +161,7 @@ Los clientes de AMS pueden escalar los puntos de conexión de streaming, el proc
     Para más información, consulte [Escalado del procesamiento de elementos multimedia mediante Azure Portal](media-services-portal-scale-media-processing.md).
 * También puede escalar la cuenta de Media Services agregándole cuentas de almacenamiento. Cada cuenta de almacenamiento está limitada a 500 TB. Para ampliar el almacenamiento más allá del límite predeterminado, puede asociar varias cuentas de almacenamiento a una sola cuenta de Media Services. Para más información, consulte [Administración de recursos de Servicios multimedia entre varias cuentas de almacenamiento](meda-services-managing-multiple-storage-accounts.md).
 
-## <a id="availability"></a>Disponibilidad de características de Media Services en centros de datos
+## <a name="availability-of-media-services-features-across-datacenters"></a><a id="availability"></a>Disponibilidad de características de Media Services en centros de datos
 
 En esta sección se proporcionan detalles acerca de la disponibilidad de las características de Media Services en centros de datos.
 
@@ -202,6 +202,9 @@ AMS ofrece dos codificadores a petición **Media Encoder Standard** y **Flujo de
 ### <a name="analytics-media-processors"></a>Procesadores de multimedia de Analytics
 
 Análisis multimedia es una colección de componentes de voz y visión que facilita a las empresas y organizaciones obtener conocimiento útil de sus archivos de vídeo. Para más información, consulte [Información general de análisis de Azure Media Services](media-services-analytics-overview.md).
+
+> [!NOTE]
+> Algunos procesadores de multimedia de análisis se retirarán. Para ver las fechas de retirada, consulte el tema sobre [componentes heredados](legacy-components.md).
 
 #### <a name="availability"></a>Disponibilidad
 

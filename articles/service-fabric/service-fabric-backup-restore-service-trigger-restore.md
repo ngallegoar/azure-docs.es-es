@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
 ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75377912"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauración de una copia de seguridad en Azure Service Fabric
@@ -23,7 +23,7 @@ Por ejemplo, puede configurar un servicio para realizar una copia de seguridad d
 - **Caso de pérdida de datos**: eliminación accidental o daños del servicio. Por ejemplo, un administrador elimina por error el servicio.
 - **Caso de datos dañados**: Los errores en el servicio provocan daños en los datos. Por ejemplo, se pueden producir daños en los datos cuando una actualización del código de servicio escribe datos defectuosos en una colección de confianza. En tal caso, puede que tenga que restaurar el código y los datos a un estado anterior.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Para desencadenar la restauración, el _servicio de análisis de errores (FAS)_ debe estar habilitado para el clúster.
 - El _servicio de restauración de copia de seguridad (BRS)_ creó la copia de seguridad.

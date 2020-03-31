@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: dfca2b1311f1b55f19d5709f7c9ca7c3e366769c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76695745"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Uso de MSAL en un entorno de nube nacional
@@ -34,7 +34,7 @@ Incluida la nube mundial, Azure Active Directory (Azure AD) se implementa en las
 
 En esta guía se muestra cómo iniciar sesión en cuentas profesionales y educativas, obtener un token de acceso y llamar a la API de Microsoft Graph en el entorno de la [nube de Azure Government](https://azure.microsoft.com/global-infrastructure/government/).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar, asegúrese de que cumpla estos requisitos previos.
 
@@ -55,7 +55,7 @@ Si no tiene una suscripción a Azure Government, cree una [cuenta gratuita](http
 
 Para obtener más información sobre el uso de una nube nacional con un lenguaje de programación determinado, elija la pestaña que coincida con su lenguaje:
 
-## <a name="nettabdonet"></a>[.NET](#tab/donet)
+## <a name="net"></a>[.NET](#tab/donet)
 
 Puede usar MSAL.NET para iniciar la sesión de los usuarios, adquirir tokens y llamar a la API de Microsoft Graph en nubes nacionales.
 
@@ -64,7 +64,7 @@ En los siguientes tutoriales se muestra cómo compilar una aplicación web MVC d
 - Para iniciar la sesión de los usuarios y adquirir tokens, siga este tutorial: [Cree una aplicación web de ASP.NET Core que permita iniciar la sesión de usuarios en nubes soberanas con la Plataforma de identidad de Microsoft](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
 - Para llamar a la API de Microsoft Graph, siga este tutorial: [Uso de la Plataforma de identidad de Microsoft para llamar a la API Microsoft Graph desde una aplicación web ASP.NET Core 2.x en nombre de un usuario que inicia sesión con su cuenta profesional y educativa en Microsoft National Cloud](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
 
-## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Para habilitar la aplicación MSAL.js para nubes soberanas:
 
@@ -136,7 +136,7 @@ En el código:
 
    Para buscar los puntos de conexión de Microsoft Graph de todas las nubes nacionales, consulte [Puntos de conexión de Microsoft Graph en nubes nacionales](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-## <a name="pythontabpython"></a>[Python](#tab/python)
+## <a name="python"></a>[Python](#tab/python)
 
 Para habilitar la aplicación MSAL para Python para nubes soberanas:
 
@@ -159,7 +159,7 @@ Para habilitar la aplicación MSAL para Python para nubes soberanas:
     "scope": "User.Read"
     ```
     
-## <a name="javatabjava"></a>[Java](#tab/java)
+## <a name="java"></a>[Java](#tab/java)
 
 Para habilitar la aplicación MSAL para Java para nubes soberanas:
 
@@ -182,7 +182,7 @@ A continuación se muestra un ejemplo de un punto de conexión de Graph con el �
 "scope": "User.Read"
 ```
 
-## <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+## <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 MSAL para iOS y macOS se puede usar para adquirir tokens en nubes nacionales, pero se requiere una configuración adicional al crear `MSALPublicClientApplication`.
 
@@ -205,7 +205,7 @@ MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
 ```
 
-## <a name="swifttabswift"></a>[Swift](#tab/swift)
+## <a name="swift"></a>[Swift](#tab/swift)
 
 MSAL para iOS y macOS se puede usar para adquirir tokens en nubes nacionales, pero se requiere una configuración adicional al crear `MSALPublicClientApplication`.
 

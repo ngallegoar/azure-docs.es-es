@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: b076c642f72e45f58be61d67e887e11b6ccb0aba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74975863"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
@@ -75,7 +75,7 @@ Si bien la uniformidad es importante a la hora de elegir un actor de voz, la var
 
 Además, el texto debe incorporar todas las formas en que puede representarse un sonido determinado al escribir, y colocar cada sonido en distintos lugares en las oraciones. Se deben incluir tanto oraciones afirmativas como preguntas y se deben leer con la entonación adecuada.
 
-Es difícil escribir un guion que proporcione *suficientes* datos para permitir que el portal Custom Speech genere una buena voz. En la práctica, la manera más sencilla de crear un guion que logre una sólida cobertura fonética es incluir un gran número de muestras. Las voces estándar que proporciona Microsoft se han creado a partir de decenas de miles de expresiones. Deberá estar preparado para grabar unos cuantos miles de expresiones para generar una voz personalizada con calidad de producción.
+Es difícil escribir un guion que proporcione *suficientes* datos para permitir que el portal de Habla personalizada genere una buena voz. En la práctica, la manera más sencilla de crear un guion que logre una sólida cobertura fonética es incluir un gran número de muestras. Las voces estándar que proporciona Microsoft se han creado a partir de decenas de miles de expresiones. Deberá estar preparado para grabar unos cuantos miles de expresiones para generar una voz personalizada con calidad de producción.
 
 Compruebe el guion con mucho cuidado para detectar posibles errores. Si es posible, que otra persona también lo revise. Cuando repase el guion con el actor de voz, es probable que detecte algunos errores más.
 
@@ -104,7 +104,7 @@ Según la ley de derechos de autor, la lectura de texto protegido por derechos d
 
 Afortunadamente, es posible evitar estos problemas por completo. Hay muchas fuentes de texto que puede usar sin licencia o permiso.
 
-|Fuente de texto|DESCRIPCIÓN|
+|Fuente de texto|Descripción|
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Aproximadamente 1100 oraciones seleccionadas de obras protegidas por derechos de autor para su uso especialmente en proyectos de síntesis de voz. Un excelente punto de partida.|
 |Obras que ya no<br>están protegidas por derechos de autor|Normalmente las obras publicadas antes de 1923. En inglés, el [proyecto Gutenberg](https://www.gutenberg.org/) ofrece miles de obras de este tipo. Quizás quiera centrarse en obras más modernas, dado que el lenguaje estará más próximo al inglés moderno.|

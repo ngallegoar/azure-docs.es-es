@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 31137bba8c9b6b88c6a8b9569c02ae887e73e8d0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0706b7d3c238c154d3694b5760266299a7d788ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309597"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536877"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementación de Oracle Golden Gate en máquinas virtuales Linux de Azure 
 
@@ -41,7 +41,7 @@ Lo siguiente es un resumen de la configuración del entorno:
 > | --- | --- | --- |
 > | **Versión de Oracle** |Oracle 12c Release 2 – (12.1.0.2) |Oracle 12c Release 2 – (12.1.0.2)|
 > | **Nombre de la máquina** |myVM1 |myVM2 |
-> | **Sistema operativos** |Oracle Linux 6.x |Oracle Linux 6.x |
+> | **Sistema operativo** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **SID de Oracle** |CDB1 |CDB1 |
 > | **Esquema de replicación** |PRUEBA|PRUEBA |
 > | **Propietario/réplica de Golden Gate** |C##GGADMIN |REPUSER |
@@ -58,7 +58,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y desde el que se pueden administrar los recursos de Azure. 
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y desde el que se pueden administrar los recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado `myResourceGroup` en la ubicación `westus`.
 
@@ -85,6 +85,7 @@ Cree la máquina virtual con el comando [az vm create](/cli/azure/vm).
 En el ejemplo siguiente se crean dos máquinas virtuales, denominadas `myVM1` y `myVM2`. También se crean claves SSH, si aún no existen en una ubicación de claves predeterminada. Para utilizar un conjunto específico de claves, utilice la opción `--ssh-key-value`.
 
 #### <a name="create-myvm1-primary"></a>Cree myVM1 (principal):
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -97,7 +98,7 @@ az vm create \
 
 Después de crear la máquina virtual, la CLI de Azure muestra información similar al ejemplo siguiente. (Anote el valor de `publicIpAddress`. Esta dirección se utiliza para acceder a la máquina virtual).
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -111,6 +112,7 @@ Después de crear la máquina virtual, la CLI de Azure muestra información simi
 ```
 
 #### <a name="create-myvm2-replicate"></a>Cree myVM2 (réplica):
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -139,7 +141,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 Los resultados tienen que ser similares a la siguiente respuesta:
 
-```bash
+```output
 {
   "access": "Allow",
   "description": null,
@@ -172,7 +174,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 Ejecute el comando siguiente para crear una sesión SSH con la máquina virtual. Reemplace la dirección IP por el valor de `publicIpAddress` de la máquina virtual.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
@@ -207,9 +209,10 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 Los resultados tienen que ser similares a la siguiente respuesta:
 
-```bash
+```output
 Copying database files
 1% complete
 2% complete
@@ -259,6 +262,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
 ### <a name="start-oracle-listener"></a>Inicio del agente de escucha de Oracle
+
 ```bash
 $ lsnrctl start
 ```
@@ -268,6 +272,7 @@ $ lsnrctl start
 ```bash
 sudo su - oracle
 ```
+
 Cree la base de datos:
 
 ```bash
@@ -289,6 +294,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 Establezca las variables ORACLE_SID y ORACLE_HOME.
 
 ```bash
@@ -309,6 +315,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
 ### <a name="start-oracle-listener"></a>Inicio del agente de escucha de Oracle
+
 ```bash
 $ sudo su - oracle
 $ lsnrctl start
@@ -426,11 +433,12 @@ Se trata de un paso opcional. Puede omitir este paso si está utilizando un clie
 Para instalar Oracle Golden Gate, complete los pasos siguientes:
 
 1. Inicie sesión como oracle. (Debe poder iniciar sesión sin que se le solicite una contraseña). Asegúrese de que se esté ejecutando Xming antes de comenzar la instalación.
- 
+
    ```bash
    $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
    $ ./runInstaller
    ```
+
 2. Seleccione 'Oracle GoldenGate para Oracle Database 12c'. Después, seleccione **Siguiente** para continuar.
 
    ![Captura de pantalla de la página Select Installation (Seleccionar instalación) en el instalador](./media/oracle-golden-gate/golden_gate_install_01.png)
@@ -536,6 +544,7 @@ Para instalar Oracle Golden Gate, complete los pasos siguientes:
 
    GGSCI> EDIT PARAMS EXTORA
    ```
+
 5. Agregue lo siguiente al archivo de parámetros de extracción (mediante comandos de vi). Presione la tecla Esc, ':wq!' para guardar el archivo. 
 
    ```bash
@@ -550,6 +559,7 @@ Para instalar Oracle Golden Gate, complete los pasos siguientes:
    TABLE pdb1.test.TCUSTMER;
    TABLE pdb1.test.TCUSTORD;
    ```
+
 6. Register extract - extracción integrada:
 
    ```bash
@@ -565,6 +575,7 @@ Para instalar Oracle Golden Gate, complete los pasos siguientes:
 
    GGSCI> exit
    ```
+
 7. Configure los puntos de control de extracción e inicie la extracción en tiempo real:
 
    ```bash
@@ -587,6 +598,7 @@ Para instalar Oracle Golden Gate, complete los pasos siguientes:
    MANAGER     RUNNING
    EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
    ```
+
    En este paso, busque el SCN inicial, que se usará más adelante, en otra sección:
 
    ```bash
@@ -684,6 +696,7 @@ Para instalar Oracle Golden Gate, complete los pasos siguientes:
    $ ./ggsci
    GGSCI> EDIT PARAMS REPORA  
    ```
+
    Contenido del archivo de parámetros REPORA:
 
    ```bash
@@ -726,12 +739,14 @@ Para instalar Oracle Golden Gate, complete los pasos siguientes:
   $ ./ggsci
   GGSCI> EDIT PARAMS MGR
   ```
+
 Actualice el archivo con lo siguiente:
 
   ```bash
   PORT 7809
   ACCESSRULE, PROG *, IPADDR *, ALLOW
   ```
+
 Después, reinicie el servicio de administrador:
 
   ```bash
@@ -750,6 +765,7 @@ $ ./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
+
 #### <a name="3-set-up-the-replication-on-myvm2-replicate"></a>3. Configure la replicación en myVM2 (réplica).
 
 Cambie el número de SCN con el número que obtuvo antes:
@@ -759,6 +775,7 @@ Cambie el número de SCN con el número que obtuvo antes:
   $ ./ggsci
   START REPLICAT REPORA, AFTERCSN 1857887
   ```
+
 Ha empezado la replicación y puede probarla mediante la inserción de nuevos registros a las tablas de prueba.
 
 

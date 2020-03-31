@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: e467b195ab1e2124286bfef74d7d1b71a4d99dd6
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76165994"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalación y ejecución de contenedores de Face (versión preliminar)
@@ -24,7 +24,7 @@ Azure Cognitive Services Face proporciona un contenedor de Linux estandarizado p
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe cumplir los siguientes requisitos previos para poder usar los contenedores del servicio Face.
 

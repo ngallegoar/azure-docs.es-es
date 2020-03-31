@@ -9,19 +9,19 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/17/2019
 ms.openlocfilehash: bc119f1ce8efb821781dabfb9dd259cc5c8d9c23
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792479"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Adición u obtención de metadatos de artefactos de cuentas de integración de Azure Logic Apps con Enterprise Integration Pack
 
 Puede definir metadatos personalizados para artefactos en cuentas de integración y obtener metadatos durante el tiempo de ejecución para que los use su aplicación lógica. Por ejemplo, puede proporcionar metadatos para artefactos como asociados, acuerdos, esquemas y asignaciones: todos almacenan metadatos usando pares de clave-valor. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si aún no tiene una, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta de Azure gratuita</a>.
+* Suscripción a Azure. Si aún no tiene una, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta de Azure gratuita</a>.
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) básica que tiene los artefactos donde desea agregar metadatos; por ejemplo: 
 
@@ -61,7 +61,7 @@ Puede definir metadatos personalizados para artefactos en cuentas de integració
 
 1. Proporcione esta información para el artefacto que desea buscar:
 
-   | Propiedad | Obligatorio | Value | DESCRIPCIÓN | 
+   | Propiedad | Obligatorio | Value | Descripción | 
    |----------|---------|-------|-------------| 
    | **Tipo de artefacto** | Sí | **Esquema**, **Asignación**, **Asociado**, **Acuerdo** o un tipo personalizado | El tipo del artefacto que desea | 
    | **Nombre del artefacto** | Sí | <*artifact-name*> | El nombre del artefacto que desea | 
@@ -83,12 +83,12 @@ Puede definir metadatos personalizados para artefactos en cuentas de integració
 
       Por ejemplo, suponga que desea obtener los metadatos de `routingUrl` que se agregaron anteriormente en este tema. Estos son los valores de propiedad que tendría que especificar: 
 
-      | Propiedad | Obligatorio | Value | DESCRIPCIÓN | 
+      | Propiedad | Obligatorio | Value | Descripción | 
       |----------|----------|-------|-------------| 
       | **Método** | Sí | <*operation-to-run*> | La operación HTTP para ejecutar en el artefacto. Por ejemplo, esta acción HTTP utiliza el método **GET**. | 
       | **URI** | Sí | <*metadata-location*> | Para tener acceso al valor de metadatos de `routingUrl` del artefacto que ha recuperado, puede usar una expresión; por ejemplo: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **Encabezados** | Sin | <*header-values*> | Cualquier salida de encabezado del desencadenador que desea pasar a la acción de HTTP. Por ejemplo, para pasar el valor de propiedad `headers` del desencadenador: puede utilizar una expresión, por ejemplo: <p>`@triggeroutputs()['headers']` | 
-      | **Cuerpo** | Sin | <*body-content*> | Cualquier otro contenido que desee pasar a través de la propiedad `body` de la acción HTTP. En este ejemplo se pasan los valores `properties` del artefacto en la acción HTTP: <p>1. Haga clic en la propiedad **Body** para que aparezca la lista de contenido dinámico. Si no aparece ninguna propiedad, elija **Ver más**. <br>2. En la lista de contenido dinámico, en **Búsqueda de artefactos de la cuenta de integración**, seleccione **Propiedades**. | 
+      | **Encabezados** | No | <*header-values*> | Cualquier salida de encabezado del desencadenador que desea pasar a la acción de HTTP. Por ejemplo, para pasar el valor de propiedad `headers` del desencadenador: puede utilizar una expresión, por ejemplo: <p>`@triggeroutputs()['headers']` | 
+      | **Cuerpo** | No | <*body-content*> | Cualquier otro contenido que desee pasar a través de la propiedad `body` de la acción HTTP. En este ejemplo se pasan los valores `properties` del artefacto en la acción HTTP: <p>1. Haga clic en la propiedad **Body** para que aparezca la lista de contenido dinámico. Si no aparece ninguna propiedad, elija **Ver más**. <br>2. En la lista de contenido dinámico, en **Búsqueda de artefactos de la cuenta de integración**, seleccione **Propiedades**. | 
       |||| 
 
       Por ejemplo:

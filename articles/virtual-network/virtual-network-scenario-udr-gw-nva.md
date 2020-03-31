@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64575585"
 ---
 # <a name="virtual-appliance-scenario"></a>Escenario de aplicación virtual
@@ -78,30 +78,30 @@ Para asegurarse de que la comunicación que se realiza a través de la aplicaci�
 ### <a name="azgwudr"></a>azgwudr
 En este escenario, el único tráfico que fluye desde el sitio local a Azure se usará para administrar los firewalls a través de la conexión con **AZF3** y ese tráfico debe pasar por el firewall interno, **AZF2**. Por lo tanto, solo se necesita una ruta en **GatewaySubnet** , tal como se indica a continuación.
 
-| Destino | Próximo salto | Explicación |
+| Destination | Próximo salto | Explicación |
 | --- | --- | --- |
 | 10.0.4.0/24 |10.0.3.11 |Permite que el tráfico local llegue al firewall de administración **AZF3** |
 
 ### <a name="azsn2udr"></a>azsn2udr
-| Destino | Próximo salto | Explicación |
+| Destination | Próximo salto | Explicación |
 | --- | --- | --- |
 | 10.0.3.0/24 |10.0.2.11 |Permite el tráfico a la red back-end que hospeda el servidor de aplicaciones a través de **AZF2** |
 | 0.0.0.0/0 |10.0.2.10 |Permite que todo el tráfico restante se enrute a través de **AZF1** |
 
 ### <a name="azsn3udr"></a>azsn3udr
-| Destino | Próximo salto | Explicación |
+| Destination | Próximo salto | Explicación |
 | --- | --- | --- |
 | 10.0.2.0/24 |10.0.3.10 |Permite que el tráfico a **azsn2** fluya desde el servidor de aplicaciones al servidor web a través de **AZF2** |
 
 También deberá crear tablas de ruta para que las subredes de **onpremvnet** simulen el centro de datos local.
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
-| Destino | Próximo salto | Explicación |
+| Destination | Próximo salto | Explicación |
 | --- | --- | --- |
 | 192.168.2.0/24 |192.168.1.4 |Permite el tráfico a **onpremsn2** a través de **OPFW** |
 
 ### <a name="onpremsn2udr"></a>onpremsn2udr
-| Destino | Próximo salto | Explicación |
+| Destination | Próximo salto | Explicación |
 | --- | --- | --- |
 | 10.0.3.0/24 |192.168.2.4 |Permite el tráfico de la subred back-end en Azure a través de **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |Permite el tráfico a **onpremsn1** a través de **OPFW** |

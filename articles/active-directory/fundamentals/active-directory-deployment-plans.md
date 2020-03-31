@@ -13,11 +13,11 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17e6708225262349d56c6e261895882e9c31677f
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558528"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230468"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planes de implementación de Azure Active Directory
 ¿Busca una guía de un extremo a otro sobre cómo implementar las funcionalidades de Azure Active Directory (Azure AD)? Los planes de implementación de Azure AD le guían por el valor de negocio, las consideraciones de planeamiento y los procedimientos operativos necesarios para implementar correctamente las funcionalidades comunes de Azure AD.
@@ -29,7 +29,7 @@ Cuando comience a planear la implementación para una nueva funcionalidad, es im
 
 Entre los roles, se incluyen los siguientes: 
 
-|Role |DESCRIPCIÓN |
+|Role |Descripción |
 |-|-|
 |Usuario final|Un grupo representativo de usuarios para el que se implementará la funcionalidad. A menudo previsualiza los cambios en un programa piloto.
 |Administrador de soporte técnico de TI|Un representante de la organización de soporte técnico de TI que puede proporcionar información sobre la compatibilidad de este cambio desde una perspectiva del departamento de soporte técnico.  
@@ -59,7 +59,7 @@ La ampliación de la implementación en grupos de usuarios más grandes debe lle
 
 ## <a name="deploy-authentication"></a>Implementación de la autenticación
 
-| Capacidad | DESCRIPCIÓN|
+| Capacidad | Descripción|
 | -| -|
 | [Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)| Azure Multi-Factor Authentication (MFA) es la solución de Microsoft de comprobación de dos pasos. El uso de métodos de autenticación aprobados por un administrador permite a Azure MFA ayudar a proteger el acceso a sus datos y aplicaciones, además de satisfacer la exigencia de un proceso de inicio de sesión simple. |
 | [Acceso condicional](https://aka.ms/deploymentplans/ca)| Con Acceso condicional, puede implementar decisiones de control de acceso automatizado sobre quién puede acceder a las aplicaciones en nube, en función de condiciones. |
@@ -68,7 +68,7 @@ La ampliación de la implementación en grupos de usuarios más grandes debe lle
 
 ## <a name="deploy-application-management"></a>Implementación de la administración de aplicaciones
 
-| Capacidad | DESCRIPCIÓN|
+| Capacidad | Descripción|
 | -| - |
 | [Inicio de sesión único](https://aka.ms/deploymentplans/sso)| El inicio de sesión único ayuda a los usuarios a acceder a las aplicaciones y los recursos que necesitan para hacer negocios, iniciando sesión una sola vez. Una vez iniciada la sesión, pueden ir de Microsoft Office a SalesForce, a Box y a aplicaciones internas sin necesidad de escribir credenciales una segunda vez. |
 | [Panel de acceso](https://aka.ms/deploymentplans/accesspanel)| Proporcione a sus usuarios un lugar centralizado y sencillo desde el que puedan acceder a todas las aplicaciones. Favorezca la productividad con funcionalidades de autoservicio, como la solicitud de acceso a aplicaciones y grupos, o la administración del acceso a recursos en nombre de otros usuarios. |
@@ -76,7 +76,7 @@ La ampliación de la implementación en grupos de usuarios más grandes debe lle
 
 ## <a name="deploy-hybrid-scenarios"></a>Implementación de escenarios híbridos
 
-| Capacidad | DESCRIPCIÓN|
+| Capacidad | Descripción|
 | -| -|
 | [ADFS para sincronización de hash de contraseña](https://aka.ms/deploymentplans/adfs2phs)| Con la sincronización de hash de contraseña, los valores de hash de las contraseñas de usuario se sincronizan desde Active Directory local a Azure AD, lo que permite a Azure AD autenticar a los usuarios sin interacción con Active Directory local. |
 | [Autenticación de ADFS para paso a través](https://aka.ms/deploymentplans/adfs2pta)| La autenticación de paso a través de Azure AD ayuda a los usuarios a iniciar sesión en aplicaciones basadas en la nube y locales con las mismas contraseñas. Esta característica proporciona a los usuarios una mejor experiencia (una contraseña menos que recordar) y reduce los costos del departamento de soporte técnico de TI dado que es menos probable que olviden cómo iniciar sesión. Cuando los usuarios inician sesión con Azure AD, esta característica valida sus contraseñas directamente con la instancia de Active Directory local. |
@@ -85,14 +85,14 @@ La ampliación de la implementación en grupos de usuarios más grandes debe lle
 
 ## <a name="deploy-user-provisioning"></a>Implementación del aprovisionamiento de usuarios
 
-| Capacidad | DESCRIPCIÓN|
+| Capacidad | Descripción|
 | -| -|
 | [Aprovisionamiento de usuarios](https://aka.ms/deploymentplans/userprovisioning)| Azure AD le ayuda a automatizar la creación, el mantenimiento y la eliminación de identidades de usuario en aplicaciones en la nube (SaaS) como Dropbox, Salesforce y muchas otras. |
 | [Aprovisionamiento de usuarios de RR. HH. en la nube](https://aka.ms/deploymentplans/cloudhr)| El aprovisionamiento de usuarios de RR. HH. en la nube para Active Directory establece las bases de una gobernanza continua de identidades y mejora la calidad de los procesos de negocio que se basan en datos de identidades fidedignos. Si usa esta característica con el producto de RR. HH. en la nube, como Workday o SuccessFactors, puede administrar fácilmente el ciclo de vida de las identidades de los empleados y los trabajadores temporales configurando reglas que asignen procesos de tipo alta, baja o traslado (como Nueva contratación, Fin de contrato y Traslado) a las acciones de aprovisionamiento de TI (como Crear, Habilitar y Deshabilitar). |
 
 ## <a name="deploy-governance-and-reporting"></a>Implementación de la gobernanza y los informes
 
-| Capacidad | DESCRIPCIÓN|
+| Capacidad | Descripción|
 | -| -|
 | [Privileged Identity Management](https://aka.ms/deploymentplans/pim)| Azure AD Privileged Identity Management (PIM) le permite administrar roles con privilegios administrativos en Azure AD, los recursos de Azure y otros servicios de Microsoft Online Services. Asimismo, PIM ofrece soluciones como acceso de tipo Just-In-Time, flujos de trabajo de aprobación de solicitudes y revisiones de acceso completamente integradas para que pueda identificar, detectar y evitar en tiempo real las actividades malintencionadas de roles con privilegios. |
 | [Creación de informes y supervisión](https://aka.ms/deploymentplans/reporting)| El diseño de la solución de creación de informes y supervisión de Azure AD depende de sus requisitos legales, de seguridad y operativos, así como del entorno y los procesos existentes. En este artículo se presentan las distintas opciones de diseño y se le guía para que elija la estrategia de implementación adecuada. |

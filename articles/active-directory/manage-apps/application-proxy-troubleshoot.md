@@ -17,11 +17,11 @@ ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7be9a17bed2a39d16f813332c2d6effc03393264
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812732"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224932"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 
@@ -89,7 +89,7 @@ En esta lista se muestran los errores que los usuarios finales pueden encontrar 
 
 Si se produce un error o un problema con el Proxy de aplicación de Azure AD que no aparece en esta guía de solución de problemas, es conveniente obtener información al respecto. Envíe un correo electrónico al [equipo de comentarios](mailto:aadapfeedback@microsoft.com) con los detalles del error que se ha producido.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Habilitación del proxy de aplicación de Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publicar aplicaciones con Proxy de aplicación](application-proxy-add-on-premises-application.md)
 * [Habilitar el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md)

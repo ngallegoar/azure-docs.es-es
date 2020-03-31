@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
 ms.openlocfilehash: 9443a50d130e6542672eb143bcb56d04d63959a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65235709"
 ---
 # <a name="media-services-job-error-codes"></a>Códigos de error de trabajos de Media Services
@@ -32,7 +32,7 @@ El siguiente documento REST proporciona explicaciones detalladas sobre [códigos
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 - [Códigos de error de punto de conexión de streaming](streaming-endpoint-error-codes.md)
 - [Conceptos de Azure Media Services](concepts-overview.md)

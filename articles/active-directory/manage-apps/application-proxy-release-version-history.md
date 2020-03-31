@@ -17,10 +17,10 @@ ms.subservice: app-mgmt
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b9ecd193282ed9b7333df44689530b4d057ad7f8
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68693892"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy de aplicación de Azure AD ofrece estas ventajas: Historial de lanzamiento de versiones
@@ -30,7 +30,7 @@ Se recomienda asegurarse de que las actualizaciones automáticas estén habilita
 
 Esta es una lista de recursos relacionados:
 
-Recurso |  Detalles
+Resource |  Detalles
 --------- | --------- |
 Procedimientos para habilitar Application Proxy | Los requisitos previos para habilitar Application Proxy e instalar y registrar un conector se describen en este [tutorial](application-proxy-add-on-premises-application.md).
 Descripción de los conectores del Proxy de aplicación de Azure AD | Obtenga más información sobre la [administración de conectores](application-proxy-connectors.md) y cómo los conectores [se actualizan de forma automática](application-proxy-connectors.md#automatic-updates).

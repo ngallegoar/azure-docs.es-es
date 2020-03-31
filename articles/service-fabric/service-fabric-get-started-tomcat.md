@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614424"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Creación de un contenedor de Service Fabric que se ejecuta en un servidor de Apache Tomcat en Linux
@@ -16,7 +16,7 @@ Apache Tomcat es una conocida implementación de código abierto de las tecnolog
 
 Para más información sobre Apache Tomcat, consulte la [página principal de Apache Tomcat](https://tomcat.apache.org/). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 * Un equipo de desarrollo en el que se ejecute:
   * [SDK y herramientas de Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE para Linux](https://docs.docker.com/engine/installation/#prior-releases). 

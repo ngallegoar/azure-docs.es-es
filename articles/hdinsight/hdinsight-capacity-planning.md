@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: db7b2787df68e5e9baadddc7e6e6159cfff26097
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 69627c961d9224a124fda09f40901f837d627281
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887247"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233676"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -56,7 +56,7 @@ Un clúster puede acceder a una combinación de distintas cuentas de almacenamie
 * Cuando desee que los datos que ya están cargados en un contenedor de blobs estén disponibles en el clúster.
 * Si desea aislar diferentes partes del almacenamiento por motivos de seguridad o para simplificar la administración.
 
-En un clúster de cuarenta y ocho nodos, se recomiendan entre cuatro y ocho cuentas de almacenamiento. Aunque puede que ya haya suficiente espacio de almacenamiento total, cada cuenta de almacenamiento proporciona ancho de banda de red adicional para los nodos de ejecución. Si tiene varias cuentas de almacenamiento, utilice un nombre aleatorio para cada cuenta de almacenamiento, sin prefijo. El propósito de la nomenclatura aleatoria es reducir la posibilidad de que se produzcan cuellos de botella de almacenamiento (limitación) o errores comunes en todas las cuentas. Para mejorar el rendimiento, utilice un único contenedor por cada cuenta de almacenamiento.
+Para mejorar el rendimiento, utilice un único contenedor por cada cuenta de almacenamiento.
 
 ## <a name="choose-a-cluster-type"></a>Elección de un tipo de clúster
 

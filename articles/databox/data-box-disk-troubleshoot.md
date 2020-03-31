@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67805710"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Uso de registros para solucionar incidencias de validación en Azure Data Box Disk
@@ -73,9 +73,9 @@ Si se ejecutan varias sesiones para la validación, se genera un registro de err
 
 En la tabla siguiente se resumen los errores incluidos en el archivo *error.xml* y las acciones recomendadas correspondientes.
 
-| Código de error| DESCRIPCIÓN                       | Acciones recomendadas               |
+| Código de error| Descripción                       | Acciones recomendadas               |
 |------------|--------------------------|-----------------------------------|
-| `None` | Se han validado correctamente los datos. | no se requiere ninguna acción. |
+| `None` | Se han validado correctamente los datos. | No se requiere ninguna acción. |
 | `InvalidXmlCharsInPath` |No se ha podido crear un archivo de manifiesto, ya que la ruta de acceso tiene caracteres que no son válidos. | Quite estos caracteres para continuar.  |
 | `OpenFileForReadFailed`| No se ha podido procesar el archivo. Esto puede deberse a una incidencia de acceso o a daños en el sistema de archivos.|No se ha podido leer el archivo debido a un error. Los detalles del error se encuentran en la excepción. |
 | `Not512Aligned` | Este archivo no tiene un formato válido para la carpeta PageBlob.| Cargue solo los datos que estén alineados en 512 bytes en la carpeta `PageBlob`. Quite el archivo de la carpeta PageBlob o muévalo a la carpeta BlockBlob. Vuelva a intentar la validación.|

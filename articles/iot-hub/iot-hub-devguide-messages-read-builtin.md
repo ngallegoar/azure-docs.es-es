@@ -9,17 +9,17 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950406"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237356"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
 
 De forma predeterminada, los mensajes se enrutan al punto de conexión orientado al servicio integrado ( **/messages/events**), que es compatible con [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Actualmente, este punto de conexión solo se expone mediante el protocolo [AMQP](https://www.amqp.org/) en el puerto 5671. IoT Hub muestra las propiedades siguientes para permitirle controlar el punto de conexión de mensajería integrado compatible con Event Hubs **messages/events**.
 
-| Propiedad            | DESCRIPCIÓN |
+| Propiedad            | Descripción |
 | ------------------- | ----------- |
 | **Número de particiones** | Establezca esta propiedad durante la creación para definir el número de [particiones](../event-hubs/event-hubs-features.md#partitions) para ingesta de eventos del dispositivo a la nube. |
 | **Tiempo de retención**  | Esta propiedad especifica cuánto tiempo, en días, IoT Hub conserva los mensajes. El valor predeterminado es un día, pero se puede aumentar a siete días. |
@@ -50,10 +50,10 @@ Si usa SDK o integraciones del productos de Event Hubs que no tienen en cuenta I
 
 En el portal, el campo Extremo compatible con Event Hub contiene una cadena de conexión de Event Hubs completa similar a la siguiente: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Si el SDK que utiliza requiere otros valores, serían los siguientes:
 
-| NOMBRE | Valor |
+| Nombre | Value |
 | ---- | ----- |
 | Punto de conexión | sb://abcd1234namespace.servicebus.windows.net/ |
-| Nombre de host. | abcd1234namespace.servicebus.windows.net |
+| Hostname | abcd1234namespace.servicebus.windows.net |
 | Espacio de nombres | abcd1234namespace |
 
 A continuación, puede usar cualquier directiva de acceso compartido que tenga permisos **ServiceConnect** para conectarse a la instancia de Event Hub especificada.

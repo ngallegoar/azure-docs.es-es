@@ -11,10 +11,10 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e73eae4d66f4ff94a48dfa27e258f8ba8ef87633
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126758"
 ---
 # <a name="localization"></a>Localización
@@ -41,7 +41,7 @@ El elemento **Localization** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| habilitado | Sin | Valores posibles: `true` o `false`. |
+| habilitado | No | Valores posibles: `true` o `false`. |
 
 El elemento **Localization** contiene los siguientes elementos XML:
 
@@ -57,7 +57,7 @@ El elemento **SupportedLanguages** contiene los atributos siguientes:
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Sí | El idioma que se usará como el predeterminado para los recursos localizados. |
-| MergeBehavior | Sin | Valores de enumeración de los valores combinados con cualquier elemento ClaimType presente en una directiva principal con el mismo identificador. Use este atributo al sobrescribir una notificación especificada en la directiva de base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` especifica que la colección de datos presente tiene que anexarse al final de la colección especificada en la directiva principal. El valor `Prepend` especifica que la colección de datos presente tiene que agregarse antes de la colección especificada en la directiva principal. El valor `ReplaceAll` especifica que la colección de datos definidos en la directiva principal tiene que omitirse y, en su lugar, tienen que usarse los datos definidos en la directiva actual. |
+| MergeBehavior | No | Valores de enumeración de los valores combinados con cualquier elemento ClaimType presente en una directiva principal con el mismo identificador. Use este atributo al sobrescribir una notificación especificada en la directiva de base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` especifica que la colección de datos presente tiene que anexarse al final de la colección especificada en la directiva principal. El valor `Prepend` especifica que la colección de datos presente tiene que agregarse antes de la colección especificada en la directiva principal. El valor `ReplaceAll` especifica que la colección de datos definidos en la directiva principal tiene que omitirse y, en su lugar, tienen que usarse los datos definidos en la directiva actual. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
 
@@ -112,7 +112,7 @@ El elemento **Item** contiene los atributos siguientes:
 | --------- | -------- | ----------- |
 | Texto | Sí | Cadena para mostrar fácil de identificar que se mostrará al usuario en la interfaz de usuario para esta opción. |
 | Value | Sí | Valor de notificación de cadena asociado a la selección de esta opción. |
-| SelectByDefault | Sin | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
+| SelectByDefault | No | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 
 En el ejemplo siguiente, se muestra cómo usar el elemento **LocalizedCollections**. Contiene dos elementos **LocalizedCollection**, uno para inglés y otro para español. Ambos establecen la colección **Restriction** de la notificación `Gender` con una lista de elementos para inglés y español.
 

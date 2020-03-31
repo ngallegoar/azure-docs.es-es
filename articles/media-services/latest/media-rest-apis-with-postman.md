@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
 ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75779644"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configuración de Postman para llamadas API REST de Media Services v3
@@ -26,7 +26,7 @@ En este artículo se muestra cómo configurar **Postman** para que se pueda usar
 
 Antes de comenzar a desarrollar, revise [Desarrollo con las API de Media Services v3](media-services-apis-overview.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
 - Obtenga la información que necesita para [acceder a las API](access-api-cli-how-to.md)
