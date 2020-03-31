@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
 ms.openlocfilehash: fe3c8a3b5d63c67813a5098742392d5658e5c204
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034231"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Descripción de uso de máquinas virtuales de Azure
@@ -41,7 +41,7 @@ Para comenzar, [descargue los detalles de uso](https://docs.microsoft.com/azure/
 | Ubicación del recurso  | Identifica el centro de datos donde se está ejecutando el recurso.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | "Este de Japón"                                                                                                                                                                                                                                                                                                                                                        |
 | Servicio consumido   | El servicio de la plataforma Azure que ha usado.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft.Compute"                                                                                                                                                                                                                                                                                                                                              |
 | Grupo de recursos     | El grupo de recursos en el que se ejecuta el recurso implementado. Para más información, consulte [Información general de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/linux/vm-usage).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
-| Id. de instancia        | Identificador del recurso. El identificador contiene el nombre especificado para el recurso cuando se creó En el caso de las máquinas virtuales, el identificador de instancia contendrá los valores SubscriptionId, ResourceGroupName y VMName (o el nombre del conjunto de escalado para el uso de conjunto de escalado).                                                                                                                                                                                                                                                                                                                                                                                                                    | "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1"<br><br>o<br><br>"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1"                                                                                           |
+| Id. de instancia        | Identificador del recurso. El identificador contiene el nombre especificado para el recurso cuando se creó En el caso de las máquinas virtuales, el identificador de instancia contendrá los valores SubscriptionId, ResourceGroupName y VMName (o el nombre del conjunto de escalado para el uso de conjunto de escalado).                                                                                                                                                                                                                                                                                                                                                                                                                    | "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1"<br><br>or<br><br>"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1"                                                                                           |
 | Etiquetas               | Etiqueta asignada al recurso. Use etiquetas para agrupar los registros de facturación. Obtenga información sobre cómo [etiquetar las máquinas virtuales](tag.md). Solo está disponible para las máquinas virtuales de Resource Manager.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
 | Información adicional    | Metadatos específicos del servicio. En el caso de las VM, rellenamos los siguientes datos en el campo de información adicional: <ul><li>Tipo de imagen: la imagen específica que ejecutó. Encuentre la lista completa de cadenas compatibles a continuación, en Tipos de imagen.</li><li>Tipo de servicio: el tamaño que implementó.</li><li>VMName: el nombre de la máquina virtual. Este campo solo se rellena para las VM del conjunto de escalado. Si necesita el nombre de la máquina virtual para las máquinas virtuales del conjunto de escalado, puede buscarlo en la cadena del identificador de instancia anterior.</li><li>UsageType: especifica el tipo de uso que representa.<ul><li>ComputeHR es el uso de Horas de proceso de la máquina virtual subyacente, como Standard_D1_v2.</li><li>ComputeHR_SW es el cambio de software Premium si la máquina virtual usa software Premium, como Microsoft R Server.</li></ul></li></ul>    | Máquinas virtuales {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}<br><br>Conjuntos de escalado de máquinas virtuales {"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}<br><br>Software Premium {"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"} |
 
@@ -81,32 +81,32 @@ El nombre de región que se rellenó en el campo Ubicación de recurso en los de
 |    centralus             |    Centro de EE. UU.                            |
 |    chinaeast             |    Este de China                            |
 |    chinanorth            |    Norte de China                           |
-|    eastasia              |    Asia oriental                             |
-|    estado                |    East US                               |
+|    eastasia              |    Este de Asia                             |
+|    estado                |    Este de EE. UU.                               |
 |    eastus2               |    Este de EE. UU. 2                             |
 |    GermanyCentral        |    Centro de Alemania                            |
-|    GermanyNortheast      |    Nordeste de Alemania                          |
+|    GermanyNortheast      |    Norte de Alemania                          |
 |    japaneast             |    Este de Japón                               |
 |    japanwest             |    Oeste de Japón                               |
 |    KoreaCentral          |    Centro de Corea del Sur                            |
 |    KoreaSouth            |    Sur de Corea del Sur                              |
 |    northcentralus        |    Centro-Norte de EE. UU                      |
-|    northeurope           |    Europa del Norte                          |
-|    southcentralus        |    Centro-Sur de EE. UU                      |
-|    southeastasia         |    Sudeste asiático                        |
+|    northeurope           |    Norte de Europa                          |
+|    southcentralus        |    Centro-sur de EE. UU.                      |
+|    southeastasia         |    Sudeste de Asia                        |
 |    SouthIndia            |    India meridional                              |
 |    UKNorth               |    Norte de Reino Unido                              |
 |    uksouth               |    Sur de Reino Unido 2                              |
-|    UKSouth2              |    Sur del Reino Unido 2                            |
+|    UKSouth2              |    Sur de Reino Unido 2                            |
 |    ukwest                |    Oeste de Reino Unido                               |
-|    USDoDCentral          |    Departamento de Defensa de EE. UU. Centro                        |
-|    USDoDEast             |    Departamento de Defensa de EE. UU. Este                           |
-|    USGovArizona          |    Gov (US): Arizona                         |
+|    USDoDCentral          |    US DoD (centro)                        |
+|    USDoDEast             |    US DoD (este)                           |
+|    USGovArizona          |    USGov: Arizona                         |
 |    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    Gov (US): Texas                           |
+|    USGovTexas            |    USGov: Texas                           |
 |    usgovvirginia         |    USGov Virginia                        |
 |    westcentralus         |    Centro-oeste de EE. UU.                       |
-|    westeurope            |    Europa occidental                           |
+|    westeurope            |    Oeste de Europa                           |
 |    WestIndia             |    India occidental                               |
 |    westus                |    Oeste de EE. UU.                               |
 |    westus2               |    Oeste de EE. UU. 2                             |

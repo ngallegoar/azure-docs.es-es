@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: c006aa8c46864b78ae46aa9c351605cca1d1e425
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: de8ad39ef731af3dc272d700eeee346acda64b53
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606528"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235192"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Desencadenador de Azure Cosmos DB para Azure Functions 2.x
 
@@ -236,7 +236,8 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**leaseRenewInterval**| **LeaseRenewInterval**| (Opcional) Al establecerse, define, en milisegundos, el intervalo de renovación para todas las concesiones para las particiones que mantiene una instancia actualmente. El valor predeterminado es 17 000 (17 segundos).
 |**checkpointFrequency**| **CheckpointFrequency**| (Opcional) Al establecerse, define, en milisegundos, el intervalo entre los puntos de comprobación de las concesiones. El valor predeterminado siempre se encuentra después de una llamada de función.
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Opcional) Al establecerse, esta propiedad establece la cantidad máxima de elementos recibidos por llamada de función. Si las operaciones de la colección supervisada se realizan a través de procedimientos almacenados, el [ámbito de transacción](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) se conserva al leer los elementos de la fuente de cambios. Como resultado, es posible que el número de elementos recibidos sea mayor que el valor especificado, de modo que los elementos que cambian en la misma transacción se devuelvan como parte de un lote atómico.
-|**startFromBeginning**| **StartFromBeginning**| (Opcional) Esta opción indica al desencadenador que lea los cambios desde el principio del historial de cambios de la colección en lugar de comenzar en la hora actual. La lectura desde el principio solo funciona la primera vez que se inicia el desencadenador, ya que en las ejecuciones posteriores, los puntos de control ya están almacenados. Si esta opción se establece en `true` cuando ya hay concesiones creadas no tiene ningún efecto.
+|**startFromBeginning**| **StartFromBeginning**| (Opcional) Esta opción indica al desencadenador que lea los cambios desde el principio del historial de cambios de la colección en lugar de comenzar en la hora actual. La lectura desde el principio solo funciona la primera vez que se inicia el desencadenador, ya que en las ejecuciones posteriores, los puntos de control ya están almacenados. Si esta opción se establece en `true` cuando ya hay concesiones creadas no tiene ningún efecto. |
+|**preferredLocations**| **PreferredLocations**| (Opcional) Defina las ubicaciones preferidas (regiones) para las cuentas de base de datos con replicación geográfica en el servicio de Azure Cosmos DB. Los valores deben estar separados por comas. Por ejemplo, "Este de EE. UU., Centro-sur de EE. UU. Norte de Europa". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

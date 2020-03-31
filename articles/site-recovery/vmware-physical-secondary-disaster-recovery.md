@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
 ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620535"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228804"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos locales en un sitio secundario
 
@@ -57,7 +57,7 @@ o   Para máquinas físicas, siga este [tutorial](./physical-azure-disaster-reco
 **Matrices compatibles** | [Haga clic aquí para obtener información detallada](./vmware-physical-azure-support-matrix.md)|[Descarga de matriz compatible de ASR Scout](https://aka.ms/asr-scout-cm)
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Para completar este tutorial:
 
 - [Revise](vmware-physical-secondary-support-matrix.md) los requisitos de compatibilidad de todos los componentes.
@@ -151,10 +151,10 @@ Scout Update 7 es un instalador completo que se puede usar para una instalación
 * Compatibilidad con TLS v1.2
 
 #### <a name="bug-and-security-fixes"></a>Errores y revisiones de seguridad
-* Problema corregido: Las máquinas independientes o en clúster de Windows tienen una configuración IP incorrecta en la exploración de DR o la recuperación.
-* Problema corregido: La operación de agregar disco a veces da error en el clúster V2V.
+* Solucionado: Las máquinas independientes o en clúster de Windows tienen una configuración IP incorrecta en la exploración de DR o la recuperación.
+* Solucionado: La operación de agregar disco a veces da error en el clúster V2V.
 * Problema corregido: El Asistente de vContinuum se bloquea durante la fase de recuperación si el destino maestro es Windows Server 2016
-* Problema corregido: Los problemas de seguridad de MySQL se mitigan al actualizar MySQL a la versión 5.7.23
+* Solucionado: Los problemas de seguridad de MySQL se mitigan al actualizar MySQL a la versión 5.7.23
 
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Actualización manual para PHP y MySQL en CS, PS y RX
 La plataforma de scripting PHP debe actualizarse a la versión 7.2.10 en el servidor de configuración, el servidor de procesos y el servidor RX.
@@ -231,7 +231,7 @@ La actualización 5 de Scout es una actualización acumulativa. Contiene todas l
     * Corregido: error en la protección del clúster de nodo único debido a un problema de falta de coincidencia de SCSI. 
     * Corregido: error al volver a proteger el servidor de clúster de Windows P2V si hay discos del clúster de destino. 
     
-* Corregido: durante la protección de conmutación por recuperación, si el servidor de destino maestro seleccionado no está en el mismo servidor ESXi que el de la máquina de origen protegida (durante la protección directa), vContinuum elige el servidor de destino maestro equivocado durante la recuperación de la conmutación por recuperación y, posteriormente, se produce un error en la operación de recuperación.
+* Solucionado: durante la protección de conmutación por recuperación, si el servidor de destino maestro seleccionado no está en el mismo servidor ESXi que el de la máquina de origen protegida (durante la protección directa), vContinuum elige el servidor de destino maestro equivocado durante la recuperación de la conmutación por recuperación y, posteriormente, se produce un error en la operación de recuperación.
 
 > [!NOTE]
 > * Las correcciones de los clústeres P2V solo son aplicables a los clústeres de MSCS físicos que se acaban de proteger con Site Recovery Scout Update 5. Para instalar las correcciones de los clústeres en clústeres de MSCS P2V protegidos con actualizaciones anteriores, siga los pasos de actualización mencionados en la sección 12 de las [notas de la versión de Site Recovery Scout](https://aka.ms/asr-scout-release-notes).

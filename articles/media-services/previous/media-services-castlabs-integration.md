@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
 ms.openlocfilehash: 29a344c739d8d99da2e5c81d41a11c601e48022e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74969147"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso de castLabs para entregar licencias de Widevine a Azure Media Services 
@@ -68,7 +68,7 @@ En la tabla siguiente se describen los tokens JWT en AMS.
 
 En la tabla siguiente se describen los tokens JWT en castLabs. 
 
-| NOMBRE | DESCRIPCIÓN |
+| Nombre | Descripción |
 | --- | --- |
 | optData |Cadena JSON que contiene información sobre el usuario. |
 | crt |Cadena JSON que contiene información sobre el activo, su información de licencia y derechos de reproducción. |

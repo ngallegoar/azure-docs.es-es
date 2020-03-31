@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883700"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218922"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Búsqueda de entidades con Bing Entity API
 

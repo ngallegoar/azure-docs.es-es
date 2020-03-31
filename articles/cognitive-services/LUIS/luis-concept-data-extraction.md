@@ -5,11 +5,11 @@ author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716291"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219202"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extracción de datos de texto de expresiones con intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
@@ -19,11 +19,11 @@ Los datos más difíciles de extraer son los datos de aprendizaje automático, p
 ## <a name="data-location-and-key-usage"></a>Ubicación de los datos y uso de la clave
 LUIS proporciona los datos del [punto de conexión](luis-glossary.md#endpoint) publicado. La **solicitud HTTPS** (POST o GET) contiene la expresión, así como algunas configuraciones opcionales como los entornos de producción o de almacenamiento provisional.
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[Solicitud de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-request"></a>[Solicitud de punto de conexión de predicción de V2](#tab/V2)
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Solicitud de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-request"></a>[Solicitud de punto de conexión de predicción de V3](#tab/V3)
 
 `https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
 
@@ -38,7 +38,7 @@ La **respuesta HTTPS** contiene toda la información de la intención y la entid
 ## <a name="data-from-intents"></a>Datos de intenciones
 Los datos principales son el **nombre de la intención** de puntuación superior. La respuesta del punto de conexión es:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 {
@@ -51,7 +51,7 @@ Los datos principales son el **nombre de la intención** de puntuación superior
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 ```JSON
 {
@@ -80,7 +80,7 @@ Más información acerca del [punto de conexión de predicción de V3](luis-migr
 Si el bot de chat o aplicación de llamada a LUIS toma una decisión en función de más de una puntuación de intención, devuelve todas las puntuaciones de intenciones.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 Establezca el parámetro querystring, `verbose=true`. La respuesta del punto de conexión es:
 
@@ -105,7 +105,7 @@ Establezca el parámetro querystring, `verbose=true`. La respuesta del punto de 
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 Establezca el parámetro querystring, `show-all-intents=true`. La respuesta del punto de conexión es:
 
@@ -142,7 +142,7 @@ Las intenciones se ordenan de mayor a menor puntuación.
 
 Si agrega dominios creados previamente, el nombre de la intención indica el dominio, como `Utilties` o `Communication`, así como la intención:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 {
@@ -168,7 +168,7 @@ Si agrega dominios creados previamente, el nombre de la intención indica el dom
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 ```JSON
 {
@@ -210,7 +210,7 @@ Una sola palabra o frase en una expresión puede coincidir con más de una entid
 
 Se devuelven todas las entidades de la matriz **entities** de la respuesta desde el punto de conexión:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -233,7 +233,7 @@ Se devuelven todas las entidades de la matriz **entities** de la respuesta desde
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 ```JSON
 "entities": {
@@ -266,7 +266,7 @@ Las entidades [creadas previamente](luis-concept-entity-types.md) se detectan en
 
 `Dec 5th send to +1 360-555-1212`
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -347,7 +347,7 @@ Las entidades [creadas previamente](luis-concept-entity-types.md) se detectan en
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 Sin el parámetro de cadena de consulta, `verbose=true`:
 
@@ -556,7 +556,7 @@ Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como
 Los roles son diferencias contextuales de entidades.
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 El nombre de la entidad es `Location`, con dos roles, `Origin` y `Destination`.
 
@@ -589,7 +589,7 @@ El nombre de la entidad es `Location`, con dos roles, `Origin` y `Destination`.
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 En v3, el **nombre de rol** es el nombre principal del objeto.
 
@@ -709,7 +709,7 @@ Para todas las demás referencias culturales, la respuesta es:
 La entidad de extracción de frases clave devuelve frases clave en la expresión, proporcionadas por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 {
@@ -744,7 +744,7 @@ La entidad de extracción de frases clave devuelve frases clave en la expresión
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 Más información acerca del [punto de conexión de predicción de V3](luis-migration-api-v3.md).
 
@@ -822,7 +822,7 @@ LUIS devuelve todas las entidades que ha detectado la expresión. Como consecuen
 
 El punto de conexión de LUIS puede detectar los mismos datos en diferentes entidades.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 {
@@ -948,7 +948,7 @@ El punto de conexión de LUIS puede detectar los mismos datos en diferentes enti
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 Sin `verbose=true` como el parámetro de cadena de consulta.
 
@@ -1135,7 +1135,7 @@ Si una palabra o frase coincide con más de una entidad de lista, la consulta de
 
 Para la consulta `when is the best time to go to red rock?`, si la aplicación tiene la palabra `red` en más de una lista, LUIS reconocerá todas las entidades y devolverá una matriz de entidades como parte de la respuesta del punto de conexión JSON:
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
 {
@@ -1173,7 +1173,7 @@ Para la consulta `when is the best time to go to red rock?`, si la aplicación t
 
 
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 Sin `verbose=true` en la cadena de consulta:
 

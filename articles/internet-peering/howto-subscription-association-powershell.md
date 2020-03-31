@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75908983"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Asociación de un ASN del mismo nivel a una suscripción de Azure mediante PowerShell
 
-Antes de enviar una solicitud de emparejamiento, primero debe asociar su ASN con una suscripción de Azure siguiendo estos pasos.
+Antes de enviar una solicitud de emparejamiento, primero debe asociar su ASN con una suscripción a Azure mediante los pasos siguientes.
 
 Si lo prefiere, puede completar esta guía mediante el [portal](howto-subscription-association-portal.md).
 
@@ -29,7 +29,7 @@ Si lo prefiere, puede completar esta guía mediante el [portal](howto-subscripti
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Iniciar sesión en la cuenta de Azure y seleccione la suscripción
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="register-for-peering-resource-provider"></a>Registro como proveedor de recursos de emparejamiento
+### <a name="register-for-peering-resource-provider"></a>Registrarse como proveedor de recursos de emparejamiento
 Regístrese como proveedor de recursos de emparejamiento en su suscripción con este comando. Si no hace esto, no se podrá acceder a los recursos de Azure necesarios para configurar el emparejamiento.
 
 ```powershell
@@ -62,7 +62,7 @@ New-AzPeerAsn `
 
 Una suscripción puede tener varios ASN. Actualice la información de emparejamiento de cada ASN y asegúrese de que cada uno tenga un nombre único.
 
-Se espera que los elementos del mismo nivel tengan un perfil completo y actualizado en [PeeringDB](https://www.peeringdb.com). Usamos esta información durante el registro para validar los detalles del ASN del mismo nivel, como su información de NOC, sus datos de contacto técnico, su presencia en las instalaciones de emparejamiento, etc.
+se espera que los elementos del mismo nivel tengan un perfil completo y actualizado en [PeeringDB](https://www.peeringdb.com). Usamos esta información durante el registro para validar los detalles del ASN del mismo nivel, como su información de NOC, sus datos de contacto técnico, su presencia en las instalaciones de emparejamiento, etc.
 
 Tenga en cuenta que, en lugar de **{subscriptionId}** en la salida anterior, se mostrará el identificador de la suscripción actual.
 
@@ -86,9 +86,9 @@ Type            : Microsoft.Peering/peerAsns
 ```
 
 > [!IMPORTANT]
-> Espere a que el estado de ValidationState cambie a "Aprobado" antes de enviar una solicitud de emparejamiento. La aprobación puede tardar hasta 12 horas.
+> Espere a que el estado de ValidationState cambie a "Approved" (aprobado) antes de enviar una solicitud de emparejamiento. La aprobación puede tardar hasta 12 horas.
 
-## <a name="modify-peerasn"></a>Modificación de un PeerASN
+## <a name="modify-peerasn"></a>Modificación de un PeerAsn
 Puede modificar la información de contacto del NOC en cualquier momento.
 
 Aquí tiene un ejemplo:
@@ -97,7 +97,7 @@ Aquí tiene un ejemplo:
 Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
 ```
 
-## <a name="delete-peerasn"></a>Eliminación de un PeerASN
+## <a name="delete-peerasn"></a>Eliminación de un PeerAsn
 Actualmente no se admite la eliminación de PeerASN. Si necesita eliminar un PeerASN, póngase en contacto con el equipo de [emparejamiento de Microsoft](mailto:peering@microsoft.com).
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -109,4 +109,4 @@ Actualmente no se admite la eliminación de PeerASN. Si necesita eliminar un Pee
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-Para más información, vea las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).
+Para obtener más información, consulte las [preguntas más frecuentes sobre el emparejamiento de Internet](faqs.md).

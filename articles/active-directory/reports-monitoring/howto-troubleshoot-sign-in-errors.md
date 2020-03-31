@@ -15,13 +15,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec5fe7f62e8537a7f687202d365eb37d43b48b78
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008057"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedimientos para: Solución de errores de inicio de sesión mediante informes de Azure Active Directory
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedimientos: Solución de errores de inicio de sesión mediante informes de Azure Active Directory
 
 En el [informe de inicios de sesión](concept-sign-ins.md) de Azure Active Directory (Azure AD), puede encontrar respuesta a algunas preguntas sobre la administración del acceso a las aplicaciones de la organización, como las siguientes:
 
@@ -32,7 +32,7 @@ En el [informe de inicios de sesión](concept-sign-ins.md) de Azure Active Direc
 
 Además, el informe de inicios de sesión también puede ayudarle a solucionar errores de inicio de sesión con usuarios de la organización. En esta guía, aprenderá a aislar un error del informe de inicios de sesión y a utilizarlo para entender la causa principal del problema.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesita:
 

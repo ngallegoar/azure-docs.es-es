@@ -4,10 +4,10 @@ description: Proporcione acceso a las imágenes de su registro de contenedor pri
 ms.topic: article
 ms.date: 10/04/2019
 ms.openlocfilehash: 37da784c8e95a5f5b924532e4a019552924a1a3f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455412"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticación de Azure Container Registry con entidades de servicio
@@ -32,13 +32,13 @@ Debe usar una entidad de servicio para proporcionar acceso al registro en **esce
 
   * *Incorporación de cambios*: se implementan los contenedores desde un Registro en sistemas de orquestación como son Kubernetes, DC/OS y Docker Swarm. También puede incorporar los cambios desde registros de contenedor a servicios de Azure relacionados, como son [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) y otros.
 
-  * *Envío de cambios*: crea imágenes de contenedor y las inserta en un Registro con soluciones de integración e implementación continuas, por ejemplo, Azure Pipelines o Jenkins.
+  * *Push*: crea imágenes de contenedor y las inserta en un Registro con soluciones de integración e implementación continuas, por ejemplo, Azure Pipelines o Jenkins.
 
 Para obtener acceso individual a un registro, como, por ejemplo, al extraer manualmente una imagen de contenedor en la estación de trabajo de desarrollo, se recomienda usar su propia [identidad de Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) para acceder al registro (por ejemplo, con [az acr login][az-acr-login]).
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-### <a name="sample-scripts"></a>Scripts de ejemplo
+### <a name="sample-scripts"></a>Muestras de scripts
 
 Puede encontrar los scripts del ejemplo anterior para la CLI de Azure en GitHub, así como versiones para Azure PowerShell:
 

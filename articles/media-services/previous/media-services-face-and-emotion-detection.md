@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: 2d746167f993438e5fce467365844df2078c08a6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919318"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detección de caras y emociones con Análisis multimedia de Azure
@@ -55,7 +55,7 @@ La API de detección y seguimiento de caras proporciona detección y seguimiento
 
 Las caras detectadas y seguidas se devuelven con coordenadas (izquierda, superior, ancho y alto) que indican la ubicación de caras en la imagen en píxeles, así como un número de identificación de cara que indica el seguimiento de esa persona. Los números de identificación de cara son propensos a restablecerse en circunstancias en las que la cara de frente se pierde o se superpone en el fotograma, lo que provoca que a algunas personas se les asigne varios identificadores.
 
-## <a id="output_elements"></a>Elementos del archivo JSON de salida
+## <a name="elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos del archivo JSON de salida
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 

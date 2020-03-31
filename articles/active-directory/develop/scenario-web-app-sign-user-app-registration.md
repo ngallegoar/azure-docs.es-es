@@ -15,10 +15,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: f2513b1fee022199f040ba0dcf83110c0b3b1365
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701576"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicación web que inicia sesión de usuarios: Registro de aplicación
@@ -48,7 +48,7 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
 1. Si la cuenta proporciona acceso a más de un inquilino, seleccione su cuenta en la esquina superior derecha. A continuación, establezca la sesión del portal en el inquilino de Azure Active Directory (Azure AD) deseado.
 1. En el panel izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones** > **Nuevo registro**.
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
    1. Elija los tipos de cuenta admitidos para la aplicación. (Consulte [Tipos de cuenta admitidos](./v2-supported-account-types.md)).
@@ -60,7 +60,7 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
    1. En **Concesión implícita**, seleccione **Tokens de id.** .
    1. Seleccione **Guardar**.
 
-# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+# <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
    1. Elija los tipos de cuenta admitidos para la aplicación. (Consulte [Tipos de cuenta admitidos](./v2-supported-account-types.md)).
@@ -71,7 +71,7 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
 1. En la sección **Configuración avanzada** | **Concesión implícita**, seleccione **Tokens de id.** Para este ejemplo, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md).
 1. Seleccione **Guardar**.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 1. Cuando aparezca la página **Registrar una aplicación**, escriba un nombre para mostrar de la aplicación. Por ejemplo, escriba **java-webapp**.
 1. Seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** y luego seleccione **Aplicación web o API** para **Tipo de aplicación**.
@@ -95,7 +95,7 @@ Puede usar estos vínculos para el arranque de la creación de la aplicación we
    1. Seleccione **Agregar**.
    1. Cuando aparezca el valor de clave, cópielo para usarlo más adelante. Este valor no se volverá a mostrar ni se podrá recuperar por otro medio.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
    1. En la sección **Nombre**, escriba un nombre con sentido para la aplicación, que se mostrará a los usuarios de la aplicación. Por ejemplo, escriba **python-webapp**.

@@ -4,11 +4,11 @@ description: Aprenda a buscar las direcciones IP entrantes y salientes de aplica
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356897"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234860"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Direcciones IP en Azure Functions
 
@@ -30,7 +30,7 @@ Cada aplicación de función tiene una única dirección IP de entrada. Para enc
 3. Seleccione **Características de la plataforma**.
 4. Seleccione **Propiedades** y la dirección IP de entrada aparece en **Dirección IP virtual**.
 
-## <a name="find-outbound-ip-addresses"></a>Direcciones IP de salida de una aplicación de función
+## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Direcciones IP de salida de una aplicación de función
 
 Cada aplicación de función tiene un conjunto de direcciones IP de salida disponibles. Las conexiones de salida desde cualquier función, como a una base de datos back-end, usan una de las direcciones IP de salida disponibles como dirección IP de origen. No se puede saber con antelación qué dirección IP usará una conexión determinada. Por este motivo, el servicio back-end debe abrir su firewall a todas las direcciones IP de salida de la aplicación de función.
 
@@ -80,7 +80,7 @@ Por ejemplo, este sería el aspecto del fragmento JSON de Europa Occidental:
 
  Para obtener información acerca de cuándo se actualiza este archivo y cuando cambian las direcciones IP, expanda la sección **Details** (Detalles) de la [página del Centro de descarga](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
-## <a name="inbound-ip-address-changes"></a>Cambios en la dirección IP de entrada
+## <a name="inbound-ip-address-changes"></a><a name="inbound-ip-address-changes"></a>Cambios en la dirección IP de entrada
 
 La dirección IP de entrada **puede** cambiar cuándo se:
 

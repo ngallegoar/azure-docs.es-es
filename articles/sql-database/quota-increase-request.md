@@ -9,17 +9,17 @@ ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 02/04/2020
 ms.openlocfilehash: ff2be6972bb4e8af266d0aa8a56d1879bc1b8b78
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586162"
 ---
 # <a name="request-quota-increases-for-azure-sql-database"></a>Solicitud de aumentos de cuota para Azure SQL Database
 
 En este artículo se explica cómo solicitar un aumento de cuota para las bases de datos únicas, servidores e instancias administradas de Azure SQL Database. También se explica cómo habilitar el acceso de suscripciones a una región.
 
-## <a id="newquota"></a> Creación de una solicitud de soporte técnico
+## <a name="create-a-new-support-request"></a><a id="newquota"></a> Creación de una solicitud de soporte técnico
 
 Use los pasos siguientes para crear una nueva solicitud de soporte técnico desde Azure Portal para SQL Database.
 
@@ -54,7 +54,7 @@ Use los pasos siguientes para crear una nueva solicitud de soporte técnico desd
 
 Cuando hace clic en **Proporcionar detalles** aparece la ventana **Detalles de la cuota** que le permite agregar información adicional. En las secciones siguientes se describen las distintas opciones de tipos de cuota de **SQL Database** e **Instancia administrada de SQL Database**.
 
-## <a id="sqldbquota"></a> Tipos de cuota de SQL Database
+## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a> Tipos de cuota de SQL Database
 
 En las secciones siguientes se describen tres opciones de aumento de cuota para los tipos de cuota de **SQL Database**:
 
@@ -90,7 +90,7 @@ Siga estos pasos para solicitar un aumento en el número de servidores por suscr
 
 Para más información, consulte [Límites y regulación de recursos de SQL Database](sql-database-resource-limits-database-server.md).
 
-### <a id="other"></a> Habilitar el acceso de suscripciones a una región
+### <a name="enable-subscription-access-to-a-region"></a><a id="other"></a> Habilitar el acceso de suscripciones a una región
 
 Algunos tipos de oferta no están disponibles en todas las regiones. Puede ver un error como el siguiente:
 
@@ -100,7 +100,7 @@ Si su suscripción necesita acceso en una región determinada, use la opción **
 
 ![Otros detalles de cuota](./media/quota-increase-request/quota-details-whitelisting.png)
 
-## <a id="sqlmiquota"></a> Tipo de cuota de instancia administrada
+## <a name="managed-instance-quota-type"></a><a id="sqlmiquota"></a> Tipo de cuota de instancia administrada
 
 Para el tipo de cuota **Instancia administrada de SQL Server**, siga estos pasos:
 

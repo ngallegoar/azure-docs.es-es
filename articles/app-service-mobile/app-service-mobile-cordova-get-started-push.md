@@ -7,10 +7,10 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 08260437076728421cb6fa393f481d27b95b1782
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461613"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Agregar notificaciones push a su aplicación de Apache Cordova
@@ -23,7 +23,7 @@ En este tutorial, agregará notificaciones push al proyecto de [inicio rápido d
 
 Si no usa el proyecto de servidor de inicio rápido descargado, necesita el paquete de extensión de notificaciones push. Para obtener más información, consulte [Trabajar con el SDK del servidor back-end de .NET para Mobile Apps][1].
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a><a name="prerequisites"></a>Requisitos previos
 
 En este tutorial se da por hecho que tiene una aplicación de Apache Cordova que se desarrolló con Visual Studio 2015. Debe usarse un dispositivo Android, Windows o iOS, o bien Google Android Emulator.
 
@@ -37,7 +37,7 @@ Para completar este tutorial, necesita:
 * (iOS) Una [suscripción a Apple Developer Program][7] y un dispositivo iOS (el simulador de iOS no admite notificaciones push)
 * (Windows) Una [cuenta de desarrollador de Microsoft Store][8] y un dispositivo con Windows 10
 
-## <a name="configure-hub"></a>Configurar un Centro de notificaciones
+## <a name="configure-a-notification-hub"></a><a name="configure-hub"></a>Configurar un Centro de notificaciones
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
@@ -47,7 +47,7 @@ Para completar este tutorial, necesita:
 
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a name="add-push-to-app"></a>Modificación de la aplicación de Cordova
+## <a name="modify-your-cordova-app"></a><a name="add-push-to-app"></a>Modificación de la aplicación de Cordova
 
 Para asegurarse de que el proyecto de aplicación de Apache Cordova está listo para controlar las notificaciones push, instale el complemento de notificaciones push de Cordova además de cualquier servicio de inserción push específico de la plataforma.
 
@@ -175,13 +175,13 @@ Inicialmente, se incluirá el código mínimo para Android. Más tarde, puede mo
 
 Complete esta sección para habilitar las notificaciones push en Android.
 
-#### <a name="enable-gcm"></a>Habilitar la mensajería en la nube Firebase
+#### <a name="enable-firebase-cloud-messaging"></a><a name="enable-gcm"></a>Habilitar la mensajería en la nube Firebase
 
 Dado que, en principio, el objetivo es la plataforma Android de Google, es preciso habilitar el Servicio de mensajería en la nube de Firebase.
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-#### <a name="configure-backend"></a>Configuración del back-end de aplicación móvil para enviar solicitudes de notificaciones push mediante FCM
+#### <a name="configure-the-mobile-app-back-end-to-send-push-requests-using-fcm"></a><a name="configure-backend"></a>Configuración del back-end de aplicación móvil para enviar solicitudes de notificaciones push mediante FCM
 
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
@@ -205,7 +205,7 @@ pushRegistration = PushNotification.init({
 });
 ```
 
-#### <a name="configure-device"></a>Configuración de un dispositivo Android para la depuración USB
+#### <a name="configure-your-android-device-for-usb-debugging"></a><a name="configure-device"></a>Configuración de un dispositivo Android para la depuración USB
 
 Antes de implementar su aplicación en su dispositivo Android, debe habilitar la depuración USB. Realice los pasos siguientes en su teléfono Android:
 
@@ -369,7 +369,7 @@ En Visual Studio, asegúrese de que hay una plataforma de Windows seleccionada c
 
 Compruebe que se recibe una notificación cuando se agrega el artículo.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a><a name="next-steps"></a>Pasos siguientes
 
 * Lea acerca de los [Notification Hubs][17] para obtener información sobre las notificaciones de inserción.
 * Si aún no lo ha hecho, siga el tutorial y [agregue autenticación][14] a su aplicación de Apache Cordova.

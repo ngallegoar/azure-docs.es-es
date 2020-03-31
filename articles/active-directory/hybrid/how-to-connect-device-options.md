@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96ddcdb67ef079cfa23902a1dcb03b0ec61077fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109540"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Opciones de dispositivos
 
 La siguiente documentación proporciona información acerca de las distintas opciones de dispositivo disponibles en Azure AD Connect. Azure AD Connect se puede usar para configurar las dos operaciones siguientes: 
 * **Unión a Azure AD híbrido**: si su entorno tiene un uso local de AD y también quiere aprovechar las ventajas de Azure AD, puede implementar dispositivos híbridos unidos a Azure AD. Estos dispositivos están unidos tanto al entorno local de Active Directory como a Azure Active Directory.
-* **Escritura diferida de dispositivo**: la escritura diferida de dispositivo se usa para habilitar el acceso condicional basado en dispositivos protegidos con AD FS (2012 R2 o posterior).
+* **Escritura diferida de dispositivo**: la escritura diferida de dispositivo se usa para permitir el acceso condicional basado en dispositivos protegidos con AD FS (2012 R2 o posterior).
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>Configurar opciones de dispositivo en Azure AD Connect
 

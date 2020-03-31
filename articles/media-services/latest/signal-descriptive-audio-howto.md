@@ -13,10 +13,10 @@ ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
 ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72391927"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Señalización de pistas descriptivas de audio
@@ -25,7 +25,7 @@ Puede agregar una pista de narración al vídeo que ayude a los clientes con pro
 
 En este artículo se muestra cómo codificar un vídeo, cargar un archivo MP4 de solo audio (códec AAC) que contiene audio descriptivo en el recurso de salida y editar el archivo .ism para incluirlo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md).
 - Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](access-api-cli-how-to.md) y guarde las credenciales. Deberá usarlas para acceder a la API.
@@ -219,7 +219,7 @@ Aunque el ejemplo de este tema trata del streaming, puede utilizar la misma llam
 
 ### <a name="get-streaming-urls"></a>Obtención de direcciones URL de streaming
 
-Ahora que se ha creado el objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming, como se muestra en **GetStreamingURLs**. Para crear una dirección URL, debe concatenar el nombre de host del [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) y la ruta de acceso del objeto **StreamingLocator**. En este ejemplo, se utiliza el **punto de conexión de streaming** *predeterminado*. Cuando cree su primera cuenta de Media Services, el **punto de conexión de streaming** *predeterminado* estará en estado detenido, por lo que deberá llamar a **Start**.
+Ahora que se ha creado el objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming, como se muestra en **GetStreamingURLs**. Para crear una dirección URL, debe concatenar el nombre de host del [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) y la ruta de acceso del objeto **StreamingLocator**. En este ejemplo, se usa el *punto de conexión de* **streaming predeterminado**. Cuando cree su primera cuenta de Media Services, este *punto de conexión de streaming* **predeterminado** estará en un estado detenido, por lo que deberá llamar a **Iniciar**.
 
 > [!NOTE]
 > En este método, se necesita el objeto locatorName que se utilizó al crear el objeto **StreamingLocator** del recurso de salida.

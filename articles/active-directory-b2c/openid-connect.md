@@ -12,11 +12,11 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 6640ab1660e6499a97a8c990a0001d5fbae4e997
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183999"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231136"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Inicio de sesión web con OpenID Connect en Azure Active Directory B2C
 
@@ -53,10 +53,10 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | valor de seguridad | Sí | Un valor incluido en la solicitud, generada por la aplicación, que se incluirá en el token de identificador resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es una cadena única aleatoria que se puede usar para identificar el origen de la solicitud. |
 | response_type | Sí | Debe incluir un token de identificador para OpenID Connect. Si su aplicación web también necesita tokens para llamar a una API web, puede usar `code+id_token`. |
 | scope | Sí | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener los datos del usuario en forma de tokens de identificador. El ámbito `offline_access` es opcional para las aplicaciones web. Indica que la aplicación necesita un *token de actualización* para un acceso ampliado a los recursos. |
-| símbolo del sistema | Sin | El tipo de interacción con el usuario que se necesita. El único valor válido en este momento es `login`, que obliga al usuario a escribir sus credenciales en esa solicitud. |
-| redirect_uri | Sin | El parámetro `redirect_uri` de su aplicación, donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los parámetros `redirect_uri` que registró en Azure Portal, con la excepción de que debe estar codificado como URL. |
-| response_mode | Sin | El método que se usa para devolver el código de autorización resultante a la aplicación. Puede ser `query`, `form_post` o `fragment`.  Para mayor seguridad se recomienda el modo de respuesta `form_post`. |
-| state | Sin | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Se utiliza normalmente un valor único generado de forma aleatoria para evitar los ataques de falsificación de solicitudes entre sitios. El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página en la que estaban. |
+| símbolo del sistema | No | El tipo de interacción con el usuario que se necesita. El único valor válido en este momento es `login`, que obliga al usuario a escribir sus credenciales en esa solicitud. |
+| redirect_uri | No | El parámetro `redirect_uri` de su aplicación, donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los parámetros `redirect_uri` que registró en Azure Portal, con la excepción de que debe estar codificado como URL. |
+| response_mode | No | El método que se usa para devolver el código de autorización resultante a la aplicación. Puede ser `query`, `form_post` o `fragment`.  Para mayor seguridad se recomienda el modo de respuesta `form_post`. |
+| state | No | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Se utiliza normalmente un valor único generado de forma aleatoria para evitar los ataques de falsificación de solicitudes entre sitios. El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página en la que estaban. |
 
 En este punto se pedirá al usuario que complete el flujo de trabajo. Puede que el usuario tenga que escribir su nombre de usuario y contraseña, iniciar sesión con una identidad social o registrarse en el directorio. Podría haber cualquier otro número de pasos en función de cómo se define el flujo de usuario.
 
@@ -153,7 +153,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | código | Sí | El código de autorización que adquirió al principio del flujo de usuario. |
 | grant_type | Sí | El tipo de concesión, que debe ser `authorization_code` para el flujo de código de autorización. |
 | redirect_uri | Sí | El parámetro `redirect_uri` de la aplicación en la que recibió el código de autorización. |
-| scope | Sin | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener datos de este en forma de parámetros id_token. Se puede usar para obtener tokens para la propia API web de back-end de la aplicación, representada por el mismo id. de aplicación que el cliente. El ámbito `offline_access` indica que la aplicación necesita un token de actualización para un acceso ampliado a los recursos. |
+| scope | No | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener datos de este en forma de parámetros id_token. Se puede usar para obtener tokens para la propia API web de back-end de la aplicación, representada por el mismo id. de aplicación que el cliente. El ámbito `offline_access` indica que la aplicación necesita un token de actualización para un acceso ampliado a los recursos. |
 
 Una respuesta correcta del token tiene el siguiente aspecto:
 
@@ -221,8 +221,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | client_secret | Sí, en Web Apps. | El secreto de la aplicación se generó en [Azure Portal](https://portal.azure.com/). Los secretos de cliente se usan en este flujo para escenarios de aplicaciones web, donde el cliente puede almacenar de forma segura un secreto de cliente. En escenarios de aplicación nativa (cliente público), los secretos de cliente no se pueden almacenar de forma segura, por lo tanto no se usan en esta llamada. Si se usa un secreto de cliente, cámbielo periódicamente. |
 | grant_type | Sí | El tipo de concesión, que debe ser un token de actualización para esta parte del flujo de código de autorización. |
 | refresh_token | Sí | El token de actualización original que adquirió en la segunda parte del flujo. El ámbito `offline_access` debe usarse en las solicitudes de token y de autorización para recibir un token de actualización. |
-| redirect_uri | Sin | El parámetro `redirect_uri` de la aplicación en la que recibió el código de autorización. |
-| scope | Sin | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener los datos del usuario en forma de tokens de identificador. Se puede usar para enviar tokens para la propia API web de back-end de la aplicación, representada por el mismo id. de aplicación que el cliente. El ámbito `offline_access` indica que la aplicación necesita un token de actualización para un acceso ampliado a los recursos. |
+| redirect_uri | No | El parámetro `redirect_uri` de la aplicación en la que recibió el código de autorización. |
+| scope | No | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener los datos del usuario en forma de tokens de identificador. Se puede usar para enviar tokens para la propia API web de back-end de la aplicación, representada por el mismo id. de aplicación que el cliente. El ámbito `offline_access` indica que la aplicación necesita un token de actualización para un acceso ampliado a los recursos. |
 
 Una respuesta correcta del token tiene el siguiente aspecto:
 
@@ -274,10 +274,10 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | {tenant} | Sí | Nombre de su inquilino de Azure AD B2C. |
 | {policy} | Sí | El flujo de usuario que quiere usar para cerrar la sesión del usuario en la aplicación. |
-| id_token_hint| Sin | Token de id. emitido previamente para pasarse al punto de conexión de cierre de sesión como una sugerencia sobre la sesión autenticada actual del usuario final con el cliente. La pista `id_token_hint` garantiza que el `post_logout_redirect_uri` es una dirección URL de respuesta registrada en la configuración de la aplicación de Azure AD B2C. |
+| id_token_hint| No | Token de id. emitido previamente para pasarse al punto de conexión de cierre de sesión como una sugerencia sobre la sesión autenticada actual del usuario final con el cliente. La pista `id_token_hint` garantiza que el `post_logout_redirect_uri` es una dirección URL de respuesta registrada en la configuración de la aplicación de Azure AD B2C. |
 | client_id | No* | Identificador de aplicación que [Azure Portal](https://portal.azure.com/) asignó a la aplicación.<br><br>\**Esto es necesario cuando se usa la configuración de SSO de aislamiento `Application` y _Requerir token de identificador en solicitudes de cierre de sesión_ se establece en `No`.* |
-| post_logout_redirect_uri | Sin | La dirección URL a la que se debe redirigir al usuario después de un cierre de sesión correcto. Si no se incluye, Azure AD B2C mostrará un mensaje genérico al usuario. A menos que proporcione un valor `id_token_hint`, no debe registrar esta dirección URL como una dirección URL de respuesta en la configuración de la aplicación de Azure AD B2C. |
-| state | Sin | Si un parámetro `state` está incluido en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debe comprobar que los valores `state` de la solicitud y de la respuesta sean idénticos. |
+| post_logout_redirect_uri | No | La dirección URL a la que se debe redirigir al usuario después de un cierre de sesión correcto. Si no se incluye, Azure AD B2C mostrará un mensaje genérico al usuario. A menos que proporcione un valor `id_token_hint`, no debe registrar esta dirección URL como una dirección URL de respuesta en la configuración de la aplicación de Azure AD B2C. |
+| state | No | Si un parámetro `state` está incluido en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debe comprobar que los valores `state` de la solicitud y de la respuesta sean idénticos. |
 
 ### <a name="secure-your-logout-redirect"></a>Protección de la redirección de cierre de sesión
 

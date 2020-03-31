@@ -7,10 +7,10 @@ description: Revise y pruebe los cambios de una solicitud de incorporación de c
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, acciones de GitHub, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252375"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Acciones de GitHub y Azure Kubernetes Service (versión preliminar)

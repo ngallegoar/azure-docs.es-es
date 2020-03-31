@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a83d6ae2e3ed13f0d03e0fdc87a3b45a4119ba88
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162759"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Realización de streaming en vivo con codificadores locales mediante Azure Portal
@@ -47,7 +47,7 @@ Es importante que revise los artículos siguientes:
 * [Información general de streaming en vivo con Azure Media Services](media-services-manage-channels-overview.md)
 * [Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a id="scenario"></a>Escenario común de streaming en vivo
+## <a name="common-live-streaming-scenario"></a><a id="scenario"></a>Escenario común de streaming en vivo
 
 Los pasos siguientes describen las tareas que conlleva la creación de aplicaciones comunes de streaming en vivo que usan canales configurados para entregas de paso a través. Este tutorial muestra cómo crear y administrar un canal de paso a través y eventos en directo.
 

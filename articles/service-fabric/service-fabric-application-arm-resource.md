@@ -4,10 +4,10 @@ description: Aprenda a implementar aplicaciones y servicios en un clúster de Se
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610257"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Administración de aplicaciones y servicios como recursos de Azure Resource Manager

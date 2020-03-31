@@ -4,10 +4,10 @@ description: Los servicios con estado de Service Fabric proporcionan colecciones
 ms.topic: conceptual
 ms.date: 1/3/2019
 ms.openlocfilehash: 48fa682f4c017f66911729e1f581f3aa91cdc28d
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609730"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introducción a Reliable Collections en los servicios con estado de Azure Service Fabric
@@ -52,7 +52,7 @@ Por el momento, el espacio de nombres **Microsoft.ServiceFabric.Data.Collections
 * [Transacciones y bloqueos](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Administración de datos
   * [Copia de seguridad y restauración](service-fabric-reliable-services-backup-restore.md)
-  * [Notifications](service-fabric-reliable-services-notifications.md)
+  * [Notificaciones](service-fabric-reliable-services-notifications.md)
   * [Serialización de colección confiable](service-fabric-reliable-services-reliable-collections-serialization.md)
   * [Serialización y actualización](service-fabric-application-upgrade-data-serialization.md)
   * [Configuración del administrador de estado confiable](service-fabric-reliable-services-configuration.md)

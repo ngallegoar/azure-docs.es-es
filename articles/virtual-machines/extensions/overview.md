@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2019
 ms.author: akjosh
 ms.openlocfilehash: bf17f499c1e8339a1e9abb13cffd5e35c390f564
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74072977"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Características y extensiones de las máquinas virtuales de Azure
@@ -54,7 +54,7 @@ Las extensiones instalan las aplicaciones. Como en todas las aplicaciones, exist
 
 Puede encontrar información de solución de problemas para cada extensión en la sección **Solución de problemas y soporte técnico** de la información general de la extensión. A continuación se enumera la información de solución de problemas disponible:
 
-| Espacio de nombres | solución de problemas |
+| Espacio de nombres | Solución de problemas |
 |-----------|-----------------|
 | microsoft.azure.monitoring.dependencyagent.dependencyagentlinux | [Dependencia de Azure Monitor para Linux](agent-dependency-linux.md#troubleshoot-and-support) |
 | microsoft.azure.monitoring.dependencyagent.dependencyagentwindows | [Dependencia de Azure Monitor para Windows](agent-dependency-windows.md#troubleshoot-and-support) |

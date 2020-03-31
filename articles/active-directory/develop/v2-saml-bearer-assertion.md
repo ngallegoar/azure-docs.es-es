@@ -18,10 +18,10 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: 16f30473ded5f1de5dc94c1cff9da96165b1a01c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76700216"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidad de Microsoft y flujo de aserción de portador SAML de OAuth 2.0
@@ -40,7 +40,7 @@ También se admite el flujo de aserción de portador SAML de OAuth para los usua
 ## <a name="call-graph-using-saml-bearer-assertion"></a>Gráfico de llamadas con aserción de portador SAML
 Ahora, vamos a comprender cómo podemos capturar realmente aserciones SAML mediante programación. Este enfoque se prueba con ADFS. Sin embargo, funciona con cualquier proveedor de identidades que admita el retorno de la aserción SAML mediante programación. El proceso básico es: obtener una aserción SAML, obtener un token de acceso y acceder a Microsoft Graph.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Establezca una relación de confianza entre el servidor o entorno de autorización (Microsoft 365) y el proveedor de identidades o el emisor de la aserción de portador SAML 2.0 (ADFS). Para configurar ADFS para el inicio de sesión único y como proveedor de identidades, puede consultar [este artículo](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/).
 

@@ -4,11 +4,11 @@ description: Describe cómo resolver errores de registro del proveedor de recurs
 ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.openlocfilehash: a9182be53cc91240a62ab201efc53d674f7cf427
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476382"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234024"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Resolución de errores del registro del proveedor de recursos
 

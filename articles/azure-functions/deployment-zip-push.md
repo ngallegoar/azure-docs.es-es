@@ -4,10 +4,10 @@ description: Use las funciones de implementación de archivos ZIP del servicio d
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769681"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implementación de archivos ZIP en Azure Functions
@@ -62,7 +62,7 @@ Sin embargo, es posible crear las funciones mediante el editor en Azure Portal. 
 
 Igualmente, también puede descargar un archivo .zip desde un repositorio de GitHub. Al descargar un repositorio de GitHub como un archivo ZIP, GitHub agrega un nivel de carpeta adicional para la rama. Este nivel de carpetas adicional significa que no puede implementar el archivo .zip directamente ya que se descargó desde GitHub. Si usa un repositorio de GitHub para mantener la aplicación de función, debe usar la [integración continua](functions-continuous-deployment.md) para implementar la aplicación.  
 
-## <a name="cli"></a>Implementación con la CLI de Azure
+## <a name="deploy-by-using-azure-cli"></a><a name="cli"></a>Implementación con la CLI de Azure
 
 Puede usar la CLI de Azure para desencadenar una implementación de inserción. Para implementar el archivo .zip en la aplicación de función, use el comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Para usar este comando, debe usar la versión 2.0.21 o posterior de la CLI de Azure. Para ver qué versión de CLI de Azure está usando, use el comando `az --version`.
 

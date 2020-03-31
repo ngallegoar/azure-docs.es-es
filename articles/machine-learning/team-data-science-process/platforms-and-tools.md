@@ -11,11 +11,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e3297319c67ad2b7c94371356cde49113c7ef737
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718895"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227204"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas y herramientas para proyectos de ciencia de datos
 
@@ -60,7 +60,7 @@ Apache Spark es una plataforma de procesamiento paralelo de código abierto que 
 
 Cuando crea un clúster Spark en HDInsight, aprovisiona recursos de proceso de Azure con Spark instalado y configurado. Se tardan unos diez minutos en crear un clúster Spark en HDInsight. Almacene los datos que se van procesar en Azure Blob Storage. Para más información sobre cómo usar Azure Blob Storage con HDInsight, consulte [Uso de Azure Storage con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-El equipo de proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos sobre el uso de clústeres de Azure HDInsight Spark para crear soluciones de ciencia de datos, en Python y en Scala. Para más información sobre **clústeres de Spark** de Azure HDInsight, consulte [Introducción: Apache Spark en HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Python** en un clúster de Azure HDInsight Spark, consulte [Información general sobre la ciencia de datos con Azure HDInsight Spark](spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Scala** en un clúster de Azure HDInsight Spark, consulte [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md). 
+El equipo de proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos sobre el uso de clústeres de Azure HDInsight Spark para crear soluciones de ciencia de datos, en Python y en Scala. Para más información sobre **clústeres de Azure HDInsight Spark**, consulte [Introducción a Apache Spark en HDInsight para Linux](../../hdinsight/spark/apache-spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Python** en un clúster de Azure HDInsight Spark, consulte [Información general sobre la ciencia de datos con Azure HDInsight Spark](spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Scala** en un clúster de Azure HDInsight Spark, consulte [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
@@ -74,7 +74,7 @@ Para más información sobre Azure SQL Data Warehouse, consulte el sitio web de 
 
 Azure Data Lake es un repositorio empresarial de todos los tipos de datos recopilados en una única ubicación antes de la aplicación de requisitos o esquemas formales. Esta flexibilidad permite conservar cualquier tipo de datos en Data Lake, con independencia del tamaño, la estructura o la velocidad de ingestión. Las organizaciones pueden usar después Hadoop o análisis avanzado para buscar patrones en estos Data Lake. Data Lake también sirve de repositorio para una preparación de los datos más económica antes de su mantenimiento y transferencia a un almacenamiento de datos.
 
-Para más información sobre Azure Data Lake, consulte la entrada de blob [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/) (Introducción a Azure Data Lake). Para obtener información sobre cómo crear una solución de ciencia de datos completa y escalable con Azure Data Lake, consulte [Ciencia de datos escalable con Azure Data Lake: tutorial completo](data-lake-walkthrough.md)
+Para más información sobre Azure Data Lake, consulte la entrada de blob [Introducing Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/) (Introducción a Azure Data Lake). Para obtener información sobre cómo crear una solución de ciencia de datos completa y escalable con Azure Data Lake, consulte [Ciencia de datos escalables con Azure Data Lake: tutorial completo](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Clústeres de Azure HDInsight Hive (Hadoop)
@@ -95,7 +95,7 @@ Azure File Storage es un servicio que ofrece recursos compartidos de archivos en
 Especialmente útil para los proyectos de ciencia de datos es la capacidad para crear un almacén de archivos de Azure como el lugar para compartir datos del proyecto con los miembros del equipo de proyecto. Cada uno de ellos tiene acceso entonces a la misma copia de los datos en el almacenamiento de archivos de Azure. También puede utilizar este almacenamiento de archivos para compartir conjuntos de características generados durante la ejecución del proyecto. Si el proyecto es una interacción con los clientes, estos pueden crear un almacenamiento de archivos de Azure en su propia suscripción de Azure para compartir los datos de proyecto y las características con el usuario. De esta manera, el cliente tiene control total sobre los recursos de datos del proyecto. Para más información sobre Azure File Storage, consulte [Introducción a Azure File Storage en Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) o [Uso de Azure File Storage con Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
-## <a name="sql-server-2019-r-and-python-services"></a>R y Python Services para SQL Server 2019
+## <a name="sql-server-2019-r-and-python-services"></a>Servicios R y Python para SQL Server 2019
 
 R Services (En base de datos) proporciona una plataforma para desarrollar e implementar aplicaciones inteligentes que pueden destapar nueva información. Puede usar el completo y eficaz lenguaje R, incluidos los numerosos paquetes proporcionados por la comunidad R, para crear modelos y generar predicciones con sus datos de SQL Server. Dado que R Services (En base de datos) integra el lenguaje R con SQL Server, los análisis se mantienen cerca de los datos, lo que elimina los costos y los riesgos de seguridad asociados al movimiento de datos.
 
@@ -104,7 +104,7 @@ R Services (En base de datos) admite el lenguaje R de código abierto con un com
 El equipo del proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos que muestran cómo crear soluciones de ciencia de datos en SQL Server 2016 R Services, uno para los programadores de R y otro para desarrolladores de SQL. Para los **programadores de R**, consulte el [tutorial completo de ciencia de datos](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para los **desarrolladores de SQL**, consulte [Análisis de R en bases de datos para desarrolladores de SQL (tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
-## <a name="appendix"></a>Apéndice: Herramientas para configurar los proyectos de ciencia de datos
+## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Apéndice: Herramientas para configurar los proyectos de ciencia de datos
 
 ### <a name="install-git-credential-manager-on-windows"></a>Instalación del administrador de credenciales de Git en Windows
 

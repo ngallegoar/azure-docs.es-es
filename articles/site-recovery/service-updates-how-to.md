@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910471"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229116"
 ---
 # <a name="service-updates-in-site-recovery"></a>Actualizaciones de servicio en Azure Site Recovery
 
@@ -48,7 +48,7 @@ Site Recovery le indica qué componentes están a punto de expirar o ya han expi
 
 Las notificaciones de correo electrónico se envían como se indica a continuación.
 
-**Hora** | **Frecuencia**
+**Time** | **Frecuencia**
 --- | ---
 60 días antes de que expire el componente | Una vez cada dos semanas
 Siguientes 53 días | Una vez a la semana
@@ -118,7 +118,7 @@ En el ejemplo de la tabla se muestra cómo funciona esto.
 |9.16 |  9.18 | No es obligatorio|
 |9.16 | 9.19 | No es obligatorio|
 | 9.16 | 9.20 | No es obligatorio
- | 9.16 | 9.21 | Obligatorio.<br/><br/> Actualice a la versión 9.20 y, a continuación, reinicie antes de actualizar a la 9.21.
+ | 9.16 | 9.21 | Mandatory.<br/><br/> Actualice a la versión 9.20 y, a continuación, reinicie antes de actualizar a la 9.21.
 
 ## <a name="hyper-v-vm-disaster-recovery-to-azure"></a>Recuperación ante desastres de máquinas virtuales de Hyper-V en Azure
 

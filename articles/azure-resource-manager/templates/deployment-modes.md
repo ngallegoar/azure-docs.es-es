@@ -3,12 +3,12 @@ title: Modos de implementación
 description: Descripción de cómo especificar si desea usar un modo de implementación completa o incremental con Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 9cc0e8eb20a0375a98906524d4d598ccb473d2a8
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207594"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460252"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementación de Azure Resource Manager
 
@@ -95,7 +95,7 @@ New-AzResourceGroupDeployment `
 Para establecer el modo de implementación al implementar con la CLI de Azure, use el parámetro `mode`.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --mode Complete \
   --resource-group ExampleGroup \

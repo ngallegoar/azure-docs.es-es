@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666937"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229900"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ En la lista Activity Windows (Ventanas de actividad) del panel central, verá un
 Si no tiene una aplicación de Data Factory con la que probar estos pasos, realice el tutorial: [Copia de datos de Blob Storage en SQL Database mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>Descripción de la aplicación de supervisión y administración
-Hay tres pestañas a la izquierda: **Explorador de recursos**, **Vistas de supervisión** y **Alertas**. La primera pestaña (**Explorador de recursos**) está activada de forma predeterminada.
+Hay tres pestañas a la izquierda: **Explorador de recursos**, **Vistas de supervisión de** y **Alertas**. La primera pestaña (**Explorador de recursos**) está activada de forma predeterminada.
 
 ### <a name="resource-explorer"></a>Explorador de recursos
 Verá lo siguiente:
@@ -144,7 +144,7 @@ En el elemento emergente Activity Windows (Ventanas de actividad) y Activity Win
 
 ![Flechas izquierda/derecha de Activity Window Explorer (Explorador de ventanas de actividad)](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-En la parte inferior de la vista del diagrama, aparecen estos botones: Zoom In (Acercar), Zoom Out (Alejar), Zoom to Fit (Zoom para ajustar), Zoom 100% (Zoom al 100 %) y Lock layout (Bloquear diseño). El botón para **bloquear el diseño** mover tablas y canalizaciones por error en la vista de diagrama. Está activado de forma predeterminada. Puede desactivarlo y mover las entidades por el diagrama. Si lo desactiva, puede usar el último botón para colocar automáticamente las tablas y las canalizaciones. También puede acercar o alejar con la rueda del mouse.
+En la parte inferior de la vista de diagrama aparecen estos botones: acercar, alejar, ajustar, 100 % y bloquear el diseño. El botón para **bloquear el diseño** mover tablas y canalizaciones por error en la vista de diagrama. Está activado de forma predeterminada. Puede desactivarlo y mover las entidades por el diagrama. Si lo desactiva, puede usar el último botón para colocar automáticamente las tablas y las canalizaciones. También puede acercar o alejar con la rueda del mouse.
 
 ![Comandos de ampliación de la vista de diagrama](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
@@ -159,7 +159,7 @@ Las ventanas de actividad pueden estar en uno de los siguientes estados:
 
 <table>
 <tr>
-    <th align="left">Status</th><th align="left">Subestado</th><th align="left">DESCRIPCIÓN</th>
+    <th align="left">Status</th><th align="left">Subestado</th><th align="left">Descripción</th>
 </tr>
 <tr>
     <td rowspan="8">En espera</td><td>ScheduleTime</td><td>Aún no es momento de ejecutar la ventana de actividad.</td>
@@ -177,7 +177,7 @@ Las ventanas de actividad pueden estar en uno de los siguientes estados:
 <td>ActivityResume</td><td>La actividad está en pausa y no puede ejecutar las ventanas de actividad hasta que se reanude.</td>
 </tr>
 <tr>
-<td>Retry</td><td>Se está volviendo a intentar la ejecución de la actividad.</td>
+<td>Reintento</td><td>Se está volviendo a intentar la ejecución de la actividad.</td>
 </tr>
 <tr>
 <td>Validación</td><td>Aún no ha iniciado la validación.</td>
@@ -207,7 +207,7 @@ Las ventanas de actividad pueden estar en uno de los siguientes estados:
 <td>Ready</td><td>-</td><td>La ventana de actividad está lista para su uso.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>-</td><td>La ventana de actividad no se ha procesado.</td>
+<td>Omitido</td><td>-</td><td>La ventana de actividad no se ha procesado.</td>
 </tr>
 <tr>
 <td>None</td><td>-</td><td>Una ventana de actividad que existía con un estado distinto, pero que se ha restablecido.</td>
@@ -270,7 +270,7 @@ En la **lista de ventanas de actividad**, haga clic en el nombre de una columna 
 
 ![Menú de columna de la lista Activity Windows (Ventanas de actividad)](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
-Puede realizar las siguientes acciones:
+Puede hacer lo siguiente:
 
 * Ordenar en orden ascendente.
 * Ordenar en orden descendente.
@@ -289,7 +289,7 @@ Puede usar la misma ventana emergente para borrar filtros. Para borrar todos los
 Seleccione una ventana de actividad, haga clic en la flecha hacia abajo del primer botón de la barra de comandos y seleccione **Rerun** (Volver a ejecutar) / **Rerun with upstream in pipeline** (Volver a ejecutar con canal de subida en la canalización). Al seleccionar la opción **Rerun with upstream in pipeline** (Volver a ejecutar con canal de subida en la canalización), también se vuelven a ejecutar todas las ventanas de actividad con canal de subida.
     ![Volver a ejecutar una ventana de actividad](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-También puede seleccionar varias ventanas de actividad en la lista y volver a ejecutarlas al mismo tiempo. Puede filtrar las ventanas de actividad según el estado (por ejemplo, **Con error**) y, después, volver a ejecutar las ventanas de actividad con error tras corregir el problema que hace que se produzca un error en las ventanas de actividad. Vea la siguiente sección para obtener más información sobre el filtrado de ventanas de actividad en la lista.  
+También puede seleccionar varias ventanas de actividad en la lista y volver a ejecutarlas al mismo tiempo. Puede filtrar las ventanas de actividad según el estado (por ejemplo, **Failed** [Con error]) y volver a ejecutar las ventanas de actividad con error tras corregir el problema que provocaba el error en las ventanas de actividad. Vea la siguiente sección para obtener más información sobre el filtrado de ventanas de actividad en la lista.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Pausar y reanudar varias canalizaciones
 También puede realizar una selección múltiple de dos o más canalizaciones con la tecla Ctrl. Puede utilizar los botones de la barra de comandos (que se resaltan en el rectángulo rojo en la imagen siguiente) para pausarlas o reanudarlas.

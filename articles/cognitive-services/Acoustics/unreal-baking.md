@@ -12,10 +12,10 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7a868a5f9b06499e23710399733b0659d97f900d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68854900"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial de simulación mediante "bake" de Project Acoustics con Unreal
@@ -62,7 +62,7 @@ Si alguno no tiene las etiquetas **AcousticsGeometry** ni **AcousticsNavigation*
 
 Abra la pestaña Objects (Objetos) de la ventana de Acoustics. Marque los objetos como Acoustics Geometry (Geometría acústica) si deben bloquear, reflejar o absorber el sonido. La geometría acústica puede incluir elementos como suelo, paredes, techos, ventanas y cristales de ventana, alfombras y muebles grandes. Puede usar cualquier nivel de complejidad arbitrario para estos objetos. Dado que la escena se voxelizará antes de la simulación, las mallas muy detalladas, como árboles con muchas hojas pequeñas, no son más costosas para simular mediante "bake" que los objetos simplificados.
 
-No incluya elementos que no afecten a la acústica, como las mallas de colisión.
+No incluya elementos que no afecten a la acústica, como las mallas de colisión invisibles.
 
 La transformación de un objeto en el momento del cálculo del sondeo (a través de la pestaña Probes [Sondeo] siguiente) se corrige en los resultados de la simulación acústica mediante "bake". Si se mueve alguno de los objetos marcados en la escena se deberá rehacer el cálculo de sondeo y volver a elaborar la escena.
 
@@ -117,7 +117,7 @@ Después de asignar los materiales, cambie a la pestaña **Probes** (Sondeos).
 1. El botón de la pestaña **Probes** (Sondeos), se usa para abrir esta página.
 2. Una breve descripción de lo que debe hacer al usar esta página.
 3. Use esto para elegir una resolución de simulación gruesa o fina. Gruesa es más rápido, pero tiene algunos inconvenientes. Para más información, consulte [Resolución de simulación mediante "bake"](bake-resolution.md).
-4. Elija la ubicación donde se deben colocar los archivos de datos acústicos con este campo. Haga clic en el botón "..." para usar un selector de carpetas. Para más información sobre los archivos de datos, consulte [Archivos de datos](#Data-Files) más abajo.
+4. Elija la ubicación donde se deben colocar los archivos de datos acústicos con este campo. Haga clic en el botón "..." para usar un selector de carpetas. Para más información acerca de los archivos de datos, consulte más abajo la sección de [Archivos de datos](#Data-Files).
 5. El nombre de los archivos de datos para esta escena llevará el prefijo proporcionado aquí. El valor predeterminado es "[NombreNivel]_AcousticsData".
 6. Haga clic en el botón **Calculate** (Calcular) para voxelizar la escena y calcular las ubicaciones de puntos de sondeo. Esto se realiza localmente en el equipo y debe hacerse antes de una elaboración. Cuando se hayan calculado los sondeos, se deshabilitarán los controles anteriores y este botón cambiará a **Clear** (Borrar). Haga clic en el botón **Clear** (Borrar) para borrar los cálculos y habilitar los controles de modo que pueda realizar otro cálculo con otros valores.
 
@@ -169,7 +169,7 @@ Para más información acerca de la diferencia entre baja y alta resolución, co
 
 ## <a name="bake-your-level-using-azure-batch"></a>Simular mediante "bake" el nivel con Azure Batch
 
-Podemos simular mediante "bake" la escena con un clúster de proceso en la nube mediante el servicio Azure Batch. El complemento de Unreal para Project Acoustics se conecta directamente a Azure Batch para crear instancias, administrar y eliminar un clúster de Azure Batch para cada simulación mediante "bake". En la pestaña Bake (Simular mediante "bake"), escriba sus credenciales de Azure, seleccione un tamaño y tipo de máquina del clúster y haga clic en Bake (Simular mediante "bake").
+Se puede simular mediante "bake" la escena con un clúster de proceso en la nube usando el servicio Azure Batch. El complemento de Unreal para Project Acoustics se conecta directamente a Azure Batch para crear instancias, administrar y eliminar un clúster de Azure Batch para cada simulación mediante "bake". En la pestaña Bake (Simular mediante "bake"), escriba sus credenciales de Azure, seleccione un tamaño y tipo de máquina del clúster y haga clic en Bake (Simular mediante "bake").
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Como referencia: Partes de la pestaña Bake (Elaborar)
 
@@ -196,7 +196,7 @@ Una vez iniciada una simulación acústica mediante "bake", puede cerrar Unreal.
 
 Las credenciales de Azure se almacenan de forma segura en el equipo local y están asociadas al proyecto Unreal. Se usan únicamente para establecer una conexión segura con Azure.
 
-### <a name="Estimating-bake-cost"></a> Estimación del costo de elaboración de Azure
+### <a name="estimating-azure-bake-cost"></a><a name="Estimating-bake-cost"></a> Estimación del costo de elaboración de Azure
 
 Para estimar lo que costará una elaboración determinada, tome el valor que se muestra para **Estimated Compute Cost** (Costo de proceso estimado), que es una duración, y multiplíquelo por el costo por hora en su moneda local del **VM Node Type** (Tipo de nodo VM) que ha seleccionado. El resultado no incluirá el tiempo de nodo necesario para que los nodos entren en ejecución. Por ejemplo, si selecciona **Standard_F8s_v2** para el tipo de nodo, que tiene un costo de 0,40 USD/hora y el costo estimado de proceso es de 3 horas y 57 minutos, el costo estimado para la ejecución del trabajo será 0,40 USD * ~ 4 horas = ~ 1,60 USD. El costo real probablemente será un poco mayor debido al tiempo adicional para iniciar los nodos. Puede encontrar el costo de nodo por hora en la página [Azure Batch Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (Precios de Azure Batch) (seleccione "Proceso optimizado" o "Proceso de alto rendimiento" para la categoría).
 
@@ -204,7 +204,7 @@ Para estimar lo que costará una elaboración determinada, tome el valor que se 
 
 Una vez finalizada la elaboración, compruebe que los vóxeles y los puntos de sondeo estén en las ubicaciones esperadas, ejecutando el complemento de tiempo de ejecución.
 
-## <a name="Data-Files"></a>Archivos de datos
+## <a name="data-files"></a><a name="Data-Files"></a>Archivos de datos
 
 Este complemento crea cuatro archivos de datos en varios puntos. Solo se necesita uno de ellos en tiempo de ejecución y se coloca en la carpeta Content/Acoustics del proyecto, que se agrega automáticamente a la ruta de empaquetado del proyecto. Los otros tres están dentro de la carpeta Acoustics Data y no están empaquetados.
 

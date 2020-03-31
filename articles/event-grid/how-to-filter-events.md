@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 58da209c68449d3a28b08f52ec575f7db520f121
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 63a5cdbff79af52d9f96cf410a820c6cfc530066
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514568"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454030"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrado de eventos para Event Grid
 
@@ -193,7 +193,7 @@ En estos ejemplos se crea un tema personalizado. Se suscriben al tema personaliz
 
 Para la CLI de Azure, utilice:
 
-```azurecli-interactive
+```azurecli
 topicName=<your-topic-name>
 endpointURL=<endpoint-URL>
 
@@ -214,7 +214,7 @@ Tenga en cuenta que se ha establecido una [fecha de expiración](concepts.md#eve
 
 Para PowerShell, use:
 
-```azurepowershell-interactive
+```powershell
 $topicName = <your-topic-name>
 $endpointURL = <endpoint-URL>
 
@@ -240,7 +240,7 @@ Para probar el filtro, envíe un evento con el campo de color establecido en ver
 
 Para la CLI de Azure, utilice:
 
-```azurecli-interactive
+```azurecli
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name $topicName -g gridResourceGroup --query "key1" --output tsv)
 
@@ -251,7 +251,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 
 Para PowerShell, use:
 
-```azurepowershell-interactive
+```powershell
 $endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
 $keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
 
@@ -279,14 +279,14 @@ Para probar un escenario donde no se envía el evento, envíe un evento con el c
 
 Para la CLI de Azure, utilice:
 
-```azurecli-interactive
+```azurecli
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
 
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 Para PowerShell, use:
 
-```azurepowershell-interactive
+```powershell
 $htbody = @{
     id= $eventID
     eventType="recordInserted"

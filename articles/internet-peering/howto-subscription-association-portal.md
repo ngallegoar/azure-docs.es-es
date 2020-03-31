@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75912142"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Asociación de un ASN del mismo nivel a una suscripción de Azure mediante el portal

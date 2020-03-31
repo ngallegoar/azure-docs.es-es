@@ -1,17 +1,17 @@
 ---
 title: Creación y carga de un VHD de Ubuntu Linux en Azure
 description: Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene el sistema operativo Ubuntu Linux.
-author: mimckitt
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: mimckitt
-ms.openlocfilehash: cbb10d544cb299e15022ae47f00d3887d03619c0
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.author: guybo
+ms.openlocfilehash: 5fa3415d8663f358bf0ae48be46ac52b8f8b4b06
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970283"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066728"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparación de una máquina virtual Ubuntu para Azure
 
@@ -24,7 +24,7 @@ Ahora Ubuntu publica discos duros virtuales de Azure oficiales que se pueden des
 * Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
 * Ubuntu 18.10/Cosmic: [cosmic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/releases/cosmic/release/ubuntu-18.10-server-cloudimg-amd64.vhd.zip)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Prerequisites
 En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalación de Ubuntu**

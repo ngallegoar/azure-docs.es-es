@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.openlocfilehash: 54a6f875bc33d24d412d2424c634d1019b4af399
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670124"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor

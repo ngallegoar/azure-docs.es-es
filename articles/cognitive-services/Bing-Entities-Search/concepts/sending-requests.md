@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
 ms.openlocfilehash: f68429a75ddb141c9e42babde3faa9f93fe949cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74072684"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Envío de solicitudes de búsqueda a Bing Entity Search API
@@ -48,7 +48,7 @@ Los encabezados de IP y ubicación del cliente son importantes para devolver con
 
 Para ver una lista de todos los encabezados de solicitud y respuesta, consulte [Encabezados](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers).
 
-## <a name="the-request"></a>La solicitud
+## <a name="the-request"></a>Solicitud
 
 A continuación se muestra una solicitud de entidades que incluye todos los encabezados y parámetros de consulta sugeridos. 
 

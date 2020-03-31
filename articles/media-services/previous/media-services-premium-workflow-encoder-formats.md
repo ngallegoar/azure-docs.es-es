@@ -15,11 +15,11 @@ ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792588"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232788"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
 
@@ -34,7 +34,7 @@ Códecs y formatos de salida de Media Encoder Premium Workflow
 
 **Flujo de trabajo del Codificador multimedia premium** admite los subtítulos que se describen en [esta](#closed_captioning) sección. 
 
-## <a id="input_formats"></a>Códecs y formatos de entrada de flujo de trabajo del Codificador multimedia Premium
+## <a name="media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Códecs y formatos de entrada de flujo de trabajo del Codificador multimedia Premium
 
 En la sección siguiente se enumeran los códecs y formatos de archivo que admite este procesador multimedia como entrada.
 
@@ -71,7 +71,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que admit
 * Windows Media Audio
 * WAV/PCM
 
-## <a id="output_format"></a>Códecs y formatos de salida de flujo de trabajo del Codificador multimedia Premium
+## <a name="media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Códecs y formatos de salida de flujo de trabajo del Codificador multimedia Premium
 
 En la sección siguiente se enumeran los códecs y formatos de archivo que se admiten como salida de este procesador multimedia.
 
@@ -112,7 +112,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que se ad
 >[!NOTE]
 >Si utiliza la codificación en Dolby® Digital (AC3), la salida solo puede escribirse en un archivo ISO MP4.
 
-## <a id="closed_captioning"></a>Compatibilidad con subtítulos
+## <a name="support-for-closed-captioning"></a><a id="closed_captioning"></a>Compatibilidad con subtítulos
 
 En la entrada, el **flujo de trabajo del Codificador multimedia Premium** admite:
 

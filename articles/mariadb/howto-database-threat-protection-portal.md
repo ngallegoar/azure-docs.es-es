@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 1d6eafd38d418066ddf5933139bd4caf6e69ddea
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: de056f61337311642589ba937c6d9842d8354d36
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766980"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530145"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection para Azure Database for MariaDB
 
@@ -23,7 +23,7 @@ Advanced Threat Protection forma parte de la oferta Seguridad de datos avanzada,
 > Advanced Threat Protection está en versión preliminar pública. Esta característica está disponible en todas las regiones de Azure donde se implementa Azure Database for MariaDB para servidores de uso general y optimizados para memoria.
 
 > [!NOTE]
-> La característica Advanced Threat Protection **no** está disponible en las siguientes regiones de nube soberana y Azure Government: US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginia, US DoD (este), US DoD (centro), Centro de Alemania, Norte de Alemania, Este de China y Este de China 2. Visite [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) para obtener información de disponibilidad general del producto.
+> La característica Advanced Threat Protection **no** está disponible en las siguientes regiones de nube soberana y gobierno de Azure: US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginia, US DoD (este), US DoD (centro), Centro de Alemania, Norte de Alemania, Este de China, Este de China 2. Visite [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) para obtener información de disponibilidad general del producto.
 
 ## <a name="set-up-threat-detection"></a>Configurar la detección de amenazas
 1. Inicie Azure Portal en [https://portal.azure.com](https://portal.azure.com).

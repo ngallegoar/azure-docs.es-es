@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974894"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Implementación de certificados de dispositivo X.509
@@ -98,7 +98,7 @@ Posteriormente, cuando se aproxima la expiración del certificado secundario y n
 
     ![Administración de las inscripciones individuales mediante el certificado secundario](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
-3. Posteriormente, cuando el certificado principal ha expirado, vuelva y elimine ese certificado principal haciendo clic en el botón **Delete current certificate** (Eliminar certificado actual).
+3. Posteriormente, cuando el certificado principal haya expirado, vuelva y elimine ese certificado principal haciendo clic en el botón **Delete current certificate** (Eliminar certificado actual).
 
 ## <a name="enrollment-groups-and-security-breaches"></a>Grupos de inscripción e infracciones de seguridad
 
@@ -116,7 +116,7 @@ Para actualizar una inscripción de grupo en respuesta a una infracción de segu
 
 4. Haga clic en la pestaña **Administrar inscripciones** para la instancia de servicio Device Provisioning y, luego, haga clic en la lista **Grupos de inscripción**. Haga clic en el nombre del grupo de inscripción en la lista.
 
-5. Haga clic en **Certificado de entidad de certificación** y seleccione el nuevo certificado de entidad de certificación raíz. A continuación, haga clic en **Guardar**. 
+5. Haga clic en **Certificado de entidad de certificación** y seleccione el nuevo certificado de entidad de certificación raíz. A continuación, haga clic en **Save**(Guardar). 
 
     ![Selección del nuevo certificado de entidad de certificación raíz](./media/how-to-roll-certificates/select-new-root-cert.png)
 
@@ -162,7 +162,7 @@ Posteriormente, cuando se aproxima la expiración del certificado secundario y n
 
 2. Haga clic en la pestaña **Administrar inscripciones** para la instancia de servicio Device Provisioning y, luego, haga clic en la lista **Grupos de inscripción**. Haga clic en el nombre del grupo de inscripción en la lista.
 
-3. Haga clic en **Certificado de entidad de certificación** y seleccione el nuevo certificado de entidad de certificación raíz en la configuración **Certificado secundario**. A continuación, haga clic en **Guardar**. 
+3. Haga clic en **Certificado de entidad de certificación** y seleccione el nuevo certificado de entidad de certificación raíz en la configuración **Certificado secundario**. A continuación, haga clic en **Save**(Guardar). 
 
     ![Selección del nuevo certificado de entidad de certificación raíz](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 

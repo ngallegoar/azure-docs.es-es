@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ce5fb014c7d954b3e8430a86430c6a666adff204
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75969242"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
@@ -42,7 +42,7 @@ La actividad de Spark es una de las [actividades de transformación de datos](da
 > - La actividad de Spark no admite clústeres de HDInsight Spark que usan una instancia de Azure Data Lake Store como almacenamiento principal.
 > - La actividad de Spark admite solo los clústeres de HDInsight Spark existentes (los suyos propios). No admite un servicio vinculado de HDInsight a petición.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Tutorial: Crear una canalización con la actividad de Spark
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Tutorial: Creación de una canalización con actividad de Spark
 Estos son los pasos habituales para crear una canalización de Data Factory con una actividad de Spark:
 
 * Creación de una factoría de datos.
@@ -70,7 +70,7 @@ Para crear una factoría de datos, siga estos pasos:
 1. En la hoja **Nueva factoría de datos**, en **Nombre**, escriba **SparkDF**.
 
    > [!IMPORTANT]
-   > El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si aparece el error "El nombre SparkDF de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use yournameSparkDFdate y vuelva a crear la factoría de datos. Para más información acerca de las reglas de nomenclatura, consulte [Azure Data Factory: Reglas de nomenclatura](data-factory-naming-rules.md).
+   > El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si aparece el error "El nombre SparkDF de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use yournameSparkDFdate y vuelva a crear la factoría de datos. Para más información acerca de las reglas de nomenclatura, consulte [Data Factory: Naming rules](data-factory-naming-rules.md) (Data Factory: reglas de nomenclatura).
 
 1. En **Suscripción**, seleccione la suscripción de Azure en la que desea que se cree la factoría de datos.
 

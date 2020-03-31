@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
 ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303229"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server con un recurso compartido de archivos Premium en Azure Virtual Machines

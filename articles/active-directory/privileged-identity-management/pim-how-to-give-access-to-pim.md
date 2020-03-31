@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7424e92f8520d13137b6ac8787523095058a005f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74022110"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Concesión de acceso a otros administradores para administrar Privileged Identity Management
@@ -32,7 +32,7 @@ Asegúrese de que siempre haya al menos dos usuarios en un rol de administrador 
 
 ## <a name="grant-access-to-manage-pim"></a>Concesión de acceso para administrar PIM
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Abra **Privileged Identity Management** en Azure AD.
 
@@ -70,7 +70,7 @@ Asegúrese de que siempre haya al menos dos usuarios en un rol de administrador 
 
 Antes de quitar a alguien del rol de administrador de roles con privilegios, asegúrese siempre de que seguirá habiendo al menos dos usuarios asignados.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. Abra **Azure AD Privileged Identity Management**.
 

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75456701"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Creación y administración de valores mediante el uso de variables en Azure Logic Apps
@@ -29,7 +29,7 @@ Las variables solo existen y son globales en la instancia de la aplicación lóg
 > [!IMPORTANT]
 > De forma predeterminada, los ciclos de un bucle "Para cada uno" se ejecutan en paralelo. Cuando se usan variables en bucles, ejecute el bucle [secuencialmente](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) para que las variables devuelvan resultados predecibles.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 

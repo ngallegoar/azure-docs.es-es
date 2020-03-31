@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8942ad8bdc4f9fc37a88d09871c983f63cd8c1b9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773698"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Cifrado dinámico: Configuración de una directiva de autorización de claves de contenido  
@@ -63,7 +63,7 @@ La restricción open significa que el sistema entrega la clave a cualquier perso
 
 En el ejemplo siguiente se crea una directiva de autorización abierta y se agrega a la clave de contenido.
 
-#### <a id="ContentKeyAuthorizationPolicies"></a>Creación de ContentKeyAuthorizationPolicies
+#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies"></a>Creación de ContentKeyAuthorizationPolicies
 Solicitud:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -99,7 +99,7 @@ Respuesta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:db4593da-f4d1-4cc5-a92a-d20eacbabee4","Name":"Open Authorization Policy"}
 
-#### <a id="ContentKeyAuthorizationPolicyOptions"></a>Creación de ContentKeyAuthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a><a id="ContentKeyAuthorizationPolicyOptions"></a>Creación de ContentKeyAuthorizationPolicyOptions
 Solicitud:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -135,7 +135,7 @@ Respuesta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:57829b17-1101-4797-919b-f816f4a007b7","Name":"policy","KeyDeliveryType":2,"KeyDeliveryConfiguration":"","Restrictions":[{"Name":"HLS Open Authorization Policy","KeyRestrictionType":0,"Requirements":null}]}
 
-#### <a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Vinculación de ContentKeyAuthorizationPolicies con opciones
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a><a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Vinculación de ContentKeyAuthorizationPolicies con opciones
 Solicitud:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies('nb%3Ackpid%3AUUID%3A0baa438b-8ac2-4c40-a53c-4d4722b78715')/$links/Options HTTP/1.1
@@ -156,7 +156,7 @@ Respuesta:
 
     HTTP/1.1 204 No Content
 
-#### <a id="AddAuthorizationPolicyToKey"></a>Agregar una directiva de autorización a la clave de contenido
+#### <a name="add-an-authorization-policy-to-the-content-key"></a><a id="AddAuthorizationPolicyToKey"></a>Agregar una directiva de autorización a la clave de contenido
 Solicitud:
 
     PUT https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A2e6d36a7-a17c-4e9a-830d-eca23ad1a6f9') HTTP/1.1
@@ -183,7 +183,7 @@ En esta sección se describe cómo crear una directiva de autorización de clave
 Para configurar la opción de restricción del token, debe usar un archivo XML para describir los requisitos de autorización del token. El archivo XML de configuración de restricción de token debe cumplir el siguiente esquema XML:
 
 
-#### <a id="schema"></a>Esquema de restricción de token
+#### <a name="token-restriction-schema"></a><a id="schema"></a>Esquema de restricción de token
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -290,7 +290,7 @@ La restricción open significa que el sistema entrega la clave a cualquier perso
 
 En el ejemplo siguiente se crea una directiva de autorización abierta y se agrega a la clave de contenido.
 
-#### <a id="ContentKeyAuthorizationPolicies2"></a>Creación de ContentKeyAuthorizationPolicies
+#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies2"></a>Creación de ContentKeyAuthorizationPolicies
 Solicitud:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -417,8 +417,8 @@ Vincule ContentKeyAuthorizationPolicies con opciones, tal como se muestra en la 
 #### <a name="add-an-authorization-policy-to-the-content-key"></a>Agregar una directiva de autorización a la clave de contenido
 Agregue AuthorizationPolicy a ContentKey, tal como se muestra en la sección "[Agregar una directiva de autorización a la clave de contenido](#AddAuthorizationPolicyToKey)".
 
-## <a id="types"></a>Tipos que se usan al definir ContentKeyAuthorizationPolicy
-### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a name="types-used-when-you-define-contentkeyauthorizationpolicy"></a><a id="types"></a>Tipos que se usan al definir ContentKeyAuthorizationPolicy
+### <a name="contentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -431,7 +431,7 @@ Agregue AuthorizationPolicy a ContentKey, tal como se muestra en la sección "[A
 > La restricción de IP en las directivas de autorización de claves de contenido todavía no está disponible en el servicio.
 
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a name="contentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
     {
         None = 0,

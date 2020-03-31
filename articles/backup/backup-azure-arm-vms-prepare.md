@@ -4,11 +4,11 @@ description: Aquí se describe cómo realizar una copia de seguridad de VM de Az
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705554"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233944"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 

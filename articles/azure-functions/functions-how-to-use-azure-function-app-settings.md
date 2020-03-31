@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357553"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235000"
 ---
 # <a name="manage-your-function-app"></a>Administración de la aplicación de funciones 
 
@@ -33,7 +33,7 @@ Para comenzar, vaya a [Azure Portal] e inicie sesión en la cuenta de Azure. En 
 
 Puede navegar a todo lo que necesita para administrar Function App desde la página de información general, en particular la **[Configuración de la aplicación](#settings)** y las **[Características de la plataforma](#platform-features)** .
 
-## <a name="settings"></a>Configuración de la aplicación
+## <a name="application-settings"></a><a name="settings"></a>Configuración de la aplicación
 
 La pestaña **Configuración de la aplicación** mantiene la configuración de la aplicación que Function App utiliza. Esta configuración se almacena cifrada y debe seleccionar **Mostrar valores** para ver los valores en el portal. También puede acceder a esta configuración de la aplicación mediante la CLI de Azure.
 
@@ -87,7 +87,7 @@ El resto de este artículo se centra en las siguientes características de App S
 
 Para más información sobre cómo trabajar con la configuración de App Service, vea [Configuración de Azure App Service](../app-service/configure-common.md).
 
-### <a name="editor"></a>Editor de App Service
+### <a name="app-service-editor"></a><a name="editor"></a>Editor de App Service
 
 ![Editor de App Service](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
@@ -95,7 +95,7 @@ El Editor de App Service es un editor en portal avanzado que puede usar para mod
 
 Se recomienda que considere la posibilidad de desarrollar las funciones en el equipo local. Al desarrollar localmente y publicar en Azure, los archivos del proyecto son de solo lectura en el portal. Para más información, consulte [Codificación y comprobación de las funciones de Azure Functions en un entorno local](functions-develop-local.md).
 
-### <a name="console"></a>Consola
+### <a name="console"></a><a name="console"></a>Consola
 
 ![Consola de Function App](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
@@ -103,18 +103,18 @@ La consola del portal es una herramienta ideal para desarrolladores si prefiere 
 
 Al desarrollar localmente, se recomienda usar [Azure Functions Core Tools](functions-run-local.md) y la [CLI de Azure].
 
-### <a name="kudu"></a>Herramientas avanzadas (Kudu)
+### <a name="advanced-tools-kudu"></a><a name="kudu"></a>Herramientas avanzadas (Kudu)
 
 ![Configurar Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
 Las herramientas avanzadas para App Service (también conocidas como Kudu) proporcionan acceso a las características administrativas avanzadas de la Function App. Con Kudu, puede administrar la información del sistema, la configuración de las aplicaciones, las variables del entorno, las extensiones del sitio, los encabezados HTTP y las variables del servidor. También puede iniciar **Kudu** si examina el punto de conexión de SCM de la Function App, como `https://<myfunctionapp>.scm.azurewebsites.net/`. 
 
 
-### <a name="deployment"></a>Centro de implementación
+### <a name="deployment-center"></a><a name="deployment"></a>Centro de implementación
 
 Cuando se usa una solución de control de código fuente para desarrollar y mantener el código de las funciones, el Centro de implementación le permite compilar e implementar desde el control de código fuente. El proyecto se compila e implementa en Azure cuando se realizan actualizaciones. Para más información, vea [Tecnologías de implementación en Azure Functions](functions-deployment-technologies.md).
 
-### <a name="cors"></a>Uso compartido de recursos entre orígenes
+### <a name="cross-origin-resource-sharing"></a><a name="cors"></a>Uso compartido de recursos entre orígenes
 
 Para evitar la ejecución de código malintencionado en el cliente, los exploradores modernos bloquean las solicitudes de las aplicaciones web en los recursos que se ejecutan en un dominio independiente. El [Intercambio de Recursos de Origen Cruzado (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) permite a un encabezado `Access-Control-Allow-Origin` declarar qué orígenes pueden llamar a los puntos de conexión en la aplicación de funciones.
 
@@ -136,7 +136,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 
 Use el comando [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) para enumerar los orígenes permitidos actuales.
 
-### <a name="auth"></a>Autenticación
+### <a name="authentication"></a><a name="auth"></a>Autenticación
 
 ![Configuración de la autenticación de una Function App](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

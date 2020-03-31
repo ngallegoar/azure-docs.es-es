@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
 ms.openlocfilehash: af119ef026b70fcb4a56b4f823d20c0e9eddddc8
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75903245"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Controles de seguridad para la mensajería de Azure Service Bus

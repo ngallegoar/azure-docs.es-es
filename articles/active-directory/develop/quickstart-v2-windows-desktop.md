@@ -75,7 +75,7 @@ En esta guía de inicio rápido aprenderá cómo escribir una aplicación .NET d
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Escriba_la_información_de_la_cuenta_admitida_aquí
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Paso 3: Configuración del proyecto de Visual Studio

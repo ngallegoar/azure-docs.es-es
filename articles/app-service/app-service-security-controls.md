@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2586821c4c48f809efb5408c3cdae5e42e3b3fcf
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74671447"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Controles de seguridad de Azure App Service
@@ -33,7 +33,7 @@ En este artículo se explican los controles de seguridad integrados en Azure App
 |---|---|--|
 | Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | App Service se integra con Application Insights para los lenguajes compatibles con Application Insights (edición completa de .NET Framework, .NET Core, Java y Node.JS).  Consulte [Supervisar el rendimiento de Azure App Service](../azure-monitor/app/azure-web-apps.md). App Service también envía las métricas de aplicación a Azure Monitor. | [Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
 | Registro y auditoría del plano de administración y de control| Sí | Todas las operaciones de administración realizadas en objetos de App Service se producen a través de [Azure Resource Manager](../azure-resource-manager/index.yml). Los registros históricos de estas operaciones están disponibles en el portal y mediante la CLI. | [Operaciones del proveedor de recursos de Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftweb), [az monitor activity-log](/cli/azure/monitor/activity-log)
-| Registro y auditoría del plano de datos | Sin | El plano de datos de App Service es un recurso compartido de archivos remoto que incluye el contenido del sitio web implementado de un cliente.  No hay ninguna auditoría del recurso compartido de archivos remoto. |
+| Registro y auditoría del plano de datos | No | El plano de datos de App Service es un recurso compartido de archivos remoto que incluye el contenido del sitio web implementado de un cliente.  No hay ninguna auditoría del recurso compartido de archivos remoto. |
 
 ## <a name="identity"></a>Identidad
 
@@ -42,7 +42,7 @@ En este artículo se explican los controles de seguridad integrados en Azure App
 | Authentication| Sí | Los clientes pueden crear aplicaciones en App Service que se integren automáticamente con [Azure Active Directory (Azure AD)](../active-directory/index.yml), así como con otros proveedores de identidades compatibles con OAuth. En el caso del acceso de administración a los recursos de App Service, todo el acceso se controla utilizando una entidad de seguridad autenticada de Azure AD y los roles de RBAC de Azure Resource Manager. | [Autenticación y autorización en Azure App Service](overview-authentication-authorization.md)
 | Authorization| Sí | Para el acceso de administración a los recursos de App Service, todo el acceso se controla mediante una combinación de los roles RBAC de Azure Resource Manager y de las entidades de seguridad autenticadas de Azure AD.  | [Autenticación y autorización en Azure App Service](overview-authentication-authorization.md)
 
-## <a name="data-protection"></a>Protección de datos
+## <a name="data-protection"></a>Protección de los datos
 
 | Control de seguridad | Sí/No | Notas | Documentación
 |---|---|--|

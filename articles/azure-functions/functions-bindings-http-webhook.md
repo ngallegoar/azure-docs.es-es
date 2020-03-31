@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77462112"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Introducción a los enlaces y desencadenadores HTTP de Azure Functions
@@ -33,7 +33,7 @@ Para trabajar con el desencadenador y los enlaces, es necesario hacer referencia
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalación del [paquete NuGet], versión 3.x | |
 | Script de C#, Java, JavaScript, Python, PowerShell | Registro de [conjunto de extensiones]          | Se recomienda usar la [extensión Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) con Visual Studio Code. |
-| Script de C# (solo en línea en Azure Portal)         | Adición de un enlace                            | Para actualizar extensiones de enlace existentes sin tener que volver a publicar la aplicación de funciones, vea [Actualización de las extensiones]. |
+| Script de C# (solo en línea en Azure Portal)         | Adición de un enlace                            | Para actualizar extensiones de enlace existentes sin tener que volver a publicar la aplicación de funciones, consulte [Actualización de las extensiones]. |
 
 [core tools]: ./functions-run-local.md
 [conjunto de extensiones]: ./functions-bindings-register.md#extension-bundles

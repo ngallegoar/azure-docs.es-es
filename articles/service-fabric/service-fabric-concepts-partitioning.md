@@ -4,11 +4,11 @@ description: Describe cómo crear particiones en los servicios con estado de Ser
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434063"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229360"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partición de Reliable Services de Service Fabric
 Este artículo proporciona una introducción a los conceptos básicos de la creación de particiones en Reliable Services de Azure Service Fabric. El código fuente que se usa en el artículo también está disponible en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).

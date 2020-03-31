@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274485"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219210"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Envío de datos de entrada de lápiz a la API Ink Recognizer 
 

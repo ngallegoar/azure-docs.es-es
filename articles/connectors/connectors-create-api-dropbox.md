@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
 ms.openlocfilehash: 8f54f832884b172761f62b16db29d2f0abd0dd46
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75665758"
 ---
 # <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Carga y administración de archivos en Dropbox mediante Azure Logic Apps
@@ -20,7 +20,7 @@ Con el conector para Dropbox y Azure Logic Apps, puede crear flujos de trabajo a
 
 En este artículo se muestra cómo conectarse a Dropbox desde su aplicación lógica y, a continuación, agregar el desencadenador **Cuando se crea un archivo** y la acción **Obtener contenido de archivo mediante la ruta de acceso** de Dropbox.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 

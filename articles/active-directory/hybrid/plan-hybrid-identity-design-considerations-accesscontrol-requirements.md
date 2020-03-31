@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60295150"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de control de acceso para la solución de identidad híbrida
@@ -29,7 +29,7 @@ Cuando una organización va a diseñar su solución de identidad híbrida tambi�
 
 * Administración
 * Authentication
-* Autorización
+* Authorization
 * Auditoría
 
 En las secciones que siguen ahora se analizan con más detalle la autenticación y la autorización. La administración y la auditoría forman parte del ciclo de vida de identidad híbrida. Lea [Determinación de las tareas de administración de identidad híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) para más información acerca de estas funcionalidades.
@@ -81,6 +81,6 @@ Si bien la autenticación y la autorización son elementos esenciales para permi
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de los requisitos de respuesta a incidentes](plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

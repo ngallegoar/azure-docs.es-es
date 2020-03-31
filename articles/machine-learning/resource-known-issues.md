@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2522b31788df294c37db4326985edd6c85774561
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: d5525c02edb30eff0ee8971a382f2acb8f2e57ee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191850"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455730"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conocidos y soluciones de Azure Machine Learning
 
@@ -124,7 +124,7 @@ No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aproba
 
 ## <a name="automated-machine-learning"></a>Automated Machine Learning
 
-El aprendizaje automático automatizado de TensorFlow no admite actualmente la versión 1.13 de TensorFlow. Instalar esta versión hará que las dependencias del paquete dejen de funcionar. Estamos trabajando para corregir este problema en una versión futura. 
+El aprendizaje automático automatizado de TensorFlow no admite actualmente la versión 1.13 de TensorFlow. Instalar esta versión hará que las dependencias del paquete dejen de funcionar. Estamos trabajando para corregir este problema en una versión futura.
 
 ### <a name="experiment-charts"></a>Gráficos de experimento
 
@@ -145,7 +145,7 @@ script_params = {
 } 
 ```
 
-Si no incluye la barra diagonal inicial ("/"), tendrá que prefijar el directorio de trabajo (por ejemplo, `/mnt/batch/.../tmp/dataset`) en el destino de proceso para indicar dónde quiere que se monte el conjunto de datos. 
+Si no incluye la barra diagonal inicial ("/"), tendrá que prefijar el directorio de trabajo (por ejemplo, `/mnt/batch/.../tmp/dataset`) en el destino de proceso para indicar dónde quiere que se monte el conjunto de datos.
 
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>No se puede leer el archivo Parquet desde HTTP o ADLS Gen 2
 
@@ -205,14 +205,14 @@ Si ve este error al usar el aprendizaje automático automatizado, ejecute las do
 
 Si ve este error al usar el aprendizaje automático automatizado:
 
-1. Ejecute este comando para instalar dos paquetes en el clúster de Azure Databricks: 
+1. Ejecute este comando para instalar dos paquetes en el clúster de Azure Databricks:
 
-   ```
+   ```bash
    scikit-learn==0.19.1
    pandas==0.22.0
    ```
 
-1. Desasocie y, luego, vuelva a conectar el clúster al cuaderno. 
+1. Desasocie y, luego, vuelva a conectar el clúster al cuaderno.
 
 Si estos pasos no resuelven el problema, pruebe a reiniciar el clúster.
 
@@ -265,11 +265,11 @@ Si recibe un error `Unable to upload project files to working directory in Azure
 
 Si usa un recurso compartido de archivos para otras cargas de trabajo, como la transferencia de datos, se recomienda usar blobs para que el recurso compartido de archivos se pueda usar para el envío de ejecuciones. También puede dividir la carga de trabajo entre dos áreas de trabajo diferentes.
 
-## <a name="webservices-in-azure-kubernetes-service-failures"></a>Servicios web en errores de Azure Kubernetes Service 
+## <a name="webservices-in-azure-kubernetes-service-failures"></a>Servicios web en errores de Azure Kubernetes Service
 
 Muchos errores de servicio web de Azure Kubernetes Service se pueden depurar mediante la conexión al clúster con `kubectl`. Puede obtener el archivo `kubeconfig.json` para un clúster de Azure Kubernetes Service mediante la ejecución de:
 
-```bash
+```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>
 ```
 
@@ -313,7 +313,7 @@ Problemas conocidos con el etiquetado de proyectos.
 
 ### <a name="only-datasets-created-on-blob-datastores-can-be-used"></a>Solo se pueden usar los conjuntos de datos creados en almacenes de datos de blobs
 
-Se trata de una limitación conocida de la versión actual. 
+Se trata de una limitación conocida de la versión actual.
 
 ### <a name="after-creation-the-project-shows-initializing-for-a-long-time"></a>Después de la creación, el proyecto muestra el mensaje "Initializing" (Inicializando) durante mucho tiempo
 
