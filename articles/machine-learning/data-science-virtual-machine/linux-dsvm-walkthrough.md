@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 9883256fc801d37acd4ea10226bd9e541f9135f7
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 9857de0470baa35dcc8005e1622e5e593da95751
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268650"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128346"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 
@@ -537,7 +537,7 @@ Si quiere realizar aprendizaje automático con datos almacenados en una base de 
 
 ### <a name="sql-data-warehouse"></a>SQL Data Warehouse
 
-Azure SQL Data Warehouse es una base de datos de escalado horizontal y basada en la nube que puede procesar volúmenes masivos de datos (tanto relacionales como no relacionales). Para más información, consulte [¿Qué es Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Azure SQL Data Warehouse es una base de datos de escalado horizontal y basada en la nube que puede procesar volúmenes masivos de datos (tanto relacionales como no relacionales). Para más información, consulte [¿Qué es Azure SQL Data Warehouse?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Para conectarse al almacén de datos y crear la tabla, ejecute el siguiente comando desde un símbolo del sistema:
 

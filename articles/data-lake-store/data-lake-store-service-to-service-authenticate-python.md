@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 009aff2703829e6d30f93b3c8e3696724594f29b
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290774"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229876"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante Python
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "76290774"
 En este artículo, obtendrá información sobre cómo usar el SDK de Python para realizar la autenticación de servicio a servicio con Azure Data Lake Storage Gen1. Para la autenticación del usuario final con Data Lake Storage Gen1 mediante Python, vea [End-user authentication with Data Lake Storage using Python](data-lake-store-end-user-authenticate-python.md) (Autenticación del usuario final con Data Lake Storage Gen1 mediante Python).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Python** Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 

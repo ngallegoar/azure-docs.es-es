@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: jingwang
 ms.openlocfilehash: 22ecac12e049e58e533cdde0078f4a25f6bb2aa6
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77423834"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copia de datos desde DB2 mediante Azure Data Factory
@@ -73,9 +73,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de DB2:
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2.<br/>El valor permitido es: **Básico**. |Sí |
 | username |Especifique el nombre de usuario para conectarse a la base de datos DB2. |Sí |
 | password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
-| packageCollection | Especifique en dónde crea ADF automáticamente los paquetes necesarios al consultar la base de datos. | Sin |
-| certificateCommonName | Al usar el cifrado de Capa de sockets seguros (SSL) o de Seguridad de la capa de transporte (TLS), debe escribir un valor para el nombre común del certificado. | Sin |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |Sin |
+| packageCollection | Especifique en dónde crea ADF automáticamente los paquetes necesarios al consultar la base de datos. | No |
+| certificateCommonName | Al usar el cifrado de Capa de sockets seguros (SSL) o de Seguridad de la capa de transporte (TLS), debe escribir un valor para el nombre común del certificado. | No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usará Azure Integration Runtime. |No |
 
 > [!TIP]
 > Si recibe un mensaje de error que indica `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, el motivo es que no se ha creado un paquete necesario para el usuario. De forma predeterminada, ADF intentará crear un paquete en la colección con nombre como el usuario que haya usado para conectarse a DB2. Especifique la propiedad de colección de paquetes para indicar en dónde quiere que ADF cree los paquetes necesarios al consultar la base de datos.

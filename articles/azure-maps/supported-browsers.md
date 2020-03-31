@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988794"
 ---
 # <a name="web-sdk-supported-browsers"></a>Exploradores admitidos por el SDK web
@@ -61,7 +61,7 @@ También se admiten los siguientes módulos del SDK web en Node.js:
 
 - Módulo de servicios ([documentación](how-to-use-services-module.md) | [módulo npm](https://www.npmjs.com/package/azure-maps-rest))
 
-## <a name="Target-Legacy-Browsers"></a>Selección de exploradores heredados
+## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Selección de exploradores heredados
 
 Puede seleccionar exploradores más antiguos que no sean compatibles con WebGL o que solo tengan compatibilidad limitada. En tales casos, se recomienda usar los servicios de Azure Maps junto con un control de mapa de código abierto como [Folleto](https://leafletjs.com/). Este es un ejemplo:
 

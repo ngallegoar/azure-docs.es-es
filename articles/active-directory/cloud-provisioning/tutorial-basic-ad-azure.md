@@ -11,10 +11,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 356a05d4d92f17ceb66ff0208153ec3eac736757
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74795367"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Tutorial: Entorno básico de Active Directory
@@ -26,7 +26,7 @@ Este tutorial le guiará a través de la creación de un entorno de Active Direc
 Puede usar el entorno que crea en el tutorial para probar varios aspectos de escenarios de identidad híbrida, lo que será un requisito previo para algunos de los tutoriales.  Si ya tiene un entorno de Active Directory existente, puede usarlo como sustituto.  Esta información se proporciona para usuarios que pueden estar empezando de cero.
 
 Este tutorial consta de
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 A continuación, se indican los requisitos previos necesarios para completar este tutorial:
 - Un equipo con [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  Se recomienda hacer esto en un equipo con [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) o [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Un [adaptador de red externo](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que la máquina virtual se comunique con Internet.
@@ -83,7 +83,7 @@ Para terminar de crear la máquina virtual, deberá finalizar la instalación de
 6. Escriba la clave de licencia y haga clic en **Siguiente**.
 7. Marque **Acepto los términos de licencia y haga clic en **Siguiente**.
 8. Seleccione **Personalizada:  instalar solo Windows (avanzado)**
-9. Haga clic en **Siguiente**
+9. Haga clic en **Siguiente**.
 10. Una vez completada la instalación, reinicie la máquina virtual, inicie sesión y ejecute las actualizaciones de Windows para asegurarse de que la versión de la máquina virtual es la más actualizada.  Instale las actualizaciones más recientes.
 
 ## <a name="install-active-directory-prerequisites"></a>Requisitos previos de la instalación de Active Directory
@@ -270,7 +270,7 @@ Para terminar de crear la máquina virtual, deberá finalizar la instalación de
 6. Escriba la clave de licencia y haga clic en **Siguiente**.
 7. Marque **Acepto los términos de licencia y haga clic en **Siguiente**.
 8. Seleccione **Personalizada:  instalar solo Windows (avanzado)**
-9. Haga clic en **Siguiente**
+9. Haga clic en **Siguiente**.
 10. Una vez completada la instalación, reinicie la máquina virtual, inicie sesión y ejecute las actualizaciones de Windows para asegurarse de que la versión de la máquina virtual es la más actualizada.  Instale las actualizaciones más recientes.
 
 ### <a name="install-active-directory-prerequisites"></a>Requisitos previos de la instalación de Active Directory

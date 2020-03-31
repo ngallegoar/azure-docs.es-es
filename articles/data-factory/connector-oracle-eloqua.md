@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: deb5c87073a8963fc052d90f0f7c494cc0644f51
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927554"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Copiar datos de Oracle Eloqua con Azure Data Factory (versión preliminar)
@@ -46,17 +46,17 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Oracle Eloqua:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Eloqua** | Sí |
 | endpoint | Punto de conexión del servidor de Eloqua. Eloqua admite varios centros de datos; para determinar su punto de conexión, inicie sesión en https://login.eloqua.com mediante sus credenciales, y copie la porción de la **URL base** de la URL redirigida con el patrón de `xxx.xxx.eloqua.com`. | Sí |
 | username | Nombre del sitio y del usuario de la cuenta de Eloqua con el siguiente formato: `SiteName\Username`por ejemplo, `Eloqua\Alice`.  | Sí |
 | password | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
-| useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin |
-| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin |
-| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin |
+| useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
+| useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | No |
+| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | No |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -81,7 +81,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de Oracle Eloqua, establezca la propiedad type del conjunto de datos en **EloquaObject**. Se admiten las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **EloquaObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
@@ -111,12 +111,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Oracle Eloqua, establezca el tipo de origen de la actividad de copia en **EloquaSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **EloquaSource** | Sí |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Accounts"`. | No (si se especifica "tableName" en el conjunto de datos) |
+| Query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Accounts"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[

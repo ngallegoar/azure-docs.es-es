@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75453936"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Uso de directivas de asignación personalizadas
@@ -39,11 +39,11 @@ En este artículo, llevará a cabo los siguientes pasos:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los siguientes requisitos previos corresponden a un entorno de desarrollo de Windows. En el caso de Linux o macOS, consulte la sección correspondiente en [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) en la documentación del SDK.
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
 
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
@@ -413,7 +413,7 @@ En esta sección, nos enfocamos en una estación de trabajo basada en Windows. P
 
 2. Busque el nombre de etiqueta de la [versión más reciente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) del SDK.
 
-3. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute el siguiente comando para clonar el repositorio de GitHub del [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c). Use la etiqueta que encontró en el paso anterior como valor del parámetro `-b`:
+3. Abra un símbolo del sistema o el shell de Bash de Git. Ejecute los siguientes comandos para clonar la versión más reciente del repositorio de GitHub del [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c). Use la etiqueta que encontró en el paso anterior como valor del parámetro `-b`:
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98706d0c9a86d53ae31d05bec48d7071f251b651
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: de84f2aee5f59d14ab70cb1687968643c4cdb31e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944386"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79136387"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workplace by Facebook
 
@@ -30,7 +30,7 @@ En este tutorial, obtendrá información sobre cómo integrar Workplace by Faceb
 * Permitir que los usuarios inicien sesión automáticamente en Workplace by Facebook con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -240,7 +240,7 @@ Al hacer clic en el icono de Workplace by Facebook en el panel de acceso, deber�
 
 - [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

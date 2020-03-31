@@ -11,11 +11,11 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 2399849b87e44c5cb70d2db987ae18d8d2d9c552
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355608"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230136"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory  
 **Integration Runtime** es la infraestructura de proceso que usa Azure Data Factory para proporcionar varias funcionalidades de integración de datos en distintos entornos de red. Data Factory ofrece tres tipos de instancia de Integration Runtime:

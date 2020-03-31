@@ -1,49 +1,63 @@
 ---
-title: 'Inicio rápido: Apache Hadoop y Resource Manager: Azure HDInsight'
+title: 'Inicio rápido: Creación de clústeres de Apache Hadoop en Azure HDInsight con plantillas de Resource Manager'
 description: En este inicio rápido, creará clústeres de Apache Hadoop en Azure HDInsight con una plantilla de Resource Manager.
-keywords: introducción a hadoop, hadoop linux, inicio rápido de hadoop, introducción a hive, inicio rápido en hive
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
+ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 06/12/2019
-ms.openlocfilehash: b554fcd4d4175aeac88df14eebbbaf4a8ba49f4c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: subject-armqs
+ms.date: 03/13/2020
+ms.openlocfilehash: ae0f29b8085bd9637f527f2a58229dd89ce6933b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044796"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80064671"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Inicio rápido: Creación de clústeres de Apache Hadoop en Azure HDInsight con plantillas de Resource Manager
 
-En este inicio rápido, aprenderá a crear un clúster de Apache Hadoop en Azure HDInsight con una plantilla de Resource Manager.
+En este inicio rápido, se usa una plantilla de Azure Resource Manager para crear un clúster de [Apache Hadoop](./apache-hadoop-introduction.md) en Azure HDInsight. Hadoop era el entorno de trabajo de código abierto original para el procesamiento distribuido y análisis de macrodatos en clústeres. El ecosistema de Hadoop incluye utilidades y software relacionados, como Apache Hive, Apache HBase, Spark, Kafka, entre otros muchos.
 
-Puede ver plantillas similares en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). Puede encontrar la referencia de plantilla [aquí](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).  También puede crear un clúster mediante [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  
-
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+  
 Actualmente HDInsight tiene [siete tipos diferentes de clúster](../hdinsight-overview.md#cluster-types-in-hdinsight). Cada uno de estos tipos de clúster es compatible con un conjunto de componentes diferente. Todos los tipos de clúster son compatibles con Hive. Para ver una lista de los componentes compatibles con HDInsight, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight](../hdinsight-component-versioning.md)  
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-<a name="create-cluster"></a>
-## <a name="create-a-hadoop-cluster"></a>Creación de un clúster de Hadoop
+## <a name="create-an-apache-hadoop-cluster"></a>Creación de un clúster de Apache Hadoop
 
-1. Seleccione el botón **Implementar en Azure** siguiente para iniciar sesión en Azure y abrir la plantilla de Resource Manager en Azure Portal.
-   
+### <a name="review-the-template"></a>Revisión de la plantilla
+
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password).
+
+:::code language="json" source="~/quickstart-templates/101-hdinsight-linux-ssh-password/azuredeploy.json" range="1-148":::
+
+
+En la plantilla se definen dos recursos de Azure:
+
+* [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): permite crear una cuenta de Azure Storage.
+* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): permite crear un clúster de HDInsight.
+
+### <a name="deploy-the-template"></a>Implementación de la plantilla
+
+1. Seleccione el botón **Implementar en Azure** siguiente para iniciar sesión en Azure y abrir la plantilla de Resource Manager.
+
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hadoop-linux-tutorial-get-started/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. Escriba o seleccione los siguientes valores:
+1. Escriba o seleccione los siguientes valores:
 
     |Propiedad  |Descripción  |
     |---------|---------|
-    |**Suscripción**     |  Seleccione su suscripción a Azure. |
-    |**Grupos de recursos**     | Cree un grupo de recursos o seleccione uno existente.  Un grupo de recursos es un contenedor de componentes de Azure.  En este caso, el grupo de recursos contiene el clúster de HDInsight y la cuenta de Azure Storage dependiente. |
-    |**Ubicación**     | Seleccione una ubicación de Azure en la que quiera crear el clúster.  Elija una ubicación más cercana a usted para mejorar el rendimiento. |
-    |**Nombre del clúster**     | Escriba el nombre del clúster de Hadoop. Dado que todos los clústeres de HDInsight comparten el mismo espacio de nombres de DNS, este nombre debe ser único. El nombre solo puede incluir letras minúsculas, números, guiones y debe empezar por una letra.  Antes y después de cada guion debe ir un carácter que no sea otro guión.  El nombre debe tener entre 3 y 59 caracteres. |
-    |**Tipo de clúster**     | Seleccione **hadoop**. |
-    |**Nombre de inicio de sesión y contraseña del clúster**     | El nombre de inicio de sesión predeterminado es **admin**. La contraseña debe tener un mínimo de 10 caracteres y contener al menos un dígito, una letra mayúscula y una letra minúscula, y un carácter no alfanumérico (excepto los caracteres ' " y `\). Asegúrese de **no proporcionar** contraseñas comunes, como "Pass@word1".|
-    |**Nombre de usuario y contraseña de SSH**     | El nombre de usuario predeterminado es **sshuser**.  El nombre de usuario de SSH se puede cambiar.  La contraseña de usuario de SSH tiene los mismos requisitos que la contraseña de inicio de sesión del clúster.|
+    |Subscription|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
+    |Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
+    |Location|El valor se rellenará automáticamente con la ubicación usada para el grupo de recursos.|
+    |Cluster Name|Escriba un nombre único global. Use solo letras minúsculas y números para esta plantilla.|
+    |Tipo de clúster | Seleccione **hadoop**. |
+    |Cluster Login User Name (Nombre de usuario de inicio de sesión del clúster)|Proporcione el nombre de usuario; el valor predeterminado es **admin**.|
+    |Cluster Login Password (Contraseña de inicio de sesión del clúster)|Indique una contraseña. La contraseña debe tener un mínimo de 10 caracteres y contener al menos un dígito, una letra mayúscula y una letra minúscula, y un carácter no alfanumérico (excepto los caracteres ' " y `). |
+    |Nombre de usuario de SSH|Proporcione el nombre de usuario; el valor predeterminado es **sshuser**.|
+    |Contraseña de SSH|Proporcione la contraseña.|
 
     Algunas propiedades se han codificado de forma rígida en la plantilla.  Puede configurar estos valores desde la plantilla. Para más información acerca de estas propiedades, consulte este artículo sobre la [creación de clústeres de Apache Hadoop en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -52,33 +66,31 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     ![HDInsight Linux: información general sobre la plantilla de Resource Manager en el portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Implementación de un clúster de Hadoop en HDInsight con Azure Portal y una plantilla del administrador de grupos de recursos")
 
-3. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, seleccione **Comprar**. Recibirá una notificación de que la implementación está en curso.  Se tarda aproximadamente 20 minutos en crear un clúster.
+1. Revise los **TÉRMINOS Y CONDICIONES**. A continuación, seleccione **Acepto los términos y condiciones indicados anteriormente** y, después, seleccione **Comprar**. Recibirá una notificación de que la implementación está en curso. Se tarda aproximadamente 20 minutos en crear un clúster.
 
-4. Una vez que se cree el clúster, recibirá una notificación de **Implementación correcta** con un vínculo **Ir al grupo de recursos**.  La página **Grupo de recursos** mostrará el nuevo clúster de HDInsight y el almacenamiento predeterminado asociado con el clúster. Cada clúster depende de una [cuenta de Azure Storage](../hdinsight-hadoop-use-blob-storage.md) o de una [cuenta de Azure Data Lake Storage](../hdinsight-hadoop-use-data-lake-store.md). Se conoce como cuenta de almacenamiento predeterminada. El clúster de HDInsight y su cuenta de almacenamiento predeterminada deben estar en la misma región de Azure. Al eliminar los clústeres no se elimina la cuenta de almacenamiento.
+## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
+
+Una vez que se cree el clúster, recibirá una notificación de **Implementación correcta** con el vínculo **Ir al recurso**. La página Grupo de recursos mostrará el nuevo clúster de HDInsight y el almacenamiento predeterminado asociado con el clúster. Cada clúster depende de una cuenta de [Azure Storage](../hdinsight-hadoop-use-blob-storage.md) o de una [cuenta de Azure Data Lake Storage](../hdinsight-hadoop-use-data-lake-store.md). Se conoce como cuenta de almacenamiento predeterminada. El clúster de HDInsight y su cuenta de almacenamiento predeterminada deben estar en la misma región de Azure. Al eliminar los clústeres no se elimina la cuenta de almacenamiento.
 
 > [!NOTE]  
 > Para conocer otros métodos de creación de clústeres y las propiedades que se usan en este inicio rápido, vea [Creación de clústeres en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Después de completar el inicio rápido, puede ser conveniente eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no se esté usando. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando.
+Después de completar el inicio rápido, puede ser conveniente eliminar el clúster. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no se esté usando. Los clústeres de HDInsight se cobran aunque no se estén usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se usen.
 
 > [!NOTE]  
 > Si avanza de *inmediato* al siguiente tutorial para aprender a ejecutar operaciones de ETL con Hadoop en HDInsight, es posible que quiera mantener el clúster en ejecución. Esto es porque en el tutorial tendrá que crear un clúster de Hadoop de nuevo. Sin embargo, si no va a continuar con el próximo tutorial de inmediato, debe eliminar el clúster ahora.
 
-**Para eliminar el clúster o la cuenta de almacenamiento predeterminada**
+En Azure Portal, vaya al clúster y seleccione **Eliminar**.
 
-1. Vuelva a la pestaña de explorador en la que tenga Azure Portal. Estará en la página de información general del clúster. Si solo quiere eliminar el clúster, pero desea seguir conservando la cuenta de almacenamiento predeterminada, seleccione **Eliminar**.
+![HDInsight: eliminación de un clúster del portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "HDInsight: eliminación de un clúster del portal")
 
-    ![HDInsight: eliminación de un clúster del portal](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-delete-cluster.png "HDInsight: eliminación de un clúster del portal")
-
-2. Si quiere eliminar el clúster y la cuenta de almacenamiento predeterminada, seleccione el nombre del grupo de recursos (resaltado en la captura de pantalla anterior) para abrir la página del grupo de recursos.
-
-3. Seleccione **Eliminar grupo de recursos** para eliminar el grupo de recursos, que contiene el clúster y la cuenta de almacenamiento predeterminada. Tenga en cuenta que, al eliminar el grupo de recursos, se elimina también la cuenta de almacenamiento. Si desea mantener la cuenta de almacenamiento, elija eliminar solo el clúster.
+También puede seleccionar el nombre del grupo de recursos para abrir la página del grupo de recursos y, a continuación, seleccionar **Eliminar grupo de recursos**. Al eliminar el grupo de recursos, se eliminan tanto el clúster de HDInsight como la cuenta de almacenamiento predeterminada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha aprendido a crear un clúster de Apache Hadoop en HDInsight con una plantilla de Resource Manager. En el siguiente artículo, aprenderá a realizar una operación ETL (extraer, transformar y cargar) con Hadoop en HDInsight.
 
 > [!div class="nextstepaction"]
->[Extracción, transformación y carga de datos mediante Interactive Query en HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+> [Extracción, transformación y carga de datos mediante Interactive Query en HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

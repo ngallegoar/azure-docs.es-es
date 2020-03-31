@@ -3,7 +3,7 @@ title: 'Visualización de informes y registros en la administración de derechos
 description: Obtenga información sobre cómo ver el informe de asignaciones de usuario y los registros de auditoría en la administración de derechos de Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: jocastel-MSFT
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/28/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819badb85e532275b4d5d6ca84c3e6e7fe527fa0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 514f8e86d6bd28cc5212e0f0058f00e270f43e35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422553"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128416"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Consulta de informes y registros en la administración de derechos de Azure AD
 
@@ -109,5 +109,6 @@ Cuando la asignación de paquetes de acceso del usuario expira, la cancela el us
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Archivar informes y registros](entitlement-management-logs-and-reporting.md)
 - [Solución de problemas de la administración de derechos de Azure AD](entitlement-management-troubleshoot.md)
 - [Escenarios comunes](entitlement-management-scenarios.md)

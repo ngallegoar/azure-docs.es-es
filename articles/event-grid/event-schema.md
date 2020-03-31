@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 1fceda6fcbb6e8db1fa8afbc5181315bd0c98940
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 35cea2e6df311d2f4071686c21c8e4c36477abc1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512987"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225120"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de Azure Event Grid
 
@@ -83,16 +83,16 @@ Por ejemplo, el esquema publicado para un evento de Azure Blob Storage es:
 
 Todos los eventos tienen los mismos datos de nivel superior, que son los siguientes:
 
-| Propiedad | Tipo | Descripción |
-| -------- | ---- | ----------- |
-| topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
-| subject | string | Ruta al asunto del evento definida por el anunciante. |
-| eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
-| eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
-| id | string | Identificador único para el evento |
-| datos | object | Los datos del evento específicos del proveedor de recursos. |
-| dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
-| metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+| Propiedad | Tipo | Obligatorio | Descripción |
+| -------- | ---- | -------- | ----------- |
+| topic | string | No, pero si se incluye, debe coincidir exactamente con el identificador de Azure Resource Manager del tema Event Grid. Si no se incluye, Event Grid se marcará en el evento. | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| subject | string | Sí | Ruta al asunto del evento definida por el anunciante. |
+| eventType | string | Sí | Uno de los tipos de eventos registrados para este origen de eventos. |
+| eventTime | string | Sí | La hora de generación del evento en función de la hora UTC del proveedor. |
+| id | string | Sí | Identificador único para el evento |
+| datos | object | No | Los datos del evento específicos del proveedor de recursos. |
+| dataVersion | string | No, pero se marcará con un valor vacío. | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| metadataVersion | string | No es necesario, pero si se incluye, debe coincidir exactamente con el esquema `metadataVersion` de Event Grid (actualmente, solo `1`). Si no se incluye, Event Grid se marcará en el evento. | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 Para aprender acerca de las propiedades del objeto de datos, vea el origen del evento:
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
 ms.openlocfilehash: ff738e56226f7cbb720a754573a9d8607e0e3247
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73890470"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flujos de dispositivos IoT Hub (versión preliminar)
@@ -140,7 +140,7 @@ Siga estos pasos para configurar los registros de Azure Monitor para las activid
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-Durante la versión preliminar pública, los flujos de datos de los dispositivos de IoT Hub estarán disponibles en las regiones Centro de EE. UU., EUAP de centro de EE. UU., Norte de Europa y Sudeste Asiático. Asegúrese de que crea el centro en una de estas regiones.
+Durante la versión preliminar pública, los flujos de datos de los dispositivos de IoT Hub estarán disponibles en las regiones Centro de EE. UU., EUAP de centro de EE. UU., Norte de Europa y Sudeste de Asia. Asegúrese de que crea el centro en una de estas regiones.
 
 ## <a name="sdk-availability"></a>Disponibilidad del SDK
 

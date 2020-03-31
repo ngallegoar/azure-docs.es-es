@@ -7,22 +7,23 @@ ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a1f774aae071a561bdda2d8c349861d640cb287
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 68994f9b79af55b32527eed52bbc4e5866c89538
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572474"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79205153"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Inicio rápido: Configuración del firewall del servidor: Portal
 
 Esta guía de inicio rápido le ayudará a configurar un firewall para el servidor de Azure Analysis Services. La habilitación de un firewall y la configuración de los intervalos de direcciones IP solo para los equipos que tienen acceso al servidor son una parte importante de la protección del servidor y los datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Un servidor de Analysis Services en la suscripción. Para más información, vea esta [Inicio rápido: Creación de un servidor (Portal)](analysis-services-create-server.md) o [Inicio rápido: Creación de un servidor (PowerShell)](analysis-services-create-powershell.md)
 - Uno o más intervalos de direcciones IP para los equipos cliente (si es necesario).
-- Tenga en cuenta que el escenario de importación de Power BI Premium no se admite actualmente.
+- Algunos escenarios en los que Power BI Premium se conecta a Azure Analysis Services, incluidos los informes paginados y de importación de datos (actualización), no se admiten ni siquiera si está habilitada la opción Permitir el acceso desde Power BI. El escenario más común en el que se usa Live Connect desde Power BI Premium sí se admite. Se admiten todos los escenarios de Power BI Pro.
+
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal 
 

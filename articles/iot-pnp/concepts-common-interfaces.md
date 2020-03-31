@@ -7,12 +7,12 @@ ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: f697a0d6aba4f137b75faa2a200424c72aa78c3b
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c6ac90f917b9afc37b3a39d8da679fbcad091778
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531418"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80234697"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>Interfaces comunes de IoT Plug and Play (versión preliminar)
 
@@ -37,11 +37,11 @@ Se espera que todos los dispositivos IoT Plug and Play implementen algunas inter
 
 Puede usar la extensión de Azure IoT para la CLI de Azure para recuperar las interfaces comunes del repositorio de modelos público.
 
-```cmd/sh
+```azurecli
 az iot pnp interface show --interface {InterfaceID}
 ```
 
-```cmd/sh
+```azurecli
 az iot pnp capability-model show --model {ModelID}
 ```
 

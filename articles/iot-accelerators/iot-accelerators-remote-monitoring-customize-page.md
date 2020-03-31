@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: ec0b9fbdfdb96317e1e7f6fe00384ba4f8c42bcc
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0228f317e2d3380f2387dd557a27203eb3abc4ad
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68607956"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240256"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota
 
@@ -24,7 +24,7 @@ En este artículo se muestra cómo agregar una nueva página a la interfaz de us
 
 Otras guías paso a paso amplían este escenario para añadir más características a la página que se agrega.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar los pasos de esta guía, necesita que el software siguiente esté instalado en la máquina de desarrollo local:
 
@@ -156,7 +156,7 @@ Si lo desea, puede conectar su copia local de ejecución de la interfaz de usuar
 
 1. Use Azure Portal o la [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para habilitar el acceso SSH a la máquina virtual que hospeda los microservicios en la solución. Por ejemplo:
 
-    ```sh
+    ```azurecli
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
@@ -164,7 +164,7 @@ Si lo desea, puede conectar su copia local de ejecución de la interfaz de usuar
 
 1. Use Azure Portal o la [CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para encontrar el nombre y la dirección IP pública de la máquina virtual. Por ejemplo:
 
-    ```sh
+    ```azurecli
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```

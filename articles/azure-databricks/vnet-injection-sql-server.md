@@ -9,10 +9,10 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.openlocfilehash: 460079248e6cbd939c36b84f94cac41dce4dda2b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73747672"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Tutorial: Consulta de un contenedor de Docker de Linux para SQL Server en una red virtual mediante un cuaderno de Azure Databricks
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a:
 > * Instalar el contenedor del docker de Microsoft SQL Server en Linux
 > * Consultar el servidor de SQL Server con JDBC desde un cuaderno de Databricks
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Cree un [área de trabajo de Databricks en una red virtual](quickstart-create-databricks-workspace-vnet-injection.md).
 
@@ -62,7 +62,7 @@ En este tutorial, aprenderá a:
 
 7. Agregue una regla para abrir el puerto 22 para SSH. Use la configuración siguiente:
     
-    |Configuración|Valor sugerido|DESCRIPCIÓN|
+    |Configuración|Valor sugerido|Descripción|
     |-------|---------------|-----------|
     |Source|Direcciones IP|Direcciones IP especifica que el tráfico entrante desde una dirección IP de origen específica se permitirá o denegará por esta regla.|
     |Direcciones IP de origen|<su dirección IP pública\>|Escriba la dirección IP pública. Para conocer la dirección IP pública, visite [bing.com](https://www.bing.com/) y busque **"Mi IP"** .|
@@ -71,14 +71,14 @@ En este tutorial, aprenderá a:
     |Direcciones IP de destino|<la dirección IP pública de la máquina virtual\>|Escriba la dirección IP pública de la máquina virtual. Puede encontrarla en la página **Información general** de la máquina virtual.|
     |Intervalos de puertos de destino|22|Abra el puerto 22 para SSH.|
     |Priority|290|Asigne a la regla una prioridad.|
-    |NOMBRE|ssh-databricks-tutorial-vm|Asigne un nombre a la regla.|
+    |Nombre|ssh-databricks-tutorial-vm|Asigne un nombre a la regla.|
 
 
     ![Adición de regla de seguridad de entrada para el puerto 22](./media/vnet-injection-sql-server/open-port.png)
 
 8. Agregue una regla para abrir el puerto 1433 para SQL con la siguiente configuración:
 
-    |Configuración|Valor sugerido|DESCRIPCIÓN|
+    |Configuración|Valor sugerido|Descripción|
     |-------|---------------|-----------|
     |Source|Any|Origen especifica que el tráfico entrante desde una dirección IP de origen específica se permite o deniega según esta regla.|
     |Source port ranges|*|Permitir el tráfico de cualquier puerto.|
@@ -86,7 +86,7 @@ En este tutorial, aprenderá a:
     |Direcciones IP de destino|<la dirección IP pública de la máquina virtual\>|Escriba la dirección IP pública de la máquina virtual. Puede encontrarla en la página **Información general** de la máquina virtual.|
     |Intervalos de puertos de destino|1433|Abra el puerto 22 para SQL Server.|
     |Priority|300|Asigne a la regla una prioridad.|
-    |NOMBRE|sql-databricks-tutorial-vm|Asigne un nombre a la regla.|
+    |Nombre|sql-databricks-tutorial-vm|Asigne un nombre a la regla.|
 
     ![Adición de regla de seguridad de entrada para el puerto 1433](./media/vnet-injection-sql-server/open-port2.png)
 

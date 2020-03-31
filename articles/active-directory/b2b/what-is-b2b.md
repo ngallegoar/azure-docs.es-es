@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5ccfb4719d14d0ce73caf093c5fe63631eda2a7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 167c7f7aa3dbf967575c0ee8905821fb9d3f77ce
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77195222"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80050740"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?
 
@@ -28,6 +28,9 @@ Vea el vídeo para saber cómo puede colaborar de forma segura con usuarios invi
 El vídeo siguiente proporciona una introducción práctica.
 
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
+
+   > [!IMPORTANT]
+   > **A partir del 31 de marzo de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>Colaboración con cualquier asociado mediante sus identidades
 

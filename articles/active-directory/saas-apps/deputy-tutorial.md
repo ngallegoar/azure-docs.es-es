@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33830ce5822b2edee345cf58fc6f2a53d3c863fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd021b9547048e9f5218ce4f2b8b110b15d05963
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227600"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048560"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integración de Azure Active Directory con Deputy
 
@@ -35,7 +35,7 @@ Integrar Deputy con Azure AD proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Deputy, necesita los siguientes elementos:
 
@@ -174,7 +174,7 @@ Para configurar el inicio de sesión único de Azure AD con Deputy, realice los 
 
 ### <a name="configure-deputy-single-sign-on"></a>Configuración del inicio de sesión único en Deputy
 
-1. Vaya a la siguiente dirección URL: [https://(su subdominio).deputy.com/exec/config/system_config]( https://(your-subdomain).deputy.com/exec/config/system_config). Vaya a **Configuración de seguridad** y haga clic en **Editar**.
+1. Vaya a la dirección URL siguiente: `https://(your-subdomain).deputy.com/exec/config/system_config`. Vaya a **Configuración de seguridad** y haga clic en **Editar**.
    
     ![Configurar inicio de sesión único](./media/deputy-tutorial/tutorial_deputy_004.png)
 
@@ -217,7 +217,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443557"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configuración de un laboratorio para enseñar el scripting de shell en Linux

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: bb8b5f7d6578390fd0f48c3de154cfdb034ac6c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60777175"
 ---
 # <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Conexión de un entorno a la red virtual del laboratorio en Azure DevTest Labs
@@ -161,4 +161,4 @@ Esta es una plantilla de entorno simple que se conecta la subred del laboratorio
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el artículo siguiente para usar Azure Portal para realizar estas operaciones: [Reinicio de una máquina virtual](devtest-lab-restart-vm.md)
+Consulte el artículo siguiente para usar Azure Portal para realizar estas operaciones: [Reinicio de una máquina virtual](devtest-lab-restart-vm.md).

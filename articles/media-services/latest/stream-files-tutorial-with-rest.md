@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 03/16/2020
 ms.author: juliako
-ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 35be4ec2c4f5f8c299120c0ba7dbdcb1dd112473
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514347"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79472040"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: REST
 
@@ -40,7 +40,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md).
 
@@ -58,7 +58,9 @@ Clone un repositorio de GitHub que contenga los archivos de recopilación y ento
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+## <a name="access-api"></a>Acceso a la API
+
+Para más información, consulte [Obtención de credenciales para acceder a Media Services API](access-api-howto.md)
 
 ## <a name="configure-postman"></a>Configuración de Postman
 
@@ -75,7 +77,7 @@ Clone un repositorio de GitHub que contenga los archivos de recopilación y ento
     > [!Note]
     > Actualice las variables de acceso con los valores que obtuvo de la sección **Acceso a la API de Media Services** anterior.
 
-7. Haga doble clic en el archivo seleccionado y escriba los valores que obtuvo al seguir los pasos descritos en [acceso a la API](#access-the-media-services-api).
+7. Haga doble clic en el archivo seleccionado y escriba los valores que obtuvo al seguir los pasos descritos en [acceso a la API](#access-api).
 8. Cierre el cuadro de diálogo.
 9. Seleccione el entorno **Azure Media Service v3 Environment** en la lista desplegable.
 

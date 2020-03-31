@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 3bb09f1958685a3474b49d2d194e89fe81a80076
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 10a2f413142124db7547e68280a0d5e9abac9b98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690491"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79298757"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Ejecución de consultas de Apache Hive con Apache Hadoop en HDInsight mediante REST
 
@@ -21,7 +21,7 @@ ms.locfileid: "75690491"
 
 Obtenga información acerca de cómo usar la API REST de WebHCat para ejecutar consultas de Apache Hive con Apache Hadoop en un clúster de Azure HDInsight.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Apache Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -185,7 +185,7 @@ $clusterName
 
 1. Una vez que el estado del trabajo cambió a **SUCCEEDED**, puede recuperar los resultados del trabajo desde Azure Blob Storage. El parámetro `statusdir` pasado con la consulta contiene la ubicación del archivo de salida; en este caso, `/example/rest`. Esta dirección almacena la salida en el directorio `example/curl` del almacenamiento predeterminado del clúster.
 
-    Puede enumerar y descargar estos archivos mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para más información acerca del uso de la CLI de Azure con Azure Storage, consulte el documento [Uso de la CLI de Azure con Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs).
+    Puede enumerar y descargar estos archivos mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para más información acerca del uso de la CLI de Azure con Azure Storage, consulte el documento [Uso de la CLI de Azure con Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 139d1a470c67d5dab310c4fa2a9171f433df2061
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 5d6ba2bd52d8f4af4244e8ce1babeb7bc9d37fe4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912377"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235671"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Conexión de IoT DevKit AZ3166 a Azure IoT Hub
 
@@ -144,7 +144,7 @@ DevKit se conecta a un punto de conexión específico del dispositivo en el cent
 
 1. Para comprobar los datos de telemetría que se han enviado a Azure, ejecute el siguiente comando en Azure Cloud Shell:
 
-    ```bash
+    ```azurecli
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
 

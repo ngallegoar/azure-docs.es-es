@@ -9,10 +9,10 @@ ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 217e48ab21439f03e0b52c894c9aace5b51b1502
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79086158"
 ---
 Azure Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Para elevar los límites al máximo de la suscripción, póngase en contacto con el servicio de soporte técnico.

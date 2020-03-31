@@ -3,8 +3,8 @@ title: 'Problemas conocidos: Migraciones en línea a Azure Database for MySQL'
 titleSuffix: Azure Database Migration Service
 description: Obtenga información sobre limitaciones y problemas conocidos de migración con las migraciones en línea a Azure Database for MySQL al usar Azure Database Migration Service.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: afbff1c0b001d00f2791a869850729171782701c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650255"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235275"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Limitaciones y problemas de migración en línea de Azure DB for MySQL con Azure Database Migration Service
 

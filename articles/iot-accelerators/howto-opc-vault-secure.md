@@ -9,17 +9,17 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75454189"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Uso del servicio de administración de certificados de OPC Vault
 
 En este artículo se explica cómo registrar las aplicaciones y cómo emitir certificados de aplicación firmados para los dispositivos OPC UA.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="deploy-the-certificate-management-service"></a>Implementar el servicio de administración de certificados
 

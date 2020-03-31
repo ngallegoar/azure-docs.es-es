@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: spelluru
 ms.openlocfilehash: cb9a3e2b9ddcd0f74bfa4978f0bc3f4eb0688257
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583752"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233128"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Habilitación del Escritorio remoto para máquinas virtuales Linux en un laboratorio de Azure Lab Services
 En este artículo se muestra cómo realizar las tareas siguientes:
@@ -40,7 +40,7 @@ En el cuadro de mensaje **Enabling Remote Desktop Connection** (Habilitar conexi
 > 
 > Si la imagen de máquina virtual no tiene RDP instalado y configurado, debe conectarse a la máquina Linux mediante SSH por primera vez e instalar paquetes RDP y GUI para que sea posible conectarse a la máquina Linux mediante RDP más tarde. Para más información, consulte [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](../../virtual-machines/linux/use-remote-desktop.md). A continuación, publicará la imagen para que los alumnos puedan usar RDP para conectarse a las máquinas virtuales Linux de alumnos. 
 
-## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 Actualmente, la conexión a Escritorio remoto se admite para los sistemas operativos siguientes:
 
 - openSUSE Leap 42.3

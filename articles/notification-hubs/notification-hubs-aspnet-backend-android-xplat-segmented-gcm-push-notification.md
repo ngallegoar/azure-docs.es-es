@@ -17,14 +17,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: aa2aa7b77bf174f4a2ca89408ee037b398a32e4d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 57a11eac47baace0ad9fa7dcae82dca6eeee0988
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387445"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127305"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Envío de notificaciones push a dispositivos Android concretos con Azure Notification Hubs y Google Cloud Messaging (en desuso)
+# <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Tutorial: Envío de notificaciones push a dispositivos Android concretos mediante Google Cloud Messaging (en desuso)
 
 > [!WARNING]
 > A partir del 10 de abril de 2018, Google dejó de ofrecer Google Cloud Messaging (GCM). El servidor de GCM y las API de cliente están en desuso y se quitarán el próximo 29 de mayo de 2019. Para obtener más información, consulte [GCM and FCM Frequently Asked Questions](https://developers.google.com/cloud-messaging/faq) (Preguntas frecuentes de GCM y FCM).
@@ -45,7 +45,7 @@ En este tutorial realizará lo siguiente:
 > * Enviar notificaciones con etiquetas.
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Este tutorial se basa en la aplicación que creó en el [Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Google Cloud Messaging][get-started]. Antes de comenzar este tutorial, realice el [Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Google Cloud Messaging][get-started].
 

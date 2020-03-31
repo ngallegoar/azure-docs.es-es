@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
 ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386738"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
@@ -42,7 +42,7 @@ En este tutorial se muestra cómo ejecutar un front-end y un back-end en un serv
 * Carga de archivos y almacenamiento de los mismos en Azure Blob service.
 * Uso del servicio Cola de Azure para comunicación entre niveles.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este tutorial se da por supuesto que comprende los [conceptos básicos sobre Azure Cloud Services](cloud-services-choose-me.md) como, por ejemplo, la terminología *rol web* y *rol de trabajo*.  También se supone que sabe trabajar con proyectos [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) en Visual Studio. La aplicación de ejemplo usa MVC, pero la mayoría del tutorial también se aplica a Web Forms.
 
 Puede ejecutar la aplicación localmente sin una suscripción de Azure, pero necesitará una para implementar la aplicación en la nube. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) o [registrarse para obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).

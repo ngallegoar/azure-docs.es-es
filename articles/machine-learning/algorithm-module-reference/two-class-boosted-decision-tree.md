@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 1d144a48f79e59b35c88c5b338747d3186ebceda
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920746"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árbol de decisión ampliado de dos clases
@@ -38,7 +38,7 @@ Puede entrenar este tipo de modelo mediante [Entrenar modelo](././train-model.md
   
     + **Single Parameter** (Parámetro único): Si sabe cómo quiere configurar el modelo, puede proporcionar un conjunto específico de valores como argumentos.
   
-    + **Parameter Range** (Intervalo de parámetros): Si no está seguro de los mejores parámetros, puede encontrar los parámetros óptimos mediante el módulo [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Optimizar los hiperparámetros del modelo). Proporcionará un intervalo de valores, y el instructor recorrerá en iteración varias combinaciones de la configuración para determinar la combinación de valores que genera el mejor resultado.
+    + **Parameter Range** (Intervalo de parámetros): si no está seguro de los mejores parámetros, puede encontrar los óptimos mediante el módulo [Optimización de hiperparámetros de un modelo](tune-model-hyperparameters.md). Proporcionará un intervalo de valores, y el instructor recorrerá en iteración varias combinaciones de la configuración para determinar la combinación de valores que genera el mejor resultado.
   
 3.  En **Número máximo de hojas por árbol**, indique el número máximo de nodos terminales (hojas) que se pueden crear en un árbol.
   

@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 9a81868d678b4c0277e904e879c73185a378bf70
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435683"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usar las herramientas Spark y Hive para Visual Studio Code
@@ -20,7 +20,7 @@ Aprenda a usar las Herramientas Spark y Hive para Visual Studio Code para crear 
 
 Spark & Hive Tools se puede instalar en las plataformas compatibles con Visual Studio Code, que son Windows, Linux y macOS. Observe los siguientes requisitos previos para las distintas plataformas.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los elementos siguientes son necesarios para completar los pasos indicados en este artículo:
 

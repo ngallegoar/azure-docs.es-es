@@ -1,5 +1,5 @@
 ---
-title: Envío de notificaciones push a dispositivos Android específicos con Azure Notification Hubs y Google Firebase Cloud Messaging | Microsoft Docs
+title: Envío de notificaciones push a dispositivos específicos mediante Azure Notification Hubs y Google Firebase Cloud Messaging | Microsoft Docs
 description: Aprenda a usar Notification Hubs para enviar notificaciones push a dispositivos Android específicos con Azure Notification Hubs y Google Firebase Cloud Messaging (FCM).
 services: notification-hubs
 documentationcenter: android
@@ -17,14 +17,14 @@ ms.date: 04/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
-ms.openlocfilehash: 1d0825fcfbcf10aaebc320a5c7cbbf2dd8c13856
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: b7ee3afc2e8b9958a868c8c117262d2017c9b600
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213342"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80126873"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>Tutorial: Envío de notificaciones push a dispositivos Android específicos con Azure Notification Hubs y Google Firebase Cloud Messaging (FCM)
+# <a name="tutorial-send-notifications-to-specific-devices-using-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: Envío de notificaciones a dispositivos específicos mediante Azure Notification Hubs y Google Firebase Cloud Messaging
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -42,7 +42,7 @@ En este tutorial realizará lo siguiente:
 > * Enviar notificaciones con etiquetas.
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Este tutorial se basa en la aplicación que creó en el [Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md). Antes de comenzar este tutorial, realice el [Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 

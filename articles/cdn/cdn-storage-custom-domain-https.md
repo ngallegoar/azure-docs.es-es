@@ -1,5 +1,6 @@
 ---
 title: Acceso a blobs de almacenamiento mediante un dominio personalizado de Azure CDN a través de HTTPS
+description: Aprenda a agregar un dominio personalizado de Azure CDN y a habilitar HTTPS en ese dominio para el punto de conexión personalizado de Blob Storage.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -14,18 +15,18 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e6415c9e8e0ab8743042891a2d0d422dffe37bdb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: be09229136289e343856f1e2ba61cda63730d21f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279110"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80053961"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: Acceso a blobs de almacenamiento mediante un dominio personalizado de Azure CDN a través de HTTPS
 
 Después de integrar su cuenta de almacenamiento de Azure con Azure Content Delivery Network (CDN), puede agregar un dominio personalizado y habilitar HTTPS en ese dominio para el punto de conexión de almacenamiento de blobs personalizado. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para poder completar los pasos de este tutorial, primero debe integrar su cuenta de almacenamiento de Azure con Azure CDN. Para más información, consulte [Inicio rápido: Integración de una cuenta de una instancia de Azure Storage con Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 

@@ -15,20 +15,19 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4084532ac370880df69d825927240c297dd371
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e812e1b03637a3ecd7a45f02664c4e3547f1aef1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129907"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79138984"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con GitHub
 
 En este tutorial, aprenderá a integrar GitHub con Azure Active Directory (Azure AD). Al integrar GitHub con Azure AD, puede hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a GitHub.
-* Permitir que los usuarios inicien sesión automáticamente en GitHub con sus cuentas de Azure AD.
-* Administrar las cuentas desde una ubicación central (Azure Portal).
+* Controlar en Azure AD quién tiene acceso a la organización de GitHub Enterprise Cloud.
+* Administrar el acceso a la organización de GitHub Enterprise Cloud en una ubicación central: Azure Portal.
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
@@ -45,7 +44,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 * GitHub admite el inicio de sesión único iniciado por **SP**
 
-* GitHub admite el [**aprovisionamiento de usuarios** automático](github-provisioning-tutorial.md)
+* GitHub admite el [**aprovisionamiento de usuarios (invitaciones de la organización)** automático](github-provisioning-tutorial.md).
 * Una vez configurado GitHub, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-github-from-the-gallery"></a>Adición de GitHub desde la galería

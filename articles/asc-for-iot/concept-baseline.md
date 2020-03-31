@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
 ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72176612"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Comprobaciones personalizadas y línea de base de Azure Security Center para IoT
@@ -64,7 +64,7 @@ Para configurar las comprobaciones personalizadas de línea de base:
 
 ## <a name="baseline-custom-check-properties"></a>Propiedades de comprobación personalizada de línea de base
 
-| NOMBRE| Status | Valores válidos| Valores predeterminados| DESCRIPCIÓN |
+| Nombre| Status | Valores válidos| Valores predeterminados| Descripción |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|Obligatorio: true |Valores válidos:  **Boolean** |Valor predeterminado: **false** |Intervalo de tiempo máximo antes de que los mensajes de prioridad alta se envíen.|
 |baselineCustomChecksFilePath |Obligatorio: true|Valores válidos:  **String**, **NULL** |Valor predeterminado: **null** |Ruta de acceso completa de la configuración de XML de línea de base|

@@ -10,15 +10,15 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 97ea98fc38fc8d06dc1bc65ee057241da6f15488
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851386"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solución de problemas de la solución Start/Stop VMs during off-hours
 
-## <a name="deployment-failure"></a>Escenario: No se puede implementar correctamente la solución Start/Stop VM
+## <a name="scenario-the-startstop-vm-solution-fails-to-properly-deploy"></a><a name="deployment-failure"></a>Escenario: No se puede implementar correctamente la solución Start/Stop VM
 
 ### <a name="issue"></a>Problema
 
@@ -77,7 +77,7 @@ Revise la siguiente lista de posibles soluciones para su problema o para saber d
 4. Si tiene un bloqueo en el área de trabajo de Log Analytics, vaya al área de trabajo de Azure Portal y quite los bloqueos en el recurso.
 5. Si las soluciones anteriores no resuelven su problema, siga las instrucciones que aparecen en [Actualizar la solución](../automation-solution-vm-management.md#update-the-solution) para volver a implementar la solución de inicio o detención.
 
-## <a name="all-vms-fail-to-startstop"></a>Escenario: Error al iniciar o detener todas las máquinas virtuales
+## <a name="scenario-all-vms-fail-to-startstop"></a><a name="all-vms-fail-to-startstop"></a>Escenario: Error al iniciar o detener todas las máquinas virtuales
 
 ### <a name="issue"></a>Problema
 
@@ -118,7 +118,7 @@ Revise la siguiente lista de posibles soluciones para su problema o para saber d
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-## <a name="some-vms-fail-to-startstop"></a>Escenario: Algunas máquinas virtuales no se pueden iniciar o detener
+## <a name="scenario-some-of-my-vms-fail-to-start-or-stop"></a><a name="some-vms-fail-to-startstop"></a>Escenario: Algunas máquinas virtuales no se pueden iniciar o detener
 
 ### <a name="issue"></a>Problema
 
@@ -155,7 +155,7 @@ Revise la siguiente lista de posibles soluciones para su problema o para saber d
 
 * Compruebe los [flujos de trabajo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para buscar errores. En Azure Portal, vaya a la cuenta de Automation y seleccione **Trabajos** en **Automatización de procesos**.
 
-## <a name="custom-runbook"></a>Escenario: Mi runbook personalizado no puede iniciar o detener mis máquinas virtuales
+## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>Escenario: Mi runbook personalizado no puede iniciar o detener mis máquinas virtuales
 
 ### <a name="issue"></a>Problema
 
@@ -169,7 +169,7 @@ La causa del error podría ser una entre muchas. Vaya a la cuenta de Automation 
 
 Se recomienda usar la [solución Start/Stop VMs during off-hours](../automation-solution-vm-management.md) para iniciar y detener máquinas virtuales en Azure Automation. Esta solución la creó Microsoft. Los runbooks personalizados no son compatibles con Microsoft. Puede encontrar una solución para su runbook personalizado en el artículo [Solución de problemas relativos a errores con runbooks](runbooks.md). En este artículo se proporcionan instrucciones generales y solución de problemas para runbooks de todos los tipos. Compruebe los [flujos de trabajo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para buscar errores. En Azure Portal, vaya a la cuenta de Automation y seleccione **Trabajos** en **Automatización de procesos**.
 
-## <a name="dont-start-stop-in-sequence"></a>Escenario: Las máquinas virtuales no se inician o detienen en la secuencia correcta
+## <a name="scenario-vms-dont-start-or-stop-in-the-correct-sequence"></a><a name="dont-start-stop-in-sequence"></a>Escenario: Las máquinas virtuales no se inician o detienen en la secuencia correcta
 
 ### <a name="issue"></a>Problema
 
@@ -189,7 +189,7 @@ Realice los pasos siguientes para asegurarse de que la solución está configura
 
 Para obtener información detallada e instrucciones adicionales sobre cómo usar la solución para iniciar y detener máquinas virtuales en secuencia, vea [Iniciar o detener las máquinas virtuales en secuencia ](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
 
-## <a name="403"></a>Escenario: El trabajo de inicio y detención de máquinas virtuales genera un estado de error 403 Prohibido
+## <a name="scenario-startstop-vm-job-fails-with-403-forbidden-status"></a><a name="403"></a>Escenario: El trabajo de inicio y detención de máquinas virtuales genera un estado de error 403 Prohibido
 
 ### <a name="issue"></a>Problema
 
@@ -209,7 +209,7 @@ Si el certificado de la cuenta de ejecución ha expirado, siga los pasos de [Ren
 
 El problema puede deberse a la falta de permisos. Para obtener información sobre cómo comprobar los permisos para un recurso, vea [Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal](../../role-based-access-control/check-access.md). Debe proporcionar el identificador de aplicación de la entidad de servicio usada por la cuenta de ejecución. Para obtener este valor, vaya a la cuenta de Automation en Azure Portal, seleccione **Cuentas de ejecución** en **Configuración de cuenta** y haga clic en la cuenta de ejecución apropiada.
 
-## <a name="other"></a>Escenario: Mi problema no se ha indicado anteriormente
+## <a name="scenario-my-problem-isnt-listed-above"></a><a name="other"></a>Escenario: Mi problema no se ha indicado anteriormente
 
 ### <a name="issue"></a>Problema
 

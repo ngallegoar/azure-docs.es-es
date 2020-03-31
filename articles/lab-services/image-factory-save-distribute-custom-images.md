@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: e5bc8e5041bfe6d95e3ff1a93bb3338ccead5bb4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759438"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Guardar imágenes personalizadas y distribuirlas a varios laboratorios
 En este artículo se tratan los pasos para guardar las imágenes personalizadas de máquinas virtuales (VM) que ya se han creado. También se trata cómo distribuir estas imágenes personalizadas en otros laboratorios DevTest Labs de la organización.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Los siguientes elementos ya deben estar implementados:
 
 - Un laboratorio para el generador de imágenes en Azure DevTest Labs.

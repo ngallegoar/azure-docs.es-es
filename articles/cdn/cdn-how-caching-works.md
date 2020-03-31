@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
 ms.openlocfilehash: 92d93fbf9fa2f8df15acb62802d7ac53db836dc1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593857"
 ---
 # <a name="how-caching-works"></a>Cómo funciona el almacenamiento en caché
@@ -116,7 +116,7 @@ No todos los recursos se pueden almacenar en caché. La siguiente tabla muestra 
 |-------------------|-----------------------------------|------------------------|------------------------------|
 | Códigos de estado HTTP | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
 | Métodos HTTP      | GET, HEAD                         | GET                    | GET                          |
-| Límites de tamaño de archivo  | < 300 GB                            | < 300 GB                 | - Optimización de la entrega web general: 1,8 GB<br />- Optimizaciones de streaming multimedia: 1,8 GB<br />- Optimización de archivos grandes: 150 GB |
+| Límites de tamaño de archivo  | 300 GB                            | 300 GB                 | - Optimización de la entrega web general: 1,8 GB<br />- Optimizaciones de streaming multimedia: 1,8 GB<br />- Optimización de archivos grandes: 150 GB |
 
 Para que el almacenamiento en caché de **Azure CDN Estándar de Microsoft** funcione en un recurso, el servidor de origen debe admitir cualquier solicitud HTTP HEAD y GET y los valores de longitud de contenido deben ser los mismos para cualquier respuesta HTTP HEAD y GET en el recurso. En una solicitud HEAD, el servidor de origen debe admitir la solicitud HEAD y debe responder con los mismos encabezados que si hubiera recibido una solicitud GET.
 
@@ -126,7 +126,7 @@ En la tabla siguiente se describe el valor predeterminado del comportamiento del
 
 |    | Microsoft: Entrega web general | Verizon: Entrega web general | Verizon: DSA | Akamai: Entrega web general | Akamai: DSA | Akamai: Descarga de archivos de gran tamaño | Akamai: streaming multimedia general o de vídeo bajo demanda |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Respetar origen**       | Sí    | Sí   | Sin   | Sí    | Sin   | Sí   | Sí    |
+| **Respetar origen**       | Sí    | Sí   | No   | Sí    | No   | Sí   | Sí    |
 | **Duración de la caché de la red CDN** | 2 días |7 días | None | 7 días | None | 1 día | 1 año |
 
 **Respetar origen**: especifica si se respetan los encabezados de la directiva de caché admitidos, en caso de que existan en la respuesta HTTP del servidor de origen.

@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
 ms.openlocfilehash: 2099d1b7583017733498946a5866ab37de43ba9c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75894050"
 ---
 # <a name="scenario-unable-to-log-into-azure-hdinsight-cluster"></a>Escenario: No se puede registrar en el clúster de Azure HDInsight

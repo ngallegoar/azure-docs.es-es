@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f076deaafd938dc93800cf351bf471cead5f009
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 965c768df9138d850c2ac9f88e3797dcc54fa3fc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471234"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501863"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Uso de Data Box para importar datos como discos administrados en Azure
 
@@ -23,10 +23,10 @@ En este tutorial se describe cómo usar Azure Data Box para migrar los VHD local
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Revisar los requisitos previos
 > * Conexión a un dispositivo Data Box
 > * Copia de datos a un dispositivo Data Box
-
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -39,6 +39,8 @@ Antes de comenzar, asegúrese de que:
 
     - [Tamaños de discos administrados compatibles en los límites de tamaño de objeto de Azure](data-box-limits.md#azure-object-size-limits).
     - [Introducción a los discos administrados de Azure](/azure/virtual-machines/windows/managed-disks-overview). 
+
+5. Conserve una copia de los datos de origen hasta que pueda confirmar que Data Box los ha transferido a Azure Storage.
 
 ## <a name="connect-to-data-box"></a>Conexión a un dispositivo Data Box
 
@@ -93,7 +95,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
     ```
     C:\>net use \\169.254.250.200\mydbmdrgl_MDisk /u:mdisk
-    Enter the password for ‘mdisk’ to connect to '169.254.250.200':
+    Enter the password for 'mdisk' to connect to '169.254.250.200':
     The command completed successfully.
     C: \>
     ```

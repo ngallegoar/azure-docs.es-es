@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/16/2020
 ms.openlocfilehash: a37a8bb45c11d5b74f3059a153806e3d083cf452
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76311961"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Desarrollo de programas MapReduce de Java para Apache Hadoop en HDInsight
 
 Aprenda a usar Apache Maven para crear una aplicación MapReduce basada en Java y ejecutarla con Apache Hadoop en Azure HDInsight.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Kit de desarrolladores de Java (JDK), versión 8](https://aka.ms/azure-jdks).
 

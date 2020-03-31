@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: sngun
 ms.openlocfilehash: 2306dbe234e171ac613c33458df1990b767637df
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79128376"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar Azure Cosmos DB y Azure App Service Web Apps con una plantilla de Azure Resource Manager
@@ -33,7 +33,7 @@ Después de completar este tutorial, podrá responder a las siguientes preguntas
 
 Antes de seguir las instrucciones de este tutorial, asegúrese de contar con una suscripción a Azure. Azure es una plataforma basada en suscripción.  Para más información sobre cómo obtener una suscripción, consulte [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/), [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) o [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a id="CreateDB"></a>Paso 1: Descarga de los archivos de plantilla
+## <a name="step-1-download-the-template-files"></a><a id="CreateDB"></a>Paso 1: Descarga de los archivos de plantilla
 Para comenzar, vamos a descargar los archivos de plantilla que se necesitan en este tutorial.
 
 1. Descargue la plantilla [Create a DocumentDB account, Web Apps, and deploy a demo application sample](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) (Crear una cuenta de Azure Cosmos DB, Web Apps e implementar un ejemplo de aplicación demo) en una carpeta local (por ejemplo, C:\Azure Cosmos DBTemplates). Con esta plantilla se implementa una cuenta de Azure Cosmos DB, una aplicación web de App Service y una aplicación web.  También se configura automáticamente la aplicación web para conectar con la cuenta de Azure Cosmos DB.

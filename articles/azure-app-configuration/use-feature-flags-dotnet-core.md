@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b04fe3b6451fd7250bc3b05970d49fdb8e7003bd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3182961f928a9befc5a55fb6d58e22c74ba81089
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899298"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79473445"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Uso de marcas de características en una aplicación de ASP.NET Core
 
@@ -37,6 +37,8 @@ En este tutorial, aprenderá a:
 
 ## <a name="set-up-feature-management"></a>Configuración de la administración de características
 
+Agregue una referencia al paquete NuGet `Microsoft.FeatureManagement` para que use el administrador de características de .NET Core.
+    
 El administrador de características de .NET Core `IFeatureManager` obtiene las marcas de características del sistema de configuración nativo del marco. Como resultado, puede definir marcas de características de la aplicación con cualquier origen de configuración que admita .NET Core, incluido el archivo local *appsettings.json* o las variables de entorno. `IFeatureManager` se basa en la inserción de dependencias de .NET Core. Puede registrar los servicios de administración de características mediante las convenciones estándar:
 
 ```csharp

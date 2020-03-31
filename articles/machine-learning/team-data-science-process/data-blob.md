@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4c47dfb8b221b6cb4b6237669ecd17c1637107a2
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721105"
 ---
-# <a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
+# <a name="process-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
 En este documento se trata la exploración de datos y generación de características a partir de los datos almacenados en Almacenamiento de blobs de Azure. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Carga de los datos en una trama de datos Pandas
@@ -48,7 +48,7 @@ Para explorar y manipular un conjunto de datos, se debe descargar desde el orige
 
 Ya puede explorar los datos y generar características en este conjunto de datos.
 
-## <a name="blob-dataexploration"></a>Exploración de datos
+## <a name="data-exploration"></a><a name="blob-dataexploration"></a>Exploración de datos
 A continuación, se muestran algunos ejemplos de formas de explorar datos mediante Pandas:
 
 1. Inspeccionar el número de filas y columnas 
@@ -94,10 +94,10 @@ A continuación, se muestran algunos ejemplos de formas de explorar datos median
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="blob-featuregen"></a>Generación de características
+## <a name="feature-generation"></a><a name="blob-featuregen"></a>Generación de características
 Es posible generar características con Python de la siguiente manera:
 
-### <a name="blob-countfeature"></a>Generación de características basada en el valor de indicador
+### <a name="indicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Generación de características basada en el valor de indicador
 Las características de categorías se pueden crear como sigue:
 
 1. Inspeccione la distribución de la columna de categorías:
@@ -116,7 +116,7 @@ Las características de categorías se pueden crear como sigue:
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="blob-binningfeature"></a>Generación de características de discretización
+### <a name="binning-feature-generation"></a><a name="blob-binningfeature"></a>Generación de características de discretización
 Para generar características discretizadas, se procede de la siguiente manera:
 
 1. Agregue una secuencia de columnas para discretizar una columna numérica
@@ -130,7 +130,7 @@ Para generar características discretizadas, se procede de la siguiente manera:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="sql-featuregen"></a>Reescritura de datos en un blob de Azure y consumo en Azure Machine Learning
+## <a name="writing-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Reescritura de datos en un blob de Azure y consumo en Azure Machine Learning
 Cuando haya explorado los datos y creado las características necesarias, puede cargar los datos (muestreados o con características) en un blob de Azure y consumirlos en Azure Machine Learning, mediante los siguientes pasos. También se pueden crear características adicionales en Azure Machine Learning Studio (clásico). 
 
 1. Escriba la trama de datos en el archivo local

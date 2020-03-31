@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: d9778544fd9e20dc3244a37c644117d1cd505a96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90ed4bf8f0389619f130e998ed76c720442092b2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438663"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474482"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutorial: Preparación para la implementación de Azure Data Box Edge  
 
@@ -25,6 +25,7 @@ Para completar el proceso de instalación y configuración se necesitan privileg
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Crear un nuevo recurso
 > * Obtención de la clave de activación
 
@@ -44,7 +45,7 @@ Para implementar Data Box Edge, consulte los siguientes tutoriales en el orden i
 
 Ya puede empezar a configurar Azure Portal.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 A continuación, encontrará los requisitos previos para configurar su recurso de Data Box Edge, el dispositivo Data Box Edge y la red de centros de datos.
 
@@ -52,13 +53,12 @@ A continuación, encontrará los requisitos previos para configurar su recurso d
 
 Antes de comenzar, asegúrese de que:
 
-- Su suscripción de Microsoft Azure debe estar habilitada para el recurso de Data Box Edge. No se admiten suscripciones de pago por uso.
-- Tiene acceso de propietario o colaborador a nivel de grupo de recursos para los recursos de Data Box Edge o Data Box Gateway, IoT Hub y Azure Storage.
-
+* Su suscripción de Microsoft Azure debe estar habilitada para un recurso de Azure Stack Edge. Asegúrese de que ha usado una suscripción admitida como [Contrato Enterprise (EA) de Microsoft](https://azure.microsoft.com/overview/sales-number/), [Proveedor de soluciones en la nube (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) o [Patrocinio de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Tiene acceso de propietario o colaborador a nivel de grupo de recursos para los recursos de Data Box Edge o Data Box Gateway, IoT Hub y Azure Storage.
     - Para crear cualquier recurso de Data Box Edge o Data Box Gateway, deben tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. También deberá asegurarse de que el proveedor `Microsoft.DataBoxEdge` está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Para crear cualquier recurso de IoT Hub, asegúrese de que el proveedor Microsoft.Devices está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Para crear un recurso de una cuenta de Storage también se necesita acceso de colaborador, o superior, con ámbito en el nivel de grupo de recursos. De forma predeterminada Azure Storage es un proveedor de recursos registrado.
-- Debe tener acceso de administrador o usuario a Graph API de Azure Active Directory. Para más información, vea [Graph API de Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- Tiene acceso de administrador o de usuario a Microsoft Graph API. Para más información, consulte [Referencia de permisos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 - Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
 
 ### <a name="for-the-data-box-edge-device"></a>Para el dispositivo de Data Box Edge
@@ -95,9 +95,9 @@ Siga estos pasos en Azure Portal para crear un recurso de Data Box Edge.
     - O bien, el portal de Azure Government en esta dirección URL: [https://portal.azure.us](https://portal.azure.us). Para más información, vaya a [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal) (Conexión a Azure Government mediante el portal).
 
 2. En el menú izquierdo, seleccione **+ Crear un recurso**. Busque **Data Box Edge/Data Box Gateway**. Seleccione **Data Box Edge/Data Box Gateway**. Seleccione **Crear**.
-3. Seleccione la suscripción que quiere usar para el dispositivo de Data Box Edge. Seleccione la región donde desea implementar el recurso Data Box Edge. En esta versión, están disponibles las regiones de Este de EE. UU., Sudeste Asiático y Europa Occidental. 
+3. Seleccione la suscripción que quiere usar para el dispositivo de Data Box Edge. Seleccione la región donde desea implementar el recurso Data Box Edge. Para una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
-    Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo. La región almacena solo los metadatos para la administración de dispositivos. Los datos reales se pueden almacenar en cualquier cuenta de almacenamiento. 
+    Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo. La región almacena solo los metadatos para la administración de dispositivos. Los datos reales se pueden almacenar en cualquier cuenta de almacenamiento.
     
     En la opción **Data Box Edge**, haga clic en **Crear**.
 
@@ -115,7 +115,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Data Box Edge.
     |Configuración  |Value  |
     |---------|---------|
     |Nombre   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres que contiene letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
-    |Region     |En esta versión, están disponibles las regiones de Este de EE. UU., Sudeste Asiático y Europa Occidental para implementar el recurso. Si usa Azure Government, todas las regiones de gobierno están disponibles como se muestra en las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
+    |Region     |Para una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si usa Azure Government, todas las regiones de gobierno están disponibles como se muestra en las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
 
     ![Detalles del proyecto e instancia](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
 

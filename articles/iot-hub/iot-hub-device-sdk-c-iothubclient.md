@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
 ms.openlocfilehash: fd3e02101f206ebdb183da87089eadcbc9619b33
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68883172"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>SDK de dispositivo IoT de Microsoft Azure para C: más información sobre IoTHubClient
@@ -274,6 +274,6 @@ La opción de procesamiento por lotes es importante. De forma predeterminada, la
 
 En este artículo se describe con detalle el comportamiento de la biblioteca **IoTHubClient** que se encuentra en el **SDK de dispositivo IoT de Azure para C**. Con esta información conocerá bien las capacidades de la biblioteca **IoTHubClient**. El segundo artículo de esta serie es [SDK de dispositivo IoT de Azure para C: más información sobre el serializador](iot-hub-device-sdk-c-serializer.md), que proporciona detalles similares sobre la biblioteca de **serializador**.
 
-Para más información sobre el desarrollo para IoT Hub, consulte los [SDK de IoT Hub](iot-hub-devguide-sdks.md).
+Para más información acerca del desarrollo para IoT Hub, consulte los [SDK de IoT Hub](iot-hub-devguide-sdks.md).
 
 Para explorar más a fondo las funcionalidades de Hub IoT, consulte [Guía de inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Linux x64](../iot-edge/tutorial-simulate-device-linux.md).

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/17/2020
 ms.openlocfilehash: fa165c21622110bb18476efdebf3264a11e26ad7
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431116"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231596"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copia de datos de SAP HANA mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -68,8 +68,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP HANA:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **SapHana** | Sí |
 | connectionString | Especifique la información necesaria para conectarse a SAP HANA mediante la **autenticación básica** o la **autenticación de Windows**. Consulte los ejemplos siguientes.<br>En la cadena de conexión, el servidor o el puerto es obligatorio (el puerto predeterminado es 30015), y el nombre de usuario y la contraseña son obligatorios cuando se usa la autenticación básica. Para obtener configuraciones avanzadas adicionales, consulte [Propiedades de conexión ODBC de SAP HANA](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>También puede colocar la contraseña en Azure Key Vault y extraer la configuración de contraseña de la cadena de conexión. Consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) para obtener información detallada. | Sí |
-| userName | Especifique el nombre de usuario cuando use la autenticación de Windows. Ejemplo: `user@domain.com` | Sin |
-| password | Especifique la contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin |
+| userName | Especifique el nombre de usuario cuando use la autenticación de Windows. Ejemplo: `user@domain.com` | No |
+| password | Especifique la contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo: use la autenticación básica**

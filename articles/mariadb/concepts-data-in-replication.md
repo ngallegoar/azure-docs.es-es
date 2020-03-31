@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e98f0dffe1ae004905c2b0969d825a1bca89014a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 1fbcc1fb27d5e6df4641f79c0d634580f74000b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772645"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532067"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replicar datos en Azure Database for MariaDB
 
-La Replicación de datos de entrada permite sincronizar los datos de un servidor de MariaDB que se ejecuta de forma local, en máquinas virtuales o servicios de base de datos hospedados por otros proveedores de nube en el servicio de Azure Database for MariaDB. La Replicación de datos de entrada se basa en la replicación según la posición del archivo de registro binario (binlog), que es nativa de MariaDB. Para obtener más información sobre la replicación de binlog, consulte la [introducción a la replicación de binlog](https://mariadb.com/kb/en/library/replication-overview/).
+La característica Replicación de datos de entrada permite sincronizar los datos de un servidor de MariaDB que se ejecuta de forma local, de máquinas virtuales o de servicios de base de datos hospedados por otros proveedores de nube con el servicio Azure Database for MariaDB. La Replicación de datos de entrada se basa en la replicación según la posición del archivo de registro binario (binlog), que es nativa de MariaDB. Para obtener más información sobre la replicación de binlog, consulte la [introducción a la replicación de binlog](https://mariadb.com/kb/en/library/replication-overview/).
 
 ## <a name="when-to-use-data-in-replication"></a>Cuándo utilizar Data-in Replication
 Los escenarios principales para considerar el uso de Data-in Replication son:
@@ -26,7 +26,7 @@ Los escenarios principales para considerar el uso de Data-in Replication son:
 ## <a name="limitations-and-considerations"></a>Limitaciones y consideraciones
 
 ### <a name="data-not-replicated"></a>Datos no replicados
-La [*base de datos del sistema mysql* ](https://mariadb.com/kb/en/library/the-mysql-database-tables/) del servidor maestro no se replica. No se replican los cambios en las cuentas y permisos en el servidor maestro. Si crea una cuenta en el servidor maestro y esta cuenta debe tener acceso al servidor de réplica, cree manualmente la misma cuenta en el servidor de réplica. Para reconocer qué tablas se encuentran en la base de datos del sistema, vea la [documentación de MariaDB](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
+La [*base de datos del sistema mysql*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) del servidor maestro no se replica. No se replican los cambios en las cuentas y permisos en el servidor maestro. Si crea una cuenta en el servidor maestro y esta cuenta debe tener acceso al servidor de réplica, cree manualmente la misma cuenta en el servidor de réplica. Para reconocer qué tablas se encuentran en la base de datos del sistema, vea la [documentación de MariaDB](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
 
 ### <a name="requirements"></a>Requisitos
 - La versión del servidor maestro debe ser al menos la versión 10.2 de MariaDB.

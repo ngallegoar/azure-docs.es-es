@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 17c957dbd9c43b3cc66af39195a73bad8e006814
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 3/18/2020
+ms.openlocfilehash: 54379c65850fa210e5523b53a64fe89705ed1f15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982344"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532117"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for MariaDB
 

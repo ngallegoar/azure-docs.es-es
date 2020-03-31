@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: e49ed9c7c6b0733f2ef95d1baa0b0f001206780e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f3c1e7337c0ce07b7fbebb9f954deeb75f0b9584
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77058627"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246660"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Tutorial: Configuración de Brivo Onair Identity Connector para el aprovisionamiento de usuarios automático
 
@@ -36,7 +36,7 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Brivo Onair
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
 * Un inquilino de Azure AD
-* [Un inquilino de Brivo Onair Identity Connector](https://www.brivo.com/quote)
+* [Un inquilino de Brivo Onair Identity Connector](https://www.brivo.com/lp/quote)
 * Una cuenta de usuario en Brivo Onair Identity Connector con permisos de administrador senior.
 
 ## <a name="assigning-users-to-brivo-onair-identity-connector"></a>Asignación de usuarios a to Brivo Onair Identity Connector
@@ -54,7 +54,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 ## <a name="setup-brivo-onair-identity-connector-for-provisioning"></a>Configuración de Brivo Onair Identity Connector para el aprovisionamiento
 
-1.  Inicie sesión en la [consola de administración de Brivo Onair Identity Connector](https://acs.brivo.com/login/). Vaya a **Cuenta > Configuración de cuenta**.
+1.    Inicie sesión en la [consola de administración de Brivo Onair Identity Connector](https://acs.brivo.com/login/). Vaya a **Cuenta > Configuración de cuenta**.
 
     ![Consola de administración de Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
 
@@ -62,7 +62,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
     ![Brivo Onair Identity Connector en Azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
-3.  Haga clic en el botón **Copiar token** y guarde el **token de secreto**. Este valor se escribirá en el campo Token secreto de la pestaña Aprovisionamiento de la aplicación Brivo Onair Identity Connector en Azure Portal.
+3.    Haga clic en el botón **Copiar token** y guarde el **token de secreto**. Este valor se escribirá en el campo Token secreto de la pestaña Aprovisionamiento de la aplicación Brivo Onair Identity Connector en Azure Portal.
 
     ![Token de Brivo Onair Identity Connector](media/brivo-onair-identity-connector-provisioning-tutorial/token.png)
 

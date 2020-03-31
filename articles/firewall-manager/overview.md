@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 03/13/2020
 ms.author: victorh
-ms.openlocfilehash: 0ba2ce30cee3ff7e3a9f71b4f1b0928fa84e775d
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443163"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79366281"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>¿Qué es Azure Firewall Manager (versión preliminar)?
 
@@ -27,7 +27,7 @@ Firewall Manager puede proporcionar administración de seguridad para dos tipos 
    Un [centro de conectividad de Azure Virtual WAN](../virtual-wan/virtual-wan-about.md#resources) es un recurso administrado por Microsoft que permite crear fácilmente arquitecturas en estrella tipo hub-and-spoke. Cuando las directivas de seguridad y enrutamiento están asociadas a ese concentrador, se denomina *[centro virtual protegido](secured-virtual-hub.md)* . 
 - **Red virtual de centro de conectividad**
 
-   Se trata de una red virtual estándar de Azure que usted crea y administra. Cuando las directivas de seguridad están asociadas con este tipo de centro, se hace referencia a ellas como *red virtual de centro de conectividad*. En este momento, solo se admite la directiva de Azure Firewall. Puede emparejar las redes virtuales radiales que contengan los servidores y servicios de la carga de trabajo. También puede administrar los firewalls de redes virtuales independientes que no están emparejadas con ningún radio.
+   Se trata de una red virtual estándar de Azure que crea y administra uno mismo. Cuando las directivas de seguridad están asociadas con este tipo de centro, se conoce como *red virtual de centro*. En este momento, solo se admite la directiva de Azure Firewall. Puede emparejar las redes virtuales de radio que contienen los servidores y servicios de carga de trabajo. También puede administrar los firewalls de redes virtuales independientes que no están emparejadas con ningún radio.
 
 Para ver una comparación detallada entre los tipos de arquitectura de *centro virtual protegido* y *red virtual de centro de conectividad*, consulte [¿Cuáles son las opciones de arquitectura de Azure Firewall Manager?](vhubs-and-vnets.md)
 
@@ -80,13 +80,14 @@ Azure Firewall Manager (versión preliminar) presenta los siguientes problemas c
 
 |Problema  |Descripción  |Mitigación  |
 |---------|---------|---------|
-|Limitaciones del filtrado de terceros|El filtrado de tráfico V2I con proveedores de terceros no es compatible con Azure Firewall B2V y V2V.|Actualmente se está investigando.|
-|Actualmente no se admite la división del tráfico|Actualmente no se admite la división del tráfico de PaaS público de Azure y de Office 365. Como tal, la selección de un proveedor de terceros para V2I o B2I también envía todo el tráfico de PaaS público de Azure y de Office 365 a través del servicio de asociados.|La división del tráfico en el centro de conectividad se está investigando actualmente.
-|Un centro virtual protegido por región|No se puede tener más de un centro virtual protegido por región.|Cree varias WAN virtuales en una región.|
-|Las directivas base deben estar en la misma región que la directiva local|Cree todas las directivas locales en la misma región que la directiva de base. Puede seguir aplicando una directiva que se creó en una región de un centro seguro desde otra región.|Actualmente se está investigando.|
-|La comunicación entre centros no funciona con los centros virtuales protegidos|Aún no se admite la comunicación entre centros virtuales protegidos.|Actualmente se está investigando.|
+|Limitaciones del filtrado de terceros.|El filtrado de tráfico V2I con proveedores de terceros no es compatible con Azure Firewall B2V y V2V.|Investigando|
+|Actualmente no se admite la división del tráfico.|Actualmente no se admite la división del tráfico de PaaS público de Azure y de Office 365. Como tal, la selección de un proveedor de terceros para V2I o B2I también envía todo el tráfico de PaaS público de Azure y de Office 365 a través del servicio de asociados.|La división del tráfico en el centro de conectividad se está investigando.
+|Un centro virtual protegido por región.|No se puede tener más de un centro virtual protegido por región.|Cree varias WAN virtuales en una región.|
+|Las directivas base deben estar en la misma región que la directiva local.|Cree todas las directivas locales en la misma región que la directiva de base. Puede seguir aplicando una directiva que se creó en una región de un centro seguro desde otra región.|Investigando|
+|La comunicación entre centros no funciona con los centros virtuales protegidos|Aún no se admite la comunicación entre centros virtuales protegidos.|Investigando|
 |Todos los centros virtuales protegidos que comparten la misma WAN virtual deben estar en el mismo grupo de recursos.|Este comportamiento ya se alinea con los centros WAN virtuales en la actualidad.|Cree varias WAN virtuales para permitir que se creen centros virtuales protegidos en grupos de recursos diferentes.|
-|La directiva de firewall no admite grupos de direcciones IP.|Los grupos de direcciones IP se encuentran en versión preliminar pública y, actualmente, solo se admiten en las reglas de firewall tradicionales.|Corrección en curso.
+|No se admiten grupos de IP en la directiva de firewall.|Los grupos de direcciones IP se encuentran en versión preliminar pública y, actualmente, solo se admiten en las reglas de firewall tradicionales.|Corrección en curso.
+|Suscripciones del Proveedor de soluciones en la nube (CSP) no admitidas.|Actualmente, no se admiten [suscripciones de CSP](https://azure.microsoft.com/offers/ms-azr-0145p/).|Investigando
 
 ## <a name="next-steps"></a>Pasos siguientes
 

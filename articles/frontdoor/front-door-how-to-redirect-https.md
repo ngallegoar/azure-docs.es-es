@@ -7,18 +7,18 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 7fabc1e3445d3dbd357700ffde3caeb985cc60c4
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b7385ef27cd17705f2c86b6f57d4780511b6935c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67601969"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246864"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Crear una instancia de Front Door con redirección de HTTP a HTTPS mediante Azure Portal
 
 Puede usar Azure Portal para crear una instancia de [Front Door](front-door-overview.md) con un certificado para la terminación SSL. Una regla de enrutamiento se usa para redirigir el tráfico de HTTP a HTTPS.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una instancia de Front Door con un recurso de aplicación web existente
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 3. Busque **Front Door** con la barra de búsqueda y, una vez que encuentre el tipo de recurso, haga clic en **Crear**.
-4. Elija una suscripción y luego use un grupo de recursos existente o cree uno. Tenga en cuenta que la ubicación que pide la interfaz de usuario es para el grupo de recursos únicamente. La configuración de Front Door se implementará en todas las [ubicaciones POP de Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-are-the-pop-locations-for-azure-front-door-service).
+4. Elija una suscripción y luego use un grupo de recursos existente o cree uno. Tenga en cuenta que la ubicación que pide la interfaz de usuario es para el grupo de recursos únicamente. La configuración de Front Door se implementará en todas las [ubicaciones POP de Azure Front Door](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door).
 
     ![Configurar conceptos básicos de una nueva instancia de Front Door](./media/front-door-url-redirect/front-door-create-basics.png)
 
@@ -75,7 +75,7 @@ Después de agregar CNAME, la página de registros DNS es como la del ejemplo si
 
 ![Dominio personalizado de CNAME a Front Door](./media/front-door-url-redirect/front-door-dns-cname.png)
 
-#### <a name="onboard-the-custom-domain-on-your-front-door"></a>Incorporar el dominio personalizado a la instancia de Front Door
+#### <a name="onboard-the-custom-domain-on-your-front-door"></a>Incorporación del dominio personalizado a la instancia de Front Door
 
 1. En la pestaña del diseñador de Front Door, haga clic en el icono "+" en la sección Hosts de front-end para agregar un nuevo dominio personalizado. 
 2. Escriba el nombre DNS personalizado completo en el campo de nombre de host personalizado, por ejemplo `www.contosonews.com`. 
@@ -84,14 +84,14 @@ Después de agregar CNAME, la página de registros DNS es como la del ejemplo si
 
 ![Menú Dominio personalizado](./media/front-door-url-redirect/front-door-add-custom-domain.png)
 
-### <a name="enable-https-on-your-custom-domain"></a>Habilitar HTTPS en el dominio personalizado
+### <a name="enable-https-on-your-custom-domain"></a>Habilitación de HTTPS en el dominio personalizado
 
 1. Haga clic en el dominio personalizado que se ha agregado y, en la sección **Personalizar HTTPS de dominio**, cambie el estado a **Habilitado**.
 2. Puede dejar el **Tipo de administración de certificados** establecido en _Front Door administrado_ para el certificado gratuito que mantiene, administra y rota automáticamente Front Door. También puede usar su propio certificado SSL personalizado almacenado con Azure Key Vault. En este tutorial se da por supuesto el uso del certificado administrado de Front Door.
 ![Habilitar HTTPS para el dominio personalizado](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 
-3. Haga clic en **Actualizar** para guardar la selección y, luego, haga clic en **Guardar**.
-4. Haga clic en **Actualizar** después de un par de minutos y, luego, haga clic en el dominio personalizado de nuevo para ver el progreso del aprovisionamiento de certificados. 
+3. Haga clic en **Actualizar** para guardar la selección y, después, haga clic en **Guardar**.
+4. Haga clic en **Actualizar** tras un par de minutos y, luego, haga clic en el dominio personalizado de nuevo para ver el progreso del aprovisionamiento de certificados. 
 
 > [!WARNING]
 > Habilitar HTTPS para un dominio personalizado puede tardar varios minutos y también depende de la validación de la propiedad de dominio si el registro CNAME no está asignado directamente a su host de Front Door `<name>.azurefd.net`. Obtenga más información sobre cómo [habilitar HTTPS para un dominio personalizado](./front-door-custom-domain-https.md).

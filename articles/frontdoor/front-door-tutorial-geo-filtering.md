@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configuración de la directiva de firewall de aplicaciones web de filtrado geográfico para Azure Front Door Service'
-description: En este tutorial aprenderá a crear una directiva de filtrado geográfico simple y a asociarla con el host de front-end de Front Door existente
+title: 'Tutorial: Configuración de la directiva de firewall de aplicaciones web de filtrado geográfico para Azure Front Door'
+description: En este tutorial, aprenderá a crear una directiva de filtrado geográfico y a asociar la directiva con el host Front Door frontend existente
 services: frontdoor
 documentationcenter: ''
 author: teresayao
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: tyao
-ms.openlocfilehash: 393d7790aadc87237081aa5437f8316eda59c52e
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e3119745e35140d0344d25f34f54b63939d2542d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184534"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79471462"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Procedimientos para configurar una directiva de WAF de filtrado geográfico para Front Door
 En este tutorial se muestra cómo usar Azure PowerShell para crear una directiva de filtrado geográfico de ejemplo y a asociarla con el host de front-end de Front Door existente. Esta directiva de filtrado geográfico de ejemplo bloqueará las solicitudes de todos los países o regiones, salvo Estados Unidos.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de empezar a configurar una directiva de filtrado geográfico, configure el entorno de PowerShell y crear un perfil de Front Door.
 ### <a name="set-up-your-powershell-environment"></a>Configuración del entorno de PowerShell
 Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para administrar los recursos de Azure. 
@@ -75,7 +75,7 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 ```
 
 ## <a name="add-rules-to-a-policy"></a>Adición de reglas a una directiva
-Busque el nombre del grupo de recursos que contiene el perfil de Front Door que usan `Get-AzResourceGroup`. A continuación, cree un objeto de directiva `geoPolicy` que contenga `nonUSBlockRule` para lo que debe usar [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) en el grupo de recursos especificado que contiene el perfil de Front Door. Debe especificar un nombre único para la directiva de replicación geográfica. 
+Busque el nombre del grupo de recursos que contiene el perfil de Front Door que usan `Get-AzResourceGroup`. A continuación, cree un objeto de directiva `geoPolicy` que contenga `nonUSBlockRule` para lo que debe usar [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) en el grupo de recursos especificado que contiene el perfil de Front Door. Debe especificar un nombre único para la directiva de filtrado geográfico. 
 
 En el ejemplo siguiente se usa el nombre de grupo de recursos *myResourceGroupFD1* con la suposición de que ha creado el perfil de Front Door mediante las instrucciones proporcionadas en el artículo [Inicio rápido: Creación de una instancia de Front Door](quickstart-create-front-door.md). En el ejemplo siguiente, reemplace el nombre de la directiva *geoPolicyAllowUSOnly* con un nombre de directiva único.
 

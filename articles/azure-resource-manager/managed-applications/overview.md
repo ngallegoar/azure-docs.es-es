@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4508b69261cd7b1fb5e400eaf7ffaae67d5cb476
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4aa5dfd288819930da2f7af36b7d70df709e638
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647966"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473037"
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -19,7 +19,7 @@ Las aplicaciones administradas de Azure le permiten ofrecer soluciones en la nub
 Una aplicación administrada es similar a una plantilla de solución de Marketplace, aunque hay una diferencia importante. En una aplicación administrada, los recursos se implementan en un grupo de recursos que está administrado por el editor de la aplicación. El grupo de recursos está presente en la suscripción del consumidor, pero una identidad en el inquilino del editor tiene acceso al grupo de recursos. Como editor, puede especificar el costo del soporte técnico continuado de la solución.
 
 > [!NOTE]
-> Anteriormente, la documentación de los proveedores de clientes de Azure se incluía con la documentación de las aplicaciones administradas. Esa documentación ha cambiado de lugar. Ahora, debe consultar [Proveedores personalizados de Azure](../custom-providers/overview.md).
+> Anteriormente, la documentación de los proveedores personalizados de Azure se incluía con la documentación de las aplicaciones administradas. Esa documentación ha cambiado de lugar. Ahora, debe consultar [Proveedores personalizados de Azure](../custom-providers/overview.md).
 
 ## <a name="advantages-of-managed-applications"></a>Ventajas de las aplicaciones administradas
 

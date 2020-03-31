@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: bdc9a8079c46a05e5045d72cd6d7b07a9a457899
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0d7cc4d571ddeb0b57fd4f025b8cbf7b204f61e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215273"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456971"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Creación del equilibrador de carga interno con una plantilla
 
@@ -58,9 +58,9 @@ Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../cli-install-nodejs.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
+2. Vaya a [https://shell.azure.com](https://shell.azure.com) para abrir Cloud Shell en el explorador. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
-    ```azurecli-interactive
+    ```console
     azure config mode arm
     ```
 
@@ -71,7 +71,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 3. Abra el archivo de parámetros, seleccione su contenido y guárdelo en un archivo en el equipo. Para este ejemplo, guardamos el archivo de parámetros en *parameters.json*.
 4. Ejecute el comando **azure group deployment create** para implementar el nuevo equilibrador de carga interno mediante la plantilla y los archivos de parámetros que ha descargado y modificado anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
-    ```azurecli
+    ```console
     azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
     ```
 

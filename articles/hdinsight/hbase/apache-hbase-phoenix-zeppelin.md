@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: 28eeb446e55213f1ffa0a638878f6432fd15a05a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72391943"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Use Apache Zeppelin para ejecutar consultas de Apache Phoenix en Azure HDInsight
@@ -23,7 +23,7 @@ Apache Zeppelin es un cuaderno de código abierto basado en Web que le permite c
 
 Los usuarios de HDInsight pueden usar Apache Zeppelin para consultar tablas de Phoenix. Apache Zeppelin se integra con el clúster de HDInsight y no hay pasos adicionales para usarlo. Simplemente cree un cuaderno de Zeppelin Notebook con el intérprete JDBC y empiece a escribir las consultas SQL de Phoenix
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Un clúster de Apache HBase en HDInsight. Vea [Introducción a un ejemplo de Apache HBase en HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 

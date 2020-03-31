@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/24/2019
 ms.openlocfilehash: 3e9b23ce450e45dfedcee8b20e09b1c2b52b6e68
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75495786"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicaciones Java para Apache HBase
@@ -21,7 +21,7 @@ Aprenda a crear una aplicación [HBase de Apache](https://hbase.apache.org/) en 
 
 En los pasos descritos en este documento se usa [Apache Maven](https://maven.apache.org/) para crear y compilar el proyecto. Maven es una herramienta de administración y comprensión de proyectos de software que le permite compilar software, documentación e informes para proyectos Java.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Apache HBase en HDInsight. Vea [Introducción a un ejemplo de Apache HBase en HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 

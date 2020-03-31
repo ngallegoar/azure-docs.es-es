@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: e8ae31122d59238ac104d7d873cf56f32977c9af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086513"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: Integración de Azure Active Directory con xMatters OnDemand
@@ -34,7 +34,7 @@ Integrar xMatters OnDemand con Azure AD proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con xMatters OnDemand, necesita los siguientes elementos:
 
@@ -152,11 +152,11 @@ Para configurar el inicio de sesión único de Azure AD con xMatters OnDemand, r
 
 2. En la barra de herramientas de la parte superior, haga clic en **Administrador** y luego en **Detalles de la compañía** en la barra de navegación del lado izquierdo.
 
-    ![Administración](./media/xmatters-ondemand-tutorial/IC776795.png "Administración")
+    ![Administrador](./media/xmatters-ondemand-tutorial/IC776795.png "Administración")
 
 3. En la página **Configuración de SAML** , realice los siguientes pasos:
 
-    ![Configuración de SAML](./media/xmatters-ondemand-tutorial/IC776796.png "Configuración de SAML")
+    ![SAML Configuration (Configuración de SAML)](./media/xmatters-ondemand-tutorial/IC776796.png "Configuración de SAML")
 
     a. Seleccione **Habilitar SAML**.
 
@@ -168,7 +168,7 @@ Para configurar el inicio de sesión único de Azure AD con xMatters OnDemand, r
 
     e. En la página de detalles de la compañía, en la parte superior, haga clic en **Guardar cambios**.
 
-    ![Detalles de la compañía](./media/xmatters-ondemand-tutorial/IC776797.png "Detalles de la compañía")
+    ![Company details](./media/xmatters-ondemand-tutorial/IC776797.png "Detalles de la compañía")
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -192,7 +192,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -234,7 +234,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 3. En la sección **Agregar un usuario** , realice estos pasos:
 
-    ![Agregar un usuario](./media/xmatters-ondemand-tutorial/IC781049.png "Agregar un usuario")
+    ![Adición de un usuario](./media/xmatters-ondemand-tutorial/IC781049.png "Agregar un usuario")
 
     a. Seleccione **Active**(Activo).
 

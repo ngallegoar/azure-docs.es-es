@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
 ms.openlocfilehash: 1c12cf4a7bd097c6d33d032065734b477920644b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75457002"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adición de Key Vault a una aplicación web mediante los servicios conectados de Visual Studio
@@ -22,7 +22,7 @@ En este tutorial, aprenderá cómo agregar con facilidad todo lo que necesita pa
 
 Para obtener información sobre los cambios que los servicios conectados realizan en el proyecto para habilitar Key Vault, vea [Servicio conectado de Key Vault : ¿Qué ha sucedido con mi proyecto de ASP.NET 4.7.1?](#how-your-aspnet-framework-project-is-modified) o [Servicio conectado de Key Vault: ¿Qué ha sucedido con mi proyecto de ASP.NET Core?](#how-your-aspnet-core-project-is-modified)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - **Una suscripción de Azure**. Si aún no tiene una suscripción, regístrese para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2019 versión 16.3** o posterior o **Visual Studio 2017 versión 15.7** con la carga de trabajo de **Desarrollo Web** instalada. [Descárguelo ahora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).

@@ -1,19 +1,18 @@
 ---
 title: Pestaña de Marketplace de la oferta de aplicación de Azure
 description: Use la pestaña de Marketplace para identificar los recursos de marketing de una oferta de aplicación de Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pabutler
-ms.openlocfilehash: 967b66a67d51b3a79bcf930ce977af48acc3dd63
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 94bbfb16a967a97b1ee6f6d51a5f55bc8ba13227
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827575"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281772"
 ---
 # <a name="azure-application-marketplace-tab"></a>Pestaña de Marketplace de aplicación de Azure
 
@@ -27,7 +26,7 @@ El formulario Información general tiene los campos obligatorios y opcionales qu
 
 En la tabla siguiente se describe la configuración que se usará para la creación de un escaparate de la oferta.   Los campos anexados con un asterisco son obligatorios.
 
-|      Campo         |    DESCRIPCIÓN    |
+|      Campo         |    Descripción    |
 |  ---------------   |  ---------------  |
 | **Título\***        | Título de la oferta. Se muestra de forma destacada en Marketplace. La longitud máxima es de 50 caracteres. |
 | **Resumen\***      | Breve resumen de la oferta. La longitud máxima es de 100 caracteres.           |
@@ -48,7 +47,7 @@ El formulario Artefactos de marketing tiene los campos obligatorios y opcionales
 
 En la siguiente tabla se describen los artefactos de marketing:
 
-|      Campo         |    DESCRIPCIÓN    |
+|      Campo         |    Descripción    |
 |  ---------------   |  ---------------  |
 | **Pequeña\***        | Logotipo pequeño: 40 x 40 píxeles en formato PNG     |
 | **Mediana\***       | Logotipo mediano: 90 x 90 píxeles en formato PNG    |

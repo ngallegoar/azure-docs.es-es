@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 34e43789ffb29963d5013b4acc3ea710a961c838
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9a1a0b37b0fae52677ad989d85e947e0148ac0a5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024065"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80153223"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de .NET
 
@@ -35,7 +35,7 @@ En este tutorial, convertiremos archivos multimedia MP4 a formato MP3 en paralel
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Visual Studio 2017 o superior](https://www.visualstudio.com/vs) o [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS o Windows.
 
@@ -198,7 +198,9 @@ Después, en el ejemplo se crea un grupo de nodos de proceso en la cuenta de Bat
 
 El número de nodos y el tamaño de la máquina virtual se establecen mediante constantes definidas. Batch admite nodos especializados y [nodos de prioridad baja](batch-low-pri-vms.md), y en los grupos puede utilizar ambos. Los nodos dedicados están reservados para el grupo. Los nodos de prioridad baja se ofrecen a precio reducido por la capacidad sobrante de las máquinas virtuales de Azure. Los nodos de prioridad baja dejan de estar disponibles si Azure no tiene capacidad suficiente. En el ejemplo, de forma predeterminada se crea un grupo que contiene solo 5 nodos de baja prioridad con el tamaño *Standard_A1_v2*.
 
-La aplicación ffmpeg se implementa en los nodos de proceso mediante la incorporación de un valor [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) a la configuración del grupo.
+>[Nota] Asegúrese de comprobar las cuotas de nodo. Consulte [Límites y cuotas del servicio Batch](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbatch%2Fbatch-quota-limit%23increase-a-quota&data=02%7C01%7CLaura.Brenner%40microsoft.com%7C9843bf742920414ca3e508d7cb83e288%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637201639605899246&sdata=uKY00XhSMjDkFIPGHYmDN4TOtL4UQhFus42ncst95pg%3D&reserved=0) para obtener instrucciones sobre cómo crear una solicitud de cuota.
+
+La aplicación ffmpeg se implementa en los nodos de proceso mediante la incorporación de un valor [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) a la configuración del grupo. Para garantizar la [activación de la aplicación](https://docs.microsoft.com/cli/azure/batch/application/package?view=azure-cli-latest#az-batch-application-package-activate).
 
 El método [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) envía el grupo al servicio Batch.
 
@@ -335,3 +337,6 @@ Para más ejemplos de uso de la API de .NET para programar y procesar cargas de 
 
 > [!div class="nextstepaction"]
 > [Ejemplos de C# de Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
+
+
+Si se establece la variable de instancia LowPriorityNodeCount=0 y DedicatedNodeCount=5 se corrige el problema y se permite que se complete el trabajo.

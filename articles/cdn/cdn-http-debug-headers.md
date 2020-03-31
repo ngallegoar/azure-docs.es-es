@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
 ms.openlocfilehash: dec753d7c891d226aa2e6d3efa993d8d24adfbaa
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593839"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Encabezados HTTP X-EC-Debug para el motor de reglas de Azure CDN
@@ -33,7 +33,7 @@ La respuesta que se envía desde los servidores POP a un usuario incluye el enca
 ## <a name="requesting-debug-cache-information"></a>Solicitud de información de la caché de depuración
 Use las siguientes directivas de la solicitud especificada para definir la información de la caché de depuración que se incluirá en la respuesta:
 
-Encabezado de solicitud | DESCRIPCIÓN |
+Encabezado de solicitud | Descripción |
 ---------------|-------------|
 X-EC-Debug: x-ec-cache | [Código de estado de la caché](#cache-status-code-information)
 X-EC-Debug: x-ec-cache-remote | [Código de estado de la caché](#cache-status-code-information)
@@ -54,7 +54,7 @@ Para solicitar los encabezados de respuesta de caché de depuración, incluya el
 ## <a name="cache-status-code-information"></a>Información sobre el código de estado de la caché
 El encabezado de respuesta X-EC-Debug puede identificar un servidor y cómo controlar la respuesta a través de las siguientes directivas:
 
-Encabezado | DESCRIPCIÓN
+Encabezado | Descripción
 -------|------------
 X-EC-Debug: x-ec-cache | Este encabezado se notifica cada vez que el contenido se enruta a través de CDN. Identifica el servidor POP que satisfizo la solicitud.
 X-EC-Debug: x-ec-cache-remote | Este encabezado se notifica solo si el contenido solicitado se almacenó en caché en un servidor de escudo de origen o en un servidor de puerta de enlace de ADN.
@@ -103,10 +103,10 @@ El encabezado de respuesta `X-EC-Debug` indica si una solicitud que se podría h
 
 Los términos que se usan en la sintaxis del encabezado de respuesta anterior se definen de la siguiente manera:
 
-Valor  | DESCRIPCIÓN
+Value  | Descripción
 -------| --------
 SÍ    | Indica que el contenido solicitado era apto para el almacenamiento en caché.
-NO     | Indica que el contenido solicitado no era apto para el almacenamiento en caché. Este estado podría deberse a uno de los siguientes motivos: <br /> - Configuración específica del cliente: una configuración específica de la cuenta puede impedir a los servidores POP el almacenamiento en caché de un recurso. Por ejemplo, el motor de reglas puede impedir que un recurso se almacene en caché habilitando la característica Omisión de la memoria caché para calificar las solicitudes.<br /> - Encabezados de respuesta de la caché: los encabezados Cache-Control y Expires del recurso solicitado pueden impedir que los servidores POP almacenen el contenido en caché.
+No     | Indica que el contenido solicitado no era apto para el almacenamiento en caché. Este estado podría deberse a uno de los siguientes motivos: <br /> - Configuración específica del cliente: una configuración específica de la cuenta puede impedir a los servidores POP el almacenamiento en caché de un recurso. Por ejemplo, el motor de reglas puede impedir que un recurso se almacene en caché habilitando la característica Omisión de la memoria caché para calificar las solicitudes.<br /> - Encabezados de respuesta de la caché: los encabezados Cache-Control y Expires del recurso solicitado pueden impedir que los servidores POP almacenen el contenido en caché.
 DESCONOCIDO | Indica que los servidores no pudieron determinar si el recurso solicitado era almacenable en caché. Este estado se produce normalmente si la solicitud se deniega debido a una autenticación basada en token.
 
 ### <a name="sample-response-header"></a>Ejemplo de encabezado de respuesta

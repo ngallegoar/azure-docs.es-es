@@ -4,15 +4,15 @@ description: En este artículo se describe cómo realizar copias de seguridad y 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3f63ecf560a14248fed6dea53c30a27acdf9a938
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 83da2024ab74b705b45a5891f6b40251020dad31
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573445"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80408666"
 ---
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
 

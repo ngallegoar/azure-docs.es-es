@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864288"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tareas del responsable de equipo en el equipo de proceso de ciencia de datos en equipo
@@ -49,7 +49,7 @@ En el siguiente tutorial se explican los pasos en detalle.
 > [!NOTE] 
 > En este artículo se utilizan Azure DevOps y DSVM para configurar un entorno de equipo de TDSP, ya que se explica cómo implementar TDSP en Microsoft. Si el equipo usa otras plataformas de desarrollo o hospedaje de código, las tareas del responsable de equipo son las mismas, pero la manera de completarlas puede ser diferente.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este tutorial se da por supuesto que los siguientes recursos y permisos están configurados por el [administrador de grupo](group-manager-tasks.md):
 

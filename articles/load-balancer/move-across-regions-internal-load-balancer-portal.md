@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: allensu
 ms.openlocfilehash: f23923b9d847ef393ebd609eb5fbba530b1a07d6
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638816"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Traslado de equilibradores de carga internos de Azure a otra región mediante Azure Portal
@@ -20,7 +20,7 @@ Hay varios escenarios en los que quizá quiera trasladar su equilibrador de carg
 Los equilibradores de carga internos de Azure no se pueden trasladar de una región a otra. Sin embargo, puede usar una plantilla de Azure Resource Manager para exportar la configuración y la red virtual actuales de un equilibrador de carga interno.  Después, puede preparar el recurso para otra región al exportar el equilibrador de carga y la red virtual a una plantilla, modificar los parámetros para que coincidan con la región de destino y, a continuación, implementar la plantilla en la nueva región.  Para más información sobre Resource Manager y las plantillas, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Asegúrese de que el equilibrador de carga interno de Azure se encuentra en la región de Azure desde la que va a realizar el traslado.
 

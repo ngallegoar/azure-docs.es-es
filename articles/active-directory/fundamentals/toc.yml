@@ -5,8 +5,12 @@
   items:
     - name: ¿Qué es Azure Active Directory?
       href: active-directory-whatis.md
+    - name: "Comparación entre Azure\_AD y ADDS"
+      href: active-directory-compare-azure-ad-to-ad.md
     - name: Novedades de Azure Active Directory
       href: whats-new.md
+    - name: Novedades de Microsoft 365 Government
+      href: whats-new-microsoft-365-government.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -17,8 +21,6 @@
 - name: Conceptos
   expanded: true
   items:
-    - name: Puntuación segura de identidad
-      href: identity-secure-score.md
     - name: Seguridad
       items:
         - name: Habilitar MFA
@@ -27,24 +29,30 @@
           href: concept-fundamentals-security-defaults.md
         - name: Bloquear la autenticación heredada
           href: concept-fundamentals-block-legacy-authentication.md
-    - name: Grupos y administración de accesos
-      href: active-directory-manage-groups.md
-    - name: Licencias basadas en grupos
-      href: active-directory-licensing-whatis-azure-portal.md
-    - name: Arquitectura de Azure AD
-      href: active-directory-architecture.md
-    - name: Permisos predeterminados de usuario
-      href: users-default-permissions.md
-    - name: 'Implementación de 30, 90 y más'
+        - name: Puntuación segura de identidad
+          href: identity-secure-score.md
+    - name: Grupos y usuarios
+      items:
+        - name: Grupos y administración de accesos
+          href: active-directory-manage-groups.md
+        - name: Licencias basadas en grupos
+          href: active-directory-licensing-whatis-azure-portal.md
+        - name: Permisos predeterminados de usuario
+          href: users-default-permissions.md
+    - name: Architecture
+      items:
+        - name: Arquitectura de Azure AD
+          href: active-directory-architecture.md
+    - name: Guía de implementación
+      items:
+        - name: 'Implementación de 30, 90 y más'
       href: active-directory-deployment-checklist-p2.md
-    - name: Almacenamiento de datos de identidad para la Unión Europea
-      href: active-directory-data-storage-eu.md
-    - name: Almacenamiento de datos de identidad para Australia y Nueva Zelanda
-      href: active-directory-data-storage-australia-newzealand.md
-    - name: Novedades de Microsoft 365 Government
-      href: whats-new-microsoft-365-government.md
-    - name: "Comparación entre Azure\_AD y ADDS"
-      href: active-directory-compare-azure-ad-to-ad.md
+    - name: Almacenamiento de datos
+      items:
+        - name: Almacenamiento de datos de identidad para Europa
+          href: active-directory-data-storage-eu.md
+        - name: Almacenamiento de datos de identidad para Australia y Nueva Zelanda
+          href: active-directory-data-storage-australia-newzealand.md
     - name: "Referencia de operaciones de Azure\_AD"
       items:
         - name: Introducción

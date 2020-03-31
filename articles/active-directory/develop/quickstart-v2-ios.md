@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: f0b4d1f557006ba8a343a0497262cc5c8254e86c
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 090f59c4074ca2613c3bd32030b0869a1cd4e9d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561589"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80129040"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Inicio rápido: Inicio de sesión de los usuarios y llamada a Microsoft Graph API desde una aplicación de iOS o macOS
 
@@ -117,7 +117,7 @@ En una ventana de terminal, vaya a la carpeta con el ejemplo de código descarga
 > 1. Compile y ejecute la aplicación.
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Escriba_la_información_de_la_cuenta_admitida_aquí
+> > Enter_the_Supported_Account_Info_Here
 > [!div renderon="docs"]
 >
 > 1. Extraiga el archivo ZIP y abra el proyecto en XCode.
@@ -270,25 +270,30 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 Las aplicaciones no requieren que sus usuarios inicien sesión cada vez que soliciten un token. Si el usuario ya ha iniciado sesión, este método permite que las aplicaciones soliciten tokens de forma silenciosa. 
 
 ```swift
-guard let account = try self.applicationContext!.allAccounts().first else { return }
-        
-let silentParams = MSALSilentTokenParameters(scopes: kScopes, account: account)
-self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
+self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previousAccount, error) in
+            
+   guard let account = currentAccount else {
+      return
+   }
+            
+   let silentParams = MSALSilentTokenParameters(scopes: self.kScopes, account: account)
+   self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error) in /* Add your handling logic */}
+}
 ```
 
 > |Donde: ||
 > |---------|---------|
 > | `scopes` | Contiene los ámbitos que se solicitan (es decir, `[ "user.read" ]` para Microsoft Graph o `[ "<Application ID URL>/scope" ]` para las API web personalizadas `api://<Application ID>/access_as_user`) |
-> | `account` | La cuenta para la que se solicita un token. Este inicio rápido trata de una aplicación de una sola cuenta. Si quiere compilar una aplicación de varias cuentas, deberá definir una lógica para identificar qué cuenta usar para las solicitudes de token que usen `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
+> | `account` | La cuenta para la que se solicita un token. Este inicio rápido trata de una aplicación de una sola cuenta. Si quiere compilar una aplicación de varias cuentas, deberá definir una lógica para identificar qué cuenta usar para las solicitudes de token que usen `accountsFromDeviceForParameters:completionBlock:` y pasen el `accountIdentifier` correcto. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pruebe el tutorial de iOS para ver una guía completa paso a paso sobre cómo compilar aplicaciones, incluida una explicación exhaustiva de este inicio rápido.
+Pruebe el tutorial de iOS y macOS para ver una guía completa paso a paso sobre cómo compilar aplicaciones, con una explicación exhaustiva de este inicio rápido.
 
 ### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Aprenda a crear la aplicación que se ha usado en este inicio rápido.
 
 > [!div class="nextstepaction"]
-> [Tutorial de iOS de Graph API de llamada](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Tutorial de llamada a Graph API para iOS y macOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

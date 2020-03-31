@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73682206"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selección del tamaño de VM correcto para el clúster de Azure HDInsight
@@ -38,7 +38,7 @@ El tamaño y el tipo de máquina virtual los determinan la capacidad de procesam
 
 Las familias de máquinas virtuales de Azure están optimizadas para adaptarse a casos de uso diferentes. En la tabla siguiente, puede encontrar algunos de los casos de uso más populares y las familias de máquinas virtuales que coinciden con ellos.
 
-| type                     | Tamaños           |    DESCRIPCIÓN       |
+| Tipo                     | Tamaños           |    Descripción       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Nivel de entrada](../virtual-machines/linux/sizes-general.md)          | A, Av2  | Tienen las configuraciones de memoria y rendimiento de CPU adecuadas para cargas de trabajo de nivel de entrada como desarrollo y pruebas. Son económicas y proporcionan una opción de bajo costo para empezar con Azure. |
 | [Uso general](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Uso equilibrado de la CPU en proporción de memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. |

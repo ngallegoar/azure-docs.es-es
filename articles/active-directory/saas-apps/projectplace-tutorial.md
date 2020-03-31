@@ -17,10 +17,10 @@ ms.date: 05/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 179721075484c35c5ebbb3d936b83bc407b75a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093537"
 ---
 # <a name="tutorial-integrate-projectplace-with-azure-active-directory"></a>Tutorial: Integración de Projectplace con Azure Active Directory
@@ -34,7 +34,7 @@ En este tutorial aprenderá a integrar Projectplace con Azure Active Directory (
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -110,7 +110,7 @@ En esta sección, va a crear un usuario de prueba llamado B. Simon en Azure Port
    1. En el campo **Nombre**, escriba `B. Simon`.  
    1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `BrittaSimon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Create**(Crear).
+   1. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -143,15 +143,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en Projectplace, debe
 
 2. Vaya a **People** (Personas) y haga clic en **Members** (Miembros):
    
-    ![Vaya a People (Personas) y seleccione Members (Miembros)](./media/projectplace-tutorial/ic790228.png "People")
+    ![Vaya a People (Personas) y seleccione Members (Miembros)](./media/projectplace-tutorial/ic790228.png "Personas")
 
 3. Seleccione **Add Member** (Agregar miembro):
    
-    ![Select Add Member (Seleccionar agregar miembro)](./media/projectplace-tutorial/ic790232.png "Add Members")
+    ![Seleccione Add Member](./media/projectplace-tutorial/ic790232.png "Agregar miembros") (Agregar miembro)
 
 4. En la sección **Add Member** (Agregar miembro), realice los siguientes pasos.
    
-    ![Sección Add Member (Agregar miembro)](./media/projectplace-tutorial/ic790233.png "New Members")
+    ![Sección Add Member (Agregar miembro)](./media/projectplace-tutorial/ic790233.png "Nuevos miembros")
    
     1. En el cuadro **New Members** (Nuevos miembros), escriba la dirección de correo electrónico de una cuenta de Azure AD válida que quiera agregar.
    

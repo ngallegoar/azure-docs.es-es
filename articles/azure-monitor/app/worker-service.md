@@ -3,12 +3,12 @@ title: Application Insights para las aplicaciones de Worker Service (aplicacione
 description: Supervisión de aplicaciones de .NET Core/.NET Framework que no son HTTP con Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 2d4b3a38b059d603c96fc9267b44707ed32c8c1d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 34a64ffa67b1a43a77391e0d50ddf1bfad0f73ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669342"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501162"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para las aplicaciones de servicio de trabajo (aplicaciones sin HTTP)
 
@@ -31,7 +31,7 @@ Una clave de instrumentación de Application Insights válida. Esta clave es nec
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.12.0" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.13.1" />
     </ItemGroup>
 ```
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 36dada57e587da6e023a83c8ebb6555abe44b9ba
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 42b4eab5f2417f97ab3d37274e6fca1965eca95f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184853"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457464"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acceso a Azure Key Vault desde detrás de un firewall
 
@@ -52,7 +52,7 @@ Para la administración de Key Vault (CRUD y establecimiento de una directiva de
 | Tipo de operación | Punto de conexión:puerto |
 | --- | --- |
 | Operaciones del plano de control de Key Vault<br> a través de Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> management.microsoftazure.de:443 |
-| Graph API de Azure Active Directory |**Global:**<br> graph.windows.net:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> graph.windows.net:443<br><br> **Azure Alemania:**<br> graph.cloudapi.de:443 |
+| Microsoft Graph API |**Global:**<br> graph.microsoft.com:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Gov:**<br> graph.microsoft.com:443<br><br> **Azure Alemania:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Operaciones de Key Vault
 

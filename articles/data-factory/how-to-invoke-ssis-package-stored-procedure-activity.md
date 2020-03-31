@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
 ms.openlocfilehash: 063728c03c689c2eafec889bdee8276772ae685a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75444032"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 En este artículo se describe cómo ejecutar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 El tutorial de este artículo usa una base de datos de Azure SQL que hospeda el catálogo de SSIS. También puede usar una instancia administrada de Azure SQL Database.

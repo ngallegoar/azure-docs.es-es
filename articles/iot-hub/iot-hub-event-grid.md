@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: a1fd99ee595c4ae91ccd06aa41fa421ca8fcc074
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851707"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237340"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reacción a eventos de IoT Hub usando Event Grid para desencadenar acciones
 
@@ -31,7 +31,7 @@ La integración de Event Grid está disponible en centros de IoT ubicados en las
 
 IoT Hub publica los siguientes tipos de eventos:
 
-| Tipo de evento | DESCRIPCIÓN |
+| Tipo de evento | Descripción |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Se publica cuando se registra un dispositivo en una instancia de IoT Hub. |
 | Microsoft.Devices.DeviceDeleted | Se publica cuando se elimina un dispositivo de una instancia de IoT Hub. |
@@ -72,7 +72,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento de dispositivo conec
 
 ### <a name="device-telemetry-schema"></a>Esquema de telemetría del dispositivo
 
-El mensaje de telemetría del dispositivo debe estar en un formato JSON válido, el valor de contentType debe establecerse en **application/json** y contentEncoding establecerse en **UTF-8** en las [propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties) del mensaje. Ambas propiedades no distinguen mayúsculas de minúsculas. Si no está establecido la codificación del contenido, IoT Hub escribirá los mensajes en formato codificado de base 64.
+El mensaje de telemetría del dispositivo debe estar en un formato JSON válido, el valor de contentType debe establecerse en **application/json** y contentEncoding establecerse en **UTF-8** en las [propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties) del mensaje. Ambas propiedades no distinguen mayúsculas de minúsculas. Si no está establecida la codificación del contenido, IoT Hub escribirá los mensajes en formato codificado de base 64.
 
 Puede enriquecer los eventos de telemetría del dispositivo antes de que se publiquen en Event Grid; para ello, seleccione el punto de conexión como Event Grid. Para más información, consulte la [introducción al enriquecimiento de mensajes](iot-hub-message-enrichments-overview.md).
 
@@ -196,7 +196,7 @@ Las aplicaciones que controlan los eventos de IoT Hub deben seguir estas prácti
 
 * Se pueden configurar varias suscripciones para enrutar los eventos al mismo controlador de eventos, por lo que no hay que asumir que los eventos proceden de un origen particular. Compruebe siempre el tema del mensaje para asegurarse de que se trata de la instancia de IoT Hub que está esperando.
 
-* No suponga que todos los eventos que recibe son los tipos que espera. Compruebe siempre eventType antes de procesar el mensaje.
+* No asuma que todos los eventos que recibe son del tipo de evento que espera. Compruebe siempre eventType antes de procesar el mensaje.
 
 * Los mensajes pueden llegar desordenados o después de un retraso. Utilice el campo de la etiqueta de entidad para saber si la información sobre los objetos está actualizada para los eventos de dispositivos creados o de dispositivos eliminados.
 

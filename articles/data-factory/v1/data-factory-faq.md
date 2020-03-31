@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 1b042c0279e458cf83bd5c81147f4b1f25d7687d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645147"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory: preguntas más frecuentes
@@ -41,7 +41,7 @@ Vea la página de [detalles de precios de Data Factory][adf-pricing-details] par
 * Para ver un tutorial sobre cómo **transformar los datos** mediante HDInsight Hive Activity, consulte [Procesamiento de datos mediante la ejecución de scripts de Hive en un clúster Hadoop](data-factory-build-your-first-pipeline.md).
 
 ### <a name="what-is-the-data-factorys-region-availability"></a>¿Cuál es la disponibilidad de regiones de Data Factory?
-Data Factory está disponible en las regiones **Oeste de EE. UU.** y **Europa del Norte**. Los servicios de Compute y Storage utilizados por las factorías de datos pueden estar en otras regiones. Consulte las [regiones admitidas](data-factory-introduction.md#supported-regions).
+Data Factory está disponible en las regiones **Oeste de EE. UU.** y **Norte de Europa**. Los servicios de Compute y Storage utilizados por las factorías de datos pueden estar en otras regiones. Consulte las [regiones admitidas](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>¿Cuáles son los límites en el número de factorías, canalizaciones, actividades y conjuntos de datos?
 Consulte la sección **Límites de Azure Data Factory** del artículo [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .

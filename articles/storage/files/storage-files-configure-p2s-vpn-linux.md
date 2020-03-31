@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b988435fc6928d52321cb427e2412e7ca81680d2
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: cfff05ed52258ee448d83a521b99dca7d356a0f9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73126471"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061047"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configuración de una VPN de punto a sitio (P2S) en Linux para su uso con Azure Files
 Puede usar una conexión VPN de punto a sitio (P2S) para montar los recursos compartidos de archivos de Azure a través de SMB desde fuera de Azure, sin necesidad de abrir el puerto 445. Una conexión VPN de punto a sitio es una conexión VPN entre Azure y un cliente individual. Para usar una conexión VPN de punto a sitio con Azure Files, se debe configurar una conexión VPN de punto a sitio para cada cliente que quiera conectarse. Si tiene muchos clientes que necesitan conectarse a sus recursos compartidos de archivos de Azure desde la red local, puede usar una conexión VPN de sitio a sitio (S2S) en lugar de una conexión de punto a sitio para cada cliente. Para obtener más información, consulte [Configuración de una VPN de sitio a sitio para su uso con Azure Files](storage-files-configure-s2s-vpn.md).
@@ -21,10 +21,12 @@ Se recomienda que lea [Introducción a las redes de Azure Files](storage-files-n
 
 En este artículo se detallan los pasos para configurar una VPN de punto a sitio en Linux para montar recursos compartidos de archivos de Azure directamente en el entorno local. Si quiere enrutar el tráfico de Azure File Sync a través de una VPN, consulte [Configuración del proxy y el firewall de Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 - La versión más reciente de la CLI de Azure. Para obtener más información sobre cómo instalar la CLI de Azure, consulte [Instalación de la CLI de Azure PowerShell](https://docs.microsoft.com/cli/azure/install-azure-cli) y seleccione el sistema operativo. Si prefiere usar el módulo de Azure PowerShell en Linux, puede hacerlo. Sin embargo, las instrucciones siguientes son para la CLI de Azure.
 
-- Un recurso compartido de archivos de Azure que le gustaría montar en el entorno local. Puede usar un [recurso compartido de archivos de Azure estándar](storage-how-to-create-file-share.md) o [Premium](storage-how-to-create-premium-fileshare.md) con la VPN de punto a sitio.
+- Un recurso compartido de archivos de Azure que le gustaría montar en el entorno local. Los recursos compartidos de archivos de Azure se implementan en cuentas de almacenamiento, que son construcciones que representan un grupo compartido de almacenamiento en el que puede implementar varios recursos compartidos de archivos u otros recursos de almacenamiento, como contenedores de blobs o colas. Puede encontrar más información sobre cómo implementar cuentas de almacenamiento y recursos compartidos de archivos de Azure en [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md).
+
+- Un punto de conexión privado para la cuenta de almacenamiento que contiene el recurso compartido de archivos de Azure que quiere montar localmente. Para más información sobre cómo crear un punto de conexión privado, consulte [Configuración de puntos de conexión de red de Azure Files](storage-files-networking-endpoints.md?tabs=azure-cli). 
 
 ## <a name="install-required-software"></a>Instalación del software necesario
 La puerta de enlace de red virtual de Azure puede ofrecer conexiones VPN mediante varios protocolos VPN, entre los que se incluyen IPsec y OpenVPN. En esta guía se muestra cómo usar IPsec y se usa el paquete strongSwan para proporcionar compatibilidad con Linux. 
@@ -77,85 +79,6 @@ gatewaySubnet=$(az network vnet subnet create \
     --name "GatewaySubnet" \
     --address-prefixes "192.168.2.0/24" \
     --query "id" | tr -d '"')
-```
-
-## <a name="restrict-the-storage-account-to-the-virtual-network"></a>Restricción de la cuenta de almacenamiento a la red virtual
-De forma predeterminada, al crear una cuenta de almacenamiento, puede acceder a ella desde cualquier lugar del mundo siempre que tenga los medios para autenticar la solicitud (por ejemplo, con la identidad de Active Directory o con la clave de la cuenta de almacenamiento). Para restringir el acceso de esta cuenta de almacenamiento a la red virtual que acaba de crear, debe crear un conjunto de reglas de red que permita el acceso dentro de la red virtual y rechace todos los demás accesos.
-
-Para restringir la cuenta de almacenamiento a la red virtual, es necesario usar un punto de conexión de servicio. El punto de conexión de servicio es una construcción de red a través de la que solo se puede tener acceso a la dirección IP pública o de DNS desde dentro de la red virtual. Puesto que no se garantiza que la dirección IP pública siga siendo la misma, es preferible usar un punto de conexión privado en lugar de un punto de conexión de servicio para la cuenta de almacenamiento. Sin embargo, no es posible restringir la cuenta de almacenamiento a menos que también se exponga un punto de conexión de servicio.
-
-No olvide reemplazar `<storage-account-name>` por la cuenta de almacenamiento a la que quiere acceder.
-
-```bash
-storageAccountName="<storage-account-name>"
-
-az storage account network-rule add \
-    --resource-group $resourceGroupName \
-    --account-name $storageAccountName \
-    --subnet $serviceEndpointSubnet > /dev/null
-
-az storage account update \
-    --resource-group $resourceGroupName \
-    --name $storageAccountName \
-    --bypass "AzureServices" \
-    --default-action "Deny" > /dev/null
-```
-
-## <a name="create-a-private-endpoint-preview"></a>Creación de un punto de conexión privado (versión preliminar)
-Al crear un punto de conexión privado para la cuenta de almacenamiento, la cuenta de almacenamiento proporciona una dirección IP dentro del espacio de direcciones IP de la red virtual. Al montar el recurso compartido de archivos de Azure desde el entorno local mediante esta dirección IP privada, las reglas de enrutamiento autodefinidas por la instalación de VPN enrutarán la solicitud de montaje a la cuenta de almacenamiento a través de la VPN. 
-
-```bash
-zoneName="privatelink.file.core.windows.net"
-
-storageAccount=$(az storage account show \
-    --resource-group $resourceGroupName \
-    --name $storageAccountName \
-    --query "id" | tr -d '"')
-
-az resource update \
-    --ids $privateEndpointSubnet \
-    --set properties.privateEndpointNetworkPolicies=Disabled > /dev/null
-
-az network private-endpoint create \
-    --resource-group $resourceGroupName \
-    --name "$storageAccountName-PrivateEndpoint" \
-    --location $region \
-    --subnet $privateEndpointSubnet \
-    --private-connection-resource-id $storageAccount \
-    --group-ids "file" \
-    --connection-name "privateEndpointConnection" > /dev/null
-
-az network private-dns zone create \
-    --resource-group $resourceGroupName \
-    --name $zoneName > /dev/null
-
-az network private-dns link vnet create \
-    --resource-group $resourceGroupName \
-    --zone-name $zoneName \
-    --name "$virtualNetworkName-link" \
-    --virtual-network $virtualNetworkName \
-    --registration-enabled false > /dev/null
-
-networkInterfaceId=$(az network private-endpoint show \
-    --name "$storageAccountName-PrivateEndpoint" \
-    --resource-group $resourceGroupName \
-    --query 'networkInterfaces[0].id' | tr -d '"')
- 
-storageAccountPrivateIP=$(az resource show \
-    --ids $networkInterfaceId \
-    --api-version 2019-04-01 \
-    --query "properties.ipConfigurations[0].properties.privateIPAddress" | tr -d '"')
-
-fqdnQuery="properties.ipConfigurations[0].properties.privateLinkConnectionProperties.fqdns[0]"
-fqdn=$(az resource show \
-    --ids $networkInterfaceId \
-    --api-version 2019-04-01 \
-    --query $fqdnQuery | tr -d '"')
-
-az network private-dns record-set a create \
-    --name $storageAccountName \
-    --zone-name $zoneName \
-    --resource-group $resourceGroupName > /dev/null
 ```
 
 ## <a name="create-certificates-for-vpn-authentication"></a>Creación de certificados para la autenticación de VPN
@@ -285,7 +208,7 @@ smbPath="//$storageAccountPrivateIP/$fileShareName"
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 - [Introducción a las redes de Azure Files](storage-files-networking-overview.md)
 - [Configuración de una VPN de punto a sitio (P2S) en Windows para su uso con Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Configuración de una VPN de sitio a sitio (S2S) para su uso con Azure Files](storage-files-configure-s2s-vpn.md)

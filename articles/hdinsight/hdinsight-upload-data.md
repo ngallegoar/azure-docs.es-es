@@ -9,17 +9,17 @@ ms.custom: hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: 7eb1f7e1ce02a30f84cb520438f60fcbcfa3a965
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73100144"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Apache Hadoop en HDInsight
 
 Azure HDInsight ofrece un sistema de archivos distribuido de Hadoop (HDFS) completo a través de Azure Storage y Azure Data Lake Storage (Gen1 y Gen2). Azure Storage y Data Lake Storage Gen1 y Gen2 están diseñados como una extensión de HDFS a fin de ofrecer una experiencia sin problemas para los clientes. Habilitan el conjunto completo de componentes en el ecosistema de Hadoop para que opere directamente en los datos que administra. Azure Storage y Data Lake Storage Gen1 y Gen2 son sistemas de archivos diferentes que se han optimizado para el almacenamiento de datos y el cálculo en ellos. Para más información sobre las ventajas del uso de Azure Storage, consulte [Uso de Azure Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md), [Uso de Data Lake Storage Gen1 con HDInsight](hdinsight-hadoop-use-data-lake-store.md) y [Uso de Data Lake Storage Gen2 con HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Tenga en cuenta los siguientes requisitos antes de empezar:
 
@@ -46,7 +46,7 @@ Microsoft proporciona las utilidades siguientes para trabajar con Azure Storage:
 > [!NOTE]  
 > El comando de Hadoop solo está disponible en el clúster de HDInsight. El comando solo permite cargar datos desde el sistema de archivos local en Azure Storage.  
 
-## <a id="commandline"></a>Línea de comandos de Hadoop
+## <a name="hadoop-command-line"></a><a id="commandline"></a>Línea de comandos de Hadoop
 
 La línea de comandos de Hadoop solo es útil para almacenar datos en Azure Storage Blob cuando los datos ya están presentes en el nodo principal del clúster.
 
@@ -64,7 +64,7 @@ Como el sistema de archivos predeterminado de HDInsight está en Azure Storage, 
 
     wasbs:///example/data/data.txt
 
-o
+or
 
     wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
@@ -77,7 +77,7 @@ Para obtener una lista de otros comandos de Hadoop que funcionan con archivos, c
 
 También hay varias aplicaciones que proporcionan una interfaz gráfica para trabajar con Azure Storage. La siguiente tabla es una lista de algunas de estas aplicaciones:
 
-| Cliente | Linux | OS X | Windows |
+| Remoto | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio Tools para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Explorador de Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
@@ -102,7 +102,7 @@ El servicio Azure Data Factory es un servicio completamente administrado para cr
 |Azure Data Lake Storage Gen1|[Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
 |Azure Data Lake Storage Gen2 |[Carga de datos en Azure Data Lake Storage Gen2 con Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 
-### <a id="sqoop"></a>Apache Sqoop
+### <a name="apache-sqoop"></a><a id="sqoop"></a>Apache Sqoop
 
 Sqoop es una herramienta diseñada para transferir datos entre Hadoop y las bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS), como SQL Server, MySQL u Oracle en el sistema de archivos distribuidos de Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Hive y, a continuación, exportar los datos en un RDBMS.
 
@@ -121,9 +121,9 @@ También se puede acceder a Azure Storage mediante un SDK de Azure desde los sig
 
 Para obtener más información acerca de cómo instalar los SDK de Azure, consulte [Descargas de Azure](https://azure.microsoft.com/downloads/)
 
-## <a name="troubleshooting"></a>solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
-### <a id="storageexception"></a>Excepción de almacenamiento para escritura en blob
+### <a name="storage-exception-for-write-on-blob"></a><a id="storageexception"></a>Excepción de almacenamiento para escritura en blob
 
 **Síntomas**: al usar los comandos `hadoop` o `hdfs dfs` para escribir archivos de aproximadamente 12 GB, o mayores, en un clúster de HBase, puede experimentarse el siguiente error:
 
@@ -149,7 +149,7 @@ Para obtener más información acerca de cómo instalar los SDK de Azure, consul
 
 **Causa**: HBase en clústeres de HDInsight toma como valor predeterminado un tamaño de bloque de 256 KB al escribir en Azure Storage. Si bien esto funciona para API de HBase o API de REST, se produce un error al usar las utilidades de línea de comandos `hadoop` o `hdfs dfs`.
 
-**Resolución**: use `fs.azure.write.request.size` para especificar un tamaño de bloque mayor. Puede hacerlo mediante un sistema por uso con el parámetro `-D`. El siguiente comando es un ejemplo de uso de este parámetro con el comando `hadoop`:
+**Solución:** use `fs.azure.write.request.size` para especificar un tamaño de bloque mayor. Puede hacerlo mediante un sistema por uso con el parámetro `-D`. El siguiente comando es un ejemplo de uso de este parámetro con el comando `hadoop`:
 
 ```bash
 hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data

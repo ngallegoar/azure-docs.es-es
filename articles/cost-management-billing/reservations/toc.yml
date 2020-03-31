@@ -1,92 +1,115 @@
 - name: Documentación sobre Azure Reservations
   href: index.yml
+- name: Información general
+  expanded: true
   items:
-    - name: Información general
-      expanded: true
+    - name: ¿Qué es Azure Reservations?
+      href: save-compute-costs-reservations.md
+- name: Guías paso a paso
+  expanded: true
+  items:
+    - name: Determinación de lo que se debe comprar
       items:
-        - name: ¿Qué es Azure Reservations?
-          href: save-compute-costs-reservations.md
-    - name: Guías paso a paso
+        - name: Elección de una reserva para comprar
+          href: determine-reservation-purchase.md
+    - name: Adquisición de reservas
       items:
-        - name: Adquisición de una reserva de SQL Data Warehouse
-          href: prepay-sql-data-warehouse-charges.md
-        - name: Adquisición de una reserva de máquina virtual
-          href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
-        - name: Compra de una reserva de Dedicated Host
-          href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md
-        - name: Azure Disk Storage
-          href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/billing/TOC.json
-        - name: Adquisición de una reserva de Azure Storage
-          href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
-        - name: "Adquisición de una reserva de Cosmos\_DB"
-          href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
-        - name: Adquisición de una reserva de SQL Database
-          href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
-        - name: Adquisición de una reserva de Azure Data Explorer
-          href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
-        - name: Adquisición de una reserva de Azure Databricks
-          href: prepay-databricks-reserved-capacity.md
-        - name: Adquisición de una reserva de Azure Cache for Redis
-          href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/billing/TOC.json
-        - name: Adquisición de una reserva de App Service
+        - name: Adquisición de una reserva de Azure
+          href: prepare-buy-reservation.md
+        - name: App Service
           href: prepay-app-service-isolated-stamp.md
-        - name: Adquisición de reservas del plan de software de Azure
-          href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
-        - name: Compra de una reserva con pagos mensuales
-          href: monthly-payments-reservations.md
-        - name: Renovación de reservas
-          href: reservation-renew.md
-        - name: Reservas de intercambio y devolución
-          href: exchange-and-refund-azure-reservations.md
+        - name: Reserva de Azure Cache for Redis
+          href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Cosmos DB
+          href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Databricks
+          href: prepay-databricks-reserved-capacity.md
+        - name: Data Explorer
+          href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Disk Storage
+          href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Host dedicado
+          href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md
+        - name: Planes de software
+          href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Azure Storage
+          href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: SQL Database
+          href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: SQL Data Warehouse
+          href: prepay-sql-data-warehouse-charges.md
+        - name: Máquinas virtuales
+          href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: 'Visualización, administración y optimización después de la compra'
+      items:
+        - name: Visualización y uso de reservas
+          href: view-reservations.md
         - name: Administración de reservas
           href: manage-reserved-vm-instance.md
         - name: Cambio de la configuración de optimización
           href: 'manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances'
-        - name: Visualización de reservas
-          href: view-reservations.md
-    - name: Conceptos
+        - name: Reservas de intercambio y devolución
+          href: exchange-and-refund-azure-reservations.md
+    - name: Renovación de reservas
       items:
-        - name: Creación de recomendaciones de reservas
-          href: reserved-instance-purchase-recommendations.md
-        - name: Descuentos en instancias reservadas de VM
-          href: ../manage/understand-vm-reservation-charges.md
-        - name: Descuentos en instancias reservadas de Dedicated Host
-          href: billing-understand-dedicated-hosts-reservation-charges.md
-        - name: Descuentos en capacidad reservada de Azure Storage
-          href: understand-storage-charges.md
-        - name: Descuentos en las reservas de Azure Disk Storage
-          href: understand-disk-reservations.md
-        - name: "Descuentos en capacidad reservada de Cosmos\_DB"
-          href: understand-cosmosdb-reservation-charges.md
-        - name: Descuentos en capacidad reservada de SQL Database
-          href: understand-reservation-charges.md
-        - name: Descuentos en SQL Data Warehouse
-          href: reservation-discount-azure-sql-dw.md
-        - name: Descuentos en Azure Data Explorer
-          href: understand-azure-data-explorer-reservation-charges.md
-        - name: Descuentos en Azure Databricks
-          href: reservation-discount-databricks.md
-        - name: Descuentos en Azure Database for MySQL
-          href: understand-reservation-charges-mysql.md
-        - name: Descuentos en Azure Database for PostgreSQL
-          href: understand-reservation-charges-postgresql.md
-        - name: Descuentos en Red Hat Linux Enterprise
-          href: understand-rhel-reservation-charges.md
-        - name: Descuentos en Azure Database for MariaDB
-          href: understand-reservation-charges-mariadb.md
-        - name: Descuentos en Azure Cache for Redis
-          href: understand-azure-cache-for-redis-reservation-charges.md
-        - name: Descuentos en App Service
+        - name: Renovación de una reserva
+          href: reservation-renew.md
+- name: Conceptos
+  expanded: true
+  items:
+    - name: Creación de recomendaciones de reservas
+      href: reserved-instance-purchase-recommendations.md
+    - name: Aplicación del descuento
+      items:
+        - name: Aplicación de un descuento por reserva de Azure
+          href: reservation-discount-application.md
+        - name: App Service
           href: reservation-discount-app-service-isolated-stamp.md
-        - name: Descuentos en los planes de software de Azure
+        - name: Azure Cache for Redis
+          href: understand-azure-cache-for-redis-reservation-charges.md
+        - name: Cosmos DB
+          href: understand-cosmosdb-reservation-charges.md
+        - name: Database for MariaDB
+          href: understand-reservation-charges-mariadb.md
+        - name: Database for MySQL
+          href: understand-reservation-charges-mysql.md
+        - name: Database for PostgreSQL
+          href: understand-reservation-charges-postgresql.md
+        - name: Databricks
+          href: reservation-discount-databricks.md
+        - name: Data Explorer
+          href: understand-azure-data-explorer-reservation-charges.md
+        - name: Hosts dedicados
+          href: billing-understand-dedicated-hosts-reservation-charges.md
+        - name: Disk Storage
+          href: understand-disk-reservations.md
+        - name: Red Hat Linux Enterprise
+          href: understand-rhel-reservation-charges.md
+        - name: Planes de software
           href: understand-suse-reservation-charges.md
-        - name: Costos de Windows y SQL no incluidos
-          href: reserved-instance-windows-software-costs.md
-        - name: Datos de uso de las suscripciones individuales
-          href: understand-reserved-instance-usage.md
-        - name: Datos de uso para clientes de Enterprise
-          href: understand-reserved-instance-usage-ea.md
-    - name: Referencia
-      items:
-        - name: API de reserva de Azure
-          href: reservation-apis.md
+        - name: Storage
+          href: understand-storage-charges.md
+        - name: SQL Database
+          href: understand-reservation-charges.md
+        - name: SQL Data Warehouse
+          href: reservation-discount-azure-sql-dw.md
+        - name: Máquinas virtuales
+          href: ../manage/understand-vm-reservation-charges.md
+    - name: Costos de Windows y SQL no incluidos
+      href: reserved-instance-windows-software-costs.md
+    - name: Datos de uso de las suscripciones individuales
+      href: understand-reserved-instance-usage.md
+    - name: Datos de uso para clientes de Enterprise
+      href: understand-reserved-instance-usage-ea.md
+- name: Referencia
+  items:
+    - name: API REST de reservas
+      href: reservation-apis.md
+    - name: 'Reservas: Azure PowerShell'
+      href: /powershell/module/azurerm.reservations
+    - name: 'Reservas: CLI'
+      href: /cli/azure/reservations/reservation
+    - name: 'Cost Management: API REST de detalles de uso de consumo'
+      href: /rest/api/consumption/usagedetails
+    - name: 'Cost Management: API REST de detalles de reservas de consumo'
+      href: /rest/api/consumption/reservationsdetails

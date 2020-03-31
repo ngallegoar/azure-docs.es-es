@@ -13,11 +13,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928108"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236336"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Movimiento de datos de MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -30,9 +30,9 @@ ms.locfileid: "74928108"
 
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos de una base de datos MySQL local. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
-Puede copiar datos desde un almacén de datos de MySQL local a cualquier almacén de datos del receptor admitidos. Para ver una lista de almacenes de datos admitidos como receptores por la actividad de copia, consulte la tabla [Almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory solo admite actualmente el movimiento de datos de un almacén de datos de MySQL a otros almacenes de datos, pero no viceversa. 
+Puede copiar datos desde un almacén de datos de MySQL local a cualquier almacén de datos del receptor admitidos. Consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como receptores. Data Factory solo admite actualmente el movimiento de datos de un almacén de datos de MySQL a otros almacenes de datos, pero no viceversa. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 El servicio Factoría de datos admite la conexión a orígenes de MySQL locales mediante Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace.
 
 La puerta de enlace es necesaria incluso si la base de datos MySQL está hospedada en una máquina virtual (VM) de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
@@ -49,7 +49,7 @@ Para que la puerta de enlace de administración de datos se conecte a la Base de
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva los datos desde un almacén de datos Cassandra local mediante el uso de diferentes herramientas o API. 
 
-- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos. 
+- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos. 
 - Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
@@ -65,12 +65,12 @@ Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos al servicio vinculado de MySQL.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesMySql** |Sí |
 | server |Nombre del servidor MySQL. |Sí |
 | database |Nombre de la base de datos MySQL. |Sí |
-| schema |Nombre del esquema de la base de datos. |Sin |
+| esquema |Nombre del esquema de la base de datos. |No |
 | authenticationType |Tipo de autenticación usado para conectarse a la Base de datos MySQL. Los valores posibles son: `Basic`. |Sí |
 | userName |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |Sí |
 | password |Especifique la contraseña de la cuenta de usuario especificada. |Sí |
@@ -81,7 +81,7 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos de tipo **RelationalTable** (que incluye el conjunto de datos de MySQL) tiene las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | tableName |Nombre de la tabla en la instancia de la Base de datos MySQL a la que hace referencia el servicio vinculado. |No (si se especifica **query** de **RelationalSource**) |
 
@@ -92,9 +92,9 @@ Por otra parte, las propiedades disponibles en la sección **typeProperties** de
 
 Si el origen es de tipo **RelationalSource** (que incluye MySQL), están disponibles las propiedades siguientes en la sección typeProperties:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| query |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select * from MyTable. |No (si se especifica **tableName** de **dataset**) |
+| Query |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select * from MyTable. |No (si se especifica **tableName** de **dataset**) |
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>Ejemplo JSON: Copia de datos de MySQL a un blob de Azure
@@ -298,46 +298,46 @@ Como se mencionó en el artículo sobre [actividades del movimiento de datos](da
 
 Al mover datos a MySQL, se usarán las asignaciones siguientes de tipos MySQL a tipos .NET.
 
-| Tipo de Base de datos MySQL | Tipo .NET Framework |
+| Tipo de Base de datos MySQL | Tipo de .NET Framework |
 | --- | --- |
 | bigint unsigned |Decimal |
 | bigint |Int64 |
 | bit |Decimal |
 | blob |Byte[] |
-| booleano |Boolean |
-| char |Cadena |
+| bool |Boolean |
+| char |String |
 | date |Datetime |
-| Datetime |Datetime |
-| decimal |Decimal |
+| datetime |Datetime |
+| Decimal |Decimal |
 | double precision |Double |
-| Doble |Double |
-| enum |Cadena |
-| float |Single |
+| double |Double |
+| enum |String |
+| FLOAT |Single |
 | int unsigned |Int64 |
 | int |Int32 |
 | integer unsigned |Int64 |
 | integer |Int32 |
 | long varbinary |Byte[] |
-| long varchar |Cadena |
+| long varchar |String |
 | longblob |Byte[] |
-| longtext |Cadena |
+| longtext |String |
 | mediumblob |Byte[] |
 | mediumint unsigned |Int64 |
 | mediumint |Int32 |
-| mediumtext |Cadena |
-| numeric |Decimal |
+| mediumtext |String |
+| NUMERIC |Decimal |
 | real |Double |
-| set |Cadena |
+| set |String |
 | smallint unsigned |Int32 |
-| smallint |Int16 |
-| text |Cadena |
+| SMALLINT |Int16 |
+| text |String |
 | time |TimeSpan |
 | timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
-| tinyint |Int16 |
-| tinytext |Cadena |
-| varchar |Cadena |
+| TINYINT |Int16 |
+| tinytext |String |
+| varchar |String |
 | year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor

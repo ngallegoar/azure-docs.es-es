@@ -9,14 +9,16 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
-ms.openlocfilehash: 16e4a7e2f06d2630c970f8daa4428e7a184a79df
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 878b64fe6dd491adbb61c4c74cf4a5fc039858cd
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163048"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79371416"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implementación de la versión preliminar de Azure Digital Twins y configuración de un grafo espacial
+
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 Puede usar el servicio en versión preliminar de Azure Digital Twins para reunir personas, lugares y dispositivos en un sistema espacial coherente. En esta serie de tutoriales se muestra cómo usar Azure Digital Twins para detectar la ocupación de salas con condiciones óptimas de temperatura y calidad del aire. 
 

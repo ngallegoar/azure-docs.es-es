@@ -13,28 +13,42 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 88cd29af75239f0ad79eb78b5ff8e106c3b2ee56
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.custom: subject-armqs
+ms.openlocfilehash: c2221fe5b5ab38afbdde167e5bcbf6b47ed4f861
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163082"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79528088"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un centro de eventos con una plantilla de Azure Resource Manager
 
-Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).
+Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md). En esta guía de inicio rápido, creará un centro de eventos mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md). Puede implementar una plantilla de Azure Resource Manager para crear un espacio de nombres de tipo [Event Hubs](event-hubs-what-is-event-hubs.md), con un centro de eventos.
 
-En esta guía de inicio rápido, creará un centro de eventos mediante una [plantilla de Azure Resource Manager](../azure-resource-manager/management/overview.md). Puede implementar una plantilla de Azure Resource Manager para crear un espacio de nombres de tipo [Event Hubs](event-hubs-what-is-event-hubs.md), con un centro de eventos. El artículo muestra cómo definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades. Para información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][Authoring Azure Resource Manager templates]. Para la sintaxis y las propiedades de JSON que se usan en una plantilla, consulte [Tipos de recursos de Microsoft.EventHub](/azure/templates/microsoft.eventhub/allversions).
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
+## <a name="prerequisites"></a>Prerrequisitos
+
+Ninguno.
+
 ## <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
-En este inicio rápido se usa una [plantilla de inicio rápido existente](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json):
+### <a name="review-the-template"></a>Revisión de la plantilla
 
-[!code-json[create-azure-event-hub-namespace](~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)]
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
+
+:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json" range="1-61" highlight="32-59":::
+
+Entre los recursos definidos en la plantilla se incluyen los siguientes:
+
+- [**Microsoft.EventHub/namespaces**](/azure/templates/microsoft.eventhub/namespaces)
+- [**Microsoft.EventHub/namespaces/eventhubs**](/azure/templates/microsoft.eventhub/namespaces/eventhubs)
 
 Para buscar más ejemplos de plantillas, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular).
+
+### <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Para implementar la plantilla:
 

@@ -4,16 +4,16 @@ description: 'Tutorial: Prepare el entorno para desarrollar e implementar módul
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/23/2020
+ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9809a9b4d644a1fa11fe9cce1cbd35b037206b29
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 42c776d4d6c3973e7c222c9c9adf3e5105f6c84f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944288"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79296816"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configuración de un entorno de aprendizaje automático en IoT Edge
 
@@ -177,7 +177,7 @@ El script tarda dos minutos en ejecutarse. Cuando haya finalizado, el script gen
 
 ## <a name="review-route-to-storage-in-iot-hub"></a>Revisión de la ruta al almacenamiento en IoT Hub
 
-Como parte de la creación del centro de IoT, el script que se ejecutó en la sección anterior también crea un punto de conexión personalizado y una ruta. Las rutas de IoT Hub constan de una expresión de consulta y un punto de conexión. Si un mensaje coincide con la expresión, los datos se envían a lo largo de la ruta hasta el punto de conexión asociado. Los puntos de conexión pueden ser Event Hubs, colas de Service Bus y temas. En este caso, el punto de conexión es un contenedor de blobs en una cuenta de almacenamiento. Vamos a usar Azure Portal para revisar la ruta que creó el script.
+Como parte de la creación del centro de IoT, el script que se ejecutó en la sección anterior también crea un punto de conexión personalizado y una ruta. Las rutas de IoT Hub constan de una expresión de consulta y un punto de conexión. Si un mensaje coincide con la expresión, los datos se envían a lo largo de la ruta hasta el punto de conexión asociado. Los puntos de conexión pueden ser Event Hubs, colas de Service Bus y temas. En este caso, el punto de conexión es un contenedor de blobs en una cuenta de almacenamiento. Vamos a usar Azure Portal para revisar la ruta que ha creado el script.
 
 1. Abra [Azure Portal](https://portal.azure.com) y vaya al grupo de recursos que utiliza para este tutorial.
 
@@ -189,12 +189,13 @@ Como parte de la creación del centro de IoT, el script que se ejecutó en la se
 
 1. Expanda la sección **Storage**:
 
-   ![Compruebe si turbofandevicestorage se encuentra en la lista de puntos de conexión personalizados](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   ![Compruebe si turbofanDeviceStorage se encuentra en la lista de puntos de conexión personalizados](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-   Vemos que **turbofandevicestorage** se encuentra en la lista de puntos de conexión personalizados. Tenga en cuenta las siguientes características de este punto de conexión:
+   Vemos que **turbofanDeviceStorage** se encuentra en dicha lista. Tenga en cuenta las siguientes características de este punto de conexión:
 
    * Apunta al contenedor de Blob Storage que creó, llamado `devicedata`, tal como se indica en **Nombre de contenedor**.
    * Su **formato de nombre de archivo** tiene la partición como último elemento del nombre. Este formato parece más práctico para las operaciones de archivo que se realizarán con Azure Notebooks más adelante durante el tutorial.
+   * El valor de **Estado** debe ser Correcto.
 
 1. Seleccione la pestaña **Rutas**.
 

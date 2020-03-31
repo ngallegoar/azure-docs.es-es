@@ -4,12 +4,12 @@ description: Proporciona instrucciones para configurar la supervisión de sitios
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 1c581867f1e7ebc29f2aaff97124a08bec4e3b40
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 495c40ca8e383dd5a3cf3ba9e5bd42e2936ea015
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670855"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132362"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Inicio rápido: Empezar a supervisar un sitio web con Azure Monitor Application Insights
 
@@ -126,7 +126,7 @@ Si planea realizar otros inicios rápidos o tutoriales, no limpie los recursos c
 > [!NOTE]
 > Si ha usado un grupo de recursos existente, las instrucciones siguientes no funcionarán y solo necesitará eliminar el recurso individual de Application Insights. Tenga esto en cuenta que cada vez que se elimina un grupo de recursos, se eliminarán todos los recursos de subyacente que sean miembros de ese grupo.
 
-1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en **myResourceGroup**.
+1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y luego en **myResourceGroup** o en el nombre del grupo de recursos temporal.
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba **myResourceGroup** en el cuadro de texto y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes

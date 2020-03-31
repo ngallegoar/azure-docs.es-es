@@ -1,19 +1,18 @@
 ---
 title: SKU para imágenes de contenedor de Azure | Azure Marketplace
 description: Configure SKU para un contenedor de Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 5b69eea8ad7fd4c62925b50434b653118890e280
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: adbe3d4c498c8f4e4968ca903f78c34aedca9a4d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823143"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280004"
 ---
 # <a name="container-skus-tab"></a>Pestaña de SKU de contenedor
 

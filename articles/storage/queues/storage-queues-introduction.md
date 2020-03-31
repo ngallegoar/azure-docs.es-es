@@ -3,17 +3,17 @@ title: Introducción a Azure Queues en Azure Storage
 description: Introducción a Azure Queues
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/07/2019
+ms.date: 03/18/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: cbrooks
-ms.openlocfilehash: 0e8bac8344bec06b58a22b8c9162cd8bd22ee700
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4a2bea77578282d68d86bc1a8cea765aa2cbd555
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750437"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80060839"
 ---
 # <a name="what-are-azure-queues"></a>¿Qué son las colas de Azure?
 
@@ -23,7 +23,7 @@ Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes
 
 El servicio Cola contiene los siguientes componentes:
 
-![Conceptos de cola](./media/storage-queues-introduction/queue1.png)
+![Diagrama que muestra la relación entre una cuenta de almacenamiento, las colas y los mensajes](./media/storage-queues-introduction/queue1.png)
 
 * **Formato de dirección URL**: Las colas son direccionables mediante el siguiente formato de dirección URL:
 

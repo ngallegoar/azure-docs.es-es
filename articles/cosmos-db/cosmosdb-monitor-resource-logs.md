@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: sngun
 ms.openlocfilehash: 184fc65dae57292243be9abdca71a129512b3d0b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252054"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Supervisión de datos de Azure Cosmos DB mediante la configuración de diagnóstico en Azure
@@ -65,7 +65,7 @@ Las métricas de la plataforma y el registro de actividad se recopilan automáti
 Para obtener información detallada sobre cómo crear una configuración de diagnóstico mediante Azure Portal, la CLI o PowerShell, consulte el artículo [Creación de una configuración de diagnóstico para recopilar registros de plataforma y métricas en Azure](../azure-monitor/platform/diagnostic-settings.md).
 
 
-## <a id="diagnostic-queries"></a> Solución de problemas con las consultas de diagnóstico
+## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Solución de problemas con las consultas de diagnóstico
 
 1. ¿Cómo puedo obtener los cargos de solicitud para las consultas costosas?
 

@@ -12,10 +12,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: 7e8a1793a329a863c9df97ae5ddcbee6cef10e8e
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964362"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
@@ -103,7 +103,7 @@ Este diagrama muestra las conexiones necesarias para Azure-SSIS Integration Runt
 
 ![Integration Runtime de SSIS de Azure](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
-### <a name="perms"></a> Configuración de permisos
+### <a name="set-up-permissions"></a><a name="perms"></a> Configuración de permisos
 
 El usuario que cree Azure-SSIS Integration Runtime debe tener los permisos siguientes:
 
@@ -115,7 +115,7 @@ El usuario que cree Azure-SSIS Integration Runtime debe tener los permisos sigui
 
 - Si va a conectar SSIS IR a una red virtual clásica, se recomienda usar el rol Colaborador de máquina virtual clásica integrado. En caso contrario, tendrá que definir un rol personalizado que incluya el permiso para unirse a la red virtual.
 
-### <a name="subnet"></a> Seleccionar la subred
+### <a name="select-the-subnet"></a><a name="subnet"></a> Seleccionar la subred
 
 Cuando elija una subred: 
 
@@ -125,7 +125,7 @@ Cuando elija una subred:
 
 - No use una subred que esté ocupada exclusivamente por otros servicios de Azure (por ejemplo, Instancia administrada de SQL Database, App Service, etc.) 
 
-### <a name="publicIP"></a>Selección de direcciones IP públicas estáticas
+### <a name="select-the-static-public-ip-addresses"></a><a name="publicIP"></a>Selección de direcciones IP públicas estáticas
 
 Si desea traer sus propias direcciones IP públicas estáticas para Azure-SSIS IR y conectar este a una red virtual, asegúrese de que las direcciones cumplen los requisitos siguientes:
 
@@ -139,7 +139,7 @@ Si desea traer sus propias direcciones IP públicas estáticas para Azure-SSIS 
 
 - Estas y la red virtual deben estar en la misma suscripción y en la misma región.
 
-### <a name="dns_server"></a> Configuración del servidor DNS 
+### <a name="set-up-the-dns-server"></a><a name="dns_server"></a> Configuración del servidor DNS 
 Si tiene que usar su propio servidor DNS en una red virtual a la que se ha conectado Azure-SSIS Integration Runtime para resolver su nombre de host privado, asegúrese de que puede resolver también nombres de host globales de Azure (por ejemplo, un blob de Azure Storage llamado `<your storage account>.blob.core.windows.net`). 
 
 Un enfoque recomendado es el siguiente: 
@@ -151,7 +151,7 @@ Para más información, consulte [Resolución de nombres con su propio servidor 
 > [!NOTE]
 > Use un nombre de dominio completo (FQDN) para el nombre de host privado; por ejemplo, use `<your_private_server>.contoso.com` en lugar de `<your_private_server>`, ya que Azure-SSIS Integration Runtime no anexará automáticamente su sufijo DNS.
 
-### <a name="nsg"></a> Configuración de un grupo de seguridad de red
+### <a name="set-up-an-nsg"></a><a name="nsg"></a> Configuración de un grupo de seguridad de red
 Si tiene que implementar grupos de seguridad de red para la subred que usa Azure-SSIS Integration Runtime, permita que el tráfico entrante y saliente atraviese los siguientes puertos: 
 
 -   **Requisito de entrada de Azure-SSIS Integration Runtime**
@@ -173,7 +173,7 @@ Si tiene que implementar grupos de seguridad de red para la subred que usa Azure
 | Salida | TCP | VirtualNetwork | * | Storage | 445 | (Opcional). Esta regla solo es necesaria cuando quiera ejecutar un paquete SSIS almacenado en Azure Files. |
 ||||||||
 
-### <a name="route"></a> Uso de Azure ExpressRoute o de una ruta definida por el usuario
+### <a name="use-azure-expressroute-or-udr"></a><a name="route"></a> Uso de Azure ExpressRoute o de una ruta definida por el usuario
 Si desea inspeccionar el tráfico saliente desde Azure-SSIS Integration Runtime, puede enrutar el tráfico iniciado desde allí al dispositivo de firewall local mediante la tunelización forzada de [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) (con anuncio de una ruta BGP, 0.0.0.0/0, a la red virtual), o a una aplicación virtual de red (NVA) como firewall, o a [Azure Firewall](https://docs.microsoft.com/azure/firewall/) a través de las [rutas definidas por el usuario (UDR)](../virtual-network/virtual-networks-udr-overview.md). 
 
 ![Escenario de NVA para Azure-SSIS Integration Runtime](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir-nva.png)
@@ -231,7 +231,7 @@ Si no necesita la funcionalidad de inspección del tráfico saliente de Azure-SS
 > [!NOTE]
 > La especificación de la ruta con el tipo de próximo salto como **Internet** no significa que todo el tráfico pasará por Internet. Mientras la dirección de destino sea para uno de los servicios de Azure, Azure enruta el tráfico directamente al servicio a través de la red troncal de Azure, en lugar de enrutarlo a Internet.
 
-### <a name="resource-group"></a> Configuración del grupo de recursos
+### <a name="set-up-the-resource-group"></a><a name="resource-group"></a> Configuración del grupo de recursos
 
 La instancia de Integration Runtime para la integración de SSIS en Azure necesita crear determinados recursos de red en el mismo grupo de recursos de la red virtual. Estos recursos incluyen:
 - Una instancia de Azure Load Balancer, con el nombre *\<Guid>-azurebatch-cloudserviceloadbalancer*.
@@ -250,7 +250,7 @@ Asegúrese de que no tiene ninguna directiva de Azure que impida que se creen lo
 - Microsoft.Network/NetworkSecurityGroups 
 - Microsoft.Network/PublicIPAddresses 
 
-### <a name="faq"></a> Preguntas más frecuentes
+### <a name="faq"></a><a name="faq"></a> Preguntas más frecuentes
 
 - ¿Cómo se protege la dirección IP pública expuesta en Azure-SSIS Integration Runtime para la conexión entrante? ¿Es posible quitar la dirección IP pública?
  

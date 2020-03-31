@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 482dc0ab549ec6b9f05bc9f74a3d31ac13646ce5
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 6c81e50560de69f7702e852d4602680fde7f01f3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169202"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218139"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implementación de un servicio web de Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (clásico) permite compilar y probar una solución de análisis predictivo. Luego, puede implementar la solución como un servicio web.
 
@@ -123,7 +125,7 @@ Para más información sobre el acceso a un servicio web de Machine Learning Stu
 
 Puede administrar los nuevos servicios web mediante el portal de servicios web de Machine Learning Studio (clásico). En la [página principal del portal](https://services.azureml.net/), haga clic en **Servicios web**. En la página de servicios web, puede eliminar o copiar servicios. Para supervisar un servicio concreto, haga clic en el servicio y, después, haga clic en **Panel**. Para supervisar los trabajos por lotes asociados con el servicio web, haga clic en **Batch Request Log**(Registro de solicitudes por lotes).
 
-### <a id="multi-region"></a> Implementación del nuevo servicio web en varias regiones
+### <a name="deploy-your-new-web-service-to-multiple-regions"></a><a id="multi-region"></a> Implementación del nuevo servicio web en varias regiones
 
 Puede implementar fácilmente un nuevo servicio web en varias regiones sin necesidad de disponer de varias suscripciones o áreas de trabajo.
 

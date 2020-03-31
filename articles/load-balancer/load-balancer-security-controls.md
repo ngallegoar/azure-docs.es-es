@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: allensu
 ms.openlocfilehash: 6043e574697489b6566641c352bc21a2b6d87f51
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74214896"
 ---
 # <a name="security-controls-for-azure-load-balancer"></a>Controles de seguridad para Azure Load Balancer
@@ -26,7 +26,7 @@ En este artículo se explican los controles de seguridad integrados en Azure Loa
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
 | Compatibilidad con punto de conexión de servicio| N/D | |
-| Compatibilidad con inserción de red virtual| N/D | |
+| Compatibilidad con la inserción de redes virtuales| N/D | |
 | Compatibilidad con el aislamiento de red y los firewalls| N/D |  |
 | Compatibilidad con la tunelización forzada| N/D | |
 
@@ -45,12 +45,12 @@ En este artículo se explican los controles de seguridad integrados en Azure Loa
 | Authentication| N/D |  |
 | Authorization| N/D |  |
 
-## <a name="data-protection"></a>Protección de datos
+## <a name="data-protection"></a>Protección de los datos
 
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado del lado servidor en reposo: Claves administradas por Microsoft | N/D | |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y el cifrado de red virtual a red virtual)| N/D | |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| N/D | |
 | Cifrado del lado servidor en reposo: claves administradas por el cliente (BYOK) | N/D | |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | A través de [Azure Resource Manager](../azure-resource-manager/index.yml). |

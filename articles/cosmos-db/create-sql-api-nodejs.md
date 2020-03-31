@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: dech
-ms.openlocfilehash: 729fd776321a90257289dcf92f13079a8206d9d9
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 0b29f9c1f395e079c97d5877d08bd7bd73c7ea53
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927422"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80240314"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Uso de Node.js para conectarse y consultar datos en una cuenta de Azure Cosmos DB SQL API
 
@@ -26,6 +26,12 @@ ms.locfileid: "78927422"
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 En este inicio rápido se crea y administra una cuenta de Azure Cosmos DB para SQL API desde Azure Portal, y se usa una aplicación de Node.js clonada desde GitHub. Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal.
+
+## <a name="walkthrough-video"></a>Tutorial de vídeo
+
+Este vídeo incluye un tutorial completo sobre el contenido de este artículo.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Quickstart-Use-Nodejs-to-connect-and-query-data-from-Azure-Cosmos-DB-SQL-API-account/player]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -115,13 +121,13 @@ Los fragmentos de código siguientes se han tomado del archivo _app.js_.
 - Seleccione la base de datos "Tasks".
 
   ```javascript
-  const database = await client.databases(databaseId);
+  const database = client.database(databaseId);
   ```
 
 - Seleccione el contenedor o la colección "Items".
 
   ```javascript
-  const container = await client.databases(containerId);
+  const container = database.container(containerId);
   ```
 
 - Seleccione todos los elementos del contenedor "Items".
@@ -132,7 +138,7 @@ Los fragmentos de código siguientes se han tomado del archivo _app.js_.
     query: "SELECT * from c"
   };
 
-  const { resources: results } = await container.items
+  const { resources: items } = await container.items
     .query(querySpec)
     .fetchAll();
   ```
@@ -149,15 +155,15 @@ Los fragmentos de código siguientes se han tomado del archivo _app.js_.
   const { id, category } = createdItem;
 
   createdItem.isComplete = true;
-  const { resource: itemToUpdate } = await container
+  const { resource: updatedItem } = await container
     .item(id, category)
-    .replace(itemToUpdate);
+    .replace(createdItem);
   ```
 
 - Eliminación de un elemento
 
   ```javascript
-  const { resource: result } = await this.container.item(id, category).delete();
+  const { resource: result } = await container.item(id, category).delete();
   ```
 
 > [!NOTE]

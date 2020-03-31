@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931864"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231604"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Movimiento de datos de un origen de OData mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -43,7 +43,7 @@ Estos son los tipos de autenticación admitidos:
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva datos desde un origen OData mediante diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
 Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
@@ -60,7 +60,7 @@ Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado de OData.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OData** |Sí |
 | url |Dirección URL del servicio de OData. |Sí |
@@ -68,7 +68,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | username |Especifique el nombre de usuario si usa la autenticación básica. |Sí (solo si usa la autenticación básica) |
 | password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sí (solo si usa la autenticación básica) |
 | authorizedCredential |Si está usando OAuth, haga clic en el botón **Autorizar** del Editor o el Asistente para copiar de Data Factory y escriba su credencial. Después, el valor de esta propiedad se generará automáticamente. |Sí (solo si usa la autenticación OAuth) |
-| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servicio de OData local. Especifique solo si va a copiar datos del origen de OData local. |Sin |
+| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servicio de OData local. Especifique solo si va a copiar datos del origen de OData local. |No |
 
 ### <a name="using-basic-authentication"></a>Uso de la autenticación básica
 ```json
@@ -145,9 +145,9 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos del tipo **ODataResource** (que incluye el conjunto de datos de OData) tiene las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
-| path |Ruta de acceso al recurso de OData |Sin |
+| path |Ruta de acceso al recurso de OData |No |
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
@@ -156,9 +156,9 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 
 Cuando la actividad de copia es de tipo **RelationalSource** (lo que incluye OData), están disponibles las propiedades siguientes en la sección typeProperties:
 
-| Propiedad | DESCRIPCIÓN | Ejemplo | Obligatorio |
+| Propiedad | Descripción | Ejemplo | Obligatorio |
 | --- | --- | --- | --- |
-| query |Utilice la consulta personalizada para leer los datos. |"?$select=Name, Description&$top=5" |Sin |
+| Query |Utilice la consulta personalizada para leer los datos. |"?$select=Name, Description&$top=5" |No |
 
 ## <a name="type-mapping-for-odata"></a>Asignación de tipos para OData
 Como se mencionó en el artículo sobre [actividades del movimiento de datos](data-factory-data-movement-activities.md) , la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos.

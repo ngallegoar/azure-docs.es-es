@@ -8,10 +8,10 @@ ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 746232a85e326f08d44cf2dbe0a4ae718c7cc312
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69983349"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migración de los datos de Cassandra a una cuenta de Cassandra API de Azure Cosmos DB mediante Blitzz

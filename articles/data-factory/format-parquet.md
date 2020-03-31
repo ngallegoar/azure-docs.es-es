@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 81bbd476cea0472647ca183fb188fc13725d1469
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77597633"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato Parquet en Azure Data Factory
@@ -30,7 +30,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | La propiedad type del conjunto de datos debe establecerse en **Parquet**. | Sí      |
 | ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
-| compressionCodec | El códec de compresión que se usará al escribir en archivos Parquet. Al realizar la lectura desde archivos Parquet, las instancias de Data Factory determinan automáticamente el códec de compresión basado en los metadatos del archivo.<br>Los tipos admitidos son "**none**","**gzip**","**snappy**" (predeterminado) y "**lzo**". Tenga en cuenta que la actividad de copia no es compatible actualmente con LZO cuando hay archivos Parquet de lectura y escritura. | Sin       |
+| compressionCodec | El códec de compresión que se usará al escribir en archivos Parquet. Al realizar la lectura desde archivos Parquet, las instancias de Data Factory determinan automáticamente el códec de compresión basado en los metadatos del archivo.<br>Los tipos admitidos son "**none**","**gzip**","**snappy**" (predeterminado) y "**lzo**". Tenga en cuenta que la actividad de copia no es compatible actualmente con LZO cuando hay archivos Parquet de lectura y escritura. | No       |
 
 > [!NOTE]
 > No se admiten espacios en blanco en el nombre de columna de los archivos Parquet.
@@ -70,7 +70,7 @@ En la sección ***\*source\**** de la actividad de copia se admiten las siguient
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La propiedad type del origen de la actividad de copia debe establecerse en **ParquetSource**. | Sí      |
-| storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
+| storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
 
 ### <a name="parquet-as-sink"></a>Parquet como receptor
 
@@ -79,7 +79,7 @@ En la sección ***\*sink\**** de la actividad de copia se admiten las siguientes
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La propiedad type del origen de la actividad de copia debe establecerse en **ParquetSink**. | Sí      |
-| storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | Sin       |
+| storeSettings | Un grupo de propiedades sobre cómo escribir datos en un almacén de datos. Cada conector basado en archivos tiene su propia configuración de escritura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 

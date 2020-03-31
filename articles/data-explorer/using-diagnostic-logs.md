@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.openlocfilehash: 3e10979e26cacdc0c2071a6030c945adad21a51c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277426"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Supervisión de las operaciones de ingesta de Azure Data Explorer mediante registros de diagnóstico (versión preliminar)
 
 Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado para analizar en tiempo real grandes volúmenes de datos de que se transmiten desde aplicaciones, sitios web, dispositivos IoT, etc. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en ese clúster. A continuación, ingerirá (cargará) los datos en una tabla de una base de datos para que pueda ejecutar consultas en ella. Los [registros de diagnóstico de Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-overview) proporcionan datos sobre el funcionamiento de los recursos de Azure. Azure Data Explorer usa registros de diagnóstico para extraer conclusiones sobre los errores y aciertos de la ingesta. Puede exportar los registros de operaciones a Azure Storage, Event Hub o Log Analytics para supervisar el estado de ingesta. Los registros de Azure Storage y Azure Event Hub se pueden enrutar a una tabla del clúster de Azure Data Explorer para analizarlos mejor.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 * Creación de un [clúster y una base de datos](create-cluster-database-portal.md).

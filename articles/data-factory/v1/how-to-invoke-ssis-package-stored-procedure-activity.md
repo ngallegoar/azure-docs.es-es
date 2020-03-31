@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: ea86c4670a8eb6dc5e2133ed01045e8aada0f707
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75438782"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
@@ -26,7 +26,7 @@ En este artículo se describe cómo invocar un paquete de SSIS desde una canaliz
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory, consulte [Invocar paquetes SSIS mediante la actividad de procedimiento almacenado](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 El tutorial de este artículo usa una base de datos de Azure SQL que hospeda el catálogo de SSIS. También puede usar una instancia administrada de Azure SQL Database.

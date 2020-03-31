@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591581"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231052"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -85,7 +85,7 @@ Las aplicaciones de demonio pueden usar dos tipos de credenciales para realizar 
 
 ### <a name="upload-a-certificate"></a>Carga de un certificado
 
-Puede usar un certificado existente si lo tiene.  Si quiere, puede crear un certificado autofirmado con fines de prueba. Abra PowerShell y ejecute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con los parámetros siguientes para crear un certificado autofirmado en el almacén de certificados del usuario en su equipo: 
+Puede usar un certificado existente si lo tiene.  Si quiere, puede crear un certificado autofirmado con *fines de prueba únicamente*. Abra PowerShell y ejecute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con los parámetros siguientes para crear un certificado autofirmado en el almacén de certificados del usuario en su equipo: 
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -93,8 +93,18 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 Exporte este certificado a un archivo con el complemento MMC [Administrar certificado de usuario](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) accesible desde el Panel de control de Windows.
 
+1. Seleccione **Ejecutar** en el menú **Inicio** y, a continuación, escriba **certmgr.msc**.
+
+   Aparece la herramienta Administrador de certificados para el usuario actual.
+
+1. Para ver los certificados, en **Certificados - usuario actual** en el panel izquierdo, expanda el directorio **Personal**.
+1. Haga clic con el botón derecho en el certificado que ha creado y seleccione **Todas las tareas->Exportar**.
+1. Siga el Asistente para exportar certificados.  Exporte la clave privada, especifique una contraseña para el archivo de certificado y exporte a un archivo.
+
 Para cargar el certificado:
 
+1. Seleccione **Azure Active Directory**.
+1. En **Registros de aplicaciones**, en Azure AD, seleccione su aplicación.
 1. Seleccione **Certificados y secretos**.
 1. Seleccione **Cargar certificado** y seleccione el certificado (un certificado existente o el certificado autofirmado que exportó).
 
@@ -146,15 +156,21 @@ En su suscripción de Azure, su cuenta debe tener acceso a `Microsoft.Authorizat
 
 Para comprobar los permisos de su suscripción:
 
-1. Seleccione la cuenta en la esquina superior derecha y, luego, **... -> Mis permisos**.
+1. Busque y seleccione **Suscripciones** o seleccione **Suscripciones** en la página **Inicio**.
 
-   ![Seleccione la cuenta y los permisos de usuario](./media/howto-create-service-principal-portal/select-my-permissions.png)
+   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. En la lista desplegable, seleccione la suscripción en la que desea crear la entidad de servicio. A continuación, seleccione **Click here to view complete access details for this subscription** (Haga clic aquí para ver los detalles de acceso completos para esta suscripción).
+1. Seleccione la suscripción en la que quiere crear la entidad de servicio.
+
+   ![Seleccionar suscripción para la asignación](./media/howto-create-service-principal-portal/select-one-subscription.png)
+
+   Si no ve la suscripción que busca, seleccione el **filtro de suscripciones globales**. Asegúrese de que la suscripción que desea está seleccionada para el portal.
+
+1. Seleccione **Mis permisos**. A continuación, seleccione **Click here to view complete access details for this subscription** (Haga clic aquí para ver los detalles de acceso completos para esta suscripción).
 
    ![Seleccione la suscripción en la que quiere crear la entidad de servicio](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Seleccione **Asignaciones de roles** para ver los roles asignados y determine si tiene los permisos correspondientes para asignar un rol a una aplicación de AD. En caso contrario, pida al administrador de suscripciones que le agregue al rol Administrador de acceso de usuario. En la imagen siguiente, el usuario está asignado al rol Propietario, lo que significa que el usuario tiene los permisos adecuados.
+1. Seleccione **Ver** en **Asignaciones de roles** para ver los roles asignados y determine si tiene los permisos correspondientes para asignar un rol a una aplicación de AD. En caso contrario, pida al administrador de suscripciones que le agregue al rol Administrador de acceso de usuario. En la imagen siguiente, el usuario está asignado al rol Propietario, lo que significa que el usuario tiene los permisos adecuados.
 
    ![En este ejemplo se muestra el usuario asignado al rol Propietario](./media/howto-create-service-principal-portal/view-user-role.png)
 

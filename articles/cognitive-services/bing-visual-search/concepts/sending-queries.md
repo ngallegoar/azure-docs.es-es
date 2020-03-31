@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
 ms.openlocfilehash: 5d27aa80a63232694e1c9951f98b2191ba575e74
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75913071"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envío de consultas de búsqueda a Bing Visual Search API

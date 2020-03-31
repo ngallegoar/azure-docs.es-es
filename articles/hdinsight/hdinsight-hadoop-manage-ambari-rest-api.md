@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.openlocfilehash: 1d684957939c5cb83aae05962c1694f7a8d8da23
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498224"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233600"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Administración de clústeres de HDInsight mediante la API REST de Apache Ambari
 
@@ -21,17 +21,17 @@ ms.locfileid: "73498224"
 
 Aprenda a usar la API REST de Apache Ambari para administrar y supervisar clústeres de Apache Hadoop en Azure HDInsight.
 
-## <a id="whatis"></a>¿Qué es Apache Ambari?
+## <a name="what-is-apache-ambari"></a><a id="whatis"></a>¿Qué es Apache Ambari?
 
 [Apache Ambari](https://ambari.apache.org) simplifica la administración y la supervisión de los clústeres de Apache Hadoop al brindar una interfaz de usuario web fácil de usar y respaldada por sus [API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en Linux.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Un clúster de Hadoop en HDInsight**. Consulte [Introducción a HDInsight en Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 * **Bash en Ubuntu en Windows 10**.  Los ejemplos de este artículo usan el shell de Bash en Windows 10. Consulte la [Guía de instalación del subsistema de Windows para Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para conocer los pasos de instalación.  Otros [shells de Unix](https://www.gnu.org/software/bash/) también funcionarán.  Los ejemplos, con algunas pequeñas modificaciones, pueden funcionar en un símbolo del sistema de Windows.  Como alternativa, puede usar Windows PowerShell.
 
-* **jq**, un procesador JSON de línea de comandos.  Consulte [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* **jq**, un procesador JSON de línea de comandos.  Vea [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * **Windows PowerShell**.  Como alternativa, puede usar [Bash](https://www.gnu.org/software/bash/).
 
@@ -66,7 +66,7 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ### <a name="identify-correctly-cased-cluster-name"></a>Identificación del nombre del clúster con las mayúsculas y minúsculas correctas
 Las mayúsculas y minúsculas reales del nombre del clúster pueden no ser como cabría esperar, dependen de la forma en que se haya creado el clúster.  Estos pasos mostrarán las mayúsculas y minúsculas reales y después las almacenarán en una variable para los ejemplos siguientes.
 
-Edite los siguientes scripts para reemplazar `CLUSTERNAME` por su nombre de clúster. Luego, escriba el comando. El nombre del clúster para el nombre de dominio completo no distingue mayúsculas de minúsculas.
+Edite los siguientes scripts para reemplazar `CLUSTERNAME` por su nombre de clúster. Luego, escriba el comando. (El nombre del clúster para el nombre de dominio completo no distingue mayúsculas de minúsculas).
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -99,7 +99,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
 ```
 
-### <a name="example-get-the-fqdn-of-cluster-nodes"></a> Obtención del FQDN de los nodos de clúster
+### <a name="get-the-fqdn-of-cluster-nodes"></a><a name="example-get-the-fqdn-of-cluster-nodes"></a> Obtención del FQDN de los nodos de clúster
 
 Cuando trabaja con HDInsight, es posible que deba conocer el nombre de dominio completo (FQDN) del nodo de un clúster. Puede recuperar fácilmente el FQDN de varios nodos del clúster mediante los siguientes ejemplos:
 
@@ -159,7 +159,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.host_components.HostRoles.host_name
 ```
 
-### <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a> Obtención de la dirección IP interna de los nodos de clúster
+### <a name="get-the-internal-ip-address-of-cluster-nodes"></a><a name="example-get-the-internal-ip-address-of-cluster-nodes"></a> Obtención de la dirección IP interna de los nodos de clúster
 
 No se puede acceder directamente a través de Internet a las direcciones IP devueltas por los ejemplos de esta sección. Solo se puede acceder a ellas dentro de la instancia de Azure Virtual Network que contiene el clúster de HDInsight.
 
@@ -253,7 +253,7 @@ El valor devuelto es similar a uno de los ejemplos siguientes:
 > [!NOTE]  
 > El cmdlet [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) proporcionado por [Azure PowerShell](/powershell/azure/overview) también devuelve la información de almacenamiento para el clúster.
 
-### <a name="get-all-configurations"></a> Obtención de todas las configuraciones
+### <a name="get-all-configurations"></a><a name="get-all-configurations"></a> Obtención de todas las configuraciones
 
 Obtenga las configuraciones que están disponibles para el clúster.
 

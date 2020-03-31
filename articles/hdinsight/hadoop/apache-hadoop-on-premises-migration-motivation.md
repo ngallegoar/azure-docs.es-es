@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74267318"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Motivación y ventajas de migrar clústeres locales de Apache Hadoop a Azure HDInsight
@@ -106,7 +106,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Recuperación ante desastres / Copia de seguridad|¿Copia de seguridad del clúster?|  
 |Sistemas que dependen de clúster|SQL Server, Teradata, Power BI, MongoDB|
 |Integración con productos de terceros|Tableau GridGain, Qubole, Informatica, Splunk|
-|**Tema**: **seguridad**|||
+|**Tema**: **Seguridad**|||
 |Seguridad del perímetro|Firewalls|
 |Autenticación y autorización de clúster|Active Directory, Ambari, Cloudera Manager, sin autenticación|
 |Control de acceso de HDFS|  Manual, usuarios SSH|
@@ -130,7 +130,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Trabajos de entrenamiento del modelo de Machine Learning|2 trabajos, una vez a la semana||
 |Lenguajes de programación|Python, Scala, Java||
 |Scripting|Shell, Python||
-|**Tema**: **Datos**|||
+|**Tema**: **Data**|||
 |Orígenes de datos|Archivos sin formato, Json, Kafka, RDBMS||
 |Orquestación de datos|Flujos de trabajo de Oozie, flujo de aire||
 |Búsquedas en memoria|Apache Ignite, Redis||
@@ -183,7 +183,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |¿Número de usuarios de AD para sincronizar?|          100||
 |¿Aceptar sincronizar contraseñas en la nube?|    Sí||
 |¿Solo usuarios en la nube?|                 Sí||
-|¿MFA necesario?|                       Sin|| 
+|¿MFA necesario?|                       No|| 
 |¿Requisitos de autorización de datos?|  Sí||
 |¿Control de acceso basado en roles?|        Sí||
 |¿Auditoría necesaria?|                  Sí||
@@ -197,7 +197,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |¿Usar una tienda de metadatos remota?|Sí||
 |¿Compartir tiendas de metadatos entre clústeres diferentes?|Sí||
 |¿Deconstruir las cargas de trabajo?|Reemplace los trabajos de Hive con trabajos de Spark||
-|¿Usar ADF para orquestación de datos?|Sin||
+|¿Usar ADF para orquestación de datos?|No||
 
 ## <a name="next-steps"></a>Pasos siguientes
 

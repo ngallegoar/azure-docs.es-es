@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66e94393bef942d7bfad41a7dccc8b651696d4af
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 8a3c71534febc3cdb6429d3092225ebc73f6cbe7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484526"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481490"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
@@ -30,6 +30,7 @@ El uso obligatorio de dispositivos administrados para acceder a las aplicaciones
 
 - **[Acceso condicional en Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** : en este artículo se proporciona información general conceptual sobre el acceso condicional y la terminología relacionada.
 - **[Introducción a la administración de dispositivos en Azure Active Directory](../devices/overview.md)** : en este artículo se proporciona información general de las diversas opciones que tiene para mantener los dispositivos bajo el control de la organización. 
+- Para la compatibilidad con Chrome en **Windows 10 Creators Update (versión 1703)** o posterior, instale la [extensión de cuentas de Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Esta extensión es necesaria cuando una directiva de acceso condicional requiere detalles específicos del dispositivo.
 
 >[!NOTE] 
 > Se recomienda usar el dispositivo de Azure AD basado en la directiva de acceso condicional para obtener la mejor aplicación después de la autenticación inicial del dispositivo. Esto incluye cerrar sesiones si el dispositivo está fuera de cumplimiento y del flujo de código de dispositivo.

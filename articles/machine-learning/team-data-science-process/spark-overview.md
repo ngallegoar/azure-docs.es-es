@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 63148b99e65a5ccc49d54d4ae6c58adebc72c6d3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76718521"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Información general sobre la ciencia de los datos con Spark en HDInsight de Azure
@@ -65,7 +65,7 @@ Estos cuadernos están indicados para ejecutarse en el kernel pySpark3 del servi
 
 Para obtener instrucciones sobre la operacionalización de un modelo de Spark 2.0 y el consumo de modelo para puntuación, consulte el [documento de Spark 1.6 sobre consumo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) para obtener un ejemplo que muestre los pasos necesarios. Para utilizar este ejemplo en Spark 2.0, reemplace el archivo de código Python por [este archivo](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Los procedimientos siguientes están relacionados con Spark 1.6. En la versión Spark 2.0, use los cuadernos descritos anteriormente, con sus correspondientes vínculos.
 

@@ -18,14 +18,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 510e2648db3076a0e3ee2535c6058f7ed212f558
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9f8697332d34fc044c805db6c6595fdf067ed054
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387495"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127202"
 ---
-# <a name="tutorial-send-location-based-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Tutorial: Envío de notificaciones push basadas en la ubicación con Azure Notification Hubs y Bing Spatial Data
+# <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Tutorial: Envío de notificaciones push basadas en la ubicación con Notification Hubs y Bing Spatial Data
 
 En este tutorial, aprenderá a entregar notificaciones push basadas en ubicaciones con Azure Notification Hubs y datos espaciales de Bing.
 
@@ -37,7 +37,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Configuración del back-end
 > * Prueba de envío de notificaciones push a aplicaciones de la Plataforma universal de Windows (UWP)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) o posterior ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)).
@@ -107,7 +107,7 @@ En este tutorial, realizará los siguientes pasos:
 
     ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 
-    Una vez completada la creación del proyecto, debe tener la base para la propia aplicación. Ahora vamos a configurar todos los elementos de la infraestructura de geovalla. Como se van a usar los servicios de Bing para esta solución, hay un punto de conexión de API REST público que permite consultar marcos de ubicación específicos:
+    Una vez completada la creación del proyecto, debe tener la base para la propia aplicación. Ahora vamos a configurar todos los elementos de la infraestructura del geovallado. Como se van a usar los servicios de Bing para esta solución, hay un punto de conexión de API REST público que permite consultar marcos de ubicación específicos:
 
     ```text
     http://spatial.virtualearth.net/REST/v1/data/
@@ -164,7 +164,7 @@ En este tutorial, realizará los siguientes pasos:
     }
     ```
 
-    Para más información sobre cómo obtener la ubicación del usuario en las aplicaciones UWP, consulte [Obtener la ubicación del usuario](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
+    Para más información sobre cómo obtener la ubicación del usuario en las aplicaciones para UWP, consulte [Obtención de la ubicación del usuario](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
 5. Para comprobar que la adquisición de ubicación funciona realmente, abra la parte de código de la página principal (`MainPage.xaml.cs`). Cree un nuevo controlador de eventos para el evento `Loaded` en el constructor `MainPage`.
 
     ```csharp
@@ -196,7 +196,7 @@ En este tutorial, realizará los siguientes pasos:
 
     ![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
 
-    Ahora ya sabe que funciona la adquisición de la ubicación, quite el controlador de eventos cargados si quiere, ya que no se volverá a usar.
+    Ahora que ya sabe que la adquisición de la ubicación funciona, puede quitar el controlador de eventos Loaded si lo desea, ya que no se volverá a usar.
 8. El paso siguiente consiste en capturar los cambios de ubicación. En la clase `LocationHelper`, agregue el controlador de eventos para `PositionChanged`:
 
     ```csharp
@@ -348,7 +348,7 @@ En este tutorial, realizará los siguientes pasos:
     ```
 
     > [!NOTE]
-    > Establezca `POST_URL` en la ubicación de la aplicación web implementada. Por ahora, está bien para la ejecución local, pero al trabajar en la implementación de una versión pública es necesario hospedarlo con un proveedor externo.
+    > Establezca `POST_URL` en la ubicación de la aplicación web implementada. Ya se puede ejecutar localmente, pero al trabajar en la implementación de una versión pública es preciso hospedarlo en un proveedor externo.
 2. Registre la aplicación de UWP para las notificaciones push. En Visual Studio, elija **Proyecto** > **Tienda** > **Asociar aplicación con la Tienda**.
 
     ![](./media/notification-hubs-geofence/vs-associate-with-store.png)

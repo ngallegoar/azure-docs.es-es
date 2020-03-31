@@ -5,14 +5,14 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f60f248ec3fbbe5adfb61bf361546d1d5e238f54
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 5db2fb34a6d9330e745a9b4d1f5fed538e96c557
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250197"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239316"
 ---
-# <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes
+# <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Resource Manager con recursos dependientes
 
 Aprenda a crear una plantilla de Azure Resource Manager para implementar varios recursos y configurar la orden de implementación. Después de crear la plantilla, puede implementarla mediante Cloud Shell en Azure Portal.
 
@@ -33,17 +33,17 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](use-vs-code-to-create-template.md).
 * Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Este es un ejemplo para generar una contraseña:
 
     ```console
     openssl rand -base64 32
     ```
-    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en Resource Manager Template Deployment](./template-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
+    Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte el [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./template-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
-Las plantillas de inicio rápido de Azure consisten en un repositorio de plantillas de Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
 2. En **Nombre de archivo**, pegue el código URL siguiente:

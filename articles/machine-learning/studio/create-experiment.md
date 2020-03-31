@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: ebde02d222502c58536269243343b21271f19269
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c4c50ba53bc40ad6ae6fc60b3992f9ab992eb268
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168868"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79204569"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Inicio rápido: Creación del primer experimento de ciencia de datos en Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 

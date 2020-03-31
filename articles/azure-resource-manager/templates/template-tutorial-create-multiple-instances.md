@@ -5,14 +5,14 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 91a37178f8dc8ecc3c61ca16f193e2e52c309d46
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9ed14ce1af6421accccface1b66119057d1c5a30
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209484"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239291"
 ---
-# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager
+# <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager
 
 Obtenga información sobre cómo iterar la plantilla de Azure Resource Manager para crear varias instancias de un recurso de Azure. En este tutorial, se modifica una plantilla para crear tres instancias de cuenta de almacenamiento.
 
@@ -31,11 +31,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para completar este artículo, necesitará lo siguiente:
 
-* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para crear plantillas de Azure Resource Manager](use-vs-code-to-create-template.md).
+* Visual Studio Code con la extensión Resource Manager Tools. Consulte [Uso de Visual Studio Code para la creación de plantillas de Resource Manager](use-vs-code-to-create-template.md).
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
-[Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/) es un repositorio de plantillas de Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta de almacenamiento estándar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). La plantilla define un recurso de la cuenta de almacenamiento de Azure.
+[Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta de almacenamiento estándar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). La plantilla define un recurso de la cuenta de almacenamiento de Azure.
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
 2. En **Nombre de archivo**, pegue el código URL siguiente:

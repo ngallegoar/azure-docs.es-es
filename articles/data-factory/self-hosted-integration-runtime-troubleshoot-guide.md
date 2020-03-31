@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/07/2019
 ms.author: abnarain
 ms.openlocfilehash: b8492e8934c782451fb77d5a0ff56b96c34c9a00
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75439875"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solución de problemas del entorno de ejecución de integración autohospedado

@@ -5,16 +5,16 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 9a829b0c84c397f297539cdb04b3ad027a18c834
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c9447d356cff792d9a70e33cc2a5e35898d8982b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75455629"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80131890"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager mediante Visual Studio Code
+# <a name="quickstart-create-arm-templates-by-using-visual-studio-code"></a>Inicio rápido: Creación de plantillas de ARM mediante Visual Studio Code
 
-Obtenga información sobre cómo usar el código de Visual Studio y la extensión de herramientas de Azure Resource Manager para crear y modificar las plantillas de Azure Resource Manager. Puede crear plantillas de Resource Manager en Visual Studio Code sin la extensión, pero la extensión proporciona opciones de autocompletar que simplifican el desarrollo de la plantilla. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte la [introducción a la implementación de plantillas](overview.md).
+Obtenga información sobre cómo usar el código de Visual Studio y la extensión de herramientas de Azure Resource Manager para crear y modificar las plantillas de Azure Resource Manager. Puede crear plantillas de Azure Resource Manager en Visual Studio Code sin la extensión, pero la extensión proporciona opciones de autocompletar que simplifican el desarrollo de la plantilla. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte la [introducción a la implementación de plantillas](overview.md).
 
 En este inicio rápido, implementará una cuenta de almacenamiento:
 
@@ -22,7 +22,7 @@ En este inicio rápido, implementará una cuenta de almacenamiento:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
@@ -36,7 +36,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
-En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Plantillas de inicio rápido de Azure es un repositorio de plantillas de Resource Manager.
+En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager.
 
 La plantilla usada en esta guía de inicio rápido se denomina [Crear una cuenta de almacenamiento estándar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). La plantilla define un recurso de la cuenta de almacenamiento de Azure.
 
@@ -94,11 +94,11 @@ Existen muchos métodos para la implementación de plantillas. En este inicio r�
 
 2. Elija el entorno que prefiera; para ello, seleccione **PowerShell** o **Bash** en la esquina superior izquierda.  Es necesario reiniciar el shell cuando realiza el cambio.
 
-    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+    # <a name="cli"></a>[CLI](#tab/CLI)
 
     ![CLI de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
 
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ![Azure portal Cloud shell PowerShell](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
 
@@ -106,11 +106,11 @@ Existen muchos métodos para la implementación de plantillas. En este inicio r�
 
 3. Seleccione **Cargar/descargar archivos** y, después, seleccione **Cargar**.
 
-    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+    # <a name="cli"></a>[CLI](#tab/CLI)
 
     ![Archivo de carga de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
 
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ![Archivo de carga de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
 
@@ -120,28 +120,28 @@ Existen muchos métodos para la implementación de plantillas. En este inicio r�
 
     Si lo desea, puede usar el comando **ls** y el comando **cat** para comprobar que el archivo se ha cargado correctamente.
 
-    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+    # <a name="cli"></a>[CLI](#tab/CLI)
 
     ![Archivo de lista de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
 
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ![Archivo de lista de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
 
     ---
 4. En Cloud Shell, ejecute los comandos siguientes. Seleccione la pestaña para mostrar el código de PowerShell o el código de la CLI.
 
-    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+    # <a name="cli"></a>[CLI](#tab/CLI)
     ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
     echo "Enter the location (i.e. centralus):" &&
     read location &&
     az group create --name $resourceGroupName --location "$location" &&
-    az group deployment create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
     ```
 
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -157,11 +157,11 @@ Existen muchos métodos para la implementación de plantillas. En este inicio r�
 
     En la captura de pantalla siguiente se muestra una implementación de ejemplo:
 
-    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+    # <a name="cli"></a>[CLI](#tab/CLI)
 
     ![Plantilla de implementación de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
 
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ![Plantilla de implementación de Cloud Shell de Azure Portal](./media/quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
 
@@ -171,7 +171,7 @@ Existen muchos métodos para la implementación de plantillas. En este inicio r�
 
 5. Ejecute el siguiente comando de la CLI o de PowerShell para enumerar la cuenta de almacenamiento recién creada:
 
-    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+    # <a name="cli"></a>[CLI](#tab/CLI)
     ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
@@ -180,7 +180,7 @@ Existen muchos métodos para la implementación de plantillas. En este inicio r�
     az storage account show --resource-group $resourceGroupName --name $storageAccountName
     ```
 
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

@@ -10,17 +10,17 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6cadaea1a20743071acbe8860df02ca7bbdde954
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77198537"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Solución de problemas de Change Tracking e Inventario
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>Escenario: no se muestran los registros de Change Tracking para máquinas Windows
+### <a name="scenario-change-tracking-records-arent-showing-for-windows-machines"></a><a name="records-not-showing-windows"></a>Escenario: no se muestran los registros de Change Tracking para máquinas Windows
 
 #### <a name="issue"></a>Problema
 

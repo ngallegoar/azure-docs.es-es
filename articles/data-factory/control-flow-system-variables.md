@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.openlocfilehash: 0a5237336530d30c3801b13b910171e236e87a23
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73679286"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variables del sistema compatibles con Azure Data Factory
@@ -24,7 +24,7 @@ En este artículo se describen las variables del sistema compatibles con Azure D
 ## <a name="pipeline-scope"></a>Ámbito de canalización
 Se puede hacer referencia a estas variables del sistema en cualquier JSON de la canalización.
 
-| Nombre de la variable | DESCRIPCIÓN |
+| Nombre de la variable | Descripción |
 | --- | --- |
 | @pipeline().DataFactory |Nombre de la factoría de datos en la que se lleva a cabo la ejecución de la canalización |
 | @pipeline().Pipeline |Nombre de la canalización |
@@ -37,7 +37,7 @@ Se puede hacer referencia a estas variables del sistema en cualquier JSON de la 
 ## <a name="schedule-trigger-scope"></a>Ámbito de desencadenador de programación
 Se puede hacer referencia a estas variables del sistema en cualquier parte del código JSON del desencadenador si este es de tipo "ScheduleTrigger".
 
-| Nombre de la variable | DESCRIPCIÓN |
+| Nombre de la variable | Descripción |
 | --- | --- |
 | @trigger().scheduledTime |Hora a la que se programó el desencadenador para invocar la ejecución de la canalización. Por ejemplo, para un desencadenador que se activa cada 5 minutos, esta variable devolvería `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z` y `2017-06-01T22:30:00Z`, respectivamente.|
 | @trigger().startTime |Hora a la que **realmente** se activó el desencadenador para invocar la ejecución de la canalización. Por ejemplo, para un desencadenador que se activa cada 5 minutos, esta variable podría devolver algo parecido a `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z` y `2017-06-01T22:30:00.9935483Z`, respectivamente. (Nota: De forma predeterminada, la marca de tiempo está en formato ISO 8601)|
@@ -46,7 +46,7 @@ Se puede hacer referencia a estas variables del sistema en cualquier parte del c
 Se puede hacer referencia a estas variables del sistema en cualquier parte del código JSON del desencadenador si este es de tipo "TumblingWindowTrigger".
 (Nota: De forma predeterminada, la marca de tiempo está en formato ISO 8601)
 
-| Nombre de la variable | DESCRIPCIÓN |
+| Nombre de la variable | Descripción |
 | --- | --- |
 | @trigger().outputs.windowStartTime |Inicio de la ventana cuando se programó el desencadenador para invocar la ejecución de la canalización. Si el desencadenador de ventana de saltos de tamaño constante tiene una frecuencia "por hora", sería al principio de la hora.|
 | @trigger().outputs.windowEndTime |Fin de la ventana cuando se programó el desencadenador para invocar la ejecución de la canalización. Si el desencadenador de ventana de saltos de tamaño constante tiene una frecuencia "por hora", sería al final de la hora.|

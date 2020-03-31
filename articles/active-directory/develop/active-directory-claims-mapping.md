@@ -1,5 +1,5 @@
 ---
-title: Personalización de notificaciones de aplicación de inquilino de Azure AD (PowerShell)
+title: Personalización de las notificaciones de aplicación del inquilino de Azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
 description: En esta página se describe la asignación de notificaciones de Azure Active Directory.
 services: active-directory
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 57a66f73a2c0c37426c23c7274853148fd976ac8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699077"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230768"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -415,7 +415,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 ### <a name="custom-signing-key"></a>Clave de firma de personalizada
 
-Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Esto garantiza que el creador de la directiva de asignación de notificaciones es el que ha modificado los tokens y protege a las aplicaciones frente a directivas de asignación de notificaciones creadas por actores malintencionados. Para agregar una clave de firma personalizada, puede usar el cmdlet `new-azureadapplicationkeycredential` de Azure PowerShell para crear una credencial de clave simétrica para el objeto de aplicación. Para más información sobre este cmdlet de Azure PowerShell, haga clic [aquí](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Debe asignarse una clave de firma personalizada al objeto de entidad de servicio para que una directiva de asignación de notificaciones surta efecto. Esto garantiza que el creador de la directiva de asignación de notificaciones es el que ha modificado los tokens y protege a las aplicaciones frente a directivas de asignación de notificaciones creadas por actores malintencionados. Para agregar una clave de firma personalizada, puede usar el cmdlet `new-azureadapplicationkeycredential` de Azure PowerShell para crear una credencial de clave simétrica para el objeto de aplicación. Para obtener más información sobre este cmdlet de Azure PowerShell, consulte [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
 Las aplicaciones que tienen habilitada la asignación de notificaciones deben validar sus claves de firma de tokens mediante la anexión de `appid={client_id}` a las [solicitudes de metadatos de OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). A continuación se muestra el formato del documento de metadatos de OpenID Connect que se debe usar: 
 
@@ -435,7 +435,7 @@ Las directivas de asignación de notificaciones solo se pueden asignar a objetos
 
 En Azure AD hay muchos escenarios posibles en los que se pueden personalizar las notificaciones emitidas en tokens para entidades de servicio concretas. En esta sección se abordan algunos escenarios comunes que pueden ayudarle a entender cómo usar el tipo de directiva de asignación de notificaciones.
 
-#### <a name="prerequisites"></a>Prerequisites
+#### <a name="prerequisites"></a>Prerrequisitos
 
 En los ejemplos siguientes, va a crear, actualizar, vincular y eliminar directivas de entidades de servicio. Si no está familiarizado con Azure AD, es conveniente que [aprenda a obtener un inquilino de Azure AD](quickstart-create-new-tenant.md) antes de continuar con estos ejemplos.
 
@@ -469,7 +469,7 @@ En este ejemplo se crea una directiva que quita el conjunto de notificaciones b�
       Get-AzureADPolicy
       ```
 1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio.
-   1. Para ver todas las entidades de servicio de su organización, puede [consultar Microsoft Graph](/graph/traverse-the-graph). O bien, en el [Probador de Graph](https://developer.microsoft.com/graph/graph-explorer), inicie sesión en su cuenta de Azure AD.
+   1. Para ver todas las entidades de servicio de su organización, puede [consultar la Microsoft Graph API](/graph/traverse-the-graph). O bien, inicie sesión en su cuenta de Azure AD en el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
    2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:  
      
       ``` powershell
@@ -493,7 +493,7 @@ En este ejemplo se crea una directiva que agrega EmployeeID y TenantCountry a lo
       Get-AzureADPolicy
       ```
 1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio. 
-   1. Para ver todas las entidades de servicio de su organización, puede [consultar Microsoft Graph](/graph/traverse-the-graph). O bien, en el [Probador de Graph](https://developer.microsoft.com/graph/graph-explorer), inicie sesión en su cuenta de Azure AD.
+   1. Para ver todas las entidades de servicio de su organización, puede [consultar la Microsoft Graph API](/graph/traverse-the-graph). O bien, inicie sesión en su cuenta de Azure AD en el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
    2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:  
      
       ``` powershell
@@ -517,7 +517,7 @@ En este ejemplo se crea una directiva que emite una notificación "JoinedData" p
       Get-AzureADPolicy
       ```
 1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio. 
-   1. Para ver todas las entidades de servicio de su organización, puede [consultar Microsoft Graph](/graph/traverse-the-graph). O bien, en el [Probador de Graph](https://developer.microsoft.com/graph/graph-explorer), inicie sesión en su cuenta de Azure AD.
+   1. Para ver todas las entidades de servicio de su organización, puede [consultar la Microsoft Graph API](/graph/traverse-the-graph). O bien, inicie sesión en su cuenta de Azure AD en el [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
    2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando: 
      
       ``` powershell

@@ -2,14 +2,14 @@
 title: Migración de máquinas virtuales de VMware con la migración de servidores basada en agentes de Azure Migrate
 description: Aprenda a ejecutar una migración de máquinas virtuales de VMware basada en agentes con Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 03/09/2020
 ms.custom: MVC
-ms.openlocfilehash: 49b576770d67ae9d2b98a8a0004f4219ecf0fae4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 64873c5185660c58cd4d07d60df3d086364d6288
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057284"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222032"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migración de máquinas virtuales de VMware a Azure (basada en agente)
 
@@ -156,7 +156,7 @@ Mobility Service debe estar instalado en las máquinas que desee replicar.
 
 - El dispositivo de replicación de Azure Migrate puede realizar una instalación de inserción de este servicio cuando se habilita la replicación de una máquina, o bien puede instalarlo manualmente o mediante herramientas de instalación.
 - En este tutorial, se va a instalar Mobility Service con la instalación de inserción.
-- Para esta instalación de inserción, debe preparar una cuenta que la herramienta Azure Migrate Server Migration pueda usar para acceder a la máquina virtual.
+- Para esta instalación de inserción, debe preparar una cuenta que la herramienta Azure Migrate Server Migration pueda usar para acceder a la máquina virtual. Esta cuenta se usa solo para la instalación de inserción si no instala Mobility Service de forma manual.
 
 Prepare la cuenta como se indica a continuación:
 
@@ -409,7 +409,10 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 
 ## <a name="complete-the-migration"></a>Completar la migración
 
-1. Una vez finalizada la migración, haga clic con el botón derecho en la máquina virtual > **Detener migración**. Así se detiene la replicación en la máquina local y se limpia la información acerca del estado de replicación de la máquina virtual.
+1. Una vez finalizada la migración, haga clic con el botón derecho en la máquina virtual > **Detener migración**. Esto hace lo siguiente:
+    - Detiene la replicación en la máquina local.
+    - Quita la máquina del recuento de **Servidores en replicación** en Azure Migrate: Server Migration.
+    - Limpia la información de estado de replicación de la máquina virtual.
 2. Instale el agente de [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) o [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) de la máquina virtual de Azure en las máquinas migradas.
 3. Realice los ajustes de la aplicación posteriores a la migración, como actualizar las cadenas de conexión de la base de datos y las configuraciones del servidor web.
 4. Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.

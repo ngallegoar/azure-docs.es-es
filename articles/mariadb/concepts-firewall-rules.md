@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.openlocfilehash: a09d9ebe0defc970e1c3b9e74a25f23fe94e6634
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 3/18/2020
+ms.openlocfilehash: 743e3f50d747993250399493d97fc2becab19319
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157107"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532049"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Reglas de firewall del servidor de Azure Database for MariaDB
 Los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.

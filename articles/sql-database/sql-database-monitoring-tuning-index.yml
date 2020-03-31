@@ -3,7 +3,7 @@ title: Optimización de la optimización de la supervisión y el rendimiento de 
 summary: Azure SQL Database proporciona herramientas que facilitar la recopilación de métricas e información de diagnóstico para supervisar cualquier base de datos y mejorar su rendimiento.
 metadata:
   title: Documentación acerca de la optimización de la supervisión y el rendimiento de Azure SQL Database
-  description: Azure SQL Database proporciona herramientas que facilitar la recopilación de métricas e información de diagnóstico para supervisar cualquier base de datos y mejorar su rendimiento.
+  description: Obtenga información sobre las herramientas de supervisión y ajuste del rendimiento de Azure SQL Database que le ayudan a recopilar métricas y diagnósticos, y a mejorar el rendimiento de las bases de datos.
   ms.service: sql-database
   ms.subservice: performance
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: CarlRabeler
   ms.author: carlrab
   ms.date: 03/10/2020
-  ms.openlocfilehash: 43f74ea126ab7e028b39a86e2eb1edad4cae41a2
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: bc2c2a64cfce8bde6f04835bf090b632b8839a6f
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79208908"
+  ms.lasthandoff: 03/27/2020
+  ms.locfileid: "80373111"
 landingContent:
 - title: Acerca de la optimización de la supervisión y del rendimiento
   linkLists:

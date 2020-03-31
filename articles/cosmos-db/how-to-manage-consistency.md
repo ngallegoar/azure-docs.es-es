@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 68be15e1ffd9093ab67fc046edaad991d633ca7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 651daa0af8188b386220d97390e7a61615f94120
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445361"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79369410"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Administración de los niveles de coherencia en Azure Cosmos DB
 
@@ -25,7 +25,7 @@ El [nivel de coherencia predeterminado](consistency-levels.md) es el que los cli
 
 ### <a name="cli"></a>CLI
 
-```bash
+```azurecli
 # create with a default consistency
 az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Session
 
@@ -69,7 +69,7 @@ Para ver o modificar el nivel de coherencia predeterminado, inicie sesión en Az
 
 Los clientes pueden invalidar el nivel de coherencia predeterminado establecido por el servicio. El nivel de coherencia se puede establecer por cada solicitud, lo que invalida el nivel de coherencia predeterminado establecido en el nivel de cuenta.
 
-### <a id="override-default-consistency-dotnet"></a>SDK de .NET V2
+### <a name="net-sdk-v2"></a><a id="override-default-consistency-dotnet"></a>SDK de .NET V2
 
 ```csharp
 // Override consistency at the client level
@@ -81,7 +81,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a id="override-default-consistency-dotnet-v3"></a>SDK de .NET v3
+### <a name="net-sdk-v3"></a><a id="override-default-consistency-dotnet-v3"></a>SDK de .NET v3
 
 ```csharp
 // Override consistency at the request level via request options
@@ -94,7 +94,7 @@ var response = await client.GetContainer(databaseName, containerName)
         requestOptions);
 ```
 
-### <a id="override-default-consistency-java-async"></a>SDK asincrónico para Java
+### <a name="java-async-sdk"></a><a id="override-default-consistency-java-async"></a>SDK asincrónico para Java
 
 ```java
 // Override consistency at the client level
@@ -108,7 +108,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="override-default-consistency-java-sync"></a>SDK sincrónico para Java
+### <a name="java-sync-sdk"></a><a id="override-default-consistency-java-sync"></a>SDK sincrónico para Java
 
 ```java
 // Override consistency at the client level
@@ -116,7 +116,7 @@ ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Eventual);
 ```
 
-### <a id="override-default-consistency-javascript"></a>SDK para Node.js/JavaScript/TypeScript
+### <a name="nodejsjavascripttypescript-sdk"></a><a id="override-default-consistency-javascript"></a>SDK para Node.js/JavaScript/TypeScript
 
 ```javascript
 // Override consistency at the client level
@@ -129,7 +129,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a id="override-default-consistency-python"></a>SDK para Python
+### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>SDK para Python
 
 ```python
 # Override consistency at the client level
@@ -144,7 +144,7 @@ Uno de los niveles de coherencia de Azure Cosmos DB es *Sesión*. Este es el n
 
 Para administrar los tokens de sesión manualmente, obtenga el token de sesión de la respuesta y establézcalos por cada solicitud. Si no tiene la necesidad de administrar manualmente los tokens de sesión, no es necesario que utilice estos ejemplos. El SDK realiza el seguimiento de los tokens de sesión automáticamente. Si no establece el token de sesión manualmente, el SDK usa el token de sesión más reciente de forma predeterminada.
 
-### <a id="utilize-session-tokens-dotnet"></a>SDK de .NET V2
+### <a name="net-sdk-v2"></a><a id="utilize-session-tokens-dotnet"></a>SDK de .NET V2
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -157,7 +157,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a id="utilize-session-tokens-dotnet-v3"></a>SDK de .NET v3
+### <a name="net-sdk-v3"></a><a id="utilize-session-tokens-dotnet-v3"></a>SDK de .NET v3
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -169,7 +169,7 @@ options.SessionToken = sessionToken;
 ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
 
-### <a id="utilize-session-tokens-java-async"></a>SDK asincrónico para Java
+### <a name="java-async-sdk"></a><a id="utilize-session-tokens-java-async"></a>SDK asincrónico para Java
 
 ```java
 // Get session token from response
@@ -191,7 +191,7 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-### <a id="utilize-session-tokens-java-sync"></a>SDK sincrónico para Java
+### <a name="java-sync-sdk"></a><a id="utilize-session-tokens-java-sync"></a>SDK sincrónico para Java
 
 ```java
 // Get session token from response
@@ -204,7 +204,7 @@ options.setSessionToken(sessionToken);
 ResourceResponse<Document> response = client.readDocument(documentLink, options);
 ```
 
-### <a id="utilize-session-tokens-javascript"></a>SDK para Node.js/JavaScript/TypeScript
+### <a name="nodejsjavascripttypescript-sdk"></a><a id="utilize-session-tokens-javascript"></a>SDK para Node.js/JavaScript/TypeScript
 
 ```javascript
 // Get session token from response
@@ -215,7 +215,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a id="utilize-session-tokens-python"></a>SDK para Python
+### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>SDK para Python
 
 ```python
 // Get the session token from the last response headers

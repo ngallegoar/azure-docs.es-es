@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
 ms.openlocfilehash: dd12f974b9b02d919752dcb932c9ce1709d7315b
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70813795"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
@@ -57,7 +57,7 @@ El uso de estas bibliotecas se entiende más fácilmente si se examina el códig
 
 Antes de ejecutar los ejemplos en el SDK de dispositivo IoT de Azure para C, debe [crear una instancia del servicio IoT Hub](iot-hub-create-through-portal.md) en su suscripción de Azure. Después complete las siguientes tareas:
 
-* Preparación del entorno de desarrollo.
+* Preparación del entorno de desarrollo
 * Obtención de las credenciales del dispositivo.
 
 ### <a name="prepare-your-development-environment"></a>Preparación del entorno de desarrollo

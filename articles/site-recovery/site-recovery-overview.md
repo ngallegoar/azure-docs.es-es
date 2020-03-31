@@ -1,38 +1,33 @@
 ---
 title: Acerca de Azure Site Recovery
 description: Proporciona información general acerca del servicio Azure Site Recovery y resume escenarios de recuperación ante desastres e implementación de migraciones.
-author: rayne-wiselman
-ms.service: site-recovery
 ms.topic: overview
-ms.date: 09/09/2019
-ms.author: raynew
+ms.date: 03/17/2020
 ms.custom: MVC
-ms.openlocfilehash: 3f38560c92e91925ab8a18924acdbb74f4b90e59
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ee387682e935522b37a5b4f9f32e53712bfb9150
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814380"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067553"
 ---
 # <a name="about-site-recovery"></a>Acerca de Site Recovery
 
 ¡Bienvenido al servicio Azure Site Recovery! En este artículo se ofrece una rápida información general del servicio.
 
-Como organización, necesita adoptar una estrategia de continuidad empresarial y de recuperación ante desastres (BCDR) que mantenga sus datos seguros, y sus aplicaciones y cargas de trabajo en pleno funcionamiento cuando se produzcan interrupciones planeadas o imprevistas.
+Como organización, necesita adoptar una estrategia de continuidad empresarial y de recuperación ante desastres (BCDR) que mantenga sus datos seguros, y sus aplicaciones y cargas de trabajo en línea cuando se produzcan interrupciones planeadas o imprevistas.
 
 Azure Recovery Services colabora con su estrategia de BCDR:
 
-- **Servicio Site Recovery**: Site Recovery ayuda a garantizar la continuidad empresarial manteniendo las aplicaciones y cargas de trabajo empresariales en funcionamiento durante las interrupciones. Site Recovery replica las cargas de trabajo que se ejecutan en máquinas físicas y virtuales desde un sitio principal a una ubicación secundaria. Cuando se produce una interrupción en el sitio principal, se conmuta por error a la ubicación secundaria y se accede desde allí a las aplicaciones. Cuando la ubicación principal vuelva a estar en ejecución, puede realizar la conmutación por recuperación en ella.  
-- **Servicio Backup**: el servicio [Azure Backup](https://docs.microsoft.com/azure/backup/) mantiene los datos seguros y recuperables, ya que realiza copias de seguridad de los mismos en Azure.
+- **Servicio Site Recovery**: Site Recovery ayuda a garantizar la continuidad empresarial manteniendo las aplicaciones y cargas de trabajo empresariales en funcionamiento durante las interrupciones. Site Recovery replica las cargas de trabajo que se ejecutan en máquinas físicas y virtuales desde un sitio principal a una ubicación secundaria. Cuando se produce una interrupción en el sitio principal, se conmuta por error a la ubicación secundaria y se accede desde allí a las aplicaciones. Cuando la ubicación principal vuelva a estar en ejecución, puede realizar la conmutación por recuperación en ella.
+- **Servicio Backup**: El servicio [Azure Backup](/azure/backup/) mantiene los datos seguros y recuperables.
 
 Site Recovery puede administrar la replicación de:
 
 - Máquinas virtuales de Azure que se replican entre regiones de Azure.
 - Máquinas virtuales locales, máquinas virtuales de Azure Stack y servidores físicos.
 
-
 ## <a name="what-does-site-recovery-provide"></a>¿Qué ofrece Site Recovery?
-
 
 **Característica** | **Detalles**
 --- | ---
@@ -44,24 +39,22 @@ Site Recovery puede administrar la replicación de:
 **Destinos RTO y el RPO** | Mantenga los objetivos de tiempo de recuperación (RTO) y los objetivos de punto de recuperación (RPO) dentro de los límites de la organización. Site Recovery proporciona una replicación continua tanto a las máquinas virtuales de Azure como a las máquinas virtuales VMware con una frecuencia de tan solo 30 segundos para Hyper-V. Para reducir aún más el RTO, realice la integración con [Azure Traffic Manager](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/).
 **Mantener la coherencia de aplicaciones a través de la conmutación por error** | Puede realizar la replicación mediante puntos de configuración con instantáneas coherentes con la aplicación. Estas instantáneas capturan los datos del disco, todos los datos en que hay en la memoria y todas las transacciones en curso.
 **Pruebas sin interrupciones** | Puede ejecutar fácilmente maniobras de recuperación ante desastres, sin que ello afecte a la replicación en curso.
-**Conmutaciones por error flexibles** | Puede ejecutar conmutaciones por error planeadas para interrupciones planeadas sin pérdida de datos o conmutaciones por error no planeadas con una pérdida de datos mínima (según la frecuencia de replicación) ante desastres inesperados. Puede conmutar por recuperación a su sitio principal fácilmente cuando vuelva a estar disponible.
+**Conmutaciones por error flexibles** | Puede ejecutar conmutaciones por error planeadas para las interrupciones previstas sin pérdida de datos. O conmutaciones por error no planeadas con la mínima pérdida de datos, dependiendo de la frecuencia de replicación, para desastres inesperados. Puede conmutar por recuperación a su sitio principal fácilmente cuando vuelva a estar disponible.
 **Planes de recuperación personalizados** | Con los planes de recuperación, puede personalizar y secuenciar la conmutación por error y la recuperación de aplicaciones de niveles múltiples en varias máquinas virtuales. Puede agrupar las máquinas en un plan de recuperación y, opcionalmente, agregar scripts y acciones manuales. Los planes de recuperación se pueden integrar con runbooks de Azure Automation.
 **Integración de BCDR** | Site Recovery se integra con otras tecnologías de BCDR. Por ejemplo, puede utilizar Site Recovery para proteger el back-end de SQL Server de cargas de trabajo corporativas, con compatibilidad nativa para SQL Server AlwaysOn, a fin de administrar la conmutación por error de grupos de disponibilidad.
 **Integración de Azure Automation** | Una ingente biblioteca de Azure Automation proporciona scripts específicos de la aplicación y preparados para la producción que se pueden descargar e integrarse con Site Recovery.
-**Integración de red** | Site Recovery se integra con Azure para simplificar la administración de la red de una aplicación, lo que incluye la reserva de direcciones IP, la configuración de equilibradores de carga o la integración de Azure Traffic Manager, con el fin de que los cambios de red sean eficientes.
-
+**Integración de red** | Site Recovery se integra con Azure para la administración de la red de aplicaciones. Por ejemplo, para reservar direcciones IP, configurar equilibradores de carga y usar Azure Traffic Manager para los cambios de red eficientes.
 
 ## <a name="what-can-i-replicate"></a>¿Qué puedo replicar?
 
 **Compatible** | **Detalles**
 --- | ---
-**Escenarios de replicación** | Replique las máquinas virtuales de Azure de una región de Azure a otra.<br/><br/>  Replique las máquinas virtuales de VMware locales, las máquinas virtuales de Hyper-V, los servidores físicos (Windows y Linux) y las máquinas de virtuales Azure Stack en Azure.<br/><br/> <br/><br/> Replique las instancias de Windows de AWS a Azure.<br/><br/> Replique las máquinas virtuales locales de VMware, de Hyper-V administradas por System Center VMM y los servidores físicos en un sitio secundario.
+**Escenarios de replicación** | Replique las máquinas virtuales de Azure de una región de Azure a otra.<br/><br/>  Replique las máquinas virtuales de VMware locales, las máquinas virtuales de Hyper-V, los servidores físicos (Windows y Linux) y las máquinas de virtuales Azure Stack en Azure.<br/><br/> Replique las instancias de Windows de AWS a Azure.<br/><br/> Replique las máquinas virtuales locales de VMware, de Hyper-V administradas por System Center VMM y los servidores físicos en un sitio secundario.
 **Regiones** | Revise las [regiones admitidas](https://azure.microsoft.com/regions/services/) para Site Recovery. |
 **Máquinas replicadas** | Revise los requisitos de la replicación de [máquinas virtuales de Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), [máquinas virtuales y servidores físicos de VMware locales](vmware-physical-azure-support-matrix.md#replicated-machines) y los [máquinas virtuales de Hyper-V locales](hyper-v-azure-support-matrix.md#replicated-vms).
-**Cargas de trabajo** | Puede replicar cualquier carga de trabajo que se ejecute en una máquina que se admita para la replicación. Además, el equipo de Site Recovery ha realizado pruebas específicas para [diversas aplicaciones](site-recovery-workload.md#workload-summary).
-
-
+**Cargas de trabajo** | Puede replicar cualquier carga de trabajo que se ejecute en una máquina que se admita para la replicación. Y que el equipo de Site Recovery haya hecho pruebas específicas de la aplicación para un [número de aplicaciones](site-recovery-workload.md#workload-summary).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Más información sobre la [compatibilidad con cargas de trabajo](site-recovery-workload.md).
-* Empiece a trabajar con la [replicación de máquina virtual de Azure entre regiones](azure-to-azure-quickstart.md). 
+
+- Más información sobre la [compatibilidad con cargas de trabajo](site-recovery-workload.md).
+- Empiece a trabajar con la [replicación de máquina virtual de Azure entre regiones](azure-to-azure-quickstart.md).

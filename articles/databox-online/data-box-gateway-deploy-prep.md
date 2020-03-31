@@ -8,23 +8,23 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 0446ee4fb238d2fa8447f998536c3c14d968f630
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 74fec059bdffb91f5a7774d430e2f1897f0e863c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303212"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474465"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparación de la implementación de Azure Data Box Gateway
 
-
-Este es el primer tutorial de la serie de tutoriales de implementación necesarios para implementar completamente Azure Data Box Gateway. En este tutorial se describe cómo preparar Azure Portal para implementar recursos de Data Box Gateway. 
+Este es el primer tutorial de la serie de tutoriales de implementación necesarios para implementar completamente Azure Data Box Gateway. En este tutorial se describe cómo preparar Azure Portal para implementar recursos de Data Box Gateway.
 
 Para completar el proceso de instalación y configuración se necesitan privilegios de administrador. La preparación del portal dura menos de 10 minutos.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Crear un nuevo recurso
 > * Descarga de la imagen del dispositivo virtual
 > * Obtención de la clave de activación
@@ -50,12 +50,11 @@ Aquí encontrará los requisitos previos para configurar su recurso de Data Box 
 
 Antes de comenzar, asegúrese de que:
 
-- El recurso de Data Box Gateway debe admitir su suscripción de Microsoft Azure. También se admiten suscripciones de pago por uso.
-- Tiene acceso de propietario o colaborador a nivel de grupo de recursos para los recursos de Data Box Edge o Data Box Gateway, IoT Hub y Azure Storage.
-
+* Su suscripción de Microsoft Azure debe estar habilitada para un recurso de Azure Stack Edge. Asegúrese de que ha usado una suscripción admitida como [Contrato Enterprise (EA) de Microsoft](https://azure.microsoft.com/overview/sales-number/), [Proveedor de soluciones en la nube (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp) o [Patrocinio de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Tiene acceso de propietario o colaborador a nivel de grupo de recursos para los recursos de Data Box Edge o Data Box Gateway, IoT Hub y Azure Storage.
     - Para crear cualquier recurso de Data Box Edge o Data Box Gateway, deben tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. También deberá asegurarse de que el proveedor `Microsoft.DataBoxEdge` está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Para crear un recurso de una cuenta de Storage también se necesita acceso de colaborador, o superior, con ámbito en el nivel de grupo de recursos. De forma predeterminada Azure Storage es un proveedor de recursos registrado.
-- Debe tener acceso de administrador o usuario a Graph API de Azure Active Directory. Para más información, vea [Graph API de Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- Tiene acceso de administrador o de usuario a Microsoft Graph API. Para más información, consulte [Referencia de permisos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 - Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
 
 ### <a name="for-the-data-box-gateway-device"></a>Para el dispositivo de Data Box Gateway

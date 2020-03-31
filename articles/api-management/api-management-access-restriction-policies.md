@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 3ba620d66b84e6724751b2024059e8ecd66888cd
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902498"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231668"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="AccessRestrictionPolicies"></a> Directivas de restricción de acceso
+## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Directivas de restricción de acceso
 
 -   [Activar encabezado HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) : aplica la existencia o el valor de un encabezado HTTP.
 -   [Limitar la frecuencia de llamadas por suscripción](api-management-access-restriction-policies.md#LimitCallRate) : evita los picos de uso de la API limitando la frecuencia de llamadas, por suscripción.
@@ -37,7 +37,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 > [!TIP]
 > Puede usar las directivas de restricción de acceso en distintos ámbitos para distintos propósitos. Por ejemplo, puede proteger toda la API con la autenticación de AAD si aplica la directiva `validate-jwt` en el nivel de API, o bien puede aplicarla en el nivel de operación de API y usar `claims` para un control más detallado.
 
-## <a name="CheckHTTPHeader"></a> Activar encabezado HTTP
+## <a name="check-http-header"></a><a name="CheckHTTPHeader"></a> Activar encabezado HTTP
 
 Usa la directiva `check-header` para exigir que una solicitud tenga un encabezado HTTP especificado. Si lo desea, puede comprobar si el encabezado tiene un valor específico o un intervalo de valores permitidos. Si el resultado de la comprobación es negativo, la directiva finaliza el procesamiento de la solicitud y devuelve el mensaje de error y el código de estado HTTP que especifica.
 
@@ -82,7 +82,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="LimitCallRate"></a> Limitar la tasa de llamadas por suscripción
+## <a name="limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Limitar la tasa de llamadas por suscripción
 
 La directiva `rate-limit` evita los picos de uso de la API según suscripción limitando la tasa de llamadas a un número especificado por un período de tiempo establecido. Cuando se desencadena esta directiva, el autor de la llamada recibe un código de estado de respuesta `429 Too Many Requests`.
 
@@ -142,7 +142,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** product, api, operation (producto, API, operación)
 
-## <a name="LimitCallRateByKey"></a> Limitar la tasa de llamadas por clave
+## <a name="limit-call-rate-by-key"></a><a name="LimitCallRateByKey"></a> Limitar la tasa de llamadas por clave
 
 > [!IMPORTANT]
 > Esta característica no está disponible en el nivel **Consumo** de API Management.
@@ -206,7 +206,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="RestrictCallerIPs"></a> Restringir IP de autor de llamada
+## <a name="restrict-caller-ips"></a><a name="RestrictCallerIPs"></a> Restringir IP de autor de llamada
 
 La directiva `ip-filter` filtra (permite/deniega) llamadas de direcciones IP específicas o de intervalos de direcciones.
 
@@ -252,7 +252,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 -   **Secciones de la directiva:** inbound (entrada)
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="SetUsageQuota"></a> Establecer cuota de uso por suscripción
+## <a name="set-usage-quota-by-subscription"></a><a name="SetUsageQuota"></a> Establecer cuota de uso por suscripción
 
 La directiva `quota` aplica un volumen de llamadas o una cuota de ancho de banda renovables o permanentes por suscripción.
 
@@ -309,7 +309,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 -   **Secciones de la directiva:** inbound (entrada)
 -   **Ámbitos de la directiva:** producto
 
-## <a name="SetUsageQuotaByKey"></a>Establecer cuota de uso por clave
+## <a name="set-usage-quota-by-key"></a><a name="SetUsageQuotaByKey"></a>Establecer cuota de uso por clave
 
 > [!IMPORTANT]
 > Esta característica no está disponible en el nivel **Consumo** de API Management.
@@ -370,7 +370,7 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 -   **Secciones de la directiva:** inbound (entrada)
 -   **Ámbitos de la directiva:** todos los ámbitos
 
-## <a name="ValidateJWT"></a> Validación de JWT
+## <a name="validate-jwt"></a><a name="ValidateJWT"></a> Validación de JWT
 
 La directiva `validate-jwt` aplica la existencia y la validez de un JWT extraído de un encabezado HTTP o un parámetro de consulta especificados.
 

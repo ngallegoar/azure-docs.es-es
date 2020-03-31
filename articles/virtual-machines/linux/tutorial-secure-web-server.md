@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Protección de un servidor web con Linux con certificados SSL en Azure'
+title: 'Tutorial: Protección de un servidor web con Linux con certificados TLS/SSL en Azure'
 description: En este tutorial, aprenderá a usar la CLI de Azure para proteger una máquina virtual Linux que ejecuta el servidor web NGINX con certificados SSL almacenados en Azure Key Vault.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,21 +15,21 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aaa3f32cc48c6d051a2ff2a959372886435e5dcb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b51d0747a4ffa08bc230b33cd416986dda1e1908
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976169"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154311"
 ---
-# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Protección de un servidor web en una máquina virtual de Linux en Azure con certificados SSL almacenados en Key Vault
-Para proteger los servidores web, se puede utilizar un certificado Capa de sockets seguros (SSL) para cifrar el tráfico web. Estos certificados SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Linux en Azure. En este tutorial, aprenderá a:
+# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Tutorial: Protección de un servidor web en una máquina virtual Linux en Azure con certificados TLS/SSL almacenados en Key Vault
+Para proteger los servidores web, se puede usar un certificado de seguridad de la capa de transporte (TLS), conocido anteriormente como Capa de sockets seguros (SSL), para cifrar el tráfico web. Estos certificados TLS/SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Linux en Azure. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una instancia de Azure Key Vault
 > * Generar o cargar un certificado en Key Vault
 > * Creación de una máquina virtual e instalación del servidor web NGINX
-> * Inserción del certificado en la máquina virtual y configuración de NGINX con un enlace SSL
+> * Insertar el certificado en la máquina virtual y configurar NGINX con un enlace TLS
 
 En este tutorial se usa la CLI dentro de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que se actualiza constantemente a la versión más reciente. Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior de cualquier bloque de código.
 
@@ -147,13 +147,13 @@ A continuación, se muestra el sitio de NGINX protegido, como en el ejemplo sigu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, protegió un servidor web NGINX con un certificado SSL almacenado en Azure Key Vault. Ha aprendido a:
+En este tutorial, protegió un servidor web NGINX con un certificado TLS/SSL almacenado en Azure Key Vault. Ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear una instancia de Azure Key Vault
 > * Generar o cargar un certificado en Key Vault
-> * Creación de una máquina virtual e instalación del servidor web NGINX
-> * Inserción del certificado en la máquina virtual y configuración de NGINX con un enlace SSL
+> * Crear una máquina virtual e instalación del servidor web NGINX
+> * Insertar el certificado en la máquina virtual y configurar NGINX con un enlace TLS
 
 Siga este vínculo para ver ejemplos de scripts de máquina virtual creados previamente.
 

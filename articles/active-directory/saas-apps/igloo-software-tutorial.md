@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
 ms.openlocfilehash: df1d70f895e2e0a81344cf2a4e8e2d9963c951fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Tutorial: Integración de Azure Active Directory con Igloo Software
@@ -34,7 +34,7 @@ La integración de Igloo Software con Azure AD proporciona las siguientes ventaj
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para configurar la integración de Azure AD con Igloo Software, necesita los siguientes elementos:
 
@@ -135,19 +135,19 @@ Para configurar el inicio de sesión único de Azure AD con Igloo Software, real
 
 2. Vaya a **Control Panel**(Panel de control).
 
-     ![Panel de control](./media/igloo-software-tutorial/ic799949.png "Panel de control")
+     ![Control Panel (Panel de control)](./media/igloo-software-tutorial/ic799949.png "Panel de control")
 
 3. En la pestaña **Membership** (Pertenencia), haga clic en **Sign In Settings** (Configuración de inicio de sesión).
 
-    ![Configuración de inicio de sesión](./media/igloo-software-tutorial/ic783968.png "Configuración de inicio de sesión")
+    ![Configuración de inicio de sesión](./media/igloo-software-tutorial/ic783968.png "Sign In Settings")
 
 4. En la sección SAML Configuration (Configuración de SAML), haga clic en **Configure SAML Authentication**(Configurar la autenticación de SAML).
 
-    ![Configuración de SAML](./media/igloo-software-tutorial/ic783969.png "Configuración de SAML")
+    ![SAML Configuration (Configuración de SAML)](./media/igloo-software-tutorial/ic783969.png "Configuración de SAML")
 
 5. En la sección de **General Configuration** (Configuración general), realice los pasos siguientes:
 
-    ![Configuración general](./media/igloo-software-tutorial/ic783970.png "Configuración general")
+    ![Configuración general](./media/igloo-software-tutorial/ic783970.png "General Configuration")
 
     a. En el cuadro de texto **Connection Name** (Nombre de conexión), escriba el nombre personalizado de la configuración.
 
@@ -161,7 +161,7 @@ Para configurar el inicio de sesión único de Azure AD con Igloo Software, real
 
 6. En **Response and Authentication Configuration**(Configuración de autenticación y respuesta), realice los pasos siguientes:
 
-    ![Configuración de autenticación y respuesta](./media/igloo-software-tutorial/IC783971.png "Configuración de autenticación y respuesta")
+    ![Configuración de la respuesta y la autenticación](./media/igloo-software-tutorial/IC783971.png "Response and Authentication Configuration")
   
     a. En **Identity Provider** (Proveedor de identidades), seleccione **Microsoft ADFS**.
 
@@ -175,7 +175,7 @@ Para configurar el inicio de sesión único de Azure AD con Igloo Software, real
 
 7. Realice los pasos siguientes para completar la configuración:
 
-    ![Creación de usuario de inicio de sesión](./media/igloo-software-tutorial/IC783972.png "Creación de usuario de inicio de sesión") 
+    ![Creación de usuario al inicio de sesión](./media/igloo-software-tutorial/IC783972.png "Creación de usuario al inicio de sesión") 
 
     a. En **User creation on Sign in** (Creación de usuario al inicio de sesión), seleccione **Create a new user in your site when they sign in** (Crear un nuevo usuario en el sitio cuando se inicia sesión).
 
@@ -206,7 +206,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Create**(Crear).
+    d. Haga clic en **Crear**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

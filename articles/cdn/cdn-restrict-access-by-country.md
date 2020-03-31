@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
 ms.openlocfilehash: 75c422d456f2509ce478e2609a6509f78a6eb31e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593426"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Restricción del contenido de Azure CDN por país o región

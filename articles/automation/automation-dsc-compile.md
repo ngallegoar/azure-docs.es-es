@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 09/10/2018
 ms.topic: conceptual
-ms.openlocfilehash: a4a46837e366caf2860aa0d6597ec7aebc94905a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 48593920bdfcf743fceaeaeec891c0d5c4f2e108
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650017"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80057633"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration
 
@@ -127,7 +127,7 @@ La característica **Recursos compuestos** le permite utilizar las configuracion
 
 ### <a name="manage-configurationdata-when-compiling-configurations-in-azure-automation"></a>Administración de ConfigurationData al compilar configuraciones en Azure Automation
 
-**ConfigurationData** le permite separar las opciones estructurales de cualquier configuración específica del entorno al usar DSC de PowerShell. Para obtener más información, consulte [Diferenciación de "Qué" y "Dónde" en DSC de PowerShell](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx).
+**ConfigurationData** le permite separar las opciones estructurales de cualquier configuración específica del entorno al usar DSC de PowerShell. Para obtener más información, consulte [Diferenciación de "Qué" y "Dónde" en DSC de PowerShell](https://devblogs.microsoft.com/powershell/separating-what-from-where-in-powershell-dsc/).
 
 > [!NOTE]
 > Al compilar en State Configuration de Azure Automation, puede usar **ConfigurationData** en Azure PowerShell, pero no en Azure Portal.

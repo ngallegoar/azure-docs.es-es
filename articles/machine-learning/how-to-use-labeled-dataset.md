@@ -8,10 +8,10 @@ ms.service: machine-learning
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.openlocfilehash: 5138109de3f80d405ce95b605714b511480563f5
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76549348"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creación y exploración de un conjunto de datos de Azure Machine Learning con etiquetas
@@ -22,7 +22,7 @@ En este artículo, aprenderá a exportar las etiquetas de datos desde un proyect
 
 Los conjuntos de datos de Azure Machine Learning con etiquetas son del tipo [TabularDatasets](how-to-create-register-datasets.md#dataset-types) con una propiedad label y nos referiremos a ellos como conjuntos de datos con etiqueta. Estos tipos específicos de TabularDatasets solo se crean como salida de los proyectos de etiquetados de datos de Azure Machine Learning. Cree un proyecto de etiquetado de datos con [estos pasos](how-to-create-labeling-projects.md). Machine Learning admite proyectos de etiquetado de datos para la clasificación de imágenes (de varias etiquetas o varias clases) y la identificación de objetos mediante rectángulos de selección.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree) antes de empezar.
 * [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o acceso a [Azure Machine Learning Studio](https://ml.azure.com/).

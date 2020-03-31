@@ -1,5 +1,5 @@
 ---
-title: 'Entrenamiento de un modelo de Custom Speech: servicio de voz'
+title: 'Entrenamiento de un modelo de Habla personalizada: Servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: El entrenamiento de un modelo de conversión de voz a texto puede mejorar la precisión del reconocimiento del modelo de base de referencia de Microsoft o de un modelo personalizado. Un modelo se entrena mediante transcripciones con etiqueta humana y el texto relacionado.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77137765"
 ---
-# <a name="train-a-model-for-custom-speech"></a>Entrenamiento de un modelo de Custom Speech
+# <a name="train-a-model-for-custom-speech"></a>Entrenamiento de un modelo de Habla personalizada
 
 El entrenamiento de un modelo de conversión de voz a texto puede mejorar la precisión del reconocimiento del modelo de base de referencia de Microsoft. Un modelo se entrena mediante transcripciones con etiqueta humana y el texto relacionado. Estos conjuntos de datos, junto con los datos de audio cargados anteriormente, se usan para refinar y entrenar el modelo de texto a voz para el reconocimiento de palabras, frases, acrónimos, nombres y otros términos específicos de cada producto. Cuantos más conjuntos de datos en dominio proporcione (datos que están relacionados con qué dirán los usuarios y qué espera reconocer), más preciso será su modelo y, por lo tanto, mejor será el reconocimiento. Tenga en cuenta que el uso de datos no relacionados en el entrenamiento puede reducir o perjudicar la precisión del modelo.
 
@@ -38,8 +38,8 @@ Si se está encontrando con problemas de reconocimiento en el modelo, el uso de 
 
 El primer paso para entrenar un modelo es cargar los datos de entrenamiento. Use [Preparación y prueba de los datos](how-to-custom-speech-test-data.md) para obtener instrucciones paso a paso para preparar las transcripciones con etiqueta humana y el texto relacionado (expresiones y pronunciaciones). Después de cargar los datos de entrenamiento, siga estas instrucciones para empezar a entrenar el modelo:
 
-1. Inicie sesión en el [portal de Custom Speech](https://speech.microsoft.com/customspeech).
-2. Vaya a **Speech-to-text > Custom Speech > Training** (Conversión de voz a texto > Custom Speech > Aprendizaje).
+1. Inicie sesión en el [portal de Habla personalizada](https://speech.microsoft.com/customspeech).
+2. Vaya a **Speech-to-text &gt; Custom Speech &gt; Training** (Conversión de voz a texto &gt; Habla personalizada &gt; Aprendizaje).
 3. Haga clic en **Train model** (Entrenar modelo).
 4. A continuación, asigne a su entrenamiento un **nombre** y una **descripción**.
 5. En el menú desplegable **Scenario and Baseline model** (Escenario y modelo de línea de base), seleccione el escenario que mejor se adapte a su dominio. Si no está seguro de qué escenario elegir, seleccione **General**. El modelo de línea de base es el punto de partida para el entrenamiento. Si no tiene una preferencia, puede usar el último.

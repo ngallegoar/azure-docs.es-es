@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.openlocfilehash: ffb610634399594788afcb9b600ba00c6803dfdd
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77207032"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividad de las funciones de Azure en Azure Data Factory
@@ -46,7 +46,7 @@ El tipo de valor devuelto de la función de Azure tiene que ser un elemento `JOb
 | Servicio vinculado | El servicio vinculado de la función de Azure para la instancia correspondiente de Azure Function App  | Referencia al servicio vinculado | sí |
 | nombre de función  | Nombre de la función de la instancia de Azure Function App al que esta actividad llama | String | sí |
 | method  | Método de API de REST para llamar a la función | Tipos de cadenas admitidos: "GET", "POST", "PUT"   | sí |
-| encabezado  | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Cadena (o expresión con un valor resultType de cadena) | Sin |
+| encabezado  | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Cadena (o expresión con un valor resultType de cadena) | No |
 | body  | Cuerpo que se envía junto con la solicitud al método de API de la función  | Cadena (o expresión con un valor resultType de cadena) u objeto.   | Necesario para los métodos POST o PUT |
 |   |   |   | |
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 14b36a391778649e96694f1cb1d3a1b4e7ee89ba
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.date: 03/02/2020
+ms.openlocfilehash: edb2d256d3e5d98c52dbdff1162e0e030ebe2be3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327360"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233528"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Uso de repositorios de metadatos externos en Azure HDInsight
 
@@ -54,6 +54,8 @@ HDInsight también admite tiendas de metadatos personalizadas, que se recomienda
 * Se paga por el costo de una tienda de metadatos (Azure SQL DB) de acuerdo con el nivel de rendimiento que seleccione.
 
 * Es posible escalar la tienda de metadatos según sea necesario.
+
+* El clúster y la tienda de metadatos externa deben estar hospedados en la misma región.
 
 ![Caso de uso de repositorio de metadatos de Hive en HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
 

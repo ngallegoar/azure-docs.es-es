@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 257af309ebdb9080c3cd60b8b89a2c992ecf5145
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: da5db7d956b1ba8aa1ac245b77fe0d4cb31909c1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906577"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061463"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -22,7 +22,7 @@ ms.locfileid: "76906577"
 
 En este inicio rápido, aprenderá a administrar blobs mediante código JavaScript que se ejecuta completamente en el explorador. Los blobs son objetos que pueden contener grandes cantidades de texto o datos binarios, como imágenes, documentos, medios de transmisión y datos de archivo. Usará las medidas de seguridad necesarias para garantizar el acceso protegido a su cuenta de almacenamiento de blobs.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Una cuenta de Azure Storage. [Crear una cuenta de almacenamiento](../common/storage-account-create.md).
@@ -43,7 +43,7 @@ En la tabla siguiente se describe cada opción de configuración de CORS y se ex
 |Configuración  |Value  | Descripción |
 |---------|---------|---------|
 | Orígenes permitidos | * | Acepta una lista delimitada por comas de dominios establecidos como orígenes aceptables. Establecer el valor en `*` permite el acceso de todos los dominios a la cuenta de almacenamiento. |
-| Verbos permitidos     | delete, get, head, merge, post, options y put | Enumera los verbos HTTP permitidos para ejecutar en la cuenta de almacenamiento. Para los fines de esta guía de rápido, seleccione todas las opciones disponibles. |
+| Métodos permitidos     | delete, get, head, merge, post, options y put | Enumera los verbos HTTP permitidos para ejecutar en la cuenta de almacenamiento. Para los fines de esta guía de rápido, seleccione todas las opciones disponibles. |
 | Encabezados permitidos | * | Define una lista de encabezados de solicitud (incluidos los encabezados con prefijo) permitidos por la cuenta de almacenamiento. Establecer el valor en `*` permite el acceso de todos los encabezados. |
 | Encabezados expuestos | * | Enumera los encabezados de respuesta permitidos por la cuenta. Establecer el valor en `*` permite que la cuenta envíe cualquier encabezado.  |
 | Antigüedad máxima (segundos) | 86400 | La cantidad máxima de tiempo que el explorador almacena en caché la solicitud OPTIONS preparatoria. El valor *86400* permite que la memoria caché permanezca un día completo. |

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
 ms.openlocfilehash: 095f6c6ab8395c4ab314fbe948cbc1fbd32cd510
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76719150"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Introducción a la identidad de módulo y a los módulos gemelos de IoT Hub (C)
@@ -31,7 +31,7 @@ Al final de este tutorial, tiene dos aplicaciones de C:
 > [!NOTE]
 > Para obtener más información acerca de los diversos SDK de Azure IoT que puede usar para crear ambas aplicaciones para que se ejecuten en dispositivos y en el back-end de la solución, consulte [Azure IoT SDKs](iot-hub-devguide-sdks.md) (SDK de IoT de Azure).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 

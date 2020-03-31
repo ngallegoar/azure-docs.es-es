@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
 ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646479"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solución de problemas con Azure IoT Hub Device Provisioning Service

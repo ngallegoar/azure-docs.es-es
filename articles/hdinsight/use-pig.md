@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672130"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Uso de Pig con Apache Hadoop en HDInsight
@@ -22,7 +22,7 @@ Aprenda a usar [Apache Pig](https://pig.apache.org/) con HDInsight.
 
 Apache Pig es una plataforma para crear programas de Apache Hadoop mediante un lenguaje de procedimientos que se conoce como *Pig Latin*. Pig es una alternativa a Java para crear soluciones *MapReduce* y se incluye con HDInsight de Azure. Utilice la tabla siguiente para conocer las distintas formas de usar Pig con HDInsight:
 
-## <a id="why"></a>Motivos para usar Apache Pig
+## <a name="why-use-apache-pig"></a><a id="why"></a>Motivos para usar Apache Pig
 
 Uno de los desafíos del procesamiento de datos mediante el uso de MapReduce en Hadoop es la implementación de la lógica de procesamiento únicamente con un mapa y una función de reducción. Para el procesamiento complejo, a menudo debe interrumpir el procesamiento en varias operaciones de MapReduce que están encadenadas para lograr el resultado deseado.
 
@@ -42,7 +42,7 @@ Pig Latin también admite las funciones definidas por el usuario (UDF), que le p
 
 Para más información sobre Pig Latin, consulte el [manual de referencia de Pig Latin 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) y el [manual de referencia de Pig Latin 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
-## <a id="data"></a>Datos de ejemplo
+## <a name="example-data"></a><a id="data"></a>Datos de ejemplo
 
 HDInsight proporciona diversos conjuntos de datos de ejemplo que se almacenan en los directorios `/example/data` y `/HdiSamples`. Estos directorios están en el almacenamiento predeterminado de su clúster. El ejemplo de Pig de este documento utiliza el archivo *log4j* de `/example/data/sample.log`.
 
@@ -55,7 +55,7 @@ En el ejemplo anterior, el nivel de registro es ERROR.
 > [!NOTE]  
 > También puede generar un archivo log4j con la herramienta de registro [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) y luego cargarlo en el blob. Consulte [Carga de datos en HDInsight](hdinsight-upload-data.md) para obtener instrucciones. Para obtener más información sobre el uso de los blobs en Azure Storage con HDInsight, consulte [Uso de Azure Blob Storage con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-## <a id="job"></a>Trabajo de ejemplo
+## <a name="example-job"></a><a id="job"></a>Trabajo de ejemplo
 
 El siguiente trabajo de Pig Latin carga el archivo `sample.log` desde el almacenamiento predeterminado para el clúster de HDInsight. A continuación, realiza una serie de transformaciones que generan un recuento de cuántas veces se ha producido cada nivel de registro en los datos de entrada. Los resultados se escriben en STDOUT.
 
@@ -73,7 +73,7 @@ En la siguiente imagen se muestra un resumen de lo que hace cada transformación
 
 ![Representación gráfica de las transformaciones][image-hdi-pig-data-transformation]
 
-## <a id="run"></a>Ejecutar el trabajo de Pig Latin
+## <a name="run-the-pig-latin-job"></a><a id="run"></a>Ejecutar el trabajo de Pig Latin
 
 HDInsight puede ejecutar trabajos de Pig Latin mediante una variedad de métodos. Use la tabla siguiente para decidir cuál es el método adecuado para usted luego siga el vínculo para ver un tutorial.
 
@@ -87,7 +87,7 @@ Puede usar SQL Server Integration Services (SSIS) para ejecutar un trabajo de Pi
 
 Obtenga más información sobre el paquete de características de Azure para SSIS [aquí][ssispack].
 
-## <a id="nextsteps"></a>Pasos siguientes
+## <a name="next-steps"></a><a id="nextsteps"></a>Pasos siguientes
 
 Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para explorar otras formas de trabajar con HDInsight de Azure.
 

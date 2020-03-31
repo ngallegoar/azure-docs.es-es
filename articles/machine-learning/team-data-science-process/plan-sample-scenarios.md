@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 48b51c40e5de8f10d9d1d16b02e2c70b045816b3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710484"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227208"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Escenarios para análisis avanzado en Azure Machine Learning
 En este artículo se describen los distintos escenarios de origen y destino de datos de ejemplo que se pueden administrar con el [proceso de ciencia de datos en equipos (TDSP)](overview.md). El TDSP proporciona un enfoque sistemático a los equipos que colaboran en la compilación de aplicaciones inteligentes. Los escenarios que se exponen aquí muestran las opciones disponibles en el flujo de trabajo de procesamiento de datos en función de las características de datos, las ubicaciones de origen y los repositorios de destino de Azure.
@@ -35,7 +35,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 > 
 > 
 
-## <a name="smalllocal"></a>Escenario \#1: Conjunto de datos tabular de tamaño pequeño a medio en archivos locales
+## <a name="scenario-1-small-to-medium-tabular-dataset-in-local-files"></a><a name="smalllocal"></a>Escenario \#1: Conjunto de datos tabular de tamaño pequeño a medio en archivos locales
 ![Archivos locales de tamaño pequeño a medio][1]
 
 #### <a name="additional-azure-resources-none"></a>Recursos adicionales de Azure: None
@@ -43,7 +43,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 1. Cargue un conjunto de datos.
 1. Cree un flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados.
 
-## <a name="smalllocalprocess"></a>Escenario \#2: Conjunto de datos de tamaño pequeño a medio de archivos locales que requieren procesamiento
+## <a name="scenario-2-small-to-medium-dataset-of-local-files-that-require-processing"></a><a name="smalllocalprocess"></a>Escenario \#2: Conjunto de datos de tamaño pequeño a medio de archivos locales que requieren procesamiento
 ![Archivos locales de tamaño pequeño a medio con procesamiento][2]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor IPython Notebook)
@@ -56,7 +56,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 1. Lea los datos de blobs de Azure mediante el módulo [Importar datos][import-data].
 1. Cree un flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos introducidos.
 
-## <a name="largelocal"></a>Escenario \#3: Conjunto de datos grande de archivos locales, con blobs de Azure como destino
+## <a name="scenario-3-large-dataset-of-local-files-targeting-azure-blobs"></a><a name="largelocal"></a>Escenario \#3: Conjunto de datos grande de archivos locales, con blobs de Azure como destino
 ![Archivos locales grandes][3]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor IPython Notebook)
@@ -71,7 +71,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 1. Lea los datos de blobs de Azure mediante el módulo [Importar datos][import-data].
 1. Cree un flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos ingeridos.
 
-## <a name="smalllocaltodb"></a>Escenario \#4: Conjunto de datos de tamaño pequeño a medio de archivos locales, con SQL Server en una máquina virtual de Azure como destino
+## <a name="scenario-4-small-to-medium-dataset-of-local-files-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="smalllocaltodb"></a>Escenario \#4: Conjunto de datos de tamaño pequeño a medio de archivos locales, con SQL Server en una máquina virtual de Azure como destino
 ![Archivos locales de tamaño pequeño a medio a Base de datos SQL de Azure][4]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor ISQL Server/IPython Notebook)
@@ -101,7 +101,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 1. Lea los datos directamente desde SQL Server mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 1. Cree un flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos ingeridos.
 
-## <a name="largelocaltodb"></a>Escenario \#5: Conjunto de datos grande en archivos locales, con SQL Server en una máquina virtual de Azure como destino
+## <a name="scenario-5-large-dataset-in-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>Escenario \#5: Conjunto de datos grande en archivos locales, con SQL Server en una máquina virtual de Azure como destino
 ![Archivos locales grandes a Base de datos SQL de Azure][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor ISQL Server/IPython Notebook)
@@ -138,7 +138,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 1. Lea los datos directamente desde SQL Server mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 1. Flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados
 
-## <a name="largedbtodb"></a>Escenario \#6: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino
+## <a name="scenario-6-large-dataset-in-a-sql-server-database-on-premises-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>Escenario \#6: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino
 ![Base de datos SQL local a Base be datos SQL de Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor ISQL Server/IPython Notebook)
@@ -186,7 +186,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 
 [Mover una base de datos mediante las opciones desasociación y asociación (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
-## <a name="largedbtohive"></a>Escenario \#7: Big Data de archivos locales, con base de datos de Hive como destino en clústeres de Azure HDInsight Hadoop
+## <a name="scenario-7-big-data-in-local-files-target-hive-database-in-azure-hdinsight-hadoop-clusters"></a><a name="largedbtohive"></a>Escenario \#7: Big Data de archivos locales, con base de datos de Hive como destino en clústeres de Azure HDInsight Hadoop
 ![Datos de gran tamaño en Hive de destino local][9]
 
 #### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Clúster de Azure HDInsight Hadoop y máquina virtual de Azure (servidor IPython Notebook)
@@ -230,7 +230,7 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 1. Lea los datos directamente desde `Hive Queries` mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 1. Flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados.
 
-## <a name="decisiontree"></a>Árbol de decisión de selección de escenario
+## <a name="decision-tree-for-scenario-selection"></a><a name="decisiontree"></a>Árbol de decisión de selección de escenario
 ---
 El diagrama siguiente resume los escenarios descritos anteriormente y las opciones de la Tecnología y procesos de análisis avanzado elegidas que le guiarán a través de los escenarios detallados. El procesamiento de datos, la exploración, la ingeniería de características y el muestreo pueden tener lugar en uno o varios métodos o entornos (en los entornos de origen, intermedio o de destino) y pueden continuar de forma iterativa según sea necesario. El diagrama solo sirve para ilustrar algunos de los flujos de posibles y no proporciona una enumeración exhaustiva.
 

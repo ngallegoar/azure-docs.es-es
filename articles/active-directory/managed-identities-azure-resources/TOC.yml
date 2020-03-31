@@ -51,7 +51,7 @@
     - name: Azure App Service y Functions
       href: /azure/app-service/overview-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Azure Event Hubs
-      href: /azure/event-hubs/authenticate-managed-identity.md?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+      href: /azure/event-hubs/authenticate-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Azure Container Instances
       href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
 - name: Guías paso a paso
@@ -86,7 +86,7 @@
       items:
         - name: Adquisición de un token de acceso
           href: how-to-use-vm-token.md
-        - name: Inicio de sesión en Powershell y la CLI con una identidad administrada
+        - name: Inicio de sesión en PowerShell y la CLI mediante una identidad administrada
           href: how-to-use-vm-sign-in.md
         - name: Uso con los SDK de Azure
           href: how-to-use-vm-sdk.md

@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7fc0b2822195d952c2a4f9c02bf3758c0e2b809a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928085"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79229940"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copia de datos hacia y desde Azure SQL Database con Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -44,7 +44,7 @@ El conector de Azure SQL Database admite la autenticación básica.
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con actividad de copia que mueva los datos hacia y desde una base de datos de Azure SQL mediante diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
 Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
@@ -53,7 +53,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 1. Crear una **factoría de datos**. Una factoría de datos puede contener una o más canalizaciones.
 2. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos. Por ejemplo, si va a copiar datos desde una cuenta de Azure Blob Storage en una base de datos de Azure SQL, creará dos servicios vinculados para vincular la cuenta de Azure Storage y la base de datos de Azure SQL a su factoría de datos. Para información sobre las propiedades de los servicios vinculados que son específicas de Azure SQL Database, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties).
 3. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. En el ejemplo mencionado en el último paso, se crea un conjunto de datos para especificar el contenedor de blobs y la carpeta que contiene los datos de entrada. Además, se crea otro conjunto de datos para especificar la tabla SQL en la base de datos de Azure SQL que contiene los datos copiados del almacenamiento de blobs. Para información sobre las propiedades del conjunto de datos que son específicas de Azure Data Lake Store, consulte la sección [Propiedades del conjunto de datos](#dataset-properties).
-4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo que se ha mencionado anteriormente, se usa BlobSource como origen y SqlSink como receptor para la actividad de copia. De igual forma, si va a copiar desde Azure SQL Database hacia Azure Blob Storage, usará SqlSource y BlobSink en la actividad de copia. Para información sobre las propiedades de actividad de copia que son específicas de Azure SQL Database, consulte la sección [Propiedades de la actividad de copia](#copy-activity-properties). Para más información sobre cómo usar un almacén de datos como origen o receptor, haga clic en el vínculo de la sección anterior para su almacén de datos.
+4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo que se ha mencionado anteriormente, se usa BlobSource como origen y SqlSink como receptor para la actividad de copia. De igual forma, si va a copiar desde Azure SQL Database hacia Azure Blob Storage, usará SqlSource y BlobSink en la actividad de copia. Para información sobre las propiedades de actividad de copia que son específicas de Azure SQL Database, consulte la sección [Propiedades de la actividad de copia](#copy-activity-properties). Para obtener más información sobre cómo usar un almacén de datos como origen o receptor, haga clic en el vínculo de la sección anterior para el almacén de datos.
 
 Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON. Para obtener ejemplos con definiciones de JSON para entidades de Data Factory que se utilizan para copiar datos hacia y desde una base de datos de Azure SQL, consulte la sección [Ejemplos de JSON](#json-examples-for-copying-data-to-and-from-sql-database) de este artículo.
 
@@ -62,7 +62,7 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades JSON 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 Un servicio vinculado SQL de Azure vincula una base de datos de Azure SQL a la factoría de datos. En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado SQL de Azure.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **AzureSqlDatabase** |Sí |
 | connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure SQL para la propiedad connectionString. Solo se admite la autenticación básica. |Sí |
@@ -77,7 +77,7 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 La sección typeProperties es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección **typeProperties** del conjunto de datos de tipo **AzureSqlTable** tiene las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | tableName |Nombre de la tabla o vista en la base de datos de Azure SQL a la que hace referencia el servicio vinculado. |Sí |
 
@@ -94,11 +94,11 @@ Si va a trasladar datos desde una base de datos de Azure SQL, establezca el tipo
 ### <a name="sqlsource"></a>SqlSource
 En la actividad de copia, si el origen es de tipo **SqlSource**, están disponibles las propiedades siguientes en la sección **typeProperties**:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Ejemplo: `select * from MyTable`. |Sin |
-| sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. |Nombre del procedimiento almacenado. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |Sin |
-| storedProcedureParameters |Parámetros del procedimiento almacenado. |Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |Sin |
+| sqlReaderQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Ejemplo: `select * from MyTable`. |No |
+| sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. |Nombre del procedimiento almacenado. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |No |
+| storedProcedureParameters |Parámetros del procedimiento almacenado. |Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
 
 Si se especifica **sqlReaderQuery** para SqlSource, la actividad de copia ejecuta la consulta en el origen de Azure SQL Database para obtener los datos. Como alternativa, puede indicar un procedimiento almacenado mediante la especificación de **sqlReaderStoredProcedureName** y **storedProcedureParameters** (si el procedimiento almacenado toma parámetros).
 
@@ -144,15 +144,15 @@ GO
 ### <a name="sqlsink"></a>SqlSink
 **SqlSink** admite las siguientes propiedades:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. |timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). |Sin |
+| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. |timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). |No |
 | writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize. |Entero (número de filas) |No (valor predeterminado: 10000) |
-| sqlWriterCleanupScript |Especifique una consulta para que se ejecute la actividad de copia de tal forma que se limpien los datos de un segmento específico. Para más información, consulte [Copia repetible](#repeatable-copy). |Una instrucción de consulta. |Sin |
-| sliceIdentifierColumnName |Especifique el nombre de columna para que la rellene la actividad de copia con un identificador de segmentos generado automáticamente, que se usará para limpiar los datos de un segmento específico cuando se vuelva a ejecutar. Para más información, consulte [Copia repetible](#repeatable-copy). |Nombre de columna de una columna con el tipo de datos binarios (32). |Sin |
-| sqlWriterStoredProcedureName |Nombre del procedimiento almacenado que define cómo aplicar datos de origen en la tabla de destino, por ejemplo, cómo realizar operaciones Upsert o transformaciones con su propia lógica de negocios. <br/><br/>Tenga en cuenta que este procedimiento almacenado se **invocará por lote**. Si desea realizar una operación que solo se ejecuta una vez y que no tiene nada que ver con los datos de origen, como por ejemplo, eliminar o truncar, use la propiedad `sqlWriterCleanupScript`. |Nombre del procedimiento almacenado. |Sin |
-| storedProcedureParameters |Parámetros del procedimiento almacenado. |Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |Sin |
-| sqlWriterTableType |Especifique el nombre del tipo de tabla que se usará en el procedimiento almacenado anterior. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. |Un nombre de tipo de tabla. |Sin |
+| sqlWriterCleanupScript |Especifique una consulta para que se ejecute la actividad de copia de tal forma que se limpien los datos de un segmento específico. Para más información, consulte [Copia repetible](#repeatable-copy). |Una instrucción de consulta. |No |
+| sliceIdentifierColumnName |Especifique el nombre de columna para que la rellene la actividad de copia con un identificador de segmentos generado automáticamente, que se usará para limpiar los datos de un segmento específico cuando se vuelva a ejecutar. Para más información, consulte [Copia repetible](#repeatable-copy). |Nombre de columna de una columna con el tipo de datos binarios (32). |No |
+| sqlWriterStoredProcedureName |Nombre del procedimiento almacenado que define cómo aplicar datos de origen en la tabla de destino, por ejemplo, cómo realizar operaciones Upsert o transformaciones con su propia lógica de negocios. <br/><br/>Tenga en cuenta que este procedimiento almacenado se **invocará por lote**. Si desea realizar una operación que solo se ejecuta una vez y que no tiene nada que ver con los datos de origen, como por ejemplo, eliminar o truncar, use la propiedad `sqlWriterCleanupScript`. |Nombre del procedimiento almacenado. |No |
+| storedProcedureParameters |Parámetros del procedimiento almacenado. |Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
+| sqlWriterTableType |Especifique el nombre del tipo de tabla que se usará en el procedimiento almacenado anterior. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. |Un nombre de tipo de tabla. |No |
 
 #### <a name="sqlsink-example"></a>Ejemplo de SqlSink
 
@@ -410,7 +410,7 @@ Vea el artículo [Azure Blob](data-factory-azure-blob-connector.md#azure-storage
 
 **Conjunto de datos de entrada de blob de Azure:**
 
-Los datos se seleccionan de un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta y el nombre de archivo para el blob se evalúan dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa la parte year, month y day de la hora de inicio y el nombre de archivo, la parte hour. El valor "external": "true" informa al servicio Data Factory que esta tabla es externa a la factoría y no la produce una actividad de la factoría de datos.
+Los datos se seleccionan de un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta y el nombre de archivo para el blob se evalúan dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa la parte year, month y day de la hora de inicio y el nombre de archivo, la parte hour. El valor "external": "true" informa al servicio Data Factory que esta tabla es externa a la factoría de datos y no la produce una actividad de la factoría de datos.
 
 ```JSON
 {
@@ -634,37 +634,37 @@ Como se mencionó en el artículo sobre [actividades del movimiento de datos](da
 
 Al migrar datos a Azure SQL Database y en sentido contrario, se usarán las siguientes asignaciones del tipo SQL al tipo .NET, y viceversa. La asignación es igual que la asignación de tipo de datos de SQL Server para ADO.NET.
 
-| Tipo de motor de base de datos SQL Server | Tipo .NET Framework |
+| Tipo de motor de base de datos SQL Server | Tipo de .NET Framework |
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| Datetime |Datetime |
-| datetime2 |Datetime |
+| date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| image |Byte[] |
+| imagen |Byte[] |
 | int |Int32 |
 | money |Decimal |
-| nchar |String, Char[] |
+| NCHAR |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
-| nvarchar |String, Char[] |
+| NUMERIC |Decimal |
+| NVARCHAR |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
-| smallint |Int16 |
-| smallmoney |Decimal |
+| smalldatetime |DateTime |
+| SMALLINT |Int16 |
+| SMALLMONEY |Decimal |
 | sql_variant |Object * |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
-| tinyint |Byte |
-| uniqueidentifier |Guid |
+| TINYINT |Byte |
+| UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | Xml |Xml |

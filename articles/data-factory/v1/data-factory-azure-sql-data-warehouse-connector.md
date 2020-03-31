@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 18f30af4595a7679d5c3ef56763e992d54fae536
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 2df49e65603573e4a3adcdda0635982252e70b18
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357306"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80130816"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copia de datos hacia y desde SQL Data Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -98,9 +98,9 @@ Si el origen es de tipo **SqlDWSource**, estarán disponibles las propiedades si
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select * from MyTable. |Sin |
-| sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. |Nombre del procedimiento almacenado. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |Sin |
-| storedProcedureParameters |Parámetros del procedimiento almacenado. |Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |Sin |
+| sqlReaderQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select * from MyTable. |No |
+| sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. |Nombre del procedimiento almacenado. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |No |
+| storedProcedureParameters |Parámetros del procedimiento almacenado. |Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
 
 Si se especifica **sqlReaderQuery** para SqlDWSource, la actividad de copia ejecuta la consulta en el origen de Azure SQL Data Warehouse para obtener los datos.
 
@@ -144,15 +144,15 @@ GO
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| sqlWriterCleanupScript |Especifique una consulta para que se ejecute la actividad de copia de tal forma que se limpien los datos de un segmento específico. Consulte la [sección sobre repetibilidad](#repeatability-during-copy)para más información. |Una instrucción de consulta. |Sin |
-| allowPolyBase |Indica si se usa PolyBase (si procede) en lugar del mecanismo BULKINSERT. <br/><br/> **El uso de PolyBase es el método recomendado para cargar datos en SQL Data Warehouse.** Consulte [Uso de PolyBase para cargar datos en SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para ver restricciones y más información. |True <br/>False (valor predeterminado) |Sin |
-| polyBaseSettings |Un grupo de propiedades que se pueden especificar si el valor de la propiedad **allowPolybase** está establecido en **true**. |&nbsp; |Sin |
-| rejectValue |Especifica el número o porcentaje de filas que se pueden rechazar antes de que se produzca un error en la consulta. <br/><br/>Más información sobre las opciones de rechazo de PolyBase en la sección **Argumentos** del tema [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) [CREAR UNA TABLA EXTERNA (Transact-SQL)]. |0 (predeterminado), 1, 2, … |Sin |
-| rejectType |Especifica si se indica la opción rejectValue como un valor literal o un porcentaje. |Valor (predeterminado), Porcentaje |Sin |
+| sqlWriterCleanupScript |Especifique una consulta para que se ejecute la actividad de copia de tal forma que se limpien los datos de un segmento específico. Consulte la [sección sobre repetibilidad](#repeatability-during-copy)para más información. |Una instrucción de consulta. |No |
+| allowPolyBase |Indica si se usa PolyBase (si procede) en lugar del mecanismo BULKINSERT. <br/><br/> **El uso de PolyBase es el método recomendado para cargar datos en SQL Data Warehouse.** Consulte [Uso de PolyBase para cargar datos en SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para ver restricciones y más información. |True <br/>False (valor predeterminado) |No |
+| polyBaseSettings |Un grupo de propiedades que se pueden especificar si el valor de la propiedad **allowPolybase** está establecido en **true**. |&nbsp; |No |
+| rejectValue |Especifica el número o porcentaje de filas que se pueden rechazar antes de que se produzca un error en la consulta. <br/><br/>Más información sobre las opciones de rechazo de PolyBase en la sección **Argumentos** del tema [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) [CREAR UNA TABLA EXTERNA (Transact-SQL)]. |0 (predeterminado), 1, 2, … |No |
+| rejectType |Especifica si se indica la opción rejectValue como un valor literal o un porcentaje. |Valor (predeterminado), Porcentaje |No |
 | rejectSampleValue |Determina el número de filas que se van a recuperar antes de que PolyBase vuelva a calcular el porcentaje de filas rechazadas. |1, 2, … |Sí, si el valor de **rejectType** es **percentage** |
-| useTypeDefault |Especifica cómo administrar valores que faltan en archivos de texto delimitado cuando PolyBase recupera datos del archivo de texto.<br/><br/>Más información sobre esta propiedad en la sección de argumentos de [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (predeterminada) |Sin |
+| useTypeDefault |Especifica cómo administrar valores que faltan en archivos de texto delimitado cuando PolyBase recupera datos del archivo de texto.<br/><br/>Más información sobre esta propiedad en la sección de argumentos de [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |True, False (predeterminada) |No |
 | writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcance writeBatchSize |Entero (número de filas) |No (valor predeterminado: 10000) |
-| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. |timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). |Sin |
+| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera. |timespan<br/><br/> Ejemplo: "00:30:00" (30 minutos). |No |
 
 #### <a name="sqldwsink-example"></a>Ejemplo de SqlDWSink
 
@@ -257,13 +257,13 @@ Para usar esta característica, cree un [servicio vinculado de Azure Storage](da
 ```
 
 ## <a name="best-practices-when-using-polybase"></a>Procedimientos recomendados al usar PolyBase
-En las secciones siguientes se proporcionan procedimientos recomendados adicionales a los que se mencionan en [Procedimientos recomendados para Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+En las secciones siguientes se proporcionan procedimientos recomendados adicionales a los que se mencionan en [Procedimientos recomendados para Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 ### <a name="required-database-permission"></a>Permiso de base de datos necesario
-El uso de PolyBase requiere que el usuario que se usa para cargar datos en SQL Data Warehouse tenga [permiso "CONTROL"](https://msdn.microsoft.com/library/ms191291.aspx) en la base de datos de destino. Una manera de conseguirlo es agregar ese usuario como miembro del rol "db_owner". Obtenga información sobre cómo hacerlo siguiendo [esta sección](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+El uso de PolyBase requiere que el usuario que se usa para cargar datos en SQL Data Warehouse tenga [permiso "CONTROL"](https://msdn.microsoft.com/library/ms191291.aspx) en la base de datos de destino. Una manera de conseguirlo es agregar ese usuario como miembro del rol "db_owner". Obtenga información sobre cómo hacerlo siguiendo [esta sección](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
 ### <a name="row-size-and-data-type-limitation"></a>Limitación del tipo de datos y del tamaño de fila
-Las cargas de PolyBase se limitan a la carga de filas más pequeñas que **1 MB** y no pueden cargar en VARCHR(MAX), NVARCHAR(MAX) ni VARBINARY(MAX). O haga clic [aquí](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+Las cargas de PolyBase se limitan a la carga de filas más pequeñas que **1 MB** y no pueden cargar en VARCHR(MAX), NVARCHAR(MAX) ni VARBINARY(MAX). O haga clic [aquí](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
 Si tiene datos de origen con filas mayores de 1 MB, puede dividir las tablas de origen verticalmente en varias más pequeñas, donde el tamaño de fila mayor de cada una de ellas no supere el límite. Las tablas más pequeñas se pueden cargadas con PolyBase y se combinan en Azure SQL Data Warehouse.
 

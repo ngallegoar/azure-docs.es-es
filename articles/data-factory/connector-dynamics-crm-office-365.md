@@ -13,10 +13,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/20/2019
 ms.openlocfilehash: d065439839ba5db479305ae81c61892cb5cf5e70
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74929455"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
@@ -42,7 +42,7 @@ Consulte la tabla siguiente sobre los tipos y configuraciones de autenticación 
 
 | Versiones de Dynamics | Tipos de autenticación | Ejemplos de servicios vinculados |
 |:--- |:--- |:--- |
-| Common Data Service <br> Dynamics 365 Online <br> Dynamics CRM Online | Entidad de servicio de AAD <br> Office 365 | [Dynamics en línea y la entidad de servicio de AAD o la autenticación de Office 365](#dynamics-365-and-dynamics-crm-online) |
+| Common Data Service <br> Dynamics 365 Online <br> Dynamics CRM Online | Entidad de servicio de AAD <br> Office365 | [Dynamics en línea y la entidad de servicio de AAD o la autenticación de Office 365](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 local con IFD <br> Dynamics CRM 2016 local con IFD <br> Dynamics CRM 2015 local con IFD | IFD | [Dynamics local con autenticación de IFD + IFD](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
 Para Dynamics 365 en concreto, se admiten los siguientes tipos de aplicación:
@@ -60,7 +60,7 @@ Este conector de Dynamics se basa en las [herramientas de Dynamics XRM](https://
 >[!TIP]
 >Para copiar datos desde **Dynamics 365 Finance and Operations**, puede usar el [conector de Dynamics AX](connector-dynamics-ax.md).
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -72,9 +72,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 y Dynamics CRM Online
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en **Dynamics**, **DynamicsCrm** o **CommonDataServiceForApps**. | Sí |
+| type | La propiedad type debe establecerse en **Dynamics**, **DynamicsCrm** o **CommonDataServiceForApps**. | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"Online"** para Dynamics Online. | Sí |
 | serviceUri | Dirección URL de la instancia de Dynamics, por ejemplo, `https://adfdynamics.crm.dynamics.com`. | Sí |
 | authenticationType | Tipo de autenticación para conectarse a un servidor de Dynamics. Los valores permitidos son: **AADServicePrincipal** o **"Office365"** . | Sí |
@@ -169,9 +169,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 *Las propiedades adicionales, en comparación con Dynamics Online, son "hostName" y "port".*
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en **Dynamics**, **DynamicsCrm** o **CommonDataServiceForApps**. | Sí |
+| type | La propiedad type debe establecerse en **Dynamics**, **DynamicsCrm** o **CommonDataServiceForApps**. | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"OnPremisesWithIfd"** para Dynamic local con IFD.| Sí |
 | hostName | El nombre de host del servidor local de Dynamics. | Sí |
 | port | El puerto del servidor local de Dynamics. | No (el valor predeterminado es 443) |
@@ -215,12 +215,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos con Dynamics como origen o destino, se admiten las siguientes propiedades.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en **DynamicsEntity**, **DynamicsCrmEntity** o **CommonDataServiceForAppsEntity**. |Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en **DynamicsEntity**, **DynamicsCrmEntity** o **CommonDataServiceForAppsEntity**. |Sí |
 | entityName | El nombre lógico de la entidad que se va a recuperar. | No para el origen (si se especifica "query" en el origen de la actividad); sí para el receptor |
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 {
@@ -247,10 +247,10 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Dynamics, en la sección **source** de la actividad de copia se admiten las siguientes propiedades.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en **DynamicsSource**, **DynamicsCrmSource** o **CommonDataServiceForAppsSource**. | Sí |
-| query | FetchXML es un lenguaje de consulta patentado que se usa en Dynamics (Online y local). Consulte el ejemplo siguiente. Para más información, consulte [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx) (Creación de consultas con FetchXML). | No (si se especifica "entityName" en el conjunto de datos) |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en **DynamicsSource**, **DynamicsCrmSource** o **CommonDataServiceForAppsSource**. | Sí |
+| Query | FetchXML es un lenguaje de consulta patentado que se usa en Dynamics (Online y local). Consulte el ejemplo siguiente. Para más información, consulte [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx) (Creación de consultas con FetchXML). | No (si se especifica "entityName" en el conjunto de datos) |
 
 >[!NOTE]
 >La columna PK siempre se copiará incluso si la proyección de columna que se configura en la consulta de FetchXML no la contiene.
@@ -259,7 +259,7 @@ Para copiar datos desde Dynamics, en la sección **source** de la actividad de c
 >- Cuando se copian datos desde Dynamics, la asignación explícita de columnas desde Dynamics al receptor es opcional, aunque se recomienda encarecidamente para garantizar un resultado de copia determinista.
 >- Cuando se importa el esquema en la interfaz de usuario de creación, ADF lo deduce mediante el muestreo de las primeras filas de los resultados de la consulta de Dynamics para inicializar la lista de columnas de origen, en cuyo caso se omiten las columnas sin valores en las primeras filas. El mismo comportamiento se aplica a las ejecuciones de copia si no existe una asignación explícita. Puede revisar y agregar más columnas a la asignación, que se respetarán durante el tiempo de ejecución de la copia.
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -315,11 +315,11 @@ Para copiar datos desde Dynamics, en la sección **source** de la actividad de c
 
 Para copiar datos a Dynamics, se admiten las siguientes propiedades en la sección **sink** de la actividad de copia.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **DynamicsSink**, **DynamicsCrmSink** o **CommonDataServiceForAppsSink**. | Sí |
+| type | La propiedad type del receptor de la actividad de copia debe establecerse en **DynamicsSink**, **DynamicsCrmSink** o **CommonDataServiceForAppsSink**. | Sí |
 | writeBehavior | El comportamiento de escritura de la operación.<br/>El valor permitido es **"Upsert"** . | Sí |
-| alternateKeyName | Especifique el nombre de clave alternativo definido en la entidad para realizar "Upsert". | Sin |
+| alternateKeyName | Especifique el nombre de clave alternativo definido en la entidad para realizar "Upsert". | No |
 | writeBatchSize | El recuento de filas de datos escritos en Dynamics en cada lote. | No (el valor predeterminado es 10) |
 | ignoreNullValues | Indica si se omiten los valores nulos de los datos de entrada (excepto los campos de clave) durante la operación de escritura.<br/>Los valores permitidos son **true** y **false**.<br>- **True**: deja los datos del objeto de destino sin cambiar cuando realiza una operación upsert/update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False**: actualiza los datos del objeto de destino a NULL cuando realiza una operación upsert/update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
 
@@ -330,7 +330,7 @@ Para Dynamics 365 en línea, hay un límite de [2 llamadas simultáneas por lote
 
 La combinación óptima de "**writeBatchSize**" y "**parallelCopies**" depende del esquema de la entidad; por ejemplo, el número de columnas, el tamaño de fila o el número de complementos, flujos de trabajo o actividades de flujo de trabajo enlazados a esas llamadas, etc. El valor predeterminado de 10 writeBatchSize * 10 parallelCopies es el recomendado de acuerdo con el servicio Dynamics, y funcionará con la mayoría de entidades de Dynamics, si bien podría no proporcionar el mejor rendimiento. Para optimizar el rendimiento, ajuste la combinación en su configuración de la actividad de copia.
 
-**Ejemplo:**
+**Ejemplo**:
 
 ```json
 "activities":[
@@ -378,16 +378,16 @@ Configure el tipo de datos de Data Factory correspondiente en la estructura del 
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | Cadena | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (con el destino único asociado) |
 | AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributeType.Memo | Cadena | ✓ | ✓ |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | Cadena | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

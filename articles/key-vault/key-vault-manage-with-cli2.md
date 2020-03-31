@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 642cc42a9853fe0a93a40ca65652b6dc5fcd8d40
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: f69b65ece09a63c7a1d9e23d5cd488d9659724ad
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195284"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457430"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Administración de Key Vault mediante la CLI de Azure 
 
@@ -219,7 +219,7 @@ Para autorizar a la misma aplicación a leer secretos en su almacén, escriba el
 az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="bkmk_KVperCLI"></a> Configuración de directivas de acceso avanzado de almacén de claves
+## <a name="setting-key-vault-advanced-access-policies"></a><a name="bkmk_KVperCLI"></a> Configuración de directivas de acceso avanzado de almacén de claves
 
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar directivas avanzadas para el almacén de claves.
 
@@ -237,9 +237,9 @@ Habilitar Key Vault para el cifrado de disco: necesario cuando se usa el almacé
 
 Habilitar Key Vault para la implementación de plantillas: permite que Resource Manager recupere secretos del almacén.
 
-```azurecli 
- az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
- ```
+```azurecli
+az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-template-deployment "true"
+```
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>Trabajar con un módulo de seguridad de hardware (HSM)
 

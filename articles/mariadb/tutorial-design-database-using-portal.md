@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 28a20325fac92d0b296c336e2e1186487d1e0272
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 974b6a1e980119582d4fedb5f8b4e73685290de3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776715"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80063810"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Diseño de una base de datos de Azure Database for MariaDB con Azure Portal
 
@@ -24,7 +24,7 @@ En este tutorial usará Azure Portal para aprender a hacer lo siguiente:
 > * Creación de una instancia de Azure Database for MariaDB
 > * Configuración del firewall del servidor
 > * Uso de la herramienta de línea de comandos mysql para crear una base de datos
-> * Carga de datos de ejemplo
+> * Carga de datos de muestra
 > * Consultar datos
 > * Actualización de datos
 > * Restauración de datos
@@ -42,14 +42,14 @@ Se crea un servidor de Azure Database for MariaDB con un conjunto definido de [r
 1. Seleccione el botón **Crear un recurso** (+) de la esquina superior izquierda del portal.
 
 2. Seleccione **Bases de datos** > **Azure Database for MariaDB**. También puede escribir **MariaDB** en el cuadro de búsqueda para encontrar el servicio.
-   
+
    ![Vaya a MySQL.](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
-3. Seleccione el icono **Azure Database for MariaDB** y, a continuación, seleccione **Crear**. Escriba o seleccione la información necesaria.
-   
+3. Seleccione el icono **Azure Database for MariaDB**. Escriba o seleccione la información necesaria.
+
    ![Formulario de creación](./media/tutorial-design-database-using-portal/2-create-form.png)
 
-    Configuración | Valor sugerido | Descripción del campo 
+    Configuración | Valor sugerido | Descripción del campo
     ---|---|---
     Nombre de servidor | *nombre del servidor único* | Elija un nombre único que identifique el servidor de Azure Database for MariaDB. Por ejemplo, **mydemoserver**. El nombre de dominio *.mariadb.database.azure.com* se anexa al nombre de servidor especificado. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
     Subscription | *su suscripción* | Seleccione la suscripción de Azure que quiere usar para el servidor. Si tiene varias suscripciones, elija aquella en la que se factura el recurso.
@@ -67,14 +67,14 @@ Se crea un servidor de Azure Database for MariaDB con un conjunto definido de [r
    > [!TIP]
    > Con el **crecimiento automático** habilitado, el servidor aumenta el almacenamiento cuando se está acercando el límite asignado, sin afectar a la carga de trabajo.
 
-4. Seleccione **Crear**. En un par de minutos, tendrá un servidor nuevo de Azure Database for MariaDB en ejecución en la nube. Para supervisar el proceso de implementación, seleccione **Notificaciones** en la barra de herramientas.
+4. Haga clic en **Revisar + crear**. Puede hacer clic en el botón **Notificaciones** de la barra de herramientas para supervisar el proceso de implementación. La implementación puede tardar hasta 20 minutos.
 
 ## <a name="configure-the-firewall"></a>Configuración del firewall
 
 Una base de datos de Azure Database for MariaDB está protegida por un firewall. De forma predeterminada, se rechazan todas las conexiones al servidor y a las bases de datos que contiene. Antes de conectarse a Azure Database for MariaDB por primera vez, configure el firewall para agregar la dirección IP (o el intervalo de direcciones IP) de red pública del equipo cliente.
 
 1. Seleccione el servidor recién creado y, luego, **Seguridad de la conexión**.
-   
+
    ![Seguridad de conexión](./media/tutorial-design-database-using-portal/1-Connection-security.png)
 2. Puede seleccionar **Agregar mi IP** o configurar aquí las reglas de firewall. No olvide seleccionar **Guardar** después de crear las reglas.
 
@@ -85,7 +85,7 @@ Ahora puede conectarse al servidor con la herramienta de línea de comandos mysq
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
-En Azure Portal, obtenga los valores de **Nombre de servidor** (completo) y **Nombre de inicio de sesión del administrador del servidor** del servidor de Azure Database for MariaDB. Usará el nombre de servidor completo para conectarse a su servidor mediante la herramienta de línea de comandos mysql. 
+En Azure Portal, obtenga los valores de **Nombre de servidor** (completo) y **Nombre de inicio de sesión del administrador del servidor** del servidor de Azure Database for MariaDB. Usará el nombre de servidor completo para conectarse a su servidor mediante la herramienta de línea de comandos mysql.
 
 1. En el menú izquierdo de [Azure Portal](https://portal.azure.com/), seleccione **Todos los recursos**. Escriba el nombre del servidor y busque el servidor de Azure Database for MariaDB. Seleccione el nombre del servidor para ver los detalles del servidor.
 
@@ -97,17 +97,17 @@ En este ejemplo, el nombre del servidor es **mydemoserver.mariadb.database.azure
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Conexión al servidor con mysql
 
-Use la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para establecer una conexión con el servidor de Azure Database for MariaDB. Puede ejecutar esta herramienta desde Azure Cloud Shell en el explorador o desde su propio equipo mediante las herramientas mysql instaladas de forma local. Para abrir Azure Cloud Shell, haga clic en el botón **Probar** en un bloque de código de este artículo, o visite Azure Portal y haga clic en el icono **>_** de la barra de herramientas superior derecha. 
+Use la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para establecer una conexión con el servidor de Azure Database for MariaDB. Puede ejecutar esta herramienta desde Azure Cloud Shell en el explorador o desde su propio equipo mediante las herramientas mysql instaladas de forma local. Para abrir Azure Cloud Shell, haga clic en el botón **Probar** en un bloque de código de este artículo, o visite Azure Portal y haga clic en el icono **>_** de la barra de herramientas superior derecha.
 
 Escriba el comando para conectarse:
 
-```azurecli-interactive
+```bash
 mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Crear una base de datos en blanco
 
-Una vez conectado al servidor, cree una base de datos vacía con la que trabajar:
+Cuando esté conectado al servidor, cree una base de datos vacía con la que trabajar:
 
 ```sql
 CREATE DATABASE mysampledb;
@@ -168,10 +168,10 @@ Imagine que ha eliminado por accidente una tabla de base de datos importante y n
 
 1. En Azure Portal, localice Azure Database for MariaDB. En la página **Información general**, seleccione **Restaurar**.
 
-   ![Restauración de una base de datos](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
+   ![Restaurar una base de datos](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 
 2. En la página **Restaurar**, escriba o seleccione la siguiente información:
-   
+
    ![Formulario de restauración](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
    - **Punto de restauración**: seleccione un momento dado al que quiera restaurar, en el período de tiempo que aparece. Asegúrese de que convertir la zona horaria local a UTC.
@@ -188,7 +188,7 @@ En este tutorial uso Azure Portal para aprender a hacer lo siguiente:
 > * Creación de una instancia de Azure Database for MariaDB
 > * Configuración del firewall del servidor
 > * Usar la herramienta de línea de comandos de mysql para crear una base de datos
-> * Carga de datos de ejemplo
+> * Carga de datos de muestra
 > * Consultar datos
 > * Actualización de datos
 > * Restauración de datos

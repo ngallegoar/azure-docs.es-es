@@ -12,10 +12,10 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: 136ee197271fc659497c169e27a6399c3940c19e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75834852"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Entrenamiento de modelos de aprendizaje profundo de PyTorch a escala con Azure Machine Learning
@@ -29,7 +29,7 @@ Tanto si va a entrenar un modelo de PyTorch de aprendizaje profundo desde el pri
 
 Más información sobre las diferencias entre [aprendizaje profundo y aprendizaje automático](concept-deep-learning-vs-machine-learning.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Ejecute este código en cualquiera de estos entornos:
 

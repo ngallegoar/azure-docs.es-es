@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 4d729a0117c7c409d1a3e0c3fd440aed96153203
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893334"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224736"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copia de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -40,7 +40,7 @@ En concreto, este conector de Amazon Redshift admite la recuperación de datos d
 > [!TIP]
 > Para obtener el mejor rendimiento al copiar grandes cantidades de datos desde Redshift, considere usar Redshift UNLOAD integrado a través de Amazon S3. Vea la sección [Uso de UNLOAD para copiar datos de Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) para más detalles.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si va a copiar datos a un local almacén de datos local mediante [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md), conceda a Integration Runtime (use la dirección IP de la máquina) el acceso al clúster de Amazon Redshift. Consulte [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autorización para acceder al clúster) para obtener instrucciones.
 * Si va a copiar datos a un almacén de datos de Azure, consulte [Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalos de direcciones IP de Azure Data Center) para ver los intervalos de direcciones IP de Compute y los intervalos SQL que se utilizan en los centros de datos de Azure.

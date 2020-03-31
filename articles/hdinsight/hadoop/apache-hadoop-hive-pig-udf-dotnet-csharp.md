@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 9ef9eada9b9aec50642a8bf357edab0677868817
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74949396"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Use las funciones definidas por el usuario de C# con el streaming de Apache Hive y Apache Pig en Apache Hadoop de HDInsight.
@@ -24,7 +24,7 @@ Aprenda a usar funciones definidas por el usuario (UDF) de C# con [Apache Hive](
 
 Tanto Hive como Pig pueden pasar datos a aplicaciones externas para el procesamiento. Este proceso se conoce como _streaming_. Cuando se usa una aplicación .NET, los datos se pasan a la aplicación en STDIN y la aplicación devuelve los resultados en STDOUT. Para leer y escribir en STDIN y STDOUT, puede usar `Console.ReadLine()` y `Console.WriteLine()` desde una aplicación de la consola.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Estar familiarizado con la escritura y la compilación del código C# orientado a .NET Framework 4.5.
 

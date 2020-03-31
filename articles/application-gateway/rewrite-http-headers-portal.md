@@ -9,10 +9,10 @@ ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ms.openlocfilehash: b90736b3ed1c1f69488fde4a386cf215d751c362
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74012855"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescribir los encabezados HTTP de solicitud y respuesta con Azure Application Gateway mediante Azure Portal
@@ -31,9 +31,9 @@ Para configurar la reescritura de encabezados HTTP, es preciso completar estos p
 
 1. Cree los objetos necesarios para la reescritura de encabezados HTTP:
 
-   - **Acción de reescritura**: Se usa para especificar los campos de solicitud y encabezado de solicitud que quiere reescribir y el nuevo valor para los encabezados. Puede asociar una o más condiciones de reescritura con una acción de reescritura.
+   - **Acción de reescritura**: Se usa para especificar los campos de solicitud y encabezado de solicitud que quiere reescribir y el nuevo valor para los encabezados. Puede asociar una o varias condiciones de reescritura con una acción de reescritura.
 
-   - **Condición de reescritura**: Configuración opcional. Las condiciones de reescritura evalúan el contenido de las solicitudes y respuestas HTTP(S). La acción de reescritura tendrá lugar si la solicitud o respuesta HTTP(S) coinciden con la condición de reescritura.
+   - **Condición de reescritura**: Una configuración opcional. Las condiciones de reescritura evalúan el contenido de las solicitudes y respuestas HTTP(S). La acción de reescritura tendrá lugar si la solicitud o respuesta HTTP(S) coinciden con la condición de reescritura.
 
      Si asocia más de una condición con una acción, la acción se produce solo cuando se cumplen todas las condiciones. En otras palabras, se trata de una operación AND lógica.
 

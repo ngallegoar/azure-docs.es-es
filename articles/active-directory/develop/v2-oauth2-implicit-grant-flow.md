@@ -17,12 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4f35162be513873637f9a87260410d891fdace10
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6e3f021fd888bbb408fa66964c54d22f0d68e84e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300475"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297695"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidad de Microsoft y concesión implícita de flujo
 
@@ -69,6 +69,9 @@ La concesión implícita presenta más riesgos que otras concesiones, y las áre
 Si su aplicación es un cliente nativo, el flujo implícito no es una buena elección. La ausencia de la cookie de sesión de Azure AD en el contexto de un cliente nativo priva a su aplicación de los medios de mantener una sesión de larga duración. Lo que significa que la aplicación pedirá confirmación repetidamente al usuario al obtener los tokens de acceso para los nuevos recursos.
 
 Si está desarrollando una aplicación web que incluye un back-end y que usa una API desde el código de back-end, el flujo implícito tampoco es una buena elección. Otras concesiones ofrecen muchas más posibilidades. Por ejemplo, la concesión de credenciales de cliente de OAuth2 proporciona la capacidad de obtener tokens que reflejan los permisos asignados a la misma aplicación, a diferencia de las delegaciones de usuario. Esto significa que el cliente tiene la capacidad de mantener el acceso mediante programación a los recursos, incluso cuando el usuario no está activamente implicado en una sesión. No solo eso, sino que dichas concesiones ofrecen mayores garantías de seguridad. Por ejemplo, los tokens de acceso nunca pasan por el explorador del usuario, porque no se arriesgan a ser guardados en el historial del explorador. La aplicación cliente también puede realizar una autenticación segura cuando se solicita un token.
+
+[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
+[OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 

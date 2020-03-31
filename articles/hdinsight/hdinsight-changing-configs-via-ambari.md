@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150123"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233652"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Uso de Apache Ambari para optimizar configuraciones de clúster de HDInsight
 
@@ -177,10 +177,10 @@ Los tipos de compresión disponibles son:
 
 | Formato | Herramienta | Algoritmo | Extensión de archivo | ¿Divisible? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .gz | Sin |
+| Gzip | Gzip | DEFLATE | .gz | No |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Sí |
 | LZO | Lzop | LZO | .lzo | Sí, si está indexado |
-| Snappy | N/D | Snappy | Snappy | Sin |
+| Snappy | N/D | Snappy | Snappy | No |
 
 Como norma general, es importante tener un método de compresión divisible, ya que, de lo contrario, se crearán muy pocos asignadores. Si los datos de entrada son texto, `bzip2` es la mejor opción. Para el formato ORC, Snappy es la opción de compresión más rápida.
 
@@ -319,7 +319,7 @@ De manera similar a Hive, el modo local se usa para acelerar los trabajos con ca
 
 Pig copia los archivos JAR que requieren los formatos UDF en una caché distribuida para estar disponibles para los nodos de tarea. Estos archivos JAR no cambian con frecuencia. Si está habilitado, el valor `pig.user.cache.enabled` permite colocar archivos JAR en una caché para volver a usarlos para trabajos ejecutados por el mismo usuario. Esto da como resultado un aumento menor del rendimiento de trabajo.
 
-1. Para habilitarlo, establezca `pig.user.cache.enabled` en true. El valor predeterminado es false.
+1. Para habilitarla, establezca `pig.user.cache.enabled` en true. El valor predeterminado es false.
 
 1. Para establecer la ruta de acceso base de los archivos JAR en caché, establezca `pig.user.cache.location` en la ruta de acceso base. El valor predeterminado es `/tmp`.
 

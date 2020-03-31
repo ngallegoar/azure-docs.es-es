@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844707"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Tutorial: Reenviar eventos a IoTHub
@@ -28,7 +28,7 @@ Para completar este tutorial, debe conocer los siguientes requisitos previos:
 - [Conceptos sobre la cuadrícula de eventos](concepts.md)
 - [Centro de IoT Edge](../../iot-edge/module-composition.md) 
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerrequisitos 
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Una **suscripción a Azure**: cree una [cuenta gratuita](https://azure.microsoft.com/free) si aún no tiene una. 

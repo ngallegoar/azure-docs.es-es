@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bb5c62a7df53548ff59a03c6ccc8fb28f1503d3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765690"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067715"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Inicio rápido: Creación de una instancia de Azure Database for MySQL mediante un sencillo comando de la CLI de Azure: az mysql up (versión preliminar)
 
@@ -22,7 +22,7 @@ ms.locfileid: "74765690"
 
 Azure Database for MySQL es un servicio administrado que le permite ejecutar, administrar y escalar bases de datos de MySQL de alta disponibilidad en la nube. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En este inicio rápido se muestra cómo usar el comando [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) para crear un servidor Azure Database for MySQL mediante la CLI de Azure. Además de crear el servidor, el comando `az mysql up` crea una base de datos de ejemplo, un usuario raíz en la base de datos, abre el firewall para servicios de Azure y crea reglas de firewall predeterminadas para el equipo cliente. Esto ayuda a acelerar el proceso de desarrollo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -34,7 +34,7 @@ Deberá iniciar sesión en su cuenta mediante el comando [az login](/cli/azure/a
 az login
 ```
 
-Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Seleccione el identificador de suscripción específico en su cuenta mediante el comando [az account set](/cli/azure/account). Sustituya la propiedad **subscription id** de la salida de **az login** de su suscripción en el marcador de posición de identificador de suscripción.
+Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Seleccione el identificador de suscripción específico en su cuenta mediante el comando [az account set](/cli/azure/account). Sustituya la propiedad **subscription ID** de la salida de **az login** de su suscripción en el marcador de posición de identificador de suscripción.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -63,8 +63,8 @@ resource-group | Generado por el sistema | Un nuevo grupo de recursos de Azure.
 sku-name | GP_Gen5_2 | El nombre de la SKU. Sigue la convención {plan de tarifa}\_{generación de procesos}\_{núcleos virtuales} en forma abreviada. El valor predeterminado es un servidor de uso general Gen5 con 2 núcleos virtuales. Consulte nuestra [página de precios](https://azure.microsoft.com/pricing/details/mysql/) para más información acerca de los niveles.
 backup-retention | 7 | Cuánto tiempo deben conservarse las copias de seguridad. La unidad es días.
 geo-redundant-backup | Disabled | Si se deben habilitar las copias de seguridad con redundancia geográfica en este servidor o no.
-location | westus2 | La ubicación de Azure para el servidor.
-ssl-enforcement | Disabled | Si debe ssl debe habilitarse, o no, en este servidor.
+ubicación | westus2 | La ubicación de Azure para el servidor.
+ssl-enforcement | Disabled | Si SSL debe habilitarse o no en este servidor.
 storage-size | 5120 | La capacidad de almacenamiento del servidor (la unidad es megabytes).
 version | 5.7 | La versión principal de MySQL.
 admin-user | Generado por el sistema | El nombre del usuario del inicio de sesión del administrador.
@@ -78,8 +78,8 @@ Una vez que se crea el servidor, incluye la siguiente configuración:
 - Se crea una regla de firewall denominada "devbox". La CLI de Azure intenta detectar la dirección IP de la máquina desde la que se ejecuta el comando `az mysql up` e incluye esa dirección IP en la lista de permitidos.
 - "Permitir el acceso a servicios de Azure" está activado. Este valor configura el firewall del servidor para que acepte conexiones de todos los recursos de Azure, incluidos aquellos que no están en la suscripción.
 - El parámetro `wait_timeout` se establece en 8 horas.
-- Se crea una base de datos vacía denominada "sampledb".
-- Se crea un usuario denominado "root" con privilegios para "sampledb".
+- Se crea una base de datos vacía denominada "sampledb"
+- Se crea un usuario denominado "root" con privilegios para "sampledb"
 
 > [!NOTE]
 > Azure Database for MySQL se comunica a través del puerto 3306. Al conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través de dicho puerto. Indique al departamento de TI que abran el puerto 3306 para conectarse al servidor.

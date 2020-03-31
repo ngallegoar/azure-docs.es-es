@@ -8,23 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/20/2020
 ms.author: swmachan
-ms.openlocfilehash: 15a36451c18d65df6667f24284f3f69f3d1c06b8
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c7be4a0ea1a9d24a8b262132632a0bbb63ae1b96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326757"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052484"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Impedir la traducción de contenido con Translator Text API
 
 Translator Text API permite etiquetar contenido para que no se traduzca. Por ejemplo, es posible que desee etiquetar código, un nombre de marca, una palabra o una frase que no tengan sentido si se traducen.
 
 ## <a name="methods-for-preventing-translation"></a>Métodos para impedir la traducción
-1. Utilice caracteres de escape con las etiquetas de Twitter: @somethingtopassthrough o #somethingtopassthrough. Quite los caracteres de escape después de la traducción. Esta es la expresión regular para las etiquetas válidas de Twitter: `\B@[A-Za-z]+[A-Za-z0-9_]+)`. Una etiqueta debe empezar con un signo "\@", seguido de un carácter y, a continuación, seguido de uno o varios caracteres, dígitos o subrayado. Se recomienda mantener las etiquetas cortas y la etiqueta de apertura debe ir precedida de un espacio.
 
-2. Etiquete el contenido con `notranslate`. Esto solo funciona cuando el elemento textType de entrada se establece como HTML.
+1. Etiquete el contenido con `notranslate`. Esto solo funciona cuando el elemento textType de entrada se establece como HTML.
 
    Ejemplo:
 
@@ -38,11 +37,11 @@ Translator Text API permite etiquetar contenido para que no se traduzca. Por eje
    <div>This will be translated. </div>
    ```
 
-3. Utilice el [diccionario dinámico](dynamic-dictionary.md) para prescribir una traducción específica.
+2. Utilice el [diccionario dinámico](dynamic-dictionary.md) para prescribir una traducción específica.
 
-4. No pase la cadena a Translator Text API para que se traduzca.
+3. No pase la cadena a Translator Text API para que se traduzca.
 
-5. Traductor personalizado: utilice un [diccionario de Traductor personalizado](custom-translator/what-is-dictionary.md) para prescribir la traducción de una frase cuya probabilidad es del 100 %.
+4. Traductor personalizado: utilice un [diccionario de Traductor personalizado](custom-translator/what-is-dictionary.md) para prescribir la traducción de una frase cuya probabilidad es del 100 %.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

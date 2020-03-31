@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 603bffe3d28214dbdcd51888925c3c653d0759e7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 89ed0bad2729a9e0983d4ef7f8a53faa4f5426ac
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068178"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415655"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Realización de copias de seguridad y restauración de archivos en máquinas virtuales Windows en Azure
 
@@ -33,7 +33,7 @@ Para proteger sus datos realice copias de seguridad a intervalos regulares. Azur
 
 ## <a name="backup-overview"></a>Introducción a Backup
 
-Cuando el servicio Azure Backup inicia una copia de seguridad, desencadena la extensión de copia de seguridad para que tome una instantánea de un momento dado. El servicio Azure Backup usa la extensión _VMSnapshot_. La extensión se instala cuando se realiza la primera copia de seguridad de la máquina virtual, en caso de que esta esté en ejecución. Si no se está ejecutando la máquina virtual, el servicio Azure Backup toma una instantánea del almacenamiento subyacente (ya que no se produce ninguna escritura de la aplicación mientras se detiene la máquina virtual).
+Cuando el servicio Azure Backup inicia una copia de seguridad, desencadena la extensión de copia de seguridad para que tome una instantánea de un momento dado. El servicio Azure Backup usa la [extensión VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows). La extensión se instala cuando se realiza la primera copia de seguridad de la máquina virtual, en caso de que esta esté en ejecución. Si no se está ejecutando la máquina virtual, el servicio Azure Backup toma una instantánea del almacenamiento subyacente (ya que no se produce ninguna escritura de la aplicación mientras se detiene la máquina virtual).
 
 Cuando se toma una instantánea de las máquinas virtuales de Windows, el servicio Azure Backup se coordina con el servicio de instantáneas de volumen (VSS) para obtener una instantánea coherente de los discos de la máquina virtual. Después de que el servicio Azure Backup toma la instantánea, se transfieren los datos al almacén. Para que el proceso resulte más eficaz, el servicio identifica y transfiere únicamente los bloques de datos que han cambiado desde la última copia de seguridad.
 
@@ -42,7 +42,7 @@ Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea 
 ## <a name="create-a-backup"></a>Creación de una copia de seguridad
 Cree una copia de seguridad diaria programada simple en un almacén de Recovery Services. 
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 
 1. En la lista, seleccione la máquina virtual de la que quiere realizar una copia de seguridad.
 1. En la hoja de la máquina virtual, en la sección **Operaciones**, haga clic en **Copia de seguridad**. Se abre la hoja **Habilitar copia de seguridad**.
@@ -78,7 +78,7 @@ En este ejemplo, se muestra cómo recuperar el archivo de imagen que se usa en l
 1. En la hoja de la máquina virtual, en la sección **Operaciones**, haga clic en **Copia de seguridad**. Se abre la hoja **Copia de seguridad**. 
 1. En el menú de la parte superior de la hoja, seleccione **Recuperación de archivos**. Se abrirá la hoja **Recuperación de archivos**.
 1. En **Paso 1: Seleccionar punto de recuperación**, seleccione un punto de recuperación en la lista desplegable.
-1. En **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Descargar ejecutable**. Copie la contraseña del archivo y guárdela en algún lugar seguro.
+1. En el **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Descargar ejecutable**. Copie la contraseña del archivo y guárdela en algún lugar seguro.
 1. En el equipo local, abra el **Explorador de archivos**, vaya a la carpeta **Descargas** y copie el archivo .exe descargado. El nombre de archivo lleva delante el nombre de su máquina virtual. 
 1. En la máquina virtual (mediante la conexión RDP), pegue el archivo .exe en el escritorio de la máquina virtual. 
 1. Vaya al escritorio de la máquina virtual y haga doble clic en el archivo .exe. Se iniciará un símbolo del sistema. El programa monta el punto de recuperación como un recurso compartido de archivos al que se puede acceder. Cuando se termine de crear el recurso compartido, escriba **q** para cerrar el símbolo del sistema.
@@ -93,7 +93,7 @@ En este ejemplo, se muestra cómo recuperar el archivo de imagen que se usa en l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Crear una copia de seguridad de una máquina virtual.

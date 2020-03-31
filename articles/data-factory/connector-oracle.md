@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 874c685491774e2a318ae0a8b7394945a51b2f7f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358484"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225020"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -69,7 +69,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Oracle:
 |:--- |:--- |:--- |
 | type | La propiedad type se debe establecer en: **Oracle**. | Sí |
 | connectionString | Especifica la información necesaria para conectarse a la instancia de Oracle Database. <br/>También puede poner una contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. <br><br>**Tipo de conexión admitido**: para identificar su base de datos, puede usar el **SID de Oracle** o el **nombre de servicio de Oracle**:<br>- Si usa el SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si usa el nombre del servicio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>En el caso de opciones avanzadas de conexión nativa de Oracle, puede optar por agregar una entrada en el archivo [TNSNAMES.ORA](http://www.orafaq.com/wiki/Tnsnames.ora) en el servidor de Oracle; por otro lado, en el servicio vinculado de Oracle de ADF, elija usar el tipo de conexión del nombre de servicio de Oracle y configure el correspondiente. | Sí |
-| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |Sin |
+| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Obtenga más información en la sección [Requisitos previos](#prerequisites). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
 
 >[!TIP]
 >Si recibe un error, "ORA-01025: parámetro UPI fuera del intervalo" y tiene la versión 8i de Oracle, agregue `WireProtocolMode=1` a la cadena de conexión. A continuación, inténtelo de nuevo.
@@ -212,13 +212,13 @@ Para copiar datos desde Oracle, establezca el tipo de origen de la actividad de 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en `OracleSource`. | Sí |
-| oracleReaderQuery | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`.<br>Si habilita la carga con particiones, deberá enlazar todos los parámetros de partición integrados correspondientes en la consulta. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para obtener algunos ejemplos. | Sin |
-| partitionOptions | Especifica los opciones de creación de particiones de datos que se usan para cargar datos desde Oracle. <br>Los valores permitidos son: **None** (valor predeterminado), **PhysicalPartitionsOfTable** y **DynamicRange**.<br>Cuando se habilita una opción de partición (es decir, no `None`), el grado de paralelismo para cargar simultáneamente datos de una base de datos Oracle se controla mediante la configuración [`parallelCopies`](copy-activity-performance.md#parallel-copy) en la actividad de copia. | Sin |
-| partitionSettings | Especifique el grupo de configuración para la creación de particiones de datos. <br>Se aplica si la opción de partición no es `None`. | Sin |
-| partitionNames | Lista de particiones físicas que deben copiarse. <br>Se aplica si la opción de partición es `PhysicalPartitionsOfTable`. Si usa una consulta para recuperar datos de origen, enlace `?AdfTabularPartitionName` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para ver un ejemplo. | Sin |
-| partitionColumnName | Especifique el nombre de la columna de origen **in integer type** que usará la creación de particiones por rangos para la copia en paralelo. Si no se especifica, se detectará automáticamente la clave principal de la tabla y se usará como columna de partición. <br>Se aplica si la opción de partición es `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfRangePartitionColumnName` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para ver un ejemplo. | Sin |
-| partitionUpperBound | El valor máximo de la columna de partición para copiar datos. <br>Se aplica si la opción de partición es `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfRangePartitionUpbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para ver un ejemplo. | Sin |
-| partitionLowerBound | El valor mínimo de la columna de partición para copiar datos. <br>Se aplica si la opción de partición es `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfRangePartitionLowbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para ver un ejemplo. | Sin |
+| oracleReaderQuery | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`.<br>Si habilita la carga con particiones, deberá enlazar todos los parámetros de partición integrados correspondientes en la consulta. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para obtener algunos ejemplos. | No |
+| partitionOptions | Especifica los opciones de creación de particiones de datos que se usan para cargar datos desde Oracle. <br>Los valores permitidos son: **None** (valor predeterminado), **PhysicalPartitionsOfTable** y **DynamicRange**.<br>Cuando se habilita una opción de partición (es decir, no `None`), el grado de paralelismo para cargar simultáneamente datos de una base de datos Oracle se controla mediante la configuración [`parallelCopies`](copy-activity-performance.md#parallel-copy) en la actividad de copia. | No |
+| partitionSettings | Especifique el grupo de configuración para la creación de particiones de datos. <br>Se aplica si la opción de partición no es `None`. | No |
+| partitionNames | Lista de particiones físicas que deben copiarse. <br>Se aplica si la opción de partición es `PhysicalPartitionsOfTable`. Si usa una consulta para recuperar datos de origen, enlace `?AdfTabularPartitionName` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para ver un ejemplo. | No |
+| partitionColumnName | Especifique el nombre de la columna de origen **in integer type** que usará la creación de particiones por rangos para la copia en paralelo. Si no se especifica, se detectará automáticamente la clave principal de la tabla y se usará como columna de partición. <br>Se aplica si la opción de partición es `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfRangePartitionColumnName` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para ver un ejemplo. | No |
+| partitionUpperBound | El valor máximo de la columna de partición para copiar datos. <br>Se aplica si la opción de partición es `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfRangePartitionUpbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para ver un ejemplo. | No |
+| partitionLowerBound | El valor mínimo de la columna de partición para copiar datos. <br>Se aplica si la opción de partición es `DynamicRange`. Si usa una consulta para recuperar datos de origen, enlace `?AdfRangePartitionLowbound` en la cláusula WHERE. Consulte la sección [Copia en paralelo desde Oracle](#parallel-copy-from-oracle) para ver un ejemplo. | No |
 
 **Ejemplo: copia de datos mediante una consulta básica sin partición**
 
@@ -260,8 +260,8 @@ Si va a copiar datos en Oracle, establezca el tipo de receptor de la actividad d
 |:--- |:--- |:--- |
 | type | La propiedad type del receptor de la actividad de copia debe establecerse en `OracleSink`. | Sí |
 | writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor de `writeBatchSize`.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 10 000) |
-| writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son intervalos de tiempo. Un ejemplo es 00:30:00 (30 minutos). | Sin |
-| preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Oracle en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | Sin |
+| writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son intervalos de tiempo. Un ejemplo es 00:30:00 (30 minutos). | No |
+| preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Oracle en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | No |
 
 **Ejemplo**:
 

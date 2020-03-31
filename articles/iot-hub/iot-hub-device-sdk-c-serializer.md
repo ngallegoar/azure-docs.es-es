@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
 ms.openlocfilehash: dfea53e62383409411925f2fe2f18d61a6855ec1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75429382"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK de dispositivo IoT de Azure para C: más información sobre el serializador

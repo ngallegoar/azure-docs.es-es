@@ -2,13 +2,13 @@
 title: 'Tutorial: Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure'
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SAP HANA que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services.
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: bb84f6b362adf7c190f3300e6e3f1bc572153151
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/24/2020
+ms.openlocfilehash: f64dd74ad0e038c5cad152e20ae2255de03114e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753977"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79501455"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure
 
@@ -22,36 +22,16 @@ Este tutorial muestra cómo realizar una copia de seguridad de una base de datos
 
 [Aquí](sap-hana-backup-support-matrix.md#scenario-support) están todos los escenarios que se admiten actualmente.
 
-## <a name="onboard-to-the-public-preview"></a>Incorporación a la versión preliminar pública
-
-Incorpórese a la versión preliminar pública de la siguiente manera:
-
-* En el portal, registre el identificador de suscripción en el proveedor de servicios de Recovery Services [siguiendo este artículo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-
-* Para PowerShell, ejecute este cmdlet. Debería completarse como "Registrado".
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Asegúrese de seguir estos pasos antes de configurar copias de seguridad:
 
-1. En la máquina virtual que ejecuta la base de datos de SAP HANA, instale y habilite los paquetes de controlador ODBC desde el paquete o soporte físico SLES oficial mediante Zypper, de la manera siguiente:
-
-```bash
-sudo zypper update
-sudo zypper install unixODBC
-```
-
->[!NOTE]
-> Si no actualiza los repositorios, asegúrese de que la versión de unixODBC es, como mínimo, la 2.3.4. Para conocer la versión de uniXODBC, ejecute `odbcinst -j` como raíz
->
-
-2. Permita la conectividad desde la máquina virtual a Internet para que pueda acceder a Azure, tal y como se describe en el [procedimiento siguiente](#set-up-network-connectivity).
-
-3. Ejecute el script de registro previo en la máquina virtual donde está instalado HANA como usuario raíz. [Este script](https://aka.ms/scriptforpermsonhana) establecerá los [permisos adecuados](#setting-up-permissions).
+* Permita la conectividad desde la máquina virtual a Internet para que pueda acceder a Azure, tal y como se describe en el siguiente procedimiento [Configuración de la conectividad de red](#set-up-network-connectivity).
+* Debe existir una clave en **hdbuserstore** que cumpla los siguientes criterios:
+  * Debe estar presente en el elemento **hdbuserstore** predeterminado.
+  * En el caso de MDC, la clave debe apuntar al puerto SQL de **NAMESERVER**. En el caso de SDC, debe apuntar al puerto SQL de **INDEXSERVER**.
+  * Debe tener credenciales para agregar y eliminar usuarios.
+* Ejecute el script de configuración de la copia de seguridad de SAP HANA (script de registro previo) en la máquina virtual donde está instalado HANA como usuario raíz. [Este script](https://aka.ms/scriptforpermsonhana) prepara el sistema HANA para la copia de seguridad. Consulte la sección [Qué hace el script de registro previo](#what-the-pre-registration-script-does) para comprender mejor el script de registro previo.
 
 ## <a name="set-up-network-connectivity"></a>Configurar la conectividad de red
 
@@ -110,15 +90,22 @@ Uso de las etiquetas de servicio de NSG | Más fácil de administrar ya que los 
 Uso de las etiquetas de nombre de dominio completo de Azure Firewall | Más fácil de administrar ya que los nombres de dominio completo se administran automáticamente. | Solo se puede usar con Azure Firewall.
 Usar un servidor proxy HTTP | Se permite un control detallado en el proxy sobre las direcciones URL de almacenamiento. <br/><br/> Un único punto de acceso a Internet para las máquinas virtuales. <br/><br/> No están sujetas a cambios de direcciones IP de Azure. | Costos adicionales de ejecutar una máquina virtual con el software de proxy.
 
-## <a name="setting-up-permissions"></a>Configuración de permisos
+## <a name="what-the-pre-registration-script-does"></a>Qué hace el script de registro previo
 
-El script de registro previo realiza las acciones siguientes:
+La ejecución del script de registro previo realiza las funciones siguientes:
 
-1. Crea AZUREWLBACKUPHANAUSER en el sistema HANA y agrega estos roles y permisos requeridos:
-   * DATABASE ADMIN: para crear nuevas bases de datos durante la restauración.
-   * CATALOG READ: para leer el catálogo de copia de seguridad.
-   * SAP_INTERNAL_HANA_SUPPORT: para acceder a algunas tablas privadas.
-2. Agrega una clave a Hdbuserstore para que el complemento de HANA controle todas las operaciones (consultas de base de datos, operaciones de restauración, configuración y ejecución de copias de seguridad).
+* Instala o actualiza los paquetes necesarios que necesita el agente de Azure Backup en la distribución.
+* Realiza comprobaciones de conectividad de red saliente con los servidores de Azure Backup y servicios dependientes, como Azure Active Directory y Azure Storage.
+* Inicia sesión en el sistema HANA con la clave de usuario que se enumera como parte de los [requisitos previos](#prerequisites). Esta clave se usa para crear un usuario de copia de seguridad (AZUREWLBACKUPHANAUSER) en el sistema HANA y se puede eliminar después de que el script de registro previo se ejecute correctamente.
+* A AZUREWLBACKUPHANAUSER se le asignan estos roles y permisos necesarios:
+  * ADMINISTRADOR DE BASE DE DATOS (en el caso de MDC) y ADMINISTRADOR DE COPIAS DE SEGURIDAD (en el caso de SDC): para crear nuevas bases de datos durante la restauración.
+  * CATALOG READ: para leer el catálogo de copia de seguridad.
+  * SAP_INTERNAL_HANA_SUPPORT: para acceder a algunas tablas privadas.
+* El script agrega una clave a **hdbuserstore** para que el complemento de copias de seguridad de HANA, AZUREWLBACKUPHANAUSER, controle todas las operaciones (consultas de base de datos, operaciones de restauración, configuración y ejecución de copias de seguridad).
+
+>[!NOTE]
+> Puede pasar explícitamente la clave de usuario que se muestra como parte de los [requisitos previos](#prerequisites) como parámetro al script anterior al registro: `-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
+>Para saber qué otros parámetros acepta el script, use el comando `bash msawb-plugin-config-com-sap-hana.sh --help`.
 
 Para confirmar la creación de la clave, ejecute el comando HDBSQL en la máquina HANA con credenciales SIDADM:
 
@@ -129,8 +116,7 @@ hdbuserstore list
 La salida de comandos debe mostrar la tecla {SID}{DBNAME}, con el usuario como AZUREWLBACKUPHANAUSER.
 
 >[!NOTE]
-> Asegúrese de que tiene un conjunto único de archivos SSFS en /usr/sap/{SID}/home/.hdb/. Solo debería haber una carpeta en esta ruta de acceso.
->
+> Asegúrese de que tiene un conjunto único de archivos SSFS en `/usr/sap/{SID}/home/.hdb/`. Solo debería haber una carpeta en esta ruta de acceso.
 
 ## <a name="create-a-recovery-service-vault"></a>Creación de un almacén de Recovery Services
 
@@ -142,25 +128,25 @@ Para crear un almacén de Recovery Services:
 
 2. En el menú izquierdo, seleccione **Todos los servicios**.
 
-![Seleccionar Todos los servicios](./media/tutorial-backup-sap-hana-db/all-services.png)
+   ![Seleccionar Todos los servicios](./media/tutorial-backup-sap-hana-db/all-services.png)
 
 3. En el cuadro de diálogo **Todos los servicios**, escriba **Recovery Services**. La lista de recursos se filtra en función de lo que especifique. En la lista de recursos, seleccione **Almacenes de Recovery Services**.
 
-![Selección de almacenes de Recovery Services](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
+   ![Selección de almacenes de Recovery Services](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
 
 4. En el panel **Almacenes de Recovery Services**, seleccione **Agregar**.
 
-![Adición de un almacén de Recovery Services](./media/tutorial-backup-sap-hana-db/add-vault.png)
+   ![Adición de un almacén de Recovery Services](./media/tutorial-backup-sap-hana-db/add-vault.png)
 
-Se abre el cuadro de diálogo **Almacén de Recovery Services**. Proporcione valores para **Nombre, Suscripción, Grupo de recursos** y **Ubicación**.
+   Se abre el cuadro de diálogo **Almacén de Recovery Services**. Proporcione valores para **Nombre, Suscripción, Grupo de recursos** y **Ubicación**.
 
-![Crear almacén de Recovery Services](./media/tutorial-backup-sap-hana-db/create-vault.png)
+   ![Crear almacén de Recovery Services](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-* **Name**: El nombre se usa para identificar el almacén de Recovery Services y debe ser único en la suscripción de Azure. Especifique un nombre que tenga entre 2 y 50 caracteres. El nombre debe comenzar por una letra y consta solo de letras, números y guiones. En este tutorial, hemos usado el nombre **SAPHanaVault**.
-* **Suscripción**: elija la suscripción que desee usar. Si es miembro de una sola suscripción, verá solo ese nombre. Si no está seguro de qué suscripción va a utilizar, use la predeterminada (sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a más de una suscripción de Azure. Aquí hemos usado la suscripción **SAP HANA solution lab subscription**.
-* **Grupo de recursos**: Use un grupo de recursos existente o cree uno. Aquí hemos usado **SAPHANADemo**.<br>
-Para ver la lista de grupos de recursos disponibles en una suscripción, seleccione **Usar existente** y, después, seleccione un recurso en el cuadro de lista desplegable. Para crear un grupo de recursos, seleccione **Crear nuevo** y escriba el nombre. Para más información acerca de los grupos de recursos, consulte [Introducción a Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-* **Ubicación**: seleccione la región geográfica del almacén. El almacén debe estar en la misma región que las máquinas virtuales que ejecutan SAP HANA. Hemos usado **Este de EE. UU. 2**.
+   * **Name**: El nombre se usa para identificar el almacén de Recovery Services y debe ser único en la suscripción de Azure. Especifique un nombre que tenga entre 2 y 50 caracteres. El nombre debe comenzar por una letra y consta solo de letras, números y guiones. En este tutorial, hemos usado el nombre **SAPHanaVault**.
+   * **Suscripción**: elija la suscripción que desee usar. Si es miembro de una sola suscripción, verá solo ese nombre. Si no está seguro de qué suscripción va a utilizar, use la predeterminada (sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a más de una suscripción de Azure. Aquí hemos usado la suscripción **SAP HANA solution lab subscription**.
+   * **Grupo de recursos**: Use un grupo de recursos existente o cree uno. Aquí hemos usado **SAPHANADemo**.<br>
+   Para ver la lista de grupos de recursos disponibles en una suscripción, seleccione **Usar existente** y, después, seleccione un recurso en el cuadro de lista desplegable. Para crear un grupo de recursos, seleccione **Crear nuevo** y escriba el nombre. Para más información acerca de los grupos de recursos, consulte [Introducción a Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+   * **Ubicación**: seleccione la región geográfica del almacén. El almacén debe estar en la misma región que las máquinas virtuales que ejecutan SAP HANA. Hemos usado **Este de EE. UU. 2**.
 
 5. Seleccione **Revisar + crear**.
 
@@ -185,15 +171,15 @@ Ahora que se han detectado las bases de datos de las que queremos realizar una c
 
 1. Haga clic en **Configurar copia de seguridad**.
 
-![Configuración de la copia de seguridad](./media/tutorial-backup-sap-hana-db/configure-backup.png)
+   ![Configuración de la copia de seguridad](./media/tutorial-backup-sap-hana-db/configure-backup.png)
 
 2. En **Seleccione los elementos de los que desea hacer una copia de seguridad**, seleccione una o varias bases de datos que desee proteger y, a continuación, haga clic en **Aceptar**.
 
-![Seleccionar elementos de los que se va a hacer una copia de seguridad](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
+   ![Seleccionar elementos de los que se va a hacer una copia de seguridad](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
 
 3. En **Directiva de copia de seguridad > Elegir directiva de copia de seguridad**, cree una nueva directiva de copia de seguridad para las bases de datos, según las instrucciones de la sección siguiente.
 
-![Elegir directiva de copia de seguridad](./media/tutorial-backup-sap-hana-db/backup-policy.png)
+   ![Elegir directiva de copia de seguridad](./media/tutorial-backup-sap-hana-db/backup-policy.png)
 
 4. Tras crear la directiva, en el menú **Copia de seguridad**, haga clic en **Habilitar copia de seguridad**.
 
@@ -212,11 +198,11 @@ Especifique la configuración de la directiva como se muestra a continuación:
 
 1. En **Nombre de la directiva**, escriba un nombre para la nueva directiva. En este caso, escriba **SAPHANA**.
 
-![Escribir el nombre de la nueva directiva](./media/tutorial-backup-sap-hana-db/new-policy.png)
+   ![Escribir el nombre de la nueva directiva](./media/tutorial-backup-sap-hana-db/new-policy.png)
 
 2. En el menú **Full Backup policy** (Directiva de copia de seguridad completa), seleccione un valor para **Frecuencia de copia de seguridad**. Puede elegir **Diaria** o **Semanal**. En este tutorial, elegimos la copia de seguridad **Diaria**.
 
-![Seleccionar una frecuencia de copia de seguridad](./media/tutorial-backup-sap-hana-db/backup-frequency.png)
+   ![Seleccionar una frecuencia de copia de seguridad](./media/tutorial-backup-sap-hana-db/backup-frequency.png)
 
 3. En **Duración de retención**, configure las opciones de retención de la copia de seguridad completa.
    * De forma predeterminada, se seleccionan todas las opciones. Borre los límites del intervalo de retención que no desee usar y establezca aquellos que sí quiera utilizar.
@@ -230,9 +216,9 @@ Especifique la configuración de la directiva como se muestra a continuación:
 
    ![Directiva de copia de seguridad diferencial](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
->[!NOTE]
->Las copias de seguridad incrementales no se admiten en la actualidad.
->
+   >[!NOTE]
+   >Las copias de seguridad incrementales no se admiten en la actualidad.
+   >
 
 7. Haga clic en **Aceptar** para guardar la directiva y volver al menú principal **Directiva de copia de seguridad**.
 8. Para agregar una directiva de copia de seguridad del registro de transacciones, seleccione **Copia de seguridad de registros**.
@@ -241,9 +227,9 @@ Especifique la configuración de la directiva como se muestra a continuación:
 
     ![Directiva de copia de seguridad de registros](./media/tutorial-backup-sap-hana-db/log-backup-policy.png)
 
->[!NOTE]
-> Las copias de seguridad de registros comienzan el flujo solo después de que se haya completado correctamente una copia de seguridad completa.
->
+   >[!NOTE]
+   > Las copias de seguridad de registros comienzan el flujo solo después de que se haya completado correctamente una copia de seguridad completa.
+   >
 
 9. Haga clic en **Aceptar** para guardar la directiva y volver al menú principal **Directiva de copia de seguridad**.
 10. Cuando haya terminado de definir la directiva de copia de seguridad, haga clic en **Aceptar**.

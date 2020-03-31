@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: a7bb74c09b45429a160a3ec481c23073575cfe3c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892518"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227236"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copia de datos desde MongoDB mediante Azure Data Factory de Azure
 
@@ -32,7 +32,7 @@ Puede copiar datos desde la base de datos MongoDB en cualquier almacén de datos
 
 En concreto, este conector de MongoDB admite hasta la **versión 3.4**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 

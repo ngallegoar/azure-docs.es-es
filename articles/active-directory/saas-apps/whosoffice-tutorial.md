@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8818158e8eefe89a1cec98c7e4972ac4a6d931a6
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: dc6eee984f6c6fbdf916d1287d98b921158271af
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207372"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79136404"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whosoffice"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con WhosOffice
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a integrar WhosOffice con Azure Active Directory (
 * Permitir que los usuarios inicien sesión automáticamente en WhosOffice con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -179,7 +179,7 @@ Al hacer clic en el icono de WhosOffice en el Panel de acceso, debería iniciar 
 
 - [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

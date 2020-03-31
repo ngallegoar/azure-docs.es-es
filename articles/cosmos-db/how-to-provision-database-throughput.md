@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.openlocfilehash: ef7d06dfb074a3453f5589284cbdaf079c48d111
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78933776"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento en una base de datos de Azure Cosmos DB
@@ -19,7 +19,7 @@ En este artículo se explica cómo aprovisionar el rendimiento en una base de da
 
 ## <a name="provision-throughput-using-azure-portal"></a>Aprovisionamiento del rendimiento mediante Azure Portal
 
-### <a id="portal-sql"></a>SQL API (Core)
+### <a name="sql-core-api"></a><a id="portal-sql"></a>SQL API (Core)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -46,7 +46,7 @@ Para crear una base de datos con capacidad de procesamiento compartida, consulte
 > [!Note]
 > Puede usar los SDK de Cosmos para SQL API para aprovisionar el rendimiento de todas las API. También puede usar el ejemplo siguiente para Cassandra API.
 
-### <a id="dotnet-all"></a>Todas las API
+### <a name="all-apis"></a><a id="dotnet-all"></a>Todas las API
 
 ### <a name="net-v2-sdk"></a>SDK de .NET V2
 
@@ -67,7 +67,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
-### <a id="dotnet-cassandra"></a>Cassandra API
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Cassandra API
 Se pueden ejecutar comandos similares a través de cualquier controlador compatible con CQL. 
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s

@@ -3,15 +3,15 @@ title: 'Inicio rápido: Creación de una aplicación en Python para Linux'
 description: Para empezar a trabajar con aplicaciones de Linux en Azure App Service, debe implementar su primera aplicación de Python en un contenedor Linux en App Service.
 ms.topic: quickstart
 ms.date: 10/22/2019
-ms.custom: cli-validate
+ms.custom: seo-python-october2019, cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 567e87b43c3fc3d7d2fb0c894ced53c89a133978
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 9cc314edf35d6a327522ed49fcc0c7798c7dcf63
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524070"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80045667"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Python en Azure App Service en Linux
 
@@ -90,7 +90,7 @@ La CLI de Azure proporciona muchos comandos útiles que puede usar desde un term
 
 Para ejecutar comandos de Azure en la CLI de Azure, primero debe iniciar sesión con el comando `az login`. Este comando abre un explorador que recopila las credenciales.
 
-```terminal
+```azurecli
 az login
 ```
 
@@ -101,11 +101,11 @@ El comando [`az webapp up`](/cli/azure/webapp#az-webapp-up) crea la aplicación 
 En la carpeta *python-docs-hello-world* que contiene el código de ejemplo, ejecute el siguiente comando `az webapp up`. Reemplace `<app-name>` por un nombre de aplicación único global (*los caracteres válidos son `a-z`, `0-9` y `-`* ). Reemplace también `<location-name>` por una región de Azure, como **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, etc. (Puede recuperar una lista de las regiones permitidas para su cuenta de Azure mediante la ejecución del comando [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations)).
 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
-Este comando puede tardar varios minutos en ejecutarse por completo. Durante la ejecución, muestra información similar a la del ejemplo siguiente:
+Este comando puede tardar varios minutos en ejecutarse. Durante la ejecución, muestra información similar a la del ejemplo siguiente:
 
 ```output
 The behavior of this command has been altered by the following extension: webapp
@@ -157,7 +157,7 @@ Guarde los cambios y salga del editor.
 
 Vuelva a implementar la aplicación con el siguiente comando `az webapp up`, mediante el mismo comando que usó para implementar la aplicación por primera vez, reemplazando `<app-name>` y `<location-name>` por los mismos nombres que usó antes. 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -174,13 +174,13 @@ Puede acceder a los registros de consola generados desde dentro de la aplicació
 
 En primer lugar, active el registro de contenedores ejecutando el siguiente comando en un terminal, reemplazando `<app-name>` por el nombre de la aplicación y `<resource-group-name>` por el nombre del grupo de recursos que se muestra en la salida del comando `az webapp up` que usó (por ejemplo: "appsvc_rg_Linux_centralus"):
 
-```terminal
+```azurecli
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
 
 Una vez que se active el registro de contenedor, ejecute el siguiente comando para mostrar el flujo del registro:
 
-```terminal
+```azurecli
 az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
@@ -217,7 +217,7 @@ En los pasos anteriores, creó recursos de Azure en un grupo de recursos. El gru
 
 Si considera que no necesitará estos recursos en el futuro, elimine el grupo de recursos mediante el comando siguiente, reemplazando `<resource-group-name>` por el grupo de recursos que se muestra en la salida del comando `az webapp up`, como "appsvc_rg_Linux_centralus". Este comando puede tardar hasta un minuto en completarse.
 
-```terminal
+```azurecli
 az group delete -n <resource-group-name>
 ```
 

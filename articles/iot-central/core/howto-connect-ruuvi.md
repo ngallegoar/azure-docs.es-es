@@ -3,19 +3,19 @@ title: Conexión de un sensor RuuviTag en Azure IoT Central | Microsoft Docs
 description: Aprenda a conectar un sensor ambiental RuuviTag a la aplicación de IoT Central.
 services: iot-central
 ms.service: iot-central
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
 - iot-storeAnalytics-conditionMonitor
 - iot-p0-scenario
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 8ca6e15dc53754645bb228d183fd3d71ac6282ec
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e8d1c4a605e8db2e9753bb80c9712dd6c2be7b59
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026460"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158266"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Conexión de un sensor RuuviTag a la aplicación de Azure IoT Central
 
@@ -29,7 +29,7 @@ RuuviTag se comunica a través de BLE (Bluetooth de bajo consumo) y requiere un 
 
 Si quiere instalar un dispositivo de puerta de enlace Rigado Cascade 500, siga [estas instrucciones](./howto-connect-rigado-cascade-500.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para conectar sensores RuuviTag, necesita los siguientes recursos:
 

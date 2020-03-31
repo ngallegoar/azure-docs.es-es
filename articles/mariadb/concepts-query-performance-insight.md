@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: eb124f40ff915b56011d5f16cd83a9358960621e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 88777ee44551ed6abdb7a6c7c909d6bf55db48c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772309"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527851"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Información de rendimiento de consultas en Azure Database for MariaDB
 
@@ -19,7 +19,7 @@ ms.locfileid: "74772309"
 
 Query Performance Insight le ayuda a identificar rápidamente cuáles son las consultas que más tardan en ejecutarse, cómo cambian con el tiempo y qué esperas están afectándoles.
 
-## <a name="common-scenarios"></a>Escenarios comunes
+## <a name="common-scenarios"></a>Escenarios frecuentes
 
 ### <a name="long-running-queries"></a>Consultas de larga duración
 
@@ -35,7 +35,7 @@ Query Performance Insight le ayuda a identificar rápidamente cuáles son las co
 
 Se necesitan los permisos **Propietario** o **Colaborador** para ver el texto de las consultas en Query Performance Insight. **Lector** pueden ver las tablas y los gráficos, pero no el texto de consulta.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para que Query Performance Insight funcione, deben existir datos en el [Almacén de consultas](concepts-query-store.md).
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: cf2aa9bc1234f8bc92829b107d1a788b75d56a6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 144c59c8bc24e8e10584702ec6cd48f7aa8c15c1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075086"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222912"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Conexión, configuración y activación de Azure Data Box Edge 
 
@@ -25,10 +25,10 @@ El proceso de instalación y activación puede tardar unos 20 minutos en complet
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Conectarse a un dispositivo físico
+> * A conectarse a un dispositivo físico
 > * Configuración y activación del dispositivo físico
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de configurar e instalar el dispositivo Data Box Edge, asegúrese de que:
 
@@ -101,6 +101,11 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
    c. Si usa autenticación, especifique el nombre de usuario y la contraseña.
 
    d. Para validar y aplicar la configuración del proxy web configurados, seleccione **Aplicar configuración**.
+   
+   > [!NOTE]
+   > No se admiten los archivos de configuración automática del proxy (PAC). Los archivos de PAC definen el número de exploradores web y otros agentes de usuario que pueden elegir automáticamente el servidor proxy (método de acceso) adecuado para obtener una dirección URL determinada.
+   > Los servidores proxy que intentan interceptar y leer todo el tráfico (y luego vuelven a firmar todo con su propia certificación) no son compatibles, ya que el certificado del proxy no es de confianza.
+   > Normalmente, los servidores proxy transparentes funcionan bien con Azure Data Box Edge.
 
 4. (Opcional) En el panel izquierdo, seleccione **Configuración horaria** y, después, configure la zona horaria y los servidores NTP principal y secundario del dispositivo.  
     Se requieren servidores NTP, ya que el dispositivo debe sincronizar la hora para que pueda autenticarse con los proveedores de servicios en la nube.
@@ -147,7 +152,7 @@ La instalación del dispositivo está completa. Ahora puede agregar recursos com
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * A conectarse a un dispositivo físico

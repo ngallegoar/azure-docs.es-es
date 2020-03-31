@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76153725"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Mover datos al clúster de vFXT: ingesta paralela de datos

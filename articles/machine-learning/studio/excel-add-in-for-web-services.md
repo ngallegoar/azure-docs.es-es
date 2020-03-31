@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: cb91d51770c15914ff23e839cef8e7626ffd241f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: e30103589c1baf9a165839cd041ff511a119c5ff
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168636"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79204382"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Complemento de Excel para servicios web de Azure Machine Learning Studio (clásico)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 Excel facilita la llamada a servicios web directamente sin necesidad de escribir ningún código.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Pasos para usar un servicio web existente en el libro

@@ -4,15 +4,15 @@ description: Aprenda a crear una solución de un extremo a otro con Azure IoT Ce
 author: miriambrus
 ms.author: miriamb
 ms.date: 10/23/2019
-ms.topic: overview
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ae266495db1d6b94a43aa962a3e9b63a8115c526
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 7c708268eaeade1cfb625c73ff8758a1941ff5b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017674"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157456"
 ---
 # <a name="build-end-to-end-solution-with-azure-iot-central-and-dynamics-365-field-service"></a>Creación de una solución de un extremo a otro con Azure IoT Central y Dynamics 365 for Field Service 
 

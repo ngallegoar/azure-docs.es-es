@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: a4fbba65af5afbd27a3fd2c7d41858e33b4d812c
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: d8582dfc796fe3e87b8bdc5be763dddfb5d0176b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163886"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245419"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Inicio rápido: Adición de marcas de características a una aplicación web de ASP.NET Core
 
@@ -33,7 +33,7 @@ Las bibliotecas de administración de características de .NET Core amplían la 
     > [!div class="mx-imgBorder"]
     > ![Habilitación de la marca de característica denominada Beta](media/add-beta-feature-flag.png)
 
-    Deje `label` sin definir por ahora.
+    Deje `label` sin definir por ahora. Seleccione **Aplicar** para guardar la nueva marca de características.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Cree una aplicación web ASP.NET Core
 
@@ -49,41 +49,53 @@ Utilice la [interfaz de la línea de comandos (CLI) de .NET Core](https://docs.
 
 ## <a name="add-secret-manager"></a>Incorporación de Secret Manager
 
-Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) al proyecto. La herramienta Secret Manager almacena información confidencial para el trabajo de desarrollo fuera de su árbol de proyecto. Este enfoque ayuda a evitar el uso compartido accidental de secretos de la aplicación en el código fuente.
-
-> [!IMPORTANT]
-> Existen diferencias significativas entre .NET Core 2.x y 3.x.  Seleccione la sintaxis correcta en función de su entorno.
+Para usar Secret Manager, agregue un elemento `UserSecretsId` al archivo *.csproj*.
 
 1. Abra el archivo *.csproj*.
-1. Agregue un elemento `UserSecretsId` como se muestra en el ejemplo siguiente y reemplace su valor por el suyo propio, que suele ser un GUID:
+
+1.  Agregue un elemento `UserSecretsId` como se muestra aquí. Puede usar el mismo identificador único global, o bien puede reemplazar este valor por el suyo propio.
+
+    > [!IMPORTANT]
+    > `CreateHostBuilder` reemplaza a `CreateWebHostBuilder` en .NET Core 3.0.  Seleccione la sintaxis correcta en función de su entorno.
 
     #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
 
-    <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
+        <PropertyGroup>
+            <TargetFramework>netcoreapp2.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    </ItemGroup>
+        <ItemGroup>
+            <PackageReference Include="Microsoft.AspNetCore.App" />
+            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+        </ItemGroup>
 
     </Project>
     ```
+
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
-    
+
         <PropertyGroup>
             <TargetFramework>netcoreapp3.1</TargetFramework>
             <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
         </PropertyGroup>
+
     </Project>
     ```
     ---
+
+1. Guarde el archivo *.csproj*.
+
+La herramienta Secret Manager almacena información confidencial para el trabajo de desarrollo fuera de su árbol de proyecto. Este enfoque ayuda a evitar el uso compartido accidental de secretos de la aplicación en el código fuente.
+
+> [!TIP]
+> Para más información sobre Secret Manager, consulte [Almacenamiento seguro de secretos de aplicación en el desarrollo en ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets).
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de App Configuration
 
@@ -102,7 +114,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
 1. Agregue un secreto llamado **ConnectionStrings:AppConfig** a Secret Manager.
 
-    Este secreto contiene la cadena de conexión necesaria para acceder a su almacén de App Configuration. Sustituya el valor `<your_connection_string>` en el comando siguiente por la cadena de conexión de su almacén de App Configuration.
+    Este secreto contiene la cadena de conexión necesaria para acceder a su almacén de App Configuration. Sustituya el valor `<your_connection_string>` en el comando siguiente por la cadena de conexión de su almacén de App Configuration. Puede encontrar la cadena de conexión en **Claves de acceso** en Azure Portal.
 
     Este comando debe ejecutarse en el mismo directorio que el archivo *.csproj*.
 

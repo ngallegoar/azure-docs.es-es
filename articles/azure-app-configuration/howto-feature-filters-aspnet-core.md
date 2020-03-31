@@ -4,15 +4,15 @@ titleSuffix: Azure App Configuration
 description: Obtenga información sobre cómo usar los filtros de características y habilitar una característica para un subconjunto de usuarios
 ms.service: azure-app-configuration
 author: lisaguthrie
+ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.author: lcozzens
-ms.openlocfilehash: b01a22d5a7068ee49e718a66432f52a8f6ef02ac
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 181c97615985283011834dcf9145810b1563fb4a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126420"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80057012"
 ---
 # <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Uso de filtros de características para habilitar una característica para un subconjunto de usuarios
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
 ms.openlocfilehash: 770e97ad126f66efb43bf8cf7eb12f7510858192
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78675343"
 ---
 # <a name="speech-service-phonetic-sets"></a>Conjuntos fonéticos del servicio de voz

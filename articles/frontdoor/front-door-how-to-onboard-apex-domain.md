@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
 ms.openlocfilehash: bb1042e15d4366923174996388eeb2fb99aef429
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74184615"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Incorporación de un dominio raíz o de vértice a una instancia de Front Door
@@ -28,7 +28,7 @@ Para asignar el dominio raíz o de vértice al perfil de Front Door, básicament
 
 Puede usar Azure Portal para incorporar un dominio de vértice en Front Door y habilitar HTTPS si lo asocia con un certificado para la terminación SSL. Los dominios de vértice también se conocen como dominios raíz o "desnudos".
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un registro de alias que apunte al perfil de Front Door

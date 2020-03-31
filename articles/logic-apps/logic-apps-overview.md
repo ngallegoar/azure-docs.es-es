@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/29/2018
-ms.openlocfilehash: 2327632fc2a71855874bb8fe45e97af430fa696a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 03/11/2020
+ms.openlocfilehash: 0ba41d63195c906b57046dc6c9fd57c9f08399ab
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791841"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290553"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Introducción: ¿Qué es Azure Logic Apps?
 
@@ -36,7 +36,7 @@ Para compilar soluciones de integración empresarial con Azure Logic Apps, puede
 
 Todos los flujos de trabajo de Logic Apps comienzan con un desencadenador, que se activa cuando sucede un evento específico o cuando hay nuevos datos disponibles que cumplen determinados criterios. Muchos desencadenadores proporcionados por los conectores de Logic Apps incluyen funcionalidades de programación básicas que permiten configurar con qué frecuencia se ejecutan las cargas de trabajo. Para una programación más compleja o periodicidades avanzadas, puede utilizar un desencadenador de periodicidad como primer paso en cualquier flujo de trabajo. Obtenga más información sobre cómo [programar flujos de trabajo basados en programación](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-Cada vez que el desencadenador se activa, el motor de Logic Apps crea una instancia de aplicación lógica que ejecuta las acciones del flujo de trabajo. Estas acciones también pueden incluir conversiones de datos y controles de flujo, como instrucciones condicionales, instrucciones switch, bucles y bifurcaciones. Por ejemplo, esta aplicación lógica se inicia con un desencadenador de Dynamics 365 con el criterio integrado "Al actualizar un registro". Si el desencadenador detecta un evento que coincida con este criterio, el desencadenador se activa y ejecuta las acciones del flujo de trabajo. En este caso, estas acciones incluyen una transformación XML, actualizaciones de datos, bifurcación de decisiones y notificaciones por correo electrónico.
+Cada vez que el desencadenador se activa, el motor de Logic Apps crea una instancia de aplicación lógica que ejecuta las acciones del flujo de trabajo. Estas acciones también pueden incluir conversiones de datos y controles de flujo de trabajo, como instrucciones condicionales, instrucciones switch, bucles y bifurcaciones. Por ejemplo, esta aplicación lógica se inicia con un desencadenador de Dynamics 365 con el criterio integrado "Al actualizar un registro". Si el desencadenador detecta un evento que coincida con este criterio, el desencadenador se activa y ejecuta las acciones del flujo de trabajo. En este caso, estas acciones incluyen una transformación XML, actualizaciones de datos, bifurcación de decisiones y notificaciones por correo electrónico.
 
 ![Diseñador de Logic Apps (ejemplo de aplicación lógica)](./media/logic-apps-overview/azure-logic-apps-designer.png)
 
@@ -76,7 +76,7 @@ Empiece poco a poco con sus servicios y sistemas actuales y crezca de forma grad
 
   * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
   * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
-  * [Azure Functions](../azure-functions/functions-overview.md)
+  * [Funciones de Azure](../azure-functions/functions-overview.md)
   * [Azure API Management](../api-management/api-management-key-concepts.md)
 
 * Procese [mensajes XML](../logic-apps/logic-apps-enterprise-integration-xml.md).
@@ -100,6 +100,18 @@ Por otro lado, BizTalk Server puede establecer conexión y comunicación con Log
 
 Cree aplicaciones lógicas como plantillas de Azure Resource Manager para que pueda [automatizar la implementación de aplicaciones lógicas](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) en varios entornos y regiones.
 
+### <a name="access-resources-inside-azure-virtual-networks"></a>Acceso a recursos dentro de redes virtuales de Azure
+
+Las aplicaciones lógicas pueden acceder a recursos protegidos, como máquinas virtuales y otros sistemas o servicios dentro de una red de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) al crear un [*entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Un ISE es una instancia aislada del servicio Logic Apps que usa recursos dedicados y se ejecuta de forma independiente del servicio Logic Apps público, "global" y multiinquilino.
+
+La ejecución de aplicaciones lógicas en una instancia aislada e individual ayuda a reducir el impacto que podrían tener otros inquilinos de Azure en el rendimiento de la aplicación, también conocido como el [efecto "vecinos ruidosos"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un ISE también proporciona estas ventajas:
+
+* Direcciones IP estáticas propias, que son independientes de las direcciones IP estáticas que comparten las aplicaciones lógicas en el servicio multiinquilino. Puede configurar una dirección IP de salida única, pública, estática y predecible para comunicarse con los sistemas de destino. De ese modo, no es necesario configurar aperturas adicionales del firewall en los sistemas de destino para cada ISE.
+
+* Se aumentan los límites de duración de ejecución, retención de almacenamiento, rendimiento, solicitud HTTP y tiempos de espera de respuesta, tamaños de mensaje y solicitudes de conector personalizado. Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md).
+
+Cuando se crea un ISE, Azure *inserta* o implementa dicho ISE en su red virtual de Azure. A continuación, puede usar ese ISE como la ubicación de las aplicaciones lógicas y cuentas de integración que necesitan acceso. Para más información sobre cómo crear un ISE, vea [Conexión a redes virtuales de Azure desde Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+
 ### <a name="built-in-extensibility"></a>Extensibilidad integrada
 
 Si no encuentra el conector que desea para ejecutar código personalizado, puede ampliar las aplicaciones lógicas creando y llamando a sus propios fragmentos de código a petición mediante [Azure Functions](../azure-functions/functions-overview.md). Cree sus propias [API](../logic-apps/logic-apps-create-api-app.md) y [conectores personalizados](../logic-apps/custom-connector-overview.md) a los que puede llamar desde aplicaciones lógicas.
@@ -113,6 +125,10 @@ Obtenga más información sobre Logic Apps con estos vídeos de introducción:
 * [Integration with Logic Apps - Go from zero to hero](https://channel9.msdn.com/Events/Build/2017/C9R17) (Integración con Logic Apps: de la nada al todo)
 * [Enterprise integration with Microsoft Azure Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2188) (Integración empresarial con Microsoft Azure Logic Apps)
 * [Building advanced business processes with Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3179) (Creación de procesos empresariales avanzados con Logic Apps)
+
+## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-power-automate"></a>¿En qué se diferencia Logic Apps de Functions, WebJobs y Power Automate?
+
+Todos estos servicios le ayudan a "unir" y conectar sistemas dispares. Cada servicio tiene sus ventajas y beneficios, por lo que la combinación de sus funcionalidades es la mejor manera de crear rápidamente un sistema de integración escalable y completo. Para más información, consulte [Elección entre Logic Apps, Functions, WebJobs y Power Automate](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
 <a name="logic-app-concepts"></a>
 
@@ -128,11 +144,7 @@ Obtenga más información sobre Logic Apps con estos vídeos de introducción:
 
 * **Enterprise Integration Pack**: para escenarios de integración más avanzados, Logic Apps incluye funcionalidades de BizTalk Server. Enterprise Integration Pack proporciona conectores que ayudan a las aplicaciones lógicas a realizar fácilmente tareas de validación, transformación y mucho más.
 
-## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-flow"></a>¿En qué se diferencia Logic Apps de Functions, WebJobs y Flow?
-
-Todos estos servicios le ayudan a "unir" y conectar sistemas dispares. Cada servicio tiene sus ventajas y beneficios, por lo que la combinación de sus funcionalidades es la mejor manera de crear rápidamente un sistema de integración escalable y completo. Para más información, consulte [Elección entre Flow, Logic Apps, Functions y WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
-
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 Logic Apps es uno de los muchos servicios hospedados en Microsoft Azure. Por lo tanto, para empezar, necesita una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 

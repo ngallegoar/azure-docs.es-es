@@ -17,12 +17,12 @@ ms.date: 10/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72ae1301be4a3a3c086961aae72fb9eeb12aeda2
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 6071e6553fb1275fea63a37b4897aef2685bd509
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960229"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227868"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Cuentas y permisos
 
@@ -56,7 +56,6 @@ Además de estas tres cuentas usadas para ejecutar Azure AD Connect, también ne
 > Se admite la administración de las cuentas administrativas que se usan en Azure AD Connect desde un bosque administrativo ESAE (también conocido como "bosque rojo").
 > Los bosques administrativos dedicados permiten a las organizaciones hospedar cuentas administrativas, estaciones de trabajo y grupos en un entorno que tiene controles de seguridad más seguros que el entorno de producción.
 > Para más información acerca de los bosques administrativos dedicados, consulte [Enfoque de diseño de bosque administrativo ESAE](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
->>>>>>> e683a61b0ed62ae739941410f658a127534e2481
 
 > [!NOTE]
 > El rol de administrador global no es necesario después de la configuración inicial y la única cuenta requerida será la cuenta de rol **Cuentas de sincronización de directorios** . Eso no significa necesariamente que solo desee eliminar la cuenta con el rol de Administrador global. Es mejor cambiar el rol a un rol menos poderoso, ya que la eliminación total de la cuenta puede presentar problemas si alguna vez necesita volver a ejecutar el asistente. Al reducir el privilegio del rol, siempre puede volver a elevar los privilegios si tiene que utilizar el asistente Azure AD Connect nuevamente. 
@@ -86,7 +85,7 @@ Estas credenciales solo se usan durante la instalación y no se usan una vez com
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>Permisos necesarios de la cuenta del conector de AD DS para la configuración rápida
 La cuenta del conector de AD DS se crea para leer y escribir en Windows Server AD y tiene los permisos siguientes cuando se crea en la configuración rápida:
 
-| Permiso | Usado para |
+| Permiso | Se usa para |
 | --- | --- |
 | <li>Replicación de cambios de directorio</li><li>Replicación de todos los cambios de directorio |Sincronización de hash de contraseñas |
 | Lectura y escritura de todas las propiedades Usuario |Importación y Exchange híbrido |
@@ -159,7 +158,7 @@ Al actualizar desde una versión de Azure AD Connect a una nueva versión, neces
 >A partir de la compilación 1.1.484, Azure AD Connect introdujo un error de regresión que requiere permisos de administrador del sistema para actualizar la base de datos SQL.  Este error se corrigió en la compilación 1.1.647.  Si va a actualizar a esta versión, necesitará permisos de administrador del sistema.  Los permisos de dbo no son suficientes.  Si intenta actualizar Azure AD Connect sin tener permisos de administrador del sistema, se producirá un error en la actualización y Azure AD Connect dejará de funcionar correctamente después.  Microsoft conoce este problema y está trabajando para corregir este problema.
 
 
-| Principal | Permisos necesarios | Usado para |
+| Principal | Permisos necesarios | Se usa para |
 | --- | --- | --- |
 | Usuario que ejecuta el asistente para instalación |Administrador del servidor local |Archivos binarios de la actualización. |
 | Usuario que ejecuta el asistente para instalación |Miembro de ADSyncAdmins |Realice cambios en las reglas de sincronización y en otra configuración. |
@@ -176,7 +175,7 @@ Si usa una configuración personalizada, es responsable de crear la cuenta antes
 ### <a name="adsync-service-account"></a>Cuenta del servicio ADSync
 El servicio de sincronización puede ejecutarse con diferentes cuentas. Puede ejecutarse con una **cuenta de servicio virtual** (VSA), una **cuenta de servicio administrada de grupo** (gMSA/sMSA), o una cuenta de usuario normal. Las opciones admitidas cambiaron con la versión de abril de 2017 de Connect cuando se realiza una instalación nueva. Si actualiza desde una versión anterior de Azure AD Connect, estas opciones adicionales no están disponibles.
 
-| Tipo de cuenta | Opción de instalación | DESCRIPCIÓN |
+| Tipo de cuenta | Opción de instalación | Descripción |
 | --- | --- | --- |
 | [Cuenta de servicio virtual](#virtual-service-account) | Rápida y personalizada, abril de 2017 y versiones posteriores | Es la opción utilizada para todas las instalaciones rápidas, excepto para las instalaciones en un controlador de dominio. Para las instalaciones personalizadas, es la opción predeterminada a menos que se use otra opción. |
 | [Cuenta de servicio administrada de grupo](#group-managed-service-account) | Personalizada, abril de 2017 y versiones posteriores | Si utiliza un servidor SQL remoto, se recomienda usar una cuenta de servicio administrada de grupo. |

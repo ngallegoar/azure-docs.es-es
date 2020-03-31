@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de nivel 4 de impacto del DoD
 description: Asignación de controles del ejemplo de plano técnico de nivel 4 de impacto del DoD. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-ms.date: 02/09/2020
+ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 15ab3bc8bf53d54161ecc3b1f0dc138c3ff923c1
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 001c838ed6a19269a6abbcebd59ee2e344b6a296
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154713"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415400"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico de nivel 4 de impacto del DoD
 
@@ -83,6 +83,20 @@ Este proyecto le ayuda a supervisar y controlar el acceso remoto mediante la asi
 - Recomendación de desactivación de la depuración remota para Function App
 - Recomendación de desactivación de la depuración remota para aplicaciones web
 
+## <a name="ac-23-data-mining"></a>Minería de datos AC-23
+
+Este plano técnico proporciona definiciones de directivas que contribuirán a garantizar que las notificaciones de seguridad de los datos se hayan habilitado correctamente. Además, este plano técnico garantiza que tanto la auditoría y como la seguridad avanzada de los datos se configuran en los servidores SQL Server.
+
+- La seguridad avanzada de datos debe estar habilitada en los servidores SQL Server
+- La opción Advanced Data Security debe estar habilitada en las instancias administradas de SQL
+- Los tipos de Advanced Threat Protection deben estar establecidos en "Todos" en la configuración de Advanced Data Security de SQL Server
+- Los tipos de Advanced Threat Protection deben estar establecidos en "Todos" en la configuración de Advanced Data Security de la instancia administrada de SQL Server
+- La configuración de seguridad avanzada de datos debe estar habilitada en SQL Server
+- Las notificaciones por correo electrónico para administradores y propietarios de suscripciones deben estar habilitadas en la configuración de seguridad avanzada de datos de SQL Server
+- Las notificaciones a los administradores y a los propietarios de la suscripción deben estar habilitadas en la configuración de seguridad avanzada de datos de la instancia administrada de SQL
+- La configuración de seguridad de datos avanzada para SQL Server debe contener una dirección de correo electrónico para recibir alertas de seguridad
+- La configuración de seguridad de datos avanzada para una instancia administrada SQL debe contener una dirección de correo electrónico para recibir alertas de seguridad
+
 ## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>Contenido de los registros de auditoría AU-3 (2)| Administración centralizada del contenido de los registros de auditoría planeada
 
 Los datos de registro que recopila Azure Monitor se almacenan en un área de trabajo de Log Analytics que permite la configuración y administración centralizados. Este proyecto le ayuda a garantizar que los eventos se registran mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que auditan y exigen la implementación del agente de Log Analytics en máquinas virtuales de Azure.
@@ -123,8 +137,6 @@ Estas definiciones de directiva también auditan la configuración de los regist
 Para un examen y una supervisión de vulnerabilidades detallados, le recomendamos que también aproveche las ventajas de Azure Sentinel y Azure Security Center.
 
 - \[Versión preliminar\]: La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
-- \[Versión preliminar\]: Habilitar Azure Monitor para VM
-- \[Versión preliminar\]: Habilitación de Azure Monitor para VM Scale Sets (VMSS)
 - La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.
 - Auditar la configuración de diagnóstico
 - La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.
@@ -133,6 +145,8 @@ Para un examen y una supervisión de vulnerabilidades detallados, le recomendamo
 - Se deben corregir las vulnerabilidades de las bases de datos SQL
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
+- \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
+- \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics en VMSS: la imagen de la VM (SO) no está en la lista
 
 ## <a name="au-12-audit-generation"></a>Generación de auditoría AU-12
 
@@ -236,6 +250,16 @@ Este proyecto ayuda a exigir contraseñas seguras mediante la asignación de def
 - \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas a 14 caracteres
 - \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Windows que no almacenen las contraseñas mediante el cifrado reversible
 
+## <a name="ir-6-2-incident-reporting--vulnerabilities-related-to-incidents"></a>IR-6 (2) Informes de incidentes | Vulnerabilities relacionadas con incidentes
+
+Este plano técnico proporciona definiciones de directivas que auditan registros con el análisis de la valoración de vulnerabilidades en máquinas virtuales, conjuntos de escalado de máquinas virtuales y servidores de SQL Server. Esta información proporciona detalles en tiempo real sobre el estado de seguridad de los recursos implementados y ayuda a priorizar las medidas correctivas.
+
+- Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
+- Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
+- Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
+- Se deben corregir las vulnerabilidades en las configuraciones de seguridad de contenedor
+- Se deben corregir las vulnerabilidades de las bases de datos SQL
+
 ## <a name="ra-5-vulnerability-scanning"></a>Examen de vulnerabilidades RA-5
 
 Este proyecto ayuda a administrar las vulnerabilidades del sistema de información mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que supervisan las vulnerabilidades del sistema operativo, las de SQL o las de las máquinas virtuales en Azure Security Center. Azure Security Center proporciona funcionalidades de informes que permiten tener información en tiempo real sobre el estado de seguridad de los recursos de Azure implementados. Este proyecto asigna también definiciones de directiva que auditan y exigen Advanced Data Security en servidores SQL. Advanced Data Security incluía la evaluación de vulnerabilidades y funcionalidades de protección contra amenazas avanzada para ayudarle a entender las vulnerabilidades en los recursos implementados.
@@ -312,6 +336,30 @@ Este proyecto ayuda a administrar los errores del sistema de información median
 - Se deben corregir las vulnerabilidades de las bases de datos SQL
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 
+## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Corrección de errores | Eliminación de versiones anteriores de software o firmware
+
+Este plano técnico asigna definiciones de directivas que le ayudan a tener la certeza de que las aplicaciones usan la versión más reciente de .NET Framework, HTTP, Java, PHP, Python y TLS. Este plano técnico también asigna una definición de directiva que garantiza que Kubernetes Services se actualiza a su versión no vulnerable.
+
+- Asegúrese de que la versión de .NET Framework es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la versión de .NET Framework es la más reciente si se usa como parte de la aplicación de funciones.
+- Asegúrese de que la versión de .NET Framework es la más reciente si se usa como parte de la aplicación web.
+- Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de API.
+- Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación de funciones.
+- Asegúrese de que la versión de HTTP es la más reciente si se usa para ejecutar la aplicación web.
+- Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación de funciones.
+- Asegúrese de que la versión de Java es la más reciente si se usa como parte de la aplicación web.
+- Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación de funciones.
+- Asegúrese de que la versión de PHP es la más reciente si se usa como parte de la aplicación web.
+- Asegúrese de que la versión de Python es la más reciente si se usa como parte de la aplicación de API.
+- Asegúrese de que la versión de Python" es la más reciente si se usa como parte de la aplicación de funciones.
+- Asegúrese de que la versión de Python es la más reciente si se usa como parte de la aplicación web.
+- La versión más reciente de TLS debe usarse en la aplicación de API.
+- La versión más reciente de TLS debe usarse en la aplicación de funciones.
+- La versión más reciente de TLS debe usarse en la aplicación web.
+- \[Versión preliminar\]: Kubernetes Services se debe actualizar a una versión de Kubernetes no vulnerable.
+
 ## <a name="si-3-malicious-code-protection"></a>Protección frente a código malintencionado SI-3
 
 Este proyecto le ayuda a administrar la protección de los puntos de conexión, incluida la protección del código malintencionado, mediante la asignación de definiciones de [Azure Policy](../../../policy/overview.md) que supervisan que no falte la protección de los puntos de conexión en las máquinas virtuales en Azure Security Center y aplican la solución antimalware de Microsoft en las máquinas virtuales Windows.
@@ -347,6 +395,18 @@ Este proyecto le ayuda a supervisar el sistema de auditoría y cumplimiento de s
 - Implementación de la detección de amenazas en servidores SQL Server.
 - Ubicaciones permitidas
 - Ubicaciones permitidas para grupos de recursos
+
+## <a name="si-4-12-information-system-monitoring--automated-alerts"></a>4 SI-12 Supervisión del sistema de información | Alertas automatizadas
+
+Este plano técnico proporciona definiciones de directivas que contribuirán a garantizar que las notificaciones de seguridad de los datos se hayan habilitado correctamente. Además, garantiza que esté habilitado el plan de tarifa estándar de Azure Security Center. Tenga en cuenta que el plan de tarifa estándar permite detectar amenazas en redes y máquinas virtuales, lo que proporciona inteligencia sobre amenazas, detección de anomalías y análisis de comportamiento en Azure Security Center.
+
+- La opción para enviar notificaciones por correo electrónico al propietario de la suscripción en relación a alertas de gravedad alta debe estar habilitada
+- Es necesario proporcionar una dirección de correo electrónico de contacto de seguridad para la suscripción 
+- Las notificaciones a los administradores y a los propietarios de la suscripción deben estar habilitadas en la configuración de seguridad avanzada de datos de la instancia administrada de SQL 
+- Las notificaciones por correo electrónico para administradores y propietarios de suscripciones deben estar habilitadas en la configuración de seguridad avanzada de datos de SQL Server 
+- Es necesario proporcionar un número de teléfono de contacto de seguridad para la suscripción
+- La configuración de seguridad de datos avanzada para SQL Server debe contener una dirección de correo electrónico para recibir alertas de seguridad
+- Es necesario seleccionar el plan de tarifa estándar de Security Center.
 
 ## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>Supervisión del sistema de información SI-4 (18) | Análisis del tráfico o la exfiltración encubierta
 

@@ -11,10 +11,10 @@ ms.date: 03/02/2020
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 81f4e753ffbaaefd5761c9396a6533bac9f212c1
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254836"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch

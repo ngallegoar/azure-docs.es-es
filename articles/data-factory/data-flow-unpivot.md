@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: b207012335e68d389a07b54408e840dbb305a30c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930137"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Transformación Anular dinamización de Azure Data Factory
@@ -43,7 +43,7 @@ Por último, elija la agregación que se va a usar para los valores dinamizados 
 
 (Opcional) Puede establecer un patrón de nomenclatura con un prefijo, un término intermedio y el sufijo que se agregará a los nuevos nombres de columna creados a partir de los valores de fila.
 
-Por ejemplo, dinamizar "Ventas" por "Región" simplemente daría lugar a nuevos valores de columna a partir de cada valor de ventas. Por ejemplo:  "25", "50", "1000", etc. Sin embargo, si establece un valor de prefijo "Ventas", "Ventas" se usará como prefijo de los valores.
+Por ejemplo, dinamizar "Ventas" por "Región" simplemente daría lugar a nuevos valores de columna a partir de cada valor de ventas. Por ejemplo: "25", "50", "1000", etc. Sin embargo, si establece un valor de prefijo "Ventas", "Ventas" se usará como prefijo de los valores.
 
 <img src="media/data-flow/unpivot3.png" width="400">
 

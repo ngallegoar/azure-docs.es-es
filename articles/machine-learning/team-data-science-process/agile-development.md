@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722108"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Desarrollo de Agile de proyectos de ciencia de datos
@@ -33,7 +33,7 @@ En la siguiente ilustración se muestra un flujo de trabajo habitual de planeaci
 
 ![Proceso de ciencia de los datos en equipos](./media/agile-development/1-project-execute.png)
 
-##  <a name='Terminology-1'></a>Tipos de elementos de trabajo
+##  <a name="work-item-types"></a><a name='Terminology-1'></a>Tipos de elementos de trabajo
 
 En la plataforma de planeamiento de sprint de TDSP, hay cuatro tipos de *elementos de trabajo* usados frecuentemente: *Características*, *Casos de usuario*, *Tareas* y *Errores*. El trabajo pendiente de todos los elementos de trabajo se encuentra en el nivel de proyecto, no en el nivel del repositorio de Git. 
 
@@ -60,7 +60,7 @@ Los científicos de datos pueden sentirse más cómodos si usan una plantilla de
 > [!NOTE]
 > El proceso de ciencia de datos en equipo toma prestados los conceptos de características, casos de usuario, tareas y errores de la administración de código de software (SCM). Los conceptos del TDSP pueden diferir ligeramente de sus definiciones de SCM convencionales.
 
-## <a name='SprintPlanning-2'></a>Planeamiento de sprints
+## <a name="plan-sprints"></a><a name='SprintPlanning-2'></a>Planeamiento de sprints
 
 Muchos científicos de datos interactúan con varios proyectos, que pueden tardar meses en completarse y progresan a distinto ritmo. El planeamiento de sprint es útil para la priorización del proyecto y el planeamiento y asignación de recursos. En Azure Boards, puede crear, administrar y realizar el seguimiento fácilmente de los elementos de trabajo de sus proyectos, y llevar a cabo el planeamiento de sprints para garantizar que los proyectos avanzan de la forma prevista.
 
@@ -68,7 +68,7 @@ Para más información sobre el planeamiento de sprints, consulte [Sprints de Sc
 
 Para más información sobre el planeamiento de sprints en Azure Boards, consulte [Asignación de elementos de trabajo pendiente a un sprint](/azure/devops/boards/sprints/assign-work-sprint). 
 
-## <a name='AddFeature-3'></a>Adición de una característica al trabajo pendiente 
+## <a name="add-a-feature-to-the-backlog"></a><a name='AddFeature-3'></a>Adición de una característica al trabajo pendiente 
 
 Después de crear el proyecto y el repositorio de código del proyecto, puede agregar una característica al trabajo pendiente para representar el trabajo del proyecto.
 
@@ -90,7 +90,7 @@ Después de crear el proyecto y el repositorio de código del proyecto, puede ag
    
    ![Editar la característica y seleccionar Guardar y cerrar](./media/agile-development/3a-add-link-repo.png)
 
-## <a name='AddStoryunderfeature-4'></a>Adición de un caso de usuario a la característica 
+## <a name="add-a-user-story-to-the-feature"></a><a name='AddStoryunderfeature-4'></a>Adición de un caso de usuario a la característica 
 
 En la característica, puede agregar casos de usuario para describir los pasos principales necesarios para completar el proyecto. 
 
@@ -108,7 +108,7 @@ Para agregar un nuevo caso de usuario a una característica:
    
 1. Cuando haya terminado de editar el caso de usuario, seleccione **Guardar y cerrar**. 
 
-## <a name='AddTaskunderstory-5'></a>Adición de una tarea a un caso de usuario 
+## <a name="add-a-task-to-a-user-story"></a><a name='AddTaskunderstory-5'></a>Adición de una tarea a un caso de usuario 
 
 Las tareas son pasos detallados específicos necesarios para completar cada caso de usuario. Una vez completadas todas las tareas de un caso de usuario, se debe completar también el caso. 
 
@@ -122,7 +122,7 @@ Una vez creadas las características, los casos de usuario y las tareas, puede v
 
 ![Vista Paneles](./media/agile-development/8a-sprint-board-view.png)
 
-## <a name='set-up-agile-dsp-6'></a>Uso de una plantilla de trabajo de TDSP de Agile
+## <a name="use-an-agile-tdsp-work-template"></a><a name='set-up-agile-dsp-6'></a>Uso de una plantilla de trabajo de TDSP de Agile
 
 Los científicos de datos pueden sentirse más cómodos si usan una plantilla de Agile que reemplace las características, casos de usuario y tareas por fases y subfases del ciclo de vida de TDSP. En Azure Boards, puede crear una plantilla derivada de Agile que use fases del ciclo de vida de TDSP para crear y realizar el seguimiento de los elementos de trabajo. Los pasos siguientes describen cómo configurar una plantilla de proceso de Agile específica de ciencia de datos y cómo crear elementos de trabajo de ciencia de datos basados en la plantilla.
 

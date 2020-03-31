@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: ddf7999153e9d9722e627d148b116750fe3aaecf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357506"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79235544"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Preguntas frecuentes sobre Azure Cache for Redis
 Conozca las respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure Cache for Redis.

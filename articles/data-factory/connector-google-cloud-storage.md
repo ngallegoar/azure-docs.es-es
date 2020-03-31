@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: d811076e0d78ed2812681447bebe8e6e07aa33e2
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75892662"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copia de datos de Google Cloud Storage con Azure Data Factory
@@ -35,7 +35,7 @@ Concretamente, este conector de Google Cloud Storage admite la copia de archivos
 >[!NOTE]
 >La funcionalidad de copia de datos de Google Cloud Storage usa el [conector de Amazon S3](connector-amazon-simple-storage-service.md) con el correspondiente punto de conexión de S3 personalizado, ya que Google Cloud Storage proporciona una interoperabilidad compatible con S3.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Se requiere la siguiente configuración en la cuenta de Google Cloud Storage:
 

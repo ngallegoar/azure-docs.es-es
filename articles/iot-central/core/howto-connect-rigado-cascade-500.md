@@ -3,19 +3,19 @@ title: Conexión de un dispositivo Rigado Cascade 500 en Azure IoT Central | Mic
 description: Aprenda a conectar un dispositivo de puerta de enlace Rigado Cascade 500 a la aplicación de IoT Central.
 services: iot-central
 ms.service: iot-central
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
 - iot-storeAnalytics-conditionMonitor
 - iot-p0-scenario
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: bd96d2b9f2220c4eecb653e0764c381235c62157
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d52366684d772f91b53a1ab385b51ae4f11f0a5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026464"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158398"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo de puerta de enlace Rigado Cascade 500 a la aplicación de Azure IoT Central
 
@@ -28,7 +28,7 @@ La puerta de enlace IoT Cascade 500 es una oferta de hardware de Rigado que se i
 
 Cascade 500 ya está certificado para Azure IoT Plug and Play (versión preliminar), lo que permite a nuestros creadores de soluciones incorporar fácilmente el dispositivo a sus soluciones de un extremo a otro. La puerta de enlace de Cascade permite conectarse de forma inalámbrica a una variedad de sensores de supervisión de condiciones que están cerca del dispositivo de puerta de enlace. Estos sensores se pueden incorporar a IoT Central mediante el dispositivo de puerta de enlace.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para recorrer esta guía paso a paso, necesita los siguientes recursos:
 
 * Un dispositivo Rigado Cascade 500. Para más información, visite el sitio web de [Rigado](https://www.rigado.com/).

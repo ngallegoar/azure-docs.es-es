@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: d293b76e004d693813a074cb8551a86cb3c0bec2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76772342"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Ingesta de datos de ejemplo con formato JSON en Azure Data Explorer
 
 En este artículo, se muestra cómo ingerir datos con formato JSON en una base de datos de Azure Data Explorer. Comenzará con ejemplos sencillos de JSON asignado y sin formato, continuará con JSON multilínea y, a continuación, abordará esquemas JSON más complejos que contengan matrices y diccionarios.  En los ejemplos se detalla el proceso de ingesta de datos con formato JSON mediante el lenguaje de consulta de Kusto (KQL), C# o Python. Los comandos de control `ingest` del lenguaje de consulta Kusto se ejecutan directamente en el punto de conexión del motor. En escenarios de producción, la ingesta se ejecuta en el servicio Administración de datos mediante bibliotecas de clientes o conexiones de datos. Consulte [Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](/azure/data-explorer/python-ingest-data) e [Ingesta de datos mediante el SDK de .NET Standard de Azure Data Explorer](/azure/data-explorer/net-standard-ingest-data) para ver un tutorial sobre la ingesta de datos con estas bibliotecas de clientes.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [Base de datos y clúster de prueba](create-cluster-database-portal.md)
 
@@ -50,7 +50,7 @@ El siguiente ejemplo es un JSON simple, con una estructura plana. Los datos tien
 
 En este ejemplo, se ingieren registros JSON como datos sin procesar en una tabla de una sola columna. La manipulación de datos, mediante consultas, y la directiva de actualización se realizan una vez que se ingieren los datos.
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
 Use el lenguaje de consulta de Kusto para ingerir datos en formato JSON sin procesar.
 
@@ -82,7 +82,7 @@ Use el lenguaje de consulta de Kusto para ingerir datos en formato JSON sin proc
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 Use C# para ingerir datos en formato JSON sin procesar.
 
@@ -159,7 +159,7 @@ Use C# para ingerir datos en formato JSON sin procesar.
 > [!NOTE]
 > Los datos se agregan según la [directiva de procesamiento por lotes](/azure/kusto/concepts/batchingpolicy), lo que produce una latencia de unos minutos.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Use Python para ingerir datos en formato JSON sin procesar.
 
@@ -208,7 +208,7 @@ Use Python para ingerir datos en formato JSON sin procesar.
 
 En este ejemplo, se ingieren datos de registros JSON. Cada propiedad JSON se asigna a una sola columna de la tabla. 
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
 1. Cree una tabla con un esquema similar a los datos de entrada JSON. Usaremos esta tabla en todos los ejemplos y comandos de ingesta siguientes. 
 
@@ -232,7 +232,7 @@ En este ejemplo, se ingieren datos de registros JSON. Cada propiedad JSON se asi
 
     El archivo "simple.JSON" tiene algunos registros JSON separados por líneas. El formato es `json`, y la asignación utilizada en el comando de ingesta es el elemento `FlatEventMapping` que creó.
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. Cree una tabla con un esquema similar a los datos de entrada JSON. Usaremos esta tabla en todos los ejemplos y comandos de ingesta siguientes. 
 
@@ -291,7 +291,7 @@ En este ejemplo, se ingieren datos de registros JSON. Cada propiedad JSON se asi
 
     El archivo "simple.JSON" tiene algunos registros JSON separados por líneas. El formato es `json`, y la asignación utilizada en el comando de ingesta es el elemento `FlatEventMapping` que creó.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 1. Cree una tabla con un esquema similar a los datos de entrada JSON. Usaremos esta tabla en todos los ejemplos y comandos de ingesta siguientes. 
 
@@ -329,7 +329,7 @@ En este ejemplo, se ingieren datos de registros JSON. Cada propiedad JSON se asi
 
 En este ejemplo, se ingieren registros JSON multilínea. Cada propiedad JSON se asigna a una sola columna de la tabla. El archivo "multilined.json" tiene algunos registros JSON con sangría. El formato `multijson` indica al motor que lea los registros por la estructura JSON.
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
 Ingiera los datos en la tabla `Events`.
 
@@ -337,7 +337,7 @@ Ingiera los datos en la tabla `Events`.
 .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=FlatEventMapping)
 ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 Ingiera los datos en la tabla `Events`.
 
@@ -354,7 +354,7 @@ var properties =
 ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Ingiera los datos en la tabla `Events`.
 
@@ -395,7 +395,7 @@ Los tipos de datos de matriz son una colección ordenada de valores. La ingesta 
 }
 ```
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
 1. Cree una función `update policy` que expanda la recopilación de datos de `records` para que cada valor de la recopilación reciba una fila independiente, mediante el operador `mv-expand`. Se usará la tabla `RawEvents` como tabla de origen y `Events` como tabla de destino.
 
@@ -436,7 +436,7 @@ Los tipos de datos de matriz son una colección ordenada de valores. La ingesta 
     Events
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. Cree una función de actualización que expanda la recopilación de `records` para que cada valor de la recopilación reciba una fila independiente, mediante el operador `mv-expand`. Se usará la tabla `RawEvents` como tabla de origen y `Events` como tabla de destino.   
 
@@ -490,7 +490,7 @@ Los tipos de datos de matriz son una colección ordenada de valores. La ingesta 
     
 1. Revise los datos de la tabla `Events`.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 1. Cree una función de actualización que expanda la recopilación de `records` para que cada valor de la recopilación reciba una fila independiente, mediante el operador `mv-expand`. Se usará la tabla `RawEvents` como tabla de origen y `Events` como tabla de destino.   
 
@@ -570,7 +570,7 @@ El JSON estructurado en diccionarios contiene pares de clave-valor. Los registro
 }
 ```
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
 1. Cree una asignación JSON.
 
@@ -584,7 +584,7 @@ El JSON estructurado en diccionarios contiene pares de clave-valor. Los registro
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=KeyValueEventMapping)
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. Cree una asignación JSON.
 
@@ -621,7 +621,7 @@ El JSON estructurado en diccionarios contiene pares de clave-valor. Los registro
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 1. Cree una asignación JSON.
 

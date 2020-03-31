@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: ab7aaeb2b28592aab38d112b02340160a6c882ee
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: f1541c177cea2d223a5e7df576d95fab7eafb310
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927507"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80296933"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regeneración de las claves de acceso de la cuenta de almacenamiento
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,6 +92,8 @@ Para actualizar Azure Machine Learning de modo que use la clave nueva, siga esto
         ```azurecli-interactive
         az login
         ```
+
+        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
     1. Para actualizar el área de trabajo de modo que use la clave nueva, use el comando siguiente. Reemplace `myworkspace` por el nombre del área de trabajo de Azure Machine Learning y reemplace `myresourcegroup` por el nombre del grupo de recursos de Azure que contiene el área de trabajo.
 

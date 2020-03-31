@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: encorona
 ms.openlocfilehash: 86a12bd1dccc2b6ac15010546d7e990b768ebc02
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75453351"
 ---
 # <a name="how-to-add-a-one-step-correction-to-a-custom-command-preview"></a>Instrucciones: Agregar una corrección de un paso a un comando personalizado (versión preliminar)
@@ -32,7 +32,7 @@ Por ejemplo, si acaba de configurar una alarma, puede cambiar de opinión y actu
 
 Tenga en cuenta que esto implica que usted, como desarrollador, tiene un mecanismo para actualizar la alarma en la aplicación de back-end.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Debe haber completado los pasos descritos en los siguientes artículos:
 

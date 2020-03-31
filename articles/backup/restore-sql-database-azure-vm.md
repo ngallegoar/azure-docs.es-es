@@ -3,12 +3,12 @@ title: Restauración de bases de datos de SQL Server en una máquina virtual de
 description: En este artículo se describe cómo restaurar bases de datos SQL Server que se ejecutan en una máquina virtual de Azure y cuyas copias de seguridad se realizan con Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 58525069af28be250c3536db076a38fb350bc1da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390760"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227464"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restauración de bases de datos SQL Server en máquinas virtuales de Azure
 
@@ -23,7 +23,7 @@ Azure Backup puede restaurar las bases de datos SQL Server que se ejecutan en la
 - Restaure a una fecha u hora específicas (hasta los segundos) mediante copias de seguridad del registro de transacciones. Azure Backup determina automáticamente la copia de seguridad diferencial completa apropiada y la cadena de copias de seguridad de registros necesarias para restaurar los datos en función del tiempo seleccionado.
 - Restaure una copia de seguridad completa o diferencial específica para restaurar a un punto de recuperación específico.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de restaurar una base de datos, tenga en cuenta lo siguiente:
 
@@ -112,24 +112,25 @@ Para restaurar datos de copia de seguridad como archivos .bak en lugar de una ba
 2. Seleccione el nombre de SQL Server en el que quiere restaurar los archivos de copia de seguridad.
 3. En **Destination path on the server** (Ruta de acceso de destino en el servidor), especifique la ruta de acceso de carpetas en el servidor seleccionado en el paso 2. Se trata de la ubicación en la que el servicio volcará todos los archivos de copia de seguridad necesarios. Típicamente, una ruta de acceso a un recurso compartido de red o una ruta de acceso de un recurso compartido de archivos de Azure montado cuando se especifica como una ruta de acceso de destino facilita el acceso a estos archivos de parte de otras máquinas en la red o en el mismo recurso compartido de archivos de Azure montado en ellas.<BR>
 
->Para restaurar los archivos de copia de seguridad de base de datos de un recurso compartido de archivos de Azure montado en la máquina virtual registrada de destino, asegúrese de que NT AUTHORITY\SYSTEM tenga acceso al recurso compartido de archivos. Puede realizar los pasos que se indican a continuación para conceder los permisos de lectura y escritura al AFS montado en la máquina virtual:
->- Ejecutar `PsExec -s cmd` para entrar en el shell de NT AUTHORITY\SYSTEM
->   - Ejecute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
->   - Comprobar el acceso con `dir \\<storageacct>.file.core.windows.net\<filesharename>`
->- Iniciar una restauración como archivos desde el almacén de copia de seguridad en `\\<storageacct>.file.core.windows.net\<filesharename>` como ruta de acceso.<BR>
-Puede descargar Psexec mediante <https://docs.microsoft.com/sysinternals/downloads/psexec>.
+    >Para restaurar los archivos de copia de seguridad de base de datos de un recurso compartido de archivos de Azure montado en la máquina virtual registrada de destino, asegúrese de que NT AUTHORITY\SYSTEM tenga acceso al recurso compartido de archivos. Puede realizar los pasos que se indican a continuación para conceder los permisos de lectura y escritura al AFS montado en la máquina virtual:
+    >
+    >- Ejecutar `PsExec -s cmd` para entrar en el shell de NT AUTHORITY\SYSTEM
+    >   - Ejecute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+    >   - Comprobar el acceso con `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+    >- Iniciar una restauración como archivos desde el almacén de copia de seguridad en `\\<storageacct>.file.core.windows.net\<filesharename>` como ruta de acceso.<BR>
+    Puede descargar Psexec mediante <https://docs.microsoft.com/sysinternals/downloads/psexec>.
 
 4. Seleccione **Aceptar**.
 
-![Seleccionar Restaurar como archivos](./media/backup-azure-sql-database/restore-as-files.png)
+    ![Seleccionar Restaurar como archivos](./media/backup-azure-sql-database/restore-as-files.png)
 
 5. Seleccione el **Punto de restauración** correspondiente en el que se restaurarán todos los archivos .bak disponibles.
 
-![Seleccionar un punto de restauración](./media/backup-azure-sql-database/restore-point.png)
+    ![Seleccionar un punto de restauración](./media/backup-azure-sql-database/restore-point.png)
 
 6. Todos los archivos de copia de seguridad asociados con el punto de recuperación seleccionado se vuelcan en la ruta de acceso de destino. Puede restaurar los archivos como una base de datos en cualquier máquina en la que estén presentes mediante SQL Server Management Studio.
 
-![Archivos de copia de seguridad restaurados en la ruta de acceso de destino](./media/backup-azure-sql-database/sql-backup-files.png)
+    ![Archivos de copia de seguridad restaurados en la ruta de acceso de destino](./media/backup-azure-sql-database/sql-backup-files.png)
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Restauración a un momento dado
 
@@ -163,6 +164,9 @@ Si ha seleccionado **Completo y diferencial** como el tipo de restauración, hag
 1. Seleccione un punto de recuperación de la lista y seleccione **Aceptar** para completar el procedimiento de punto de restauración.
 
     ![Elegir un punto de recuperación completo](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+
+    >[!NOTE]
+    > De forma predeterminada, se muestran los puntos de recuperación de los 30 últimos días. Para mostrar los puntos de recuperación anteriores a 30 días, haga clic en **Filtrar** y seleccione un intervalo personalizado.
 
 1. En el menú **Configuración avanzada**, si desea mantener la base de datos no operativa después de la restauración, habilite **Restaurar con NORECOVERY**.
 1. Si desea cambiar la ubicación de restauración en el servidor de destino, escriba una nueva ruta de acceso de destino.

@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60877471"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operaciones de sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso del SDK de Java
 > [!div class="op_single_selector"]
 > * [SDK de .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
-> * [API DE REST](data-lake-store-data-operations-rest-api.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
@@ -32,7 +32,7 @@ Aprenda a utilizar el SDK de Java de Azure Data Lake Storage Gen1 para realizar 
 
 Puede acceder a los documentos de la API del SDK de Java para Data Lake Storage Gen1 en los [documentos de la API de Java de Azure Data Lake Storage Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 * Kit de desarrollo de Java (JDK 7 o superior, con Java versión 1.7 o posterior).
 * Cuenta de Data Lake Storage Gen1. Siga las instrucciones de [Introducción a Azure Data Lake Storage Gen1 con Azure Portal](data-lake-store-get-started-portal.md).
 * [Maven](https://maven.apache.org/install.html). Este tutorial usa Maven para crear las dependencias de un proyecto. Aunque es posible generarlas sin utilizar un sistema como Maven o Gradle, estos sistemas facilitan mucho la administración de las dependencias.
@@ -86,7 +86,7 @@ La creación de un objeto [ADLStoreClient](https://azure.github.io/azure-data-la
 
 Los fragmentos de código de las secciones siguientes contienen ejemplos de operaciones de sistema de archivos comunes. Puede buscar en todos los [documentos de la API de SDK de Java de Data Lake Storage Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/) del objeto **ADLStoreClient** para ver otras operaciones.
 
-## <a name="create-a-directory"></a>Creación de directorios
+## <a name="create-a-directory"></a>Creación de un directorio
 
 El fragmento de código siguiente crea una estructura de directorios en la raíz de la cuenta de Data Lake Storage Gen1 especificada.
 

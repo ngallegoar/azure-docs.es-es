@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
 ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68883094"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Desarrollar contenido para dispositivos móviles mediante los SDK de Azure IoT

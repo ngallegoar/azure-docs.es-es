@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c71136ecb57fac460514b5f4815ba19cc22d86cb
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76290621"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operaciones de administración de cuentas en Azure Data Lake Storage Gen1 mediante Python.
@@ -29,7 +29,7 @@ ms.locfileid: "76290621"
 
 Aprenda a usar el SDK de Python para Azure Data Lake Storage Gen1 para realizar operaciones de administración de cuentas básicas, como la creación o la enumeración de cuentas de Data Lake Storage Gen1. Para obtener instrucciones sobre cómo realizar operaciones del sistema de archivos en Data Lake Storage Gen1 con Python, consulte [Filesystem operations on Data Lake Storage Gen1 using Python](data-lake-store-data-operations-python.md) (Operaciones del sistema de archivos en Data Lake Storage Gen1 con Python).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Python** Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 

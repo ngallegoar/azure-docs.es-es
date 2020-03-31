@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73931318"
 ---
 # <a name="deploy-a-trusted-security-partner-preview"></a>Implementación de un asociado de seguridad de confianza (versión preliminar)
@@ -24,7 +24,7 @@ Para más información sobre los escenarios compatibles y las directrices de mej
 
 Para esta versión preliminar los asociados de seguridad admitidos son **ZScaler** e **iboss**. Las regiones admitidas son WestCentralUS, NorthCentralUS, Westus, WestUS2 y EastUS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 > [!IMPORTANT]
 > La versión preliminar de Azure Firewall Manager se debe habilitar explícitamente mediante el comando `Register-AzProviderFeature` de PowerShell.
@@ -77,9 +77,9 @@ Para configurar túneles en VPN Gateway del centro de conectividad virtual, los 
 
 1. Crear una entidad de servicio de Azure Active Directory (AD): Puede omitir la dirección URL de redireccionamiento. 
 
-   [Uso de Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Cómo: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
 2. Agregue los derechos de acceso y el ámbito de la entidad de servicio.
-   [Uso de Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Cómo: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
 
    > [!NOTE]
    > Puede limitar el acceso solo a su grupo de recursos para un control más granular.

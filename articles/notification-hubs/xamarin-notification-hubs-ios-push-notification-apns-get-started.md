@@ -1,5 +1,5 @@
 ---
-title: Envío de notificaciones push a Xamarin iOS mediante Azure Notification Hubs | Microsoft Docs
+title: Envío de notificaciones push a Xamarin mediante Azure Notification Hubs | Microsoft Docs
 description: En este tutorial, aprenderá a usar Azure Notification Hubs para enviar notificaciones de inserción a una aplicación Xamarin iOS.
 services: notification-hubs
 keywords: notificaciones push de ios,mensajes de inserción,notificaciones push,mensaje de notificación
@@ -18,12 +18,12 @@ ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: e693d771d9a4726a1a9d698b5b7ed61d19197bdb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 07417427385806e61db0d7d83624d923e92eb693
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895034"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127011"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones de Xamarin.iOS mediante Azure Notification Hubs
 
@@ -44,7 +44,7 @@ En este tutorial, se crea o actualiza código para realizar las tareas siguiente
 > * Configuración de un Centro de notificaciones para notificaciones push de iOS
 > * Prueba de envío de las notificaciones push
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * La versión más reciente de [Xcode][Install Xcode]

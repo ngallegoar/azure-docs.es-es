@@ -7,11 +7,11 @@ ms.date: 2/18/2020
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 6ba48f3c40e45afa02e03a7589e968cca723118e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357127"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79226560"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.

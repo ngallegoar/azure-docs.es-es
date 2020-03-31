@@ -6,13 +6,13 @@ ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: 37bb1193056894ea824f4aa1723fb327f54bccae
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 2e62062fabfbb7c320bbeaf473979ccef96b0ba3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672076"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80047211"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Redireccionamiento de una dirección URL predeterminada a un directorio personalizado
 > * Automatizar la asignación de dominio con scripts
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial:
 
@@ -190,17 +190,17 @@ Para asignar un registro D a un aplicación, App Service requiere **dos** regist
 
 En el dominio `contoso.com` del ejemplo, cree los registros D y TXT según la tabla siguiente (`@` suele representar el dominio raíz).
 
-| Tipo de registro | Host | Valor |
+| Tipo de registro | Host | Value |
 | - | - | - |
-| Una | `@` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
+| Un | `@` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
 > [!NOTE]
 > Para agregar un subdominio (como `www.contoso.com`) con un registro de dirección en lugar de un [registro CNAME](#map-a-cname-record) recomendado, el registro de dirección y el registro TXT tendrán un aspecto similar al de la tabla siguiente:
 >
-> | Tipo de registro | Host | Valor |
+> | Tipo de registro | Host | Value |
 > | - | - | - |
-> | Una | `www` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
+> | Un | `www` | D www Dirección IP de [Copiar la dirección IP de la aplicación](#info) |
 > | TXT | `www` | `<app_name>.azurewebsites.net` |
 >
 
@@ -327,7 +327,7 @@ Una vez completada la operación, la aplicación debe devolver la página correc
 
 Puede automatizar la administración de dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
 
-### <a name="azure-cli"></a>CLI de Azure 
+### <a name="azure-cli"></a>Azure CLI 
 
 El comando siguiente agrega un nombre DNS personalizado configurado a una aplicación de App Service. 
 
@@ -357,7 +357,7 @@ Para obtener más información, vea [Asignación de un dominio personalizado a u
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, ha aprendido a:
 
 > [!div class="checklist"]
 > * Asignar un subdominio mediante el uso de un registro CNAME
@@ -369,4 +369,4 @@ En este tutorial aprendió lo siguiente:
 Pase al siguiente tutorial para aprender a enlazar un certificado SSL personalizado a una aplicación web.
 
 > [!div class="nextstepaction"]
-> [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md)
+> [Protección de un nombre DNS personalizado con un enlace SSL en Azure App Service](configure-ssl-bindings.md)

@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
 ms.openlocfilehash: 78f35042678aa7c30cebf73796df3e5d564b4502
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76717003"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Implementación y ejecución de un contenedor en Azure Container Instance
 
 Con los pasos siguientes, escale aplicaciones de Azure Cognitive Services en la nube fácilmente con [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). La creación de contenedores permite centrarse en la compilación de aplicaciones en lugar de en la administración de la infraestructura. Para más información sobre el uso de contenedores, consulte [Características y ventajas](../cognitive-services-container-support.md#features-and-benefits).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 La fórmula funciona con cualquier contenedor de Cognitive Services. El recurso de Cognitive Services debe crearse en Azure Portal antes de usar la fórmula. Todos los servicios de Cognitive Services que admiten contenedores tienen un documento del "Procedimiento de instalación" específico para instalar y configurar el servicio de un contenedor. Algunos servicios requieren un archivo o un conjunto de archivos como entrada para el contenedor, así que es importante que entienda y haya usado el contenedor correctamente antes de usar esta solución.
 

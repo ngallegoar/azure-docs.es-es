@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: 48485b7ba0f846afa737454b092a6c1ee986b737
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254958"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Topologías de red para migraciones de Instancia administrada de Azure SQL Database mediante Azure Database Migration Service

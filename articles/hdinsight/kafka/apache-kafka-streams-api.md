@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 10/08/2019
-ms.openlocfilehash: f256adfd1fc970512cad5fb93ec235fc27a50373
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.custom: hdinsightactive
+ms.date: 03/20/2020
+ms.openlocfilehash: 2885fccd95d09149ae496b80a658f34e5b697d0b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817748"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80064494"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutorial: Uso de Streams API de Apache Kafka en Azure HDInsight
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 > * Configurar temas de Kafka
 > * Ejecución del código
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un clúster de Kafka en HDInsight 3.6. Para aprender a crear un clúster de Kafka en HDInsight, consulte el documento [Inicio de Apache Kafka en HDInsight](apache-kafka-get-started.md).
 
@@ -72,7 +72,7 @@ Esto es lo más importante que hay que saber del archivo `pom.xml`:
 * Complementos: los complementos de Maven proporcionan varias funcionalidades. En este proyecto, se utilizan los siguientes complementos:
 
     * `maven-compiler-plugin`: se utiliza para establecer que el proyecto utiliza la versión 8 de Java. HDInsight 3.6 requiere Java 8.
-    * `maven-shade-plugin`: se utiliza para generar un archivo uber-jar que contiene esta aplicación, así como todas las dependencias. También se usa para establecer el punto de entrada de la aplicación, con el fin de que pueda ejecutar directamente el archivo Jar sin tener que especificar la clase principal.
+    * `maven-shade-plugin`: se utiliza para generar un archivo uber-jar que contiene esta aplicación y todas las dependencias. También se usa para establecer el punto de entrada de la aplicación, con el fin de que pueda ejecutar directamente el archivo Jar sin tener que especificar la clase principal.
 
 ### <a name="streamjava"></a>Stream.java
 
@@ -166,6 +166,7 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
     ```
 
 4. Extraiga el nombre del clúster con las mayúsculas y minúsculas correctas. Las mayúsculas y minúsculas reales del nombre del clúster pueden no ser como cabría esperar, dependen de la forma en que se haya creado el clúster. Este comando obtendrá las mayúsculas y minúsculas reales y después las almacenará en una variable. Escriba el comando siguiente:
+
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
@@ -173,7 +174,7 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
     > [!Note]  
     > Si está realizando este proceso desde fuera del clúster, hay un procedimiento diferente para almacenar el nombre del clúster. Obtenga el nombre del clúster en minúsculas desde Azure Portal. A continuación, sustituya el nombre del clúster por `<clustername>` en el siguiente comando y ejecútelo: `export clusterName='<clustername>'`.  
 
-5. Para obtener tanto los hosts del agente de Kafka como los hosts de Apache Zookeeper, use los siguientes comandos. Cuando se le solicite, escriba la contraseña de administrador del clúster. Se le pedirá que confirme la contraseña.
+5. Para obtener tanto los hosts del agente de Kafka como los hosts de Apache Zookeeper, use los siguientes comandos. Cuando se le solicite, escriba la contraseña de administrador del clúster.
 
     ```bash
     export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
@@ -181,8 +182,8 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-> [!Note]  
-> Estos comandos requieren acceso a Ambari. Si el clúster se encuentra detrás de un grupo de seguridad de red, ejecute estos comandos desde una máquina que pueda acceder a Ambari. 
+    > [!Note]  
+    > Estos comandos requieren acceso a Ambari. Si el clúster se encuentra detrás de un grupo de seguridad de red, ejecute estos comandos desde una máquina que pueda acceder a Ambari.
 
 6. Para crear los temas que emplea la operación de streaming, use los siguientes comandos:
 

@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7ba3eae4ea5557b4bb1b1be4e2c79eab8f6e7988
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 7780bdbc92868f62e8d066d171b2a04fe06a981d
+ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484883"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80245810"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de .NET Framework
 
@@ -38,13 +38,15 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seleccione **Explorador de configuración** >  **+ Crear** para agregar los siguientes pares clave-valor:
+6. Seleccione **Explorador de configuración** >  **+ Crear** > **Clave-valor** para agregar los siguientes pares clave-valor:
 
     | Clave | Value |
     |---|---|
     | TestApp:Settings:Message | Datos de Azure App Configuration |
 
     Deje **Etiqueta** y **Tipo de contenido** en blanco, por ahora.
+
+7. Seleccione **Aplicar**.
 
 ## <a name="create-a-net-framework-console-app"></a>Creación de una aplicación de consola de .NET Framework
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: aahi
 ms.openlocfilehash: 81a2cb7ece775bfaffaf1b1932feb12b2da5f08f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74012021"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Contenido destacado generado por el usuario para Anomaly Detector API

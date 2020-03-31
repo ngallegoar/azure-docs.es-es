@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 6/06/2019
 ms.author: robinsh
 ms.openlocfilehash: f0b909d10790511408e090546fd3359889ea5aca
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73954624"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI
@@ -36,7 +36,7 @@ Aprenderá a visualizar los datos del sensor en tiempo real que la instancia de 
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-* Completar el tutorial [Simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales del dispositivo, por ejemplo, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estos artículos abarcan los requisitos siguientes:
+* Completar el tutorial [Conectar el simulador en línea de Raspberry Pi a Azure IoT Hub (Node.js)](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales del dispositivo, por ejemplo, [Conectar Raspberry Pi a Azure IoT Hub (Node.js)](iot-hub-raspberry-pi-kit-node-get-started.md). Estos artículos abarcan los requisitos siguientes:
   
   * Una suscripción de Azure activa.
   * Un centro de Azure IoT en su suscripción.

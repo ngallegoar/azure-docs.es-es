@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68385718"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo
@@ -58,7 +58,7 @@ En este tema, se configura el enrutamiento en IoT Hub para enviar mensajes en lo
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-* Completar el tutorial [Simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales del dispositivo, por ejemplo, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estos tutoriales abarcan los requisitos siguientes:
+* Completar el tutorial [Conectar el simulador en línea de Raspberry Pi a Azure IoT Hub (Node.js)](iot-hub-raspberry-pi-web-simulator-get-started.md) o uno de los tutoriales del dispositivo, por ejemplo, [Conectar Raspberry Pi a Azure IoT Hub (Node.js)](iot-hub-raspberry-pi-kit-node-get-started.md). Estos tutoriales abarcan los requisitos siguientes:
 
   * Una suscripción de Azure activa.
   * Un centro de Azure IoT en su suscripción.
@@ -74,7 +74,7 @@ Cree un espacio de nombres de Service Bus y una cola. Más adelante en este tema
 
 1. En el panel **Crear espacio de nombres**, proporcione la siguiente información:
 
-   **Nombre**: el nombre del espacio de nombres de Service Bus. El nombre debe ser único en todo Azure.
+   **Name**: el nombre del espacio de nombres de Service Bus. El nombre debe ser único en todo Azure.
 
    **Plan de tarifa**: Seleccione **Básica** de la lista desplegable. El nivel Básico es suficiente para este tutorial.
 
@@ -132,7 +132,7 @@ Agregue un punto de conexión personalizado para la cola de Service Bus al centr
 
 1. En el panel **Agregar una ruta**, escriba la siguiente información:
 
-   **Nombre**: nombre de la regla de enrutamiento.
+   **Name**: nombre de la regla de enrutamiento.
 
    **Punto de conexión**: seleccione el punto de conexión que creó.
 
@@ -154,7 +154,7 @@ En la sección anterior, configuró el centro de IoT para enrutar los mensajes q
 
 1. Escriba la siguiente información:
 
-   **Nombre**: nombre de la aplicación lógica.
+   **Name**: nombre de la aplicación lógica.
 
    **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
 
