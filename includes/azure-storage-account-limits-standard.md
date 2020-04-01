@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 02/27/2020
+ms.date: 03/13/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e29cdd56d1c43b3d0e8fc6ca233ac19d8b0004ff
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: 6cd883289513091ff1a57a130b12e25e012c1160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357434"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334661"
 ---
-En la siguiente tabla se describen los límites predeterminados para las cuentas de almacenamiento habilitadas de Azure de uso general v1 (GPv1), v2 (GPv2), Blob, Premium BlockBlob y Data Lake Gen2. El límite de *entrada* hace referencia a todos los datos que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos que se reciben de una cuenta de almacenamiento.
+En la siguiente tabla se describen los límites predeterminados para las cuentas de almacenamiento habilitadas de Azure de uso general v1, v2, Blob Storage, almacenamiento de blob en bloques y Data Lake Storage Gen2. El límite de *entrada* hace referencia a todos los datos que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos que se reciben de una cuenta de almacenamiento.
 
-| Resource | Límite predeterminado |
+| Resource | Límite |
 | --- | --- |
-| Número de cuentas de almacenamiento por región y suscripción, incluidas las cuentas Estándar, Premium y Data Lake Gen2<sup>3</sup> | 250 |
+| Número de cuentas de almacenamiento por región y suscripción, incluidas las cuentas de almacenamiento habilitadas Estándar, Premium y Data Lake Gen2.<sup>3</sup> | 250 |
 | Capacidad máxima de la cuenta de almacenamiento | 5 PiB <sup>1</sup>|
 | Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento | Sin límite |
 | Tasa de solicitud total<sup>1</sup> por cuenta de almacenamiento | 20 000 solicitudes por segundo |
@@ -37,11 +37,11 @@ En la siguiente tabla se describen los límites predeterminados para las cuentas
 
 [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
-<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) es un conjunto de funcionalidades dedicadas al análisis de macrodatos basado en Azure Blob Storage. Las limitaciones de Azure Storage y del almacenamiento de blobs se aplican a Data Lake Gen2.
+<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) es un conjunto de funcionalidades dedicadas al análisis de macrodatos basado en Azure Blob Storage. Las limitaciones de Azure Storage y del almacenamiento de blobs se aplican a Data Lake Storage Gen2.
 
 > [!NOTE]
 > Microsoft recomienda usar una cuenta de almacenamiento de uso general v2 en la mayoría de los escenarios. Puede actualizar fácilmente una cuenta de Azure Blob Storage o de uso general v1 a una cuenta de uso general v2 sin tiempo de inactividad y sin la necesidad de copiar datos. Para más información, consulte [Actualización a una cuenta de almacenamiento de uso general v2](../articles/storage/common/storage-account-upgrade.md).
 
 Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento. A continuación, puede dividir los objetos de datos en esas cuentas de almacenamiento. Para obtener información sobre los precios por volumen, vea [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-Todas las cuentas de almacenamiento se ejecutan en una topología de red plana, independientemente del momento en que se hayan creado. Para obtener más información acerca de la arquitectura de red plana de Azure Storage y de la escalabilidad, vea [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Microsoft Azure Storage: Un servicio de almacenamiento en nube altamente disponible de gran coherencia). Se puede habilitar un [espacio de nombres jerárquico se puede habilitar para una cuenta de Data Lake Gen2](../articles/storage/blobs/data-lake-storage-namespace.md), además del espacio de nombres plano para el acceso multiprotocolo. Las cuentas de almacenamiento de espacios de nombres planos y jerárquicos admiten los mismos objetivos de escalabilidad y rendimiento que se describen en este artículo.
+Todas las cuentas de almacenamiento se ejecutan en una topología de red plana, independientemente del momento en que se hayan creado. Para obtener más información acerca de la arquitectura de red plana de Azure Storage y de la escalabilidad, vea [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://docs.microsoft.com/archive/blogs/hanuk/windows-azures-flat-network-storage-to-enable-higher-scalability-targets) (Microsoft Azure Storage: Un servicio de almacenamiento en nube altamente disponible de gran coherencia). 

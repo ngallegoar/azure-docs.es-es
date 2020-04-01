@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0e3f996ab2a42057198368759c75f10e911d5f54
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 608b148dc3929065df44530da65e695df19be03e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68936897"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79486080"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite BGP en todas las SKU de Azure VPN Gateway?
-No, BGP se admite solo en las puertas de enlace VPN de Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** y **HighPerformance**. **Basic** NO se admite.
+Se admite BGP en todas las SKU de Azure VPN Gateawy, excepto en la SKU básica.
 
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>¿Puedo usar BGP con puertas de enlace de VPN basadas en directivas de Azure?
 No, BGP solo es compatible con puertas de enlace de VPN basadas en enrutamiento.
@@ -24,8 +24,8 @@ No, BGP solo es compatible con puertas de enlace de VPN basadas en enrutamiento.
 ### <a name="can-i-use-private-asns-autonomous-system-numbers"></a>¿Puedo usar ASN (números de sistema autónomos) privados?
 Sí, puede usar sus propios ASN públicos o privados para sus redes locales y redes virtuales de Azure.
 
-### <a name="can-i-use-32-bit-asns-autonomous-system-numbers"></a>¿Puedo usar ASN de 32 bits (números de sistema autónomo)?
-No, Azure VPN Gateway actualmente admite ASN de 16 bits.
+### <a name="can-i-use-32-bit-4-byte-asns-autonomous-system-numbers"></a>¿Puedo usar ASN (números de sistema autónomo) de 32 bits (4 bytes)?
+Sí, Azure VPN Gateway ya admite ASN de 32 bits (4 bytes). Use PowerShell/CLI/SDK para configurar el uso de ASN en formato decimal.
 
 ### <a name="are-there-asns-reserved-by-azure"></a>¿Hay ASN reservados por Azure?
 Sí, los siguientes ASN están reservados por Azure para emparejamientos internos y externos:
