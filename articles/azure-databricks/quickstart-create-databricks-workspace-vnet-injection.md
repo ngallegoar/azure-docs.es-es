@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 12/04/2019
-ms.openlocfilehash: 046b2da7cdb966192e485ff9f5510eb63c9e0008
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 03/23/2020
+ms.openlocfilehash: 63dd1b4d9396d340dd17a7afb92ff9c38a2b38b3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086553"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132670"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Inicio rápido: Creación de un área de trabajo de Azure Databricks en su red virtual propia
 
@@ -100,6 +100,8 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
     El grupo de recursos administrados no se puede modificar y no se usa para crear máquinas virtuales. Solo puede crear máquinas virtuales en el grupo de recursos que administra.
 
     ![Grupo de recursos administrados de Azure Databricks](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
+
+    Cuando se produce un error en una implementación del área de trabajo, esta todavía se crea en un estado de error. Elimine el área de trabajo con errores y cree una nueva que resuelva los errores de implementación. Al eliminar el área de trabajo con errores, también se eliminan el grupo de recursos administrados y los recursos implementados correctamente.
 
 ## <a name="create-a-cluster"></a>Crear un clúster
 

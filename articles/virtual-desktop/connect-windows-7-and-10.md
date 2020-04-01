@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1fb9ef702de4cec2a655aadebe0bc4d69f583ff7
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b6436059cc8b3637edfc2a146d0aab3e2beae6a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128211"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154345"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Conexión con el cliente de Escritorio de Windows
 
@@ -23,6 +23,9 @@ Para acceder a los recursos de Windows Virtual Desktop en dispositivos con Windo
 
 > [!IMPORTANT]
 > Windows Virtual Desktop no es compatible con el cliente de Conexión de RemoteApp y Escritorio (RADC) ni con el cliente de Conexión a Escritorio remoto (MSTSC).
+
+> [!IMPORTANT]
+> Windows Virtual Desktop no es compatible actualmente con el cliente de Escritorio remoto de la tienda Windows. La compatibilidad con este cliente se agregará en una versión futura.
 
 ## <a name="install-the-windows-desktop-client"></a>Instalación del cliente de escritorio de Windows
 
