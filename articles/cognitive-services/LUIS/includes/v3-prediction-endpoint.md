@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: bc6e43faca47e360daa8214e6b9f6e9df4a2f130
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 23e7f88b23ac7af7470183877eeb1be89e79779c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495240"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80287754"
 ---
-1. En el portal de LUIS, vaya a la sección Manage (Administrar) del menú superior derecho y, en la página Keys and endpoints (Claves y puntos de conexión) del menú de la izquierda, seleccione la dirección URL del punto de conexión al final de la página.
+1. En el portal de LUIS, en la sección **Manage** (Administrar) del menú superior derecho, en la página **Azure Resources** (Recursos de Azure) (menú izquierdo), en la pestaña **Prediction Resources** (Recursos de predicción), copie la **consulta de ejemplo** de la parte inferior de la página.
 
-    Esta acción abre una pestaña del explorador con la dirección URL del punto de conexión en la barra de direcciones.
+    Pegue la dirección URL en una pestaña nueva del explorador.
 
     La dirección URL tiene el identificador de la aplicación, la clave y el nombre de la ranura. La dirección URL del punto de conexión de predicción de V3 tiene el siguiente aspecto:
 
-    `https://REGION.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/APP-ID/slots/SLOT-NAME/predict?subscription-key=YOUR-KEY&<optional-name-value-pairs>&query=UTTERANCE-TEXT.`
+    `https://REGION.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/APP-ID/slots/SLOT-NAME/predict?subscription-key=YOUR-KEY&<optional-name-value-pairs>&query=YOUR_QUERY_HERE`
 

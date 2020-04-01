@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ab7496c82e3a2b1f70a5de38b8008bb5ff504a01
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 726fc9cc0e4eb5a8f9bed5cca8dd4d3df588ac7c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672108"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371566"
 ---
 Azure Storage ofrece varios tipos de cuentas de almacenamiento. Cada tipo admite diferentes características y tiene su propio modelo de precios. Tenga en cuenta estas diferencias antes de crear una cuenta de almacenamiento para determinar el tipo de cuenta más adecuada para sus aplicaciones. Estos son los tipos de cuentas de almacenamiento:
 
@@ -37,7 +37,7 @@ En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus 
 
 <div id="encryption"><sup>2</sup>Todas las cuentas de almacenamiento se encriptan mediante Storage Service Encryption (SSE) para los datos en reposo. Para más información, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-service-encryption">Cifrado del servicio Azure Storage para datos en reposo</a>.</div><br/>
 
-<div id="archive"><sup>3</sup>El nivel de archivo está disponible solo en el nivel de un blob individual, y no en el nivel de la cuenta de almacenamiento. Solo se pueden archivar los blobs en bloques y los blocs adjuntos. Para obtener más información, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo</a>.</div><br/>
+<div id="archive"><sup>3</sup> El almacenamiento de archivo y el almacenamiento por niveles de blob solo admiten blobs en bloques. El nivel de archivo está disponible solo en el nivel de un blob individual y no en el nivel de cuenta de almacenamiento. Para obtener más información, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo</a>.</div><br/>
 
 <div id="zone-redundant-storage"><sup>4</sup>El almacenamiento con redundancia de zona (ZRS) y el almacenamiento con redundancia de zona geográfica (GZRS/RA-GZRS) (versión preliminar) solo están disponibles para las cuentas estándar de uso general V2, BlockBlobStorage y FileStorage en determinadas regiones. Para más información sobre las opciones de redundancia de Azure Storage, consulte <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Redundancia de Azure Storage</a>.</div><br/>
 

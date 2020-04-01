@@ -1,21 +1,21 @@
 ---
 title: 'Inicio rápido: Detección de anomalías en los datos de serie temporal mediante API REST Anomaly Detector y C#'
 titleSuffix: Azure Cognitive Services
-description: Use la API Anomaly Detector para detectar anomalías en la serie de datos como un lote o en la transmisión con este inicio rápido.
+description: Aprenda a usar API Anomaly Detector para detectar anomalías en la serie de datos como un lote o en la transmisión de datos.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: b5fb8bb424af47eb7793d38f24b6334677c6a5ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b53fecad3655048a7b9d799134926b2730b16dae
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385316"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80239107"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Inicio rápido: Detección de anomalías en los datos de serie temporal mediante API REST Anomaly Detector y C# 
 
@@ -28,7 +28,7 @@ Use este inicio rápido para comenzar a usar los dos modos de detección de la A
 
  Si bien esta aplicación está escrita en C#, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de este inicio rápido está disponible en [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://visualstudio.microsoft.com/downloads/).
 - Una clave y un punto de conexión de Anomaly Detector

@@ -1,35 +1,27 @@
 ---
 title: 'Inicio rápido: Creación de una aplicación en el portal de LUIS'
-titleSuffix: Azure Cognitive Services
 description: En este inicio rápido creará las partes básicas de una aplicación, las intenciones y las entidades; además, utilizará una expresión de ejemplo para probar la aplicación en el portal de LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.openlocfilehash: f0c8f0c77f832e049dfc494f82e90edb61a8cb2a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381994"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80244621"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Inicio rápido: Creación de una aplicación en el portal de LUIS
 
-En este inicio rápido, compilará una nueva aplicación en el portal de LUIS. En primer lugar, cree las partes básicas de una aplicación, las **intenciones** y **entidades**. Después, pruebe la aplicación proporcionando una expresión de usuario de ejemplo en el panel de prueba interactiva para obtener la intención de predicción.
-
-La creación de una aplicación es gratuita y no requiere una suscripción de Azure. Cuando esté listo para implementar la aplicación, consulte el [inicio rápido para implementar una aplicación](get-started-portal-deploy-app.md). Se muestra cómo crear un recurso de Azure Cognitive Services y cómo asignarlo a la aplicación.
+En este inicio rápido, compilará una nueva aplicación en el portal de LUIS. En primer lugar, cree las partes básicas de una aplicación, las **intenciones** y las **entidades**. Luego, pruebe la aplicación, para lo que debe especificar una expresión de usuario de ejemplo en el panel de prueba interactiva para obtener la intención de predicción.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-an-app"></a>Creación de una aplicación
 
-1. Seleccione **+ Create** (+ Crear) en la barra de herramientas contextual.
+1. Seleccione **+ New app for conversation** (+ Nueva aplicación para conversación) en la barra de herramientas de contexto y, después, seleccione **New app for conversation** (Nueva aplicación para conversación).
 
-   [![Creación de una aplicación en el portal de LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [![Creación de una aplicación en el portal de LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. En la ventana emergente, configure la aplicación con los siguientes valores y, a continuación, seleccione **Listo**.
 
@@ -70,7 +62,8 @@ Agregue expresiones de ejemplo después de crear las intenciones. Las expresione
 
 Para esta intención `FindForm` de la aplicación de ejemplo, las expresiones de ejemplo incluirán el número de formulario. La aplicación cliente necesita el número de formulario para satisfacer la solicitud del usuario, por lo que es importante incluirlo en la expresión.
 
-[![Escritura de las declaraciones de ejemplo para la intención de FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![Escritura de las declaraciones de ejemplo para la intención de FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Agregue las quince expresiones de ejemplo siguientes a la intención `FindForm`.
 
@@ -147,7 +140,8 @@ Las expresiones de ejemplo de la intención **None** deben estar fuera del domin
 
    La entidad se marca donde aparece en las expresiones de ejemplo. Si desea ver el texto original, en lugar del nombre de entidad, cambie a **Entities View** (Vista de entidades) en la barra de herramientas.
 
-   [![Todas las expresiones de ejemplo marcadas con entidades](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > [![Todas las expresiones de ejemplo marcadas con entidades](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## <a name="test-your-new-app-with-the-interactive-test-pane"></a>Prueba de la nueva aplicación con el panel de prueba interactiva
 
@@ -159,7 +153,10 @@ Use el panel de **prueba** interactiva en el portal de LUIS para validar que la 
 
    ```Is there a form named hrf-234098```
 
-   ![Prueba de nueva expresión en panel de prueba](./media/get-started-portal-build-app/test-new-utterance.png)
+    Seleccione **Inspect** (Inspeccionar) para ver las predicciones de la entidad.
+
+   > [!div class="mx-imgBorder"]
+   > ![Probar una expresión nueva en el panel de prueba](./media/get-started-portal-build-app/test-new-utterance.png)
 
    La intención de predicción con mayor puntuación es **FindForm**, con un nivel de confianza superior al 90 % (0,977). La entidad **Human Resources Form Number** (Número de formulario de recursos humanos) se extrae con un valor de hrf-234098.
 

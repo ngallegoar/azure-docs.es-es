@@ -1,22 +1,14 @@
 ---
 title: 'Inicio rápido: Creación de una aplicación (LUIS)'
-titleSuffix: Azure Cognitive Services
 description: En este inicio rápido se indica cómo crear una aplicación de LUIS que utiliza el dominio pregenerado `HomeAutomation` para encender y apagar las luces y los dispositivos. Este dominio pregenerado le proporciona intenciones, entidades y expresiones de ejemplo. Cuando termine, tendrá un punto de conexión LUIS que se ejecuta en la nube.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 302321a36a6ce7526ad5e3144f87b88edbfaaec7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.openlocfilehash: de6cf5e95ee63fc9500cf1b5edab78597bdb18af
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448096"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80287805"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Inicio rápido: Uso de automatización del hogar compilada previamente
 
@@ -29,11 +21,11 @@ En esta guía de inicio rápido, creará una aplicación de LUIS que utiliza el 
 ## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 Las aplicaciones se pueden crear y administrar en **My Apps** (Mis aplicaciones).
 
-1. En el portal de LUIS, en la lista My apps (Mis aplicaciones), seleccione **+ Create** (+ Crear).
+1. En la lista My app (Mis aplicaciones), seleccione **+ New app for conversation** (Nueva aplicación para conversación).
 
-    ![En el portal de LUIS, en la lista My apps (Mis aplicaciones), seleccione + Create (+ Crear).](./media/create-app-in-portal.png)
+1. En el cuadro de diálogo asigne el nombre `Home Automation` a la aplicación. Seleccione la referencia cultural **English** (Inglés). La descripción es opcional y no se usa para la creación ni la predicción. El recurso de predicción también es opcional cuando se crea una aplicación en LUIS. Seleccione **Listo**.
 
-1. En el cuadro de diálogo, asigne a la aplicación el nombre `Home Automation` y, luego, seleccione **Done** (Hecho). Se crea la aplicación en LUIS. La descripción es opcional y no se usa para la creación ni la predicción. El recurso de predicción también es opcional cuando se crea una aplicación en LUIS. Al publicar la aplicación en producción, debe asignar un recurso de predicción para que la aplicación pueda administrar muchas solicitudes.
+    Se crea la aplicación en LUIS. Al publicar la aplicación en producción, debe asignar un recurso de predicción para que la aplicación pueda administrar muchas solicitudes.
 
     ![En el cuadro de diálogo, asigne a la aplicación l nombre "Home Automation".](./media/create-new-app-details.png)
 
@@ -66,23 +58,25 @@ Seleccione la intención **HomeAutomation.TurnOff**. Puede ver que la intención
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>Prueba de la aplicación
-Una vez que haya entrenado a su aplicación, puede probarla. Seleccione **Probar**. Escriba una expresión de prueba, como `Turn off the lights` en el panel de prueba interactivo y presione Entrar.
+Una vez que haya entrenado a su aplicación, puede probarla.
 
-```
-Turn off the lights
-```
+1. Select **Test** (Probar) en el panel de navegación superior derecho. 1. Escriba una expresión de prueba, como `Turn off the lights` en el panel de prueba interactivo y presione Entrar.
 
-Compruebe que la intención con puntuación más alta se corresponde con la intención que espera para cada expresión de prueba.
+    ```
+    Turn off the lights
+    ```
 
-En este ejemplo, `Turn off the lights` está identificada correctamente como la intención con puntuación más alta de **HomeAutomation.TurnOff**.
+    Compruebe que la intención con puntuación más alta se corresponde con la intención que espera para cada expresión de prueba.
 
-![Captura de pantalla del panel de prueba con expresión resaltada](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+    En este ejemplo, `Turn off the lights` está identificada correctamente como la intención con puntuación más alta de **HomeAutomation.TurnOff**.
 
-Seleccione **Inspeccionar** para revisar más información sobre la predicción.
+    ![Captura de pantalla del panel de prueba con expresión resaltada](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-![Captura de pantalla del panel de prueba con información de inspección](media/luis-quickstart-new-app/test.png)
+1. Seleccione **Inspeccionar** para revisar más información sobre la predicción.
 
-Vuelva a seleccionar **Test** (Prueba) para contraer el panel de prueba.
+    ![Captura de pantalla del panel de prueba con información de inspección](media/luis-quickstart-new-app/test.png)
+
+1. Cierre el panel de prueba.
 
 <a name="publish-your-app"></a>
 
@@ -96,14 +90,14 @@ Vuelva a seleccionar **Test** (Prueba) para contraer el panel de prueba.
 
 [!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
-1. En la barra de direcciones del explorador, asegúrese de que las siguientes barras de nombre y valor se encuentran en la dirección URL de la cadena de consulta. Si no están en la cadena de consulta, agréguelas:
+2. En la barra de direcciones del explorador, asegúrese de que las siguientes barras de nombre y valor se encuentran en la dirección URL de la cadena de consulta. Si no están en la cadena de consulta, agréguelas:
 
     |Par nombre-valor|
     |--|
     |`verbose=true`|
     |`show-all-intents=true`|
 
-1. En la barra de direcciones del explorador, vaya al final de la dirección URL y escriba `turn off the living room light` como el valor de _consulta_ y, luego, presione Entrar.
+3. En la barra de direcciones del explorador, vaya al final de la dirección URL y escriba `turn off the living room light` como el valor de _consulta_ y, luego, presione Entrar.
 
     ```json
     {

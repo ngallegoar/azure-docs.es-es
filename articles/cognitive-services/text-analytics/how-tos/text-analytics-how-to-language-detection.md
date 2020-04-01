@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70387786"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Ejemplo: Detectar idioma con Text Analytics
@@ -34,7 +34,7 @@ Si tiene contenido que se expresa en un idioma que se usa con menos frecuencia, 
 
 Debe tener documentos JSON en este formato: Identificador y texto.
 
-El tamaño del documento debe ser inferior a 5.120 caracteres por documento. Puede tener hasta 1.000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. En el siguiente ejemplo se presenta contenido que se podría enviar para la detección del idioma:
+El tamaño del documento debe ser inferior a 5.120 caracteres por documento. Puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. En el siguiente ejemplo se presenta contenido que se podría enviar para la detección del idioma:
 
 ```json
     {
@@ -89,7 +89,7 @@ Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuen
 
 Todas las solicitudes POST devolverán una respuesta con formato JSON con los identificadores y las propiedades detectadas.
 
-La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local. A continuación, importe el resultado en una aplicación que puede usar para ordenar, buscar y manipular los datos.
+La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local. Después, importe el resultado en una aplicación que pueda usar para ordenar los datos, realizar búsquedas en ellos y manipularlos.
 
 Los resultados de la solicitud de ejemplo deben parecerse al siguiente JSON. Tenga en cuenta que es un documento con varios elementos. La salida está disponible en inglés. Los identificadores de idioma incluyen un nombre descriptivo y un código de idioma en formato [ISO 639-1](https://www.iso.org/standard/22109.html).
 
@@ -269,12 +269,12 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de la detecc
 
 + [Detección de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) está disponible para una amplia gama de idiomas, variantes, dialectos y algunos idiomas regionales o culturales.
 + Los documentos JSON del cuerpo de la solicitud incluyen un identificador y texto.
-+ La solicitud POST se realiza a un punto de conexión `/languages`, con una [clave de acceso y un punto de conexión](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personalizados, que son válidos para la suscripción.
-+ La salida de respuesta consta de los identificadores de idioma para cada identificador de documento. La salida se puede transmitir a cualquier aplicación que acepte JSON. Las aplicaciones de ejemplo incluyen Excel y Power BI, por ejemplo.
++ La solicitud POST se realiza a un punto de conexión `/languages`, mediante una [clave de acceso y un punto de conexión](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personalizados, que sean válidos para la suscripción.
++ La salida de respuesta consta de los identificadores de idioma para cada identificador de documento. La salida se puede transmitir a cualquier aplicación que acepte JSON. Entre las aplicaciones de ejemplo se incluyen Excel y Power BI, por nombrar algunas.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
- [Introducción a Text Analytics](../overview.md) [Preguntas más frecuentes](../text-analytics-resource-faq.md)</br>
+ [Introducción a Text Analytics](../overview.md)[Preguntas más frecuentes (FAQ)](../text-analytics-resource-faq.md)</br>
  [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Pasos siguientes

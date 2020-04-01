@@ -1,21 +1,21 @@
 ---
 title: 'Inicio rápido: Detección de anomalías en datos de serie temporal mediante la biblioteca cliente de Anomaly Detector para .NET'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido se indica cómo usar la API Anomaly Detector para detectar anomalías en la serie de datos como un lote o en la transmisión de datos.
+description: Aprenda a usar API Anomaly Detector para detectar anomalías en la serie de datos como un lote o en la transmisión de datos.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: fdb35edc35e07ed4ee718281942565a8f1d061d4
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 268ceee5504e6e48b9eb8fdae18564482480e250
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402693"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80239130"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>Inicio rápido: Biblioteca cliente de Anomaly Detector para .NET
 

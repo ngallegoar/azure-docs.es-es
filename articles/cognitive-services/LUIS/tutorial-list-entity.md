@@ -1,22 +1,14 @@
 ---
 title: 'Tutorial: Entidad de lista: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Obtenga datos que coincidan con una lista de elementos predefinida. Cada elemento de la lista puede tener sinónimos que también coincidan exactamente.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 056c64657f42d56879928f518598206d45493f60
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/12/2020
+ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447781"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79297414"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutorial: Obtención de los datos coincidentes con el texto exacto de una expresión con una entidad de lista
 
@@ -42,7 +34,7 @@ Una entidad de lista es una buena opción para este tipo de datos cuando:
 
 * Los valores de los datos son un conjunto conocido.
 * El conjunto no excede los [límites](luis-boundaries.md) máximos de LUIS para este tipo de entidad.
-* El texto de la expresión es una coincidencia exacta con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de las coincidencias exactas de texto. La lematización, los plurales y otras variaciones no se resuelven solo con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional.
+* El texto de la expresión es una coincidencia, sin distinción entre mayúsculas y minúsculas, con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de la coincidencia. La lematización, los plurales y otras variaciones no se resuelven solo con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional.
 
 > [!CAUTION]
 > Si no está seguro de si desea una entidad de lista o una entidad con aprendizaje automático con una lista de frases como descriptor, el procedimiento mejor y más flexible es usar una entidad con aprendizaje automático con una lista de frases como descriptor. Este método permite a LUIS aprender y ampliar los valores de los datos que se van a extraer.

@@ -8,19 +8,20 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 28724f85ada989cbe3ce754418fb781bb0468de4
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 8752585e731f905636f57d31741e2be67f7140b3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77466129"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335038"
 ---
-<a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes: Azure Resource Manager Los siguientes límites solo son válidos en los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
+### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Límites de redes - Azure Resource Manager
+Los límites siguientes solo se aplican a los recursos de redes administrados mediante **Azure Resource Manager** por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
 > Recientemente hemos aumentado todos los límites predeterminados a sus límites máximos. Si no hay ninguna columna de límite máximo, el recurso no tiene límites ajustables. Si el soporte técnico ha aumentado estos límites en el pasado y no ve los límites actualizados en las tablas siguientes, [abra una solicitud de soporte técnico al cliente en línea sin cargo](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
-| Resource | Límite predeterminado/máximo | 
+| Resource | Límite | 
 | --- | --- |
 | Redes virtuales |1,000 |
 | Subredes por red virtual |3000 |
@@ -48,7 +49,7 @@ ms.locfileid: "77466129"
 | TAP de red virtual |100 |
 | Configuraciones de TAP de la interfaz de red por TAP de red virtual |100 |
 
-#### <a name="publicip-address"></a>Límites de dirección IP pública
+#### <a name="public-ip-address-limits"></a><a name="publicip-address"></a>Límites de dirección IP pública
 | Resource | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Direcciones IP públicas<sup>1</sup> | 10 para Basic. | Póngase en contacto con el servicio de soporte técnico. |
@@ -59,12 +60,12 @@ ms.locfileid: "77466129"
 
 <sup>1</sup>Los límites predeterminados para las direcciones IP públicas varían según el tipo de categoría de la oferta, por ejemplo, versión de prueba gratuita, Pago por uso o CSP. Por ejemplo, el valor predeterminado para las suscripciones Contrato Enterprise es 1000.
 
-#### <a name="load-balancer"></a>Límites del equilibrador de carga
+#### <a name="load-balancer-limits"></a><a name="load-balancer"></a>Límites del equilibrador de carga
 Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
 **Standard Load Balancer**
 
-| Resource                                | Límite predeterminado/máximo         |
+| Resource                                | Límite         |
 |-----------------------------------------|-------------------------------|
 | Equilibradores de carga                          | 1,000                         |
 | Reglas por recurso                      | 1500                         |
@@ -72,12 +73,13 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Configuraciones de direcciones IP de front-end              | 600                           |
 | Tamaño de grupo de back-end                       | 1000 configuraciones de IP, una sola red virtual |
 | Puertos de alta disponibilidad                 | 1 por front-end interno       |
-| Reglas de salida por Load Balancer         | 20                            |
+| Reglas de salida por Load Balancer        | 20                            |
+| [Tiempo de espera de inactividad de TCP](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutos/30 minutos          |
 
 
 **Load Balancer básico**
 
-| Resource                                | Límite predeterminado/máximo        |
+| Resource                                | Límite        |
 |-----------------------------------------|------------------------------|
 | Equilibradores de carga                          | 1,000                        |
 | Reglas por recurso                      | 250                          |
@@ -86,7 +88,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Tamaño de grupo de back-end                       | 300 configuraciones de IP, un solo conjunto de disponibilidad |
 | Conjuntos de disponibilidad por Load Balancer     | 150                          |
 
-#### <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación **clásico** por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
+<a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación **clásico** por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Límite predeterminado | Límite máximo |
 | --- | --- | --- |

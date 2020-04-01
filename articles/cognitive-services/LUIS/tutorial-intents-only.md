@@ -1,22 +1,14 @@
 ---
 title: 'Tutorial: Predicción de intenciones: LUIS'
-titleSuffix: Azure Cognitive Services
 description: En este tutorial, cree una aplicación personalizada que prediga la intención de un usuario. Esta aplicación es el tipo más primitivo de aplicación de LUIS, dado que no extrae varios elementos de datos del texto de la expresión, como direcciones de correo electrónico o fechas.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 89fb76f8c5cc4323e1211524340c0965a7d0716d
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 03/24/2020
+ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262763"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80286751"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Compilación de una aplicación de LUIS para determinar las intenciones del usuario
 
@@ -53,9 +45,13 @@ Estas intenciones se categorizan en **Intenciones**.
 
 ## <a name="create-a-new-intent"></a>Creación de una nueva intención
 
-1. En el portal, dentro de la sección **Compilación** de la aplicación, seleccione **+ Crear**. Escriba el nombre de la nueva intención, `OrderPizza`, y después seleccione **Listo**.
+Las intenciones se usan para clasificar las expresiones de usuario en función del propósito del usuario, que se determina a partir del texto del lenguaje natural.
 
-    La intención `OrderPizza` se predice cuando: un usuario desea pedir una pizza.
+Para clasificar una expresión, la intención necesita ejemplos de expresiones del usuario que se deben clasificar con esta intención.
+
+1. En la sección **Build** (Compilar) de la página **Intents** (Intenciones), seleccione **+ Create** (+ Crear) para crear una intención. Escriba el nombre de la nueva intención, `OrderPizza`, y después seleccione **Listo**.
+
+    La intención `OrderPizza` se predice cuando un usuario desea pedir una pizza.
 
 1. Agregue varias expresiones de ejemplo a esta intención que espera que un usuario pida:
 
@@ -70,7 +66,7 @@ Estas intenciones se categorizan en **Intenciones**.
 
     ![Incorporación de expresiones de ejemplo](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Al proporcionar _expresiones de ejemplo_, está entrenando a LUIS sobre qué tipos de expresiones deben predecirse para esta intención.
+    Al proporcionar _expresiones de ejemplo_, está enseñando a LUIS qué tipos de expresiones deben predecirse para esta intención.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 

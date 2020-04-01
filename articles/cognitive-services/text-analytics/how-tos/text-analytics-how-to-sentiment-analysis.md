@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/10/2020
+ms.date: 03/09/2020
 ms.author: aahi
-ms.openlocfilehash: 60f6443e041c2f3a76a9027bebd33dc29a07f445
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b3c112876bfd2578e6ebaa95c6902aa9b8f832d9
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197477"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79203464"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedimientos: Detección de opiniones mediante la API Text Analytics
 
@@ -160,7 +160,7 @@ La API Text Analytics no tiene estado. No se almacenan datos en la cuenta y los 
 
 El analizador de sentimiento clasifica el texto como predominantemente positivo o negativo. Asigna una puntuación en el rengo que oscila entre 0 y 1. Los valores próximos a 0,5 son neutros o indeterminados. Una puntuación de 0,5 indica neutralidad. Cuando el sentimiento de una cadena no se puede analizar o no tiene sentimiento, la puntuación es siempre 0,5. Por ejemplo, si se pasa una cadena de español con un código de idioma inglés, la puntuación es 0,5.
 
-La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local. Después, importe el resultado en una aplicación que pueda usar para ordenar los datos, realizar búsquedas en ellos y manipularlos.
+La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local. Después, importe el resultado en una aplicación que pueda usar para ordenar los datos, realizar búsquedas en ellos y manipularlos. Debido a la compatibilidad con varios idiomas y con Emojis, la respuesta puede contener desplazamientos de texto. Consulte [cómo procesar desplazamientos](../concepts/text-offsets.md) para más información.
 
 #### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
 

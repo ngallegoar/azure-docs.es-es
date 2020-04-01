@@ -11,14 +11,16 @@ ms.topic: overview
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: eb338c39ed3b1a095c1ad31e3f695e8d3fec0ed3
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565968"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80131748"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 El servicio Computer Vision de Azure proporciona a los desarrolladores acceso a algoritmos avanzados que procesan imágenes y devuelven información, según las características visuales que le interesen. Por ejemplo, Computer Vision puede determinar si una imagen incluye contenido para adultos o buscar todos los rostros en una imagen.
 
@@ -77,6 +79,6 @@ Al igual que sucede con todas las instancias de Cognitive Services, los desarrol
 
 Introducción a Computer Vision, con una guía de inicio rápido:
 
-- [Inicio rápido: SDK de Computer Vision para .NET](quickstarts-sdk/csharp-sdk.md)
-- [Inicio rápido: SDK de Python para Computer Vision](quickstarts-sdk/python-sdk.md)
-- [Inicio rápido: SDK de Java para Computer Vision](quickstarts-sdk/java-sdk.md)
+- [Inicio rápido: Biblioteca cliente .NET de Computer Vision](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+- [Inicio rápido: Biblioteca cliente Python de Computer Vision](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
+- [Inicio rápido: Biblioteca cliente Java de Computer Vision](./quickstarts-sdk/client-library.md?pivots=programming-language-java)

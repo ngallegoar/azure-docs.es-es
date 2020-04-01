@@ -1,21 +1,21 @@
 ---
 title: 'Inicio rápido: Detección de anomalías en los datos mediante la biblioteca cliente de Anomaly Detector para Python'
 titleSuffix: Azure Cognitive Services
-description: Use la API Anomaly Detector para detectar anomalías en la serie de datos como un lote o en la transmisión de datos con este inicio rápido.
+description: Aprenda a usar API Anomaly Detector para detectar anomalías en la serie de datos como un lote o en la transmisión de datos.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 17ca1a7671718b5b96df0add7775fb82d4d97303
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: c13657b8f2dae3868c1b9820236585aa930c6be4
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770448"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80239097"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>Inicio rápido: Biblioteca cliente de Anomaly Detector para Node.js
 
@@ -28,7 +28,7 @@ Use la biblioteca cliente de Anomaly Detector para Node.js para las siguientes a
 
 [Documentación de referencia](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Paquete (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Buscar el código en GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * La versión actual de [Node.js](https://nodejs.org/)

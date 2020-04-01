@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 5356252432b70654648a832f9ac27698f29b6327
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b65feeb99bb51419e19a8e4b537515be14c54ba8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78202502"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334934"
 ---
 Estas son las restricciones de uso y otros límites de servicio para el servicio Azure Active Directory (Azure AD).
 
-| Category | límites |
+| Category | Límite |
 | --- | --- |
 | Directorios | Un usuario único puede pertenecer a un máximo de 500 directorios de Azure AD como miembro o invitado.<br/>Un usuario único puede crear un máximo de 20 directorios. |
 | Dominios | No puede agregar más de 900 nombres de dominio administrados. Si configura todos los dominios para la federación con un entorno local de Active Directory, no puede agregar más de 450 nombres de dominio en cada directorio. |
@@ -30,4 +30,4 @@ Estas son las restricciones de uso y otros límites de servicio para el servicio
 | Panel de acceso |<ul><li>No hay límite en el número de aplicaciones que se pueden ver en el Panel de acceso por usuario. Esto se aplica a los usuarios con licencias para Azure AD Premium o Enterprise Mobility Suite.</li><li>Cada usuario puede ver un máximo de 10 iconos de aplicación en el Panel de acceso. Este límite se aplica a los usuarios que tienen licencias asignadas para el plan de licencias de Azure AD Free. Algunos ejemplos de iconos de aplicación son Box, Salesforce o Dropbox. Este límite no se aplica a las cuentas de administrador.</li></ul> |
 | Informes | Se puede ver o descargar en cualquier informe un máximo de 1.000 filas. Los datos adicionales se truncan. |
 | Unidades administrativas | Un recurso de Azure AD puede ser un miembro de como máximo 30 unidades administrativas. |
-| Roles y permisos de administrador | <ul><li>No se puede agregar un grupo como [propietario](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>No se puede asignar un grupo a un [rol](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>La capacidad de los usuarios para leer la información del directorio de otros usuarios no puede restringirse fuera del modificador de Azure AD para toda la organización para deshabilitar el acceso de todos los usuarios no administradores a toda la información del directorio (no recomendado). Mas información sobre los permisos predeterminados [aquí](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Pueden pasar hasta 15 minutos o el cierre o inicio de sesión antes de que surtan efecto las adiciones y revocaciones de los miembros del rol de administrador.</li></ul> |
+| Roles y permisos de administrador | <ul><li>No se puede agregar un grupo como [propietario](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>No se puede asignar un grupo a un [rol](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>La capacidad de los usuarios para leer la información del directorio de otros usuarios no puede restringirse fuera del modificador de Azure AD para toda la organización para deshabilitar el acceso de todos los usuarios no administradores a toda la información del directorio (no se recomienda). Mas información sobre los permisos predeterminados [aquí](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Pueden pasar hasta 15 minutos o el cierre o inicio de sesión antes de que surtan efecto las adiciones y revocaciones de los miembros del rol de administrador.</li></ul> |
