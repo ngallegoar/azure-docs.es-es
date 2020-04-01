@@ -214,7 +214,7 @@ Sin embargo, el conjunto fonético del servicio de voz pone el acento después d
 <a id="de-v-1"></a>
 **1** *Solo en palabras de origen extranjero, como: Fasci**ae**.*<br>
 <a id="de-v-2"></a>
-**2** *Al inicio de palabra solo en palabras de origen extranjero, como ** A**ppoinment. Sílaba inicial en: ' v**e**rstauen.*
+**2** *Al inicio de palabra solo en palabras de origen extranjero, como **A**ppoinment. Sílaba inicial en: ' v**e**rstauen.*
 
 ### <a name="german-diphthong"></a>Diptongo en alemán
 

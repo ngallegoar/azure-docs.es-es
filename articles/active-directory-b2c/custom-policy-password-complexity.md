@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: af6a7611381cbf7a251e65969d156f4c40d71843
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126775"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79138441"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración de la complejidad de las contraseñas con directivas personalizadas en Azure Active Directory B2C
 
@@ -153,4 +153,4 @@ Para configurar la complejidad de la contraseña, reemplace los [tipos de notifi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre [Configuración del cambio de contraseñas mediante directivas personalizadas en Azure Active Directory B2C](custom-policy-password-change.md).
-- - Más información sobre los elementos [Predicates](predicates.md) y [PredicateValidations](predicates.md#predicatevalidations) en la referencia de IEF.
+- Más información sobre los elementos [Predicates](predicates.md) y [PredicateValidations](predicates.md#predicatevalidations) en la referencia de IEF.

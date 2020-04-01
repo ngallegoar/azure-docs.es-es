@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 2df0bfe8041216e207193832c8f7ca48967c4e5b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fda62ff0af29c7cf681d9438b02420d299535701
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842442"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80293944"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
 
-[1877727]: https://launchpad.support.sap.com/#/notes/1877727
-[2343511]: https://launchpad.support.sap.com/#/notes/2343511
-[2350235]: https://launchpad.support.sap.com/#/notes/2350235
-[2562184]: https://launchpad.support.sap.com/#/notes/2562184
-[2628497]: https://launchpad.support.sap.com/#/notes/2628497
-[2445033]: https://launchpad.support.sap.com/#/notes/2445033
-[2815988]: https://launchpad.support.sap.com/#/notes/2815988
+[1877727]:https://launchpad.support.sap.com/#/notes/1877727
+[2343511]:https://launchpad.support.sap.com/#/notes/2343511
+[2350235]:https://launchpad.support.sap.com/#/notes/2350235
+[2562184]:https://launchpad.support.sap.com/#/notes/2562184
+[2628497]:https://launchpad.support.sap.com/#/notes/2628497
+[2445033]:https://launchpad.support.sap.com/#/notes/2445033
+[2815988]:https://launchpad.support.sap.com/#/notes/2815988
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -77,7 +77,7 @@ El conector de Azure se distribuye a partir de SAP LaMa 3.0 SP05. Se recomienda 
 
 El conector de Azure usa la API de Azure Resource Manager para administrar los recursos de Azure. SAP LaMa puede usar una entidad de servicio o una identidad administrada para autenticarse en esta API. Si SAP LaMa se ejecuta en una VM de Azure, se recomienda usar una identidad administrada, tal como se describe en el capítulo [Uso de una identidad administrada para obtener acceso a la API de Azure](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d). Si desea usar una entidad de servicio, siga los pasos descritos en el capítulo [Uso de una entidad de servicio para obtener acceso a la API de Azure](lama-installation.md#913c222a-3754-487f-9c89-983c82da641e).
 
-### <a name="913c222a-3754-487f-9c89-983c82da641e"></a>Uso de una entidad de servicio para obtener acceso a la API de Azure
+### <a name="use-a-service-principal-to-get-access-to-the-azure-api"></a><a name="913c222a-3754-487f-9c89-983c82da641e"></a>Uso de una entidad de servicio para obtener acceso a la API de Azure
 
 El conector de Azure puede usar una entidad de servicio para la autorización en Microsoft Azure. Siga estos pasos para crear una entidad de servicio para SAP Landscape Management (LaMa).
 
@@ -103,7 +103,7 @@ La entidad de servicio no tiene permiso para tener acceso a los recursos de Azur
 1. Haga clic en Guardar
 1. Repita los pasos del 3 al 8 para todos los grupos de recursos que quiera usar en SAP LaMa.
 
-### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Uso de una identidad administrada para obtener acceso a la API de Azure
+### <a name="use-a-managed-identity-to-get-access-to-the-azure-api"></a><a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Uso de una identidad administrada para obtener acceso a la API de Azure
 
 Para poder usar una identidad administrada, la instancia de SAP LaMa debe ejecutarse en una VM de Azure que tenga una identidad asignada por el usuario o por el sistema. Para más información sobre las identidades administradas, consulte [¿Qué es Managed Identities for Azure Resources?](../../../active-directory/managed-identities-azure-resources/overview.md) y [Configurar identidades administradas para recursos de Azure en una VM mediante Azure Portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
@@ -129,7 +129,7 @@ Abra el sitio web de SAP LaMa y navegue hasta la infraestructura. Vaya a la pest
 * Etiqueta: elija un nombre para la instancia del conector.
 * Nombre de usuario: Identificador de la aplicación de la entidad de servicio o identificador de la identidad asignada por el usuario de la máquina virtual. Para obtener más información, consulte [Uso de una identidad asignada por el sistema o el usuario].
 * Contraseña: Clave o contraseña de la entidad de servicio. Puede dejar este campo vacío si usa una identidad asignada por el usuario o el sistema.
-* Dirección URL: mantenga el valor predeterminado https://management.azure.com/.
+* Dirección URL: mantenga el valor predeterminado `https://management.azure.com/`.
 * Intervalo de supervisión (segundos): debe ser al menos 300.
 * Use Managed Identity: SAP LaMa puede usar una identidad asignada por el usuario o el sistema para autenticarse en la API de Azure. Consulte el capítulo [Uso de una identidad administrada para obtener acceso a la API de Azure](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) de esta guía.
 * Identificador de suscripción: Identificador de suscripción de Azure
