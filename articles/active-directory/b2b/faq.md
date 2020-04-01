@@ -5,23 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 11/07/2019
+ms.date: 03/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d51359896b7a0d03626ead6843d3666f3ad3ef57
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368103"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050817"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
 Las preguntas más frecuentes (P+F) acerca de la colaboración negocio a negocio (B2B) de Azure Active Directory (Azure AD) se actualizan periódicamente para incluir nuevos temas.
+
+   > [!IMPORTANT]
+   > **A partir del 31 de marzo de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>¿Se puede personalizar la página de inicio de sesión de forma que resulte más intuitiva para los usuarios invitados a la colaboración B2B?
 Por supuesto. Consulte nuestra [entrada del blog relativa a esta característica](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Para más información acerca de cómo personalizar la página de inicio de sesión de una organización, consulte [Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](../fundamentals/customize-branding.md).
@@ -82,6 +85,7 @@ Si el inquilino de Azure AD es el directorio principal de un usuario, puede [res
 * Los usuarios invitados que inicien sesión con una cuenta Microsoft (por ejemplo guestuser@live.com) podrán restablecer sus propias contraseñas con el autoservicio de restablecimiento de contraseñas (SSPR) de la cuenta Microsoft. Consulte [Cómo restablecer la contraseña de tu cuenta Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Los usuarios invitados que inicien sesión con una cuenta de Google u otro proveedor de identidades externo podrán restablecer sus propias contraseñas mediante el método de SSPR de su proveedor de identidades. Por ejemplo, un usuario invitado con la cuenta de Google guestuser@gmail.com puede restablecer su contraseña siguiendo las instrucciones acerca de [cómo cambiar o restablecer la contraseña](https://support.google.com/accounts/answer/41078).
 * Si el inquilino de la identidad es un inquilino Just-In-Time (JIT) o un inquilino "viral" (es decir, un inquilino de Azure que es independiente y no está administrado), solamente el usuario invitado podrá restablecer su contraseña. A veces, una organización [asumirá la administración de los inquilinos virales](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que se crean cuando los empleados usan sus direcciones de correo electrónico del trabajo para registrarse en los servicios. Después de que la organización se haga cargo de un inquilino viral, solo un administrador de dicha organización puede restablecer la contraseña del usuario o habilitar SSPR. Si es necesario, como la organización que invita, puede quitar la cuenta del usuario invitado del directorio y volver a enviar una invitación.
+
 * Si el directorio principal del usuario invitado es su inquilino de Azure AD, usted podrá restablecer la contraseña del usuario. Por ejemplo, es posible que haya creado o sincronizado un usuario desde la instancia local de Active Directory y que haya establecido UserType en Guest (invitado). Como este usuario estará alojado en su directorio, podrá restablecer su contraseña desde Azure Portal.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>¿Proporciona Microsoft Dynamics 365 compatibilidad en línea con la colaboración B2B de Azure AD?

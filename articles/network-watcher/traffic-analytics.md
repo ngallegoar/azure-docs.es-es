@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 47d9508c891d2b4fe74b42114783b02c58e8c91f
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 83164a615cacc067e5f1ea6a1dd6ce0f0fd9d540
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620004"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298850"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -140,6 +140,7 @@ Si la cuenta no está asignada a uno de los roles integrados, se debe asignar a 
 - "Microsoft.Network/routeTables/read"
 - "Microsoft.Network/virtualNetworkGateways/read"
 - "Microsoft.Network/virtualNetworks/read"
+- "Microsoft.Network/expressRouteCircuits/read"
 
 Para información sobre cómo comprobar los permisos de acceso de usuario, consulte [Preguntas más frecuentes de Análisis de tráfico](traffic-analytics-faq.md).
 

@@ -3,12 +3,12 @@ title: Procedimientos recomendados del registro
 description: Obtenga información sobre cómo de forma eficaz Azure Container Registry mediante los siguientes procedimientos recomendados.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 7efea468a6c5c042f709d8a5bb493516458ce52b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 233d84b8bfa6f3d8c800e76032ef74a643db11ca
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445801"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225808"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedimientos recomendados para Azure Container Registry
 
@@ -35,12 +35,10 @@ Al aprovechar los espacios de nombres del repositorio, puede permitir el uso com
 
 Por ejemplo, considere las siguientes etiquetas de imagen de contenedor. Las imágenes que se usan en toda la organización, como `aspnetcore`, se colocan en el espacio de nombres raíz, mientras que las imágenes de contenedor que pertenecen a los grupos de producción y marketing usan sus propios espacios de nombres.
 
-```
-contoso.azurecr.io/aspnetcore:2.0
-contoso.azurecr.io/products/widget/web:1
-contoso.azurecr.io/products/bettermousetrap/refundapi:12.3
-contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
-```
+- *contoso.azurecr.io/aspnetcore:2.0*
+- *contoso.azurecr.io/products/widget/web:1*
+- *contoso.azurecr.io/products/bettermousetrap/refundapi:12.3*
+- *contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42*
 
 ## <a name="dedicated-resource-group"></a>Grupo de recursos dedicado
 
@@ -65,8 +63,11 @@ Las restricciones de almacenamiento de cada [SKU del registro de contenedor][con
 
 Use el comando [az acr show-usage][az-acr-show-usage] de la CLI de Azure para mostrar el tamaño actual del registro:
 
-```console
-$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```azurecli
+az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```
+
+```output
 NAME      LIMIT         CURRENT VALUE    UNIT
 --------  ------------  ---------------  ------
 Size      536870912000  185444288        Bytes

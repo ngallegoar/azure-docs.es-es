@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 20ac4fabdc5f0e70191d6886d43a5376bcf4cad5
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0aa71e4b78df8087093f183b146c525d2a8a0f99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586298"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79366247"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Características y herramientas de Azure Cloud Shell
 
@@ -88,7 +88,7 @@ Cloud Shell incluye autenticación configurada previamente para herramientas de 
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
-|PowerShell |[7.0.0-rc.2](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 y 3.5 (predeterminadas)|
 
 ## <a name="next-steps"></a>Pasos siguientes

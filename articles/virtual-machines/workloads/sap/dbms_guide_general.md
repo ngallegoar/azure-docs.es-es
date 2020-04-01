@@ -16,28 +16,28 @@ ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a852ddc68a6f51e677e5ff2e641ada25f4bf0105
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70101359"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
-[1114181]: https://launchpad.support.sap.com/#/notes/1114181
-[1409604]: https://launchpad.support.sap.com/#/notes/1409604
-[1597355]: https://launchpad.support.sap.com/#/notes/1597355
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2039619]: https://launchpad.support.sap.com/#/notes/2039619
-[2069760]: https://launchpad.support.sap.com/#/notes/2069760
-[2171857]: https://launchpad.support.sap.com/#/notes/2171857
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2233094]: https://launchpad.support.sap.com/#/notes/2233094
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1114181]:https://launchpad.support.sap.com/#/notes/1114181
+[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2069760]:https://launchpad.support.sap.com/#/notes/2069760
+[2171857]:https://launchpad.support.sap.com/#/notes/2171857
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [deployment-guide]:deployment-guide.md
 [deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e
 [planning-guide]:planning-guide.md
@@ -108,7 +108,7 @@ Debe tener conocimientos prácticos sobre la arquitectura de Microsoft Azure y c
 En general, el proceso de instalación y configuración de DBMS, Windows y Linux es prácticamente el mismo en cualquier máquina virtual o máquina sin sistema operativo que se instala en un entorno local. Hay algunas decisiones de implementación de administración de sistemas y arquitecturas que difieren cuando se usa IaaS de Azure. En este documento se explican las diferencias de administración del sistema y arquitectura específicas que se deben tener en cuenta cuando se usa IaaS de Azure.
 
 
-## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Estructura de almacenamiento de una máquina virtual para las implementaciones de RDBMS
+## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Estructura de almacenamiento de una máquina virtual para las implementaciones de RDBMS
 Para seguir este capítulo, lea y comprenda la información presentada en [este capítulo][deployment-guide-3] de la [Guía de implementación][deployment-guide]. Antes de leer este capítulo, es necesario que comprenda y conozca las diferentes series de máquinas virtuales y las diferencias entre el almacenamiento estándar y premium. 
 
 Para información sobre Azure Storage para máquinas virtuales de Azure, consulte:
@@ -192,7 +192,7 @@ Para convertir discos no administrados a discos administrados, consulte:
 - [Conversión de una máquina virtual Linux con discos no administrados a discos administrados](https://docs.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks).
 
 
-### <a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Almacenamiento en caché de máquinas virtuales y discos de datos
+### <a name="caching-for-vms-and-data-disks"></a><a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Almacenamiento en caché de máquinas virtuales y discos de datos
 Al montar discos en máquinas virtuales, se puede elegir almacenar en caché el tráfico de E/S entre la máquina virtual y esos discos ubicados en Azure Storage. El almacenamiento estándar y el almacenamiento premium emplean dos tecnologías diferentes para este tipo de almacenamiento en caché.
 
 En las recomendaciones siguientes se da por hecho estas características de E/S para DBMS estándar:
@@ -244,7 +244,7 @@ Para más información, consulte [Understand the temporary drive on Windows VMs 
 
 
 
-### <a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Resistencia de Microsoft Azure Storage
+### <a name="microsoft-azure-storage-resiliency"></a><a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Resistencia de Microsoft Azure Storage
 Microsoft Azure Storage almacena el disco duro virtual base (con SO) y blobs o los discos asociados en, al menos, tres nodos de almacenamiento independientes. Este tipo de almacenamiento se denomina almacenamiento con redundancia local (LRS). LRS es el valor predeterminado para todos los tipos de almacenamiento en Azure.
 
 Hay otros métodos de redundancia. Para más información, consulte [Replicación de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).

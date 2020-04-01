@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9284400254860b47f3aea6de5c79ab4c2a77f199
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5463a32e299d9d4d151049ab5afffd4975d5182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60755873"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231460"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Data Box Gateway 
 
@@ -23,7 +23,7 @@ En este artículo se describe cómo administrar recursos compartidos en Azure Da
 
 Para transferir datos a Azure, es preciso crear recursos compartidos en Azure Data Box Gateway, que son recursos compartidos en la nube. Los datos de estos recursos compartidos se cargan automáticamente en la nube y se les aplican todas las funciones de la nube, como la actualización y la sincronización de claves de almacenamiento. Use los recursos compartidos en la nube cuando desee que los datos del dispositivo se inserten automáticamente en su cuenta de almacenamiento en la nube.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Agregar un recurso compartido
@@ -45,9 +45,12 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
 3. Seleccione un **tipo** de recurso compartido. El tipo puede ser **SMB** o **NFS** (SMB es el predeterminado). SMB es el estándar para los clientes de Windows y se usa NFS para los clientes de Linux. Dependiendo de si elige recursos compartidos SMB o NFS, las opciones que se presentan son ligeramente diferentes.
 
-4. Especifique la **cuenta de almacenamiento** en que se encuentra el recurso compartido. Se crea un contenedor en la cuenta de almacenamiento con el nombre del recurso compartido si el contenedor no existía previamente. Si el contenedor ya existe, se usará este.
+4. Especifique la **cuenta de almacenamiento** en que se encuentra el recurso compartido. Se crea un contenedor en la cuenta de almacenamiento con el nombre del recurso compartido si el contenedor no existía previamente. Si el contenedor ya existe, se usará este.  
 
 5. Elija el **servicio de almacenamiento** entre blob en bloques, blobs en páginas o archivos. El tipo de servicio elegido depende de en qué formato desea que los datos residan en Azure. Por ejemplo, en este caso, queremos que los datos residan como **blobs en bloques** en Azure y, por tanto, seleccionamos esa opción. Si elige **Blob en páginas**, debe asegurarse de que los datos tienen una alineación de 512 bytes. Por ejemplo, un VHDX siempre tiene una alineación de 512 bytes.
+
+   > [!IMPORTANT]
+   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo de Azure Stack Edge o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Este paso depende de si está creando un recurso compartido SMB o NFS.
     - **Si crea un recurso compartido SMB**: en el campo **Usuario local con todos los privilegios**, elija entre **Crear nuevo** o **Usar existente**. Si va a crear un nuevo usuario local, indique el **nombre de usuario** y la **contraseña** y, después, confirme la contraseña. Esto asigna los permisos al usuario local. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
@@ -69,7 +72,7 @@ Siga estos pasos en Azure Portal para eliminar un recurso compartido.
 
     ![Seleccionar recurso compartido](media/data-box-gateway-manage-shares/delete-1.png)
 
-2. Hacer clic en **Eliminar**. 
+2. Haga clic en **Eliminar**. 
 
     ![Clic en Eliminar](media/data-box-gateway-manage-shares/delete-2.png)
 
@@ -89,21 +92,21 @@ La característica de actualización permite actualizar el contenido de los recu
 
 Siga estos pasos en Azure Portal para actualizar un recurso compartido.
 
-1.  En Azure Portal, vaya a **Recursos compartidos**. Seleccione y haga clic en el recurso compartido que desea actualizar.
+1.   En Azure Portal, vaya a **Recursos compartidos**. Seleccione y haga clic en el recurso compartido que desea actualizar.
 
     ![Seleccionar recurso compartido](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.  Haga clic en **Actualizar**. 
+2.   Haga clic en **Actualizar**. 
 
     ![Hacer clic en actualizar](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.  Cuando se le pida confirmación, haga clic en **Sí**. Se inicia el trabajo de actualización del contenido del recurso compartido local. 
+3.   Cuando se le pida confirmación, haga clic en **Sí**. Se inicia el trabajo de actualización del contenido del recurso compartido local. 
 
     ![Confirmar actualización](media/data-box-gateway-manage-shares/refresh-3.png)
  
-4.  Mientras la actualización está en curso, la opción de actualización está deshabilitada en el menú contextual. Haga clic en la notificación para ver el estado del trabajo de actualización.
+4.   Mientras la actualización está en curso, la opción de actualización está deshabilitada en el menú contextual. Haga clic en la notificación para ver el estado del trabajo de actualización.
 
-5.  El tiempo que tarde en completarse la actualización dependerá del número de archivos que haya en el contenedor de Azure, así como de los archivos del dispositivo. Cuando la actualización se haya completado correctamente, se actualizará la marca de tiempo del recurso compartido. Aunque la actualización tenga errores parciales, la operación se considerará correcta y se actualizará la marca de tiempo. 
+5.   El tiempo que tarde en completarse la actualización dependerá del número de archivos que haya en el contenedor de Azure, así como de los archivos del dispositivo. Cuando la actualización se haya completado correctamente, se actualizará la marca de tiempo del recurso compartido. Aunque la actualización tenga errores parciales, la operación se considerará correcta y se actualizará la marca de tiempo. 
 
     ![Marca de tiempo actualizada](media/data-box-gateway-manage-shares/refresh-4.png)
  

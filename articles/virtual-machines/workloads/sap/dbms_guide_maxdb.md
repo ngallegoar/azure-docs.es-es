@@ -16,22 +16,22 @@ ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 90de49ae3137735683bae6a18b5f7c8951b021ae
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645878"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Implementación de SAP MaxDB, liveCache y del servidor de contenido en máquinas virtuales de Azure
 
-[767598]: https://launchpad.support.sap.com/#/notes/767598
+[767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
-[826037]: https://launchpad.support.sap.com/#/notes/826037
+[826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
-[1139904]: https://launchpad.support.sap.com/#/notes/1139904
-[1173395]: https://launchpad.support.sap.com/#/notes/1173395
+[1139904]:https://launchpad.support.sap.com/#/notes/1139904
+[1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
 [1409604]:https://launchpad.support.sap.com/#/notes/1409604
 [1558958]:https://launchpad.support.sap.com/#/notes/1558958
@@ -41,7 +41,7 @@ ms.locfileid: "75645878"
 [1597355]:https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
-[1619726]: https://launchpad.support.sap.com/#/notes/1619726
+[1619726]:https://launchpad.support.sap.com/#/notes/1619726
 [1619967]:https://launchpad.support.sap.com/#/notes/1619967
 [1750510]:https://launchpad.support.sap.com/#/notes/1750510
 [1752266]:https://launchpad.support.sap.com/#/notes/1752266
@@ -54,7 +54,7 @@ ms.locfileid: "75645878"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
@@ -328,7 +328,7 @@ Se recomienda encarecidamente usar la versión más reciente del sistema operati
 Encontrará la lista de la documentación de SAP MaxDB actualizada en la nota de SAP [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instrucciones de configuración de SAP MaxDB para instalaciones de SAP en máquinas virtuales de Azure
-#### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Configuración de almacenamiento
+#### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Configuración de almacenamiento
 Los procedimientos recomendados de almacenamiento de Azure para SAP MaxDB siguen las recomendaciones generales mencionadas en el capítulo [Estructura de almacenamiento de una máquina virtual para implementaciones de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
@@ -348,12 +348,12 @@ En resumen, deberá hacer lo siguiente:
 ![Configuración de referencia de máquinas virtuales IaaS de Azure para SAP MaxDB DBMS](./media/dbms_maxdb_deployment_guide/Simple_disk_structure_maxdb.PNG)
 
 
-#### <a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Copia de seguridad y restauración
+#### <a name="backup-and-restore"></a><a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Copia de seguridad y restauración
 Al implementar SAP MaxDB en Azure, debe revisar la metodología de copias de seguridad. Incluso si el sistema no es productivo, se debe realizar periódicamente la copia de seguridad de la base de datos de SAP que hospeda SAP MaxDB. Puesto que Azure Storage guarda tres imágenes, ahora una copia de seguridad tiene menos relevancia en cuanto a la protección del sistema contra errores de almacenamiento y más relevancia en cuanto a errores operativos o administrativos. La razón principal para el mantenimiento de un plan de copia de seguridad y restauración correcto es que puede compensar errores lógicos o manuales gracias a la capacidad de recuperación a un momento dado. Por tanto, el propósito es usar copias de seguridad para restaurar la base de datos a un momento dado o utilizar las copias de seguridad de Azure para propagar otro sistema mediante la copia de la base de datos existente. 
 
 La realización de copias de seguridad y restauraciones de una base de datos de Azure funciona del mismo modo que para sistemas locales, por lo que puede usar herramientas estándar de copia de seguridad y restauración de SAP MaxDB, que se describen en uno de los documentos de SAP MaxDB enumerados en la nota de SAP [767598]. 
 
-#### <a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Consideraciones de rendimiento para copias de seguridad y restauraciones
+#### <a name="performance-considerations-for-backup-and-restore"></a><a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Consideraciones de rendimiento para copias de seguridad y restauraciones
 Como en las implementaciones sin sistema operativo, el rendimiento de las copias de seguridad y las restauraciones depende de cuántos volúmenes se puedan leer en paralelo y del rendimiento de estos volúmenes. Por lo tanto, se pueden asumir los siguientes puntos:
 
 * Cuantos menos discos se utilicen para almacenar los dispositivos de las bases de datos, menor será el rendimiento general de lectura
@@ -370,7 +370,7 @@ Para aumentar la cantidad de destinos en los que escribir, existen dos opciones 
 
 El particionamiento de un volumen en varios discos montados se ha explicado anteriormente en [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md). 
 
-#### <a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>Otras consideraciones
+#### <a name="other-considerations"></a><a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>Otras consideraciones
 También se aplican todas las demás áreas generales, como los conjuntos de disponibilidad de Azure o la supervisión de SAP, como se describe en [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md)  a las implementaciones de máquinas virtuales con la base de datos de SAP MaxDB.
 Otras configuraciones específicas de SAP MaxDB son transparentes para las máquinas virtuales de Azure y se describen en distintos documentos de la nota de SAP [767598] y en estas otras:
 

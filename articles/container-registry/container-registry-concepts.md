@@ -3,12 +3,12 @@ title: Acerca de los repositorios y las imágenes
 description: Una introducción a los conceptos clave de los registros de contenedor, repositorios e imágenes de contenedor de Azure.
 ms.topic: article
 ms.date: 09/10/2019
-ms.openlocfilehash: 9de0c344b226a0b13e76c7f02977ba3c91ba2d2a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455293"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225804"
 ---
 # <a name="about-registries-repositories-and-images"></a>Acerca de los registros, repositorios e imágenes
 
@@ -24,9 +24,7 @@ Además de las imágenes de contenedor de Docker, Azure Container Registry admit
 
 La dirección de un artefacto en un registro de contenedor de Azure incluye los siguientes elementos. 
 
-```
-[loginUrl]/[namespace]/[artifact:][tag]
-```
+`[loginUrl]/[namespace]/[artifact:][tag]`
 
 * **loginUrl**: el nombre completo del host del registro. El host del registro de un registro de contenedor de Azure tiene el formato *myregistry*.azurecr.io (todo en minúsculas). Debe especificar el valor de loginUrl cuando utilice Docker u otras herramientas de cliente para extraer o insertar artefactos a un registro de contenedor de Azure. 
 * **namespace**: agrupación lógica delimitada por barras diagonales de imágenes relacionadas o artefactos; por ejemplo, para una aplicación o un grupo de trabajo
@@ -36,9 +34,7 @@ La dirección de un artefacto en un registro de contenedor de Azure incluye los 
 
 Por ejemplo, el nombre completo de una imagen de un registro de contenedor de Azure puede tener este aspecto:
 
-```
-myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2
-```
+*myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2*
 
 Consulte las siguientes secciones para más información sobre estos elementos.
 
@@ -46,21 +42,18 @@ Consulte las siguientes secciones para más información sobre estos elementos.
 
 Los registros de contenedor administran *repositorios*, colecciones de imágenes de contenedor u otros artefactos con el mismo nombre, pero con etiquetas diferentes. Por ejemplo, las tres imágenes siguientes están en el repositorio "acr-helloworld":
 
-```
-acr-helloworld:latest
-acr-helloworld:v1
-acr-helloworld:v2
-```
+
+- *acr-helloworld:latest*
+- *acr-helloworld:v1*
+- *acr-helloworld:v2*
 
 Los nombres de repositorio también pueden incluir [espacios de nombres](container-registry-best-practices.md#repository-namespaces). Los espacios de nombres le permiten agrupar imágenes con nombres de repositorio delimitados por barras diagonales hacia delante, por ejemplo:
 
-```
-marketing/campaign10-18/web:v2
-marketing/campaign10-18/api:v3
-marketing/campaign10-18/email-sender:v2
-product-returns/web-submission:20180604
-product-returns/legacy-integrator:20180715
-```
+- *marketing/campaign10-18/web:v2*
+- *marketing/campaign10-18/api:v3*
+- *marketing/campaign10-18/email-sender:v2*
+- *product-returns/web-submission:20180604*
+- *product-returns/legacy-integrator:20180715*
 
 ## <a name="image"></a>Imagen
 
@@ -92,8 +85,11 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName>
 
 Por ejemplo, enumere los manifiestos del repositorio "acr-helloworld":
 
-```console
-$ az acr repository show-manifests --name myregistry --repository acr-helloworld
+```azurecli
+az acr repository show-manifests --name myregistry --repository acr-helloworld
+```
+
+```output
 [
   {
     "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
@@ -128,9 +124,7 @@ Puede extraer una imagen de un registro especificando su hash en la operación d
 
 Por ejemplo, extraiga una imagen desde el repositorio "acr-helloworld" mediante el hash del manifiesto:
 
-```console
-$ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
-```
+`docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108`
 
 > [!IMPORTANT]
 > Si inserta repetidamente imágenes modificadas con etiquetas idénticas, puede crear imágenes huérfanas: imágenes que están sin etiquetas, pero consumen espacio en el registro. Las imágenes sin etiquetas no se muestran en la CLI de Azure ni en Azure Portal al enumerar o visualizar las imágenes por etiqueta. Sin embargo, sus capas existen y consumen espacio en el registro. La eliminación de una imagen sin etiqueta libera espacio del registro cuando el manifiesto es el único, o el último, que apunta a una capa determinada. Para más información acerca de cómo liberar el espacio usado mediante imágenes sin etiquetar, consulte [Eliminación de imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
