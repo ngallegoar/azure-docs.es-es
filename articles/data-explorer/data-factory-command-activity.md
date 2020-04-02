@@ -9,17 +9,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.openlocfilehash: 20da2d54ea54674656b2c1006d094c63133baf79
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72264495"
 ---
 # <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Uso de la actividad de comandos de Azure Data Factory para ejecutar comandos de control de Azure Data Explorer
 
 [Azure Data Factory](/azure/data-factory/) (ADF) es un servicio de integración de datos basado en la nube que le permite realizar una combinación de actividades sobre los datos. Use ADF para crear flujos trabajo controlados por datos y así orquestar y automatizar el movimiento y la transformación de los datos. La actividad **Azure Data Explorer Command** (Comando de Azure Data Explorer) de Azure Data Factory le permite ejecutar [comandos de control de Azure Data Explorer](/azure/kusto/concepts/#control-commands) en un flujo de trabajo de ADF. En este artículo se enseña cómo crear una canalización con una actividad de búsqueda y una actividad ForEach que contiene una actividad de comando de Azure Data Explorer.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * [Un clúster y la base de datos de Azure Data Explorer](create-cluster-database-portal.md).

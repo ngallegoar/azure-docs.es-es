@@ -1,20 +1,18 @@
 ---
 title: ¿Qué es la versión de prueba? | Azure Marketplace
 description: Explicación de la característica de versión de prueba de Marketplace
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: a6826657a4af74276e363acd585e80d101cc1459
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: bdfadf359195464c4024b28c5e597c571305481a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828153"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278236"
 ---
 <a name="what-is-test-drive"></a>¿Qué es la versión de prueba?
 ===================

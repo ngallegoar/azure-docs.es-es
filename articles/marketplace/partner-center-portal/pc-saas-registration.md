@@ -1,19 +1,18 @@
 ---
 title: Registrar una aplicación SaaS | Azure Marketplace
 description: Se explica cómo registrar una aplicación SaaS mediante Azure Portal.
-services: Azure, Marketplace, Cloud Partner Portal, Azure portal
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.author: evansma
-ms.openlocfilehash: b2e02e42ab63f893574ca5217fd2f36c7481aabd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9c20fe34e108de95a34aabea56390e8a6f0d858f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827936"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275720"
 ---
 # <a name="register-a-saas-application"></a>Registro de una aplicación SaaS
 
@@ -33,14 +32,14 @@ Azure no impone ninguna restricción en la autenticación que el servicio SaaS e
 
 Cualquier aplicación que quiera usar las funciones de Azure AD debe registrarse primero en un inquilino de Azure AD. Este proceso de registro implica proporcionar a Azure AD los detalles de la aplicación, como la dirección URL donde se encuentra, la dirección URL para enviar respuestas cuando se autentica un usuario, el identificador URI que identifica la aplicación, etc.  Para registrar una aplicación nueva mediante Azure Portal, realice los pasos siguientes:
 
-1.  Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+1.  Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2.  Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
 3.  En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y haga clic en **Nuevo registro de aplicación**.
 
     ![Registros de aplicaciones SaaS de AD](./media/saas-offer-app-registration-v1.png)
 
 4.  En la página Crear, escriba la información de registro de la aplicación:
-    -   **Nombre**: Especifique un nombre de aplicación significativo.
+    -   **Name**: Especifique un nombre de aplicación significativo.
     -   **Tipo de aplicación**: 
         - Seleccione **Nativo** para las [aplicaciones cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que están instaladas localmente en un dispositivo. Esta configuración se utiliza para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos de OAuth.
         - Seleccione **Aplicación web/API** para las [aplicaciones cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) y las [aplicaciones de recursos/API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que están instaladas en un servidor seguro. Esta configuración se utiliza para [clientes web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidenciales de OAuth y [clientes basados en agente de usuario](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) públicos.

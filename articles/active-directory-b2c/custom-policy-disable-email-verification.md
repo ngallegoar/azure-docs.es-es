@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8ec60f694000985f51db25db621e5814df62cdb3
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 13a5fa6a030d876d92651ca587e37fdc6a3ec600
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126802"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79136149"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Deshabilitación de la comprobación de correo electrónico durante la suscripción de clientes mediante una directiva personalizada en Azure Active Directory B2C
 
@@ -28,8 +28,11 @@ Realice los pasos del artículo [Introducción a las directivas personalizadas](
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Incorporación de los metadatos al perfil técnico autoafirmado
 
-El perfil técnico **LocalAccountSignUpWithLogonEmail** es [autofirmado](self-asserted-technical-profile.md), y se invoca durante el flujo de suscripción. Para deshabilitar la comprobación de correo electrónico, establezca los metadatos `EnforceEmailVerification` en false. Invalide los perfiles técnicos LocalAccountSignUpWithLogonEmail en el archivo de extensión. Busque el elemento `ClaimsProviders`. Agregue el siguiente proveedor de notificaciones al elemento `ClaimsProviders`:
+El perfil técnico **LocalAccountSignUpWithLogonEmail** es [autofirmado](self-asserted-technical-profile.md), y se invoca durante el flujo de suscripción. Para deshabilitar la comprobación de correo electrónico, establezca los metadatos `EnforceEmailVerification` en false. Invalide los perfiles técnicos LocalAccountSignUpWithLogonEmail en el archivo de extensión. 
 
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+1. Busque el elemento `ClaimsProviders`. Si el elemento no existe, agréguelo.
+1. Agregue el siguiente proveedor de notificaciones al elemento `ClaimsProviders`:
 
 ```XML
 <ClaimsProvider>

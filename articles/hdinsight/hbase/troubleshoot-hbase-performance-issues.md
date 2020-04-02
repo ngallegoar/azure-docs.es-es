@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887162"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Solución de problemas de rendimiento de Apache HBase en Azure HDInsight
@@ -95,9 +95,9 @@ A continuación se muestran algunos de los otros parámetros específicos que se
 
     - `Phoenix.rpc.index.handler.count`: **50** (si hay muchas búsquedas de índice o son grandes)
 
-    - `Phoenix.stats.updateFrequency`: 1 hora**
+    - `Phoenix.stats.updateFrequency`: **1 hora**
 
-    - `Phoenix.coprocessor.maxmetadatacachetimetolivems`: 1 hora**
+    - `Phoenix.coprocessor.maxmetadatacachetimetolivems`: **1 hora**
 
     - `Phoenix.coprocessor.maxmetadatacachesize`: **50 MB**
 

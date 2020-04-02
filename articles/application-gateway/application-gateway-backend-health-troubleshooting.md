@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
 ms.openlocfilehash: 71e1f8be2af5556d86996175e8a1ddbccc9c7de1
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72001675"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solución de problemas de estado del back-end en Application Gateway
@@ -83,7 +83,7 @@ El mensaje que se muestra en la columna **Detalles** proporciona información m�
 > [!NOTE]
 > La solicitud de sondeo predeterminada se envía en formato de \<protocolo\>://127.0.0.1:\<puerto\>/. Por ejemplo, http://127.0.0.1:80 para un sondeo HTTP en el puerto 80. Solo los códigos de estado HTTP del 200 al 399 se consideran correctos. El protocolo y el puerto de destino se heredan de la configuración de HTTP. Si quiere que Application Gateway sondee en un protocolo, un nombre de host o una ruta de acceso diferentes, y acepte como correcto un código de estado distinto, configure un sondeo personalizado y asócielo con la configuración de HTTP.
 
-<a name="error-messages"></a>mensajes de error
+<a name="error-messages"></a>Mensajes de error
 ------------------------
 #### <a name="backend-server-timeout"></a>Tiempo de espera del servidor back-end
 

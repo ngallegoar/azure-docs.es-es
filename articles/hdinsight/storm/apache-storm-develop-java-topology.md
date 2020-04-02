@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.openlocfilehash: 75100b47ddf8f36ed9a22ff3073c439f8ad9040b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083293"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Crear una topología de Apache Storm en Java
@@ -24,7 +24,7 @@ Después de completar los pasos descritos en este documento, puede implementar l
 > [!NOTE]  
 > Hay una versión completa de los ejemplos de topología de Storm creada en este documento disponible en [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * [Kit de desarrolladores de Java (JDK), versión 8](https://aka.ms/azure-jdks)
 
@@ -77,7 +77,7 @@ Especifique el siguiente comando para abrir `pom.xml`:
 notepad pom.xml
 ```
 
-A continuación, agregue el siguiente código XML después de la línea `<url> https://maven.apache.org</url>`:
+A continuación, agregue el siguiente código XML después de la línea `<url>https://maven.apache.org</url>`:
 
 ```xml
 <repositories>

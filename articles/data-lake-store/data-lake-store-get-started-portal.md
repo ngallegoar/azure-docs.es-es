@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438763"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231504"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introducción a Azure Data Lake Storage Gen1 con Azure Portal
 
@@ -26,7 +26,7 @@ ms.locfileid: "75438763"
 
 Aprenda a usar Azure Portal para crear una cuenta de Azure Data Lake Storage Gen1 y realizar operaciones básicas, como crear carpetas, cargar y descargar archivos de datos, eliminar la cuenta, etc. Para más información, consulte [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
@@ -58,7 +58,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 4. Haga clic en **Crear**. Si elige anclar la cuenta al panel, volverá a este, donde podrá ver el progreso del aprovisionamiento de la cuenta de Data Lake Storage Gen1. Una vez aprovisionada la cuenta de Data Lake Storage Gen1, aparece la hoja de la cuenta.
 
-## <a name="assign-permissions-to-azure-key-vault"></a>Asignación de permisos para Azure Key Vault
+## <a name="assign-permissions-to-azure-key-vault"></a><a name="assign-permissions-to-azure-key-vault"></a>Asignación de permisos para Azure Key Vault
 
 Si utiliza las claves de Azure Key Vault para configurar el cifrado de la cuenta de Data Lake Storage Gen1, debe configurar el acceso entre la cuenta de Data Lake Storage Gen1 y la de Azure Key Vault. Para ello, siga los pasos que se indican a continuación.
 
@@ -80,7 +80,7 @@ Si utiliza las claves de Azure Key Vault para configurar el cifrado de la cuenta
 >
 >
 
-## <a name="createfolder"></a>Creación de carpetas
+## <a name="create-folders"></a><a name="createfolder"></a>Creación de carpetas
 
 Puede crear carpetas en la cuenta de Data Lake Storage Gen1 para administrar y almacenar datos.
 
@@ -96,7 +96,7 @@ Puede crear carpetas en la cuenta de Data Lake Storage Gen1 para administrar y a
 
     ![Creación de carpetas en una cuenta de Data Lake](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Creación de carpetas en una cuenta de Data Lake")
 
-## <a name="uploaddata"></a>Carga de datos
+## <a name="upload-data"></a><a name="uploaddata"></a>Carga de datos
 
 Puede cargar los datos en una cuenta de Data Lake Storage Gen1 directamente en el nivel raíz o en una carpeta que creara en la cuenta.
 
@@ -107,7 +107,7 @@ Puede cargar los datos en una cuenta de Data Lake Storage Gen1 directamente en e
 
 Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
-## <a name="properties"></a>Acciones disponibles con los datos almacenados
+## <a name="actions-available-on-the-stored-data"></a><a name="properties"></a>Acciones disponibles con los datos almacenados
 
 Haga clic en el icono de puntos suspensivos en un archivo y, en el menú emergente, en la acción que desee realizar con los datos.
 

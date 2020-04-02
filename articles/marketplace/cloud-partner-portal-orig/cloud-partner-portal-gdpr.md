@@ -1,19 +1,18 @@
 ---
 title: Cumplimiento del RGPD | Azure Marketplace
 description: Cloud Partner Portal y RGPD.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: bc43a6cb3c30638d8c3904d7ca5b004e0905f1d2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: f09bc60a59ff2a6e21d0cdae1917a1faed072ea4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824309"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280293"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Cumplimiento del RGPD de Cloud Partner Portal
 ====================================
@@ -27,7 +26,7 @@ Cloud Partner Portal proporciona información detallada sobre su procesamiento d
 
 Cloud Partner Portal proporciona acceso a todos sus datos en la pestaña Usuarios. Puede identificar sus datos personales allí. Para obtener información sobre cómo agregar o quitar usuarios, consulte nuestra [documentación](./cloud-partner-portal-manage-users.md).
 
-<a name="manage"></a>administración
+<a name="manage"></a>Administrar
 ------
 
 Para administrar sus datos personales puede presionar Suprimir en su cuenta de usuario en la pestaña Usuarios. Contamos con roles de un **propietario** y un **colaborador** que se pueden asignar a cada usuario específico. Ambos se pueden asignar, copiar, actualizar o eliminar.
