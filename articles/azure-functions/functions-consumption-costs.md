@@ -4,10 +4,10 @@ description: Obtenga información sobre cómo estimar mejor los costos que se pu
 ms.date: 9/20/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76963995"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimación de los costos según el plan de consumo
@@ -237,5 +237,5 @@ customMetrics
 > [!div class="nextstepaction"]
 > [Más información sobre la supervisión de las aplicaciones de funciones](functions-monitoring.md)
 
-[Página de precios]: https://azure.microsoft.com/pricing/details/functions/
+[Página de precios]:https://azure.microsoft.com/pricing/details/functions/
 [Azure Portal]: https://portal.azure.com

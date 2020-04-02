@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
 ms.openlocfilehash: 2cd76afa9412e89c57cfb6c357eb164ce5d3d1c4
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75830435"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copia de datos de HDFS mediante Azure Data Factory
@@ -38,7 +38,7 @@ En concreto, este conector HDFS admite las siguientes funcionalidades:
 - Copiar los archivos mediante el protocolo **webhdfs** o la herramienta **DistCp integrada**.
 - Copiar los archivos tal cual, o bien analizarlos o generarlos, con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -233,7 +233,7 @@ Esta sección describe el comportamiento resultante de la ruta de acceso de la c
 
 La actividad de copia permite usar DistCp para copiar archivos tal cual están en Azure Blob (incluidas las [copias almacenadas provisionalmente](copy-activity-performance.md)) o Azure Data Lake Store, lo que permite aprovechar la capacidad del clúster, en lugar de ejecutarse en el entorno de ejecución de integración autohospedado. De este modo, el rendimiento de la copia será mayor, sobre todo si el clúster es muy eficaz. Según la configuración de Azure Data Factory, la actividad de copia crea automáticamente un comando Distcp, lo envía al clúster de Hadoop y supervisa el estado de la copia.
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerrequisitos
 
 Para usar DistCp con el fin de copiar los archivos tal cual desde HDFS a Azure Blob (incluida la copia almacenada provisionalmente) o Azure Data Lake Store, asegúrese de que el clúster de Hadoop cumpla los siguientes requisitos:
 
@@ -257,7 +257,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 * Opción 1: [Unir la máquina Integration Runtime (autohospedado) en el dominio Kerberos](#kerberos-join-realm)
 * Opción 2: [Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos](#kerberos-mutual-trust)
 
-### <a name="kerberos-join-realm"></a>Opción 1: Unir la máquina Integration Runtime (autohospedado) en el dominio Kerberos
+### <a name="option-1-join-self-hosted-integration-runtime-machine-in-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opción 1: Unir la máquina Integration Runtime (autohospedado) en el dominio Kerberos
 
 #### <a name="requirements"></a>Requisitos
 
@@ -287,7 +287,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 * Configure el conector HDFS mediante la **autenticación de Windows** junto con el nombre y la contraseña de la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Compruebe la sección [HDFS Linked Service properties](#linked-service-properties) (Propiedades de servicio vinculado de HDFS) en los detalles de configuración.
 
-### <a name="kerberos-mutual-trust"></a>Opción 2: Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos
+### <a name="option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opción 2: Habilitar la confianza mutua entre el dominio de Windows y el dominio Kerberos
 
 #### <a name="requirements"></a>Requisitos
 

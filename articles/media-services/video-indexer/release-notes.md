@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: juliako
 ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76933858"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de la versión de Video Indexer de Azure Media Services
@@ -82,7 +82,7 @@ Cuando el punto de conexión de streaming está deshabilitado, Video Indexer mos
 
 ### <a name="error-handling-improvement"></a>Mejora en el control de errores
 
-Ahora, si un vídeo se indexa de forma activa, se devolverá el código de estado 409 desde las API [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video? https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) (Volver a indexar el vídeo) y [Update Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) (Actualizar índice de vídeo), para evitar que se invaliden por accidente los cambios de volver a indexar.
+Ahora, si un vídeo se indexa de forma activa, se devolverá el código de estado 409 desde las API [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) (Volver a indexar el vídeo) y [Update Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) (Actualizar índice de vídeo), para evitar que se invaliden por accidente los cambios de volver a indexar.
 
 ## <a name="november-2019"></a>Noviembre de 2019
  

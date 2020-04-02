@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: chrisgre
 ms.openlocfilehash: 75c6b7d89e7ae540e7428afde127281aa3f15fc6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429336"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79233264"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-portal"></a>Administración automática de dispositivos y módulos IoT mediante Azure Portal
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-La administración de dispositivos automática de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos. Con la administración de dispositivos automática, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración que se quiera y luego permitir que IoT Hub actualice los dispositivos cuando estén dentro del ámbito. Esta actualización se realiza mediante una _configuración automática de dispositivos_ o una _configuración automática de módulos_, lo que permite resumir la finalización y el cumplimiento, administrar fusiones y conflictos, e implementar configuraciones por fases.
+La administración de dispositivos automática de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos. Con la administración de dispositivos automática, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración que se quiera y luego permitir que IoT Hub actualice los dispositivos cuando estén dentro del ámbito. Esta actualización se realiza mediante una _configuración automática de dispositivos_ o una _configuración automática de módulos_, que permite resumir la integridad y el cumplimiento, administrar combinaciones y conflictos e implementar configuraciones por fases.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -41,7 +41,7 @@ Las configuraciones automáticas de módulos requieren el uso de módulos gemelo
 
 ## <a name="use-tags-to-target-twins"></a>Uso de etiquetas para identificar los gemelos
 
-Antes de crear una configuración, debe especificar a qué dispositivos o módulos debe aplicarse. Azure IoT Hub identifica dispositivos mediante etiquetas en el dispositivo gemelo, e identifica módulos mediante etiquetas en el módulo gemelo. Cada dispositivo o módulo puede tener varias etiquetas, y puede definirlas de cualquier manera que tenga sentido para su solución. Por ejemplo, si administra dispositivos en distintas ubicaciones, agregue las siguientes etiquetas a un dispositivo gemelo:
+Antes de crear una configuración, debe especificar a qué dispositivos o módulos quiere que se aplique. Azure IoT Hub identifica dispositivos mediante etiquetas en el dispositivo gemelo e identifica módulos mediante etiquetas en el módulo gemelo. Cada dispositivo o módulo puede tener varias etiquetas, y puede definirlas de cualquier manera que tenga sentido para su solución. Por ejemplo, si administra dispositivos en distintas ubicaciones, agregue las siguientes etiquetas a un dispositivo gemelo:
 
 ```json
 "tags": {

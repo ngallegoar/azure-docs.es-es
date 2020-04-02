@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/02/2020
 ms.custom: sfrev
 ms.openlocfilehash: f08c6b0675475b4e15ce6db3a9dbe0e2863b9ddb
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252763"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
@@ -100,7 +100,7 @@ Ahora que ha terminado la configuración del entorno de desarrollo, puede empeza
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Página de campaña de Service Fabric"
 [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Vínculo de WebPI de VS 2015"
-[full-bundle-dev15]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Vínculo de WebPI de Dev15"
-[core-sdk]: https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Vínculo de WebPI de SDK de núcleo"
+[full-bundle-vs2015]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "Vínculo de WebPI de VS 2015"
+[full-bundle-dev15]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Vínculo de WebPI de Dev15"
+[core-sdk]:https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK "Vínculo de WebPI de SDK de núcleo"
 [powershell5-download]:https://www.microsoft.com/download/details.aspx?id=54616

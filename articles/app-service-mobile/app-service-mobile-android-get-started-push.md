@@ -7,10 +7,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 6fec85c028e992c15fb9503ffb599023e668c58f
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77459963"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Incorporación de notificaciones push a la aplicación de Android
@@ -85,4 +85,4 @@ Ahora que ha completado este tutorial, considere la posibilidad de continuar con
 
 <!-- URLs -->
 [inicio rápido de Android]: app-service-mobile-android-get-started.md
-[Agregue Firebase a su proyecto de Android]: https://firebase.google.com/docs/android/setup
+[Agregue Firebase a su proyecto de Android]:https://firebase.google.com/docs/android/setup

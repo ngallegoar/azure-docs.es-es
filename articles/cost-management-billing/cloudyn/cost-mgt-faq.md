@@ -1,24 +1,26 @@
 ---
-title: Preguntas más frecuentes sobre Cloudyn en Azure | Microsoft Docs
+title: Preguntas frecuentes sobre Cloudyn en Azure
 description: En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
-ms.topic: troubleshooting
+ms.date: 03/12/2020
+ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 5c770d83d59edf0a56184f8eea0bda6b0603893c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: b1ec81ea135079defb390becc025f51cde2dad7f
+ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770080"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80411251"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Preguntas más frecuentes sobre Cloudyn
 
 En este artículo se tratan algunas preguntas comunes sobre Cloudyn. Si tiene preguntas acerca de Cloudyn, puede formularlas en [Preguntas más frecuentes sobre Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>¿Cómo se resuelven los problemas de configuración empresariales indirectos comunes?
 
@@ -58,13 +60,13 @@ Si no puede ver los datos de las recomendaciones del optimizador, es muy probabl
 
 Para activar una cuenta:
 
-1.  En el portal de Cloudyn, haga clic en **Settings** (Configuración) en la esquina superior derecha y seleccione **Cloud Accounts** (Cuentas en la nube).
-2.  En la ficha Microsoft Azure Accounts (Cuentas de Microsoft Azure), busque cuentas que tengan alguna suscripción **sin activar**.
-3.  A la derecha de la cuenta sin activar, haga clic en el símbolo de **editar**, que se parece a un lápiz.
-4.  Tanto el identificador de inquilino como el identificador de velocidad se detectan automáticamente. Haga clic en **Next**.
-5.  Se le redirigirá a Azure Portal. Inicie sesión en el portal y autorice a Cloudyn Collector a acceder a sus datos de Azure.
-6.  A continuación, se le redirige a la página de administración de cuentas de Cloudyn, la suscripción se actualiza y la cuenta pasa a estar estado **activa**. Muestra una marca de verificación verde.
-7.  Si no ve una marca de verificación verde en una o varias suscripciones, significa que no tiene permisos para crear ninguna aplicación de lectura (CloudynCollector) para la suscripción. Los usuarios con permisos superiores en la suscripción deben repetir los pasos 3 y 4.  
+1.    En el portal de Cloudyn, haga clic en **Settings** (Configuración) en la esquina superior derecha y seleccione **Cloud Accounts** (Cuentas en la nube).
+2.    En la ficha Microsoft Azure Accounts (Cuentas de Microsoft Azure), busque cuentas que tengan alguna suscripción **sin activar**.
+3.    A la derecha de la cuenta sin activar, haga clic en el símbolo de **editar**, que se parece a un lápiz.
+4.    Tanto el identificador de inquilino como el identificador de velocidad se detectan automáticamente. Haga clic en **Next**.
+5.    Se le redirigirá a Azure Portal. Inicie sesión en el portal y autorice a Cloudyn Collector a acceder a sus datos de Azure.
+6.    A continuación, se le redirige a la página de administración de cuentas de Cloudyn, la suscripción se actualiza y la cuenta pasa al estado **activa**. Muestra una marca de verificación verde.
+7.    Si no ve una marca de verificación verde en una o varias suscripciones, significa que no tiene permisos para crear ninguna aplicación de lectura (CloudynCollector) para la suscripción. Los usuarios con permisos superiores en la suscripción deben repetir los pasos 3 y 4.  
 
 Tras completar los pasos anteriores podrá ver las recomendaciones del optimizador en uno o dos días. Sin embargo, pueden pasar hasta cinco días estén disponibles todos los datos de las optimizaciones.
 
@@ -75,7 +77,7 @@ En primer lugar, echemos un vistazo al escenario más común que hace que las cu
 
 > Admin1 podría ser un Proveedor de soluciones en la nube de Microsoft o un usuario con un Contrato Enterprise. Su organización está lista para comenzar a usar Cloudyn.  Se registra a través de Azure Portal e inicia sesión en el portal de Cloudyn. Como es la persona que registra el servicio de Cloudyn e inicia sesión en el portal de Cloudyn, Admin1 se convierte en el *administrador principal*. Admin1 no crea ninguna cuenta de usuario. Sin embargo, al usar el portal de Cloudyn, crea cuentas de Azure y establece una jerarquía de entidades. Admin1 informa a Admin2, un administrador de inquilinos, que necesita registrarse en Cloudyn e iniciar sesión en el portal de Cloudyn.
 >
-> Admin2 se registra mediante Azure Portal. Sin embargo, cuando intenta iniciar sesión en el portal de Cloudyn, recibe un error que le indica que su cuenta **está suspendida**. El administrador principal, Admin1, recibe una notificación de la suspensión de la cuenta. Debido a ello, Admin1 debe activar la cuenta de Admin2 y conceder *acceso de administrador a la entidad* para las entidades adecuadas, y permitir el acceso de administración de usuarios para poder activar la cuenta de usuario.
+> Admin2 se registra mediante Azure Portal. Sin embargo, cuando intenta iniciar sesión en el portal de Cloudyn, recibe un error que le indica que su cuenta **está suspendida**. El administrador principal, Admin1, recibe una notificación de la suspensión de la cuenta. Debido a ello, Admin1 debe activar la cuenta de Admin2 y conceder *acceso de administrador de entidad* a las entidades adecuadas, así como permitir el acceso de administración de usuarios y activar la cuenta de usuario.
 
 
 Si recibe una alerta con una solicitud para permitir el acceso para un usuario, debe activar la cuenta de usuario.
@@ -95,7 +97,7 @@ Se recomienda crear al menos dos de cuentas de administrador de Cloudyn por si u
 
 Si no puede iniciar sesión en el portal de Cloudyn, asegúrese de que está utilizando la dirección URL correcta para iniciar sesión en Cloudyn. Utilice [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
-Evite usar la dirección URL directa de Cloudyn https://app.cloudyn.com.
+Evite usar la dirección URL directa de Cloudyn `https://app.cloudyn.com`.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>¿Cómo activo cuentas no activadas con las credenciales de Azure?
 

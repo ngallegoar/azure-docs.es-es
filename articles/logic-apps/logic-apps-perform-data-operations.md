@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666744"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237152"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Realización de operaciones de datos en Azure Logic Apps
 
@@ -50,7 +50,7 @@ Estas acciones le ayudan a trabajar con datos en formato de notación de objetos
 
 Para crear transformaciones JSON más complejas, consulte [Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md) (Realización de transformaciones JSON avanzadas con plantillas de Liquid).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 

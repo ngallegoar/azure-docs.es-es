@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 8a4205002a98a5b9670839b0de7b53d81e0221a6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: f4be3343f090c4d31ccb85eba8e99f22a3b1fcae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271929"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529482"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 
@@ -85,7 +85,7 @@ Para cargar los conjuntos de datos en el intervalo de terabytes, la latencia de 
 
 Azure SQL DW es una excelente opción para almacenar resultados limpios y preparados para futuros análisis.  Azure HDInsight puede utilizarse para realizar esos servicios para Azure SQL DW.
 
-Azure SQL Data Warehouse (SQL DW) es un almacén de bases de datos relacionales optimizado para cargas de trabajo de análisis.  Azure SQL DW se escala según las tablas con particiones.  La tablas se pueden dividir en particiones entre varios nodos.  Los nodos de Azure SQL DW se seleccionan en el momento de la creación.  Se pueden escalar a posteriori, pero es un proceso activo que puede requerir el movimiento de datos. Para más información, consulte [SQL Data Warehouse: administración del proceso](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+Azure SQL Data Warehouse (SQL DW) es un almacén de bases de datos relacionales optimizado para cargas de trabajo de análisis.  Azure SQL DW se escala según las tablas con particiones.  La tablas se pueden dividir en particiones entre varios nodos.  Los nodos de Azure SQL DW se seleccionan en el momento de la creación.  Se pueden escalar a posteriori, pero es un proceso activo que puede requerir el movimiento de datos. Para más información, consulte [SQL Data Warehouse: administración del proceso](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### <a name="apache-hbase"></a>HBase Apache
 

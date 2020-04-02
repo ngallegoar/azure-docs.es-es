@@ -1,5 +1,5 @@
 ---
-title: 'Evaluación de la precisión de Custom Speech: servicio de voz'
+title: 'Evaluación de la precisión de Habla personalizada: Servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: En este documento, aprenderá a medir cuantitativamente la calidad del modelo de conversión de voz a texto o su modelo personalizado. Para probar la voz se requieren datos de transcripción de con la etiqueta audio + humano, y se deben proporcionar entre 30 minutos y 5 horas de audio representativo.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74806103"
 ---
-# <a name="evaluate-custom-speech-accuracy"></a>Evaluación de la precisión de la voz personalizada
+# <a name="evaluate-custom-speech-accuracy"></a>Evaluación de la precisión de Habla personalizada
 
 En este documento, aprenderá a medir cuantitativamente la calidad del modelo de conversión de texto a voz de Microsoft o su modelo personalizado. Para probar la voz se requieren datos de transcripción de con la etiqueta audio + humano, y se deben proporcionar entre 30 minutos y 5 horas de audio representativo.
 
@@ -51,12 +51,12 @@ Si quiere probar la calidad del modelo de línea de base de texto a voz de Micro
 
 Para evaluar los modelos en paralelo:
 
-1. Inicie sesión en el [portal de Custom Speech](https://speech.microsoft.com/customspeech).
-2. Vaya a **Speech-to-text > Custom Speech > Testing** (Conversión de voz a texto > Custom Speech > Pruebas).
+1. Inicie sesión en el [portal de Habla personalizada](https://speech.microsoft.com/customspeech).
+2. Vaya a **Speech-to-text &gt; Custom Speech &gt; Testing** (Conversión de voz a texto &gt; Habla personalizada &gt; Pruebas).
 3. Haga clic en **Add test** (Agregar prueba).
 4. Seleccione **Evaluate accuracy** (Evaluar precisión). Proporcione a la prueba un nombre y una descripción, y seleccione el conjunto de datos de transcripción con la etiqueta audio + humano.
 5. Puede seleccionar hasta dos modelos para probar.
-6. Haga clic en **Create**(Crear).
+6. Haga clic en **Crear**.
 
 Después de que la prueba se ha creado correctamente, puede comparar los resultados en paralelo.
 

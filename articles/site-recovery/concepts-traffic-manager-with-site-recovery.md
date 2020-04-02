@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60947803"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager con Azure Site Recovery
@@ -66,14 +66,14 @@ La **Compañía C** ejecuta aplicaciones con puntos de conexión públicos y des
 
 La configuración es la siguiente:
 - La **Compañía C** crea un [perfil de Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
-- Mediante el método de enrutamiento de **Prioridad**, la **Compañía C** crea dos puntos de conexión: uno **Principal** para la región de origen (Azure Asia Oriental) y otro de **Conmutación por error** para la región de recuperación (Azure Sudeste Asiático). Al punto de conexión **Principal** se le asigna la Prioridad 1 y al de **Conmutación por error** la Prioridad 2.
+- Mediante el método de enrutamiento de **Prioridad**, la **Compañía C** crea dos puntos de conexión: uno **Principal** para la región de origen (Azure Este de Asia) y otro de **Conmutación por error** para la región de recuperación (Azure Sudeste de Asia). Al punto de conexión **Principal** se le asigna la Prioridad 1 y al de **Conmutación por error** la Prioridad 2.
 - Dado que el punto de conexión **Principal** está hospedado en Azure, el punto de conexión puede ser un punto de conexión de [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints).
 - Con Azure Site Recovery, el sitio de Azure de recuperación no tiene máquinas virtuales o aplicaciones que se ejecuten antes de la conmutación por error. Por lo tanto, el punto de conexión de **Conmutación por error** se puede crear como un punto de conexión [Externo](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints).
-- Como el punto de conexión lleva asociada la prioridad más alta, el tráfico de usuario se dirige de forma predeterminada a la aplicación de la región de origen (Asia Oriental, en este caso). Si el punto de conexión **Principal** tiene un estado correcto, no se dirige ningún tráfico a la región de recuperación.
+- Como el punto de conexión lleva asociada la prioridad más alta, el tráfico de usuario se dirige de forma predeterminada a la aplicación de la región de origen (Este de Asia, en este caso). Si el punto de conexión **Principal** tiene un estado correcto, no se dirige ningún tráfico a la región de recuperación.
 
 ![De Azure a Azure (antes de la conmutación por error)](./media/concepts-traffic-manager-with-site-recovery/azure-failover-before.png)
 
-En caso de desastre, la **Compañía C** puede desencadenar una [conmutación por error](azure-to-azure-tutorial-failover-failback.md) y recuperar sus aplicaciones en la región de Azure de recuperación. Cuando Azure Traffic Manager detecta que el punto de conexión Principal ya no tiene un estado correcto, usa automáticamente el punto de conexión de **Conmutación por error** en la respuesta DNS y los usuarios se conectan a la aplicación recuperada en la región de Azure de recuperación (Sudeste Asiático).
+En caso de desastre, la **Compañía C** puede desencadenar una [conmutación por error](azure-to-azure-tutorial-failover-failback.md) y recuperar sus aplicaciones en la región de Azure de recuperación. Cuando Azure Traffic Manager detecta que el punto de conexión Principal ya no tiene un estado correcto, usa automáticamente el punto de conexión de **Conmutación por error** en la respuesta DNS y los usuarios se conectan a la aplicación recuperada en la región de Azure de recuperación (Sudeste de Asia).
 
 ![De Azure a Azure (después de la conmutación por error)](./media/concepts-traffic-manager-with-site-recovery/azure-failover-after.png)
 
@@ -99,7 +99,7 @@ Para evitar este problema y garantizar la resistencia de las aplicaciones, la **
 
 ![Aplicación de varias regiones (después)](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
 
-Por ejemplo, si se produce un error en el punto de conexión de Alemania Central, la aplicación se puede recuperar rápidamente en el Nordeste de Alemania. El nuevo punto de conexión controla el tráfico que se origina en Alemania con un tiempo de inactividad mínimo para los usuarios. Del mismo modo, una interrupción del punto de conexión en Europa Occidental se puede controlar mediante la recuperación de la carga de trabajo de aplicación en Europa del Norte, puesto que Azure Traffic Manager redirige las solicitudes DNS al punto de conexión disponible.
+Por ejemplo, si se produce un error en el punto de conexión de Centro de Alemania, la aplicación se puede recuperar rápidamente en el Nordeste de Alemania. El nuevo punto de conexión controla el tráfico que se origina en Alemania con un tiempo de inactividad mínimo para los usuarios. Del mismo modo, una interrupción del punto de conexión en Oeste de Europa se puede controlar mediante la recuperación de la carga de trabajo de aplicación en Norte de Europa, puesto que Azure Traffic Manager redirige las solicitudes DNS al punto de conexión disponible.
 
 La configuración anterior se puede ampliar para incluir tantas combinaciones de región y punto de conexión como sean necesarias. Traffic Manager permite hasta 10 niveles de perfiles anidados y no permite bucles dentro de la configuración anidada.
 

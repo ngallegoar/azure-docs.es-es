@@ -14,10 +14,10 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76696528"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Uso de MSAL para Android con B2C
@@ -153,7 +153,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## <a name="handle-password-change-policies"></a>Administración de directivas de cambio de contraseña
 
-El flujo de usuario de registro o de inicio de sesión de la cuenta local muestra el vínculo " **¿Ha olvidado la contraseña?** " Al hacer clic en este vínculo, no se desencadena automáticamente ningún flujo de usuario de restablecimiento de contraseña,
+El flujo de usuario de registro o de inicio de sesión de la cuenta local muestra el vínculo "¿Ha olvidado la contraseña?" Al hacer clic en este vínculo, no se desencadena automáticamente ningún flujo de usuario de restablecimiento de contraseña,
 
 sino que se devuelve a la aplicación el código de error `AADB2C90118`. La aplicación debería controlar este código de error mediante la ejecución de un flujo de usuario específico que restablezca la contraseña.
 
