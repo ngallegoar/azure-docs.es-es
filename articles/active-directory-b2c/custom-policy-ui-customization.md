@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e07d3e1815c1b47b9d37c08e8fac5359b71fe7c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e50d6d0623e87dfa68a7cc9744c3f595ff0179c6
+ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189041"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80396379"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Realice los pasos del artículo [Introducción a las directivas personalizadas](
 
 [!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-## <a name="4-modify-the-extensions-file"></a>4. Modificación del archivo de extensiones
+### <a name="4-modify-the-extensions-file"></a>4. Modificación del archivo de extensiones
 
 Para configurar la personalización de la interfaz de usuario, copie **ContentDefinition** y sus elementos secundarios del archivo base en el archivo de extensiones.
 
@@ -60,9 +60,9 @@ Para configurar la personalización de la interfaz de usuario, copie **ContentDe
 
 1. Guarde el archivo de extensiones.
 
-## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Carga y prueba de la directiva personalizada actualizada
+### <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Carga y prueba de la directiva personalizada actualizada
 
-### <a name="51-upload-the-custom-policy"></a>5.1 Carga de la directiva personalizada
+#### <a name="51-upload-the-custom-policy"></a>5.1 Carga de la directiva personalizada
 
 1. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
 1. Busque y seleccione **Azure AD B2C**.
@@ -70,7 +70,7 @@ Para configurar la personalización de la interfaz de usuario, copie **ContentDe
 1. Seleccione **Cargar directiva personalizada**.
 1. Cargue el archivo de extensiones que cambió anteriormente.
 
-### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Prueba de la directiva personalizada con **Ejecutar ahora**
+#### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Prueba de la directiva personalizada con **Ejecutar ahora**
 
 1. Seleccione la directiva cargada y, a continuación, **Ejecutar ahora**.
 1. Debería poder registrarse con una dirección de correo electrónico.
