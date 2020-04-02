@@ -3,7 +3,7 @@ title: Uso de Azure Resource Health para supervisar el estado de una base de dat
 description: Use Azure Resource Health para supervisar el estado de SQL Database, ayudar a diagnosticar problemas y obtener soporte técnico cuando un problema de Azure afecta a los recursos de SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: 1cf14c9e133b7e6e3e0b5219eb9e16bd3a0178dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9e19e904b47d69444b491dd88ffe49ff812aafc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821154"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79208865"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Uso de Resource Health para solucionar problemas de conectividad para Azure SQL Database
 

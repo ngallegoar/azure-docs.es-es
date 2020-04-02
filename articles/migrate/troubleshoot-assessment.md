@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: fb1e32d9f67febb09eadfb5d31221db33504eb05
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 205b52201edb849abab02809b58ff9dc77a32a29
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289482"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127672"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solución de problemas de evaluación o visualización de dependencias
 
@@ -74,7 +74,7 @@ Tenemos una máquina virtual local con cuatro núcleos y 8 GB de memoria, con u
 
 -  Si la evaluación es **Como local**, se recomienda una SKU de VM de Azure con 4 núcleos y 8 GB de memoria.
 - Si la evaluación está basada en el rendimiento, en función de la utilización de memoria y CPU efectiva (el 50 % de 4 núcleos * 1,3 = 2,6 núcleos y el 50 % de 8 GB de memoria * 1,3 = 5,3 GB de memoria), se recomienda la SKU de máquina virtual más barata de cuatro núcleos (número de núcleos admitidos más cercano) y 8 GB de memoria (tamaño de memoria admitido más cercano).
-- [Más información](concepts-assessment-calculation.md#assessments-in-server-assessment) sobre el ajuste de tamaño de evaluación.
+- [Más información](concepts-assessment-calculation.md#types-of-assessments) sobre el ajuste de tamaño de evaluación.
 
 ## <a name="azure-disk-skus-bigger-than-on-premises"></a>SKU de discos de Azure de mayor tamaño que el local
 

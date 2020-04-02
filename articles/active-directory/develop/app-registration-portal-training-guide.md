@@ -3,22 +3,22 @@ title: Nueva experiencia de los registros de aplicaciones de Azure Portal
 titleSuffix: Microsoft identity platform
 description: Introducción a la nueva experiencia de Registros de aplicaciones de Azure Portal
 services: active-directory
-author: archieag
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/8/2019
-ms.author: aragra
+ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 835924c92d0c5768c1125b3b1d26ee72cf2cec70
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698278"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154600"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Nueva experiencia de los registros de aplicaciones de Azure Portal
 
@@ -30,7 +30,7 @@ La nueva experiencia de [Registros de aplicaciones](https://go.microsoft.com/fwl
 
     > [!NOTE]
     > Debe iniciar sesión con la cuenta que usó para registrar las aplicaciones con el fin de encontrarlas en Azure Portal. Se recomienda que compruebe si el usuario que ha iniciado sesión en Azure Portal coincide con el que ha iniciado sesión en el Portal de registro de aplicaciones comparando la dirección de correo electrónico de su perfil.
-    > 
+    >
     > En algunos casos, especialmente cuando se inicia sesión con cuentas personales de Microsoft (por ejemplo, Outlook, Live, Xbox, etc.) con una dirección de correo electrónico de Azure AD, descubrimos que, cuando se visita Azure Portal desde la experiencia anterior, se inicia sesión en una cuenta diferente con el mismo correo electrónico en su inquilino de Azure AD. Si sigue pensando que faltan las aplicaciones, cierre la sesión e iníciela con la cuenta correcta.
 
 - Todavía no se admiten las aplicaciones del SDK de Live creadas con cuentas de Microsoft personales en Azure Portal y seguirán estando en la experiencia anterior en un futuro próximo.
@@ -86,14 +86,14 @@ En la nueva experiencia, las direcciones URL de respuesta se encuentran en la se
 
 Las API web se configuran en la página Exponer una API.
 
-> [!NOTE] 
+> [!NOTE]
 > Pruebe la nueva experiencia de configuración de autenticación, donde puede configurar su aplicación según la plataforma o dispositivo que tenga como destino. [Más información](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Permisos de Microsoft Graph/Permisos de API
 
 -   Al seleccionar una API en la experiencia anterior, solo podía elegir entre API de Microsoft Graph. En la nueva experiencia, puede elegir entre muchas API de Microsoft, como la de Microsoft Graph, las API de su organización y sus API. Esto se presenta en tres pestañas: API de Microsoft, API usadas en mi organización o Mis API. La barra de búsqueda de la pestaña API usadas en mi organización busca por entidades de servicio en el inquilino.
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > Si la aplicación no está asociada a un inquilino, no verá esta pestaña. Para más información sobre cómo solicitar permisos mediante la nueva experiencia, consulte esta [guía de inicio rápido](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/develop/quickstart-configure-app-access-web-apis.md).
 
 -   La experiencia anterior no tenía un botón **Conceder permisos**. En la nueva experiencia, hay una sección Otorgar consentimiento con un botón **Conceder consentimiento de administrador** en la sección Permisos de API de una aplicación. Solo un administrador puede conceder consentimiento y este botón solo está habilitado para administradores. Cuando un administrador selecciona el botón **Conceder consentimiento de administrador**, el consentimiento del administrador se concede a todos los permisos solicitados.
