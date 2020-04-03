@@ -3,12 +3,12 @@ title: Reemplazo de los puntos de conexión de SDK predeterminados con Azure App
 description: Modifique los puntos de conexión de SDK predeterminados de Azure Monitor Application Insights para regiones como Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 3aa18a6b96458533c3dc53f3f420ed264b298a3e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b4ab05c7ee815b385ffb2d1ff9e621063d744dd7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671994"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298318"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Reemplazo de puntos de conexión predeterminados de Application Insights
 
@@ -186,6 +186,10 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
     );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
+
+### <a name="python"></a>Python
+
+Para obtener instrucciones sobre cómo modificar el punto de conexión de ingesta para el SDK de opencensus-python, consulte el [repositorio de opencensus-python.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
 
 ## <a name="regions-that-require-endpoint-modification"></a>Regiones que requieren la modificación del punto de conexión
 

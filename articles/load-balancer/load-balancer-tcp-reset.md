@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: eac7dc3b7188131685ef630c0dc01d248e1d6a6a
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: d3d836ddea8d07a25ad09e6f19d9f17a680decd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134779"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294400"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer con restablecimiento de TCP inactivo
 
@@ -64,7 +64,7 @@ Con la API versión 2018-07-01, puede habilitar el envío de restablecimientos d
       ]
 ```
 
-## <a name="regions"></a> Disponibilidad en regiones
+## <a name="region-availability"></a><a name="regions"></a> Disponibilidad en regiones
 
 Disponible en todas las regiones.
 
@@ -76,3 +76,4 @@ Disponible en todas las regiones.
 
 - Más información sobre [Standard Load Balancer](load-balancer-standard-overview.md).
 - Más información sobre [reglas de salida](load-balancer-outbound-rules-overview.md).
+- [Configurar TCP RST en tiempo de espera de inactividad](load-balancer-tcp-idle-timeout.md)

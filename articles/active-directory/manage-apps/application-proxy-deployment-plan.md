@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: b3278615b90fe2ef539456c3f00eb877918aa9c2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: edd607c4d708df9fcfd3cbd5fdb71f0a7652d6c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78248373"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330906"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear una implementación de Azure AD Application Proxy
 
@@ -68,7 +68,7 @@ Deben cumplirse los siguientes requisitos principales para configurar e implemen
 
 * **Límites de servicio**: Para protegerse frente al consumo excesivo de recursos por parte de inquilinos individuales, existen límites definidos por aplicación e inquilino. Para ver estos límites, consulte [Restricciones y límites del servicio Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Estos límites se basan en un banco de pruebas muy superior al volumen de uso típico y proporcionan un búfer suficiente para la mayoría de las implementaciones.
 
-* **Certificado público**: Si usa nombres de dominio personalizados, debe adquirir un certificado SSL. Según los requisitos de la organización, obtener un certificado puede llevar algún tiempo y se recomienda comenzar el proceso lo antes posible. Azure Application Proxy admite certificados estándar, [comodín](application-proxy-wildcard.md) o basados en SAN. Para más información, consulte [Configuración de dominios personalizados con Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
+* **Certificado público**: Si usa nombres de dominio personalizados, debe adquirir un certificado TLS/SSL. Según los requisitos de la organización, obtener un certificado puede llevar algún tiempo y se recomienda comenzar el proceso lo antes posible. Azure Application Proxy admite certificados estándar, [comodín](application-proxy-wildcard.md) o basados en SAN. Para más información, consulte [Configuración de dominios personalizados con Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
 * **Requisitos de dominio**: El inicio de sesión único en las aplicaciones publicadas con la delegación restringida de Kerberos (KCD) requiere que el servidor que ejecuta el conector y el servidor que ejecuta la aplicación estén unidos a un dominio y formen parte del mismo dominio o los mismos dominios de confianza.
 Para obtener más información sobre el tema, consulte [KCD para el inicio de sesión único](application-proxy-configure-single-sign-on-with-kcd.md) con Application Proxy. El servicio de conectores se ejecuta en el contexto del sistema local y no debe configurarse para usar una identidad personalizada.
@@ -155,7 +155,7 @@ Los siguientes elementos de diseño deben aumentar el éxito de su implementaci�
 
 **Configuración del inicio de sesión único** Algunas opciones de SSO tienen dependencias específicas que pueden tardar tiempo en configurarse, así que, para evitar retrasos en el control de cambios, compruebe que las dependencias se abordan con antelación. Esto incluye que los hosts de conector de unión a un dominio realicen el SSO mediante la delegación restringida de Kerberos y que asuman otras actividades que requieren mucho tiempo. Por ejemplo, configurar una instancia de PING Access, si necesita SSO basado en encabezado.
 
-**SSL entre el host de conector y la aplicación de destino**: La seguridad es fundamental, por lo que siempre se debe usar TLS entre el host del conector y las aplicaciones de destino. Especialmente si la aplicación web está configurada para la autenticación basada en formularios (FBA), ya que, en ese caso, las credenciales de usuario se transmiten de forma eficaz en texto no cifrado.
+**TLS entre el host de conector y la aplicación de destino**: La seguridad es fundamental, por lo que siempre se debe usar TLS entre el host del conector y las aplicaciones de destino. Especialmente si la aplicación web está configurada para la autenticación basada en formularios (FBA), ya que, en ese caso, las credenciales de usuario se transmiten de forma eficaz en texto no cifrado.
 
 **Implementar de forma incremental y probar cada paso**. Realice pruebas funcionales básicas después de publicar una aplicación para asegurarse de que se cumplen todos los requisitos empresariales y de usuario siguiendo estas instrucciones:
 

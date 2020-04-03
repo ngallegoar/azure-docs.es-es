@@ -2,13 +2,13 @@
 title: Supervisión de Kubernetes con Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo puede ver y analizar el rendimiento de un clúster de Kubernetes con Azure Monitor para contenedores.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.date: 03/26/2020
+ms.openlocfilehash: 227fe70512536790d179797394b6fba22e7eb50e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75731023"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298376"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores
 
@@ -199,6 +199,20 @@ La información que se presenta al ver la pestaña **Nodos** se describe en la s
 | Tiempo de actividad | Representa la hora desde un nodo iniciado o que se reinició. |
 | Controller | Solo para los contenedores y pods. Muestra el controlador en el que reside. No todos los pods están en un controlador, así que algunos pueden mostrar **N/D**. | 
 | Tendencia de %&nbsp;mínimo, %&nbsp;promedio, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, %&nbsp;máximo | Tendencia de gráfico de barras que presenta el porcentaje de métricas de percentil promedio del controlador. |
+
+Es posible que observe una carga de trabajo después de expandir un nodo denominado **Otro proceso**. Representa procesos fuera de contenedores que se ejecutan en el nodo, e incluye:
+
+* Procesos fuera de contenedores de Kubernetes administrado o autoadministrados
+
+* Procesos de contenedor en tiempo de ejecución  
+
+* Kubelet  
+
+* Procesos del sistema que se ejecutan en el nodo
+
+* Otras cargas de trabajo que no son de Kubernetes que se ejecutan en hardware de nodo o VM
+
+Esta es la forma de calcularlo: *Uso total de CAdvisor* - *Uso del proceso en contenedores*.  
 
 En el selector, elija **Controllers** (Controladores).
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e0a282be9b8a20c64cd3e74e7860a289baa5aec6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2b29b8b0975639e5c5315a55e1382794d7662665
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183812"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332505"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -67,7 +67,7 @@ En la colección de notificaciones de visualización, puede incluir una referenc
 
 En el siguiente ejemplo `TechnicalProfile` se muestra el uso de las notificaciones de visualización con controles de visualización.
 
-* La primera notificación de visualización hace referencia al control de visualización `emailVerificationControl`, que recopila y comprueba la dirección de correo electrónico.
+* La primera notificación de visualización hace referencia al control de visualización `emailVerificationControl`, que recopila y comprueba la dirección de correo.
 * La quinta notificación de visualización hace referencia al control de visualización `phoneVerificationControl`, que recopila y comprueba un número de teléfono.
 * Las demás notificaciones de visualización son elementos ClaimTypes que se van a recopilar del usuario.
 
@@ -120,6 +120,8 @@ La notificación `age` de la directiva base ya no se muestra al usuario en la pa
 
 El elemento **OutputClaims** contiene una lista de las notificaciones que se van a devolver en el siguiente paso de orquestación. El atributo **DefaultValue** solo tiene efecto si la notificación nunca se ha establecido. Si se ha establecido en un paso de orquestación anterior, el valor predeterminado no se aplica aunque el usuario deje el valor vacío. Para forzar el uso de un valor predeterminado, establezca el atributo **AlwaysUseDefaultValue** en `true`.
 
+Por motivos de seguridad, un valor de notificación de contraseña (`UserInputType` establecido en `Password`) solo está disponible para los perfiles técnicos de validación del perfil técnico autoafirmado. En los pasos de orquestación siguientes, no se puede usar la notificación de contraseñas. 
+
 > [!NOTE]
 > En las versiones anteriores de Identity Experience Framework (IEF), las notificaciones de salida se usaban para recopilar datos del usuario. Para recopilar datos del usuario, use una colección **DisplayClaims** en su lugar.
 
@@ -129,7 +131,7 @@ El elemento **OutputClaimsTransformations** puede contener una colección de ele
 
 En un perfil técnico autoafirmado, la colección de notificaciones de salida devuelve las notificaciones en el siguiente paso de orquestación.
 
-Debe usar notificaciones de salida si:
+Use notificaciones de salida si:
 
 - **Las notificaciones se emiten mediante la transformación de notificaciones de salida**
 - **Establece un valor predeterminado en una notificación de salida** sin recopilar datos del usuario ni devolver los datos desde el perfil técnico de validación. El perfil técnico autoafirmado `LocalAccountSignUpWithLogonEmail` establece la notificación **executed-SelfAsserted-Input** en `true`.
@@ -175,7 +177,7 @@ En el ejemplo siguiente se muestra el uso de un perfil técnico autoafirmado que
 
 ## <a name="persist-claims"></a>Conservar las notificaciones
 
-Si el elemento **PersistedClaims** no está presente, el perfil técnico autoafirmado no conserva los datos en Azure AD B2C. En cambio, se realiza una llamada a un perfil técnico de validación que es responsable de conservar los datos. Por ejemplo, la directiva de registro usa el perfil técnico autoafirmado `LocalAccountSignUpWithLogonEmail` para recopilar el nuevo perfil de usuario. El perfil técnico `LocalAccountSignUpWithLogonEmail` llama al perfil técnico de validación para crear la cuenta en Azure AD B2C.
+El elemento PersistedClaims no se usa. El perfil técnico autoafirmado no conserva los datos en Azure AD B2C. En cambio, se realiza una llamada a un perfil técnico de validación que es responsable de conservar los datos. Por ejemplo, la directiva de registro usa el perfil técnico autoafirmado `LocalAccountSignUpWithLogonEmail` para recopilar el nuevo perfil de usuario. El perfil técnico `LocalAccountSignUpWithLogonEmail` llama al perfil técnico de validación para crear la cuenta en Azure AD B2C.
 
 ## <a name="validation-technical-profiles"></a>Perfiles técnicos de validación
 
@@ -189,17 +191,18 @@ También puede llamar a un perfil técnico de la API de REST con la lógica de n
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| setting.operatingMode <sup>1</sup>| Sin | En una página de inicio de sesión, esta propiedad controla el comportamiento del campo de nombre de usuario, como la validación de entrada y los mensajes de error. Valores esperados: `Username` o `Email`.  |
-| AllowGenerationOfClaimsWithNullValues| Sin| Permite que se genere una notificación con un valor NULL. Por ejemplo, en caso de que un usuario no active una casilla.|
+| setting.operatingMode <sup>1</sup>| No | En una página de inicio de sesión, esta propiedad controla el comportamiento del campo de nombre de usuario, como la validación de entrada y los mensajes de error. Valores esperados: `Username` o `Email`.  |
+| AllowGenerationOfClaimsWithNullValues| No| Permite que se genere una notificación con un valor NULL. Por ejemplo, en caso de que un usuario no active una casilla.|
 | ContentDefinitionReferenceId | Sí | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este perfil técnico. |
-| EnforceEmailVerification | Sin | Para registrarse o editar el perfil, exige la comprobación del correo electrónico. Valores posibles: `true` (opción predeterminada) o `false`. |
-| setting.retryLimit | Sin | Controla el número de veces que un usuario puede intentar proporcionar los datos que se comprueban con un perfil técnico de validación. Por ejemplo, si un usuario intenta registrarse con una cuenta que ya existe y sigue intentándolo hasta que alcance el límite.
-| SignUpTarget <sup>1</sup>| Sin | Identificador de intercambio de destinos del registro. Cuando el usuario hace clic en el botón de registro, Azure AD B2C ejecuta el identificador de intercambio especificado. |
-| setting.showCancelButton | Sin | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.showContinueButton | Sin | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.showSignupLink <sup>2</sup>| Sin | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
-| setting.forgotPasswordLinkLocation <sup>2</sup>| Sin| Muestra el vínculo de contraseña olvidada. Valores posibles: `AfterInput` (valor predeterminado) el vínculo se muestra en la parte inferior de la página o `None` quita el vínculo de contraseña olvidada.|
-| IncludeClaimResolvingInClaimsHandling  | Sin | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false`  (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
+| EnforceEmailVerification | No | Para registrarse o editar el perfil, exige la comprobación del correo electrónico. Valores posibles: `true` (opción predeterminada) o `false`. |
+| setting.retryLimit | No | Controla el número de veces que un usuario puede intentar proporcionar los datos que se comprueban con un perfil técnico de validación. Por ejemplo, si un usuario intenta registrarse con una cuenta que ya existe y sigue intentándolo hasta que alcance el límite.
+| SignUpTarget <sup>1</sup>| No | Identificador de intercambio de destinos del registro. Cuando el usuario hace clic en el botón de registro, Azure AD B2C ejecuta el identificador de intercambio especificado. |
+| setting.showCancelButton | No | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.showContinueButton | No | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.showSignupLink <sup>2</sup>| No | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
+| setting.forgotPasswordLinkLocation <sup>2</sup>| No| Muestra el vínculo de contraseña olvidada. Valores posibles: `AfterInput` (valor predeterminado) el vínculo se muestra en la parte inferior de la página o `None` quita el vínculo de contraseña olvidada.|
+| setting.enableRememberMe <sup>2</sup>| No| Muestra la casilla [Mantener la sesión iniciada](custom-policy-keep-me-signed-in.md). Valores posibles: `true` o `false` (valor predeterminado). |
+| IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false`  (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
 
 Notas:
 1. Disponible para el tipo de definición de contenido [DataUri](contentdefinitions.md#datauri) de `unifiedssp` o `unifiedssd`.

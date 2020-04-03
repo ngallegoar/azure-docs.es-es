@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a585ab059319b15be1f2a86bf10b7dc58da72494
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: b6d949b50be348e72cedfc3710383308b04de106
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299459"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336004"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidad de una instancia de Azure API Management
 
@@ -28,7 +28,7 @@ En este artículo se explica lo que es la **capacidad** y su comportamiento. Mue
 > [!IMPORTANT]
 > En este artículo se describe cómo puede supervisar y escalar su instancia de Azure API Management en función de su métrica de capacidad. Sin embargo, es igualmente importante comprender lo que ocurre cuando una instancia individual de API Management ha *alcanzado* realmente su capacidad. Azure API Management no aplicará ninguna limitación de nivel de servicio para evitar una sobrecarga física de las instancias. Cuando una instancia alcanza su capacidad física, se comporta de forma similar a cualquier servidor web sobrecargado que no puede procesar las solicitudes entrantes: la latencia aumentará, se eliminarán las conexiones, se producirán errores de tiempo de espera, etc. Es decir, los clientes de API deben estar preparados para hacer frente a esta posibilidad de manera similar a como ocurre con cualquier otro servicio externo (por ejemplo, mediante la aplicación de directivas de reintento).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir los pasos de este artículo, debe tener:
 
@@ -48,7 +48,7 @@ La **capacidad** es un indicador de la carga de una instancia de API Management.
 
 + Los servicios de plano de datos de API Management, como el procesamiento de solicitudes, lo que puede incluir el reenvío de solicitudes o la ejecución de una directiva.
 + Los servicios de plano de datos de API Management, como las acciones de administración aplicadas a través de Azure Portal o ARM, o la carga procedente del [portal para desarrolladores](api-management-howto-developer-portal.md).
-+ Procesos seleccionados del sistema operativo, entre los que se incluyen los procesos que implican el costo de los protocolos de enlace de SSL en las nuevas conexiones.
++ Procesos seleccionados del sistema operativo, entre los que se incluyen los procesos que implican el costo de los protocolos de enlace TLS en las nuevas conexiones.
 
 La **capacidad** total es un promedio de sus propios valores de cada unidad de una instancia de API Management.
 

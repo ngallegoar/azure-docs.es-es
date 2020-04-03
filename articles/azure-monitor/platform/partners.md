@@ -4,12 +4,12 @@ description: Obtenga información sobre los asociados de Azure Monitor y sobre c
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 40ba4c4f0a90d5bca03afea67302a5dbb77de027
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 33ab913c64b651db9e75d4791ecb631ed7e081a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659465"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298387"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -49,7 +49,7 @@ Puede crear incidencias JIRA de alertas de Azure Monitor.
 
 ![Logotipo de Circonus](./media/partners/circonus.png)
 
-Circonus es una plataforma de análisis y supervisión de microservicios integrada para la implementación en SaaS o local. Su plataforma centrada en la API totalmente automatizable es más escalable y confiable que los sistemas que supervisa. Desarrollada para satisfacer los requisitos de DevOps, Circonus ofrece alertas basadas en el percentil, gráficos, paneles e inteligencia de aprendizaje automático que permiten la optimización empresarial. Circonus supervisa los recursos en la nube de Microsoft Azure y sus aplicaciones en tiempo real. Puede usar Circonus para recopilar y realizar un seguimiento de las métricas de las variables que desee medir para las aplicaciones y los recursos. Con Circonus, consigue visibilidad en todo el sistema con respecto a la utilización de los recursos, el rendimiento de las aplicaciones y el estado de funcionamiento de Azure.
+Circonus es experto en inteligencia artificial de datos y proporciona la única plataforma de inteligencia artificial de datos capaz de administrar miles de millones de flujos de métricas en tiempo real para generar un valor y unas conclusiones empresariales sin precedentes. Use Circonus para recopilar y visualizar las métricas clave relacionadas con la configuración de Microsoft Azure, así como para hacer su seguimiento. Consiga visibilidad en todo el sistema con respecto a la utilización de los recursos, el rendimiento de las aplicaciones y el estado operativo de Azure.
 
 [Vaya a la documentación.][circonus-doc]
 
@@ -74,7 +74,7 @@ CloudMonix ofrece servicios de supervisión, automatización y recuperación aut
 
 ![Logotipo de Datadog](./media/partners/datadog.png)
 
-Datadog es el servicio de supervisión líder mundial para aplicaciones de escala en la nube. Agrupa datos de servidores, bases de datos, herramientas y servicios para presentar una vista unificada de toda la pila. Estas funcionalidades se proporcionan en una plataforma de análisis de datos basada en SaaS. Este servicio permite a los equipos de desarrollo y operaciones trabajar en colaboración para evitar tiempos de inactividad, resolver problemas de rendimiento y asegurarse de que los ciclos de desarrollo e implementación finalizan a tiempo. Con la integración de Datadog y Azure, puede recopilar y ver las métricas de toda la infraestructura. Correlacione las métricas de máquina virtual con las del nivel de aplicación. Segmente y desglose las métricas mediante cualquier combinación de propiedades y etiquetas personalizadas.
+Datadog es el servicio de supervisión líder mundial para aplicaciones en la nube. Agrupa datos de servidores, bases de datos, herramientas y servicios para presentar una vista unificada de toda la pila. Estas funcionalidades se proporcionan en una plataforma de análisis de datos basada en SaaS. Este servicio permite a los equipos de desarrollo y operaciones trabajar en colaboración para evitar tiempos de inactividad, resolver problemas de rendimiento y asegurarse de que los ciclos de desarrollo e implementación finalizan a tiempo. Con la integración de Datadog y Azure, puede recopilar y ver las métricas de toda la infraestructura. Correlacione las métricas de máquina virtual con las del nivel de aplicación. Segmente y desglose las métricas mediante cualquier combinación de propiedades y etiquetas personalizadas.
 
 [Vaya a la documentación.][datadog-doc]
 
@@ -115,7 +115,7 @@ InfluxData, el creador de InfluxDB, ofrece una plataforma moderna de código abi
 
 ![Logotipo de Logic Monitor](./media/partners/logicmonitor.png)
 
-LogicMonitor® es la más importante plataforma de supervisión de rendimiento basada en SaaS para infraestructuras de TI complejas. Con la cobertura para miles de tecnologías, LogicMonitor proporciona una visión pormenorizada del rendimiento de infraestructuras y aplicaciones. La exhaustiva supervisión de Azure que realiza LM Cloud permite a los usuarios poner en correlación el rendimiento de los usuarios de la nube de Azure, locales y de la nube híbrida, y todo ello desde una sola plataforma. La combinación de detección de recursos automática, plantillas de supervisión integradas, umbrales de alerta preconfigurados y paneles proporciona a la TI la velocidad, flexibilidad y visibilidad necesarias.
+LogicMonitor&reg; es la plataforma de supervisión de rendimiento basada en SaaS más importante para infraestructuras de TI complejas. Con la cobertura para miles de tecnologías, LogicMonitor proporciona una visión pormenorizada del rendimiento de infraestructuras y aplicaciones. La exhaustiva supervisión de Azure que realiza LM Cloud permite a los usuarios poner en correlación el rendimiento de los recursos en la nube de Azure, en la nube híbrida y locales. Todo desde la misma plataforma. La combinación de detección de recursos automática, plantillas de supervisión integradas, umbrales de alerta preconfigurados y paneles proporciona a la TI la velocidad, flexibilidad y visibilidad necesarias.
 
 [Vaya a la documentación.][logicmonitor-doc]
 
@@ -123,7 +123,7 @@ LogicMonitor® es la más importante plataforma de supervisión de rendimiento b
 
 ![Logotipo de LogRhythm](./media/partners/logrhythm.png)
 
-LogRhythm, líder en SIEM de última generación, permite a las organizaciones de seis continentes reducir de forma medible el riesgo mediante la rápida detección, respuesta y neutralización de las ciberamenazas. El flujo de trabajo de administración del ciclo de vida de las amenazas (TLM) de LogRhythm es la base de los centros de operaciones de seguridad, que ayudan a los clientes a proteger sus infraestructuras virtuales, físicas y de nube para entornos de TI y OT. Si es cliente de LogRhythm y está listo para comenzar su recorrido por Azure, deberá instalar y configurar la integración de LogRhythm Open Collector y EventHub. Puede encontrar más información, incluida la documentación de la configuración tanto de Azure Monitor como de Open Collector, [aquí](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+LogRhythm, líder en SIEM de última generación, permite a las organizaciones de seis continentes reducir de forma medible el riesgo mediante la rápida detección, respuesta y neutralización de las ciberamenazas. El flujo de trabajo de Threat Lifecycle Management (TLM) de LogRhythm es la base de los centros de operaciones de seguridad, que ayudan a los clientes a proteger sus infraestructuras virtuales, físicas y en la nube para entornos de TI y OT. Si es cliente de LogRhythm y está listo para comenzar su recorrido por Azure, deberá instalar y configurar la integración de LogRhythm Open Collector y EventHub. Puede encontrar más información, incluida la documentación de la configuración tanto de Azure Monitor como de Open Collector, [aquí](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 
 
 
@@ -193,7 +193,7 @@ Los protocolos Microsoft Azure DSM y Microsoft Azure Even Hub se pueden descarga
 
 ![Logotipo de ScienceLogic](./media/partners/sciencelogic.png)
 
-ScienceLogic ofrece la plataforma de seguridad del servicio de TI de próxima generación para administrar cualquier tecnología y en cualquier lugar. ScienceLogic ofrece la escala, seguridad, automatización y resistencia necesarias para simplificar las tareas de administración de recursos, servicios y aplicaciones de TI. La plataforma de ScienceLogic usa las API de Azure para comunicarse con Microsoft Azure. ScienceLogic le proporciona visibilidad en tiempo real sobre los servicios y recursos de Azure. Para que pueda saber cuándo algo no funciona y lo pueda corregir con mayor rapidez. También puede administrar Azure junto con otras nubes y otros sistemas de centros de datos y servicios.
+ScienceLogic ofrece la plataforma de seguridad del servicio de TI de próxima generación para administrar cualquier tecnología y en cualquier lugar. ScienceLogic ofrece la escala, seguridad, automatización y resistencia necesarias para simplificar las tareas de administración de recursos, servicios y aplicaciones de TI. La plataforma de ScienceLogic usa las API de Azure para comunicarse con Microsoft Azure. ScienceLogic le proporciona visibilidad en tiempo real sobre los servicios y recursos de Azure. De este modo, podrá saber cuándo algo no funciona y lo podrá corregir con mayor rapidez. También puede administrar Azure junto con otras nubes y otros sistemas de centros de datos y servicios.
 
 [Más información.][sciencelogic-doc]
 
@@ -205,15 +205,24 @@ Serverless360 es una herramienta de plataforma para operar, administrar y superv
 
 [Más información.][serverless360-doc]
 
+## <a name="servicenow"></a>ServiceNow
+
+![Logotipo de ServiceNow](./media/partners/servicenow.png)
+
+Reduzca los incidentes y el MTTR con la plataforma NOW AIOps para eliminar el ruido, priorizar, identificar la detección de la causa raíz mediante ML y solucionar problemas con flujos de trabajo de ITX.  Comprenda el estado actual de los servicios IaaS/PaaS/FaaS de Azure y cree mapas de servicio a partir de etiquetas para compilar el contexto del servicio de aplicación para el análisis del impacto empresarial.    
+
+[Más información.](https://www.servicenow.com/solutions/aiops.html)
+
 ## <a name="signalfx"></a>SignalFx
 
 ![Logotipo de SignalFX](./media/partners/signalfx.png)
 
-SignalFx es el líder en inteligencia operativa en tiempo real para DevOps controlado por datos. El servicio detecta y recopila métricas de todos los componentes en la nube. Reemplaza las tradicionales herramientas puntuales y proporciona visibilidad en tiempo real de los actuales entornos dinámicos. El aprovechamiento de la plataforma SignalFx, que es altamente escalable, hace que la plataforma de SaaS esté optimizada para infraestructuras basadas en contenedor y microservicios y proporcione eficaces funcionalidades de visualización, generación proactiva de alertas y evaluación de prioridades durante la colaboración en organizaciones de todos los tamaños. SignalFx se integra directamente con Azure Monitor, así como a través de conectores de código abierto como *Telegraf*, *statsD* y *collectd*, con el fin de proporcionar los mejores paneles, análisis y alertas para Azure.
+SignalFx es el líder en inteligencia operativa en tiempo real para DevOps controlado por datos. El servicio detecta y recopila métricas de todos los componentes en la nube. Reemplaza las tradicionales herramientas de puntos y proporciona visibilidad en tiempo real de los actuales entornos dinámicos. El aprovechamiento de la plataforma SignalFx, que es altamente escalable, hace que la plataforma de SaaS esté optimizada para infraestructuras basadas en contenedor y microservicios y proporcione eficaces funcionalidades de visualización, generación proactiva de alertas y evaluación de prioridades durante la colaboración en organizaciones de todos los tamaños. SignalFx se integra directamente con Azure Monitor, así como a través de conectores de código abierto como *Telegraf*, *statsD* y *collectd*, con el fin de proporcionar los mejores paneles, análisis y alertas para Azure.
 
 [Vaya a la documentación.][signalfx-doc]
 
 ## <a name="signl4"></a>SIGNL4
+
 ![Logotipo de SIGNL4](./media/partners/signl4.png)
 
 SIGNL4: aplicación de alertas móviles para equipos de operaciones. Es la forma más rápida de enrutar las alertas críticas de Azure Monitor a las personas adecuadas en el momento oportuno. En cualquier lugar mediante notificaciones push, mensajes de texto y llamadas de voz. SIGNL4 administra las guardias y los turnos de su equipo, hace un seguimiento del envío y la propiedad de las alertas y las escala si fuera necesario. Se proporciona una transparencia al equipo. Mediante el sencillo webhook REST de SIGNL4 se puede conectar cualquier servicio de Azure sin esfuerzo alguno. Con SIGNL4, verá una respuesta que es hasta 10 veces más rápida que las notificaciones por correo electrónico y las alertas manuales.
@@ -232,6 +241,14 @@ El complemento Azure Monitor para Splunk está [disponible en Splunkbase aquí](
 
 [Vaya a la documentación.][splunk-doc]
 
+## <a name="squaredup"></a>SquaredUp 
+
+![Logotipo de SquaredUp](./media/partners/squaredup.png)
+
+SquaredUp para Azure hace que la visualización de las aplicaciones de Azure sea muy sencilla. Proporciona paneles interactivos en tiempo real. Puede explorar en profundidad las suscripciones, los grupos de recursos, las etiquetas y los recursos individuales para ver las métricas, como la CPU, la mayoría de las conexiones entrantes, el tiempo de respuesta de Application Insights, el costo total y el estado de mantenimiento resumido, así como obtener detalles para consultar los datos relacionados, como las alertas, los eventos de Log Analytics, y métricas más detalladas, o para ver los datos relacionados de otras herramientas que use: como ServiceNow, Dynatrace, PagerDuty o Pingdom, por ejemplo.  Puede personalizar sus propios paneles, publicarlos y compartirlos con personas o en páginas de la intranet. 
+
+[Más información.](https://squaredup.com/)
+
 ## <a name="sumo-logic"></a>Sumo Logic
 
 ![Logotipo de Sumo Logic](./media/partners/SumoLogic.png)
@@ -249,6 +266,7 @@ Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya qu
 [Más información.][turbonomic-doc]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - [Obtener más información sobre Azure Monitor](../../azure-monitor/overview.md)
 - [Acceder a métricas mediante la API de REST](rest-api-walkthrough.md)
 - [Transmitir el registro de actividad a un servicio que no es de Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

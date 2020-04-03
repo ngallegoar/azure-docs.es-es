@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cddf2ab36b2372ce93ae8a2a6230ccb02ae30117
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: f9ed613972f166f1f9955fc34e9bb640d87da6b5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721031"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331442"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Guía de instalación de Azure AD Connect y Azure AD Connect Health
 
@@ -108,7 +108,7 @@ El modelo de configuración sincronizado se denomina [aprovisionamiento declarat
 
 Azure AD Connect proporciona varias características que simplifican la federación con Azure AD mediante AD FS y la administración de la confianza de federación. Azure AD Connect es compatible con AD FS en Windows Server 2012R2 o posterior.
 
-[Actualice el certificado SSL de la granja de AD FS](how-to-connect-fed-ssl-update.md) incluso si no usa Azure AD Connect para administrar la confianza de federación.
+[Actualice el certificado TLS/SSL de la granja de AD FS](how-to-connect-fed-ssl-update.md) incluso si no usa Azure AD Connect para administrar la confianza de federación.
 
 [Agregue un servidor de AD FS](how-to-connect-fed-management.md#addadfsserver) a la granja para expandirla según sea necesario.
 

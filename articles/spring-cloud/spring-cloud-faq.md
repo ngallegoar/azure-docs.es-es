@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: e4fbeef06ae49ffe24f84b1a12dbcdfe0a5f1fec
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 62623bcadb35f21117ddc2601195e34598c2dff5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278565"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298772"
 ---
 # <a name="azure-spring-cloud-faq"></a>Preguntas frecuentes de Azure Spring Cloud
 
@@ -44,13 +44,13 @@ Para obtener más información, consulte las [preguntas más frecuentes de sopor
 
 La seguridad y la privacidad se encuentran entre las principales prioridades para los clientes de Azure y de Azure Spring Cloud. Azure permite garantizar que solo los clientes tienen acceso a los datos, registros o configuraciones de la aplicación mediante el cifrado seguro de todos estos datos. Las instancias de servicio de Azure Spring Cloud están todas aisladas unas de otras.
 
-Azure Spring Cloud proporciona administración completa de certificados y de SSL.
+Azure Spring Cloud proporciona administración completa de certificados y TLS/SSL.
 
 Las revisiones de seguridad críticas de los runtimes de OpenJDK y Spring Cloud se aplicarán a Azure Spring Cloud lo antes posible.
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>¿En qué regiones está disponible Azure Spring Cloud?
 
-Este de EE. UU., Oeste de EE. UU. 2, Oeste de Europa y Sudeste Asiático.
+Este de EE. UU., Oeste de EE. UU. 2, Oeste de Europa y Sudeste de Asia.
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>¿Cuáles son las limitaciones conocidas de Azure Spring Cloud?
 

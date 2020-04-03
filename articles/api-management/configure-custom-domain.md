@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 887019bbdb92807d49c09af3a83313470f334a52
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 4587909ad6fca6cdf21d54d11d89f797bbb29833
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649556"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335834"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
@@ -40,7 +40,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 -   Una instancia de API Management Para más información, vea [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 -   Nombre de dominio personalizado que propiedad de su organización o suyo. En este tema no se dan instrucciones para adquirir un nombre de dominio personalizado.
 -   Un registro CNAME hospedado en un servidor DNS que asigna el nombre de dominio personalizado al nombre de dominio predeterminado de una instancia de API Management. En este tema no se dan instrucciones para hospedar un registro CNAME.
--   Debe tener un certificado válido con una clave pública y privada (. PFX). El firmante o el nombre alternativo del firmante (SAN) debe coincidir con el nombre de dominio; de este modo, API Management puede exponer de forma segura direcciones URL a través de SSL.
+-   Debe tener un certificado válido con una clave pública y privada (. PFX). El firmante o el nombre alternativo del firmante (SAN) debe coincidir con el nombre de dominio. De este modo, API Management puede exponer de forma segura direcciones URL mediante TLS.
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Uso de Azure Portal para configurar un nombre de dominio personalizado
 
@@ -72,9 +72,9 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
     > [!TIP]
     > Se recomienda usar Azure Key Vault para administrar certificados y configurarlos para la rotación automática.
-    > Si usa Azure Key Vault para administrar el certificado SSL de dominio personalizado, asegúrese de que el certificado se inserta en Key Vault [como un _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), no como un _secreto_.
+    > Si usa Azure Key Vault para administrar el certificado TLS/SSL de dominio personalizado, asegúrese de que el certificado se inserta en Key Vault [como un _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), no como un _secreto_.
     >
-    > Para capturar un certificado SSL, API Management debe tener la lista y obtener los permisos de secretos en la instancia de Azure Key Vault que contiene el certificado. Cuando se usa Azure Portal, todos los pasos de configuración necesarios se realizarán automáticamente. Cuando se usan las herramientas de línea de comandos o API Management, estos permisos se deben conceder manualmente. Para ello, debe realizar dos pasos. En primer lugar, use la página de identidades administradas de la instancia de API Management para asegurarse de que está habilitada la identidad administrada, y anote el identificador de la entidad que se muestra en esa página. En segundo lugar, proporcione la lista de permisos y obtenga los permisos de secretos de este identificador de entidad en la instancia de Azure Key Vault que contiene el certificado.
+    > Para capturar un certificado TLS/SSL, API Management debe tener la lista y obtener los permisos de secretos en la instancia de Azure Key Vault que contiene el certificado. Cuando se usa Azure Portal, todos los pasos de configuración necesarios se realizarán automáticamente. Cuando se usan las herramientas de línea de comandos o API Management, estos permisos se deben conceder manualmente. Para ello, debe realizar dos pasos. En primer lugar, use la página de identidades administradas de la instancia de API Management para asegurarse de que está habilitada la identidad administrada, y anote el identificador de la entidad que se muestra en esa página. En segundo lugar, proporcione la lista de permisos y obtenga los permisos de secretos de este identificador de entidad en la instancia de Azure Key Vault que contiene el certificado.
     >
     > Si el certificado está establecido para rotar automáticamente, API Management seleccionará automáticamente la versión más reciente sin tiempo de inactividad para el servicio (si el plan de API Management tiene SLA en todos los planes, excepto el plan de desarrollador).
 
@@ -93,7 +93,7 @@ Al configurar DNS para el nombre de dominio personalizado, tiene dos opciones:
 -   Configurar un registro A que apunte a la dirección IP de la puerta de enlace de API Management.
 
 > [!NOTE]
-> Si bien la dirección IP de la instancia de API Management es estática, es posible que cambien en algunos escenarios. Debido a esto, se recomienda usar CNAME al configurar un dominio personalizado. Tenga en cuenta eso cuando elija el método de configuración de DNS. Lea más detalles en las [preguntas más frecuentes sobre API Management](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
+> Si bien la dirección IP de la instancia de API Management es estática, es posible que cambien en algunos escenarios. Debido a esto, se recomienda usar CNAME al configurar un dominio personalizado. Tenga en cuenta eso cuando elija el método de configuración de DNS. Más información en el [artículo de la documentación de IP](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) y las [Preguntas más frecuentes sobre API Management](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

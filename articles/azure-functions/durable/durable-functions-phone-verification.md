@@ -4,12 +4,12 @@ description: Aprenda a controlar la interacción humana y los tiempos de espera 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0c16ef092c30a94cd04b55c91d3643ac29b82be0
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562112"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335760"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Las interacciones humanas en Durable Functions: comprobación telefónica de ejemplo
 
@@ -36,7 +36,7 @@ Con Durable Functions se reduce enormemente la complejidad de este escenario. Co
 En este artículo se explican las funciones siguientes en la aplicación de ejemplo:
 
 * `E4_SmsPhoneVerification`: [función de orquestador](durable-functions-bindings.md#orchestration-trigger) que realiza el proceso de comprobación telefónica, incluida la administración de tiempos de espera y reintentos.
-* `E4_SendSmsChallenge`: [función de orquestador](durable-functions-bindings.md#activity-trigger) que envía un código a través de un mensaje de texto.
+* `E4_SendSmsChallenge`: [función de actividad](durable-functions-bindings.md#activity-trigger) que envía un código mediante un mensaje de texto.
 
 ### <a name="e4_smsphoneverification-orchestrator-function"></a>Función de orquestador E4_SmsPhoneVerification
 
@@ -83,7 +83,7 @@ La función **E4_SendSmsChallenge** usa el enlace de Twilio para enviar el mensa
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
 > [!NOTE]
-> Deberá instalar el paquete NuGet `Microsoft.Azure.WebJobs.Extensions.Twilio` para ejecutar el código de ejemplo.
+> Tendrá que instalar el paquete NuGet `Microsoft.Azure.WebJobs.Extensions.Twilio` para ejecutar el código de ejemplo.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 96f71306c060a6a533a3ab1c0c54b49d74e5cd82
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298393"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294384"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services mediante Visual Studio
 
@@ -65,7 +65,7 @@ Si trabaja como parte de un equipo, en su lugar debe habilitar el escritorio rem
 
 Esta recomendación se debe a un cambio en la forma en que Visual Studio 2017 versión 15.5 y versiones posteriores se comunica con la máquina virtual de servicios en la nube. Cuando se habilita Escritorio remoto mediante el asistente para publicación, las versiones anteriores de Visual Studio se comunican con la máquina virtual mediante lo que se denomina "complemento RDP". En cambio, Visual Studio 2017 versión 15.5 y versiones posteriores se comunica mediante la "extensión RDP", más segura y flexible. Este cambio también se alinea con el hecho de que los métodos de Azure Portal y PowerShell para habilitar Escritorio remoto también utilizan la extensión RDP.
 
-Cuando Visual Studio se comunica con la extensión RDP, transmite una contraseña de texto sin formato a través de SSL. Sin embargo, los archivos de configuración del proyecto solo almacenan una contraseña cifrada, que únicamente se puede descifrar en texto sin formato con el certificado local que se utilizó originalmente para cifrarla.
+Cuando Visual Studio se comunica con la extensión RDP, transmite una contraseña de texto sin formato mediante TLS. Sin embargo, los archivos de configuración del proyecto solo almacenan una contraseña cifrada, que únicamente se puede descifrar en texto sin formato con el certificado local que se utilizó originalmente para cifrarla.
 
 Si implementa el proyecto del servicio en la nube en el mismo equipo de desarrollo cada vez, ese certificado local estará disponible. En este caso, todavía puede usar la opción **Habilitar Escritorio remoto para todos los roles** en el asistente para publicación.
 

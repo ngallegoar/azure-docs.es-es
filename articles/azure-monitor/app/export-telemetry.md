@@ -2,13 +2,13 @@
 title: Exportación de telemetría desde Application Insights | Microsoft Docs
 description: Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí.
 ms.topic: conceptual
-ms.date: 07/25/2019
-ms.openlocfilehash: 33158919980514b70c3b0e438691427a34eed834
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/25/2020
+ms.openlocfilehash: f6afe42e483ab7ad5810169fc301946c75308c29
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663920"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298282"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
 ¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir el código necesario para procesarlos.  
@@ -34,7 +34,7 @@ La exportación continua **no admite** las siguientes características o configu
 
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
-## <a name="setup"></a>Creación de una exportación continua.
+## <a name="create-a-continuous-export"></a><a name="setup"></a>Creación de una exportación continua.
 
 1. En el recurso de Application Insights de su aplicación en Configuración, a la izquierda, abra Exportación continua y elija **Agregar**:
 
@@ -53,6 +53,18 @@ Una vez que ha creado la exportación, comienza el proceso. Solo obtendrá los d
 
 Puede haber un retraso de aproximadamente una hora antes de que aparezcan los datos en el almacenamiento.
 
+Una vez completada la primera exportación, encontrará una estructura similar a la siguiente en el contenedor de Azure Blob Storage: (Variará en función de los datos que recopile).
+
+|Nombre | Descripción |
+|:----|:------|
+| [Disponibilidad](export-data-model.md#availability) | Notifica sobre [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md).  |
+| [Evento](export-data-model.md#events) | Eventos personalizados generados por [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
+| [Excepciones](export-data-model.md#exceptions) |Notifica sobre [excepciones](../../azure-monitor/app/asp-net-exceptions.md) en el servidor y en el explorador.
+| [Mensajes](export-data-model.md#trace-messages) | Enviados por [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) y por los [adaptadores de registro](../../azure-monitor/app/asp-net-trace-logs.md).
+| [Métricas](export-data-model.md#metrics) | Generado por llamadas de la API de métricas.
+| [PerformanceCounters](export-data-model.md) | Contadores de rendimiento recopilados por Application Insights.
+| [Solicitudes](export-data-model.md#requests)| Enviado por [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Los módulos estándar usan esto para informar sobre el tiempo de respuesta del servidor, medido en el propio servidor.| 
+
 ### <a name="to-edit-continuous-export"></a>Para editar la exportación continua
 
 Haga clic en Exportación continua y seleccione la cuenta de almacenamiento que desee editar.
@@ -66,7 +78,7 @@ Para detener la exportación de forma permanente, elimínela. Al realizar esta a
 ### <a name="cant-add-or-change-an-export"></a>¿No puede agregar o cambiar una exportación?
 * Para agregar o cambiar las exportaciones, necesita derechos de acceso de propietario, colaborador o colaborador de Application Insights. [Más información sobre los roles][roles].
 
-## <a name="analyze"></a> ¿Qué eventos obtiene?
+## <a name="what-events-do-you-get"></a><a name="analyze"></a> ¿Qué eventos obtiene?
 Los datos exportados son la telemetría sin procesar que recibimos de la aplicación, aunque también agregamos los datos de ubicación que calculamos a partir de la dirección IP del cliente.
 
 Los datos que se han descartado por [muestreo](../../azure-monitor/app/sampling.md) no se incluyen en los datos exportados.
@@ -80,7 +92,7 @@ Los datos también incluyen los resultados de cualquier [prueba web de disponibi
 >
 >
 
-## <a name="get"></a> Inspección de los datos
+## <a name="inspect-the-data"></a><a name="get"></a> Inspección de los datos
 Puede inspeccionar el almacenamiento directamente en el portal. Haga clic en Inicio en el menú de la izquierda, en la parte superior donde se indica "Servicios de Azure", seleccione **Cuentas de almacenamiento**, seleccione el nombre de la cuenta de almacenamiento, en la página de información general, seleccione **Blobs** bajo Servicios y, por último, seleccione el nombre del contenedor.
 
 Para inspeccionar Azure Storage en Visual Studio, abra **Ver**, **Cloud Explorer**. Si no tienes ese comando de menú, deberá instalar Azure SDK: abra el cuadro de diálogo **Nuevo proyecto**, expanda Visual C#/Nube/ y seleccione **Obtener Microsoft Azure SDK para. NET**.
@@ -100,7 +112,7 @@ Where
 * `blobCreationTimeUtc` es la hora de creación del blob en el almacenamiento provisional interno.
 * `blobDeliveryTimeUtc` es la hora de copia del blob en el almacenamiento de destino de exportación.
 
-## <a name="format"></a> Formato de datos
+## <a name="data-format"></a><a name="format"></a> Formato de datos
 * Cada blob es un archivo de texto que contiene varias filas separadas por' \n'. Contiene la telemetría procesada durante un período de aproximadamente la mitad de un minuto.
 * Cada fila representa un punto de datos de telemetría, como una vista de página o una solicitud.
 * Cada fila es un documento JSON sin formato. Si quiere sentarse a mirarlo, ábralo en Visual Studio y elija Editar, Avanzadas, Archivo de formato:
@@ -137,7 +149,7 @@ En una pequeña escala, puede escribir código para separar sus datos, leerlos e
 
 Para obtener un ejemplo de código mayor, consulte [cómo usar un rol de trabajo][exportasa].
 
-## <a name="delete"></a>Eliminación de los datos antiguos
+## <a name="delete-your-old-data"></a><a name="delete"></a>Eliminación de los datos antiguos
 Es responsable de administrar la capacidad de almacenamiento y de eliminar los datos antiguos, si fuera necesario.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Si vuelve a generar la clave de almacenamiento...

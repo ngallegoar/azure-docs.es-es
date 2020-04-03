@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 38f9c432191ac613c1c0f8c02458e8bc4bf8232a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 020208a8b67d248c02fc659d4dc48fa22d333839
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273764"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298823"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
 
@@ -102,7 +102,7 @@ La siguiente tabla enumera los puertos que deben abrirse en el firewall para per
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
 > [!IMPORTANT]
-> Asegúrese de que el firewall no modifica ni descifra ningún tráfico SSL entre el dispositivo de StorSimple y Azure.
+> Asegúrese de que el firewall no modifica ni descifra ningún tráfico TLS entre el dispositivo StorSimple y Azure.
 > 
 > 
 

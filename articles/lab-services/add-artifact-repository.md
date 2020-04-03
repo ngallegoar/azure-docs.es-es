@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 28ab6ca9b87bb00cbb7b5e329b7ff08972ba370a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a0dbd92533703a56f1ec2478fab8944656129247
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979134"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295502"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Agregar un repositorio de artefactos a un laboratorio en Azure DevTest Labs
 DevTest Labs permite especificar que se agregue un artefacto a una máquina virtual en el mismo momento de crear la máquina virtual o después de que se haya creado. Este artefacto puede ser una herramienta o una aplicación que desee instalar en la máquina virtual. Los artefactos se definen en un archivo JSON que se carga desde un repositorio GitHub o un repositorio GIT de Azure DevOps.
@@ -29,7 +29,7 @@ En este artículo se proporciona información acerca de cómo agregar un reposit
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Para agregar un repositorio al laboratorio, obtenga cierta información clave del repositorio. En las secciones siguientes, se describe cómo obtener la información requerida para los repositorios hospedados en **GitHub** o **Azure DevOps**.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Obtención de la dirección URL de clonación del repositorio de GitHub y el token de acceso personal
@@ -46,7 +46,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 10. Cierre GitHub.   
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obtención de la dirección URL de clonación de Azure Repos y el token de acceso personal
-1. Vaya a la página principal de la colección de equipo (por ejemplo, https://contoso-web-team.visualstudio.com) ) y después seleccione el proyecto.
+1. Vaya a la página principal de la colección de equipo (por ejemplo, `https://contoso-web-team.visualstudio.com`) y, después, seleccione el proyecto.
 2. En la página de inicio del proyecto, seleccione **Código**.
 3. Para ver la dirección URL de clonación, en la página **Código** del proyecto, seleccione **Clonar**.
 4. Guarde la dirección URL. Usará la dirección URL más adelante.

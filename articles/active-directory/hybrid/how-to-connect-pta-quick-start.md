@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fe38b434c4e54b375b22d76c573d3bbe88b0e16
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6fc45033cdf1bdaa6d4ecd6ab58cc7f90ff9c1ca
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889947"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331415"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticación de paso a través de Azure Active Directory: Inicio rápido
 
@@ -61,7 +61,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
 
      | Número de puerto | Cómo se usa |
      | --- | --- |
-     | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado SSL |
+     | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado TLS/SSL |
      | **443** | Controla toda la comunicación saliente con el servicio |
      | **8080** (opcional) | Los agentes de autenticación notifican su estado cada diez minutos a través del puerto 8080, si el puerto 443 no está disponible. Este estado se muestra en el portal de Azure AD. El puerto 8080 _no_ se usa para inicios de sesión de usuario. |
      
@@ -131,7 +131,7 @@ Para empezar, siga estas instrucciones para descargar el software de agente de a
 ![Centro de administración de Azure Active Directory: Panel Descargar agente](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
->También puede descargar [directamente el software del agente de autenticación](https://aka.ms/getauthagent). Revise y acepte las [Condiciones del servicio](https://aka.ms/authagenteula) del agente de autenticación _antes_ de instalarlo.
+>También puede descargar [directamente el software del agente de autenticación](https://aka.ms/getauthagent). Revise y acepte los [Términos del servicio](https://aka.ms/authagenteula) del agente de autenticación _antes_ de instalarlo.
 
 Hay dos formas de implementar un agente de autenticación independiente:
 
@@ -148,7 +148,7 @@ En segundo lugar, puede crear y ejecutar un script de implementación desatendid
         $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
 3. Vaya a **C:\Archivos de programa\Microsoft Azure AD Connect Authentication Agent** y ejecute el script siguiente con el objeto `$cred` que creó:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 >[!IMPORTANT]
 >Si se instala un agente de autenticación en una máquina virtual, no podrá clonar esta para configurar otro agente de autenticación. Este método es **incompatible**.

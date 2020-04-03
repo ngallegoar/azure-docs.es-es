@@ -1,21 +1,21 @@
 ---
 title: 'Identificadores de cadenas de localización: Azure Active Directory B2C | Microsoft Docs'
-description: Especifique los identificadores de una definición de contenido con un identificador api.signuporsignin en una directiva personalizada en Azure Active Directory B2C.
+description: Especifique los identificadores de una definición de contenido con un identificador api.signuporsignin en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3af62a75228959478a80c2628307fff2b47c3c4a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e5339136513d4a9553c46bb50c0dd29f9785c7fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78187498"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330943"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -33,7 +33,7 @@ Los siguientes identificadores sirven para una definición de contenido con el i
 | **logonIdentifier_email** | Dirección de correo electrónico |
 | **requiredField_email** | Escriba su dirección de correo electrónico. |
 | **invalid_email** | Escriba una dirección de correo electrónico válida. |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&’' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&'' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
 | **local_intro_username** | Inicie sesión con su nombre de usuario. |
 | **logonIdentifier_username** | Nombre de usuario |
 | **requiredField_username** | Escriba su nombre de usuario. |
@@ -91,7 +91,7 @@ En el ejemplo siguiente se localiza el proveedor de identidades de Facebook en �
 | **UserMessageIfUserAccountLocked** | Su cuenta se bloqueó temporalmente para impedir un uso no autorizado. Vuelva a intentarlo más tarde. |
 | **AADRequestsThrottled** | Hay demasiadas solicitudes en este momento. Espere un poco y vuelva a intentarlo. |
 
-## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementos de la interfaz de usuario de páginas autoafirmadas o de registro
+## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementos de la interfaz de usuario de páginas autoafirmadas y de registro
 
 Los siguientes identificadores corresponden a una definición de contenido con un identificador `api.localaccountsignup` o a cualquier definición de contenido que empiece con `api.selfasserted`, como `api.selfasserted.profileupdate` y `api.localaccountpasswordreset`.
 
@@ -120,7 +120,7 @@ Los siguientes identificadores corresponden a una definición de contenido con u
 | **ver_incorrect_format** | Formato incorrecto. |
 | **ver_but_edit** | Cambie la dirección de correo electrónico. |
 | **ver_but_verify** | Compruebe el código. |
-| **alert_no** | Sin |
+| **alert_no** | No |
 | **ver_info_msg** | Se ha enviado el código de verificación a su bandeja de entrada. Cópielo en el siguiente cuadro de entrada de texto. |
 | **day** | Día |
 | **ver_fail_throttled** | Ha habido demasiadas solicitudes para verificar esta dirección de correo electrónico. Espere un poco y vuelva a intentarlo. |
@@ -190,7 +190,7 @@ Los siguientes identificadores sirven para una definición de contenido con el i
 | **number_label** | Número de teléfono |
 | **error_tryagain** | El número de teléfono que ha proporcionado está ocupado o no está disponible. Compruebe el número y vuelva a intentarlo. |
 | **error_incorrect_code** | El código de verificación que ha escrito no figura en nuestros registros. Inténtelo de nuevo o solicite uno nuevo. |
-| **countryList** | {\"DEFAULT\":\"Country/Region\",\"AF\":\"Afghanistan\",\"AX\":\"Åland Islands\",\"AL\":\"Albania\",\"DZ\":\"Algeria\",\"AS\":\"American Samoa\",\"AD\":\"Andorra\",\"AO\":\"Angola\",\"AI\":\"Anguilla\",\"AQ\":\"Antarctica\",\"AG\":\"Antigua and Barbuda\",\"AR\":\"Argentina\",\"AM\":\"Armenia\",\"AW\":\"Aruba\",\"AU\":\"Australia\",\"AT\":\"Austria\",\"AZ\":\"Azerbaijan\",\"BS\":\"Bahamas\",\"BH\":\"Bahrain\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\",\"BY\":\"Belarus\",\"BE\":\"Belgium\",\"BZ\":\"Belize\",\"BJ\":\"Benin\",\"BM\":\"Bermuda\",\"BT\":\"Bhutan\",\"BO\":\"Bolivia\",\"BQ\":\"Bonaire\",\"BA\":\"Bosnia and Herzegovina\",\"BW\":\"Botswana\",\"BV\":\"Bouvet Island\",\"BR\":\"Brazil\",\"IO\":\"British Indian Ocean Territory\",\"VG\":\"British Virgin Islands\",\"BN\":\"Brunei\",\"BG\":\"Bulgaria\",\"BF\":\"Burkina Faso\",\"BI\":\"Burundi\",\"CV\":\"Cabo Verde\",\"KH\":\"Cambodia\",\"CM\":\"Cameroon\",\"CA\":\"Canada\",\"KY\":\"Cayman Islands\",\"CF\":\"Central African Republic\",\"TD\":\"Chad\",\"CL\":\"Chile\",\"CN\":\"China\",\"CX\":\"Christmas Island\",\"CC\":\"Cocos (Keeling) Islands\",\"CO\":\"Colombia\",\"KM\":\"Comoros\",\"CG\":\"Congo\",\"CD\":\"Congo (DRC)\",\"CK\":\"Cook Islands\",\"CR\":\"Costa Rica\",\"CI\":\"Côte d’Ivoire\",\"HR\":\"Croatia\",\"CU\":\"Cuba\",\"CW\":\"Curaçao\",\"CY\":\"Cyprus\",\"CZ\":\"Czech Republic\",\"DK\":\"Denmark\",\"DJ\":\"Djibouti\",\"DM\":\"Dominica\",\"DO\":\"Dominican Republic\",\"EC\":\"Ecuador\",\"EG\":\"Egypt\",\"SV\":\"El Salvador\",\"GQ\":\"Equatorial Guinea\",\"ER\":\"Eritrea\",\"EE\":\"Estonia\",\"ET\":\"Ethiopia\",\"FK\":\"Falkland Islands\",\"FO\":\"Faroe Islands\",\"FJ\":\"Fiji\",\"FI\":\"Finland\",\"FR\":\"France\",\"GF\":\"French Guiana\",\"PF\":\"French Polynesia\",\"TF\":\"French Southern Territories\",\"GA\":\"Gabon\",\"GM\":\"Gambia\",\"GE\":\"Georgia\",\"DE\":\"Germany\",\"GH\":\"Ghana\",\"GI\":\"Gibraltar\",\"GR\":\"Greece\",\"GL\":\"Greenland\",\"GD\":\"Grenada\",\"GP\":\"Guadeloupe\",\"GU\":\"Guam\",\"GT\":\"Guatemala\",\"GG\":\"Guernsey\",\"GN\":\"Guinea\",\"GW\":\"Guinea-Bissau\",\"GY\":\"Guyana\",\"HT\":\"Haiti\",\"HM\":\"Heard Island and McDonald Islands\",\"HN\":\"Honduras\",\"HK\":\"Hong Kong SAR\",\"HU\":\"Hungary\",\"IS\":\"Iceland\",\"IN\":\"India\",\"ID\":\"Indonesia\",\"IR\":\"Iran\",\"IQ\":\"Iraq\",\"IE\":\"Ireland\",\"IM\":\"Isle of Man\",\"IL\":\"Israel\",\"IT\":\"Italy\",\"JM\":\"Jamaica\",\"JP\":\"Japan\",\"JE\":\"Jersey\",\"JO\":\"Jordan\",\"KZ\":\"Kazakhstan\",\"KE\":\"Kenya\",\"KI\":\"Kiribati\",\"KR\":\"Korea\",\"KW\":\"Kuwait\",\"KG\":\"Kyrgyzstan\",\"LA\":\"Laos\",\"LV\":\"Latvia\",\"LB\":\"Lebanon\",\"LS\":\"Lesotho\",\"LR\":\"Liberia\",\"LY\":\"Libya\",\"LI\":\"Liechtenstein\",\"LT\":\"Lithuania\",\"LU\":\"Luxembourg\",\"MO\":\"Macao SAR\",\"MK\":\"North Macedonia\",\"MG\":\"Madagascar\",\"MW\":\"Malawi\",\"MY\":\"Malaysia\",\"MV\":\"Maldives\",\"ML\":\"Mali\",\"MT\":\"Malta\",\"MH\":\"Marshall Islands\",\"MQ\":\"Martinique\",\"MR\":\"Mauritania\",\"MU\":\"Mauritius\",\"YT\":\"Mayotte\",\"MX\":\"Mexico\",\"FM\":\"Micronesia\",\"MD\":\"Moldova\",\"MC\":\"Monaco\",\"MN\":\"Mongolia\",\"ME\":\"Montenegro\",\"MS\":\"Montserrat\",\"MA\":\"Morocco\",\"MZ\":\"Mozambique\",\"MM\":\"Myanmar\",\"NA\":\"Namibia\",\"NR\":\"Nauru\",\"NP\":\"Nepal\",\"NL\":\"Netherlands\",\"NC\":\"New Caledonia\",\"NZ\":\"New Zealand\",\"NI\":\"Nicaragua\",\"NE\":\"Niger\",\"NG\":\"Nigeria\",\"NU\":\"Niue\",\"NF\":\"Norfolk Island\",\"KP\":\"North Korea\",\"MP\":\"Northern Mariana Islands\",\"NO\":\"Norway\",\"OM\":\"Oman\",\"PK\":\"Pakistan\",\"PW\":\"Palau\",\"PS\":\"Palestinian Authority\",\"PA\":\"Panama\",\"PG\":\"Papua New Guinea\",\"PY\":\"Paraguay\",\"PE\":\"Peru\",\"PH\":\"Philippines\",\"PN\":\"Pitcairn Islands\",\"PL\":\"Poland\",\"PT\":\"Portugal\",\"PR\":\"Puerto Rico\",\"QA\":\"Qatar\",\"RE\":\"Réunion\",\"RO\":\"Romania\",\"RU\":\"Russia\",\"RW\":\"Rwanda\",\"BL\":\"Saint Barthélemy\",\"KN\":\"Saint Kitts and Nevis\",\"LC\":\"Saint Lucia\",\"MF\":\"Saint Martin\",\"PM\":\"Saint Pierre and Miquelon\",\"VC\":\"Saint Vincent and the Grenadines\",\"WS\":\"Samoa\",\"SM\":\"San Marino\",\"ST\":\"São Tomé and Príncipe\",\"SA\":\"Saudi Arabia\",\"SN\":\"Senegal\",\"RS\":\"Serbia\",\"SC\":\"Seychelles\",\"SL\":\"Sierra Leone\",\"SG\":\"Singapore\",\"SX\":\"Sint Maarten\",\"SK\":\"Slovakia\",\"SI\":\"Slovenia\",\"SB\":\"Solomon Islands\",\"SO\":\"Somalia\",\"ZA\":\"South Africa\",\"GS\":\"South Georgia and South Sandwich Islands\",\"SS\":\"South Sudan\",\"ES\":\"Spain\",\"LK\":\"Sri Lanka\",\"SH\":\"St Helena, Ascension, Tristan da Cunha\",\"SD\":\"Sudan\",\"SR\":\"Suriname\",\"SJ\":\"Svalbard\",\"SZ\":\"Swaziland\",\"SE\":\"Sweden\",\"CH\":\"Switzerland\",\"SY\":\"Syria\",\"TW\":\"Taiwan\",\"TJ\":\"Tajikistan\",\"TZ\":\"Tanzania\",\"TH\":\"Thailand\",\"TL\":\"Timor-Leste\",\"TG\":\"Togo\",\"TK\":\"Tokelau\",\"TO\":\"Tonga\",\"TT\":\"Trinidad and Tobago\",\"TN\":\"Tunisia\",\"TR\":\"Turkey\",\"TM\":\"Turkmenistan\",\"TC\":\"Turks and Caicos Islands\",\"TV\":\"Tuvalu\",\"UM\":\"U.S. alejadas de los EE. UU.\",\"VI\":\"Islas Vírgenes de los Estados Unidos\",\"UG\":\"Uganda\",\"UA\":\"Ucrania\",\"AE\":\"Emiratos Árabes Unidos\",\"GB\":\"Reino Unido\",\"US\":\"Estados Unidos\",\"UY\":\"Uruguay\",\"UZ\":\"Uzbekistán\",\"VU\":\"Vanuatu\",\"VA\":\"Ciudad del Vaticano\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam\",\"WF\":\"Wallis y Futuna\",\"YE\":\"Yemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabue\"} |
+| **countryList** | {\"DEFAULT\":\"País/Región\",\"AF\":\"Afganistán\",\"AX\":\"Islas Åland\",\"AL\":\"Albania\",\"DZ\":\"Argelia\",\"AS\":\"Samoa Americana\",\"AD\":\"Andorra\",\"AO\":\"Angola\",\"AI\":\"Anguila\",\"AQ\":\"Antártida\",\"AG\":\"Antigua y Barbuda\",\"AR\":\"Argentina\",\"AM\":\"Armenia\",\"AW\":\"Aruba\",\"AU\":\"Australia\",\"AT\":\"Austria\",\"AZ\":\"Azerbaiyán\",\"BS\":\"Bahamas\",\"BH\":\"Bahréin\",\"BD\":\"Bangladés\",\"BB\":\"Barbados\",\"BY\":\"Belarús\",\"BE\":\"Bélgica\",\"BZ\":\"Belice\",\"BJ\":\"Benín\",\"BM\":\"Bermudas\",\"BT\":\"Bután\",\"BO\":\"Bolivia\",\"BQ\":\"Bonaire\",\"BA\":\"Bosnia y Herzegovina\",\"BW\":\"Botsuana\",\"BV\":\"Isla Bouvet\",\"BR\":\"Brasil\",\"IO\":\"Territorio Británico del Océano Índico\",\"VG\":\"Islas Vírgenes Británicas\",\"BN\":\"Brunei\",\"BG\":\"Bulgaria\",\"BF\":\"Burkina Faso\",\"BI\":\"Burundi\",\"CV\":\"Cabo Verde\",\"KH\":\"Camboya\",\"CM\":\"Camerún\",\"CA\":\"Canadá\",\"KY\":\"Islas Caimán\",\"CF\":\"República Centroafricana\",\"TD\":\"Chad\",\"CL\":\"Chile\",\"CN\":\"China\",\"CX\":\"Isla de Navidad\",\"CC\":\"Islas Cocos (Keeling)\",\"CO\":\"Colombia\",\"KM\":\"Comores\",\"CG\":\"Congo\",\"CD\":\"Congo (RDC)\",\"CK\":\"Islas Cook\",\"CR\":\"Costa Rica\",\"CI\":\"Côte d'Ivoire\",\"HR\":\"Croacia\",\"CU\":\"Cuba\",\"CW\":\"Curazao\",\"CY\":\"Chipre\",\"CZ\":\"República Checa\",\"DK\":\"Dinamarca\",\"DJ\":\"Yibuti\",\"DM\":\"Dominica\",\"DO\":\"República Dominicana\",\"EC\":\"Ecuador\",\"EG\":\"Egipto\",\"SV\":\"El Salvador\",\"GQ\":\"Guinea Ecuatorial\",\"ER\":\"Eritrea\",\"EE\":\"Estonia\",\"ET\":\"Etiopía\",\"FK\":\"Islas Malvinas\",\"FO\":\"Islas Feroe\",\"FJ\":\"Islas Fiji\",\"FI\":\"Finlandia\",\"FR\":\"Francia\",\"GF\":\"Guayana Francesa\",\"PF\":\"Polinesia francesa\",\"TF\":\"Territorios Australes Franceses\",\"GA\":\"Gabón\",\"GM\":\"Gambia\",\"GE\":\"Georgia\",\"DE\":\"Alemania\",\"GH\":\"Ghana\",\"GI\":\"Gibraltar\",\"GR\":\"Grecia\",\"GL\":\"Groenlandia\",\"GD\":\"Granada\",\"GP\":\"Guadalupe\",\"GU\":\"Guam\",\"GT\":\"Guatemala\",\"GG\":\"Guernsey\",\"GN\":\"Guinea\",\"GW\":\"Guinea-Bisáu\",\"GY\":\"Guayana\",\"HT\":\"Haití\",\"HM\":\"Isla Heard e Islas McDonald\",\"HN\":\"Honduras\",\"HK\":\"RAE de Hong Kong\",\"HU\":\"Hungría\",\"IS\":\"Islandia\",\"IN\":\"India\",\"ID\":\"Indonesia\",\"IR\":\"Irán\",\"IQ\":\"Iraq\",\"IE\":\"Irlanda\",\"IM\":\"Isla de Man\",\"IL\":\"Israel\",\"IT\":\"Italia\",\"JM\":\"Jamaica\",\"JP\":\"Japón\",\"JE\":\"Jersey\",\"JO\":\"Jordania\",\"KZ\":\"Kazajistán\",\"KE\":\"Kenia\",\"KI\":\"Kiribati\",\"KR\":\"Corea\",\"KW\":\"Kuwait\",\"KG\":\"Kirguistán\",\"LA\":\"Laos\",\"LV\":\"Letonia\",\"LB\":\"Líbano\",\"LS\":\"Lesoto\",\"LR\":\"Liberia\",\"LY\":\"Libia\",\"LI\":\"Liechtenstein\",\"LT\":\"Lituania\",\"LU\":\"Luxemburgo\",\"MO\":\"RAE de Macao\",\"MK\":\"Macedonia del Norte\",\"MG\":\"Madagascar\",\"MW\":\"Malaui\",\"MY\":\"Malasia\",\"MV\":\"Maldivas\",\"ML\":\"Mali\",\"MT\":\"Malta\",\"MH\":\"Islas Marshall\",\"MQ\":\"Martinica\",\"MR\":\"Mauritania\",\"MU\":\"Mauricio\",\"YT\":\"Mayotte\",\"MX\":\"México\",\"FM\":\"Micronesia\",\"MD\":\"Moldova\",\"MC\":\"Mónaco\",\"MN\":\"Mongolia\",\"ME\":\"Montenegro\",\"MS\":\"Montserrat\",\"MA\":\"Marruecos\",\"MZ\":\"Mozambique\",\"MM\":\"Myanmar\",\"NA\":\"Namibia\",\"NR\":\"Nauru\",\"NP\":\"Nepal\",\"NL\":\"Países Bajos\",\"NC\":\"Nueva Caledonia\",\"NZ\":\"Nueva Zelanda\",\"NI\":\"Nicaragua\",\"NE\":\"Níger\",\"NG\":\"Nigeria\",\"NU\":\"Niue\",\"NF\":\"Isla Norfolk\",\"KP\":\"Corea del Norte\",\"MP\":\"Islas Marianas del Norte\",\"NO\":\"Noruega\",\"OM\":\"Omán\",\"PK\":\"Pakistán\",\"PW\":\"Palaos\",\"PS\":\"Autoridad Nacional Palestina\",\"PA\":\"Panamá\",\"PG\":\"Papúa Nueva Guinea\",\"PY\":\"Paraguay\",\"PE\":\"Perú\",\"PH\":\"Filipinas\",\"PN\":\"Islas Pitcairn\",\"PL\":\"Polonia\",\"PT\":\"Portugal\",\"PR\":\"Puerto Rico\",\"QA\":\"Qatar\",\"RE\":\"Reunión\",\"RO\":\"Rumanía\",\"RU\":\"Rusia\",\"RW\":\"Ruanda\",\"BL\":\"San Bartolomé\",\"KN\":\"San Cristóbal y Nieves\",\"LC\":\"Santa Lucía\",\"MF\":\"San Martín\",\"PM\":\"San Pedro y Miquelón\",\"VC\":\"San Vicente y las Granadinas\",\"WS\":\"Samoa\",\"SM\":\"San Marino\",\"ST\":\"Santo Tomé y Príncipe\",\"SA\":\"Arabia Saudí\",\"SN\":\"Senegal\",\"RS\":\"Serbia\",\"SC\":\"Seychelles\",\"SL\":\"Sierra Leona\",\"SG\":\"Singapur\",\"SX\":\"Sint Maarten\",\"SK\":\"Eslovaquia\",\"SI\":\"Eslovenia\",\"SB\":\"Islas Salomón\",\"SO\":\"Somalia\",\"ZA\":\"Sudáfrica\",\"GS\":\"Georgia del Sur e Islas Sandwich del Sur\",\"SS\":\"Sudán del Sur\",\"ES\":\"España\",\"LK\":\"Sri Lanka\",\"SH\":\"Santa Elena, Ascensión y Tristán da Cunha\",\"SD\":\"Sudán\",\"SR\":\"Surinam\",\"SJ\":\"Svalbard\",\"SZ\":\"Suazilandia\",\"SE\":\"Suecia\",\"CH\":\"Suiza\",\"SY\":\"Siria\",\"TW\":\"Taiwán\",\"TJ\":\"Tayikistán\",\"TZ\":\"Tanzania\",\"TH\":\"Tailandia\",\"TL\":\"Timor-Leste\",\"TG\":\"Togo\",\"TK\":\"Tokelau\",\"TO\":\"Tonga\",\"TT\":\"Trinidad y Tobago\",\"TN\":\"Túnez\",\"TR\":\"Turquía\",\"TM\":\"Turkmenistán\",\"TC\":\"Islas Turcas y Caicos\",\"TV\":\"Tuvalu\",\"UM\":\"Islas menores alejadas de los EE. UU.\",\"VI\":\"Islas Vírgenes de los Estados Unidos\",\"UG\":\"Uganda\",\"UA\":\"Ucrania\",\"AE\":\"Emiratos Árabes Unidos\",\"GB\":\"Reino Unido\",\"US\":\"Estados Unidos\",\"UY\":\"Uruguay\",\"UZ\":\"Uzbekistán\",\"VU\":\"Vanuatu\",\"VA\":\"Ciudad del Vaticano\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam\",\"WF\":\"Wallis y Futuna\",\"YE\":\"Yemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabue\"} |
 | **error_448** | No se puede establecer contacto con el número de teléfono que ha proporcionado. |
 | **error_449** | El usuario ha superado el número de reintentos permitidos. |
 | **verification_code_input_placeholder_text** | Código de verificación |
@@ -215,8 +215,54 @@ Los siguientes son los identificadores de un [control de pantalla de verificaci�
 |verification_control_but_send_code |Envié el código |
 |verification_control_but_send_new_code |Envíe un código nuevo. |
 |verification_control_but_verify_code |Verifique el código |
+|verification_control_code_sent| Se ha enviado el código de verificación. Cópielo en el siguiente cuadro de entrada de texto. |
+
+### <a name="example"></a>Ejemplo
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_change_claims">Change</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_fail_send_code">Failed to send the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_fail_verify_code">Failed to verify the code, please try again later.</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_send_code">Send Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_send_new_code">Send New Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_but_verify_code">Verify Code</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="verification_control_code_sent">Verification code has been sent. Please copy it to the input box below.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="azure-mfa-error-messages"></a>Mensajes de error de Azure MFA
+
+Los siguientes son los identificadores de los mensajes de error de un [perfil técnico de Azure MFA](multi-factor-auth-technical-profile.md).
+
+| id | Valor predeterminado |
+| -- | ------------- |
+|UserMessageIfCouldntSendSms | No se puede enviar un SMS al teléfono. Pruebe con otro número de teléfono. |
+|UserMessageIfInvalidFormat | El número de teléfono no tiene un formato válido. Corríjalo y vuelva a intentarlo.|
+|UserMessageIfMaxAllowedCodeRetryReached | Se escribió un código incorrecto demasiadas veces. Vuelva a intentarlo más tarde.|
+|UserMessageIfServerError | No se pudo usar el servicio MFA. Vuelva a intentarlo más tarde.|
+|UserMessageIfThrottled | La solicitud se ha limitado. Vuelva a intentarlo más tarde.|
+|UserMessageIfWrongCodeEntered|Se escribió un código incorrecto. Vuelva a intentarlo más tarde.|
+
+### <a name="example"></a>Ejemplo
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCouldntSendSms">Cannot Send SMS to the phone, please try another phone number.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidFormat">Your phone number is not in a valid format, please correct it and try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxAllowedCodeRetryReached">Wrong code entered too many times, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfServerError">Cannot use MFA service, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">Your request has been throttled, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Wrong code entered, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
 
 ## <a name="one-time-password-error-messages"></a>Mensajes de error de contraseña única
+
 Los siguientes son los identificadores de los mensajes de error de un [perfil técnico de contraseña única](one-time-password-technical-profile.md).
 
 | id | Valor predeterminado |
@@ -225,6 +271,44 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 |UserMessageIfSessionDoesNotExist |La sesión de comprobación de contraseña única ha expirado. |
 |UserMessageIfSessionConflict |La sesión de comprobación de contraseña única presenta un conflicto. |
 |UserMessageIfInvalidCode |La contraseña única que se proporcionó para la comprobación no es correcta. |
+
+### <a name="example"></a>Ejemplo
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+
+## <a name="claims-transformations-error-messages"></a>Mensajes de error de transformaciones de notificaciones
+
+Los siguientes son los identificadores de los mensajes de error de transformaciones de notificaciones:
+
+| id | Transformación de notificaciones | Valor predeterminado |
+| -- | ------------- |------------- |
+|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Error de comparación de valores de notificación booleano para el tipo de notificación "inputClaim".| 
+|DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Error al comparar el valor de la notificación: El operando izquierdo proporcionado es mayor que el derecho.|
+|UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Error en la comparación de valores de notificaciones mediante StringComparison "OrdinalIgnoreCase".|
+
+### <a name="example"></a>Ejemplo
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="DateTimeGreaterThan">Expiration date must be greater that the current date.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationStringsAreNotEqual">The email entry fields do not match. Please enter the same email address in both fields and try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+
 
 
 

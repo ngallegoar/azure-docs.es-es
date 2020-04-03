@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 90ef9402e0891915be4ed6bb89573eced546c59a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b3ee069985fd39288a562d3caafc50b12290c060
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183149"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80332328"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuarios a Azure AD B2C
 
@@ -43,7 +43,7 @@ Use el flujo de migración de conexión directa si no se puede tener acceso a la
 - La contraseña se almacena en formato cifrado unidireccional, como con una función hash.
 - El proveedor de identidades heredado ha almacenado la contraseña de modo que no puede tener acceso. Por ejemplo, cuando el proveedor de identidades valida las credenciales mediante una llamada a un servicio web.
 
-El flujo de migración de conexión directa sigue requiriendo la migración en bloque de las cuentas de usuario, pero después usa una [directiva personalizada](restful-technical-profile.md) para consultar una [API de REST](rest-api-claims-exchange-dotnet.md) (que usted crea) a fin de establecer la contraseña de cada usuario al iniciar sesión por primera vez.
+El flujo de migración de conexión directa sigue requiriendo la migración en bloque de las cuentas de usuario, pero después usa una [directiva personalizada](custom-policy-get-started.md) para consultar una [API de REST](custom-policy-rest-api-intro.md) (que usted crea) a fin de establecer la contraseña de cada usuario al iniciar sesión por primera vez.
 
 Por lo tanto, el flujo de migración de conexión directa tiene dos fases: *importación en bloque* y *establecimiento de credenciales*.
 
@@ -73,7 +73,7 @@ Para ver un ejemplo de una directiva personalizada y una API de REST, consulte e
 
 El enfoque de migración de conexión directa usa su propia API de REST personalizada para validar las credenciales de un usuario con el proveedor de identidades heredado.
 
-**Debe proteger la API de REST contra ataques por fuerza bruta.** Un atacante puede enviar varias contraseñas con la esperanza de adivinar las credenciales de un usuario. Para ayudar a frustrar estos ataques, deje de servir solicitudes a la API de REST cuando el número de intentos de inicio de sesión supere un determinado umbral. Además, proteja la comunicación entre Azure AD B2C y la API de REST mediante el uso de un [certificado de cliente](secure-rest-api-dotnet-certificate-auth.md).
+**Debe proteger la API de REST contra ataques por fuerza bruta.** Un atacante puede enviar varias contraseñas con la esperanza de adivinar las credenciales de un usuario. Para ayudar a frustrar estos ataques, deje de servir solicitudes a la API de REST cuando el número de intentos de inicio de sesión supere un determinado umbral. Además, proteja la comunicación entre Azure AD B2C y la API REST. Para aprender a proteger las API RESTful para la producción, consulte [Proteger la API RESTful](secure-rest-api.md).
 
 ### <a name="user-attributes"></a>Atributos de usuario
 

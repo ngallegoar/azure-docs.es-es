@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a621165210702e075f15fb61bd615e157f997fe1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 7db47eda47850c1c080b6a49256c8a0b37bb0d3c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79078870"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330381"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C
 
@@ -115,6 +115,7 @@ El nombre de la notificación es el del atributo de Azure AD, a menos que se esp
 ## <a name="requirements-of-an-operation"></a>Requisitos de una operación
 
 - Debe haber exactamente un elemento **InputClaim** en el contenedor de notificaciones para todos los perfiles técnicos de Azure AD.
+- En el [artículo sobre los atributos de perfil de usuario](user-profile-attributes.md) se describen los atributos del perfil de usuario de Azure AD B2C admitidos que puede usar en las notificaciones de entrada, las de salida y las persistentes. 
 - Si la operación es `Write` o `DeleteClaims`, también debe aparecer en un elemento **PersistedClaims**.
 - El valor de la notificación **userPrincipalName** debe tener el formato `user@tenant.onmicrosoft.com`.
 - La notificación **displayName** es necesaria y no puede ser una cadena vacía.
@@ -248,20 +249,20 @@ El perfil técnico siguiente elimina una cuenta de usuario de red social mediant
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | Operación | Sí | La operación que se va a realizar. Valores posibles: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. |
-| RaiseErrorIfClaimsPrincipalDoesNotExist | Sin | Genera un error si el objeto de usuario no existe en el directorio. Valores posibles: `true` o `false`. |
-| RaiseErrorIfClaimsPrincipalAlreadyExists | Sin | Genera un error si el objeto de usuario ya existe. Valores posibles: `true` o `false`.|
-| ApplicationObjectId | Sin | El identificador de objeto de aplicación para los atributos de extensión. Valor: ObjectId de una aplicación. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](custom-policy-custom-attributes.md). |
-| ClientId | Sin | El identificador de cliente para acceder al inquilino como un tercero. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](custom-policy-custom-attributes.md). |
-| IncludeClaimResolvingInClaimsHandling  | Sin | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false`  (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | No | Genera un error si el objeto de usuario no existe en el directorio. Valores posibles: `true` o `false`. |
+| RaiseErrorIfClaimsPrincipalAlreadyExists | No | Genera un error si el objeto de usuario ya existe. Valores posibles: `true` o `false`.|
+| ApplicationObjectId | No | El identificador de objeto de aplicación para los atributos de extensión. Valor: ObjectId de una aplicación. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](custom-policy-custom-attributes.md). |
+| ClientId | No | El identificador de cliente para acceder al inquilino como un tercero. Para más información, vea [Uso de los atributos personalizados en una directiva de edición de perfil personalizada](custom-policy-custom-attributes.md). |
+| IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false`  (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
 
-### <a name="error-messages"></a>Mensajes de error
+### <a name="ui-elements"></a>Elementos de interfaz de usuario
  
 La configuración siguiente se puede usar para establecer el mensaje de error que se muestra cuando se produce un error. Los metadatos se deben configurar en el perfil técnico [autoafirmado](self-asserted-technical-profile.md). Los mensajes de error se pueden [localizar](localization.md).
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| UserMessageIfClaimsPrincipalAlreadyExists | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique el mensaje para mostrar al usuario si el objeto de usuario ya existe. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Sin | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique el mensaje para mostrar al usuario si el objeto de usuario no existe. |
+| UserMessageIfClaimsPrincipalAlreadyExists | No | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalAlreadyExists), especifique el mensaje para mostrar al usuario si el objeto de usuario ya existe. |
+| UserMessageIfClaimsPrincipalDoesNotExist | No | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique el mensaje para mostrar al usuario si el objeto de usuario no existe. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

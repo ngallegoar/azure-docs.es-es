@@ -4,12 +4,12 @@ description: En este artículo se obtiene información sobre las funcionalidades
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: ea5102a95a9bef17f25219e00dec4654bf7f06d6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: de5a82f5ad1d8113b27c07484f2f08f4cf97c759
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172876"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294936"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
@@ -27,13 +27,13 @@ Aquí se muestran los trabajos de las siguientes soluciones de Azure Backup:
 
 - Copia de seguridad de máquina virtual de Azure
 - Copia de seguridad de archivos de Azure
-- Copia de seguridad de cargas de trabajo de Azure, como SQL
+- Copia de seguridad de cargas de trabajo de Azure, como SQL y SAP HANA
 - Agente de Azure Backup (MAB)
 
 Los trabajos procedentes de System Center Data Protection Manager (SC-DPM) y Microsoft Azure Backup Server (MABS) NO se muestran.
 
 > [!NOTE]
-> Las cargas de trabajo de Azure, como las copias de seguridad de SQL dentro de las máquinas virtuales de Azure, tienen gran número de trabajos de copia de seguridad. Por ejemplo, se pueden ejecutar copias de seguridad de los registros cada 15 minutos. Por lo tanto, en el caso de estas cargas de trabajo de base de datos, solamente se muestran las operaciones desencadenadas por el usuario. NO se muestran las operaciones de copia de seguridad programadas.
+> Las cargas de trabajo de Azure, como las copias de seguridad de SQL y SAP HANA en VM de Azure, tienen gran número de trabajos de copia de seguridad. Por ejemplo, se pueden ejecutar copias de seguridad de los registros cada 15 minutos. Por lo tanto, en el caso de estas cargas de trabajo de base de datos, solamente se muestran las operaciones desencadenadas por el usuario. NO se muestran las operaciones de copia de seguridad programadas.
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>Supervisión de alertas de copia de seguridad en el almacén de Recovery Services
 
@@ -47,25 +47,30 @@ El servicio define los siguientes escenarios como escenarios susceptibles de gen
 - Copia de seguridad correcta con advertencias para el agente de Azure Backup (MAB)
 - Detener la protección con conservación de datos/Detener la protección con eliminación de datos
 
-### <a name="exceptions-when-an-alert-is-not-raised"></a>Excepciones cuando una alerta no se genera
-
-Hay algunas excepciones en las que no se genera una alerta en caso de error. Son estas:
-
-- Un usuario ha cancelado expresamente el trabajo en ejecución.
-- Se ha producido un error en el trabajo porque otro trabajo de copia de seguridad está en curso (no hay nada que se pueda hacer, solo hay que esperar a que el trabajo anterior finalice).
-- Se ha producido un error en el trabajo de copia de seguridad de máquina virtual porque la máquina virtual de Azure de la que se está haciendo la copia de seguridad ya no existe.
-
-Estas excepciones están diseñadas bajo el supuesto de que el resultado de estas operaciones (desencadenadas principalmente por el usuario) se muestra inmediatamente en los clientes de Portal/PowerShell/CLI. Por lo tanto, el usuario es consciente de ello de inmediato y no necesita que se le notifique.
-
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aquí se muestran las alertas de las siguientes soluciones de Azure Backup
 
 - Copias de seguridad de máquinas virtuales de Azure
 - Copias de seguridad de archivos de Azure
-- Copias de seguridad de cargas de trabajo de Azure, como SQL
+- Copias de seguridad de cargas de trabajo de Azure, como SQL y SAP HANA
 - Agente de Azure Backup (MAB)
 
 > [!NOTE]
 > Las alertas procedentes de System Center Data Protection Manager (SC-DPM) y Microsoft Azure Backup Server (MABS) NO se muestran aquí.
+
+### <a name="consolidated-alerts"></a>Alertas consolidadas
+
+En el caso de soluciones de copia de seguridad de la carga de trabajo de Azure, como SQL y SAP HANA, las copias de seguridad de registros se pueden generar con mucha frecuencia (hasta cada 15 minutos, según la directiva). Por lo tanto, también es posible que los errores de copia de seguridad de registros sean muy frecuentes (hasta cada 15 minutos). En este escenario, el usuario final puede verse abrumado si se genera una alerta para cada caso de error. Por lo tanto, se envía una alerta para el primer caso y, si los errores posteriores se deben a la misma causa principal, no se generan más alertas. La primera alerta se actualiza con el recuento de errores. Pero, si el usuario la desactiva, el siguiente caso desencadenará otra alerta y se tratará como la primera alerta de ese caso. Así es cómo Azure Backup realiza la consolidación de alertas para las copias de seguridad de SQL y SAP HANA.
+
+### <a name="exceptions-when-an-alert-is-not-raised"></a>Excepciones cuando una alerta no se genera
+
+Hay algunas excepciones en las que no se genera una alerta en caso de error. Son las siguientes:
+
+- Un usuario ha cancelado expresamente el trabajo en ejecución.
+- Se ha producido un error en el trabajo porque otro trabajo de copia de seguridad está en curso (no hay nada que se pueda hacer, solo hay que esperar a que el trabajo anterior finalice).
+- Se ha producido un error en el trabajo de copia de seguridad de máquina virtual porque la máquina virtual de Azure de la que se está haciendo la copia de seguridad ya no existe.
+- [Alertas consolidadas](#consolidated-alerts)
+
+Estas excepciones están diseñadas bajo el supuesto de que el resultado de estas operaciones (desencadenadas principalmente por el usuario) se muestra inmediatamente en los clientes de Portal/PowerShell/CLI. Por lo tanto, el usuario es consciente de ello de inmediato y no necesita que se le notifique.
 
 ### <a name="alert-types"></a>Tipos de alerta
 
@@ -83,9 +88,6 @@ Se pueden definir tres tipos alertas, según la gravedad:
 Después de que se genere una alerta, se notifica a los usuarios. Azure Backup proporciona un mecanismo de notificación integrado por correo electrónico. Se pueden especificar direcciones de correo electrónico individuales o listas de distribución para recibir una notificación cuando una alerta se genere. También puede optar por recibir una notificación con cada alerta individual, o bien agruparlas en un resumen cada hora y, luego, recibir la notificación correspondiente.
 
 ![Notificación por correo electrónico integrada del almacén de Recovery Services](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
-
-> [!NOTE]
-> Las alertas de las copias de seguridad de SQL se consolidarán y el correo electrónico se enviará solo en la primera repetición. Pero si el usuario desactiva la alerta, la siguiente repetición desencadenará otro correo electrónico.
 
 Cuando configure una notificación, recibirá un correo electrónico de bienvenida o de introducción. De esta forma, se confirma que Azure Backup puede enviar mensajes de correo electrónico a estas direcciones cuando se genere una alerta.<br>
 
