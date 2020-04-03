@@ -3,12 +3,12 @@ title: Recopilar y analizar registros de recursos
 description: Registre y analice los eventos del registro de recursos de Azure Container Registry como la autenticación, y el envío y la incorporación de cambios en imágenes.
 ms.topic: article
 ms.date: 01/03/2020
-ms.openlocfilehash: 72d03149cd24636ba2086dfaaff0dbba16d30f1e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 00f9468721126bd166051df47cec1596356e9b54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748009"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409650"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Registros de Azure Container Registry para la evaluación y auditoría de diagnóstico
 
@@ -20,11 +20,7 @@ En este artículo se explica cómo recopilar datos de registro de un registro de
 
 La colección de datos de registro de recursos mediante Azure Monitor puede incurrir en costos adicionales. Consulte la página de [precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). 
 
-
-> [!IMPORTANT]
-> Esta funcionalidad actualmente está en versión preliminar y hay algunas [limitaciones](#preview-limitations). Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
-
-## <a name="preview-limitations"></a>Limitaciones de vista previa
+## <a name="repository-events"></a>Eventos de repositorio
 
 Actualmente se registran los siguientes eventos de nivel de repositorio para imágenes y otros artefactos:
 
@@ -109,5 +105,3 @@ Puede transmitir los eventos de registro de diagnóstico a un [centro de eventos
 * Obtenga más información sobre cómo usar [Log Analytics](../azure-monitor/log-query/get-started-portal.md) y crear [consultas de registro](../azure-monitor/log-query/get-started-queries.md).
 * Consulte [Introducción a los registros de plataforma Azure](../azure-monitor/platform/platform-logs-overview.md) para obtener información sobre los registros de la plataforma que están disponibles en las diferentes capas de Azure.
 
-<!-- LINKS - External -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

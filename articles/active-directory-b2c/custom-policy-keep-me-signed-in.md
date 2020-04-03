@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9a27487fa69888b02883c3d9a2151887f41afc45
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a0de94cdce1d7f0e9da9d2844b300956ad6f6970
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189385"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330836"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Habilitación de Mantener la sesión iniciada (KMSI) en Azure Active Directory B2C
 
@@ -52,9 +52,27 @@ Para habilitar KMSI, establezca el elemento de `DataUri` de la definición de co
     </BuildingBlocks>
     ```
 
+## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Incorporación de los metadatos al perfil técnico autoafirmado
+
+Para agregar la casilla KMSI a la página de registro e inicio de sesión, establezca los metadatos de `setting.enableRememberMe` en false. Invalide los perfiles técnicos de SelfAsserted-LocalAccountSignin-Email en el archivo de extensión.
+
+1. Busque el elemento ClaimsProviders. Si el elemento no existe, agréguelo.
+1. Agregue el siguiente proveedor de notificaciones al elemento ClaimsProviders:
+
+```XML
+<ClaimsProvider>
+  <DisplayName>Local Account</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+      <Metadata>
+        <Item Key="setting.enableRememberMe">True</Item>
+      </Metadata>
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
 1. Guarde el archivo de extensiones.
-
-
 
 ## <a name="configure-a-relying-party-file"></a>Configuración de un archivo de usuario de confianza
 
@@ -107,7 +125,15 @@ Se recomienda que establezca el valor de SessionExpiryInSeconds para un período
 </RelyingParty>
 ```
 
-4. Guarde los cambios y después cargue el archivo.
-5. Para probar la directiva personalizada que ha cargado, vaya a la página de la directiva en Azure Portal y seleccione **Ejecutar ahora**.
+## <a name="test-your-policy"></a>Prueba de la directiva
+
+1. Guarde los cambios y después cargue el archivo.
+1. Para probar la directiva personalizada que cargó, en Azure Portal, vaya a la página de la directiva y seleccione **Ejecutar ahora**.
+1. Escriba su **nombre de usuario** y **contraseña**, seleccione **Mantener la sesión iniciada** y haga clic en **iniciar sesión**.
+1. Vuelva a Azure Portal. Vaya a la página de la directiva y seleccione **Copiar** para copiar la dirección URL de inicio de sesión.
+1. En la barra de direcciones del explorador, quite el parámetro `&prompt=login` de la cadena de consulta, que obliga al usuario a escribir sus credenciales en esa solicitud.
+1. En el explorador, haga clic en **Ir**. Ahora, Azure AD B2C emitirá un token de acceso sin pedirle que vuelva a iniciar sesión. 
+
+## <a name="next-steps"></a>Pasos siguientes
 
 Puede encontrar la directiva de ejemplo [aquí](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
