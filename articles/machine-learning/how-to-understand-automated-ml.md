@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: 69cf79f8258f85f2fb5e787f91aa843837d0a3a1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c5f12da3606361b504d4581916d9645fa3cd24f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534696"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237004"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Descripción de los resultados de aprendizaje automático automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,14 +27,14 @@ Más información sobre:
 + [Métricas, gráficos y grafos para los modelos de regresión](#regression)
 + [Interpretabilidad del modelo e importancia de las características](#explain-model)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Cree un experimento para su ejecución de aprendizaje automático automatizado, ya sea con el SDK o en Azure Machine Learning Studio.
 
     * Use el SDK para crear un [modelo de clasificación](how-to-auto-train-remote.md) o un [modelo de regresión](tutorial-auto-train-models.md).
-    * Use [Azure Machine Learning Studio](how-to-create-portal-experiments.md) para crear un modelo de clasificación o regresión mediante la carga de los datos apropiados.
+    * Use [Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md) para crear un modelo de clasificación o regresión mediante la carga de los datos apropiados.
 
 ## <a name="view-the-run"></a>Visualización de la ejecución
 
@@ -60,7 +60,7 @@ Después de ejecutar un experimento de aprendizaje automático automatizado, pue
 
 También verá estos mismos resultados durante una ejecución si usa el `RunDetails`[widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 
-## <a name="classification"></a> Resultados de la clasificación
+## <a name="classification-results"></a><a name="classification"></a> Resultados de la clasificación
 
 Las métricas y los gráficos siguientes están disponibles para cada modelo de clasificación que se crea con las funcionalidades de aprendizaje automático automatizado de Azure Machine Learning.
 
@@ -89,7 +89,7 @@ balanced_accuracy|La precisión equilibrada es la media aritmética de recuperac
 f1_score_macro|La puntuación F1 es la media armónica de precisión y recuperación. Macro es la media aritmética de la puntuación F1 para cada clase.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="macro"|
 f1_score_micro|La puntuación F1 es la media armónica de precisión y recuperación. Micro se calcula de forma global mediante el recuento del total de verdaderos positivos, falsos negativos y falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="micro"|
 f1_score_weighted|La puntuación F1 es la media armónica de precisión y recuperación. Media ponderada por frecuencia de clase de la puntuación F1 para cada clase.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
-log_loss|Se trata de la función de pérdida que se usa en la regresión logística (multinomial) y sus extensiones como las redes neuronales, definida como la verosimilitud logarítmica negativa de las etiquetas verdaderas, dadas las predicciones de un clasificador probabilístico. Para un ejemplo único con la etiqueta verdadera yt en {0,1} y la probabilidad estimada yp de que yt = 1, la pérdida logarítmica es -log P(yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|None|
+log_loss|Se trata de la función de pérdida que se usa en la regresión logística (multinomial) y sus extensiones, como las redes neuronales, definida como la verosimilitud logarítmica negativa de las etiquetas verdaderas, dadas las predicciones de un clasificador probabilístico. Para un ejemplo único con la etiqueta verdadera yt en {0,1} y la probabilidad estimada yp de que yt = 1, la pérdida logarítmica es -log P(yt&#124;yp) = -(yt log(yp) + (1 - yt) log(1 - yp)).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|None|
 norm_macro_recall|La recuperación de macro normalizada es la recuperación de macro que se ha normalizado para que el rendimiento aleatorio tenga una puntuación de 0 y el rendimiento perfecto una puntuación de 1. Esto se logra mediante norm_macro_recall := (recall_score_macro - R)/(1 - R), donde R es el valor esperado de recall_score_macro para las predicciones aleatorias (es decir, R=0,5 para clasificación binaria y R=(1/C) para problemas de clasificación de clase C).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "macro" |
 precision_score_macro|La precisión es el porcentaje de elementos con predicción positiva que están etiquetados correctamente. Macro es la media aritmética de la precisión para cada clase.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
 precision_score_micro|La precisión es el porcentaje de elementos con predicción positiva que están etiquetados correctamente. Micro se calcula de forma global mediante el recuento del total de verdaderos positivos y falsos positivos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
@@ -205,7 +205,7 @@ El promedio macro calculará la métrica independientemente de cada clase y, a c
 ##### <a name="example-2-an-over-confident-model"></a>Ejemplo 2: modelo con exceso de confianza
 ![modelo con exceso de confianza](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
-## <a name="regression"></a> Resultados de la regresión
+## <a name="regression-results"></a><a name="regression"></a> Resultados de la regresión
 
 Las métricas y los gráficos siguientes están disponibles para cada modelo de regresión que se crea con las funcionalidades de aprendizaje automático automatizado de Azure Machine Learning.
 
@@ -214,7 +214,7 @@ Las métricas y los gráficos siguientes están disponibles para cada modelo de 
 + [Histograma de valores residuales](#histo)
 
 
-### <a name="reg-metrics"></a> Métricas de regresión
+### <a name="regression-metrics"></a><a name="reg-metrics"></a> Métricas de regresión
 
 Las métricas siguientes se guardan en cada iteración de ejecución de una tarea de regresión o previsión.
 
@@ -232,7 +232,7 @@ normalized_root_mean_squared_error|El error cuadrático medio normalizado es el 
 root_mean_squared_log_error|El error logarítmico cuadrático medio es la raíz cuadrada del error logarítmico cuadrático esperado.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
 normalized_root_mean_squared_log_error|El error logarítmico cuadrático medio normalizado es el error logarítmico cuadrático medio dividido por el intervalo de los datos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Se divide por el intervalo de los datos|
 
-### <a name="pvt"></a> Predicho frente a Gráfico verdadero
+### <a name="predicted-vs-true-chart"></a><a name="pvt"></a> Predicho frente a Gráfico verdadero
 #### <a name="what-is-a-predicted-vs-true-chart"></a>¿Qué es un gráfico predicho frente a gráfico verdadero?
 Predicho frente a True (Predicho frente verdadero), muestra la relación entre un valor predicho y su valor verdadero correlacionado para un problema de regresión. Este gráfico se puede usar para medir el rendimiento de un modelo, ya que cuanto más se acerquen los valores predichos a la línea y=x, mejor será la precisión de un modelo predictivo.
 
@@ -248,7 +248,7 @@ Después de cada ejecución, puede ver un gráfico de predicción frente a verda
 
 
 
-### <a name="histo"></a> Histograma del gráfico de valores residuales
+### <a name="histogram-of-residuals-chart"></a><a name="histo"></a> Histograma del gráfico de valores residuales
 #### <a name="what-is-a-residuals-chart"></a>¿Qué es un gráfico de valores residuales?
 Un valor residual representa la y observada – la y predicha. Para mostrar un margen de error con poco sesgo, el histograma de valores residuales debe tener la forma de una curva de campana, centrada en 0. 
 #### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>¿Qué hace ML automatizado con el gráfico de valores residuales?
@@ -262,7 +262,7 @@ Un buen modelo normalmente tendrá una curva de campana o errores en torno a cer
 ##### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Ejemplo 2: modelo de regresión con una distribución más uniforme de los errores
 ![modelo de regresión con una distribución más uniforme de los errores](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
-## <a name="explain-model"></a> Interpretabilidad del modelo e importancia de las características
+## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a> Interpretabilidad del modelo e importancia de las características
 ML automatizado proporciona un panel de interoperabilidad de aprendizaje automático de las ejecuciones.
 Para más información sobre cómo habilitar las características de interpretabilidad, consulte los [procedimientos](how-to-machine-learning-interpretability-automl.md) sobre cómo habilitar la interpretabilidad en experimentos de ML automatizado.
 

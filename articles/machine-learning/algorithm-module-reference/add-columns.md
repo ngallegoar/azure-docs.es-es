@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 55fe3a2a4fd0f45b0873e47f29b7ea013558be40
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: f2e067f76d6ed7d89a38e9b8920c407f161969a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152489"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456785"
 ---
 # <a name="add-columns-module"></a>Módulo Add Columns
 
@@ -33,7 +33,7 @@ Utilice este módulo para concatenar dos conjuntos de datos. Combina todas las c
 
     - No puede elegir columnas individuales para agregar. Todas las columnas de cada conjunto de datos se concatenan al usar **Add Columns**. Por lo tanto, si quiere agregar solo un subconjunto de las columnas, utilice Select Columns in Dataset (Seleccionar columnas de conjunto de datos) para crear un conjunto de datos con las columnas que quiere.
 
-3. Ejecución de la canalización
+3. Envíe la canalización.
 
 ### <a name="results"></a>Results
 Una vez ejecutada la canalización:

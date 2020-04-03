@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c00ab8a5e0d307d89ae483db55bdb0b1258ae6a4
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 72aefb8de57e27718b14dba6a6d82deb8b63466f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246405"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367285"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Edición de runbooks de texto en Azure Automation
 
@@ -59,7 +59,7 @@ Use el siguiente procedimiento para abrir un runbook para su edición en el edit
 
 ### <a name="insert-an-asset-into-a-runbook"></a>Inserción de un recurso en un runbook
 
-1. En el lienzo del editor de texto, coloque el cursor donde desee colocar el código para el runbook secundario.
+1. En el control Lienzo del editor de texto, coloque el cursor donde desee colocar el código del runbook secundario.
 2. Expanda el nodo **Recursos** en el control Biblioteca.
 3. Expanda el nodo del tipo de recurso deseado.
 4. Haga clic con el botón derecho en el nombre del recurso para insertarlo y seleccione **Agregar al lienzo**. Para [recursos variables](automation-variables.md), seleccione **Agregar "Obtener variable" a lienzo** o **Agregar "Establecer variable" a lienzo** en función de si desea obtener o establecer la variable.
@@ -67,7 +67,7 @@ Use el siguiente procedimiento para abrir un runbook para su edición en el edit
 
 ## <a name="editing-an-azure-automation-runbook-using-windows-powershell"></a>Edición de un runbook de Azure Automation mediante Windows PowerShell
 
-Para editar un runbook con Windows PowerShell, use el editor de su elección y guarde el runbook en un archivo ".ps1". Puede usar el cmdlet [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) para recuperar el contenido del runbook. Puede usar el cmdlet [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) para reemplazar el runbook de borrador existente por el modificado.
+Para editar un runbook con Windows PowerShell, use el editor de su elección y guarde el runbook en un archivo **.ps1**. Puede usar el cmdlet [Export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) para recuperar el contenido del runbook. Puede usar el cmdlet [Import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) para reemplazar el runbook de borrador existente por el modificado.
 
 ### <a name="retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Recuperación del contenido de un runbook mediante Windows PowerShell
 

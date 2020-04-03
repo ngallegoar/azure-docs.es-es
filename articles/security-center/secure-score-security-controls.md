@@ -1,6 +1,6 @@
 ---
-title: Puntuación de seguridad mejorada (versión preliminar) en Azure Security Center
-description: Descripción de la puntuación de seguridad mejorada (versión preliminar) y los controles de seguridad de Azure Security Center
+title: Puntuación de seguridad de Azure Security Center
+description: Descripción de Puntuación de seguridad de Azure Security Center y sus controles de seguridad
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 03/10/2020
 ms.author: memildin
-ms.openlocfilehash: ad0d8e751e79a23b2e7ac7b9da934f141ca9aa55
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: d7eea9cd83e72b6ffeaae319a8e87c065015e6b5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086537"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415842"
 ---
-# <a name="the-enhanced-secure-score-preview"></a>Puntuación de seguridad mejorada (versión preliminar) 
-
-En este artículo se presenta la puntuación de seguridad mejorada (actualmente en versión preliminar), los controles de seguridad asociados y las ventajas que aportan. También se explica cómo se calcula la puntuación.
+# <a name="enhanced-secure-score-preview-in-azure-security-center"></a>Puntuación de seguridad mejorada (versión preliminar) en Azure Security Center
 
 ## <a name="introduction-to-secure-score"></a>Introducción a Puntuación de seguridad
 
@@ -30,17 +28,22 @@ Azure Security Center tiene dos objetivos principales: ayudarle a entender la si
 
 Security Center evalúa continuamente los recursos, suscripciones y la organización en busca de problemas de seguridad. A continuación, agrega todos los resultados a una sola puntuación para que pueda conocer de un vistazo la situación de la seguridad actual: cuanto mayor sea la puntuación, menor será el nivel de riesgo identificado. Use la puntuación para realizar un seguimiento de los esfuerzos y proyectos para mejorar la seguridad de la organización. 
 
-La puntuación de seguridad *mejorada* (actualmente en versión preliminar) se **centra en la superficie expuesta a ataques** y aporta tres ventajas:
+La página Puntuación de seguridad de Security Center incluye lo siguiente:
 
-- **Controles de seguridad**: las recomendaciones de seguridad se agrupan ahora en conjuntos lógicos que reflejan mejor las superficies vulnerables expuestas a ataques. Para más información, consulte [Cálculo de la puntuación de seguridad](secure-score-security-controls.md#how-the-secure-score-is-calculated) que aparece a continuación.
+- **La puntuación**: la puntuación de seguridad se muestra como un valor de porcentaje, pero los valores subyacentes también están claros:
 
-- **Una puntuación total que refleja mejor la posición general**: los puntos se conceden en el nivel de recomendación. Con esta mejora, la puntuación solo mejorará cuando corrija *todas* las recomendaciones para un solo recurso de un control. Esto significa que la puntuación solo mejora si mejora la seguridad de un recurso. 
+    [![Puntuación de seguridad mostrada como un valor de porcentaje con los números subyacentes claros](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
 
-- **El estado de seguridad de las superficies individuales expuestas a ataques es más visible**: al mostrar la puntuación por cada control de seguridad, la página de puntuación de seguridad se convierte en el lugar donde puede obtener una vista detallada de hasta qué punto está protegiendo la organización cada superficie individual expuesta a ataques.
+- **Controles de seguridad**: cada control es un grupo lógico de recomendaciones de seguridad relacionadas y refleja las superficies de ataque vulnerables. Un control es un conjunto de recomendaciones de seguridad con instrucciones que le ayudan a implementar esas recomendaciones. La puntuación solo mejora cuando corrige *todas* las recomendaciones para un solo recurso de un control.
 
-La puntuación de seguridad mejorada aparece como un porcentaje como puede ver en la siguiente captura de pantalla:
+    Para ver de inmediato cómo protege su organización cada superficie de ataque individual, revise las puntuaciones de cada control de seguridad.
 
-[![La puntuación de seguridad mejorada (versión preliminar) ahora incluye un porcentaje](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
+    Para más información, consulte [Cálculo de la puntuación de seguridad](secure-score-security-controls.md#how-the-secure-score-is-calculated) a continuación. 
+
+
+>[!TIP]
+> Las versiones anteriores de Security Center otorgaban puntos en el nivel de recomendación: cuando se corregía una recomendación para un único recurso, la puntuación de seguridad mejoraba. Actualmente, la puntuación solo mejora si se corrigen *todas* las recomendaciones para un solo recurso de un control. Por tanto, la puntuación solo mejora si mejora la seguridad de un recurso.
+> Aunque esta versión mejorada todavía está en versión preliminar, la experiencia de puntuación de seguridad anterior está disponible como una opción en Azure Portal. 
 
 
 ## <a name="locating-your-secure-score"></a>Ubicación de la puntuación de seguridad
@@ -49,15 +52,11 @@ Security Center muestra la puntuación de forma destacada: es lo primero que apa
 
 ## <a name="how-the-secure-score-is-calculated"></a>Cálculo de la puntuación de seguridad 
 
-Antes de esta versión preliminar, Security Center tenía en cuenta cada recomendación de forma individual y le asignaba un valor según su gravedad. Los equipos de seguridad que trabajaban para mejorar su posición de seguridad tenían que clasificar las respuestas a las recomendaciones de Security Center basándose en la lista completa de hallazgos. Cada vez que se corregía una recomendación para un solo recurso, la puntuación de seguridad mejoraba.
+La contribución de cada control de seguridad en la puntuación de seguridad total aparece con claridad en la página de recomendaciones.
 
-Como parte de las mejoras en la puntuación de seguridad, las recomendaciones ahora se agrupan en **controles de seguridad**. Un control es un conjunto de recomendaciones de seguridad y de instrucciones que le ayudan a implementar esas recomendaciones. Los controles son agrupaciones lógicas de recomendaciones relacionadas. Los puntos ya no se conceden en el nivel de la recomendación. En vez de eso, la puntuación solo mejorará cuando corrija *todas* las recomendaciones para un solo recurso de un control.
+[![La puntuación de seguridad mejorada presenta controles de seguridad](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
 
-La contribución de cada control en la puntuación de seguridad total aparece con claridad en la página de recomendaciones.
-
-[![La puntuación de seguridad mejorada (versión preliminar) presenta los controles de seguridad](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
-
-Para obtener todos los puntos posibles de un control de seguridad, todos los recursos del mismo deben cumplir todas las recomendaciones de seguridad. Por ejemplo, Security Center tiene varias recomendaciones sobre cómo proteger los puertos de administración. En el pasado, podía corregir algunas de esas recomendaciones relacionadas e interdependientes y dejar otras sin resolver, y con ello, la puntuación de seguridad mejoraba. Analizado objetivamente, era fácil argumentar que la seguridad no mejoraría realmente hasta que se resolvieran todas. Ahora, es necesario corregirlas todas para que la puntuación de seguridad mejore.
+Para obtener todos los puntos posibles de un control de seguridad, todos sus recursos deben cumplir todas las recomendaciones de seguridad de dicho control. Por ejemplo, Security Center tiene varias recomendaciones sobre cómo proteger los puertos de administración. En el pasado, podía corregir algunas de esas recomendaciones relacionadas e interdependientes y dejar otras sin resolver, y con ello, la puntuación de seguridad mejoraba. Analizado objetivamente, era fácil argumentar que la seguridad no mejoraría realmente hasta que se resolvieran todas. Ahora, es necesario corregirlas todas para que la puntuación de seguridad mejore.
 
 Por ejemplo, el control de seguridad denominado "Aplicar actualizaciones del sistema" tiene una puntuación máxima de seis puntos, como puede ver en la información sobre herramientas sobre el potencial valor de mejora del control:
 
@@ -82,7 +81,8 @@ El valor potencial del control de seguridad "Aplicar actualizaciones del sistema
 
 Para mejorar la puntuación de seguridad, corrija las recomendaciones de seguridad de la lista de recomendaciones. Puede corregir cada recomendación manualmente para cada recurso o utilizar la opción **Corrección rápida** (si está disponible) para aplicar rápidamente una corrección de una recomendación a un grupo de recursos. Para más información, consulte [Corrección de recomendaciones](security-center-remediate-recommendations.md).
 
-Solo las recomendaciones integradas afectan a la puntuación de seguridad.
+>[!IMPORTANT]
+> Solo las recomendaciones integradas afectan a la puntuación de seguridad.
 
 ## <a name="security-controls-and-their-recommendations"></a>Controles de seguridad y sus recomendaciones
 
@@ -96,11 +96,11 @@ En la tabla siguiente se enumeran los controles de seguridad de Azure Security C
 |**Habilitación de MFA**|10|- MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción<br>- MFA debe estar habilitada en las cuentas con permisos de lectura en la suscripción<br>- MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción|
 |**Protección de puertos de administración**|8|- El control de acceso de red Just-In-Time se debe aplicar en las máquinas virtuales<br>- Las máquinas virtuales deben estar asociadas a un grupo de seguridad de red<br>- Se deben cerrar los puertos de administración en las máquinas virtuales|
 |**Aplicar actualizaciones del sistema**|6|- Los problemas de estado del agente de supervisión se deben resolver en las máquinas<br>- El agente de supervisión debe instalarse en conjuntos de escalado de máquinas virtuales<br>- El agente de supervisión debe instalarse en las máquinas<br>- La versión del sistema operativo debe actualizarse para los roles de servicio en la nube<br>- Se deben instalar las actualizaciones del sistema en los conjuntos de escalado de máquinas virtuales<br>- Se deben instalar las actualizaciones del sistema en las máquinas<br>- Las máquinas deben reiniciarse para aplicar las actualizaciones del sistema<br>- Los servicios de Kubernetes deben actualizarse a una versión de Kubernetes no vulnerable<br>- Un agente de supervisión debe estar instalado en las máquinas virtuales|
-|**Corrección de vulnerabilidades**|6|- La opción Advanced Data Security debe estar habilitada en los servidores SQL Server<br>- Las vulnerabilidades de las imágenes de Azure Container Registry deben corregirse (versión preliminar)<br>- Se deben corregir las vulnerabilidades de las bases de datos SQL<br>- Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades<br>- La evaluación de vulnerabilidades debe estar habilitada en las instancias administradas de SQL<br>- La evaluación de vulnerabilidades debe estar habilitada en sus servidores de SQL Server<br>- La solución de evaluación de vulnerabilidades debe instalarse en sus máquinas virtuales|
+|**Corrección de vulnerabilidades**|6|- La opción Advanced Data Security debe estar habilitada en los servidores SQL Server<br>- Las vulnerabilidades de las imágenes de Azure Container Registry deben corregirse.<br>- Se deben corregir las vulnerabilidades de las bases de datos SQL<br>- Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades<br>- La evaluación de vulnerabilidades debe estar habilitada en las instancias administradas de SQL<br>- La evaluación de vulnerabilidades debe estar habilitada en sus servidores de SQL Server<br>- La solución de evaluación de vulnerabilidades debe instalarse en sus máquinas virtuales|
 |**Habilitación del cifrado de datos en reposo**|4|- El cifrado de discos debe aplicarse en las máquinas virtuales<br>- El cifrado de datos transparente en bases de datos SQL debe estar habilitado<br>- Las variables de cuenta de Automation deben cifrarse<br>- Se debe establecer la propiedad ClusterProtectionLevel en EncryptAndSign en los clústeres de Service Fabric<br>- El protector de TDE de SQL Server debe estar cifrado con su propia clave|
 |**Cifrado de los datos en tránsito**|4|- Se debe acceder a la aplicación de API App solo a través de HTTPS<br>- Acceso a Function App solo a través de HTTPS<br>- Solo se deben habilitar las conexiones seguras a Redis Cache<br>- Se debe habilitar la transferencia segura a las cuentas de almacenamiento<br>- Acceso a la aplicación web solo a través de HTTPS|
-|**Administración de acceso y permisos**|4|- Debe designar un máximo de tres propietarios para la suscripción<br>- Las cuentas en desuso deben quitarse de la suscripción.<br>- Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción.<br>- Las cuentas externas con permisos de propietario deben quitarse de la suscripción.<br>- Las cuentas externas con permisos de lectura se deben eliminar de la suscripción<br>- Las cuentas externas con permisos de escritura deben quitarse de la suscripción.<br>- Debe haber más de un propietario asignado a la suscripción<br>- Se debe usar el control de acceso basado en rol (RBAC) en los servicios de Kubernetes (versión preliminar)<br>- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente|
-|**Corregir configuraciones de seguridad**|4|- Se deben definir las directivas de seguridad de pod en los servicios de Kubernetes (versión preliminar)<br>- Las vulnerabilidades en las configuraciones de seguridad de contenedor deben corregirse<br>- Se deben corregir las vulnerabilidades en la configuración de seguridad de las máquinas<br>- Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales<br>- Un agente de supervisión debe estar instalado en las máquinas virtuales<br>- El agente de supervisión debe instalarse en las máquinas<br>- El agente de supervisión debe instalarse en conjuntos de escalado de máquinas virtuales<br>- Los problemas de estado del agente de supervisión se deben resolver en las máquinas|
+|**Administración de acceso y permisos**|4|- Debe designar un máximo de tres propietarios para la suscripción<br>- Las cuentas en desuso se deben eliminar de la suscripción (versión preliminar)<br>- Las cuentas en desuso con permisos de propietario se deben eliminar de la suscripción (versión preliminar)<br>- Las cuentas externas con permisos de propietario se deben eliminar de la suscripción (versión preliminar)<br>- Las cuentas externas con permisos de lectura se deben eliminar de la suscripción<br>- Las cuentas externas con permisos de escritura se deben eliminar de la suscripción (versión preliminar)<br>- Debe haber más de un propietario asignado a la suscripción<br>- Se debe usar el control de acceso basado en rol (RBAC) en los servicios de Kubernetes (versión preliminar)<br>- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente|
+|**Corregir configuraciones de seguridad**|4|- Las directivas de seguridad de pod deben definirse en los servicios de Kubernetes.<br>- Las vulnerabilidades en las configuraciones de seguridad de contenedor deben corregirse<br>- Se deben corregir las vulnerabilidades en la configuración de seguridad de las máquinas<br>- Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales<br>- Un agente de supervisión debe estar instalado en las máquinas virtuales<br>- El agente de supervisión debe instalarse en las máquinas<br>- El agente de supervisión debe instalarse en conjuntos de escalado de máquinas virtuales<br>- Los problemas de estado del agente de supervisión se deben resolver en las máquinas|
 |**Restricción de los accesos de red no autorizados**|4|- El reenvío de IP en la máquina virtual debe estar deshabilitado<br>- Deben definirse los intervalos IP autorizados en los servicios de Kubernetes (versión preliminar)<br>- (EN DESUSO) El acceso a App Services debe estar restringido (versión preliminar)<br>- (EN DESUSO) Se deben proteger las reglas de las aplicaciones web en los grupos de seguridad de red de IaaS<br>- Las máquinas virtuales deben estar asociadas a un grupo de seguridad de red<br>- CORS no debe permitir que todos los recursos accedan a la aplicación de API<br>- CORS no debe permitir que todos los recursos accedan a Function App<br>- CORS no debe permitir que todos los recursos accedan a las aplicaciones web<br>- Se debe desactivar la depuración remota para la aplicación de API<br>- Se debe desactivar la depuración remota para Function App<br>- Se debe desactivar la depuración remota para las aplicaciones web<br>- Se debe restringir el acceso a los grupos de seguridad de red permisivos con máquinas virtuales accesibles desde Internet<br>- Se deben proteger las reglas del grupo de seguridad de red para máquinas virtuales accesibles desde Internet|
 |**Aplicación de controles de aplicaciones adaptables**|3|- Se deben habilitar los controles de aplicaciones adaptables en las máquinas virtuales<br>- Un agente de supervisión debe estar instalado en las máquinas virtuales<br>- El agente de supervisión debe instalarse en las máquinas<br>- Los problemas de estado del agente de supervisión se deben resolver en las máquinas|
 |**Aplicación de la clasificación de datos**|2|- Los datos confidenciales de las bases de datos SQL deben clasificarse (versión preliminar)|
@@ -113,13 +113,13 @@ En la tabla siguiente se enumeran los controles de seguridad de Azure Security C
 ## <a name="secure-score-faq"></a>Preguntas frecuentes sobre la puntuación de seguridad
 
 ### <a name="why-has-my-secure-score-gone-down"></a>¿Por qué ha dejado de funcionar mi puntuación de seguridad?
-Con los cambios introducidos en esta puntuación de seguridad mejorada, debe resolver todas las recomendaciones de un recurso para recibir puntos. Las puntuaciones también han cambiado a una escala de 0-10.
+Security Center ha cambiado a una puntuación de seguridad mejorada (actualmente en estado de versión preliminar) que incluye los cambios en la forma de calcular la puntuación. Ahora, debe resolver todas las recomendaciones de un recurso para recibir puntos. Las puntuaciones también han cambiado a una escala de 0-10.
 
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Si solo se corrigen tres de las cuatro recomendaciones de un control de seguridad, ¿cambiará mi puntuación de seguridad?
-No, no cambiará hasta que corrija todas las recomendaciones para un único recurso. Para obtener la puntuación máxima de un control, debe corregir todas las recomendaciones de todos los recursos.
+No. No cambiará hasta que corrija todas las recomendaciones para un único recurso. Para obtener la puntuación máxima de un control, debe corregir todas las recomendaciones de todos los recursos.
 
-### <a name="will-this-enhanced-secure-score-replace-the-existing-secure-score"></a>¿Va a reemplazar esta puntuación de seguridad mejorada a la puntuación ya existente? 
-Sí, pero durante un tiempo se podrán ejecutar en paralelo para facilitar la transición.
+### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>¿La experiencia de Puntuación de seguridad anterior todavía está disponible? 
+Sí. Durante un tiempo se podrán ejecutar en paralelo para facilitar la transición. Se prevé que el modelo anterior se elimine gradualmente con el tiempo. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Si una recomendación no es aplicable a mí y la deshabilito en la directiva, ¿se cumplirá mi control de seguridad y se actualizará mi puntuación de seguridad?
 Sí. Se recomienda deshabilitar las recomendaciones cuando no son aplicables a su entorno. Para obtener instrucciones sobre cómo deshabilitar una recomendación específica, consulte [Deshabilitar las directivas de seguridad](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).
@@ -129,7 +129,7 @@ En algunos casos verá una puntuación máxima del control mayor que cero, pero 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se describe la puntuación de seguridad mejorada y los nuevos controles de seguridad que presenta. Para obtener material relacionado, consulte los siguientes artículos:
+En este artículo se describe la puntuación de seguridad y los controles de seguridad que presenta. Para obtener material relacionado, consulte los siguientes artículos:
 
 - [Más información sobre los distintos elementos de una recomendación](security-center-recommendations.md)
 - [Recomendaciones de corrección](security-center-remediate-recommendations.md)

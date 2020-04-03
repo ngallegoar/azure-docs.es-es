@@ -37,8 +37,10 @@
       href: logic-apps-serverless-overview.md
     - name: Integración B2B y procesamiento del intercambio electrónico de datos
       href: logic-apps-enterprise-integration-overview.md
-    - name: Acceso a Azure Virtual Network
+    - name: Acceso a redes virtuales de Azure
       href: connect-virtual-network-vnet-isolated-environment-overview.md
+    - name: Continuidad empresarial y recuperación ante desastres
+      href: business-continuity-disaster-recovery-guidance.md
 - name: Guías paso a paso
   items:
     - name: Desarrollar

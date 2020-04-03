@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 1adfb59843150ffaa6ed76411d07d8ec6cf6a44b
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555265"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351072"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage
 
@@ -34,7 +34,7 @@ Para descargar las versiones anteriores del Explorador de Storage, puede visit
 
 ### <a name="new"></a>Nuevo
 * Las operaciones de blobs, ADLS Gen2 y Managed Disks utilizan AzCopy integrado. Más concretamente, las operaciones siguientes se realizan con AzCopy:
-   * Blobs
+   * Datos BLOB
       * Abierto para edición y carga
       * Cargar, incluido arrastrar y colocar
       * Descargar
@@ -167,13 +167,15 @@ Para descargar las versiones anteriores del Explorador de Storage, puede visit
   * Habilitar el inicio de sesión del flujo de código del dispositivo
   * Actualizar automáticamente #1526
   * Habilitar AzCopy
-  * Duración de AzCopy SAS. Si hay otras configuraciones que le gustaría ver agregadas, [abra una incidencia en GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=), donde se describa la configuración que quiere ver.
+  * Duración de AzCopy SAS. Si hay otras configuraciones que le gustaría ver que se agregaran, [abra una incidencia en GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) donde describa la configuración que quiere ver.
 * El Explorador de Storage ahora admite Managed Disks. Puede:
   * Cargar un VHD local en un disco nuevo
   * Descargar un disco
   * Copiar y pegar discos en distintos grupos de recursos y regiones
   * Eliminar discos
-  * Crear una instantánea de un disco. La carga, descarga y copia entre regiones de discos se realiza mediante AzCopy v10.
+  * Crear una instantánea de un disco
+
+La carga, descarga y copia entre regiones de discos se realiza mediante AzCopy v10.
 * El Explorador de Storage ahora se puede instalar a través de Snap Store en Linux. Cuando instala a través de Snap Store, se instalan todas las dependencias, incluido .NET Core. Actualmente comprobamos que el Explorador de Storage se ejecuta correctamente en Ubuntu y en CentOS. Si tiene problemas para instalar desde Snap Store en otras distribuciones de Linux, [abra una incidencia en GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para más información sobre cómo realizar la instalación desde Snap Store, consulte la [guía de introducción](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux). #68
 * Se han realizado dos cambios importantes para adjuntarlos con Azure Active Directory (Azure AD) que están pensados para hacer que la característica sea más útil para los usuarios de ADLS Gen2:
   * Ahora se selecciona el inquilino en el que se encuentra el recurso que se está adjuntando. Esto significa que ya no necesita tener acceso RBAC a la suscripción del recurso.
@@ -239,7 +241,7 @@ Para descargar las versiones anteriores del Explorador de Storage, puede visit
     * Habilitar AzCopy
     * Duración de SAS de AzCopy
 
-    Si hay otras configuraciones que le gustaría ver agregadas, [abra una incidencia en GitHub, donde se describa la configuración que quiere ver.](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=)
+    Si hay otras configuraciones que le gustaría ver que se agregaran, [abra una incidencia en GitHub donde describa la configuración que quiere ver](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
 * El Explorador de Storage ahora admite Managed Disks. Puede:
     * Cargar un VHD local en un disco nuevo
     * Descargar un disco
@@ -751,7 +753,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * La interrupción de concesiones ahora solo se puede realizar en un blob en cada momento. Además, debe escribir el nombre del blob cuya concesión está interrumpiendo. Este cambio se realizó para reducir la probabilidad de que una concesión se interrumpiera accidentalmente, especialmente en el caso de máquinas virtuales. #394
 * Si alguna vez se producen problemas de inicio de sesión, ahora puede intentar restablecer la autenticación. Vaya al menú "Ayuda" y haga clic en "Restablecer" para acceder a esta funcionalidad. #419
 
-### <a name="fix"></a>Solución
+### <a name="fix"></a>Fix
 
 * Después de los comentarios de los usuarios seguros, el nodo de emulador predeterminado se ha vuelto a habilitar. Aún puede agregar conexiones de emulador adicionales a través del cuadro de diálogo Conectar, pero si el emulador está configurado para usar los puertos predeterminados, también puede usar el nodo "Emulator * Default Ports" (Emulador * Puertos predeterminados) bajo "Local & Attached/Storage Accounts" (Locales y conectados/Cuentas de almacenamiento). #669
 * El Explorador de Storage ya no le permitirá establecer los valores de metadatos de blob que tienen un espacio en blanco inicial o final. #760
@@ -1146,7 +1148,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Ya no se requiere una hora de inicio al generar una SAS.
 
 ### <a name="fixes"></a>Correcciones
-* Se interrumpió la recuperación de suscripciones para las cuentas del gobierno de Estados Unidos. Ahora se ha corregido. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
+* Se interrumpió la recuperación de suscripciones para las cuentas del US Gov. Ahora se ha corregido. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
 * La hora de expiración de las directivas de acceso no se ha guardado correctamente. Ahora se ha corregido. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
 * Al generar una dirección URL de SAS para un elemento en un contenedor, el nombre del elemento no se ha anexado a la dirección URL. Ahora se ha corregido. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
 * Al crear una SAS, las horas de expiración que se encuentran en el pasado a veces eran el valor predeterminado. Esto se debía a que el Explorador de Azure Storage usaba la última hora de inicio y expiración usadas como valores predeterminados. Ahora, cada vez que abre el cuadro de diálogo de SAS, se genera un nuevo conjunto de valores predeterminados. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
@@ -1200,12 +1202,12 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * En cuanto a las cuentas de Azure Stack que respalda AAD, el Explorador de Storage recuperará las suscripciones de Azure Stack cuando esté habilitada la opción "Target Azure Stack" ("Usar Azure Stack como destino"). Ya no es necesario crear un entorno de inicio de sesión personalizado.
 * Se agregaron varios accesos directos para que la exploración sea más larga. Entre ellos, se incluyen las opciones de alternar entre varios paneles y moverse entre los editores. Consulte el menú Vista para obtener más detalles.
 * Los comentarios del Explorador de Storage ahora se guardan en GitHub. Puede acceder a nuestra página de problemas haciendo clic en el botón Comentarios en la esquina inferior izquierda, o visitando [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). No dude en hacer sugerencias, informar sobre problemas, hacer preguntas o dejar cualquier otro comentario.
-* Si tiene problemas relacionados con certificados SSL y no puede encontrar el certificado en cuestión, puede iniciar el Explorador de Storage desde la línea de comandos con la marca `--ignore-certificate-errors`. Cuando se inicie con esta marca, el Explorador de Storage pasará por alto los errores del certificado SSL.
+* Si tiene problemas relacionados con certificados TLS/SSL y no puede encontrar el certificado en cuestión, puede iniciar el Explorador de Storage desde la línea de comandos con la marca `--ignore-certificate-errors`. Cuando se inicie con esta marca, el Explorador de Storage pasará por alto los errores del certificado TLS/SSL.
 * Hemos incluido la opción "Descargar" en el menú emergente para elementos de blobs y archivos.
 * Se ha mejorado la accesibilidad y la compatibilidad del lector de pantalla. Si confía en las características de accesibilidad, consulte nuestra [documentación de accesibilidad](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) para obtener más información.
 * El Explorador de Store ahora usa Electron 1.8.3.
 
-### <a name="breaking-changes"></a>Cambios importantes
+### <a name="breaking-changes"></a>Últimos cambios
 * El Explorador de Storage tiene una nueva biblioteca de autenticación. Como parte del cambio a esta biblioteca, debe volver a iniciar sesión en sus cuentas y volver a establecer las suscripciones filtradas.
 * Se ha cambiado el método que se usa para cifrar datos confidenciales. Esto puede ocasionar que algunos de los elementos de acceso rápido o recursos adjuntos deban volverse agregar de nuevo.
 
@@ -1396,7 +1398,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Se podían producir cambios de datos inesperados al editar los valores de Edm.DateTime para entidades de tabla según la zona horaria local. El editor ahora utiliza un cuadro de texto sin formato, lo que proporciona un control preciso y coherente de los valores de Edm.DateTime.
 * La carga o descarga de un grupo de blobs cuando se asocia con un nombre y una clave no se iniciarían. Ahora se ha corregido.
 * El Explorador de Storage solo le preguntaría si desea volver a autenticar una cuenta obsoleta si una o varias de las suscripciones de la cuenta se seleccionaron. Ahora el Explorador de Storage le pedirá incluso si la cuenta se filtra completamente.
-* El dominio de los puntos de conexión para Azure Gobierno de EE.UU. era incorrecto. Esto se ha solucionado.
+* El dominio de los puntos de conexión para Azure US Gov era incorrecto. Esto se ha solucionado.
 * A veces resultaba difícil hacer clic en el botón Aplicar del panel Administrar cuentas. Esto ya no debería ocurrir.
 
 ### <a name="new"></a>Nuevo
@@ -1586,12 +1588,12 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Problema corregido: había una alta probabilidad de que, al cargar un archivo, se produjese un error de memoria agotada.
-* Problema corregido: ahora puede iniciar sesión con una tarjeta inteligente o un PIN.
-* Problema corregido: abrir en Portal ahora funciona con Azure China 21Vianet, Azure Alemania, Azure Gobierno de EE. UU.
-* Problema corregido: al cargar una carpeta en un contenedor de blobs, a veces se produce un error de "operación ilegal".
-* Problema corregido: seleccionar todo se deshabilita durante la administración de instantáneas.
-* Problema corregido: los metadatos del blob base puede que se sobrescriban después de ver las propiedades de las instantáneas.
+* Solucionado: había una alta probabilidad de que, al cargar un archivo, se produjese un error de memoria agotada.
+* Solucionado: ahora puede iniciar sesión con una tarjeta inteligente o un PIN.
+* Solucionado: abrir en Portal ahora funciona con Azure China 21Vianet, Azure Alemania, Azure US Gov
+* Solucionado: al cargar una carpeta en un contenedor de blobs, a veces se produce un error de "operación ilegal".
+* Solucionado: seleccionar todo se deshabilita durante la administración de instantáneas.
+* Solucionado: los metadatos del blob base puede que se sobrescriban después de ver las propiedades de las instantáneas.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1625,7 +1627,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Ahora puede iniciar sesión en Azure Active Directory (AAD) basándose en cuentas de Azure Stack.
 * Ahora puede cargar archivos de archivo de más de 32 MB en cuentas de almacenamiento Premium.
 * Compatibilidad de accesibilidad mejorada.
-* Ahora puede agregar certificados SSL X.509 cifrados en Base-64 de confianza en Editar -&gt; Certificados SSL -&gt; Importar certificados.
+* Ahora puede agregar certificados TLS/SSL X.509 cifrados en base-64 de confianza en Editar -&gt; Certificados SSL -&gt; Importar certificados.
 
 #### <a name="fixes"></a>Correcciones
 
@@ -1667,7 +1669,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Explorador de Storage 0.8.9 descargará automáticamente la última versión de las actualizaciones.
 * Revisión: Al usar un URI de SAS generado en el portal para conectarse a una cuenta de almacenamiento, se producía un error.
 * Ahora puede crear, administrar y promover instantáneas de blobs.
-* Ahora puede iniciar sesión en cuentas de Azure China 21Vianet, Azure Alemania y Azure Gobierno de EE. UU.
+* Ahora puede iniciar sesión en cuentas de Azure China 21Vianet, Azure Alemania y Azure US Gov
 * Ahora puede cambiar el nivel de zoom. Use las opciones del menú Ver para acercar, alejar y restablecer el zoom.
 * Ahora se admiten caracteres Unicode en los metadatos de usuarios para blobs y archivos.
 * Mejoras de accesibilidad.
@@ -1700,13 +1702,13 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Problema corregido: el Explorador de Storage es ahora una aplicación de confianza en Mac.
-* Problema corregido: Ubuntu 14.04 se admite de nuevo.
-* Problema corregido: en ocasiones, la interfaz de usuario para agregar una cuenta parpadea al cargar las suscripciones.
-* Problema corregido: en ocasiones, no todos los recursos de almacenamiento se muestran en el panel de navegación izquierdo.
-* Problema corregido: el panel de acciones a veces muestra acciones vacías.
-* Problema corregido: ahora se conserva el tamaño de la ventana de la última sesión que se cerró.
-* Problema corregido: se pueden abrir varias pestañas para el mismo recurso mediante el menú contextual.
+* Solucionado: el Explorador de Storage es ahora una aplicación de confianza en Mac.
+* Solucionado: Ubuntu 14.04 se admite de nuevo.
+* Solucionado: en ocasiones, la interfaz de usuario para agregar una cuenta parpadea al cargar las suscripciones.
+* Solucionado: en ocasiones, no todos los recursos de almacenamiento se muestran en el panel de navegación izquierdo.
+* Solucionado: el panel de acciones a veces muestra acciones vacías.
+* Solucionado: ahora se conserva el tamaño de la ventana de la última sesión que se cerró.
+* Solucionado: se pueden abrir varias pestañas para el mismo recurso mediante el menú contextual.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1736,14 +1738,14 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Problema corregido: problemas de inmovilización de pantalla
-* Problema corregido: Mayor seguridad
-* Problema corregido: a veces, podrían aparecer cuentas conectadas duplicadas.
-* Problema corregido: un blob con un tipo de contenido sin definir podría generar una excepción.
-* Problema corregido: no se podía abrir el Panel de consulta en una tabla vacía.
-* Problema corregido: varios errores en la búsqueda.
-* Problema corregido: aumento del número de recursos que se cargan de 50 a 100 al hacer clic en "Cargar más".
-* Problema corregido: en la primera ejecución, si ha iniciado sesión con una cuenta, ahora se seleccionan todas las suscripciones para esa cuenta de manera predeterminada.
+* Solucionado: problemas de inmovilización de pantalla
+* Solucionado: Mayor seguridad
+* Solucionado: a veces, podrían aparecer cuentas conectadas duplicadas.
+* Solucionado: un blob con un tipo de contenido sin definir podría generar una excepción.
+* Solucionado: no se podía abrir el Panel de consulta en una tabla vacía.
+* Solucionado: varios errores en la búsqueda.
+* Solucionado: aumento del número de recursos que se cargan de 50 a 100 al hacer clic en "Cargar más".
+* Solucionado: en la primera ejecución, si ha iniciado sesión con una cuenta, ahora se seleccionan todas las suscripciones para esa cuenta de manera predeterminada.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1764,8 +1766,8 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 #### <a name="fixes"></a>Correcciones
 
 * Problema corregido: A veces, la condición de carrera durante las búsquedas provocaba que los nodos no se pudiesen expandir.
-* Problema corregido: "Usar HTTP" no funciona al conectarse a cuentas de almacenamiento con un nombre de cuenta y una clave.
-* Problema corregido: las claves SAS (especialmente las generadas en el Portal) devuelven un error de "barra oblicua final".
+* Solucionado: "Usar HTTP" no funciona al conectarse a cuentas de almacenamiento con un nombre de cuenta y una clave.
+* Solucionado: las claves SAS (especialmente las generadas en el Portal) devuelven un error de "barra oblicua final".
 * Problema corregido: Problemas al importar tablas.
     * A veces se revertían la clave de fila y la clave de partición
     * No se puede leer las claves de partición “null”.
@@ -1811,7 +1813,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Problema corregido: las cuentas de Microsoft requieren que vuelva a autenticarse en períodos de 8 a 12 horas.
+* Solucionado: las cuentas de Microsoft requieren que vuelva a autenticarse en períodos de 8 a 12 horas.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1867,7 +1869,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 * Problema corregido: Al cargar o descargar blobs grandes, se puede producir una carga o descarga incompleta.
 * Problema corregido: Al editar, agregar o importar una entidad con un valor de cadena numérico (“1”) se convertirá en doble.
-* Problema corregido: no se puede expandir el nodo de tabla en el entorno de desarrollo local.
+* Solucionado: no se puede expandir el nodo de tabla en el entorno de desarrollo local.
 
 #### <a name="known-issues"></a>Problemas conocidos
 

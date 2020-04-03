@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: fe79cf5af86e1f303e4735214b993d8db4488a25
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74793254"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Crear instrucciones condicionales que controlen las acciones de los flujo de trabajo en Azure Logic Apps
@@ -22,9 +22,9 @@ Por ejemplo, suponga que tiene una aplicación lógica que envía demasiados cor
 > [!TIP]
 > Para ejecutar pasos diferentes para distintos valores concretos, use una [*instrucción switch*](../logic-apps/logic-apps-control-flow-switch-statement.md) en su lugar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -40,7 +40,7 @@ Por ejemplo, suponga que tiene una aplicación lógica que envía demasiados cor
 
    ![Agregar acción entre pasos](./media/logic-apps-control-flow-conditional-statement/add-action.png)
 
-   Si desea agregar una condición al final del flujo de trabajo, en la parte inferior de la aplicación lógica elija **+ Nuevo paso** > **Agregar una acción**.
+   Si desea agregar una condición al final del flujo de trabajo, en la parte inferior de la aplicación lógica elija **Nuevo paso** > **Agregar una acción**.
 
 1. En el cuadro de búsqueda, escriba "condición" como filtro. Seleccione esta acción: **Condición - Control**
 

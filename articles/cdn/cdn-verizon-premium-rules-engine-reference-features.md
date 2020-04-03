@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593239"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79225964"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Características del motor de reglas de Azure CDN de Verizon Premium
 
@@ -24,7 +24,7 @@ La tercera parte de una regla es la característica. Una característica define 
 
 Estas características están diseñadas para controlar el acceso al contenido.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Denegar acceso (403)](#deny-access-403) | Determina si todas las solicitudes se rechazan con una respuesta 403-Prohibido.
 [Autenticación de token](#token-auth) | Determina si se aplica una solicitud de autenticación basada en tokens a una solicitud.
@@ -36,7 +36,7 @@ NOMBRE | Propósito
 
 Estas características están diseñadas para personalizar cuándo y cómo se almacena el contenido en caché.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Parámetros de ancho de banda](#bandwidth-parameters) | Determina si los parámetros de limitación de ancho de banda (por ejemplo, ec_rate y ec_prebuf) están activos.
 [Limitación de ancho de banda](#bandwidth-throttling) | Limita el ancho de banda de la respuesta proporcionada por el punto de presencia (POP).
@@ -66,7 +66,7 @@ NOMBRE | Propósito
 
 Esta característica está diseñada para proporcionar información adicional dentro de una regla.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Comment](#comment) | Permite agregar una nota en una regla.
 
@@ -74,7 +74,7 @@ NOMBRE | Propósito
 
 Estas características están diseñadas para agregar, modificar o eliminar encabezados de la solicitud o respuesta.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Encabezado de respuesta Age](#age-response-header) | Determina si se incluye un encabezado de respuesta Age en la respuesta enviada al solicitante.
 [Depurar encabezados de respuesta de la caché](#debug-cache-response-headers) | Determina si una respuesta puede incluir el encabezado de respuesta X-EC-Debug que proporciona información sobre la directiva de caché del recurso solicitado.
@@ -86,7 +86,7 @@ NOMBRE | Propósito
 
 Estas características están diseñadas para personalizar los datos almacenados en archivos de registro sin procesar.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Campo de registro personalizado 1](#custom-log-field-1) | Determina el formato y el contenido que se asigna al campo de registro personalizado en un archivo de registro sin procesar.
 [Cadena de consulta del registro](#log-query-string) | Determina si una cadena de consulta se almacena con la dirección URL en los registros de acceso.
@@ -140,7 +140,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Estas características están diseñadas para controlar la forma en que la red CDN se comunica con un servidor de origen.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Número máximo de solicitudes de conexión persistente](#maximum-keep-alive-requests) | Define el número máximo de solicitudes de conexión persistente antes de cerrarse.
 [Encabezados de proxy especiales](#proxy-special-headers) | Define el conjunto de encabezados de solicitud específicos de la red CDN que se reenvían desde un punto de presencia a un servidor de origen.
@@ -149,7 +149,7 @@ NOMBRE | Propósito
 
 Estas características ofrecen funcionalidades avanzadas que solo deben utilizar los usuarios avanzados.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Métodos HTTP almacenables en caché](#cacheable-http-methods) | Determina el conjunto de métodos HTTP adicionales que pueden almacenarse en caché en la red.
 [Tamaño del cuerpo de solicitud almacenable en caché](#cacheable-request-body-size) | Define el umbral que determina si una respuesta POST se puede almacenar en caché.
@@ -159,7 +159,7 @@ NOMBRE | Propósito
 
 Estas características permiten reescribir una solicitud o redirigirla a una dirección URL diferente.
 
-NOMBRE | Propósito
+Nombre | Propósito
 -----|--------
 [Seguir redireccionamientos](#follow-redirects) | Determina si las solicitudes se pueden redirigir al nombre de host definido en el encabezado Ubicación que devuelve el servidor de origen de un cliente.
 [Redirección de direcciones URL](#url-redirect) | Redirige las solicitudes a través del encabezado Ubicación.
@@ -173,7 +173,7 @@ NOMBRE | Propósito
 
 **Propósito**: Determina si se incluye un encabezado de respuesta Age en la respuesta enviada al solicitante.
 
-Valor|Resultado
+Value|Resultado
 --|--
 habilitado | El encabezado de respuesta Age se incluye en la respuesta enviada al solicitante.
 Disabled | El encabezado de respuesta Age se excluye de la respuesta enviada al solicitante.
@@ -192,7 +192,7 @@ Disabled | El encabezado de respuesta Age se excluye de la respuesta enviada al 
 
 Los parámetros de limitación de ancho de banda determinan si la velocidad de transferencia de datos para la solicitud de un cliente se limita a una velocidad personalizada.
 
-Valor|Resultado
+Value|Resultado
 --|--
 habilitado|Permite que los puntos de presencia admitan las solicitudes de limitación de ancho de banda.
 Disabled|Hace que los puntos de presencia omitan los parámetros de limitación de ancho de banda. El contenido solicitado se sirve normalmente (es decir, sin limitación de ancho de banda).
@@ -211,7 +211,7 @@ Disabled|Hace que los puntos de presencia omitan los parámetros de limitación 
 
 Dos de las siguientes opciones deben definirse para configurar correctamente la limitación de ancho de banda.
 
-Opción|DESCRIPCIÓN
+Opción|Descripción
 --|--
 Kbytes por segundo|Establezca esta opción en el ancho de banda máximo (Kb por segundo) que puede utilizarse para entregar la respuesta.
 Segundos de búfer previo|Establezca esta opción en el número de segundos que los puntos de presencia deben esperar hasta limitar el ancho de banda. El propósito de este período de tiempo de ancho de banda no restringido es evitar que un reproductor multimedia experimente problemas de cortes o de almacenamiento en búfer debido a la limitación del ancho de banda.
@@ -228,7 +228,7 @@ Segundos de búfer previo|Establezca esta opción en el número de segundos que 
 
 **Propósito**: Determina si la solicitud debe omitir el almacenamiento en caché.
 
-Valor|Resultado
+Value|Resultado
 --|--
 habilitado|Hace que todas las solicitudes pasen al servidor de origen, aunque el contenido se haya almacenado antes en caché en los puntos de presencia.
 Disabled|Hace que los puntos de presencia almacenen en caché los recursos según la directiva de caché definida en sus encabezados de respuesta.
@@ -296,10 +296,10 @@ Información importante:
 
 La manera más fácil de lograr este tipo de configuración es colocar las características Max-Age externa y Tratamiento de encabezados Cache-Control en la misma instrucción.
 
-Valor|Resultado
+Value|Resultado
 --|--
-Sobrescribir|Garantiza que se llevarán a cabo las siguientes acciones:<br/> - Sobrescribe el encabezado `Cache-Control` que generó el servidor de origen. <br/>- Agregar a la respuesta el encabezado `Cache-Control` que generó la característica externa Max-Age.
-Pass Through|Garantiza que el encabezado `Cache-Control` que generó la característica externa Max-Age nunca se agregue a la respuesta. <br/> Si el servidor de origen genera un encabezado `Cache-Control`, se pasará directamente al usuario final. <br/> Si el servidor de origen no genera un encabezado `Cache-Control`, esta opción puede provocar que el encabezado de respuesta no contenga un encabezado `Cache-Control`.
+Sobrescribir|Garantiza que se llevarán a cabo las siguientes acciones:<br/> - Sobrescribir el encabezado `Cache-Control` que generó el servidor de origen. <br/>- Agregar a la respuesta el encabezado `Cache-Control` que generó la característica externa Max-Age.
+Paso a través|Garantiza que el encabezado `Cache-Control` que generó la característica externa Max-Age nunca se agregue a la respuesta. <br/> Si el servidor de origen genera un encabezado `Cache-Control`, se pasará directamente al usuario final. <br/> Si el servidor de origen no genera un encabezado `Cache-Control`, esta opción puede provocar que el encabezado de respuesta no contenga un encabezado `Cache-Control`.
 Add if Missing|Si no se recibió un encabezado `Cache-Control` desde el servidor de origen, esta opción agrega el encabezado `Cache-Control` que generó la característica externa Max-Age. Esta opción es útil para garantizar que todos los recursos se asignan a un encabezado `Cache-Control`.
 Remove| Esta opción garantiza que no se incluirá un encabezado `Cache-Control` en la respuesta de encabezado. Si ya se ha asignado un encabezado `Cache-Control`, se quitará de la respuesta de encabezado.
 
@@ -320,7 +320,7 @@ Información importante:
 - Especifique uno o varios nombres de parámetro de consulta y separe cada nombre de parámetro con un solo espacio.
 - Esta característica determina si los parámetros de cadena de consulta se incluyen o excluyen de la clave de caché. En la tabla siguiente se proporciona información adicional para cada opción.
 
-type|DESCRIPCIÓN
+Tipo|Descripción
 --|--
  Include|  Indica que cada parámetro especificado debe estar incluido en la clave de caché. Se genera una clave de caché única para cada solicitud que contenga un valor único para un parámetro de cadena de consulta definido en esta característica.
  Include All  |Indica que se crea una clave de caché única para cada solicitud a un recurso que incluya una cadena de consulta única. Normalmente no se recomienda este tipo de configuración porque puede dar lugar a un pequeño porcentaje de aciertos de caché. Un bajo número de aciertos de caché aumenta la carga en el servidor de origen, porque debe atender más solicitudes. Esta configuración reproduce el comportamiento de almacenamiento en caché que se conoce como "cache única" en la página Almacenamiento en caché de cadenas de consulta.
@@ -397,7 +397,7 @@ Una clave de caché es la ruta de acceso relativa que identifica un recurso con 
 
 Para configurar esta característica, puede definir las siguientes opciones:
 
-Opción|DESCRIPCIÓN
+Opción|Descripción
 --|--
 Ruta de acceso original| Define la ruta de acceso relativa a los tipos de solicitudes cuyas claves de caché se reescriben. Para definir una ruta de acceso relativa, seleccione una ruta de acceso de origen de base y, a continuación, define un patrón de expresión regular.
 Nueva ruta de acceso|Define la ruta de acceso relativa de la nueva clave de caché. Para definir una ruta de acceso relativa, seleccione una ruta de acceso de origen de base y, a continuación, define un patrón de expresión regular. Esta ruta de acceso relativa se puede construir dinámicamente mediante [variables HTTP](cdn-http-variables.md).
@@ -441,7 +441,7 @@ Un error de caché parcial normalmente se produce después de que un usuario anu
 
 Deje la configuración predeterminada de la plataforma HTTP Large, ya que reduce la carga en el servidor de origen del cliente y aumenta la velocidad con la que los clientes descargan el contenido.
 
-Valor|Resultado
+Value|Resultado
 --|--
 habilitado|Restablece el comportamiento predeterminado. El comportamiento predeterminado consiste en forzar al punto de presencia a que inicie una captura en segundo plano del recurso desde el servidor de origen. Después de eso, el recurso estará en la caché local del punto de presencia.
 Disabled|Evita que un punto de presencia realice una captura en segundo plano del recurso. Como resultado, la próxima solicitud de ese recurso realizada desde esa región hace que un punto de presencia lo solicite desde el servidor de origen del cliente.
@@ -482,13 +482,13 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 
 Los formatos de archivo se pueden especificar con su tipo de medio de Internet (es decir, Content-Type). El tipo de medio de Internet son los metadatos independientes de la plataforma que permiten que los servidores identifiquen el formato de archivo de un recurso determinado. La siguiente es la lista de los tipos de medios más comunes de Internet.
 
-Tipo de medio de Internet|DESCRIPCIÓN
+Tipo de medio de Internet|Descripción
 --|--
 text/plain|Texto sin formato
 text/html| Archivos HTML
 text/css|Hojas de estilos en cascada (CSS)
-application/x-javascript|Javascript
-application/javascript|Javascript
+application/x-javascript|JavaScript
+application/javascript|JavaScript
 
 Información importante:
 
@@ -547,11 +547,11 @@ Para solicitar los encabezados de respuesta de caché de depuración, incluya el
 
 `X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
-**Ejemplo:**
+**Ejemplo**:
 
 X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
-Valor|Resultado
+Value|Resultado
 -|-
 habilitado|Las solicitudes de encabezados de respuesta de caché de depuración devolverán una respuesta que incluye el encabezado X-EC-Debug.
 Disabled|El encabezado de respuesta X-EC-Debug se excluirá de la respuesta.
@@ -612,7 +612,7 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 
 **Propósito**: Determina si todas las solicitudes se rechazan con una respuesta 403-Prohibido.
 
-Valor | Resultado
+Value | Resultado
 ------|-------
 habilitado| Hace que todas las solicitudes que cumplen los criterios de coincidencia se rechacen con respuesta 403 Prohibido.
 Disabled| Restablece el comportamiento predeterminado. El comportamiento predeterminado es permitir que el servidor de origen determine el tipo de respuesta que se devolverá.
@@ -634,10 +634,10 @@ Disabled| Restablece el comportamiento predeterminado. El comportamiento predete
 
 La manera más fácil de lograr este tipo de configuración es colocar las características Max-Age externa y Tratamiento de encabezados Expires en la misma instrucción.
 
-Valor|Resultado
+Value|Resultado
 --|--
 Sobrescribir|Garantiza que se llevarán a cabo las siguientes acciones:<br/>- Sobrescribir el encabezado `Expires` que generó el servidor de origen.<br/>- Agregar a la respuesta el encabezado `Expires` que generó la característica externa Max-Age.
-Pass Through|Garantiza que el encabezado `Expires` que generó la característica externa Max-Age nunca se agregue a la respuesta. <br/> Si el servidor de origen genera un encabezado `Expires`, pasará directamente al usuario final. <br/>Si el servidor de origen no genera un encabezado `Expires`, esta opción puede provocar que el encabezado de respuesta no contenga un encabezado `Expires`.
+Paso a través|Garantiza que el encabezado `Expires` que generó la característica externa Max-Age nunca se agregue a la respuesta. <br/> Si el servidor de origen genera un encabezado `Expires`, pasará directamente al usuario final. <br/>Si el servidor de origen no genera un encabezado `Expires`, esta opción puede provocar que el encabezado de respuesta no contenga un encabezado `Expires`.
 Add if Missing| Si no se recibió un encabezado `Expires` desde el servidor de origen, esta opción agrega el encabezado `Expires` que generó la característica externa Max-Age. Esta opción es útil para garantizar que todos los recursos se asignarán a un encabezado `Expires`.
 Remove| Esta opción garantiza que no se incluirá un encabezado `Expires` en la respuesta de encabezado. Si ya se ha asignado un encabezado `Expires`, se quitará de la respuesta de encabezado.
 
@@ -678,7 +678,7 @@ Información importante:
 
 - Las solicitudes solo se pueden redirigir a los servidores perimetrales CNAME que correspondan a la misma plataforma.
 
-Valor|Resultado
+Value|Resultado
 -|-
 habilitado|Las solicitudes se pueden redirigir.
 Disabled|Las solicitudes no se redirigirán.
@@ -758,7 +758,7 @@ Información importante:
 
 Una solicitud para no almacenar en caché se produce cuando el cliente HTTP envía un encabezado `Cache-Control: no-cache` o `Pragma: no-cache` en la solicitud HTTP.
 
-Valor|Resultado
+Value|Resultado
 --|--
 habilitado|Permite reenviar las solicitudes de no almacenar en caché de un cliente HTTP al servidor de origen, y el servidor de origen devolverá los encabezados y el cuerpo de respuesta a través del punto de presencia al cliente HTTP.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es impedir que las solicitudes de no almacenar en caché se reenvíen al servidor de origen.
@@ -825,7 +825,7 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 
 De forma predeterminada, este código de estado se devuelve cuando un punto de presencia no puede satisfacer la solicitud de intervalo de bytes especificado y no se ha especificado un campo de encabezado de solicitud If-Range.
 
-Valor|Resultado
+Value|Resultado
 -|-
 habilitado|Impide que nuestros puntos de presencia respondan a una solicitud de intervalo de bytes no válida con un código de estado "416 - No se puede satisfacer el intervalo solicitado". En su lugar, los servidores proporcionarán el recurso solicitado y devolverán un valor "200 OK" al cliente.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es respetar el código de estado 416 No se puede satisfacer el intervalo solicitado.
@@ -891,7 +891,7 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 
 **Propósito**: Determina si una cadena de consulta se almacenará con la dirección URL en los registros de acceso.
 
-Valor|Resultado
+Value|Resultado
 -|-
 habilitado|Permite almacenar cadenas de consulta cuando se anotan direcciones URL en un registro de acceso. Si una dirección URL no contiene una cadena de consulta, esta opción no tendrá efecto.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es pasar por alto las cadenas de consulta cuando se anotan direcciones URL en un registro de acceso.
@@ -934,7 +934,7 @@ Las solicitudes que se reenvían a un servidor de origen reflejarán los cambios
 
 En un encabezado de solicitud se puede realizar una de las siguientes acciones:
 
-Opción|DESCRIPCIÓN|Ejemplo
+Opción|Descripción|Ejemplo
 -|-|-
 Append|El valor especificado se agregará al final del valor del encabezado de solicitud existente.|**Valor de encabezado de solicitud (cliente):**<br/>Valor1<br/>**Valor de encabezado de solicitud (motor de reglas):**<br/>Valor2 <br/>**Nuevo valor de encabezado de solicitud:** <br/>Valor1Valor2
 Sobrescribir|El valor del encabezado de solicitud se establecerá en el valor especificado.|**Valor de encabezado de solicitud (cliente):**<br/>Valor1<br/>**Valor de encabezado de solicitud (motor de reglas):**<br/>Valor2<br/>**Nuevo valor de encabezado de solicitud:**<br/> Valor2 <br/>
@@ -953,7 +953,7 @@ Información importante:
     - forwarded
     - host
     - via
-    - Warning (Advertencia)
+    - advertencia
     - x-forwarded-for
     - Todos los nombres de encabezado que empiezan por "x-ce" están reservados.
 
@@ -974,7 +974,7 @@ De forma predeterminada, un servidor de origen y los puntos de presencia definen
 
 En un encabezado de respuesta se puede realizar una de las siguientes acciones:
 
-Opción|DESCRIPCIÓN|Ejemplo
+Opción|Descripción|Ejemplo
 -|-|-
 Append|El valor especificado se agregará al final del valor del encabezado de respuesta existente.|**Valor de encabezado de respuesta (cliente):**<br />Valor1<br/>**Valor de encabezado de respuesta (motor de reglas):**<br/>Valor2<br/>**Nuevo valor de encabezado de respuesta:**<br/>Valor1Valor2
 Sobrescribir|El valor del encabezado de respuesta se establecerá en el valor especificado.|**Valor de encabezado de respuesta (cliente):**<br/>Valor1<br/>**Valor de encabezado de respuesta (motor de reglas):**<br/>Valor2 <br/>**Nuevo valor de encabezado de respuesta:**<br/>Valor2 <br/>
@@ -991,18 +991,18 @@ Información importante:
 - Los encabezados siguientes están reservados y esta característica no los puede modificar:
     - accept-encoding
     - age
-    - connection
+    - conexión
     - content-encoding
     - content-length
     - content-range
     - date
-    - Servidor
+    - server
     - trailer
     - transfer-encoding
     - upgrade
     - vary
     - via
-    - Warning (Advertencia)
+    - advertencia
     - Todos los nombres de encabezado que empiezan por "x-ce" están reservados.
 
 [Volver arriba](#azure-cdn-from-verizon-premium-rules-engine-features)
@@ -1017,7 +1017,7 @@ Información importante:
 
 Esta caché parcial puede utilizarse para atender nuevas solicitudes de ese contenido hasta que se almacene en caché todo el contenido solicitado.
 
-Valor|Resultado
+Value|Resultado
 -|-
 habilitado|Las solicitudes pueden generar contenido almacenado parcialmente en caché.
 Disabled|Las solicitudes solamente pueden generar una versión completamente almacenada en caché del contenido solicitado.
@@ -1081,7 +1081,7 @@ En la lista predeterminada, se incluyen los siguientes encabezados HTTP:
 
 Los valores válidos son:
 
-Valor|Resultado
+Value|Resultado
 --|--
 habilitado|Hace que el punto de presencia vuelva a capturar el recurso desde el servidor de origen.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es atender los recursos de caché válidos cuando se soliciten.
@@ -1134,7 +1134,7 @@ Asegúrese de que el nombre de encabezado especificado no coincida con ninguno d
     - host
     - vary
     - via
-    - Warning (Advertencia)
+    - advertencia
     - x-forwarded-for
     - Todos los nombres de encabezado que empiezan por "x-ce" están reservados.
 
@@ -1148,7 +1148,7 @@ Asegúrese de que el nombre de encabezado especificado no coincida con ninguno d
 
 **Propósito**: Determina si se entregará el contenido almacenado en caché cuando se produzca un error durante la revalidación de caché o al recuperar el contenido solicitado desde el servidor de origen del cliente.
 
-Valor|Resultado
+Value|Resultado
 -|-
 habilitado|Cuando se produce un error durante una conexión a un servidor de origen, se sirve contenido obsoleto al solicitante.
 Disabled|El error del servidor de origen se reenvía al solicitante.
@@ -1192,7 +1192,7 @@ La clave de cifrado que se usa para cifrar y descifrar los valores del token se 
 
 Esta característica tiene prioridad sobre la mayoría de las características con la excepción de la característica Reescritura de direcciones URL.
 
-Valor | Resultado
+Value | Resultado
 ------|---------
 habilitado | Protege el contenido solicitado con autenticación basada en token. Solo se admitirán las solicitudes de los clientes que proporcionen un token válido y cumplan los requisitos. Las transacciones de FTP se excluyen de la autenticación basada en token.
 Disabled| Restablece el comportamiento predeterminado. El comportamiento predeterminado es permitir la configuración de la autenticación basada en token para determinar si se protegerá una solicitud.
@@ -1213,7 +1213,7 @@ No use la autenticación de token con una condición de coincidencia Siempre.
 
 Los códigos de respuesta disponibles se enumeran en la tabla siguiente.
 
-Código de respuesta|Nombre de la respuesta|DESCRIPCIÓN
+Código de respuesta|Nombre de la respuesta|Descripción
 -------------|-------------|--------
 301|Movido permanentemente|Este código de estado redirige a los usuarios no autorizados a la dirección URL especificada en el encabezado Ubicación.
 302|Encontrado|Este código de estado redirige a los usuarios no autorizados a la dirección URL especificada en el encabezado Ubicación. Este código de estado es el método estándar del sector para llevar a cabo una redirección.
@@ -1270,7 +1270,7 @@ Los parámetros que se ve afectados por esta característica son:
 
 Los valores válidos son:
 
-Valor|Resultado
+Value|Resultado
 ---|----
 habilitado|Hace que el punto de presencia no tenga en cuenta las mayúsculas y minúsculas al comparar las direcciones URL de los parámetros de autenticación basada en tokens.
 Disabled|Restablece el comportamiento predeterminado. Es el comportamiento predeterminado de la comparación de direcciones URL es que la autenticación basada en token distinga mayúsculas de minúsculas.
@@ -1293,7 +1293,7 @@ Información importante:
 - La opción Value (Valor) no se puede establecer en "ec_token."
 - Asegúrese de que el nombre definido en la opción de valor contenga únicamente caracteres de dirección URL válidos.
 
-Valor|Resultado
+Value|Resultado
 ----|----
 habilitado|La opción Value (Valor) define el nombre del parámetro de cadena de consulta a través del cual se definirá un token.
 Disabled|Un token se puede especificar como un parámetro de cadena de consulta no definido en la dirección URL de la solicitud.
@@ -1312,11 +1312,11 @@ Disabled|Un token se puede especificar como un parámetro de cadena de consulta 
 
 Para configurar esta característica hay que establecer las siguientes opciones:
 
-Opción|DESCRIPCIÓN
+Opción|Descripción
 -|-
 Código|Seleccione el código de respuesta que se devolverá al solicitante.
 Origen y patrón| Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden redirigir. Solo se redirigirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/> <br/> **Origen (o punto de acceso al contenido):** seleccione una ruta de acceso relativa que identifique un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/><br/> **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> - Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. <br/> -Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
-Destino| Defina la dirección URL a la que se redirigirán las solicitudes anteriores. <br/><br/> Construya esta dirección URL dinámicamente mediante: <br/> - Un patrón de expresión regular <br/>- [Variables HTTP](cdn-http-variables.md) <br/><br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. <br/>
+Destination| Defina la dirección URL a la que se redirigirán las solicitudes anteriores. <br/><br/> Construya esta dirección URL dinámicamente mediante: <br/> - Un patrón de expresión regular <br/>- [Variables HTTP](cdn-http-variables.md) <br/><br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. <br/>
 
 Es muy recomendable usar una dirección URL absoluta. El uso de direcciones URL relativas podría redirigir direcciones URL de la red CDN a rutas de acceso no válidas.
 
@@ -1358,10 +1358,10 @@ Información importante:
 
 - Para configurar esta característica hay que establecer las siguientes opciones:
 
-Opción|DESCRIPCIÓN
+Opción|Descripción
 -|-
  Origen y patrón | Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden reescribir. Solo se reescribirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/><br/>  - **Origen (o punto de acceso al contenido):** seleccione una ruta de acceso relativa que identifique un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/><br/> - **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> Compruebe que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
- Destino  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - [Variables HTTP](cdn-http-variables.md) <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor.
+ Destination  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - [Variables HTTP](cdn-http-variables.md) <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor.
 
  Esta característica permite que los puntos de presencia vuelvan a escribir la dirección URL sin realizar una redirección tradicional. Es decir, el solicitante recibirá el mismo código de respuesta que si hubiera solicitado la reescritura de la dirección URL.
 
