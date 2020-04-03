@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa14b45235f2a62f05e84efafc41b899dc531d49
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: aa612ad30ae0faa42071613be15c1d91fb96b8f6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74868684"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80332262"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integración de un bosque existente y un nuevo bosque con un único inquilino de Azure AD
 
@@ -43,7 +43,7 @@ En este escenario, hay un bosque existente sincronizado mediante Azure AD Conne
 
      | Número de puerto | Cómo se usa |
      | --- | --- |
-     | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado SSL |
+     | **80** | Descarga las listas de revocación de certificados (CRL) al validar el certificado TLS/SSL |
      | **443** | Controla toda la comunicación saliente con el servicio |
      | **8080** (opcional) | Si el puerto 443 no está disponible, los agentes notifican su estado cada 10 minutos en el puerto 8080. Este estado se muestra en el portal de Azure AD. |
      
