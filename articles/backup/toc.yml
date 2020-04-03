@@ -15,12 +15,12 @@
       href: quick-backup-vm-powershell.md
     - name: 'Copia de seguridad de una máquina virtual: CLI'
       href: quick-backup-vm-cli.md
-    - name: 'Copia de seguridad de una máquina virtual: Plantilla de Resource Manager'
-      displayName: ARM
+    - name: 'Copia de seguridad de una máquina virtual: plantilla de Resource Manager'
+      displayName: Resource Manager
       href: quick-backup-vm-template.md
 - name: Tutoriales
   items:
-    - name: Copia de seguridad de máquinas virtuales de Azure a escala
+    - name: Copia de seguridad de varias máquinas virtuales de Azure
       href: tutorial-backup-vm-at-scale.md
     - name: Copia de seguridad de máquinas virtuales de Azure con PowerShell
       href: tutorial-backup-azure-vm.md
@@ -58,6 +58,8 @@
           href: backup-support-matrix-mabs-dpm.md
         - name: Matriz de compatibilidad del agente de MARS
           href: backup-support-matrix-mars-agent.md
+        - name: Matriz de compatibilidad de copia de seguridad SQL Server
+          href: sql-support-matrix.md
         - name: Matriz de compatibilidad de SAP HANA
           href: sap-hana-backup-support-matrix.md
         - name: Referencias de almacén de máquina virtual admitidas en Azure Policy
@@ -164,10 +166,10 @@
           href: backup-azure-manage-mars.md
     - name: Copia de seguridad de un recurso compartido de archivos de Azure
       items:
+        - name: Información general
+          href: azure-file-share-backup-overview.md
         - name: Desde Azure Portal
           items:
-            - name: Información general
-              href: azure-file-share-backup-overview.md
             - name: Copia de seguridad
               href: backup-afs.md
             - name: Restauración
@@ -336,6 +338,8 @@
           href: backup-rm-template-samples.md
     - name: Seguridad
       items:
+        - name: Información general
+          href: security-overview.md
         - name: Control de acceso basado en roles
           href: backup-rbac-rs-vault.md
         - name: Seguridad para cargas de trabajo en la nube
@@ -382,6 +386,8 @@
       href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Recursos
   items:
+    - name: Cumplimiento normativo
+      href: compliance-offerings.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Foro de MSDN

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab378fe1e06de49df0fe6481a1aa475d426648dc
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032557"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79227772"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegación restringida de Kerberos para el inicio de sesión único para las aplicaciones con Proxy de aplicación
 
@@ -43,7 +43,7 @@ En este diagrama se explica el flujo que se crea cuando un usuario intenta tener
 7. El conector envía la solicitud original al servidor de aplicaciones, con el token de Kerberos que recibió de AD.
 8. La aplicación envía la respuesta al conector y, después, se devuelve al servicio Application Proxy y, por último, al usuario.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de empezar a trabajar con el inicio de sesión único para aplicaciones con autenticación integrada de Windows, asegúrese de que el entorno está preparado con los siguientes ajustes y configuraciones:
 
 * Sus aplicaciones, como las aplicaciones web de SharePoint, están establecidas para usar la autenticación de Windows integrada. Para más información, consulte [Habilitar la compatibilidad con la autenticación Kerberos](https://technet.microsoft.com/library/dd759186.aspx) o, para SharePoint, consulte [Planear la autenticación Kerberos en SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
@@ -66,17 +66,27 @@ La configuración de Active Directory varía, en función de si el conector de P
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Conector y servidor de aplicaciones en dominios diferentes
 1. Para obtener una lista de requisitos previos para trabajar con KCD entre dominios, vea [Delegación limitada Kerberos entre dominios](https://technet.microsoft.com/library/hh831477.aspx).
-2. Use la propiedad `principalsallowedtodelegateto` en el servidor de conector para permitir que Proxy de aplicación delegue en el servidor de conector. El servidor de aplicaciones es `sharepointserviceaccount` y el servidor de delegación es `connectormachineaccount`. Para Windows 2012 R2, use este código como un ejemplo:
+2. Use la propiedad `principalsallowedtodelegateto` de la cuenta de servicio (cuenta de equipo o de usuario de dominio dedicada) de la aplicación web para habilitar la delegación de autenticación Kerberos desde el proxy de aplicación (conector). El servidor de aplicaciones se ejecuta en el contexto de `webserviceaccount` y el servidor de delegación es `connectorcomputeraccount`. Ejecute los siguientes comandos en un controlador de dominio (con Windows Server 2012 R2 o posterior) en el dominio de `webserviceaccount`. Use nombres planos (no UPN) para ambas cuentas.
 
-```powershell
-$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
+   Si `webserviceaccount` es una cuenta de equipo, use estos comandos:
 
-Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+   ```powershell
+   $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
 
-Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
-```
+   Set-ADComputer -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
 
-`sharepointserviceaccount` puede ser la cuenta del equipo SPS o una cuenta de servicio con la que se ejecuta el grupo de aplicaciones SPS.
+   Get-ADComputer webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+   ```
+
+   Si `webserviceaccount` es una cuenta de usuario, use estos comandos:
+
+   ```powershell
+   $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
+
+   Set-ADUser -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+
+   Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+   ```
 
 ## <a name="configure-single-sign-on"></a>Configurar inicio de sesión único 
 1. Publique la aplicación según las instrucciones de [Publicar aplicaciones con el proxy de aplicación](application-proxy-add-on-premises-application.md). Asegúrese de seleccionar **Azure Active Directory** como **Método de autenticación previa**.
@@ -149,4 +159,3 @@ Pero, en algunos casos, la solicitud se envía correctamente a la aplicación de
 
 
 Para ver las últimas noticias y actualizaciones, consulte el [blog Application Proxy](https://blogs.technet.com/b/applicationproxyblog/)
-

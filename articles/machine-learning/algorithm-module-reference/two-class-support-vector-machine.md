@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 3b2f6b2bb1dc5f9e16c537f78b5a456ee4984e80
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ba788518951e72c1701d99decf46350e8665dbae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916734"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455815"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Máquina de vectores de soporte de dos clases
 
@@ -68,7 +68,7 @@ Para este tipo de modelo, se recomienda normalizar el conjunto de datos antes de
   
     -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](train-model.md).
   
-10. Ejecución de la canalización
+10. Envíe la canalización.
 
 ## <a name="results"></a>Results
 

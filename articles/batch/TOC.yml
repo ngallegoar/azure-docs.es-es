@@ -69,6 +69,8 @@
   items:
     - name: Administración de cuentas de Batch
       items:
+        - name: Administración de la cuenta
+          href: batch-manage-account-basics.md
         - name: Administración de cuentas de Batch con el portal
           href: batch-account-create-portal.md
         - name: Administración de cuentas de Batch con Batch Management .NET
@@ -83,8 +85,12 @@
           href: batch-aad-auth-management.md
         - name: Acceso seguro a Key Vault con Batch
           href: credential-access-key-vault.md
+    - name: Uso de paquetes de aplicaciones
+      href: batch-application-packages.md
     - name: Copia de archivos y aplicaciones en nodos de grupo
       items:
+        - name: Copia de aplicaciones y datos en nodos de grupo
+          href: batch-applications-to-pool-nodes.md
         - name: Uso de paquetes de aplicaciones
           href: batch-application-packages.md
         - name: Creación de archivos de recursos

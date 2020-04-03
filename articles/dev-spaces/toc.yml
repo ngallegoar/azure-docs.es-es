@@ -3,7 +3,7 @@
   items:
     - name: Información general
       items:
-        - name: Acerca de Azure Dev Spaces
+        - name: ¿Qué es Azure Dev Spaces?
           href: about.md
     - name: Guías de inicio rápido
       items:

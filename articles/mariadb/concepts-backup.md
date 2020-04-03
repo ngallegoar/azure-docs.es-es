@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 3e10c23aaaef6315e072348d879d5f077e16382a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 3/27/2020
+ms.openlocfilehash: c4d5a9ca85237bde1277904a478a0b8828fc2b08
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623653"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369238"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Copia de seguridad y restauración en Azure Database for MariaDB
 
@@ -21,7 +21,7 @@ Azure Database for MariaDB crea automáticamente copias de seguridad del servido
 
 Azure Database for MariaDB realiza copias de seguridad completas, diferenciales y del registro de transacciones. Estas copias de seguridad permiten restaurar un servidor a un momento dado dentro del período de retención de copias de seguridad configurado. El período de retención predeterminado es siete días. Opcionalmente, puede configurarlo hasta 35 días. Todas las copias de seguridad se cifran mediante cifrado AES de 256 bits.
 
-Estos archivos de copia de seguridad no se pueden exportar. Las copias de seguridad solo se pueden usar para operaciones de restauración en Azure Database for MariaDB. Puede usar [mysqldump](howto-migrate-dump-restore.md) para copiar una base de datos.
+Estos archivos de copia de seguridad no están expuestos al usuario y no se pueden exportar. Estas copias de seguridad solo se pueden usar para operaciones de restauración en Azure Database for MariaDB. Puede usar [mysqldump](howto-migrate-dump-restore.md) para copiar una base de datos.
 
 ### <a name="backup-frequency"></a>Frecuencia de copia de seguridad
 
@@ -44,12 +44,12 @@ Para más información sobre el costo de almacenamiento de copia de seguridad, v
 
 ## <a name="restore"></a>Restauración
 
-En Azure Database for MariaDB, al realizar una restauración se crea un nuevo servidor a partir de las copias de seguridad del servidor original.
+En Azure Database for MariaDB, al realizar una restauración se crea un nuevo servidor a partir de las copias de seguridad del servidor original, y se restauran todas las bases de datos incluidas en el servidor.
 
 Hay dos tipos de restauración disponibles:
 
-- **Restauración a un momento dado**: está disponible con cualquier opción de redundancia de copia de seguridad y crea un nuevo servidor en la misma región que el servidor original.
-- **Restauración geográfica**: solo está disponible si ha configurado el servidor para almacenamiento con redundancia geográfica y permite restaurar el servidor en una región diferente.
+- La **restauración a un momento dado** está disponible con cualquier opción de redundancia de copia de seguridad y crea un nuevo servidor en la misma región que el servidor original mediante la combinación de copias de seguridad completas y de registros.
+- La **restauración geográfica** solo está disponible si ha configurado el servidor para almacenamiento con redundancia geográfica y permite restaurar el servidor en una región diferente mediante la copia de seguridad más reciente creada.
 
 El tiempo estimado de recuperación depende de varios factores, como el tamaño de la bases de datos, el tamaño del registro de transacciones, el ancho de banda de red y el número total de bases de datos que se están recuperando en la misma región al mismo tiempo. Normalmente, el tiempo de recuperación es inferior a 12 horas.
 
@@ -66,7 +66,7 @@ Quizás deba esperar a que se realice la siguiente copia de seguridad del regist
 
 ### <a name="geo-restore"></a>Geo-restore
 
-Puede restaurar un servidor en otra región de Azure donde el servicio esté disponible, si ha configurado el servidor para copias de seguridad con redundancia geográfica. La restauración geográfica es la opción de recuperación predeterminada cuando el servidor no está disponible debido a una incidencia en la región en la que se hospeda el servidor. Si un incidente a gran escala en una región provoca la falta de disponibilidad de una aplicación de base de datos, puede restaurar un servidor a partir de las copias de seguridad con redundancia geográfica en un servidor de cualquier otra región. Hay un retraso entre momento en que se realiza una copia de seguridad y el momento en que se replica en una región diferente. Este retraso puede ser de hasta una hora; por lo tanto, si se produce un desastre, puede haber una pérdida de datos de hasta una hora.
+Puede restaurar un servidor en otra región de Azure donde el servicio esté disponible, si ha configurado el servidor para copias de seguridad con redundancia geográfica. La restauración geográfica es la opción de recuperación predeterminada cuando el servidor no está disponible debido a una incidencia en la región en la que se hospeda el servidor. Si un incidente a gran escala en una región provoca la falta de disponibilidad de una aplicación de base de datos, puede restaurar un servidor a partir de las copias de seguridad con redundancia geográfica en un servidor de cualquier otra región. La restauración geográfica usa la copia de seguridad más reciente del servidor. Hay un retraso entre momento en que se realiza una copia de seguridad y el momento en que se replica en una región diferente. Este retraso puede ser de hasta una hora; por lo tanto, si se produce un desastre, puede haber una pérdida de datos de hasta una hora.
 
 Durante la restauración geográfica, las configuraciones de servidor que se pueden cambiar incluyen la generación de procesos, núcleos virtuales, período de retención de copia de seguridad y opciones de redundancia de copia de seguridad. No se permite cambiar el Plan de tarifa (Básico, Uso general o Memoria optimizada) ni el tamaño de Almacenamiento durante la restauración geográfica.
 
@@ -75,14 +75,12 @@ Durante la restauración geográfica, las configuraciones de servidor que se pue
 Cuando efectúe la restauración con cualquiera de los mecanismos de recuperación, deberá realizar las siguientes tareas para que los usuarios y las aplicaciones vuelvan a conectarse:
 
 - Si el nuevo servidor está destinado a reemplazar al servidor original, redirija los clientes y las aplicaciones de cliente al nuevo servidor.
-- Asegúrese de aplicar reglas de firewall de nivel de servidor adecuadas para que se conecten los usuarios.
+- Asegúrese de que haya vigentes reglas de red virtual adecuadas para que los usuarios se conecten. Estas reglas no se copian desde el servidor original.
 - No se olvide de emplear los permisos de nivel de base de datos y los inicios de sesión apropiados.
 - Configure las alertas según corresponda.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información acerca de la continuidad del negocio, consulte la  [introducción a la continuidad de negocio](concepts-business-continuity.md).
-- Para restaurar a un momento dado mediante Azure Portal, consulte cómo  [restaurar una base de datos a un momento dado con Azure Portal](howto-restore-server-portal.md).
- 
-<!--
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).-->
+- Para restaurar a un momento dado mediante Azure Portal, consulte la  [restauración de un servidor a un momento dado mediante Azure Portal](howto-restore-server-portal.md).
+- Para restaurar a un momento dado mediante la CLI de Azure, consulte la  [restauración de un servidor a un momento dado mediante la CLI de Azure](howto-restore-server-cli.md).

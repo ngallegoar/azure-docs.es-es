@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74112266"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexación de blobs para producir varios documentos de búsqueda
@@ -83,7 +83,7 @@ _Blob2.json_
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
 
-Cuando se crea un indexador con `delimitedText` **parsingMode**, puede resultar natural configurar una función de asignación de campos para el campo de clave como se indica a continuación:
+Cuando se crea un indexador con **parsingMode** `delimitedText`, puede resultar natural configurar una función de asignación de campos para el campo de clave como se indica a continuación:
 
     {
         "sourceFieldName" : "recordid",

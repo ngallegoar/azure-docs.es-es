@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 47dc1a84fbc80925e5b65db8c03683f9f026271b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 2d7ea5618f4c0e8b6d348ea6c34127492b3e1096
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194995"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457413"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
@@ -66,7 +66,7 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 |Servicio de implementación de Azure Virtual Machines|[Implementar certificados en máquinas virtuales desde el almacén de claves administrado por el cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
 |Servicio de implementación de plantillas de Azure Resource Manager|[Pasar valores seguros durante la implementación](../azure-resource-manager/templates/key-vault-parameter.md).|
 |Servicio de cifrado de volúmenes de Azure Disk Encryption|Permitir el acceso a BitLocker Key (máquina virtual Windows) o a la frase de contraseña de DM (máquina virtual Linux) y a la clave de cifrado durante la implementación de máquinas virtuales. Esto habilita [Azure Disk Encryption](../security/fundamentals/encryption-overview.md).|
-|Azure Backup|Permitir la opción de copia de seguridad y restauración de claves y secretos pertinentes durante la copia de seguridad de máquinas virtuales de Azure mediante [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
+|Azure Backup|Permitir la copia de seguridad y restauración de claves y secretos pertinentes durante la copia de seguridad de Azure Virtual Machines mediante [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online y SharePoint Online|Permitir el acceso a la clave de cliente para Azure Storage Service Encryption con la [clave de cliente](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Permitir el acceso a la clave de inquilino para [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Implementar un certificado de Azure Web App mediante Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
@@ -78,7 +78,7 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 |Azure Data Factory|[Captura de credenciales del almacén de datos en Key Vault desde Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[Permitir el acceso a un almacén de claves para un escenario de claves administradas por el cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Azure Service Bus|[Permitir el acceso a un almacén de claves para un escenario de claves administradas por el cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
-
+|Azure Import/Export| [Uso de claves administradas por el cliente en Azure Key Vault para el servicio de importación y exportación](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
 
 > [!NOTE]
 > Debe configurar las directivas de acceso pertinentes de Key Vault para permitir que los servicios correspondientes obtengan acceso a Key Vault.

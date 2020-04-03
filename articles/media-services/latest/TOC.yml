@@ -401,7 +401,7 @@
           href: 'https://aka.ms/ams-v3-ruby-sdk'
     - name: Explorador de Azure Media Services
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
-    - name: Cuotas y limitaciones
+    - name: Cuotas y límites
       href: limits-quotas-constraints.md
     - name: Nubes y regiones de Azure
       href: azure-clouds-regions.md

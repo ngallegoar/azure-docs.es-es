@@ -3,14 +3,15 @@ title: Creación de suscripciones de Azure mediante programación
 description: Aprenda a crear suscripciones de Azure adicionales mediante programación.
 author: amberbhargava
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 03/17/2020
+ms.reviewer: andalmia
 ms.author: banders
-ms.openlocfilehash: 47d4454c47967d07898492176438e547b1e561b6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 33f1d154f438b917b79cd299e81c9078e2f2e81d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198690"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460405"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Creación de suscripciones de Azure mediante programación (versión preliminar)
 
@@ -22,6 +23,8 @@ Al crear una suscripción a Azure mediante programación, dicha suscripción se 
 
 
 ## <a name="create-subscriptions-for-an-ea-billing-account"></a>Creación de suscripciones para una cuenta de facturación de EA
+
+Use la información de las secciones siguientes para aprender a crea suscripciones a EA.
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
@@ -149,9 +152,9 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 | Nombre del elemento  | Obligatorio | Tipo   | Descripción                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `displayName` | Sin      | String | Nombre para mostrar de la suscripción. Si no se especifica, se establece en el nombre de la oferta, por ejemplo, "Microsoft Azure Enterprise".                                 |
+| `displayName` | No      | String | Nombre para mostrar de la suscripción. Si no se especifica, se establece en el nombre de la oferta, por ejemplo, "Microsoft Azure Enterprise".                                 |
 | `offerType`   | Sí      | String | Oferta de la suscripción. Las dos opciones para EA son [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso en producción) y [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desarrollo y pruebas, tiene que [activarse mediante el portal de EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `owners`      | Sin       | String | Identificador de objeto de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla.  |
+| `owners`      | No       | String | Identificador de objeto de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla.  |
 
 En la respuesta, se recupera un objeto `subscriptionOperation` para la supervisión. Cuando haya finalizado la creación de la suscripción, el objeto `subscriptionOperation` devolvería un objeto `subscriptionLink`, que tiene el identificador de suscripción.
 
@@ -167,12 +170,12 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 | Nombre del elemento  | Obligatorio | Tipo   | Descripción                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `Name` | Sin      | String | Nombre para mostrar de la suscripción. Si no se especifica, se establece en el nombre de la oferta, por ejemplo, "Microsoft Azure Enterprise".                                 |
+| `Name` | No      | String | Nombre para mostrar de la suscripción. Si no se especifica, se establece en el nombre de la oferta, por ejemplo, "Microsoft Azure Enterprise".                                 |
 | `OfferType`   | Sí      | String | Oferta de la suscripción. Las dos opciones para EA son [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso en producción) y [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desarrollo y pruebas, tiene que [activarse mediante el portal de EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `EnrollmentAccountObjectId`      | Sí       | String | El identificador de objeto de la cuenta de inscripción con la que se crea la suscripción y contra la que se realizan los cargos. Este valor es un GUID que se obtiene de `Get-AzEnrollmentAccount`. |
-| `OwnerObjectId`      | Sin       | String | Identificador de objeto de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla.  |
-| `OwnerSignInName`    | Sin       | String | Dirección de correo electrónico de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla. Puede utilizar este parámetro en lugar de `OwnerObjectId`.|
-| `OwnerApplicationId` | Sin       | String | Identificador de aplicación de cualquier entidad de servicio que quiera agregarse como propietario de RBAC en la suscripción al crearla. Puede utilizar este parámetro en lugar de `OwnerObjectId`. Al usar este parámetro, la entidad de servicio debe tener [acceso de lectura al directorio](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
+| `OwnerObjectId`      | No       | String | Identificador de objeto de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla.  |
+| `OwnerSignInName`    | No       | String | Dirección de correo electrónico de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla. Puede utilizar este parámetro en lugar de `OwnerObjectId`.|
+| `OwnerApplicationId` | No       | String | Identificador de aplicación de cualquier entidad de servicio que quiera agregarse como propietario de RBAC en la suscripción al crearla. Puede utilizar este parámetro en lugar de `OwnerObjectId`. Al usar este parámetro, la entidad de servicio debe tener [acceso de lectura al directorio](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Para obtener una lista completa de todos los parámetros, consulte [New-AzSubscription](/powershell/module/az.subscription).
 
@@ -188,12 +191,12 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 | Nombre del elemento  | Obligatorio | Tipo   | Descripción                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
-| `display-name` | Sin      | String | Nombre para mostrar de la suscripción. Si no se especifica, se establece en el nombre de la oferta, por ejemplo, "Microsoft Azure Enterprise".                                 |
+| `display-name` | No      | String | Nombre para mostrar de la suscripción. Si no se especifica, se establece en el nombre de la oferta, por ejemplo, "Microsoft Azure Enterprise".                                 |
 | `offer-type`   | Sí      | String | Oferta de la suscripción. Las dos opciones para EA son [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso en producción) y [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desarrollo y pruebas, tiene que [activarse mediante el portal de EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `enrollment-account-object-id`      | Sí       | String | El identificador de objeto de la cuenta de inscripción con la que se crea la suscripción y contra la que se realizan los cargos. Este valor es un GUID que se obtiene de `az billing enrollment-account list`. |
-| `owner-object-id`      | Sin       | String | Identificador de objeto de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla.  |
-| `owner-upn`    | Sin       | String | Dirección de correo electrónico de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla. Puede utilizar este parámetro en lugar de `owner-object-id`.|
-| `owner-spn` | Sin       | String | Identificador de aplicación de cualquier entidad de servicio que quiera agregarse como propietario de RBAC en la suscripción al crearla. Puede utilizar este parámetro en lugar de `owner-object-id`. Al usar este parámetro, la entidad de servicio debe tener [acceso de lectura al directorio](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
+| `owner-object-id`      | No       | String | Identificador de objeto de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla.  |
+| `owner-upn`    | No       | String | Dirección de correo electrónico de cualquier usuario que quiera agregarse como propietario de RBAC en la suscripción al crearla. Puede utilizar este parámetro en lugar de `owner-object-id`.|
+| `owner-spn` | No       | String | Identificador de aplicación de cualquier entidad de servicio que quiera agregarse como propietario de RBAC en la suscripción al crearla. Puede utilizar este parámetro en lugar de `owner-object-id`. Al usar este parámetro, la entidad de servicio debe tener [acceso de lectura al directorio](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
 Para obtener una lista completa de todos los parámetros, vea [az account create](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
@@ -202,7 +205,7 @@ Para obtener una lista completa de todos los parámetros, vea [az account create
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitaciones de la API de creación de suscripciones de Azure Enterprise
 
 - Con esta API solo pueden crearse suscripciones de Azure Enterprise.
-- Hay un límite de 200 suscripciones por cuenta de inscripción. Después, solo se pueden crear más suscripciones para la cuenta en Azure Portal. Si quiere crear más suscripciones a través de la API, cree otra cuenta de inscripción.
+- Hay un límite de 500 suscripciones por cuenta de inscripción. Después, solo se pueden crear más suscripciones para la cuenta en Azure Portal. Si quiere crear más suscripciones a través de la API, cree otra cuenta de inscripción.
 - Los usuarios que no son propietarios de cuenta, pero se han agregado a una cuenta de inscripción a través de RBAC, no pueden crear suscripciones en Azure Portal.
 - No puede seleccionar el inquilino para la suscripción en que se va a crear. La suscripción siempre se crea en el inquilino principal del propietario de cuenta. Para mover la suscripción a otro inquilino, vea cómo [cambiar un inquilino de la suscripción](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -342,9 +345,9 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 | `displayName` | Sí      | String | Nombre para mostrar de la suscripción.|
 | `billingProfileId`   | Sí      | String | Identificador del perfil de facturación que se facturará por los cargos de la suscripción.  |
 | `skuId` | Sí      | String | Identificador de SKU que determina el tipo de plan de Azure. |
-| `owners`      | Sin       | String | Identificador de objeto de cualquier usuario o entidad de servicio que quiera agregarse como propietario de RBAC en la suscripción al crearla.  |
-| `costCenter` | Sin      | String | Centro de coste asociado a la suscripción. Se muestra en el archivo CSV de uso. |
-| `managementGroupId` | Sin      | String | Identificador del grupo de administración al que se agregará la suscripción. Para obtener la lista de grupos de administración, consulte [Grupos de administración: API de lista](/rest/api/resources/managementgroups/list). Use el identificador de un grupo de administración de la API. |
+| `owners`      | No       | String | Identificador de objeto de cualquier usuario o entidad de servicio que quiera agregarse como propietario de RBAC en la suscripción al crearla.  |
+| `costCenter` | No      | String | Centro de coste asociado a la suscripción. Se muestra en el archivo CSV de uso. |
+| `managementGroupId` | No      | String | Identificador del grupo de administración al que se agregará la suscripción. Para obtener la lista de grupos de administración, consulte [Grupos de administración: API de lista](/rest/api/resources/managementgroups/list). Use el identificador de un grupo de administración de la API. |
 
 En la respuesta, se recupera un objeto `subscriptionCreationResult` para la supervisión. Cuando haya finalizado la creación de la suscripción, el objeto `subscriptionCreationResult` devolvería un objeto `subscriptionLink`, que tiene el identificador de suscripción.
 
@@ -506,7 +509,7 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Sí      | String | Nombre para mostrar de la suscripción.|
 | `skuId` | Sí      | String | El identificador de SKU del plan de Azure. Use *0001* para las suscripciones de tipo Microsoft Azure Plan. |
-| `resellerId`      | Sin       | String | Use el identificador de MPN del revendedor que se va a asociar a la suscripción.  |
+| `resellerId`      | No       | String | Use el identificador de MPN del revendedor que se va a asociar a la suscripción.  |
 
 En la respuesta, se recupera un objeto `subscriptionCreationResult` para la supervisión. Cuando haya finalizado la creación de la suscripción, el objeto `subscriptionCreationResult` devolvería un objeto `subscriptionLink`, que tiene el identificador de suscripción.
 

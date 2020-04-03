@@ -8,28 +8,22 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 8658bc44e41f61e717cf228a6d8e7cee6b477022
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5e323d8faa19ceb0712aa6183df17740ce2a0a1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264957"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370393"
 ---
 # <a name="public-preview-service-limits"></a>Límites de servicio de la versión preliminar pública
 
-Durante la versión preliminar pública, Azure Digital Twins tendrá los siguientes límites temporales de suscripción, instancia y frecuencia.
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
-Estas restricciones ayudan a simplificar el aprendizaje sobre el nuevo servicio y sus numerosas características.
-
-> [!NOTE]
-> Estos límites se pueden aumentar o eliminar con disponibilidad general (GA).
+Durante la versión preliminar pública, Azure Digital Twins tendrá los siguientes límites temporales de suscripción, instancia y frecuencia para los clientes existentes. Estas restricciones ayudan a simplificar el aprendizaje sobre el nuevo servicio y sus numerosas características, y aumentarán o se quitarán con la disponibilidad general (GA).
 
 ## <a name="per-subscription-limits"></a>Límites por suscripción
 
-Durante la versión preliminar pública, cada suscripción de Azure puede crear o ejecutar solo una instancia de Azure Digital Twins a la vez.
-
-> [!TIP]
-> Si elimina la instancia, puede crear una nueva.
+Durante la versión preliminar pública, cada suscripción de Azure puede crear o ejecutar solo una instancia de Azure Digital Twins a la vez. Si elimina la instancia, puede crear una nueva.
 
 ## <a name="per-instance-limits"></a>Límites por instancia
 
@@ -71,7 +65,7 @@ Los siguientes límites establecen el total de llamadas de las funciones definid
 Los siguientes límites suponen el máximo de mensajes que los dispositivos pueden enviar a la instancia de Azure Digital Twins:
 
 - 100 mensajes por segundo en todos los dispositivos
--   25 mensajes por segundo por dispositivo
+-    25 mensajes por segundo por dispositivo
 
 ## <a name="next-steps"></a>Pasos siguientes
 

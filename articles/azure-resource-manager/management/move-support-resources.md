@@ -2,13 +2,13 @@
 title: Compatibilidad con la operación de traslado por tipo de recurso
 description: Enumera los tipos de recursos de Azure que se pueden trasladar a un nuevo grupo de recursos o suscripción.
 ms.topic: conceptual
-ms.date: 01/22/2020
-ms.openlocfilehash: 3fe404b8b501056f75ac45ccebc5bdbed1acbe43
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.date: 03/17/2020
+ms.openlocfilehash: 2250283136608161956716abadb63b9f706bf581
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705486"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460422"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 En este artículo se indica si un tipo de recurso de Azure es compatible con la operación de traslado. También proporciona información sobre las condiciones especiales que se deben tener en cuenta a la hora de mover un recurso.
@@ -76,11 +76,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
+> - [Microsoft.DigitalTwins](#microsoftdigitaltwins)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft.Falcon](#microsoftfalcon)
 > - [Microsoft.Genomics](#microsoftgenomics)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
 > - [Microsoft.HanaOnAzure](#microsofthanaonazure)
@@ -93,7 +95,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
-> - [Microsoft.Kubernetes](#microsoftkubernetes)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
@@ -133,7 +134,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
@@ -214,6 +214,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | service | Sí | Sí |
 
+> [!IMPORTANT]
+> Un servicio API Management establecido en la SKU de consumo no se puede mover.
+
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
@@ -283,7 +286,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | hybriddatamanagers | No | No |
 > | postgresinstances | No | No |
-> | sqlbigdataclusters | No | No |
 > | sqlinstances | No | No |
 > | sqlserverregistrations | Sí | Sí |
 
@@ -442,11 +444,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | hostgroups | No | No |
 > | hostgroups/hosts | No | No |
 > | images | Sí | Sí |
-> | proximityplacementgroups | No | No |
+> | proximityplacementgroups | Sí | Sí |
 > | restorepointcollections | No | No |
 > | sharedvmimages | No | No |
 > | sharedvmimages/versions | No | No |
 > | snapshots | Sí | Sí |
+> | sshpublickeys | No | No |
 > | virtualmachines | Sí | Sí |
 > | virtualmachines/extensions | Sí | Sí |
 > | virtualmachinescalesets | Sí | Sí |
@@ -683,6 +686,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servergroups | No | No |
 > | servers | Sí | Sí |
 > | serversv2 | Sí | Sí |
+> | singleservers | Sí | Sí |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
@@ -732,6 +736,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | labs/virtualmachines | Sí | No |
 > | schedules | Sí | Sí |
 
+## <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | digitaltwinsinstances | No | No |
+
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
@@ -762,6 +773,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | eventSubscriptions | No: no se puede mover de forma independiente, sino que se hace automáticamente con el recurso suscrito. | No: no se puede mover de forma independiente, sino que se hace automáticamente con el recurso suscrito. |
 > | eventsubscriptions | No: no se puede mover de forma independiente, sino que se hace automáticamente con el recurso suscrito. | No: no se puede mover de forma independiente, sino que se hace automáticamente con el recurso suscrito. |
 > | extensiontopics | No | No |
+> | partnernamespaces | Sí | Sí |
+> | partnertopics | Sí | Sí |
+> | systemtopics | Sí | Sí |
 > | topics | Sí | Sí |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
@@ -770,6 +784,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | Sí | Sí |
+> | espacios de nombres | Sí | Sí |
+
+## <a name="microsoftfalcon"></a>Microsoft.Falcon
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
 > | espacios de nombres | Sí | Sí |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
@@ -846,7 +867,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | actiongroups | Sí | Sí |
 > | activitylogalerts | No | No |
 > | alertrules | Sí | Sí |
-> | automatedexportsettings | No | No |
 > | autoscalesettings | Sí | Sí |
 > | baseline | No | No |
 > | calculatebaseline | No | No |
@@ -863,6 +883,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | metricnamespaces | No | No |
 > | Métricas | No | No |
 > | myworkbooks | No | No |
+> | privatelinkscopes | Sí | Sí |
 > | scheduledqueryrules | Sí | Sí |
 > | Topología | No | No |
 > | transacciones | No | No |
@@ -898,13 +919,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 > [!IMPORTANT]
 > Los almacenes de claves usados para el cifrado de discos no se pueden mover a grupos de recursos de la misma suscripción ni entre suscripciones.
-
-## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | connectedclusters | No | No |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
@@ -994,6 +1008,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | workspaces | No | No |
+> | workspaces/computes | No | No |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -1078,25 +1093,27 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | dnszones | Sí | Sí |
 > | expressroutecircuits | No | No |
 > | expressroutegateways | No | No |
+> | firewallpolicies | Sí | Sí |
 > | frontdoors | No | No |
 > | frontdoorwebapplicationfirewallpolicies | No | No |
+> | ipgroups | Sí | Sí |
 > | loadbalancers | Sí: SKU básico<br>No: SKU estándar | Sí: SKU básico<br>No: SKU estándar |
 > | localnetworkgateways | Sí | Sí |
+> | natgateways | Sí | Sí |
 > | networkexperimentprofiles | Sí | Sí |
 > | networkintentpolicies | Sí | Sí |
 > | networkinterfaces | Sí | Sí |
 > | networkprofiles | No | No |
 > | networksecuritygroups | Sí | Sí |
-> | networkwatchers | Sí | Sí |
-> | networkwatchers/connectionmonitors | Sí | Sí |
-> | networkwatchers / flowlogs | Sí | Sí |
-> | networkwatchers/lenses | Sí | Sí |
-> | networkwatchers/pingmeshes | Sí | Sí |
+> | networkwatchers | Sí | No |
+> | networkwatchers/connectionmonitors | Sí | No |
+> | networkwatchers / flowlogs | Sí | No |
+> | networkwatchers/pingmeshes | Sí | No |
 > | p2svpngateways | No | No |
 > | privatednszones | Sí | Sí |
 > | privatednszones/virtualnetworklinks | Sí | Sí |
 > | privateendpointredirectmaps | No | No |
-> | privateendpoints | No | No |
+> | privateendpoints | Sí | Sí |
 > | privatelinkservices | No | No |
 > | publicipaddresses | Sí: SKU básico<br>No: SKU estándar | Sí: SKU básico<br>No: SKU estándar |
 > | publicipprefixes | Sí | Sí |
@@ -1274,13 +1291,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ---------- |
 > | applications | Sí | No |
 
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | jobcollections | Sí | Sí |
-
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
@@ -1304,7 +1314,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | complianceresults | No | No |
 > | compliances | No | No |
 > | datacollectionagents | No | No |
-> | datacollectionresults | No | No |
 > | devicesecuritygroups | No | No |
 > | informationprotectionpolicies | No | No |
 > | iotsecuritysolutions | Sí | Sí |
@@ -1321,8 +1330,10 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | bookmarks | No | No |
 > | cases | No | No |
 > | dataconnectors | No | No |
+> | dataconnectorscheckrequirements | No | No |
 > | entities | No | No |
 > | entityqueries | No | No |
+> | incidents | No | No |
 > | officeconsents | No | No |
 > | configuración | No | No |
 
@@ -1352,6 +1363,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | containergroups | No | No |
 > | containergroupsets | No | No |
 > | edgeclusters | No | No |
+> | managedclusters | No | No |
 > | networks | No | No |
 > | secretstores | No | No |
 > | volumes | No | No |
@@ -1408,6 +1420,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servers | Sí | Sí |
 > | servers/databases | Sí | Sí |
 > | servers/elasticpools | Sí | Sí |
+> | servers / jobaccounts | Sí | Sí |
+> | servers / jobagents | Sí | Sí |
 > | virtualclusters | Sí | Sí |
 
 > [!IMPORTANT]
@@ -1496,7 +1510,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | createsupportticket | No | No |
 > | supporttickets | No | No |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
@@ -1529,8 +1542,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | account | No | No |
-> | account/extension | No | No |
-> | account/project | No | No |
+> | account/extension | Sí | Sí |
+> | account/project | Sí | Sí |
 
 > [!IMPORTANT]
 > Para cambiar la suscripción de Azure DevOps, vea [Cambiar la suscripción de Azure usada para la facturación](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).

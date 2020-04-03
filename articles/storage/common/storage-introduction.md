@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 602f5a794f90e52ac80ea71ea2ed3656a7e0e5e7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 5bab70b6b023a4e6510e32368d407a38388cde2f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356203"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228576"
 ---
 # <a name="introduction-to-azure-storage"></a>Introducción a Azure Storage
 
@@ -48,7 +48,7 @@ Blob Storage resulta muy conveniente para:
 - Almacenamiento de datos para copia de seguridad y restauración, recuperación ante desastres y archivado.
 - Almacenamiento de datos para el análisis en local o en un servicio hospedado de Azure.
 
-Se puede acceder a los objetos de Blob Storage desde cualquier lugar del mundo a través de HTTP o HTTPS. Los usuarios o las aplicaciones cliente pueden acceder a los blobs mediante direcciones URL, la [API REST de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), la [CLI de Azure](https://docs.microsoft.com/cli/azure/storage) o una biblioteca de cliente de Azure Storage. Las bibliotecas de cliente de almacenamiento están disponibles para varios lenguajes, como [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) y [Ruby](https://azure.github.io/azure-storage-ruby).
+Se puede acceder a los objetos de Blob Storage desde cualquier lugar del mundo a través de HTTP o HTTPS. Los usuarios o las aplicaciones cliente pueden acceder a los blobs mediante direcciones URL, la [API REST de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), la [CLI de Azure](https://docs.microsoft.com/cli/azure/storage) o una biblioteca de cliente de Azure Storage. Las bibliotecas de cliente de almacenamiento están disponibles para varios lenguajes, como [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) y [Ruby](https://azure.github.io/azure-storage-ruby).
 
 Para más información acerca de Azure Blob Storage, consulte [Introducción al almacenamiento de objetos en Azure](../blobs/storage-blobs-introduction.md).
 
@@ -86,7 +86,7 @@ Para más información sobre Table Storage, consulte [Introducción a Azure Tabl
 
 ## <a name="disk-storage"></a>Almacenamiento en disco
 
-Un disco administrado de Azure es un disco duro virtual (VHD). Se puede considerar como un disco físico en un servidor en el entorno local, pero virtualizado. Los discos administrados de Azure se almacenan como blobs en páginas, que son un objeto de almacenamiento de E/S aleatorio en Azure. Llamamos a administrados a estos discos porque es una abstracción sobre los blobs en páginas, los contenedores de blobs y las cuentas de almacenamiento de Azure. Con los discos administrados, lo único que debe hacer es aprovisionar el disco y Azure se encarga del resto.
+Un disco administrado de Azure es un disco duro virtual (VHD). Se puede considerar como un disco físico en un servidor en el entorno local, pero virtualizado. Los discos administrados de Azure se almacenan como blobs en páginas, que son un objeto de almacenamiento de E/S aleatorio en Azure. Llamamos a estos discos "administrados" porque son una abstracción sobre los blobs en páginas, los contenedores de blobs y las cuentas de almacenamiento de Azure. Con los discos administrados, lo único que debe hacer es aprovisionar el disco y Azure se encarga del resto.
 
 Para más información sobre discos administrados, consulte [Introducción a los discos administrados de Azure](../../virtual-machines/windows/managed-disks-overview.md).
 

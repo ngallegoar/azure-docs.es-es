@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 11/06/2019
-ms.openlocfilehash: ddd81c4788cae7c239678366305fe97c6c08ba99
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 03/17/2020
+ms.openlocfilehash: 924bd2fdba2359e6f1108c39802ad3ce95ebdf07
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932217"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472382"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Usar un modelo existente con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Si tiene un modelo de Machine Learning que fue entrenado fuera de Azure Machine 
 >
 > Para obtener información general sobre el proceso de implementación, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 * Un área de trabajo de Azure Machine Learning. Para obtener más información, consulte [Create a workspace](how-to-manage-workspace.md) (Crear un área de trabajo).
 
@@ -69,11 +69,13 @@ Para obtener más información, consulte la referencia [Model.register()](https:
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 ```
 
+> [!TIP]
+> También puede agregar los objetos de diccionario `tags` y `properties` al modelo registrado. Estos valores se pueden usar más adelante para identificar un modelo específico. Por ejemplo, el marco usado, los parámetros de entrenamiento, etc.
+
 Para obtener más información, consulte la referencia [az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register).
 
 
 Para obtener más información sobre el registro de modelos en general, consulte [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md) (Administrar, implementar y supervisar los modelos de Machine Learning).
-
 
 ## <a name="define-inference-configuration"></a>Definir la configuración de inferencia
 

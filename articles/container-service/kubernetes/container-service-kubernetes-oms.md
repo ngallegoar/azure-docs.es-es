@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3cb500d2f00d6657420d7f294a7318b339e1f81e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 02d04076ccc41d243a493838667f5e8cc6bfa5ac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271067"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371161"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(EN DESUSO) Supervisión de un clúster de Azure Container Service con Log Analytics
 
@@ -21,15 +21,15 @@ ms.locfileid: "76271067"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 En este tutorial se da por supuesto que ha [creado un clúster de Kubernetes con Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 También se da por supuesto que tiene la CLI de Azure `az` y las herramientas de `kubectl` instaladas.
 
 Puede probar si tiene la herramienta `az` instalada mediante la ejecución de:
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 Si no tiene la herramienta `az` instalada, se ofrecen instrucciones [aquí](https://github.com/azure/azure-cli#installation).
@@ -38,21 +38,24 @@ Como alternativa, puede usar [Azure Cloud Shell](https://docs.microsoft.com/azur
 Puede probar si tiene la herramienta `kubectl` instalada mediante la ejecución de:
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 Si no tiene la herramienta `kubectl` instalada, puede ejecutar:
-```console
-$ az acs kubernetes install-cli
+
+```azurecli
+az acs kubernetes install-cli
 ```
 
 Para probar si tiene claves de kubernetes instaladas en la herramienta de kubectl, puede ejecutar:
+
 ```console
-$ kubectl get nodes
+kubectl get nodes
 ```
 
 Si aparecen los errores anteriores de comando, debe instalar las claves de clúster de kubernetes en la herramienta de kubectl. Para ello, use el siguiente comando:
-```console
+
+```azurecli
 RESOURCE_GROUP=my-resource-group
 CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
@@ -83,7 +86,7 @@ Este es el [archivo DaemonSet YAML](https://github.com/Microsoft/OMS-docker/tree
 Cuando haya agregado la clave y el identificador del área de trabajo a la configuración de DaemonSet, podrá instalar el agente de Log Analytics en el clúster con la herramienta de línea de comandos `kubectl`:
 
 ```console
-$ kubectl create -f oms-daemonset.yaml
+kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Instalación del agente de Log Analytics con un secreto de Kubernetes
@@ -94,16 +97,24 @@ Para proteger el identificador y la clave del área de trabajo de Log Analytics,
   - Plantilla de secretos: secret-template.yaml
     - Archivo DaemonSet YAML: omsagent-ds-secrets.yaml
 - Ejecute el script. El script le pedirá el identificador y la clave principal del área de trabajo de Log Analytics. Especifique estos datos y el script creará un archivo de YAML con un secreto para que pueda ejecutarlo.
-  ```
-  #> sudo bash ./secret-gen.sh
+
+  ```console
+  sudo bash ./secret-gen.sh
   ```
 
-  - Ejecute lo siguiente para crear el pod de secretos: ```kubectl create -f omsagentsecret.yaml```
+  - Ejecute lo siguiente para crear el pod de secretos:
+
+     ```console
+     kubectl create -f omsagentsecret.yaml
+     ```
 
   - Para comprobarlo, ejecute lo siguiente:
 
+  ```console
+  kubectl get secrets
   ```
-  root@ubuntu16-13db:~# kubectl get secrets
+
+  ```output
   NAME                  TYPE                                  DATA      AGE
   default-token-gvl91   kubernetes.io/service-account-token   3         50d
   omsagent-secret       Opaque                                2         1d
@@ -121,7 +132,11 @@ Para proteger el identificador y la clave del área de trabajo de Log Analytics,
   KEY:    88 bytes
   ```
 
-  - Ejecute ```kubectl create -f omsagent-ds-secrets.yaml``` para crear el daemon-set de omsagent
+  - Para crear el daemon-set de omsagent, ejecute el siguiente comando:
+  
+  ```console
+  kubectl create -f omsagent-ds-secrets.yaml
+  ```
 
 ### <a name="conclusion"></a>Conclusión
 Eso es todo. Pasados unos minutos, debería ver que los datos fluyen en el panel de Log Analytics.

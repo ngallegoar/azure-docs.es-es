@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 3/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 7637d18017f5bdc76c8a271198a88f21a59a6aac
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 36b2d50722a1840e461d6907f440d859c7c82117
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604983"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79408834"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
@@ -34,17 +34,20 @@ En la tabla siguiente se describen los límites de recursos de Azure NetApp File
 |  Número de cuentas de NetApp por región de Azure   |  10    |  Sí   |
 |  Número de grupos de capacidad por cuenta de NetApp   |    25     |   Sí   |
 |  Número de volúmenes por grupo de capacidad     |    500   |    Sí     |
-|  Número máximo de instantáneas por volumen       |    255     |    Sin        |
-|  Número de subredes que se delegan a Azure NetApp Files (Microsoft.NetApp/volumes) por cada red virtual de Azure    |   1   |    Sin    |
+|  Número máximo de instantáneas por volumen       |    255     |    No        |
+|  Número de subredes que se delegan a Azure NetApp Files (Microsoft.NetApp/volumes) por cada red virtual de Azure    |   1   |    No    |
 |  Número de direcciones IP en uso en una red virtual (incluidas las redes virtuales emparejadas inmediatamente) con Azure NetApp Files   |    1000   |    Sí   |
-|  Tamaño mínimo de un único grupo de capacidades   |  4 TiB     |    Sin  |
-|  Tamaño máximo de un único grupo de capacidades    |  500 TiB   |   Sin   |
-|  Tamaño mínimo de un único volumen    |    100 GiB    |    Sin    |
-|  Tamaño máximo de un único volumen     |    100 TiB    |    Sin    |
+|  Tamaño mínimo de un único grupo de capacidades   |  4 TiB     |    No  |
+|  Tamaño máximo de un único grupo de capacidades    |  500 TiB   |   No   |
+|  Tamaño mínimo de un único volumen    |    100 GiB    |    No    |
+|  Tamaño máximo de un único volumen     |    100 TiB    |    No    |
+|  Tamaño máximo de un archivo individual     |    16 TiB    |    No    |    
+|  Tamaño máximo de un solo directorio      |    320 MB    |    No    |    
 |  Número máximo de archivos ([maxfiles](#maxfiles)) por volumen     |    100 millones    |    Sí    |    
-|  Tamaño máximo de un archivo individual     |    16 TiB    |    Sin    |    
 
-## Límites de número máximo de archivos <a name="maxfiles"></a> 
+Para más información, consulte [Preguntas más frecuentes sobre la administración de la capacidad](azure-netapp-files-faqs.md#capacity-management-faqs).
+
+## <a name="maxfiles-limits"></a>Límites de número máximo de archivos <a name="maxfiles"></a> 
 
 Los volúmenes de Azure NetApp Files tienen un límite denominado *maxfiles*. El límite de maxfiles es el número de archivos que puede contener un volumen. El límite de maxfiles de un volumen de Azure NetApp Files se indexa en función del tamaño (cuota) del volumen. El límite de maxfiles de un volumen aumenta o disminuye a la velocidad de 20 millones de archivos por TiB del tamaño del volumen aprovisionado. 
 
@@ -60,7 +63,7 @@ El servicio ajusta dinámicamente el límite de maxfiles de un volumen en funci�
 
 Para cualquier tamaño de volumen, puede iniciar una [solicitud de soporte técnico](#limit_increase) para aumentar el límite de maxfiles más allá de 100 millones.
 
-## Solicitud de aumento del límite<a name="limit_increase"></a> 
+## <a name="request-limit-increase"></a>Solicitud de aumento del límite<a name="limit_increase"></a> 
 
 Puede crear una solicitud de soporte técnico de Azure para aumentar los límites ajustables de la tabla anterior. 
 

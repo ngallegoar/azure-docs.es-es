@@ -1,43 +1,55 @@
 ---
-title: Cómo crear una directiva de configuración de invitados
-description: Aprenda a crear una directiva de configuración de invitado de Azure Policy para VM de Windows o Linux con Azure PowerShell.
-ms.date: 12/16/2019
+title: Creación de directivas de Configuración de invitado para Windows
+description: Aprenda a crear una directiva de Configuración de invitado de Azure Policy para Windows.
+ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 8bd769b61ed87c9ded45ceca11586cfe105740c9
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 24069ff6518c4244026378e48216d4568fffeb8a
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77167180"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365466"
 ---
-# <a name="how-to-create-guest-configuration-policies"></a>Cómo crear una directiva de configuración de invitados
+# <a name="how-to-create-guest-configuration-policies-for-windows"></a>Creación de directivas de Configuración de invitado para Windows
 
-La configuración de invitados usa un módulo de recursos llamado [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para crear la configuración para la auditoría de las máquinas de Azure. La configuración de DSC define la condición en la que debe estar la máquina. Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
+Antes de crear directivas personalizadas, es conveniente leer la información conceptual general en la página [Configuración de invitado de Azure Policy](../concepts/guest-configuration.md).
+ 
+Para obtener información sobre cómo crear directivas de Configuración de invitado para Linux, consulte la página [Cómo crear una directiva de configuración de invitados para Linux](./guest-configuration-create-linux.md).
+
+Durante la auditoría en Windows, Configuración de invitado usa un módulo de recursos [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) y un archivo de configuración. La configuración de DSC define la condición en la que debe estar la máquina.
+Si se produce un error en la evaluación de la configuración, se desencadena el efecto **auditIfNotExists** de la directiva y se considera que la máquina **no es compatible**.
 
 Solo se puede usar la [configuración de invitados de Azure Policy](../concepts/guest-configuration.md) para auditar la configuración dentro de las máquinas. Todavía no está disponible la opción para corregir la configuración dentro de las máquinas.
 
-Use las siguientes acciones para crear su propia configuración para validar el estado de una máquina de Azure.
+Use las siguientes acciones para crear su propia configuración para validar el estado de una máquina de Azure o que no sea de Azure.
 
 > [!IMPORTANT]
 > Las directivas personalizadas con la configuración de invitados son una característica en vista previa (GB).
 
-## <a name="add-the-guestconfiguration-resource-module"></a>Agregar el módulo de recursos GuestConfiguration
+## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
 
-Para crear una directiva de configuración de invitados, debe agregar el módulo de recursos. Este módulo de recursos se puede usar con la instancia de PowerShell instalada localmente, con [Azure Cloud Shell](https://shell.azure.com) o con la [imagen de Docker principal de Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+La creación de un artefacto de Configuración de invitado, las pruebas automatizadas del artefacto, la creación de una definición de directiva y la publicación de la directiva se pueden automatizar totalmente mediante el módulo de Configuración de invitado en PowerShell. El módulo se puede instalar en una máquina que ejecute Windows, macOS o Linux con PowerShell 6.2 o una versión posterior que se ejecute localmente, con [Azure Cloud Shell](https://shell.azure.com) o con la [imagen de Azure PowerShell de Docker](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 > [!NOTE]
-> Aunque el módulo **GuestConfiguration** funciona en los entornos anteriores, se deben completar los pasos para compilar una configuración de DSC en Windows PowerShell 5.1.
+> Aún no se admite la compilación de configuraciones en Linux.
 
 ### <a name="base-requirements"></a>Requisitos básicos
 
+Sistemas operativos donde se puede instalar el módulo:
+
+- Linux
+- macOS
+- Windows
+
 El módulo de recursos de configuración de invitados requiere el siguiente software:
 
-- PowerShell. Si todavía no está instalado, siga [estas instrucciones](/powershell/scripting/install/installing-powershell).
+- PowerShell 6.2 o posterior. Si todavía no está instalado, siga [estas instrucciones](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 o posterior. Si todavía no está instalado, siga [estas instrucciones](/powershell/azure/install-az-ps).
+  - Solo se requieren los módulos de AZ "Az.Accounts" y "Az.Resources".
 
 ### <a name="install-the-module"></a>Instalación del módulo
 
-La configuración de invitados usa el módulo de recursos **GuestConfiguration** para crear configuraciones de DSC y publicarlas en Azure Policy:
+Para instalar el módulo **GuestConfiguration** en PowerShell:
 
 1. En una secuencia de comandos de PowerShell, ejecute el siguiente comando:
 
@@ -53,21 +65,17 @@ La configuración de invitados usa el módulo de recursos **GuestConfiguration**
    Get-Command -Module 'GuestConfiguration'
    ```
 
-## <a name="create-custom-guest-configuration-configuration-and-resources"></a>Creación de recursos y opciones personalizados para la configuración de invitados
+## <a name="guest-configuration-artifacts-and-policy-for-windows"></a>Artefactos y directivas de Configuración de invitado para Windows
 
-El primer paso para crear una directiva personalizada para la configuración de invitados es crear la configuración de DSC. Para obtener información general sobre los conceptos y la terminología consulte [Información general de DSC de PowerShell](/powershell/scripting/dsc/overview/overview).
+Configuración de invitado usa Desired State Configuration de PowerShell como abstracción de lenguaje para escribir lo que se va a auditar en Windows. El agente carga una instancia independiente de PowerShell 6.2, por lo que no hay ningún conflicto con el uso de DSC de PowerShell en Windows PowerShell 5.1 y no hay ningún requisito para instalar previamente PowerShell 6.2 o posterior.
 
-Si la configuración solo requiere recursos integrados con la instalación del agente de configuración de invitados, solo tiene que crear un archivo MOF de configuración. Si necesita ejecutar scripts adicionales, deberá crear un módulo de recursos personalizado.
+Para obtener información general sobre los conceptos y la terminología consulte [Información general de DSC de PowerShell](/powershell/scripting/dsc/overview/overview).
 
-### <a name="requirements-for-guest-configuration-custom-resources"></a>Requisitos para los recursos personalizados de configuración de invitados
+### <a name="how-guest-configuration-modules-differ-from-windows-powershell-dsc-modules"></a>Diferencias entre los módulos de Configuración de invitado y los módulos de DSC de Windows PowerShell
 
-Cuando la configuración de invitados audita una máquina, primero se ejecuta `Test-TargetResource` para determinar si se encuentra en el estado correcto. El valor booleano devuelto por la función determina si el estado de Azure Resource Manager para Asignación de invitado debe ser Compatible o No compatible. Si el valor booleano es `$false` para cualquier recurso de la configuración, el proveedor ejecutará `Get-TargetResource`. Si el valor booleano es `$true`, no se llama a `Get-TargetResource`.
+Cuando la configuración de invitados audita una máquina, primero se ejecuta `Test-TargetResource` para determinar si se encuentra en el estado correcto. El valor booleano devuelto por la función determina si el estado de Azure Resource Manager para Asignación de invitado debe ser Compatible o No compatible. A continuación, el proveedor ejecuta `Get-TargetResource` para devolver el estado actual de cada configuración, de modo que haya detalles disponibles tanto sobre el motivo por el que una máquina no es compatible como para confirmar que el estado actual es compatible.
 
-#### <a name="configuration-requirements"></a>Requisitos de configuración
-
-El único requisito para que la configuración de invitado use una configuración personalizada es que el nombre de la configuración sea coherente en todos los lugares en que se use. Este requisito incluye el nombre del archivo .zip del paquete de contenido, el nombre de la configuración en el archivo MOF almacenado en el paquete de contenido y el nombre de configuración utilizado en la plantilla de Resource Manager como nombre de asignación de invitado.
-
-#### <a name="get-targetresource-requirements"></a>Requisitos de Get-TargetResource
+### <a name="get-targetresource-requirements"></a>Requisitos de Get-TargetResource
 
 La función `Get-TargetResource` tiene requisitos especiales para la configuración de invitados que no se han necesitado para Windows Desired State Configuration.
 
@@ -77,7 +85,7 @@ La función `Get-TargetResource` tiene requisitos especiales para la configuraci
 
 El servicio utiliza la propiedad Reasons para estandarizar el modo en que se presenta la información cuando una máquina no cumple los requisitos. Puede pensar en cada elemento de Reasons como un "motivo" por el que el recurso no es compatible. La propiedad es una matriz porque un recurso podría no cumplir los requisitos por más de un motivo.
 
-El servicio espera las propiedades **Code** y **Phrase**. Al crear un recurso personalizado, establezca el texto (normalmente stdout) que le gustaría mostrar como el motivo por el que el recurso no es compatible como el valor de **Phrase**. **Code** tiene requisitos de formato específicos, por lo que los informes pueden mostrar claramente información sobre el recurso que se usó para realizar la auditoría. Esta solución hace que la configuración de invitados sea extensible. Se puede ejecutar cualquier comando para auditar una máquina siempre que la salida se pueda capturar y devolver como un valor de cadena para la propiedad **Phrase**.
+El servicio espera las propiedades **Code** y **Phrase**. Al crear un recurso personalizado, establezca el texto (normalmente stdout) que le gustaría mostrar como el motivo por el que el recurso no es compatible como el valor de **Phrase**. **Code** tiene requisitos de formato específicos, por lo que los informes pueden mostrar claramente información sobre el recurso usado para realizar la auditoría. Esta solución hace que la configuración de invitados sea extensible. Se podría ejecutar cualquier comando, siempre que la salida se pueda devolver como un valor de cadena para la propiedad **Phrase**.
 
 - **Code** (cadena): el nombre del recurso, repetido, y luego un nombre corto sin espacios como identificador del motivo. Estos tres valores deben estar delimitados por signos de dos puntos sin espacios.
   - Un ejemplo sería `registry:registry:keynotpresent`
@@ -94,40 +102,39 @@ return @{
     reasons = $reasons
 }
 ```
+### <a name="configuration-requirements"></a>Requisitos de configuración
 
-#### <a name="scaffolding-a-guest-configuration-project"></a>Aplicación de la técnica scaffolding a un proyecto de configuración de invitados
+El nombre de la configuración personalizada debe ser coherente en todas partes. El nombre del archivo .zip para el paquete de contenido, el nombre de la configuración en el archivo MOF y el nombre de la asignación de invitado en la plantilla de Resource Manager deben ser el mismo.
 
-Para los desarrolladores que desean acelerar el proceso de introducción y trabajar desde código de ejemplo, existe un proyecto de la comunidad denominado **Proyecto de configuración de invitados** como una plantilla para el módulo [Plaster](https://github.com/powershell/plaster) de PowerShell. Esta herramienta se puede usar para aplicar scaffolding a un proyecto, incluida una configuración de trabajo y un recurso de ejemplo, y un conjunto de pruebas [Pester](https://github.com/pester/pester) para validar el proyecto. La plantilla también incluye ejecutores de tareas para Visual Studio Code para automatizar la compilación y validación del paquete de configuración de invitados. Para más información, consulte el proyecto de GitHub [Proyecto de configuración de invitados](https://github.com/microsoft/guestconfigurationproject).
+### <a name="scaffolding-a-guest-configuration-project"></a>Aplicación de la técnica scaffolding a un proyecto de configuración de invitados
 
-### <a name="custom-guest-configuration-configuration-on-linux"></a>Opciones personalizadas de la configuración de invitados en Linux
+Los desarrolladores que deseen acelerar el proceso de introducción y trabajar desde código de ejemplo pueden instalar un proyecto de la comunidad denominado **Guest Configuration Project**. El proyecto instala una plantilla para el módulo [Plaster](https://github.com/powershell/plaster) de PowerShell. Esta herramienta se puede usar para aplicar scaffolding a un proyecto, incluida una configuración de trabajo y un recurso de ejemplo, y un conjunto de pruebas [Pester](https://github.com/pester/pester) para validar el proyecto. La plantilla también incluye ejecutores de tareas para Visual Studio Code para automatizar la compilación y validación del paquete de configuración de invitados. Para más información, consulte el proyecto de GitHub [Proyecto de configuración de invitados](https://github.com/microsoft/guestconfigurationproject).
 
-La configuración de DSC para la configuración de invitados en Linux usa el recurso `ChefInSpecResource` para proporcionar al motor el nombre de la definición [Chef InSpec](https://www.chef.io/inspec/). **Name** es la única propiedad de recurso requerida.
+Para obtener más información sobre cómo trabajar con configuraciones en general, consulte [Escritura, compilación y aplicación de una configuración](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
-En el siguiente ejemplo crea una configuración denominada **Línea de base**, se importa el módulo de recursos **GuestConfiguration** y se usa el conjunto de recursos `ChefInSpecResource` como nombre de la definición InSpec en **linux-patch-baseline**:
+### <a name="expected-contents-of-a-guest-configuration-artifact"></a>Contenido esperado de un artefacto de Configuración de invitado
 
-```powershell
-# Define the DSC configuration and import GuestConfiguration
-Configuration baseline
-{
-    Import-DscResource -ModuleName 'GuestConfiguration'
+La configuración de invitados usa el paquete completado para crear las definiciones de Azure Policy. El paquete consta de:
 
-    ChefInSpecResource 'Audit Linux patch baseline'
-    {
-        Name = 'linux-patch-baseline'
-    }
-}
+- La configuración de DSC compilada como MOF
+- Carpeta Modules
+  - Módulo GuestConfiguration
+  - Módulo DscNativeResources
+  - (Windows) Módulos de recursos de DSC requeridos por MOF
 
-# Compile the configuration to create the MOF files
-baseline
-```
+Los cmdlets de PowerShell ayudan en la creación del paquete.
+No se requiere ninguna carpeta de nivel raíz ni carpeta de versiones.
+El formato del paquete debe ser un archivo .zip.
 
-Para obtener más información, consulte [Escribir, compilar y aplicar una configuración](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
+### <a name="storing-guest-configuration-artifacts"></a>Almacenamiento de artefactos de Configuración de invitado
 
-### <a name="custom-guest-configuration-configuration-on-windows"></a>Opciones personalizadas de la configuración de invitados en Windows
+El paquete .zip debe almacenarse en una ubicación a la que puedan obtener acceso las máquinas virtuales administradas.
+Algunos ejemplos son los repositorios de GitHub, un repositorio de Azure o Azure Storage. Si prefiere no hacer que el paquete sea público, puede incluir un [token de SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) en la dirección URL.
+También puede implementar el [punto de conexión de servicio](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para las máquinas de una red privada, aunque esta configuración solo se aplica para acceder al paquete y no para comunicarse con el servicio.
 
-La configuración de DSC para la configuración de invitados de Azure Policy solo la usa el agente de la configuración de invitados y no entra en conflicto con la configuración de Desired State Configuration de Windows PowerShell.
+## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Creación de una directiva de auditoría de Configuración de invitado personalizada para Windows, paso a paso
 
-En el ejemplo siguiente se crea una configuración denominada **AuditBitLocker**, se importa el módulo de recursos **GuestConfiguration** y se usa el recurso `Service` para auditar un servicio en ejecución:
+Cree una configuración de DSC. En el ejemplo siguiente de script de PowerShell se crea una configuración denominada **AuditBitLocker**, se importa el módulo de recursos **PsDscResources** y se usa el recurso `Service` para auditar un servicio en ejecución. El script de configuración se puede ejecutar desde una máquina Windows o macOS.
 
 ```powershell
 # Define the DSC configuration and import GuestConfiguration
@@ -135,86 +142,119 @@ Configuration AuditBitLocker
 {
     Import-DscResource -ModuleName 'PSDscResources'
 
-    Service 'Ensure BitLocker service is present and running'
-    {
-        Name = 'BDESVC'
-        Ensure = 'Present'
-        State = 'Running'
+    Node AuditBitlocker {
+      Service 'Ensure BitLocker service is present and running'
+      {
+          Name = 'BDESVC'
+          Ensure = 'Present'
+          State = 'Running'
+      }
     }
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker
+AuditBitLocker -out ./Config
 ```
 
-Para obtener más información, consulte [Escribir, compilar y aplicar una configuración](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
+El comando `Node AuditBitlocker` no es técnicamente necesario, pero genera un archivo denominado `AuditBitlocker.mof`, en lugar del valor predeterminado, `localhost.mof`. El hecho de que el nombre de archivo. mof siga la configuración facilita la organización de muchos archivos cuando se trabaja a escala.
 
-## <a name="create-guest-configuration-custom-policy-package"></a>Crear un paquete de directivas personalizado de configuración de invitados
+Una vez compilado el MOF, los archivos auxiliares deben empaquetarse juntos. La configuración de invitados usa el paquete completado para crear las definiciones de Azure Policy.
 
-Una vez compilado el MOF, los archivos auxiliares deben empaquetarse juntos. La configuración de invitados usa el paquete completado para crear las definiciones de Azure Policy. El paquete consta de:
-
-- La configuración de DSC compilada como MOF
-- Carpeta Modules
-  - Módulo GuestConfiguration
-  - Módulo DscNativeResources
-  - (Linux) Una carpeta con la definición Chef InSpec y contenido adicional
-  - (Windows) Módulos de recursos de DSC que no están integrados
-
-El cmdlet `New-GuestConfigurationPackage` crea el paquete. El formato siguiente se usa para crear un paquete personalizado:
-
-```azurepowershell-interactive
-New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}' `
-    -Path '{OutputFolder}' -Verbose
-```
-
-Parámetros del cmdlet `New-GuestConfigurationPackage`:
+El cmdlet `New-GuestConfigurationPackage` crea el paquete. Parámetros del cmdlet `New-GuestConfigurationPackage` al crear el contenido de Windows:
 
 - **Name**: nombre del paquete de configuración de invitados.
 - **Configuración**: ruta de acceso completa del documento de configuración de DSC compilado.
 - **Ruta de acceso**: ruta de acceso de la carpeta de salida. Este parámetro es opcional. Si no se especifica, el paquete se crea en el directorio actual.
-- **ChefProfilePath**: ruta de acceso completa al perfil de InSpec. Este parámetro solo se admite cuando se crea contenido para auditar Linux.
 
-El paquete completado debe almacenarse en una ubicación a la que puedan obtener acceso las máquinas virtuales administradas. Algunos ejemplos son los repositorios de GitHub, un repositorio de Azure o Azure Storage. Si prefiere no hacer que el paquete sea público, puede incluir un [token de SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) en la dirección URL.
-También puede implementar el [punto de conexión de servicio](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para las máquinas de una red privada, aunque esta configuración solo se aplica para acceder al paquete y no para comunicarse con el servicio.
-
-## <a name="test-a-guest-configuration-package"></a>Probar un paquete de configuración de invitados
-
-Después de crear el paquete de configuración, pero antes de publicarlo en Azure, puede probar el funcionamiento del paquete desde la estación de trabajo o el entorno de CI/CD. El módulo GuestConfiguration incluye un cmdlet llamado `Test-GuestConfigurationPackage` que carga el mismo agente que se usa en las máquinas de Azure en el entorno de desarrollo. Con esta solución, puede realizar pruebas de integración local antes de la publicación en entornos de prueba, QA y pruebas de facturación.
+Ejecute el siguiente comando para crear un paquete con la configuración proporcionada en el paso anterior:
 
 ```azurepowershell-interactive
-Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsService.zip -Verbose
+New-GuestConfigurationPackage `
+  -Name 'AuditBitlocker' `
+  -Configuration './Config/AuditBitlocker.mof'
 ```
+
+Después de crear el paquete de configuración, pero antes de publicarlo en Azure, puede probar el paquete desde la estación de trabajo o el entorno de CI/CD. El cmdlet `Test-GuestConfigurationPackage` de GuestConfiguration incluye el mismo agente en el entorno de desarrollo que se usa en las máquinas de Azure. Con esta solución, puede realizar pruebas de integración localmente antes de la publicación en entornos de nube con facturación.
+
+Dado que el agente en realidad está evaluando el entorno local, en la mayoría de los casos es necesario ejecutar el cmdlet Test- en la misma plataforma del sistema operativo que se va a auditar.
 
 Parámetros del cmdlet `Test-GuestConfigurationPackage`:
 
-- **Name**: nombre de la directiva de configuración de invitados.
+- **Name**: Nombre de la directiva de Configuración de invitado.
 - **Parámetro**: Parámetros de directiva proporcionados en formato de tabla hash.
 - **Ruta de acceso**: ruta de acceso completa del paquete de configuración de invitados.
+
+Ejecute el siguiente comando para probar el paquete creado en el paso anterior:
+
+```azurepowershell-interactive
+Test-GuestConfigurationPackage `
+  -Path ./AuditBitlocker.zip
+```
 
 El cmdlet también admite la entrada de la canalización de PowerShell. Canaliza la salida del cmdlet `New-GuestConfigurationPackage` al cmdlet `Test-GuestConfigurationPackage`.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
+New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-Para obtener más información sobre cómo realizar pruebas con parámetros, consulte la sección [Uso de parámetros en directivas de configuración de invitados personalizadas](#using-parameters-in-custom-guest-configuration-policies).
-
-## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>Crear los archivos de implementación de la definición y la iniciativa de Azure Policy
-
-Una vez que se ha creado un paquete de directivas personalizadas de configuración de invitados y se ha cargado en una ubicación a la que pueden acceder las máquinas, cree la definición de la directiva de configuración de invitados para Azure Policy. El cmdlet `New-GuestConfigurationPolicy` toma un paquete de directivas personalizadas de configuración de invitados que es accesible de forma pública y crea una definición de directiva de **auditIfNotExists** y **deployIfNotExists**. También se crea una definición de iniciativa de directivas que incluye ambas definiciones de directiva.
-
-En el ejemplo siguiente se crean las definiciones de directiva e iniciativa en una ruta de acceso especificada desde un paquete de directivas personalizado de configuración de invitados para Windows y se proporciona un nombre, una descripción y una versión:
+El siguiente paso consiste en publicar el archivo en el almacenamiento de blobs. El script siguiente contiene una función que puede usar para automatizar esta tarea. Los comandos usados en la función `publish` requieren el módulo `Az.Storage`.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPolicy
-    -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
-    -DisplayName 'Audit BitLocker Service.' `
-    -Description 'Audit if BitLocker is not enabled on Windows machine.' `
-    -Path '.\policyDefinitions' `
-    -Platform 'Windows' `
-    -Version 1.2.3.4 `
-    -Verbose
+function publish {
+    param(
+    [Parameter(Mandatory=$true)]
+    $resourceGroup,
+    [Parameter(Mandatory=$true)]
+    $storageAccountName,
+    [Parameter(Mandatory=$true)]
+    $storageContainerName,
+    [Parameter(Mandatory=$true)]
+    $filePath,
+    [Parameter(Mandatory=$true)]
+    $blobName
+    )
+
+    # Get Storage Context
+    $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
+        -Name $storageAccountName | `
+        ForEach-Object { $_.Context }
+
+    # Upload file
+    $Blob = Set-AzStorageBlobContent -Context $Context `
+        -Container $storageContainerName `
+        -File $filePath `
+        -Blob $blobName `
+        -Force
+
+    # Get url with SAS token
+    $StartTime = (Get-Date)
+    $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
+    $SAS = New-AzStorageBlobSASToken -Context $Context `
+        -Container $storageContainerName `
+        -Blob $blobName `
+        -StartTime $StartTime `
+        -ExpiryTime $ExpiryTime `
+        -Permission rl `
+        -FullUri
+
+    # Output
+    return $SAS
+}
+
+# replace the $storageAccountName value below, it must be globally unique
+$resourceGroup        = 'policyfiles'
+$storageAccountName   = 'youraccountname'
+$storageContainerName = 'artifacts'
+
+$uri = publish `
+  -resourceGroup $resourceGroup `
+  -storageAccountName $storageAccountName `
+  -storageContainerName $storageContainerName `
+  -filePath ./AuditBitlocker.zip `
+  -blobName 'AuditBitlocker'
 ```
+
+Una vez que se ha creado y cargado un paquete de directivas personalizadas de Configuración de invitado, cree la definición de la directiva de Configuración de invitado. El cmdlet `New-GuestConfigurationPolicy` toma un paquete de directivas personalizado y crea una definición de directivas.
 
 Parámetros del cmdlet `New-GuestConfigurationPolicy`:
 
@@ -226,6 +266,19 @@ Parámetros del cmdlet `New-GuestConfigurationPolicy`:
 - **Ruta de acceso**: Ruta de acceso de destino donde se crean las definiciones de directiva.
 - **Plataforma**: Plataforma de destino (Windows/Linux) para la directiva de configuración de invitados y el paquete de contenido.
 
+En el ejemplo siguiente se crean las definiciones de directivas en una ruta de acceso especificada desde un paquete de directivas personalizado:
+
+```azurepowershell-interactive
+New-GuestConfigurationPolicy `
+    -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
+    -DisplayName 'Audit BitLocker Service.' `
+    -Description 'Audit if BitLocker is not enabled on Windows machine.' `
+    -Path './policies' `
+    -Platform 'Windows' `
+    -Version 1.0.0 `
+    -Verbose
+```
+
 `New-GuestConfigurationPolicy` se encarga de crear los siguientes archivos:
 
 - **auditIfNotExists.json**
@@ -234,15 +287,52 @@ Parámetros del cmdlet `New-GuestConfigurationPolicy`:
 
 La salida del cmdlet devuelve un objeto que contiene el nombre para mostrar de la iniciativa y la ruta de acceso de los archivos de directiva.
 
-Si quiere usar este comando para aplicar técnicas de scaffolding a un proyecto de directiva personalizado, puede realizar cambios en estos archivos. Un ejemplo sería modificar la sección "If" para evaluar si una etiqueta específica está presente en las máquinas. Para obtener información detallada sobre la creación de directivas, consulte [Creación de directivas mediante programación](./programmatically-create.md).
+Por último, publique las definiciones de directivas con el cmdlet `Publish-GuestConfigurationPolicy`. El cmdlet solo tiene el parámetro **Path** que apunta a la ubicación de los archivos JSON que creó `New-GuestConfigurationPolicy`.
+
+Para ejecutar el comando Publish, necesita acceso para crear directivas en Azure. Los requisitos de autorización específicos se documentan en la página [Información general de Azure Policy](../overview.md). El mejor rol integrado es **Colaborador de la directiva de recursos**.
+
+```azurepowershell-interactive
+Publish-GuestConfigurationPolicy -Path '.\policyDefinitions'
+```
+
+El cmdlet `Publish-GuestConfigurationPolicy` acepta la ruta de acceso de la canalización de PowerShell. Esta característica significa que puede crear los archivos de directiva y publicarlos en un único conjunto de comandos canalizados.
+
+```azurepowershell-interactive
+New-GuestConfigurationPolicy `
+ -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
+  -DisplayName 'Audit BitLocker service.' `
+  -Description 'Audit if the BitLocker service is not enabled on Windows machine.' `
+  -Path './policies' `
+ | Publish-GuestConfigurationPolicy
+```
+
+Con las directiva creada en Azure, el último paso es asignar la iniciativa. Consulte cómo puede asignar la iniciativa con el [portal](../assign-policy-portal.md), la [CLI de Azure](../assign-policy-azurecli.md) y [Azure PowerShell](../assign-policy-powershell.md).
+
+> [!IMPORTANT]
+> Las directivas de configuración de invitados **siempre** se deben asignar mediante la iniciativa que combina las directivas _AuditIfNotExists_ y _DeployIfNotExists_. Si solo se asigna la directiva _AuditIfNotExists_, los requisitos previos no se implementan y la directiva siempre muestra que los servidores "0" son compatibles.
+
+La asignación de una definición de directiva con el efecto _DeployIfNotExists_ requiere un nivel de acceso adicional. Para conceder el privilegio mínimo, puede crear una definición de rol personalizada que amplíe **Colaborador de la directiva de recursos**. En el ejemplo siguiente se crea un rol denominado **Resource Policy Contributor DINE** con el permiso adicional _Microsoft.Authorization/roleAssignments/write_.
+
+```azurepowershell-interactive
+$subscriptionid = '00000000-0000-0000-0000-000000000000'
+$role = Get-AzRoleDefinition "Resource Policy Contributor"
+$role.Id = $null
+$role.Name = "Resource Policy Contributor DINE"
+$role.Description = "Can assign Policies that require remediation."
+$role.Actions.Clear()
+$role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
+$role.AssignableScopes.Clear()
+$role.AssignableScopes.Add("/subscriptions/$subscriptionid")
+New-AzRoleDefinition -Role $role
+```
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Usar parámetros en directivas de configuración de invitados personalizadas
 
 La configuración de invitados admite la invalidación de propiedades de una configuración en tiempo de ejecución. Esta característica significa que los valores del archivo MOF del paquete no tienen que considerarse estáticos. Los valores de invalidación se proporcionan a través de Azure Policy y no afectan al modo en que se crean o se compilan las configuraciones.
 
-Los cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluyen un parámetro denominado **Parameters**. Este parámetro toma una definición de tabla hash que incluye todos los detalles sobre cada parámetro y crea automáticamente todas las secciones necesarias de los archivos que se usan para crear cada definición de Azure Policy.
+Los cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluyen un parámetro denominado **Parameters**. Este parámetro toma una definición de tabla hash que incluye todos los detalles sobre cada parámetro y crea las secciones necesarias de cada archivo que se usa para crear la definición de Azure Policy.
 
-En el ejemplo siguiente se crea una instancia de Azure Policy para auditar un servicio que el usuario selecciona de una lista de servicios en el momento de la asignación de la directiva.
+En el ejemplo siguiente se crea una definición de directiva para auditar un servicio que el usuario selecciona de una lista en el momento de la asignación de la directiva.
 
 ```azurepowershell-interactive
 $PolicyParameterInfo = @(
@@ -264,86 +354,26 @@ New-GuestConfigurationPolicy
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
     -Path '.\policyDefinitions' `
     -Parameters $PolicyParameterInfo `
-    -Platform 'Windows' `
-    -Version 1.2.3.4 `
-    -Verbose
+    -Version 1.0.0
 ```
-
-En el caso de las directivas de Linux, incluya la propiedad **AttributesYmlContent** en la configuración y sobrescriba los valores según sea necesario. El agente de configuración de invitados crea automáticamente el archivo YAML que usa InSpec para almacenar los atributos. Observe el ejemplo siguiente.
-
-```powershell
-Configuration FirewalldEnabled {
-
-    Import-DscResource -ModuleName 'GuestConfiguration'
-
-    Node FirewalldEnabled {
-
-        ChefInSpecResource FirewalldEnabled {
-            Name = 'FirewalldEnabled'
-            AttributesYmlContent = "DefaultFirewalldProfile: [public]"
-        }
-    }
-}
-```
-
-Para cada parámetro adicional, agregue una tabla hash a la matriz. En los archivos de directivas, verá las propiedades que se agregaron a la configuración de invitados configurationName que identifican el tipo de recurso, el nombre, la propiedad y el valor.
-
-```json
-{
-    "apiVersion": "2018-11-20",
-    "type": "Microsoft.Compute/virtualMachines/providers/guestConfigurationAssignments",
-    "name": "[concat(parameters('vmName'), '/Microsoft.GuestConfiguration/', parameters('configurationName'))]",
-    "location": "[parameters('location')]",
-    "properties": {
-        "guestConfiguration": {
-            "name": "[parameters('configurationName')]",
-            "version": "1.*",
-            "configurationParameter": [{
-                "name": "[Service]windowsService;Name",
-                "value": "[parameters('ServiceName')]"
-            }]
-        }
-    }
-}
-```
-
-## <a name="publish-to-azure-policy"></a>Publicación en Azure Policy
-
-El módulo de recursos **GuestConfiguration** ofrece una manera de crear definiciones de directivas y la definición de iniciativa en Azure con un solo paso mediante el cmdlet `Publish-GuestConfigurationPolicy`.
-El cmdlet solo tiene el parámetro **Path** que apunta a la ubicación de los tres archivos JSON que creó `New-GuestConfigurationPolicy`.
-
-```azurepowershell-interactive
-Publish-GuestConfigurationPolicy -Path '.\policyDefinitions' -Verbose
-```
-
-El cmdlet `Publish-GuestConfigurationPolicy` acepta la ruta de acceso de la canalización de PowerShell. Esta característica significa que puede crear los archivos de directiva y publicarlos en un único conjunto de comandos canalizados.
-
-```azurepowershell-interactive
-New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' -DisplayName 'Audit BitLocker service.' -Description 'Audit if the BitLocker service is not enabled on Windows machine.' -Path '.\policyDefinitions' -Platform 'Windows' -Version 1.2.3.4 -Verbose | ForEach-Object {$_.Path} | Publish-GuestConfigurationPolicy -Verbose
-```
-
-Con las definiciones de directivas e iniciativas creadas en Azure, el último paso es asignar la iniciativa. Consulte cómo puede asignar la iniciativa con el [portal](../assign-policy-portal.md), la [CLI de Azure](../assign-policy-azurecli.md) y [Azure PowerShell](../assign-policy-powershell.md).
-
-> [!IMPORTANT]
-> Las directivas de configuración de invitados **siempre** se deben asignar mediante la iniciativa que combina las directivas _AuditIfNotExists_ y _DeployIfNotExists_. Si solo se asigna la directiva _AuditIfNotExists_, los requisitos previos no se implementan y la directiva siempre muestra que los servidores "0" son compatibles.
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida de la directiva
 
-Después de haber publicado una directiva de Azure Policy personalizada mediante el paquete de contenido personalizado, hay dos campos que deben actualizarse si quiere publicar una nueva versión.
+Si desea publicar una actualización de la directiva, hay dos campos que requieren atención.
 
-- **Versión**: al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente. La propiedad actualiza la versión de la asignación de la configuración de invitados en el nuevo archivo de la directiva para que la extensión reconozca que se ha actualizado el paquete.
-- **contentHash**: el cmdlet `New-GuestConfigurationPolicy` actualiza automáticamente esta propiedad. Es un valor hash del paquete que creó `New-GuestConfigurationPackage`. La propiedad debe ser correcta para el archivo `.zip` que se publica. Si solo se actualiza la propiedad **contentUri**, como en el caso donde alguien pueda efectuar un cambio manual en la definición de la directiva desde el portal, la extensión no aceptará el paquete de contenido.
+- **Versión**: al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente. La propiedad actualiza la versión de la asignación de Configuración de invitado para que el agente reconozca el paquete actualizado.
+- **contentHash**: el cmdlet `New-GuestConfigurationPolicy` actualiza automáticamente esta propiedad. Es un valor hash del paquete que creó `New-GuestConfigurationPackage`. La propiedad debe ser correcta para el archivo `.zip` que se publica. Si solo se actualiza la propiedad **contentUri**, la extensión no aceptará el paquete de contenido.
 
 La manera más fácil de publicar un paquete actualizado es repetir el proceso que se describe en este artículo y proporcionar un número de versión actualizado. Este proceso garantiza que todas las propiedades se hayan actualizado correctamente.
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversión del contenido de la directiva de grupo de Windows a la configuración de invitado de Azure Policy
 
 La configuración de invitado, al auditar máquinas Windows, es una implementación de la sintaxis de PowerShell Desired State Configuration. La comunidad de DSC ha publicado herramientas para convertir las plantillas exportadas de la directiva de grupo al formato DSC. Mediante el uso de esta herramienta junto con los cmdlets de configuración de invitado descritos anteriormente, puede convertir el contenido de la directiva de grupo de Windows y empaquetarlo o publicarlo para que Azure Policy lo audite. Para obtener más información sobre el uso de la herramienta, consulte el artículo [Inicio rápido: Conversión de directiva de grupo en DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
-Una vez convertido el contenido, los pasos anteriores para crear un paquete y publicarlo como Azure Policy serán los mismos que para cualquier contenido de DSC.
+Una vez convertido el contenido, los pasos anteriores para crear un paquete y publicarlo como Azure Policy son los mismos que para cualquier contenido de DSC.
 
-## <a name="optional-signing-guest-configuration-packages"></a>OPCIONAL: Firma de paquetes de configuración de invitados
+## <a name="optional-signing-guest-configuration-packages"></a>Opcional: Firma de paquetes de configuración de invitados
 
-De forma predeterminada, las directivas personalizadas de configuración de invitados usan el hash SHA256 para confirmar que el paquete de directivas no ha cambiado desde que se publicó hasta que lo lea el servidor que se está auditando.
+Las directivas personalizadas de Configuración de invitado usan el hash SHA256 para validar que el paquete de directivas no haya cambiado.
 Opcionalmente, los clientes también pueden usar un certificado para firmar paquetes y forzar a la extensión de configuración de invitados a permitir solo el contenido firmado.
 
 Para habilitar este escenario, hay dos pasos que debe completar. Ejecute el cmdlet para firmar el paquete de contenido y anexe una etiqueta a las máquinas que deben solicitar la firma del código.
@@ -359,8 +389,6 @@ Parámetros del cmdlet `Protect-GuestConfigurationPackage`:
 
 - **Ruta de acceso**: ruta de acceso completa del paquete de configuración de invitados.
 - **Certificate**: certificado de firma de código para firmar el paquete. Este parámetro solo se admite cuando se firma contenido para Windows.
-- **PrivateGpgKeyPath**: ruta de acceso de la clave GPG privada. Este parámetro solo se admite cuando se firma contenido para Linux.
-- **PublicGpgKeyPath**: ruta de acceso de la clave GPG pública. Este parámetro solo se admite cuando se firma contenido para Linux.
 
 El agente GuestConfiguration espera que la clave pública del certificado esté presente en la opción "Entidades de certificación raíz de confianza" de las máquinas Windows y en la ruta de acceso `/usr/local/share/ca-certificates/extra` de las máquinas Linux. Para que el nodo compruebe el contenido firmado, instale la clave pública del certificado en la máquina antes de aplicar la directiva personalizada. Este proceso se puede realizar con cualquier técnica dentro de la máquina virtual o mediante Azure Policy. [Aquí se proporciona](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows) una plantilla de ejemplo.
 La directiva de acceso de Key Vault debe permitir que el proveedor de recursos del proceso obtenga acceso a los certificados durante las implementaciones. Para obtener los pasos detallados, consulte [Configuración de Key Vault para máquinas virtuales en Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
@@ -371,8 +399,6 @@ El siguiente es un ejemplo para exportar la clave pública de un certificado de 
 $Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=mycert3") } | Select-Object -First 1
 $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
-
-Una buena referencia para la creación de claves GPG para usarlas con máquinas Linux se proporciona en el artículo de Github [Generar una clave GPG nueva](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
 Una vez publicado el contenido, anexe una etiqueta con el nombre `GuestConfigPolicyCertificateValidation` y el valor `enabled` a todas las máquinas virtuales en las que se debe solicitar la firma de código. Consulte los [ejemplos de etiqueta](../samples/built-in-policies.md#tags) sobre cómo se pueden entregar etiquetas a escala mediante Azure Policy. Una vez que esta etiqueta esté en su lugar, la definición de la directiva que se genera mediante el cmdlet `New-GuestConfigurationPolicy` habilita el requisito a través de la extensión de configuración de invitados.
 

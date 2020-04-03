@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
 ms.openlocfilehash: 7d8a7e7e88837214042fb8f1c109c0b93bfe771b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058204"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Solución de problemas: se cambian los nombres de dispositivo de máquinas virtuales Linux
@@ -148,7 +148,7 @@ Ejecute los comandos siguientes para obtener las reglas de Azure Storage más re
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
 Para más información, consulte los siguientes artículos.
 

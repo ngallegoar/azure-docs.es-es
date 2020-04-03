@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 0cdff3ac6eb2faed0c0b6b8796fdb3b6b0411018
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 39e3521339947263161979033406fb39e397373f
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356457"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348971"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Blob Storage para Azure Functions
 
@@ -397,7 +397,7 @@ Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la rec
 
 Si se produce un error en una función de desencadenador de blob, Azure Functions vuelve a intentar ejecutar esa función hasta 5 veces de forma predeterminada.
 
-Si se produce un error en los 5 intentos, Azure Functions agregará un mensaje a una cola de Storage llamada *webjobs-blobtrigger-poison*. El mensaje de cola para los blobs dudosos es un objeto JSON que contiene las siguientes propiedades:
+Si se produce un error en los 5 intentos, Azure Functions agregará un mensaje a una cola de Storage llamada *webjobs-blobtrigger-poison*. Es posible configurar el número máximo de reintentos. Se usa la misma configuración de MaxDequeueCount para controlar los blobs dudosos y los mensajes de cola dudosos. El mensaje de cola para los blobs dudosos es un objeto JSON que contiene las siguientes propiedades:
 
 * FunctionId (con el formato *&lt;nombre de aplicación de función>* .Functions. *&lt;nombre de función>* )
 * BlobType ("BlockBlob" o "PageBlob")

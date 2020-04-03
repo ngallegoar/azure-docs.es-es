@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 47870410741cf96e289014fab5a9c2eab26759b1
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: ec218b1638183db463ff09488c988cad64d78c6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096421"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370447"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingesta de blobs en Azure Data Explorer mediante la suscripción a las notificaciones de Event Grid
 
@@ -69,7 +69,7 @@ Cree una tabla en Azure Data Explorer a la que Event Hubs enviará los datos. Cr
 
 1. Copie el siguiente comando en la ventana y seleccione **Ejecutar** para crear la tabla (TestTable) que recibirá los datos ingeridos.
 
-    ```Kusto
+    ```kusto
     .create table TestTable (TimeStamp: datetime, Value: string, Source:string)
     ```
 
@@ -77,7 +77,7 @@ Cree una tabla en Azure Data Explorer a la que Event Hubs enviará los datos. Cr
 
 1. Copie el siguiente comando en la ventana y seleccione **Ejecutar** para asignar los datos JSON entrantes a los tipos de datos y los nombres de columna de la tabla (TestTable).
 
-    ```Kusto
+    ```kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.TimeStamp"},{"column":"Value","path":"$.Value"},{"column":"Source","path":"$.Source"}]'
     ```
 
@@ -130,11 +130,11 @@ Vamos a trabajar con un pequeño script de shell que emite algunos comandos bás
 
 Guarde los datos en un archivo y cárguelo con este script:
 
-```Json
+```json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
 ```
 
-```bash
+```azurecli
 #!/bin/bash
 ### A simple Azure Storage example script
 
@@ -195,14 +195,14 @@ Si es necesario, podrá modificar la directiva más adelante. En este artículo 
 
 1. Ejecute la siguiente consulta en la base de datos de prueba para comprobar cuántos mensajes se han enviado a la base de datos hasta el momento.
 
-    ```Kusto
+    ```kusto
     TestTable
     | count
     ```
 
 1. Para ver el contenido de los mensajes, ejecute la siguiente consulta en la base de datos de prueba.
 
-    ```Kusto
+    ```kusto
     TestTable
     ```
 

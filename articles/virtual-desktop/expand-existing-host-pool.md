@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: aee5195fe86fed3e631908a38d3bdb7d5e4883b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127900"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79365226"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión
 
@@ -71,7 +71,7 @@ Aquí se muestra cómo volver a implementar la plantilla de Azure Resource Manag
 
 ## <a name="run-the-azure-marketplace-offering"></a>Ejecución de la oferta de Azure Marketplace
 
-Siga las instrucciones que se indican en [Creación de un grupo de hosts con Azure Marketplace](./create-host-pools-azure-marketplace.md) hasta que llegue a [Ejecución de la oferta de Azure Marketplace para aprovisionar un nuevo grupo de hosts](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). Cuando llegue a ese punto, deberá escribir la siguiente información en cada hoja:
+Siga las instrucciones que se indican en [Creación de un grupo de hosts con Azure Marketplace](./create-host-pools-azure-marketplace.md) hasta que llegue a [Ejecución de la oferta de Azure Marketplace para aprovisionar un nuevo grupo de hosts](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). Cuando llegue a ese punto, deberá escribir la siguiente información en cada pestaña:
 
 ### <a name="basics"></a>Aspectos básicos
 

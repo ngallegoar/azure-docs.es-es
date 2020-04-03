@@ -1,6 +1,6 @@
 ---
-title: 'Azure Front Door Service: seguridad en el nivel de aplicación | Microsoft Docs'
-description: Este artículo le ayudará a entender cómo habilitar Azure Front Door Service para proteger y asegurar sus servidores back-end de aplicación.
+title: 'Azure Front Door: seguridad en el nivel de aplicación | Microsoft Docs'
+description: Este artículo le ayudará a entender cómo Azure Front Door le permite proteger los servidores back-end de aplicaciones.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: c7b99548e2fe1ad0c1cab39953e28a97e7ebff4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193924"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471802"
 ---
 # <a name="application-layer-security-with-front-door"></a>Seguridad en el nivel de aplicación con Front Door
-Azure Front Door Service proporciona funcionalidad de protección de aplicaciones web para proteger las aplicaciones web contra ataques de red y vulnerabilidades web habituales, tales como la inyección de código SQL o scripts entre sitios (XSS). La seguridad en el nivel de aplicación de Front Door está habilitada para servidores front-end http(s), está distribuida globalmente y tiene disponibilidad total para detener los ataques malintencionados en el perímetro de la red de Azure, muy lejos de los servidores back-end. Gracias a su mayor seguridad y la optimización de su rendimiento, Front Door ofrece experiencias web rápidas y segurar a los usuarios finales.
+Azure Front Door proporciona funcionalidad de protección de aplicaciones web para proteger las aplicaciones web contra ataques de red y vulnerabilidades web habituales, tales como la inyección de código SQL o scripts entre sitios (XSS). La seguridad de nivel de aplicación de Front Door está habilitada en los servidores front-end http(s), está distribuida globalmente y tiene disponibilidad total para detener los ataques malintencionados en el perímetro de la red de Azure, muy lejos de los servidores back-end. Gracias a su mayor seguridad y a la optimización de su rendimiento, Front Door ofrece experiencias web rápidas y seguras a los usuarios finales.
 
 ## <a name="application-protection"></a>Protección de las aplicaciones
-La protección de las aplicaciones de Front Door se configura en cada entorno perimetral en todo el mundo, en consonancia con las aplicaciones, e impide automáticamente que el tráfico que no sea http(s) llegue a sus aplicaciones web. Nuestra arquitectura multiinquilino distribuida permite aplicar una protección global a cualquier escala sin sacrificar el rendimiento. En el caso de las cargas de trabajo http(s), el servicio de protección de aplicaciones de Front Door dispone de un avanzado motor de reglas personalizadas, un conjunto de reglas preconfiguradas contra ataques comunes y registros detallados de todas las solicitudes que coinciden con una regla. Se pueden utilizar acciones flexibles, como Permitir, Bloquear o Registrar solo.
+La protección de las aplicaciones de Front Door se configura en cada entorno perimetral del mundo en consonancia con las aplicaciones e impide de forma automática que el tráfico que no sea http(s) llegue a sus aplicaciones web. Nuestra arquitectura multiinquilino distribuida permite aplicar una protección global a cualquier escala sin sacrificar el rendimiento. En el caso de las cargas de trabajo http(s), el servicio de protección de aplicaciones de Front Door dispone de un avanzado motor de reglas personalizadas, un conjunto de reglas preconfiguradas contra ataques comunes y registros detallados de todas las solicitudes que coinciden con una regla. Se pueden utilizar acciones flexibles, como Permitir, Bloquear o Registrar solo.
 
 ## <a name="custom-access-control-rules"></a>Reglas de control de acceso personalizadas
 - **Listas de direcciones IP permitidas y denegadas:** puede configurar reglas personalizadas para controlar el acceso a las aplicaciones web en función de una lista de direcciones IP de cliente. Se admiten direcciones IP v4 e IP v6.

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 2cf682a404154b9c1bb94680b3adb673892c1c72
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566477"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79137910"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexación de datos geoespaciales con Azure Cosmos DB
 
-El motor de base de datos de Azure Cosmos DB se ha diseñado para que sea realmente independiente del esquema y proporcione compatibilidad de primera clase con JSON. El motor de base de datos optimizado para escritura de Azure Cosmos DB también entiende de forma nativa los datos espaciales representados en el estándar GeoJSON.
+El motor de base de datos de Azure Cosmos DB se ha diseñado para que sea realmente independiente del esquema y proporcione una excelente compatibilidad con JSON. El motor de base de datos optimizado para escritura de Azure Cosmos DB también entiende de forma nativa los datos espaciales representados en el estándar GeoJSON.
 
 En pocas palabras, la geometría se proyecta a partir de coordenadas geodésicas en un plano 2D; después, se divide progresivamente en celdas con un **quadtree**. Estas celdas se asignan a 1D según la ubicación de la celda dentro de una **curva de Hilbert**, que conserva la localidad de los puntos. Además, al indexar los datos de ubicación, estos pasan por un proceso conocido como **teselación**; es decir, todas las celdas que se cruzan en una ubicación se identifican y se almacenan como claves en el índice de Azure Cosmos DB. En el momento de la consulta, los argumentos como puntos y elementos Polygon también se teselan para extraer los intervalos de Id. de celda pertinentes, y luego se usan para recuperar los datos del índice.
 
@@ -25,6 +25,44 @@ Si especifica una directiva de indexación que incluye el índice espacial de /*
 > Azure Cosmos DB admite la indexación de Points, LineStrings, Polygons y MultiPolygons.
 >
 >
+
+## <a name="modifying-geospatial-data-type"></a>Modificación del tipo de datos geoespaciales
+
+En el contenedor, la clase `geospatialConfig` especifica cómo se indexarán los datos geoespaciales. Debe especificar una clase `geospatialConfig` por contenedor: geography o geometry. Si no se especifica, la clase `geospatialConfig` tomará como valor predeterminado el tipo de datos geography. Si modificas la clase `geospatialConfig`, se volverán a indexar todos los datos geoespaciales existentes en el contenedor.
+
+> [!NOTE]
+> Actualmente, Azure Cosmos DB solo admite modificaciones de la clase geospatialConfig en el SDK de .NET, versiones 3.6 y posteriores.
+>
+
+A continuación se muestra un ejemplo de modificación del tipo de datos geoespaciales a `geometry`, mediante la definición de la propiedad `geospatialConfig` y la adición de un objeto **boundingBox**:
+
+```csharp
+    //Retrieve the container's details
+    ContainerResponse containerResponse = await client.GetContainer("db", "spatial").ReadContainerAsync();
+    //Set GeospatialConfig to Geometry
+    GeospatialConfig geospatialConfig = new GeospatialConfig(GeospatialType.Geometry);
+    containerResponse.Resource.GeospatialConfig = geospatialConfig;
+    // Add a spatial index including the required boundingBox
+    SpatialPath spatialPath = new SpatialPath
+            {  
+                Path = "/locations/*",
+                BoundingBox = new BoundingBoxProperties(){
+                    Xmin = 0,
+                    Ymin = 0,
+                    Xmax = 10,
+                    Ymax = 10
+                }
+            };
+    spatialPath.SpatialTypes.Add(SpatialType.Point);
+    spatialPath.SpatialTypes.Add(SpatialType.LineString);
+    spatialPath.SpatialTypes.Add(SpatialType.Polygon);
+    spatialPath.SpatialTypes.Add(SpatialType.MultiPolygon);
+
+    containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(spatialPath);
+
+    // Update container with changes
+    await client.GetContainer("db", "spatial").ReplaceContainerAsync(containerResponse.Resource);
+```
 
 ## <a name="geography-data-indexing-examples"></a>Ejemplos de indexación de datos de geografía
 
@@ -58,11 +96,64 @@ El siguiente fragmento JSON muestra una directiva de indexación con la indexaci
 
 > [!NOTE]
 > Si el valor GeoJSON de la ubicación que se encuentra en el documento es incorrecto o no válido, no se indexará para realizar consultas espaciales. Puede validar los valores de ubicación mediante ST_ISVALID y ST_ISVALIDDETAILED.
->
->
->
 
 También puede [modificar la directiva de indexación](how-to-manage-indexing-policy.md) mediante la CLI de Azure, PowerShell o cualquier SDK.
+
+## <a name="geometry-data-indexing-examples"></a>Ejemplos de indexación de datos de tipo geometry
+
+Con el tipo de datos **geometry**, similar al tipo de datos geography, debe especificar las rutas de acceso y los tipos pertinentes que se van a indexar. Además, también debe especificar un objeto `boundingBox` en la directiva de indexación para indicar el área deseada que se va a indexar para esa ruta de acceso específica. Cada ruta de acceso geoespacial requiere su propio objeto `boundingBox`.
+
+El cuadro de límite está formato por las propiedades siguientes:
+
+- **xmin**: la coordenada x indexada mínima
+- **ymin**: la coordenada y indexada mínima
+- **xmax**: la coordenada x indexada máxima
+- **ymax**: la coordenada y indexada máxima
+
+Se requiere un cuadro de límite porque los datos geométricos ocupan un plano que puede ser infinito. Sin embargo, los índices espaciales requieren un espacio finito. En el caso del tipo de datos **geography**, la Tierra es el límite y no es necesario establecer un cuadro de límite.
+
+Debe crear un cuadro de límite que contenga todos los datos (o la mayoría). Solo las operaciones calculadas en los objetos que estén completamente dentro del cuadro de límite podrán utilizar el índice espacial. El cuadro de límite no debe ser mucho más grande de lo necesario, ya que esto afectará negativamente al rendimiento de las consultas.
+
+A continuación se incluye una directiva de indexación de ejemplo que indexa datos de tipo **geometry** con **geospatialConfig** establecido en `geometry`:
+
+```json
+ {
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ],
+    "spatialIndexes": [
+        {
+            "path": "/locations/*",
+            "types": [
+                "Point",
+                "LineString",
+                "Polygon",
+                "MultiPolygon"
+            ],
+            "boundingBox": {
+                "xmin": -10,
+                "ymin": -20,
+                "xmax": 10,
+                "ymax": 20
+            }
+        }
+    ]
+}
+```
+
+La directiva de indexación anterior tiene un objeto **boundingBox** de (-10, 10) para las coordenadas x y de (-20, 20) para las coordenadas y. El contenedor con la directiva de indexación anterior indexará todos los objetos Point, Polygon, MultiPolygon y LineString que estén totalmente dentro de esta región.
+
+> [!NOTE]
+> Si intenta agregar una directiva de indexación con un objeto **boundingBox** a un contenedor con el tipo de datos `geography`, se producirá un error. Debe modificar el objeto **geospatialConfig** del contenedor para que sea `geometry` antes de agregar un objeto **boundingBox**. Puede agregar datos y modificar el resto de la directiva de indexación (como las rutas de acceso y los tipos) antes o después de seleccionar el tipo de datos geoespaciales para el contenedor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

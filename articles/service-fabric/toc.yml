@@ -404,8 +404,6 @@
           items:
             - name: Implementación de una aplicación ejecutable de invitado
               href: service-fabric-deploy-existing-app.md
-            - name: Implementación de varios ejecutables invitados
-              href: service-fabric-deploy-multiple-apps.md
         - name: Compilación de un servicio de contenedor
           items:
             - name: Docker Compose (versión preliminar)

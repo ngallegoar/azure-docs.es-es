@@ -1,17 +1,17 @@
 ---
-title: Cifrado de datos del servidor único de Azure Database for PostgreSQL con clave administrada por el cliente
+title: 'Cifrado de datos con la clave administrada por el cliente: Azure Database for PostgreSQL (servidor único)'
 description: El cifrado de datos del servidor único de Azure Database for PostgreSQL con clave administrada por el cliente le permite usar el método Bring Your Own Key (BYOK) para la protección de datos en reposo. También permite a las organizaciones implementar la separación de tareas en la administración de claves y datos.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 20e01e681c382e3c9c69f76c95a90f709f409d6a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198707"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297029"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos del servidor único de Azure Database for PostgreSQL con la clave administrada por el cliente
 
@@ -32,9 +32,9 @@ Key Vault es un sistema de administración de claves externas basado en la nube.
 El cifrado de datos para un servidor único de Azure Database for PostgreSQL proporciona las siguientes ventajas:
 
 * El acceso a los datos está totalmente controlado por el usuario gracias a la posibilidad de quitar la clave y hacer que la base de datos sea inaccesible 
-*   Control total sobre el ciclo de vida de la clave, incluida la rotación de esta para cumplir con las directivas corporativas
-*   Organización y administración central de las claves en Azure Key Vault.
-*   Posibilidad de implementar la separación de tareas entre los responsables de seguridad y los administradores del sistema y de bases de datos
+*    Control total sobre el ciclo de vida de la clave, incluida la rotación de esta para cumplir con las directivas corporativas
+*    Organización y administración central de las claves en Azure Key Vault.
+*    Posibilidad de implementar la separación de tareas entre los responsables de seguridad y los administradores del sistema y de bases de datos
 
 ## <a name="terminology-and-description"></a>Terminología y descripción
 
@@ -56,7 +56,7 @@ Para que un servidor de PostgreSQL pueda usar claves administradas por el client
 
 El administrador del almacén de claves también puede [habilitar el registro de eventos de auditoría de Key Vault](../azure-monitor/insights/azure-key-vault.md), de forma que se puedan auditar más adelante.
 
-Cuando el servidor está configurado para usar la clave administrada por el cliente que se almacena en el almacén de claves, el servidor envía a este la DEK para que la cifre. Key Vault devuelve las DEK cifradas, la cual se almacena en la base de datos del usuario. De igual modo, cuando es necesario, el servidor envía la DEK protegida al almacén de claves para que la descifre. Los auditores pueden usar Azure Monitor para revisar los registros de eventos de auditoría de Key Vault, si está habilitado el registro.
+Cuando el servidor está configurado para usar la clave administrada por el cliente que se almacena en el almacén de claves, el servidor envía a este la DEK para que la cifre. Key Vault devuelve las DEK cifradas, que se almacenan en la base de datos del usuario. De igual modo, cuando es necesario, el servidor envía la DEK protegida al almacén de claves para que la descifre. Los auditores pueden usar Azure Monitor para revisar los registros de eventos de auditoría de Key Vault, si está habilitado el registro.
 
 ## <a name="requirements-for-configuring-data-encryption-for-azure-database-for-postgresql-single-server"></a>Requisitos de configuración del cifrado de datos para un servidor único de Azure Database for PostgreSQL
 

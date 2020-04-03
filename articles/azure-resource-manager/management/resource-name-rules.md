@@ -2,13 +2,13 @@
 title: Restricciones de nomenclatura de recursos
 description: Muestra las reglas y las restricciones de nomenclatura de recursos de Azure.
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 7b6a9e16ba28a2a0e5e4e181dc5650d2110eab88
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 03/27/2020
+ms.openlocfilehash: 580b7efd26d5729baf236b59452f63483c003e44
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153169"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366219"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reglas y restricciones de nomenclatura para los recursos de Azure
 
@@ -385,6 +385,13 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | --- | --- | --- | --- |
 > | jobs | resource group | 2-64 | Caracteres alfanuméricos y guiones.<br><br>Comience con una letra. |
 
+## <a name="microsoftinsights"></a>Microsoft.Insights
+
+> [!div class="mx-tableFixed"]
+> | Entidad | Ámbito | Length | Caracteres válidos |
+> | --- | --- | --- | --- |
+> | components | resource group | 1-260 | No puede usar:<br>`%&\?/` <br><br>No puede terminar con un espacio ni punto.  |
+
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
@@ -616,6 +623,7 @@ En las tablas siguientes, el término carácter alfanumérico se refiere a:
 > | --- | --- | --- | --- |
 > | managedInstances | global | 1-63 | Letras minúsculas, números y guiones.<br><br>No puede comenzar ni terminar con un guion. |
 > | servers | global | 1-63 | Letras minúsculas, números y guiones.<br><br>No puede comenzar ni terminar con un guion. |
+> | servers/administrators | server |  | Debe ser `ActiveDirectory`. |
 > | servers/databases | server | 1-128 | No puede usar:<br>`<>*%&:\/?`<br><br>No puede terminar con un punto ni un espacio. |
 > | servers/databases/syncGroups | database | 1-150 | Caracteres alfanuméricos, de subrayado y guiones. |
 > | servers/elasticPools | server | 1-128 | No puede usar:<br>`<>*%&:\/?`<br><br>No puede terminar con un punto ni un espacio. |

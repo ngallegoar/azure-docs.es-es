@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7fe58ae95c8d9c6b93c7e92e093541af009781ce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368164"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79454438"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
@@ -106,7 +106,7 @@ La escritura diferida de contraseñas es un servicio muy seguro. Para garantizar
    * Una vez creada la instancia de Service Bus Relay, se crea una clave simétrica segura que se usa para cifrar la contraseña tal cual llega de la red. Esta clave solo reside en el almacén secreto en la nube de la compañía, el cual se bloquea y audita de forma estricta como se haría con cualquier contraseña del directorio.
 * **Seguridad de la capa de transporte (TLS) estándar del sector**
    1. Cuando se produce una operación de restablecimiento o cambio de contraseña, la contraseña de texto no cifrado se cifra con la clave pública.
-   1. La contraseña cifrada se inserta en un mensaje HTTPS que se envía a Service Bus Relay a través de un canal cifrado con certificados SSL de Microsoft.
+   1. La contraseña cifrada se inserta en un mensaje HTTPS que se envía a Service Bus Relay a través de un canal cifrado con certificados TLS/SSL de Microsoft.
    1. Una vez que el mensaje llega a Service Bus, el agente local se activa y se autentica en Service Bus con la contraseña segura que se generó anteriormente.
    1. El agente local selecciona el mensaje cifrado y lo descifra con la clave privada.
    1. El agente local intenta definir la contraseña con SetPassword API de AD DS. Este paso permite aplicar la directiva de contraseñas local de Active Directory (como, por ejemplo, complejidad, antigüedad, historial y filtros) en la nube.

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f250d4593c8dac8007590245e1b774b95d8fa786
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 79741557e6eea1b4252e5ab4d9976b124cea1169
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767949"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346905"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Requisitos previos de Azure AD Connect
 En este tema se describen los requisitos previos y los de hardware de Azure AD Connect.
@@ -60,7 +60,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesita.
 * Azure AD Connect debe estar instalado en Windows Server 2012 o en una versión superior. Este servidor debe estar unido a un dominio y puede ser un controlador de dominio o un servidor miembro.
 * El servidor de Azure AD Connect no debe tener la directiva de grupo de transcripción de PowerShell habilitada si usa el Asistente de Azure AD Connect para administrar la configuración de ADFS. Puede habilitar la transcripción de PowerShell si usa el asistente de Azure AD Connect para administrar la configuración de sincronización.
 * Si se implementa Servicios de federación de Active Directory, los servidores en los que se instale AD FS o el Proxy de aplicación web deben ser Windows Server 2012 R2 o versiones posteriores. [Administración remota de Windows](#windows-remote-management) debe estar habilitada en estos servidores para la instalación remota.
-* Si se implementa Servicios de federación de Active Directory, necesita [Certificados SSL](#ssl-certificate-requirements).
+* Si se implementa Servicios de federación de Active Directory, necesita [Certificados TLS/SSL](#tlsssl-certificate-requirements).
 * Si se implementan los Servicios de federación de Active Directory, necesitará configurar la [resolución de nombres](#name-resolution-for-federation-servers).
 * Si los administradores globales tienen MFA habilitado, la dirección URL **https://secure.aadcdn.microsoftonline-p.com** debe estar en la lista de sitios de confianza. Se le solicita que agregue este sitio a la lista de sitios de confianza cuando se le pide un desafío MFA y no se ha agregado antes. Puede utilizar Internet Explorer para agregarla a los sitios de confianza.
 * Microsoft recomienda reforzar su servidor Azure AD Connect para reducir la superficie de ataque de seguridad para este componente esencial de su entorno de TI.  Siga las recomendaciones que tiene a continuación y podrá reducir los riesgos de seguridad de su organización.
@@ -86,8 +86,8 @@ Para obtener más información, consulte:
 
 ### <a name="accounts"></a>Cuentas
 * Una cuenta de administrador global de Azure AD para el inquilino de Azure AD con el que desea realizar la integración. Debe tratarse de una **cuenta profesional o educativa** y no puede ser una **cuenta Microsoft**.
-* Si usa la configuración rápida o actualiza desde DirSync, debe tener una cuenta de administrador de empresa para su instancia de Active Directory local.
-* [Cuentas de Active Directory](reference-connect-accounts-permissions.md) si usa la ruta de instalación de una configuración personalizada o una cuenta de administrador Enterprise para Active Directory local.
+* Si usa la [configuración rápida](reference-connect-accounts-permissions.md#express-settings-installation) o actualiza desde DirSync, debe tener una cuenta de administrador de empresa para la instancia de Active Directory local.
+* Si usa la ruta de instalación de configuración personalizada, dispone de más opciones; vea [Cuentas de Active Directory](reference-connect-accounts-permissions.md#custom-installation-settings).
 
 ### <a name="connectivity"></a>Conectividad
 * El servidor de Azure AD Connect necesita resolución DNS para intranet e Internet. El servidor DNS debe ser capaz de resolver nombres en su Active Directory local y en los puntos de conexión de Azure AD.
@@ -160,20 +160,20 @@ Antes de la versión 1.1.614.0, Azure AD Connect usa de forma predeterminada TLS
 When using Azure AD Connect to deploy Active Directory Federation Services or the Web Application Proxy, check these requirements:
 
 * If the target server is domain joined, then ensure that Windows Remote Managed is enabled
-  * In an elevated PSH command window, use command `Enable-PSRemoting –force`
+  * In an elevated PowerShell command window, use command `Enable-PSRemoting –force`
 * If the target server is a non-domain joined WAP machine, then there are a couple of additional requirements
   * On the target machine (WAP machine):
     * Ensure the winrm (Windows Remote Management / WS-Management) service is running via the Services snap-in
-    * In an elevated PSH command window, use command `Enable-PSRemoting –force`
+    * In an elevated PowerShell command window, use command `Enable-PSRemoting –force`
   * On the machine on which the wizard is running (if the target machine is non-domain joined or untrusted domain):
-    * In an elevated PSH command window, use the command `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
+    * In an elevated PowerShell command window, use the command `Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate`
     * In Server Manager:
       * add DMZ WAP host to machine pool (server manager -> Manage -> Add Servers...use DNS tab)
       * Server Manager All Servers tab: right click WAP server and choose Manage As..., enter local (not domain) creds for the WAP machine
-      * To validate remote PSH connectivity, in the Server Manager All Servers tab: right click WAP server and choose Windows PowerShell. A remote PSH session should open to ensure remote PowerShell sessions can be established.
+      * To validate remote PowerShell connectivity, in the Server Manager All Servers tab: right click WAP server and choose Windows PowerShell. A remote PowerShell session should open to ensure remote PowerShell sessions can be established.
 
-### SSL Certificate Requirements
-* It’s strongly recommended to use the same SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
+### TLS/SSL Certificate Requirements
+* It’s strongly recommended to use the same TLS/SSL certificate across all nodes of your AD FS farm and all Web Application proxy servers.
 * The certificate must be an X509 certificate.
 * You can use a self-signed certificate on federation servers in a test lab environment. However, for a production environment, we recommend that you obtain the certificate from a public CA.
   * If using a certificate that is not publicly trusted, ensure that the certificate installed on each Web Application Proxy server is trusted on both the local server and on all federation servers

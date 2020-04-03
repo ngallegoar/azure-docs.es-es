@@ -1,23 +1,23 @@
 ---
 title: Corrección de recursos no compatibles
 description: En esta guía se explica la corrección de los recursos que no son conformes con las directivas de Azure Policy.
-ms.date: 09/09/2019
+ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: e3db0f5f8ae1be4a6ab6eb281801958bfb816228
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: 71af5c81e0dce4d5c0a0461534f634db36bd66a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544188"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471394"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
-Los recursos que no son conformes con un directiva **deployIfNotExists** o **modify** se pueden colocar en un estado conforme a través de la **Corrección**. La corrección se lleva a cabo indicando a Azure Policy que ejecute en los recursos existentes el efecto **deployIfNotExists** o los elementos **operations** de la etiqueta de la directiva asignada. En este artículo se muestran los pasos necesarios para comprender y realizar correcciones con Azure Policy.
+Los recursos que no son conformes con un directiva **deployIfNotExists** o **modify** se pueden colocar en un estado conforme a través de la **Corrección**. La corrección se consigue indicando a Azure Policy que ejecute el efecto **deployIfNotExists** o la etiqueta **operations** de la directiva asignada en los recursos existentes, independientemente de que la asignación sea a un grupo de administración, una suscripción, un grupo de recursos o un recurso individual. En este artículo se muestran los pasos necesarios para comprender y realizar correcciones con Azure Policy.
 
 ## <a name="how-remediation-security-works"></a>Cómo funciona la seguridad de corrección
 
 Cuando Azure Policy ejecuta la plantilla en la definición de directiva **deployIfNotExists**, lo hace mediante una [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy crea una identidad administrada para cada asignación, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si faltan roles en la identidad administrada, este error se muestra durante la asignación de la directiva o una iniciativa. Al usar el portal, Azure Policy concederá automáticamente a la identidad administrada los roles enumerados una vez que se inicie la asignación.
+Azure Policy crea una identidad administrada para cada asignación, pero debe proporcionar detalles sobre los roles que se conceden a la identidad administrada. Si faltan roles en la identidad administrada, este error se muestra durante la asignación de la directiva o una iniciativa. Al usar el portal, Azure Policy concede automáticamente a la identidad administrada los roles enumerados cuando se inicia la asignación. La _ubicación_ de la identidad administrada no afecta a su funcionamiento con Azure Policy.
 
 ![Identidad administrada - función ausente](../media/remediate-resources/missing-role.png)
 

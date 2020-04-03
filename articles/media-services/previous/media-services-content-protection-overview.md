@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 4ff4025941e9a77148daa91995ecf182231d1f0b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 88e0e1c18722fd86e79fc1fa7722b59b3cb8966a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976288"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79460966"
 ---
 # <a name="content-protection-overview"></a>Introducción a la protección de contenido 
 
@@ -35,12 +35,17 @@ En la siguiente imagen se ilustra el flujo de trabajo de protección de contenid
 En este artículo se explican los conceptos y terminología pertinentes para conocer la protección de contenido con Media Services. En el artículo también se proporcionan vínculos a artículos donde se indica cómo proteger el contenido. 
 
 ## <a name="dynamic-encryption"></a>Cifrado dinámico
- Puede usar Media Services para entregar el contenido cifrado de forma dinámica con la clave sin cifrado AES o el cifrado DRM mediante PlayReady, Widevine o FairPlay. Actualmente puede cifrar los formatos de streaming HTTP Live Streaming (HLS), MPEG DASH y Smooth Streaming. No se admite el cifrado en descargas progresivas. Cada método de cifrado admite los siguientes protocolos de streaming:
 
+Puede usar Media Services para entregar el contenido cifrado de forma dinámica con la clave sin cifrado AES o el cifrado DRM mediante PlayReady, Widevine o FairPlay. Si el contenido está cifrado con una clave sin cifrado AES y se envía a través de HTTPS, no será claro hasta que llegue al cliente. 
+
+Cada método de cifrado admite los siguientes protocolos de streaming:
+ 
 - AES: MPEG-DASH, Smooth Streaming y HLS
 - PlayReady: MPEG-DASH, Smooth Streaming y HLS
 - Widevine: MPEG-DASH
 - FairPlay: HLS
+
+No se admite el cifrado en descargas progresivas. 
 
 Para cifrar un recurso, debe asociar una clave de contenido de cifrado con el recurso y, además, configurar una directiva de autorización para la clave. Media Services puede especificar o generar automáticamente las claves de contenido.
 
@@ -75,6 +80,19 @@ Con una directiva de autorización con restricción de token, la clave de conten
 
 Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, el emisor y el público. La clave de comprobación principal contiene la clave con la que se firmó el token. El emisor es el servicio de token seguro que emite el token. El público, a veces denominado ámbito, describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Media Services valida que estos valores del token coincidan con los valores de la plantilla.
 
+### <a name="token-replay-prevention"></a>Prevención de reproducción de tokens
+
+La característica de *prevención de reproducción de tokens* permite a los clientes de Media Services establecer un límite en el número de veces que se puede usar el mismo token para solicitar una clave o una licencia. El cliente puede agregar una notificación de tipo `urn:microsoft:azure:mediaservices:maxuses` en el token, donde el valor es el número de veces que el token se puede usar para adquirir una licencia o una clave. Todas las solicitudes subsiguientes con el mismo token para la entrega de claves devolverán una respuesta no autorizada. Consulte cómo agregar la notificación en el [ejemplo de DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+ 
+#### <a name="considerations"></a>Consideraciones
+
+* Los clientes deben tener control sobre la generación de tokens. La notificación debe colocarse en el propio token.
+* Cuando se usa esta característica, las solicitudes con tokens cuya hora de expiración sea superior a una hora desde el momento en que se reciba la solicitud se rechazan con una respuesta no autorizada.
+* Los tokens se identifican de forma única mediante su firma. Cualquier cambio en la carga útil (por ejemplo, la actualización a la hora de expiración o la notificación) cambia la firma del token y se contará como un nuevo token con el que la entrega de claves no se ha encontrado antes.
+* Se produce un error en la reproducción si el token ha superado el valor de `maxuses` establecido por el cliente.
+* Esta característica se puede usar para todo el contenido protegido existente (solo se debe cambiar el token emitido).
+* Esta característica funciona con JWT y también con SWT.
+
 ## <a name="streaming-urls"></a>Direcciones URL de streaming
 Si el recurso se cifró con más de un DRM, use una etiqueta de cifrado en la dirección URL de streaming: (formato = 'm3u8-aapl', cifrado = 'xxx').
 
@@ -84,6 +102,7 @@ Se aplican las siguientes consideraciones:
 * El tipo de cifrado no tiene que especificarse en la dirección URL si solo se aplicó un cifrado al recurso.
 * El tipo de cifrado distingue mayúsculas de minúsculas.
 * Se pueden especificar los siguientes tipos de cifrado:
+
   * **cenc**: Para PlayReady o Widevine (cifrado común)
   * **cbcs-aapl**: Para FairPlay (cifrado AES-CBC)
   * **cbc**: Cifrado de sobre AES
