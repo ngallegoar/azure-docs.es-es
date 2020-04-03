@@ -1,19 +1,19 @@
 ---
-title: Script de PowerShell para crear una cuenta de Azure Cosmos con firewall de IP
-description: 'Ejemplo de script de Azure PowerShell: creación de una cuenta Azure Cosmos con firewall de IP'
+title: Script de PowerShell para crear una cuenta de Azure Cosmos DB con firewall de IP
+description: 'Ejemplo de script de Azure PowerShell: creación de una cuenta Azure Cosmos DB con firewall de IP'
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6f018815bb8afd50bd9f21f8c088fd688ace1174
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f01e8e818a1b3cf4f999afa1e0801b2341ede2bf
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75445087"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365678"
 ---
-# <a name="create-an-azure-cosmos-account-with-ip-firewall"></a>Creación de una cuenta Azure Cosmos con firewall de IP
+# <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>Creación de una cuenta de Azure Cosmos DB con firewall de IP
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -40,10 +40,9 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-|**Recursos de Azure**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Crea un recurso. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Crea una cuenta de Cosmos DB. |
 |**Grupos de recursos de Azure**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||
 

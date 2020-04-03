@@ -10,16 +10,16 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: f5a094613b8722f96fccd1d1a6df359fa9b0ebd4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 2cefd3c7f85e043497084e2cd2b906bd546ca10d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526068"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282280"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>¿Qué es Geo Artificial Intelligence Data Science Virtual Machine?
 
-Geo Artificial Intelligence Data Science Virtual Machine (también conocido como Geo AI Data Science VM o Geo-DSVM) ofrece funcionalidades de análisis geoespacial de Azure Data Science Virtual Machine (DSVM). En concreto, esta máquina virtual amplía los kits de herramientas de ciencia de datos e inteligencia artificial de [DSVM](overview.md) gracias a la incorporación del sistema de información geográfica líder del mercado, [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview), de ESRI.
+Geo Artificial Intelligence Data Science Virtual Machine (también conocido como Geo AI Data Science VM o Geo-DSVM) ofrece funcionalidades de análisis geoespacial de Azure Data Science Virtual Machine (DSVM). Específicamente, esta máquina virtual amplía los kits de herramientas de ciencia de datos e inteligencia artificial de [DSVM](overview.md) gracias a la incorporación del sistema de información geográfica líder del mercado, [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview), de ESRI.
 
  Geo AI Data Science VM es una oferta de producto que nace de la colaboración entre ESRI y Microsoft. El resultado es un entorno eficaz que proporciona la capacidad de:
 

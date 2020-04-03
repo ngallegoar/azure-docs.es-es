@@ -7,18 +7,20 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: 24015810a295ef88b7d3e63bfc464ddddef6b55f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b978190776aee3c89d3beadde76d20c4327b012f
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73939633"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388923"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
 
-En este artículo se describe cómo migrar máquinas locales a Azure mediante [Azure Site Recovery](site-recovery-overview.md). Por lo general, Azure Site Recovery se usa para administrar y orquestar la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure. Sin embargo, también se puede usar para la migración. La migración utiliza los mismos pasos que la recuperación ante desastres, salvo una excepción. En la migración, la conmutación por error de las maquinas desde el sitio local es el último paso. A diferencia de la recuperación ante desastres, en los escenarios de migración no se puede realizar la conmutación por recuperación en un entorno local.
+En este artículo se describe cómo migrar máquinas locales a Azure mediante [Azure Site Recovery](site-recovery-overview.md). 
+
+> [!TIP]
+> A partir de ahora debería usar Azure Migrate para migrar máquinas locales a Azure, en lugar del servicio Azure Site Recovery. [Más información](../migrate/migrate-services-overview.md).
 
 
 En este tutorial se muestra cómo migrar máquinas virtuales locales y servidores físicos a Azure. Aprenderá a:
@@ -36,7 +38,7 @@ En este tutorial se muestra cómo migrar máquinas virtuales locales y servidore
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Tenga en cuenta que no se admiten los dispositivos exportados por controladores paravirtualizados.
+No se admiten dispositivos que se hayan exportado con controladores paravirtualizados.
 
 
 ## <a name="prepare-azure-and-on-premises"></a>Preparación de Azure y del entorno local
@@ -51,9 +53,9 @@ Seleccione aquello que desea replicar y la ubicación donde se va a realizar la 
 1. Haga clic en **Almacenes de Recovery Services** > almacén.
 2. En el menú de recursos, haga clic en **Site Recovery** > **Preparar la infraestructura** > **Objetivo de protección**.
 3. En **Objetivo de protección**, seleccione el contenido que quiera migrar.
-    - **VMware**: seleccione **To Azure (En Azure)**  > **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor).
-    - En **Máquina física**: seleccione **To Azure (En Azure)**  > **No virtualizado/Otro**.
-    - **Hyper-V**: seleccione **To Azure (En Azure)**  > **Yes, with Hyper-V (Sí, con Hyper-V)** . Si VMM administra las máquinas virtuales de Hyper-V, seleccione **Sí**.
+    - **VMware**: Seleccione **To Azure (En Azure)**  > **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor).
+    - **Máquina física**: Seleccione **To Azure (En Azure)**  > **No virtualizado/Otro**.
+    - **Hyper-V**: Seleccione **To Azure (En Azure)**  > **Yes, with Hyper-V (Sí, con Hyper-V)** . Si VMM administra las máquinas virtuales de Hyper-V, seleccione **Sí**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configuración del entorno de origen
@@ -115,7 +117,7 @@ Ejecute una conmutación por error para las máquinas que desea migrar.
 
 
 > [!WARNING]
-> **No cancele una conmutación por error en curso**: antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.
+> **No cancele una conmutación por error en curso**: La replicación de la máquina virtual se detiene antes de que se inicie la conmutación por error. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.
 
 En algunos escenarios, la conmutación por error requiere un procesamiento adicional que tarda aproximadamente de ocho a diez minutos en completarse. Puede observar tiempos de conmutación por error de prueba más largos en los servidores físicos, las máquinas de VMware Linux, las máquinas virtuales de VMware que no tienen el servicio DHCP habilitado y las máquinas virtuales de VMware que no tienen los siguientes controladores de arranque: storvsc, vmbus, storflt, intelide y atapi.
 
@@ -132,7 +134,7 @@ Algunos pasos se pueden automatizar como parte del proceso de migración con la 
 - Realice las pruebas finales de la aplicación y la aceptación de la migración en la aplicación migrada que ahora se ejecuta en Azure.
 - El [agente de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) administra la interacción de una máquina virtual con el controlador de tejido de Azure. Se requiere para algunos servicios de Azure, como Azure Backup, Site Recovery y Azure Security.
     - Si va a migrar servidores físicos y máquinas de VMware, el instalador de Mobility Service instala el agente de máquina virtual de Azure disponible en máquinas Windows. En máquinas virtuales Linux, se recomienda que instale al agente después de la conmutación por error.
-    - Si va a migrar máquinas virtuales de Azure en una región secundaria, se debe aprovisionar el agente de máquina virtual de Azure en la máquina virtual antes de la migración.
+    - Si va a migrar máquinas virtuales de Azure a una región secundaria, se debe aprovisionar el agente de máquina virtual de Azure en la máquina virtual antes de la migración.
     - Si va a migrar máquinas virtuales de Hyper-V a Azure, instale al agente de máquina virtual de Azure en la máquina virtual de Azure después de la migración.
 - Quite manualmente cualquier proveedor/agente de Site Recovery de la máquina virtual. Si migra máquinas virtuales de VMware o servidores físicos, desinstale Mobility Service de la máquina virtual.
 - Para aumentar la resistencia:

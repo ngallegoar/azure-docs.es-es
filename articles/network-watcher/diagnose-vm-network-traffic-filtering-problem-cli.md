@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 251f72ab4f4d53fc2c836f06c78a1faa291b3a8a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b3919a016613da2470c14995663acc9c5415e483
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74276071"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382858"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Inicio rápido: Diagnóstico de problemas de filtrado del tráfico de red de una máquina virtual: CLI de Azure
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.28 de la CLI de Azure o una versión posterior. Ejecute `az --version` para ver cuál es la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Después de verificar la versión de CLI, ejecute `az login` para crear una conexión con Azure. Los comandos de la CLI que aparecen en esta guía de inicio rápido tienen un formato que permite ejecutarlos en un shell de Bash.
+Si decide instalar y usar la CLI de Azure localmente, para este inicio rápido es preciso ejecutar la CLI de Azure, versión 2.0.28 o posterior. Ejecute `az --version` para ver cuál es la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Después de verificar la versión de la CLI de Azure, ejecute `az login` para crear una conexión con Azure. Los comandos de la CLI de Azure que aparecen en esta guía de inicio rápido tienen un formato que permite ejecutarlos en un shell de Bash.
 
 ## <a name="create-a-vm"></a>Crear una VM
 
@@ -53,7 +53,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-La máquina virtual tarda en crearse unos minutos. No continúe con los pasos restantes hasta que la máquina virtual se haya creado y la CLI devuelva la salida.
+La máquina virtual tarda en crearse unos minutos. No continúe con los pasos restantes hasta que la máquina virtual se haya creado y la CLI de Azure devuelva la salida.
 
 ## <a name="test-network-communication"></a>Prueba de la comunicación de red
 
@@ -134,7 +134,7 @@ az network nic list-effective-nsg \
 
 La salida devuelta contiene el siguiente texto de la regla **AllowInternetOutbound**, que permite el acceso de salida a www.bing.com en un paso anterior de [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify):
 
-```azurecli
+```
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -175,7 +175,7 @@ Puede ver en la salida anterior que **destinationAddressPrefix** es **Internet**
 
 Cuando ejecutó el comando `az network watcher test-ip-flow` para probar la comunicación de salida hacia 172.131.0.100 en [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify), la salida le informó de que la regla **DefaultOutboundDenyAll** había denegado la comunicación. La regla **DefaultOutboundDenyAll** es igual que la regla **DenyAllOutBound** que aparece en la siguiente salida del comando `az network nic list-effective-nsg`:
 
-```azurecli
+```
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -208,7 +208,7 @@ La regla muestra **0.0.0.0/0** como **destinationAddressPrefix**. La regla denie
 
 Cuando ejecutó el comando `az network watcher test-ip-flow` para probar la comunicación de entrada procedente de 172.131.0.100 en [Uso de la funcionalidad Comprobación del flujo de IP](#use-ip-flow-verify), la salida le informó de que la regla **DefaultInboundDenyAll** había denegado la comunicación. La regla **DefaultInboundDenyAll** es igual que la regla **DenyAllInBound** que aparece en la siguiente salida del comando `az network nic list-effective-nsg`:
 
-```azurecli
+```
 {
  "access": "Deny",
  "additionalProperties": {},

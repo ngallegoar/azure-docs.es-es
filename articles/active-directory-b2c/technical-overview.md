@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1aed1b0a13482bc932024a9d2a131ec5f1d948ba
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d3d6b33211f6f247d9f30c0f162b388085faabe6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78186903"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80332545"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Introducción a los aspectos técnicos y las características de Azure Active Directory B2C
 
@@ -195,7 +195,7 @@ Puede agregar una llamada a la API REST en cualquier paso del recorrido del usua
 * Después de que Azure AD B2C cree una cuenta en el directorio
 * Antes de que Azure AD B2C emita un token de acceso
 
-Para ver cómo se usan las directivas personalizadas para la integración de la API de RESTful en Azure AD B2C, consulte [Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C](rest-api-claims-exchange-dotnet.md).
+Para ver cómo se usan las directivas personalizadas para la integración de la API RESTful en Azure AD B2C, consulte [Integración de intercambios de notificaciones de API REST en la directiva personalizada de Azure AD B2C](custom-policy-rest-api-intro.md).
 
 ## <a name="protect-customer-identities"></a>Protección de identidades de los clientes
 

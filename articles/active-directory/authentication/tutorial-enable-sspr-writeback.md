@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccc64fb8dd8bd8abc198d9bfc9d643ef618188ea
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: f3578cb1326ebd701c3f00618c19a501a1476372
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967805"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80332139"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de Azure Active Directory en un entorno local
 
@@ -51,10 +51,9 @@ Azure AD Connect le permite sincronizar usuarios, grupos y credenciales entre u
 Para trabajar correctamente con la escritura diferida del autoservicio de restablecimiento de contraseña, la cuenta especificada en Azure AD Connect debe tener establecidos los permisos y las opciones correspondientes. Si no está seguro de qué cuenta está actualmente en uso, abra Azure AD Connect y seleccione la opción **Ver la configuración actual**. La cuenta a la que necesita agregar los permisos se muestra en **Directorios sincronizados**. Se deben establecer los siguientes permisos y opciones en la cuenta:
 
 * **Restablecimiento de contraseñas**
-* Haga clic en **Cambiar contraseña**.
 * **Permisos de escritura** en `lockoutTime`
 * **Permisos de escritura** en `pwdLastSet`
-* **Permisos extendidos** en:
+* **Derechos extendidos** para "contraseña no expirada" en:
    * El objeto raíz de *cada dominio* de ese bosque.
    * Las unidades organizativas (OU) de usuario que quiera que estén en el ámbito de SSPR.
 
@@ -69,7 +68,6 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
 1. En **Entidad de seguridad**, seleccione la cuenta a la que se deben aplicar los permisos (la cuenta que usa Azure AD Connect).
 1. En la lista desplegable **Se aplica a**, seleccione **Descendent User objects** (Objetos del usuario descendientes).
 1. En *Permisos*, active las casillas para las siguientes opciones:
-    * Haga clic en **Cambiar contraseña**.
     * **Restablecimiento de contraseñas**
 1. En *Propiedades*, active las casillas de las siguientes opciones: Debe desplazarse por la lista para encontrar estas opciones, que ya se pueden establecer de forma predeterminada:
     * **Escribir lockoutTime**
@@ -81,9 +79,12 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
 
 Cuando actualiza los permisos, pueden tardar una hora (o más) en replicarse en todos los objetos del directorio.
 
-Las directivas de contraseñas en el entorno de AD DS local pueden impedir que se procesen correctamente los restablecimientos de contraseña. Para que la escritura diferida de contraseñas funcione correctamente, la directiva de grupo para la *duración mínima de contraseña* debe establecerse en 0. Esta configuración se puede encontrar en **Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas de cuenta** en `gpedit.msc`.
+Las directivas de contraseñas en el entorno de AD DS local pueden impedir que se procesen correctamente los restablecimientos de contraseña. Para que la escritura diferida de contraseñas funcione de forma más eficaz, la directiva de grupo para la *Vigencia mínima de la contraseña* debe establecerse en 0. Esta configuración se puede encontrar en **Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas de cuenta** en `gpedit.msc`. 
 
 Si actualiza la directiva de grupo, espere a que la directiva actualizada se replique o use el comando `gpupdate /force`.
+
+> [!Note]
+> Para que las contraseñas se cambien inmediatamente, la escritura diferida de contraseñas debe establecerse en 0. Sin embargo, si los usuarios se adhieren a las directivas locales y el campo *Vigencia mínima de la contraseña* se establece en un valor mayor que cero, la escritura diferida de contraseñas seguirá funcionando después de que se evalúen las directivas locales. 
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Habilitación de la Escritura diferida de contraseñas en Azure AD Connect
 

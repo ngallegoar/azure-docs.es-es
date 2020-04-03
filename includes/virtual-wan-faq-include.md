@@ -5,16 +5,52 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 09fe8396b6f0033a2c01d1ef056060a855b23d0a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: ad821036047dcf46821b2b2722e3dd17f8e318c2
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761434"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80386107"
 ---
+### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>¿El usuario necesita disponer de una topología radial con los dispositivos SD-WAN/VPN para usar Azure Virtual WAN?
+
+Virtual WAN proporciona muchas funcionalidades integradas en un único panel, como la conectividad VPN de sitio a sitio, la conectividad de usuario y P2S, la conectividad de ExpressRoute, la conectividad de red virtual, la interconectividad de ExpressRoute de VPN, la conectividad transitiva de red virtual a red virtual, el enrutamiento centralizado, el firewall de Azure y la seguridad del administrador del firewall, la supervisión, el cifrado de ExpressRoute y muchas otras funcionalidades. No es necesario disponer de todos estos casos de uso para empezar a usar Virtual WAN. Simplemente puede empezar a trabajar con uno de ellos. La arquitectura de Virtual WAN es una arquitectura radial con escalado y rendimiento integrados, donde las ramas (dispositivos VPN/SD-WAN), los usuarios (clientes de VPN de Azure, clientes de openVPN o IKEv2), los circuitos de ExpressRoute y las redes virtuales sirven como radios para los centros de conectividad virtuales. Todos los centros de conectividad están conectados en una malla completa en una red WAN virtual estándar, lo que facilita al usuario el uso de la red troncal de Microsoft para la conectividad de cualquier tipo (cualquier radio). En el caso de la topología radial de los dispositivos SD-WAN/VPN, los usuarios pueden configurarla manualmente en el portal de Azure Virtual WAN o usar el CPE del asociado de Virtual WAN (SD-WAN/VPN) para configurar la conectividad con Azure. Los asociados de Virtual WAN proporcionan automatización para la conectividad, que es la capacidad de exportar la información del dispositivo a Azure, descargar la configuración de Azure y establecer conectividad con el centro de conectividad de Azure Virtual WAN. Para la conectividad de punto a sitio/VPN de usuario, se admiten el [cliente de VPN de Azure](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN o el cliente de IKEv2. 
+
+### <a name="what-client-does-the-azure-virtual-wan-user-vpn-point-to-site-support"></a>¿Qué cliente admite la red privada virtual de usuario (de punto a sitio) de Azure Virtual WAN?
+
+Virtual WAN admite el [cliente de VPN de Azure](https://go.microsoft.com/fwlink/?linkid=2117554), el cliente de OpenVPN o cualquier cliente de IKEv2. La autenticación de Azure AD se admite con el cliente de VPN de Azure. Como mínimo, se requiere la versión 17763.0 o superior del sistema operativo de cliente de Windows 10.  Los clientes de OpenVPN pueden admitir la autenticación basada en certificados. Una vez que se ha seleccionado la autenticación basada en certificados en la puerta de enlace, verá el archivo .ovpn que se va a descargar en el dispositivo. Con IKEv2, se admiten tanto la autenticación basada en certificados como la de RADIUS. 
+
+### <a name="for-user-vpn-point-to-site--why-is-the-p2s-client-pool-split-into-two-routes"></a>En el caso de la red privada virtual de usuario (de punto a sitio), ¿por qué el grupo de clientes de P2S se divide en dos rutas?
+
+Cada puerta de enlace tiene dos instancias; la división se produce para que cada instancia de la puerta de enlace pueda asignar de forma independiente las direcciones IP de cliente para los clientes conectados, y el tráfico de la red virtual se redirija a la instancia de puerta de enlace correcta para evitar el salto de instancias entre puertas de enlace.
+
+### <a name="how-do-i-add-dns-servers-for-p2s-clients"></a>¿Cómo puedo agregar servidores DNS para los clientes de P2S?
+
+Hay dos opciones para agregar servidores DNS para los clientes de P2S.
+
+1. Abra una incidencia de soporte técnico con Microsoft para pedir que se agreguen los servidores DNS al concentrador.
+2. O bien, si usa el cliente de VPN de Azure para Windows 10, puede modificar el archivo XML de perfil descargado y agregar las etiquetas **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** antes de importarlo.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnsservers>
+        <dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+    </dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>En el caso de la red privada virtual de usuario (de punto a sitio), ¿cuántos clientes se admiten?
+
+Cada puerta de enlace de red privada virtual de usuario P2S tiene dos instancias, y cada instancia admite hasta un número determinado de usuarios a medida que cambia la unidad de escalado. Las unidades de escalado de 1 a 3 admiten 500 conexiones, las unidades de escalado de 4 a 6 admiten 1 000 conexiones, las unidades de escalado de 7 a 10 admiten 5 000 conexiones y las unidades de escalado mayores que 11 admiten hasta 10 000 conexiones. Como ejemplo, supongamos que el usuario elige 1 unidad de escalado. Cada unidad de escalado implica una puerta de enlace activo-activo implementada, y cada una de las instancias (2, en este caso) admitiría hasta 500 conexiones. Aunque se pueden tener 500 conexiones*2 por cada puerta de enlace, no significa que se pueda planear para 1 000 en lugar de para 500 para esta unidad de escalado, ya que las instancias podrían necesitar mantenimiento y, durante este tiempo, la conectividad de las 500 adicionales se vería interrumpida si se sobrepasa el número recomendado de conexiones.
+
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>¿Cuál es la diferencia entre una puerta de enlace de Azure Virtual Network (VPN Gateway) y una instancia de VPN Gateway de Azure Virtual WAN?
 
 Virtual WAN proporciona conectividad de sitio a sitio y a gran escala, y se ha creado para mejorar el rendimiento, la escalabilidad y la facilidad de uso. Cuando conecta un sitio a una instancia de VPN Gateway de Virtual WAN, esto es diferente a una puerta de enlace de red virtual normal que usa un tipo de puerta de enlace "VPN". Del mismo modo, cuando se conecta un circuito ExpressRoute a un centro de conectividad de Virtual WAN, se usa un recurso para la puerta de enlace de ExpressRoute que es distinto al de la puerta de enlace de red virtual normal que usa el tipo de puerta de enlace "ExpressRoute". Virtual WAN admite un rendimiento agregado de hasta 20 Gbps para VPN y ExpressRoute. Virtual WAN también tiene automatización para la conectividad con un ecosistema de asociados de dispositivos de la rama CPE. Los dispositivos de la rama CPE tienen una automatización integrada que se aprovisiona automáticamente y se conecta a Azure Virtual WAN. Estos dispositivos están disponibles en un creciente ecosistema de asociados de VPN y SD-WAN. Consulte la [lista de asociados preferidos](../articles/virtual-wan/virtual-wan-locations-partners.md).

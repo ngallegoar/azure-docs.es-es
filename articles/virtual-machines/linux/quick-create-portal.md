@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 894fa2f3cda798a409db3ee8e9761c1702baf955
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bc1dd56cd024ee65e29f227f4ec11cde436e388d
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216133"
+ms.locfileid: "80294772"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una máquina virtual Linux en Azure Portal
+# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de una máquina virtual Linux en Azure Portal
 
 Las máquinas virtuales de Azure pueden crearse mediante Azure Portal. Azure Portal es una interfaz de usuario basada en explorador para crear recursos de Azure. En este inicio rápido se muestra cómo usar Azure Portal para implementar una máquina virtual Linux en Azure que ejecuta Ubuntu 18.04 LTS. Para ver la máquina virtual en acción, conéctese a ella mediante SSH e instale el servidor web NGINX.
 
@@ -89,7 +89,7 @@ Cree una conexión SSH con la máquina virtual.
     ssh azureuser@10.111.12.123
     ```
 
-3. Con el mismo shell de Bash que usó para crear el par de claves SSH (puede volver a abrir Cloud Shell seleccionando `>_` de nuevo o si va a https://shell.azure.com/bash) ) pegue el comando de conexión de SSH en el shell para crear una sesión de SSH.
+3. Con el mismo shell de Bash que usó para crear el par de claves SSH (puede volver a abrir Cloud Shell seleccionando `>_` de nuevo o si va a `https://shell.azure.com/bash`), pegue el comando de conexión de SSH en el shell para crear una sesión de SSH.
 
 ## <a name="install-web-server"></a>Instalación del servidor web
 

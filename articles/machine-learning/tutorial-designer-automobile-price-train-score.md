@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/30/2020
-ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 03/12/2020
+ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623633"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389433"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -103,7 +103,7 @@ Puede visualizar los datos para comprender el conjunto de datos que va a usar.
 
 1. Seleccione el módulo **Automobile price data (RAW)** .
 
-1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Outputs** (Salidas).
+1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Outputs + logs** (Salidas y registros).
 
 1. Seleccione el icono de gráfico para visualizar los datos.
 
@@ -168,6 +168,12 @@ Después de quitar la columna **normalized-losses**, aún faltan valores en el c
 
 1. Seleccione el módulo **Clean Missing Data** (Limpiar datos que faltan).
 
+1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Editar columna**.
+
+1. En la ventana **Columns to be cleaned** (Columnas que se limpian) que aparece, expanda el menú desplegable situado junto a **Include** (Incluir). Seleccione **All columns** (Todas las columnas).
+
+1. Seleccione **Guardar**.
+
 1. En el panel de detalles del módulo situado a la derecha del lienzo, seleccione **Remove entire row** (Quitar toda la fila) en **Cleaning mode** (Modo de limpieza).
 
 1. En el panel de detalles del módulo situado a la derecha del lienzo, seleccione el cuadro **Comentario** y escriba *Remove missing value rows* (Quitar filas de valores que faltan). 
@@ -213,9 +219,11 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
 1. Seleccione **Regression** > **Linear Regression** (Regresión > Regresión lineal) y arrástrelo al lienzo de la canalización.
 
-1. Busque y arrastre el módulo **Entrenar modelo** al lienzo de la canalización. 
-
 1. Conecte la salida del módulo **Linear Regression** (Regresión lineal) a la entrada izquierda del módulo **Train Model** (Entrenar modelo).
+
+1. En la paleta de módulos, expanda la sección **Entrenamiento de módulos** y arrastre el módulo **Train Model** (Entrenar modelo) al lienzo.
+
+1. Seleccione el módulo **Entrenar modelo** y arrástrelo hasta el lienzo de la canalización.
 
 1. Conecte la salida de datos de entrenamiento (puerto izquierdo) del módulo **Dividir datos** a la entrada derecha del módulo **Entrenar modelo**.
     
@@ -224,8 +232,6 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 
     ![Captura de pantalla que muestra la configuración correcta del módulo Train Model (Entrenar modelo). El módulo Linear Regression (Regresión lineal) se conecta al puerto izquierdo del módulo Train Model (Entrenar modelo) y el módulo Split Data (Dividir datos) se conecta al puerto derecho de Train Model (Entrenar modelo)](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
-1. En la paleta de módulos, expanda la sección **Entrenamiento de módulos** y arrastre el módulo **Train Model** (Entrenar modelo) al lienzo.
-
 1. Seleccione el módulo **Train Model** (Entrenar modelo).
 
 1. En el panel de detalles del módulo, situado a la derecha del lienzo, elija el selector **Editar columna**.
@@ -233,6 +239,9 @@ Para entrenar el modelo, proporciónele un conjunto de datos que incluya el prec
 1. En el cuadro de diálogo **Label column** (Columna de etiqueta), expanda el menú desplegable y seleccione **Column names** (Nombres de columna). 
 
 1. En el cuadro de texto, escriba *precio* para especificar el valor que el modelo va a predecir.
+
+    >[!IMPORTANT]
+    > Asegúrese de escribir exactamente el nombre de la columna. No use mayúsculas para el **precio**. 
 
     La canalización debe ser parecida a esta:
 
@@ -258,22 +267,24 @@ Use el módulo **Evaluate Model** (Evaluar modelo) para evaluar la puntuación q
 
     ![Captura de pantalla que muestra la configuración correcta de la canalización.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
-## <a name="run-the-pipeline"></a>Ejecución de la canalización
+## <a name="submit-the-pipeline"></a>Enviar la canalización
 
-Ahora que ya ha configurado la canalización, puede enviar una ejecución de canalización para entrenar el modelo de Machine Learning. Puede enviar una ejecución de canalización en cualquier momento durante la compilación de canalizaciones en el diseñador. Puede hacerlo para comprobar el trabajo a medida que avanza y comprobar que la canalización funciona según lo previsto.
+Ahora que ya ha configurado la canalización, puede enviar una ejecución de canalización para entrenar el modelo de Machine Learning. Puede enviar una ejecución de canalización válida en cualquier momento, que se puede usar para revisar los cambios de la canalización durante el desarrollo.
 
-1. En la parte superior del lienzo, seleccione **Ejecutar**.
+1. En la parte superior del lienzo, seleccione **Enviar**.
 
-1. En el cuadro de diálogo **Configurar ejecución de canalización**, seleccione **+ Nuevo experimento** para **Experimento**.
+1. En el cuadro de diálogo **Set up pipeline run** (Configurar ejecución de canalización), seleccione **Create new** (Crear nuevo).
 
     > [!NOTE]
     > Los experimentos agrupan ejecuciones de canalización. Si ejecuta una canalización varias veces, puede seleccionar el mismo experimento para ejecuciones sucesivas.
 
-    1. Escriba un nombre descriptivo para **Nombre del experimento**.
+    1. Escriba un nombre descriptivo en **Nombre de nuevo experimento**.
 
-    1. Seleccione **Run** (Ejecutar).
+    1. Seleccione **Submit** (Enviar).
     
     Puede ver el estado y los detalles de la ejecución en la parte superior derecha del lienzo.
+    
+    Si es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
 
 ### <a name="view-scored-labels"></a>Visualización de etiquetas con puntuación
 
@@ -281,7 +292,7 @@ Una vez finalizada la ejecución, puede ver los resultados de la ejecución de l
 
 1. Seleccione el módulo **Score Model** (Puntuar modelo) para ver su salida.
 
-1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, seleccione **Salidas** > icono de gráfico ![visualizar icono](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
+1. En el panel de detalles del módulo, que se encuentra a la derecha del lienzo, seleccione **Outputs + logs** (Salidas y registros) > icono de gráfico ![icono visualizar ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
 
     Aquí puede ver los precios previstos y los precios reales de los datos de prueba.
 
@@ -293,7 +304,7 @@ Use **Evaluate Model** (Evaluar modelo) para ver el rendimiento del modelo entre
 
 1. Seleccione el módulo **Evaluate Model** (Evaluar modelo) para ver su salida.
 
-1. En el panel de detalles del módulo que se encuentra a la derecha del lienzo, seleccione **Salida** > icono de gráfico ![visualizar icono](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
+1. En el panel de detalles del módulo, que se encuentra a la derecha del lienzo, seleccione **Outputs + logs** (Salidas y registros) > icono de gráfico ![icono visualizar ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados.
 
 Se muestran las siguientes estadísticas de su modelo:
 

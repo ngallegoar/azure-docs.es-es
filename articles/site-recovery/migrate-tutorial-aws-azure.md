@@ -9,16 +9,21 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a1952f5ece4c021834fb98f8a09f1a2738e6469
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 929bc0695bda2e64f77f7e9286e06cee787822ba
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789389"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388974"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
-En este tutorial se enseña cómo migrar máquinas virtuales (VM) de Amazon Web Services (AWS) a máquinas virtuales de Azure con Azure Site Recovery. Al migrar instancias de AWS EC2 a Azure, se tratan las máquinas virtuales como si fuesen equipos físicos locales. En este tutorial, aprenderá a:
+En este tutorial se muestra cómo migrar máquinas virtuales (VM) de Amazon Web Services (AWS) a máquinas virtuales de Azure con Azure Site Recovery. Al migrar instancias de AWS EC2 a Azure, se tratan las máquinas virtuales como si fuesen equipos físicos locales. En este tutorial, aprenderá a:
+
+
+> [!TIP]
+> A partir de ahora debería usar el servicio de Azure Migrate para migrar máquinas virtuales de AWS a Azure, en lugar del servicio Azure Site Recovery. [Más información](../migrate/tutorial-migrate-physical-virtual-machines.md).
+
 
 > [!div class="checklist"]
 > * Verificar los requisitos previos
@@ -32,11 +37,8 @@ En este tutorial se enseña cómo migrar máquinas virtuales (VM) de Amazon Web 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-> [!NOTE]
-> El servicio de Azure Migrate ahora se puede usar para migrar instancias de AWS a Azure. [Más información](../migrate/tutorial-migrate-physical-virtual-machines.md).
-
-## <a name="prerequisites"></a>Requisitos previos
-- Asegúrese de que las máquinas virtuales que quiere migrar ejecutan una versión del sistema operativo compatible. Las versiones compatibles son: 
+## <a name="prerequisites"></a>Prerrequisitos
+- Asegúrese de que las máquinas virtuales que quiere migrar ejecutan una versión del sistema operativo compatible. Las versiones admitidas son: 
   - Windows Server 2016 
   - Windows Server 2012 R2
   - Windows Server 2012 
@@ -72,7 +74,7 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 5. Seleccione el valor predeterminado **RA-GRS** en **Replicación**.
 6. Seleccione la suscripción que quiere usar para este tutorial.
 7. En **Grupo de recursos**, seleccione **Crear nuevo**. En este ejemplo, utilizamos **migrationRG** para el nombre del grupo de recursos.
-8. En **Ubicación**, seleccione **Europa Occidental**.
+8. En **Ubicación**, seleccione **Oeste de Europa**.
 9. Seleccione **Crear** para crear la cuenta de almacenamiento.
 
 ### <a name="create-a-vault"></a>Creación de un almacén
@@ -82,7 +84,7 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 3. En **Nombre**, escriba **myVault**.
 4. En **Suscripción**, seleccione la suscripción que quiera usar.
 4. En **Grupo de recursos**, seleccione **Usar existente** y, después, **migrationRG**.
-5. En **Ubicación**, seleccione **Europa Occidental**.
+5. En **Ubicación**, seleccione **Oeste de Europa**.
 5. Para acceder rápidamente al nuevo almacén desde el panel, seleccione **Anclar al panel**.
 7. Seleccione **Crear** cuando haya terminado.
 
@@ -98,7 +100,7 @@ Cuando se crean máquinas virtuales de Azure después de la migración (conmutac
 4. Deje el valor predeterminado de **Espacio de direcciones** (es preciso escribir un valor).
 5. En **Suscripción**, seleccione la suscripción que quiera usar.
 6. En **Grupo de recursos**, seleccione **Usar existente** y, después, **migrationRG**.
-7. En **Ubicación**, seleccione **Europa Occidental**.
+7. En **Ubicación**, seleccione **Oeste de Europa**.
 8. En **Subred**, deje los valores predeterminados de **Nombre** e **Intervalo IP** (es preciso especificar un valor).
 9. Agregue instrucciones para la configuración de protección contra DDoS.
 10. Mantenga la opción **Puntos de conexión de servicio** deshabilitada.
@@ -122,7 +124,7 @@ Seleccione los valores siguientes en la página **Objetivo de protección**:
 
 Cuando haya terminado, seleccione **Aceptar** para continuar con la siguiente sección.
 
-### <a name="2-select-deployment-planning"></a>2\. Selección de un planeamiento de implementación
+### <a name="2-select-deployment-planning"></a>2: Selección de un planeamiento de implementación
 
 En **¿Completó el planeamiento de implementación?** , seleccione **Lo haré más tarde** y, a continuación, seleccione **Aceptar**.
 
@@ -186,7 +188,7 @@ Habilite la replicación para cada una de las máquinas virtuales que quiera mig
      |Tipo de máquina: | Seleccione **Máquinas físicas**.|
      | Servidor de proceso: | seleccione el servidor de configuración en la lista desplegable.|
 
-   - 2\. Configuración del destino
+   - 2: Configuración del destino
 
      |  |  |
      |-----|-----|

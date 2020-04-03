@@ -9,24 +9,38 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: 82f2acb811bcb239f6329ab8d8b4008e13ac6490
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a22ae3b4b11a4eac7da147cf3ad896bbad435448
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446745"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370248"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Inicio rápido: Compilación, implementación y uso de un modelo personalizado para la traducción
 
 En este artículo se proporcionan instrucciones detalladas para compilar un sistema de traducción con Custom Translator.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 1. Para usar el portal de [Custom Translator](https://portal.customtranslator.azure.ai), necesitará una [cuenta Microsoft](https://signup.live.com) o [cuenta de Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (cuenta de organización hospedada en Azure) para iniciar sesión.
 
 2. Una suscripción a Translator Text API a través de Azure Portal. Necesitará la clave de suscripción de Translator Text API para asociarla con el área de trabajo de Custom Translator. Consulte [Cómo suscribirse a Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
-3. Cuando disponga de todo lo anterior, inicie sesión en el portal de [Custom Translator](https://portal.customtranslator.azure.ai). Una vez allí, vaya a la página Configuración en la que podrá asociar la clave de suscripción de Microsoft Translator Text API con el área de trabajo.
+3. Cuando tenga los dos anteriores, inicie sesión in en el portal [Custom Translator](https://portal.customtranslator.azure.ai) para crear áreas de trabajo y proyectos, así como cargar archivos y crear e implementar modelos.
+
+## <a name="create-a-workspace"></a>Crear un área de trabajo
+
+Si es la primera vez que lo usa, se le solicitará que acepte las Condiciones del servicio para crear un área de trabajo y asociarla a la suscripción de Microsoft Translator Text API.
+
+![Crear área de trabajo](media/quickstart/terms-of-service.png)
+![Crear área de trabajo](media/quickstart/create-workspace-1.png)
+![Crear área de trabajo](media/quickstart/create-workspace-2.png)
+![Crear área de trabajo](media/quickstart/create-workspace-3.png)
+![Crear área de trabajo](media/quickstart/create-workspace-4.png)
+![Crear área de trabajo](media/quickstart/create-workspace-5.png)
+![Crear área de trabajo](media/quickstart/create-workspace-6.png)
+
+En las posteriores visitas al portal de Custom Translator, vaya a la página de configuración, donde puede administrar el área de trabajo, crear más áreas de trabajo, asociar la clave de suscripción de Microsoft Translator Text API a sus áreas de trabajo, agregar copropietarios y cambiar una clave de suscripción.
 
 ## <a name="create-a-project"></a>Crear un proyecto
 

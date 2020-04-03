@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Ejemplo de plano técnico para un nuevo entorno'
 description: En este tutorial, usará un ejemplo de plano técnico para crear una definición de plano técnico que configura dos grupos de recursos y configura una asignación de roles para cada uno.
-ms.date: 11/21/2019
+ms.date: 03/25/2020
 ms.topic: tutorial
-ms.openlocfilehash: f9cc892ab8feadacbdfd00e55fab9f40d7cb2397
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c4230282223b0a64f6254448fe069bf8f7ab9a15
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321730"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80282025"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Creación de un entorno a partir de un ejemplo de plano técnico
 
@@ -23,7 +23,7 @@ El siguiente tutorial usa el plano técnico de ejemplo **Grupos de recursos con 
 > - Inspeccionar los recursos implementados para la asignación
 > - Anular la asignación del plano técnico para quitar los bloqueos
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -33,18 +33,18 @@ En primer lugar, implemente el ejemplo de plano técnico. La importación crea u
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
-1. En la página **Introducción** de la izquierda, seleccione el botón **Crear** en _Creación de un plano técnico_.
+1. En la página **Introducción** de la izquierda, seleccione el botón **Crear** en _Crear un plano técnico_.
 
-1. Busque el ejemplo de plano técnico **Grupos de recursos con RBAC** en _Otros ejemplos_ y seleccione **Usar este ejemplo**.
+1. Busque el ejemplo de plano técnico **Grupos de recursos con RBAC** en _Otros ejemplos_ y selecciónelo.
 
-1. Escriba los _conceptos básicos_ del ejemplo de plano técnico:
+1. Escriba los _Aspectos básicos_ del ejemplo de plano técnico:
 
    - **Nombre del plano técnico**: proporcione un nombre para su copia del ejemplo de plano técnico. Para este tutorial, usaremos el nombre _two-rgs-with-role-assignments_.
    - **Ubicación de definición**: use los puntos suspensivos y seleccione la suscripción o el grupo de administración donde guardar la copia del ejemplo.
 
 1. Seleccione la pestaña _Artefactos_ en la parte superior de la página **Siguiente: Artefactos** en la parte inferior de la página.
 
-1. Revise la lista de artefactos que componen el ejemplo de plano técnico. Este ejemplo define dos grupos de recursos con los nombres para mostrar _ProdRG_ y _PreProdRG_. El nombre final y la ubicación de cada grupo de recursos se establecen durante la asignación del plano técnico. Al grupo de recursos _ProdRG_ se le asigna el rol _colaborador_ y al grupo de recursos _PreProdRG_ se le asignan los roles _Propietario_ y _Lectores_. Los roles asignados en la definición son estáticos, pero el usuario, la aplicación o el grupo a los que se asigna el rol se definen durante la asignación del plano técnico.
+1. Revise la lista de artefactos que componen el ejemplo de plano técnico. Este ejemplo define dos grupos de recursos con los nombres para mostrar _ProdRG_ y _PreProdRG_. El nombre final y la ubicación de cada grupo de recursos se establecen durante la asignación del plano técnico. Al grupo de recursos _ProdRG_ se le asigna el rol _Colaborador_ y al grupo de recursos _PreProdRG_ se le asignan los roles _Propietario_ y _Lectores_. Los roles asignados en la definición son estáticos, pero el usuario, la aplicación o el grupo a los que se asigna el rol se definen durante la asignación del plano técnico.
 
 1. Seleccione **Guardar borrador** cuando haya terminado de revisar el ejemplo de plano técnico.
 
@@ -52,15 +52,15 @@ En este paso, se crea una copia de la definición del plano técnico de ejemplo 
 
 Una vez que aparezca la notificación del portal **La definición del plano técnico se guardó correctamente**, vaya al paso siguiente.
 
-## <a name="publish-the-sample-copy"></a>Publicación de la copia de ejemplo
+## <a name="publish-the-sample-copy"></a>Publicación de la copia del ejemplo
 
 La copia del ejemplo de plano técnico ahora se ha creado en el entorno. Se crea en el modo **Borrador** y debe **publicarse** antes de que se pueda asignar e implementar. La copia del ejemplo de plano técnico puede personalizarse en el entorno y según sus necesidades. Para este tutorial, no haremos ningún cambio.
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
-1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar la definición del plano técnico _two-rgs-with-role-assignments_ y, a continuación, selecciónela.
+1. En la parte izquierda, seleccione la página **Definiciones del plano técnico**. Use los filtros para buscar la definición del plano técnico _two-rgs-with-role-assignments_ y, a continuación, selecciónela.
 
-1. Seleccione **Publicar plano técnico** en la parte superior de la página. En el nuevo panel de la derecha, defina la **versión** como _1.0_ para la copia del ejemplo de plano técnico. Esta propiedad es útil si realiza una modificación posteriormente. Proporcione **Notas de cambios** como "Primera versión publicada de los grupos de recursos con el ejemplo de plano técnico de RBAC". A continuación, seleccione **Publicar** en la parte inferior de la página.
+1. Seleccione **Publicar plano técnico** en la parte superior de la página. En el nuevo panel de la derecha, defina la **Versión** como _1.0_ para la copia del ejemplo de plano técnico. Esta propiedad es útil si realiza una modificación posteriormente. Proporcione **Notas de cambios** como "Primera versión publicada de los grupos de recursos con el ejemplo de plano técnico de RBAC". A continuación, seleccione **Publicar** en la parte inferior de la página.
 
 Este paso permite la asignación del plano técnico a una suscripción. Tras su publicación, aún es posible realizar cambios. Los cambios adicionales requieren la publicación con un nuevo valor de **versión** para realizar un seguimiento de las diferencias entre las distintas versiones de la misma definición del plano técnico.
 
@@ -72,7 +72,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
-1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar la definición del plano técnico _two-rgs-with-role-assignments_ y, a continuación, selecciónela.
+1. En la parte izquierda, seleccione la página **Definiciones del plano técnico**. Use los filtros para buscar la definición del plano técnico _two-rgs-with-role-assignments_ y, a continuación, selecciónela.
 
 1. Seleccione **Asignar plano técnico** en la parte superior de la página de definición del plano técnico.
 
@@ -83,8 +83,8 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
      - **Suscripciones**: seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
      - **Nombre de asignación**: el nombre se rellena previa y automáticamente en función del nombre de la definición del plano técnico.
      - **Ubicación**: seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
-       Para este tutorial, seleccione _Este de EE. UU. 2_.
-     - **Versión de definición del plano técnico**: elija la versión **publicada** _1.0_ de la copia de la definición del plano técnico de ejemplo.
+       Para este tutorial, seleccione _Este de EE. UU. 2_.
+     - **Versión de definición de Blueprint**: en **Publicada**, elija la versión _1.0_ de la copia de la definición del plano técnico de ejemplo.
 
    - Asignación de bloqueo
 
@@ -92,18 +92,18 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
    - Identidad administrada
 
-     Deje la opción _Asignado por el sistema_ predeterminada. Para más información, vea [identidades administradas](../../../active-directory/managed-identities-azure-resources/overview.md).
+     Deje la opción _Asignado por el sistema_ predeterminada. Para más información, vea [Identidades administradas](../../../active-directory/managed-identities-azure-resources/overview.md).
 
    - Parámetros de artefacto
 
      Los parámetros definidos en esta sección se aplican al artefacto en el que se define. Estos parámetros son [parámetros dinámicos](../concepts/parameters.md#dynamic-parameters), ya que se definen durante la asignación del plano técnico. Para cada artefacto, establezca el valor del parámetro en lo que se define en la columna **Valor**. Para `{Your ID}`, seleccione la cuenta de usuario de Azure.
 
-     |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Valor|DESCRIPCIÓN|
+     |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|Value|Descripción|
      |-|-|-|-|-|
-     |Grupo de recursos ProdRG|Resource group|NOMBRE|ProductionRG|Define el nombre del primer grupo de recursos.|
+     |Grupo de recursos ProdRG|Resource group|Nombre|ProductionRG|Define el nombre del primer grupo de recursos.|
      |Grupo de recursos ProdRG|Resource group|Location|Oeste de EE. UU. 2|Define la ubicación del primer grupo de recursos.|
      |Colaborador|Asignación de roles|Usuario o grupo|{Su identificador}|Define a qué usuario o grupo conceder la asignación del rol _Colaborador_ dentro del primer grupo de recursos.|
-     |Grupo de recursos PreProdRG|Resource group|NOMBRE|PreProductionRG|Define el nombre del segundo grupo de recursos.|
+     |Grupo de recursos PreProdRG|Resource group|Nombre|PreProductionRG|Define el nombre del segundo grupo de recursos.|
      |Grupo de recursos PreProdRG|Resource group|Location|Oeste de EE. UU.|Define la ubicación del segundo grupo de recursos.|
      |Propietario|Asignación de roles|Usuario o grupo|{Su identificador}|Define a qué usuario o grupo conceder la asignación del rol _Propietario_ dentro del segundo grupo de recursos.|
      |Lectores|Asignación de roles|Usuario o grupo|{Su identificador}|Define a qué usuario o grupo conceder la asignación del rol _Lectores_ dentro del segundo grupo de recursos.|
@@ -183,7 +183,7 @@ Cuando termine con este tutorial, elimine los siguientes recursos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a crear un nuevo plano técnico a partir de una definición de ejemplo. Para más información sobre Azure Blueprints, continúe con el artículo sobre el ciclo de vida de los planos técnicos.
+En este tutorial, ha aprendido a crear un nuevo plano técnico a partir de una definición de ejemplo. Para más información sobre Azure Blueprints, vaya el artículo sobre el ciclo de vida de los planos técnicos.
 
 > [!div class="nextstepaction"]
 > [Más información acerca del ciclo de vida del plano técnico](../concepts/lifecycle.md)

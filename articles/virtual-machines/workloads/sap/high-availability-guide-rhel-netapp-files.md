@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: b58c24fdd7912b3e424a493932fe09b1a1f058c5
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 11119d193cd08944bdff4737e8182cc7bece0abc
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661284"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351259"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux con Azure NetApp Files para aplicaciones SAP
 
@@ -32,14 +32,14 @@ ms.locfileid: "77661284"
 [anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2009879]: https://launchpad.support.sap.com/#/notes/2009879
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -101,8 +101,6 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP 
 
 * Configuración de front-end
   * Dirección IP 192.168.14.9
-* Configuración de back-end
-  * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puerto de sondeo
   * Puerto 620<strong>&lt;nr&gt;</strong>
 * Reglas de equilibrio de carga.
@@ -119,8 +117,6 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP 
 
 * Configuración de front-end
   * Dirección IP 192.168.14.10
-* Configuración de back-end
-  * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puerto de sondeo
   * Puerto 621<strong>&lt;nr&gt;</strong>
 * Reglas de equilibrio de carga.
@@ -130,6 +126,9 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP 
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
   * 5<strong>&lt;nr&gt;</strong>16 TCP
+
+* Configuración de back-end
+  * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Configuración de la infraestructura de Azure NetApp Files 
 
@@ -177,7 +176,7 @@ En este ejemplo, los recursos se implementaron manualmente mediante [Azure Porta
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implementación manual de Linux mediante Azure Portal
 
-Primero deberá crear los volúmenes de Azure NetApp Files. Implemente las VM. Después, creará un equilibrador de carga y usará las máquinas virtuales de los grupos de servidores back-end.
+Primero deberá crear los volúmenes de Azure NetApp Files. Implemente las VM. Después, creará un equilibrador de carga y usará las máquinas virtuales del grupo de servidores back-end.
 
 1. Cree un equilibrador de carga (interno, estándar):  
    1. Creación de las direcciones IP de front-end
@@ -188,14 +187,13 @@ Primero deberá crear los volúmenes de Azure NetApp Files. Implemente las VM. D
          1. Haga clic en Aceptar
       1. Dirección IP 192.168.14.10 para ASCS ERS
          * Repita los pasos anteriores a partir de "a" para crear una dirección IP para el ERS (por ejemplo, **192.168.14.10** y **frontend.QAS.ERS**).
-   1. Creación de los grupos de servidores back-end
-      1. Creación de un grupo de servidores back-end para ASCS
-         1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
-         1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **backend.QAS**).
-         1. Haga clic en Agregar una máquina virtual.
-         1. Seleccione Máquina virtual. 
-         1. Seleccione las máquinas virtuales del clúster de (A)SCS y sus direcciones IP.
-         1. Haga clic en Agregar
+   1. Creación del grupo de servidores back-end
+      1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
+      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **backend.QAS**).
+      1. Haga clic en Agregar una máquina virtual.
+      1. Seleccione Máquina virtual. 
+      1. Seleccione las máquinas virtuales del clúster de (A)SCS y sus direcciones IP.
+      1. Haga clic en Agregar
    1. Creación de los sondeos de estado
       1. Puerto 620**00** para ASCS
          1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
@@ -223,14 +221,13 @@ Primero deberá crear los volúmenes de Azure NetApp Files. Implemente las VM. D
          1. Haga clic en Aceptar
       1. Dirección IP 192.168.14.10 para ASCS ERS
          * Repita los pasos anteriores a partir de "a" para crear una dirección IP para el ERS (por ejemplo, **192.168.14.10** y **frontend.QAS.ERS**).
-   1. Creación de los grupos de servidores back-end
-      1. Creación de un grupo de servidores back-end para ASCS
-         1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
-         1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **backend.QAS**).
-         1. Haga clic en Agregar una máquina virtual.
-         1. Seleccione el conjunto de disponibilidad que creó anteriormente para ASCS. 
-         1. Seleccione las máquinas virtuales del clúster (A)SCS.
-         1. Haga clic en Aceptar
+   1. Creación del grupo de servidores back-end
+      1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
+      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **backend.QAS**).
+      1. Haga clic en Agregar una máquina virtual.
+      1. Seleccione el conjunto de disponibilidad que creó anteriormente para ASCS. 
+      1. Seleccione las máquinas virtuales del clúster (A)SCS.
+      1. Haga clic en Aceptar
    1. Creación de los sondeos de estado
       1. Puerto 620**00** para ASCS
          1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
@@ -751,7 +748,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    sudo firewall-cmd --zone=public --add-port=50116/tcp
    ```
 
-## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Preparación del servidor de aplicaciones de SAP NetWeaver
+## <a name="sap-netweaver-application-server-preparation"></a><a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Preparación del servidor de aplicaciones de SAP NetWeaver
 
    Algunas bases de datos requieren que la instalación de la instancia de base de datos se ejecute en un servidor de aplicaciones. Prepare las máquinas virtuales del servidor de aplicaciones para poder usarlas en estos casos.  
 

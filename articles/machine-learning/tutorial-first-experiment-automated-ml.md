@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.author: tzvikei
-author: tsikiksr
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 02/04/2020
-ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/04/2020
+ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79129664"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366525"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -53,7 +53,7 @@ Puede crear un área de trabajo mediante Azure Portal, una consola basada en web
 
 Complete los siguientes pasos de configuración y ejecución del experimento a través de Azure Machine Learning en https://ml.azure.com, una interfaz web consolidada que incluye herramientas de aprendizaje automático para realizar escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de conocimiento. Esta interfaz no se admite en los exploradores de Internet Explorer.
 
-1. Inicie sesión en Azure Machine Learning en https://ml.azure.com.
+1. Inicie sesión en [Azure Machine Learning](https://ml.azure.com).
 
 1. Seleccione la suscripción y el área de trabajo que ha creado.
 
@@ -201,9 +201,9 @@ Los archivos de implementación son mayores que los archivos de datos y del expe
 
 ### <a name="delete-the-deployment-instance"></a>Eliminación de la instancia de implementación
 
-Elimine solo la instancia de implementación de Azure Machine Learning de https://ml.azure.com/ si desea mantener el área de trabajo y el grupo de recursos para otros tutoriales y para su exploración. 
+Elimine solo la instancia de implementación de Azure Machine Learning de \//ml.azure.com/ si desea mantener el área de trabajo y el grupo de recursos para otros tutoriales y para su exploración. 
 
-1. Vaya a Azure Machine Learning en https://ml.azure.com/. Vaya al área de trabajo y, a la izquierda, en el panel **Assets** (Recursos), seleccione **Endpoints** (Puntos de conexión). 
+1. Vaya a [Azure Machine Learning](https://ml.azure.com/). Vaya al área de trabajo y, a la izquierda, en el panel **Assets** (Recursos), seleccione **Endpoints** (Puntos de conexión). 
 
 1. Seleccione la implementación que desea eliminar y seleccione **Eliminar.** 
 

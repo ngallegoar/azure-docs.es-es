@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 4/30/2019
+ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: c6d4d290493bbd234ab048e613b88f8857513cc8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1cfa2ab1d8bf096b1821f7473d9808801b47c547
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78299562"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371179"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Novedades de Azure Application Gateway
 
@@ -27,6 +27,7 @@ Azure Application Gateway se actualiza de forma continuada. Para mantenerse al d
 
 |Característica  |Descripción  |Fecha de adición  |
 |---------|---------|---------|
+| Rutas definidas por el usuario (UDR) en v2 (versión preliminar) |Ahora se admiten las rutas definidas por el usuario en algunos escenarios en las SKU de Application Gateway V2. Para más información, consulte [Introducción a la configuración de Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |Marzo de 2020 |
 |Cambios en la cookie de afinidad |Cuando está habilitada la afinidad basada en cookies, Application Gateway inserta otra cookie idéntica llamada *ApplicationGatewayAffinityCORS* además de la cookie ApplicationGatewayAffinity existente. *ApplicationGatewayAffinityCORS* tiene dos atributos más agregados (*SameSite = None; Secure*) para que se mantengan las sesiones persistentes, incluso para las solicitudes entre orígenes. Para más información consulte la sección sobre [afinidad basada en cookies de Application Gateway ](configuration-overview.md#cookie-based-affinity). |Febrero de 2020 |
 |Mejoras de sondeo |Con las mejoras de sondeo personalizadas de la SKU de Application Gateway v2, hemos simplificado la [configuración del sondeo](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), facilitado las [pruebas de mantenimiento de back-end a petición](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) y agregado [más información de diagnóstico](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) para ayudarle a solucionar los problemas de mantenimiento de back-end.  |Octubre de 2019 |
 |Más métricas |Hemos agregado las siguientes métricas nuevas para ayudarle a supervisar la SKU de Application Gateway v2: [Métricas relacionadas con el control de tiempo](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), estado de respuesta de back-end, bytes recibidos, bytes enviados, protocolo TLS de cliente y unidades de proceso actuales. Consulte las [Métricas compatibles con la SKU de Application Gateway V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Agosto de 2019 |

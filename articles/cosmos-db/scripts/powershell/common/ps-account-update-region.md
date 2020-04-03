@@ -1,20 +1,19 @@
 ---
-title: Script de PowerShell para obtener capacidad de proceso (RU/s) para Gremlin API en Azure Cosmos DB
-description: 'Script de Azure PowerShell: Obtener procesamiento (RU/s) para Gremlin API en Azure Cosmos DB'
+title: Script de PowerShell para actualizar las regiones de una cuenta de Azure Cosmos
+description: 'Ejemplo de script de Azure PowerShell: actualización de las regiones de una cuenta de Azure Cosmos'
 author: markjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 03/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: fa376aff9c127d5792da9e0489079ca3a1c67cf2
+ms.openlocfilehash: 4a8e24b4445e2bf29b35e87600de260c523d4376
 ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366040"
+ms.locfileid: "80367178"
 ---
-# <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Obtener procesamiento (RU/s) para una base de datos o un grafo para Gremlin API en Azure Cosmos DB
+# <a name="update-an-azure-cosmos-accounts-regions-using-powershell"></a>Actualización de las regiones de una cuenta de Azure Cosmos mediante PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +21,12 @@ ms.locfileid: "80366040"
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-get.ps1 "Get throughput on a database or graph for Gremlin API")]
+> [!NOTE]
+> No es posible modificar regiones y cambiar otras propiedades de una cuenta de Cosmos en la misma operación. Deben realizarse dos operaciones independientes.
+> [!NOTE]
+> En este ejemplo se muestra el uso de una cuenta de SQL (Core) API. Para usar este ejemplo para otras API, copie las propiedades relacionadas y aplíquelas a su script específico de la API.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update-region.ps1 "Update Azure Cosmos account regions")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
@@ -38,9 +42,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-|**Azure Cosmos DB**| |
-| [Get-AzCosmosDBGremlinDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | Obtiene el valor de la capacidad de proceso de la base de datos de Gremlin API especificada. |
-| [Get-AzCosmosDBGremlinGraphThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Obtiene el valor de la capacidad de proceso del grafo de Gremlin API especificado. |
+|**Recursos de Azure**| |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Actualiza un recurso. |
 |**Grupos de recursos de Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||

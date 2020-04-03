@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 541fcdd966ec1e0443fa6211d894bab3ed965f93
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 177973cf766a6215453f3062c0fb206961649272
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870333"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80295523"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Configuración de la distribución global de Azure Cosmos DB con SQL API
 
@@ -167,7 +167,7 @@ Respuesta de ejemplo
 
 
 * Todas las solicitudes PUT, POST y DELETE deben ir al URI de escritura indicado.
-* Todas las solicitudes GET y las demás solicitudes de solo lectura (como las consultas) pueden ir a cualquier punto de conexión elegido por el cliente.
+* Todas las solicitudes GET y otras solicitudes de solo lectura (como las consultas) pueden ir a cualquier punto de conexión elegido por el cliente.
 
 Las solicitudes de escritura a regiones de solo lectura producirán un error con el código de error HTTP 403 ("Prohibido").
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: fae9b8a2101329383cc90c8f7f0ff225e3a9059c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d2f25f2b786686b8af9bad4ea8ce3c8aea9b589f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77913825"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371459"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migración de un servicio web desde Google Maps
 
@@ -75,7 +75,7 @@ En la siguiente tabla se establecen referencias cruzadas entre los parámetros d
 [Aquí](how-to-search-for-address.md) se documenta un ejemplo sobre cómo usar el servicio de búsqueda. Asegúrese de revisar los [procedimientos recomendados de búsqueda](how-to-use-best-practices-for-search.md).
 
 > [!TIP]
-> Las API de geocodificación de direcciones de forma libre y de búsqueda aproximada se pueden usar en el modo Autocompletar si se agrega `&amp;typeahead=true` a la dirección URL de la solicitud. Esto indicará al servidor que el texto de entrada probablemente sea parcial y la búsqueda cambiará al modo predictivo.
+> Las API de geocodificación de direcciones de forma libre y de búsqueda aproximada se pueden usar en el modo Autocompletar si se agrega `&typeahead=true` a la dirección URL de la solicitud. Esto indicará al servidor que el texto de entrada probablemente sea parcial y la búsqueda cambiará al modo predictivo.
 
 ## <a name="reverse-geocode-a-coordinate"></a>Geocodificación inversa de una coordenada
 
@@ -126,7 +126,7 @@ Azure Maps proporciona varias API de búsqueda de puntos de interés:
 Actualmente, Azure Maps no tiene una API comparable a la API de búsqueda de texto de Google Maps.
 
 > [!TIP]
-> Para usar las API de búsqueda aproximada, de búsqueda de puntos de interés y de búsqueda de categorías de puntos de interés en el modo Autocompletar, agregue `&amp;typeahead=true` a la dirección URL de la solicitud. Esto indicará al servidor que el texto de entrada probablemente es parcial. La API realizará la búsqueda en modo predictivo.
+> Para usar las API de búsqueda aproximada, de búsqueda de puntos de interés y de búsqueda de categorías de puntos de interés en el modo Autocompletar, agregue `&typeahead=true` a la dirección URL de la solicitud. Esto indicará al servidor que el texto de entrada probablemente es parcial. La API realizará la búsqueda en modo predictivo.
 
 Consulte la documentación sobre [procedimientos recomendados de búsqueda](how-to-use-best-practices-for-search.md).
 
@@ -221,6 +221,8 @@ La API de rutas de Azure Maps tiene características adicionales que no están d
 - Especificación de la velocidad máxima del vehículo.
 
 Además, el servicio de rutas de Azure Maps permite [calcular intervalos de rutas posibles](https://docs.microsoft.com/rest/api/maps/route/getrouterange). El cálculo de intervalos de rutas posibles también se conoce como isocronas. Para ello, se genera un polígono que cubre un área por la que se puede viajar en cualquier dirección desde un punto de origen. Todo ello en un período de tiempo o con una cantidad de combustible o de carga determinados.
+
+Consulte la documentación sobre [procedimientos recomendados de cálculo de ruta](how-to-use-best-practices-for-routing.md).
 
 ## <a name="retrieve-a-map-image"></a>Recuperación de una imagen de mapa
 
@@ -437,6 +439,8 @@ En esta tabla se establecen referencias cruzadas entre los parámetros de API de
 > [!TIP]
 > Todas las opciones avanzadas de enrutamiento disponibles en la API de enrutamiento de Azure Maps son compatibles con la API de matriz de distancias de Azure Maps. Entre las opciones de enrutamiento avanzadas se incluyen: enrutamiento de camiones, especificaciones del motor, etc.
 
+Consulte la documentación sobre [procedimientos recomendados de cálculo de ruta](how-to-use-best-practices-for-routing.md).
+
 ## <a name="get-a-time-zone"></a>Obtención de una zona horaria
 
 Azure Maps proporciona una API para recuperar la zona horaria de una coordenada. La API de zona horaria de Azure Maps es similar a la API de zona horaria de Google Maps:
@@ -476,6 +480,7 @@ Estos son algunos recursos y documentación adicionales sobre los servicios RES
 
 - [Procedimientos recomendados de búsqueda](how-to-use-best-practices-for-search.md)
 - [Búsqueda de una dirección](how-to-search-for-address.md)
+- [Procedimientos recomendados de cálculo de ruta](how-to-use-best-practices-for-routing.md)
 - [Documentación de referencia de la API del servicio REST de Azure Maps](https://docs.microsoft.com/rest/api/maps/)
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -486,7 +491,10 @@ Obtenga más información sobre los servicios REST de Azure Maps.
 > [Procedimientos recomendados de uso del servicio de búsqueda](how-to-use-best-practices-for-search.md)
 
 > [!div class="nextstepaction"]
-> [Uso del módulo de servicios (SDK web)](how-to-use-services-module.md)
+> [Procedimientos recomendados de uso del servicio de cálculo de ruta](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [Uso del módulo de servicios (SDK web)](how-to-use-best-practices-for-routing.md)
 
 > [!div class="nextstepaction"]
 > [Ejemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)

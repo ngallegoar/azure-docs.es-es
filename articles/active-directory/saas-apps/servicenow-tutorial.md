@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/25/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c18613233d6dec59c76db120ed7f089dfbb5fbac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8fe6c857e5b0c2f48f27c167c177dbf1f4651986
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77046716"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384116"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ServiceNow
 
@@ -52,7 +52,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * ServiceNow admite el [aprovisionamiento de usuarios automatizado](servicenow-provisioning-tutorial.md).
 
-* Una vez configurado ServiceNow, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado ServiceNow, puede aplicar controles de sesión, que protegen la filtración y la infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
 
 * Puede configurar la aplicación de ServiceNow Classic (móvil) con Azure AD para habilitar el inicio de sesión único. Admite tanto a usuarios de iOS como de Android. En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
@@ -93,11 +93,18 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Captura de pantalla de la página Configurar el inicio de sesión único con SAML, con el icono de lápiz resaltado](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos:
+1. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<instance-name>.service-now.com/navpage.do`
+    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
     b. En **Identificador (Id. de entidad)** , escriba una dirección URL con el siguiente formato: `https://<instance-name>.service-now.com`
+
+    c. En **URL de respuesta**, escriba una de las siguientes direcciones URL:
+
+    |||
+    |-|-|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` | 
 
     > [!NOTE]
     > Estos valores no son reales. Tiene que actualizar estos valores con la dirección URL de inicio de sesión y el identificador reales, que se explica más adelante en el tutorial. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -160,9 +167,16 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<instance-name>.service-now.com/navpage.do`
+    a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://instance.service-now.com/login_with_sso.do?glide_sso_id=<sys_id of the sso configuration>`
 
     b. En **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente formato: `https://<instance-name>.service-now.com`
+
+    c. En **URL de respuesta**, escriba una de las siguientes direcciones URL:
+
+    |||
+    |-|-|
+    | `https://instancename.service-now.com/navpage.do` |
+    | `https://instancename.service-now.com/customer.do` |
 
     > [!NOTE]
     > Estos valores no son reales. Tiene que actualizar estos valores con la dirección URL de inicio de sesión y el identificador reales, que se explica más adelante en el tutorial. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -183,7 +197,7 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
 1. Inicie sesión en la aplicación ServiceNow como administrador.
 
-2. Active el complemento **Integration - Multiple Provider Single Sign-On Installer** (Integración: instalador del inicio de sesión único multiproveedor), para lo cual debe seguir estos pasos:
+1. Active el complemento **Integration - Multiple Provider Single Sign-On Installer** (Integración: instalador del inicio de sesión único multiproveedor), para lo cual debe seguir estos pasos:
 
     a. En el panel izquierdo, busque la sección **Definition System** (Definición del sistema) en el cuadro de búsqueda y, después, seleccione **Plugins** (Complementos).
 
@@ -201,11 +215,11 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
      ![Captura de pantalla del cuadro de diálogo Activate Plugin (Activar complemento) resaltado](./media/servicenow-tutorial/tutorial_activate1.png "Activar complemento")
 
-3. En el panel izquierdo, busque la sección **Multi-Provider SSO** (Inicio de sesión único multiproveedor) en la barra de búsqueda; después, seleccione **Properties** (Propiedades).
+1. En el panel izquierdo, busque la sección **Multi-Provider SSO** (Inicio de sesión único multiproveedor) en la barra de búsqueda; después, seleccione **Properties** (Propiedades).
 
     ![Captura de pantalla de la sección Multi-Provider SSO (Inicio de sesión único multiproveedor) y Properties (Propiedades) resaltados](./media/servicenow-tutorial/tutorial_servicenow_06.png "Configurar dirección URL de la aplicación")
 
-4. En el cuadro de diálogo **Multiple Provider SSO Properties** (Propiedades de inicio de sesión único multiproveedor), siga estos pasos:
+1. En el cuadro de diálogo **Multiple Provider SSO Properties** (Propiedades de inicio de sesión único multiproveedor), siga estos pasos:
 
     ![Captura de pantalla del cuadro de diálogo Multiple Provider SSO Properties (Propiedades de inicio de sesión único multiproveedor)](./media/servicenow-tutorial/ic7694981.png "Configurar dirección URL de la aplicación")
 
@@ -215,11 +229,11 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
     * En **Enable debug logging for the multiple provider SSO integration** (Habilitar el registro de depuración para la integración de SSO multiproveedor), seleccione **Yes** (Sí).
 
-    * En **The field on the user table that...** (El campo en la tabla de usuario que...), escriba **user_name** (nombre de usuario).
+    * En **The field on the user table that...** (El campo en la tabla de usuario que...), escriba **email** (correo electrónico).
   
     * Seleccione **Guardar**.
 
-6. Puede configurar ServiceNow de forma automática o manual. Para configurar ServiceNow automáticamente, siga estos pasos:
+1. Puede configurar ServiceNow de forma automática o manual. Para configurar ServiceNow automáticamente, siga estos pasos:
 
     1. Vuelva a la página de inicio de sesión único de **ServiceNow** en Azure Portal.
 
@@ -274,11 +288,16 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
              ![Captura de pantalla de la página con Test Connection (Probar conexión) resaltado](./media/servicenow-tutorial/tutorial_activate2.png "Activar complemento")
 
+             > [!NOTE]
+             > Si se produce un error en la prueba de conexión y no puede activar esta conexión, ServiceNow ofrece el modificador de invalidación. Tiene que escribir **Sys_properties.LIST** en el cuadro de **navegación por búsqueda** y se abrirá la nueva página de propiedades del sistema. Aquí debe crear una nueva propiedad con un nombre como **glide.authenticate.multisso.test.connection.mandatory** con **dataType** como **True/False** y establecer el **valor** en **False**.
+
+             > ![Captura de pantalla de la página Resultados de pruebas](./media/servicenow-tutorial/testconnection-fail.png "Configurar inicio de sesión único")
+        
           1. Cuando se le pidan sus credenciales, escríbalas. Verá la página siguiente. Se espera el error **SSO Logout Test Results** (Resultados de la prueba del cierre de sesión de SSO). Omita el error y seleccione **Activate** (Activar).
 
              ![Captura de pantalla de la página Resultados de pruebas](./media/servicenow-tutorial/servicenowactivate.png "Configurar inicio de sesión único")
   
-6. Para configurar **ServiceNow** manualmente, siga estos pasos:
+1. Para configurar **ServiceNow** manualmente, siga estos pasos:
 
     1. Inicie sesión en la aplicación ServiceNow como administrador.
 
@@ -319,12 +338,17 @@ En esta sección, va a permitir que B. Simon acceda a ServiceNow mediante el in
 
         * Confirme que el valor de **NameID Policy** (Directiva de id. de nombre) esté establecido en `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
 
-        * Seleccione **Advanced** (Avanzadas). En **User Field** (Campo de usuario), escriba **email** (correo electrónico) o **user_name** (nombre de usuario), según qué campo se use para identificar de forma única a los usuarios en la implementación de ServiceNow.
+        * Seleccione **Advanced** (Avanzadas). En el **campo Usuario**, escriba **email** (correo electrónico).
 
             > [!NOTE]
             > Puede configurar Azure AD para emitir el identificador de usuario de Azure AD (nombre principal de usuario) o la dirección de correo electrónico como identificador único en el token SAML. Para ello, vaya a la sección **ServiceNow** > **Attributes** > **Single sign-on** (ServiceNow>Atributos>Inicio de sesión único) de Azure Portal y asigne el campo deseado al atributo **nameidentifier** (identificador de nombre). El valor almacenado para el atributo seleccionado en Azure AD (por ejemplo, el nombre de usuario principal) debe coincidir con el valor almacenado en ServiceNow para el campo especificado (por ejemplo, user_name).
 
         * Seleccione **Test Connection** (Probar conexión) en la esquina superior derecha de la página.
+
+          > [!NOTE]
+          > Si se produce un error en la prueba de conexión y no puede activar esta conexión, ServiceNow ofrece el modificador de invalidación. Tiene que escribir **Sys_properties.LIST** en el cuadro de **navegación por búsqueda** y se abrirá la nueva página de propiedades del sistema. Aquí debe crear una nueva propiedad con un nombre como **glide.authenticate.multisso.test.connection.mandatory** con **dataType** como **True/False** y establecer el **valor** en **False**.
+
+          > ![Captura de pantalla de la página Resultados de pruebas](./media/servicenow-tutorial/testconnection-fail.png "Configurar inicio de sesión único")
 
         * Cuando se le pidan sus credenciales, escríbalas. Verá la página siguiente. Se espera el error **SSO Logout Test Results** (Resultados de la prueba del cierre de sesión de SSO). Omita el error y seleccione **Activate** (Activar).
 
@@ -420,7 +444,7 @@ El objetivo de esta sección es crear una usuaria de prueba llamada B. Simon en 
 
     d. En **Clock Skew** (Sesgo de reloj), escriba **60**.
 
-    e. En **User Field** (Campo de usuario), escriba **email** (correo electrónico) o **user_name** (nombre de usuario), según qué campo se use para identificar de forma única a los usuarios en la implementación de ServiceNow.
+    e. En el **campo Usuario**, escriba **email** (correo electrónico).
 
     > [!NOTE]
     > Puede configurar Azure AD para emitir el identificador de usuario de Azure AD (nombre principal de usuario) o la dirección de correo electrónico como identificador único en el token SAML. Para ello, vaya a la sección **ServiceNow** > **Attributes** > **Single sign-on** (ServiceNow>Atributos>Inicio de sesión único) de Azure Portal y asigne el campo deseado al atributo **nameidentifier** (identificador de nombre). El valor almacenado para el atributo seleccionado en Azure AD (por ejemplo, el nombre de usuario principal) debe coincidir con el valor almacenado en ServiceNow para el campo especificado (por ejemplo, user_name).
@@ -450,7 +474,7 @@ Al seleccionar en el icono de ServiceNow del panel de acceso, debería iniciar s
     *  Escriba el valor de **Username** (Nombre de usuario), por ejemplo B.simon@contoso.com.
 
     *  Seleccione **USE EXTERNAL LOGIN** (USAR INICIO DE SESIÓN EXTERNO). Se le redirigirá a la página de Azure AD para iniciar sesión.
-    
+
     *  Escriba sus credenciales. Si hay alguna autenticación de terceros o cualquier otra característica de seguridad habilitada, el usuario debe responder como corresponda. Aparece la **página principal** de la aplicación.
 
         ![Captura de pantalla de la página principal de la aplicación](./media/servicenow-tutorial/test02.png)
@@ -467,6 +491,6 @@ Al seleccionar en el icono de ServiceNow del panel de acceso, debería iniciar s
 
 - [Pruebe ServiceNow con Azure AD](https://aad.portal.azure.com)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
 
-- [Protección de ServiceNow con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+- [Protección de ServiceNow con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

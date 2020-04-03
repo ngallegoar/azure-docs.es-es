@@ -14,20 +14,20 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a123a85d653415f7b067e0c144c90ed79f2d081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "60296743"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80330989"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federación de un entorno de bosque de AD único en la nube
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federación de un único entorno de bosques de AD en la nube
 
 ![Crear](media/tutorial-federation/diagram.png)
 
 El siguiente tutorial le guiará a través de la creación de un entorno de identidad híbrida mediante federación.  Este entorno puede usarse para realizar pruebas o para familiarizarse con el funcionamiento de una identidad híbrida.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 A continuación, se indican los requisitos previos necesarios para completar este tutorial:
 - Un equipo con [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  Se recomienda hacer esto en un equipo con [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) o [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - [Una suscripción de Azure](https://azure.microsoft.com/free)
@@ -88,7 +88,7 @@ Para terminar de crear la máquina virtual, deberá finalizar la instalación de
 5. Haga clic en **Instalar ahora**.
 6. Escriba la clave de licencia y haga clic en **Siguiente**.
 7. Marque **Acepto los términos de licencia y haga clic en **Siguiente**.
-8. Seleccione **Personalizada: instalar solo Windows (avanzado)** .
+8. Seleccione **Personalizada:  instalar solo Windows (avanzado)**
 9. Haga clic en **Siguiente**.
 10. Una vez completada la instalación, reinicie la máquina virtual, inicie sesión y ejecute las actualizaciones de Windows para asegurarse de que la versión de la máquina virtual es la más actualizada.  Instale las actualizaciones más recientes.
 
@@ -184,7 +184,7 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 ```
 
 ## <a name="create-a-certificate-for-ad-fs"></a>Creación de un certificado para AD FS
-Ahora crearemos un certificado SSL que usará AD FS.  Se trata de un certificado autofirmado y que solo será para fines de prueba.  Microsoft no recomienda usar un certificado autofirmado en un entorno de producción. Haga lo siguiente:
+Ahora crearemos un certificado TLS/SSL que usará AD FS.  Se trata de un certificado autofirmado y que solo será para fines de prueba.  Microsoft no recomienda usar un certificado autofirmado en un entorno de producción. Haga lo siguiente:
 
 1. Abra PowerShell ISE como administrador.
 2. Ejecute el siguiente script.

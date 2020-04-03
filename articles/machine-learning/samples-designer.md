@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: sample
 author: peterclu
 ms.author: peterlu
-ms.date: 03/10/2020
-ms.openlocfilehash: 82476b9cc8d92c815df602496ed3dcb33014a4fd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 03/29/2020
+ms.openlocfilehash: f9a8b0a4c51024d91e517db2f6ae10a4dba62384
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79037293"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389348"
 ---
 # <a name="designer-sample-pipelines"></a>Canalizaciones de ejemplo del diseñador
 
@@ -30,6 +30,8 @@ Use los ejemplos integrados en el diseñador de Azure Machine Learning para empe
 
 El diseñador guarda una copia de las canalizaciones de ejemplo en el área de trabajo del estudio. Puede editar la canalización para adaptarla a sus necesidades y guardarla como propia. Úselas como punto de partida para iniciar sus proyectos.
 
+### <a name="open-a-sample-pipeline"></a>Abra una canalización de ejemplo
+
 1. Inicie sesión en <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a> y seleccione el área de trabajo con la que quiere trabajar.
 
 1. Seleccione **Diseñador**.
@@ -37,6 +39,31 @@ El diseñador guarda una copia de las canalizaciones de ejemplo en el área de t
 1. Seleccione una canalización de ejemplo en la sección **Nueva canalización**.
 
     Seleccione **Mostrar más ejemplos** para obtener una lista completa de ejemplos.
+
+### <a name="submit-a-pipeline-run"></a>Ejecución de una canalización
+
+Para ejecutar una canalización antes hay que establecer un destino de proceso predeterminado en el que ejecutarla.
+
+1. En el panel de **configuración** situado a la derecha del lienzo, elija **Selección de destino de proceso**.
+
+1. En el cuadro de diálogo que aparece, seleccione un destino de proceso existente, o bien créelo. Seleccione **Guardar**.
+
+1. Seleccione **Enviar** en la parte superior del lienzo para enviar una ejecución de una canalización.
+
+En función de la canalización de ejemplo y de la configuración del proceso, es posible que las ejecuciones tarden un poco en finalizar. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, ya que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
+
+
+### <a name="review-the-results"></a>Revisión del resultado
+
+Una vez que finalice la ejecución de la canalización, puede consultarla y ver la salida de cada módulo, con el fin de obtener más información.
+
+Use los siguientes pasos para ver las salidas de los módulos:
+
+1. Seleccione un módulo en el lienzo.
+
+1. En el panel de detalles del módulo, situado a la derecha del lienzo, seleccione **Outputs + logs** (Salidas y registros). Seleccione el icono de gráfico ![visualizar icono](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver los resultados de cada módulo. 
+
+Use los ejemplos como puntos iniciales para algunos de los escenarios de aprendizaje automático más comunes.
 
 ## <a name="regression-samples"></a>Ejemplos de regresión
 
