@@ -2,16 +2,14 @@
 title: Uso de las GPU en Azure Kubernetes Service (AKS)
 description: Obtenga información acerca de cómo usar GPU para cargas de trabajo de cálculo de alto rendimiento o de uso intensivo de gráficos en Azure Kubernetes Service (AKS)
 services: container-service
-author: zr-msft
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: zarhoads
-ms.openlocfilehash: 9179d8bbf16913b89f7384fcee7519f8a205012b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.date: 03/27/2020
+ms.openlocfilehash: 242fefb3b153d11e23d66f26049d0b68c0a4bf4a
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595593"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383997"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Uso de GPU para cargas de trabajo de cálculo intensivo en Azure Kubernetes Service (AKS)
 
@@ -54,7 +52,7 @@ Obtenga las credenciales para el clúster de AKS mediante el comando [az aks get
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-drivers"></a>Instalación de controladores nVidia
+## <a name="install-nvidia-drivers"></a>Instalación de controladores NVIDIA
 
 Para poder usar las GPU en los nodos, debe implementar un elemento DaemonSet para el complemento de dispositivo NVIDIA. Este objeto DaemonSet ejecuta un pod en cada nodo para proporcionar los controladores requeridos para las GPU.
 
@@ -67,12 +65,15 @@ kubectl create namespace gpu-resources
 Cree un archivo denominado *nvidia-device-plugin-ds.yaml* y pegue el siguiente manifiesto YAML. Este manifiesto se proporciona como parte del [complemento de dispositivo NVIDIA para el proyecto de Kubernetes][nvidia-github].
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: nvidia-device-plugin-daemonset
   namespace: gpu-resources
 spec:
+  selector:
+    matchLabels:
+      name: nvidia-device-plugin-ds
   updateStrategy:
     type: RollingUpdate
   template:
@@ -109,7 +110,7 @@ spec:
             path: /var/lib/kubelet/device-plugins
 ```
 
-Ahora, use el comando [kubectl apply][kubectl-apply] para crear el elemento DaemonSet y confirme que el complemento de dispositivo nVidia se crea correctamente, tal como se muestra en la salida de ejemplo siguiente:
+Ahora, use el comando [kubectl apply][kubectl-apply] para crear el elemento DaemonSet y confirme que el complemento de dispositivo NVIDIA se crea correctamente, tal como se muestra en la salida de ejemplo siguiente:
 
 ```console
 $ kubectl apply -f nvidia-device-plugin-ds.yaml
@@ -187,7 +188,7 @@ Para ver la GPU en acción, programe una carga de trabajo compatible con la GPU 
 Cree un archivo denominado *samples-tf-mnist-demo.yaml* y pegue el siguiente manifiesto YAML. El siguiente manifiesto de trabajo incluye un límite de recursos de `nvidia.com/gpu: 1`:
 
 > [!NOTE]
-> Si recibe un error de coincidencia de versión al llamar a los controladores, como, por ejemplo, que la versión del controlador CUDA no es suficiente para la versión en tiempo de ejecución de CUDA, revise el gráfico de compatibilidad de la matriz de controladores de nVidia- [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+> Si recibe un error de coincidencia de versión al llamar a los controladores, como, por ejemplo, que la versión del controlador CUDA no es suficiente para la versión en tiempo de ejecución de CUDA, revise el gráfico de compatibilidad de la matriz de controladores de NVIDIA: [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html).
 
 ```yaml
 apiVersion: batch/v1

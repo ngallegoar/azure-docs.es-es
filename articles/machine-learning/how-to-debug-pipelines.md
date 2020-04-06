@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
-ms.date: 12/12/2019
-ms.openlocfilehash: 0080b64e16b979b32aa5a91f9ee497e5f9ec47fb
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.date: 03/18/2020
+ms.openlocfilehash: b68efbb64e9634ade001373e8cd9d61355bf786f
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485376"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388991"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depuración y solución de problemas de canalizaciones de aprendizaje automático
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "77485376"
 En este artículo aprenderá a depurar y resolver los problemas de las [canalizaciones de aprendizaje automático](concept-ml-pipelines.md) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) y el [diseñador de Azure Machine Learning (versión preliminar)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Se proporciona información sobre cómo:
 
 * Depurar con el SDK de Azure Machine Learning
-* Depurar con Azure Machine Learning Designer
+* Depurar con el diseñador de Azure Machine Learning
 * Depurar con Application Insights
 * Depurar interactivamente con Visual Studio Code (VS Code) y Herramientas de Python para Visual Studio (PTVSD)
 
@@ -33,7 +33,7 @@ En la siguientes secciones se da una información general sobre los errores comu
 
 Uno de los errores más comunes en una canalización es que uno de los scripts adjuntos (script de limpieza de datos, script de puntuación, etc.) no se ejecute según lo previsto, o que contenga errores en tiempo de ejecución en el contexto de proceso remoto que son difíciles de depurar en el área de trabajo en Azure Machine Learning Studio. 
 
-Las canalizaciones no se pueden ejecutar localmente, pero la ejecución de los scripts de forma aislada en la máquina local le permite depurar más rápido ya que no tiene que esperar al proceso de compilación de proceso y de entorno. Para ello, se necesita realizar algo de trabajo de desarrollo:
+Las canalizaciones no se pueden ejecutar localmente, pero la ejecución de los scripts de forma aislada en la máquina local le permite depurar más rápido, ya que no tiene que esperar al proceso de compilación de proceso y de entorno. Para ello, se necesita realizar algo de trabajo de desarrollo:
 
 * Si los datos están en un almacén de datos en la nube, tendrá que descargarlos y ponerlos a disposición del script. El uso de una pequeña muestra de los datos es una buena forma de reducir el tiempo de ejecución y obtener rápidamente comentarios sobre el comportamiento del script
 * Si intenta simular un paso de canalización intermedio, es posible que tenga que compilar manualmente los tipos de objeto que el script específico espera del paso anterior
@@ -79,7 +79,7 @@ La tabla siguiente contiene problemas comunes que se pueden producir durante el 
 | Problema | Posible solución |
 |--|--|
 | No se pueden pasar datos al directorio `PipelineData` | Asegúrese de haber creado un directorio en el script que se corresponda con el lugar en el que la canalización espera los datos de salida del paso. En la mayoría de los casos, un argumento de entrada definirá el directorio de salida, a continuación se crea el directorio de forma explícita. Use `os.makedirs(args.output_dir, exist_ok=True)` para crear el directorio de salida. Si necesita un ejemplo de script de puntuación que muestra este patrón de diseño, acuda al [tutorial](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) correspondiente. |
-| Errores de dependencia | Si ha desarrollado y probado los scripts localmente, pero se encuentra problemas de dependencia cuando la ejecución se realiza en un proceso remoto en la canalización, asegúrese de que las dependencias y las versiones del entorno de proceso coinciden con el entorno de prueba. |
+| Errores de dependencia | Si ha desarrollado y probado los scripts localmente, pero se encuentra problemas de dependencia cuando la ejecución se realiza en un proceso remoto en la canalización, asegúrese de que las dependencias y las versiones del entorno de proceso coinciden con el entorno de prueba. Consulte el artículo [Compilación, almacenamiento en caché y reutilización de entornos](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse).|
 | Errores ambiguos con destinos de proceso | Eliminar y volver a crear los destinos de proceso puede resolver determinados problemas relacionados con ellos. |
 | La canalización no reutiliza los pasos | La reutilización de pasos está habilitada de forma predeterminada, asegúrese de que no la ha deshabilitado en un paso de la canalización. Si la reutilización está deshabilitada, el parámetro `allow_reuse` del paso se establecerá en `False`. |
 | La canalización se está volviendo a ejecutar innecesariamente | Para asegurarse de que los pasos solo se vuelven a ejecutar cuando sus datos o scripts subyacentes cambian, desacople los directorios de cada paso. Si usa el mismo directorio de origen para varios pasos, puede experimentar la repetición innecesaria de ejecuciones. Use el parámetro `source_directory` en un objeto de paso de canalización para apuntar a su directorio aislado para ese paso, y asegúrese de que no está usando la misma ruta de acceso `source_directory` para varios pasos. |
@@ -91,7 +91,7 @@ En la tabla siguiente se proporciona información sobre las distintas opciones d
 | Biblioteca                    | Tipo   | Ejemplo                                                          | Destination                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SDK de Azure Machine Learning | Métrica | `run.log(name, val)`                                             | UI del portal de Azure Machine Learning             | [Seguimiento de experimentos](how-to-track-experiments.md#available-metrics-to-track)<br>[Clase azureml.core.Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
-| Impresión/registro de Python    | Log    | `print(val)`<br>`logging.info(message)`                          | Registros de controladores, diseñador de Azure Machine Learning | [Seguimiento de experimentos](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Registro de Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| Impresión/registro de Python    | Log    | `print(val)`<br>`logging.info(message)`                          | Registros de controladores, el diseñador de Azure Machine Learning | [Seguimiento de experimentos](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Registro de Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | Python para OpenCensus          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights: seguimientos                | [Depuración de canalizaciones en Application Insights](how-to-debug-pipelines-application-insights.md)<br><br>[Exportadores de Azure Monitor de OpenCensus](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Guía de registro de Python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Ejemplo de opciones de registro
@@ -136,7 +136,7 @@ En el caso de las canalizaciones creadas en el diseñador, puede encontrar los *
 Cuando envía una ejecución de canalización y permanece en la página de creación, puede encontrar los archivos de registro generados para cada módulo.
 
 1. Seleccione cualquier módulo en el lienzo de creación.
-1. En el panel Propiedades, vaya a la pestaña **Registros**.
+1. En el panel derecho del módulo, vaya a la pestaña **Resultados y registros**.
 1. Seleccione el archivo de registro `70_driver_log.txt`.
 
     ![Creación de registros del módulo de páginas](./media/how-to-debug-pipelines/pipelinerun-05.png)
@@ -148,7 +148,7 @@ También puede buscar los archivos de registro de ejecuciones específicas en la
 1. Seleccione una ejecución de canalización creada en el diseñador.
     ![Página de ejecución de la canalización](./media/how-to-debug-pipelines/pipelinerun-04.png)
 1. Seleccione cualquier módulo en el panel de versión preliminar previa.
-1. En el panel Propiedades, vaya a la pestaña **Registros**.
+1. En el panel derecho del módulo, vaya a la pestaña **Resultados y registros**.
 1. Seleccione el archivo de registro `70_driver_log.txt`.
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Depuración y solución de problemas en Application Insights
@@ -283,7 +283,7 @@ if not (args.output_train is None):
 
 ### <a name="configure-ml-pipeline"></a>Configuración de la canalización de ML
 
-Para proporcionar los paquetes de Python necesarios para iniciar PTVSD y obtener el contexto de ejecución, cree un [entorno]() y establezca `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Cambie la versión del SDK para que coincida con la que está usando. El fragmento de código siguiente muestra cómo crear un entorno:
+Para proporcionar los paquetes de Python necesarios para iniciar PTVSD y obtener el contexto de ejecución, cree un entorno y establezca `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Cambie la versión del SDK para que coincida con la que está usando. El fragmento de código siguiente muestra cómo crear un entorno:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.

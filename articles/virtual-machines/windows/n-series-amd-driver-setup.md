@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 164f07f6545c1c225814958bba5722536b11a9b4
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 883dbc95ee77d03aee4c3231c6ab8c03f9f7f6e4
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78269432"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387842"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalación de controladores de GPU de AMD en máquinas virtuales de la serie N con Windows
 
@@ -40,7 +40,7 @@ Para conocer las especificaciones básicas, las capacidades de almacenamiento y 
 
 2. Si es un cliente de la versión preliminar de NVv4, detenga la máquina virtual y espere a que cambie al estado Detenido (desasignado).
 
-3. Inicie la máquina virtual y, a continuación, desinstale el controlador de la versión preliminar mediante la ejecución de "amdcleanuputility-x64.exe" que se encuentra en la carpeta "...\AMDCleanUninstallUtility". La ruta de acceso exacta variará en función de dónde se encuentren los archivos de instalación del controlador anterior.  
+3. Inicie la máquina virtual y descargue la versión más reciente de [AMD Cleanup Utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Ejecute "amdcleanuputility-x64.exe" para desinstalar el controlador existente. No use ninguna utilidad de limpieza que se haya instalado con el controlador anterior.  
 
 4. Descargue e instale el controlador más reciente.
 

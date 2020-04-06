@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 3440713c287967655678e1cde2c000a6ed28b900
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 01b8e1dbc290bed86ccfc3c7016e8bd9168e427a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183947"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049066"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Dejar de usar la extensión de identidades administradas de máquina virtual y empezar a usar Azure Instance Metadata Service
 
@@ -119,11 +119,11 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | ------- | ----------- |
 | `GET` | El verbo HTTP, indicando que se van a recuperar datos desde el punto de conexión. En este caso, el token de acceso de OAuth. | 
 | `http://localhost:50342/oauth2/token` | Punto de conexión de identidades administradas de recursos de Azure, donde 50342 es el puerto predeterminado y configurable. |
-| `resource` | Un parámetro de cadena de consulta, que indica el URI del identificador de aplicación del recurso de destino. También aparece en la notificación `aud` (audiencia) del token emitido. En este ejemplo, se solicita un token para acceder a Azure Resource Manager, que tiene un URI de identificador de aplicación de https://management.azure.com/. |
+| `resource` | Un parámetro de cadena de consulta, que indica el URI del identificador de aplicación del recurso de destino. También aparece en la notificación `aud` (audiencia) del token emitido. En este ejemplo, se solicita un token para acceder a Azure Resource Manager, que tiene un URI de identificador de aplicación de `https://management.azure.com/`. |
 | `Metadata` | Un campo de encabezado de la solicitud HTTP, requerido por las identidades administradas de recursos de Azure como mitigación frente a ataques de falsificación de solicitud de lado del servidor (SSRF). Este valor debe establecerse en "true", todo en minúsculas.|
 | `object_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de object_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
 | `client_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de client_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
@@ -145,7 +145,7 @@ Content-Type: application/json
 }
 ```
 
-| Elemento | DESCRIPCIÓN |
+| Elemento | Descripción |
 | ------- | ----------- |
 | `access_token` | El token de acceso solicitado. Al llamar a una API de REST protegida, el token se inserta en el campo `Authorization` del encabezado de la solicitud como un token de "portador", lo que permite a la API autenticar el llamador. | 
 | `refresh_token` | Las identidades administradas de recursos de Azure no lo usan. |
@@ -172,7 +172,7 @@ Donde:
 
 #### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>Se produce un error en el "script de automatización" al intentar exportar los esquemas de la extensión de identidades administradas para recursos de Azure.
 
-Cuando se habilitan las identidades administradas de recursos de Azure en una máquina virtual, se muestra el siguiente error al intentar usar la característica de "Script de automatización" de la máquina virtual o su grupo de recursos:
+Cuando se habilitan las identidades administradas de recursos de Azure en una máquina virtual, se muestra el siguiente error al intentar usar la característica "Script de automatización" de la máquina virtual o su grupo de recursos:
 
 ![Error de exportación del script de automatización de identidades administradas para recursos de Azure](./media/howto-migrate-vm-extension/automation-script-export-error.png)
 

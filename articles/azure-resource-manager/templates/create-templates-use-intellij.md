@@ -4,16 +4,16 @@ description: Aprenda cómo crear su primera plantilla de Azure Resource Manager 
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1046c942e6bec4ded332027b7856110238b8f2d7
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: a5015a018f905b4353afd6bf25a48a2d942b3b97
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680620"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153359"
 ---
-# <a name="create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>Creación e implementación de plantillas de Azure Resource Manager mediante IntelliJ IDEA
+# <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Creación e implementación de plantillas de ARM mediante IntelliJ IDEA
 
-Aprenda a implementar una plantilla de Resource Manager en Azure con IntelliJ IDEA y el proceso de edición y actualización de la plantilla directamente desde el entorno de desarrollo integrado. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte la [introducción a la implementación de plantillas](overview.md).
+Aprenda a implementar una plantilla de Azure Resource Manager (ARM) en Azure con IntelliJ IDEA y a realizar el proceso de edición y actualización de dicha plantilla directamente desde el entorno de desarrollo integrado. Las plantillas de ARM son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte la [introducción a la implementación de plantillas](overview.md).
 
 ![Diagrama de la plantilla de Resource Manager desde el portal](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
@@ -21,7 +21,7 @@ Tras completar el tutorial implemente una cuenta de Azure Storage. El mismo proc
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este artículo, necesitará lo siguiente:
 
@@ -31,7 +31,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="deploy-a-quickstart-template"></a>Implementación de una plantilla de inicio rápido
 
-En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Plantillas de inicio rápido de Azure es un repositorio de plantillas de Resource Manager. La plantilla usada en este artículo se denomina [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/) (Crear una cuenta de almacenamiento estándar). Define un recurso de la cuenta de almacenamiento de Azure.
+En lugar de crear una plantilla desde cero, abra una plantilla en las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/). Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. La plantilla usada en este artículo se denomina [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/) (Crear una cuenta de almacenamiento estándar). Define un recurso de la cuenta de almacenamiento de Azure.
 
 1. Haga clic con el botón derecho y guarde [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) y [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) en el equipo local.
 

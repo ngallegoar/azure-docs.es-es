@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/30/2019
 ms.author: dapine
-ms.openlocfilehash: 35f5cffdc644370082e229c88d67db33e853c446
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 20f78d9269d4b2270293c8746157ba495c694562
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499174"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80272690"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Protección de los contenedores en Azure Cognitive Services
 
@@ -27,7 +27,7 @@ En el diagrama siguiente se muestra el enfoque predeterminado, que **no es segur
 
 ![Seguridad del contenedor](../media/container-security.svg)
 
-Como método alternativo y *seguro*, los consumidores de contenedores de Cognitive Services podrían aumentar un contenedor con un componente frontal y mantener el punto de conexión del contenedor privado. Veamos un escenario en el que usamos [Istio][istio] como puerta de enlace de entrada. Istio admite HTTPS/SSL y la autenticación con certificado de cliente. En este escenario, el front-end de Istio expone el acceso al contenedor, al presentar de antemano el certificado de cliente que se encuentra en la lista de permitidos con Istio.
+Como método alternativo y *seguro*, los consumidores de contenedores de Cognitive Services podrían aumentar un contenedor con un componente frontal y mantener el punto de conexión del contenedor privado. Veamos un escenario en el que usamos [Istio][istio] como puerta de enlace de entrada. Istio admite HTTPS/TLS y la autenticación con certificado de cliente. En este escenario, el front-end de Istio expone el acceso al contenedor, al presentar de antemano el certificado de cliente que se encuentra en la lista de permitidos con Istio.
 
 [Nginx][nginx] es otra opción popular de la misma categoría. Tanto Istio como Nginx actúan como malla de servicio y ofrecen características adicionales, como equilibrio de carga, enrutamiento y control de velocidad.
 

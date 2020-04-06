@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: bf4c5e364b7f18b363f9915f54e43c7ea54c33c4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ae139ea7aca7c3896fcd7b0acf2bf6673490a2f4
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834693"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382909"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar problemas de enrutamiento en una red de máquinas virtuales: CLI de Azure
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.28 o posterior de la CLI de Azure. Ejecute `az --version` para ver cuál es la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Después de verificar la versión de CLI, ejecute `az login` para crear una conexión con Azure. Los comandos de la CLI que aparecen en este artículo tienen un formato que permite ejecutarlos en un shell de Bash.
+Si decide instalar y usar la CLI de Azure localmente, para este artículo es preciso que ejecute la versión 2.0.28 o posterior de la CLI de Azure. Ejecute `az --version` para ver cuál es la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Después de verificar la versión de la CLI de Azure, ejecute `az login` para crear una conexión con Azure. Los comandos de la CLI de Azure que aparecen en este artículo tienen un formato que permite ejecutarlos en un shell de Bash.
 
 ## <a name="create-a-vm"></a>Crear una VM
 
@@ -52,7 +52,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-La máquina virtual tarda en crearse unos minutos. No continúe con los pasos restantes hasta que la máquina virtual se haya creado y la CLI devuelva la salida.
+La máquina virtual tarda en crearse unos minutos. No continúe con los pasos restantes hasta que la máquina virtual se haya creado y la CLI de Azure devuelva la salida.
 
 ## <a name="test-network-communication"></a>Prueba de la comunicación de red
 
@@ -113,7 +113,7 @@ az network nic show-effective-route-table \
 
 El siguiente texto se incluye en el resultado devuelto:
 
-```azurecli
+```
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -133,7 +133,7 @@ Cuando usó el comando `az network watcher show-next-hop` para probar la comunic
 
 Sin embargo, cuando usó el comando `az network watcher show-next-hop` para probar la comunicación saliente a 172.31.0.100, el resultado le informó de que no había ningún tipo de salto siguiente. En el resultado devuelto puede ver el siguiente texto:
 
-```azurecli
+```
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false

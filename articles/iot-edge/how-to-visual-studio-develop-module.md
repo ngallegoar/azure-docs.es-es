@@ -5,15 +5,15 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 07/22/2019
+ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8c174c5c201aecd83fb343a217c7944d503616c3
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 9722c7dec3a066d8f776424cb599be0d463416d9
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509299"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384864"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Uso de Visual Studio 2019 para desarrollar y depurar módulos para Azure IoT Edge
 
@@ -28,7 +28,7 @@ Las herramientas de Azure IoT Edge para Visual Studio proporcionan las siguiente
 
 En este artículo se muestra cómo usar las herramientas de Azure IoT Edge para Visual Studio 2019 con el fin de desarrollar los módulos de IoT Edge. También aprenderá a implementar el proyecto en el dispositivo de Azure IoT Edge. Actualmente, Visual Studio 2019 proporciona compatibilidad con módulos escritos en C y C#. Las arquitecturas de dispositivo compatibles son Windows x64 y Linux x64 o ARM32. Para obtener más información sobre los sistemas operativos, los lenguajes y las arquitecturas compatibles, consulte [Compatibilidad de lenguaje y arquitectura](module-development.md#language-and-architecture-support).
   
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 En este artículo se da por hecho que usa una máquina virtual que ejecuta Windows como máquina de desarrollo. En equipos Windows, puede desarrollar módulos de Windows o Linux. Para desarrollar módulos de Windows, use un equipo Windows que ejecute la versión 1809, la compilación 17763 o una más reciente. Para desarrollar módulos de Linux, use un equipo Windows que cumpla los [requisitos de Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
@@ -71,7 +71,7 @@ Una vez que Visual Studio 2019 esté listo, también necesitará las siguientes 
 
 ### <a name="check-your-tools-version"></a>Comprobación de la versión de herramientas
 
-1. En el menú **Herramientas**, seleccione **Extensiones y actualizaciones**. Expanda **Instalado > Herramientas** y encontrará **Herramientas de Azure IoT Edge** y **Cloud Explorer for Visual Studio**.
+1. En el menú **Extensiones**, seleccione **Administrar extensiones**. Expanda **Instalado > Herramientas** y encontrará **Azure IoT Edge Tools para Visual Studio** y **Cloud Explorer para Visual Studio**.
 
 1. Observe la versión instalada. Puede comparar esta versión con la más reciente de Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS2019), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools))
 
@@ -79,7 +79,7 @@ Una vez que Visual Studio 2019 esté listo, también necesitará las siguientes 
 
 ### <a name="update-your-tools"></a>Actualización de las herramientas
 
-1. En el cuadro de diálogo **Extensiones y actualizaciones**, expanda **Actualizaciones > Visual Studio Marketplace**, elija **Herramientas de Azure IoT Edge** o **Cloud Explorer for Visual Studio** y seleccione **Actualizar**.
+1. En la ventana **Administrar extensiones**, expanda **Actualizaciones > Visual Studio Marketplace**, elija **Azure IoT Edge Tools** o **Cloud Explorer para Visual Studio** y seleccione **Actualizar**.
 
 1. Después de descargar la actualización de las herramientas, cierre Visual Studio para desencadenar la actualización de las herramientas mediante el programa de instalación de VSIX.
 
@@ -122,7 +122,7 @@ Cuando tenga todo listo para personalizar la plantilla del módulo con su propio
 
    ![Copia de la cadena de conexión del dispositivo Edge](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
 
-1. Vaya a **Herramientas** > **Herramientas de Azure IoT Edge** > **Instalación del simulador de IoT Edge**, pegue la cadena de conexión y haga clic en **Aceptar**.
+1. Vaya al menú **Herramientas**, seleccione **Azure IoT Edge Tools** > **Setup IoT Edge Simulator** (Configurar el simulador de IoT Edge), pegue la cadena de conexión y haga clic en **Aceptar**.
 
    ![Apertura de la ventana de la cadena de conexión del dispositivo Edge establecida](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
 
@@ -135,7 +135,7 @@ Cuando tenga todo listo para personalizar la plantilla del módulo con su propio
 
 Por lo general, querrá probar y depurar los módulos antes de que se ejecuten en una solución entera con varios de ellos.
 
-1. Haga clic con el botón derecho en **IotEdgeModule1** y seleccione **Establecer como proyecto de inicio** en el menú contextual.
+1. En **Explorador de soluciones**, haga clic con el botón derecho en **IotEdgeModule1** y seleccione **Establecer como proyecto de inicio** en el menú contextual.
 
    ![Establecimiento del proyecto de inicio](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)
 
@@ -166,7 +166,7 @@ Por lo general, querrá probar y depurar los módulos antes de que se ejecuten e
 
 Cuando haya terminado de desarrollar el módulo, querrá ejecutar y depurar una solución completa de varios módulos.
 
-1. Para agregar un segundo módulo a la solución, haga clic con el botón derecho en **AzureIoTEdgeApp1** y seleccione **Agregar** > **Nuevo módulo de IoT Edge**. El nombre predeterminado del segundo módulo es **IotEdgeModule2** y actuará como otro módulo de canalización.
+1. En **Explorador de soluciones**, agregue un segundo módulo a la solución; para ello, haga clic con el botón derecho en **AzureIoTEdgeApp1** y seleccione **Agregar** > **New IoT Edge Module** (Nuevo módulo de IoT Edge). El nombre predeterminado del segundo módulo es **IotEdgeModule2** y actuará como otro módulo de canalización.
 
 1. Abra el archivo `deployment.template.json` y verá que **IotEdgeModule2** se ha agregado a la sección **modules**. Reemplace la sección **routes** por lo siguiente. Si ha personalizado los nombres de módulo, asegúrese de actualizarlos para que coincidan.
 
@@ -194,7 +194,7 @@ Cuando haya terminado de desarrollar el módulo, querrá ejecutar y depurar una 
     > [!NOTE]
     > Al elegir **Depurar**, Visual Studio usará `Dockerfile.(amd64|windows-amd64).debug` para compilar las imágenes de Docker. Esto incluye el depurador de la línea de comandos de .NET Core VSDBG en la imagen de contenedor al realizar la compilación. Para los módulos de IoT Edge listos para producción, se recomienda usar la configuración de **Versión** que usa `Dockerfile.(amd64|windows-amd64)` sin VSDBG.
 
-1. Si usa un registro privado como Azure Container Registry, use el siguiente comando de Docker para iniciar sesión en él. Si usa un registro local, puede [Run a local registry](https://docs.docker.com/registry/deploying/#run-a-local-registry) (Ejecutar un registro local).
+1. Si usa un registro privado como Azure Container Registry (ACR), use el siguiente comando de Docker para iniciar sesión en él.  Puede obtener el nombre de usuario y la contraseña en la página **Claves de acceso** del registro en Azure Portal. Si usa un registro local, puede [Run a local registry](https://docs.docker.com/registry/deploying/#run-a-local-registry) (Ejecutar un registro local).
 
     ```cmd
     docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -216,9 +216,7 @@ Cuando haya terminado de desarrollar el módulo, querrá ejecutar y depurar una 
           }
     ```
 
-1. Haga clic con el botón derecho en **AzureIoTEdgeApp1** y seleccione **Build and Push Edge Solution** (Compilar e insertar solución de Edge) para compilar e inserta las imágenes de Docker para cada módulo.
-
-   ![Compilación e inserción de imágenes](./media/how-to-visual-studio-develop-csharp-module/build-and-push.png)
+1. En **Explorador de soluciones**, haga clic con el botón derecho en **AzureIoTEdgeApp1** y seleccione **Compilación e inserción de módulos IoT Edge** para compilar e insertar las imágenes de Docker para cada módulo.
 
 ## <a name="deploy-the-solution"></a>Implementación de la solución
 
@@ -228,18 +226,15 @@ En el artículo de la guía de inicio rápido que siguió para configurar el dis
 
 1. En **Cloud Explorer**, expanda su suscripción, busque Azure IoT Hub y el dispositivo de Azure IoT Edge que desea implementar.
 
-1. Haga clic con el botón derecho en el dispositivo de IoT Edge que crear e implementar; debe seleccionar el archivo de manifiesto de implementación de `$AzureIoTEdgeAppSolutionDir\config\deployment.(amd64|amd64.debug|windows-amd64).json`.
-
-   > [!NOTE]
-   > No debe seleccionar `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`.
+1. Haga clic con el botón derecho en el dispositivo IoT Edge para crear una implementación para este. Vaya al manifiesto de implementación configurado para la plataforma, el cual se encuentra en la carpeta **config** de la solución de Visual Studio, por ejemplo, `deployment.arm32v7.json`.
 
 1. Haga clic en el botón Actualizar para ver los nuevos módulos en ejecución junto con el módulo **SimulatedTemperatureSensor**, **$edgeAgent** y **$edgeHub**.
 
 ## <a name="view-generated-data"></a>Visualización de datos generados
 
-1. Para supervisar el mensaje de D2C de un determinado dispositivo, seleccione el dispositivo en la lista y, luego, haga clic en **Iniciar la supervisión del punto de conexión de evento integrado** en la ventana **Acción**.
+1. Para supervisar el mensaje de D2C de un determinado dispositivo IoT Edge, selecciónelo en el centro de IoT en **Cloud Explorer** y, luego, haga clic en **Iniciar la supervisión del punto de conexión de eventos integrado** en la ventana **Acción**.
 
-1. Para detener la supervisión de datos, seleccione el dispositivo en la lista y, después, **Detener la supervisión del punto de conexión de evento integrado** en la ventana **Acción**.
+1. Para detener la supervisión de datos, seleccione **Detener la supervisión del punto de conexión de eventos integrado** en la ventana **Acción**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

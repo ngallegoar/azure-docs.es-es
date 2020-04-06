@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo proteger el tráfico que fluye den
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 92e726529f2c81b169dc5ad485148ad8118bbc81
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 37b6ebd1c8b147db0a9cead4678a0b2bb4ed234d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592873"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473615"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ Estas reglas de las directivas de red se definen como manifiestos de YAML. Las d
 
 Azure ofrece dos maneras de implementar la directiva de red. Debe elegir una opción de directiva de red al crear un clúster de AKS. La opción de directiva no se puede cambiar una vez que se ha creado el clúster:
 
-* Implementación propia de Azure, denominada *directivas de red de Azure*.
+* La implementación propia de Azure, denominada *directivas de red de Azure*.
 * *Directivas de red de Calico*, una solución de seguridad de red y redes de código abierto fundada por [Tigera][tigera].
 
 Ambas implementaciones usan *IPTables* de Linux para aplicar las directivas especificadas. Las directivas se traducen en conjuntos de pares de IP permitidas y no permitidas. Después, estos pares se programan como reglas de filtro de IPTable.
@@ -172,7 +172,7 @@ wget -qO- http://backend
 
 La siguiente salida de ejemplo muestra que se devuelve la página web de NGINX predeterminada:
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>
@@ -204,14 +204,15 @@ spec:
   ingress: []
 ```
 
+Vaya a [https://shell.azure.com](https://shell.azure.com) para abrir Azure Cloud Shell en el explorador.
+
 Aplique la directiva de red mediante el comando [kubectl apply][kubectl-apply] y especifique el nombre del manifiesto de YAML:
 
-```azurecli-interactive
+```console
 kubectl apply -f backend-policy.yaml
 ```
 
 ### <a name="test-the-network-policy"></a>Prueba de la directiva de red
-
 
 Comprobemos que puede usar la página web de NGINX en el pod de back-end de nuevo. Cree otro pod de prueba y asocie una sesión de terminal:
 
@@ -222,8 +223,10 @@ kubectl run --rm -it --image=alpine network-policy --namespace development --gen
 Cuando se encuentre en el símbolo del sistema del shell, use `wget` para ver si puede acceder a la página web de NGINX predeterminada. Esta vez, establezca un valor de tiempo de expiración de *2* segundos. Ahora, la directiva de red bloquea todo el tráfico entrante, por lo que no se puede cargar la página, tal como se muestra en el ejemplo siguiente:
 
 ```console
-$ wget -qO- --timeout=2 http://backend
+wget -qO- --timeout=2 http://backend
+```
 
+```output
 wget: download timed out
 ```
 
@@ -264,7 +267,7 @@ spec:
 
 Aplique la política de red actualizada mediante el comando [kubectl apply][kubectl-apply] y especifique el nombre del manifiesto de YAML:
 
-```azurecli-interactive
+```console
 kubectl apply -f backend-policy.yaml
 ```
 
@@ -282,7 +285,7 @@ wget -qO- http://backend
 
 Como la regla de entrada permite el tráfico con los pods que tengan las etiquetas *app: webapp,role: frontend*, se permite el tráfico desde el pod de front-end. La siguiente salida de ejemplo muestra que se devuelve la página web de NGINX predeterminada:
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>
@@ -307,8 +310,10 @@ kubectl run --rm -it --image=alpine network-policy --namespace development --gen
 Cuando se encuentre en el símbolo del sistema del shell, use `wget` para ver si puede acceder a la página web de NGINX predeterminada. La directiva de red bloquea el tráfico entrante, por lo que no se puede cargar la página, tal como se muestra en el ejemplo siguiente:
 
 ```console
-$ wget -qO- --timeout=2 http://backend
+wget -qO- --timeout=2 http://backend
+```
 
+```output
 wget: download timed out
 ```
 
@@ -343,7 +348,7 @@ wget -qO- http://backend.development
 
 Como las etiquetas del pod coinciden con lo que actualmente está permitido en la directiva de red, se permite el tráfico. La directiva de red no analiza los espacios de nombres, solo las etiquetas de pod. La siguiente salida de ejemplo muestra que se devuelve la página web de NGINX predeterminada:
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>
@@ -387,7 +392,7 @@ En ejemplos más complejos, podría definir varias reglas de entrada, como un el
 
 Aplique la política de red actualizada mediante el comando [kubectl apply][kubectl-apply] y especifique el nombre del manifiesto de YAML:
 
-```azurecli-interactive
+```console
 kubectl apply -f backend-policy.yaml
 ```
 
@@ -402,8 +407,10 @@ kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend -
 Una vez en el símbolo del sistema del shell, use `wget` para ver que ahora la directiva de red deniega el tráfico:
 
 ```console
-$ wget -qO- --timeout=2 http://backend.development
+wget -qO- --timeout=2 http://backend.development
+```
 
+```output
 wget: download timed out
 ```
 
@@ -427,7 +434,7 @@ wget -qO- http://backend
 
 El tráfico se permite porque el pod está programado en el espacio de nombres que coincide con lo permitido en la directiva de red. En la siguiente salida de ejemplo se muestra que se devuelve la página web de NGINX predeterminada:
 
-```
+```output
 <!DOCTYPE html>
 <html>
 <head>

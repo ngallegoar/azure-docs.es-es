@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 7c9f22d27351b0f57c5a0158821f347073ae60b4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 8bbb11a8811582bea26e784636564eb5d5a4d284
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187822"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384337"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -60,7 +60,7 @@ Aquí se muestra una descripción general de ejemplo del ciclo de vida de CI/CD 
 
    ![Creación de una plantilla propia](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Seleccione **Cargar archivo** y después la plantilla de Resource Manager generada.
+1. Seleccione **Cargar archivo** y después la plantilla de Resource Manager generada. Este es el archivo **arm_template.json** que se encuentra en el archivo ZIP exportado en el paso 1.
 
    ![Editar plantilla](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -171,7 +171,7 @@ Hay dos formas de administrar los secretos:
 
     El archivo de parámetros también debe estar en la rama de publicación.
 
--  Agregue una [tarea de Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) antes de la tarea de implementación de Azure Resource Manager que se ha descrito en la sección anterior:
+1. Agregue una [tarea de Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) antes de la tarea de implementación de Azure Resource Manager que se ha descrito en la sección anterior:
 
     1.  En la pestaña **Tareas**, cree una tarea. Busque **Azure Key Vault** y agréguelo.
 
@@ -179,9 +179,9 @@ Hay dos formas de administrar los secretos:
 
     ![Adición de una tarea de Key Vault](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-   #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concesión de permisos al agente de Azure Pipelines
+#### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concesión de permisos al agente de Azure Pipelines
 
-   Es posible que se produzca un error de acceso denegado en la tarea Azure Key Vault si no se han establecido los permisos correctos. Descargue los registros de la versión y busque el archivo .ps1 que contiene el comando para conceder permisos al agente de Azure Pipelines. Puede ejecutar el comando directamente. O bien, puede copiar el identificador de entidad de seguridad del archivo y añadir la directiva de acceso manualmente en Azure Portal. `Get` y `List` son los permisos mínimos necesarios.
+Es posible que se produzca un error de acceso denegado en la tarea Azure Key Vault si no se han establecido los permisos correctos. Descargue los registros de la versión y busque el archivo .ps1 que contiene el comando para conceder permisos al agente de Azure Pipelines. Puede ejecutar el comando directamente. O bien, puede copiar el identificador de entidad de seguridad del archivo y añadir la directiva de acceso manualmente en Azure Portal. `Get` y `List` son los permisos mínimos necesarios.
 
 ### <a name="update-active-triggers"></a>Actualización de desencadenadores activos
 
@@ -214,7 +214,7 @@ Al ejecutar un script posterior a la implementación, tendrá que especificar un
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
-    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+![Tarea de Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Este es el script que se puede usar antes y después de la implementación. Contabiliza los recursos eliminados y las referencias a recursos.
 
@@ -366,7 +366,13 @@ if ($predeployment -eq $true) {
     Write-Host "Stopping deployed triggers"
     $triggerstostop | ForEach-Object { 
         Write-host "Disabling trigger " $_
-        Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Remove-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Disabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 else {
@@ -459,7 +465,13 @@ else {
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
-        Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Add-AzDataFactoryV2TriggerSubscription -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force
+    $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    while ($status.Status -ne "Enabled"){
+            Start-Sleep -s 15
+            $status = Get-AzDataFactoryV2TriggerSubscriptionStatus -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_
+    }
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 ```
@@ -471,7 +483,10 @@ Si está en modo GIT, puede reemplazar las propiedades predeterminadas en la pla
 * Se usa CI/CD automatizada y se quieren cambiar algunas propiedades durante la implementación de Resource Manager, pero las propiedades no están parametrizadas de forma predeterminada.
 * La fábrica es tan grande que la plantilla de Resource Manager predeterminada no es válida porque contiene más parámetros que el número máximo permitido (256).
 
-En estas condiciones, para reemplazar la plantilla de parametrización predeterminada, cree un archivo denominado arm-template-parameters-definition.json en la carpeta especificada como carpeta raíz para la integración de Git de los datos de la factoría de datos. Debe usar ese nombre de archivo exacto. Data Factory lee el archivo de la rama en la que está actualmente en el portal de Azure Data Factory, no solo de la rama de colaboración. Puede crear o editar el archivo desde una rama privada, donde pueda probar los cambios si selecciona **Export ARM Template** (Exportar plantilla de ARM) en la interfaz de usuario. Después, puede combinar el archivo en la rama de colaboración. Si no se encuentra ningún archivo, se usa la plantilla predeterminada.
+En estas condiciones, para reemplazar la plantilla de parametrización predeterminada, cree un archivo denominado **arm-template-parameters-definition.json** en la carpeta especificada como carpeta raíz para la integración de Git de los datos de la factoría de datos. Debe usar ese nombre de archivo exacto. Data Factory lee el archivo de la rama en la que está actualmente en el portal de Azure Data Factory, no solo de la rama de colaboración. Puede crear o editar el archivo desde una rama privada, donde pueda probar los cambios si selecciona **Export ARM Template** (Exportar plantilla de ARM) en la interfaz de usuario. Después, puede combinar el archivo en la rama de colaboración. Si no se encuentra ningún archivo, se usa la plantilla predeterminada.
+
+> [!NOTE]
+> Una plantilla de parametrización personalizada no cambia el límite de 256 parámetros de plantilla de Resource Manager. Le permite elegir y reducir el número de propiedades parametrizadas.
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintaxis de un archivo de parámetros personalizados
 
@@ -657,7 +672,7 @@ Aquí se muestra la plantilla de parametrización predeterminada actual. Si solo
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -821,25 +836,25 @@ Si no ha configurado Git, puede acceder a las plantillas vinculadas a través de
 
 Si implementa una factoría en producción y se da cuenta de que hay un error que se debe corregir de inmediato, pero no puede implementar la rama de colaboración actual, es posible que deba implementar una revisión. Este enfoque se conoce como ingeniería de corrección rápida o QFE.
 
-1.  En Azure DevOps, vaya a la versión que se ha implementado en producción. Busque la última confirmación que se ha implementado.
+1.    En Azure DevOps, vaya a la versión que se ha implementado en producción. Busque la última confirmación que se ha implementado.
 
-2.  En el mensaje de confirmación, obtenga el identificador de confirmación de la rama de colaboración.
+2.    En el mensaje de confirmación, obtenga el identificador de confirmación de la rama de colaboración.
 
-3.  Cree una rama de revisión a partir de esa confirmación.
+3.    Cree una rama de revisión a partir de esa confirmación.
 
-4.  Vaya a la experiencia de la interfaz de usuario de Azure Data Factory y cambie a la rama de revisión.
+4.    Vaya a la experiencia de la interfaz de usuario de Azure Data Factory y cambie a la rama de revisión.
 
-5.  Mediante la experiencia de la interfaz de usuario de Azure Data Factory, corrija el error. Guarde los cambios.
+5.    Mediante la experiencia de la interfaz de usuario de Azure Data Factory, corrija el error. Guarde los cambios.
 
-6.  Una vez comprobada la corrección, seleccione **Export ARM Template** (Exportar plantilla de ARM) para obtener la plantilla de Resource Manager de revisión.
+6.    Una vez comprobada la corrección, seleccione **Export ARM Template** (Exportar plantilla de ARM) para obtener la plantilla de Resource Manager de revisión.
 
-7.  Inserte manualmente esta compilación en la rama adf_publish.
+7.    Inserte manualmente esta compilación en la rama adf_publish.
 
-8.  Si ha configurado la canalización de versión para que se desencadene automáticamente en función de las inserciones en el repositorio de adf_publish, se iniciará una versión nueva de forma automática. De lo contrario, ponga en cola manualmente una versión.
+8.    Si ha configurado la canalización de versión para que se desencadene automáticamente en función de las inserciones en el repositorio de adf_publish, se iniciará una versión nueva de forma automática. De lo contrario, ponga en cola manualmente una versión.
 
-9.  Implemente la versión de revisión en las factorías de prueba y producción. Esta versión contiene la carga de producción anterior más la revisión realizada en el paso 5.
+9.    Implemente la versión de revisión en las factorías de prueba y producción. Esta versión contiene la carga de producción anterior más la revisión realizada en el paso 5.
 
-10. Agregue los cambios de la revisión a la rama de desarrollo para que las versiones posteriores no incluyan el mismo error.
+10.    Agregue los cambios de la revisión a la rama de desarrollo para que las versiones posteriores no incluyan el mismo error.
 
 ## <a name="best-practices-for-cicd"></a>Procedimientos recomendados para CI/CD
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/28/2020
+ms.date: 03/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e145cf481dd165144b188e6205e4b78cc61359fd
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6740ea320f2d950386da12eb44726e2c826b60a4
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78202455"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80386094"
 ---
 ## <a name="premium-ssd"></a>SSD Premium
 
@@ -26,11 +26,11 @@ Para más información sobre los tipos individuales de máquinas virtuales y los
 
 Cuando se aprovisiona un disco de Premium Storage, a diferencia de Standard Storage, se garantizan la capacidad, las E/S por segundo y el rendimiento del mismo. Por ejemplo, si crea un disco P50, Azure aprovisiona una capacidad de almacenamiento de 4095 GB, 7500 E/S por segundo y un rendimiento de 250 MB/s para él. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos. Los discos SSD Premium están diseñados para proporcionar bajas latencias inferiores a 10 milisegundos y un IOPS y rendimiento que se describen en la tabla anterior como del 99,9 % del tiempo.
 
-## <a name="bursting-preview"></a>Creación de ráfagas (versión preliminar)
+## <a name="bursting"></a>Creación de ráfagas
 
-Los tamaños de SSD Premium más pequeños que P30 ahora ofrecen una ráfaga de disco (versión preliminar) y pueden aumentar los IOPS por disco en hasta 3.500 y el ancho de banda en hasta 170 Mbps. La creación de ráfagas está automatizada y funciona de acuerdo con un sistema de crédito. Los créditos se acumulan automáticamente en un depósito de ráfagas cuando el tráfico del disco está por debajo del objetivo de rendimiento aprovisionado y los créditos se consumen automáticamente cuando el tráfico supera el destino, hasta el límite máximo de ráfagas. El límite máximo de ráfagas define el límite superior de IOPS y Bandwidth del disco, incluso si tiene créditos de ráfagas para consumir. La ráfaga de disco proporciona una tolerancia mejorada a cambios imprevisibles en los patrones de E/S. Puede aprovecharla mejor en el arranque del disco del sistema operativo y las aplicaciones con tráfico de picos.    
+Los tamaños de SSD Premium más pequeños que P30 ahora ofrecen una ráfaga de disco y pueden aumentar los IOPS por disco en hasta 3500 y el ancho de banda en hasta 170 Mbps. La creación de ráfagas está automatizada y funciona de acuerdo con un sistema de crédito. Los créditos se acumulan automáticamente en un depósito de ráfagas cuando el tráfico del disco está por debajo del objetivo de rendimiento aprovisionado y los créditos se consumen automáticamente cuando el tráfico supera el destino, hasta el límite máximo de ráfagas. El límite máximo de ráfagas define el límite superior de IOPS y Bandwidth del disco, incluso si tiene créditos de ráfagas para consumir. La ráfaga de disco proporciona una tolerancia mejorada a cambios imprevisibles en los patrones de E/S. Puede aprovecharla mejor en el arranque del disco del sistema operativo y las aplicaciones con tráfico de picos.    
 
-La compatibilidad con ráfagas de discos se habilitará en las nuevas implementaciones de los tamaños de disco aplicables en las [regiones de la versión preliminar](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting#regional-availability) de forma predeterminada, sin necesidad de que intervenga el usuario. En el caso de los discos existentes de tamaños aplicables, puede habilitar la ráfaga con cualquiera de estas dos opciones: desasociar y volver a adjuntar el disco, o detener y reiniciar la VM conectada. Todos los tamaños de disco aplicables de la ráfaga comenzarán con un cubo de crédito de ráfaga completo cuando el disco esté conectado a una máquina virtual que admita una duración máxima en el límite máximo de ráfaga de 30 minutos. Para obtener más información sobre el aumento del trabajo de ráfagas en discos de Azure, consulte [Creación de ráfagas SSD Premium](../articles/virtual-machines/linux/disk-bursting.md). 
+La compatibilidad con ráfagas de discos se habilitará en las nuevas implementaciones de los tamaños de disco aplicables de forma predeterminada, sin necesidad de que intervenga el usuario. En el caso de los discos existentes de tamaños aplicables, puede habilitar la ráfaga con cualquiera de estas dos opciones: desasociar y volver a adjuntar el disco, o detener y reiniciar la VM conectada. Todos los tamaños de disco aplicables de la ráfaga comenzarán con un cubo de crédito de ráfaga completo cuando el disco esté conectado a una máquina virtual que admita una duración máxima en el límite máximo de ráfaga de 30 minutos. Para obtener más información sobre el aumento del trabajo de ráfagas en discos de Azure, consulte [Creación de ráfagas SSD Premium](../articles/virtual-machines/linux/disk-bursting.md). 
 
 ### <a name="transactions"></a>Transacciones
 

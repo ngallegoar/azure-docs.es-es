@@ -1,6 +1,6 @@
 ---
 title: Protección de red adaptable en Azure Security Center | Microsoft Docs
-description: Obtenga información sobre cómo proteger, en función de los patrones de tráfico reales, las reglas de los grupos de seguridad de red (NSG) y mejorar aún más la posición de seguridad.
+description: Obtenga información sobre cómo usar patrones de tráfico reales para proteger las reglas de los grupos de seguridad de red (NSG) y mejorar aún más la posición de seguridad.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2019
+ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: fb1e381f9b956a0c6414a82505aced2cbdb2d680
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: a75be23e2e8215d86aebcfd7f4317f2f597d3c5b
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559273"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385085"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protección de red adaptable en Azure Security Center
 Obtenga información sobre cómo configurar la protección de red adaptable en Azure Security Center.
@@ -28,12 +28,14 @@ La aplicación de [grupos de seguridad de red (NSG)](https://docs.microsoft.com/
 
 La protección de red adaptable proporciona recomendaciones para proteger mejor las reglas de NSG. Usa un algoritmo de aprendizaje automático que tiene en cuenta el tráfico real, la configuración de confianza conocida, la inteligencia de amenazas y otros indicadores de riesgo, y luego proporciona recomendaciones para permitir el tráfico solo desde tuplas IP y puerto específicas.
 
-Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico desde 140.20.30.10/24 en el puerto 22. La recomendación de la protección de red adaptable, según el análisis, sería restringir el rango y permitir el tráfico desde 140.23.30.10/29, que es un intervalo de IP más restringido, y denegar todo el tráfico restante a ese puerto.
+Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico desde 140.20.30.10/24 en el puerto 22. La recomendación de la protección de red adaptable, según el análisis, sería restringir el rango y permitir el tráfico desde 140.23.30.10/29, que es un intervalo de IP más restringido, y denegar todo el tráfico restante a ese puerto.
+
+>[!TIP]
+> Las recomendaciones de la protección de red adaptable solo se admiten en los siguientes puertos (para UDP y TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301, 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379, 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017 y 37215.
+
 
 ![Vista de la protección de red](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
-> [!NOTE]
-> Las recomendaciones de protección de red adaptables se admiten en los siguientes puertos: 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visualización de las alertas y reglas de protección de red adaptable
 
@@ -73,25 +75,25 @@ Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico de
     ![Aplicar reglas](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
 
 
-### Modificación de una regla <a name ="modify-rule"> </a>
+### <a name="modify-a-rule"></a>Modificación de una regla <a name ="modify-rule"> </a>
 
 Es posible modificar los parámetros de una regla que se haya recomendado. Por ejemplo, quizás querrá cambiar los intervalos de IP recomendados.
 
 Instrucciones importantes a la hora de modificar una regla de protección de red adaptable:
 
-* Puede modificar los parámetros solo de reglas tipo "permitir". 
-* No puede cambiar reglas tipo "permitir" para convertirlas en reglas tipo "denegar". 
+* Solo puede modificar los parámetros de las reglas de tipo "permitir". 
+* No puede cambiar reglas de tipo "permitir" para convertirlas en reglas de tipo "denegar". 
 
   > [!NOTE]
-  > La creación y modificación de reglas de "denegación" se realiza directamente en el NSG. Para más información, consulte [Creación, modificación o eliminación de un grupo de seguridad de red ](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > La creación y modificación de reglas de tipo "denegar" se realiza directamente en el NSG. Para más información, consulte [Creación, modificación o eliminación de un grupo de seguridad de red ](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-* Una regla tipo **Denegar todo el tráfico** es el único tipo de regla "denegar" que figuraría aquí, y no se puede modificar. Sin embargo, puede eliminar la regla (consulte [Eliminación de una regla](#delete-rule)).
+* Una regla de tipo **Denegar todo el tráfico** es el único tipo de regla "denegar" que figuraría aquí, y no se puede modificar. Sin embargo, puede eliminar la regla (consulte [Eliminación de una regla](#delete-rule)).
   > [!NOTE]
   > Una regla tipo **Denegar todo el tráfico** se recomienda cuando, como resultado de la ejecución del algoritmo, Security Center no identifica el tráfico que se debe permitir, según la configuración de NSG existente. Por lo tanto, la regla recomendada es denegar todo el tráfico al puerto especificado. El nombre de este tipo de regla se muestra como "*Generada por el sistema*". Después de aplicar esta regla, su nombre real en el NSG será una cadena compuesta por el protocolo, la dirección del tráfico, "DENY" y un número aleatorio.
 
 *Para modificar una regla de protección de red adaptable:*
 
-1. Para modificar algunos de los parámetros de una regla, en la pestaña **Reglas**, haga clic en los puntos suspensivos (...) al final de la fila de la regla y seleccione **Editar**.
+1. Para modificar algunos de los parámetros de una regla, en la pestaña **Reglas**, haga clic en los puntos suspensivos (…) al final de la fila de la regla y seleccione **Editar**.
 
    ![Editar regla](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
@@ -106,12 +108,12 @@ Instrucciones importantes a la hora de modificar una regla de protección de red
 
     ![Aplicar regla](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### Adición de una nueva regla <a name ="add-rule"> </a>
+### <a name="add-a-new-rule"></a>Adición de una nueva regla <a name ="add-rule"> </a>
 
-Puede agregar una regla tipo "permitir" que no sea recomienda por Security Center.
+Puede agregar una regla de tipo "permitir" no recomendada por Security Center.
 
 > [!NOTE]
-> Aquí solo se pueden agregar reglas de tipo "permitir". Si quiere agregar reglas tipo "denegar", puede hacerlo directamente en el NSG. Para más información, consulte [Creación, modificación o eliminación de un grupo de seguridad de red ](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Aquí solo se pueden agregar reglas de tipo "permitir". Si quiere agregar reglas de tipo "denegar", puede hacerlo directamente en el NSG. Para más información, consulte [Creación, modificación o eliminación de un grupo de seguridad de red ](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 *Para agregar una regla de protección de red adaptable:*
 
@@ -129,21 +131,12 @@ Puede agregar una regla tipo "permitir" que no sea recomienda por Security Cente
     ![Aplicar regla](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### Eliminación de una regla <a name ="delete-rule"> </a>
+### <a name="delete-a-rule"></a>Eliminación de una regla <a name ="delete-rule"> </a>
 
 Cuando sea necesario, puede eliminar una regla recomendada de la sesión actual. Por ejemplo, puede determinar que aplicar una regla sugerida podría bloquear tráfico legítimo.
 
 *Para eliminar una regla de protección de red adaptable de la sesión actual:*
 
-1. En la pestaña **Reglas**, haga clic en los puntos suspensivos (...) al final de la fila de la regla y seleccione **Eliminar**.  
+1. En la pestaña **Reglas**, haga clic en los puntos suspensivos (…) al final de la fila de la regla y seleccione **Eliminar**.  
 
     ![Reglas de protección](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
-
-
-
-
-
-
-
- 
-

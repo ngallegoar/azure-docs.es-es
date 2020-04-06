@@ -5,17 +5,17 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/28/2020
+ms.date: 03/29/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a04df7ed283a17ddad6af87cf8215ff8d39a5079
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 871a3edf70690a09d3747703e8bc999dfcce967c
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78202461"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385187"
 ---
-La ráfaga de disco es actualmente una característica en versión preliminar de SSD Premium. La ráfaga se admite en cualquier tamaño de disco SSD Premium <= 512 GiB (P20 o inferior). Estos tamaños de disco admiten la ampliación en la medida de lo posible y usan un sistema de crédito para administrarla. Los créditos se acumulan en un cubo de ráfagas siempre que el tráfico del disco está por debajo del objetivo de rendimiento aprovisionado para el tamaño del disco, y consume créditos cuando el tráfico supera el objetivo. Se realiza un seguimiento del tráfico contra IOPS y el ancho de banda en el objetivo aprovisionado. La seguridad de disco no sorteará las limitaciones de tamaño de la maquina virtual (VM) en IOPS o rendimiento.
+La ráfaga de discos es compatible con SSD Premium. La ráfaga se admite en cualquier tamaño de disco SSD Premium <= 512 GiB (P20 o inferior). Estos tamaños de disco admiten la ampliación en la medida de lo posible y usan un sistema de crédito para administrarla. Los créditos se acumulan en un cubo de ráfagas siempre que el tráfico del disco está por debajo del objetivo de rendimiento aprovisionado para el tamaño del disco, y consume créditos cuando el tráfico supera el objetivo. Se realiza un seguimiento del tráfico contra IOPS y el ancho de banda en el objetivo aprovisionado. La seguridad de disco no sorteará las limitaciones de tamaño de la maquina virtual (VM) en IOPS o rendimiento.
 
 La ampliación del disco está habilitada de forma predeterminada en las nuevas implementaciones de los tamaños del disco que la admiten. Los tamaños del disco existentes, si admiten la ampliación del disco, pueden habilitar la seguridad a través de cualquiera de los métodos siguientes:
 
@@ -36,7 +36,7 @@ En la tabla siguiente se resumen los tamaños del disco que proporcionan compati
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-Actualmente, la ampliación del disco solo está disponible en la región Centro-oeste de EE. UU.
+La ráfaga de discos está disponible en todas las regiones de la nube pública.
 
 ## <a name="disk-sizes"></a>Tamaños de disco
 

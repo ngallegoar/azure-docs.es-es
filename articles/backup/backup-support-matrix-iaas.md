@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para copias de seguridad de máquinas virtuales 
 description: Proporciona un resumen de opciones de compatibilidad y limitaciones para realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: d4d5168ee7f2f8c71b3a63fea64873a8dd71658b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: d86ce94c62ec9f25b364e9fdc963e3043b274722
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602206"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389297"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -43,8 +43,6 @@ Más información sobre la copia de seguridad [mediante un servidor de copias de
 
 **Acción** | **Soporte técnico**
 --- | ---
-Habilitar copia de seguridad al crear una máquina virtual de Azure con Windows | Compatible para: <br/><br/> - Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)
-Habilitar copia de seguridad al crear una máquina virtual Linux | Compatible para:<br/><br/> - Ubuntu Server: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Copia de seguridad de una máquina virtual apagada o sin conexión | Compatible.<br/><br/> La instantánea es coherente solo con bloqueos, no con aplicaciones.
 Copia de seguridad de discos después de migrar a discos administrados | Compatible.<br/><br/> La copia de seguridad seguirá funcionando. No se requiere ninguna acción.
 Copia de seguridad de discos administrados después de habilitar el bloqueo del grupo de recursos | No compatible.<br/><br/> Azure Backup no puede eliminar los puntos de restauración anteriores y las copias de seguridad empezarán a generar errores cuando se alcance el límite máximo de puntos de restauración.
@@ -66,7 +64,7 @@ En la tabla siguiente se resumen los sistemas operativos compatibles para realiz
 **Escenario** | **SO compatible**
 --- | ---
 Copia de seguridad con la extensión del agente de máquina virtual de Azure | - Windows 10 Client (solo 64 bits) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (solo 64 bits)
-Copia de seguridad con el agente de MARS | Sistemas operativos [compatibles](backup-support-matrix-mars-agent.md#support-for-direct-backups).
+Copia de seguridad con el agente de MARS | Sistemas operativos [compatibles](backup-support-matrix-mars-agent.md#supported-operating-systems).
 Copia de seguridad con DPM/MABS | Sistemas operativos compatibles para copia de seguridad con [MABS](backup-mabs-protection-matrix.md) y [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
 Azure Backup no admite sistemas operativos de 32 bits.
@@ -117,7 +115,6 @@ Puntos de recuperación en disco DPM/MABS | 64 para servidores de archivos y 448
 **Restauración** | **Compatible**
 --- | ---
 Restaurar archivos entre sistemas operativos | Puede restaurar archivos en cualquier máquina que tenga el mismo sistema operativo que la máquina virtual de copia de seguridad, o bien uno compatible. Consulte la [tabla de sistemas operativos compatibles](backup-azure-restore-files-from-vm.md#system-requirements).
-Restaurar archivos en máquinas virtuales clásicas | No compatible.
 Restaurar archivos desde máquinas virtuales cifradas | No compatible.
 Restaurar archivos desde cuentas de almacenamiento con acceso restringido a la red | No compatible.
 Restaurar archivos en máquinas virtuales con espacios de almacenamiento de Windows | La restauración no se admite en la misma máquina virtual.<br/><br/> En su lugar, restaure los archivos en una máquina virtual compatible.

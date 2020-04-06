@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: cd634c41a1d6e3d9846e8299dd281b52beb77130
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 602553637e21b17aa4f9bc7402753af024c697c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912796"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477568"
 ---
 # <a name="linear-regression-module"></a>Módulo de regresión lineal
 En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
@@ -82,7 +82,7 @@ Este módulo admite dos métodos de ajuste de un modelo de regresión con distin
 
 7. Agregue el módulo [Entrenamiento de modelo](./train-model.md) a la canalización y conecte un conjunto de datos con etiqueta.
 
-8. Ejecución de la canalización
+8. Envíe la canalización.
 
 ### <a name="results-for-ordinary-least-squares-model"></a>Resultados del modelo de mínimos cuadrados
 
@@ -131,7 +131,7 @@ Una vez completado el entrenamiento:
 
     Si no utiliza un barrido de parámetros, use el módulo [Train Model](train-model.md) (Entrenar modelo).
 
-13. Ejecución de la canalización
+13. Envíe la canalización.
 
 ### <a name="results-for-online-gradient-descent"></a>Resultados del gradiente descendiente en línea
 

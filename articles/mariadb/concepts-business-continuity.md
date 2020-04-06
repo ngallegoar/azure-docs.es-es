@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 76e749b26be5a5204b247d294f26da169f84094c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: c01e0df1f420c8489ca3445d9fa025b251a870f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773024"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532398"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Información acerca de la continuidad empresarial en Azure Database for MariaDB
 
@@ -23,7 +23,7 @@ Azure Database for MariaDB proporciona características de continuidad empresari
 
 La tabla siguiente compara los valores de ERT y RPO para las características disponibles:
 
-| **Funcionalidad** | **Básico** | **Uso general** | **Memoria optimizada** |
+| **Funcionalidad** | **Basic** | **Uso general** | **Memoria optimizada** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Restauración a un momento dado a partir de una copia de seguridad | Cualquier punto de restauración dentro del período de retención | Cualquier punto de restauración dentro del período de retención | Cualquier punto de restauración dentro del período de retención |
 | Restauración geográfica de las copias de seguridad con replicación geográfica | No compatible | ERT < 12 horas<br/>RPO < 1 hora | ERT < 12 horas<br/>RPO < 1 hora |
@@ -33,7 +33,7 @@ La tabla siguiente compara los valores de ERT y RPO para las características di
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperación de un servidor tras un error del usuario o la aplicación
 
-Puede utilizar las copias de seguridad del servicio para recuperar un servidor a partir de diversos eventos de interrupción. Un usuario podría eliminar de forma involuntaria algunos datos, una tabla importante o, incluso, una base de datos entera. O bien, una aplicación podría sobrescribir accidentalmente datos correctos por otros no válidos debido a un defecto en esta, etc.
+Puede usar las copias de seguridad del servicio para recuperar un servidor a partir de diversos eventos de interrupción. Un usuario podría eliminar de forma involuntaria algunos datos, una tabla importante o, incluso, una base de datos entera. O bien, una aplicación podría sobrescribir accidentalmente datos correctos por otros no válidos debido a un defecto en esta, etc.
 
 Puede realizar una restauración a un momento dado para crear una copia del servidor en un momento dado conocido correcto. Este momento dado debe estar incluido en el período de retención de la copia de seguridad que configuró para el servidor. Después de restaurar los datos en el nuevo servidor, puede reemplazar el servidor original por el servidor recientemente restaurado o copiar los datos necesarios del servidor restaurado en el servidor original.
 

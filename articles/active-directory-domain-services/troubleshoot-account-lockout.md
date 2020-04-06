@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 29789f299f266c86d719d56cfbf8e262907f7264
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 2e274aa353f6c3e485ae10a6a67ee2940eb88b08
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827088"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246327"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Solución de problemas de bloqueo de cuentas con un dominio administrado de Azure AD Domain Services
 
@@ -54,7 +54,7 @@ Los motivos más frecuentes por los que una cuenta se bloquea sin que entren en 
 
 ## <a name="troubleshoot-account-lockouts-with-security-audits"></a>Solución de problemas de bloqueos de cuentas con auditorías de seguridad
 
-Para solucionar problemas cuando se bloquee una cuenta y saber de dónde proceden los eventos de bloqueo, [habilite las auditorías de seguridad en Azure AD DS (actualmente en versión preliminar)][security-audit-events]. Los eventos de auditoría solo se capturan desde el momento en que se habilita esta característica. Lo ideal sería que las auditorías de seguridad se habilitaran *antes* de que una cuenta se bloqueara. Si un usuario tiene repetidamente problemas con el bloqueo de cuentas, se pueden habilitar las auditorías de seguridad por si vuelve a ocurrir.
+Para solucionar problemas cuando se bloquee una cuenta y saber de dónde proceden los eventos de bloqueo, [habilite las auditorías de seguridad en Azure AD DS][security-audit-events]. Los eventos de auditoría solo se capturan desde el momento en que se habilita esta característica. Lo ideal sería que las auditorías de seguridad se habilitaran *antes* de que una cuenta se bloqueara. Si un usuario tiene repetidamente problemas con el bloqueo de cuentas, se pueden habilitar las auditorías de seguridad por si vuelve a ocurrir.
 
 En las siguientes consultas de ejemplo, puede ver cómo puede consultar los *eventos de bloqueo de cuentas* con el código *4740* una vez que las auditoría de seguridad estén habilitadas.
 

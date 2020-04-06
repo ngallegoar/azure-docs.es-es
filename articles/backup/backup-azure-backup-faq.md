@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: db09a31154b680097b6b46e8f9e2cce2ad09d108
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 039666c4b54da6ac5444f5aa5acda5f1bb438782
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255023"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156062"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -22,7 +22,7 @@ Sí. Se pueden crear hasta 500 almacenes de Recovery Services por cada región a
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>¿Hay algún límite en el número de servidores o máquinas que se pueden registrar en cada almacén?
 
-Puede registrar hasta 1000 máquinas virtuales de Azure por almacén. Si usa el agente de Microsoft Azure Backup (MAB), puede registrar hasta 50 agentes de MAB por almacén. Y puede registrar 50 servidores de MAB o servidores DPM en un almacén.
+Puede registrar hasta 1000 máquinas virtuales de Azure por almacén. Si usa el agente de Microsoft Azure Backup, puede registrar hasta 50 agentes de MAB por almacén. Así mismo, puede registrar 50 servidores de MABS o DPM en un almacén.
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>¿Cuántos orígenes de datos o elementos se pueden proteger en un almacén?
 

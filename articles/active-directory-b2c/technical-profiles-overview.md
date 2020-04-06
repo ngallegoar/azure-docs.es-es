@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 48324d252e22ca898f923e1f0ad9b76df1c10861
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5d89d123fe757b0502f4c6b3a0d33c185b25224b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78183659"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80057309"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Acerca de los perfiles técnicos en las directivas personalizadas de Azure Active Directory B2C
 
@@ -28,19 +28,21 @@ Un perfil técnico proporciona un marco con un mecanismo integrado para comunica
 
 Un perfil técnico posibilita estos tipos de escenarios:
 
+- [Application Insights](application-insights-technical-profile.md): envía datos de eventos a [Application Insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md): proporciona compatibilidad para la administración de usuarios de Azure Active Directory B2C.
+- [Azure Multi-Factor Authentication](multi-factor-auth-technical-profile.md): proporciona compatibilidad para verificar un número de teléfono mediante Azure Multi-Factor Authentication (MFA). 
+- [Transformación de notificaciones](claims-transformation-technical-profile.md): llamada a transformaciones de notificaciones de salida para manipular los valores de notificaciones, validar las notificaciones o establecer valores predeterminados para un conjunto de notificaciones de salida.
 - [Emisor de tokens de JWT](jwt-issuer-technical-profile.md): emite un token de JWT que se devuelve a la aplicación de usuario de confianza.
-- **Proveedor de factor de teléfono**: autenticación multifactor.
 - [OAuth1](oauth1-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo OAuth 2.0.
+- [Contraseña de un solo uso](one-time-password-technical-profile.md): proporciona compatibilidad para administrar la generación y verificación de una contraseña de un solo uso.
 - [OpenID Connect](openid-connect-technical-profile.md): federación con cualquier proveedor de identidades del protocolo OpenID Connect.
-- [Transformación de notificaciones](claims-transformation-technical-profile.md): llamada a transformaciones de notificaciones de salida para manipular los valores de notificaciones, validar las notificaciones o establecer valores predeterminados para un conjunto de notificaciones de salida.
+- [Factor de teléfono](phone-factor-technical-profile.md): es compatible con la inscripción y comprobación de números de teléfono.
 - [Proveedor de RESTful](restful-technical-profile.md): llamada a los servicios de la API de REST, como validar entrada de usuario, enriquecer los datos de usuario o integrar con aplicaciones de línea de negocio.
 - [SAML2](saml-technical-profile.md) : federación con cualquier proveedor de identidades del protocolo SAML.
+- [Emisor de tokens de SAML](saml-issuer-technical-profile.md): emite un token de SAML que se devuelve a la aplicación de usuario de confianza.
 - [Autoaserción](self-asserted-technical-profile.md): interacción con el usuario. Por ejemplo, recopilar las credenciales del usuario para iniciar sesión, representar la página de registro o restablecer la contraseña.
 - [Administración de sesiones](custom-policy-reference-sso.md): administración de distintos tipos de sesiones.
-- [Application Insights](../azure-monitor/app/usage-overview.md)
-- [Contraseña de un solo uso](one-time-password-technical-profile.md): proporciona compatibilidad para administrar la generación y verificación de una contraseña de un solo uso.
 
 ## <a name="technical-profile-flow"></a>Flujo del perfil técnico
 

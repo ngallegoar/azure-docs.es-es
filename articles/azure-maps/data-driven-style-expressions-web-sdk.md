@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: e3e8476d09541518d964bfaff4dabad47755eeb9
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3f15033095b02dd35c2d8d7bda60ca184df64c9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189648"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475026"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expresiones de estilo basadas en datos (SDK web)
 
@@ -91,6 +91,8 @@ Las expresiones de datos proporcionan acceso a los datos de propiedad de una car
 | `['has', string, object]` | boolean | Determina si las propiedades del objeto tienen la propiedad especificada. |
 | `['id']` | value | Obtiene el identificador de la característica si lo tiene. |
 | `['length', string | array]` | number | Obtiene la longitud de una cadena o matriz. |
+| `['in', boolean | string | number, array]` | boolean | Determina si un elemento existe en una matriz. |
+| `['in', substring, string]` | boolean | Determina si existe una subcadena en una cadena. |
 
 **Ejemplos**
 
@@ -790,6 +792,44 @@ Esta capa representará la característica punto, tal como se muestra en la imag
 <center>
 
 ![Ejemplo de expresión de formato de número](media/how-to-expressions/number-format-expression.png) </center>
+
+### <a name="image-expression"></a>Expresión de imagen
+
+Se puede usar una expresión de imagen con las opciones `image` y `textField` de una capa de símbolo y la opción `fillPattern` de la capa de polígono. Esta expresión comprueba que la imagen solicitada existe en el estilo y devuelve el nombre de la imagen resuelta o `null`, en función de si la imagen está actualmente en el estilo o no. Este proceso de validación es sincrónico y requiere que la imagen se haya agregado al estilo antes de solicitarla en el argumento de imagen.
+
+**Ejemplo**
+
+En el ejemplo siguiente se usa una expresión `image` para agregar un icono en línea con texto en una capa de símbolo. 
+
+```javascript
+ //Load the custom image icon into the map resources.
+map.imageSprite.add('wifi-icon', 'wifi.png').then(function () {
+
+    //Create a data source and add it to the map.
+    datasource = new atlas.source.DataSource();
+    map.sources.add(datasource);
+
+    //Create a point feature and add it to the data source.
+    datasource.add(new atlas.data.Point(map.getCamera().center));
+
+    //Add a layer for rendering point data as symbols.
+    map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+        iconOptions: {
+            image: 'none'
+        },
+        textOptions: {
+            //Create a formatted text string that has an icon in it.
+            textField: ["format", 'Ricky\'s ', ["image", "wifi-icon"], ' Palace']
+        }
+    }));
+});
+```
+
+Esta capa representará al campo de texto en la capa de símbolo, tal como se muestra en la imagen siguiente:
+
+<center>
+
+![Ejemplo de expresión de imagen](media/how-to-expressions/image-expression.png) </center>
 
 ## <a name="zoom-expression"></a>Expresión de zoom
 

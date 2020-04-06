@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 884244b245be06f1477d27a4828cad18e36eca24
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 648578563a0e53d3ed5bda6ab47f85c3c6a2a24e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368624"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476661"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Versión preliminar del modelo de serie temporal en Azure Time Series Insights
 
@@ -210,10 +210,10 @@ Con los campos de instancia usados en la definición anterior y varias series te
 
 | Identificador de serie temporal | Campos de instancia |
 | --- | --- |
-| ID1 | "edificio" = "1000", "piso" = "10", "habitación" = "55"  |
-| ID2 | "edificio" = "1000", "habitación" = "55" |
-| ID3 | "piso" = "10" |
-| ID4 | "Edificio" = "1000", "piso" = "10"  |
+| ID1 | "building" = "1000", "floor" = "10", "room" = "55"  |
+| ID2 | "building" = "1000", "room" = "55" |
+| ID3 | "floor" = "10" |
+| ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | No hay ningún valor establecido en "building", "floor" o "room". |
 
 La series temporales **ID1** e **ID4** se muestran como parte de la jerarquía **H1** en el [explorador de Azure Time Series Insights](time-series-insights-update-explorer.md) porque tienen parámetros *building*, *floor* y *room* totalmente definidos y correctamente ordenados.
@@ -344,7 +344,7 @@ Las variables se ajustan al ejemplo JSON siguiente:
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "toLong($event.[Status].Double)" 
+     "tsx": "toLong($event.[Status].Double)"
 },
   "interpolation": {
     "kind": "step",
@@ -354,7 +354,7 @@ Las variables se ajustan al ejemplo JSON siguiente:
   },
   "categories": [
     {
-      "values": [0, 1, 2, 3],
+      "values": [0, 1, 2],
       "label": "Good"
     },
     {

@@ -7,19 +7,19 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: c9781165affb1755e73919931d8d158ae9b535ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9fc9bee98391f7272a417324b9c3a540b6adbe6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438777"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79474516"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introducción al uso de la CLI de Azure por parte de Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 En este artículo se describe cómo utilizar la interfaz de la línea de comandos de la CLI de Azure para crear cuentas de Azure Data Lake Analytics, enviar trabajos de U-SQL y catálogos. El trabajo lee un archivo de valores separados por tabulaciones (TSV) y lo convierte en un otro de valores separados por comas (CSV). 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de comenzar, necesita los siguientes elementos:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -27,12 +27,11 @@ Antes de comenzar, necesita los siguientes elementos:
 
 
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Para iniciar sesión en una suscripción de Azure:
+Para iniciar sesión en la suscripción de Azure:
 
-```
-azurecli
+```azurecli
 az login
 ```
 
@@ -42,7 +41,7 @@ Una vez que haya iniciado sesión, el comando de inicio de sesión enumera las s
 
 Para usar una suscripción concreta:
 
-```
+```azurecli
 az account set --subscription <subscription id>
 ```
 
@@ -53,13 +52,13 @@ Para poder ejecutar cualquier trabajo es preciso tener una cuenta de Data Lake A
 
 Para enumerar los grupos de recursos que contiene su suscripción:
 
-```
+```azurecli
 az group list
 ```
 
 Para crear un nuevo grupo de recursos:
 
-```
+```azurecli
 az group create --name "<Resource Group Name>" --location "<Azure Location>"
 ```
 
@@ -69,7 +68,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 
 Para mostrar la cuenta de Data Lake Store existente:
 
-```
+```azurecli
 az dls account list
 ```
 
@@ -81,13 +80,13 @@ az dls account create --account "<Data Lake Store Account Name>" --resource-grou
 
 Use la siguiente sintaxis para crear una cuenta de Data Lake Analytics:
 
-```
+```azurecli
 az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Store Account Name>"
 ```
 
 Después de crear una cuenta, puede usar los comandos siguientes para enumerar las cuentas y mostrar los detalles de la misma:
 
-```
+```azurecli
 az dla account list
 az dla account show --account "<Data Lake Analytics Account Name>"            
 ```
@@ -99,7 +98,7 @@ Azure Portal proporciona una interfaz de usuario para copiar algunos archivos de
 
 Para cargar archivos con la CLI de Azure, use el siguiente comando:
 
-```
+```azurecli
 az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
 az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
@@ -151,27 +150,26 @@ wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Da
 
 Para enviar un trabajo, use la sintaxis siguiente.
 
-```
+```azurecli
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
 Por ejemplo:
 
-```
+```azurecli
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
 ```
 
 **Para enumerar los trabajos y mostrar los detalles de un trabajo**
 
-```
-azurecli
+```azurecli
 az dla job list --account "<Data Lake Analytics Account Name>"
 az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
 **Para cancelar trabajos**
 
-```
+```azurecli
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
@@ -179,7 +177,7 @@ az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity 
 
 Una vez que se completa un trabajo, puede usar los siguientes comandos para enumerar los archivos de salida y descargar los archivos:
 
-```
+```azurecli
 az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destination>"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
@@ -188,7 +186,7 @@ az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Ou
 
 Por ejemplo:
 
-```
+```azurecli
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"
 ```
 

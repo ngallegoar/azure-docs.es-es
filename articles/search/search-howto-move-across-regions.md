@@ -8,32 +8,32 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/06/2020
-ms.openlocfilehash: 183a937a232dbd28962bb7d6ef42b0d78b8a81fd
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.date: 03/24/2020
+ms.openlocfilehash: 00f16d11f7a9cd276772eda5e91d6e117ada8c9f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78850693"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246311"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Traslado del servicio Azure Cognitive Search a otra región de Azure
 
-En ocasiones, los clientes preguntan sobre el traslado de un servicio de búsqueda existente a otra región. Actualmente, no hay mecanismos ni herramientas integrados para ayudarle con esa tarea. Sigue siendo un proceso manual, como se describe en este artículo.
+En ocasiones, los clientes preguntan sobre el traslado de un servicio de búsqueda a otra región. Actualmente, no hay ningún mecanismo ni herramienta integrado que facilite esta tarea, pero este artículo puede ayudarle a comprender los pasos manuales para lograr el mismo resultado.
 
 > [!NOTE]
 > En Azure Portal, todos los servicios tienen un comando **Export template**. En el caso de Azure Cognitive Search, este comando genera una definición básica de un servicio (nombre, ubicación, nivel, réplica y recuento de particiones), pero no reconoce el contenido del servicio, ni tampoco las claves, roles o registros. Aunque el comando existe, no se recomienda utilizarlo para trasladar un servicio de búsqueda.
 
-## <a name="steps-for-moving-a-service"></a>Pasos para trasladar un servicio
+## <a name="guidance-for-moving-a-service"></a>Instrucciones para trasladar un servicio
 
-Si necesita trasladar un servicio de búsqueda a una región diferente, el enfoque debería ser parecido al que se indica en los siguientes pasos:
+1. Identifique las dependencias y los servicios relacionados para comprender el impacto total de la reubicación de un servicio, en caso de que necesite trasladar algo más que solo Azure Cognitive Search.
 
-1. Identifique los servicios relacionados para conocer el impacto completo de la reubicación de un servicio. Puede que esté utilizando Azure Storage como registro, almacén de conocimiento o como un origen de datos externo. Puede que utilice Cognitive Services para el enriquecimiento con IA. El acceso a servicios de otras regiones es habitual, pero conlleva cargos adicionales de ancho de banda. Es necesario que Cognitive Services y Azure Cognitive Search estén en la misma región si va a utilizar enriquecimiento con IA.
+   Azure Storage se usa para el registro y la creación de un almacén de conocimiento y, además, es un origen de datos externo que se usa habitualmente para el enriquecimiento con IA y la indexación. Cognitive Services es una dependencia del enriquecimiento con IA. Es necesario que Cognitive Services y el servicio de búsqueda estén en la misma región si va a utilizar el enriquecimiento con IA.
 
-1. Realice un inventario del servicio existente para obtener una lista completa de los objetos del servicio. Si ha habilitado el registro, cree y archive los informes que pueda necesitar para llevar un registro histórico.
+1. Cree un inventario de todos los objetos del servicio para que sepa qué debe mover: índices, mapas de sinónimos, indexadores, orígenes de datos, conjuntos de aptitudes. Si ha habilitado el registro, cree y archive los informes que pueda necesitar para llevar un registro histórico.
 
-1. Compruebe los precios y la disponibilidad en la nueva región para garantizar la disponibilidad de Azure Cognitive Search más la de cualquier servicio relacionado que pueda crear en la misma región. Compruebe la paridad de características. Algunas características en versión preliminar tienen una disponibilidad limitada.
+1. Compruebe los precios y la disponibilidad en la nueva región para garantizar la disponibilidad de Azure Cognitive Search, así como la de cualquier servicio de la nueva región. La mayoría de las características están disponibles en todas las regiones, pero algunas características de la versión preliminar tienen disponibilidad restringida.
 
-1. Cree un servicio en la nueva región y vuelva a publicar a partir del código fuente todos los índices, indexadores, orígenes de datos, conjuntos de aptitudes, almacenes de conocimiento y asignaciones de sinónimos existentes. Los nombres de servicio deben ser exclusivos para que no pueda volver a utilizar un nombre ya existente.
+1. Cree un servicio en la nueva región y vuelva a publicar a partir del código fuente todos los índices, mapas de sinónimos, indexadores, orígenes de datos y conjuntos de aptitudes existentes. Recuerde que los nombres de servicios deben ser exclusivos, de modo que no puede volver a utilizar un nombre ya existente. Compruebe cada conjunto de aptitudes para ver si las conexiones a Cognitive Services siguen siendo válidas en términos del requisito de la misma región. Además, si se crean almacenes de conocimiento, compruebe las cadenas de conexión de Azure Storage si usa otro servicio.
 
 1. Recargue los índices y almacenes de conocimiento si procede. Tendrá que usar código de la aplicación para insertar datos JSON en un índice o volver a ejecutar los indexadores para extraer los documentos a partir de fuentes externas. 
 
@@ -45,6 +45,9 @@ Si necesita trasladar un servicio de búsqueda a una región diferente, el enfoq
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+Los vínculos siguientes pueden ayudarle a encontrar más información al completar los pasos descritos anteriormente.
+
++ [Precios y regiones de Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/)
 + [Elección de un nivel](search-sku-tier.md)
 + [Creación de una instancia de Search Service](search-create-service-portal.md)
 + [Carga de documentos de búsqueda](search-what-is-data-import.md)
@@ -123,7 +126,7 @@ To obtain region location codes, see [Azure Locations](https://azure.microsoft.c
     "resources": [
         {
             "type": "Microsoft.Search/searchServices",
-            "apiVersion": "2015-08-19",
+            "apiVersion": "2020-03-13",
             "name": "[parameters('searchServices_target_region_search_name')]",
             "location": "centralus",
             "sku": {

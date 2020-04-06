@@ -3,12 +3,12 @@ title: Versiones de clúster compatibles en Azure Service Fabric
 description: Obtenga información sobre las versiones de clúster en Azure Service Fabric, incluido un vínculo a las versiones más recientes del blog del equipo de Service Fabric.
 ms.topic: troubleshooting
 ms.date: 03/02/2020
-ms.openlocfilehash: ea2dcc3da2f59aa00b12aedd181dc27df00e9d58
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 1158266857f0864ed2f442edb100032c70063719
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252724"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385051"
 ---
 # <a name="supported-service-fabric-versions"></a>Versiones admitidas de Service Fabric
 
@@ -36,8 +36,11 @@ En la tabla siguiente se indican las versiones de Service Fabric y sus fechas de
 | 6.2.* | 6.0.232.* |Versión 3.1 o anterior |26 de octubre de 2018   |
 | 6.3.* | 6.1.480.* |Versión 3.2 o anterior |31 de marzo de 2019  |
 | 6.4.* | 6.2.301.* |Versión 3.3 o anterior |15 de septiembre de 2019 |
-| 6.5.* | 6.4.617.* |Versión 3.4 o anterior |1 de mayo de 2020 |
-| 7.0.* | 6.4.664.# |Versión 4.0 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
+| 6.5.* | 6.4.617.* |Versión 3.4 o anterior |1 de agosto de 2020 |
+| 7.0.466.* | 6.4.664.* |Versión 4.0 o anterior|Versión actual; por lo tanto, sin fecha de finalización |
+| 7.0.466.* | 6.5.* |Versión 4.0 o anterior|Versión actual; por lo tanto, sin fecha de finalización |
+| 7.0.470.* | 7.0.466.* |Versión 4.0 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
+
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
 En la tabla siguiente se indican los sistemas operativos compatibles para las versiones de Service Fabric admitidas.

@@ -4,12 +4,12 @@ description: Implementación y configuración de una red del consorcio de Hyperl
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: v-umha
-ms.openlocfilehash: 5aed420295fd17cf4e7b26c86e8b84c4687e6545
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 2312c002e5c2e0b813f8acbdc3e3bff597f204d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029918"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476447"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consorcio Hyperledger Fabric en Azure Kubernetes Service (AKS)
 
@@ -78,7 +78,7 @@ Para empezar a trabajar con la implementación de componentes de red de HLF, vay
     ![Plantilla de Hyperledger Fabric en Azure Kubernetes Service](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-settings.png)
 
 5. Escriba la siguiente información:
-    - **Nombre de la organización**: El nombre de la organización de Fabric, que es necesario para varias operaciones del plano de datos.
+    - **Nombre de la organización**: El nombre de la organización de Fabric, que es necesario para varias operaciones del plano de datos. El nombre de la organización debe ser único en cada implementación. 
     - **Componente de red de Fabric**: Elija el servicio de ordenación o los nodos del mismo nivel basados en el componente de red de la cadena de bloques que desea configurar.
     - **Número de nodos**: Estos son los dos tipos de nodos:
         - Servicio de ordenación: Seleccione el número de nodos para proporcionar tolerancia a errores a la red. Solo se admiten 3, 5 o 7 nodos solicitantes.

@@ -3,16 +3,16 @@ title: CI/CD con Azure Pipelines y plantillas
 description: Se describe cómo configurar la integración continua de Azure Pipelines mediante proyectos de implementación del grupo de recursos de Azure en Visual Studio.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 6f5d4846d32b4880ccd3fbd82f062f57948ac15a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7617bf47595fce7baa533b0f7cc94a1803ddd349
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474458"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153461"
 ---
-# <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Integración de plantillas de Resource Manager con Azure Pipelines
+# <a name="integrate-arm-templates-with-azure-pipelines"></a>Integración de plantillas de ARM con Azure Pipelines
 
-Visual Studio proporciona el proyecto del grupo de recursos de Azure para crear plantillas e implementarlas en su suscripción de Azure. Este proyecto se puede integrar con Azure Pipelines para la integración e implementación continuas (CI/CD).
+Visual Studio proporciona el proyecto del grupo de recursos de Azure para crear plantillas de Azure Resource Manager (ARM) e implementarlas en su suscripción a Azure. Este proyecto se puede integrar con Azure Pipelines para la integración e implementación continuas (CI/CD).
 
 Hay dos maneras de implementar plantillas con Azure Pipelines:
 
@@ -261,4 +261,4 @@ Puede seleccionar la canalización en ejecución para ver información detallada
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver el proceso paso a paso sobre el uso de Azure Pipelines con plantillas de Resource Manager, consulte [Tutorial: Integración continua de plantillas de Azure Resource Manager en Azure Pipelines](template-tutorial-use-azure-pipelines.md).
+Para ver el proceso paso a paso sobre el uso de Azure Pipelines con plantillas de ARM, consulte [Tutorial: Integración continua de plantillas de ARM en Azure Pipelines](template-tutorial-use-azure-pipelines.md).

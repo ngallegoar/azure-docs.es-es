@@ -12,13 +12,13 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/08/2019
-ms.openlocfilehash: 9b96969027431f289e366b150fbfc6a62ee6a908
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 03/27/2020
+ms.openlocfilehash: 405ac27fad3c24d3064f11476f452ad00abb9b02
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719915"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387774"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introducción a la auditoría de Instancia administrada de Azure SQL Database
 
@@ -32,7 +32,7 @@ La auditoría de [Instancia administrada](sql-database-managed-instance.md) hace
 En la sección siguiente se describe la configuración de auditoría en su Instancia administrada.
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
-1. Cree un **contenedor** de Azure Storage donde se almacenan los registros de auditoría.
+2. Cree un **contenedor** de Azure Storage donde se almacenan los registros de auditoría.
 
    1. Navegue hasta Azure Storage donde le gustaría almacenar los registros de auditoría.
 
@@ -50,8 +50,10 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
    1. En **Nombre** proporcione un nombre de contenedor, establezca el nivel de acceso público en **Privado**y haga clic en **Aceptar**.
 
       ![Configuración de la opción Crear contenedor de blobs](./media/sql-managed-instance-auditing/3_create_container_config.png)
-
-1. Después de crear el contenedor para los registros de auditoría, hay dos maneras de configurarlo como destino de los registros de auditoría: [mediante T-SQL](#blobtsql) o [mediante la interfaz de usuario de SQL Server Management Studio (SSMS)](#blobssms):
+  > [!IMPORTANT]
+  > Los clientes que quieran configurar un almacén de registros inmutable para los eventos de auditoría a nivel de servidor o de base de datos deben seguir las [instrucciones que proporciona Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). (Asegúrese de haber seleccionado **Permitir anexiones adicionales** al configurar el almacenamiento de blobs inmutable).
+  
+3. Después de crear el contenedor para los registros de auditoría, hay dos maneras de configurarlo como destino de los registros de auditoría: [mediante T-SQL](#blobtsql) o [mediante la interfaz de usuario de SQL Server Management Studio (SSMS)](#blobssms):
 
    - <a id="blobtsql"></a>Configuración del almacenamiento de blobs para los registros de auditoría con T-SQL:
 
@@ -138,12 +140,12 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
      1. Haga clic en **Aceptar** en el cuadro de diálogo "Crear auditoría".
 
-1. <a id="createspec"></a>Después de configurar el contenedor de blobs como destino para los registros de auditoría, cree una especificación de auditoría de servidor o una de auditoría de base de datos como lo haría para SQL Server:
+4. <a id="createspec"></a>Después de configurar el contenedor de blobs como destino para los registros de auditoría, cree y habilite una especificación de auditoría de servidor o de base de datos como lo haría para SQL Server:
 
    - [Crear la guía de T-SQL de especificación de auditoría de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Crear la guía de T-SQL de especificación de auditoría de base de datos](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-1. Habilite la auditoría de servidor que creó en el paso 6:
+5. Habilite la auditoría de servidor que ha creado en el paso 3:
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -184,7 +186,7 @@ Los registros de auditoría de una instancia administrada se pueden enviar a Eve
     GO
     ```
 
-9. Cree una especificación de auditoría de servidor o la especificación de auditoría de base de datos como lo haría para SQL Server:
+9. Cree y habilite una especificación de auditoría de servidor o de base de datos como lo haría para SQL Server:
 
    - [Crear la guía de T-SQL de especificación de auditoría de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Crear la guía de T-SQL de especificación de auditoría de base de datos](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
@@ -192,7 +194,8 @@ Los registros de auditoría de una instancia administrada se pueden enviar a Eve
 10. Habilite la auditoría de servidor que creó en el paso 8:
  
     ```SQL
-    ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
+    ALTER SERVER AUDIT [<your_audit_name>]
+    WITH (STATE=ON);
     GO
     ```
 

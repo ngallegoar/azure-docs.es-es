@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: c1b72f2a84f8cafa1767639cae64fb420b0a997c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: e6f2ad2c5c30e3c75e8d3588e386ea14e8e3350b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546051"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80065943"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos en directo y salidas activas en Media Services
 
@@ -34,7 +34,7 @@ Los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) s
 
 ## <a name="live-event-types"></a>Tipos de objetos LiveEvent
 
-Un [evento en directo](https://docs.microsoft.com/rest/api/media/liveevents) puede ser de uno de estos dos tipos: paso a través o codificación en directo. Los tipos se establecen durante la creación mediante [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+Un [evento en directo](https://docs.microsoft.com/rest/api/media/liveevents) se puede establecer en una codificación de *paso a través* (un codificador en directo local envía una secuencia de velocidad de bits múltiple) o en una *codificación en directo* (un codificador en directo local envía una secuencia de velocidad de bits única). Los tipos se establecen durante la creación mediante [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
 * **LiveEventEncodingType.None**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. El flujo de datos ingerido pasa por el evento en directo sin más procesamiento. También se denomina modo de paso a través.
 * **LiveEventEncodingType.Standard**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. Si la fuente de contribución tiene una resolución de 720p o más, el valor preestablecido **Default720p** codificará un conjunto de seis pares de velocidad de bits-resolución.
@@ -176,7 +176,11 @@ Una vez que la secuencia fluye en el objeto LiveEvent, puede comenzar el evento 
 
 Para obtener información detallada sobre las salidas en directo, consulte [Uso de una DVR en la nube](live-event-cloud-dvr.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+Consulte el artículo [Preguntas más frecuentes](frequently-asked-questions.md#live-streaming).
+
+## <a name="ask-questions-and-get-updates"></a>Formulación de preguntas y obtención de ayuda
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

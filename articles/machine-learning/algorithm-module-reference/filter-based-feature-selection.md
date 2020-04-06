@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: bd1a6d4009181056ff0f91fc115d59851539bbe8
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548482"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477602"
 ---
 # <a name="filter-based-feature-selection"></a>Selección de características basada en filtro
 
@@ -90,7 +90,7 @@ Elija una métrica estadística estándar. El módulo calcula la correlación en
 
     - Si especifica menos columnas de resultados que columnas de características, las características se clasifican por puntuación descendente y solo se devuelven las características principales. 
 
-7.  Ejecute la canalización o seleccione el módulo Filter Based Feature Selection (Selección de características basada en filtro) y seleccione **Run selected** (Ejecutar seleccionadas).
+7.  Envíe la canalización o seleccione el módulo Selección de características basada en filtro y seleccione **Ejecutar seleccionadas**.
 
 
 ## <a name="results"></a>Results

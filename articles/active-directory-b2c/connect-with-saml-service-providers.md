@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4cf572b09f1e44faca002528fd00fe5be0b51bc5
-ms.sourcegitcommit: 3616b42a0d6bbc31b965995d861930e53d2cf0d3
+ms.openlocfilehash: a72b5b50daaae33336de9caab5202c2bf42f5c15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78933037"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051617"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrar una aplicación SAML en Azure AD B2C
 
@@ -337,7 +337,7 @@ El último paso es habilitar Azure AD B2C como IdP de SAML en la aplicación de 
 Normalmente se requieren algunos o todos los siguientes elementos:
 
 * **Metadatos**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Emisor:** :   `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name`
+* **Emisor**:   Usar entityID en el archivo de metadatos
 * **Dirección URL de inicio de sesión/Punto de conexión SAML/Dirección URL de SAML**: Comprobar el valor en el archivo de metadatos
 * **Certificate**: es *B2C_1A_SamlIdpCert*, pero sin la clave privada. Para obtener la clave pública del certificado:
 
@@ -354,7 +354,7 @@ Para completar este tutorial con la [aplicación de prueba SAML][samltest]:
 * Actualice el nombre de la directiva, por ejemplo *B2C_1A_signup_signin_saml*
 * Especifique el URI de este emisor: `https://contoso.onmicrosoft.com/app-name`
 
-Seleccione **Iniciar sesión**; debe aparecer una pantalla de inicio de sesión de usuario final. Tras el inicio de sesión, se vuelve a emitir una aserción de SAML a la aplicación de ejemplo.
+Seleccione **Iniciar sesión**; debe aparecer una pantalla de inicio de sesión de usuario. Tras el inicio de sesión, se vuelve a emitir una aserción de SAML a la aplicación de ejemplo.
 
 ## <a name="sample-policy"></a>Directiva de ejemplo
 
@@ -375,7 +375,8 @@ Los siguientes escenarios de usuario de confianza (RP) de SAML se admiten a trav
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede encontrar más información sobre el [protocolo SAML en el sitio web de OASIS](https://www.oasis-open.org/).
+- Puede encontrar más información sobre el [protocolo SAML en el sitio web de OASIS](https://www.oasis-open.org/).
+- Obtenga la aplicación web de prueba de SAML en el [repositorio de la comunidad de Azure AD B2C de GitHub](https://github.com/azure-ad-b2c/saml-sp-tester).
 
 <!-- LINKS - External -->
 [samltest]: https://aka.ms/samltestapp

@@ -3,16 +3,16 @@ title: Funciones de plantillas
 description: Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, trabajar con cadenas y valores numéricos y recuperar información de implementación.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: a9d10ad4899f35acd45069cb3d351a60632fed3a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1d2789e59c091b4e6c39be48b83fe610a592abe1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207049"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156266"
 ---
-# <a name="azure-resource-manager-template-functions"></a>Funciones de la plantilla del Administrador de recursos de Azure
+# <a name="arm-template-functions"></a>Funciones de plantilla de ARM
 
-En este artículo se describen todas las funciones que puede utilizar en una plantilla de Azure Resource Manager. Para obtener información sobre el uso de funciones en la plantilla, consulte la [sintaxis de la plantilla](template-expressions.md).
+En este artículo se describen todas las funciones que puede utilizar en una plantilla de Azure Resource Manager (ARM). Para obtener información sobre el uso de funciones en la plantilla, consulte la [sintaxis de la plantilla](template-expressions.md).
 
 Para crear sus propias funciones, consulte [Funciones definidas por el usuario](template-syntax.md#functions).
 
@@ -228,7 +228,7 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para obtener una descripción de las secciones de una plantilla del Administrador de recursos de Azure, vea [Creación de plantillas del Administrador de recursos de Azure](template-syntax.md)
+* Para obtener una descripción de las secciones de una plantilla de ARM, consulte [Creación de plantillas de ARM](template-syntax.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](linked-templates.md)
 * Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](copy-resources.md).
-* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con una plantilla de Azure Resource Manager](deploy-powershell.md).
+* Para obtener información sobre cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con plantillas de ARM](deploy-powershell.md).

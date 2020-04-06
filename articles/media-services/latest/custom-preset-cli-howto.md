@@ -1,6 +1,6 @@
 ---
-title: 'Codificación de una transformación personalizada mediante la CLI de Media Services v3: Azure | Microsoft Docs'
-description: En este tema se explica cómo usar Azure Media Services v3 para codificar una transformación personalizada mediante la CLI.
+title: Codificación de una transformación personalizada con la CLI de Azure Media Services v3 | Microsoft Docs
+description: En este tema se explica cómo usar Azure Media Services v3 para codificar una transformación personalizada mediante la CLI de Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 42b7c2d86525c428253137b424fe58bb61edba70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762026"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382960"
 ---
-# <a name="how-to-encode-with-a-custom-transform---cli"></a>Procedimiento de codificación con una transformación personalizada: CLI
+# <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Procedimiento de codificación con una transformación personalizada: CLI de Azure
 
 Al codificar con Azure Media Services, puede empezar a trabajar rápidamente con cualquiera de los valores preestablecidos integrados recomendados basados en los procedimientos recomendados del sector, como se muestra en el inicio rápido [Transmisión de archivos](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding). También puede compilar un valor preestablecido personalizado para sus requisitos específicos de escenario o dispositivo.
 
@@ -30,19 +30,21 @@ Al crear valores preestablecidos personalizados, se aplican las consideraciones 
 * Todos los valores de alto y ancho del contenido de AVC deben ser un múltiplo de 4.
 * En Azure Media Services v3, todas las velocidades de bits de codificación se expresan en bits por segundo. Esto difiere de los valores preestablecidos en las API v2, en donde se usaban kilobits por segundo como unidad. Por ejemplo, si la velocidad de bits de v2 se especificaba como 128 (kilobits/segundo), en v3 se establecería en 128 000 (bits/segundo).
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Prerrequisitos
 
-[Cree una cuenta de Media Services](create-account-cli-how-to.md). <br/>Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
+[Cree una cuenta de Media Services](create-account-cli-how-to.md).
+
+Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services.
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="define-a-custom-preset"></a>Definir un valor preestablecido personalizado
 
-En el ejemplo siguiente se define el cuerpo de la solicitud de una nueva transformación. Se define un conjunto de salidas que queremos que se genere cuando se use esta transformación. 
+En el ejemplo siguiente se define el cuerpo de la solicitud de una nueva transformación. Se define un conjunto de salidas que queremos que se genere cuando se use esta transformación.
 
 En primer lugar, se agrega una capa AacAudio para la codificación de audio y dos capas H264Video para la codificación de vídeo. En las capas de vídeo se asignan etiquetas para que se puedan usar en los nombres de archivo de salida. Luego queremos que la salida también incluya miniaturas. En el ejemplo siguiente se especifican imágenes en formato PNG generadas al 50 % de la resolución del vídeo de entrada, y en tres marcas de tiempo, {25 %, 50 %, 75 %}, de la longitud del vídeo de entrada. Por último, se especifica el formato de los archivos de salida: uno para vídeo y audio y otro para las miniaturas. Puesto que hay varias H264Layers, tenemos que usar macros que generen nombres únicos por capa. Se puede usar una macro `{Label}` o `{Bitrate}`; el ejemplo muestra la primera.
 
-Vamos a guardar esta transformación en un archivo. En este ejemplo, usamos el archivo `customPreset.json`. 
+Vamos a guardar esta transformación en un archivo. En este ejemplo, usamos el archivo `customPreset.json`.
 
 ```json
 {
@@ -120,25 +122,24 @@ Vamos a guardar esta transformación en un archivo. En este ejemplo, usamos el a
         }
     ]
 }
-
 ```
 
 ## <a name="create-a-new-transform"></a>Crear una nueva transformación  
 
 En este ejemplo, creamos una **transformación** que se basa en los valores preestablecidos personalizados que definimos anteriormente. Al crear una transformación, primero debe comprobar si ya existe alguna. Si existe la transformación, vuelva a usarla. El siguiente comando `show` devuelve la transformación `customTransformName`, si existe:
 
-```cli
+```azurecli-interactive
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
 ```
 
-El siguiente comando de la CLI crea la transformación según el valor preestablecido personalizado (definido anteriormente). 
+El siguiente comando de la CLI de Azure crea la transformación según el valor preestablecido personalizado (definido anteriormente).
 
-```cli
+```azurecli-interactive
 az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --description "Basic Transform using a custom encoding preset" --preset customPreset.json
 ```
 
-Para que Media Services aplique la transformación al audio o vídeo especificado, deberá enviar un trabajo en esa transformación. Para obtener un ejemplo completo que muestra cómo enviar un trabajo en una transformación, consulte [Inicio rápido: Hacer streaming de archivos de vídeo: CLI](stream-files-cli-quickstart.md).
+Para que Media Services aplique la transformación al audio o vídeo especificado, deberá enviar un trabajo en esa transformación. Para obtener un ejemplo completo que muestra cómo enviar un trabajo en una transformación, consulte [Inicio rápido: Hacer streaming de archivos de vídeo: CLI de Azure](stream-files-cli-quickstart.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
-[CLI de Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[CLI de Azure](/cli/azure/ams)

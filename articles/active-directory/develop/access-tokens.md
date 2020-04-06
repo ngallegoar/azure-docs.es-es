@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 3/27/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 06a3ef7677d52ebb0d835dfed2f47fc66870f0ec
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 417829389a4b3a6bb55dcff9bfe59c2bc8693ca0
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620884"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383215"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de la Plataforma de identidad de Microsoft
 
@@ -30,7 +30,7 @@ Si la aplicación es un recurso (API web) al que los clientes pueden solicitar a
 Consulte las secciones siguientes para saber cómo un recurso puede validar y utilizar las notificaciones dentro de un token de acceso.
 
 > [!IMPORTANT]
-> Los tokens de acceso se crean según la *audiencia* del token, es decir la aplicación que posee los ámbitos en el token.  Así es cómo la configuración de un recurso `accessTokenAcceptedVersion` en el [manifiesto de la aplicación](reference-app-manifest.md#manifest-reference) para `2` permite que un cliente llame al punto de conexión de la versión 1.0 para recibir un token de acceso de la versión 2.0.  De forma similar, este es el motivo por el que al cambiar las [notificaciones opcionales](active-directory-optional-claims.md) del token de acceso, no se modifica el token de acceso que se recibe al solicitar un token para `user.read`, que es propiedad del recurso de MS Graph.  
+> Los tokens de acceso se crean según la *audiencia* del token, es decir la aplicación que posee los ámbitos en el token.  Así es cómo la configuración de un recurso `accessTokenAcceptedVersion` en el [manifiesto de la aplicación](reference-app-manifest.md#manifest-reference) para `2` permite que un cliente llame al punto de conexión de la versión 1.0 para recibir un token de acceso de la versión 2.0.  De forma similar, este es el motivo por el que al cambiar las [notificaciones opcionales](active-directory-optional-claims.md) del token de acceso, no se modifica el token de acceso que se recibe al solicitar un token para `user.read`, que es propiedad del recurso.
 > Por la misma razón, al probar la aplicación cliente con una cuenta personal (como hotmail.com o outlook.com), es posible que el token de acceso que recibe el cliente sea una cadena opaca. Esto se debe a que el recurso al que se accede ha solicitado vales MSA (cuenta de Microsoft) heredados que están cifrados y que el cliente no puede entender.
 
 ## <a name="sample-tokens"></a>Tokens de ejemplo
@@ -82,9 +82,9 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 
 | Notificación | Formato | Descripción |
 |-----|--------|-------------|
-| `aud` | Cadena, un URI de identificador de aplicación | Identifica al destinatario previsto del token. En los tokens de identificador, la audiencia es el id. de aplicación de la aplicación y se asigna a la aplicación en Azure Portal. La aplicación debe validar este valor y rechazar el token si el valor no coincide. |
+| `aud` | Cadena, un URI de identificador de aplicación | Identifica al destinatario previsto del token. En los tokens de identificador, la audiencia es el id. de aplicación de la aplicación y se asigna a ella en Azure Portal. La aplicación debe validar este valor y rechazar el token si el valor no coincide. |
 | `iss` | Cadena, un identificador URI de STS | Identifica el servicio de token de seguridad (STS) que construye y devuelve el token, así como el inquilino de Azure AD en el que se autenticó al usuario. Si el token emitido es un token v2.0 (consulte la notificación `ver`), el URI finalizará en `/v2.0`. El GUID que indica que el usuario es un usuario consumidor desde una cuenta de Microsoft es `9188040d-6c67-4c5b-b112-36a304b66dad`. La aplicación debe usar la parte del GUID de la notificación para restringir el conjunto de inquilinos que pueden iniciar sesión en la aplicación, si procede. |
-|`idp`| Cadena, normalmente un identificador URI de STS | Registra el proveedor de identidades que autenticó al firmante del token. Este valor es idéntico al valor de la notificación del emisor, a menos que la cuenta de usuario no esté en el mismo inquilino que el emisor: los invitados, por ejemplo. Si la notificación no está presente, significa que el valor de `iss` se puede usar en su lugar.  Para las cuentas personales que se usan en un contexto de la organización (por ejemplo, una cuenta personal invitada a un inquilino de Azure AD), la notificación `idp` puede ser "live.com" o un identificador URI de STS que contenga al inquilino de la cuenta Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
+|`idp`| Cadena, normalmente un identificador URI de STS | Registra el proveedor de identidades que autenticó al firmante del token. Este valor es idéntico al valor de la notificación del emisor, a menos que la cuenta de usuario no esté en el mismo inquilino que el emisor: los invitados, por ejemplo. Si la notificación no está presente, significa que el valor de `iss` se puede usar en su lugar.  Para las cuentas personales que se usan en un contexto de la organización (por ejemplo, una cuenta personal invitada a un inquilino de Azure AD), la notificación `idp` puede ser "live.com" o un identificador URI de STS que contenga al inquilino de la cuenta Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | `iat` | entero, una marca de tiempo de UNIX | La notificación "iat" (emitido a las) indica cuándo se produjo la autenticación de este token. |
 | `nbf` | entero, una marca de tiempo de UNIX | La notificación "nbf" (no antes de) identifica la hora antes de la cual no debe ser aceptado el token JWT para su procesamiento. |
 | `exp` | entero, una marca de tiempo de UNIX | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento. Es importante tener en cuenta que un recurso puede rechazar el token antes de esta hora, como cuando es necesario un cambio en la autenticación o se ha detectado una revocación del token. |
@@ -100,9 +100,9 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `scp` | Cadena, una lista de ámbitos separada por espacios. | El conjunto de ámbitos expuestos por la aplicación para los cuales la aplicación cliente ha solicitado (y recibido) consentimiento. Su aplicación debe comprobar que estos ámbitos son válidos y están expuestos por la aplicación, y tomar decisiones de autorización basadas en el valor de estos ámbitos. Solo se incluye para los [tokens de usuario](#user-and-application-tokens). |
 | `roles` | Matriz de cadenas, una lista de permisos | El conjunto de permisos expuestos por la aplicación para la que la aplicación o el usuario solicitante ha recibido permiso para llamar. Para los [tokens de aplicaciones](#user-and-application-tokens), esta acción se usa durante el flujo de credenciales de cliente ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) y [v2.0](v2-oauth2-client-creds-grant-flow.md)) en lugar de los ámbitos de usuario.  Para los [tokens de usuario](#user-and-application-tokens) se rellena con los roles a los que se ha asignado el usuario en la aplicación de destino. |
 | `wids` | Matriz de GUID [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) | Denota los roles de todos los inquilinos asignados a este usuario desde la sección de roles presentes en [la página de roles de administrador](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Esta notificación se configura por aplicación, a través de la propiedad `groupMembershipClaims` del [manifiesto de aplicación](reference-app-manifest.md).  Es necesario establecerla en "All" o "DirectoryRole".  Es posible que no esté presente en los tokens obtenidos a través del flujo implícito por motivos de longitud del token. |
-| `groups` | Matriz JSON de identificadores GUID | Proporciona identificadores de objeto que representan la pertenencia al grupo del firmante. Estos valores son únicos (vea el id. de objeto) y se pueden usar de forma segura para administrar el acceso, por ejemplo, para exigir autorización para tener acceso a un recurso. Los grupos incluidos en la notificación de grupos se configuran por aplicación mediante la propiedad `groupMembershipClaims` del [manifiesto de aplicación](reference-app-manifest.md). Un valor null excluirá todos los grupos, un valor de "SecurityGroup" incluirá únicamente la pertenencia a grupos de seguridad de Active Directory y un valor de "All" incluirá grupos de seguridad y listas de distribución de Office 365. <br><br>Consulte la notificación `hasgroups` que aparece a continuación para más información sobre el uso de la notificación `groups` con la concesión implícita. <br>Para los demás flujos, si el número de grupos en los que el usuario está supera un límite (150 para SAML, 200 para JWT), se agregará una notificación de uso por encima del límite a los orígenes de notificaciones que apuntan al punto de conexión de AAD Graph que contiene la lista de grupos del usuario. |
-| `hasgroups` | Boolean | Si está presente, siempre es `true`, lo cual indica que el usuario está en al menos un grupo. Se usa en lugar de la notificación `groups` para métodos JWT en flujos de concesión implícita si las notificaciones completas de los grupos amplían el fragmento URI por encima de los límites de longitud de la URL (actualmente 6 o más grupos). Indica que el cliente debe utilizar Graph para determinar los grupos del usuario (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
-| `groups:src1` | Objeto JSON | Para las solicitudes de tokens que no tienen limitación de longitud (consulte `hasgroups` descrito anteriormente) pero que todavía son demasiado grandes para el token, se incluirá un enlace a la lista completa de grupos del usuario. Para métodos JWT como una notificación distribuida, para SAML como una nueva notificación en lugar de la notificación `groups`. <br><br>**Valor de JWT de ejemplo**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
+| `groups` | Matriz JSON de identificadores GUID | Proporciona identificadores de objeto que representan la pertenencia al grupo del firmante. Estos valores son únicos (vea el id. de objeto) y se pueden usar de forma segura para administrar el acceso, por ejemplo, para exigir autorización para tener acceso a un recurso. Los grupos incluidos en la notificación de grupos se configuran por aplicación mediante la propiedad `groupMembershipClaims` del [manifiesto de aplicación](reference-app-manifest.md). Un valor null excluirá todos los grupos, un valor de "SecurityGroup" incluirá únicamente la pertenencia a grupos de seguridad de Active Directory y un valor de "All" incluirá grupos de seguridad y listas de distribución de Office 365. <br><br>Consulte la notificación `hasgroups` que aparece a continuación para más información sobre el uso de la notificación `groups` con la concesión implícita. <br>Para los demás flujos, si el número de grupos en los que el usuario está supera un límite (150 para SAML, 200 para JWT), se agregará una notificación de uso por encima del límite a los orígenes de notificaciones que apuntan al punto de conexión de Microsoft Graph que contiene la lista de grupos del usuario. |
+| `hasgroups` | Boolean | Si está presente, siempre es `true`, lo cual indica que el usuario está en al menos un grupo. Se usa en lugar de la notificación `groups` para métodos JWT en flujos de concesión implícita si las notificaciones completas de los grupos amplían el fragmento URI por encima de los límites de longitud de la URL (actualmente 6 o más grupos). Indica que el cliente debe utilizar Microsoft Graph API para determinar los grupos del usuario (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
+| `groups:src1` | Objeto JSON | Para las solicitudes de tokens que no tienen limitación de longitud (consulte `hasgroups` descrito anteriormente) pero que todavía son demasiado grandes para el token, se incluirá un enlace a la lista completa de grupos del usuario. Para métodos JWT como una notificación distribuida, para SAML como una nueva notificación en lugar de la notificación `groups`. <br><br>**Valor de JWT de ejemplo**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
 | `sub` | Cadena, un identificador GUID | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso, y se puede usar como clave en tablas de base de datos. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. El asunto es, sin embargo, un identificador en pares (es único para un id. de aplicación determinado). Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto. Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. Vea también la notificación `oid` (que sigue siendo la misma en las todas aplicaciones en un inquilino). |
 | `oid` | Cadena, un identificador GUID | El identificador inmutable de un objeto en la plataforma de identidades Microsoft, en este caso, una cuenta de usuario. También se puede usar para realizar comprobaciones de autorización de forma segura y como clave en tablas de base de datos. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`. Por tanto, `oid` puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph. Microsoft Graph devuelve este identificador como la propiedad `id` de una [cuenta de usuario](/graph/api/resources/user) determinada. Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
 | `tid` | Cadena, un identificador GUID | Representa el inquilino de Azure AD de donde proviene el usuario. En el caso de las cuentas profesionales y educativas, el GUID es el identificador del inquilino inmutable de la organización a la que pertenece el usuario. En el caso de las cuentas personales, el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. El ámbito `profile` es necesario para recibir esta notificación. |
@@ -111,28 +111,28 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `rh` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Los recursos no deben usar esta notificación. |
 | `ver` | Cadena, `1.0` o `2.0` | Indica la versión del token de acceso. |
 
+**Notificación de grupos por encima del límite**
 
-> [!NOTE]
-> **Notificación de grupos por encima del límite**
->
-> Para garantizar que el tamaño del token no supera los límites de tamaño del encabezado HTTP, Azure AD limita el número de identificadores de objeto que se incluyen en la notificación de grupo. Si un usuario es miembro de más grupos que el límite de uso por encima del límite (150 para los tokens SAML, 200 para los tokens JWT), Azure AD no emite la notificaciones de grupos en el token. En su lugar, incluye una demanda de uso por encima del límite en el token que indica a la aplicación que consulte la Graph API para recuperar la pertenencia a grupos del usuario.
-  ```csharp
-  {
-    ...
-    "_claim_names": {
-     "groups": "src1"
-      },
-      {
-    "_claim_sources": {
-      "src1": {
-          "endpoint":"[Graph Url to get this user's group membership from]"
-          }
-         }
+Para garantizar que el tamaño del token no supera los límites de tamaño del encabezado HTTP, Azure AD limita el número de identificadores de objeto que se incluyen en la notificación de grupo. Si un usuario es miembro de más grupos que el límite de uso por encima del límite (150 para los tokens SAML, 200 para los tokens JWT), Azure AD no emite la notificaciones de grupos en el token. En su lugar, incluye una demanda de uso por encima del límite en el token que indica a la aplicación que consulte la Microsoft Graph API para recuperar la pertenencia a grupos del usuario.
+
+```JSON
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
        }
-    ...
-   }
-   ```
-> Puede usar `BulkCreateGroups.ps1`, que se proporciona en la carpeta [scripts de creación de aplicaciones](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims/blob/master/AppCreationScripts/), para ayudar a probar los escenarios de uso por encima del límite.
+     }
+  ...
+ }
+ ```
+
+Puede usar `BulkCreateGroups.ps1`, que se proporciona en la carpeta [scripts de creación de aplicaciones](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts), para ayudar a probar los escenarios de uso por encima del límite.
 
 #### <a name="v10-basic-claims"></a>Notificaciones básicas de la versión 1.0
 
@@ -154,7 +154,7 @@ Las siguientes notificaciones se incluyen en los tokens de la versión 1.0 si co
 
 Las identidades de Microsoft pueden autenticarse de diversas maneras, que pueden ser pertinentes para la aplicación. La notificación `amr` es una matriz que puede contener varios elementos, como `["mfa", "rsa", "pwd"]`, para una autenticación que utiliza tanto una contraseña como la aplicación Autenticator.
 
-| Valor | Descripción |
+| Value | Descripción |
 |-----|-------------|
 | `pwd` | Autenticación de contraseña, ya sea la contraseña de un usuario de Microsoft o el secreto de cliente de una aplicación. |
 | `rsa` | La autenticación se basaba en la prueba de una clave RSA, por ejemplo con la [aplicación Microsoft Authenticator](https://aka.ms/AA2kvvu). Esto incluye si la autenticación la ha realizado un token JWT autofirmado con un certificado X509 de propiedad del servicio. |
@@ -170,9 +170,9 @@ Las identidades de Microsoft pueden autenticarse de diversas maneras, que pueden
 
 Para validar un id_token o un access_token, la aplicación tiene que validar tanto la firma como las notificaciones del token. Para validar los tokens de acceso, la aplicación también debe validar el emisor, la audiencia y los tokens de firmas. Deben validarse con los valores del documento de detección de OpenID. Por ejemplo, la versión independiente del inquilino del documento se encuentra en [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-El middleware de Azure AD tiene funciones integradas para validar los tokens de acceso, y usted puede explorar nuestros [ejemplos](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para buscar uno en el idioma de su elección. Para obtener más información sobre cómo validar explícitamente un token JWT, consulte el [ejemplo de una validación manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).
+El middleware de Azure AD tiene funciones integradas para validar los tokens de acceso, y usted puede explorar nuestros [ejemplos](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para buscar uno en el idioma de su elección.
 
-Proporcionamos bibliotecas y ejemplos de código que le muestran cómo controlar fácilmente la validación de token. La siguiente información se proporciona para aquellos que desean entender el proceso subyacente. También hay varias bibliotecas de código abierto de terceros para la validación de JWT; hay al menos una opción para casi cualquier plataforma e idioma. Para más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, consulte las [bibliotecas de autenticación v1.0](../azuread-dev/active-directory-authentication-libraries.md) y las [bibliotecas de autenticación v2.0](reference-v2-libraries.md).
+Proporcionamos bibliotecas y ejemplos de código que le muestran cómo controlar la validación de tokens. La siguiente información se proporciona para aquellos que desean entender el proceso subyacente. También hay varias bibliotecas de código abierto de terceros para la validación de JWT; hay al menos una opción para casi cualquier plataforma e idioma. Para más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, consulte las [bibliotecas de autenticación v1.0](../azuread-dev/active-directory-authentication-libraries.md) y las [bibliotecas de autenticación v2.0](reference-v2-libraries.md).
 
 ### <a name="validating-the-signature"></a>Validación de la firma
 
@@ -210,7 +210,7 @@ Este documento de metadatos:
 > [!NOTE]
 > El punto de conexión de v1.0 devuelve las notificaciones `x5t` y `kid`, mientras que el punto de conexión de v2.0 responde solo con la notificación `kid`. De cara al futuro, le recomendamos que utilice la notificación `kid` para validar su token.
 
-La realización de la validación de la firma queda fuera del ámbito de este documento, pero hay muchas bibliotecas de código abierto disponibles para ayudarle a hacerlo si es necesario.  Sin embargo, la Plataforma de identidad de Microsoft tiene una extensión de firma de tokens para los estándares: las claves de firma personalizadas.  
+La realización de la validación de la firma queda fuera del ámbito de este documento, pero hay muchas bibliotecas de código abierto disponibles para ayudarle a hacerlo si es necesario.  Sin embargo, la Plataforma de identidad de Microsoft tiene una extensión de firma de tokens para los estándares: las claves de firma personalizadas.
 
 Si la aplicación tiene claves de firma personalizadas como resultado de usar la característica de [asignación de notificaciones](active-directory-claims-mapping.md), debe anexar un parámetro de consulta `appid` que contenga el identificador de la aplicación con el fin de obtener un elemento `jwks_uri` que apunte a la información de la clave de firma de la aplicación, que debe usarse la para la validación. Por ejemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene el elemento `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
@@ -233,13 +233,15 @@ La aplicación puede recibir tokens en nombre de un usuario (el flujo habitual) 
 
 * Los tokens de solo aplicación no tendrán una notificación `scp`, y en su lugar pueden tener una notificación `roles`. Aquí es donde se registrarán los permisos de aplicación (a diferencia de los permisos delegados). Para obtener más información acerca de los permisos delegados y de aplicación, consulte los permisos y consentimiento ([v1.0](../azuread-dev/v1-permissions-consent.md) y [v2.0](v2-permissions-and-consent.md)).
 * Faltan muchas notificaciones específicas de usuarios, como `name` o `upn`.
-* Las notificaciones `sub` y `oid` serán las mismas. 
+* Las notificaciones `sub` y `oid` serán las mismas.
 
 ## <a name="token-revocation"></a>Revocación de tokens
 
 Los tokens de actualización se pueden invalidar o revocar en cualquier momento por varios motivos. Estos se dividen en dos categorías principales: tiempos de espera y revocaciones.
 
 ### <a name="token-timeouts"></a>Tiempos de espera de token
+
+Con la [configuración de vigencia de los tokens](active-directory-configurable-token-lifetimes.md), se puede modificar la duración de los tokens de actualización.  Es normal y habitual que algunos tokens no se usen (por ejemplo, si el usuario no abre la aplicación durante tres meses) y, por lo tanto, expiran.  Las aplicaciones se pueden encontrar escenarios en los que el servidor de inicio de sesión rechaza un token de actualización debido a su antigüedad. 
 
 * MaxInactiveTime: si el token de actualización no se ha utilizado en el tiempo determinado por MaxInactiveTime, el token de actualización ya no será válido.
 * MaxSessionAge: si MaxAgeSessionMultiFactor o MaxAgeSessionSingleFactor se han establecido en un valor distinto de su valor predeterminado (Hasta que se revoca), la reautenticación será obligatoria después de que transcurra el tiempo establecido en el MaxAgeSession*.
@@ -249,6 +251,8 @@ Los tokens de actualización se pueden invalidar o revocar en cualquier momento 
 
 ### <a name="revocation"></a>Revocación
 
+El servidor puede revocar los tokens de actualización debido a un cambio en las credenciales o a una acción de administración o uso.  Los tokens de actualización se dividen en dos clases: emitidos para clientes confidenciales (la columna situada más a la derecha) y emitidos para clientes públicos (el resto de columnas).   
+
 |   | Cookie basada en contraseñas | Token basado en contraseñas | Cookie no basada en contraseñas | Token no basado en contraseñas | Token de cliente confidencial |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | La contraseña expira | Permanece activa | Permanece activa | Permanece activa | Permanece activa | Permanece activa |
@@ -256,7 +260,7 @@ Los tokens de actualización se pueden invalidar o revocar en cualquier momento 
 | Usuario realiza SSPR | Revocada | Revocada | Permanece activa | Permanece activa | Permanece activa |
 | Administrador restablece la contraseña | Revocada | Revocada | Permanece activa | Permanece activa | Permanece activa |
 | Usuario revoca sus tokens de actualización [a través de PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revocada | Revocada | Revocada | Revocada | Revocada |
-| Administrador revoca todos los tokens de actualización para el inquilino [a través de PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revocada | Revocada |Revocada | Revocada | Revocada |
+| El administrador revoca todos los tokens de actualización de un usuario [a través de PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revocada | Revocada |Revocada | Revocada | Revocada |
 | Cierre de sesión único ([v 1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out) y [v 2.0](v2-protocols-oidc.md#single-sign-out)) en la web | Revocada | Permanece activa | Revocada | Permanece activa | Permanece activa |
 
 > [!NOTE]
@@ -264,7 +268,7 @@ Los tokens de actualización se pueden invalidar o revocar en cualquier momento 
 >
 > Los tokens de actualización principales (PRT) en Windows 10 se segregan en función de la credencial. Por ejemplo, Windows Hello y la contraseña tienen sus respectivos PRT, aislados entre sí. Cuando un usuario inicia sesión con una credencial de Hello (PIN o biométrica) y, a continuación, cambia la contraseña, se revocará el PRT basado en la contraseña obtenido previamente. Al volver a iniciar sesión con una contraseña, se invalida el PRT antiguo y se solicita uno nuevo.
 >
-> Los tokens de actualización no se invalidan ni revocan cuando se utilizan para capturar un token de acceso y un token de actualización nuevos.  
+> Los tokens de actualización no se invalidan ni revocan cuando se utilizan para capturar un token de acceso y un token de actualización nuevos.  Sin embargo, la aplicación debe descartar el token antiguo en cuanto se use y reemplazarlo por el nuevo, ya que el nuevo token tiene una nueva fecha de expiración. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

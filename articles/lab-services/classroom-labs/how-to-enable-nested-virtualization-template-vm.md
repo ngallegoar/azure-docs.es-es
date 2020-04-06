@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 64097a5b3b62bcd5a84f4472a844bb95cf24cd6f
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 59b32834369f76d39bb4a253dad4ec541e7ef999
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555087"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502014"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Habilitación de la virtualización anidada en una plantilla de máquina virtual en Azure Lab Services
 
 Actualmente, Azure Lab Services le permite configurar una máquina virtual de una plantilla en un laboratorio y realizar una copia única disponible para cada uno de los usuarios. Si usted es un profesor que hace clases de redes, seguridad o TI, puede que necesite proporcionar a cada uno de sus alumnos un entorno en el que varias máquinas virtuales puedan comunicarse entre sí a través de una red.
 
-La virtualización anidada le permite crear un entorno de varias máquinas virtuales dentro de una máquina virtual de plantilla de un laboratorio. La publicación de la plantilla proporcionará a cada usuario del laboratorio una máquina virtual configurada con varias máquinas virtuales dentro.  En este artículo se explica cómo configurar la virtualización anidada en una máquina de pantilla en Azure Lab Services.
+La virtualización anidada le permite crear un entorno de varias máquinas virtuales dentro de la máquina virtual de plantilla de un laboratorio. La publicación de la plantilla proporcionará a cada usuario del laboratorio una máquina virtual configurada con varias máquinas virtuales dentro.  En este artículo se explica cómo configurar la virtualización anidada en una máquina de pantilla en Azure Lab Services.
 
 ## <a name="what-is-nested-virtualization"></a>¿Qué es la virtualización anidada?
 
@@ -52,48 +52,12 @@ En este artículo se supone que ha creado una cuenta de laboratorio y un laborat
 >[!IMPORTANT]
 >Seleccione **Grande (virtualización anidada)** o **Medio (virtualización anidada)** como tamaño de la máquina virtual al crear el laboratorio.  De lo contrario, la virtualización anidada no funcionará.  
 
-Para conectarse a la máquina de plantilla, consulte [Creación y administración de plantillas educativas en Azure Lab Services](how-to-create-manage-template.md). 
+Para conectarse a la máquina de plantilla, consulte [Creación y administración de plantillas educativas en Azure Lab Services](how-to-create-manage-template.md).
 
-Los pasos de esta sección se centran en la configuración de la virtualización anidada para Windows Server 2016 o Windows Server 2019. Usará un script para configurar la plantilla de máquina virtual con Hyper-V.  Los pasos siguientes lo guiarán en el proceso de cómo usar los [scripts de Hyper-V para Lab Services](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
+### <a name="using-script-to-enable-nested-virtualization"></a>Uso de un script para habilitar la virtualización anidada
 
-1. Si usa Internet Explorer, es posible que tenga que agregar `https://github.com` a la lista de sitios de confianza.
-    1. Abra Internet Explorer.
-    1. Seleccione el icono de engranaje y elija **Opciones de Internet**.  
-    1. Cuando aparezca el cuadro de diálogo **Opciones de Internet**, seleccione **Seguridad**, **Sitios de confianza** y haga clic en el botón **Sitios**.
-    1. Cuando aparezca el cuadro de diálogo **Sitios de confianza**, agregue `https://github.com` a la lista de sitios web de confianza y seleccione **Cerrar**.
+Si quiere usar la configuración automatizada para la virtualización anidada con Windows Server 2016 o Windows Server 2019, consulte [Habilitación de la virtualización anidada en una máquina virtual de plantilla en Azure Lab Services mediante un script](how-to-enable-nested-virtualization-template-vm-using-script.md). Usará scripts de [Hyper-V de Lab Services](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV) para instalar el rol de Hyper-V.  Los scripts también configurarán las funciones de red para que las máquinas virtuales de Hyper-V puedan acceder a Internet.
 
-        ![Sitios de confianza](../media/how-to-enable-nested-virtualization-template-vm/trusted-sites-dialog.png)
-1. Descargue los archivos del repositorio de Git tal y como se indica en los pasos siguientes.
-    1. Vaya a [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/).
-    1. Haga clic en el botón **Clonar o descargar**.
-    1. Haga clic en **Descargar archivo ZIP**.
-    1. Extraer el archivo ZIP
+### <a name="using-windows-tools-to-enable-nested-virtualization"></a>Uso de las herramientas de Windows para habilitar la virtualización anidada
 
-    >[!TIP]
-    >También puede clonar el repositorio de Git en [https://github.com/Azure/azure-devtestlab.git](https://github.com/Azure/azure-devtestlab.git).
-
-1. Inicie **PowerShell** en modo de **administrador**.
-1. En la ventana de PowerShell, vaya hasta la carpeta con el script descargado. Si va desde la carpeta superior de los archivos del repositorio, el script se encuentra en `azure-devtestlab\samples\ClassroomLabs\Scripts\HyperV\`.
-1. Es posible que tenga que cambiar la directiva de ejecución para ejecutar correctamente el script. Ejecute el siguiente comando:
-
-    ```powershell
-    Set-ExecutionPolicy bypass -force
-    ```
-
-1. Ejecute el script:
-
-    ```powershell
-    .\SetupForNestedVirtualization.ps1
-    ```
-
-    > [!NOTE]
-    > El script puede requerir que se reinicie la máquina. Siga las instrucciones del script y vuelva a ejecutarlo hasta que aparezca el mensaje **Script completed** (Script completo) en la salida.
-1. No olvide restablecer la directiva de ejecución. Ejecute el siguiente comando:
-
-    ```powershell
-    Set-ExecutionPolicy default -force
-    ```
-
-## <a name="conclusion"></a>Conclusión
-
-Ahora la plantilla de máquina virtual está lista para crear máquinas virtuales de Hyper-V. Consulte [Crear una máquina virtual en Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) para obtener instrucciones sobre cómo crear máquinas virtuales de Hyper-V. Consulte también [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) para comprobar los sistemas operativos y el software disponibles.  
+Si quiere configurar la virtualización anidada para Windows Server 2016 o Windows Server 2019 con los roles y herramientas administrativas de Windows, consulte [Habilitación de la virtualización anidada en una máquina virtual de plantilla en Azure Lab Services de forma manual](how-to-enable-nested-virtualization-template-vm-ui.md).  Las instrucciones también explican cómo configurar las funciones de red para que las máquinas virtuales de Hyper-V puedan acceder a Internet.

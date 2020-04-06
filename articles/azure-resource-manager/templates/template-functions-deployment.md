@@ -3,16 +3,16 @@ title: 'Funciones de plantilla: implementación'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar información de implementación.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: b241aaf43ee3204c9960d0099ce3c61d4c1a80ee
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 86a1d3d7e05fedacd7a3c044ecab241ca9d059c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357384"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156334"
 ---
-# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funciones de implementación para las plantillas de Azure Resource Manager 
+# <a name="deployment-functions-for-arm-templates"></a>Funciones de implementación para plantillas de ARM 
 
-Resource Manager proporciona las funciones siguientes para obtener los valores relacionados con la implementación actual:
+Resource Manager proporciona las funciones siguientes para obtener los valores relacionados con la implementación actual de la plantilla de Azure Resource Manager:
 
 * [deployment](#deployment)
 * [environment](#environment)
@@ -392,7 +392,7 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
         "var4": {
             "property1": "value1",
             "property2": "value2"
-        }
+          }
     },
     "resources": [],
     "outputs": {

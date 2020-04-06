@@ -3,16 +3,16 @@ title: 'Funciones de plantillas: lógicas'
 description: Describe las funciones que se pueden usar en una plantilla de Azure Resource Manager para determinar valores lógicos.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: aef520a26124a85f414c4f4aa1a3e307d383c29b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: f058baa32e5f93a4177913287a5e9873fa7a9acb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356339"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156317"
 ---
-# <a name="logical-functions-for-azure-resource-manager-templates"></a>Funciones lógicas para las plantillas de Azure Resource Manager
+# <a name="logical-functions-for-arm-templates"></a>Funciones lógicas para plantillas de ARM
 
-Resource Manager proporciona varias funciones para realizar comparaciones en las plantillas.
+Resource Manager ofrece varias funciones para realizar comparaciones en las plantillas de Azure Resource Manager (ARM).
 
 * [and](#and)
 * [bool](#bool)
@@ -32,7 +32,7 @@ Comprueba si todos los valores de parámetros son verdaderos.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
 | arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
-| argumentos adicionales |Sin |boolean |Argumentos adicionales para comprobar si son verdaderos. |
+| argumentos adicionales |No |boolean |Argumentos adicionales para comprobar si son verdaderos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -315,7 +315,7 @@ Comprueba si algún valor de parámetro es verdadero.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
 | arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
-| argumentos adicionales |Sin |boolean |Argumentos adicionales para comprobar si son verdaderos. |
+| argumentos adicionales |No |boolean |Argumentos adicionales para comprobar si son verdaderos. |
 
 ### <a name="return-value"></a>Valor devuelto
 

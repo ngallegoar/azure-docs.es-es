@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 4b6944f7703500a2c3859e8e3111eceefbd5ff10
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: ed6d9e86143c3a5d6c97c4bd92a07c258bbd1bbc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311417"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477466"
 ---
 # <a name="smote"></a>SMOTE
 
-En este artículo se describe cómo usar el módulo SMOTE en el diseñador de Azure Machine Learning para aumentar el número de casos subrepresentados de un conjunto de datos que se usa para el aprendizaje automático. SMOTE es una mejor manera para aumentar el número de casos poco frecuentes en lugar de simplemente duplicar los casos existentes.  
+En este artículo se describe cómo usar el módulo SMOTE en el diseñador de Azure Machine Learning (versión preliminar) para aumentar el número de casos subrepresentados de un conjunto de datos que se usa para el aprendizaje automático. SMOTE es una mejor manera para aumentar el número de casos poco frecuentes en lugar de simplemente duplicar los casos existentes.  
 
 El módulo SMOTE se conecta a un conjunto de datos *con desequilibrios*. Hay muchas razones por las que un conjunto de datos puede tener desequilibrios. Por ejemplo, la categoría que es su destino podría ser poco frecuente en la población o los datos podrían ser difíciles de recopilar. Normalmente, SMOTE se utiliza cuando la *clase* que se desea analizar está subrepresentada. 
   
@@ -80,7 +80,7 @@ Para aumentar el número de casos, puede usar múltiplos de 100 para establecer 
   
 7. Escriba un valor en el cuadro de texto **Random seed** (Valor de inicialización aleatorio) si desea garantizar los mismos resultados en las ejecuciones de la misma canalización, con los mismos datos. De lo contrario, el módulo genera un valor de inicialización aleatorio basada en los valores del reloj del procesador cuando se implementa la canalización. La generación de un valor de inicialización aleatorio puede producir resultados ligeramente diferentes en las distintas ejecuciones.
 
-8. Ejecución de la canalización  
+8. Envíe la canalización.  
   
    La salida del módulo es un conjunto de datos que contiene las filas originales, más un número de filas agregadas con casos minoritarios.  
 

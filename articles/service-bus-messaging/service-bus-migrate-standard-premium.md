@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 548163f4c86f4df4d858b31afd95e0e4615f1696
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 27e3260b91bebee14ff12188a7dbd6c7cf76355c
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587505"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80385034"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migración de espacios de nombres estándar de Azure Service Bus existentes
+
 Anteriormente, Azure Service Bus ofrecía espacios de nombres solo en el nivel Estándar. Los espacios de nombres son configuraciones multiinquilino optimizadas para entornos de desarrollador y de rendimiento bajo. El nivel premium ofrece recursos dedicados por espacio de nombres para la latencia predecible y el rendimiento aumentado a un precio fijo. El nivel premium está optimizado para entornos de producción y de alto rendimiento que requieren características empresariales adicionales.
 
 En este artículo se describe cómo migrar los espacios de nombre de nivel Estándar existentes al nivel premium.  
@@ -27,14 +28,16 @@ En este artículo se describe cómo migrar los espacios de nombre de nivel Está
 >[!WARNING]
 > La migración está pensada para que los espacios de nombres de Service Bus se actualicen al nivel premium. La herramienta de migración no permite cambiar a una versión anterior.
 
-Algunos de los puntos que debe tener en cuenta: 
+Algunos de los puntos que debe tener en cuenta:
+
 - La migración está pensada para realizarse en contexto, lo que significa que las aplicaciones remitente y receptora **no requieren hacer ningún cambio en el código ni en la configuración**. La cadena de conexión existente apuntará automáticamente al espacio de nombres premium nuevo.
-- El espacio de nombres **Premium** no debe tener **ninguna entidad** para que la migración se realice correctamente. 
-- Todas las **entidades** del espacio de nombres estándar se **copiar** al espacio de nombres premium durante el proceso de migración. 
-- La migración admite **1000 entidades por unidad de mensajería** en el nivel premium. Para identificar cuántas unidades de mensajería necesita, empiece con el número de entidades que tiene en el espacio de nombres estándar actual. 
+- El espacio de nombres **Premium** no debe tener **ninguna entidad** para que la migración se realice correctamente.
+- Todas las **entidades** del espacio de nombres estándar se **copiar** al espacio de nombres premium durante el proceso de migración.
+- La migración admite **1000 entidades por unidad de mensajería** en el nivel premium. Para identificar cuántas unidades de mensajería necesita, empiece con el número de entidades que tiene en el espacio de nombres estándar actual.
 - No es posible migrar directamente desde el **nivel básico** al **nivel premium**, pero puede hacerlo de manera indirecta si migra primero desde el nivel básico al nivel estándar y, luego, desde el nivel estándar al premium en el paso siguiente.
 
 ## <a name="migration-steps"></a>Pasos de migración
+
 El proceso de migración tiene asociadas algunas condiciones. Familiarícese con estos pasos para disminuir la posibilidad de errores. En estos pasos se describe el proceso de migración y los detalles paso a paso aparecen en las secciones siguientes.
 
 1. Cree un espacio de nombres premium nuevo.
@@ -54,7 +57,8 @@ Para migrar el espacio de nombres estándar de Service Bus a premium mediante la
 1. Cree un espacio de nombres premium de Service Bus nuevo. Puede hacer referencia a las [plantillas de Azure Resource Manager](service-bus-resource-manager-namespace.md) o [use Azure Portal](service-bus-create-namespace-portal.md). Asegúrese de usar **Premium** para el parámetro **serviceBusSku**.
 
 1. Establezca las variables de entorno siguientes para simplificar los comandos de migración.
-   ```azurecli
+
+   ```
    resourceGroup = <resource group for the standard namespace>
    standardNamespace = <standard namespace to migrate>
    premiumNamespaceArmId = <Azure Resource Manager ID of the premium namespace to migrate to>
@@ -66,17 +70,18 @@ Para migrar el espacio de nombres estándar de Service Bus a premium mediante la
 
 1. Empareje los espacios de nombres estándar y premium y use el comando siguiente para iniciar la sincronización:
 
-    ```azurecli
+    ```azurecli-interactive
     az servicebus migration start --resource-group $resourceGroup --name $standardNamespace --target-namespace $premiumNamespaceArmId --post-migration-name $postMigrationDnsName
     ```
 
-
 1. Compruebe el estado de la migración con el comando siguiente:
-    ```azurecli
+
+    ```azurecli-interactive
     az servicebus migration show --resource-group $resourceGroup --name $standardNamespace
     ```
 
     La migración se considera completa cuando ve los valores siguientes:
+
     * MigrationState = "Active"
     * pendingReplicationsOperationsCount = 0
     * provisioningState = "Succeeded"
@@ -84,7 +89,8 @@ Para migrar el espacio de nombres estándar de Service Bus a premium mediante la
     Esta comando también muestra la configuración de migración. Compruebe que los valores están establecidos correctamente. Compruebe también el espacio de nombres Premium en el portal para asegurarse de que se crearon todos los temas y colas y que coinciden con el contenido que existía en el espacio de nombres estándar.
 
 1. Ejecute el comando completo siguiente para confirmar la migración:
-   ```azurecli
+
+   ```azurecli-interactive
    az servicebus migration complete --resource-group $resourceGroup --name $standardNamespace
    ```
 
@@ -122,22 +128,22 @@ La migración mediante Azure Portal tiene el mismo flujo lógico que la migraci�
 
 En el nivel Premium de Azure Service Bus no se admiten algunas de las características que proporciona el nivel Estándar de Azure Service Bus. Esto es así por diseño, ya que el nivel Premium ofrece recursos dedicados para una latencia y un rendimiento predecibles.
 
-Aquí tiene una lista de las características que no admite el nivel Premium y su mitigación: 
+Aquí tiene una lista de las características que no admite el nivel Premium y su mitigación:
 
 ### <a name="express-entities"></a>Entidades exprés
 
    Las entidades exprés que no confirman datos de mensajes en el almacenamiento no se admiten en el nivel Premium. Los recursos dedicados proporcionan una mejora significativa en el rendimiento a la vez que garantizan la persistencia de los datos, como se espera de cualquier sistema de mensajería empresarial.
-   
+
    Durante la migración, cualquiera de las entidades exprés del espacio de nombres estándar se creará en el espacio de nombres Premium como una entidad no exprés.
-   
+
    Si usa plantillas de Azure Resource Manager (ARM), asegúrese de quitar la marca "enableExpress" de la configuración de implementación para que los flujos de trabajo automatizados se ejecuten sin errores.
 
 ### <a name="partitioned-entities"></a>Entidades con particiones
 
    Las entidades con particiones se admitían en el nivel Estándar para proporcionar una mejor disponibilidad en una configuración de varios inquilinos. Con el aprovisionamiento de recursos dedicados disponibles por espacio de nombres en el nivel Premium, ya no es necesario.
-   
+
    Durante la migración, cualquier entidad con particiones del espacio de nombres estándar se crea en el espacio de nombres Premium como una entidad sin particiones.
-   
+
    Si la plantilla de ARM establece "enablePartitioning" en "true" para una cola o un tema en concreto, el agente lo omitirá.
 
 ## <a name="faqs"></a>Preguntas más frecuentes
@@ -160,19 +166,22 @@ Una vez purgados los mensajes, elimine el espacio de nombres estándar.
 > Una vez purgados los mensajes del espacio de nombres estándar, elimine el espacio de nombres estándar. Esto es importante porque la cadena de conexión que inicialmente hacía referencia al espacio de nombres estándar ahora hace referencia al espacio de nombres premium. Ya no necesitará el espacio de nombres estándar. Eliminar el espacio de nombres estándar que migró ayuda a reducir una confusión a futuro.
 
 ### <a name="how-much-downtime-do-i-expect"></a>¿Cuánto tiempo de inactividad debo esperar?
+
 El proceso de migración está pensado para disminuir el tiempo de inactividad esperado para las aplicaciones. El tiempo de inactividad se reduce mediante el uso de la cadena de conexión que las aplicaciones remitente y receptora usan para apuntar al espacio de nombres premium nuevo.
 
 El tiempo de inactividad que experimenta la aplicación se limita al tiempo que tarda la actualización de la entrada DNS para apuntar al espacio de nombres premium. El tiempo de inactividad es de aproximadamente 5 minutos.
 
 ### <a name="do-i-have-to-make-any-configuration-changes-while-doing-the-migration"></a>¿Es necesario modificar la configuración mientras se realiza la migración?
+
 No, no es necesario ningún cambio de código ni de la configuración durante la migración. La cadena de conexión que las aplicaciones remitente y receptora usan para acceder al espacio de nombres estándar se asigna automáticamente para que actúe como alias del espacio de nombres premium.
 
 ### <a name="what-happens-when-i-abort-the-migration"></a>¿Qué pasa si anulo la migración?
-La migración se puede anular con el comando `Abort` o con Azure Portal. 
+
+La migración se puede anular con el comando `Abort` o con Azure Portal.
 
 #### <a name="azure-cli"></a>Azure CLI
 
-```azurecli
+```azurecli-interactive
 az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
 ```
 

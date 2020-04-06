@@ -15,16 +15,16 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 289347474189d1fb57d95a2f424cf381e1e37875
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 19d76f69669ffa13d1d55ffa807e6c4818b8840c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522669"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282195"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
 
-Azure Active Directory (Azure AD) incluye un [servicio de aprovisionamiento de cuentas de usuario](user-provisioning.md) que ayuda a automatizar el aprovisionamiento y el desaprovisionamiento de cuentas de usuario en aplicaciones SaaS y otros sistemas, para la administración del ciclo de vida de las identidades de un extremo a otro. Azure AD admite conectores de aprovisionamiento de usuarios integrados previamente para todas las aplicaciones y sistemas de la sección "Destacadas" de la [Galería de aplicaciones de Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
+Azure Active Directory (Azure AD) incluye un [servicio de aprovisionamiento de cuentas de usuario](user-provisioning.md) que ayuda a automatizar el aprovisionamiento y el desaprovisionamiento de cuentas de usuario en aplicaciones SaaS y otros sistemas, para la administración del ciclo de vida de las identidades de un extremo a otro. Azure AD admite conectores de aprovisionamiento de usuarios integrados previamente para todas las aplicaciones y sistemas que cuentan con tutoriales de aprovisionamiento de usuarios incluidos [aquí](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
 
 En este artículo se describe cómo comprobar el estado de aprovisionamiento de trabajos una vez configurados y cómo solucionar el aprovisionamiento de usuarios individuales y grupos.
 

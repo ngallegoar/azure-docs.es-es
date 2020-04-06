@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: dcf61c642a9f8ad7aa68d72736ce8fdb0e9a6e3c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7bf95a2b49608ef1f031a3b443db92b42cdae624
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945261"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244722"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Descripción de imágenes con lenguaje natural
 
@@ -56,6 +56,13 @@ La siguiente respuesta JSON muestra lo que devuelve Computer Vision al describir
 }
 ```
 
+## <a name="use-the-api"></a>Uso de la API
+
+La característica de descripción de imágenes forma parte de la API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Puede llamar a esta API mediante una SDK nativa o con llamadas a REST. Incluya `Description` en el parámetro de consulta **visualFeatures**. Después, cuando llegue la respuesta JSON completa, simplemente analice la cadena con el contenido de la sección `"description"`.
+
+* [Inicio rápido: SDK de Computer Vision para .NET](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Inicio rápido: Análisis de imágenes (API REST)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Conozca los conceptos de [etiquetado de imágenes](concept-tagging-images.md) y de [categorización de imágenes](concept-categorizing-images.md).
+Conozca los conceptos relacionados de [etiquetado de imágenes](concept-tagging-images.md) y de [categorización de imágenes](concept-categorizing-images.md).

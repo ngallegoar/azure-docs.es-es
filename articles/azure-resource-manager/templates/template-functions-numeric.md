@@ -3,16 +3,16 @@ title: 'Funciones de plantillas: numérico'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con números.
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.openlocfilehash: 91aa637701acb278e81b7eb86aa3ae2db15acc28
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 2ca5c539036d002b83b8141132a0ebf2530dc6af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207266"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156351"
 ---
-# <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funciones numéricas para las plantillas de Azure Resource Manager
+# <a name="numeric-functions-for-arm-templates"></a>Funciones numéricas para plantillas de ARM
 
-El Administrador de recursos ofrece las siguientes funciones para trabajar con números enteros:
+Resource Manager ofrece las siguientes funciones para trabajar con enteros en la plantilla de Azure Resource Manager (ARM):
 
 * [add](#add)
 * [copyIndex](#copyindex)
@@ -37,7 +37,7 @@ Devuelve la suma de los dos enteros especificados.
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
-|:--- |:--- |:--- |:--- | 
+|:--- |:--- |:--- |:--- |
 |operand1 |Sí |int |Primer número que se agregará. |
 |operand2 |Sí |int |Segundo número que se agregará. |
 
@@ -89,13 +89,13 @@ La salida del ejemplo anterior con el valor predeterminado es:
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
 ```
 
 Para implementar esta plantilla de ejemplo con PowerShell, use:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
 ```
 
 <a id="copyindex" />
@@ -103,38 +103,38 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="copyindex"></a>copyIndex
 `copyIndex(loopName, offset)`
 
-Devuelve el índice actual de un bucle de iteración. 
+Devuelve el índice actual de un bucle de iteración.
 
 ### <a name="parameters"></a>Parámetros
 
 | Parámetro | Obligatorio | Tipo | Descripción |
 |:--- |:--- |:--- |:--- |
-| loopName | Sin | string | El nombre del bucle para obtener la iteración. |
-| offset |Sin |int |El número que se agregará al valor de iteración basado en cero. |
+| loopName | No | string | El nombre del bucle para obtener la iteración. |
+| offset |No |int |El número que se agregará al valor de iteración basado en cero. |
 
 ### <a name="remarks"></a>Observaciones
 
 Esta función siempre se usa con un objeto **copy** . Si no se proporciona ningún valor para **offset**, se devuelve el valor de la iteración actual. El valor del iteración comienza en cero. Puede usar bucles de iteración al definir recursos o variables.
 
-La propiedad **loopName** le permite especificar si copyIndex hace referencia a una iteración de recursos o una iteración de propiedades. Si no se proporciona ningún valor para **loopName**, se usa la iteración de tipo de recurso actual. Proporcione un valor para **loopName** al iterar en una propiedad. 
- 
+La propiedad **loopName** le permite especificar si copyIndex hace referencia a una iteración de recursos o una iteración de propiedades. Si no se proporciona ningún valor para **loopName**, se usa la iteración de tipo de recurso actual. Proporcione un valor para **loopName** al iterar en una propiedad.
+
 Para ver una descripción completa de cómo usar **copyIndex**, consulte [Creación de varias instancias de recursos en Azure Resource Manager](copy-resources.md).
 
 Para obtener un ejemplo del uso de **copyIndex** al definir una variable, vea [Variables](template-syntax.md#variables).
 
 ### <a name="example"></a>Ejemplo
 
-En el ejemplo siguiente se muestra un bucle de copia y el valor de índice incluido en el nombre. 
+En el ejemplo siguiente se muestra un bucle de copia y el valor de índice incluido en el nombre.
 
 ```json
-"resources": [ 
-  { 
-    "name": "[concat('examplecopy-', copyIndex())]", 
-    "type": "Microsoft.Web/sites", 
-    "copy": { 
-      "name": "websitescopy", 
-      "count": "[parameters('count')]" 
-    }, 
+"resources": [
+  {
+    "name": "[concat('examplecopy-', copyIndex())]",
+    "type": "Microsoft.Web/sites",
+    "copy": {
+      "name": "websitescopy",
+      "count": "[parameters('count')]"
+    },
     ...
   }
 ]
@@ -206,13 +206,13 @@ La salida del ejemplo anterior con el valor predeterminado es:
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
 ```
 
 Para implementar esta plantilla de ejemplo con PowerShell, use:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
 ```
 
 <a id="float" />
@@ -275,7 +275,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "stringToConvert": { 
+        "stringToConvert": {
             "type": "string",
             "defaultValue": "4"
         }
@@ -300,7 +300,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
 ```
 
 Para implementar esta plantilla de ejemplo con PowerShell, use:
@@ -364,7 +364,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
 Para implementar esta plantilla de ejemplo con PowerShell, use:
@@ -428,7 +428,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
 Para implementar esta plantilla de ejemplo con PowerShell, use:
@@ -498,7 +498,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
 ```
 
 Para implementar esta plantilla de ejemplo con PowerShell, use:
@@ -569,7 +569,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
 ```
 
 Para implementar esta plantilla de ejemplo con PowerShell, use:
@@ -639,7 +639,7 @@ La salida del ejemplo anterior con el valor predeterminado es:
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
 ```
 
 Para implementar esta plantilla de ejemplo con PowerShell, use:

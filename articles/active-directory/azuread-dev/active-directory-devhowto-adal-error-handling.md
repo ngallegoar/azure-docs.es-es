@@ -11,12 +11,13 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
-ms.openlocfilehash: 508d1b71873b535725f446a3b62ce17d82258495
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9fc45ead65a29f2e7567133b5af4667bdb7c79ef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163741"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154991"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Prácticas recomendadas de control de errores para los clientes de la Biblioteca de autenticación de Azure Active Directory (ADAL)
 
@@ -188,7 +189,7 @@ El sistema operativo también puede generar un conjunto de errores, que requiere
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casos de error y acciones recomendadas: Aplicaciones cliente nativas
 
-Si va a compilar una aplicación de cliente nativo, hay algunos casos de control de errores a tener en cuenta que se relacionan con problemas de red, errores transitorios y otros errores específicos de la plataforma. En la mayoría de los casos, una aplicación no debería realizar intentos inmediatos, sino esperar a la interacción del usuario final que solicita un inicio de sesión. 
+Si va a compilar una aplicación de cliente nativo, hay algunos casos de control de errores a tener en cuenta que se relacionan con problemas de red, errores transitorios y otros errores específicos de la plataforma. En la mayoría de los casos, una aplicación no debería realizar reintentos inmediatos, sino esperar a la interacción del usuario final que solicita un inicio de sesión. 
 
 Hay algunos casos especiales en los que un reintento único puede resolver el problema. Por ejemplo, cuando un usuario necesita habilitar los datos en un dispositivo o completó la descarga del agente de Azure AD tras el error inicial. 
 

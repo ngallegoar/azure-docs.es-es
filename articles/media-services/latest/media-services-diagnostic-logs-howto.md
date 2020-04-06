@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: bf83c87c71c8e05dc74d7754c82c76489de1bd85
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4d4587c701a054828fc34785e2ae680fef47625d
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750901"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382926"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Supervisión de los registros de diagnósticos de Media Services
 
 [Azure Monitor](../../azure-monitor/overview.md) le permite supervisar métricas y registros de diagnóstico que le ayudan a conocer el rendimiento de sus aplicaciones. Para obtener una descripción detallada de esta característica y saber por qué se recomienda usar las métricas y los registros de diagnósticos de Azure Media Services, consulte [Supervisar las métricas de Media Services y los registros de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
-En este artículo se muestra cómo enrutar los datos a la cuenta de almacenamiento y, después, ver dichos datos. 
+En este artículo se muestra cómo enrutar los datos a la cuenta de almacenamiento y, después, ver dichos datos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Cree una cuenta de Media Services](create-account-cli-how-to.md).
 - Consulte [Supervisar las métricas de Media Services y los registros de diagnóstico](media-services-metrics-diagnostic-logs.md).
@@ -34,7 +34,7 @@ En este artículo se muestra cómo enrutar los datos a la cuenta de almacenamien
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Enrutamiento de datos a la cuenta de almacenamiento mediante el portal
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
-1. Vaya a la cuenta de Media Services en y haga clic en **Configuración de diagnóstico** en **Supervisión**. Aquí verá una lista de todos los recursos de la suscripción que generan datos de supervisión a través de Azure Monitor. 
+1. Vaya a la cuenta de Media Services en y haga clic en **Configuración de diagnóstico** en **Supervisión**. Aquí verá una lista de todos los recursos de la suscripción que generan datos de supervisión a través de Azure Monitor.
 
     ![Sección Configuración de diagnóstico](media/media-services-diagnostic-logs/logs01.png)
 
@@ -53,11 +53,11 @@ En este artículo se muestra cómo enrutar los datos a la cuenta de almacenamien
 
 Los datos de supervisión del recurso ahora fluyen a la cuenta de almacenamiento.
 
-## <a name="route-data-to-the-storage-account-using-the-cli"></a>Enrutamiento de datos a la cuenta de almacenamiento mediante la CLI
+## <a name="route-data-to-the-storage-account-using-the-azure-cli"></a>Enrutamiento de datos a la cuenta de almacenamiento mediante la CLI de Azure
 
-Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, debe usar el comando de la CLI `az monitor diagnostic-settings`: 
+Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, debe usar el comando `az monitor diagnostic-settings` de la CLI de Azure:
 
-```cli
+```azurecli-interactive
 az monitor diagnostic-settings create --name <diagnostic name> \
     --storage-account <name or ID of storage account> \
     --resource <target resource object ID> \
@@ -75,7 +75,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 Por ejemplo:
 
-```cli
+```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \
     --storage-account storageaccountforams  \
     --resource "/subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount" \

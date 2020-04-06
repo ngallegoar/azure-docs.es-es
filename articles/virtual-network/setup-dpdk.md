@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 876e64cd29aabe1fd4274872800a29cf1a83a0d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c79c1fd687e329b97a854a3ff66a3cf95076b5d6
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350501"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384235"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configuración de DPDK en una máquina virtual Linux
 
@@ -38,15 +38,15 @@ DPDK se puede ejecutar en máquinas virtuales de Azure que admitan varias distri
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-Se admiten las siguientes distribuciones desde la galería de Azure:
+Se admiten las siguientes distribuciones desde Azure Marketplace:
 
-| SO Linux     | Versión del kernel        |
-|--------------|----------------       |
-| Ubuntu 16.04 | 4.15.0-1015-azure     |
-| Ubuntu 18.04 | 4.15.0-1015-azure     |
-| SLES 15      | 4.12.14-5.5-azure     |
-| RHEL 7.5     | 3.10.0-862.9.1.el7    |
-| CentOS 7.5   | 3.10.0-862.3.3.el7    |
+| SO Linux     | Versión del kernel               | 
+|--------------|---------------------------   |
+| Ubuntu 16.04 | 4.15.0-1014-azure+           | 
+| Ubuntu 18.04 | 4.15.0-1014-azure+           |
+| SLES 15 SP1  | 4.12.14-8.27-azure+          | 
+| RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
+| CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
 
 **Compatibilidad de kernel personalizado**
 
@@ -56,7 +56,7 @@ Para cualquier versión de kernel de Linux que no aparezca, consulte las [revisi
 
 Todas las regiones de Azure admiten DPDK.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Se deben habilitar las redes aceleradas en una máquina virtual Linux. La máquina virtual debe tener al menos dos interfaces de red, con una interfaz para la administración. Aprenda a [crear una máquina virtual Linux con redes aceleradas habilitadas](create-vm-accelerated-networking-cli.md).
 
@@ -86,7 +86,7 @@ sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
 yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel
 ```
 
-### <a name="sles-15"></a>SLES 15
+### <a name="sles-15-sp1"></a>SLES 15 SP1
 
 **Kernel de Azure**
 
@@ -108,7 +108,7 @@ zypper \
 
 ## <a name="set-up-the-virtual-machine-environment-once"></a>Configuración del entorno de la máquina virtual (una vez)
 
-1. [Descargue la versión de DPDK más reciente](https://core.dpdk.org/download). Se requiere la versión 18.02 o posterior para Azure.
+1. [Descargue la versión de DPDK más reciente](https://core.dpdk.org/download). Se requiere la versión 18.11 LTS o 19.11 LTS para Azure.
 2. Cree la configuración predeterminada con `make config T=x86_64-native-linuxapp-gcc`.
 3. Habilite Mellanox PMDs en la configuración generada con `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
 4. Compile con `make`.
@@ -120,32 +120,30 @@ Después de reiniciar, ejecute los siguientes comandos una vez:
 
 1. Macropáginas
 
-   * Configure la macropágina ejecutando el siguiente comando, una vez para todos los nodos NUMA:
+   * Configure la macropágina ejecutando el siguiente comando una vez para cada nodo NUMA:
 
      ```bash
-     echo 1024 | sudo tee
-     /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
+     echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
    * Cree un directorio para el montaje con `mkdir /mnt/huge`.
    * Monte macropáginas con `mount -t hugetlbfs nodev /mnt/huge`.
    * Compruebe que las macropáginas están reservadas con `grep Huge /proc/meminfo`.
 
-     > [!NOTE]
-     > Hay una manera de modificar el archivo GRUB para que las macropáginas se reserven en el arranque siguiendo las [instrucciones](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) de DPDK. Las instrucciones están en la parte inferior de la página. Cuando use una máquina virtual Linux de Azure, modifique en su lugar los archivos de **/etc/config/grub.d** para reservar las macropáginas en los reinicios.
+     > [Nota] Hay una manera de modificar el archivo GRUB para que las macropáginas se reserven en el arranque siguiendo las [instrucciones](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) de DPDK. Las instrucciones están en la parte inferior de la página. Cuando use una máquina virtual Linux de Azure, modifique en su lugar los archivos de **/etc/config/grub.d** para reservar las macropáginas en los reinicios.
 
-2. Direcciones MAC e IP: use `ifconfig –a` para ver la dirección IP y MAC de las interfaces de red. La interfaz de red *VF* y la interfaz de red *NETVSC* tienen la misma dirección MAC, pero solo la interfaz de red *NETVSC* tiene una dirección IP. Las interfaces VF se ejecutan como interfaces subordinadas de las interfaces NETVSC.
+2. Direcciones MAC e IP: use `ifconfig –a` para ver la dirección IP y MAC de las interfaces de red. La interfaz de red *VF* y la interfaz de red *NETVSC* tienen la misma dirección MAC, pero solo la interfaz de red *NETVSC* tiene una dirección IP. Las interfaces *VF* se ejecutan como interfaces subordinadas de las interfaces *NETVSC*.
 
 3. Direcciones PCI
 
    * Use `ethtool -i <vf interface name>` para averiguar qué dirección PCI usar para *VF*.
-   * Si *eth0* tiene las redes aceleradas habilitadas, asegúrese de que testpmd no toma accidentalmente el control del dispositivo PCI de VF para *eth0*. Si la aplicación DPDK ha tomado accidentalmente el control de la interfaz de red de administración y provoca la pérdida de la conexión SSH, use la consola serie para detener la aplicación DPDK. También puede usar la consola serie para detener o iniciar la máquina virtual.
+   * Si *eth0* tiene las redes aceleradas habilitadas, asegúrese de que testpmd no toma accidentalmente el control del dispositivo PCI de *VF* para *eth0*. Si la aplicación DPDK ha tomado accidentalmente el control de la interfaz de red de administración y provoca la pérdida de la conexión SSH, use la consola serie para detener la aplicación DPDK. También puede usar la consola serie para detener o iniciar la máquina virtual.
 
 4. Cargue *ibuverbs* en cada reinicio con `modprobe -a ib_uverbs`. Solo para SLES 15, cargue también *mlx4_ib* con `modprobe -a mlx4_ib`.
 
 ## <a name="failsafe-pmd"></a>PMD a prueba de errores
 
-Las aplicaciones de DPDK se deben ejecutar sobre el PMD a prueba de errores que se expone en Azure. Si la aplicación se ejecuta directamente sobre el PMD de VF, no recibirá **todos** los paquetes destinados a la máquina virtual, ya que algunos paquetes se mostrarán sobre la interfaz sintética. 
+Las aplicaciones de DPDK se deben ejecutar sobre el PMD a prueba de errores que se expone en Azure. Si la aplicación se ejecuta directamente sobre el PMD de *VF*, no recibirá **todos** los paquetes destinados a la máquina virtual, ya que algunos paquetes se mostrarán sobre la interfaz sintética. 
 
 Si ejecuta una aplicación DPDK a través del PMD a prueba de errores, garantiza que la aplicación recibe todos los paquetes que están destinados a él. También se asegura de que la aplicación sigue ejecutándose en modo DPDK, incluso si se revoca el VF cuando el host está en mantenimiento. Para más información sobre PMD a prueba de errores, consulte la [biblioteca de controladores de modo de sondeo a prueba de errores](https://doc.dpdk.org/guides/nics/fail_safe.html).
 

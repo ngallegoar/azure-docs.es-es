@@ -6,14 +6,14 @@ ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/11/2020
-ms.topic: conceptual
+ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 27517c375265b552d2e1dec4d8c167d1bc86549d
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: e7efda8efa27044168386e3ebbc557bf7fb74e8c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137657"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80157932"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Administración de IoT Central desde Azure Portal
 
@@ -41,8 +41,7 @@ Rellene todos los campos en el formulario. Este formulario es similar al que se 
 
 ![Creación de formularios de IoT Central](media/howto-manage-iot-central-from-portal/image6a.png)
 
-**Ubicación** es la [zona geográfica](https://azure.microsoft.com/global-infrastructure/geographies/) en la que desea crear la aplicación. Normalmente, se debe elegir la ubicación más cercana físicamente a los dispositivos para un rendimiento óptimo. Azure IoT Central está disponible actualmente en **Estados Unidos**, **Australia**, **Asia Pacífico** o **Europa**.  Una vez elegida una ubicación, no podrá mover la aplicación a otra más adelante.
-
+**Ubicación** es la [zona geográfica](https://azure.microsoft.com/global-infrastructure/geographies/) en la que desea crear la aplicación. Normalmente, se debe elegir la ubicación más cercana físicamente a los dispositivos para un rendimiento óptimo. Actualmente, Azure IoT Central está disponible en las geografías siguientes: **Australia**, **Asia Pacífico**, **Europa**, **Estados Unidos**, **Reino Unido**y **Japón**. Una vez elegida una ubicación, no podrá mover la aplicación a otra más adelante.
 
 Después de rellenar todos los campos, seleccione **Crear**.
 

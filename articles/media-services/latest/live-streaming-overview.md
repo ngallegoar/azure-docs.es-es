@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: af7bfe74d8df177650cea76a9bed7b0d7311f87e
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: e2c4e5b6c10b06d82a1933962cb2d97e031876a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78968994"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80068022"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -33,7 +33,7 @@ Azure Media Services permite entregar eventos en directo a sus clientes en la nu
 En este artículo se proporciona información general y una guía del streaming en vivo con Media Services y vínculos a otros artículos pertinentes.
  
 > [!NOTE]
-> Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) de la versión 3, obtener información sobre el acceso a las API. Para las restantes tareas de administración (por ejemplo, Transformaciones y trabajos y Protección de contenido), use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
+> Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) de la versión 3, obtener información sobre el acceso a las API. Para las restantes tareas de administración (por ejemplo, Transformaciones y trabajos y Protección de contenido), use la [API REST](https://docs.microsoft.com/rest/api/media/), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 
 ## <a name="dynamic-packaging"></a>Empaquetado dinámico
 
@@ -118,6 +118,10 @@ El recurso en el que se está archivando la salida en directo, se convierte auto
 - [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md)
 - [Estados y facturación](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
+
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+Consulte el artículo [Preguntas más frecuentes](frequently-asked-questions.md#live-streaming).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 

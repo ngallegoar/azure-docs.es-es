@@ -1,25 +1,25 @@
 ---
-title: Introducción a la habilitación de Azure Monitor para VM (versión preliminar) | Microsoft Docs
+title: Información general sobre la habilitación de Azure Monitor para VM
 description: Aprenda a implementar y configurar Azure Monitor para VM. Más información sobre los requisitos del sistema.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/14/2019
-ms.openlocfilehash: 44422f66f6fc995dcaf96947ea05b183c7131ea3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/27/2020
+ms.openlocfilehash: 26ed33e967aff1714d2a6fb174eab623e71534c2
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669580"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382739"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitación de Azure Monitor para VM (versión preliminar)
+# <a name="enable-azure-monitor-for-vms-overview"></a>Información general sobre la habilitación de Azure Monitor para VM
 
-En este artículo se proporciona información general de las opciones disponibles para configurar Azure Monitor para VM. Use Azure Monitor para VM para supervisar el estado y rendimiento. Detecte dependencias de aplicaciones que se ejecutan en máquinas virtuales (VM) de Azure y conjuntos de escalado de máquinas virtuales, máquinas virtuales locales o máquinas virtuales hospedadas en otro entorno de nube.  
+En este artículo se proporciona información general sobre las opciones disponibles para habilitar Azure Monitor para VM en sus máquinas virtuales con el fin de supervisar el estado y el rendimiento. Detecte dependencias de aplicaciones que se ejecutan en máquinas virtuales (VM) de Azure y conjuntos de escalado de máquinas virtuales, máquinas virtuales locales o máquinas virtuales hospedadas en otro entorno de nube.  
 
 Para configurar Azure Monitor para VM:
 
-* Habilite una sola máquina virtual de Azure o conjunto de escalado de máquinas virtuales, seleccionando **Insights (versión preliminar)** directamente desde la misma.
+* Habilite una sola máquina virtual de Azure o conjunto de escalado de máquinas virtuales, seleccionando **Insights** directamente desde la misma.
 * Habilite dos o más máquinas virtuales de Azure y conjuntos de escalado de máquinas virtuales mediante Azure Policy. Este método asegura que se instalan y configuran correctamente las dependencias necesarias en las máquinas virtuales y conjuntos de escalado nuevos y existentes. Se informa de las máquinas virtuales y conjuntos de escalado no compatibles para que pueda decidir si habilitarlas y cómo corregir las incompatibilidades.
 * Use PowerShell para habilitar dos o más máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure en una suscripción o grupo de recursos concreto.
 * Habilite Azure Monitor para VM para supervisar las máquinas virtuales o equipos físicos hospedados en la red corporativa o en otro entorno de nube.
@@ -55,20 +55,20 @@ Azure Monitor para VM admite un área de trabajo de Log Analytics en las siguien
 - Sudeste de Australia
 
 >[!NOTE]
->Puede implementar máquinas virtuales de Azure en cualquier región. Estas máquinas virtuales no se limitan a las regiones admitidas por el área de trabajo de Log Analytics.
+>Puede supervisar máquinas virtuales de Azure en cualquier región. Las máquinas virtuales no se limitan a las regiones admitidas por el área de trabajo de Log Analytics.
 >
 
-Si no tiene un área de trabajo, puede crear una usando alguno de los recursos siguientes:
-* [La CLI de Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
+Si no tiene un área de trabajo de Log Analytics, puede crear una usando alguno de estos recursos:
+* [CLI de Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
-* [Portal de Azure](../../azure-monitor/learn/quick-create-workspace.md)
+* [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
 También puede crear un área de trabajo mientras está habilitando la supervisión en una sola máquina virtual de Azure o conjunto de escalado de máquinas virtuales desde Azure Portal.
 
 Para configurar un escenario a escala que use Azure Policy, Azure PowerShell o plantillas de Azure Resource Manager, haga lo siguiente en el área de trabajo de Log Analytics:
 
-* Instale las soluciones ServiceMap e InfrastructureInsights. Puede completar esta instalación mediante el uso de una plantilla proporcionada de Azure Resource Manager. O bien, en la pestaña **Introducción**, seleccione **Configurar área de trabajo**.
+* Instalación de las soluciones *ServiceMap* e *InfrastructureInsights*. Puede completar esta instalación mediante el uso de una plantilla proporcionada de Azure Resource Manager. O bien, en la pestaña **Introducción** de Azure Portal, seleccione **Configurar área de trabajo**.
 * Configure el área de trabajo de Log Analytics para que recopile contadores de rendimiento.
 
 Para configurar el área de trabajo para el escenario a escala, use uno de los métodos siguientes:
@@ -169,14 +169,14 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 |:--|:--|:--|
 | Agentes de Windows | Sí | Junto con el [agente de Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), los agentes de Windows requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](#supported-operating-systems). |
 | Agentes de Linux | Sí | Junto con el [agente de Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), los agentes de Linux requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](#supported-operating-systems). |
-| Grupo de administración de System Center Operations Manager | Sin | |
+| Grupo de administración de System Center Operations Manager | No | |
 
 Puede descargar Dependency Agent desde estas ubicaciones:
 
 | Archivo | SO | Versión | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.2.9060 | B7725B6B205CF8C336D9AAD87956336C816412740E9D6499BCACB6F862AE3896  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.2.9060 | C6995A67A7782AEC312647D74A99C3C823F68F5FFA490FD4BB6006A2FF2941B0 |
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
@@ -184,60 +184,16 @@ Para habilitar y obtener acceso a las características de Azure Monitor para VM,
 
 Para más información acerca de cómo controlar el acceso a un área de trabajo de Log Analytics, consulte [Administración de áreas de trabajo](../../azure-monitor/platform/manage-access.md).
 
-## <a name="how-to-enable-azure-monitor-for-vms-preview"></a>Procedimiento para habilitar Azure Monitor para VM (versión preliminar)
+## <a name="how-to-enable-azure-monitor-for-vms"></a>Procedimiento para habilitar Azure Monitor para VM
 
 Azure Monitor para VM se habilita mediante alguno de los métodos que se describen en esta tabla:
 
 | Estado de la implementación | Método | Descripción |
 |------------------|--------|-------------|
-| Máquina virtual de Azure única o conjunto de escalado de máquinas virtuales de Azure | [Habilitar desde la máquina virtual](vminsights-enable-single-vm.md) | Puede habilitar una sola máquina virtual de Azure, seleccionando **Insights (versión preliminar)** directamente desde la máquina virtual o el conjunto de escalado de máquinas virtuales. |
+| Máquina virtual de Azure única o conjunto de escalado de máquinas virtuales de Azure | [Habilitar desde la máquina virtual](vminsights-enable-single-vm.md) | Puede habilitar una sola máquina virtual de Azure, seleccionando **Insights** directamente desde la máquina virtual o el conjunto de escalado de máquinas virtuales. |
 | Varias máquinas virtuales de Azure o conjuntos de escalado de máquinas virtuales | [Habilitar a través de Azure Policy](vminsights-enable-at-scale-policy.md) | Puede habilitar varias máquinas virtuales de Azure con Azure Policy y las definiciones de directivas disponibles. |
 | Varias máquinas virtuales de Azure o conjuntos de escalado de máquinas virtuales | [Habilitar a través de Azure PowerShell o las plantillas de Azure Resource Manager](vminsights-enable-at-scale-powershell.md) | Use Azure PowerShell o plantillas de Azure Resource Manager para habilitar varias máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure en una suscripción o grupo de recursos concreto. |
 | Nube híbrida | [Habilitar para el entorno híbrido](vminsights-enable-hybrid-cloud.md) | Puede implementar en máquinas virtuales o equipos físicos que se hospedan en su centro de datos u otros entornos de nube. |
-
-## <a name="performance-counters-enabled"></a>Contadores de rendimiento habilitados 
-
-Azure Monitor para VM configura un área de trabajo de Log Analytics para recopilar los contadores de rendimiento que usa. En las tablas siguientes se enumeran los objetos y contadores que se recopilan cada 60 segundos.
-
->[!NOTE]
->La siguiente lista de contadores de rendimiento habilitada por Azure Monitor para VM no le impide habilitar contadores adicionales que necesita para recopilar datos de las máquinas virtuales que informan al área de trabajo. Además, si deshabilita estos contadores, impedirá que el conjunto de gráficos de rendimiento incluido en la característica Rendimiento muestre el uso de recursos de las máquinas virtuales.
-
-### <a name="windows-performance-counters"></a>Contadores de rendimiento de Windows
-
-|Nombre del objeto |Nombre del contador |
-|------------|-------------|
-|LogicalDisk |% de espacio libre |
-|LogicalDisk |Prom. Segundos de disco/lecturas |
-|LogicalDisk |Prom. Segundos de disco/transferencias |
-|LogicalDisk |Prom. Segundos de disco/escrituras |
-|LogicalDisk |Bytes de disco/s |
-|LogicalDisk |Bytes de lectura de disco/s |
-|LogicalDisk |Lecturas de disco/s |
-|LogicalDisk |Transferencias de disco/s |
-|LogicalDisk |Bytes de escritura en disco/s |
-|LogicalDisk |Escrituras en disco/s |
-|LogicalDisk |Megabytes libres |
-|Memoria |MB disponibles |
-|Adaptador de red |Bytes recibidos por segundo |
-|Adaptador de red |Bytes enviados por segundo |
-|Procesador |% de tiempo de procesador |
-
-### <a name="linux-performance-counters"></a>Contadores de rendimiento de Linux
-
-|Nombre del objeto |Nombre del contador |
-|------------|-------------|
-|Disco lógico |% espacio usado |
-|Disco lógico |Bytes de lectura de disco/s |
-|Disco lógico |Lecturas de disco/s |
-|Disco lógico |Transferencias de disco/s |
-|Disco lógico |Bytes de escritura en disco/s |
-|Disco lógico |Escrituras en disco/s |
-|Disco lógico |Megabytes libres |
-|Disco lógico |Bytes de disco lógico/s |
-|Memoria |MB de memoria disponibles |
-|Red |Número total de bytes recibidos |
-|Red |Número total de bytes transmitidos |
-|Procesador |% de tiempo de procesador |
 
 ## <a name="management-packs"></a>Módulos de administración
 

@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1f3755d61b5fa082665cfdb9aa91d1e31e2d4e4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4caa248f6972609ecb6bf71dd521c68d78cebd70
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014476"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383963"
 ---
 # <a name="azure-active-directory-risk-detections"></a>Detecciones de riesgos de Azure Active Directory
 
@@ -91,6 +91,9 @@ Este algoritmo omite "falsos positivos" obvios que contribuyen a una condición 
 Este tipo de detección de riesgos tiene en cuenta las ubicaciones de inicio de sesión anteriores (dirección IP, latitud/longitud y ASN) para determinar las ubicaciones nuevas o desconocidas. El sistema almacena información acerca de las ubicaciones anteriores utilizadas por un usuario y considera estas ubicaciones "conocidas". La detección de riesgos se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. El sistema tiene un período de aprendizaje inicial de 30 días, durante el cual no marca ninguna nueva ubicación como ubicación desconocida. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. 
 
 Identity Protection detecta inicios de sesión desde ubicaciones desconocidas también para protocolos heredados/de autenticación básica. Dado que estos protocolos no tienen las modernas características conocidas, como el identificador del cliente, no hay suficiente telemetría para reducir los falsos positivos. Para reducir el número de detecciones de riesgos observadas, debe pasarse a la autenticación moderna.   
+
+> [!NOTE]
+> Si el nombre de usuario y la contraseña de inicio de sesión no coinciden, se producirá un error en el inicio de sesión y no se realizará la detección de riesgos. Las detecciones de riesgos debido al inicio de sesión desde ubicaciones desconocidas solo se desencadenan en los inicios de sesión correctos.
 
 ### <a name="sign-ins-from-infected-devices"></a>Inicios de sesión desde dispositivos infectados
 

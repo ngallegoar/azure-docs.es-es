@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: eae7e434ce21b5f9d9f3e6c40f94261df8baa426
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 3/19/2020
+ms.openlocfilehash: b42f0d7a8146f7f2b313959273abd22303c89a60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972360"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062543"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registros de auditoría en Azure Database for MySQL
 
@@ -49,7 +49,7 @@ Otros parámetros que se pueden ajustar son los siguientes:
 
 ## <a name="access-audit-logs"></a>Acceso a registros de auditoría
 
-Los registro de auditoría están integrados en los registros de diagnóstico de Azure Monitor. Una vez que haya habilitado los registros de auditoría en el servidor de MySQL, puede enviarlos a los registros de Azure Monitor, Event Hubs o Azure Storage. Para obtener más información sobre cómo habilitar los registros de diagnóstico en Azure Portal, consulte el [artículo sobre registros de auditoría en el portal](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
+Los registros de auditoría están integrados en los registros de diagnóstico de Azure Monitor. Una vez que haya habilitado los registros de auditoría en el servidor de MySQL, puede enviarlos a los registros de Azure Monitor, Event Hubs o Azure Storage. Para obtener más información sobre cómo habilitar los registros de diagnóstico en Azure Portal, consulte el [artículo sobre registros de auditoría en el portal](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs).
 
 ## <a name="diagnostic-logs-schemas"></a>Esquemas de registros de diagnóstico
 
@@ -113,6 +113,9 @@ El esquema siguiente se aplica a los tipos de evento GENERAL, DML_SELECT, DML_NO
 
 ### <a name="table-access"></a>Acceso a la tabla
 
+> [!NOTE]
+> Los registros de acceso a tablas solo se muestran en MySQL 5.7.
+
 | **Propiedad** | **Descripción** |
 |---|---|
 | `TenantId` | El identificador de inquilino |
@@ -135,6 +138,60 @@ El esquema siguiente se aplica a los tipos de evento GENERAL, DML_SELECT, DML_NO
 | `table_s` | Nombre de la tabla a la que se accede |
 | `sql_text_s` | Texto de la consulta completa |
 | `\_ResourceId` | URI de recurso |
+
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Análisis de registros en los registros de Azure Monitor
+
+Una vez que los registros de auditoría se canalizan a los registros de Azure Monitor a través de registros de diagnóstico, puede realizar un análisis en mayor profundidad de sus eventos auditados. A continuación encontrará algunas consultas de ejemplo que le ayudarán a ponerse en marcha. Asegúrese de que actualizar los datos siguientes con el nombre del servidor.
+
+- Enumeración de los eventos GENERALES en un servidor determinado
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last 
+    ```
+
+- Enumeración de los eventos de CONEXIÓN en un servidor determinado
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs' and event_class_s == "connection_log"
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last
+    ```
+
+- Resumen de los eventos auditados en un servidor determinado
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
+    ```
+
+- Representación de una distribución de tipo de evento de auditoría en un servidor concreto
+
+    ```kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | render timechart 
+    ```
+
+- Enumeración de los eventos auditados en todos los servidores de MySQL con registros de diagnóstico habilitados para los registros de auditoría
+
+    ```kusto
+    AzureDiagnostics
+    | where Category == 'MySqlAuditLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | order by TimeGenerated asc nulls last
+    ``` 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
