@@ -1,129 +1,87 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: "Azure\_SQL\_Database"
+### YamlMime:Landing
+title: Búsqueda de documentación sobre las bases de datos únicas, los servidores de bases de datos y los grupos elásticos de Azure SQL Database
+summary: Busque conceptos, inicios rápidos, tutoriales y ejemplos de bases de datos únicas, grupos elásticos y servidores de bases de datos de Azure SQL Database.
 metadata:
-  title: 'Documentación: base de datos única, servidor de bases de datos y grupo elástico'
-  description: 'Busque guías de inicio rápido, tutoriales y ejemplos de bases de datos únicas, grupos elásticos y servidores de bases de datos de Azure SQL Database.'
+  title: Documentación
+  description: Busque documentación sobre Azure SQL Database, que es una base de datos relacional como servicio (DBaaS) relacional basada en la última versión estable de Microsoft SQL Server.
   services: sql-database
-  requires-business-manager-approval: false
   ms.service: sql-database
   ms.subservice: single-database
-  ms.topic: overview
-  author: jovanpop-msft
-  ms.author: jovanpop
+  ms.topic: landing-page
+  author: stevestein
+  ms.author: sstein
   ms.reviewer: carlrab
-  manager: craigg
-  ms.date: 04/26/2019
-abstract:
-  description: 'Azure SQL Database es un servicio de base de datos relacional (DBaaS) basado en la última versión estable del Motor de base de datos de Microsoft SQL Server. SQL Database es una base de datos de alto rendimiento, fácil de usar, confiable y segura que puede usar para crear aplicaciones, sitios web y microservicios en el lenguaje de programación que prefiera, sin necesidad de administrar la infraestructura. Aprenda a usar SQL Database con nuestros inicios rápidos, tutoriales y ejemplos.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: 'https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png'
-      width: 250
-    title: 'Creación de una base de datos SQL única en Azure (3:12)'
-    href: 'https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - title: Grupos elásticos
-            href: /azure/sql-database/sql-database-elastic-pool
-            html: <p>Los grupos elásticos de SQL Database son una solución simple y rentable para la administración y escalado de varias bases de datos que tienen distintas e imprevisibles demandas de uso.</p>
-            image:
-              src: media/index/i_elasticpool.svg
-          - title: un servidor de SQL Database
-            href: /azure/sql-database/sql-database-servers
-            html: '<p>Un servidor de SQL Database es el punto de administración central para configurar la seguridad, el ajuste, la directiva de copias de seguridad y otras propiedades de configuración en un conjunto de bases de datos únicas o agrupadas dentro del servidor.</p>'
-            image:
-              src: media/index/i_mi.svg
-          - title: Niveles de servicio y precios
-            href: /azure/sql-database/sql-database-service-tiers
-            html: "<p>Adapte la relación precio-rendimiento a sus necesidades con los niveles de servicio flexible que van desde unos asequibles 5\_EUR al mes hasta potentes bases de datos con 80 núcleos.</p>"
-            image:
-              src: media/index/i_perftier.svg
-          - title: Escalabilidad
-            href: /azure/sql-database/sql-database-scale-resources
-            html: <p>Fácil escalado vertical de la base de datos para mejorar el rendimiento de la aplicación.</p>
-            image:
-              src: media/index/i_scale.svg
-          - title: plataforma como servicio
-            href: /azure/sql-database/sql-database-paas
-            html: '<p>La alta disponibilidad integrada, las copias de seguridad automatizadas y la replicación geográfica ayudarán a impedir que las operaciones de mantenimiento o los errores de hardware o de la infraestructura detengan sus operaciones de negocio.</p>'
-            image:
-              src: media/index/gear.svg
-          - title: Seguridad avanzada
-            href: /azure/sql-database/sql-database-security-index
-            html: "<p>Ayude a proteger las bases de datos con la autenticación de Azure\_AD, Virtual Network, firewalls y conexiones Always Encrypted. Identifique las amenazas y vulnerabilidades con la seguridad integrada.</p>"
-            image:
-              src: media/index/i_security.svg
-  - title: Inicios rápidos en cinco minutos
-    items:
-      - type: paragraph
-        text: 'Azure SQL Database le permite realizar tareas básicas de administración mediante Azure Portal, la CLI de Azure y Azure PowerShell. Aprenda a realizar tareas básicas de administración con los siguientes ejemplos de inicio rápido:'
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/portal.svg
-            title: Portal de Azure
-          - image:
-              src: media/index/cli.svg
-            title: Azure CLI
-          - image:
-              src: media/index/logo_powershell.svg
-            title: PowerShell
-          - image:
-              src: media/index/logo_arm.svg
-            title: Plantilla del Administrador de recursos de Azure
-        rows:
-          - title: Crear una base de datos
-            values:
-              - href: /azure/sql-database/sql-database-single-database-get-started
-              - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
-              - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-              - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create'
-          - title: Creación de un grupo elástico
-            values:
-              - href: /azure/sql-database/sql-database-elastic-pool-manage
-              - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
-              - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
-              - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create'
-          - title: Escalado de una base de datos
-            values:
-              - href: null
-              - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
-              - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
-              - href: null
-          - title: Escalado de un grupo elástico
-            values:
-              - href: null
-              - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
-              - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: 'Aprenda a crear, administrar y migrar bases de datos mediante Azure SQL Database.'
-      - type: list
-        style: ordered
-        items:
-          - html: Creación y diseño del esquema para una nueva instancia de SQL Database mediante <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> o <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>.
-          - html: Migración de una base de datos existente a Azure mediante <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> o <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>.
-          - html: <a href="/azure/sql-database/sql-database-security-tutorial">Protección de la base de datos de SQL Database</a>.
-          - html: Distribución de los datos globalmente mediante una <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">base de datos distribuida geográficamente</a>.
-          - html: Busque más <a href="sql-database-howto-single-database.md">guías paso a paso</a> que puedan ayudarle a configurar su base de datos.
-  - title: Ejemplos
-    items:
-      - type: paragraph
-        text: Busque scripts para administrar las tareas más habituales.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
-          - html: <a href="/azure/sql-database/sql-database-cli-samples">CLI de Azure</a>
+  ms.date: 03/30/2020
+  ms.openlocfilehash: 1aa091dadce4f45db93e97640f5705524d72879e
+  ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 03/31/2020
+  ms.locfileid: "80421236"
+landingContent:
+- title: Base de datos única
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ¿Qué es SQL Database?
+      url: sql-database-technical-overview.md
+    - text: ¿Qué opción de SQL Database debo elegir?
+      url: sql-database-paas-vs-sql-server-iaas.md
+    - text: Opciones de compra
+      url: sql-database-purchase-models.md
+    - text: Niveles de servicio
+      url: sql-database-service-tiers-general-purpose-business-critical.md
+- title: Grupos elásticos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Grupos elásticos
+      url: sql-database-elastic-pool.md
+    - text: Administración de grupos elásticos
+      url: sql-database-elastic-pool-manage.md
+    - text: Escalado de grupos elásticos
+      url: sql-database-elastic-pool-scale.md
+- title: un servidor de SQL Database
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Servidores de SQL Database
+      url: sql-database-servers.md
+    - text: Configuración de conectividad
+      url: sql-database-connectivity-settings.md
+    - text: Reglas de firewall
+      url: sql-database-server-level-firewall-rule.md
+- title: Seguridad avanzada
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Funcionalidades de seguridad
+      url: sql-database-security-overview.md
+    - text: Recomendaciones de seguridad
+      url: sql-database-security-best-practice.md
+    - text: Inicios de sesión, cuentas de usuario, roles y permisos
+      url: sql-database-manage-logins.md
+    - text: Azure Active Directory
+      url: sql-database-aad-authentication.md
+- title: Escalabilidad
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Escalado o reducción vertical dinámico
+      url: sql-database-scale-resources.md
+    - text: Escalado horizontal de lectura
+      url: sql-database-read-scale-out.md
+    - text: Trabajos entre bases de datos
+      url: sql-database-elastic-jobs-overview.md
+- title: Precios y niveles de servicio
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Modelos de compra
+      url: sql-database-purchase-models.md
+    - text: Niveles de servicio
+      url: sql-database-service-tiers-general-purpose-business-critical.md
+    - text: Sin servidor
+      url: sql-database-serverless.md
+    - text: Hiperescala
+      url: sql-database-service-tier-hyperscale.md

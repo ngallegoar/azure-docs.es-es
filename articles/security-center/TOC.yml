@@ -29,6 +29,8 @@
       href: quick-onboard-azure-stack.md
 - name: Tutoriales
   items:
+    - name: Guía de planeamiento y operaciones
+      href: security-center-planning-and-operations-guide.md
     - name: Protección de los recursos
       href: tutorial-protect-resources.md
     - name: Respuesta a incidentes
@@ -71,8 +73,8 @@
           href: security-center-incident.md
         - name: Correlación de alertas inteligentes en la nube (incidentes)
           href: security-center-alerts-cloud-smart.md
-        - name: Mapa de alertas de seguridad e información sobre amenazas
-          href: security-center-threat-intel.md
+        - name: Informes de amenazas
+          href: security-center-threat-report.md
         - name: Validación de alertas (archivo de prueba EICAR)
           href: security-center-alert-validation.md
 - name: Guías paso a paso
@@ -149,6 +151,8 @@
           href: security-center-sql-service-recommendations.md
         - name: Protección de identidades y accesos
           href: security-center-identity-access.md
+        - name: Administración de los datos de usuario de investigación
+          href: security-center-investigation-user-data.md
     - name: Aplicación de defensas en la nube
       items:
         - name: Administración del acceso Just-In-Time
@@ -159,24 +163,6 @@
           href: security-center-file-integrity-monitoring.md
         - name: Protección de red adaptable
           href: security-center-adaptive-network-hardening.md
-    - name: Archivar
-      items:
-        - name: Aplicación del cifrado de discos
-          href: security-center-apply-disk-encryption.md
-        - name: Aplicar actualizaciones del sistema
-          href: security-center-apply-system-updates.md
-        - name: Instalación de Endpoint Protection
-          href: security-center-install-endpoint-protection.md
-        - name: Informes de amenazas
-          href: security-center-threat-report.md
-        - name: Puntuación de confianza de la alerta
-          href: security-center-confidence-score.md
-        - name: Investigación
-          href: security-center-investigation.md
-        - name: Administración de los datos de usuario de investigación
-          href: security-center-investigation-user-data.md
-        - name: Planeamiento y operaciones
-          href: security-center-planning-and-operations-guide.md
 - name: Referencia
   items:
     - name: API de REST

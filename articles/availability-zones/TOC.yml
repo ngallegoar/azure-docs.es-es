@@ -85,6 +85,10 @@
           items:
             - name: "Creación de una instancia de Azure\_Active\_Directory Domain Services"
               href: ../active-directory-domain-services/tutorial-create-instance.md
+    - name: Documentación acerca de las zonas perimetrales
+      items:
+        - name: ¿Qué son las zonas perimetrales?
+          href: ../networking/edge-zones-overview.md
 - name: Recuperación ante desastres
   items:
     - name: Uso de Azure Site Recovery

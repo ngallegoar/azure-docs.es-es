@@ -13,11 +13,13 @@
       href: quick-create-cli.md
     - name: Creación con Azure PowerShell
       href: quick-create-powershell.md
-    - name: Creación con una plantilla
+    - name: Creación con una plantilla de Resource Manager
       items:
         - name: Conjunto de escalado de Linux
+          displayName: 'ARM, resource manager'
           href: quick-create-template-linux.md
         - name: Conjunto de escalado de Windows
+          displayName: 'ARM, resource manager'
           href: quick-create-template-windows.md
 - name: Tutoriales
   items:

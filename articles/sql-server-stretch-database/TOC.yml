@@ -1,5 +1,5 @@
-- name: Documentación de SQL Server Stretch Database
-  href: index.md
+- name: Documentación de Azure SQL Server Stretch Database
+  href: index.yml
 - name: Información general
   items:
     - name: ¿Qué es Stretch Database?

@@ -1,6 +1,6 @@
 ---
 title: Clasificación y detección de datos
-description: Clasificación y detección de datos y Azure SQL Database
+description: Clasificación y detección de datos para Azure SQL Database y Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,16 +13,16 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/05/2020
 tags: azure-synapse
-ms.openlocfilehash: e22205e81178ac0caff4b71462ece776238900f6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 98b21969ce86f84b20fbe78dbdf3002769ef65f5
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191952"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387876"
 ---
-# <a name="azure-sql-database-and-azure-synapse-analytics-data-discovery--classification"></a>Detección y clasificación de datos de Azure SQL Database y Azure Synapse Analytics
+# <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Clasificación y detección de datos para Azure SQL Database y Azure Synapse Analytics
 
-La clasificación y detección de datos proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** & **notificar** la información confidencial de las bases de datos.
+La clasificación y detección de datos proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** y **notificar** la información confidencial de las bases de datos.
 
 Las funciones de detección y clasificación de la información confidencial más importante [empresarial, financiera, médica, información personal identificable (PII), etc.] desempeñan un rol fundamental en el modo en que se protege la información de su organización. Puede servir como infraestructura para lo siguiente:
 
@@ -35,9 +35,9 @@ La clasificación y detección de datos forma parte de la oferta de [Advanced Da
 > [!NOTE]
 > Este documento se relaciona con Azure SQL Database y Azure Synapse. Para simplificar, se usa SQL Database cuando se hace referencia tanto a SQL Database como a Azure Synapse. Para SQL Server (local), consulte [Clasificación y detección de datos de SQL](https://go.microsoft.com/fwlink/?linkid=866999).
 
-## <a id="subheading-1"></a>¿Qué es la clasificación y detección de datos?
+## <a name="what-is-data-discovery--classification"></a><a id="subheading-1"></a>¿Qué es la clasificación y detección de datos?
 
-La clasificación y detección de datos incluye un conjunto de servicios avanzados y nuevas funcionalidades de SQL que forman un nuevo paradigma de Information Protection de SQL destinado a proteger los datos, no solo la base de datos:
+La función de clasificación y detección de datos incluye un conjunto de servicios avanzados y nuevas funcionalidades de SQL y forma un nuevo paradigma de Information Protection de SQL destinado a proteger los datos, no solo la base de datos:
 
 - **Detección y recomendaciones**
 
@@ -55,7 +55,7 @@ La clasificación y detección de datos incluye un conjunto de servicios avanzad
 
   El estado de clasificación de la base de datos puede verse en un panel detallado en el portal. Además, puede descargar un informe (en formato de Excel) para usarlo con fines de auditoría y cumplimiento de normas, así como para otras necesidades.
 
-## <a id="subheading-2"></a>Descubrir, clasificar y etiquetar columnas confidenciales
+## <a name="discover-classify--label-sensitive-columns"></a><a id="subheading-2"></a>Descubrir, clasificar y etiquetar columnas confidenciales
 
 En la sección siguiente se describen los pasos necesarios para detectar, clasificar y etiquetar las columnas que contienen datos confidenciales en la base de datos, así como para ver el estado de clasificación actual de la base de datos y exportar informes.
 
@@ -66,7 +66,7 @@ La clasificación incluye dos atributos de metadatos:
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>Definir y personalizar la taxonomía de clasificación
 
-La detección y clasificación de datos de SQL incluye un conjunto integrado de etiquetas de confidencialidad y un conjunto integrado de tipos de información y lógica de detección. Ahora puede personalizar esta taxonomía y definir un conjunto y la categoría de construcciones de clasificación específicamente para su entorno.
+La función de clasificación y detección de datos incluye un conjunto integrado de etiquetas de confidencialidad y un conjunto integrado de tipos de información y lógica de detección. Ahora puede personalizar esta taxonomía y definir un conjunto y la categoría de construcciones de clasificación específicamente para su entorno.
 
 La definición y la personalización de la taxonomía de clasificación se realizan en una ubicación central para todo el inquilino de Azure. Esa ubicación se encuentra en [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), como parte de la directiva de seguridad. Solo un usuario con derechos administrativos en el grupo de administración raíz del inquilino puede realizar esta tarea.
 
@@ -89,17 +89,11 @@ Una vez definida la directiva de todos los inquilinos, puede continuar con la cl
 
 4. Para descargar un informe en formato de Excel, haga clic en la opción **Exportar** del menú superior de la ventana.
 
-   ![Exportación a Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
-
 5. <a id="step-5"></a>Para empezar a clasificar los datos, haga clic en la **pestaña Clasificación** en la parte superior de la ventana.
-
-    ![Clasifique sus datos](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. El motor de clasificación examina las columnas de su base de datos que contienen datos potencialmente confidenciales y proporciona una lista de **clasificaciones de columna recomendadas**. Para ver y aplicar las recomendaciones de clasificación:
 
-   - Para ver la lista de clasificaciones de columnas recomendadas, haga clic en el panel de recomendaciones en la parte inferior de la ventana:
-
-      ![Clasifique sus datos](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
+   - Para ver la lista de clasificaciones de columnas recomendadas, haga clic en el panel de recomendaciones en la parte inferior de la ventana.
 
    - Revise la lista de recomendaciones: para aceptar una recomendación para una columna específica, active la casilla de la columna izquierda de la fila correspondiente. También puede marcar *todas las recomendaciones* como aceptadas. Para ello, active la casilla del encabezado de la tabla de recomendaciones.
 
@@ -107,13 +101,9 @@ Una vez definida la directiva de todos los inquilinos, puede continuar con la cl
 
    - Para aplicar las recomendaciones seleccionadas, haga clic en el botón azul **Accept selected recommendations** (Aceptar recomendaciones seleccionadas).
 
-      ![Aplicación de recomendaciones](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
-
 7. También puede **clasificar manualmente** las columnas como alternativa a la clasificación basada en recomendaciones, o además de ella:
 
    - Haga clic en **Agregar clasificación** en el menú superior de la ventana.
-
-      ![Agregue clasificación de forma manual](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
    - En la ventana contextual que se abre, seleccione el esquema > tabla > columna que quiera clasificar, así como el tipo de información y la etiqueta de confidencialidad. Después, haga clic en el botón azul **Agregar clasificación** situado en la parte inferior de la ventana contextual.
 
@@ -121,15 +111,13 @@ Una vez definida la directiva de todos los inquilinos, puede continuar con la cl
 
 8. Para completar la clasificación y etiquetar de forma persistente las columnas de la base de datos con los nuevos metadatos de clasificación, haga clic en **Guardar** en el menú superior de la ventana.
 
-   ![Save](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
-
-## <a id="subheading-3"></a>Auditoría del acceso a datos confidenciales
+## <a name="auditing-access-to-sensitive-data"></a><a id="subheading-3"></a>Auditoría del acceso a datos confidenciales
 
 Un aspecto importante del paradigma de protección de la información es la capacidad de supervisar el acceso a información confidencial. La [auditoría de Azure SQL Database](sql-database-auditing.md) se ha mejorado para incluir un nuevo campo en el registro de auditoría denominado *data_sensitivity_information*, que registra la clasificación de confidencialidad (etiquetas) de los datos reales que devuelve la consulta.
 
 ![Registro de auditoría](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>Permisos
+## <a name="permissions"></a><a id="subheading-4"></a>Permisos
 
 Los siguientes roles integrados pueden leer la clasificación de datos de la base de datos de Azure SQL: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` y `User Access Administrator`.
 
@@ -137,7 +125,7 @@ Los siguientes roles integrados pueden modificar la clasificación de datos de l
 
 Obtenga más información acerca de los [recursos de Azure para RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-## <a id="subheading-5"></a>Administración de clasificaciones
+## <a name="manage-classifications"></a><a id="subheading-5"></a>Administración de clasificaciones
 
 # <a name="t-sql"></a>[T-SQL](#tab/azure-t-sql)
 Puede utilizar T-SQL para agregar o quitar las clasificaciones de columna, así como recuperar todas las clasificaciones para toda la base de datos.
@@ -181,9 +169,9 @@ Puede usar PowerShell para administrar las clasificaciones y las recomendaciones
 
 ---
 
-## <a id="subheading-6"></a>Pasos siguientes
+## <a name="next-steps"></a><a id="subheading-6"></a>Pasos siguientes
 
-- Más información sobre [Advanced Data Security](sql-database-advanced-data-security.md).
+- Obtenga más información sobre [Advanced Data Security](sql-database-advanced-data-security.md).
 - Considere la posibilidad de configurar la [auditoría de Azure SQL Database](sql-database-auditing.md) para supervisar y auditar el acceso a los datos confidenciales clasificados.
 - Para ver una presentación de YouTube que incluye la detección y clasificación de datos, consulte [Detección, clasificación, etiquetado y protección de datos de SQL | Datos expuestos](https://www.youtube.com/watch?v=itVi9bkJUNc).
 

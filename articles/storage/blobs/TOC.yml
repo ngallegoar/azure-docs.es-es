@@ -13,7 +13,7 @@
           href: storage-blobs-introduction.md
     - name: Guías de inicio rápido
       items:
-        - name: Administración de blobs sin código
+        - name: Uso de blobs
           items:
             - name: Portal de Azure
               href: storage-quickstart-blobs-portal.md
@@ -23,8 +23,6 @@
               href: storage-quickstart-blobs-powershell.md
             - name: CLI
               href: storage-quickstart-blobs-cli.md
-        - name: Desarrollo con blobs
-          items:
             - name: .NET
               items:
                 - name: ".NET (SDK, versión\_12)"

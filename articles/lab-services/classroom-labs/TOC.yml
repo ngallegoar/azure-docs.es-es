@@ -102,6 +102,8 @@
               href: how-to-enable-nested-virtualization-template-vm-using-script.md
         - name: Preparación de una plantilla de máquina virtual de Windows
           href: how-to-prepare-windows-template.md
+        - name: Control del comportamiento de apagado de Windows
+          href: how-to-windows-shutdown.md
         - name: Visualización de información de soporte técnico (instructor)
           href: lab-creator-support-information.md
     - name: Conexión a máquinas virtuales de laboratorios educativos (alumno)

@@ -26,6 +26,8 @@
     - name: Aplicaciones de una sola página
       displayName: SPA
       items:
+        - name: Angular
+          href: quickstart-v2-angular.md
         - name: JavaScript
           href: quickstart-v2-javascript.md
     - name: Aplicaciones web
@@ -69,6 +71,8 @@
     - name: Aplicaciones de una sola página
       displayName: SPA
       items:
+        - name: Angular
+          href: tutorial-v2-angular.md
         - name: JavaScript
           href: tutorial-v2-javascript-spa.md
     - name: Aplicaciones web
@@ -219,8 +223,12 @@
               href: scenario-mobile-app-configuration.md
             - name: Configuración específica de plataformas móviles
               items:
+                - name: Complemento de Microsoft Enterprise SSO para dispositivos Apple
+                  href: apple-sso-plugin.md
                 - name: Modo de dispositivo compartido para dispositivos Android
-                  href: shared-device-mode.md
+                  href: msal-android-shared-devices.md
+                - name: Modo de dispositivo compartido para dispositivos iOS
+                  href: msal-ios-shared-devices.md
                 - name: Xamarin Android
                   href: msal-net-xamarin-android-considerations.md
                 - name: Explorador del sistema en Android
@@ -308,6 +316,17 @@
           href: msal-handling-exceptions.md
         - name: Registro
           href: msal-logging.md
+        - name: Dispositivos compartidos
+          items:
+            - name: Introducción sobre los dispositivos compartidos
+              href: msal-shared-devices.md
+              displayName: 'shared device mode, firstline worker, frontline worker'
+            - name: Modo de dispositivo compartido para dispositivos iOS
+              href: msal-ios-shared-devices.md
+              displayName: 'firstline worker, frontline worker'
+            - name: Modo de dispositivo compartido para dispositivos Android
+              href: msal-android-shared-devices.md
+              displayName: 'firstline worker, frontline worker'
         - name: Inicio de sesión único
           displayName: SSO
           items:

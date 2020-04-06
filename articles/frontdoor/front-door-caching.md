@@ -1,6 +1,6 @@
 ---
-title: 'Azure Front Door Service: caché | Microsoft Docs'
-description: Este artículo le ayuda a comprender cómo Azure Front Door Service supervisa el estado de los back-end
+title: 'Azure Front Door: almacenamiento en caché | Microsoft Docs'
+description: Este artículo le ayuda a comprender cómo Azure Front Door supervisa el estado de los servidores back-end.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 70ee0af0b39e80aa90d143303b3c522fbb3cc780
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839218"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471751"
 ---
-# <a name="caching-with-azure-front-door-service"></a>Almacenamiento en caché con Azure Front Door Service
-En el documento siguiente se especifica el comportamiento de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché.
+# <a name="caching-with-azure-front-door"></a>Almacenamiento en caché con Azure Front Door
+En el documento siguiente se especifica el comportamiento de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché. Front Door es una red Content Delivery Network (CDN) moderna, junto con la aceleración de sitios dinámicos y el equilibrio de carga; también admite comportamientos de almacenamiento en caché como cualquier otra red CDN.
 
 ## <a name="delivery-of-large-files"></a>Suministro de archivos grandes
-Azure Front Door Service proporciona archivos grandes sin un límite en el tamaño de los archivos. Front Door usa una técnica denominada fragmentación de objetos. Cuando se solicita un archivo grande, Front Door recupera partes más pequeñas del back-end. Después de recibir una solicitud de un archivo completo o intervalo de bytes, un entorno de Front Door solicita el archivo desde el back-end en fragmentos de 8 MB.
+Azure Front Door proporciona archivos grandes sin un límite en el tamaño de los archivos. Front Door usa una técnica denominada fragmentación de objetos. Cuando se solicita un archivo grande, Front Door recupera partes más pequeñas del back-end. Después de recibir una solicitud de un archivo completo o intervalo de bytes, un entorno de Front Door solicita el archivo desde el back-end en fragmentos de 8 MB.
 
 </br>Una vez que el fragmento llega al entorno de Front Door, se almacena en caché y se sirve inmediatamente al usuario. Después, Front Door realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se solicita), todos los intervalos de bytes están disponibles (si se solicitan) o el cliente finaliza la conexión.
 
@@ -92,7 +92,7 @@ Front Door almacenará los recursos en caché hasta que el período de vida de d
 </br>El procedimiento recomendado para asegurarse de que los usuarios siempre obtengan la copia más reciente de los recursos es crear versiones correspondientes a cada actualización y publicarlos como nuevas URL. Front Door recuperará inmediatamente los nuevos recursos en las siguientes solicitudes de los clientes. A veces puede que quiera purgar contenido almacenado en caché de todos los nodos perimetrales y forzarlos todos para recuperar nuevos activos actualizados. Esto puede deberse a actualizaciones de la aplicación web o a actualizaciones rápidas de los activos de actualización que contienen información incorrecta.
 
 </br>Seleccione los activos que quiera purgar de los nodos perimetrales. Si quiere borrar todos los recursos, haga clic en la casilla Purgar todo. De lo contrario, escriba la ruta de acceso completa de cada recurso que quiera purgar en el cuadro de texto Ruta de acceso. Los siguientes formatos se pueden usar en las rutas de acceso.
-1. **Purga con una sola URL**: purgue recursos concretos especificando la URL completa, con la extensión de archivo; por ejemplo, /pictures/strasbourg.png;
+1. **Purga de ruta de acceso única** Purgue recursos concretos mediante la especificación de la ruta completa del activo (sin el protocolo y dominio), con la extensión de archivo; por ejemplo, /pictures/strasbourg.png;
 2. **Purga con carácter comodín**: se puede usar el asterisco (\*) como carácter comodín. Purgue todas las carpetas, subcarpetas y archivos de un punto de conexión con /\* en la ruta de acceso o todas las subcarpetas y archivos de una carpeta concreta especificando la carpeta seguido de /\*; por ejemplo, /pictures/\*.
 3. **Purga de dominio raíz**: purgue la raíz del punto de conexión con "/" en la ruta de acceso.
 
@@ -106,11 +106,9 @@ El siguiente orden de encabezados se usa para determinar cuánto tiempo se almac
 
 Los encabezados de respuesta Cache-Control que indican que la respuesta no se almacena en caché como Cache-Control: private, Cache-Control: no-cache y Cache-Control: no-store se respetan. Sin embargo, si hay varias solicitudes en lucha en un servidor POP por la misma dirección URL, es posible que compartan la respuesta. Si no hay ningún control de caché presente, el comportamiento predeterminado es que AFD almacenará en caché el recurso durante un tiempo X, donde X se elige aleatoriamente entre 1 y 3 días.
 
-
 ## <a name="request-headers"></a>Encabezados de solicitud
 
 Los siguientes encabezados de solicitud no se reenviarán a un back-end cuando se use el almacenamiento en caché.
-- Authorization
 - Content-Length
 - Transfer-Encoding
 
