@@ -2,13 +2,13 @@
 title: 'Importación de orígenes de datos: QnA Maker'
 description: Una base de conocimiento de QnA Maker consta de una serie de conjuntos de preguntas y respuestas, así como metadatos opcionales asociados a cada par de pregunta y respuesta.
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.openlocfilehash: d47d994366a8057521c1cc2ab1ab8a7ec3393965
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 03/16/2020
+ms.openlocfilehash: e7772b2c76dfb92ced4d2c0d4b8dae97a59d1b83
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843376"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457828"
 ---
 # <a name="importing-from-data-sources"></a>Importación de orígenes de datos
 
@@ -56,7 +56,9 @@ La propiedad **displayOrder** es numérica, y **displayText** es texto que no de
 
 ## <a name="export-as-example"></a>Exportación como ejemplo
 
-Si no está seguro de cómo representar su conjunto de preguntas y respuestas en el archivo `.tsv`, cree el conjunto en el portal de QnA Maker, guárdelo y después exporte la base de conocimiento para obtener un ejemplo de cómo representar el conjunto.
+Si no está seguro de cómo representar el conjunto de QnA en el archivo `.tsv`:
+* Use este [ejemplo descargable de GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true).
+* O bien, cree el conjunto en el portal de QnA Maker, guárdelo y, luego, exporte la base de conocimiento para ver un ejemplo de cómo representar el conjunto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

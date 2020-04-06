@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 243086ddaae47eba20eea6877fe6d7f8f9889290
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117485"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79203498"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Uso del reconocimiento de entidades con nombre en Text Analytics
 
@@ -182,14 +182,13 @@ La API Text Analytics no tiene estado. No se almacenan datos en la cuenta y los 
 
 Todas las solicitudes POST devuelven una respuesta con formato JSON con los identificadores y las propiedades de entidad detectadas.
 
-La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local y, a continuación, importarlo en una aplicación que permita ordenar, buscar y manipular los datos.
-
+La salida se devuelve inmediatamente. Puede transmitir los resultados a una aplicación que acepte JSON o guardar la salida en un archivo en el sistema local y, a continuación, importarlo en una aplicación que permita ordenar, buscar y manipular los datos. Debido a la compatibilidad con varios idiomas y con Emojis, la respuesta puede contener desplazamientos de texto. Consulte [cómo procesar desplazamientos de texto](../concepts/text-offsets.md) para más información.
 
 #### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Respuestas de la versión 3 de ejemplo
 
-La versión 3 proporciona puntos de conexión independientes para la vinculación de entidad y para NER. A continuación se muestran las respuestas para ambas operaciones.
+La versión 3 proporciona puntos de conexión independientes para la vinculación de entidad y para NER. A continuación se muestran las respuestas para ambas operaciones. 
 
 #### <a name="example-ner-response"></a>Respuesta de NER de ejemplo
 

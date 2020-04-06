@@ -13,11 +13,11 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929266"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236288"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Movimiento de datos de Salesforce mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -34,7 +34,7 @@ Actualmente, Azure Data Factory solo admite mover datos de Salesforce a [almacen
 ## <a name="supported-versions"></a>Versiones compatibles
 Este conector admite las siguientes ediciones de Salesforce: Developer Edition, Professional Edition, Enterprise Edition o Unlimited Edition. Y admite la copia del dominio personalizado, producción y espacio aislado de Salesforce.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 * Debe estar habilitado el permiso API. Consulte [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Para copiar datos de Salesforce en almacenes de datos locales, tiene que tener Data Management Gateway versión 2.0 o posterior instalado en su entorno local.
 
@@ -49,7 +49,7 @@ También podría recibir el error "REQUEST_LIMIT_EXCEEDED" en ambos escenarios. 
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con actividad de copia que mueva datos desde Salesforce mediante el uso de diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
 Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
@@ -66,10 +66,10 @@ Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos al servicio vinculado de Salesforce.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **Salesforce**. |Sí |
-| environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> - La dirección predeterminada es "https:\//login.salesforce.com". <br> - Para copiar datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, "https://[dominio].my.salesforce.com". |Sin |
+| environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> - La dirección predeterminada es "https:\//login.salesforce.com". <br> - Para copiar datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, "https://[dominio].my.salesforce.com". |No |
 | username |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
 | password |Especifique la contraseña para la cuenta de usuario. |Sí |
 | securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). |Sí |
@@ -79,7 +79,7 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos del tipo **RelationalTable** tiene las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
+| Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | tableName |Nombre de la tabla de Salesforce. |No (si se especifica una **consulta** de **RelationalSource**) |
 
@@ -95,9 +95,9 @@ Las propiedades disponibles en la sección typeProperties de la actividad varía
 
 En la actividad de copia cuando el origen es del tipo **RelationalSource** (lo que incluye Salesforce), en la sección typeProperties, están disponibles las propiedades siguientes:
 
-| Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| query |Utilice la consulta personalizada para leer los datos. |Consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Por ejemplo: `select * from MyTable__c`. |No (si se especifica **tableName** de **dataset**) |
+| Query |Utilice la consulta personalizada para leer los datos. |Consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por ejemplo: `select * from MyTable__c`. |No (si se especifica **tableName** de **dataset**) |
 
 > [!IMPORTANT]
 > La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
@@ -285,25 +285,25 @@ Consulte [Propiedades del tipo RelationalSource](#copy-activity-properties) para
 
 | Tipo de Salesforce | Tipo basado en .NET |
 | --- | --- |
-| Numeración automática |Cadena |
+| Numeración automática |String |
 | Casilla de verificación |Boolean |
 | Moneda |Decimal |
 | Date |DateTime |
 | Fecha y hora |DateTime |
-| Email |Cadena |
-| Id |Cadena |
-| Relación de búsqueda |Cadena |
-| Lista desplegable de selección múltiple |Cadena |
+| Email |String |
+| Identificador |String |
+| Relación de búsqueda |String |
+| Lista desplegable de selección múltiple |String |
 | Number |Decimal |
 | Percent |Decimal |
-| Teléfono |Cadena |
-| Lista desplegable |Cadena |
-| Texto |Cadena |
-| Área de texto |Cadena |
-| Área de texto (largo) |Cadena |
-| Área de texto (enriquecido) |Cadena |
-| Texto (cifrado) |Cadena |
-| URL |Cadena |
+| Teléfono |String |
+| Lista desplegable |String |
+| Texto |String |
+| Área de texto |String |
+| Área de texto (largo) |String |
+| Área de texto (enriquecido) |String |
+| Texto (cifrado) |String |
+| URL |String |
 
 > [!NOTE]
 > Para asignar columnas del conjunto de datos de origen a columnas del conjunto de datos del receptor, consulte [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Asignación de columnas de conjunto de datos en Azure Data Factory).

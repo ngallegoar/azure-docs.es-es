@@ -7,19 +7,18 @@ metadata:
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 9070577c07cb826d10b911689f456d64709450b7
-  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.openlocfilehash: 4aa2cb134bc47841da2964f4f83898875098e6c4
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/09/2020
-  ms.locfileid: "78943372"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "80052801"
 landingContent:
-- title: Introducción
+- title: Acerca de la conversión de texto a voz
   linkLists:
   - linkListType: overview
     links:
@@ -33,51 +32,33 @@ landingContent:
       url: quickstarts/text-to-speech-audio-file.md
     - text: Síntesis de voz con audio de formato largo
       url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
-- title: Guías detalladas
+- title: Desarrollo con la conversión de texto a voz
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Mejora de síntesis con SSML
       url: speech-synthesis-markup.md
-    - text: Mejora de síntesis con Voz personalizada
-      url: how-to-custom-voice.md
-    - text: Síntesis de voz con Long Audio API
-      url: long-audio-api.md
     - text: Obtención de una lista de voces con REST (Python)
       url: quickstart-python-get-text-to-speech-voices.md
     - text: Conversión de texto a voz con REST (Python)
       url: quickstart-python-text-to-speech.md
-    - text: Mejora de síntesis con Audio Content Creation
-      url: how-to-audio-content-creation.md
   - linkListType: concept
     links:
     - text: Introducción a voz personalizada
       url: how-to-custom-voice.md
-    - text: Preparación de datos de Voz personalizada
-      url: how-to-custom-voice-prepare-data.md
     - text: Creación y uso de modelos de voz personalizados
       url: how-to-custom-voice-create-voice.md
-    - text: Grabación de ejemplos de voz
-      url: record-custom-voice-samples.md
     - text: Acceso validado de Voz personalizada
       url: concepts-gating-overview.md
-    - text: Implementación de tecnología sintética
-      url: concepts-guidelines-responsible-deployment-synthetic.md
-    - text: Directrices de diseño de divulgación de información
-      url: concepts-disclosure-guidelines.md
-    - text: Modelos de diseño de divulgación
-      url: concepts-disclosure-patterns.md
 - title: Referencia
   linkLists:
   - linkListType: reference
     links:
-    - text: Compatibilidad con idiomas
-      url: language-support.md#text-to-speech
-    - text: Precios
-      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Compatibilidad con voz estándar
+      url: language-support.md#standard-voices
+    - text: Compatibilidad con voz neuronal
+      url: language-support.md#neural-voices
     - text: Conjuntos fonéticos de SSML
       url: speech-ssml-phonetic-sets.md
-    - text: Código de conducta
-      url: https://aka.ms/custom-neural-code-of-conduct
-    - text: Divulgación de talento de voz
-      url: https://aka.ms/disclosure-voice-talent
+    - text: Preguntas sobre la conversión de texto a voz
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

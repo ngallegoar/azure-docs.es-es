@@ -2,13 +2,13 @@
 title: 'Configuración de un servicio QnA Maker: QnA Maker'
 description: Antes de crear alguna base de conocimiento de QnA Maker, primero debe configurar un servicio QnA Maker en Azure. Cualquiera que tenga autorización para crear recursos en una suscripción puede configurar un servicio QnA Maker.
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: 663cbce0e096c6189d97cf7872d466383d272f06
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.date: 03/19/2020
+ms.openlocfilehash: 8ec57f441ba58227e45398c35c7931dc75fa658f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650425"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131694"
 ---
 # <a name="manage-qna-maker-resources"></a>Administración de recursos de QnA Maker
 
@@ -188,6 +188,31 @@ El recurso **App Service** de QnA Maker utiliza el recurso Cognitive Search. Par
     > ![Captura de pantalla de Azure Portal con el reinicio de App Service después de cambiar la configuración](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
 
 Si crea un servicio QnA mediante plantillas de Azure Resource Manager, puede crear todos los recursos y controlar la creación de App Service para usar un servicio Search existente.
+
+Aprenda más sobre cómo realizar la [configuración de la aplicación](../../../app-service/configure-common.md#configure-app-settings) de App Service.
+
+## <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>Configuración del valor de inactividad de App Service para evitar el tiempo de espera
+
+App Service, que proporciona el entorno de ejecución de predicción de QnA Maker para una base de conocimiento publicada, tiene una configuración de tiempo de espera de inactividad que acepta automáticamente como predeterminado el tiempo de espera si el servicio está inactivo. En QnA Maker, esto significa que la API generateAnswer del entorno de ejecución de predicción agota a veces el tiempo de espera después de períodos sin tráfico.
+
+Para mantener cargada la aplicación del punto de conexión de predicción incluso cuando no hay tráfico, establezca el tiempo de inactividad en siempre activo.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Busque y seleccione la instancia de App Service del recurso de QnA Maker. Tendrá el mismo nombre que el recurso de QnA Maker pero un **tipo** diferente de App Service.
+1. Busque **Configuración** y seleccione **Configuración**.
+1. En el panel Configuración, seleccione **Configuración general**, busque **Siempre activado** y elija **Activado** como valor.
+
+    > [!div class="mx-imgBorder"]
+    > ![En el panel Configuración, seleccionar **Configuración general** luego buscar **Siempre activado** y elegir **Activado** como valor.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
+
+1. Para guardar la configuración, seleccione **Guardar**.
+1. Se le preguntará si desea reiniciar la aplicación para usar la nueva configuración. Seleccione **Continuar**.
+
+Aprenda más sobre cómo realizar la [configuración general](../../../app-service/configure-common.md#configure-general-settings) de App Service.
+
+## <a name="delete-azure-resources"></a>Eliminación de recursos de Azure
+
+Si elimina cualquiera de los recursos de Azure usados para las bases de conocimiento de QnA Maker, estas dejarán de funcionar. Antes de eliminar todos los recursos, asegúrese de exportar las bases de conocimiento desde la página **Settings** (Configuración).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

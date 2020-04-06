@@ -1,109 +1,79 @@
 ---
 title: 'Edición de una base de conocimiento: QnA Maker'
-titleSuffix: Azure Cognitive Services
 description: QnA Maker le permite administrar el contenido de la base de conocimiento, proporcionando una experiencia de edición sencilla.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: cc4ead968a0ee2c9890c1cd24a6b70516b2b2e74
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.date: 03/19/2020
+ms.openlocfilehash: 223ad3a607adc20bbe608598da9742d56788b2c6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326796"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131650"
 ---
-# <a name="edit-a-knowledge-base-in-qna-maker"></a>Edición de una base de conocimiento en QnA Maker
+# <a name="edit-qna-sets-in-your-knowledge-base"></a>Edición de conjuntos de QnA en la base de conocimiento
 
 QnA Maker le permite administrar el contenido de la base de conocimiento, proporcionando una experiencia de edición sencilla.
 
-<a name="add-datasource"></a>
+Los conjuntos de QnA se agregan desde un origen de datos, como un archivo o una dirección URL, o lo hacen como un origen editorial. Un origen editorial indica que el conjunto de QnA se agregó manualmente en el portal de QnA. Todos los conjuntos de QnA están disponibles para su edición.
 
-## <a name="edit-your-knowledge-base-content"></a>Edición del contenido de una base de conocimiento
+## <a name="add-an-editorial-qna-set"></a>Adición de un conjunto de QnA editorial
+1. Inicie sesión en el [portal de QnA](https://www.qnamaker.ai/) y, luego, seleccione la base de conocimiento en la que quiere agregar el conjunto de QnA.
+1. En la página **EDIT** (EDITAR) de la base de conocimiento, seleccione **Add QnA set** (Agregar conjunto de QnA) para agregar un nuevo conjunto de QnA.
 
-1.  Seleccione **Mis bases de conocimiento** en la barra de navegación superior. 
+1. En la fila del nuevo conjunto de QnA, agregue los campos **Question** (Pregunta) y **Answer** (Respuesta) obligatorios. Todos los demás campos son opcionales. Todos los campos se pueden cambiar en cualquier momento.
 
-    Puede observar que todos los servicios creados o compartidos con usted aparecen ordenados de forma descendente en función de la fecha de la **última modificación**.
+1. Opcionalmente, agregue **frases alternativas**. Las frases alternativas son cualquier forma de la pregunta que sea bastante diferente de la pregunta original, pero deben proporcionar la misma respuesta.
 
-    ![Mis bases de conocimiento](../media/qnamaker-how-to-edit-kb/my-kbs.png)
+    Cuando se publica la base de conocimiento y se activa el aprendizaje activo, QnA Maker recopila opciones de frases alternativas para que las acepte. Estas opciones se seleccionan para aumentar la precisión de la predicción.
 
-1. Seleccione una base de conocimiento determinada para editarla.
- 
-1. Seleccione **Configuración**. Aquí puede editar el campo obligatorio Nombre de servicio.
-  
-    |Objetivo|.|
-    |--|--|
-    |Agregar dirección URL|Puede agregar nuevas direcciones URL para agregar nuevo contenido de preguntas frecuentes a la base de conocimiento si hace clic en **Manage knowledge base -> + Add URL** (Administrar base de conocimiento > Agregar dirección URL).|
-    |Eliminar dirección URL|Puede eliminar las direcciones URL existentes si selecciona el icono de eliminación (la papelera).|
-    |Actualizar contenido|Si quiere que la base de conocimiento rastree el contenido más reciente de las direcciones URL existentes, active la casilla **Refresh** (Actualizar). Con esta acción se actualiza la base de conocimiento con el contenido de la dirección URL más reciente una vez. Esto no establece una programación normal de las actualizaciones.|
-    |Agregar archivo|Puede agregar un documento de archivo admitido como parte de una base de conocimiento; para ello, seleccione **Manage knowledge base** (Administrar base de conocimiento) y, luego, seleccione **+ Add File** (+ Agregar archivo).|
-    |Importar|También puede importar cualquier base de conocimiento existente si selecciona el botón **Import Knowledge Base** (Importar base de conocimiento). |
-    |Actualizar|La actualización de la base de conocimiento depende del **plan de tarifa de administración** que se va a usar al crear el servicio de QnA Maker asociado con su base de conocimiento. También puede actualizar el nivel de administración de Azure Portal, si es necesario.
+1. Opcionalmente, agregue **metadatos**. Para ver los metadatos, seleccione **View options** (Ver opciones) en el menú contextual. Los metadatos proporcionan filtros para las respuestas que facilita la aplicación cliente, como un bot de chat.
 
-1. Una vez realizados los cambios en la base de conocimiento, haga clic en **Save and train** (Guardar y entrenar) en la esquina superior derecha de la página para almacenar los cambios.    
+1. También tiene la opción de agregar **avisos de seguimiento**. Los avisos de seguimiento proporcionan rutas de conversación adicionales a las que presenta la aplicación cliente al usuario.
 
-    ![Guardar y entrenar](../media/qnamaker-how-to-edit-kb/save-and-train.png)
+1. Seleccione **Save and train** (Guardar y entrenar) para ver las predicciones que incluye el nuevo conjunto de QnA.
 
-    >[!CAUTION]
-    >Si abandona la página antes de seleccionar **Save and train** (Guardar y entrenar), todos los cambios se perderán.
+## <a name="edit-a-qna-set"></a>Edición de un conjunto de QnA
 
-## <a name="add-a-qna-pair"></a>Adición de un par de QnA
+Se puede editar cualquier campo de cualquier conjunto de QnA, sin importar el origen de datos original. Puede que algunos campos no estén visibles debido a la configuración actual de **View Options** (Ver opciones), que se encuentra en la barra de herramientas de contexto.
 
-En la página **Edición**, seleccione **Agregar par de QnA** para agregar una nueva fila a la tabla de base de conocimiento.
+## <a name="delete-a-qna-set"></a>Eliminación de un conjunto de QnA
 
-![Adición de un par de QnA](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
+Para eliminar un QnA, haga clic en el icono **eliminar** en el extremo derecho de la fila QnA. Esta es una operación permanente. No se puede deshacer. Considere la posibilidad de exportar la base de conocimiento desde la página **Publish** (Publicar) antes de eliminar los conjuntos.
 
-## <a name="delete-a-qna-pair"></a>Eliminación de un par de QnA
+![Eliminación de un conjunto de QnA](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
-Para eliminar un QnA, haga clic en el icono **eliminar** en el extremo derecho de la fila QnA. Esta es una operación permanente. No se puede deshacer. Considere la posibilidad de exportar la base de conocimiento desde la página **Publish** (Publicar) antes de eliminar los pares. 
+## <a name="find-the-qna-set-id"></a>Búsqueda del identificador del conjunto de QnA
 
-![Eliminación de un par de QnA](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
+Si necesita encontrar el identificador del conjunto de QnA, puede buscarlo en dos lugares:
+
+* Mantenga el puntero sobre el icono de eliminación en la fila del conjunto de QnA que le interese. El texto de navegación incluye el identificador del conjunto de QnA.
+* Exporte la base de conocimiento. Cada conjunto de QnA de la base de conocimiento incluye el identificador del conjunto de QnA.
 
 ## <a name="add-alternate-questions"></a>Agregar preguntas alternativas
 
-Agregue preguntas alternativas a un par de QnA existente para mejorar la probabilidad de encontrar una coincidencia para una consulta de usuario.
+Agregue preguntas alternativas a un conjunto de QnA existente para mejorar la probabilidad de encontrar una coincidencia con una consulta de usuario.
 
 ![Agregar preguntas alternativas](../media/qnamaker-how-to-edit-kb/add-alternate-question.png)
 
+## <a name="linking-qna-sets"></a>Vinculación de conjuntos de QnA
+
+La vinculación de conjuntos de QnA se proporciona con [avisos de seguimiento](multiturn-conversation.md). Esta es una conexión lógica entre los conjuntos de QnA, administrada en el nivel de la base de conocimiento. Puede editar los avisos de seguimiento en el portal de QnA Maker.
+
+No se pueden vincular conjuntos de QnA en los metadatos de la respuesta.
+
 ## <a name="add-metadata"></a>Agregar metadatos
 
-Para agregar pares de metadatos, seleccione primero **View options** (Ver opciones) y, luego, seleccione **Show metadata** (Mostrar metadatos). Como resultado, se muestra la columna de metadatos. A continuación, seleccione el signo **+** para agregar un par de metadatos. Este par consta de una clave y un valor.
+Para agregar conjuntos de metadatos, seleccione primero **View options** (Ver opciones) y, luego, elija **Show metadata** (Mostrar metadatos). Como resultado, se muestra la columna de metadatos. A continuación, seleccione el signo **+** para agregar un conjunto de metadatos. Este conjunto consta de una clave y un valor.
+
+## <a name="save-changes-to-the-qna-sets"></a>Guardar los cambios en los conjuntos de QnA
+
+Seleccione periódicamente **Save and train** (Guardar y entrenar) después de realizar modificaciones para evitar perder los cambios.
 
 ![Agregar metadatos](../media/qnamaker-how-to-edit-kb/add-metadata.png)
-
-> [!TIP]
-> Asegúrese de hacer clic periódicamente en Guardar y entrenar en la base de conocimiento después de realizar las ediciones, a fin de evitar perder los cambios.
-
-## <a name="manage-large-knowledge-bases"></a>Administración de bases de conocimiento grandes
-
-* **Grupos de origen de datos**: Los pares de QnA se agrupan según el origen de datos del que se han extraído. Puede expandir o contraer el origen de datos.
-
-    ![Uso de la barra de origen de datos de QnA Maker para contraer y expandir preguntas y respuestas acerca del origen de datos](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
-
-* **Buscar en Knowledge Base**: Puede buscar en la base de conocimiento si escribe en el cuadro de texto en la parte superior de la tabla de Knowledge Base. Haga clic en Entrar para buscar en el contenido de la pregunta, la respuesta o los metadatos. Haga clic en el icono X para quitar el filtro de búsqueda.
-
-    ![Use el cuadro de búsqueda de QnA Maker situado encima de las preguntas y respuestas para reducir la vista a solo elementos que coincidan con el filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
-
-* **Paginación**: Muévase rápidamente a través de los orígenes de datos para administrar bases de conocimiento de gran tamaño.
-
-    ![Uso de las características de paginación de QnA Maker situadas encima de las preguntas y respuestas para desplazarse por las páginas de preguntas y respuestas](../media/qnamaker-how-to-edit-kb/pagination.png)
-
-## <a name="delete-knowledge-bases"></a>Eliminación de bases de conocimiento
-
-La eliminación de una base de conocimiento (KB) es una operación permanente. No se puede deshacer. Antes de eliminar una base de conocimiento, debe exportarla desde la página **Configuración** del portal de QnA Maker. 
-
-Si comparte la KB con [colaboradores](collaborate-knowledge-base.md) y, a continuación, la elimina, todos perderán el acceso a la KB. 
-
-## <a name="delete-azure-resources"></a>Eliminación de recursos de Azure 
-
-Si elimina cualquiera de los recursos de Azure usados para las bases de conocimiento de QnA Maker, estas dejarán de funcionar. Antes de eliminar todos los recursos, asegúrese de exportar las bases de conocimiento desde la página **Settings** (Configuración). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Colaborar en una base de conocimiento](./collaborate-knowledge-base.md)
+
+* [Administración de recursos de Azure que se usan en QnA Maker](set-up-qnamaker-service-azure.md)

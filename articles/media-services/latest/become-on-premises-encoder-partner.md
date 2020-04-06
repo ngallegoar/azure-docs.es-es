@@ -1,6 +1,6 @@
 ---
 title: 'Conviértase en un asociado de codificador local: Azure Media Services'
-description: Conviértase en un asociado de codificador local con Azure Media Services.
+description: En este artículo se explica cómo comprobar sus codificadores de streaming en vivo locales.
 services: media-services
 author: johndeu
 manager: johndeu
@@ -8,18 +8,20 @@ ms.author: johndeu
 ms.date: 03/02/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6b00e430f960195e1badd2a73f9291997b94c833
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f98d9942f8c30f06b0144503b056c1e8a393ae52
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78253149"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79298638"
 ---
-# <a name="become-an-on-premises-encoder-partner"></a>Conviértase en un asociado de codificador local
+# <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Cómo comprobar su codificador de streaming en vivo local
 
 Como asociado de codificador local de Azure Media Services, Media Services promueve su producto al recomendar su codificador a clientes empresariales. Para convertirse en un asociado de codificador local, debe comprobar la compatibilidad del codificador local con Media Services. Para ello, complete las comprobaciones siguientes:
 
-### <a name="pass-through-live-event-verification"></a>Verificación del Evento en directo con paso a través
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="pass-through-live-event-verification"></a>Verificación del Evento en directo con paso a través
 
 1. En la cuenta de Media Services, asegúrese de que el **Punto de conexión de streaming** esté en ejecución. 
 2. Cree e inicie el Evento en directo de **paso a través**. <br/> Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing.md).
@@ -38,7 +40,7 @@ Como asociado de codificador local de Azure Media Services, Media Services promu
 15. Restablezca el estado del Evento en directo después de crear cada ejemplo.
 16. Repita los pasos 5 a 15 con todas las configuraciones admitidas por el codificador (con y sin señalización, subtítulos o velocidades de codificación diferentes).
 
-### <a name="live-encoding-live-event-verification"></a>Verificación del Evento en directo con codificación en directo
+## <a name="live-encoding-live-event-verification"></a>Verificación del Evento en directo con codificación en directo
 
 1. En la cuenta de Media Services, asegúrese de que el **Punto de conexión de streaming** esté en ejecución. 
 2. Cree e inicie el Evento en directo de **codificación en directo**. <br/> Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing.md).
@@ -57,17 +59,17 @@ Como asociado de codificador local de Azure Media Services, Media Services promu
 15. Restablezca el estado del Evento en directo después de crear cada ejemplo.
 16. Repita los pasos 5 a 15 con todas las configuraciones admitidas por el codificador (con y sin señalización, subtítulos o velocidades de codificación diferentes).
 
-### <a name="longevity-verification"></a>Comprobación de duración
+## <a name="longevity-verification"></a>Comprobación de duración
 
 Siga los mismos pasos que se indican en [Verificación del evento en directo con paso a través](#pass-through-live-event-verification), salvo el paso 11. <br/>En lugar de 10 minutos, ejecute el codificador en directo durante una semana o más. Use un reproductor, como [Azure Media Player](https://aka.ms/azuremediaplayer), para ver el streaming en vivo cada cierto tiempo (o un recurso archivado) y asegurarse de que la reproducción no tenga problemas visibles.
 
-### <a name="email-your-recorded-settings"></a>Envío de la configuración anotada por correo electrónico
+## <a name="email-your-recorded-settings"></a>Envío de la configuración anotada por correo electrónico
 
 Por último, envíe la configuración registrada y los parámetros archivados por correo electrónico a Azure Media Services (amshelp@microsoft.com) para notificar que se han superado todos los pasos de la comprobación automática. Incluya también sus datos de contacto para que pueda recibir las actualizaciones que haya. Puede ponerse en contacto con el equipo de Azure Media Services si tiene alguna pregunta sobre este proceso.
 
 ## <a name="see-also"></a>Consulte también
 
-[Codificadores en directo locales recomendados](recommended-on-premises-live-encoders.md)
+[Codificadores locales probados](recommended-on-premises-live-encoders.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

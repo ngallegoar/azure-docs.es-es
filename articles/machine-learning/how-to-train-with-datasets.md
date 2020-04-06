@@ -10,18 +10,18 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 09/25/2019
-ms.openlocfilehash: 2e48b47967e29a421a96bb09dd17b2cdcdbaff3c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/09/2020
+ms.openlocfilehash: 401383f2d483836bf725051810d78167869f7b22
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580549"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79237016"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entrenamiento con conjuntos de datos en Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo, aprenderá las dos maneras de consumir [conjuntos de datos de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) en ejecuciones de entrenamiento de experimentos remotas sin preocuparse por las cadenas de conexión o las rutas de acceso a los datos.
+En este artículo, aprenderá las dos maneras de consumir [conjuntos de datos de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) en una ejecución de entrenamiento de experimento remota sin preocuparse por las cadenas de conexión o las rutas de acceso a los datos.
 
 - Opción 1: Si tiene datos estructurados, cree un TabularDataset y úselo directamente en el script de entrenamiento.
 
@@ -33,7 +33,7 @@ Los conjuntos de datos de Azure Machine Learning proporcionan una integración p
 
 Para crear conjuntos de datos y entrenar con ellos, necesita:
 
-* Suscripción a Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -70,7 +70,7 @@ from azureml.core import Dataset, Run
 
 run = Run.get_context()
 # get the input dataset by name
-dataset = run.input_datasets['titanic_ds']
+dataset = run.input_datasets['titanic']
 # load the TabularDataset to pandas DataFrame
 df = dataset.to_pandas_dataframe()
 ```
@@ -106,11 +106,28 @@ experiment_run.wait_for_completion(show_output=True)
 Si quiere que los archivos de datos estén disponibles en el destino de proceso para el entrenamiento, use [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) para montar o descargar los archivos a los que hace referencia.
 
 ### <a name="mount-vs-download"></a>Montaje frente a Descargar
-Al montar un conjunto de datos, se asocian a un directorio (punto de montaje) los archivos a los que hace referencia en el conjunto de datos y este se vuelve disponible en el destino de proceso. El montaje se admite en procesos basados en Linux, como Proceso de Azure Machine Learning, máquinas virtuales y HDInsight. Si el tamaño de los datos supera el tamaño del disco de proceso o solo va a cargar parte del conjunto de datos del script, se recomienda el montaje. El motivo es que la descarga de un conjunto de datos mayor que el tamaño del disco generará error, mientras que el montaje solo cargará la parte de los datos que usa el script en el momento del procesamiento. 
-
-Al descargar un conjunto de datos, todos los archivos a los que se hace referencia en él se descargarán en el destino de proceso. La descarga se admite con todos los tipos de proceso. Si el script procesa todos los archivos a los que se hace referencia en el conjunto de datos y el disco de proceso puede caber en el conjunto de datos completo, se recomienda la descarga para evitar la sobrecarga de transmisión de datos desde los servicios de almacenamiento.
 
 Tanto el montaje como la descarga de archivos de cualquier formato se admiten en los conjuntos de datos creados desde Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database y Azure Database for PostgreSQL. 
+
+Al montar un conjunto de datos, se asocian a un directorio (punto de montaje) los archivos a los que hace referencia en el conjunto de datos y este se vuelve disponible en el destino de proceso. El montaje se admite en procesos basados en Linux, como Proceso de Azure Machine Learning, máquinas virtuales y HDInsight. Al descargar un conjunto de datos, todos los archivos a los que se hace referencia en él se descargarán en el destino de proceso. La descarga se admite con todos los tipos de proceso. 
+
+Si el script procesa todos los archivos a los que se hace referencia en el conjunto de datos y el disco de proceso puede caber en el conjunto de datos completo, se recomienda la descarga para evitar la sobrecarga de la transmisión de datos desde los servicios de almacenamiento. Si el tamaño de los datos supera el tamaño del disco de proceso, no es posible realizar la descarga. En este escenario, se recomienda el montaje, ya que en el momento del procesamiento solo se cargan los archivos de datos usados por el script.
+
+El siguiente código monta el elemento `dataset` en el directorio temporal de `mounted_path`.
+
+```python
+import tempfile
+mounted_path = tempfile.mkdtemp()
+
+# mount dataset onto the mounted_path of a Linux-based compute
+mount_context = dataset.mount(mounted_path)
+
+mount_context.start()
+
+import os
+print(os.listdir(mounted_path))
+print (mounted_path)
+```
 
 ### <a name="create-a-filedataset"></a>Creación de un objeto FileDataset
 

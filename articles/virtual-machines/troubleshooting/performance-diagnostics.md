@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70080595"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de rendimiento para máquinas virtuales de Azure
@@ -29,7 +29,7 @@ Puede ejecutar el diagnóstico de rendimiento directamente desde Azure Portal, d
 > [!NOTE]
 > En Windows,Performance Diagnostics es actualmente compatible con las máquinas virtuales que tienen instalada la versión 4.5 o posterior del SDK de .NET. Para conocer los pasos que debe dar para ejecutar el diagnóstico de rendimiento en máquinas virtuales clásicas, consulte la [Azure Performance Diagnostics VM extension](performance-diagnostics-vm-extension.md) (Extensión de máquina virtual de diagnóstico de rendimiento de Azure).
 
-## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
 ### <a name="windows"></a>Windows
 

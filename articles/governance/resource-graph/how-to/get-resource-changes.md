@@ -4,10 +4,10 @@ description: Aprenda los métodos para identificar cuándo un recurso se cambió
 ms.date: 10/09/2019
 ms.topic: how-to
 ms.openlocfilehash: 9504ac77fc4a3b03434912cc65284e2001df6e03
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873036"
 ---
 # <a name="get-resource-changes"></a>Obtención de los cambios del recurso

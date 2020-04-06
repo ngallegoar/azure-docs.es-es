@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 21d5869f2bcdfb6383b6ef89869d8098135ea7ee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70073603"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Incorporación de un certificado de entidad de certificación personalizado a Azure API Management
@@ -29,7 +29,7 @@ En este artículo se muestra cómo administrar certificados de entidad de certif
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="step1"> </a>Carga de un certificado de entidad de certificación
+## <a name="upload-a-ca-certificate"></a><a name="step1"> </a>Carga de un certificado de entidad de certificación
 
 ![Incorporación de certificados de entidad de certificación](media/api-management-howto-ca-certificates/00.png)
 
@@ -54,7 +54,7 @@ Siga los pasos que se describen a continuación para cargar un nuevo certificado
 > [!NOTE]
 > Puede cargar un certificado de entidad de certificación mediante el comando de Powershell `New-AzApiManagementSystemCertificate`.
 
-## <a name="step1a"></a>Eliminar un certificado de cliente
+## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Eliminar un certificado de cliente
 
 Para eliminar un certificado, haga clic en el menú contextual **...** y seleccione **Eliminar** junto a este.
 

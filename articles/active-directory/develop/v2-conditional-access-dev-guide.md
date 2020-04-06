@@ -7,7 +7,7 @@ author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
-ms.date: 02/25/2020
+ms.date: 03/16/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1f581cf5971cfa4eafda60c679a64d827109bb
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a9d82840681450ec855cb35c8700da2a53b9dd6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78201989"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481456"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -186,3 +186,4 @@ Para probar el escenario, consulte el [ejemplo de código "en nombre de" de SPA 
 * Para obtener más información sobre los ejemplos de código de Azure AD, consulte los [ejemplos](sample-v2-code.md).
 * Para obtener más información sobre el SDK de MSAL y acceso a la documentación de referencia, consulte la [información general de la Biblioteca de autenticación de Microsoft](msal-overview.md).
 * Para más información sobre los escenarios multiinquilino, consulte el artículo sobre el [inicio de sesión de usuarios con el patrón multiinquilino](howto-convert-app-to-be-multi-tenant.md).
+* Más información sobre [acceso condicional y protección del acceso a las aplicaciones de IoT](/azure/architecture/example-scenario/iot-aad/iot-aad).

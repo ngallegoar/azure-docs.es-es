@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 73bff460db8428332a92d8deb68bf062ca4134ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b25409c63806e203bd841b0373543b7cc2b96d9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759255"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79212938"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Data Box Edge
 
@@ -26,7 +26,7 @@ Para transferir datos a Azure, es preciso crear recursos compartidos en Azure Da
  - **Recursos compartidos locales**: use estos recursos compartidos cuando quiera procesar los datos localmente en el dispositivo.
  - **Recursos compartidos**: use estos recursos compartidos cuando quiera que los datos del dispositivo se inserten automáticamente en su cuenta de almacenamiento en la nube. Todas las funciones de la nube, como la **actualización** y la **sincronización de claves de almacenamiento** se aplican a los recursos compartidos.
 
-En este artículo, aprenderá a:
+En este artículo aprenderá a:
 
 > [!div class="checklist"]
 > * Agregar un recurso compartido
@@ -52,6 +52,9 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 4. Especifique la **cuenta de almacenamiento** en que se encuentra el recurso compartido. Se crea un contenedor en la cuenta de almacenamiento con el nombre del recurso compartido si el contenedor no existía previamente. Si el contenedor ya existe, se usará este.
 
 5. En la lista desplegable, elija el **servicio de almacenamiento** entre blob en bloques, blob en páginas o archivos. El tipo de servicio elegido depende de en qué formato desea que los datos residan en Azure. Por ejemplo, en este caso, queremos que los datos residan como **blobs en bloques** en Azure y, por tanto, seleccionamos esa opción. Si elige **Blob en páginas**, debe asegurarse de que los datos tienen 512 bytes alineados. Use **Blob en páginas** para VHD o VHDX que siempre tienen 512 bytes alineados.
+
+   > [!IMPORTANT]
+   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo de Azure Stack Edge o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Este paso depende de si está creando un recurso compartido SMB o NFS.
     - **Si crea un recurso compartido SMB**: en el campo **Usuario local con todos los privilegios**, elija entre **Crear nuevo** o **Usar existente**. Si va a crear un nuevo usuario local, indique el **nombre de usuario** y la **contraseña** y, después, confirme la contraseña. Esto asigna los permisos al usuario local. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
@@ -150,7 +153,7 @@ Siga estos pasos en Azure Portal para eliminar un recurso compartido.
 
     ![Seleccionar recurso compartido](media/data-box-edge-manage-shares/delete-share-1.png)
 
-2. Hacer clic en **Eliminar**.
+2. Haga clic en **Eliminar**.
 
     ![Clic en Eliminar](media/data-box-edge-manage-shares/delete-share-2.png)
 
@@ -171,21 +174,21 @@ La característica de actualización permite actualizar el contenido de un recur
 
 Siga estos pasos en Azure Portal para actualizar un recurso compartido.
 
-1.  En Azure Portal, vaya a **Recursos compartidos**. Seleccione y haga clic en el recurso compartido que desea actualizar.
+1.   En Azure Portal, vaya a **Recursos compartidos**. Seleccione y haga clic en el recurso compartido que desea actualizar.
 
     ![Seleccionar recurso compartido](media/data-box-edge-manage-shares/refresh-share-1.png)
 
-2.  Haga clic en **Actualizar**. 
+2.   Haga clic en **Actualizar**. 
 
     ![Hacer clic en actualizar](media/data-box-edge-manage-shares/refresh-share-2.png)
  
-3.  Cuando se le pida confirmación, haga clic en **Sí**. Se inicia el trabajo de actualización del contenido del recurso compartido local.
+3.   Cuando se le pida confirmación, haga clic en **Sí**. Se inicia el trabajo de actualización del contenido del recurso compartido local.
 
     ![Confirmar actualización](media/data-box-edge-manage-shares/refresh-share-3.png)
  
-4.  Mientras la actualización está en curso, la opción de actualización está deshabilitada en el menú contextual. Haga clic en la notificación para ver el estado del trabajo de actualización.
+4.   Mientras la actualización está en curso, la opción de actualización está deshabilitada en el menú contextual. Haga clic en la notificación para ver el estado del trabajo de actualización.
 
-5.  El tiempo que tarde en completarse la actualización dependerá del número de archivos que haya en el contenedor de Azure, así como de los archivos del dispositivo. Cuando la actualización se haya completado correctamente, se actualizará la marca de tiempo del recurso compartido. Aunque la actualización tenga errores parciales, la operación se considerará correcta y se actualizará la marca de tiempo. También se actualizan los registros de errores de actualización.
+5.   El tiempo que tarde en completarse la actualización dependerá del número de archivos que haya en el contenedor de Azure, así como de los archivos del dispositivo. Cuando la actualización se haya completado correctamente, se actualizará la marca de tiempo del recurso compartido. Aunque la actualización tenga errores parciales, la operación se considerará correcta y se actualizará la marca de tiempo. También se actualizan los registros de errores de actualización.
 
     ![Marca de tiempo actualizada](media/data-box-edge-manage-shares/refresh-share-4.png)
  

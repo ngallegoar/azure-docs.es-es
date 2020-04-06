@@ -1,6 +1,6 @@
 ---
 title: Administración de protocolos y cifrados en Azure API Management | Microsoft Docs
-description: Obtenga información sobre cómo administrar protocolos (TLS, SSL) y cifrados (DES) en Azure API Management.
+description: Obtenga información sobre cómo administrar protocolos (TLS) y cifrados (DES) en Azure API Management.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: f7c7fdd06480ce3da70c86d38ab0685b9b3aaaf2
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 7f87389016286c9f1b91abc77155be9e94005371
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072400"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335866"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Administración de protocolos y cifrados en Azure API Management
 
@@ -27,7 +27,7 @@ Esta guía muestra cómo administrar la configuración de los protocolos y cifra
 
 ![Administración de protocolos y cifrados en APIM](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para seguir los pasos de este artículo, debe tener:
 

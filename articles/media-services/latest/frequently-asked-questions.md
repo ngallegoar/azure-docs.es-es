@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/09/2020
+ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: a2619293bf3641cdca370ff528a87ae879460a3b
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 11123ee04dd02a60dff0b88e2e6e85fcd613a7d5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086784"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80068008"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Media Services v3
 
@@ -59,6 +59,21 @@ Para obtener detalles, vea [Carencias de características con respecto a las API
 Para más información, consulte [Traslado de una cuenta de Media Services entre suscripciones](media-services-account-concept.md).
 
 ## <a name="live-streaming"></a>Streaming en directo 
+
+### <a name="how-to-stop-the-live-stream-after-the-broadcast-is-done"></a>¿Cómo detener el streaming en vivo una vez que termine la difusión?
+
+Puede abordarlo desde el cliente o desde el servidor.
+
+#### <a name="client-side"></a>En el cliente
+
+La aplicación web debería preguntarle al usuario si quiere finalizar la difusión si está cerrando el explorador. Se trata de un evento del explorador que la aplicación web puede controlar.
+
+#### <a name="server-side"></a>En el servidor
+
+Puede supervisar eventos en directo si se suscribe a eventos de Event Grid. Para más información, consulte el [esquema de eventos de Event Grid](media-services-event-schemas.md#live-event-types).
+
+* Puede [suscribirse](reacting-to-media-services-events.md) al nivel de secuencia [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) y supervisar que no se produzca ninguna reconexión durante un tiempo para detener y eliminar el evento en directo.
+* O bien puede [suscribirse](reacting-to-media-services-events.md) a los eventos de [latido](media-services-event-schemas.md#liveeventingestheartbeat) de nivel de pista. Si todas las pistas tienen una velocidad de bits de entrada que cae a 0, o bien si la última marca de tiempo ya no aumenta, también puede apagar el evento en directo de manera segura. Los eventos de latido ocurren cada 20 segundos por cada pista, por lo que podría ser un poco detallado.
 
 ###  <a name="how-to-insert-breaksvideos-and-image-slates-during-live-stream"></a>¿Cómo insertar pausas o vídeos y caretas de imagen durante una transmisión en directo?
 
@@ -140,7 +155,7 @@ Actualmente, se puede usar [Azure Portal](https://portal.azure.com/) para:
 * ver (no administrar) los [recursos](assets-concept.md) de la versión 3, 
 * [obtener información sobre el acceso a las API](access-api-portal.md). 
 
-Para las restantes tareas de administración (por ejemplo, [Transformaciones y trabajos](transforms-jobs-concept.md) y [Protección de contenido](content-protection-overview.md)), use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los[SDK](media-services-apis-overview.md#sdks) compatibles.
+Para las restantes tareas de administración (por ejemplo, [Transformaciones y trabajos](transforms-jobs-concept.md) y [Protección de contenido](content-protection-overview.md)), use la [API REST](https://docs.microsoft.com/rest/api/media/), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los[SDK](media-services-apis-overview.md#sdks) compatibles.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>¿Existe el concepto de AssetFile en la versión v3?
 

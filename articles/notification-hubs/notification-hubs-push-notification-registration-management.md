@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 03/17/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 6ddadcafd4f068f6516039017a3d491095c78e30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 00de9c803ef796eda8da609a4009e0a8cfcb3664
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455374"
 ---
 # <a name="registration-management"></a>Administración de registros
 
@@ -119,7 +119,7 @@ En este caso, solo usará derechos de escucha para tener acceso a los centros de
 El registro desde el dispositivo es el método más sencillo, pero presenta algunos inconvenientes:
 
 - Una aplicación cliente solo puede actualizar sus etiquetas cuando la aplicación está activa. Por ejemplo, si un usuario tiene dos dispositivos que registran las etiquetas relacionadas con equipos deportivos, cuando el primer dispositivo registra una etiqueta adicional (por ejemplo, Seahawks), el segundo dispositivo no recibirá las notificaciones sobre los Seahawks hasta que la aplicación del segundo dispositivo se ejecute por segunda vez. De manera más general, cuando son varios los dispositivos que afectan las etiquetas, la administración de estas desde el back-end es una opción conveniente.
-- Debido a que es posible piratear las aplicaciones, proteger el registro de etiquetas específicas requiere un cuidado adicional, tal como se explica en la sección "Seguridad a nivel de etiqueta".
+- Teniendo en cuenta que las aplicaciones se pueden piratear, proteger el registro de etiquetas específicas requiere un cuidado adicional, tal como se explica en el artículo sobre [Seguridad](notification-hubs-push-notification-security.md).
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Ejemplo de código para el registro en un centro de notificaciones desde un dispositivo con una instalación
 
@@ -170,7 +170,7 @@ var channel = await PushNotificationChannelManager.CreatePushNotificationChannel
 string installationId = null;
 var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored an installation id in application data, create and store as application data.
+// If we have not stored an installation ID in application data, create and store as application data.
 if (!settings.ContainsKey("__NHInstallationId"))
 {
     installationId = Guid.NewGuid().ToString();
@@ -212,15 +212,15 @@ Estos métodos crean o actualizan un registro para el dispositivo en el que se l
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
-// The Device id from the PNS
+// The Device ID from the PNS
 var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-// If you are registering from the client itself, then store this registration id in device
-// storage. Then when the app starts, you can check if a registration id already exists or not before
+// If you are registering from the client itself, then store this registration ID in device
+// storage. Then when the app starts, you can check if a registration ID already exists or not before
 // creating.
 var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored a registration id in application data, store in application data.
+// If we have not stored a registration ID in application data, store in application data.
 if (!settings.ContainsKey("__NHRegistrationId"))
 {
     // make sure there are no existing registrations for this push handle (used for iOS and Android)    
@@ -328,7 +328,7 @@ var reg = new WindowsRegistrationDescription(channelUri, tags);
 // Create
 await hub.CreateRegistrationAsync(reg);
 
-// Get by id
+// Get by ID
 var r = await hub.GetRegistrationAsync<RegistrationDescription>("id");
 
 // update

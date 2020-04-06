@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 2cf0efb24a10da602ac0c26276a081342776cdcc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a740c81aa165e221bca19987c7b3c62da56b0402
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920406"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477534"
 ---
 # <a name="normalize-data-module"></a>Módulo Normalize Data
 
@@ -92,7 +92,7 @@ Con este módulo, puede aplicar solo un método de normalización a la vez. Por 
     
       ![normalización con la función tanh](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
-6. Ejecute la canalización o haga doble clic en el módulo **Normalización de datos** y seleccione **Ejecutar seleccionados**. 
+6. Envíe la canalización o haga doble clic en el módulo **Normalize Data** (Normalización de datos) y seleccione **Ejecutar seleccionado**. 
 
 ## <a name="results"></a>Results
 

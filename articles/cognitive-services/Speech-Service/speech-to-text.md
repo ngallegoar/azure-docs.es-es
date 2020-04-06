@@ -3,30 +3,31 @@ title: 'Conversión de voz en texto: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: La característica de conversión de voz en texto permite la transcripción en tiempo real de secuencias de audio en texto. Las aplicaciones, las herramientas o los dispositivos pueden consumir y mostrar esta entrada de texto, así como manipularla. Este servicio funciona perfectamente con las características de conversión de texto a voz (síntesis de voz) y de traducción de voz.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.author: erhopf
-ms.openlocfilehash: 8518f92a4f4df1686d4b338783a93d969e04d219
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/12/2020
+ms.author: dapine
+ms.openlocfilehash: 2854f4e8d91164c8ae1f35761d6f605cae725245
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379967"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052642"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es la conversión de voz a texto?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 La característica de conversión de voz en texto del servicio de voz, también conocida como reconocimiento de voz, permite la transcripción en tiempo real de las secuencias de audio en texto. Las aplicaciones, las herramientas o los dispositivos pueden consumir y mostrar este texto como una entrada de comando, así como manipularlo. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para los productos de Cortana y Office. Funciona sin problemas con las ofertas de servicio de <a href="./speech-translation.md" target="_blank">traducción<span class="docon docon-navigate-external x-hidden-focus"></span></a> y <a href="./text-to-speech.md" target="_blank">conversión de texto en voz<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Si desea obtener una lista completa de los idiomas disponibles para la conversión de voz a texto, consulte [Idiomas admitidos](language-support.md#speech-to-text).
 
 De forma predeterminada, el servicio de conversión de voz en texto utiliza el modelo de lenguaje universal. Este modelo se entrenó con datos propiedad de Microsoft y se implementa en la nube. Resulta óptimo para escenarios de conversación y dictado. Si usa la conversión de voz en texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados. La personalización es útil para abordar el ruido ambiente o el vocabulario específico del sector.
 
 > [!NOTE]
-> Bing Speech se ha retirado el 15 de octubre de 2019. Si sus aplicaciones, herramientas o productos usan Bing Speech API o Custom Speech, hemos creado guías para que le ayuden a migrar al servicio de voz.
+> Bing Speech se ha retirado el 15 de octubre de 2019. Si sus aplicaciones, herramientas o productos usan Bing Speech API, hemos creado guías para que le ayuden a migrar al servicio de voz.
 > - [Migración de Bing Speech al servicio de voz](how-to-migrate-from-bing-speech.md)
-> - [Migración de Custom Speech al servicio de voz](how-to-migrate-from-custom-speech-service.md)
 
 ## <a name="get-started-with-speech-to-text"></a>Introducción a la conversión de voz a texto
 
@@ -51,7 +52,7 @@ Hay un ejemplo de código para el SDK de voz disponible en GitHub. En estos ejem
 
 ## <a name="customization"></a>Personalización
 
-Además del modelo de servicio de voz estándar, puede crear modelos personalizados. La personalización ayuda a eliminar las barreras del reconocimiento de voz, como el estilo de habla, el vocabulario y el ruido de fondo. Consulte [Custom Speech](how-to-custom-speech.md). Las opciones de personalización varían según el idioma o la configuración regional (consulte los [idiomas admitidos](supported-languages.md) para comprobar la compatibilidad).
+Además del modelo de servicio de voz estándar, puede crear modelos personalizados. La personalización ayuda a eliminar las barreras del reconocimiento de voz, como el estilo de habla, el vocabulario y el ruido de fondo. Consulte [Habla personalizada](how-to-custom-speech.md). Las opciones de personalización varían según el idioma o la configuración regional (consulte los [idiomas admitidos](supported-languages.md) para comprobar la compatibilidad).
 
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 

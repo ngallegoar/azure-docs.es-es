@@ -1,5 +1,5 @@
 ---
-title: 'Acerca del SDK de los dispositivos de voz: servicio de voz'
+title: 'Speech Devices SDK: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Introducción al SDK de dispositivos de voz. El servicio de voz funciona con una amplia variedad de dispositivos y orígenes de audio. El SDK de dispositivos de voz es una biblioteca pre-ajustada que está emparejada con kits de desarrollo específicos integrados de la matriz del micrófono.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 43d08b466076672587e7f6545193e326283c0031
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330794"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79370651"
 ---
-# <a name="about-the-speech-devices-sdk"></a>Introducción a Speech Devices SDK
+# <a name="what-is-the-speech-devices-sdk"></a>¿Qué es Speech Devices SDK?
 
-El [servicio de voz](overview.md) funciona con una amplia variedad de dispositivos y orígenes de audio. Ahora puede llevar las aplicaciones de voz al siguiente nivel con hardware y software coincidente. El SDK de dispositivos de voz es una biblioteca preajustada que está emparejada con kits de desarrollo específicos integrados de la matriz del micrófono.
+El [servicio de voz](overview.md) funciona con una amplia variedad de dispositivos y orígenes de audio. Ahora puede llevar las aplicaciones de voz al siguiente nivel con hardware y software coincidente. El SDK de dispositivos de voz es una biblioteca pre-ajustada que está emparejada con kits de desarrollo específicos integrados de la matriz del micrófono.
 
 El SDK de dispositivos de voz puede ayudarle a:
 
@@ -49,7 +49,7 @@ La aplicación se crea con el paquete del SDK de Voz y el entorno de desarrollo 
 En el caso de Linux, la aplicación de ejemplo se proporciona como aplicación Java multiplataforma. Descargue la última versión del [SDK para dispositivos de voz de JRE](https://aka.ms/sdsdk-download-JRE).
 La aplicación se crea con el paquete del SDK de Voz y el entorno de desarrollo integrado de Java de Eclipse (v4) en Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8 y CentOS 8). Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
 
-Se proporcionan archivos binarios adicionales para ofrecer compatibilidad con dispositivos venideros: [Roobo V2 DDK](https://aka.ms/sdsdk-download-roobov2)y [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter).
+Se proporcionan archivos binarios adicionales para ofrecer compatibilidad con los próximos dispositivos: [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2) y [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter) y [GGEC Speaker](https://aka.ms/sdsdk-download-speaker).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

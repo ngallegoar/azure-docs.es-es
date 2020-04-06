@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/12/2019
+ms.date: 03/20/2020
 ms.author: swmachan
-ms.openlocfilehash: d58383b20e4311f8ab9490dc241722eee2e44ad6
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184802"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052390"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -37,7 +37,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 
 <table width="100%">
   <th width="20%">Parámetro de consulta</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>api-version</td>
     <td><em>Parámetro obligatorio</em>.<br/>Versión de la API que el cliente solicitó. El valor debe ser <code>3.0</code>.</td>
@@ -52,9 +52,9 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 
 <table width="100%">
   <th width="20%">Parámetro de consulta</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
-    <td>De</td>
+    <td>desde</td>
     <td><em>Parámetro opcional</em>.<br/>Especifica el idioma del texto de entrada. Busque los idiomas que están disponibles desde los que realizar la traducción mediante la busca de <a href="./v3-0-languages.md">idiomas admitidos</a> con el ámbito <code>translation</code>. Si no se ha especificado el parámetro <code>from</code>, se aplica la detección de idioma automática para determinar el idioma de origen. <br/><br/>Debe usar el parámetro <code>from</code> en lugar de la detección automática cuando use la característica de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">diccionario dinámico</a>.</td>
   </tr>  
   <tr>
@@ -104,7 +104,7 @@ Los encabezados de solicitud incluyen lo siguiente:
 
 <table width="100%">
   <th width="20%">encabezados</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>Encabezados de autenticación</td>
     <td><em>Encabezado de solicitud obligatorio</em>.<br/>Consulte las <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opciones disponibles para la autenticación</a>.</td>
@@ -182,7 +182,7 @@ En la sección de [ejemplos](#examples) se proporcionan ejemplos de respuestas J
 
 <table width="100%">
   <th width="20%">encabezados</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valor generado por el servicio para identificar la solicitud. Se usa para solucionar problemas.</td>
@@ -199,10 +199,10 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
 
 <table width="100%">
   <th width="20%">Código de estado</th>
-  <th>DESCRIPCIÓN</th>
+  <th>Descripción</th>
   <tr>
     <td>200</td>
-    <td>Correcta.</td>
+    <td>Correcto.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -357,13 +357,13 @@ El cuerpo de la respuesta es:
 
 ### <a name="handle-profanity"></a>Control de palabras soeces
 
-Normalmente, el servicio de Traductor conserva en la traducción las palabras soeces que están presentes en el origen. El grado de palabras soeces y el contexto que las convierte en ello difieren entre culturas y, como resultado, el grado de palabras soeces del idioma de destino puede aumentar o reducirse.
+Normalmente, el servicio de Traductor conserva las palabras soeces que están presentes en el origen de la traducción. El grado de palabras soeces y el contexto que las convierte en ello difieren entre culturales y, como resultado, el grado de palabras soeces del idioma de destino puede aumentar o reducirse.
 
 Si quiere evitar obtener palabras soeces en la traducción, independientemente de su presencia en el texto de origen, puede usar la opción de filtrado de palabras soeces. La opción permite elegir si quiere que se eliminen las palabras soeces, si quiere marcarlas con etiquetas adecuadas (lo que le ofrece la opción de agregar su propio postprocesamiento) o si no quiere que se realice ninguna acción. Los valores aceptados de `ProfanityAction` son `Deleted`, `Marked` y `NoAction` (valor predeterminado).
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>.</th>
+  <th>Acción</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Este es el comportamiento predeterminado. Las palabras soeces pasarán del origen al destino.<br/><br/>
@@ -479,7 +479,7 @@ La respuesta es:
 La información de alineación empieza por `0:2-0:1`, lo que significa que los tres primeros caracteres del texto de origen (`The`) se asignan a los dos primeros caracteres del texto traducido (`La`).
 
 #### <a name="limitations"></a>Limitaciones
-Tenga en cuenta las restricciones que se indican a continuación:
+La obtención de información de alineación es una característica experimental que se ha habilitado para crear prototipos de investigación y experiencias con posibles asignaciones de frases. Es posible que elijamos dejar de ofrecer soporte técnico en el futuro. Estas son algunas de las restricciones más importantes en las que no se admiten las alineaciones:
 
 * La alineación no está disponible para texto en formato HTML, es decir, textType = html.
 * La alineación solo se devuelve para un subconjunto de pares de idiomas:
@@ -487,6 +487,7 @@ Tenga en cuenta las restricciones que se indican a continuación:
   - de cualquier otro idioma a inglés, excepto de chino simplificado, chino tradicional y letón a inglés;
   - de japonés a coreano, o viceversa.
 * No recibirá alineación si la oración es una traducción preestablecida. Un ejemplo de traducción preestablecida es "Esto es una prueba", "Te quiero" y otras frases que se usan con mucha frecuencia.
+* La alineación no está disponible cuando se aplica cualquiera de los enfoques para evitar la traducción como se describe [aquí](../prevent-translation.md)
 
 ### <a name="obtain-sentence-boundaries"></a>Obtención de los límites de oración
 

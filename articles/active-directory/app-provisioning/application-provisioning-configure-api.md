@@ -16,12 +16,12 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50b59bceb07facd944d7159eeb416c7e9e91557c
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: c72217a565071f9531281af1862ba3681e353a4d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522737"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481473"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configuración del aprovisionamiento mediante las Microsoft Graph API
 
@@ -174,7 +174,7 @@ Content-type: application/json
 
 ### <a name="retrieve-the-template-for-the-provisioning-connector"></a>Recuperar la plantilla para el conector de aprovisionamiento
 
-Las aplicaciones de la galería que están habilitadas para el aprovisionamiento tienen plantillas para simplificar la configuración. Use la solicitud siguiente para [recuperar la plantilla para la configuración del aprovisionamiento](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http).
+Las aplicaciones de la galería que están habilitadas para el aprovisionamiento tienen plantillas para simplificar la configuración. Use la solicitud siguiente para [recuperar la plantilla para la configuración del aprovisionamiento](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). Tenga en cuenta que tendrá que proporcionar el identificador. El identificador hace referencia al recurso anterior, que en este caso es ServicePrincipal. 
 
 #### <a name="request"></a>*Solicitud*
 
@@ -266,10 +266,10 @@ Content-type: application/json
 
 ### <a name="test-the-connection-to-the-application"></a>Probar la conexión con la aplicación
 
-Pruebe la conexión con la aplicación de otro fabricante. El ejemplo siguiente es para una aplicación que requiere clientSecret y secretToken. Cada aplicación tiene sus propios requisitos. Revise la [documentación de la API](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) para ver las opciones disponibles. 
+Pruebe la conexión con la aplicación de otro fabricante. El ejemplo siguiente es para una aplicación que requiere clientSecret y secretToken. Cada aplicación tiene sus propios requisitos. Las aplicaciones a menudo usan BaseAddress en lugar de ClientSecret. Para determinar qué credenciales requiere la aplicación, vaya a la página de configuración de aprovisionamiento de la aplicación y, en el modo de desarrollador, haga clic en Probar conexión. El tráfico de red mostrará los parámetros que se usan para las credenciales. Puede encontrar la lista completa de credenciales [aquí](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http). 
 
 #### <a name="request"></a>*Solicitud*
-```http
+```msgraph-interactive
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
 { 
     credentials: [ 
@@ -293,7 +293,7 @@ HTTP/1.1 204 No Content
 Para configurar el aprovisionamiento, es necesario establecer una relación de confianza entre Azure AD y la aplicación. Autorice el acceso a la aplicación de terceros. El ejemplo siguiente es para una aplicación que requiere clientSecret y secretToken. Cada aplicación tiene sus propios requisitos. Revise la [documentación de la API](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) para ver las opciones disponibles. 
 
 #### <a name="request"></a>*Solicitud*
-```json
+```msgraph-interactive
 PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
  
 { 

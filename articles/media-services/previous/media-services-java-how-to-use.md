@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: fedec6ea764394d36f5b4d7c883f7cb9f9520a29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64869018"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introducción al SDK de cliente de Java para Azure Media Services  
@@ -28,7 +28,7 @@ ms.locfileid: "64869018"
 
 Este tutorial le guía por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo con la aplicación Azure Media Services mediante el SDK de cliente de Java.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Los siguientes requisitos son necesarios para completar este tutorial.
 
@@ -36,7 +36,7 @@ Los siguientes requisitos son necesarios para completar este tutorial.
 * Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
 * El [SDK de Java actual de Azure Media Services](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
-## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Procedimientos para: Importación del paquete del SDK de cliente de Java de Azure Media Services
+## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Procedimientos: Importación del paquete del SDK de cliente de Java de Azure Media Services
 
 Para empezar a usar el SDK de Media Services para Java, agregue una referencia a la versión actual (0.9.8) del paquete `azure-media` desde el [SDK de Java de Azure Media Services](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest).
 
@@ -50,7 +50,7 @@ Por ejemplo, si la herramienta de compilación es `gradle`, agregue la siguiente
 >[!NOTE]
 >Puede encontrar el código fuente del SDK de Java de Azure Media Services en nuestro [repositorio de GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Asegúrese de cambiar a la rama 0.9 y no a la rama principal. 
 
-## <a name="how-to-use-azure-media-services-with-java"></a>Procedimientos para: Uso de Azure Media Services con Java
+## <a name="how-to-use-azure-media-services-with-java"></a>Procedimientos: Uso de Azure Media Services con Java
 
 >[!NOTE]
 >Cuando se crea la cuenta de Media Services, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Detenido**. Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución).

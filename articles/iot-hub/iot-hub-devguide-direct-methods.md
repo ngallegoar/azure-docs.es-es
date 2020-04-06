@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
-ms.openlocfilehash: 4732304384b8c221ae7c8d99da7f714613ad9050
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: d4040a4d0cf3fadf7a6e07c0e03e105975d17040
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472118"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499249"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Conocimiento e invocación de los métodos directos de IoT Hub
 
@@ -50,7 +50,7 @@ Ahora, invoque un método directo desde una aplicación de back-end.
 
 Las invocaciones de método directo en un dispositivo son llamadas HTTPS compuestas por los elementos siguientes:
 
-* El *URI de solicitud* específico del dispositivo junto con la [versión de la API](/rest/api/iothub/service/invokedevicemethod):
+* El *URI de solicitud* específico del dispositivo junto con la [versión de la API](/rest/api/iothub/service/devicemethod/invokedevicemethod):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30

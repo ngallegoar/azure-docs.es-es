@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 53c9dea83fc6d413d7e82194696ffedabcc8cf7b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 14a6703b3e256d33ab3b18e1821587cc3eb293db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830172"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79382181"
 ---
 Es importante proteger la máquina virtual (VM) para las aplicaciones que se ejecutan. Proteger las máquinas virtuales puede suponer que se incluyan uno o varios servicios y características de Azure que abarcan un acceso seguro a las máquinas virtuales y al almacenamiento seguro de los datos. Este artículo proporciona información que le permite proteger las máquinas virtuales y las aplicaciones.
 
@@ -24,6 +24,20 @@ El panorama moderno de amenazas para los entornos de nube es dinámico, lo que a
 El acceso Just-In-Time de Security Center se puede aplicar en toda la implementación de la máquina virtual para bloquear el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques y, al mismo tiempo, proporciona acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. Cuando Just-In-Time está habilitado y un usuario solicita acceso a una máquina virtual, Security Center comprueba qué permisos tiene el usuario para la máquina virtual. Si tiene los permisos correctos, se aprueba la solicitud y Security Center configura automáticamente los grupos de seguridad de red (NSG) para permitir el tráfico entrante a los puertos seleccionados durante un período de tiempo limitado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior. 
 
 ## <a name="encryption"></a>Cifrado
+
+Se ofrecen dos métodos de cifrado para los discos administrados. Cifrado en el nivel de sistema operativo, que es Azure Disk Encryption, y cifrado en el nivel de plataforma, que es el cifrado del lado servidor.
+
+### <a name="server-side-encryption"></a>Cifrado del servidor
+
+Los discos administrados de Azure cifran automáticamente los datos de forma predeterminada cuando se guardan en la nube. El cifrado del lado servidor protege los datos y le ayuda a cumplir los compromisos de cumplimiento y seguridad de la organización. Los datos de los discos administrados de Azure se cifran de forma transparente mediante [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más sólidos que hay disponibles, y son compatibles con FIPS 140-2.
+
+El cifrado no afecta al rendimiento de los discos administrados. No hay ningún coste adicional por el cifrado.
+
+Puede confiar en las claves administradas por la plataforma para el cifrado del disco administrado o puede administrar el cifrado con sus propias claves. Si opta por administrar el cifrado con sus propias claves, puede especificar una *clave administrada por el cliente* que se usará para cifrar y descifrar todos los datos de discos administrados. 
+
+Para más información sobre el cifrado del lado servidor, consulte los artículos sobre [Windows](../articles/virtual-machines/windows/disk-encryption.md) o [Linux](../articles/virtual-machines/linux/disk-encryption.md).
+
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
 Para mejorar la seguridad y el cumplimiento en las [máquinas virtuales Windows](../articles/virtual-machines/windows/encrypt-disks.md) y [Linux](../articles/virtual-machines/linux/disk-encryption-overview.md), se pueden cifrar los discos virtuales en Azure. Los discos virtuales en VM Windows se cifran en reposo mediante BitLocker. Los discos virtuales en las máquinas virtuales de Linux se cifran en reposo mediante dm-crypt. 
 

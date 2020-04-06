@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 11c759dc8865da9de63e3acbfa1d4e26836d010a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 624bb45de3e2ff184326949611d437f71f3e2def
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622452"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501807"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Almacenes de datos admitidos en Azure Data Share
 
@@ -50,7 +50,13 @@ La siguiente tabla detalla las diferentes combinaciones y opciones que tienen lo
 Azure Data Share admite el uso compartido de archivos, carpetas y sistemas de archivos desde Azure Data Lake Gen1 y Azure Data Lake Gen2. También admite el uso compartido de blobs, carpetas y contenedores desde Azure Blob Storage. Actualmente, solo se admiten blobs en bloques. Cuando las carpetas se comparten mediante el uso compartido basado en instantáneas, el consumidor de datos puede optar por hacer una copia completa de los datos de los recursos compartidos o aprovechar la capacidad de realizar instantáneas incrementales para copiar solo los archivos nuevos o actualizados. Los archivos existentes con el mismo nombre se sobrescribirán.
 
 ## <a name="share-from-a-sql-based-source"></a>Uso compartido desde un origen basado en SQL
-Azure Data Share admite el uso compartido de tablas o vistas desde Azure SQL Database y Azure Synapse Analytics (anteriormente Azure SQL DW). El consumidor de datos puede optar por aceptar los datos en Azure Data Lake Storage Gen2 o Azure Blob Storage como archivo CSV o parquet. La instantánea completa sobrescribe el contenido del archivo de destino. Como alternativa, el consumidor de datos puede aceptar los datos en una tabla SQL. Si la tabla SQL de destino no está disponible en el lado del consumidor de datos, Azure Data Share crea la tabla SQL con el esquema de origen. La instantánea completa anexa el contenido de la tabla de origen a la tabla SQL de destino. Actualmente no se admite la instantánea incremental.
+Azure Data Share admite el uso compartido de tablas o vistas desde Azure SQL Database y Azure Synapse Analytics (anteriormente Azure SQL DW). El consumidor de datos puede optar por aceptar los datos en Azure Data Lake Storage Gen2 o Azure Blob Storage como archivo CSV o parquet. Tenga en cuenta que, de forma predeterminada, los formatos de archivo son CSV. El consumidor de datos puede decidir recibir los datos en formato parquet. Esto puede realizarse en la configuración de la asignación del conjunto de datos al recibir los datos. 
+
+Al aceptar los datos en Azure Data Lake Store Gen2 o Azure Blob Storage, las instantáneas completas sobrescriben el contenido del archivo de destino. 
+
+Un consumidor de datos puede elegir recibir datos en una tabla de su elección. En este escenario, si la tabla de destino no existe todavía, Azure Data Share crea la tabla SQL con el esquema de origen. Si ya existe una tabla de destino con el mismo nombre, se quitará y se sobrescribirá con la instantánea completa más reciente. Al asignar la tabla de destino, se puede especificar un esquema y un nombre de tabla alternativos. Actualmente no se admiten instantáneas incrementales. 
+
+El uso compartido de orígenes basados en SQL tiene requisitos previos relacionados con las reglas de firewall y los permisos. Consulte la sección de requisitos previos del tutorial sobre [compartir datos](share-your-data.md) para obtener más información.
 
 ## <a name="share-from-azure-data-explorer"></a>Uso compartido desde Azure Data Explorer
 Azure Data Share permite compartir bases de datos en contexto desde los clústeres de Azure Data Explorer. El proveedor de datos puede compartir en el nivel de base de datos o de clúster. Cuando se comparta en el nivel de base de datos, el consumidor de datos solo podrá acceder a las bases de datos específicas compartidas por el proveedor de datos. Cuando se comparta en el nivel de clúster, el consumidor de datos puede acceder a todas las bases de datos desde el clúster del proveedor, incluidas todas las bases de datos futuras creadas por el proveedor de datos.

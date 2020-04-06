@@ -1,26 +1,24 @@
 ---
 title: Migración de bases de conocimiento (QnA Maker)
-titleSuffix: Azure Cognitive Services
 description: La migración de una base de conocimiento requiere la exportación de una base de conocimiento y la posterior importación a otra.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/28/2020
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 942932c229ace82a0bf66da7a5421f936b028088
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 03/25/2020
+ms.openlocfilehash: 13e5e79bf4eaf6ec59e41b3e12aa1bb23f2c1578
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302566"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258097"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar una base de conocimiento mediante la exportación e importación
 
-La migración de una base de conocimiento requiere la exportación de una base de conocimiento y la posterior importación a otra.
+La migración es el proceso de creación de una base de conocimiento a partir de una base de conocimiento existente. Hay varios motivos para hacerlo:
+
+* proceso de copia de seguridad y restauración
+* Canalización de integración y entrega continuas
+* traslado de regiones
+
+La migración de una base de conocimiento requiere la exportación de una base de conocimiento existente y su posterior importación a otra.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -49,6 +47,20 @@ La migración de una base de conocimiento requiere la exportación de una base d
 1. **Pruebe** la base de conocimiento nueva mediante el panel de pruebas. Vea cómo [probar la base de conocimiento](../How-To/test-knowledge-base.md).
 
 1. **Publique** la base de conocimiento y cree un bot de chat. Vea cómo [publicar la base de conocimiento](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
+
+## <a name="programmatically-migrate-a-knowledge-base-from-qna-maker"></a>Migración de una base de conocimiento desde QnA Maker mediante programación
+
+El proceso de migración está disponible mediante programación con las siguientes API REST:
+
+**Exportarar**
+
+* [Descarga de la API de la base de conocimiento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download)
+
+**Importar**
+
+* [API Replace (volver a cargar con el mismo identificador de base de conocimiento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace)
+* [API Create (cargar con un identificador de base de conocimiento nuevo)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+
 
 ## <a name="chat-logs-and-alterations"></a>Modificaciones y registros de chat
 Las alteraciones (sinónimos) que no distinguen mayúsculas de minúsculas no se importan de forma automática. Use las [API V4](https://go.microsoft.com/fwlink/?linkid=2092179) para mover las modificaciones en la nueva base de conocimiento.

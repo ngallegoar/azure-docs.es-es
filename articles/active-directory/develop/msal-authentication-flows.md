@@ -13,12 +13,12 @@ ms.date: 01/30/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ace636152f6a0c9bf3896860eb17cc291bef2887
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 25c219bedbbbec9fbc0c5617c7bd9fc482faf49a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377258"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050509"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 
@@ -151,7 +151,7 @@ Al usar flujo de código de dispositivo, la aplicación obtiene los tokens a tra
 
 En el diagrama anterior:
 
-1. Cada vez que se requiera autenticación del usuario, la aplicación proporciona un código y pide al usuario que use otro dispositivo (por ejemplo, un smartphone conectado a Internet) para ir a una dirección URL (por ejemplo, https://microsoft.com/devicelogin) ). Luego, se le pide al usuario que especifique el código y el usuario pasa por una experiencia de autenticación normal, como peticiones de consentimiento y autenticación multifactor, si es necesario.
+1. Cada vez que se requiera autenticación del usuario, la aplicación proporciona un código y pide al usuario que use otro dispositivo (por ejemplo, un smartphone conectado a Internet) para ir a una dirección URL (por ejemplo, `https://microsoft.com/devicelogin`). Luego, se le pide al usuario que especifique el código y el usuario pasa por una experiencia de autenticación normal, como peticiones de consentimiento y autenticación multifactor, si es necesario.
 
 2. Tras una autenticación correcta, la aplicación de línea de comandos recibe los tokens necesarios a través de un canal posterior y los usa para realizar las llamadas a la API web que necesita.
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: 9de75b5537b3e267116882e7f151d893de575071
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70072462"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Administración de cuentas de usuario en Azure API Management
@@ -25,13 +25,13 @@ En Administración de API, los desarrolladores son los usuarios de las API que s
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Complete las tareas de este artículo: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-developer"></a>Creación de un desarrollador
+## <a name="create-a-new-developer"></a><a name="create-developer"> </a>Creación de un desarrollador
 
 Para agregar un nuevo usuario, siga los pasos descritos en esta sección:
 
@@ -44,7 +44,7 @@ Para agregar un nuevo usuario, siga los pasos descritos en esta sección:
 
 De forma predeterminada, las cuentas de desarrollador recién creadas se encuentran en estado **Activo** y se asocian al grupo **Desarrolladores**. Las cuentas de desarrollador que se encuentran en estado **activo** se pueden usar para obtener acceso a todas las API para las que tienen suscripciones. Para asociar el desarrollador recién creado a otros grupos, consulte [Asociación de grupos a desarrolladores][How to associate groups with developers].
 
-## <a name="invite-developer"></a>Invitación a un desarrollador
+## <a name="invite-a-developer"></a><a name="invite-developer"> </a>Invitación a un desarrollador
 Para invitar a un desarrollador, siga los pasos descritos en esta sección:
 
 1. Seleccione la pestaña **Usuarios** a la izquierda de la pantalla.
@@ -56,7 +56,7 @@ Cuando se invita a un desarrollador, se le envía un correo electrónico. Este c
 
 Una vez aceptada la invitación, la cuenta se activa.
 
-## <a name="block-developer"></a> Desactivación o reactivación de una cuenta de desarrollador
+## <a name="deactivate-or-reactivate-a-developer-account"></a><a name="block-developer"> </a>Desactivación o reactivación de una cuenta de desarrollador
 
 De forma predeterminada, las cuentas de desarrollador recién creadas o a las que se ha invitado se encuentran en estado **Activo**. Para desactivar una cuenta de desarrollador, haga clic en **Bloquear**. Para reactivar una cuenta de desarrollador bloqueada, haga clic en **Activar**. Una cuenta de desarrollador bloqueada no puede obtener acceso al portal para desarrolladores ni llamar a ninguna API. Para eliminar una cuenta de usuario, haga clic en **Eliminar**.
 
@@ -70,7 +70,7 @@ Para bloquear a un usuario, siga los siguientes pasos.
 
 Para trabajar con cuentas de usuario mediante programación, consulte la documentación de Entidad de usuario en la referencia sobre [API de REST de API Management](/rest/api/apimanagement/). Para restablecer la contraseña de una cuenta de usuario a un valor específico, puede utilizar la operación [Actualizar un usuario](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) y especificar la contraseña que desea utilizar.
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"></a><a name="next-steps"> </a>Pasos siguientes
 Una vez creada una cuenta de desarrollador, se puede asociar a roles y suscribirse a productos y API. Para obtener más información, consulte [Creación y uso de grupos][How to create and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png

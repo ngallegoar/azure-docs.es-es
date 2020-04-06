@@ -4,20 +4,20 @@ description: Habilitación de Snapshot Debugger para aplicaciones de .NET en Az
 ms.topic: conceptual
 author: brahmnes
 ms.author: bfung
-ms.date: 03/07/2019
+ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c23da585034e74d85be5a3c41b124f00408a0f4a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 8af688e38003e0613a06d7d8622ce279a3838589
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671433"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298269"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Habilitación de Snapshot Debugger para aplicaciones de .NET en Azure App Service
 
 Actualmente, Snapshot Debugger puede usarse con aplicaciones ASP.NET y ASP.NET Core que se ejecutan en Azure App Service en planes de servicio de Windows.
 
-## <a id="installation"></a> Habilitación de Snapshot Debugger
+## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Habilitación de Snapshot Debugger
 Para habilitar Snapshot Debugger en una aplicación, siga las instrucciones que se indican a continuación. Si está ejecutando otro tipo de servicio de Azure, aquí encontrará instrucciones para habilitar Snapshot Debugger en otras plataformas compatibles:
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Servicios de Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -45,6 +45,48 @@ Snapshot Debugger de Application Insights se preinstaló con el entorno de eje
 
 Siga los mismos pasos que para **Habilitación de Snapshot Debugger**, pero cambie los dos modificadores de Snapshot Debugger al modo **desactivado**.
 Recomendamos que tenga habilitado Snapshot Debugger en todas las aplicaciones para facilitar el diagnóstico de las excepciones de la aplicación.
+
+## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
+
+En el caso de una instancia de Azure App Service, puede establecer la configuración de la aplicación en una plantilla de Azure Resource Manager para habilitar Snapshot Debugger y Profiler. Se agrega un recurso de configuración que contiene la configuración de la aplicación como un recurso secundario del sitio web:
+
+```json
+{
+  "apiVersion": "2015-08-01",
+  "name": "[parameters('webSiteName')]",
+  "type": "Microsoft.Web/sites",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[variables('hostingPlanName')]"
+  ],
+  "tags": { 
+    "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName')))]": "empty",
+    "displayName": "Website"
+  },
+  "properties": {
+    "name": "[parameters('webSiteName')]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-08-01",
+      "name": "appsettings",
+      "type": "config",
+      "dependsOn": [
+        "[parameters('webSiteName')]",
+        "[concat('AppInsights', parameters('webSiteName'))]"
+      ],
+      "properties": {
+        "APPINSIGHTS_INSTRUMENTATIONKEY": "[reference(resourceId('Microsoft.Insights/components', concat('AppInsights', parameters('webSiteName'))), '2014-04-01').InstrumentationKey]",
+        "APPINSIGHTS_PROFILERFEATURE_VERSION": "1.0.0",
+        "APPINSIGHTS_SNAPSHOTFEATURE_VERSION": "1.0.0",
+        "DiagnosticServices_EXTENSION_VERSION": "~3",
+        "ApplicationInsightsAgent_EXTENSION_VERSION": "~2"
+      }
+    }
+  ]
+},
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
 ms.openlocfilehash: 9f185f58e1d33a3985777cb22bc7578f9f2c4541
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593800"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Mejora del rendimiento comprimiendo archivos en Azure CDN
@@ -141,20 +141,20 @@ En las tablas siguientes se describe el comportamiento de la compresión de Azur
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>La compresión está deshabilitada o el archivo no es válido para la compresión
 | Formato solicitado por el cliente (mediante el encabezado Accept-Encoding) | Formato de archivo en caché | La respuesta de CDN al cliente | Notas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
-| Comprimidos |Comprimidos |Comprimidos | |
-| Comprimidos |Sin comprimir |Sin comprimir | |
-| Comprimidos |No almacenado en caché |Comprimidos o sin comprimir |La respuesta de origen determina si CDN realiza una compresión. |
-| Sin comprimir |Comprimidos |Sin comprimir | |
+| Compressed |Compressed |Compressed | |
+| Compressed |Sin comprimir |Sin comprimir | |
+| Compressed |No almacenado en caché |Comprimidos o sin comprimir |La respuesta de origen determina si CDN realiza una compresión. |
+| Sin comprimir |Compressed |Sin comprimir | |
 | Sin comprimir |Sin comprimir |Sin comprimir | |
 | Sin comprimir |No almacenado en caché |Sin comprimir | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>La compresión está habilitada y el archivo es válido para la compresión
 | Formato solicitado por el cliente (mediante el encabezado Accept-Encoding) | Formato de archivo en caché | Respuesta de la red CDN al cliente | Notas |
 | --- | --- | --- | --- |
-| Comprimidos |Comprimidos |Comprimidos |La red CDN transcodifica entre los formatos admitidos. |
-| Comprimidos |Sin comprimir |Comprimidos |La red CDN realiza una compresión. |
-| Comprimidos |No almacenado en caché |Comprimidos |La red CDN realiza una compresión si el origen devuelve un archivo sin comprimir. <br/>**Azure CDN de Verizon** pasa el archivo descomprimido en la primera solicitud y luego lo comprime y lo almacena en caché para solicitudes posteriores. <br/>Los archivos con el encabezado `Cache-Control: no-cache` nunca se comprimen. |
-| Sin comprimir |Comprimidos |Sin comprimir |La red CDN realiza una descompresión. |
+| Compressed |Compressed |Compressed |La red CDN transcodifica entre los formatos admitidos. |
+| Compressed |Sin comprimir |Compressed |La red CDN realiza una compresión. |
+| Compressed |No almacenado en caché |Compressed |La red CDN realiza una compresión si el origen devuelve un archivo sin comprimir. <br/>**Azure CDN de Verizon** pasa el archivo descomprimido en la primera solicitud y luego lo comprime y lo almacena en caché para solicitudes posteriores. <br/>Los archivos con el encabezado `Cache-Control: no-cache` nunca se comprimen. |
+| Sin comprimir |Compressed |Sin comprimir |La red CDN realiza una descompresión. |
 | Sin comprimir |Sin comprimir |Sin comprimir | |
 | Sin comprimir |No almacenado en caché |Sin comprimir | |
 
@@ -165,6 +165,6 @@ En el caso de los puntos de conexión habilitados streaming de Media Services CD
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Solución de problemas de compresión de archivos de red CDN](cdn-troubleshoot-compression.md)    
 

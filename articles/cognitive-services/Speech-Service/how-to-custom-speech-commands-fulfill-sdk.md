@@ -1,23 +1,23 @@
 ---
-title: Realización de comandos personalizados en el cliente con el SDK de Voz
+title: Realización de comandos desde un cliente con Speech SDK
 titleSuffix: Azure Cognitive Services
-description: En este artículo, explicamos cómo controlar las actividades de comandos personalizados en el cliente con el SDK de Voz.
+description: En este artículo, se explica cómo controlar las actividades de Comandos personalizados en un cliente con Speech SDK.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 03/12/2020
 ms.author: donkim
-ms.openlocfilehash: b55bb1c8379cf0a80a95aa0ba1a29297154d5831
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156512"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367756"
 ---
-# <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Instrucciones: Realización de comandos en el cliente con el SDK de Voz (versión preliminar)
+# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Realización de comandos desde un cliente con Speech SDK (versión preliminar)
 
 Para finalizar las tareas con una aplicación de comandos personalizada, puede enviar cargas personalizadas a un dispositivo cliente conectado.
 
@@ -26,7 +26,7 @@ En este artículo, hará lo siguiente:
 - Definir y enviar una carga JSON personalizada desde la aplicación de comandos personalizados.
 - Recibir y visualizar el contenido de la carga JSON personalizada desde una aplicación cliente del SDK de Voz en C# de UWP.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - Una clave de suscripción de Azure para el servicio de voz.

@@ -4,15 +4,15 @@ description: En este artículo se describe la cobertura de las certificaciones p
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: a41d95a5ab0665698676d0f17333e2f5c7f467eb
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5a35ec10d7d9bc60bbbf28ee85c83c838108050b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872210"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527374"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Cumplimiento de Azure Cosmos DB 
 
@@ -34,7 +34,7 @@ Para ayudar a los clientes a satisfacer sus propias obligaciones de cumplimiento
 
 Azure Cosmos DB está ampliando continuamente su cobertura de certificaciones. Actualmente, Azure Cosmos DB cuenta con los siguientes certificados:
 
-| **Aplicable globalmente** | **Gobierno de Estados Unidos** | **Específica del sector** | **Específica del país o región** |
+| **Aplicable globalmente** | **US Gov** | **Específica del sector** | **Específica del país o región** |
 | --- | --- | --- | --- |
 | Certificación de CSA STAR | SRG del DoD nivel 2 | HIPAA BAA | IRAP en Australia |
 | Atestación de CSA STAR | FedRAMP Moderate | HITRUST | C5 de Alemania|
@@ -44,13 +44,14 @@ Azure Cosmos DB está ampliando continuamente su cobertura de certificaciones. A
 | ISO 27017:2015 | | | |
 | ISO 27018:2014 | | | |
 | ISO 9001:2015 | | | |
+| ISO 27701:2019| | | |
 | SOC 1, 2, 3 | | | |
 
 Para obtener más información acerca de cada una de estas ofertas de cumplimiento y cómo lo benefician, consulte la página [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Información general sobre el cumplimiento de Microsoft Azure).
 
 En la tabla siguiente se enumeran las certificaciones compatibles con Azure Cosmos DB en Azure Government:
 
-| **Aplicable globalmente** | **Gobierno de Estados Unidos** | **Específica del sector** | 
+| **Aplicable globalmente** | **US Gov** | **Específica del sector** | 
 | --- | --- | --- | --- |
 | Certificación de CSA STAR | CJIS| HIPAA BAA | 
 | Atestación de CSA STAR| SRG del DoD nivel 2| HITRUST  | 

@@ -9,10 +9,10 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67186254"
 ---
 Las máquinas virtuales de Azure pueden tener diferentes estados que se pueden clasificar en estados de *aprovisionamiento* y estados de *energía*. El propósito de este artículo es describir estos estados y resaltar específicamente cuándo se les factura a los clientes por el uso de la instancia. 
@@ -29,10 +29,10 @@ La tabla siguiente proporciona una descripción del estado de cada instancia e i
 <table>
 <tr>
 <th>
-Estado
+State
 </th>
 <th>
-DESCRIPCIÓN
+Descripción
 </th>
 <th>
 Facturación del uso de instancia
@@ -178,7 +178,7 @@ Estos son los estados de operación transitorios una vez que la plataforma ha ac
 <p><b>Estados</b></p>
 </td>
 <td width="366">
-<p>DESCRIPCIÓN</p>
+<p>Descripción</p>
 </td>
 </tr>
 <tr>

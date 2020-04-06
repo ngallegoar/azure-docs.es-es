@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 887f6d9163f800ecbe8a5ab9a0715fd171f1d3d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945103"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244518"
 ---
 # <a name="applying-content-tags-to-images"></a>Aplicación de etiquetas de contenido a imágenes
 
@@ -83,6 +83,13 @@ La siguiente respuesta JSON muestra lo que devuelve Computer Vision al etiquetar
 }
 ```
 
+## <a name="use-the-api"></a>Uso de la API
+
+La característica de etiquetado forma parte de la API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Puede llamar a esta API mediante una SDK nativa o con llamadas a REST. Incluya `Tags` en el parámetro de consulta **visualFeatures**. Después, cuando llegue la respuesta JSON completa, simplemente analice la cadena con el contenido de la sección `"tags"`.
+
+* [Inicio rápido: SDK de Computer Vision para .NET](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Inicio rápido: Análisis de imágenes (API REST)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Conozca los conceptos de [categorización de imágenes](concept-categorizing-images.md) y de [descripción de imágenes](concept-describing-images.md).
+Conozca los conceptos relacionados de [categorización de imágenes](concept-categorizing-images.md) y [descripción de imágenes](concept-describing-images.md).

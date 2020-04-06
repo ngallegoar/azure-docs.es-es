@@ -15,18 +15,18 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 892cdeea20780c90ce325e8be9b7b91fee0d9fad
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 555fb39836054be05102f4c28167d72016805639
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522533"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481507"
 ---
 # <a name="how-provisioning-works"></a>Funcionamiento del aprovisionamiento
 
 El aprovisionamiento automático hace referencia a la creación de identidades y roles de usuario en las aplicaciones en la nube a las que los usuarios necesitan acceder. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian. Antes de iniciar una implementación, puede revisar este artículo para obtener información sobre cómo funciona el aprovisionamiento de Azure AD y cómo obtener recomendaciones de configuración. 
 
-El **servicio de aprovisionamiento de Azure AD** aprovisiona usuarios para las aplicaciones SaaS y otros sistemas mediante la conexión a un punto de conexión de la API de administración de usuarios de System for Cross-Domain Identity Management (SCIM) 2.0 que proporciona el proveedor de la aplicación. Este punto de conexión SCIM permite a Azure AD crear, actualizar y quitar usuarios mediante programación. Para las aplicaciones seleccionadas, el servicio de aprovisionamiento también puede crear, actualizar y quitar objetos adicionales relacionados con la identidad, como los grupos y los roles. El canal utilizado para el aprovisionamiento entre Azure AD y la aplicación se cifra mediante el cifrado SSL HTTPS.
+El **servicio de aprovisionamiento de Azure AD** aprovisiona usuarios para las aplicaciones SaaS y otros sistemas mediante la conexión a un punto de conexión de la API de administración de usuarios de System for Cross-Domain Identity Management (SCIM) 2.0 que proporciona el proveedor de la aplicación. Este punto de conexión SCIM permite a Azure AD crear, actualizar y quitar usuarios mediante programación. Para las aplicaciones seleccionadas, el servicio de aprovisionamiento también puede crear, actualizar y quitar objetos adicionales relacionados con la identidad, como los grupos y los roles. El canal utilizado para el aprovisionamiento entre Azure AD y la aplicación se cifra mediante el cifrado TLS HTTPS.
 
 
 ![Servicio de aprovisionamiento de Azure AD](./media/how-provisioning-works/provisioning0.PNG)

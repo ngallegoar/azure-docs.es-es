@@ -4,7 +4,7 @@ description: Este artículo proporciona un conjunto de procedimientos recomendad
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934748"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79224708"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedimientos recomendados de cifrado y seguridad de datos en Azure
 En este artículo se describen los procedimientos recomendados para el cifrado y la seguridad de datos.
@@ -108,7 +108,7 @@ Estos son los procedimientos recomendados específicos para usar Azure VPN Gatew
 **Detalles**: use [VPN de punto a sitio](/azure/vpn-gateway/vpn-gateway-point-to-site-create).
 
 **Procedimiento recomendado**: mueva los conjuntos de datos grandes a través de un vínculo WAN de alta velocidad dedicado.   
-**Detalles**: use [ExpressRoute](/azure/expressroute/expressroute-introduction). Si decide usar ExpressRoute, también puede cifrar los datos en el nivel de aplicación mediante [SSL/TLS](https://support.microsoft.com/kb/257591) u otros protocolos para una mayor protección.
+**Detalles**: use [ExpressRoute](/azure/expressroute/expressroute-introduction). Si decide usar ExpressRoute, también puede cifrar los datos en el nivel de aplicación mediante SSL/TLS u otros protocolos para una mayor protección.
 
 **Procedimiento recomendado**: interactúe con Azure Storage a través de Azure Portal.   
 **Detalles**: todas las transacciones se realizan a través de HTTPS. También se puede usar la [API de REST Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) a través de HTTPS para interactuar con [Azure Storage](https://azure.microsoft.com/services/storage/).
@@ -128,7 +128,7 @@ Esta solución de protección de información le ofrece control sobre sus datos,
 Se recomienda que:
 
 - [Implemente Azure Information Protection](/azure/information-protection/deployment-roadmap) para su organización.
-- Aplique etiquetas que reflejen sus requisitos empresariales. Por ejemplo:  aplique la etiqueta "extremadamente confidencial" a todos los documentos y correos electrónicos que contengan datos de alto secreto para clasificar y proteger dichos datos. A continuación, solo los usuarios autorizados podrán acceder a estos datos, con cualquier restricción que especifique.
+- Aplique etiquetas que reflejen sus requisitos empresariales. Por ejemplo: aplique la etiqueta "extremadamente confidencial" a todos los documentos y correos electrónicos que contengan datos de alto secreto para clasificar y proteger dichos datos. A continuación, solo los usuarios autorizados podrán acceder a estos datos, con cualquier restricción que especifique.
 - Configure [el registro de uso para Azure RMS](/azure/information-protection/log-analyze-usage) para que pueda supervisar cómo usa el servicio de protección su organización.
 
 Las organizaciones con puntos débiles en la [clasificación de datos](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) y la protección de archivos pueden ser más susceptibles a la fuga o el uso incorrecto de datos. Con la protección adecuada de los archivos, puede analizar los flujos de datos para extraer conclusiones sobre su negocio, detectar comportamientos de riesgo y tomar medidas correctivas, realizar un seguimiento del acceso a los documentos, etc.

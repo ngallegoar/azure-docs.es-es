@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
 ms.openlocfilehash: 28537ac2389fbb1ca43ca4014515564bddeba4ce
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69872484"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Creación y lectura de mensajes de IoT Hub
@@ -49,24 +49,24 @@ Para más información sobre cómo codificar y descodificar mensajes que se han 
 
 ## <a name="system-properties-of-d2c-iot-hub-messages"></a>Propiedades del sistema de los mensajes de IoT Hub **D2C**
 
-| Propiedad | DESCRIPCIÓN  |¿La puede definir el usuario?|Palabra clave para </br>la consulta de enrutamiento|
+| Propiedad | Descripción  |¿La puede definir el usuario?|Palabra clave para </br>la consulta de enrutamiento|
 | --- | --- | --- | --- |
 | message-id |Un identificador configurable por el usuario para el mensaje utilizado para patrones de solicitud y respuesta. Formato: Una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  | Sí | messageId |
-| iothub-enqueuedtime |Fecha y hora en la que IoT Hub recibió el mensaje [del dispositivo a la nube](iot-hub-devguide-d2c-guidance.md). | Sin | enqueuedTime |
+| iothub-enqueuedtime |Fecha y hora en la que IoT Hub recibió el mensaje [del dispositivo a la nube](iot-hub-devguide-d2c-guidance.md). | No | enqueuedTime |
 | user-id |Un identificador que se utiliza para especificar el origen de los mensajes. Cuando IoT Hub genera mensajes, se establece en `{iot hub name}`. | Sí | userId |
-| iothub-connection-device-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **deviceId** del dispositivo que envió el mensaje. | Sin | connectionDeviceId |
-| iothub-connection-module-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **moduleId** del dispositivo que envió el mensaje. | Sin | connectionModuleId |
-| iothub-connection-auth-generation-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el valor **connectionDeviceGenerationId** (como se indica en [Propiedades de identidad del dispositivo](iot-hub-devguide-identity-registry.md#device-identity-properties)) del dispositivo que envió el mensaje. | Sin |connectionDeviceGenerationId |
-| iothub-connection-auth-method |Un método de autenticación establecido por IoT Hub en los mensajes de dispositivo a nube. Esta propiedad contiene información sobre el método de autenticación usado para autenticar el dispositivo que envía el mensaje.| Sin | connectionAuthMethod |
+| iothub-connection-device-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **deviceId** del dispositivo que envió el mensaje. | No | connectionDeviceId |
+| iothub-connection-module-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el **moduleId** del dispositivo que envió el mensaje. | No | connectionModuleId |
+| iothub-connection-auth-generation-id |Un identificador establecido por IoT Hub en los mensajes de dispositivo a nube. Contiene el valor **connectionDeviceGenerationId** (como se indica en [Propiedades de identidad del dispositivo](iot-hub-devguide-identity-registry.md#device-identity-properties)) del dispositivo que envió el mensaje. | No |connectionDeviceGenerationId |
+| iothub-connection-auth-method |Un método de autenticación establecido por IoT Hub en los mensajes de dispositivo a nube. Esta propiedad contiene información sobre el método de autenticación usado para autenticar el dispositivo que envía el mensaje.| No | connectionAuthMethod |
 
 ## <a name="system-properties-of-c2d-iot-hub-messages"></a>Propiedades del sistema de los mensajes de IoT Hub **C2D**
 
-| Propiedad | DESCRIPCIÓN  |¿La puede definir el usuario?|
+| Propiedad | Descripción  |¿La puede definir el usuario?|
 | --- | --- | --- |
 | message-id |Un identificador configurable por el usuario para el mensaje utilizado para patrones de solicitud y respuesta. Formato: Una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  |Sí|
-| sequence-number |Un número (exclusivo para cada cola de dispositivo) asignado por IoT Hub a cada mensaje de nube a dispositivo. |Sin|
-| to |Un destino especificado en los mensajes [de nube a dispositivo](iot-hub-devguide-c2d-guidance.md) . |Sin|
-| absolute-expiry-time |Fecha y hora de la expiración del mensaje. |Sin|   |
+| sequence-number |Un número (exclusivo para cada cola de dispositivo) asignado por IoT Hub a cada mensaje de nube a dispositivo. |No|
+| to |Un destino especificado en los mensajes [de nube a dispositivo](iot-hub-devguide-c2d-guidance.md) . |No|
+| absolute-expiry-time |Fecha y hora de la expiración del mensaje. |No|   |
 | correlation-id |Cadena de propiedad en un mensaje de respuesta que normalmente contiene el identificador del mensaje de la solicitud en los patrones de solicitud y respuesta. |Sí|
 | user-id |Un identificador que se utiliza para especificar el origen de los mensajes. Cuando IoT Hub genera mensajes, se establece en `{iot hub name}`. |Sí|
 | iothub-ack |Un generador de mensajes de comentarios. Esta propiedad se usa en los mensajes de nube a dispositivo para solicitar a IoT Hub que genere mensajes de comentarios debido al consumo del mensaje por el dispositivo. Valores posibles: **none** (valor predeterminado): no se genera ningún mensaje de comentarios, **positive**: recibe un mensaje de comentarios si el mensaje se completó, **negative**: recibe un mensaje de comentarios si el mensaje expiró (o si se alcanzó el número máximo de entregas) sin que se complete en el dispositivo, y **full**: comentarios positivos y negativos. |Sí|

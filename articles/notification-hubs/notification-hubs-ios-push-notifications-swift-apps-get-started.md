@@ -1,5 +1,5 @@
 ---
-title: Enviar notificaciones push a aplicaciones iOS basadas en Swift que usan Azure Notification Hubs | Microsoft Docs
+title: Envío de notificaciones push a aplicaciones iOS basadas en Swift que usan Azure Notification Hubs | Microsoft Docs
 description: Aprenda a enviar notificaciones push a aplicaciones iOS basadas en Swift que usen Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: ios
@@ -16,14 +16,14 @@ ms.date: 05/21/2019
 ms.author: miparker
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 8dae5bcc082ba5dd0953e3e97f609e4031547a35
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a721c519c7a836e20455c6f1887bcfa7b52951f3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030644"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336633"
 ---
-# <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Tutorial: Enviar notificaciones push a aplicaciones iOS basadas en Swift que usan la API de REST de Notification Hubs
+# <a name="tutorial-send-push-notifications-to-swift-ios-apps-using-notification-hubs-rest-api"></a>Tutorial: Envío de notificaciones push a aplicaciones iOS basadas en Swift mediante la API REST de Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
@@ -42,7 +42,9 @@ Este tutorial le guía por los siguientes pasos:
 > * Conectar la aplicación iOS a un centro de notificaciones.
 > * Probar la solución.
 
-## <a name="prerequisites"></a>Requisitos previos
+El código completo de este tutorial se puede encontrar en [GitHub](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_rest).
+
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para continuar, necesita:
 
@@ -89,12 +91,12 @@ En esta sección, compilará la aplicación de iOS que se conectará al centro d
 
 1. Actualice **devsettings.plist** para incluir las siguientes entradas de configuración con sus propios valores desde el centro de notificaciones que ha aprovisionado:
 
-   | Clave                            | type                     | Valor                     |
+   | Clave                            | Tipo                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | Cadena                   | \<hubKey>                  |
-   | notificationHubKeyName         | Cadena                   | \<hubKeyName>              |
-   | notificationHubName            | Cadena                   | \<hubName>                 |
-   | notificationHubNamespace       | Cadena                   | \<hubNamespace>            |
+   | notificationHubKey             | String                   | \<hubKey>                  |
+   | notificationHubKeyName         | String                   | \<hubKeyName>              |
+   | notificationHubName            | String                   | \<hubName>                 |
+   | notificationHubNamespace       | String                   | \<hubNamespace>            |
 
    Para encontrar los valores necesarios, desplácese hasta el recurso del centro de notificaciones en Azure Portal. En concreto, los valores de **notificationHubName** y **notificationHubNamespace** están en la esquina superior derecha del resumen **Información esencial** dentro de la página **Información general**.
 
@@ -114,18 +116,18 @@ En esta sección, compilará la aplicación de iOS que se conectará al centro d
 
 1. Busque **Identidad** y, luego, establezca el valor **Identificador del lote** para que coincida con `com.<organization>.PushDemo`, que es el valor usado para el **Id. de aplicación** de un paso anterior.
 
-1. Busque **Firma** y, luego, seleccione el **Equipo** adecuado para la **cuenta de desarrollador de Apple**. El valor **Equipo** debe coincidir con el que creó los certificados y perfiles.
+1. Busque **Signing & Capabilities** (Firma y funcionalidades) y, luego, seleccione el **Equipo** adecuado para la **cuenta de desarrollador de Apple**. El valor **Equipo** debe coincidir con el que creó los certificados y perfiles.
 
-1. Xcode debe desplegar automáticamente el valor de **Perfil de aprovisionamiento** adecuado según en el **Identificador de lote**. Si no ve el nuevo valor de **Perfil de aprovisionamiento**, intente actualizar los perfiles para la **Identidad de firma** desde **Xcode** > **Preferencias** > **Cuenta** > **Ver detalles**. Seleccione **Identidad de firma** y, luego, seleccione el botón **Actualizar** en la parte inferior derecha para descargar los perfiles.
+1. Xcode debe desplegar automáticamente el valor de **Perfil de aprovisionamiento** adecuado según en el **Identificador de lote**. Si no ve el nuevo valor de **Perfil de aprovisionamiento**, intente actualizar los perfiles para la **Identidad de firma** desde **Xcode** > **Preferencias** > **Cuenta** y, a continuación, seleccione el botón **Download Manual Profiles** (Descargar perfiles manuales) para descargar los perfiles.
 
-1. Seleccione la pestaña **Funcionalidades** y asegúrese de que las **notificaciones push** estén habilitadas.
+1. En la pestaña **Signing & Capabilities** (Firma y funcionalidades), haga clic en el botón **+ Capability** (+ Funcionalidad) y pulse dos veces en **Push Notifications** (Notificaciones push) en la lista para asegurarse de que las **notificaciones push** están habilitadas.
 
 1. Abra el archivo **AppDelegate.swift** para implementar el protocolo **UNUserNotificationCenterDelegate** y agregue el código siguiente a la parte superior de la clase:
 
     ```swift
     @UIApplicationMain
     class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-
+        
         ...
 
         var configValues: NSDictionary?
@@ -134,13 +136,12 @@ En esta sección, compilará la aplicación de iOS que se conectará al centro d
         var notificationHubKeyName : String?
         var notificationHubKey : String?
         let tags = ["12345"]
-        let genericTemplate = PushTemplate(withBody: "{\"aps\":{\"alert\":\"$(message)\"}}")
-
+        
         ...
     }
     ```
 
-    Usará estos miembros más adelante. En concreto, usará los miembros **tags** y **genericTemplate** como parte del registro. Para más información sobre las etiquetas, consulte [Etiquetas para registros](notification-hubs-tags-segment-push-message.md) y [Registros de plantillas](notification-hubs-templates-cross-platform-push-messages.md).
+    Usará estos miembros más adelante. En concreto, usará el miembro **tags** como parte del registro con una **plantilla personalizada**. Para más información sobre las etiquetas, consulte [Etiquetas para registros](notification-hubs-tags-segment-push-message.md) y [Registros de plantillas](notification-hubs-templates-cross-platform-push-messages.md).
 
 1. En el mismo archivo, agregue el código siguiente a la función **didFinishLaunchingWithOptions**:
 
@@ -186,7 +187,8 @@ En esta sección, compilará la aplicación de iOS que se conectará al centro d
     func showAlert(withText text : String) {
         let alertController = UIAlertController(title: "PushDemo", message: text, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
-        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
     ```
 
@@ -211,6 +213,11 @@ En esta sección, compilará la aplicación de iOS que se conectará al centro d
     ```
 
 1. Agregue instrucciones de impresión al final de la función **didRegisterForRemoteNotificationsWithDeviceToken** para verificar que se están asignando valores a **installationId** y **pushChannel**.
+
+    ```swift
+    print(installationId)
+    print(pushChannel)
+    ```
 
 1. Cree las carpetas **Models**, **Services** y **Utilities** para los componentes básicos que agregará al proyecto más adelante.
 
@@ -313,7 +320,7 @@ Para agregar y configurar el encabezado puente:
 
 1. Actualice **Build Settings** (Configuración de compilación) del destino para que haga referencia al encabezado puente:
 
-   1. Abra la pestaña **Building Settings** (Configuración de compilación) y desplácese hacia abajo hasta la sección **Swift Compiler** (Compilador de Swift).
+   1. Pulse el objeto **PushDemo** y desplácese hacia abajo hasta la sección **Swift Compiler** (Compilador de Swift).
 
    1. Asegúrese de que la opción**Install Objective-C Compatibility Header** (Instalar encabezado de compatibilidad de Objective-C) está establecida en **Yes** (Sí).
 
@@ -392,11 +399,25 @@ Para agregar y configurar el encabezado puente:
 
    El [SDK de iOS de Azure Storage](https://github.com/Azure/azure-storage-ios/blob/master/Lib/Azure%20Storage%20Client%20Library/Azure%20Storage%20Client%20Library/AZSUtil.m) es un excelente ejemplo de cómo enfocar estas operaciones en Objective-C. Puede encontrar más información sobre los tokens de SAS de Azure Service Bus en la [documentación de Azure Service Bus](../service-bus-messaging/service-bus-sas.md).
 
+1. En **AppDelegate.swift**, agregue el código siguiente a la función *didRegisterForRemoteNotificationsWithDeviceToken* para comprobar que **TokenUtility.getSasToken** genera un token válido.
+    
+    ```swift
+    let baseAddress = "https://<notificaitonHubNamespace>.servicebus.windows.net/<notifiationHubName>"
+
+    let tokenData = TokenUtility.getSasToken(forResourceUrl: baseAddress,
+                                                withKeyName: self.notificationHubKeyName!,
+                                                andKey: self.notificationHubKey!)
+    
+    print(tokenData.token)
+    ```
+
+    No olvide reemplazar los valores del marcador de posición de la cadena **baseAddress** por los suyos propios.
+
 ### <a name="verify-the-sas-token"></a>Verificar el token de SAS
 
 Antes de implementar el servicio de instalación en el cliente, compruebe que nuestra aplicación genere correctamente el token de SAS mediante la utilidad HTTP de su elección. Para los fines de este tutorial, nuestra herramienta elegida será **Postman**.
 
-Use una instrucción de impresión o punto de interrupción colocados correctamente para anotar los valores de **installationId** y **token** generados por la aplicación.
+Anote los valores de **installationId** y **token** generados por la aplicación.
 
 Siga estos pasos para llamar a la API de **instalaciones**:
 
@@ -410,7 +431,7 @@ Siga estos pasos para llamar a la API de **instalaciones**:
 
 1. Configure los encabezados de solicitud como sigue:
 
-   | Clave           | Valor            |
+   | Clave           | Value            |
    | ------------- | ---------------- |
    | Content-Type  | application/json |
    | Authorization | \<sasToken>       |
@@ -455,7 +476,8 @@ class NotificationRegistrationService {
     private let keyName : String
     private let key : String
     private var tokenData : TokenData? = nil
-
+    private var tokenExpiryDate : Date? = nil
+    
     init(withInstallationId installationId : String,
             andPushChannel pushChannel : String,
             andHubNamespace hubNamespace : String,
@@ -470,58 +492,67 @@ class NotificationRegistrationService {
         self.key = key
         self.defaultHeaders = ["Content-Type": "application/json", "x-ms-version": apiVersion]
     }
-
+    
     func register(
         withTags tags : [String]? = nil,
         andTemplates templates : Dictionary<String, PushTemplate>? = nil,
         completeWith completion: ((_ result: Bool) -> ())? = nil) {
-
+        
         var deviceInstallation = DeviceInstallation(withInstallationId: installationId, andPushChannel: pushChannel)
-
+        
         if let tags = tags {
             deviceInstallation.tags = tags
         }
-
+        
         if let templates = templates {
             deviceInstallation.templates = templates
         }
-
+        
         if let deviceInstallationJson = encodeToJson(deviceInstallation) {
             let sasToken = getSasToken()
             let requestUrl = String.init(format: tokenizedCreateOrUpdateInstallationRequest, installationId, apiVersion)
             let apiEndpoint = "\(getBaseAddress())\(requestUrl)"
-
+            
             var request = URLRequest(url: URL(string: apiEndpoint)!)
             request.httpMethod = "PUT"
-
+            
             for (key,value) in self.defaultHeaders {
                 request.addValue(value, forHTTPHeaderField: key)
             }
-
+            
             request.addValue(sasToken, forHTTPHeaderField: "Authorization")
             request.httpBody = Data(deviceInstallationJson.utf8)
-
+            
             (self.session.dataTask(with: request) { dat, res, err in
                 if let completion = completion {
-                        completion(err == nil && (res as! HTTPURLResponse).statusCode == 200)
+                        completion(err == nil && 
+                        (res as! HTTPURLResponse).statusCode == 200)
                 }
             }).resume()
         }
     }
-
+    
     private func getBaseAddress() -> String {
         return String.init(format: tokenizedBaseAddress, hubNamespace, hubName)
     }
-
+    
     private func getSasToken() -> String {
         if (tokenData == nil ||
-            Date(timeIntervalSince1970: Double((tokenData?.expiration)!)) < Date(timeIntervalSinceNow: -(5 * 60))) {
-            self.tokenData = TokenUtility.getSasToken(forResourceUrl: getBaseAddress(), withKeyName: self.keyName, andKey: self.key)
+            tokenExpiryDate == nil ||
+            Date() >= tokenExpiryDate!) {
+            
+            self.tokenData = TokenUtility.getSasToken(
+                forResourceUrl: getBaseAddress(),
+                withKeyName: self.keyName,
+                andKey: self.key)
+            
+            self.tokenExpiryDate = Date(timeIntervalSinceNow: -(5 * 60))
+                .addingTimeInterval(TimeInterval(tokenData!.expiration))
         }
 
         return (tokenData?.token)!
     }
-
+    
     private func encodeToJson<T : Encodable>(_ object: T) -> String? {
         do {
             let jsonData = try jsonEncoder.encode(object)
@@ -552,10 +583,11 @@ Por último, **encodeToJson** convierte los objetos del modelo correspondiente e
 
 El último paso es actualizar **AppDelegate** usar **NotificationRegistrationService** para registrarse en nuestro **NotificationHub**.
 
-1. Abra **AppDelegate.swift** y agregue una variable de nivel de clase para almacenar una referencia a **NotificationRegistrationService**:
+1. Abra **AppDelegate.swift** y agregue una variable de nivel de clase para almacenar una referencia a **NotificationRegistrationService** y el archivo **PushTemplate** genérico:
 
     ```swift
     var registrationService : NotificationRegistrationService?
+    let genericTemplate = PushTemplate(withBody: "{\"aps\":{\"alert\":\"$(message)\"}}")
     ```
 
 1. En el mismo archivo, actualice la función **didRegisterForRemoteNotificationsWithDeviceToken** para inicializar **NotificationRegistrationService** con los parámetros necesarios y, luego, llame a la función **register**.
@@ -618,6 +650,8 @@ Ahora puede hacer la misma solicitud que hizo anteriormente con **Postman** para
 }
 ```
 
+Si ha expirado el **token de SAS** anterior, puede agregar un **punto de interrupción** a la **línea 24** de la clase **TokenUtility** para obtener un nuevo **token de SAS** y actualizar el encabezado **Authorization** con el nuevo valor.
+
 ### <a name="send-a-test-notification-azure-portal"></a>Enviar una notificación de prueba (Azure Portal)
 
 La forma más rápida de probar que ahora puede recibir notificaciones es ir al centro de notificaciones en Azure Portal:
@@ -658,7 +692,7 @@ Puede enviar notificaciones a través de la [API de REST](/rest/api/notification
 
 1. Configure los encabezados de solicitud como sigue:
 
-   | Clave                            | Valor                          |
+   | Clave                            | Value                          |
    | ------------------------------ | ------------------------------ |
    | Content-Type                   | application/json;charset=utf-8 |
    | Authorization                  | \<sasToken>                     |
@@ -692,7 +726,7 @@ Puede enviar notificaciones a través de la [API de REST](/rest/api/notification
 
 1. Seleccione el botón **Enviar**.
 
-Debe obtener un código de estado correcto y recibir la notificación en el dispositivo cliente.
+Debe obtener un código de estado correcto **201 Creado** y recibir la notificación en el dispositivo cliente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora tiene una aplicación básica de iOS basada en Swift conectada a un centro de notificaciones a través de la [API de REST](/rest/api/notificationhubs/), y puede enviar y recibir notificaciones. Para más información, consulte los siguientes artículos.

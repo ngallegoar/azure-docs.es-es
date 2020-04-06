@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 03/26/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2078869aef5964b30723d8b6854c4b15f0423205
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 3a853dc32f8716f3f2ba32896a7a4a239efcc5bd
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127544"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349880"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Escalado de hosts de sesión con Azure Automation
 
@@ -97,11 +97,11 @@ En primer lugar, necesitará una cuenta de Azure Automation para ejecutar el run
 
 5. La salida del cmdlet incluirá un URI de webhook. Asegúrese de mantener un registro del URI porque lo usará como parámetro cuando configure la programación de ejecución para Azure Logic Apps.
 
-Después de configurar la cuenta de Azure Automation, inicie sesión en la suscripción de Azure y asegúrese de que la cuenta de Azure Automation y el runbook correspondiente han aparecido en el grupo de recursos especificado, tal como se muestra en la siguiente imagen:
+6. Después de configurar la cuenta de Azure Automation, inicie sesión en la suscripción de Azure y asegúrese de que la cuenta de Azure Automation y el runbook correspondiente han aparecido en el grupo de recursos especificado, tal como se muestra en la siguiente imagen:
 
-![Una imagen de la página de información general de Azure que muestra la cuenta de Automation y el runbook creados recientemente.](media/automation-account.png)
+   ![Una imagen de la página de información general de Azure que muestra la cuenta de Automation y el runbook creados recientemente.](media/automation-account.png)
 
-Para comprobar si el webhook está donde debe estar, vaya a la lista de recursos en el lado izquierdo de la pantalla y seleccione **Webhook**.
+  Para comprobar si el webhook está donde debe estar, seleccione el nombre del runbook. A continuación, vaya a la sección Recursos del runbook y seleccione **Webhooks**.
 
 ## <a name="create-an-azure-automation-run-as-account"></a>Creación de una cuenta de ejecución de Azure Automation
 
@@ -256,3 +256,7 @@ Para ver los registros de las operaciones de escalabilidad y reducción horizont
 Vaya al runbook (el nombre predeterminado es WVDAutoScaleRunbook) en el grupo de recursos que hospeda la cuenta de Azure Automation y seleccione **Información general**. En la página Información general, seleccione un trabajo en Trabajos recientes para ver la salida de la herramienta de escalado, tal como se muestra en la siguiente imagen.
 
 ![Imagen de la ventana de salida de la herramienta de escalado.](media/tool-output.png)
+
+## <a name="report-issues"></a>Informar de problemas
+
+Si encuentra algún problema con la herramienta de escalado, puede notificarlo en la [página de GitHub de RDS](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).

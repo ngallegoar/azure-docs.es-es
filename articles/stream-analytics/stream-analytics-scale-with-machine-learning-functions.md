@@ -6,15 +6,18 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: dedffab0b17515cedc54569d5debf6d29b273644
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/16/2020
+ms.openlocfilehash: 5b08625d055063b3804a35a3344ff01c7edb79de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458749"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067006"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalado del trabajo de Stream Analytics con funciones de Azure Machine Learning Studio (clásico)
+
+> [!TIP]
+> Es muy recomendable usar las [UDF de Azure Machine Learning](machine-learning-udf.md) en lugar de las de Azure Machine Learning Studio (clásico) para mejorar el rendimiento y la confiabilidad.
 
 En este artículo se describe cómo escalar de manera eficaz trabajos de Azure Stream Analytics que usan funciones de Azure Machine Learning. Para más información sobre cómo escalar trabajos de Stream Analytics en general, consulte el artículo [Escalado de trabajos de Azure Stream Analytics para incrementar el rendimiento de procesamiento de flujo de datos](stream-analytics-scale-jobs.md).
 
@@ -114,7 +117,7 @@ A continuación se muestra una tabla del rendimiento del trabajo de Stream Analy
 
 En este momento, ya debe saber cómo funcionan las funciones de Machine Learning en Análisis de transmisiones. Probablemente también sepa que los trabajos de Stream Analytics "extraen" datos de los orígenes de datos y que cada "extracción" devuelve un lote de eventos que procesa el trabajo de Stream Analytics. ¿Cómo afecta este modelo de extracción a las solicitudes de servicio web de Machine Learning?
 
-Normalmente, el tamaño de lote que establecemos para las funciones de Machine Learning no será divisible exactamente por el número de eventos devueltos por cada "extracción" del trabajo de Stream Analytics. Cuando suceda esto, se llamará al servicio web Machine Learning con lotes "parciales". El uso de lotes parciales evita incurrir en una sobrecarga de latencia adicional del trabajo en los eventos de combinación de una extracción a otra.
+Normalmente, el tamaño de lote que se establece para las funciones de Machine Learning no será divisible exactamente por el número de eventos devueltos por cada "extracción" del trabajo de Stream Analytics. Cuando suceda esto, se llamará al servicio web Machine Learning con lotes "parciales". El uso de lotes parciales evita incurrir en una sobrecarga de latencia adicional del trabajo en los eventos de combinación de una extracción a otra.
 
 ## <a name="new-function-related-monitoring-metrics"></a>Nuevas métricas de supervisión relacionadas con la función
 En el área de supervisión de un trabajo de Stream Analytics, se han agregado tres métricas adicionales relacionadas con las funciones. Y son: **SOLICITUDES DE FUNCIONES**, **EVENTOS DE FUNCIONES** y **SOLICITUDES DE FUNCIONES CON ERRORES**, como se muestra en el siguiente gráfico.

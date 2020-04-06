@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2b9b8da550d80b027da919ba0834e43e2c83d4b4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 477349f1addf71a30e8ecb179266d8eac5510887
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945305"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244757"
 ---
 # <a name="categorize-images-by-subject-matter"></a>Categorización de las imágenes por materia
 
@@ -53,13 +53,20 @@ La siguiente respuesta JSON muestra lo que devuelve Computer Vision al categoriz
 
 En la tabla siguiente se muestra un conjunto típico de imágenes y la categoría devuelta por Computer Vision para cada imagen.
 
-| Imagen | Categoría |
+| Imagen | Category |
 |-------|----------|
 | ![Cuatro personas posando juntas como una familia](./Images/family_photo.png) | people_group |
 | ![Un cachorro sentado en un campo de hierba](./Images/cute_dog.png) | animal_dog |
 | ![Una persona en la roca de una montaña al atardecer](./Images/mountain_vista.png) | outdoor_mountain |
 | ![Una pila de panecillos en una tabla](./Images/bread.png) | food_bread |
 
+## <a name="use-the-api"></a>Uso de la API
+
+La característica de categorización forma parte de la API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Puede llamar a esta API mediante una SDK nativa o con llamadas a REST. Incluya `Categories` en el parámetro de consulta **visualFeatures**. Después, cuando llegue la respuesta JSON completa, simplemente analice la cadena con el contenido de la sección `"categories"`.
+
+* [Inicio rápido: SDK de Computer Vision para .NET](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Inicio rápido: Análisis de imágenes (API REST)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Conozca los conceptos de [etiquetado de imágenes](concept-tagging-images.md) y de [descripción de imágenes](concept-describing-images.md).
+Conozca los conceptos relacionados de [etiquetado de imágenes](concept-tagging-images.md) y [descripción de imágenes](concept-describing-images.md).

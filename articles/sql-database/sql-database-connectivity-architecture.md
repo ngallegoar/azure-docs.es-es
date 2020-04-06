@@ -11,17 +11,22 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 07/02/2019
-ms.openlocfilehash: 6a90e9ba264c4abddf2c26cb7b1761a7a51b1778
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 03/09/2020
+ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647686"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228684"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
+> [!NOTE]
+> Este artículo se aplica a Azure SQL Server y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
 
-En este artículo se explica la arquitectura de conectividad de Azure SQL Database y SQL Data Warehouse, y cómo funcionan los distintos componentes para dirigir el tráfico a una instancia de Azure SQL. La funcionalidad de estos componentes de conectividad consiste en dirigir el tráfico de red a Azure SQL Database o SQL Data Warehouse con clientes que se conectan desde dentro y desde fuera de Azure. En este artículo también se proporcionan ejemplos de script para cambiar cómo se establece la conectividad y, además, se incluyen consideraciones sobre la modificación de la configuración predeterminada de la conectividad.
+> [!IMPORTANT]
+> Este artículo *no* es válido para las **instancias administradas de Azure SQL Database**. Consulte [Arquitectura de conectividad para una instancia administrada](sql-database-managed-instance-connectivity-architecture.md).
+
+En este artículo se explica la arquitectura de varios componentes que dirigen el tráfico de red a Azure SQL Database o SQL Data Warehouse. También se explican distintas directivas de conexión y cómo afectan a los clientes que se conectan desde dentro de Azure y a los clientes que se conectan desde fuera de Azure. 
 
 ## <a name="connectivity-architecture"></a>Arquitectura de conectividad
 
@@ -39,13 +44,13 @@ En los pasos siguientes se describe cómo se establece una conexión a una base 
 
 Azure SQL Database admite las siguientes tres opciones para la configuración de directiva de conexión de un servidor de SQL Database:
 
-- **Redirigir (recomendado):** Los clientes establecen conexiones directamente con el nodo que hospeda la base de datos, con lo que se reduce la latencia y se mejora el rendimiento. Para que las conexiones usen este modo, los clientes necesitan
-   - Permitir la comunicación entrante y saliente desde el cliente a todas las direcciones IP de Azure de la región en los puertos en el intervalo de 11000 a 11999.  
-   - Permitir la comunicación entrante y saliente desde el cliente a las direcciones IP de la puerta de enlace de Azure SQL Database del puerto 1433.
+- **Redirigir (recomendado):** Los clientes establecen conexiones directamente con el nodo que hospeda la base de datos, con lo que se reduce la latencia y se mejora el rendimiento. Para que las conexiones usen este modo, los clientes deben hacer lo siguiente:
+   - Permitir la comunicación saliente entre el cliente y todas las direcciones IP de Azure de la región en los puertos en el intervalo de 11000 a 11999. Usar las etiquetas de servicio de SQL para facilitar la administración.  
+   - Permitir la comunicación saliente entre el cliente y las direcciones IP de la puerta de enlace de Azure SQL Database en el puerto 1433.
 
-- **Proxy:** En este modo, todas las conexiones se realizan mediante proxy a través de las puertas de enlace de Azure SQL Database, lo que provoca una mayor latencia y un rendimiento inferior. Para que las conexiones usen este modo, los clientes deben permitir la comunicación entrante y saliente desde el cliente a las direcciones IP de la puerta de enlace de Azure SQL Database del puerto 1433.
+- **Proxy:** En este modo, todas las conexiones se realizan mediante proxy a través de las puertas de enlace de Azure SQL Database, lo que provoca una mayor latencia y un rendimiento inferior. Para que las conexiones usen este modo, los clientes deben permitir la comunicación saliente entre el cliente y las direcciones IP de la puerta de enlace de Azure SQL Database en el puerto 1433.
 
-- **Valor predeterminado:** esta es la directiva de conexión en vigor en todos los servidores después de su creación, a menos que se modifique explícitamente cambiándola a `Proxy` o `Redirect`. La directiva predeterminada es `Redirect` para todas las conexiones de cliente que se originan en Azure (por ejemplo, desde una máquina virtual de Azure) y `Proxy` para todas las conexiones de cliente que se originan fuera (por ejemplo, las conexiones de la estación de trabajo local).
+- **Valor predeterminado:** esta es la directiva de conexión en vigor en todos los servidores después de su creación, a menos que se modifique explícitamente cambiándola a `Proxy` o `Redirect`. La directiva predeterminada es `Redirect` para todas las conexiones de cliente que se originen en Azure (por ejemplo, desde una máquina virtual de Azure) y `Proxy` para todas las conexiones de cliente que se originen fuera (por ejemplo, las conexiones desde la estación de trabajo local).
 
  Se recomienda la directiva de conexión `Redirect` a través de la directiva de conexión `Proxy` para la latencia más baja y el mayor rendimiento. Sin embargo, necesitará cumplir los requisitos adicionales para permitir el tráfico de red tal y como se ha descrito anteriormente. Si el cliente es una máquina virtual de Azure, puede hacerlo mediante grupos de seguridad de red (NSG) con [etiquetas de servicio](../virtual-network/security-overview.md#service-tags). Si el cliente se conecta desde una estación de trabajo local, puede que necesite trabajar con el administrador de red para permitir el tráfico de red a través del firewall corporativo.
 
@@ -86,8 +91,8 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | Este de China 2         | 40.73.82.1         |
 | Norte de China          | 139.219.15.17      |
 | Norte de China 2        | 40.73.50.0         |
-| Asia oriental            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| Este de Asia            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| Este de EE. UU.              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Este de EE. UU. 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3 | 
 | Centro de Francia       | 40.79.137.0, 40.79.129.1 |
 | Centro de Alemania      | 51.4.144.100       |
@@ -95,98 +100,29 @@ En el siguiente artículo se describen los detalles de cómo se migrará el trá
 | India central        | 104.211.96.159     |
 | Sur de India          | 104.211.224.146    |
 | India occidental           | 104.211.160.80     |
-| Este de Japón           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
-| Oeste de Japón           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
-| Corea Central        | 52.231.32.42       |
+| Japón Oriental           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Japón Occidental           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
+| Centro de Corea del Sur        | 52.231.32.42       |
 | Corea del Sur          | 52.231.200.86      |
 | Centro-Norte de EE. UU     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| Europa del Norte         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| Norte de Europa         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| Este de Noruega          | 51.120.96.0        |
+| Oeste de Noruega          | 51.120.216.0       |
 | Norte de Sudáfrica   | 102.133.152.0      |
 | Oeste de Sudáfrica    | 102.133.24.0       |
-| Centro-Sur de EE. UU     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
+| Centro-sur de EE. UU.     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
 | Sudeste de Asia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | Centro de Emiratos Árabes Unidos          | 20.37.72.64        |
 | Norte de Emiratos Árabes Unidos            | 65.52.248.0        |
 | Sur de Reino Unido 2             | 51.140.184.11      |
 | Oeste de Reino Unido              | 51.141.8.11        |
-| Centro occidental de EE.UU.      | 13.78.145.25       |
-| Europa occidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| Centro-Oeste de EE. UU.      | 13.78.145.25       |
+| Oeste de Europa          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
 | Oeste de EE. UU.              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
 | Oeste de EE. UU. 2            | 13.66.226.202      |
 |                      |                    |
 
-## <a name="change-azure-sql-database-connection-policy"></a>Cambio de la directiva de conexión de Azure SQL Database
 
-Para cambiar la directiva de conexión de Azure SQL Database de un servidor de Azure SQL Database, use el comando [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
-
-- Si la directiva de conexión se establece en `Proxy`, todos los paquetes de red fluyen a través de la puerta de enlace de Azure SQL Database. Para esta configuración, debe permitir el tráfico saliente solo a la dirección IP de la puerta de enlace de Azure SQL Database. El uso de la configuración de `Proxy` ofrece más latencia que la de `Redirect`.
-- Si la configuración de la directiva de conexión es `Redirect`, todos los paquetes de red fluyen directamente al clúster de base de datos. Para esta configuración, debe permitir el tráfico saliente a varias direcciones IP.
-
-## <a name="script-to-change-connection-settings-via-powershell"></a>Script para cambiar la configuración de la conexión a través de PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. El script siguiente requiere el [módulo de Azure PowerShell](/powershell/azure/install-az-ps).
-
-El siguiente script de PowerShell muestra cómo cambiar la directiva de conexión.
-
-```powershell
-# Get SQL Server ID
-$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
-
-# Set URI
-$id="$sqlserverid/connectionPolicies/Default"
-
-# Get current connection policy
-(Get-AzResource -ResourceId $id).Properties.connectionType
-
-# Update connection policy
-Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
-```
-
-## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script para cambiar la configuración de la conexión a través de la CLI de Azure
-
-> [!IMPORTANT]
-> Este script requiere la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-### <a name="azure-cli-in-a-bash-shell"></a>CLI de Azure en un shell de Bash
-
-> [!IMPORTANT]
-> Este script requiere la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-El siguiente script de CLI muestra cómo cambiar la directiva de conexión en un shell de Bash.
-
-```azurecli-interactive
-# Get SQL Server ID
-sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
-
-# Set URI
-ids="$sqlserverid/connectionPolicies/Default"
-
-# Get current connection policy
-az resource show --ids $ids
-
-# Update connection policy
-az resource update --ids $ids --set properties.connectionType=Proxy
-```
-
-### <a name="azure-cli-from-a-windows-command-prompt"></a>CLI de Azure desde un símbolo del sistema de Windows
-
-> [!IMPORTANT]
-> Este script requiere la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-En el siguiente script de la CLI se muestra cómo cambiar la directiva de conexión desde un símbolo del sistema de Windows (con la CLI de Azure instalada).
-
-```azurecli
-# Get SQL Server ID and set URI
-FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
-
-# Get current connection policy
-az resource show --ids %sqlserverid%
-
-# Update connection policy
-az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
-```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

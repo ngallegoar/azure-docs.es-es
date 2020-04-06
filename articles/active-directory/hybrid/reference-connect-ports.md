@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/02/2017
+ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f365a8325fc027d8770287208f91d164166fcbc
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: da318840426d1c0b94eab06b89ff3152df9d26fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024337"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331087"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>La identidad híbrida requería puertos y protocolos
 El documento siguiente es una referencia técnica sobre los puertos y protocolos para implementar una solución de identidad híbrida. Use la siguiente ilustración y consulte la tabla correspondiente.
@@ -38,7 +38,7 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 | MS-RPC |135 (TCP) |Se usa durante la configuración inicial del Asistente para Azure AD Connect, cuando se enlaza con el bosque de AD, además de durante la sincronización de contraseñas. |
 | LDAP |389 (TCP/UDP) |Se usa para la importación de datos de AD. Los datos se cifran con Kerberos Sign & Seal. |
 | SMB | 445 (TCP) |Lo usa el SSO de conexión directa para crear una cuenta de equipo en el bosque de AD. |
-| LDAP/SSL |636 (TCP/UDP) |Se usa para la importación de datos de AD. La transferencia de datos se firma y se cifra. Solo se utiliza si está usando SSL. |
+| LDAP/SSL |636 (TCP/UDP) |Se usa para la importación de datos de AD. La transferencia de datos se firma y se cifra. Solo se utiliza si está usando TLS. |
 | RPC |49152- 65535 (Puerto RCP alto aleatorio)(TCP) |Se usa durante la configuración inicial de Azure AD Connect, cuando se enlaza con los bosques de AD, además de durante la sincronización de contraseñas. Consulte [KB929851](https://support.microsoft.com/kb/929851), [KB832017](https://support.microsoft.com/kb/832017) y [KB224196](https://support.microsoft.com/kb/224196) para más información. |
 |WinRM  | 5985 (TCP) |Solo se usa si va a instalar AD FS con gMSA del asistente Azure AD Connect.|
 |Servicios web de AD DS | 9389 (TCP) |Solo se usa si va a instalar AD FS con gMSA del asistente Azure AD Connect. |
@@ -48,17 +48,17 @@ En esta tabla se describen los puertos y protocolos que son necesarios para la c
 
 | Protocolo | Puertos | Descripción |
 | --- | --- | --- |
-| HTTP |80 (TCP) |Se usa para descargar CRL (listas de revocación de certificados) para comprobar certificados SSL. |
+| HTTP |80 (TCP) |Se usa para descargar CRL (listas de revocación de certificados) para comprobar certificados TLS/SSL. |
 | HTTPS |443 (TCP) |Se usa para sincronizar con Azure AD. |
 
-Para una lista de direcciones URL y de direcciones IP que necesita para abrir en el firewall, consulte [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+Para obtener una lista de las direcciones URL y direcciones IP que necesita abrir en el firewall, consulte [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) y [Solución de problemas de conectividad en Azure AD Connect](tshoot-connect-connectivity.md#troubleshoot-connectivity-issues-in-the-installation-wizard).
 
 ## <a name="table-3---azure-ad-connect-and-ad-fs-federation-serverswap"></a>Tabla 3: Azure AD Connect y servidores de federación AD FS/WAP
 En esta tabla se describen los puertos y protocolos que son necesarios para la comunicación entre el servidor de Azure AD Connect y servidores de federación AD FS/WAP.  
 
 | Protocolo | Puertos | Descripción |
 | --- | --- | --- |
-| HTTP |80 (TCP) |Se usa para descargar CRL (listas de revocación de certificados) para comprobar certificados SSL. |
+| HTTP |80 (TCP) |Se usa para descargar CRL (listas de revocación de certificados) para comprobar certificados TLS/SSL. |
 | HTTPS |443 (TCP) |Se usa para sincronizar con Azure AD. |
 | WinRM |5985 |Agente de escucha de WinRM |
 

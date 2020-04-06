@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: bc318aff0dad7d7fdff16df549c013927ef0e799
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: acdac6e3eafc5251ebd31a34bcb9a4db34f0ebbe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938810"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79228052"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -43,7 +43,7 @@ Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager
 
 Por tanto, debe llevar a cabo una investigación más extensa centrándose en la aplicación.
 
-El encabezado host HTTP enviado desde el explorador del cliente es la fuente más habitual de problemas. Asegúrese de que la aplicación está configurada para aceptar el encabezado host correcto para el nombre de dominio que use. Para los puntos de conexión que utilizan Azure App Service, consulte [Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service mediante Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+El encabezado host HTTP enviado desde el explorador del cliente es la fuente más habitual de problemas. Asegúrese de que la aplicación está configurada para aceptar el encabezado host correcto para el nombre de dominio que use. Para los puntos de conexión que utilizan Azure App Service, consulte [Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service mediante Traffic Manager](../app-service/configure-domain-traffic-manager.md).
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>¿Cómo afecta al rendimiento el uso del Administrador de tráfico?
 
@@ -145,9 +145,9 @@ Los dispositivos de usuario final suelen utilizar una resolución DNS para reali
 
 Las direcciones IP para asociar a un punto de conexión se pueden especificar de dos maneras. En primer lugar, puede utilizar la notación octeto decimal de cuatro puntos con direcciones de inicio y final para especificar el intervalo (por ejemplo, 1.2.3.4-5.6.7.8 o 3.4.5.6-3.4.5.6). En segundo lugar, puede usar la notación CIDR para especificar el intervalo (por ejemplo, 1.2.3.0/24). Puede especificar varios intervalos y puede usar ambos tipos de notación en un conjunto de intervalos. Sin embargo, se aplican algunas restricciones.
 
--   No puede haber superposición de intervalos de direcciones, ya que cada IP solo puede mapearse a un único punto de conexión.
--   La dirección de inicio no puede superar la dirección final
--   En el caso de la notación CIDR, la dirección IP antes de "/" debe ser la dirección de inicio de ese intervalo (por ejemplo, 1.2.3.0/24 es válido, pero 1.2.3.4.4/24 no es válido).
+-    No puede haber superposición de intervalos de direcciones, ya que cada IP solo puede mapearse a un único punto de conexión.
+-    La dirección de inicio no puede superar la dirección final
+-    En el caso de la notación CIDR, la dirección IP antes de "/" debe ser la dirección de inicio de ese intervalo (por ejemplo, 1.2.3.0/24 es válido, pero 1.2.3.4.4/24 no es válido).
 
 ### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>¿Cómo se puede especificar un punto de conexión de reserva al usar el enrutamiento de subredes?
 
@@ -162,7 +162,7 @@ En un perfil con enrutamiento de subredes, si tiene un punto de conexión deshab
 ### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>¿En qué casos de uso el enrutamiento multivalor resulta útil?
 
 El enrutamiento de varios valores devuelve múltiples puntos de conexión válidos en una sola respuesta de consulta. La principal ventaja de esto es que, si un punto de conexión está dañado, el cliente tiene más opciones para volver a intentarlo sin hacer otra llamada DNS (lo que podría devolver el mismo valor desde una caché ascendente). Esto se aplica a aplicaciones sensibles a la disponibilidad que desean minimizar el tiempo de inactividad.
-Otro uso del método de enrutamiento de varios valores es si un punto de conexión tiene doble conexión a direcciones IPv4 e IPv6 y desea dar al llamador ambas opciones para que elija cuando iniciar una conexión con el punto de conexión.
+Otro uso del método de enrutamiento de varios valores es si un punto de conexión tiene doble conexión a direcciones IPv4 e IPv6 y desea dar al llamador ambas opciones para que elija cuándo iniciar una conexión con el punto de conexión.
 
 ### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>¿Cuántos puntos de conexión se devuelven cuando se usa el enrutamiento de varios valores?
 
@@ -376,31 +376,31 @@ Traffic Manager permite usar direcciones IPv4 o IPv6 para especificar los puntos
 
 No, Traffic Manager no permite combinar tipos de direccionamiento de punto de conexión dentro de un perfil, excepto en el caso de un perfil con el tipo de enrutamiento de varios valores donde puede mezclar tipos de direccionamiento IPv4 y IPv6
 
-### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>¿Qué ocurre cuando el tipo de registro de consulta entrante es diferente del tipo de registro asociado con el tipo de direccionamiento de los puntos de conexión?
+### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>¿Qué ocurre cuando el tipo de registro de la consulta entrante es diferente del tipo de registro asociado con el tipo de direccionamiento de los puntos de conexión?
 
 Cuando se recibe una consulta con un perfil, Traffic Manager busca primero el punto de conexión que debe devolverse según el método de enrutamiento especificado y el estado de mantenimiento de los puntos de conexión. A continuación, examina el tipo de registro solicitado en la consulta entrante y el tipo de registro asociado con el punto de conexión antes de devolver una respuesta basada en la tabla siguiente.
 
 En el caso de perfiles con cualquier método de enrutamiento que no sea de varios valores:
 
-|Solicitud de consulta entrante|    Tipo de punto de conexión|  Respuesta proporcionada|
+|Solicitud de consulta entrante|     Tipo de punto de conexión|     Respuesta proporcionada|
 |--|--|--|
-|ANY |  A / AAAA / CNAME |  Punto de conexión de destino| 
-|Un |    A / CNAME | Punto de conexión de destino|
-|Un |    AAAA |  NODATA |
-|AAAA | AAAA / CNAME |  Punto de conexión de destino|
-|AAAA | Un | NODATA |
-|CNAME |    CNAME | Punto de conexión de destino|
-|CNAME  |A / AAAA | NODATA |
+|ANY |    A / AAAA / CNAME |    Punto de conexión de destino| 
+|Un |    A / CNAME |    Punto de conexión de destino|
+|Un |    AAAA |    NODATA |
+|AAAA |    AAAA / CNAME |    Punto de conexión de destino|
+|AAAA |    Un |    NODATA |
+|CNAME |    CNAME |    Punto de conexión de destino|
+|CNAME     |A / AAAA |    NODATA |
 |
 
 En el caso de los perfiles con el método de enrutamiento establecido en varios valores:
 
-|Solicitud de consulta entrante|    Tipo de punto de conexión | Respuesta proporcionada|
+|Solicitud de consulta entrante|     Tipo de punto de conexión |    Respuesta proporcionada|
 |--|--|--|
-|ANY |  Combinación de A y AAAA | Extremos de destino|
-|Un |    Combinación de A y AAAA | Solo puntos de conexión de destino de tipo A|
-|AAAA   |Combinación de A y AAAA|     Solo puntos de conexión de destino de tipo AAAA|
-|CNAME |    Combinación de A y AAAA | NODATA |
+|ANY |    Combinación de A y AAAA |    Extremos de destino|
+|Un |    Combinación de A y AAAA |    Solo puntos de conexión de destino de tipo A|
+|AAAA    |Combinación de A y AAAA|     Solo puntos de conexión de destino de tipo AAAA|
+|CNAME |    Combinación de A y AAAA |    NODATA |
 
 ### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>¿Puedo usar un perfil con puntos de conexión con direcciones IPv4 / IPv6 en un perfil anidado?
 

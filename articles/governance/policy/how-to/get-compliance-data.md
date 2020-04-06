@@ -4,11 +4,11 @@ description: Las evaluaciones y los efectos de Azure Policy determinan el cumpli
 ms.date: 02/01/2019
 ms.topic: how-to
 ms.openlocfilehash: 891c9c72d8e83dc8f9adb930e8ebd11b70f6aad8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873155"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79236136"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -71,7 +71,7 @@ La llamada devuelve un estado **202 - Aceptado**. En el encabezado de la respues
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
 ```
 
-`{ResourceContainerGUID}` se genera estáticamente para el ámbito solicitado. Si un ámbito ya está ejecutando un examen a petición, no se iniciará un nuevo examen. En su lugar, se proporciona a la nueva solicitud el mismo URI de `{ResourceContainerGUID}` **Location** para el estado. Un comando **GET** de API REST en el URI **Location** devolverá una respuesta **202 - Aceptado** mientras la evaluación esté en curso. Cuando haya finalizado el examen de evaluación, devolverá un estado **200 OK**. El cuerpo de un examen completo es una respuesta JSON con el estado:
+`{ResourceContainerGUID}` se genera estáticamente para el ámbito solicitado. Si un ámbito ya está ejecutando un examen a petición, no se iniciará un nuevo examen. En su lugar, se proporciona a la nueva solicitud el mismo URI de **ubicación** de `{ResourceContainerGUID}` para el estado. Un comando **GET** de API REST en el URI **Location** devolverá una respuesta **202 - Aceptado** mientras la evaluación esté en curso. Cuando haya finalizado el examen de evaluación, devolverá un estado **200 OK**. El cuerpo de un examen completo es una respuesta JSON con el estado:
 
 ```json
 {
@@ -404,6 +404,6 @@ Si tiene un [área de trabajo de Log Analytics](../../../log-analytics/log-analy
 - Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md).
 - Revise la [estructura de definición de Azure Policy](../concepts/definition-structure.md).
 - Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
-- Aprenda cómo [crear directivas mediante programación](programmatically-create.md).
-- Aprenda a [corregir recursos no compatibles](remediate-resources.md).
+- Obtenga información acerca de cómo se pueden [crear directivas mediante programación](programmatically-create.md).
+- Obtenga información sobre cómo [corregir recursos no compatibles](remediate-resources.md).
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

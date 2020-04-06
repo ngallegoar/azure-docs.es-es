@@ -1,7 +1,7 @@
 ---
 title: Presentación de indicaciones de ruta en un mapa | Microsoft Azure Maps
 description: En este artículo aprenderá cómo mostrar las indicaciones entre dos ubicaciones en un mapa mediante el SDK web de Microsoft Azure Maps.
-author: jingjing-z
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 63f7eac52a555be1877f235bd2f7f1d9315d53d5
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: dde9264d0cb65726b624b918982cfa01985b63ce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208512"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371407"
 ---
 # <a name="show-directions-from-a-to-b"></a>Presentación de indicaciones de ruta de A a B
 
@@ -67,6 +67,9 @@ El último bloque de código utiliza la [API de captura](https://fetch.spec.what
 La consulta de ruta, el origen de datos, el símbolo, las capas de líneas y los límites de cámara se crean en el [agente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Como ya se indicó, queremos asegurarnos de que los resultados se muestran una vez que el mapa se carga por completo.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [Procedimientos recomendados de uso del servicio de cálculo de ruta](how-to-use-best-practices-for-search.md)
 
 Más información sobre las clases y los métodos utilizados en este artículo:
 

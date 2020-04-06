@@ -2,21 +2,23 @@
 title: Implementación de recursos con una plantilla y PowerShell
 description: Use Azure Resource Manager y Azure PowerShell para implementar recursos para Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: c31cde9d3023c49a03f4a7a6c434c16405c88bea
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/16/2020
+ms.openlocfilehash: e595aa8f86a24e59c8e00d24ea8e9dcb0875a8f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121937"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153274"
 ---
-# <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
+# <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
 
-Aprenda a utilizar Azure PowerShell con plantillas de Resource Manager para implementar recursos en Azure. Para más información sobre los conceptos asociados a la implementación y administración de las soluciones de Azure, consulte [Introducción a la implementación de plantillas](overview.md).
+Aprenda a utilizar Azure PowerShell con plantillas de Azure Resource Manager (ARM) para implementar recursos en Azure. Para más información sobre los conceptos asociados a la implementación y administración de las soluciones de Azure, consulte [Introducción a la implementación de plantillas](overview.md).
 
 ## <a name="deployment-scope"></a>Ámbito de la implementación
 
-La implementación puede tener como destino una suscripción de Azure o un grupo de recursos dentro de una suscripción. En la mayoría de los casos, la implementación tendrá como destino un grupo de recursos. Use las implementaciones de la suscripción para aplicar directivas y asignaciones de roles en la suscripción. También puede usar las implementaciones de la suscripción para crear un grupo de recursos e implementar recursos en él. Según el ámbito de la implementación, usará comandos diferentes.
+La implementación puede tener como destino un grupo de recursos, una suscripción, un grupo de administración o un inquilino. En la mayoría de los casos, la implementación tendrá como destino un grupo de recursos. Para aplicar directivas y asignaciones de roles en un ámbito mayor, use implementaciones de suscripción, de grupo de administración o de inquilino. Al implementar en una suscripción, puede crear un grupo de recursos e implementar recursos en él.
+
+Según el ámbito de la implementación, usará comandos diferentes.
 
 Para implementar en un **grupo de recursos**, utilice [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
@@ -24,19 +26,33 @@ Para implementar en un **grupo de recursos**, utilice [New-AzResourceGroupDeploy
 New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
 ```
 
-Para implementar en una **suscripción**, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment):
+Para hacer la implementación en una **suscripción**, use New-AzSubscriptionDeployment:
 
 ```azurepowershell
-New-AzDeployment -Location <location> -TemplateFile <path-to-template>
+New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
 Para más información sobre las implementaciones en el nivel de suscripción, consulte [Creación de grupos de recursos y otros recursos en el nivel de suscripción](deploy-to-subscription.md).
 
-Actualmente, solo se admiten las implementaciones del grupo de administración mediante la API REST. Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
+Para hacer la implementación en un **grupo de administración**, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
+
+```azurepowershell
+New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+Para obtener más información sobre las implementaciones de nivel de grupo de administración, consulte [Creación de recursos en el nivel de grupo de administración](deploy-to-management-group.md).
+
+Para hacer la implementación en un **inquilino**, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
+
+```azurepowershell
+New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+Para más información sobre las implementaciones a nivel de inquilino, consulte [Creación de recursos en el nivel de inquilino](deploy-to-tenant.md).
 
 Los ejemplos de este artículo usan las implementaciones del grupo de recursos.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesita una plantilla para implementar. Si aún no tiene ninguna, descargue una [plantilla de ejemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) desde el repositorio Azure Quickstart Templates y guárdela. El nombre de archivo local que se utiliza en este artículo es **c:\MyTemplates\azuredeploy.json**.
 
@@ -62,7 +78,7 @@ La implementación puede demorar unos minutos en completarse.
 
 ## <a name="deploy-remote-template"></a>Implementación de una plantilla remota
 
-En lugar de almacenar las plantillas de Resource Manager en el equipo local, quizás prefiera almacenarlas en una ubicación externa. Puede almacenar plantillas en un repositorio de control de código fuente (por ejemplo, GitHub). O bien, puede almacenarlas en una cuenta de Azure Storage para el acceso compartido en su organización.
+En lugar de almacenar las plantillas de ARM en el equipo local, quizás prefiera almacenarlas en una ubicación externa. Puede almacenar plantillas en un repositorio de control de código fuente (por ejemplo, GitHub). O bien, puede almacenarlas en una cuenta de Azure Storage para el acceso compartido en su organización.
 
 Para implementar una plantilla externa, use el parámetro **TemplateUri**. Use el identificador URI en el ejemplo para implementar la plantilla de ejemplo de GitHub.
 
@@ -75,7 +91,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-En el ejemplo anterior, se requiere un identificador URI accesible públicamente para la plantilla, que funciona con la mayoría de los escenarios porque la plantilla no debe incluir datos confidenciales. Si tiene que especificar datos confidenciales (por ejemplo, una contraseña de administrador), pase ese valor como un parámetro seguro. Sin embargo, si no desea que la plantilla sea accesible públicamente, puede almacenarla en un contenedor de almacenamiento privado para protegerla. Para más información sobre la implementación de una plantilla que requiere un token de Firma de acceso compartido (SAS), consulte [Implementación de una plantilla privada con el token de SAS](secure-template-with-sas-token.md). Para realizar un tutorial, consulte [Tutorial: Integración de Azure Key Vault en Resource Manager Template Deployment](template-tutorial-use-key-vault.md).
+En el ejemplo anterior, se requiere un identificador URI accesible públicamente para la plantilla, que funciona con la mayoría de los escenarios porque la plantilla no debe incluir datos confidenciales. Si tiene que especificar datos confidenciales (por ejemplo, una contraseña de administrador), pase ese valor como un parámetro seguro. Sin embargo, si no desea que la plantilla sea accesible públicamente, puede almacenarla en un contenedor de almacenamiento privado para protegerla. Para más información sobre la implementación de una plantilla que requiere un token de Firma de acceso compartido (SAS), consulte [Implementación de una plantilla privada con el token de SAS](secure-template-with-sas-token.md). Para realizar un tutorial, consulte [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](template-tutorial-use-key-vault.md).
 
 ## <a name="deploy-from-azure-cloud-shell"></a>Implementación desde Azure Cloud Shell
 

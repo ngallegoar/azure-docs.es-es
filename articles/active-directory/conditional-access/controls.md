@@ -5,45 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 03/18/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fff08690eb2807fbbd50f297761c57d3fef88fe
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: f8c149279a755eb186a3fdc7891e9b511d18c7f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671839"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050547"
 ---
 # <a name="custom-controls-preview"></a>Controles personalizados (versión preliminar)
 
-Los controles personalizados son una funcionalidad de la edición Azure Active Directory Premium P1. Al utilizar controles personalizados, los usuarios se redirigen a un servicio compatible para satisfacer más requisitos fuera de Azure Active Directory. Para satisfacer este control, el explorador de un usuario se redirige al servicio externo, lleva a cabo todas las actividades de autenticación o validación necesarias y luego se vuelve a redirigir a Azure Active Directory. Azure Active Directory comprueba la respuesta y, si el usuario se autenticó o validó correctamente, seguirá en el flujo de acceso condicional.
+Los controles personalizados son una funcionalidad en versión preliminar de Azure Active Directory. Al utilizar controles personalizados, los usuarios se redirigen a un servicio compatible para satisfacer requisitos de autenticación fuera de Azure Active Directory. Para satisfacer este control, el explorador de un usuario se redirige al servicio externo, lleva a cabo todas las actividades de autenticación necesarias y luego se vuelve a redirigir a Azure Active Directory. Azure Active Directory comprueba la respuesta y, si el usuario se autenticó o validó correctamente, seguirá en el flujo de acceso condicional.
 
-Estos controles permiten el uso de determinados servicios externos o personalizados como controles de acceso condicional y generalmente amplían las funcionalidades de acceso condicional.
-
-Los proveedores que actualmente ofrecen un servicio compatible incluyen:
-
-- [Duo Security](https://duo.com/docs/azure-ca)
-- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
-- [GSMA](https://mobileconnect.io/azure/)
-- [Identidad de ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
-- [RSA](https://community.rsa.com/docs/DOC-81278)
-- [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
-- [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
-- [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
-- [Thales (Gemalto)](https://resources.eu.safenetid.com/help/AzureMFA/Azure_Help/Index.htm)
-- [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
-
-Para más información sobre esos servicios, póngase en contacto con los proveedores directamente.
+> [!NOTE]
+> Para obtener más información sobre los cambios que estamos planeando para la funcionalidad de control personalizado, consulte las [novedades de actualización](../fundamentals/whats-new.md#upcoming-changes-to-custom-controls) de febrero de 2020.
 
 ## <a name="creating-custom-controls"></a>Creación de controles personalizados
 
-Para crear un control personalizado, primero debe ponerse en contacto con el proveedor que desea utilizar. Cada proveedor que no es Microsoft tiene su propio proceso y requisitos para registrarse, suscribirse o pasar a formar parte del servicio e indicar que usted desea integrarse con el acceso condicional. En ese momento, el proveedor le proporcionará un bloque de datos en formato JSON. Estos datos permiten al proveedor y al acceso condicional trabajar conjuntamente para su inquilino, crean el nuevo control y definen cómo el acceso condicional puede indicar si los usuarios han realizado correctamente la comprobación con el proveedor.
-
-No se pueden usar controles personalizados con la automatización de Identity Protection que requiere autenticación multifactor o elevar los roles en Privileged Identity Manager (PIM).
+Los controles personalizados funcionan con un conjunto limitado de proveedores de autenticación aprobados. Para crear un control personalizado, primero debe ponerse en contacto con el proveedor que desea utilizar. Cada proveedor que no es Microsoft tiene su propio proceso y requisitos para registrarse, suscribirse o pasar a formar parte del servicio e indicar que usted desea integrarse con el acceso condicional. En ese momento, el proveedor le proporcionará un bloque de datos en formato JSON. Estos datos permiten al proveedor y al acceso condicional trabajar conjuntamente para su inquilino, crean el nuevo control y definen cómo el acceso condicional puede indicar si los usuarios han realizado correctamente la comprobación con el proveedor.
 
 Copie los datos JSON y, a continuación, péguelos en el cuadro de texto relacionado. No realice ningún cambio en JSON a menos que entienda explícitamente dicho cambio. Realizar cualquier cambio podría interrumpir la conexión entre el proveedor y Microsoft y dejarle tanto a usted como a sus usuarios fuera de sus cuentas.
 
@@ -66,6 +50,10 @@ Para eliminar un control personalizado, primero debe asegurarse de que no se usa
 ## <a name="editing-custom-controls"></a>Edición de controles personalizados
 
 Para editar un control personalizado, debe eliminar el control actual y crear un nuevo control con la información actualizada.
+
+## <a name="known-limitations"></a>Restricciones conocidas
+
+Los controles personalizados no se pueden usar con la automatización de Identity Protection, que requiere Azure Multi-Factor Authentication, el autoservicio de restablecimiento de contraseña (SSPR) de Azure AD, para satisfacer los requisitos de notificaciones multifactor o para elevar roles en Privileged Identity Manager (PIM).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

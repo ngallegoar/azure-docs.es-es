@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 37f93099027f810e8089119536e089e07080d0bc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: df56f53b64a35737700529b80c004efeb31eaabc
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898636"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348675"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedimientos recomendados para Azure App Configuration
 
@@ -56,6 +56,8 @@ configBuilder.AddAzureAppConfiguration(options => {
 });
 ```
 
+[Uso de etiquetas para habilitar diferentes configuraciones para distintos entornos](./howto-labels-aspnet-core.md) proporciona un ejemplo completo.
+
 ## <a name="app-configuration-bootstrap"></a>Arranque de App Configuration
 
 Para acceder a un almacén de App Configuration, puede usar su cadena de conexión, que está disponible en Azure Portal. Dado que las cadenas de conexión contienen información de credenciales, se consideran secretos. Estos secretos deben almacenarse en Azure Key Vault y el código debe autenticarse en Key Vault para recuperarlos.
@@ -70,6 +72,20 @@ Puede proporcionar acceso a App Configuration para las aplicaciones web o las fu
 * Almacene la cadena de conexión para su almacén de App Configuration en Key Vault y [haga referencia a ella desde App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
 * Use las identidades administradas de Azure para acceder al almacén de App Configuration. Para más información, consulte [Integración con identidades administradas de Azure](howto-integrate-azure-managed-service-identity.md).
 * Inserte la configuración de App Configuration en App Service. App Configuration proporciona una función de exportación (en Azure Portal y la CLI de Azure) que envía los datos directamente a App Service. Con este método, no es necesario cambiar el código de la aplicación.
+
+## <a name="reduce-requests-made-to-app-configuration"></a>Reducción de las solicitudes realizadas a App Configuration
+
+Una cantidad excesiva de solicitudes a App Configuration puede dar lugar a cargos por superar el límite de ancho de banda o el de uso. Para reducir el número de solicitudes realizadas:
+
+* Aumente el tiempo de espera de la actualización, especialmente si los valores de configuración no cambian con frecuencia. Especifique un nuevo tiempo de espera de actualización mediante el [método `SetCacheExpiration`](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
+
+* Vea una sola *clave de Sentinel*, en lugar de ver claves individuales. Actualice toda la configuración solo si cambia la clave de Sentinel. Consulte [Uso de la configuración dinámica en una aplicación de ASP.NET Core](enable-dynamic-configuration-aspnet-core.md) para obtener un ejemplo.
+
+* Use Azure Event Grid para recibir notificaciones cuando cambie la configuración, en lugar de realizar un sondeo constante de los cambios. Consulte [Enrutamiento de eventos de Azure App Configuration a un punto de conexión web con la CLI de Azure](./howto-app-configuration-event.md) para más información.
+
+## <a name="importing-configuration-data-into-app-configuration"></a>Importación de datos de configuración en App Configuration
+
+App Configuration ofrece la opción de [importación](https://aka.ms/azconfig-importexport1) masiva de las opciones de los archivos de configuración actuales mediante Azure Portal o la CLI de Azure. También puede usar las mismas opciones para exportar valores de App Configuration, por ejemplo, entre almacenes relacionados. Si desea configurar una sincronización continua con el repositorio de GitHub, puede usar nuestra [acción de GitHub](https://aka.ms/azconfig-gha2) para poder seguir usando las prácticas de control de código fuente existentes a la vez que obtiene las ventajas de App Configuration.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

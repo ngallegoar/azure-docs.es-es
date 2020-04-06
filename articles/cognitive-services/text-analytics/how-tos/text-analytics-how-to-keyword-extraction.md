@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
 ms.openlocfilehash: ec5ff756d7e732430675676868bc754627a2a4a1
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72429030"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Ejemplo: Extracción de frases clave con Text Analytics
@@ -89,7 +89,7 @@ El análisis se realiza tras la recepción de la solicitud. Para obtener informa
 
 Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuenta. Los resultados se devuelven inmediatamente en la respuesta.
 
-## <a name="step-3-view-results"></a>Paso 3: Visualización de los resultados
+## <a name="step-3-view-results"></a>Paso 3: Vista de resultados
 
 Todas las solicitudes POST devolverán una respuesta con formato JSON con los identificadores y las propiedades detectadas. El orden de las frases clave devueltas lo determina internamente el modelo.
 
@@ -157,9 +157,9 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de la extrac
 + La solicitud POST se realiza a un punto de conexión `/keyphrases`, con una [clave de acceso y un punto de conexión](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personalizados, que son válidos para la suscripción.
 + La salida de la respuesta, que consta de palabras clave y frases para cada id. de documento, se puede transmitir a cualquier aplicación que acepte JSON, incluidas Microsoft Office Excel y Power BI, por nombrar algunas.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 
- [Introducción a Text Analytics](../overview.md) [Preguntas más frecuentes](../text-analytics-resource-faq.md)</br>
+ [Introducción a Text Analytics](../overview.md)[Preguntas más frecuentes (FAQ)](../text-analytics-resource-faq.md)</br>
  [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Pasos siguientes

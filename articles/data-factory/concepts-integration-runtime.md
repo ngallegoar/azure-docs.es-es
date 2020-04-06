@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
-ms.openlocfilehash: 194bc7983019a616d534a4146f86fff59f9719dc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/26/2020
+ms.openlocfilehash: 4077e1e00b606480ec93feacbad3c841c0de1ed9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357220"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336176"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar las siguientes capacidades de integración de datos en distintos entornos de red:
@@ -103,7 +103,7 @@ Para más información, consulte el artículo sobre cómo crear y configurar un 
 
 Consulte los siguientes artículos para más información sobre Integration Runtime de SSIS de Azure: 
 
-- [Tutorial: Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md). En este artículo se proporcionan instrucciones paso a paso para crear una instancia de IR de SSIS de Azure y se usa una base de datos de Azure SQL para hospedar el catálogo de SSIS. 
+- [Tutorial: Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md). En este artículo se proporcionan instrucciones paso a paso para crear una instancia de Azure-SSIS IR y se usa una instancia de Azure SQL Database para hospedar el catálogo de SSIS. 
 - [Cómo: Creación de una instancia de Integration Runtime de SSIS de Azure](create-azure-ssis-integration-runtime.md). Este artículo amplía el tutorial y proporciona instrucciones acerca del uso de Instancia administrada de Azure SQL Database y cómo unir un entorno de ejecución de integración a una red virtual. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Supervisión de una instancia de Integration Runtime de SSIS de Azure). En este artículo se muestra cómo recuperar información sobre una instancia de IR de SSIS de Azure, junto con descripciones de los estados en la información devuelta. 
 - [Administración de Integration Runtime de SSIS de Azure](manage-azure-ssis-integration-runtime.md). En este artículo se muestra cómo detener, iniciar o quitar una instancia de IR de SSIS de Azure. También se muestra cómo escalar horizontalmente IR de SSIS de Azure mediante la adición de más nodos a IR. 
@@ -117,9 +117,17 @@ La ubicación de Integration Runtime define la ubicación de su proceso de back-
 ### <a name="azure-ir-location"></a>Ubicación de Azure Integration Runtime
 Puede establecer una ubicación determinada para una instancia de Azure Integration Runtime, en cuyo caso el movimiento de datos y la distribución de actividades se producirá en esa región específica. 
 
-Si opta por utilizar la **resolución automática de Azure Integration Runtime**, que es la opción predeterminada: 
+>[!TIP]
+>Si tiene requisitos estrictos de cumplimiento de datos y debe garantizar que los datos no salen de una determinada región geográfica, puede crear explícitamente una instancia de Azure IR en una determinada región y dirigir el servicio vinculado a esta instancia de IR con la propiedad ConnectVia. Por ejemplo, si desea copiar datos de un blob de la región Sur de Reino Unido en SQL DW de esa misma región y desea garantizar que los datos no salen del Reino Unido, cree una instancia de Azure IR en Reino Unido y vincule ambos servicios vinculados a ella.
 
-- En la actividad de copia, ADF intentará detectar automáticamente el receptor y el almacén de datos de origen para elegir la mejor ubicación en la misma región si está disponible, o la más cercana en la misma ubicación geográfica, o si esta no se puede detectar, para usar la región de la factoría de datos como alternativa.
+Si opta por utilizar la **resolución automática de Azure IR**, que es la opción predeterminada: 
+
+- En la actividad de copia, ADF intentará detectar automáticamente la ubicación del almacén de datos del receptor y luego usará IR en la misma región si está disponible, o la más cercana en la misma ubicación geográfica; si la región del almacén de datos del receptor no se puede detectar, se usa IR en la región de la factoría de datos como alternativa.
+
+  Por ejemplo, ha creado su factoría en la región Este de EE. UU.: 
+  
+  - Cuando copie datos en un blob de Azure en la región Oeste de EE. UU., si ADF detecta correctamente que el blob está en esa región, la actividad de copia se ejecuta en IR en la región Oeste de EE. UU. Si se produce un error en la detección de la región, la actividad de copia se ejecuta en IR en la región Este de EE. UU.
+  - Cuando copie datos en Salesforce cuya región no se puede detectar, la actividad de copia se ejecuta en IR en la región Este de EE. UU.
 
 - Para la ejecución de las actividades de Búsqueda, Obtener metadatos o Eliminar (también conocidas como actividades de canalización), la distribución de actividades de transformación (también conocidas como actividades externas) y las operaciones de creación (probar conexión, examinar lista de carpetas y lista de tablas, obtener una vista previa de datos), ADF usará IR en la región de la factoría de datos.
 
@@ -129,9 +137,6 @@ Si opta por utilizar la **resolución automática de Azure Integration Runtime**
   > Una buena práctica sería asegurarse de que Data Flow se ejecuta en la misma región que los almacenes de datos correspondiente (si es posible). Puede conseguirlo mediante la resolución automática de Azure IR (si la ubicación del almacén de datos coincide con la ubicación de Data Factory), o mediante la creación de una nueva instancia de Azure IR en la misma región que los almacenes de datos y la posterior ejecución del flujo de datos en ella. 
 
 Puede supervisar qué ubicación de IR se usa durante la ejecución de la actividad en la vista de supervisión de actividades de la canalización en la interfaz de usuario, o en la carga de supervisión de actividades.
-
->[!TIP]
->Si tiene requisitos estrictos de cumplimiento de datos y debe garantizar que los datos no salen de una determinada región geográfica, puede crear explícitamente una instancia de Azure IR en una determinada región y dirigir el servicio vinculado a esta instancia de IR con la propiedad ConnectVia. Por ejemplo, si desea copiar datos de un blob de la región Sur de Reino Unido en SQL DW de esa misma región y desea garantizar que los datos no salen del Reino Unido, cree una instancia de Azure IR en Reino Unido y vincule ambos servicios vinculados a ella.
 
 ### <a name="self-hosted-ir-location"></a>Ubicación de IR autohospedado
 IR autohospedado se registra lógicamente en Data Factory, y el usuario proporciona el proceso que se usa para admitir sus capacidades. Por lo tanto, no hay ninguna propiedad de ubicación explícita para la instancia de Integration Runtime autohospedado. 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Front Door Service: seguimiento de estado de back-end | Microsoft Docs'
-description: Este artículo le ayuda a comprender cómo Azure Front Door Service supervisa el estado de los servidores back-end
+title: 'Azure Front Door: seguimiento de estado de back-end | Microsoft Docs'
+description: Este artículo le ayuda a comprender cómo Azure Front Door supervisa el estado de los servidores back-end.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,33 +11,44 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 289b05a2c50a2b4af50eb2114515a49bb653cf1a
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: e2e656c395f1a31c1f5ebbd46d5a18a046f854f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742388"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471581"
 ---
 # <a name="health-probes"></a>Sondeos de estado
 
-Con el fin de determinar el estado de cada back-end, cada entorno de Front Door envía periódicamente una solicitud HTTP/HTTPS sintética a cada uno de los servidores back-end configurados. Front Door usa entonces las respuestas de estos sondeos para determinar los "mejores" servidores back-end a los que se deben enrutar las solicitudes de cliente reales. Tenga en cuenta que, como Front Door tiene muchos entornos perimetrales en todo el mundo, el volumen de solicitudes de sondeos de estado a los backends puede ser superior a más de una solicitud por segundo y depende de la frecuencia de sondeo de estado configurada. 
+Con el fin de determinar el estado y la proximidad de cada back-end de un entorno de Front Door especificado, cada entorno envía periódicamente una solicitud HTTP/HTTPS sintética a cada uno de los servidores back-end configurados. Front Door usa entonces las respuestas de estos sondeos para determinar los "mejores" servidores back-end a los que se deben enrutar las solicitudes de cliente reales. 
 
-
+> [!WARNING]
+> Como Front Door tiene muchos entornos perimetrales en todo el mundo, el volumen de solicitudes de sondeos de estado a los back-end puede ser bastante superior, desde 25 solicitudes cada minuto hasta un máximo de 1200 solicitudes por minuto, dependiendo de la frecuencia de sondeo de estado configurada. Con la frecuencia de sondeo predeterminada de 30 segundos, el volumen de sondeo del back-end debe ser de aproximadamente 200 solicitudes por minuto.
 
 ## <a name="supported-protocols"></a>Protocolos admitidos
 
 Front Door admite el envío de sondeos a través de los protocolos HTTP o HTTPS. Estos sondeos se envían a través de los mismos puertos TCP configurados para enrutar las solicitudes de cliente y no se pueden reemplazar.
 
+## <a name="supported-http-methods-for-health-probes"></a>Métodos HTTP admitidos para los sondeos de estado
+
+Front Door admite los siguientes métodos HTTP para enviar los sondeos de estado:
+
+1. **GET:** el método GET significa recuperar cualquier información (en forma de entidad) que se identifique mediante el URI de solicitud.
+2. **HEAD:** El método HEAD es idéntico a GET, excepto que el servidor NO PUEDE devolver cuerpo de mensaje en la respuesta. En el caso de los nuevos perfiles de Front Door, de forma predeterminada, el método de sondeo se establece como HEAD.
+
+> [!NOTE]
+> Para reducir la carga y el costo de los back-end, Front Door recomienda el uso de solicitudes HEAD para sondeos de estado.
+
 ## <a name="health-probe-responses"></a>Respuestas de sondeo de estado
 
-| Respuestas  | DESCRIPCIÓN | 
+| Respuestas  | Descripción | 
 | ------------- | ------------- |
 | Determinación del estado  |  Un código de estado 200 - Correcto indica que el back-end está en buen estado. Todo lo demás se considera un error. Si por algún motivo (incluidos los errores de red) no se recibe una respuesta HTTP válida de un sondeo, este se considera un error.|
 | Medida de la latencia  | La latencia es el tiempo de reloj medido desde el momento inmediatamente antes de enviar la solicitud de sondeo hasta el momento de recibir el último byte de la respuesta. Como se usa una nueva conexión TCP para cada solicitud, esta medida no está orientada a los servidores back-end con conexiones parcialmente activas existentes.  |
 
 ## <a name="how-front-door-determines-backend-health"></a>Cómo determina Front Door el mantenimiento de back-end
 
-Para determinar el mantenimiento, Azure Front Door Service usa el mismo proceso de tres pasos que se describe a continuación.
+Para determinar el mantenimiento, Azure Front Door usa el mismo proceso de tres pasos que se describe a continuación.
 
 1. Excluye los servidores back-end deshabilitados.
 
@@ -56,6 +67,10 @@ Para determinar el mantenimiento, Azure Front Door Service usa el mismo proceso 
 Si se produce un error en los sondeos de estado de cada back-end de un grupo de back-end, Front Door considera que todos los servidores back-end están en buen estado y enruta el tráfico entre ellos en una distribución round robin.
 
 Cuando alguno de los back-end vuelve a un estado correcto, Front Door reanuda el algoritmo de equilibrio de carga normal.
+
+## <a name="disabling-health-probes"></a>Deshabilitación de sondeos de estado
+
+Si tiene un back-end único en el grupo de back-end, puede optar por deshabilitar los sondeos de estado que reducen la carga en el back-end de la aplicación. Incluso si tiene varios back-end en el grupo de back-end, pero solo uno de ellos está en estado habilitado, puede deshabilitar los sondeos de estado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

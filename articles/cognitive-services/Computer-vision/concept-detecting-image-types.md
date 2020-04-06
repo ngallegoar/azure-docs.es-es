@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e89fd977129113fa88af1acccd6b05f0bbe90243
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 4e6c2db5333962d7ae43534998ffc1c48b0dba45
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945210"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244569"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Detección de tipos de imagen con Computer Vision
 
@@ -26,7 +26,7 @@ Con la API [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/servi
 
 Computer Vision analiza una imagen y evalúa la probabilidad de que sea una imagen prediseñada en una escala de 0 a 3, tal y como se describe en la tabla siguiente.
 
-| Valor | Significado |
+| Value | Significado |
 |-------|---------|
 | 0 | No es imagen prediseñada |
 | 1 | Ambigua |
@@ -113,6 +113,9 @@ Las respuestas JSON siguientes muestran lo que devuelve Computer Vision al infor
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="use-the-api"></a>Uso de la API
 
-Consulte la documentación de referencia sobre el [análisis de imagen](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obtener información sobre cómo detectar los tipos de imagen.
+La característica de detección de tipo de imagen es parte de la API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Puede llamar a esta API mediante una SDK nativa o con llamadas a REST. Incluya `ImageType` en el parámetro de consulta **visualFeatures**. Después, cuando llegue la respuesta JSON completa, simplemente analice la cadena con el contenido de la sección `"imageType"`.
+
+* [Inicio rápido: SDK de Computer Vision para .NET](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Inicio rápido: Análisis de imágenes (API REST)](./quickstarts/csharp-analyze.md)

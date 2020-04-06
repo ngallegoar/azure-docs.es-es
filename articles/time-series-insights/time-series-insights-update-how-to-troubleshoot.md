@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: a306707f0ed47fba8fd854d820554bc1bd80e8bc
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 667dee6365f38ae058e91c61c24838d8912df26a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110276"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80152673"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnóstico y solución de problemas de un entorno de versión preliminar
 
@@ -72,6 +72,20 @@ Podría estar enviando datos sin el identificador de Time Series.
 
     > [!NOTE]
     > En este momento, Time Series Insights admite una tasa máxima de ingesta de 6 Mbps.
+
+## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problema: Los datos se mostraban, pero la ingesta ahora se detuvo
+
+- Es posible que se haya regenerado la clave de origen del evento y que el entorno de versión preliminar necesite la clave de origen del evento nueva.
+
+Este problema se produce cuando la clave proporcionada al crear el origen del evento ya no es válida. Vería la telemetría en el centro, pero ningún mensaje de entrada recibido en Time Series Insights. Si no está seguro de si se ha regenerado la clave, puede buscar "Crear o actualizar reglas de autorización de espacio de nombres" o "Crear o actualizar recursos de IotHub" en el registro de actividad de Event Hubs para IoT Hub. 
+
+Para actualizar el entorno versión preliminar de Time Series Insights con la clave nueva, abra el recurso del centro en Azure Portal y copie la nueva clave. Vaya al recurso de TSI y haga clic en Orígenes de eventos. 
+
+   [![Actualización de la clave.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+
+Seleccione los orígenes de eventos en los que se ha detenido la ingesta, pegue la nueva clave y haga clic en Guardar.
+
+   [![Actualización de la clave.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: mi nombre de propiedad Timestamp del origen del evento no funciona
 

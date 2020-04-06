@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: e0abae8ada603e4e6b98ab0dfe9d794186e00000
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: e5fe58891aa901509dc44d3b2465c794bd92b22d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226779"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476576"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generaciones anteriores de tamaños de máquina virtual
 
@@ -87,7 +87,7 @@ Cada GPU de las instancias de NVv2 viene con una licencia de GRID. Esta licencia
 
 En esta sección se proporciona información sobre las generaciones anteriores de tamaños de máquina virtual. Estos tamaños todavía se admiten, pero no recibirán capacidad adicional. Hay tamaños alternativos o versiones más recientes que están disponibles con carácter general. Consulte [Tamaños de las máquinas virtuales Linux en Azure](linux/sizes.md) para elegir los tamaños de máquina virtual que mejor se ajusten a sus necesidades.  
 
-Para obtener más información sobre cómo cambiar el tamaño de una máquina virtual Windows, consulte [Cambio de tamaño de una máquina virtual Linux](linux/change-vm-size.md).  
+Para más información sobre cómo cambiar el tamaño de una máquina virtual Linux, consulte [Cambio de tamaño de una máquina virtual Linux](linux/change-vm-size.md).  
 
 <br>
 

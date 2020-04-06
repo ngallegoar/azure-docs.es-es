@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
 ms.openlocfilehash: 3277318e01362df8fc21ff7ca769aaeb8006abc6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73827989"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementación y exploración de una aplicación multiinquilino con particiones
@@ -46,7 +46,7 @@ Cualquier usuario puede descargar el código fuente de C# y PowerShell para Wing
 
 Hay disponible una serie de tutoriales relacionados que se basan en esta implementación inicial. En los tutoriales se explora una variedad de patrones de diseño y administración de SaaS. Cuando trabaja con los tutoriales, se recomienda que recorra los scripts proporcionados para ver cómo se implementan los distintos patrones de SaaS.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -58,7 +58,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 En los pasos de esta sección, proporciona un valor de *usuario* que se utiliza para garantizar que los nombres de recursos sean globalmente únicos, y un nombre para el *grupo de recursos* que contiene todos los recursos creados mediante una implementación de la aplicación. Para una persona llamada *Ann Finley*, sugerimos:
 - *Usuario:* **af1** *(sus iniciales más un dígito. Use un valor diferente (por ejemplo, af2) si implementa la aplicación una segunda vez).*
-- *Grupo de recursos:* **wingtip-mt-af1**  *(wingtip-mt indica que esta es la aplicación multiinquilino con particiones. Anexar el nombre de usuario af1 correlaciona el nombre del grupo de recursos con los nombres del recurso que contiene).*
+- *Grupo de recursos:* **wingtip-mt-af1** *(wingtip-mt indica que esta es la aplicación multiinquilino con particiones. Anexar el nombre de usuario af1 correlaciona el nombre del grupo de recursos con los nombres del recurso que contiene).*
 
 Elija los nombres ahora y escríbalos. 
 
@@ -124,7 +124,7 @@ Cada ubicación obtiene una aplicación web personalizada para mostrar los event
 Una página web central de **Event Hubs** proporciona una lista de vínculos a los inquilinos de la implementación concreta. Siga estos pasos para conocer la página web del **centro de eventos** y una aplicación web individual:
 
 1. Abra **Events Hub** en el explorador web:
-   - http://events.wingtip-mt.&lt ;usuario&gt;.trafficmanager.net &nbsp; *(sustituya &lt; usuario&gt; por el valor del usuario de la implementación).*
+   - http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net &nbsp; *(sustituya &lt; user&gt; por el valor del usuario de la implementación).*
 
      ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -207,7 +207,7 @@ Ahora aprovisionaremos otro inquilino, esta vez, en su propia base de datos:
 
 Veamos ahora algunos de los recursos que se implementaron:
 
-1. En [Azure portal](https://portal.azure.com), navegue a la lista de los grupos de recursos. Abra el grupo de recursos que creó cuando implementó la aplicación.
+1. En [Azure Portal](https://portal.azure.com), navegue a la lista de los grupos de recursos. Abra el grupo de recursos que creó cuando implementó la aplicación.
 
    ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -231,7 +231,7 @@ Si el generador de carga lleva varios minutos en ejecución, debería haber sufi
 
    El gráfico de uso de DTU ilustra bien cómo una base de datos multiinquilino puede admitir una carga de trabajo impredecible a través de varios inquilinos. En este caso, el generador de carga aplica una carga esporádica de aproximadamente 30 DTU a cada inquilino. Esta carga equivale al 60 % del uso de una base de datos de 50 DTU. Valores máximos que superan el 60 % son el resultado de la carga que se aplica a más de un inquilino al mismo tiempo.
 
-2. Vaya al servidor **tenants1-mt&lt;usuario&gt;**  y haga clic en la base de datos **salixsalsa**. Puede ver el uso de los recursos en esta base de datos que contiene un solo inquilino.
+2. Vaya al servidor **tenants1-mt&lt;usuario&gt;** y haga clic en la base de datos **salixsalsa**. Puede ver el uso de los recursos en esta base de datos que contiene un solo inquilino.
 
    ![base de datos salixsalsa](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 

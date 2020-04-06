@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: 309a2592dbac2918aeb532fbe91e33d296f4e5a5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280881"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79219162"
 ---
 # <a name="intents-in-your-luis-app"></a>Intenciones en la aplicación de LUIS
 
@@ -55,7 +55,7 @@ Cree una intención cuando la _intención_ del usuario desencadenaría una acci�
 
 |Intención   | Entidad | Expresión de ejemplo   | 
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? (¿Qué tiempo hará en Seattle mañana?) |
+| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` (Muéstrame la previsión de este fin de semana) | 
 ||||
 

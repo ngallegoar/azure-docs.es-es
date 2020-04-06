@@ -3,16 +3,16 @@ title: Implementación de recursos con la API de REST y plantilla
 description: Use Azure Resource Manager y la API REST de Resource Manager para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: fc386f51073c256fd083a04bbed39316784827b1
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 9cdb7b668e5170917b41ef49639bd9a17e538766
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152517"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153240"
 ---
-# <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager
+# <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Implementación de recursos con las plantillas de Azure Resource Manager y la API REST de Resource Manager
 
-En este artículo se explica cómo usar la API de REST de Resource Manager con plantillas de Resource Manager para implementar sus recursos en Azure.
+En este artículo se explica cómo usar la API REST de Resource Manager con plantillas de Azure Resource Manager (ARM) para implementar sus recursos en Azure.
 
 Puede incluir la plantilla en el cuerpo de solicitud o vincularla a un archivo. Al usar un archivo, este puede ser un archivo local o un archivo externo disponible a través de un identificador URI. Cuando la plantilla se encuentra en una cuenta de almacenamiento, puede restringir el acceso a ella y proporcionar un token de firma de acceso compartido (SAS) durante la implementación.
 
@@ -192,5 +192,5 @@ Los ejemplos de este artículo usan las implementaciones del grupo de recursos.
 - Para revertir a una implementación correcta cuando se produce un error, consulte [Revertir en caso de error a una implementación correcta](rollback-on-error.md).
 - Para especificar cómo controlar los recursos que existen en el grupo de recursos, pero que no están definidos en la plantilla, consulte [Modos de implementación de Azure Resource Manager](deployment-modes.md).
 - Para obtener información sobre el control de operaciones asincrónicas de REST, vea [Seguimiento de las operaciones asincrónicas de Azure](../management/async-operations.md).
-- Para obtener más información sobre las plantillas, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](template-syntax.md).
+- Para información sobre las plantillas, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de ARM](template-syntax.md).
 

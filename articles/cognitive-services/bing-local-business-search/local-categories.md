@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 56b94d66eb0929d2fd0ca74a1a631d229330adfa
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "69906397"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Categorías de búsqueda en Bing Local Business Search API
 
-Bing Local Business Search API permite buscar empresas locales entre una serie de categorías y dar prioridad a los resultados que están próximos a la ubicación de un usuario. Puede incluir estas categorías en búsquedas junto con los [parámetros](specify-geographic-search.md) `localCircularView` y `localMapView`.
+Bing Local Business Search API permite buscar empresas locales entre una serie de categorías y dar prioridad a los resultados que están próximos a la ubicación de un usuario. Puede incluir estas búsquedas en búsquedas junto con los [parámetros](specify-geographic-search.md) `localCircularView` y `localMapView`.
 
 
 ## <a name="toplevel-categories"></a>Categorías de nivel superior 
@@ -27,7 +27,7 @@ Bing Local Business Search API permite buscar empresas locales entre una serie d
 Los siguientes tipos definen las principales categorías de búsqueda.  Se pueden especificar varias categorías mediante una lista delimitada por comas asignada al parámetro `localCategories`.  
 - EatDrink 
 - SeeDo 
-- Shop 
+- Comprar 
 - HotelsAndMotels 
 - BanksAndCreditUnions 
 - Parking 

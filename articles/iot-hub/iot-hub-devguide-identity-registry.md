@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.openlocfilehash: 935635c474190413545d1a2731c367a691bfa56d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccb840caea5d28975daaf8cbf6f0d4985bdf006d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61363187"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499147"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -79,6 +79,8 @@ Use operaciones asincrónicas en el [punto de conexión del proveedor de recurso
 
 Para más información sobre las API de importación y exportación, consulte [API REST del proveedor de recursos de IoT Hub](/rest/api/iothub/iothubresource). Para más información sobre la ejecución de trabajos de importación y exportación, consulte [Administración de identidades de dispositivos de IoT Hub de forma masiva](iot-hub-bulk-identity-mgmt.md).
 
+Las identidades de dispositivo también se pueden exportar e importar desde una instancia de IoT Hub a través de la API de servicio a través de la [API REST](/rest/api/iothub/service/jobclient/createimportexportjob) de o uno de los [SDK de servicio](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks) de IoT Hub.
+
 ## <a name="device-provisioning"></a>Aprovisionamiento de dispositivos
 
 Los datos del dispositivo que almacena una solución de IoT determinada dependen de los requisitos específicos de la solución. Sin embargo, como mínimo, una solución debe almacenar identidades del dispositivo y claves de autenticación. El IoT Hub incluye un registro de identidades que puede almacenar valores para cada dispositivo como identificadores, claves de autenticación y códigos de estado. Una posible solución consiste en usar otros servicios de Azure como Table Storage, Blob Storage o Cosmos DB para almacenar datos de dispositivos adicionales.
@@ -105,7 +107,7 @@ Propiedades: Las propiedades del sistema de mensajes tienen como prefijo el sím
 
 Mensaje de notificación del dispositivo:
 
-| NOMBRE | Valor |
+| Nombre | Value |
 | --- | --- |
 |$content-type | application/json |
 |$iothub-enqueuedtime |  Hora de envío de la notificación |
@@ -141,7 +143,7 @@ Cuerpo: Esta sección está en formato JSON y representa el dispositivo gemelo d
 ```
 Mensaje de notificación del módulo:
 
-| NOMBRE | Valor |
+| Nombre | Value |
 | --- | --- |
 $content-type | application/json |
 $iothub-enqueuedtime |  Hora de envío de la notificación |
@@ -181,7 +183,7 @@ Cuerpo: esta sección está en formato JSON y representa el gemelo de la identid
 
 Las identidades de dispositivos se representan como documentos JSON con las propiedades siguientes:
 
-| Propiedad | Opciones | DESCRIPCIÓN |
+| Propiedad | Opciones | Descripción |
 | --- | --- | --- |
 | deviceId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId**, cuando se han eliminado y vuelto a crear. |
@@ -205,7 +207,7 @@ Las identidades de dispositivos se representan como documentos JSON con las prop
 
 Las identidades de módulos se representan como documentos JSON con las propiedades siguientes:
 
-| Propiedad | Opciones | DESCRIPCIÓN |
+| Propiedad | Opciones | Descripción |
 | --- | --- | --- |
 | deviceId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | moduleId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- . + % _ # * ? ! ( ) , = @ $ '`. |

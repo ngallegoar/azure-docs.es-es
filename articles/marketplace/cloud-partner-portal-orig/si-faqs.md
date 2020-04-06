@@ -1,19 +1,18 @@
 ---
 title: Preguntas más frecuentes sobre Seller Insights
 description: Preguntas más frecuentes sobre la característica Seller Insights de Cloud Partner Portal.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: b015d21005448d24d24923ba424a10a4af0d47b1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 011558baa43ee3db2803e9229d1d15df5158d668
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821596"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285391"
 ---
 <a name="seller-insights-faq"></a>Preguntas más frecuentes sobre Seller Insights
 ===================
@@ -42,7 +41,7 @@ Después de descargar las transacciones desde el módulo de pago, busque la colu
 <a name="calculate-revenue-by-customer-usage-period"></a>Cálculo de los ingresos por período de uso del cliente
 ------------------------------------------
 
-Después de descargar las transacciones desde el módulo de pago, busque la columna con la etiqueta **Transaction Status** (Estado de la transacción) y aplique el filtro para que aparezcan solo aquellas con el valor "Paid" (Pagado).   Para cada transacción de la lista, la columna con la etiqueta **Payout Amount (PC)** (Importe del pago) representa la cantidad que le han pagado.  Para calcular el período de uso asociado con la transacción, use la columna **Charge Date** (Fecha del cargo), la cual resulta una buena aproximación al último día de uso del período al que se aplica la transacción.
+Después de descargar las transacciones desde el módulo de pago, busque la columna con la etiqueta **Transaction Status** (Estado de la transacción) y aplique el filtro para que aparezcan solo aquellas con el valor "Paid" (Pagado).   Para cada transacción de la lista, la columna con la etiqueta **Payout Amount (PC)** (Importe del pago) representa la cantidad que le han pagado.  Para calcular el período de uso asociado con la transacción, use la columna **Charge Date** (Fecha del cargo), la cual resulta una buena aproximación al último día de uso del período al que se aplica la transacción.
 
 
 <a name="calculate-your-bad-debt"></a>Cálculo de la deuda incobrable

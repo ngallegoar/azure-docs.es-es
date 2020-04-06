@@ -1,5 +1,6 @@
 ---
 title: Esquema de rol de Azure Cloud Services | Microsoft Docs
+description: El elemento Rol de un archivo de configuración de servicio especifica el número de instancias de rol que se implementarán para cada rol, los valores de configuración y las huellas digitales de certificado.
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 12
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: 0f0e79b462726b1aa6a953a4b8c92334d6b16492
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b64f9d27e382a39b132593502fed32c565af473a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449083"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528428"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Esquema de rol de configuración de Azure Cloud Services
 
@@ -21,7 +22,7 @@ El elemento `Role` del archivo de configuración especifica el número de instan
 
 Para más información sobre el esquema de configuración de servicios de Azure, consulte el [esquema de configuración de servicio en la nube (clásico)](schema-cscfg-file.md). Para más información sobre el esquema de definición de servicio de Azure, consulte [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Esquema de definición de servicio en la nube [clásico]).
 
-##  <a name="Role"></a>Elemento Role
+##  <a name="role-element"></a><a name="Role"></a>Elemento Role
 En el ejemplo siguiente se muestra el elemento `Role` y sus elementos secundarios.
 
 ```xml 

@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bb67c1769510710b368bef4dc0b501f939b3427e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60879584"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231528"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Usar Azure Data Lake Storage Gen1 para capturar datos de Event Hubs
 
 Obtenga información sobre cómo usar Azure Data Lake Storage Gen1 para capturar datos recibidos por Azure Event Hubs.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -41,17 +41,17 @@ En esta sección, creará una carpeta en la cuenta en que quiere capturar los da
 
 1.  Haga clic en **Nueva carpeta** y después escriba un nombre para la carpeta en que quiere capturar los datos.
 
-    ![Crear una carpeta en Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Crear una carpeta en Data Lake Storage Gen1")
+    ![Creación de una nueva carpeta en Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Creación de una nueva carpeta en Data Lake Storage Gen1")
 
 1. Asigne permisos en la raíz de Data Lake Storage Gen1. 
 
     a. Haga clic en **Explorador de datos**, seleccione la raíz de la cuenta de Data Lake Storage Gen1 y después haga clic en **Acceso**.
 
-    ![Asignar permisos a la raíz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Asignar permisos a la raíz de Data Lake Storage Gen1")
+    ![Asignación de permisos para la raíz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Asignación de permisos para la raíz de Data Lake Storage Gen1")
 
     b. En **Acceso**, haga clic en **Agregar**, en **Seleccionar usuario o grupo** y después busque `Microsoft.EventHubs`. 
 
-    ![Asignar permisos a la raíz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Asignar permisos a la raíz de Data Lake Storage Gen1")
+    ![Asignación de permisos para la raíz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Asignación de permisos para la raíz de Data Lake Storage Gen1")
     
     Haga clic en **Seleccionar**.
 
@@ -60,7 +60,7 @@ En esta sección, creará una carpeta en la cuenta en que quiere capturar los da
     > [!IMPORTANT]
     > Al crear una nueva jerarquía de carpetas para capturar datos recibidos por Azure Event Hubs, esta es una manera sencilla de garantizar el acceso a la carpeta de destino.  Sin embargo, es posible que la adición de permisos a todos los elementos secundarios de una carpeta de nivel superior con muchos archivos y carpetas secundarios tarde mucho tiempo.  Si la carpeta raíz contiene una gran cantidad de archivos y carpetas, es posible que sea más rápido agregar permisos de **ejecución** para `Microsoft.EventHubs` individualmente a cada carpeta de la ruta a la carpeta de destino final. 
 
-    ![Asignar permisos a la raíz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Asignar permisos a la raíz de Data Lake Storage Gen1")
+    ![Asignación de permisos para la raíz de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Asignación de permisos para la raíz de Data Lake Storage Gen1")
 
     Haga clic en **OK**.
 
@@ -68,17 +68,17 @@ En esta sección, creará una carpeta en la cuenta en que quiere capturar los da
 
     a. Haga clic en **Explorador de datos**, seleccione la carpeta de la cuenta de Data Lake Storage Gen1 y después haga clic en **Acceso**.
 
-    ![Asignar permisos a la carpeta de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Asignar permisos a la carpeta de Data Lake Storage Gen1")
+    ![Asignación de permisos para la carpeta de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Asignación de permisos para la carpeta de Data Lake Storage Gen1")
 
     b. En **Acceso**, haga clic en **Agregar**, en **Seleccionar usuario o grupo** y después busque `Microsoft.EventHubs`. 
 
-    ![Asignar permisos a la carpeta de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Asignar permisos a la carpeta de Data Lake Storage Gen1")
+    ![Asignación de permisos para la carpeta de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Asignación de permisos para la carpeta de Data Lake Storage Gen1")
     
     Haga clic en **Seleccionar**.
 
     c. En **Asignar permisos**, haga clic en **Seleccionar permisos**. Establezca **Permisos** en **Leer, escribir** y **ejecutar**. Establezca **Agregar a** en **Esta carpeta y todos los elementos secundarios**. Por último, establezca **Agregar como** en **Una entrada de permiso de acceso y una entrada de permiso predeterminado**.
 
-    ![Asignar permisos a la carpeta de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Asignar permisos a la carpeta de Data Lake Storage Gen1")
+    ![Asignación de permisos para la carpeta de Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Asignación de permisos para la carpeta de Data Lake Storage Gen1")
     
     Haga clic en **OK**. 
 
@@ -88,11 +88,11 @@ En esta sección, creará un centro de eventos en un espacio de nombres de Event
 
 1. En el panel **Introducción** del espacio de nombres de Event Hubs, haga clic en **+ Centro de eventos**.
 
-    ![Crear centro de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Crear centro de eventos")
+    ![Creación de un centro de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Crear centro de eventos")
 
 1. Proporcione los siguientes valores para configurar Event Hubs para capturar datos en Data Lake Storage Gen1.
 
-    ![Crear centro de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Crear centro de eventos")
+    ![Creación de un centro de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Crear centro de eventos")
 
     a. Especifique un nombre para el centro de eventos.
     
@@ -104,13 +104,13 @@ En esta sección, creará un centro de eventos en un espacio de nombres de Event
 
     e. Deje **Formatos de nombre de archivo de Capture de ejemplo** en el valor predeterminado. Esta opción rige la estructura de carpetas que se crea en la carpeta de captura.
 
-    f. Haga clic en **Create**(Crear).
+    f. Haga clic en **Crear**.
 
 ## <a name="test-the-setup"></a>Probar la configuración
 
 Ahora puede enviar datos a Azure Event Hubs para probar la solución. Siga las instrucciones de [Envío de eventos a Azure Event Hubs](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md). Cuando empiece a enviar los datos, los verá reflejados en Data Lake Storage Gen1 con la estructura de carpetas que ha especificado. Por ejemplo, verá una estructura de carpetas, tal y como se muestra en la siguiente captura de pantalla, en su cuenta de Data Lake Storage Gen1.
 
-![Datos de ejemplo de EventHub en Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Datos de ejemplo de EventHub en Data Lake Storage Gen1")
+![Datos de EventHub de ejemplo en Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Datos de EventHub de ejemplo en Data Lake Storage Gen1")
 
 > [!NOTE]
 > Incluso si no tiene mensajes que lleguen a Event Hubs, este escribe archivos vacíos solo con los encabezados en la cuenta de Data Lake Storage Gen1. Los archivos se escriben en el mismo intervalo de tiempo que ha proporcionado al crear Event Hubs.
@@ -122,6 +122,6 @@ Ahora puede enviar datos a Azure Event Hubs para probar la solución. Siga las i
 Una vez que los datos están en Data Lake Storage Gen1, puede ejecutar trabajos analíticos para procesar y estudiar los datos. Vea [USQL Avro Example](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) (Ejemplo de Avro de USQL) sobre cómo hacer esto con Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Copia de datos de los blobs de Azure Storage en Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)

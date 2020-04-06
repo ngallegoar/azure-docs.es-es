@@ -1,18 +1,18 @@
 ---
 title: Alta disponibilidad y recuperación ante desastres de Azure IoT Hub | Microsoft Docs
 description: Describe las características de Azure e IoT Hub que lo ayudarán a crear soluciones de IoT de Azure de alta disponibilidad con funcionalidades de recuperación ante desastres.
-author: rkmanda
+author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 615dc1b7bd1a31069a542ebb7ea44693c404cb40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748559"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79499098"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de IoT Hub
 
@@ -60,7 +60,7 @@ Ambas opciones de conmutación por error ofrecen los siguientes objetivos de pun
 Una vez completada la operación de conmutación por error para la instancia de IoT Hub, se espera que todas las operaciones de las aplicaciones de dispositivo y back-end sigan funcionando sin necesidad de una intervención manual. Esto significa que los mensajes del dispositivo a la nube deben seguir funcionando y todo el registro del dispositivo está intacto. Los eventos emitidos mediante Event Grid pueden consumirse con las mismas suscripciones configuradas anteriormente, siempre y cuando esas suscripciones de Event Grid sigan estando disponibles.
 
 > [!CAUTION]
-> - El nombre compatible con Event Hub y el punto de conexión de eventos integrados en IoT Hub cambian tras la conmutación por error. Cuando se reciben mensajes de telemetría desde el punto de conexión integrado mediante el cliente de Event Hub o el host del procesador de eventos, debería [usar la cadena de conexión de IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para establecer la conexión. Esto garantiza que las aplicaciones de back-end sigan funcionando sin necesidad de intervención manual después de la conmutación por error. Si usa el nombre compatible con Event Hub y un punto de conexión en la aplicación de back-end directamente, deberá volver a configurar la aplicación [capturando el nuevo nombre compatible con Event Hub y el punto de conexión](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) después de la conmutación por error para continuar con las operaciones.
+> - El nombre y el punto de conexión compatibles con el centro de eventos del punto de conexión de eventos integrado de IoT Hub cambia después de la conmutación por error, y se quitan los grupos de consumidores configurados (se trata de un error que se corregirá antes de mayo de 2020). Cuando se reciben mensajes de telemetría desde el punto de conexión integrado mediante el cliente de Event Hub o el host del procesador de eventos, se debe [usar la cadena de conexión de IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) para establecer la conexión. Esto garantiza que las aplicaciones de back-end sigan funcionando sin necesidad de intervención manual después de la conmutación por error. Si usa el nombre y el punto de conexión compatibles con Event Hub directamente en la aplicación, tendrá que [volver a configurar el grupo de consumidores que estos usan capturando el nuevo punto de conexión compatible con Event Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) después de la conmutación por error para continuar con las operaciones. Si usa Azure Functions o Azure Stream Analytics para conectar el punto de conexión integrado, puede que tenga que realizar un **reinicio**.
 >
 > - Al enrutar al almacenamiento, se recomienda enumerar los blobs o los archivos e iterar sobre ellos para garantizar que se leen todos sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una conmutación por error iniciada por Microsoft o una conmutación por error manual. Puede usar la [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para la lista de blobs o la [API List ADLS Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) para la lista de archivos. 
 
@@ -76,10 +76,15 @@ Si no se cumplen los objetivos de tiempo de actividad del negocio con el RTO que
 
 La opción de conmutación por error manual siempre está disponible para su uso con independencia de si la región primaria está experimentando tiempos de inactividad o no. Por lo tanto, esta opción puede emplearse para realizar conmutaciones por error planeadas. Un ejemplo de uso de las conmutaciones por error planeadas consiste en realizar operaciones periódicas de conmutación por error. Sin embargo hay que tener la precaución de que una operación de conmutación por error planeada genera un tiempo de inactividad del centro durante el período definido por el RTO para esta opción, lo que genera también una pérdida de datos, según se define en la tabla del RPO anterior. Puede considerar la posibilidad de configurar una prueba de instancia de IoT Hub para ejecutar la opción de conmutación por error planeada periódicamente para incrementar la confiabilidad en su capacidad de ejecutar las soluciones de un extremo a otro cuando se produce un desastre real.
 
-> [!IMPORTANT]
-> - Las operaciones de prueba no deben realizarse en instancias de IoT Hub que se usan en los entornos de producción.
->
-> - La conmutación por error manual no debe usarse como un mecanismo para migrar permanentemente su centro entre las regiones de Azure emparejadas geográficamente. Hacerlo podría causar una latencia mayor para las operaciones que se realizan en el centro de dispositivos alojados en la región primaria anterior.
+Para obtener instrucciones paso a paso, consulte [Tutorial: Realización de una conmutación por error manual de una instancia de IoT Hub](tutorial-manual-failover.md)
+
+### <a name="running-test-drills"></a>Ejecución de simulacros de prueba
+
+Las operaciones de prueba no deben realizarse en instancias de IoT Hub que se usan en los entornos de producción.
+
+### <a name="dont-use-manual-failover-to-migrate-iot-hub-to-a-different-region"></a>No use la conmutación por error manual para migrar IoT Hub a otra región
+
+La conmutación por error manual *no* debe usarse como un mecanismo para migrar de forma permanente su centro entre las regiones de Azure emparejadas geográficamente. Hacerlo podría incrementar la latencia para las operaciones que se realizan en el centro de IoT desde dispositivos alojados en la región primaria anterior.
 
 ## <a name="failback"></a>Conmutación por recuperación
 
@@ -125,9 +130,9 @@ A continuación le mostramos un resumen de las opciones de alta disponibilidad y
 
 | Opción de alta disponibilidad/recuperación ante desastres | RTO | RPO | ¿Requiere intervención manual? | Complejidad de la implementación | Implicación de costos adicionales|
 | --- | --- | --- | --- | --- | --- |
-| Conmutación por error iniciada por Microsoft |2 - 26 horas|Consulte la tabla de RPO anterior|Sin|None|None|
+| Conmutación por error iniciada por Microsoft |2 - 26 horas|Consulte la tabla de RPO anterior|No|None|None|
 | Conmutación por error manual |10 m - 2 horas|Consulte la tabla de RPO anterior|Sí|Muy baja. Solo necesita desencadenar esta operación desde el portal.|None|
-| Alta disponibilidad entre regiones |< 1 m|Depende de la frecuencia de replicación de la solución de alta disponibilidad personalizada|Sin|Alto|> 1 x el costo de 1 instancia de IoT Hub|
+| Alta disponibilidad entre regiones |< 1 m|Depende de la frecuencia de replicación de la solución de alta disponibilidad personalizada|No|Alto|> 1 x el costo de 1 instancia de IoT Hub|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

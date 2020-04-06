@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 1ae3caa2d1f90bbbae1070d95d676eb206a361a0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 0988c8154c63bb408493edf3243078e625c80d53
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647350"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371229"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configuración de redes virtuales de Azure Cognitive Services
 
@@ -39,7 +39,7 @@ Se aplican reglas de red en todos los protocolos de red para Azure Cognitive Ser
 
 ## <a name="supported-regions-and-service-offerings"></a>Ofertas de servicio y regiones admitidas
 
-La compatibilidad de Virtual Network para Cognitive Services está limitada las regiones *Canarias - EUAP del centro de EE. UU.* , *Oeste de Europa* y *Oeste de EE. UU. 2* de Azure. Además, no todas las ofertas de Cognitive Services admiten redes virtuales. Las siguientes ofertas de Cognitive Services permiten el uso de redes virtuales. Si la oferta de servicio no aparece aquí, significa que no es compatible con redes virtuales.
+La compatibilidad de la red virtual con los servicios de Cognitive Services que se enumeran a continuación se limita a las siguientes regiones de Azure: *EUAP de centro de EE. UU.* , *Centro-sur de EE. UU.* , *Este de EE. UU.* , *Oeste de EE. UU. 2*, *Norte de Europa*, *Norte de Sudáfrica*, *Oeste de Europa*y *Centro de la India*, *Este de Australia*, *Oeste de EE. UU.* y *US Gov Virginia*. Si la oferta de servicio no aparece aquí, significa que no es compatible con redes virtuales.
 
 > [!div class="checklist"]
 > * [Anomaly Detector](./anomaly-detector/index.yml)
@@ -51,6 +51,27 @@ La compatibilidad de Virtual Network para Cognitive Services está limitada las 
 > * [LUIS](./luis/index.yml)
 > * [Personalizer](./personalizer/index.yml)
 > * [Text Analytics](./text-analytics/index.yml)
+> * [QnA Maker](./qnamaker/index.yml)
+
+La compatibilidad de la red virtual con los servicios de Cognitive Services que se enumeran a continuación se limita a las siguientes regiones de Azure: *EUAP de centro de EE. UU.* , *Centro-sur de EE. UU.* , *Este de EE. UU.* , *Oeste de EE. UU. 2*, *Global* y *US Gov Virginia*.
+> [!div class="checklist"]
+> * [Translator Text](./translator/index.yml)
+
+## <a name="service-tags"></a>Etiquetas de servicio
+Además de admitir los puntos de conexión de servicio de red virtual para los servicios anteriores, Cognitive Services también admite una etiqueta de servicio para la configuración de reglas de red de salida. Los servicios siguientes se incluyen en la etiqueta de servicio CognitiveServicesManagement.
+> [!div class="checklist"]
+> * [Anomaly Detector](./anomaly-detector/index.yml)
+> * [Computer Vision](./computer-vision/index.yml)
+> * [Content Moderator](./content-moderator/index.yml)
+> * [Custom Vision](./custom-vision-service/index.yml)
+> * [Face](./face/index.yml)
+> * [Form Recognizer](./form-recognizer/index.yml)
+> * [LUIS](./luis/index.yml)
+> * [Personalizer](./personalizer/index.yml)
+> * [Text Analytics](./text-analytics/index.yml)
+> * [QnA Maker](./qnamaker/index.yml)
+> * [Translator Text](./translator/index.yml)
+> * [Servicio Voz](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Modificación de la regla de acceso de red predeterminada
 
@@ -63,7 +84,7 @@ De forma predeterminada, los recursos de Cognitive Services aceptan conexiones d
 
 Puede administrar las reglas predeterminadas de acceso a redes para los recursos de Cognitive Services a través de Azure Portal, PowerShell o la CLI de Azure.
 
-# <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. Vaya al recurso de Cognitive Services que desea proteger.
 
@@ -78,7 +99,7 @@ Puede administrar las reglas predeterminadas de acceso a redes para los recursos
 
 1. Seleccione **Guardar** para aplicar los cambios.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. Instale [Azure PowerShell](/powershell/azure/install-az-ps) e [inicie sesión](/powershell/azure/authenticate-azureps), o bien seleccione **Probar**.
 
@@ -114,7 +135,7 @@ Puede administrar las reglas predeterminadas de acceso a redes para los recursos
     Update-AzCognitiveServicesAccountNetworkRuleSet @parameters
     ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 1. Instale la [CLI de Azure](/cli/azure/install-azure-cli) e [inicie sesión](/cli/azure/authenticate-azure-cli), o bien seleccione **Probar**.
 
@@ -165,7 +186,7 @@ El recurso de Cognitive Services y las redes virtuales a las que se concedió ac
 
 Puede administrar las reglas de red virtual para los recursos de Cognitive Services a través de Azure Portal, PowerShell o la CLI de Azure.
 
-# <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. Vaya al recurso de Cognitive Services que desea proteger.
 
@@ -200,7 +221,7 @@ Puede administrar las reglas de red virtual para los recursos de Cognitive Servi
 
 1. Seleccione **Guardar** para aplicar los cambios.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. Instale [Azure PowerShell](/powershell/azure/install-az-ps) e [inicie sesión](/powershell/azure/authenticate-azureps), o bien seleccione **Probar**.
 
@@ -260,7 +281,7 @@ Puede administrar las reglas de red virtual para los recursos de Cognitive Servi
     Remove-AzCognitiveServicesAccountNetworkRule @parameters
     ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 1. Instale la [CLI de Azure](/cli/azure/install-azure-cli) e [inicie sesión](/cli/azure/authenticate-azure-cli), o bien seleccione **Probar**.
 
@@ -340,7 +361,7 @@ Si usa [ExpressRoute](../expressroute/expressroute-introduction.md) localmente p
 
 Puede administrar las reglas de red IP para los recursos de Cognitive Services a través de Azure Portal, PowerShell o la CLI de Azure.
 
-# <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. Vaya al recurso de Cognitive Services que desea proteger.
 
@@ -358,7 +379,7 @@ Puede administrar las reglas de red IP para los recursos de Cognitive Services a
 
 1. Seleccione **Guardar** para aplicar los cambios.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. Instale [Azure PowerShell](/powershell/azure/install-az-ps) e [inicie sesión](/powershell/azure/authenticate-azureps), o bien seleccione **Probar**.
 
@@ -416,7 +437,7 @@ Puede administrar las reglas de red IP para los recursos de Cognitive Services a
     Remove-AzCognitiveServicesAccountNetworkRule @parameters
     ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
 1. Instale la [CLI de Azure](/cli/azure/install-azure-cli) e [inicie sesión](/cli/azure/authenticate-azure-cli), o bien seleccione **Probar**.
 

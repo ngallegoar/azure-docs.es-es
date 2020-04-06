@@ -6,41 +6,122 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
-ms.date: 02/28/2020
+ms.topic: how-to
+ms.date: 03/20/2020
 ms.author: pafarley
-ms.openlocfilehash: fa419d7dd9668ac2ce8f2b0eb904117c7e22692d
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 795d21e05ade652b52c06d597ca4c5fef85e7245
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78207834"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80152869"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementación de la herramienta de etiquetado de ejemplo
 
-La herramienta de etiquetado de ejemplo de Form Recognizer es una aplicación que se ejecuta en un contenedor de Docker. Proporciona una interfaz de usuario útil que se puede usar para etiquetar manualmente documentos de formulario con fines de aprendizaje supervisado. En el inicio rápido [Entrenamiento con etiquetas](./quickstarts/label-tool.md) se muestra cómo ejecutar la herramienta en el equipo local, que es el escenario más común. 
+La herramienta de etiquetado de ejemplo de Form Recognizer es una aplicación que proporciona una interfaz de usuario simple (IU), que puede usar para etiquetar manualmente los formularios (documentos) de cara al aprendizaje supervisado. En este artículo, se proporcionan vínculos e instrucciones que le enseñarán a:
 
-En esta guía se explican otras formas de implementar y ejecutar la herramienta de etiquetado de ejemplo. 
+* [Ejecutar la herramienta de etiquetado de ejemplo localmente](#run-the-sample-labeling-tool-locally)
+* [Implementar la herramienta de etiquetado de ejemplo en una instancia de Azure Container Instances (ACI)](#deploy-with-azure-container-instances-aci)
+* [Usar y contribuir a OCR Form Labeling Tool de código abierto](#open-source-on-github)
 
-## <a name="deploy-with-azure-container-instances"></a>Implementación con Azure Container Instances
+## <a name="run-the-sample-labeling-tool-locally"></a>Ejecución de la herramienta de etiquetado de ejemplo de manera local
 
-Puede ejecutar la herramienta de etiquetado en un contenedor de aplicación web de Docker. En primer lugar, [cree un recurso de aplicación web](https://ms.portal.azure.com/#create/Microsoft.WebSite) en Azure Portal. Rellene el formulario con los detalles de la suscripción y del grupo de recursos. Escriba la siguiente información en los campos obligatorios:
-* **Publicar**: Contenedor de Docker
-* Sistema **operativo**: Linux
+La manera más rápida de empezar a etiquetar los datos es ejecutar la herramienta de etiquetado de ejemplo de manera local. En el siguiente inicio rápido, usará la API REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado con datos etiquetados manualmente. 
 
-En la página siguiente, rellene los campos siguientes para la configuración del contenedor de Docker:
+* [Inicio rápido: Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo](./quickstarts/label-tool.md).
 
-* **Opciones**: Contenedor único
-* **Origen de la imagen**: Azure Container Registry
-* **Tipo de acceso**: público
-* **Imagen y etiqueta**: mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest
+## <a name="deploy-with-azure-container-instances-aci"></a>Implementación con Azure Container Instances (ACI)
 
-Los pasos siguientes son opcionales. Una vez finalizada la implementación de la aplicación, puede ejecutarla y acceder a la herramienta de etiquetado en línea.
+Antes de comenzar, es importante tener en cuenta que hay dos maneras de implementar la herramienta de etiquetado de ejemplo en una instancia de Azure Container Instances (ACI). Ambas opciones se usan para ejecutar la herramienta de etiquetado de ejemplo con ACI: 
+
+* [Uso de Azure Portal](#azure-portal)
+* [Uso de la CLI de Azure](#azure-cli)
+
+### <a name="azure-portal"></a>Portal de Azure
+
+Siga estos pasos para crear un recurso mediante Azure Portal: 
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/signin/index/).
+2. Seleccione **Crear un recurso**. 
+3. Luego, seleccione **Aplicación web**. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Selección de Aplicación web](./media/quickstarts/formre-create-web-app.png)
+   
+4. En primer lugar, asegúrese de que la pestaña **Aspectos básicos** está seleccionada. Ahora, tendrá que proporcionar algo de información: 
+
+   > [!div class="mx-imgBorder"]
+   > ![Selección de Aspectos básicos](./media/quickstarts/formre-select-basics.png)
+   * Suscripción: seleccione una suscripción de Azure existente.
+   * Grupo de recursos: puede usar un grupo de recursos existente o crear uno para este proyecto. Se recomienda la segunda opción.
+   * Nombre: asigne un nombre a la aplicación web. 
+   * Publicar: seleccione **Contenedor de Docker**.
+   * Sistema operativo: seleccione **Linux**.
+   * Región: elija una región que sea significativa para usted.
+   * Linux Plan (Plan de Linux): seleccione un plan de tarifa para su servicio de aplicación. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Configuración de la aplicación web](./media/quickstarts/formre-select-docker-linux.png)
+
+5. A continuación, seleccione la pestaña **Docker**. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Selección de Docker](./media/quickstarts/formre-select-docker.png)
+
+6. Ahora vamos a configurar el contenedor de Docker. Todos los campos son obligatorios a menos que se indique lo contrario:
+
+   * Opciones: seleccione **Contenedor único**.
+   * Origen de imagen: seleccione **Registro privado**. 
+   * URL de servidor: establézcalo en `https://mcr.microsoft.com`.
+   * Nombre de usuario (opcional): cree un nombre de usuario. 
+   * Contraseña (opcional): cree una contraseña segura que recuerde.
+   * Imagen y etiqueta: establézcalo en `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`.
+   * Comando de inicio: establézcalo en `./run.sh eula=accept`.
+
+   > [!div class="mx-imgBorder"]
+   > ![Configuración de Docker](./media/quickstarts/formre-configure-docker.png)
+
+7. Eso es todo. A continuación, seleccione **Revisar + crear** y, luego, **Crear** para implementar la aplicación web. Cuando haya finalizado, puede acceder a la aplicación web en la dirección URL proporcionada en la pestaña **Información general** del recurso.
+
+> [!NOTE]
+> Al crear la aplicación web, también puede configurar la autorización o autenticación. Esto no es necesario para comenzar. 
+
+### <a name="azure-cli"></a>Azure CLI
+
+Como alternativa al uso de Azure Portal, puede crear un recurso mediante la CLI de Azure. Antes de continuar, deberá instalar la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Si ya está trabajando con la CLI de Azure, puede omitir este paso. 
+
+Hay algunas cosas que necesita saber sobre este comando:
+
+* `DNS_NAME_LABEL=aci-demo-$RANDOM` genera un nombre DNS aleatorio. 
+* En este ejemplo se da por hecho que tiene un grupo de recursos que puede usar para crear un recurso. Reemplace `<resource_group_name>` por un grupo de recursos válido asociado a su suscripción. 
+* Deberá especificar dónde desea crear el recurso. Reemplace `<region name>` por la región deseada para la aplicación web. 
+* Este comando acepta automáticamente el CLUF.
+
+En la CLI de Azure, ejecute este comando para crear un recurso de aplicación web para la herramienta de etiquetado de ejemplo: 
+
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resorunce_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8
+  --command-line "./run.sh eula=accept"
+```
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Conexión a Azure AD para la autorización
 
-Se recomienda conectar la aplicación web a Azure Active Directory (AAD) para que solo un usuario con sus credenciales pueda iniciar sesión y usar la aplicación. Siga las instrucciones sobre cómo [configurar una aplicación de App Service](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) para conectarse a AAD.
+Se recomienda conectar la aplicación web a Azure Active Directory. De esta forma se garantiza que solo los usuarios con credenciales válidas pueden iniciar sesión en la aplicación web y usarla. Siga las instrucciones que se indican en [Configuración de la aplicación de App Service](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) para conectarse a Azure Active Directory.
+
+## <a name="open-source-on-github"></a>Código fuente en Docker
+
+OCR Form Labeling Tool también está disponible como proyecto de código abierto en GitHub. La herramienta es una aplicación web compilada mediante React + Redux y está escrita en TypeScript. Para más información o para realizar alguna contribución, consulte [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vuelva al inicio rápido [Entrenamiento con etiquetas](./quickstarts/label-tool.md) para aprender a usar la herramienta para etiquetar manualmente los datos de entrenamiento y realizar el aprendizaje supervisado.
+Use el inicio rápido [Entrenamiento con etiquetas](./quickstarts/label-tool.md) para aprender a usar la herramienta para etiquetar manualmente los datos de entrenamiento y realizar aprendizaje supervisado.

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: apimpm
 ms.openlocfilehash: 2e8863eed774884a99de8643c9e497378368d166
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70072502"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Uso de una instancia externa de Azure Redis Cache en Azure API Management
@@ -40,20 +40,20 @@ Temas que se abordarán:
 > [!div class="checklist"]
 > * Agregar una memoria caché externa en API Management
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesita:
 
 + [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 + Comprender el [almacenamiento en memoria caché en Azure API Management](api-management-howto-cache.md)
 
-## <a name="create-cache"> </a> Creación de una instancia de Azure Redis Cache
+## <a name="create-azure-cache-for-redis"></a><a name="create-cache"> </a> Creación de una instancia de Azure Redis Cache
 
 En esta sección se explica cómo crear una instancia de Azure Redis Cache en Azure. Si ya tiene una instancia de Azure Redis Cache, dentro o fuera de Azure, puede <a href="#add-external-cache">pasar</a> a la sección siguiente.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="add-external-cache"> </a> Adición de una memoria caché externa
+## <a name="add-an-external-cache"></a><a name="add-external-cache"> </a>Adición de una memoria caché externa
 
 Siga estos pasos para agregar una instancia externa de Azure Redis Cache en Azure API Management.
 
@@ -62,7 +62,7 @@ Siga estos pasos para agregar una instancia externa de Azure Redis Cache en Azur
 > [!NOTE]
 > La configuración **Utilizar desde** especifica qué implementación regional de API Management se comunicará con la memoria caché configurada en el caso de una configuración regional múltiple de API Management. Las memorias caché especificadas como **Predeterminada** serán reemplazadas por las memorias caché con un valor regional.
 >
-> Por ejemplo, si API Management está hospedado en las regiones Este de EE. UU., Sudeste Asiático y Europa Occidental y hay dos memorias caché configuradas, una como **Predeterminada** y otra para **Sudeste Asiático**, la instancia de API Management de  **Sudeste Asiático** usará su propia memoria caché, mientras que las otras dos regiones utilizará la entrada de caché **Predeterminada**.
+> Por ejemplo, si API Management está hospedado en las regiones Este de EE. UU., Sudeste de Asia y Oeste de Europa y hay dos memorias caché configuradas, una como **Predeterminada** y otra para **Sudeste de Asia**, la instancia de API Management de  **Sudeste de Asia** usará su propia memoria caché, mientras que las otras dos regiones utilizará la entrada de caché **Predeterminada**.
 
 ### <a name="add-an-azure-cache-for-redis-from-the-same-subscription"></a>Incorporación de una instancia de Azure Redis Cache desde la misma suscripción
 
@@ -87,7 +87,7 @@ Siga estos pasos para agregar una instancia externa de Azure Redis Cache en Azur
 
 Una vez que la memoria caché externa está configurada en Azure API Management, se puede usar mediante directivas de almacenamiento en caché. Consulte [Incorporación del almacenamiento en caché para mejorar el rendimiento en Azure API Management](api-management-howto-cache.md) para conocer los pasos detallados.
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"></a><a name="next-steps"> </a>Pasos siguientes
 
 * Para más información sobre las directivas de almacenamiento en caché, consulte [Caching policies][Caching policies] (Directivas de almacenamiento en caché) en [API Management policy reference][API Management policy reference] (Referencia de la directiva de Administración de API).
 * Para obtener información sobre el almacenamiento en caché de los elementos por parte de la clave mediante expresiones de directiva, consulte [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).

@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 2c074cbd99620a482b18cbe2dfcce8f987d78bd5
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 5b3d6d0561d7d6d6b23cb4f579b0988850da9771
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619213"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80056862"
 ---
 # <a name="import-or-export-configuration-data"></a>Importación o exportación de datos de configuración
 
 Azure App Configuration admite las operaciones de importación y exportación. Use estas operaciones para trabajar con datos de configuración de forma masiva e intercambiar datos entre el almacén de App Configuration y el proyecto de código. Por ejemplo, puede configurar un almacén de App Configuration para pruebas y otro para producción. Puede copiar la configuración de la aplicación de uno a otro para no tener que escribir los datos dos veces.
 
-En este artículo se proporciona una guía para importar y exportar los datos con App Configuration.
+En este artículo se proporciona una guía para importar y exportar los datos con App Configuration. Si desea configurar una sincronización continua con el repositorio de GitHub, eche un vistazo a nuestra [acción de GitHub](https://aka.ms/azconfig-gha1).
 
 ## <a name="import-data"></a>Importar datos
 

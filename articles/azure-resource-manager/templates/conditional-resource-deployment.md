@@ -3,16 +3,16 @@ title: Implementación condicional con plantillas
 description: En este artículo se describe cómo realizar la implementación condicional de un recurso en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 83aa22ba57e0111d060665778922437723481c69
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: f170710118c0e3de6f3643b6216ed55b83b5c7df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207798"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153427"
 ---
-# <a name="conditional-deployment-in-resource-manager-templates"></a>Implementación condicional con plantillas de Resource Manager
+# <a name="conditional-deployment-in-arm-templates"></a>Implementación condicional en las plantillas de ARM
 
-En algunas ocasiones, es necesario implementar opcionalmente un recurso en una plantilla. Use el elemento `condition` para especificar si se implementó el recurso. El valor de este elemento se resuelve como true o false. Cuando el valor es true, el recurso se crea. Cuando el valor es false, el recurso no se crea. El valor solo se puede aplicar a todo el recurso.
+A veces, tiene que implementar un recurso en una plantilla de Azure Resource Manager (ARM). Use el elemento `condition` para especificar si se implementó el recurso. El valor de este elemento se resuelve como true o false. Cuando el valor es true, el recurso se crea. Cuando el valor es false, el recurso no se crea. El valor solo se puede aplicar a todo el recurso.
 
 ## <a name="new-or-existing-resource"></a>Recurso nuevo o existente
 
@@ -87,5 +87,5 @@ Si implementa una plantilla con [modo completo](deployment-modes.md) y no se imp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más recomendaciones sobre creación de platillas, consulte [Azure Resource Manager template best practices](template-best-practices.md) (Procedimientos recomendados para plantillas de Azure Resource Manager).
-* Para crear varias instancias de un recurso, consulte [Iteración de recursos en plantillas de Azure Resource Manager](copy-resources.md).
+* Para recomendaciones sobre la creación de platillas, consulte [Procedimientos recomendados de plantillas de ARM](template-best-practices.md).
+* Para crear varias instancias de un recurso, consulte [Iteración de recursos en plantillas de ARM](copy-resources.md).

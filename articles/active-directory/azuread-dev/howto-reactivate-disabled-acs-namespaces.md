@@ -12,12 +12,13 @@ ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 85696a5580c4ed6c03f257787e2693a61a6158de
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: ff0ce05b13fea8409475e3415c5d810d7c79769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163545"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154872"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedimientos: Reactivación de los espacios de nombres deshabilitados de Access Control Service
 

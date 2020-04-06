@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: fa0df19053c3c238e3c00c46733cb4626dd64072
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773140"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156113"
 ---
-# <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube
+# <a name="develop-arm-templates-for-cloud-consistency"></a>Desarrollo de plantillas de ARM para la coherencia en la nube
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-Una ventaja clave de Azure es la coherencia. Las inversiones de desarrollo para una ubicación son reutilizables en otra. Una plantilla hace que las implementaciones sean coherentes y repetibles entre los entornos, incluidos Azure global, las nubes soberanas de Azure y Azure Stack. Pero para reutilizar plantillas en las nubes, debe tener en cuenta las dependencias específicas de la nube como se explica en esta guía.
+Una ventaja clave de Azure es la coherencia. Las inversiones de desarrollo para una ubicación son reutilizables en otra. Una plantilla de Azure Resource Manager (ARM) hace que las implementaciones sean coherentes y repetibles entre los entornos, incluidos Azure global, las nubes soberanas de Azure y Azure Stack. Pero para reutilizar plantillas en las nubes, debe tener en cuenta las dependencias específicas de la nube como se explica en esta guía.
 
 Microsoft ofrece servicios en la nube inteligentes y preparados para la empresa en varias ubicaciones, incluidas:
 
@@ -33,7 +33,7 @@ La coherencia de Azure global, las nubes soberanas, las nubes hospedadas y una n
 
 Pero aunque las nubes global, soberanas, hospedadas e híbridas proporcionan servicios coherentes, no todas son idénticas. Como consecuencia, puede crear una plantilla con dependencias de las características disponibles solo en una nube específica.
 
-En el resto de esta guía se describen las áreas que se deben tener en cuenta cuando se planea el desarrollo de plantillas nuevas de Azure Resource Manager o la actualización de plantillas existentes para Azure Stack. En general, la lista de comprobación debe incluir los elementos siguientes:
+En el resto de esta guía se describen las áreas que se deben tener en cuenta cuando se planea el desarrollo de plantillas nuevas de ARM o la actualización de las existentes para Azure Stack. En general, la lista de comprobación debe incluir los elementos siguientes:
 
 * Compruebe que las funciones, los puntos de conexión, los servicios y otros recursos de la plantilla están disponibles en las ubicaciones de implementación de destino.
 * Almacene las plantillas anidadas y los artefactos de configuración en ubicaciones accesibles, lo que garantiza el acceso entre las nubes.
@@ -41,11 +41,11 @@ En el resto de esta guía se describen las áreas que se deben tener en cuenta c
 * Asegúrese de que los parámetros de plantilla que usa funcionan en las nubes de destino.
 * Compruebe que las propiedades específicas de los recursos están disponibles en las nubes de destino.
 
-Para obtener una introducción a las plantillas de Azure Resource Manager, vea [Implementación de plantilla](overview.md).
+Para ver una introducción a las plantillas de ARM, consulte [Template Deployment](overview.md).
 
 ## <a name="ensure-template-functions-work"></a>Garantizar el funcionamiento de la plantilla
 
-La sintaxis básica de una plantilla de Resource Manager es JSON. Las plantillas usan un superconjunto de JSON, que amplía la sintaxis con expresiones y funciones. El procesador de lenguaje de plantilla se actualiza con frecuencia para admitir funciones de plantilla adicionales. Para obtener una explicación detallada de las funciones de plantilla disponibles, vea [Funciones de la plantilla de Azure Resource Manager](template-functions.md).
+La sintaxis básica de la plantilla de ARM es JSON. Las plantillas usan un superconjunto de JSON, que amplía la sintaxis con expresiones y funciones. El procesador de lenguaje de plantilla se actualiza con frecuencia para admitir funciones de plantilla adicionales. Para obtener una explicación detallada de las funciones de plantilla disponibles, consulte [Funciones de plantilla de ARM](template-functions.md).
 
 Las funciones de plantilla nuevas que se agregan a Azure Resource Manager no están disponibles inmediatamente en las nubes soberanas o Azure Stack. Para implementar correctamente una plantilla, todas las funciones a las que se hace referencia en la plantilla deben estar disponibles en la nube de destino.
 
@@ -497,7 +497,7 @@ Este comando tarda unos minutos en devolver todas las imágenes disponibles en l
 
 Si puso estas imágenes de máquina virtual a disposición de Azure Stack, se podría consumir todo el almacenamiento disponible. Para dar cabida incluso a la unidad de escala más pequeña, Azure Stack permite seleccionar las imágenes que quiere agregar a un entorno.
 
-En el ejemplo de código siguiente se muestra un enfoque coherente para hacer referencia a los parámetros de publicador, oferta y SKU en las plantillas de Azure Resource Manager:
+En el ejemplo de código siguiente se muestra un enfoque coherente para hacer referencia a los parámetros de editor, oferta y SKU en las plantillas de ARM:
 
 ```json
 "storageProfile": {
@@ -668,4 +668,4 @@ Tenga en cuenta las sugerencias siguientes para las pruebas y la automatización
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Consideraciones de la plantilla de Azure Resource Manager](/azure-stack/user/azure-stack-develop-templates)
-* [Procedimientos recomendados para plantillas de Azure Resource Manager](template-syntax.md)
+* [Procedimientos recomendados para las plantillas de ARM](template-syntax.md)

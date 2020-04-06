@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
 ms.openlocfilehash: c10939b50a66cd608d27a71f02d959fbc2380f59
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70072318"
 ---
 # <a name="policies-in-azure-api-management"></a>Directivas de Azure API Management
@@ -27,7 +27,7 @@ Las directivas se aplican en la puerta de enlace que se encuentra entre el consu
 
 Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de API Management, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][Control flow] y [Establecer variable][Set variable] se basan en expresiones de directiva. Para más información, consulte [Directivas avanzadas][Advanced policies] y [Expresiones de directiva][Policy expressions].
 
-## <a name="sections"></a>Descripción de la configuración de directivas
+## <a name="understanding-policy-configuration"></a><a name="sections"> </a>Descripción de la configuración de directivas
 
 La definición de la directiva es un documento XML simple que describe una secuencia de declaraciones de entrada y de salida. El XML se puede editar directamente en la ventana de definición. Se ofrece una lista de instrucciones a la derecha y las instrucciones aplicables al ámbito actual están habilitadas y resaltadas.
 
@@ -60,7 +60,7 @@ La configuración se divide en `inbound`, `backend`, `outbound` y `on-error`. La
 
 Si se produce un error durante el procesamiento de una solicitud, los pasos restantes de las secciones `inbound`, `backend` o `outbound` se omiten y la ejecución salta a las instrucciones de la sección `on-error`. Mediante la colocación de instrucciones de directiva en la sección `on-error` puede revisar el error con la propiedad `context.LastError`, inspeccionar y personalizar la respuesta de error con la directiva `set-body` y configurar lo que ocurre si se produce un error. Existen códigos de error para pasos integrados y errores que pueden producirse durante el procesamiento de las instrucciones de directiva. Para más información, consulte [Control de errores en las directivas de administración de API](/azure/api-management/api-management-error-handling-policies).
 
-## <a name="scopes"></a>Configuración de directivas
+## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Configuración de directivas
 
 Para información sobre cómo configurar directivas, consulte el artículo sobre [edición o establecimiento de directivas](set-edit-policies.md).
 

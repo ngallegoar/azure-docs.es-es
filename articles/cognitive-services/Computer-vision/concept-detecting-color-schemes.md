@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e0fa85b8a90ea57d9b81bd2eeaa6d080b7582acd
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: af0c39ed8211ac2041d143112437ad5d6b384259
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945272"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244739"
 ---
 # <a name="detect-color-schemes-in-images"></a>Detección de las combinaciones de colores de las imágenes
 
@@ -78,6 +78,9 @@ La siguiente tabla muestra la evaluación en blanco y negro de Computer Vision e
 |![Una imagen en blanco y negro de edificios en Manhattan](./Images/bw_buildings.png) | true |
 |![Una casa azul y el patio delantero](./Images/house_yard.png) | false |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="use-the-api"></a>Uso de la API
 
-Conozca los conceptos sobre [detectar tipos de imagen](concept-detecting-image-types.md).
+La característica de detección de la combinación de colores forma parte de la API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa). Puede llamar a esta API mediante una SDK nativa o con llamadas a REST. Incluya `Color` en el parámetro de consulta **visualFeatures**. Después, cuando llegue la respuesta JSON completa, simplemente analice la cadena con el contenido de la sección `"color"`.
+
+* [Inicio rápido: SDK de Computer Vision para .NET](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Inicio rápido: Análisis de imágenes (API REST)](./quickstarts/csharp-analyze.md)

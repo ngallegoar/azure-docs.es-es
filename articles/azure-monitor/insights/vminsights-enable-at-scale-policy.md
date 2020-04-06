@@ -1,21 +1,21 @@
 ---
-title: Habilitar Azure Monitor para VM mediante Azure Policy | Microsoft Docs
+title: Habilitación de Azure Monitor para VM mediante Azure Policy
 description: En este artículo se describe cómo habilitar Azure Monitor para VM para varias máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure mediante Azure Policy.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: 267072b06d936822eae7e7257d62566a020471bb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: 7069f2cc96b8876f5514acfa4ba49274b61be46f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656235"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282943"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Habilitar Azure Monitor para VM (vista preliminar) mediante Azure Policy
+# <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Habilitación de Azure Monitor para VM mediante Azure Policy
 
-En este artículo se explica cómo habilitar Azure Monitor para VM (versión preliminar) para máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure mediante Azure Policy. Al final de este proceso, habrá configurado correctamente la habilitación de Log Analytics y los agentes de Dependency Agent e identificado las máquinas virtuales que no son compatibles.
+En este artículo se explica cómo habilitar Azure Monitor para VM para máquinas virtuales o conjuntos de escalado de máquinas virtuales de Azure mediante Azure Policy. Al final de este proceso, habrá configurado correctamente la habilitación de Log Analytics y los agentes de Dependency Agent e identificado las máquinas virtuales que no son compatibles.
 
 Para detectar, administrar y habilitar Azure Monitor para VM para todas las máquinas virtuales o conjuntos de escalado de máquinas virtuales puede usar Azure Policy o Azure PowerShell. Azure Policy es el método recomendado porque le permite administrar las definiciones de la directiva para controlar de forma eficaz sus suscripciones de forma que se garantice un cumplimiento coherente y se habiliten automáticamente las VM recién aprovisionadas. Estas definiciones de directivas:
 
@@ -23,17 +23,26 @@ Para detectar, administrar y habilitar Azure Monitor para VM para todas las máq
 * Informan sobre los resultados de cumplimiento.
 * Corrigen las máquinas virtuales no compatibles.
 
-Si está interesado en llevar a cabo estas tareas con Azure PowerShell o con una plantilla de Azure Resource Manager, vea [Habilitar Azure Monitor para VM (versión preliminar) mediante Azure PowerShell o una plantilla de Resource Manager](vminsights-enable-at-scale-powershell.md).
+Si está interesado en llevar a cabo estas tareas con Azure PowerShell o con una plantilla de Azure Resource Manager, vea [Habilitar Azure Monitor para VM mediante Azure PowerShell o una plantilla de Resource Manager](vminsights-enable-at-scale-powershell.md).
+
+## <a name="prerequisites"></a>Prerrequisitos
+Antes de usar la Directiva para incorporar las máquinas virtuales de Azure y los conjuntos de escalado de máquinas virtuales a Azure Monitor para VM, debe habilitar la solución VMInsights en el área de trabajo que usará para almacenar los datos de supervisión. Esta tarea se puede completar desde la página **Introducción** de Azure Monitor en la pestaña **Other onboarding options** (Otras opciones de incorporación).  Seleccione **Configurar un área de trabajo**; al elegir esta opción se le pedirá que seleccione el área de trabajo que se va a configurar.
+
+![Configuración del área de trabajo](media/vminsights-enable-at-scale-policy/configure-workspace.png)
+
+También puede configurar el área de trabajo eligiendo **Enable using policy** (Habilitar mediante directiva) y luego seleccionando el botón de la barra de herramientas **Configurar área de trabajo**.  Se instalará la solución VMInsights en el área de trabajo seleccionada, lo que permitirá que dicha área almacene los datos de supervisión enviados por las máquinas virtuales y los conjuntos de escalado de máquinas virtuales que se habilitan mediante Azure Policy. 
+
+![Habilitar mediante directiva](media/vminsights-enable-at-scale-policy/enable-using-policy.png)
 
 ## <a name="manage-policy-coverage-feature-overview"></a>Información general a la característica Administrar la cobertura de la directiva
 
-Originalmente, la experiencia con Azure Policy para administrar e implementar las definiciones de directiva de Azure Monitor para VM se realizaba exclusivamente desde Azure Policy. La característica Administrar la cobertura de la directiva simplifica y facilita la detección, administración y habilitación a escala de la iniciativa **Habilitar Azure Monitor para VM**, que incluye las definiciones de directiva se ha mencionadas anteriormente. Puede acceder a esta nueva característica desde la pestaña **Primeros pasos** en Azure Monitor para VM. Seleccione **Administrar la cobertura de la directiva** para abrir la página **Cobertura de directiva de Azure Monitor para VM**.
+La cobertura de la directiva de Azure Monitor para VM simplifica la detección, administración y habilitación a escala de la iniciativa **Habilitar Azure Monitor para VM**, que incluye las definiciones de directiva se ha mencionadas anteriormente. Para acceder a esta característica, seleccione **Other onboarding options** (Otras opciones de incorporación) en la pestaña **Introducción** de Azure Monitor para VM. Seleccione **Administrar la cobertura de la directiva** para abrir la página **Cobertura de directiva de Azure Monitor para VM**.
 
 ![Azure Monitor desde la pestaña Primeros pasos de las VM](./media/vminsights-enable-at-scale-policy/get-started-page.png)
 
 Desde aquí, puede comprobar y administrar la cobertura de la iniciativa a través de las suscripciones y grupos de administración. Puede conocer cuántas VM existen en cada una de las suscripciones y grupos de administración, y su estado de cumplimiento.
 
-![Página de administración de máquinas virtuales de Azure Monitor para VM](./media/vminsights-enable-at-scale-policy/manage-policy-page-01.png)
+![Página de administración de máquinas virtuales de Azure Monitor para VM](media/vminsights-enable-at-scale-policy/manage-policy-page-01.png)
 
 Esta información es útil para ayudarle a planear y ejecutar el escenario de gobernanza de Azure Monitor para VM desde una ubicación central. Mientras que Azure Policy proporciona una vista de cumplimiento cuando se asigna una directiva o iniciativa a un ámbito, con esta nueva página puede detectar el lugar donde la directiva o iniciativa no está asignada y asignarla en su lugar. Todas las acciones, como asignar, ver y editar redirigen directamente a Azure Policy. La página **Azure Monitor for VMs Policy Coverage** (Cobertura de directiva de Azure Monitor para VM) es una experiencia integrada y expandida solo para la iniciativa **Habilitar Azure Monitor para VM**.
 
@@ -42,7 +51,7 @@ Desde esta página, también puede configurar el área de trabajo de Log Analyti
 - Instala la solución Service Map.
 - Habilita los contadores de rendimiento del sistema operativo utilizados por los gráficos de rendimiento, los libros y las alertas y consultas del registro personalizado.
 
-![Configuración del área de trabajo de Azure Monitor para VM](./media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
+![Configuración del área de trabajo de Azure Monitor para VM](media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
 
 Esta opción no está relacionada con las acciones de directiva. Está disponible para proporcionar una manera fácil de satisfacer los [requisitos previos](vminsights-enable-overview.md) necesarios para habilitar Azure Monitor para VM.  
 
@@ -78,13 +87,13 @@ En la tabla siguiente se enumeran las definiciones de directiva para una VM de A
 
 |Nombre |Descripción |Tipo |
 |-----|------------|-----|
-|\[Versión preliminar\]: Habilitar Azure Monitor para VM |Se habilita Azure Monitor para las máquinas virtuales del ámbito especificado (grupo de administración, suscripción o grupo de recursos). Toma el área de trabajo de Log Analytics como parámetro. |Iniciativa |
-|\[Versión preliminar\]: Auditoría de implementación de Dependency Agent: imagen de la VM (SO) no mostrada |Notifica que las máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
-|\[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista |Notifica que las máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
-|\[Versión preliminar\]: Implementar Dependency Agent en máquinas virtuales Linux |Se implementa Dependency Agent en las máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
-|\[Versión preliminar\]: Implementar Dependency Agent en máquinas virtuales Windows |Se implementa Dependency Agent en las máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
-|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales de Linux |Se implementa el agente de Log Analytics en máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
-|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows |Se implementa el agente de Log Analytics en máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
+|Habilitar Azure Monitor para VM |Se habilita Azure Monitor para las máquinas virtuales del ámbito especificado (grupo de administración, suscripción o grupo de recursos). Toma el área de trabajo de Log Analytics como parámetro. |Iniciativa |
+|Auditoría de implementación de Dependency Agent: imagen de la VM (SO) no mostrada |Notifica que las máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
+|Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista |Notifica que las máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
+|Implementar Dependency Agent en máquinas virtuales Linux |Se implementa Dependency Agent en las máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
+|Implementar Dependency Agent en máquinas virtuales Windows |Se implementa Dependency Agent en las máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
+|Implementar el agente de Log Analytics en máquinas virtuales de Linux |Se implementa el agente de Log Analytics en máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
+|Implementar el agente de Log Analytics en máquinas virtuales Windows |Se implementa el agente de Log Analytics en máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
 
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>Directivas para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -92,19 +101,19 @@ En la tabla siguiente se enumeran las definiciones de directiva para un conjunto
 
 |Nombre |Descripción |Tipo |
 |-----|------------|-----|
-|\[Versión preliminar\]: Habilitar Azure Monitor para conjunto de escalado de máquinas virtuales |Se habilita Azure Monitor para los conjuntos de escalado de máquinas virtuales en el ámbito especificado (grupo de administración, suscripción o grupo de recursos). Toma el área de trabajo de Log Analytics como parámetro. Nota: Si establece la directiva Actualizar el conjunto de escalado en Manual, aplique la extensión a todas las máquinas virtuales del conjunto mediante una llamada a la actualización. En el CLI, esto es `az vmss update-instances`. |Iniciativa |
-|\[Versión preliminar\]: Auditoría de implementación de Dependency Agent en conjuntos de escalado de máquinas virtuales: la imagen de la VM (SO) no está en la lista |Notifica que los conjuntos de escalado de máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
-|\[Versión preliminar\]: Auditoría de implementación del agente de Log Analytics en conjuntos de escalado de máquinas virtuales: la imagen de la VM (SO) no está en la lista |Notifica que los conjuntos de escalado de máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
-|\[Versión preliminar\]: Implementar Dependency Agent para conjuntos de escalado de máquinas virtuales Linux |Se implementa Dependency Agent en los conjuntos de escalado de máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
-|\[Versión preliminar\]: Implementar Dependency Agent para conjuntos de escalado de máquinas virtuales Windows |Se implementa Dependency Agent en los conjuntos de escalado de máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
-|\[Versión preliminar\]: Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Linux |Se implementa el agente de Log Analytics en los conjuntos de escalado de máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
-|\[Versión preliminar\]: Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Windows |Se implementa el agente de Log Analytics en los conjuntos de escalado de máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
+|Habilitar Azure Monitor para conjunto de escalado de máquinas virtuales |Se habilita Azure Monitor para los conjuntos de escalado de máquinas virtuales en el ámbito especificado (grupo de administración, suscripción o grupo de recursos). Toma el área de trabajo de Log Analytics como parámetro. Nota: Si establece la directiva Actualizar el conjunto de escalado en Manual, aplique la extensión a todas las máquinas virtuales del conjunto mediante una llamada a la actualización. En el CLI, esto es `az vmss update-instances`. |Iniciativa |
+|Auditoría de implementación de Dependency Agent en conjuntos de escalado de máquinas virtuales: la imagen de la VM (SO) no está en la lista |Notifica que los conjuntos de escalado de máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
+|Auditoría de implementación del agente de Log Analytics en conjuntos de escalado de máquinas virtuales: la imagen de la VM (SO) no está en la lista |Notifica que los conjuntos de escalado de máquinas virtuales no son compatibles si la imagen de la máquina virtual (SO) no está definida en la lista y el agente no está instalado. |Directiva |
+|Implementar Dependency Agent para conjuntos de escalado de máquinas virtuales Linux |Se implementa Dependency Agent en los conjuntos de escalado de máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
+|Implementar Dependency Agent para conjuntos de escalado de máquinas virtuales Windows |Se implementa Dependency Agent en los conjuntos de escalado de máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
+|Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Linux |Se implementa el agente de Log Analytics en los conjuntos de escalado de máquinas virtuales Linux si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
+|Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales Windows |Se implementa el agente de Log Analytics en los conjuntos de escalado de máquinas virtuales Windows si la imagen de la máquina virtual (SO) está en la lista definida y el agente no está instalado. |Directiva |
 
 La directiva independiente (no se incluye con la iniciativa) se describe a continuación:
 
 |Nombre |Descripción |Tipo |
 |-----|------------|-----|
-|\[Versión preliminar\]: Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe |Se notifica que las máquinas virtuales no son compatibles si no se registran en el área de trabajo de Log Analytics especificada en la asignación de la directiva o iniciativa. |Directiva |
+|Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe |Se notifica que las máquinas virtuales no son compatibles si no se registran en el área de trabajo de Log Analytics especificada en la asignación de la directiva o iniciativa. |Directiva |
 
 ### <a name="assign-the-azure-monitor-initiative"></a>Asignar la iniciativa de Azure Monitor
 
@@ -116,7 +125,7 @@ Al asignar la directiva o iniciativa, el ámbito seleccionado en la asignación 
 
 2. En Azure Portal, seleccione **Monitor**. 
 
-3. Elija **Máquinas virtuales (versión preliminar)** en la sección **Conclusiones**.
+3. Elija **Máquinas virtuales** en la sección **Insights**.
  
 4. Seleccione la pestaña **Introducción**. En la página, seleccione **Administrar la cobertura de la directiva**.
 
@@ -175,19 +184,19 @@ En función de los resultados de las directivas incluidas con la iniciativa, las
 
 * No están implementados los agentes de Log Analytics o Dependency Agent.  
     Este escenario es típico de un ámbito con las máquinas virtuales existentes. Para mitigarlo, implemente los agentes necesarios. Para ello, [cree tareas de corrección](../../governance/policy/how-to/remediate-resources.md) en una directiva no compatible.  
-    - \[Versión preliminar\]: Implementar Dependency Agent en máquinas virtuales Linux
-    - \[Versión preliminar\]: Implementar Dependency Agent en máquinas virtuales Windows
-    - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales de Linux
-    - \[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows
+    - Implementar Dependency Agent en máquinas virtuales Linux
+    - Implementar Dependency Agent en máquinas virtuales Windows
+    - Implementar el agente de Log Analytics en máquinas virtuales de Linux
+    - Implementar el agente de Log Analytics en máquinas virtuales Windows
 
 * La imagen de la máquina virtual (SO) no está identificada en la definición de la directiva.  
     Los criterios de la directiva de implementación solo incluyen las máquinas virtuales que se implementan a partir de imágenes de máquina virtual de Azure conocidas. Consulte en la documentación si el sistema operativo de VM es compatible. Si no lo es, duplique la directiva de implementación y actualícela o modifíquela para que la imagen sea compatible.  
-    - \[Versión preliminar\]: Auditoría de implementación de Dependency Agent: imagen de la VM (SO) no mostrada
-    - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
+    - Auditoría de implementación de Dependency Agent: imagen de la VM (SO) no mostrada
+    - Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
 
 * Las máquinas virtuales no inician sesión en el área de trabajo de Log Analytics especificada.  
     Es posible que algunas máquinas virtuales en el ámbito de la iniciativa inicien sesión en un área de trabajo de Log Analytics distinta de la que se especifica en la asignación de directiva. Esta directiva es una herramienta para identificar qué máquinas virtuales notifican a un área de trabajo no compatible.  
-    - \[Versión preliminar\]: Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe
+    - Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe
 
 ## <a name="edit-an-initiative-assignment"></a>Editar una asignación de iniciativa
 

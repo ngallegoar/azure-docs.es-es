@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
 ms.openlocfilehash: a69babdf2fffb4cb9d963f1806f3c85755e50294
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74454358"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
@@ -26,7 +26,7 @@ La delegación le permite usar su sitio web actual para controlar el inicio de s
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="delegate-signin-up"></a>Delegación de inicios de sesión y suscripciones de desarrolladores
+## <a name="delegating-developer-sign-in-and-sign-up"></a><a name="delegate-signin-up"> </a>Delegación de inicios de sesión y suscripciones de desarrolladores
 
 Para delegar el inicio de sesión y la suscripción para desarrolladores al sitio web existente, deberá crear un punto de conexión de delegación especial en su sitio. Debe actuar como un punto de entrada para cualquier solicitud de este tipo iniciada desde el portal para desarrolladores de API Management.
 
@@ -92,7 +92,7 @@ Debe pasar los siguientes parámetros de consulta para las operaciones de admini
 * **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
 * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 
-## <a name="delegate-product-subscription"></a>Delegación de suscripciones a productos
+## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegación de suscripciones a productos
 La delegación de una suscripción a productos funciona de forma similar a la delegación de inicio de sesión y suscripción de usuario. El flujo de trabajo final sería el siguiente:
 
 1. El desarrollador selecciona un producto en el portal para desarrolladores de API Management y hace clic en el botón Suscribir.
@@ -131,7 +131,7 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
 3. Procese cualquier suscripción a producto en función del tipo de operación solicitada en **operation**; por ejemplo, facturación, preguntas adicionales, etc.
 4. Tras la correcta suscripción del usuario al producto por su parte, suscriba al usuario al producto de API Management [llamando a la API de REST para las suscripciones].
 
-## <a name="delegate-example-code"></a> Ejemplo de código
+## <a name="example-code"></a><a name="delegate-example-code"> </a>Ejemplo de código
 
 Estos ejemplos de código enseñan cómo:
 

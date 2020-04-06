@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 6ba53793e57be67e2954af870dfa4248fca465ec
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7178417a5c20afe5b1ed02bc526ec174704962df
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912212"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456257"
 ---
 # <a name="feature-hashing-module-reference"></a>Referencia del módulo Feature Hashing
 
@@ -94,7 +94,7 @@ Las salidas numéricas también permiten usar métodos de aprendizaje automátic
 
     Por ejemplo, si escribe 3, se crearán unigramas, bigramas y trigramas.
 
-1. Ejecución de la canalización
+1. Envíe la canalización.
 
 ## <a name="results"></a>Results
 

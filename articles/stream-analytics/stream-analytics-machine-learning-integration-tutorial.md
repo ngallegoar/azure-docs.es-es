@@ -6,17 +6,21 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: c683cfeadcc13e5112a4687e18db9338d3574cd3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b33aeeee03fa57d87a60fd4c1904d5e4a86dd004
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459588"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067088"
 ---
-# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic-preview"></a>Realización de un análisis de opinión con Azure Stream Analytics y Azure Machine Learning Studio (clásico) (versión preliminar)
+# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Realización del análisis de sentimiento con Azure Stream Analytics y Azure Machine Learning Studio (clásico)
+
 En este artículo se explica cómo configurar rápidamente un trabajo sencillo de Azure Stream Analytics que integre Azure Machine Learning Studio (clásico). Un modelo de análisis de opiniones de Machine Learning de la galería de Cortana Intelligence se usa para analizar datos de texto que se están transmitiendo y determinar la puntuación de opiniones en tiempo real. Cortana Intelligence Suite permite realizar esta tarea sin preocuparse por las complejidades de la creación de un modelo de análisis de opiniones.
+
+> [!TIP]
+> Es muy recomendable usar las [UDF de Azure Machine Learning](machine-learning-udf.md) en lugar de las de Azure Machine Learning Studio (clásico) para mejorar el rendimiento y la confiabilidad.
 
 Puede aplicar lo que aprenda en este artículo a escenarios como estos:
 
@@ -35,7 +39,7 @@ La imagen siguiente muestra esta configuración. Como se ha indicado, para un es
 
 ![Información general sobre la integración de Stream Analytics Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 * Una suscripción de Azure activa.

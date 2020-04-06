@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
 ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74122691"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migración desde Managed Cache Service a Azure Cache for Redis
@@ -72,7 +72,7 @@ Después de crear y configurar la caché, el siguiente paso consiste en eliminar
 ### <a name="remove-the-managed-cache-service-configuration"></a>Eliminación de la configuración de Managed Cache Service
 Para que las aplicaciones cliente se puedan configurar para Azure Cache for Redis, se debe eliminar la configuración y las referencias de ensamblado existentes de Managed Cache Service, desinstalando el paquete NuGet de Managed Cache Service.
 
-Para desinstalar el paquete de NuGet de Managed Cache Service, haga clic con el botón derecho en el proyecto de cliente en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. Seleccione el nodo **Paquetes instalados** y escriba **WindowsAzure.Caching** en el cuadro de búsqueda de paquetes instalados. Seleccione **Windows** **Azure Cache** (o **Windows** **Servicio de almacenamiento en caché de Azure** según la versión del paquete NuGet), haga clic en **Desinstalar** y luego haga clic en **Cerrar**.
+Para desinstalar el paquete de NuGet de Managed Cache Service, haga clic con el botón derecho en el proyecto de cliente en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. Seleccione el nodo **Paquetes instalados** y escriba **WindowsAzure.Caching** en el cuadro de búsqueda de paquetes instalados. Seleccione **Windows** **Azure Cache** (o **Windows** **Azure Caching** en función de la versión del paquete NuGet), haga clic en **Desinstalar** y, después, haga clic en **Cerrar**.
 
 ![Desinstalar paquetes NuGet de Azure Managed Cache Service](./media/cache-migrate-to-redis/IC757666.jpg)
 

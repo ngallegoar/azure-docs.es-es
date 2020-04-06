@@ -6,13 +6,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 8c1c521488270ff0bfe3b306470345bc2cd885ce
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: a68f351276c47f623728a279ad551744c61b6d14
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773537"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063227"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Solución de problemas de conexión a Azure Database for MySQL
 

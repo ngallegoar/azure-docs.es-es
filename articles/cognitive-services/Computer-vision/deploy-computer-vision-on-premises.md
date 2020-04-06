@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/16/2020
 ms.author: dapine
-ms.openlocfilehash: 22ec16f66c463cde49adbc9c472e461169df5eeb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 126060875c09d70b8680447d78b7cf6ccdd782af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383794"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458025"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Uso de un contenedor de Computer Vision con Kubernetes y Helm
 
 Una opción para administrar los contenedores de Computer Vision es usar Kubernetes y Helm. Vamos a crear un paquete de Kubernetes usando Kubernetes y Helm para definir una imagen de contenedor de Computer Vision. Este paquete se va a implementar en un clúster de Kubernetes en el entorno local. Por último, exploraremos cómo probar los servicios implementados. Para más información sobre la ejecución de contenedores de Docker sin orquestación de Kubernetes, consulte [Instalación y ejecución de contenedores de Computer Vision](computer-vision-how-to-install-containers.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Estos son los requisitos previos para poder usar contenedores de Computer Vision en el entorno local:
 
-|Obligatorio|Propósito|
-|--|--|
+| Obligatorio | Propósito |
+|----------|---------|
 | Cuenta de Azure | Si no tiene una suscripción a Azure, cree una [cuenta gratuita][free-azure-account] antes de empezar. |
 | CLI de Kubernetes | La [CLI de Kubernetes][kubernetes-cli] es necesaria para administrar las credenciales compartidas desde el registro de contenedor. Kubernetes también se necesita antes que Helm, que es el administrador de paquetes de Kubernetes. |
-| CLI de Helm | Como parte de la instalación de la [CLI de Helm][helm-install], también tendrá que inicializar Helm, que instalará [Tiller][tiller-install]. |
+| CLI de Helm | Instale la [CLI de Helm][helm-install], que se usa para instalar un gráfico de Helm (definición de paquete de contenedor). |
 | Recurso de Computer Vision |Para poder usar el contenedor, debe tener:<br><br>Un recurso de **Computer Vision** de Azure y la clave de API asociada con el URI del punto de conexión. Ambos valores están disponibles en las páginas de introducción y claves del recurso y son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Información general**.|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
@@ -178,7 +178,7 @@ Los *gráficos de Helm* proporcionados extraen las imágenes de Docker del servi
 Para instalar el *gráfico de Helm*, es necesario ejecutar el comando [`helm install`][helm-install-cmd]. Asegúrese de ejecutar el comando de instalación desde el directorio situado encima de la carpeta `read`.
 
 ```console
-helm install read --name read
+helm install read ./read
 ```
 
 Este es el resultado de ejemplo que se puede ver tras una ejecución de instalación correcta:
@@ -245,7 +245,6 @@ Para obtener más información sobre la instalación de aplicaciones con Helm en
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm
 [helm-install-cmd]: https://helm.sh/docs/intro/using_helm/#helm-install-installing-a-package
-[tiller-install]: https://helm.sh/docs/install/#installing-tiller
 [helm-charts]: https://helm.sh/docs/topics/charts/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

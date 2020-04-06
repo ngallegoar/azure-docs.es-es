@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: b1f7aaeaf5d1537e0e5a427ad994f7e31e43fee3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9a0a70f94be337eedf8f8ba4cc17af896f7a03b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921375"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477551"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo sobre el bosque de decisión multiclase
 
@@ -75,7 +75,7 @@ El clasificador del bosque de decisión en Azure Machine Learning consta de un
 
     + Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](./train-model.md).
 
-11. Ejecución de la canalización
+11. Envíe la canalización.
 
 
 

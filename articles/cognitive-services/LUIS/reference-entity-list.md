@@ -1,21 +1,14 @@
 ---
 title: 'Tipo de entidad de lista: LUIS'
-titleSuffix: Azure Cognitive Services
 description: Las entidades de lista representan un conjunto fijo y cerrado de palabras relacionadas y sus sinónimos. LUIS no detecta valores adicionales para las entidades de lista. Use la característica Recommend (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/11/2019
-ms.author: diberry
-ms.openlocfilehash: 4313a1d644750c0961298bbee3ae211946de360a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 03/12/2020
+ms.openlocfilehash: 795d16bc2e0c4223ff3ac283a72493923d3ab355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849775"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79297244"
 ---
 # <a name="list-entity"></a>Entidad de lista
 
@@ -28,7 +21,7 @@ Una entidad de lista no está relacionada con el aprendizaje automático. Es una
 * Son un conjunto conocido.
 * No cambian a menudo. Si necesita cambiar la lista a menudo o desea que la lista se expanda automáticamente, es mejor una entidad sencilla potenciada con una lista de frases.
 * El conjunto no excede los [límites](luis-boundaries.md) máximos de LUIS para este tipo de entidad.
-* El texto de la expresión es una coincidencia exacta con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de las coincidencias exactas de texto. La coincidencia aproximada, la falta de distinción entre mayúsculas y minúsculas, la lematización, los plurales y otras variaciones no se resuelven con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional.
+* El texto de la expresión es una coincidencia, sin distinción entre mayúsculas y minúsculas, con un sinónimo o el nombre canónico. LUIS no usa la lista más allá de la coincidencia. La coincidencia aproximada, la lematización, los plurales y otras variaciones no se resuelven con una entidad de lista. Para administrar las variaciones, considere el uso de un [patrón](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) con la sintaxis de texto opcional.
 
 ![entidad de lista](./media/luis-concept-entities/list-entity.png)
 
@@ -70,7 +63,7 @@ Imagine que la aplicación tiene una lista, denominada `Cities`, que permite var
 
 En la expresión anterior, la palabra `paris` se asigna al elemento paris como parte de la entidad de lista `Cities`. La entidad de lista coincide con el nombre normalizado del elemento y con los sinónimos del elemento.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V2](#tab/V2)
 
 ```JSON
   "entities": [
@@ -88,7 +81,7 @@ En la expresión anterior, la palabra `paris` se asigna al elemento paris como p
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Respuesta de punto de conexión de predicción de V3](#tab/V3)
 
 
 Este es el valor JSON si `verbose=false` se establece en la cadena de consulta:
@@ -132,7 +125,7 @@ Este es el valor JSON si `verbose=true` se establece en la cadena de consulta:
 
 * * *
 
-|Objeto de datos|Nombre de entidad|Valor|
+|Objeto de datos|Nombre de entidad|Value|
 |--|--|--|
 |Entidad de lista|`Cities`|`paris`|
 

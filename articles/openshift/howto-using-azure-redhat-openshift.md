@@ -1,18 +1,18 @@
 ---
 title: Creación de un clúster de Red Hat OpenShift 4.3 en Azure | Microsoft Docs
-description: Creación de un clúster con Red Hat OpenShift 3.11 en Azure
+description: Creación de un clúster con Red Hat OpenShift 4.3 en Azure
 author: lamek
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
 keywords: aro, openshift, az aro, red hat, cli
-ms.openlocfilehash: 3c336a1fbfb9f991ff824e8deafe84f3d899771d
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 423f09c135da51b8401c1933a4a271d0becd2c8f
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082836"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349430"
 ---
 # <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Creación, acceso y administración de un clúster de Red Hat OpenShift 4.3 en Azure
 
@@ -56,7 +56,7 @@ La extensión `az aro` permite crear, acceder y eliminar clústeres de Red Hat O
 2. Para instalar la extensión `az aro`, ejecute el comando siguiente:
 
    ```console
-   az extension add --source https://arosvc.blob.core.windows.net/az-preview/aro-0.1.0-py2.py3-none-any.whl
+   az extension add -n aro --index https://az.aroapp.io/preview
    ```
 
 3. Compruebe que la extensión ARO está registrada.
@@ -79,7 +79,15 @@ Siga estos pasos para crear una red virtual que contenga dos subredes vacías.
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
+   PULL_SECRET="<optional-pull-secret>"
    ```
+   >[!NOTE]
+   > El secreto de extracción opcional permite al clúster acceder a los registros de contenedor de Red Hat junto con contenido adicional.
+   >
+   > Para obtener acceso al secreto de extracción, desplácese a https://cloud.redhat.com/openshift/install/azure/installer-provisioned y haga clic en *Copy Pull Secret* (Copiar secreto de extracción).
+   >
+   > Tendrá que iniciar sesión en su cuenta de Red Hat, o bien crear una nueva cuenta de Red Hat con su correo electrónico empresarial y aceptar los términos y condiciones.
+ 
 
 2. Cree un grupo de recursos para el clúster.
 
@@ -132,7 +140,8 @@ az aro create \
   -n "$CLUSTER" \
   --vnet vnet \
   --master-subnet "$CLUSTER-master" \
-  --worker-subnet "$CLUSTER-worker"
+  --worker-subnet "$CLUSTER-worker" \
+  --pull-secret "$PULL_SECRET"
 ```
 
 >[!NOTE]

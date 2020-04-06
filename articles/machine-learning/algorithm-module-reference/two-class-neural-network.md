@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 03e6c2ecbf8fa0c5f71218d29b67cb03cdf3d5db
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3a5cf2b210781d43ddd1a7aa87736a53df222cf1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916802"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477398"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo Red neuronal de dos clases
 
@@ -44,7 +44,7 @@ Para calcular la salida de la red para una entrada determinada, se calcula un va
   
     -   **Single Parameter** (Parámetro único): Elija esta opción si ya sabe cómo desea configurar el modelo.
 
-    -   **Parameter Range** (Intervalo de parámetros): Si no está seguro de los mejores parámetros, puede encontrar los parámetros óptimos mediante el módulo [Tune Model Hyperparameters](tune-model-hyperparameters.md) (Optimizar los hiperparámetros del modelo). Proporcionará un intervalo de valores, y el instructor recorrerá en iteración varias combinaciones de la configuración para determinar la combinación de valores que genera el mejor resultado.  
+    -   **Parameter Range** (Intervalo de parámetros): si no está seguro de los mejores parámetros, puede encontrar los óptimos mediante el módulo [Optimización de hiperparámetros de un modelo](tune-model-hyperparameters.md). Proporcionará un intervalo de valores, y el instructor recorrerá en iteración varias combinaciones de la configuración para determinar la combinación de valores que genera el mejor resultado.  
 
 3.  En **Hidden layer specification** (Especificación de capa oculta), seleccione el tipo de arquitectura de red que se va a crear.  
   
@@ -78,7 +78,7 @@ Para calcular la salida de la red para una entrada determinada, se calcula un va
   
     -   Si establece **Create trainer mode** (Crear modo entrenador) en **Single Parameter** (Parámetro único), use el módulo [Entrenar modelo](train-model.md).  
   
-14. Ejecución de la canalización
+14. Envíe la canalización.
 
 ## <a name="results"></a>Results
 

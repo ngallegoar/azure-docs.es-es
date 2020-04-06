@@ -4,10 +4,10 @@ description: Aprenda a diseñar flujos de trabajo para implementar sus definicio
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74267279"
 ---
 # <a name="design-policy-as-code-workflows"></a>Diseño de flujos de trabajo de directiva como código
@@ -119,7 +119,7 @@ El flujo de trabajo general de la directiva como código es desarrollar e implem
 
 En estos casos, una vez que la implementación de la aplicación o infraestructura se ha completado para una suscripción o grupo de recursos de prueba, se debe realizar la evaluación de la directiva para ese ámbito mediante la comprobación de la validación de todas las directivas e iniciativas existentes. Aunque es posible que se configuren como **enforcementMode** _disabled_ en este entorno, es útil saber pronto si la implementación de una aplicación o infraestructura infringe las definiciones de directivas en un principio. Por lo tanto, esta evaluación de directivas debe ser un paso en esos flujos de trabajo, y hacer fracasar las implementaciones que crean recursos no compatibles.
 
-## <a name="review"></a>Revisión
+## <a name="review"></a>Revisar
 
 En este artículo se describe el flujo de trabajo general de la directiva como código, así como la evaluación de la directiva que debe formar parte de otros flujos de trabajo de implementación. Este flujo de trabajo se puede usar en cualquier entorno que admita pasos con scripts y automatización basada en desencadenadores.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
 ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60803751"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recepción de eventos en un punto de conexión de HTTP
@@ -22,13 +22,13 @@ En este artículo se describe cómo [validar un punto de conexión de HTTP](secu
 > [!NOTE]
 > Se recomienda **encarecidamente** que use un [desencadenador de la cuadrícula de eventos](../azure-functions/functions-bindings-event-grid.md) al desencadenar una función de Azure con Event Grid. Aquí se usa un desencadenador de Webhook genérico con fines ilustrativos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Necesita una aplicación de función con una función desencadenada por HTTP.
 
 ## <a name="add-dependencies"></a>Adición de dependencias
 
-Si está desarrollando en .NET, [agregue una dependencia](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) a la función para el [paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) `Microsoft.Azure.EventGrid`. Los ejemplos de este artículo requieren la versión 1.4.0 o posterior.
+Si está desarrollando en .NET, [agregue una dependencia](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) a la función para el paquete `Microsoft.Azure.EventGrid` [ de NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Los ejemplos de este artículo requieren la versión 1.4.0 o posterior.
 
 Hay SDK para otros lenguajes disponibles a través de la referencia [SDK de publicación](./sdk-overview.md#data-plane-sdks). Estos paquetes contienen los modelos para los tipos de evento nativos, como `EventGridEvent`, `StorageBlobCreatedEventData` y `EventHubCaptureFileCreatedEventData`.
 

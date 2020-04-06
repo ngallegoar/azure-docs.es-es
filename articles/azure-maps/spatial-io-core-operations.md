@@ -1,19 +1,19 @@
 ---
 title: Operaciones de E/S principales | Microsoft Azure Maps
 description: Obtenga información sobre cómo leer y escribir datos XML y delimitados de forma eficaz mediante las bibliotecas principales del módulo de E/S espacial.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d2a82fd5d9ba958fd6490a83ecbbe0a4bdf820a0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370363"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371451"
 ---
 # <a name="core-io-operations"></a>Operaciones de E/S principales
 

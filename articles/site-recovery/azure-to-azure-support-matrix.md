@@ -4,12 +4,12 @@ description: Resume la compatibilidad con la recuperación ante desastres de má
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: d278f96acf8d8efc57a9ae7fb57f9a758339162a
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 0b4a654093e0842e66e1f8b0924edfa6c9c215e7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444084"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276655"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de soporte para la recuperación ante desastres de máquinas virtuales de Azure entre regiones de Azure
 
@@ -29,7 +29,7 @@ En este artículo se resumen los requisitos previos y la compatibilidad para la 
 ## <a name="resource-support"></a>Compatibilidad de recursos
 
 **Acción de recursos** | **Detalles**
---- | --- 
+--- | ---
 **Mover almacenes entre grupos de recursos** | No compatible
 **Mover recursos de proceso, almacenamiento y red entre grupos de recursos** | No compatible.<br/><br/> Si mueve una máquina virtual o los componentes asociados, como el almacenamiento o la red, después de la replicación de esta, tendrá que deshabilitar la replicación y volver a habilitarla para la máquina virtual.
 **Replicar máquinas virtuales de Azure de una suscripción a otra para la recuperación ante desastres** | Se admite en el mismo inquilino de Azure Active Directory.
@@ -46,11 +46,11 @@ Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera d
 America | Centro de Canadá y Este de Canadá, Centro-sur de EE. UU.., centro-oeste de EE. UU., este de EE. UU., este de EE. UU. 2, oeste de EE. UU., oeste de EE. UU. 2 centro de EE. UU., centro-norte de EE. UU.
 Europa | Oeste de Reino Unido, Sur de Reino Unido, Norte de Europa, Oeste de Europa, Centro de Francia, Sur de Francia, Oeste de Sudáfrica, Norte de Sudáfrica, Este de Noruega, Oeste de Noruega
 Asia | Norte de Emiratos Árabes Unidos
-Australia   | Este de Australia, Sudeste de Australia, Centro de Australia, Centro de Australia 2
-Azure Government    | Virginia Gob. EE. UU., Iowa Gob. EE. UU., US Gov de Arizona, US Gov de Texas, US DOD este, US DOD central 
-Alemania | Centro de Alemania y Nordeste de Alemania
+Australia    | Este de Australia, Sudeste de Australia, Centro de Australia, Centro de Australia 2
+Azure Government    | Virginia Gob. EE. UU., Iowa Gob. EE. UU., US Gov de Arizona, US Gov de Texas, US DOD este, US DOD central
+Alemania    | Centro de Alemania y Nordeste de Alemania
 China | Este de China, Norte de China, Norte de China 2 y Este de China 2
-Regiones restringidas reservadas para la recuperación ante desastres dentro de un país |La región Norte de Alemania está reservada para Centro-oeste de Alemania, la región Oeste de Suiza está reservada para Norte de Suiza y la región Sur de Francia está reservada para los clientes de Centro de Francia. 
+Regiones restringidas reservadas para la recuperación ante desastres dentro de un país |La región Norte de Alemania está reservada para Centro-oeste de Alemania, la región Oeste de Suiza está reservada para Norte de Suiza y la región Sur de Francia está reservada para los clientes de Centro de Francia.
 
 >[!NOTE]
 >
@@ -75,7 +75,7 @@ Firewalls de Azure Storage para redes virtuales  | Compatible | Si usa una cuent
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemas operativos de máquinas replicadas
 
-Site Recovery admite la replicación de máquinas virtuales de Azure que ejecutan los sistemas operativos enumerados en esta sección.
+Site Recovery admite la replicación de máquinas virtuales de Azure que ejecutan los sistemas operativos enumerados en esta sección. Tenga en cuenta que si una máquina que ya se está replicando se actualiza posteriormente (o se cambia a una versión anterior) a un kernel principal diferente, deberá deshabilitar la replicación y volverla a habilitar después de la actualización.
 
 ### <a name="windows"></a>Windows
 
@@ -109,7 +109,7 @@ SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Versiones de kernel admi
 SUSE Linux Enterprise Server 15 | 15 y 15 SP1. [(Versiones de kernel admitidas)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> No se admite la actualización de máquinas de replicación de SP3 a SP4. Si se ha actualizado una máquina replicada, deberá deshabilitar la replicación y volverla a habilitar después de la actualización.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Ejecución del kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3, 4 y 5 (UEK3, UEK4, UEK5) 
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Ejecución del kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3, 4 y 5 (UEK3, UEK4, UEK5)
 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel de Ubuntu admitidas para máquinas virtuales de Azure
@@ -154,11 +154,11 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.29 | Se admiten todos l
 
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 y 15 SP1 | 9.32 | Se admiten todos los [kernels stock de SUSE 15 y 15](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15).</br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure |
+SUSE Linux Enterprise Server 15 y 15 SP1 | 9.32 | Se admiten todos los [kernels stock de SUSE 15 y 15](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15).</br></br> 4.12.14-5.5-azure a 4.12.14-8.22-azure |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas: Sistema de archivos o almacenamiento de invitado de Linux
 
-* Sistemas de archivos: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS, BTRFS
+* Sistemas de archivos: ext3, ext4, XFS y BTRFS
 * Administrador de volúmenes: LVM2
 * Software de múltiples rutas: Mapeador de dispositivo
 
@@ -199,7 +199,7 @@ Esta tabla resume la compatibilidad con el disco del sistema operativo, el disco
 Tamaño máximo del disco de sistema operativo | 2048 GB | [Más información](../virtual-machines/windows/managed-disks-overview.md) sobre discos de máquina virtual.
 Disco temporal | No compatible | El disco temporal se excluye de la replicación siempre.<br/><br/> No almacene los datos persistentes en el disco temporal. [Más información](../virtual-machines/windows/managed-disks-overview.md).
 Tamaño máximo del disco de datos | 8192 GB para discos administrados<br></br>4095 GB para discos no administrados|
-Tamaño mínimo del disco de datos | Sin restricción de discos no administrados. 2 GB en discos administrados | 
+Tamaño mínimo del disco de datos | Sin restricción de discos no administrados. 2 GB en discos administrados |
 Número máximo de discos de datos | Hasta 64, según la compatibilidad con un tamaño específico de máquina virtual de Azure | [Más información](../virtual-machines/windows/sizes.md) sobre tamaños de máquina virtual.
 Tasa de cambio de disco de datos | Máximo de 10 MBps por disco para el almacenamiento Premium. Máximo de 2 MBps por disco para el almacenamiento Estándar. | Si la tasa media de cambio de los datos en el disco sobrepasa el máximo continuamente, la replicación no mantendrá el ritmo.<br/><br/>  Sin embargo, si se supera el máximo esporádicamente, la replicación podrá mantenerlo, aunque podría ver puntos de recuperación ligeramente retrasados.
 Disco de datos: cuenta de almacenamiento Estándar | Compatible |
@@ -210,15 +210,16 @@ SSD estándar | Compatible |
 Redundancia | Se admiten LRS y GRS.<br/><br/> No se admite ZRS.
 Almacenamiento esporádico y almacenamiento frecuente | No compatible | Los discos de máquina virtual no admiten el almacenamiento esporádico ni el frecuente
 Espacios de almacenamiento | Compatible |
-Cifrado en reposo (SSE) | Compatible | SSE es la configuración predeterminada en las cuentas de almacenamiento.   
-Cifrado en reposo (CMK) | Compatible | Para los discos administrados se admiten tanto claves de software como HSM    
-Azure Disk Encryption (ADE) para sistemas operativos Windows | Compatible con máquinas virtuales con discos administrados. No se admiten las máquinas virtuales que usan discos no administrados |
-Azure Disk Encryption (ADE) para sistemas operativos Linux | Compatible |
-Adición en caliente | Compatible | La replicación de un disco de datos que se agrega a una máquina virtual de Azure replicada se puede habilitar en máquinas virtuales que usan discos administrados.
-Eliminación de disco en caliente | No compatible | Si quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo en la máquina virtual.
-Excluir el disco | Compatible. Debe usar [PowerShell](azure-to-azure-exclude-disks.md) para configurarlo. |  Los discos temporales se excluyen de forma predeterminada.
+Cifrado en reposo (SSE) | Compatible | SSE es la configuración predeterminada en las cuentas de almacenamiento.
+Cifrado en reposo (CMK) | Compatible | Para los discos administrados se admiten tanto claves de software como HSM
+Azure Disk Encryption (ADE) para sistemas operativos Windows | Compatible con máquinas virtuales con discos administrados. | No se admiten las máquinas virtuales que usan discos no administrados. <br/><br/> No se admiten las claves protegidas con HSM. |
+Azure Disk Encryption (ADE) para sistemas operativos Linux | Compatible con máquinas virtuales con discos administrados. | No se admiten las máquinas virtuales que usan discos no administrados. <br/><br/> No se admiten las claves protegidas con HSM. |
+Adición en caliente    | Compatible | La replicación de un disco de datos que se agrega a una máquina virtual de Azure replicada se puede habilitar en máquinas virtuales que usan discos administrados.
+Eliminación de disco en caliente    | No compatible | Si quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo en la máquina virtual.
+Excluir el disco | Compatible. Debe usar [PowerShell](azure-to-azure-exclude-disks.md) para configurarlo. |    Los discos temporales se excluyen de forma predeterminada.
 Espacios de almacenamiento directo  | Compatible con puntos de recuperación coherentes con los bloqueos. Los puntos de recuperación coherentes de la aplicación no son compatibles. |
 Servidor de archivos de escalado horizontal  | Compatible con puntos de recuperación coherentes con los bloqueos. Los puntos de recuperación coherentes de la aplicación no son compatibles. |
+DRBD | No se admiten los discos que forman parte de una instalación de DRBD. |
 LRS | Compatible |
 GRS | Compatible |
 RA-GRS | Compatible |
@@ -241,9 +242,9 @@ En la tabla siguiente se resumen los límites de Site Recovery.
 
 **Destino de almacenamiento** | **Promedio de E/S de disco de origen** |**Actividad de datos media de disco de origen** | **Actividad de datos de disco de origen total por día**
 ---|---|---|---
-Standard Storage | 8 KB | 2 MB/s | 168 GB por disco
-Disco Premium P10 o P15 | 8 KB  | 2 MB/s | 168 GB por disco
-Disco Premium P10 o P15 | 16 KB | 4 MB/s |  336 GB por disco
+Standard Storage | 8 KB    | 2 MB/s | 168 GB por disco
+Disco Premium P10 o P15 | 8 KB    | 2 MB/s | 168 GB por disco
+Disco Premium P10 o P15 | 16 KB | 4 MB/s |    336 GB por disco
 Disco Premium P10 o P15 | 32 KB, o más | 8 MB/s | 672 GB por disco
 Disco Premium P20, P30, P40 o P50 | 8 KB    | 5 MB/s | 421 GB por disco
 Disco Premium P20, P30, P40 o P50 | 16 KB, o más |20 MB/s | 1684 GB por disco
@@ -259,14 +260,14 @@ Grupo de seguridad de red en una tarjeta NIC | Compatible | Asocie el grupo de s
 Grupo de seguridad de red en la subred | Compatible | Asocie el grupo de seguridad de red a la subred con un script de Azure Automation de un plan de recuperación.
 Dirección IP (estática) reservada | Compatible | Si la NIC de la máquina virtual de origen tiene una dirección IP estática y la subred de destino tiene la misma dirección IP disponible, esta se asigna a la máquina virtual de conmutación por error.<br/><br/> Si la subred de destino no tiene la misma dirección IP disponible, una de las direcciones IP disponibles de la subred se reserva para esta máquina virtual.<br/><br/> También puede especificar una dirección IP fija y una subred en **Elementos replicados** > **Configuración** > **Proceso y red** > **Interfaces de red**.
 Dirección IP dinámica | Compatible | Si la NIC de origen tiene una dirección IP dinámica, la NIC de la máquina virtual de conmutación por error será también dinámica de forma predeterminada.<br/><br/> Puede modificar esta a una dirección IP fija si es necesario.
-Varias direcciones IP | No compatible | Cuando se conmuta por error una máquina virtual que tiene una NIC con varias direcciones IP, solamente se mantiene la dirección IP principal de la NIC en la región de origen. Para asignar varias direcciones IP, puede agregar máquinas virtuales a un [plan de recuperación](recovery-plan-overview.md) y adjuntar un script para asignar direcciones IP adicionales al plan, o bien puede realizar el cambio manualmente o con un script después de la conmutación por error. 
+Varias direcciones IP | No compatible | Cuando se conmuta por error una máquina virtual que tiene una NIC con varias direcciones IP, solamente se mantiene la dirección IP principal de la NIC en la región de origen. Para asignar varias direcciones IP, puede agregar máquinas virtuales a un [plan de recuperación](recovery-plan-overview.md) y adjuntar un script para asignar direcciones IP adicionales al plan, o bien puede realizar el cambio manualmente o con un script después de la conmutación por error.
 Traffic Manager     | Compatible | Puede configurar previamente Traffic Manager de forma que el tráfico se dirija regularmente al punto de conexión de la región de origen y al punto de conexión de la región de destino en caso de conmutación por error.
 Azure DNS | Compatible |
-DNS personalizado  | Compatible |
-Proxy no autenticado | Compatible | [Más información](site-recovery-azure-to-azure-networking-guidance.md)    
-Proxy autenticado | No compatible | Si la máquina virtual usa un proxy autenticado para la conectividad saliente, no se puede replicar mediante Azure Site Recovery.    
-Conexión VPN de sitio a sitio en el entorno local<br/><br/>(con o sin ExpressRoute)| Compatible | Asegúrese de que los UDR y NSG estén configurados de manera que el tráfico de Site Recovery no se dirija al entorno local. [Más información](site-recovery-azure-to-azure-networking-guidance.md)    
-Conexión de red virtual a red virtual | Compatible | [Más información](site-recovery-azure-to-azure-networking-guidance.md)  
+DNS personalizado    | Compatible |
+Proxy no autenticado | Compatible | [Más información](site-recovery-azure-to-azure-networking-guidance.md)
+Proxy autenticado | No compatible | Si la máquina virtual usa un proxy autenticado para la conectividad saliente, no se puede replicar mediante Azure Site Recovery.
+Conexión VPN de sitio a sitio en el entorno local<br/><br/>(con o sin ExpressRoute)| Compatible | Asegúrese de que los UDR y NSG estén configurados de manera que el tráfico de Site Recovery no se dirija al entorno local. [Más información](site-recovery-azure-to-azure-networking-guidance.md)
+Conexión de red virtual a red virtual    | Compatible | [Más información](site-recovery-azure-to-azure-networking-guidance.md)
 Puntos de conexión de servicio de red virtual | Compatible | Si está restringiendo el acceso de red virtual a las cuentas de almacenamiento, asegúrese de que los servicios de Microsoft de confianza pueden acceder a la cuenta de almacenamiento.
 Redes aceleradas | Compatible | Se deben habilitar las redes aceleradas en una máquina virtual de origen. [Más información](azure-vm-disaster-recovery-with-accelerated-networking.md).
 

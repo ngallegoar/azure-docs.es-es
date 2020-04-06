@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 994ac88f78dfe5a5b0ee6fef3fa97d66d53c911b
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 96312bac369cfa5fe3cb8a00fd63ecfbec624918
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156699"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80348527"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Inicio rápido: Creación de un comando personalizado con parámetros (versión preliminar)
 
@@ -91,7 +91,7 @@ Modifique la regla de finalización que creó en [la guía de inicio rápido ant
 1. Edite la acción de respuesta de voz para que use `OnOff` y `SubjectDevice`:
 
    ```
-   Ok, turning {OnOff} the {SubjectDevice}
+   - Ok, turning {OnOff} the {SubjectDevice}
    ```
 
 ## <a name="try-it-out"></a>Prueba
@@ -111,4 +111,4 @@ Abra el panel de chat de prueba y pruebe algunas interacciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Inicio rápido: conexión a una aplicación de comandos personalizados con el SDK de Voz (versión preliminar)](./quickstart-custom-speech-commands-speech-sdk.md)
+> [Inicio rápido: Uso de comandos personalizados con Voz personalizada (versión preliminar)](./quickstart-custom-speech-commands-select-custom-voice.md)

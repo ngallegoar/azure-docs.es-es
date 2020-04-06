@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: cherylmc
 ms.openlocfilehash: f37d7f3bfac37253339aab3493fb2c444900e099
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73511181"
 ---
 # <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>Configuración de una directiva IPsec personalizada para Azure Virtual WAN en el portal

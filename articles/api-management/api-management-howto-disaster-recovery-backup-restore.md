@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 8f748764d0f61e4932b2d4710f5a6805a5eddf0e
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: f9758678708338a284a35b45f7f9dd43b9a9017c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047467"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335952"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -139,7 +139,7 @@ Antes de llamar a las operaciones de "copia de seguridad y restauración" descri
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 
-### <a name="step1"> </a>Crear una copia de seguridad del servicio API Management
+### <a name="back-up-an-api-management-service"></a><a name="step1"> </a>Crear una copia de seguridad del servicio API Management
 
 Para crear una copia de seguridad del servicio API Management, emita esta solicitud HTTP:
 
@@ -175,7 +175,7 @@ Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia 
 -   Mientras la copia de seguridad esté en curso, **evite hacer cambios de administración en el servicio**, como una actualización o un cambio a una versión anterior de una SKU, el cambio en un nombre de dominio, etc.
 -   La restauración de una **copia de seguridad se garantiza solo durante 30 días** a partir del momento en que esta se crea.
 -   Los **datos de uso** con los que se crean informes de análisis **no se incluyen** en la copia de seguridad. La [API de REST de Azure API Management][azure api management rest api] permite recibir de forma periódica informes de análisis para guardarlos en un lugar seguro.
--   Además, los elementos siguientes no forman parte de los datos de copia de seguridad: certificados SSL de dominio personalizado y cualquier certificado intermedio o raíz cargado por el cliente, el contenido del portal para desarrolladores y la configuración de integración de Virtual Network.
+-   Además, los elementos siguientes no forman parte de los datos de copia de seguridad: certificados TLS/SSL de dominio personalizado y cualquier certificado intermedio o raíz cargado por el cliente, el contenido del portal para desarrolladores y la configuración de integración de Virtual Network.
 -   La frecuencia con la que se crean las copias de seguridad afecta al objetivo de punto de recuperación. Para minimizarlo, se recomienda implementar copias de seguridad habituales y realizar copias de seguridad a petición después de hacer cambios en el servicio API Management.
 -   Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, las API, las directivas y la apariencia del portal para desarrolladores) mientras se está realizando la operación de copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
 -   **Permita** el acceso desde el plano de control a la cuenta de Azure Storage si tiene el [firewall][azure-storage-ip-firewall] habilitado. El cliente debe abrir el conjunto de [direcciones IP del plano de control de Azure API Management][control-plane-ip-address] en su cuenta de almacenamiento para la copia de seguridad o la restauración. 
@@ -183,7 +183,7 @@ Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia 
 > [!NOTE]
 > Si intenta realizar una copia de seguridad o una restauración desde o a un servicio de API Management usando una cuenta de almacenamiento que tiene el [firewall][azure-storage-ip-firewall] habilitado, en la misma región de Azure, esto no funcionará. Esto se debe a que a las solicitudes a Azure Storage no se les aplica SNAT a una dirección IP pública desde Compute > (plano de control de Azure API Management). Se aplicará SNAT a la solicitud de almacenamiento entre regiones.
 
-### <a name="step2"> </a>Restaurar el servicio API Management
+### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Restaurar el servicio API Management
 
 Para restaurar el servicio API Management de una copia de seguridad anterior, realice esta solicitud HTTP:
 

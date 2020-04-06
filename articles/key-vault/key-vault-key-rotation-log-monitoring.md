@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f7fbc82c08d89d73d671a49fb31b9d3cca01c721
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6962a264787bd8a55b6f6a2ebdb6eeb615c33d5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195522"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218412"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves
 
@@ -23,21 +23,16 @@ ms.locfileid: "78195522"
 
 Cuando disponga de un almacén de claves, puede empezar a usarlo para almacenar claves y secretos. Ya no será necesario que las claves y los secretos se guarden en las aplicaciones, sino que estas los solicitarán al almacén cuando sea preciso. Un almacén de claves permite actualizar las claves y los secretos sin que esto afecte al rendimiento de la aplicación, lo que brinda un amplio abanico de posibilidades en lo que respecta a la administración de las claves y los secretos.
 
->[!IMPORTANT]
-> Los ejemplos de este artículo se proporcionan únicamente con fines ilustrativos. No están pensados para su uso en producción. 
+Este artículo le guía por el proceso de implementación de una rotación programada de claves de cuenta de almacenamiento, la supervisión de los registros de auditoría del almacén de claves y la generación de alertas cuando se realizan solicitudes inesperadas. 
 
-Este artículo ofrece lo siguiente:
+Primero tiene que crear un almacén de claves mediante el método que elija:
 
-- Un ejemplo de uso de Azure Key Vault para almacenar un secreto. En este artículo, el secreto almacenado es la clave de la cuenta de Azure Storage a la que accede una aplicación. 
-- Cómo implementar una rotación programada de esa clave de cuenta de almacenamiento.
-- Cómo supervisar los registros de auditoría del almacén de claves y generar alertas cuando se realizan solicitudes inesperadas.
+- [Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure](quick-create-cli.md)
+- [Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure PowerShell](quick-create-powershell.md)
+- [Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal](quick-create-portal.md)
 
-> [!NOTE]
-> En este artículo no se explica en detalle la configuración inicial del almacén de claves. Para obtener más información, consulte [¿Qué es Azure Key Vault?](key-vault-overview.md). Para obtener instrucciones de la interfaz de la línea de comandos para todas las plataformas, vea [Administración de Key Vault mediante la CLI de Azure](key-vault-manage-with-cli2.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="set-up-key-vault"></a>Configuración de Key Vault
+## <a name="store-a-secret"></a>Almacenamiento de un secreto
 
 Para que una aplicación pueda recuperar un secreto de Key Vault, primero debe crear el secreto y guardarlo en el almacén.
 

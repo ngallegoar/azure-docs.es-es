@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 02/04/2020
 ms.custom: seodec18
-ms.openlocfilehash: 35b330f27ba87aa18ce2c2f275a7b19fdae3cb65
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 209df97169c71d910677ffdb2e2b12593882445b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024422"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80152605"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnóstico y solución de problemas de su entorno Time Series Insights
 
@@ -99,6 +99,22 @@ Para corregir el retraso:
 1. Aumente la capacidad de la SKU al valor máximo permitido (10 en este caso). Después de aumentar la capacidad, se inicia el proceso de entrada para ponerse al día mucho más rápidamente. El aumento de capacidad se le cobra. Para visualizar lo rápido que se está recuperando, puede ver el gráfico de disponibilidad del [explorador de Time Series Insights](https://insights.timeseries.azure.com).
 
 2. Cuando se actualice el retraso, reduzca la capacidad de la SKU a la velocidad de entrada normal.
+
+## <a name="problem-data-was-showing-previously-but-is-no-longer-showing"></a>Problema: los datos se mostraban anteriormente, pero ya no lo hacen
+
+TSI ya no ingiere datos, pero se siguen transmitiendo eventos a IoT Hub o al centro de eventos.
+
+### <a name="cause-a-your-hub-access-key-was-regenerated-and-your-environment-needs-updating"></a>Causa A: se ha regenerado la clave de acceso del centro y su entorno necesita actualizarse
+
+Este problema se produce cuando la clave proporcionada al crear el origen del evento ya no es válida. Vería la telemetría en el centro, pero ningún mensaje de entrada recibido en Time Series Insights. Si no está seguro de si se ha regenerado la clave, puede buscar "crear o actualizar reglas de autorización de espacio de nombres" o "crear o actualizar recursos de IotHub" para IoT Hub en el registro de actividad de Event Hubs.
+
+Para actualizar el entorno de Time Series Insights con la nueva clave, abra el recurso del centro en Azure Portal y copie la nueva clave. Vaya al recurso de TSI y haga clic en Orígenes de eventos. 
+
+   [![Actualización de la clave.](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1.png#lightbox)
+
+Seleccione los orígenes de eventos en los que se ha detenido la ingesta, pegue la nueva clave y haga clic en Guardar.
+
+   [![Actualización de la clave.](media/diagnose-and-solve-problems/update-hub-key-step-2.png)](media/diagnose-and-solve-problems/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problema: mi valor de nombre de propiedad de marca de tiempo del origen de eventos no funciona
 

@@ -2,13 +2,13 @@
 title: Creación de un recurso de Personalizer
 description: La configuración del servicio incluye la forma en que el servicio trata las recompensas, la frecuencia con el servicio realiza las exploraciones, la frecuencia con que se vuelve a entrenar al modelo y la cantidad de datos que se almacenan.
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: cb14415f3a5950ad1534d9eb8da94198a41f4f91
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 03/26/2020
+ms.openlocfilehash: adb97db53d1fc0b6f0cdb14b697c82ec52501b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77624186"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336059"
 ---
 # <a name="create-a-personalizer-resource"></a>Creación de un recurso de Personalizer
 
@@ -29,20 +29,24 @@ Crear un recurso de Personalizer para cada bucle de comentarios.
 
 1. Seleccione **Crear** para crear el recurso.
 
-1. Una vez implementado el recurso, seleccione el botón **Ir al recurso** para ir al recurso de Personalizer. Vaya a la página **Configuración** del nuevo recurso para [configurar el bucle de aprendizaje](how-to-settings.md).
+1. Una vez implementado el recurso, seleccione el botón **Ir al recurso** para ir al recurso de Personalizer.
+
+1. Seleccione la página **Inicio rápido** de su recurso y, luego, copie los valores del punto de conexión y la clave. Tanto el punto de conexión como la clave serán necesarios para usar las API Rank y Reward.
+
+1. Seleccione la página **Configuración** del nuevo recurso para [configurar el bucle de aprendizaje](how-to-settings.md).
 
 ## <a name="create-a-resource-with-the-azure-cli"></a>Creación de un recurso con la CLI de Azure
 
 1. Inicie sesión en la CLI de Azure con el siguiente comando:
 
-    ```bash
+    ```azurecli-interactive
     az login
     ```
 
 1. Cree un grupo de recursos, una agrupación lógica para administrar todos los recursos de Azure que piensa usar con el recurso de Personalizer.
 
 
-    ```bash
+    ```azurecli-interactive
     az group create \
         --name your-personalizer-resource-group \
         --location westus2
@@ -50,7 +54,7 @@ Crear un recurso de Personalizer para cada bucle de comentarios.
 
 1. Cree un nuevo recurso Personalizer, el _bucle de aprendizaje_, con el siguiente comando para un grupo de recursos existente.
 
-    ```bash
+    ```azurecli-interactive
     az cognitiveservices account create \
         --name your-personalizer-learning-loop \
         --resource-group your-personalizer-resource-group \
@@ -59,6 +63,19 @@ Crear un recurso de Personalizer para cada bucle de comentarios.
         --location westus2 \
         --yes
     ```
+
+    Esta acción devuelve un objeto JSON, que incluye el **punto de conexión del recurso**.
+
+1. Use el siguiente comando de la CLI de Azure para obtener su **clave de recurso**.
+
+    ```azurecli-interactive
+        az cognitiveservices account keys list \
+        --name your-personalizer-learning-loop \
+        --resource-group your-personalizer-resource-group
+    ```
+
+    Tanto el punto de conexión como la clave serán necesarios para usar las API Rank y Reward.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración](how-to-settings.md) del bucle de aprendizaje de Personalizer

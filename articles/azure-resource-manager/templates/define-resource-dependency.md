@@ -3,14 +3,14 @@ title: Establecimiento del orden de implementación para recursos
 description: Describe cómo establecer un recurso como dependiente de otro recurso durante la implementación para garantizar el orden de implementación correcto de los recursos.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: ffd6d6c65a1cbe9578b5f9162d29f3238e27ea71
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: f11f79df875492a568a76f494dfffb4a163f64cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207696"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153291"
 ---
-# <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definición del orden de implementación de recursos en plantillas de Azure Resource Manager
+# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definición del orden de implementación de recursos en las plantillas de ARM
 
 Al implementar un recurso, es posible que tenga que asegurarse de que existen otros antes de implementarlo. Por ejemplo, necesitará un servidor SQL Server antes de implementar una base de datos SQL. Esta relación se define al marcar un recurso como dependiente del otro. Una dependencia se define con el elemento **dependsOn** o mediante la función **reference**.
 

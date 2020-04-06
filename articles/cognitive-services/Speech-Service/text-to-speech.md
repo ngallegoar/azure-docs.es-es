@@ -3,33 +3,35 @@ title: 'Texto a voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: La característica de texto a voz del servicio de voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada natural similar a la humana. Elija voces preestablecidas o cree su voz personalizada.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.author: erhopf
-ms.openlocfilehash: d076d2520bda4d6209fbdd991df57c4eedaa3938
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/23/2020
+ms.author: dapine
+ms.openlocfilehash: 7c7574ee4e9f75b9b650ff63a10666c5e379fca8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379885"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131561"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 La característica de texto a voz del servicio de voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada similar a la humana. Puede elegir entre voces estándar y neuronales, o puede crear una voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales, y 5 voces neuronales que están disponibles en varios idiomas y configuraciones regionales. Para obtener una lista completa de las voces, los idiomas y las configuraciones regionales compatibles, consulte [Idiomas admitidos](language-support.md#text-to-speech).
 
 > [!NOTE]
-> Bing Speech se ha retirado el 15 de octubre de 2019. Si sus aplicaciones, herramientas o productos usan Bing Speech API o Custom Speech, hemos creado guías para que le ayuden a migrar al servicio de voz.
+> Bing Speech se ha retirado el 15 de octubre de 2019. Si sus aplicaciones, herramientas o productos usan Bing Speech API o Habla personalizada, hemos creado guías para que le ayuden a migrar al servicio de voz.
 > - [Migración de Bing Speech al servicio de voz](how-to-migrate-from-bing-speech.md)
 
-## <a name="core-features"></a>Características principales 
+## <a name="core-features"></a>Características principales
 
 * Síntesis de voz: use el [SDK de voz](quickstarts/text-to-speech-audio-file.md) o la [API de REST](rest-text-to-speech.md) para convertir texto a voz mediante las voces estándar, neuronal o personalizada.
 
-* Síntesis asincrónica de audio de larga duración: use [Long Audio API](long-audio-api.md) para sintetizar asincrónicamente archivos de texto a voz de más de 10 minutos (por ejemplo, audiolibros o audioconferencias). A diferencia de la síntesis realizada mediante el SDK de voz o la API de REST de voz a texto, las respuestas no se devuelven en tiempo real. La expectativa es que las solicitudes se envíen de forma asincrónica, se sondeen las respuestas y el audio sintetizado se descargue cuando esté disponible en el servicio. Solo se admiten las voces neuronales.
+* Síntesis asincrónica de audio de larga duración: use [Long Audio API](long-audio-api.md) para sintetizar asincrónicamente archivos de texto a voz de más de 10 minutos (por ejemplo, audiolibros o audioconferencias). A diferencia de la síntesis realizada mediante el SDK de voz o la API de REST de voz a texto, las respuestas no se devuelven en tiempo real. La expectativa es que las solicitudes se envíen de forma asincrónica, se sondeen las respuestas y el audio sintetizado se descargue cuando esté disponible en el servicio. Solo se admiten las voces neuronales personalizadas.
 
 * Voces estándar: se crean mediante técnicas de síntesis paramétrica estadística y de síntesis de concatenación. Estas voces son realmente inteligibles y suenan muy naturales. Puede habilitar fácilmente sus aplicaciones para que hablen en más de 45 idiomas, con una amplia gama de opciones de voz. Estas voces proporcionan una alta precisión de pronunciación, admiten abreviaturas, expanden acrónimos, interpretan la fecha y la hora, son polifónicas y ofrecen muchas cosas más. Hay una lista completa de voces estándar en [Idiomas admitidos](language-support.md#text-to-speech).
 
@@ -54,7 +56,7 @@ El ejemplo de código para texto a voz está disponible en GitHub. Estos ejemplo
 - [Ejemplos de conversión de texto a voz (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Ejemplos de texto a voz (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-## <a name="customization"></a>Personalización 
+## <a name="customization"></a>Personalización
 
 Además de las voces estándar y neuronales, puede crear y ajustar las voces personalizadas exclusivas del producto o la marca. Todo lo que se necesita para empezar son unos cuantos archivos de audio y las transcripciones asociadas. Para obtener información, consulte [Introducción a voz personalizada](how-to-custom-voice.md).
 

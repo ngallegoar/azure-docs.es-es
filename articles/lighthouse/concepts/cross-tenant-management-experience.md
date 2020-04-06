@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 03/05/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 42368bcbc9f15f9ff5ef957b4c88f15bf070f25b
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 0e55923e688d1062adc5838a88e8d3202864282a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402089"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79218380"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -63,6 +63,7 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 
 - haga una copia de seguridad y restaure los datos de los inquilinos de clientes
 - Use el [Explorador de copia de seguridad](../../backup/monitor-azure-backup-with-backup-explorer.md) para ayudar a ver la información operativa de los elementos de copia de seguridad (incluidos los recursos de Azure que todavía no están configurados para la copia de seguridad) y la información de supervisión (trabajos y alertas) de las suscripciones delegadas. El Explorador de Backup solo está disponible actualmente para los datos de máquinas virtuales de Azure.
+- Use [informes de copia de seguridad](../../backup/configure-reports.md) a través de suscripciones delegadas para realizar un seguimiento de tendencias históricas, analizar el consumo de almacenamiento de copia de seguridad y auditar copias de seguridad y restauraciones.
 
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 1778ba543e070bbffbbc8579b280373d834492fd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 417ef716c391126982809574fc16f6681115cac3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920811"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477415"
 ---
 # <a name="train-svd-recommender"></a>Entrenamiento del recomendador SVD
 
@@ -68,7 +68,7 @@ En este ejemplo, se puede ver que un único usuario ha clasificado varias pelíc
 
     La velocidad de aprendizaje determina el tamaño del paso en cada iteración. Si el tamaño del paso es demasiado grande, puede pasar por alto la solución óptima. Si el tamaño del paso es demasiado pequeño, el aprendizaje tarda más tiempo en encontrar la mejor solución. 
   
-5.  Ejecución de la canalización  
+5.  Envíe la canalización.  
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 701e42caba5325df34bdbb2381389708b9b5a03f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198861"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79479566"
 ---
 # <a name="install-azure-farmbeats"></a>Instalación de Azure FarmBeats
 
@@ -124,11 +124,11 @@ Ejecute los pasos siguientes en una instancia de Cloud Shell mediante el entorno
 
 4. El script solicita las tres entradas siguientes:
 
-    - Nombre del sitio web de FarmBeats: este es el prefijo de dirección URL único para la aplicación web FarmBeats. En caso de que el prefijo ya se haya usado, el script generará un error. Una vez instalado, se podrá acceder a la implementación de FarmBeats desde https://\<FarmBeats-website-name>.azurewebsites.net y las API de Swagger estarán en https://\<FarmBeats-website-name>-api.azurewebsites.net
+    - **Nombre del sitio web de FarmBeats**: este es el prefijo de dirección URL único para la aplicación web FarmBeats. En caso de que el prefijo ya se haya usado, el script generará un error. Una vez instalado, se podrá acceder a la implementación de FarmBeats desde https://\<FarmBeats-website-name>.azurewebsites.net y las API de Swagger estarán en https://\<FarmBeats-website-name>-api.azurewebsites.net
 
-    - Identificador de inicio de sesión de Azure: proporcione el identificador de inicio de sesión de Azure del usuario que quiere agregar como administrador de FarmBeats. Luego, este usuario puede conceder a otros usuarios acceso a la aplicación web FarmBeats. El identificador de inicio de sesión suele tener el formato john.doe@domain.com. También se admite el UPN de Azure.
+    - **Identificador de inicio de sesión de Azure**: proporcione el identificador de inicio de sesión de Azure del usuario que quiere agregar como administrador de FarmBeats. Luego, este usuario puede conceder a otros usuarios acceso a la aplicación web FarmBeats. El identificador de inicio de sesión suele tener el formato john.doe@domain.com. También se admite el UPN de Azure.
 
-    - Identificador de suscripción: este es el identificador de la suscripción en la que quiere instalar Azure FarmBeats.
+    - **Id. de suscripción**: este es el identificador de la suscripción en la que quiere instalar Azure FarmBeats.
 
 5. El script de AAD tarda unos 2 minutos en ejecutarse y presenta los valores en pantalla y en un archivo JSON en el mismo directorio. Si otra persona ejecuta el script, pídale que comparta esta salida con usted.
 

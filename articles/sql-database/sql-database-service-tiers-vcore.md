@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 9b156193035d87472c462bae37e405e0317d8402
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 5fd69dcd30292630862887ab5434764ba377b396
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650306"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481089"
 ---
 # <a name="vcore-model-overview"></a>Introducción al modelo de núcleos virtuales
 
@@ -81,13 +81,15 @@ Para ver las regiones en las que Gen4/Gen5 está disponible, vea la [disponibili
 - En función de la carga de trabajo, la serie Fsv2 puede ofrecer más rendimiento de CPU por núcleo virtual que Gen5, y el tamaño de 72 núcleos virtuales puede proporcionar más rendimiento de CPU con menos costos que 80 núcleos virtuales en Gen5. 
 - Fsv2 proporciona menos memoria y tempdb por núcleo virtual que otro hardware, por lo que se pueden tomar en consideración las series Gen5 y M para las cargas de trabajo sensibles a esos límites.  
 
-Para las regiones en las que está disponible la serie Fsv2, consulte la [disponibilidad de la serie Fsv2](#fsv2-series).
+La serie Fsv2 solo se admite en el nivel De uso general.  Para las regiones en las que está disponible la serie Fsv2, consulte la [disponibilidad de la serie Fsv2](#fsv2-series).
 
 
 ### <a name="m-seriespreview"></a>Serie M (versión preliminar)
 
 - La serie M es una opción de hardware optimizado para memoria para las cargas de trabajo que exigen más memoria y mayores límites de proceso que los proporcionados por Gen5.
 - La serie M proporciona 29 GB por núcleo virtual y 128 núcleos virtuales, lo que aumenta el límite de memoria con respecto a Gen5 por 8x hasta casi 4 TB.
+
+La serie M solo se admite en el nivel Crítico para la empresa y no es compatible con la redundancia de zona.
 
 Para habilitar hardware de la serie M para una suscripción y región, se debe abrir una solicitud de soporte técnico. La suscripción debe ser un tipo de oferta de pago, como Pago por uso o Contrato Enterprise (EA).  Si se aprueba la solicitud de soporte técnico, la experiencia de selección y aprovisionamiento de la serie M sigue el mismo patrón que para otras generaciones de hardware. Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series).
 
@@ -98,10 +100,11 @@ Para habilitar hardware de la serie M para una suscripción y región, se debe a
 |Generación de hardware  |Proceso  |Memoria  |
 |:---------|:---------|:---------|
 |Gen4     |- Procesadores Intel E5-2673 v3 (Haswell) 2,4 GHz<br>- Aprovisionamiento de hasta 24 núcleos virtuales (1 núcleo virtual = 1 núcleo físico)  |- 7 GB por núcleo virtual<br>- Aprovisionamiento de hasta 168 GB|
-|Gen5     |**Proceso aprovisionado**<br>- Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz e Intel SP-8160 (Skylake)<br>- Aprovisionamiento de hasta 80 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)<br><br>**Proceso sin servidor**<br>- Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz e Intel SP-8160 (Skylake)<br>- Escalado vertical automático de hasta 16 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|**Proceso aprovisionado**<br>- 5,1 GB por núcleo virtual<br>- Aprovisionamiento de hasta 408 GB<br><br>**Proceso sin servidor**<br>- Escalado vertical automático de hasta 24 GB por núcleo virtual<br>- Escalado vertical automático de hasta 48 GB máx.|
+|Gen5     |**Proceso aprovisionado**<br>- Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz e Intel SP-8160 (Skylake)*<br>- Aprovisionamiento de hasta 80 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)<br><br>**Proceso sin servidor**<br>- Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz e Intel SP-8160 (Skylake)*<br>- Escalado vertical automático de hasta 16 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|**Proceso aprovisionado**<br>- 5,1 GB por núcleo virtual<br>- Aprovisionamiento de hasta 408 GB<br><br>**Proceso sin servidor**<br>- Escalado vertical automático de hasta 24 GB por núcleo virtual<br>- Escalado vertical automático de hasta 48 GB máx.|
 |Serie Fsv2     |- Procesadores Intel Xeon Platinum 8168 (SkyLake)<br>- Presentación de una velocidad de reloj turbo sostenida de todos los núcleos de hasta 3,4 GHz y una velocidad de reloj turbo de un solo núcleo máxima de 3,7 GHz.<br>- Aprovisionamiento de hasta 72 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|1,9 GB por núcleo virtual<br>- Aprovisionamiento de 136 GB|
 |Serie M     |- Procesadores Intel Xeon E7-8890 v3 de 2,5 GHz<br>- Aprovisionamiento de 128 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|29 GB por núcleo virtual<br>- Aprovisionamiento de 3,7 TB|
 
+\* En la vista de administración dinámica [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la generación de hardware para bases de datos Gen5 que usan procesadores Intel SP-8160 (Skylake) aparece como Gen6. Los límites de recursos en todas las bases de datos Gen5 son los mismos, independientemente del tipo de procesador (Broadwell o Skylake).
 
 Para obtener más información sobre los límites de recursos, vea [Límites de recursos para bases de datos únicas (núcleo virtual)](sql-database-vcore-resource-limits-single-databases.md) o [Límites de recursos para grupos elásticos (núcleo virtual)](sql-database-vcore-resource-limits-elastic-pools.md).
 
@@ -174,7 +177,7 @@ Para obtener más detalles, vea el comando [az sql mi update](https://docs.micro
 
 ### <a name="hardware-availability"></a>Disponibilidad de hardware
 
-#### <a name="gen4gen5-1"></a> Gen4/Gen5
+#### <a name="gen4gen5"></a><a name="gen4gen5-1"></a> Gen4/Gen5
 
 El hardware de Gen4 está [en proceso de eliminación gradual](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) y ya no está disponible para las nuevas implementaciones. Todas las nuevas bases de datos deben implementarse en hardware de Gen5.
 

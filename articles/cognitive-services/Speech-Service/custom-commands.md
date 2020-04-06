@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 9349969f1f9b037a271cb727233517daba999acd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2e1b6ee0bd6c392804915fac6ff23278a00b6d33
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446978"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79367846"
 ---
-# <a name="custom-commands-preview"></a>Comandos personalizados (versión preliminar)
+# <a name="what-are-custom-commands-preview"></a>¿Qué son los comandos personalizados (versión preliminar)?
 
-Las aplicaciones de voz, como los [asistentes de voz](voice-assistants.md), escuchan a los usuarios y realizan una acción en consecuencia, lo que a menudo implica una respuesta. Utilizan [conversión de voz en texto](speech-to-text.md) para transcribir la voz del usuario y, a continuación, realizan una acción en función de su comprensión del lenguaje natural del texto. Esta acción suele incluir una respuesta hablada del asistente generada con la [conversión de texto en voz](text-to-speech.md). Los dispositivos se conectan con los asistentes mediante el objeto `DialogServiceConnector` del SDK de Voz.
+Las aplicaciones de voz, como los [asistentes de voz](voice-assistants.md), escuchan a los usuarios y realizan una acción en consecuencia, lo que a menudo implica una respuesta. Utilizan [conversión de voz en texto](speech-to-text.md) para transcribir la voz del usuario y, a continuación, realizan una acción en función de su comprensión del lenguaje natural del texto. Esta acción suele incluir una respuesta hablada del asistente generada con la [conversión de texto en voz](text-to-speech.md). Los dispositivos se conectan con los asistentes mediante el objeto `DialogServiceConnector` del SDK de voz.
 
 **Custom Commands (versión preliminar)** es una solución simplificada para crear aplicaciones de voz. Proporciona una experiencia de creación unificada, un modelo de hospedaje automático y una complejidad relativamente inferior, en comparación con otras opciones como [Direct Line Speech](direct-line-speech.md). Sin embargo, esta simplificación conlleva una reducción en la flexibilidad. Por lo tanto, los comandos personalizados (versión preliminar) son más adecuados para escenarios de finalización de tareas o de comando y control. Es especialmente adecuado para los dispositivos de Internet de las cosas (IoT) y sin periféricos.
 

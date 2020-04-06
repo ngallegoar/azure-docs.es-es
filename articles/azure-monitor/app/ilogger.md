@@ -4,12 +4,12 @@ description: Ejemplos de uso del proveedor ILogger para Azure Application Insigh
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2c97c79229c6f136c154169253f2299b7756a105
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 0f40c1c1a8ee7f20c769a62e9746da43face4cc7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78192479"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80276383"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider para los registros de ILogger de .NET Core
 
@@ -18,9 +18,9 @@ Para más información, consulte [Registro en ASP.NET Core](https://docs.microso
 
 ## <a name="aspnet-core-applications"></a>Aplicaciones de ASP.NET Core
 
-ApplicationInsightsLoggerProvider está habilitado de forma predeterminada en el [SDK de Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versión 2.7.1 (y posteriores) al activar una supervisión normal de Application Insights mediante uno de los siguientes métodos estándar:
+ApplicationInsightsLoggerProvider se habilita de forma predeterminada en el [SDK Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versión 2.7.1 (y posteriores) al activar una supervisión normal de Application Insights mediante uno de los siguientes métodos:
 
-- Mediante una llamada al método de extensión **UseApplicationInsights** en IWebHostBuilder
+- Mediante una llamada al método de extensión **UseApplicationInsights** en IWebHostBuilder (ahora obsoleto)
 - Mediante una llamada al método de extensión **AddApplicationInsightsTelemetry** en IServiceCollection
 
 Los registros de ILogger que captura ApplicationInsightsLoggerProvider están sujetos a la misma configuración que los otros datos de telemetría recopilados. Tienen el mismo conjunto de objetos TelemetryInitializer y TelemetryProcessor, usan el mismo objeto TelemetryChannel, y se ponen en correlación y muestrean de la misma manera que otros datos de telemetría. Si usa la versión 2.7.1 o posteriores, no necesita realizar ninguna acción para capturar registros de ILogger.
@@ -78,7 +78,7 @@ El código del paso 2 configura `ApplicationInsightsLoggerProvider`. El código 
 ```csharp
 public class ValuesController : ControllerBase
 {
-    private readonly `ILogger` _logger;
+    private readonly ILogger _logger;
 
     public ValuesController(ILogger<ValuesController> logger)
     {
@@ -159,7 +159,7 @@ public class Program
 ```csharp
 public class Startup
 {
-    private readonly `ILogger` _logger;
+    private readonly ILogger _logger;
 
     public Startup(IConfiguration configuration, ILogger<Startup> logger)
     {
@@ -325,22 +325,20 @@ En los ejemplos siguientes se aplican reglas de filtro a ApplicationInsightsLogg
 
 ### <a name="create-filter-rules-in-configuration-with-appsettingsjson"></a>Creación de reglas de filtro en la configuración con appsettings.json
 
-Para ApplicationInsightsLoggerProvider, el alias de proveedor es `ApplicationInsights`. En la siguiente sección de *appsettings.json* se configuran los registros para que el nivel de *Warning*  (Advertencia) y superiores de todas las categorías, y el nivel de *Error* y superiores de las categorías que comienzan con "Microsoft"se envíen a `ApplicationInsightsLoggerProvider`.
+Para ApplicationInsightsLoggerProvider, el alias de proveedor es `ApplicationInsights`. En la siguiente sección de *appsettings.json* se indica a los proveedores de registro que generalmente se registren en el nivel *Advertencia* y superiores. A continuación, invalida el `ApplicationInsightsLoggerProvider` para registrar las categorías que comienzan por "Microsoft" en el nivel *Error* y superiores.
 
 ```json
 {
   "Logging": {
-    "ApplicationInsights": {
-      "LogLevel": {
-        "Default": "Warning",
-        "Microsoft": "Error"
-      }
-    },
     "LogLevel": {
       "Default": "Warning"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Microsoft": "Error"
+      }
     }
-  },
-  "AllowedHosts": "*"
+  }
 }
 ```
 

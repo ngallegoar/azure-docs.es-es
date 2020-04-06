@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: e4f4dd3c1e23855a8a1a69dac72c232779206f1d
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: f0723534d9d2187593cb73f058ffea62473b80a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121716"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235967"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Especificación del lenguaje fuente para la conversión de voz en texto
 
@@ -114,24 +114,31 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageC
 
 ## <a name="how-to-specify-source-language-in-python"></a>Cómo especificar el lenguaje fuente en Python
 
-El primer paso consiste en crear un `speech_config`:
+En este ejemplo, el lenguaje fuente se proporciona de forma explícita como un parámetro mediante la construcción `SpeechRecognizer`.
 
 ```Python
-speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
-speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+speech_recognizer = speechsdk.SpeechRecognizer(
+        speech_config=speech_config, language="de-DE", audio_config=audio_config)
 ```
 
-A continuación, especifique el lenguaje fuente del audio con `speech_recognition_language`:
+En este ejemplo, el lenguaje de origen se proporciona mediante `SourceLanguageConfig`. Luego, se pasa `SourceLanguageConfig` como un parámetro a la construcción `SpeechRecognizer`.
 
 ```Python
-speech_config.speech_recognition_language="de-DE"
+source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE")
+speech_recognizer = speechsdk.SpeechRecognizer(
+        speech_config=speech_config, source_language_config=source_language_config, audio_config=audio_config)
 ```
 
-Si utiliza un modelo personalizado para el reconocimiento, puede especificar el punto de conexión con `endpoint_id`:
+En este ejemplo, el lenguaje de origen y el punto de conexión personalizado se proporcionan mediante `SourceLanguageConfig`. Luego, se pasa `SourceLanguageConfig` como un parámetro a la construcción `SpeechRecognizer`.
 
 ```Python
-speech_config.endpoint_id = "The Endpoint ID for your custom model."
+source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE", "The Endpoint ID for your custom model.")
+speech_recognizer = speechsdk.SpeechRecognizer(
+        speech_config=speech_config, source_language_config=source_language_config, audio_config=audio_config)
 ```
+
+>[!Note]
+> Las propiedades `speech_recognition_language` y `endpoint_id` están en desuso de la clase `SpeechConfig` en Python. No se recomienda el uso de estas propiedades y no deben usarse al construir un `SpeechRecognizer`.
 
 ::: zone-end
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 03/16/2020
 ms.author: dapine
-ms.openlocfilehash: cd4ff97902b1ce3d1d5a0ea066608fd33e6bf697
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 6ad5a843c8cc287834305e09b48cd3fafe09ca51
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037095"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79474771"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Uso de contenedores del servicio de voz con Kubernetes y Helm
 
@@ -25,12 +25,12 @@ Una opción para administrar los contenedores de Speech locales es usar Kubernet
 
 Requisitos previos para poder usar los contenedores de Voz en el entorno local:
 
-|Obligatorio|Propósito|
-|--|--|
+| Obligatorio | Propósito |
+|----------|---------|
 | Cuenta de Azure | Si no tiene una suscripción a Azure, cree una [cuenta gratuita][free-azure-account] antes de empezar. |
 | Acceso a Container Registry | Para incorporar las imágenes de Docker al clúster, Kubernetes necesita acceso al registro de contenedor. |
 | CLI de Kubernetes | La [CLI de Kubernetes][kubernetes-cli] es necesaria para administrar las credenciales compartidas desde el registro de contenedor. Kubernetes también se necesita antes que Helm, que es el administrador de paquetes de Kubernetes. |
-| CLI de Helm | Como parte de la instalación de la [CLI de Helm][helm-install], también tendrá que inicializar Helm, que instalará [Tiller][tiller-install]. |
+| CLI de Helm | Instale la [CLI de Helm][helm-install], que se usa para instalar un gráfico de Helm (definición de paquete de contenedor). |
 |Recurso de Voz |Para usar estos contenedores, debe tener:<br><br>Un recurso de _Voz_ de Azure para obtener la clave de facturación asociada y el URI del punto de conexión de facturación. Ambos valores están disponibles en las páginas de claves y de introducción de **Voz** de Azure Portal y son necesarios para iniciar el contenedor.<br><br>**{API_KEY}** : clave de recurso<br><br>**{ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>Configuración de equipo host recomendada

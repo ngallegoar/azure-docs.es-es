@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: absha
-ms.openlocfilehash: b6f26eca0592017306eaefd3f5fecb544dc6fb36
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d0b28770940f0e1adeec16aa89cd087299bd4abc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932189"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132989"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescritura de encabezados HTTP con Azure Application Gateway
 
@@ -60,12 +60,12 @@ App Gateway usa variables de servidor para almacenar información útil sobre el
 
 Application Gateway admite estas variables de servidor:
 
-| Nombre de la variable | DESCRIPCIÓN                                                  |
+| Nombre de la variable | Descripción                                                  |
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | El campo de encabezado de solicitud de cliente X-Forwarded-For con la variable `client_ip` (consulte la explicación más adelante en esta tabla) anexada a él en el formato IP1, IP2, IP3 y así sucesivamente. Si el campo X-Forwarded-For no se encuentra en el encabezado de solicitud de cliente, la variable `add_x_forwarded_for_proxy` es igual que la variable `$client_ip`. Esta variable es especialmente útil cuando se desea reescribir el encabezado X-Forwarded-For establecido por Application Gateway, de forma que el encabezado contenga solo la dirección IP del cliente y no la información del puerto. |
 | ciphers_supported          | Una lista de cifrados admitidos por el cliente.          |
-| ciphers_used               | La cadena de cifrados usada para una conexión SSL establecida. |
-| client_IP                  | La dirección IP del cliente desde la que la puerta de enlace de la aplicación recibió la solicitud. Si hay un proxy inverso antes de la puerta de enlace de aplicaciones y el cliente de origen, *client_ip* devolverá la dirección IP del proxy inverso. |
+| ciphers_used               | La cadena de cifrados que se usa para una conexión TLS establecida. |
+| client_ip                  | La dirección IP del cliente desde la que la puerta de enlace de la aplicación recibió la solicitud. Si hay un proxy inverso antes de la puerta de enlace de aplicaciones y el cliente de origen, *client_ip* devolverá la dirección IP del proxy inverso. |
 | client_port                | Puerto del cliente.                                                  |
 | client_tcp_rtt             | Información sobre la conexión TCP de cliente. Está disponible en los sistemas que admiten la opción de socket TCP_INFO. |
 | client_user                | Al usar la autenticación HTTP, el nombre de usuario proporcionado para la autenticación. |
@@ -81,8 +81,8 @@ Application Gateway admite estas variables de servidor:
 | request_uri                | El URI original completo de la solicitud (con argumentos).                   |
 | sent_bytes                 | El número de bytes enviados a un cliente.                             |
 | server_port                | El puerto del servidor que ha aceptado una solicitud.                 |
-| ssl_connection_protocol    | El protocolo de una conexión SSL establecida.        |
-| ssl_enabled                | "On" si la conexión funciona en modo SSL. No puede ser una cadena vacía. |
+| ssl_connection_protocol    | El protocolo de una conexión TLS establecida.        |
+| ssl_enabled                | "On" si la conexión funciona en modo TLS. No puede ser una cadena vacía. |
 
 ## <a name="rewrite-configuration"></a>Configuración de la reescritura
 
@@ -108,7 +108,7 @@ Para configurar la reescritura de encabezados HTTP, es preciso completar estos p
 
 Puede crear varios conjuntos de reescritura de encabezados HTTP y aplicar cada conjunto de reescritura a varios agentes de escucha. Pero solo puede aplicar un conjunto de reescritura a un agente de escucha específico.
 
-## <a name="common-scenarios"></a>Escenarios comunes
+## <a name="common-scenarios"></a>Escenarios frecuentes
 
 Estos son algunos escenarios habituales para usar la reescritura de encabezados.
 
@@ -120,11 +120,11 @@ Application Gateway inserta un encabezado X-Forwarded-For en todas las solicitud
 
 ### <a name="modify-a-redirection-url"></a>Modificación de una dirección URL de redirección
 
-Cuando una aplicación back-end envía una respuesta de redirección, es posible que desee redirigir al cliente a una dirección URL diferente de la especificada por la aplicación de back-end. Por ejemplo, es posible que quiera hacerlo cuando un servicio de aplicaciones se hospeda detrás de una puerta de enlace de aplicaciones y requiere que el cliente realice un redireccionamiento a su ruta de acceso relativa. (Por ejemplo, un redireccionamiento de contoso.azurewebsites.net/path1 a contoso.azurewebsites.net/path2).
+Cuando una aplicación back-end envía una respuesta de redireccionamiento, es posible que le interese redirigir el cliente a una dirección URL diferente de la especificada por la aplicación back-end. Por ejemplo, es posible que quiera hacerlo cuando un servicio de aplicaciones se hospeda detrás de una puerta de enlace de aplicaciones y requiere que el cliente realice un redireccionamiento a su ruta de acceso relativa. (Por ejemplo, un redireccionamiento de contoso.azurewebsites.net/path1 a contoso.azurewebsites.net/path2).
 
-Dado que App Service es un servicio multiempresa, utiliza el encabezado de host en la solicitud para enrutar la solicitud al punto de conexión correcto. Los servicios de aplicaciones tienen un nombre de dominio predeterminado, *. azurewebsites.net, (por ejemplo, contoso.azurewebsites.net) que es diferente del nombre de dominio de la puerta de enlace de aplicaciones (por ejemplo, contoso.com). Dado que la solicitud original desde el cliente tiene el nombre de dominio (contoso.com) de la puerta de enlace de aplicaciones como el nombre de host, la puerta de enlace de aplicaciones cambia el nombre de host a contoso.azurewebsites.net. Realiza este cambio para que el servicio de aplicaciones pueda enrutar la solicitud al punto de conexión correcto.
+Dado que App Service es un servicio multiinquilino, usa el encabezado de host en la solicitud para enrutar la solicitud al punto de conexión correcto. Los servicios de aplicaciones tienen un nombre de dominio predeterminado, *. azurewebsites.net, (por ejemplo, contoso.azurewebsites.net) que es diferente del nombre de dominio de la puerta de enlace de aplicaciones (por ejemplo, contoso.com). Dado que la solicitud original desde el cliente tiene el nombre de dominio (contoso.com) de la puerta de enlace de aplicaciones como el nombre de host, la puerta de enlace de aplicaciones cambia el nombre de host a contoso.azurewebsites.net. Realiza este cambio para que el servicio de aplicaciones pueda enrutar la solicitud al punto de conexión correcto.
 
-Cuando el servicio de la aplicación envía una respuesta de redirección, usa el mismo nombre de host en el encabezado de ubicación de su respuesta que la que aparece en la solicitud que recibe de la puerta de enlace de aplicaciones. Así pues, el cliente hará la solicitud directamente a contoso.azurewebsites.net/path2, en lugar de pasar por la puerta de enlace de aplicaciones (contoso.com/path2). No es conveniente omitir la puerta de enlace de aplicaciones.
+Cuando el servicio de aplicaciones envía una respuesta de redireccionamiento, usa el mismo nombre de host en el encabezado de ubicación de su respuesta que el que aparece en la solicitud que recibe de la puerta de enlace de aplicaciones. Así pues, el cliente hará la solicitud directamente a contoso.azurewebsites.net/path2, en lugar de pasar por la puerta de enlace de aplicaciones (contoso.com/path2). No es conveniente omitir la puerta de enlace de aplicaciones.
 
 Para resolver este problema, puede establecer el nombre de host en el encabezado de ubicación en el nombre de dominio de la puerta de enlace de aplicaciones.
 

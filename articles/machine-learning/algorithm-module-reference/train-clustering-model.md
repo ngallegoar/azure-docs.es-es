@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 7053fab28b4a231c92f31e344cf09ffef3a6b146
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c29baf3cdda998a2ab78c84f3311b84d37086bcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152115"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477432"
 ---
 # <a name="train-clustering-model"></a>Entrenamiento del modelo de agrupación en clústeres
 
@@ -43,7 +43,7 @@ El módulo toma un modelo de agrupación en clústeres no entrenado que ya ha co
 
     Si anula la selección de esta opción, la salida solo contiene las asignaciones de clúster. 
 
-7. Ejecute la canalización o haga clic en el módulo **Entrenamiento del modelo de agrupación en clústeres** y seleccione **Ejecutar seleccionados**.  
+7. Envíe la canalización o haga clic en el módulo **Entrenamiento del modelo de agrupación en clústeres** y seleccione **Ejecutar seleccionados**.  
   
 ### <a name="results"></a>Results
 

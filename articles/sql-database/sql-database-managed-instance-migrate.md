@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 802dfa7e3b2d0b9deac957662ac1e7604d085fd9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6bae9e871be2a5d56d057d2a077de53329b8c3ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828076"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79208945"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
@@ -72,7 +72,7 @@ Algunos de los parámetros que necesitará medir en su instancia de SQL Server s
 - Supervise el rendimiento de la carga de trabajo y de la consulta o la instancia de SQL Server mediante el análisis de vistas de administración dinámica o el almacén de consultas si va a migrar desde la versión SQL Server 2016 o versiones posteriores. Identifique el promedio de duración y el uso de CPU de las consultas más importantes de la carga de trabajo para compararlos con las consultas que se ejecutan en la instancia administrada.
 
 > [!Note]
-> Si observa algún problema con la carga de trabajo de SQL Server como un uso elevado de CPU, presión de memoria constante, problemas de tempdb o de parametrización, debe intentar resolverlos en la instancia de SQL Server de origen antes tomar la base de referencia y realizar la migración. La migración de problemas conocidos a cualquier sistema nuevo podría provocar resultados inesperados e invalidar cualquier comparación de rendimiento.
+> Si observa algún problema con la carga de trabajo de SQL Server como un uso elevado de CPU, presión de memoria constante, problemas de tempdb o de parametrización, debe intentar resolverlos en la instancia de SQL Server de origen antes de tomar la base de referencia y realizar la migración. La migración de problemas conocidos a cualquier sistema nuevo podría provocar resultados inesperados e invalidar cualquier comparación de rendimiento.
 
 Como resultado de esta actividad debería tener documentados los valores promedio y máximo de la CPU, la memoria y el uso de E/S en el sistema de origen, así como la duración promedio y la duración máxima y el uso de la CPU de la consulta dominante y la consulta más crítica de la carga de trabajo. Deberá usar estos valores más adelante para comparar el rendimiento de la carga de trabajo en Instancia administrada con el rendimiento de la base de referencia de la carga de trabajo de la instancia de SQL Server de origen.
 

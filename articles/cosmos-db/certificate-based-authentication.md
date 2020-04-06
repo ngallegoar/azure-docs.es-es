@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: acdf268874b1dc1c24116ba36e2b4233a2702a5f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 085280a8064e4d12ac63939ada7cdb296d47dc70
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064502"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365771"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticación basada en certificados para una identidad de Azure AD para las claves de acceso desde una cuenta de Azure Cosmos DB
 
@@ -137,18 +137,20 @@ En este paso, iniciará sesión en Azure mediante la aplicación y el certificad
    Disconnect-AzAccount -Username <Your_Azure_account_email_id> 
    ```
 
-1. Después, valide que puede iniciar sesión en Azure Portal mediante las credenciales de la aplicación y acceder a las claves de Azure Cosmos DB:
+1. Después, asegúrese de que puede iniciar sesión en Azure Portal mediante las credenciales de la aplicación y acceda a las claves de Azure Cosmos DB:
 
    ```powershell
    Login-AzAccount -ApplicationId <Your_Application_ID> -CertificateThumbprint $cert.Thumbprint -ServicePrincipal -Tenant <Tenant_ID_of_your_application>
 
-   Invoke-AzResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDB/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <Resource_Group_Name_of_your_Azure_Cosmos_account> -ResourceName <Your_Azure_Cosmos_Account_Name> 
+   Get-AzCosmosDBAccountKey `
+      -ResourceGroupName "<Resource_Group_Name_of_your_Azure_Cosmos_account>" `
+      -Name "<Your_Azure_Cosmos_Account_Name>" `
+      -Type "Keys"
    ```
 
-El comando anterior mostrará las claves maestras principal y secundaria de la cuenta de Azure Cosmos. Puede ver el registro de actividad de la cuenta de Azure Cosmos para validar que la solicitud de claves get se ha realizado correctamente y que la aplicación "sampleApp" inicia el evento. 
- 
-![Validar la llamada a las claves get en Azure AD](./media/certificate-based-authentication/activity-log-validate-results.png)
+El comando anterior mostrará las claves maestras principal y secundaria de la cuenta de Azure Cosmos. Puede ver el registro de actividad de la cuenta de Azure Cosmos para validar que la solicitud de claves get se ha realizado correctamente y que la aplicación "sampleApp" inicia el evento.
 
+![Validar la llamada a las claves get en Azure AD](./media/certificate-based-authentication/activity-log-validate-results.png)
 
 ## <a name="access-the-keys-from-a-c-application"></a>Acceso a las claves desde una aplicación en C# 
 
@@ -245,4 +247,4 @@ De forma similar a la sección anterior puede ver el registro de actividad de la
 
 * [Protección de las claves de Azure Cosmos con Azure Key Vault](access-secrets-from-keyvault.md)
 
-* [Controles de seguridad para Azure Cosmos DB](cosmos-db-security-controls.md)
+* [Base de referencia de seguridad para Azure Cosmos DB](security-baseline.md)

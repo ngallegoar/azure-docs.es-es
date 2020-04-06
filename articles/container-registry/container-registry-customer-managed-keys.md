@@ -4,12 +4,12 @@ description: Obtenga información sobre el cifrado en reposo de una instancia de
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: 8bce77c776fe088e5c317f02cd2757738a287069
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: fe0736f83db2ba5b872d50bcf1262ca423de9f09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096528"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498951"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Cifrado con claves administradas por el cliente
 
@@ -27,6 +27,7 @@ Esta característica está disponible en el nivel de servicio de un registro de 
 
 * De momento, solo se puede habilitar esta característica al crear un registro.
 * Después de habilitar una clave administrada por el cliente en un registro, no es posible deshabilitarla.
+* [Confianza de contenido](container-registry-content-trust.md) no se admite actualmente en un registro cifrado con una clave administrada por el cliente.
 * En un registro cifrado con una clave administrada por el cliente, los registros de ejecución de [ACR Tasks](container-registry-tasks-overview.md) solo se conservan durante 24 horas. Si necesita conservar los registros durante un período más largo, vea la guía para [exportar y almacenar registros de ejecución de tareas](container-registry-tasks-logs.md#alternative-log-storage).
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -407,9 +408,9 @@ Al revocar la clave realmente, se bloquea el acceso a todos los datos del regist
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
-[az-keyvault-key-create]: /cli/azure/keyvault/keyt#az-keyvault-key-create
-[az-keyvault-set-policy]: /cli/azure/keyvault/keyt#az-keyvault-set-policy
-[az-keyvault-delete-policy]: /cli/azure/keyvault/keyt#az-keyvault-delete-policy
+[az-keyvault-key-create]: /cli/azure/keyvault/key#az-keyvault-key-create
+[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
+[az-keyvault-delete-policy]: /cli/azure/keyvault#az-keyvault-delete-policy
 [az-resource-show]: /cli/azure/resource#az-resource-show
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-show]: /cli/azure/acr#az-acr-show

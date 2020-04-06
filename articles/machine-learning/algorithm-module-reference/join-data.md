@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: a154874f4f1026b36da473ba18788fc804609ac9
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 38606f424e38fc68519181f485b5b698d0705d6a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152234"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477585"
 ---
 # <a name="join-data"></a>Combinación de datos
 
@@ -62,7 +62,7 @@ Para realizar una combinación en dos conjuntos de datos, deben estar relacionad
     * active esta opción para ver las claves de ambas tablas de entrada.
     * Anule la selección para devolver solo las columnas de clave de la entrada izquierda.
 
-1. Ejecución de la canalización
+1. Envíe la canalización.
 
 1. Para ver los resultados, haga clic con el botón derecho en **Combinación de datos** y seleccione **Visualize** (Visualizar).
 

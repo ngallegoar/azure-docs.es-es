@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: c1a6a53e6db883c63164a6367012faf32ed75519
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 2c7d312910c6d38c54b291da34bfb827246c7dad
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673518"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "79504317"
 ---
 ## <a name="prepare-for-akv-integration"></a>Preparación para la integración de AKV
 Para usar la Integración de Azure Key Vault para configurar la máquina virtual de SQL Server, hay varios requisitos previos: 
@@ -31,16 +31,16 @@ Las secciones siguientes describen estos requisitos previos y la información qu
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-### <a id="install"></a> Instalar Azure PowerShell
+### <a name="install-azure-powershell"></a><a id="install"></a> Instalar Azure PowerShell
 Asegúrese de que ha instalado el módulo de Azure PowerShell más reciente. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/install-az-ps).
 
-### <a id="register"></a> Registrar una aplicación en Azure Active Directory
+### <a name="register-an-application-in-your-azure-active-directory"></a><a id="register"></a> Registrar una aplicación en Azure Active Directory
 
 En primer lugar, tiene que tener un [directorio de Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) en la suscripción. Entre otras muchas ventajas, esto le permite conceder permiso para Almacén de claves a determinados usuarios y aplicaciones.
 
 A continuación, registre una aplicación con AAD. Esto le dará una cuenta de entidad de servicio que tenga acceso a su almacén de claves, algo que la máquina virtual va a necesitar. En el artículo sobre Azure Key Vault, puede encontrar estos pasos en la sección [Registro de una aplicación con Azure Active Directory](../articles/key-vault/key-vault-manage-with-cli2.md#registering-an-application-with-azure-active-directory), o bien puede ver los pasos con capturas de pantalla en la **sección en la que se indica cómo obtener una identidad para la aplicación** de [esta entrada de blog](https://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Antes de completar estos pasos, durante este registro tiene que recopilar la siguiente información que necesitará más adelante cuando habilite la integración de Azure Key Vault en la máquina virtual de SQL.
 
-* Después de agregar la aplicación, busque el **Id. de la aplicación** en la hoja **Aplicación registrada**.
+* Después de agregar la aplicación, busque el **identificador de la aplicación** (también conocido como ClientID o AppID de AAD) en la hoja **Aplicación registrada**.
     El identificador de la aplicación se asigna posteriormente al parámetro **$spName** (nombre de entidad de seguridad de servicio) en el script de PowerShell para habilitar la integración de Azure Key Vault.
 
    ![Identificador de aplicación](./media/virtual-machines-sql-server-akv-prepare/aad-application-id.png)
@@ -51,9 +51,9 @@ A continuación, registre una aplicación con AAD. Esto le dará una cuenta de e
 
 * El identificador de la aplicación y el secreto también se utilizarán para crear una credencial en SQL Server.
 
-* Tiene que autorizar este nuevo identificador de cliente para que tenga los siguientes permisos de acceso: **get**, **wrapKey**, **unwrapKey**. Esto se hace con el cmdlet [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Para obtener más información, consulte la [información general de Azure Key Vault](../articles/key-vault/key-vault-overview.md).
+* Debe autorizar este nuevo identificador de aplicación (o identificador de cliente) para tener los siguientes permisos de acceso: **get**, **wrapKey** y **unwrapKey**. Esto se hace con el cmdlet [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Para obtener más información, consulte la [información general de Azure Key Vault](../articles/key-vault/key-vault-overview.md).
 
-### <a id="createkeyvault"></a> Crear un almacén de claves
+### <a name="create-a-key-vault"></a><a id="createkeyvault"></a> Crear un almacén de claves
 Para poder usar Azure Key Vault para guardar las claves que se utilizarán para el cifrado en la máquina virtual, tiene que tener acceso a un almacén de claves. Si no ha configurado ya su almacén de claves, cree uno siguiendo los pasos que se mencionan en el artículo [Introducción a Azure Key Vault](../articles/key-vault/key-vault-overview.md). Antes de completar estos pasos, durante esta configuración tiene que recopilar cierta información que necesitará más adelante cuando habilite la integración de Azure Key Vault en la máquina virtual de SQL.
 
     New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'

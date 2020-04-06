@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516671"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79232080"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implementación del servicio StorSimple Device Manager en una instancia de StorSimple Virtual Array
 
@@ -73,7 +73,7 @@ Realice los siguientes pasos para eliminar un servicio.
 1. Vaya a **Todos los recursos**. Busque el servicio StorSimple Device Manager. Seleccione el servicio que desea eliminar.
    
     ![Selección del servicio que se eliminará](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
-2. Vaya al panel de servicio para asegurarse de que no hay ningún dispositivo conectado al servicio. Si no hay ningún dispositivo registrado en este servicio, también verá un mensaje en un banner que lo indica. Hacer clic en **Eliminar**.
+2. Vaya al panel de servicio para asegurarse de que no hay ningún dispositivo conectado al servicio. Si no hay ningún dispositivo registrado en este servicio, también verá un mensaje en un banner que lo indica. Haga clic en **Eliminar**.
    
     ![Eliminar servicio](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
 
@@ -94,7 +94,7 @@ Después de haber creado correctamente un servicio, deberá registrar el disposi
 Realice los pasos siguientes para obtener la clave de registro del servicio.
 
 #### <a name="to-get-the-service-registration-key"></a>Para obtener la clave de registro del servicio
-1. En la hoja **StorSimple Device Manager**, vaya a **Administración &gt;** **Claves**.
+1. En la hoja **Administrador de dispositivos de StorSimple**, vaya a **Administración &gt;** **Claves**.
    
    ![Hoja de claves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. En la hoja **Claves** se muestra una clave de registro del servicio. Copie la clave de registro mediante el icono de copia. 
@@ -107,7 +107,7 @@ Será necesario volver a generar una clave de registro del servicio si es necesa
 Realice los pasos siguientes para volver a generar una clave de registro de servicio.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>Para volver a generar la clave de registro de servicio
-1. En la hoja **StorSimple Device Manager**, vaya a **Administración &gt;** **Claves**.
+1. En la hoja **Administrador de dispositivos de StorSimple**, vaya a **Administración &gt;** **Claves**.
    
    ![Hoja de claves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. En la hoja **Claves**, haga clic en **Regenerar**.

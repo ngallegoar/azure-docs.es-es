@@ -2,13 +2,13 @@
 title: 'Recursos de Azure: QnA Maker'
 description: QnA Maker usa varios orígenes de Azure, cada uno con un propósito diferente. Entender cómo se usan individualmente le permite planear y seleccionar el plan de tarifa correcto o saber cuándo debe cambiar el plan de tarifa. Entender cómo se usan en combinación le permite encontrar y corregir los problemas cuando se producen.
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.openlocfilehash: 77aced459c7731a2cac432538cfc66ed9ce83f9d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 03/25/2020
+ms.openlocfilehash: 8a5cc0f4889e31470514015035a92d230c40ed43
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902069"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284252"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos de Azure para QnA Maker
 
@@ -30,7 +30,9 @@ Planee tener un único recurso de QnA Maker que contenga todas las bases de cono
 
 Normalmente hay tres parámetros que necesita tener en cuenta:
 
-* **Rendimiento que se precisa del servicio**: seleccione el [plan de aplicación](https://azure.microsoft.com/pricing/details/app-service/plans/) apropiado para App Service en función de sus necesidades. Puede [escalar o reducir verticalmente](https://docs.microsoft.com/azure/app-service/manage-scale-up) la aplicación. Esto debería influir también en la selección de la SKU de Azure Cognitive Search; consulte más detalles [aquí](https://docs.microsoft.com/azure/search/search-sku-tier).
+* **Rendimiento que se precisa del servicio**:
+    * seleccione el [plan de aplicación](https://azure.microsoft.com/pricing/details/app-service/plans/) apropiado para App Service en función de sus necesidades. Puede [escalar o reducir verticalmente](https://docs.microsoft.com/azure/app-service/manage-scale-up) la aplicación.
+    * Esto debería influir también en la selección de la SKU de Azure **Cognitive Search**; consulte más detalles [aquí](https://docs.microsoft.com/azure/search/search-sku-tier). Además, es posible que necesite ajustar la [capacidad](../../../search/search-capacity-planning.md) de Cognitive Search con réplicas.
 
 * **Tamaño y número de bases de conocimiento**: Elija la [SKU de Azure Search](https://azure.microsoft.com/pricing/details/search/) adecuada para su escenario. Normalmente, puede decidir el número de bases de conocimiento que necesita en función del número de dominios de sujeto distintos. Si el dominio de sujeto (para un único idioma) debe estar en una base de conocimiento.
 
@@ -53,7 +55,7 @@ En la tabla siguiente se proporcionan algunas directrices de alto nivel.
 |Actualizar|Motivo|
 |--|--|
 |[Actualización](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) de la SKU de administración de QnA Maker|Quiere tener más conjuntos de QnA o orígenes de documento en la base de conocimiento.|
-|[Actualización](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) de la SKU de App Service|Su base de conocimiento debe atender más solicitudes de la aplicación cliente, como un bot de chat.|
+|[Actualización](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) de la SKU de App Service y comprobación del nivel de Cognitive Search y [creación de réplicas de Cognitive Search](../../../search/search-capacity-planning.md)|Su base de conocimiento debe atender más solicitudes de la aplicación cliente, como un bot de chat.|
 |[Actualización](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) del servicio Azure Cognitive Search|Planea tener muchas bases de conocimiento.|
 
 Para obtener las últimas actualizaciones del entorno de ejecución, [actualice la instancia de App Service en Azure Portal](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
@@ -114,7 +116,7 @@ La segunda clasificación aplica filtros inteligentes que pueden incluir metadat
 
 #### <a name="qna-maker-resource-configuration-settings"></a>Opciones de configuración de recursos de QnA Maker
 
-Al crear una nueva base de conocimiento en el [portal de QnA Maker](https://qnamaker.ai), el valor de **idioma** es el único valor que se aplica en el nivel de recursos. El idioma se selecciona al crear la primera base de conocimiento en el recurso. 
+Al crear una nueva base de conocimiento en el [portal de QnA Maker](https://qnamaker.ai), el valor de **idioma** es el único valor que se aplica en el nivel de recursos. El idioma se selecciona al crear la primera base de conocimiento en el recurso.
 
 ### <a name="app-service-and-app-service-plan"></a>App Service y plan de App Service
 

@@ -3,13 +3,13 @@ title: Limitaciones de los grupos de nodos de Windows Server en Azure Kubernetes
 description: Obtenga información sobre las limitaciones conocidas al ejecutar cargas de trabajo de aplicaciones y grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.openlocfilehash: 65c62324a27e8377a1cc9833595b15cf08c6c820
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.date: 12/18/2019
+ms.openlocfilehash: f4e9f63d0da1797b92c123034e6775f5b07bd4b3
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298179"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366405"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para las cargas de trabajo de aplicaciones y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 
@@ -53,7 +53,7 @@ Los clústeres de AKS con grupos de nodos de Windows deben usar el modelo de red
 
 ## <a name="can-i-change-the-max--of-pods-per-node"></a>¿Puedo cambiar el número máximo de pods por nodo?
 
-Actualmente es necesario establecer un máximo de 30 pods para garantizar la confiabilidad de los clústeres.
+Sí. Para conocer las implicaciones y las opciones disponibles, consulte [Pods máximos por nodo][maximum-number-of-pods].
 
 ## <a name="how-do-patch-my-windows-nodes"></a>¿Cómo se aplica la revisión en los nodos de Windows?
 
@@ -121,3 +121,4 @@ Para comenzar con los contenedores de Windows Server en AKS, [cree un grupo de n
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [preview-support]: support-policies.md#preview-features-or-feature-flags
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
+[maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node

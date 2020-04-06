@@ -13,18 +13,21 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6a134d2bdfe7f370503b80703933ff646970d976
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6e1c9aa5c2e049d5fc1ebd8bf745417f56d232ec
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981106"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366572"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificación de vídeo y audio con Media Services
 
 El término codificación en Media Services se aplica al proceso de convertir archivos que contienen vídeo o audio digital de un formato estándar a otro, con el objetivo de (a) reducir el tamaño de los archivos o (b) producir un formato que sea compatible con un amplia gama de dispositivos y aplicaciones. Este proceso también se conoce como compresión de vídeo o transcodificación. Consulte [Compresión de datos](https://en.wikipedia.org/wiki/Data_compression) y [What Is Encoding and Transcoding?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) (¿Qué es la codificación y transcodificación?) para más información sobre los conceptos.
 
 Normalmente, los vídeos se entregan a los dispositivos y aplicaciones a través de una [descarga progresiva](https://en.wikipedia.org/wiki/Progressive_download) o el [streaming con velocidad de bits adaptable](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming).
+
+> [!IMPORTANT]
+> Media Services no factura los trabajos cancelados o con errores. Por ejemplo, un trabajo que se ha completado al 50 % y se ha cancelado, no se factura al 50 % de los minutos del trabajo. Solo se cobran los trabajos finalizados.
 
 * Para la entrega a través de una descarga progresiva, puede usar Azure Media Services para convertir un archivo multimedia digital (intermedio) en un archivo [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) que contiene el vídeo que se ha codificado con el códec [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) y audio que se ha codificado con el códec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding). Este archivo MP4 se escribe en un recurso de la cuenta de almacenamiento. Puede usar los SDK o las API de Azure Storage (por ejemplo, [API REST de almacenamiento](../../storage/common/storage-rest-api-auth.md) o [SDK de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para descargar el archivo directamente. Si creó el recurso de salida con un nombre de contenedor específico en el almacenamiento, use esa ubicación. De lo contrario, puede usar Media Services para [enumerar las direcciones URL del contenedor de recursos](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
 * Para preparar el contenido para la entrega a través del streaming con velocidad de bits adaptable, el archivo intermedio se debe codificar en varias velocidades de bits (de alta a baja). Para garantizar una transición correcta de la calidad, se reduce la resolución del vídeo a medida que disminuye la velocidad de bits. Esto resulta en lo que se conoce como una escala de codificación: una tabla de resoluciones y velocidades de bits (consulte [Escala de velocidad de bits generada automáticamente](autogen-bitrate-ladder.md)). Puede usar Media Services para codificar los archivos intermedios con varias velocidades de bits. Al hacerlo, obtendrá un conjunto de archivos MP4 y archivos de configuración de streaming asociados que se escriben en un recurso en la cuenta de almacenamiento. Luego puede usar la funcionalidad de [empaquetado dinámico](dynamic-packaging-overview.md) de Media Services para entregar el vídeo a través de protocolos de streaming, como [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) y [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Esto requiere crear un [localizador de streaming](streaming-locators-concept.md) y generar direcciones URL de streaming que correspondan a los protocolos admitidos, que luego se pueden entregar a los dispositivos o aplicaciones según sus funcionalidades.
@@ -39,11 +42,11 @@ En este tema se proporcionan instrucciones sobre cómo codificar el contenido co
 
 Para codificar con Media Services v3, debe crear una [transformación](https://docs.microsoft.com/rest/api/media/transforms) y un [trabajo](https://docs.microsoft.com/rest/api/media/jobs). La transformación define la receta para la configuración de la codificación y las salidas, y el trabajo es una instancia de la receta. Para obtener más información, consulte [Transformaciones y trabajos](transforms-jobs-concept.md).
 
-Al codificar con Media Services, se usan valores preestablecidos para indicar al codificador cómo se deben procesar los archivos multimedia de entrada. Por ejemplo, puede especificar la resolución de vídeo o el número de canales de audio que desea en el contenido codificado.
+Al codificar con Media Services, se usan valores preestablecidos para indicar al codificador cómo se deben procesar los archivos multimedia de entrada. En Media Services v3, se usa Standard Encoder para codificar los archivos. Por ejemplo, puede especificar la resolución de vídeo o el número de canales de audio que desea en el contenido codificado.
 
 Puede empezar a trabajar rápidamente con alguno de los valores preestablecidos integrados recomendados basados en los procedimientos recomendados del sector o puede optar por crear un valor preestablecido destinado a su escenario específico o los requisitos de dispositivos. Para más información, vea [Procedimiento de codificación con una transformación personalizada](customize-encoder-presets-how-to.md).
 
-A partir de enero de 2019, al codificar con Media Encoder Standard para generar archivos MP4, se genera un archivo .mpi nuevo y se agrega a la salida de activos. Este archivo MPI está diseñado para mejorar el rendimiento de escenarios de streaming y [empaquetado dinámico](dynamic-packaging-overview.md).
+A partir de enero de 2019, al codificar con Standard Encoder para generar archivos MP4, se genera un archivo .mpi nuevo y se agrega a la salida de activos. Este archivo MPI está diseñado para mejorar el rendimiento de escenarios de streaming y [empaquetado dinámico](dynamic-packaging-overview.md).
 
 > [!NOTE]
 > No debe modificar ni quitar el archivo MPI, así como tampoco tener ninguna dependencia en el servicio en la existencia (o no) de este tipo de archivo.
@@ -135,6 +138,12 @@ En Media Services v3, los valores preestablecidos son entidades fuertemente tip
 ## <a name="scaling-encoding-in-v3"></a>Escalado de la codificación en v3
 
 Para escalar el procesamiento multimedia, consulte [Escalado con CLI](media-reserved-units-cli-how-to.md).
+
+## <a name="billing"></a>Facturación
+
+Media Services no factura los trabajos cancelados o con errores. Por ejemplo, un trabajo que se ha completado al 50 % y se ha cancelado, no se factura al 50 % de los minutos del trabajo. Solo se cobran los trabajos finalizados.
+
+Para más información, consulte los [precios](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 

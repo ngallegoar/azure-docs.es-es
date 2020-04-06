@@ -1,6 +1,6 @@
 ---
-title: 'Solución de problemas con protección de contraseñas: Azure Active Directory'
-description: Descripción de la solución de los problemas más frecuentes de Protección de contraseñas de Azure AD
+title: Solución de problemas de la protección con contraseña de Azure AD local
+description: Aprenda a solucionar problemas de la protección con contraseña de Azure AD para un entorno de Active Directory Domain Services local
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd609eb1f289c0a104bddaa08a60e7dc6202acee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847667"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79230908"
 ---
-# <a name="azure-ad-password-protection-troubleshooting"></a>Solución de problemas de la Protección con contraseña de Azure AD
+# <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Solución de problemas: Protección con contraseña de Azure AD local
 
 Después de la implementación de Protección de contraseña de Azure AD, puede ser necesario solucionar problemas. Este artículo entra en detalles para ayudarle a entender algunos pasos de solución de problemas comunes.
 
@@ -82,9 +82,9 @@ Este problema puede tener varias causas.
 
 1. Sus agentes de controlador de dominio no pueden descargar una directiva o no pueden descifrar las directivas existentes. Busque posibles causas en los temas anteriores.
 
-1. El modo Exigir de la directiva de contraseñas sigue establecido en Auditoría. Si esta configuración está aplicada, vuelva a configurarla en Exigir con el portal de Protección de contraseña de Azure AD. Consulte [Habilitación de la protección con contraseña](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. El modo Exigir de la directiva de contraseñas sigue establecido en Auditoría. Si esta configuración está aplicada, vuelva a configurarla en Exigir con el portal de Protección de contraseña de Azure AD. Para más información, consulte [Modos de funcionamiento](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
-1. Se ha deshabilitado la directiva de contraseñas. Si esta configuración está aplicada, vuelva a configurarla en Habilitada con el portal de Protección de contraseña de Azure AD. Consulte [Habilitación de la protección con contraseña](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. Se ha deshabilitado la directiva de contraseñas. Si esta configuración está aplicada, vuelva a configurarla en Habilitada con el portal de Protección de contraseña de Azure AD. Para más información, consulte [Modos de funcionamiento](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
 1. No ha instalado el software del agente de controlador de dominio en todos los controladores de dominio en el dominio. En esta situación, es difícil garantizar que los clientes remotos de Windows se dirijan a un controlador de dominio determinado durante una operación de cambio de contraseña. Si cree que se ha dirigido correctamente un controlador de dominio determinado en el que está instalado el software del agente de controlador de dominio, puede asegurarse de ello volviendo a comprobar el registro de eventos de administración del agente de controlador de dominio; independientemente del resultado, habrá al menos un evento para documentar el resultado de la validación de contraseña. Si no hay ningún evento presente para el usuario para el que se ha cambiado la contraseña, es probable que el cambio de contraseña lo procese otro controlador de dominio.
 
@@ -189,13 +189,13 @@ PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion 
 
 Ninguna versión del software de proxy de Protección con contraseña de Azure AD tiene límite de tiempo. Microsoft sigue recomendando que tanto los agentes de controlador de dominio como los de proxy se actualicen a las versiones más recientes a medida que se lanzan. El cmdlet `Get-AzureADPasswordProtectionProxy` se puede usar para buscar los agentes de proxy que requieren actualizaciones, similar a lo que sucede en el ejemplo anterior para los agentes de controlador de dominio.
 
-Consulte [Actualización del agente de controlador de dominio](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) y [Actualización del agente proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) para más detalles sobre procedimientos de actualización específicos.
+Consulte [Actualización del agente de controlador de dominio](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) y [Actualización del servicio proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-service) para más detalles sobre procedimientos de actualización específicos.
 
 ## <a name="emergency-remediation"></a>Corrección de emergencia
 
 Si se produce una situación en la que el servicio del agente de controlador de dominio causa problemas, este servicio se puede apagar inmediatamente. La DLL de filtro de contraseña del agente de controlador de dominio sigue intentando llamar al servicio que no está en ejecución, y registrará los eventos de advertencia (10012, 10013), pero durante ese tiempo se aceptan todas las contraseñas entrantes. El servicio de agente de controlador de dominio se puede también configurar mediante el Administrador de control de servicios de Windows con un tipo de inicio "Deshabilitado" según sea necesario.
 
-Otra medida de corrección sería establecer el modo Habilitar en No en el portal de Protección de contraseña de Azure AD. Una vez que se ha descargado la directiva actualizada, cada servicio del agente de controlador de dominio entrará en un modo inactivo donde todas las contraseñas se aceptan tal cual. Para más información, consulte [Modo forzado](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
+Otra medida de corrección sería establecer el modo Habilitar en No en el portal de Protección de contraseña de Azure AD. Una vez que se ha descargado la directiva actualizada, cada servicio del agente de controlador de dominio entrará en un modo inactivo donde todas las contraseñas se aceptan tal cual. Para más información, consulte [Modos de funcionamiento](howto-password-ban-bad-on-premises-operations.md#modes-of-operation).
 
 ## <a name="removal"></a>Eliminación
 

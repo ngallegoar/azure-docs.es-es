@@ -16,12 +16,12 @@ ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: b1162e6070deba7f645298b59ffeb1898eb030a8
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2432ac41645e373ea3a87ff7e69ef02a4e30c81d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545779"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062308"
 ---
 # <a name="routing-and-tag-expressions"></a>Expresiones de etiqueta y enrutamiento
 
@@ -96,7 +96,7 @@ Tome una aplicación de deportes que envía un recordatorio a todas las personas
 
 ![Expresiones de etiqueta](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-Las expresiones de etiqueta admiten operadores booleanos comunes como `AND` (`&&`), `OR` (`||`) y `NOT` (`!`); también pueden contener paréntesis. Las expresiones de etiqueta que usan solo operadores `OR` pueden hacer referencia a 20 etiquetas; en caso contrario, las expresiones de etiqueta están limitadas a 6 etiquetas.
+Las expresiones de etiqueta admiten operadores booleanos comunes como `AND` (`&&`), `OR` (`||`) y `NOT` (`!`); también pueden contener paréntesis. Las expresiones de etiqueta que usan solo operadores `OR` pueden hacer referencia a 20 etiquetas; la expresión con operadores `AND`, pero ningún operador `OR`, puede hacer referencia a 10 etiquetas; de lo contrario, las expresiones de etiqueta se limitan a 6 etiquetas.
 
 A continuación se muestra un ejemplo de envío de notificaciones con expresiones de etiqueta mediante el SDK:
 

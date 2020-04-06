@@ -1,5 +1,5 @@
 ---
-title: 'Acerca de la conversación entre varios dispositivos (versión preliminar): Servicio de voz'
+title: 'Conversación entre varios dispositivos (versión preliminar): Servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: b3802e66b0ba5a68c898e69ec64b01edce1541c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560820"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79371365"
 ---
-# <a name="about-multi-device-conversation-preview"></a>Acerca de la conversación entre varios dispositivos (versión preliminar)
+# <a name="what-is-multi-device-conversation-preview"></a>¿Qué es la conversación entre varios dispositivos (versión preliminar)?
 
 La **conversación entre varios dispositivos** facilita la creación de una conversación de voz o texto entre varios clientes y la coordinación de los mensajes que se envían entre ellos.
 
@@ -64,7 +64,7 @@ También puede proporcionar subtítulos para presentaciones y conferencias tanto
 
 ## <a name="how-it-works"></a>Funcionamiento
 
-Todos los clientes usan el SDK de Voz para crear una conversación o unirse a ella. El SDK de Voz interactúa con el servicio de conversación entre varios dispositivos que administra la conversación, incluida la lista de participantes, los idiomas elegidos de cada cliente y los mensajes enviados.  
+Todos los clientes usan el SDK de Voz para crear una conversación o unirse a ella. Speech SDK interactúa con el servicio de conversación entre varios dispositivos, que administra la duración de una conversación, lo que incluye la lista de participantes, los idiomas elegidos de cada cliente y los mensajes enviados.  
 
 Cada cliente puede enviar mensajes de audio o instantáneos. El servicio usará el reconocimiento de voz para convertir audio en texto y enviar mensajes instantáneos tal cual. Si los clientes eligen idiomas diferentes, el servicio traducirá todos los mensajes a los idiomas especificados de cada cliente.
 
@@ -75,8 +75,8 @@ Cada cliente puede enviar mensajes de audio o instantáneos. El servicio usará 
 Una **conversación** es una sesión que un usuario inicia para que los otros usuarios participantes se unan. Todos los clientes se conectan a la conversación mediante el **código de la conversación** de cinco letras.
 
 Cada conversación crea metadatos que incluyen:
--   Marcas de tiempo de cuando se inició y finalizó la conversación.
--   La lista de todos los participantes en la conversación, la cual incluye el alias elegido de cada usuario y el idioma principal para la entrada de texto o de voz.
+-    Marcas de tiempo de cuando se inició y finalizó la conversación.
+-    La lista de todos los participantes en la conversación, la cual incluye el alias elegido de cada usuario y el idioma principal para la entrada de texto o de voz.
 
 
 Hay dos tipos de usuarios en una conversación: **anfitrión** y **participante**.

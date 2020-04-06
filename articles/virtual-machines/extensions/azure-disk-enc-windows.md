@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 03/19/2020
 ms.author: ejarvi
-ms.openlocfilehash: 8435663dcf92e2617ea2fe9218649e94243272d2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e975e1757b77b4aab52a59d1f0709ef9cadae94e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073206"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066859"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -26,17 +26,21 @@ ms.locfileid: "74073206"
 
 Azure Disk Encryption aprovecha BitLocker para ofrecer cifrado de disco completo en las máquinas virtuales de Azure que ejecutan Windows.  Esta solución se integra con Azure Key Vault para administrar los secretos y las claves de cifrado de los discos de la suscripción de Key Vault. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
-Para obtener una lista completa de los requisitos previos, consulte [Azure Disk Encryption para máquinas virtuales Linux](../linux/disk-encryption-overview.md), en concreto las secciones siguientes:
+Para una lista completa de los requisitos previos, consulte [Azure Disk Encryption para máquinas virtuales Windows](../windows/disk-encryption-overview.md), en concreto las secciones siguientes:
 
-- [Azure Disk Encryption para máquinas virtuales Linux](../windows/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [Máquinas virtuales y sistemas operativos compatibles](../windows/disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [Requisitos de red](../windows/disk-encryption-overview.md#networking-requirements)
 - [Requisitos de la directiva de grupo](../windows/disk-encryption-overview.md#group-policy-requirements)
 
-## <a name="extension-schemata"></a>Esquema de extensión
+## <a name="extension-schema"></a>Esquema de extensión
 
-Hay dos esquemas para la extensión AzureDiskEncryption de Windows: v2.2, un esquema más reciente y recomendado que no usa las propiedades de Azure Active Directory (AAD) y v1.1, un esquema anterior que requiere propiedades de AAD. Debe usar la versión de esquema correspondiente a la extensión que está usando: esquema v2.2 para la extensión AzureDiskEncryption, versión 2.2, esquema v1.1 para la versión 1.1 de la extensión AzureDiskEncryption.
+Hay dos versiones del esquema de extensión para Azure Disk Encryption (ADE):
+- v2.2: un esquema recomendado más reciente que no usa las propiedades de Azure Active Directory (AAD).
+- v1.1: un esquema anterior que requiere las propiedades de Azure Active Directory (AAD). 
+
+Para seleccionar un esquema de destino, la propiedad `typeHandlerVersion` debe establecerse en la versión del esquema que desee usar.
 
 ### <a name="schema-v22-no-aad-recommended"></a>Esquema v2.2: Sin AAD (recomendado)
 
@@ -46,22 +50,23 @@ El esquema v2.2 se recomienda para todas las máquinas virtuales nuevas y no req
 {
   "type": "extensions",
   "name": "[name]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-07-01",
   "location": "[location]",
   "properties": {
-    "publisher": "Microsoft.Azure.Security",
-    "settings": {
-      "EncryptionOperation": "[encryptionOperation]",
-      "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-      "KekVaultResourceId": "[keyVaultResourceID]",
-      "KeyVaultURL": "[keyVaultURL]",
-      "KeyVaultResourceId": "[keyVaultResourceID]",
-      "SequenceVersion": "sequenceVersion]",
-      "VolumeType": "[volumeType]"
-    },
-  "type": "AzureDiskEncryption",
-  "typeHandlerVersion": "[extensionVersion]"
+        "publisher": "Microsoft.Azure.Security",
+        "type": "AzureDiskEncryption",
+        "typeHandlerVersion": "2.2",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "EncryptionOperation": "[encryptionOperation]",
+          "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+          "KeyVaultURL": "[keyVaultURL]",
+          "KekVaultResourceId": "[keyVaultResourceID]",
+          "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KeyVaultResourceId": "[keyVaultResourceID]",
+          "SequenceVersion": "sequenceVersion]",
+          "VolumeType": "[volumeType]"
+        }
   }
 }
 ```
@@ -71,62 +76,62 @@ El esquema v2.2 se recomienda para todas las máquinas virtuales nuevas y no req
 
 El esquema 1.1 requiere `aadClientID` y `aadClientSecret` o `AADClientCertificate`, y no se recomienda para las nuevas máquinas virtuales.
 
-Uso de `aadClientSecret`:
+Usar `aadClientSecret`:
 
 ```json
 {
   "type": "extensions",
   "name": "[name]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-07-01",
   "location": "[location]",
   "properties": {
     "protectedSettings": {
       "AADClientSecret": "[aadClientSecret]"
     },    
     "publisher": "Microsoft.Azure.Security",
+    "type": "AzureDiskEncryption",
+    "typeHandlerVersion": "1.1",
     "settings": {
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-      "KekVaultResourceId": "[keyVaultResourceID]",
       "KeyVaultURL": "[keyVaultURL]",
       "KeyVaultResourceId": "[keyVaultResourceID]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
-    },
-  "type": "AzureDiskEncryption",
-  "typeHandlerVersion": "[extensionVersion]"
+    }
   }
 }
 ```
 
-Uso de `AADClientCertificate`:
+Usar `AADClientCertificate`:
 
 ```json
 {
   "type": "extensions",
   "name": "[name]",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2019-07-01",
   "location": "[location]",
   "properties": {
     "protectedSettings": {
       "AADClientCertificate": "[aadClientCertificate]"
     },    
     "publisher": "Microsoft.Azure.Security",
+    "type": "AzureDiskEncryption",
+    "typeHandlerVersion": "1.1",
     "settings": {
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
-      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
-      "KekVaultResourceId": "[keyVaultResourceID]",
       "KeyVaultURL": "[keyVaultURL]",
       "KeyVaultResourceId": "[keyVaultResourceID]",
+      "KekVaultResourceId": "[keyVaultResourceID]",
+      "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
-    },
-  "type": "AzureDiskEncryption",
-  "typeHandlerVersion": "[extensionVersion]"
+    }
   }
 }
 ```
@@ -134,40 +139,46 @@ Uso de `AADClientCertificate`:
 
 ### <a name="property-values"></a>Valores de propiedad
 
-| NOMBRE | Valor / ejemplo | Tipo de datos |
+| Nombre | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 1.1, 2.2 | string |
-| (esquema 1.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| type | AzureDiskEncryption | string |
+| typeHandlerVersion | 2.2, 1.1 | string |
+| (esquema 1.1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (esquema 1.1) AADClientSecret | password | string |
 | (esquema 1.1) AADClientCertificate | thumbprint | string |
-| DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Diccionario de JSON |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyEncryptionKeyURL | url | string |
+| (opcional: RSA-OAEP predeterminado) KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyVaultURL | url | string |
-| (opcional) Passphrase | password | string | 
-| SequenceVersion | uniqueidentifier | string |
+| KeyVaultResourceId | url | string |
+| (opcional) KeyEncryptionKeyURL | url | string |
+| (opcional) KekVaultResourceId | url | string |
+| (opcional) SequenceVersion | UNIQUEIDENTIFIER | string |
 | VolumeType | OS, Data, All | string |
 
 ## <a name="template-deployment"></a>Implementación de plantilla
-Para ver un ejemplo de implementación de una plantilla, consulte [Create a new encrypted Windows VM from gallery image](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image) (Creación de una nueva VM Windows cifrada a partir de una image de la galería).
 
-## <a name="azure-cli-deployment"></a>Implementación de la CLI de Azure
+Para un ejemplo de una implementación de plantilla basada en un esquema de la versión 2.2, consulte la plantilla de inicio rápido de Azure [201-encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
 
-Puede encontrar instrucciones en la versión más reciente de la [documentación de la CLI de Azure](/cli/azure/vm/encryption?view=azure-cli-latest). 
+Para un ejemplo de una implementación de plantilla basada en un esquema de la versión 1.1, consulte la plantilla de inicio rápido de Azure [201-encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
+
+>[!NOTE]
+> Además, si el parámetro `VolumeType` está establecido en Todos, los discos de datos se cifrarán solo si tienen el formato correcto. 
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
 
 ### <a name="troubleshoot"></a>Solución de problemas
 
-Consulte la [Guía de solución de problemas de Azure Disk Encryption](../../security/azure-security-disk-encryption-tsg.md).
+Para solucionar el problema, consulte [Guía de solución de problemas de Azure Disk Encryption](../windows/disk-encryption-troubleshooting.md).
 
 ### <a name="support"></a>Soporte técnico
 
-Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/community/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione Obtener soporte. Para obtener información sobre el uso del soporte técnico, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/community/). 
+
+Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya a [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione Obtener soporte técnico. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes del soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre las extensiones, consulte el artículo [Características y extensiones de las máquinas virtuales para Windows](features-windows.md).
+
+* Para más información sobre las extensiones, consulte el artículo [Características y extensiones de las máquinas virtuales para Windows](features-windows.md).
+* Para más información sobre Azure Disk Encryption para Windows, consulte [Máquinas virtuales Windows](../../security/fundamentals/azure-disk-encryption-vms-vmss.md#windows-virtual-machines).

@@ -2,18 +2,18 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 10/06/2019
+ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 2124b5241015ca74ff6507767396b1a27bd1191d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c71f35a06d904b45cb014d5199197220b57cf230
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74935826"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79486036"
 ---
 Las entradas del documento `deploymentconfig.json` se asignan a los parámetros de [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). En la tabla siguiente se describe la asignación entre las entidades del documento JSON y los parámetros del método:
 
-| Entidad JSON | Parámetro del método | DESCRIPCIÓN |
+| Entidad JSON | Parámetro del método | Descripción |
 | ----- | ----- | ----- |
 | `computeType` | N/D | El destino de proceso. Para AKS, el valor debe ser `aks`. |
 | `autoScaler` | N/D | Contiene elementos de configuración para la escalabilidad automática. Consulte la tabla del escalador automático. |
@@ -33,11 +33,11 @@ Las entradas del documento `deploymentconfig.json` se asignan a los parámetros 
 | `scoringTimeoutMs` | `scoring_timeout_ms` | Tiempo de espera que se aplicará a las llamadas de puntuación al servicio web. El valor predeterminado es `60000`. |
 | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Número máximo de solicitudes simultáneas por nodo para este servicio web. El valor predeterminado es `1`. |
 | `maxQueueWaitMs` | `max_request_wait_time` | Tiempo máximo que permanecerá en la cola una solicitud (en milisegundos) antes de que se devuelva un error 503. El valor predeterminado es `500`. |
-| `numReplicas` | `num_replicas` | Número de contenedores que se asignarán a este servicio web. No hay ningún valor predeterminado. Si no se establece este parámetro, el escalador automático se habilita de forma predeterminada. |
+| `numReplicas` | `num_replicas` | Número de contenedores que se asignarán a este servicio web. Ningún valor predeterminado. Si no se establece este parámetro, el escalador automático se habilita de forma predeterminada. |
 | `keys` | N/D | Contiene elementos de configuración para las claves. |
 | &emsp;&emsp;`primaryKey` | `primary_key` | Clave de autenticación principal que se usará para este servicio web |
 | &emsp;&emsp;`secondaryKey` | `secondary_key` | Clave de autenticación secundaria que se usará para este servicio web |
-| `gpuCores` | `gpu_cores` | Número de núcleos de GPU que se asignará a este servicio web. El valor predeterminado es 1. Solo admite valores de números enteros. |
+| `gpuCores` | `gpu_cores` | El número de núcleos de GPU (por réplica de contenedor) que se van a asignar a este servicio web. El valor predeterminado es 1. Solo admite valores de números enteros. |
 | `livenessProbeRequirements` | N/D | Contiene elementos de configuración para los requisitos del sondeo de ejecución. |
 | &emsp;&emsp;`periodSeconds` | `period_seconds` | Frecuencia (en segundos) en que se ejecutará el sondeo de ejecución. El valor predeterminado es de 10 segundos. El valor mínimo es 1. |
 | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Número de segundos después de que se haya iniciado el contenedor antes de que se inicien los sondeos de ejecución. El valor predeterminado es 310 |

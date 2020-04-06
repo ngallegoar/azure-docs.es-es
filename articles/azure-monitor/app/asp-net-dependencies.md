@@ -2,13 +2,13 @@
 title: Seguimiento de dependencia en Azure Application Insights | Microsoft Docs
 description: Supervise las llamadas de dependencia de su aplicación web o local de Microsoft Azure con Application Insights.
 ms.topic: conceptual
-ms.date: 06/25/2019
-ms.openlocfilehash: 8fb1550a3f1d4b3336384139b049b60e23e648d7
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/26/2020
+ms.openlocfilehash: 1d4e8d1a0482257c92f47a00bd440e786c09c7aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666248"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292122"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
@@ -34,12 +34,14 @@ Si falta una dependencia o está usando un SDK diferente, asegúrese de que se e
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>Configuración de seguimiento automático de dependencias en aplicaciones de consola
 
-Para realizar un seguimiento automático de las dependencias de aplicaciones de consola .NET/.NET Core, instale el paquete NuGet `Microsoft.ApplicationInsights.DependencyCollector` y cree una instancia de `DependencyTrackingTelemetryModule` como se muestra a continuación:
+Para realizar un seguimiento automático de las dependencias de aplicaciones de consola .NET, instale el paquete NuGet `Microsoft.ApplicationInsights.DependencyCollector` y cree una instancia de `DependencyTrackingTelemetryModule` como se muestra a continuación:
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
     depModule.Initialize(TelemetryConfiguration.Active);
 ```
+
+En el caso de las aplicaciones de consola de .NET Core TelemetryConfiguration.Active está obsoleto. Consulte las instrucciones de la [documentación del servicio de trabajo](https://docs.microsoft.com/azure/azure-monitor/app/worker-service) y la [documentación de supervisión de ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
 
 ### <a name="how-automatic-dependency-monitoring-works"></a>Funcionamiento de la supervisión automática de dependencias
 
@@ -109,7 +111,7 @@ En los casos anteriores, la forma correcta de validar que el motor de instrument
 * Haga clic en las solicitudes lentas o con errores para comprobar sus llamadas de dependencia.
 * [Análisis](#logs-analytics) puede utilizarse para consultar los datos de dependencia.
 
-## <a name="diagnosis"></a> Diagnóstico de solicitudes lentas
+## <a name="diagnose-slow-requests"></a><a name="diagnosis"></a> Diagnóstico de solicitudes lentas
 
 Cada evento de solicitud está asociado a las llamadas de dependencia, las excepciones y otros eventos de los que se realiza un seguimiento mientras la aplicación procesa la solicitud. Por lo tanto, si algunas solicitudes no tienen un buen rendimiento, puede averiguar si se debe a respuestas lentas de una dependencia.
 

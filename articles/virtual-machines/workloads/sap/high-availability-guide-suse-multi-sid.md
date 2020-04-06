@@ -13,20 +13,22 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 3e9634b9121cb0ecbcfb01f6ad58984d90ec28e5
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 793851780e1154b6b6a21c88ea8cae063a277790
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927248"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80350055"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications: guía de varios SID
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
+
+[anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
@@ -84,12 +86,12 @@ Antes de comenzar, consulte las siguientes notas y documentos de SAP:
 * [Guías de procedimientos recomendados de SUSE SAP HA][suse-ha-guide] Las guías contienen toda la información necesaria para la configuración de Netweaver HA y la replicación del sistema de SAP HANA en el entorno local. Use estas guías como base de referencia general. Proporcionan información mucho más detallada.
 * [Notas de la versión de la Extensión 12 SP3 de alta disponibilidad para SUSE][suse-ha-12sp3-relnotes]
 * [Guía de clústeres de varios SID de SUSE para SLES 12 y SLES 15](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
-
+* [Aplicaciones de NetApp SAP en Microsoft Azure que usan Azure NetApp Files][anf-sap-applications-azure]
 ## <a name="overview"></a>Información general
 
 Se debe ajustar el tamaño de las máquinas virtuales que participan en el clúster para poder ejecutar todos los recursos en caso de que se produzca la conmutación por error. Cada SID de SAP puede conmutar por error de forma independiente en el clúster de alta disponibilidad de varios SID.  Si usa vallado de SBD, los dispositivos SBD pueden compartirse entre varios clústeres.  
 
-Para lograr alta disponibilidad, SAP NetWeaver requiere recursos compartidos NFS disponibles. En este ejemplo se supone que los recursos compartidos NFS de SAP se hospedan en un [servidor de archivos NFS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) de alta disponibilidad, que puede usarse en varios sistemas SAP. O bien, los recursos compartidos se implementan en [volúmenes de NFS de archivos de Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
+Para lograr alta disponibilidad, SAP NetWeaver requiere recursos compartidos NFS disponibles. En este ejemplo se supone que los recursos compartidos NFS de SAP se hospedan en un [servidor de archivos NFS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) de alta disponibilidad, que puede usarse en varios sistemas SAP. O bien, los recursos compartidos se implementan en [volúmenes de NFS de Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
 
 ![Información general sobre la alta disponibilidad de SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
@@ -109,8 +111,6 @@ En la lista siguiente se muestra la configuración del equilibrador de carga (A)
   * Dirección IP de NW1:  10.3.1.14
   * Dirección IP de NW2:  10.3.1.16
   * Dirección IP de NW3:  10.3.1.13
-* Configuración de back-end
-  * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puertos de sondeo
   * Puerto 620<strong>&lt;nr&gt;</strong>, por lo tanto, los puertos de sondeo 620**00**, 620**10** y 620**20** para NW1, NW2 y NW3
 * Reglas de equilibrio de carga: 
@@ -131,8 +131,6 @@ En la lista siguiente se muestra la configuración del equilibrador de carga (A)
   * Dirección IP de NW1: 10.3.1.15
   * Dirección IP de NW2: 10.3.1.17
   * Dirección IP de NW3: 10.3.1.19
-* Configuración de back-end
-  * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puerto de sondeo
   * Puerto 621<strong>&lt;nr&gt;</strong>, por lo tanto, los puertos de sondeo 621**02**, 621**12** and 621**22** para NW1, NW2 y NW#
 * Reglas de equilibrio de carga: cree una para cada instancia, es decir, NW1/ERS, NW2/ERS y NW3/ERS.
@@ -143,6 +141,9 @@ En la lista siguiente se muestra la configuración del equilibrador de carga (A)
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
+
+* Configuración de back-end
+  * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 
 
 > [!Note]
@@ -155,7 +156,7 @@ En la lista siguiente se muestra la configuración del equilibrador de carga (A)
 
 SAP NetWeaver requiere un almacenamiento compartido para el transporte, el directorio de perfil, etc. En el caso de sistemas SAP de alta disponibilidad, es importante tener recursos compartidos NFS de alta disponibilidad. Tendrá que decidir sobre la arquitectura de sus recursos compartidos NFS de SAP. Una opción consiste en compilar un [clúster NFS de alta disponibilidad en máquinas virtuales de Azure en SUSE Linux Enterprise Server][nfs-ha], que se puede compartir entre varios sistemas SAP. 
 
-Otra opción consiste en implementar los recursos compartidos en [volúmenes NFS de archivos de Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  Con Azure NetApp Files, obtendrá alta disponibilidad integrada para los recursos compartidos NFS de SAP.
+Otra opción consiste en implementar los recursos compartidos en [volúmenes NFS de Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  Con Azure NetApp Files, obtendrá alta disponibilidad integrada para los recursos compartidos NFS de SAP.
 
 ## <a name="deploy-the-first-sap-system-in-the-cluster"></a>Implementación del primer sistema SAP en el clúster
 
@@ -247,7 +248,7 @@ En esta documentación se supone que:
    > [!IMPORTANT]
    > Pruebas recientes han mostrado situaciones en las que netcat deja de responder a las solicitudes debido al trabajo pendiente y a su limitación para controlar solo una conexión. El recurso netcat deja de escuchar las solicitudes del equilibrador de carga de Azure y la dirección IP flotante deja de estar disponible.  
    > En el caso de los clústeres de Pacemaker existentes, en el pasado se recomendaba reemplazar netcat por socat. Actualmente se recomienda usar el agente de recursos azure-lb, que forma parte de los agentes de recursos de paquetes, con los siguientes requisitos de versión de paquete:
-   > - Para SLES 12 SP4/SP5, la versión debe ser al menos resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - En el caso de SLES 12 SP4/SP5, la versión debe ser, al menos, resource-agents-4.3.018.a7fb5035-3.30.1.  
    > - Para SLES 15/15 SP1, la versión debe ser al menos resource-agents-4.3.0184.6ee15eb2-4.13.1.  
    >
    > Tenga en cuenta que el cambio requerirá un breve tiempo de inactividad.  

@@ -9,12 +9,12 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.openlocfilehash: b0b0bb5eefde9e744b1f30109d60ded91d3b44e8
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: a2bd9845cd29c7d139e2042f39b4697847639207
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228661"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455798"
 ---
 # <a name="execute-python-code-in-azure-machine-learning-designer"></a>Ejecución de código de Python en el diseñador de Azure Machine Learning
 
@@ -78,7 +78,7 @@ En este ejemplo, se usa Pandas para combinar dos columnas que se encuentran en e
 
     El valor devuelto debe ser una trama de datos de Pandas. Puede devolver hasta dos tramas de datos como salidas del módulo.
     
-1. Ejecución de la canalización
+1. Envíe la canalización.
 
 Ahora tiene un conjunto de datos con la nueva característica **Dollars/HP**, que podría ser útil para entrenar un recomendador de coches. Este es un ejemplo de extracción de características y reducción de la dimensionalidad. 
 

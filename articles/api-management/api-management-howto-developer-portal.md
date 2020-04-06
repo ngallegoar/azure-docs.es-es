@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 03/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 311ce34a4b5cfbb9a54a285094dac34c7dd5a225
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: fefa5ff5d112b479110d484ee0ea4c358b5c88a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126534"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335907"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Introducción al portal para desarrolladores de Azure API Management
 
@@ -30,7 +30,7 @@ En este artículo se describen las diferencias entre las versiones autohospedada
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="managed-vs-self-hosted"></a> Versiones administradas y autohospedadas
+## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> Versiones administradas y autohospedadas
 
 Puede crear su portal para desarrolladores de dos maneras:
 
@@ -64,11 +64,11 @@ El *contenido de API Management* incluye entidades como API, operaciones, produ
 
 El portal se basa en una bifurcación adaptada del [marco de Paperbits](https://paperbits.io/). La funcionalidad de Paperbits original se ha ampliado para proporcionar widgets específicos de API Management (por ejemplo, una lista de API, una lista de productos, etc.) y un conector al servicio de API Management para guardar y recuperar contenido.
 
-## <a name="faq"></a> Preguntas más frecuentes
+## <a name="frequently-asked-questions"></a><a name="faq"></a> Preguntas más frecuentes
 
 En esta sección, respondemos preguntas frecuentes generales sobre el portal para desarrolladores. Si tiene preguntas específicas de la versión autohospedada, consulte la [sección wiki del repositorio de GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> ¿Cómo puedo migrar desde la versión preliminar del portal?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> ¿Cómo puedo migrar desde la versión preliminar del portal?
 
 Al usar la versión preliminar del portal para desarrolladores, se aprovisiona el contenido de versión preliminar en el servicio de API Management. El contenido predeterminado se ha modificado significativamente en la versión disponible con carácter general para mejorar la experiencia del usuario. También se incluyen nuevos widgets.
 
@@ -136,26 +136,22 @@ Después de configurar la delegación, debe [volver a publicar el portal](api-ma
 
 La mayoría de los cambios de configuración (por ejemplo, red virtual, inicio de sesión y términos del producto) requieren [volver a publicar el portal](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="cors"></a> Aparece un error de CORS cuando uso la consola interactiva
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a> Aparece un error de CORS cuando uso la consola interactiva
 
-La consola interactiva realiza una solicitud de API del lado cliente desde el explorador. Para resolver el problema de CORS, agregue [una directiva de CORS](api-management-cross-domain-policies.md#CORS) en las API. Puede especificar todos los parámetros manualmente o usar valores `*` comodín. Por ejemplo:
+La consola interactiva realiza una solicitud de API del lado cliente desde el explorador. Resuelva el problema de CORS incorporando [una directiva de CORS](api-management-cross-domain-policies.md#CORS) en las API.
 
-```XML
-<cors allow-credentials="true">
-    <allowed-origins>
-        <origin>https://contoso.com</origin>
-    </allowed-origins>
-    <allowed-methods preflight-result-max-age="300">
-        <method>*</method>
-    </allowed-methods>
-    <allowed-headers>
-        <header>*</header>
-    </allowed-headers>
-    <expose-headers>
-        <header>*</header>
-    </expose-headers>
-</cors>
-```
+Puede comprobar el estado de la directiva de CORS en la sección **Portal overview** (Información general del portal) del servicio API Management en Azure Portal. Un cuadro de advertencia indica que falta una directiva o que está mal configurada.
+
+![API Management developer portal](media/api-management-howto-developer-portal/cors-azure-portal.png)
+
+Aplique automáticamente la directiva de CORS haciendo clic en el botón **Habilitar CORS**.
+
+También puede habilitar CORS manualmente.
+
+1. Haga clic en el vínculo **Manually apply it on the global level** (Aplicarlo manualmente en el nivel global) para ver el código generado de la directiva.
+2. Vaya a **Todas las API** en la sección **API** del servicio API Management en Azure Portal.
+3. Haga clic en el icono **</>** en la sección **Procesamiento de entrada**.
+4. Inserte la directiva en la sección **<inbound>** del archivo XML. Asegúrese de que el valor de **<origin>** coincide con el dominio del portal para desarrolladores.
 
 > [!NOTE]
 > 
@@ -203,7 +199,7 @@ Este error se muestra cuando se produce un error en una llamada `GET` a `https:/
 
 Si el servicio API Management se encuentra en una red virtual, consulte la pregunta de conectividad de la red virtual anterior.
 
-El error de llamada también puede deberse a un certificado SSL, que se asigna a un dominio personalizado y no es de confianza para el explorador. Como medida de mitigación, puede quitar el dominio personalizado del punto de conexión de administración (API Management revertirá al punto de conexión predeterminado con un certificado de confianza).
+El error de llamada también puede deberse a un certificado TLS/SSL, que se asigna a un dominio personalizado y no es de confianza para el explorador. Como medida de mitigación, puede quitar el dominio personalizado del punto de conexión de administración (API Management revertirá al punto de conexión predeterminado con un certificado de confianza).
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>¿Cuál es la compatibilidad del explorador con el portal?
 
@@ -212,7 +208,7 @@ El error de llamada también puede deberse a un certificado SSL, que se asigna a
 | Apple Safari                | Sí<sup>1</sup> |
 | Google Chrome               | Sí<sup>1</sup> |
 | Microsoft Edge              | Sí<sup>1</sup> |
-| Microsoft Internet Explorer | Sin              |
+| Microsoft Internet Explorer | No              |
 | Mozilla Firefox             | Sí<sup>1</sup> |
 
  <small><sup>1</sup> Se admite en las dos últimas versiones de producción.</small>

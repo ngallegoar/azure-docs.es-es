@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d8f1bbd79e6dcbbd75e1ea1b98bd211d77ed1a9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 983470994c103cb25d0d2aff96ae8544080e6288
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275442"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481303"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Habilitar el acceso remoto a SharePoint con el proxy de aplicación de Azure AD
 
 En esta guía paso a paso se explica cómo integrar una granja de servidores de SharePoint local con Azure Active Directory (Azure AD) Application Proxy.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para realizar la configuración, necesita los siguientes recursos:
 - Una granja de servidores de SharePoint 2013, o posterior.
@@ -58,8 +58,8 @@ En este paso, creará en su inquilino de Azure Active Directory una aplicación 
 1. Cree la aplicación como se describe en la siguiente configuración. Para obtener instrucciones detalladas, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
    * **Dirección URL interna**: Dirección URL interna de SharePoint que se establecerá más adelante en SharePoint, como `https://sharepoint`.
    * **Autenticación previa**: Azure Active Directory
-   * **Traducir las URL en encabezados**: Sin
-   * **Traducir direcciones URL en el cuerpo de la aplicación**: Sin
+   * **Traducir las URL en encabezados**: No
+   * **Traducir direcciones URL en el cuerpo de la aplicación**: No
 
    ![Publicación de SharePoint como aplicación](./media/application-proxy-integrate-with-sharepoint-server/publish-app.png)
 
@@ -161,7 +161,7 @@ Dado que la dirección URL interna usa el protocolo HTTPS (`https://SharePoint/`
 1. Abra la consola del administrador de Internet Information Services.
 1. Expanda el servidor en la vista de árbol, expanda **Sitios**, seleccione el sitio **SharePoint – Proxy de AAD** y haga clic en **Enlaces**.
 1. Seleccione el **enlace HTTPS** y después haga clic en **Editar**.
-1. En el campo Certificado SSL, elija el certificado de **SharePoint** y después seleccione **Aceptar**.
+1. En el campo Certificado TLS/SSL, elija el certificado de **SharePoint** y después seleccione **Aceptar**.
 
 Ahora puede tener acceso al sitio de SharePoint de forma externa mediante Azure AD Application Proxy.
 
@@ -198,7 +198,7 @@ Ya está listo para iniciar sesión en SharePoint mediante la dirección URL ext
 
 ## <a name="troubleshoot-sign-in-errors"></a>Solución de errores de inicio de sesión
 
-Si el inicio de sesión en el sitio no funciona, puede obtener más información sobre el problema en los registros del conector: En la máquina que ejecuta el conector, abra el visor de eventos, vaya a **Registros de aplicaciones y servicios**  >  **Microsoft**   >  **AadApplicationProxy**   >  **Conector** e inspeccione el registro de **Admin**.
+Si el inicio de sesión en el sitio no funciona, puede obtener más información sobre el problema en los registros del conector: En la máquina que ejecuta el conector, abra el visor de eventos, vaya a **Registros de aplicaciones y servicios** > **Microsoft**  > **AadApplicationProxy**  > **Conector** e inspeccione el registro de **Admin**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,23 +1,23 @@
 ---
-title: 'Acerca de la transcripción de conversaciones (versión preliminar): servicio de voz'
+title: 'Transcripción de conversaciones (versión preliminar): servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: La transcripción de conversaciones es una solución de conversión de voz a texto que combina el reconocimiento de voz, la identificación del hablante y la atribución de oraciones a cada hablante (lo que también se conoce como diarización) para proporcionar la transcripción asincrónica o en tiempo real de cualquier conversación.
+description: Transcripción de conversaciones es una solución para reuniones que combina el reconocimiento, la identificador del orador y la diarización para proporcionar una transcripción de cualquier conversación.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/16/2020
 ms.author: dapine
-ms.openlocfilehash: 8e36a5c4d9ce2bc38565d6c9c256ed2cc7efe357
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ba56c7fb989658195f6394c7390c4f83027c7c96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561075"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79479746"
 ---
-# <a name="about-conversation-transcription-preview"></a>Acerca de la transcripción de conversaciones (versión preliminar)
+# <a name="what-is-conversation-transcription-in-meetings-preview"></a>¿Qué es la transcripción de conversaciones en reuniones (versión preliminar)?
 
 La transcripción de conversaciones es una solución de [conversión de voz a texto](speech-to-text.md) que combina el reconocimiento de voz, la identificación del hablante y la atribución de oraciones a cada hablante (lo que también se conoce como _diarización_) para proporcionar la transcripción asincrónica o en tiempo real de cualquier conversación. La transcripción de conversaciones distingue a los hablantes de una conversación para determinar quién dijo qué y cuándo, y facilita a los desarrolladores la tarea de agregar conversión de voz a texto a sus aplicaciones que realizan la diarización de varios hablantes.
 

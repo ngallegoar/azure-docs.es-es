@@ -3,18 +3,18 @@ title: Asignaciones de campos en indexadores
 titleSuffix: Azure Cognitive Search
 description: Configure asignaciones de campos en un indexador para tener en cuenta las diferencias en los nombres de campo y las representaciones de datos.
 manager: nitinme
-author: mgottein
+author: mattmsft
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 72623787cdb27c568fe2b4ec075010674a3996ef
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 3e09741e841897032b8146dee67b79e0c26ea5cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74124001"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275159"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Transformaciones y asignaciones de campos mediante indexadores de Azure Cognitive Search
 
@@ -123,7 +123,7 @@ Realiza una codificación Base64 *segura para direcciones URL* de la cadena de e
 
 #### <a name="example---document-key-lookup"></a>Ejemplo: búsqueda de clave de documento
 
-Solo pueden aparecer caracteres seguros para direcciones URL en una clave de documento de Azure Cognitive Search (porque los clientes deben poder enviar el documento con la [API de búsqueda](https://docs.microsoft.com/rest/api/searchservice/lookup-document)). Si el campo de origen de la clave contiene caracteres de dirección URL no seguros, puede usar la función `base64Encode` para convertirlo en el momento de la indexación.
+Solo pueden aparecer caracteres seguros para direcciones URL en una clave de documento de Azure Cognitive Search (porque los clientes deben poder enviar el documento con la [API de búsqueda](https://docs.microsoft.com/rest/api/searchservice/lookup-document)). Si el campo de origen de la clave contiene caracteres de dirección URL no seguros, puede usar la función `base64Encode` para convertirlo en el momento de la indexación. Sin embargo, una clave de documento (tanto antes como después de la conversión) no puede tener más de 1024 caracteres.
 
 Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la función `base64Decode` para obtener el valor de clave original y usarlo para recuperar el documento de origen.
 
@@ -292,6 +292,28 @@ Al recuperar la clave codificada en el tiempo de búsqueda, puede usar la funci�
     "targetFieldName" : "SearchableMetadata",
     "mappingFunction" : {
       "name" : "urlDecode"
+    }
+  }]
+ ```
+ 
+ <a name="fixedLengthEncodeFunction"></a>
+ 
+ ### <a name="fixedlengthencode-function"></a>Función fixedLengthEncode
+ 
+ Esta función convierte una cadena de cualquier longitud en una cadena de longitud fija.
+ 
+ ### <a name="example---map-document-keys-that-are-too-long"></a>Ejemplo: asignar claves de documento demasiado largas
+ 
+Si se producen errores que indican que la clave del documento tiene más de 1024 caracteres, esta función se puede aplicar para reducir la longitud de la clave del documento.
+
+ ```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "metadata_storage_path",
+    "targetFieldName" : "your key field",
+    "mappingFunction" : {
+      "name" : "fixedLengthEncode"
     }
   }]
  ```

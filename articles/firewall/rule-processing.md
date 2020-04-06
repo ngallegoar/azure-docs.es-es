@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 69c0c13c7027707cdadb2f1f1de9cc1655c9c625
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621906"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79231256"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Lógica de procesamiento de reglas de Azure Firewall
 Puede configurar reglas NAT, reglas de red y reglas de aplicaciones en Azure Firewall. Las reglas se procesan en función del tipo de regla. 
@@ -90,6 +90,10 @@ Se deniega el tráfico SSH porque una colección de reglas de red *Denegar* de p
 **Resultado**
 
 Se deniegan las conexiones SSH porque una colección de reglas de red de prioridad más alta las bloquea. El procesamiento de reglas se detiene en este momento.
+
+## <a name="rule-changes"></a>Cambios de reglas
+
+Si cambia una regla para denegar el tráfico permitido anteriormente, se quitará cualquier sesión existente pertinente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

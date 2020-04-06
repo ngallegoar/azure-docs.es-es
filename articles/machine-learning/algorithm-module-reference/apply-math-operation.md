@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: b136f408bbc4fbf13bba902f76f7d33ce6b2ba96
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314579"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456750"
 ---
 # <a name="apply-math-operation"></a>Aplicación de operación matemática
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning.
+En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
 
 Use el módulo Aplicación de operación matemática para crear cálculos que se aplican a columnas numéricas del conjunto de datos de entrada. 
 
@@ -86,7 +86,7 @@ Cada instancia de este módulo puede realizar un solo tipo de operación cada ve
     - **Inplace** (Reemplazo). Los valores de las columnas que se usan como entradas se reemplazan por los nuevos valores calculados. 
     - **ResultOnly** (Solo resultado). Se devuelve una sola columna que contiene los resultados de la operación matemática.
   
-1.  Ejecución de la canalización  
+1.  Envíe la canalización.  
   
 ## <a name="results"></a>Results
 

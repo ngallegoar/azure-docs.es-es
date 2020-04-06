@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: c12aaea1dbc99a3f6db064e03b4b49e569f15194
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 29dcb3c0e74482fd6670d1a0983e751043379d6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189060"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80371616"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de la versión: SDK de dispositivos de voz
 
@@ -58,7 +58,7 @@ En las siguientes secciones se indican los cambios en las versiones más recient
 **Cambios importantes**
 
 - debido a la nueva tecnología de palabra clave, todas las palabras clave deben volver a crearse en nuestro portal mejorado de palabras clave. Para quitar completamente las palabras clave antiguas del dispositivo, desinstale la aplicación antigua.
-  - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
+  - adb uninstall com.microsoft.cognitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="speech-devices-sdk-140-2019-apr-release"></a>SDK de dispositivos de voz 1.4.0: Versión de abril de 2019
 

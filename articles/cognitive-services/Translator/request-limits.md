@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 03/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 3694c8cb34b2a050c9e18265c8cc0a0198456076
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8d26efec2783d6f121c319e46b1b505b6e1b1e09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533717"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498936"
 ---
 # <a name="request-limits-for-translator-text"></a>Límites de solicitudes de Translator Text
 
@@ -23,7 +23,7 @@ En este artículo se proporcionan los valores de limitación de Translator Text 
 
 ## <a name="character-and-array-limits-per-request"></a>Límites de caracteres y matriz por solicitud
 
-Cada solicitud Translate está limitada a 5000 caracteres. Se le cobrará por cada carácter, no por el número de solicitudes. Se recomienda enviar solicitudes más cortas.
+Cada solicitud de traducción está limitada a 5000 caracteres, en todos los idiomas de destino a los que se va a traducir. Por ejemplo, si se envía una solicitud de traducción de 1500 caracteres para traducir a 3 idiomas diferentes, se obtiene un tamaño de solicitud de 1500 x 3 = 4500 caracteres, que satisface el límite de solicitudes. Se le cobrará por cada carácter, no por el número de solicitudes. Se recomienda enviar solicitudes más cortas.
 
 En la siguiente tabla se muestran los límites de caracteres y elementos de matriz correspondientes a cada una de las operaciones de Translator Text API.
 
@@ -33,7 +33,7 @@ En la siguiente tabla se muestran los límites de caracteres y elementos de matr
 | Transliterar | 5\.000 | 10    | 5\.000 |
 | Detect | 10 000 | 100 |   50.000 |
 | BreakSentence | 10 000    | 100 | 50.000 |
-| Búsqueda en diccionario| 100 |  10  | 1000 |
+| Búsqueda en diccionario| 100 |  10  | 1,000 |
 | Ejemplos de diccionario | 100 para texto y 100 para traducción (200 en total)| 10|   2\.000 |
 
 ## <a name="character-limits-per-hour"></a>Límites de caracteres por hora

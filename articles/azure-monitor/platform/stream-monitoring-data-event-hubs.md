@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b22f779d616751ebaa3dad853d5aa23ec4969f23
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 08177165439ff7d3205e31757e5d1e28759a9836
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77658870"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79234152"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Transmisión de datos de supervisión de Azure a un centro de eventos
 Azure Monitor proporciona una solución completa de supervisión de pila para aplicaciones y servicios en Azure, en otras nubes y locales. Asimismo, se puede usar Azure Monitor para analizar esos datos y aprovecharlos en diferentes escenarios de supervisión, aunque es posible que deba enviarlos a otras herramientas de supervisión de su entorno. El método más efectivo en la mayoría de los casos para transmitir datos de supervisión a herramientas externas, es usar [Azure Event Hubs](/azure/event-hubs/). En este artículo se proporciona una breve descripción de cómo puede transmitir datos de supervisión desde diferentes orígenes a un centro de eventos y vínculos a instrucciones detalladas.
@@ -35,7 +35,7 @@ En [Orígenes de datos de supervisión de Azure Monitor](data-sources.md) se de
 | Nivel | data | Método |
 |:---|:---|:---|
 | [Inquilino de Azure](data-sources.md#azure-tenant) | Registros de auditoría de Azure Active Directory | Configure un valor de diagnóstico de inquilino en el inquilino de AAD. Consulte [Tutorial: Streaming de los registros de Azure Active Directory a Azure Event Hubs](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) para obtener más detalles. |
-| [Suscripción de Azure](data-sources.md#azure-subscription) | Azure Activity Log | Cree un perfil de registro para exportar eventos del registro de actividades a Event Hubs.  Consulte [Exportación del registro de actividad de Azure al almacenamiento o a Azure Event Hubs](activity-log-export.md) para obtener más detalles. |
+| [Suscripción de Azure](data-sources.md#azure-subscription) | Azure Activity Log | Cree un perfil de registro para exportar eventos del registro de actividades a Event Hubs.  Consulte [Transmisión de registros de plataforma de Azure a Azure Event Hubs](resource-logs-stream-event-hubs.md) para más información. |
 | [Recursos de Azure](data-sources.md#azure-resources) | Métricas de la plataforma<br> Registros del recurso |Ambos tipos de datos se envían a un centro de eventos mediante la configuración de diagnóstico de recursos. Consulte [Transmisión de registros de recursos de Azure a un centro de eventos](resource-logs-stream-event-hubs.md) para más detalles. |
 | [Sistema operativo (invitado)](data-sources.md#operating-system-guest) | Azure Virtual Machines | Instale la [extensión de Azure Diagnostics](diagnostics-extension-overview.md) en máquinas virtuales de Windows y Linux en Azure. Consulte [Streaming de datos de Azure Diagnostics en la ruta de acceso activa mediante Event Hubs](diagnostics-extension-stream-event-hubs.md) para obtener detalles sobre las VM de Windows y [Usar la extensión de diagnósticos de Linux para supervisar métricas y registros](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) para obtener detalles sobre las VM de Linux. |
 | [Código de aplicación](data-sources.md#application-code) | Application Insights | Application Insights no proporciona un método directo para transmitir datos a LOS centros de eventos. Puede [configurar la exportación continua](../../azure-monitor/app/export-telemetry.md) de los datos de Application Insights a una cuenta de almacenamiento y luego usar una aplicación lógica para enviar esos datos a un centro de eventos, tal como se describe en [Streaming manual con la aplicación lógica](#manual-streaming-with-logic-app). |
@@ -50,12 +50,12 @@ El enrutamiento de los datos de supervisión a un centro de eventos con Azure M
 
 | Herramienta | Hospedado en Azure | Descripción |
 |:---|:---| :---|
-|  IBM QRadar | Sin | Los protocolos Microsoft Azure DSM y Microsoft Azure Even Hub se pueden descargar en el sitio web de [el sitio web de soporte técnico de IBM](https://www.ibm.com/support). Encontrará más información acerca de la integración con Azure en [Configuración de QRadar DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
-| Splunk | Sin | [El complemento Azure Monitor para Splunk](https://splunkbase.splunk.com/app/3534/) está disponible en Splunkbase y es un proyecto de código abierto. La documentación está disponible en [Complemento de Azure Monitor para Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Si no puede instalar un complemento en la instancia de Splunk (por ejemplo, si usa un proxy o si se ejecuta en Splunk Cloud), puede reenviar estos eventos al recopilador de eventos de HTTP de Splunk mediante [esta función de Azure para Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS) que desencadenan los nuevos mensajes del centro de eventos. |
-| sumologic | Sin | Las instrucciones para configurar SumoLogic para consumir datos de un centro de eventos están disponibles en [Recopilar registros para la aplicación Azure Audit desde el centro de eventos](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | Sin | El conector inteligente ArcSight de Azure Event Hubs está disponible como parte de [esta colección de conectores inteligentes de ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
-| Servidor de Syslog | Sin | Si quiere transmitir datos de Azure Monitor directamente a un servidor syslog, puede usar una solución [basada en una función de Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
-| LogRhythm | Sin| Las instrucciones necesarias para configurar LogRhythm con el fin de recopilar registros de un centro de eventos están disponibles [aquí](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+|  IBM QRadar | No | Los protocolos Microsoft Azure DSM y Microsoft Azure Even Hub se pueden descargar en el sitio web de [el sitio web de soporte técnico de IBM](https://www.ibm.com/support). Encontrará más información acerca de la integración con Azure en [Configuración de QRadar DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
+| Splunk | No | [El complemento Azure Monitor para Splunk](https://splunkbase.splunk.com/app/3534/) está disponible en Splunkbase y es un proyecto de código abierto. La documentación está disponible en [Complemento de Azure Monitor para Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Si no puede instalar un complemento en la instancia de Splunk (por ejemplo, si usa un proxy o si se ejecuta en Splunk Cloud), puede reenviar estos eventos al recopilador de eventos de HTTP de Splunk mediante [esta función de Azure para Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS) que desencadenan los nuevos mensajes del centro de eventos. |
+| sumologic | No | Las instrucciones para configurar SumoLogic para consumir datos de un centro de eventos están disponibles en [Recopilar registros para la aplicación Azure Audit desde el centro de eventos](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | No | El conector inteligente ArcSight de Azure Event Hubs está disponible como parte de [esta colección de conectores inteligentes de ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Servidor de Syslog | No | Si quiere transmitir datos de Azure Monitor directamente a un servidor syslog, puede usar una solución [basada en una función de Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+| LogRhythm | No| Las instrucciones necesarias para configurar LogRhythm con el fin de recopilar registros de un centro de eventos están disponibles [aquí](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Sí | Para más información, consulte [Introducción a la supervisión y el registro con Logz.io para aplicaciones Java que se ejecutan en Azure](https://docs.microsoft.com/azure/java/java-get-started-with-logzio).
 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c754f33ab5f4346413b6603ca2cd404acac5443f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662407"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371599"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Características avanzadas del Explorador de métricas de Azure
 
@@ -110,6 +110,19 @@ Para controlar el intervalo del eje y, use el menú "..." del gráfico y selecci
 
 > [!WARNING]
 > El bloqueo de los límites del eje Y de los gráficos que realizan el seguimiento de varios recuentos o sumas durante un período (y, por tanto, use recuento de uso, suma y agregaciones mínima o máxima) normalmente requiere que se especifique una granularidad de tiempo fijo, en lugar de usar los valores predeterminados automáticos. Esto es necesario porque los valores de los gráficos cambian cuando la granularidad de tiempo se modifica automáticamente cuando el usuario cambia el tamaño de la ventana del explorador o pasa de una resolución de pantalla a otro. El cambio resultante en la granularidad de tiempo afecta al aspecto del gráfico, lo que invalida la selección actual del eje Y.
+
+## <a name="change-colors-of-chart-lines"></a>Cambio de los colores de las líneas del gráfico
+
+Después de configurar los gráficos, se asigna automáticamente a las líneas del gráfico un color de la paleta predeterminada. Puede cambiar esos colores.
+
+Para cambiar el color de una línea del gráfico, haga clic en la barra coloreada de la leyenda correspondiente al gráfico. Se abrirá el cuadro de diálogo Selector de colores. Use el selector de colores para configurar el color de la línea.
+
+Una vez configurados los colores del gráfico, permanecerán de este modo al anclar el gráfico a un panel. En la sección siguiente se muestra cómo anclar un gráfico.
+
+> [!NOTE]
+> Debido a las restricciones de nuestra programación de versiones y publicación, el cambio de los colores de las líneas del gráfico requiere temporalmente el paso de un parámetro especial **?feature.colorpicker=true** al iniciar Azure Portal [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). Esta limitación se quitará próximamente. 
+
+![imagen de métrica](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>Anclaje de gráficos a paneles
 

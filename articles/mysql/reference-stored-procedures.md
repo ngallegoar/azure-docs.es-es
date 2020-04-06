@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 7ab77f822ace61ccb023dffe6d79fb1d08278d11
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 6a3fa40eaae174d3616fd0318f81576b7c59eac7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774947"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067699"
 ---
 # <a name="azure-database-for-mysql-management-stored-procedures"></a>Procedimientos almacenados de administración de Azure Database for MySQL
 
-Los procedimientos almacenados están disponibles en servidores Azure Database for MySQL para ayudar a administrar el servidor MySQL. Esto incluye la administración de las conexiones del servidor, las consultas y la configuración de Replicación de datos de entrada.  
+Los procedimientos almacenados están disponibles en servidores Azure Database for MySQL para ayudar a administrar el servidor MySQL. Esto incluye la administración de las conexiones del servidor, las consultas y la configuración de replicación de datos de entrada.  
 
-## <a name="data-in-replication-stored-procedures"></a>Procedimientos almacenados de Replicación de datos de entrada
+## <a name="data-in-replication-stored-procedures"></a>Procedimientos almacenados de replicación de datos de entrada
 
 Data-in Replication permite sincronizar los datos de un servidor de MySQL que se ejecuta de forma local, en máquinas virtuales o servicios de base de datos hospedados por otros proveedores de nube en el servicio de Azure Database for MySQL.
 
