@@ -7,96 +7,87 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 351b41f45fb84384ec0193f8e3130347d0b19401
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6316165ba08d055be1186995e2fe2ad5a0079fb7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189096"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330718"
 ---
-# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C.
+# <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Tutorial: Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Puede agregar interacción con una API de RESTful a sus [directivas personalizadas](custom-policy-overview.md) en Azure Active Directory B2C (Azure AD B2C). En este artículo se muestra cómo crear un recorrido del usuario de Azure AD B2C que interactúe con servicios RESTful.
+Azure Active Directory B2C (Azure AD B2C) permite a los desarrolladores de identidades integrar una interacción con una API RESTful en un recorrido del usuario. Al final de este tutorial podrá crear un recorrido del usuario de Azure AD B2C que interactúe con [servicios RESTful](custom-policy-rest-api-intro.md).
 
-La interacción incluye un intercambio de notificaciones de información entre las notificaciones de la API de REST y Azure AD B2C. El intercambio de notificaciones tiene las siguientes características:
+En este escenario, enriquecemos los datos de token del usuario mediante la integración con un flujo de trabajo de línea de negocio corporativo. Durante el registro o inicio de sesión con una cuenta local o federada, Azure AD B2C invoca una API REST para obtener los datos de perfil extendido del usuario de un origen de datos remoto. En este ejemplo, Azure AD B2C envía el identificador único del usuario: objectId. Después, la API REST devuelve el saldo de la cuenta del usuario (un número aleatorio). Use este ejemplo como punto de partida para la integración con su propio sistema CRM, base de datos de marketing o cualquier flujo de trabajo de línea de negocio.
 
-- Puede diseñarse como un paso de orquestación.
-- Puede desencadenar una acción externa. Por ejemplo, puede registrar un evento en una base de datos externa.
-- Puede usarse para capturar un valor y almacenarlo en la base de datos de usuario.
-- Puede cambiar el flujo de ejecución.
-
-El escenario que se representa en este artículo incluye las siguientes acciones:
-
-1. Buscar al usuario en un sistema externo.
-2. Obtener la ciudad donde está registrado.
-3. Devolver ese atributo como una notificación a la aplicación.
+También puede diseñar la interacción como un perfil técnico de validación. Esto es adecuado cuando la API REST va a validar datos en pantalla y devolver notificaciones. Para más información, consulte [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C para validar la entrada del usuario](custom-policy-rest-api-claims-validation.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- Realice los pasos del artículo [Introducción a las directivas personalizadas](custom-policy-get-started.md).
-- Un punto de conexión de API de REST con el que interactuar. En este artículo se usa una función simple de Azure como ejemplo. Para crear la función de Azure, consulte [Creación de su primera función en Azure Portal](../azure-functions/functions-create-first-azure-function.md).
+- Realice los pasos del artículo [Introducción a las directivas personalizadas](custom-policy-get-started.md). Debe tener una directiva personalizada activa para registrar e iniciar sesión de cuentas locales.
+- Más información sobre cómo [integrar notificaciones de API REST en la directiva personalizada de Azure AD B2C](custom-policy-rest-api-intro.md).
 
-## <a name="prepare-the-api"></a>Preparar la API
+## <a name="prepare-a-rest-api-endpoint"></a>Preparación del punto de conexión de API REST
 
-En esta sección, preparará la función de Azure para recibir un valor para `email` y, luego, devolverá el valor a `city` para que Azure AD B2C pueda usarlo como notificación.
+Para este tutorial, debe tener una API REST que valide si un objectId de Azure AD B2C de un usuario está registrado en el sistema de back-end. Si está registrado, la API REST devuelve el saldo de la cuenta de usuario. De lo contrario, la API REST registra la nueva cuenta en el directorio y devuelve el saldo inicial `50.00`.
 
-Cambie el archivo run.csx para la función de Azure que ha creado para usar el código siguiente:
+El siguiente código JSON muestra los datos que Azure AD B2C enviará al punto de conexión de la API REST. 
 
-```csharp
-#r "Newtonsoft.Json"
-
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
-
-public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+```json
 {
-  log.LogInformation("C# HTTP trigger function processed a request.");
-  string email = req.Query["email"];
-  string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-  dynamic data = JsonConvert.DeserializeObject(requestBody);
-  email = email ?? data?.email;
-
-  return email != null
-    ? (ActionResult)new OkObjectResult(
-      new ResponseContent
-      {
-        version = "1.0.0",
-        status = (int) HttpStatusCode.OK,
-        city = "Redmond"
-      })
-      : new BadRequestObjectResult("Please pass an email on the query string or in the request body");
-}
-
-public class ResponseContent
-{
-    public string version { get; set; }
-    public int status { get; set; }
-    public string city {get; set; }
+    "objectId": "User objectId",
+    "language": "Current UI language"
 }
 ```
 
-## <a name="configure-the-claims-exchange"></a>Configurar el intercambio de notificaciones
+Una vez que la API REST valide los datos, debe devolver un código HTTP 200 (correcto), con los siguientes datos JSON:
 
-Un perfil técnico proporciona la configuración para el intercambio de notificaciones.
+```json
+{
+    "balance": "760.50"
+}
+```
 
-Abra el archivo *TrustFrameworkExtensions.xml* y agregue el siguiente elemento XML **ClaimsProvider** dentro del elemento **ClaimsProviders**.
+La configuración del punto de conexión de API REST está fuera del ámbito de este artículo. Hemos creado una muestra de [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference). Puede acceder al código completo de la función de Azure en [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
-```XML
+## <a name="define-claims"></a>Definición de notificaciones
+
+Una notificación proporciona un almacenamiento temporal de datos durante la ejecución de una directiva de Azure AD B2C. Puede declarar notificaciones dentro de la sección del [esquema de notificaciones](claimsschema.md). 
+
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
+1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
+1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
+
+```xml
+<ClaimType Id="balance">
+  <DisplayName>Your Balance</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="userLanguage">
+  <DisplayName>User UI language (used by REST API to return localized error messages)</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+```
+
+## <a name="configure-the-restful-api-technical-profile"></a>Configuración del perfil técnico de la API RESTful 
+
+Un [perfil técnico de RESTful](restful-technical-profile.md) proporciona compatibilidad para interactuar con su propio servicio RESTful. Azure AD B2C envía datos al servicio RESTful en una colección `InputClaims` y recibe los datos en una colección `OutputClaims`. Busque el elemento **ClaimsProviders** en el archivo <em> **`TrustFrameworkExtensions.xml`** </em> y agregue un nuevo proveedor de notificaciones como se indica a continuación:
+
+```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="AzureFunctions-WebHook">
-      <DisplayName>Azure Function Web Hook</DisplayName>
+    <TechnicalProfile Id="REST-GetProfile">
+      <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
-        <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
         <Item Key="AuthenticationType">None</Item>
@@ -104,10 +95,13 @@ Abra el archivo *TrustFrameworkExtensions.xml* y agregue el siguiente elemento X
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
-        <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
+        <!-- Claims sent to your REST API -->
+        <InputClaim ClaimTypeReferenceId="objectId" />
+        <InputClaim ClaimTypeReferenceId="userLanguage" PartnerClaimType="lang" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
       </InputClaims>
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="city" PartnerClaimType="city" />
+        <!-- Claims parsed from your REST API -->
+        <OutputClaim ClaimTypeReferenceId="balance" />
       </OutputClaims>
       <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
@@ -115,153 +109,114 @@ Abra el archivo *TrustFrameworkExtensions.xml* y agregue el siguiente elemento X
 </ClaimsProvider>
 ```
 
-El elemento **InputClaims** define las notificaciones que se envían al servicio REST. En este ejemplo, el valor de la notificación `givenName` se envía al servicio REST como la notificación `email`. El elemento **OutputClaims** define las notificaciones que se esperan del servicio REST.
+En este ejemplo, `userLanguage` se enviará al servicio REST como `lang` desde la carga de JSON. El valor de la notificación `userLanguage` contiene el identificador de idioma del usuario actual. Para obtener más información, consulte el [solucionador de notificaciones](claim-resolver-overview.md).
 
-Los comentarios anteriores `AuthenticationType` y `AllowInsecureAuthInProduction` especifican los cambios que se deben realizar al pasar a un entorno de producción. Para obtener información sobre cómo proteger las API de RESTful para producción, vea [Protección de las API de RESTful con autenticación básica](secure-rest-api-dotnet-basic-auth.md) y [Protección de las API de RESTful con autenticación de certificado](secure-rest-api-dotnet-certificate-auth.md).
-
-## <a name="add-the-claim-definition"></a>Agregar la definición de notificación
-
-Agregue una definición para `city` dentro del elemento **BuildingBlocks**. Encontrará dicho elemento al principio del archivo TrustFrameworkExtensions.xml.
-
-```XML
-<BuildingBlocks>
-  <ClaimsSchema>
-    <ClaimType Id="city">
-      <DisplayName>City</DisplayName>
-      <DataType>string</DataType>
-      <UserHelpText>Your city</UserHelpText>
-      <UserInputType>TextBox</UserInputType>
-    </ClaimType>
-  </ClaimsSchema>
-</BuildingBlocks>
-```
+Los comentarios anteriores `AuthenticationType` y `AllowInsecureAuthInProduction` especifican los cambios que se deben realizar al pasar a un entorno de producción. Para aprender a proteger las API RESTful para la producción, consulte [Proteger la API RESTful](secure-rest-api.md).
 
 ## <a name="add-an-orchestration-step"></a>Agregar un paso de orquestación
 
-Hay muchos casos donde la llamada de API de REST puede usarse como paso de orquestación. Como tal, se puede usar como actualización a un sistema externo una vez que un usuario haya realizado correctamente una tarea, por ejemplo, el registro por primera vez, o como actualización de perfil para mantener la información sincronizada. En este caso, se usa para aumentar la información proporcionada a la aplicación después de la edición del perfil.
+Los [recorridos del usuario](userjourneys.md) especifican rutas de acceso explícitas con las que una directiva permite que una aplicación de usuario de confianza obtenga las notificaciones deseadas para un usuario. El recorrido del usuario se representa como una secuencia de orquestación por la que hay que pasar para lograr una transacción correcta. Puede agregar o quitar pasos de orquestación. En este caso, agregará un nuevo paso de orquestación que se usa para aumentar la información proporcionada a la aplicación después del registro o el inicio de sesión del usuario a través de la llamada a la API REST.
 
-Agregue un paso al recorrido del usuario de edición de perfil. Después de que el usuario se haya autenticado (pasos de orquestación del 1 al 4 en el siguiente código XML) y haya proporcionado la información de perfil actualizada (paso 5). Copie el código XML del recorrido del usuario de edición de perfil del archivo *TrustFrameworkBase.xml* en el archivo *TrustFrameworkExtensions.xml* dentro del elemento **UserJourneys**. Después, haga la modificación del paso 6.
+1. Abra el archivo base de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>.
+1. Busque el elemento `<UserJourneys>`. Copie todo el elemento y luego elimínelo.
+1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>.
+1. Pegue `<UserJourneys>` en el archivo de extensiones, después del cierre del elemento `<ClaimsProviders>`.
+1. Localice `<UserJourney Id="SignUpOrSignIn">` y agregue el siguiente paso de orquestación antes del último.
 
-```XML
-<OrchestrationStep Order="6" Type="ClaimsExchange">
-  <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
-  </ClaimsExchanges>
-</OrchestrationStep>
+    ```XML
+    <OrchestrationStep Order="7" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    ```
+
+1. Refactorice el último paso de orquestación cambiando `Order` a `8`. Los dos pasos finales de la orquestación deben tener un aspecto similar al siguiente:
+
+    ```XML
+    <OrchestrationStep Order="7" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+
+    <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+    ```
+
+1. Repita los dos últimos pasos para los recorridos del usuario **ProfileEdit** y **PasswordReset**.
+
+
+## <a name="include-a-claim-in-the-token"></a>Incorporación de una notificación en el token 
+
+Para devolver la notificación `balance` a la aplicación de usuario de confianza, agregue una notificación de salida al archivo <em>`SocialAndLocalAccounts/` **`SignUpOrSignIn.xml`** </em>. La incorporación de una notificación de salida emitirá la notificación al token después de un recorrido del usuario correcto y se enviará a la aplicación. Modifique el elemento de perfil técnico en la sección de usuario de confianza para agregar `balance` como una notificación de salida.
+ 
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <OutputClaim ClaimTypeReferenceId="balance" DefaultValue="" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
 ```
 
-El código XML final del recorrido del usuario debe tener el aspecto de este ejemplo:
+Repita este paso para los recorridos del usuario **ProfileEdit.xml** y **PasswordReset.xml**.
 
-```XML
-<UserJourney Id="ProfileEdit">
-  <OrchestrationSteps>
-    <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
-      <ClaimsProviderSelections>
-        <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
-        <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
-      </ClaimsProviderSelections>
-    </OrchestrationStep>
-    <OrchestrationStep Order="2" Type="ClaimsExchange">
-      <ClaimsExchanges>
-        <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
-        <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="3" Type="ClaimsExchange">
-      <Preconditions>
-        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-          <Value>authenticationSource</Value>
-          <Value>localAccountAuthentication</Value>
-          <Action>SkipThisOrchestrationStep</Action>
-        </Precondition>
-      </Preconditions>
-      <ClaimsExchanges>
-        <ClaimsExchange Id="AADUserRead" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="4" Type="ClaimsExchange">
-      <Preconditions>
-        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-          <Value>authenticationSource</Value>
-          <Value>socialIdpAuthentication</Value>
-          <Action>SkipThisOrchestrationStep</Action>
-        </Precondition>
-      </Preconditions>
-      <ClaimsExchanges>
-        <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="5" Type="ClaimsExchange">
-      <ClaimsExchanges>
-        <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <!-- Add a step 6 to the user journey before the JWT token is created-->
-    <OrchestrationStep Order="6" Type="ClaimsExchange">
-      <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
-      </ClaimsExchanges>
-    </OrchestrationStep>
-    <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-  </OrchestrationSteps>
-  <ClientDefinition ReferenceId="DefaultWeb" />
-</UserJourney>
-```
+Guarde los archivos que ha cambiado: *TrustFrameworkBase.xml* y *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* y *PasswordReset.xml*. 
 
-## <a name="add-the-claim"></a>Agregar la notificación
+## <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
 
-Edite el archivo *ProfileEdit.xml* y agregue `<OutputClaim ClaimTypeReferenceId="city" />` al elemento **OutputClaims**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
+1. Seleccione **Marco de experiencia de identidad**.
+1. Seleccione **Cargar directiva personalizada** y cargue los archivos de directiva modificados: *TrustFrameworkBase.xml* y *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* y *PasswordReset.xml*. 
+1. Seleccione la directiva de registro o inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora**.
+1. Debe poder suscribirse con una dirección de correo electrónico o una cuenta de Facebook.
+1. El token enviado de vuelta a la aplicación contiene la notificación `balance`.
 
-Después de agregar la nueva notificación, el perfil técnico tendrá el aspecto de este ejemplo:
-
-```XML
-<TechnicalProfile Id="PolicyProfile">
-  <DisplayName>PolicyProfile</DisplayName>
-  <Protocol Name="OpenIdConnect" />
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
-    <OutputClaim ClaimTypeReferenceId="city" />
-  </OutputClaims>
-  <SubjectNamingInfo ClaimType="sub" />
-</TechnicalProfile>
-```
-
-## <a name="upload-your-changes-and-test"></a>Carga de los cambios y prueba
-
-1. (Opcional): Guarde la versión existente (mediante descarga) de los archivos antes de continuar.
-2. Cargue los archivos *TrustFrameworkExtensions.xml* y *ProfileEdit.xml* y seleccione para sobrescribir el archivo existente.
-3. Seleccione **B2C_1A_ProfileEdit**.
-4. Para **Seleccionar aplicación** en la página Información general de la directiva personalizada, seleccione la aplicación web denominada *webapp1* que ha registrado antes. Asegúrese de que la **URL de respuesta** sea `https://jwt.ms`.
-4. Seleccione **Ejecutar ahora**. Inicie sesión con las credenciales de su cuenta y haga clic en **Continuar**.
-
-Si todo está configurado correctamente, el token incluye la nueva notificación `city`, con el valor `Redmond`.
-
-```JSON
+```json
 {
-  "exp": 1493053292,
-  "nbf": 1493049692,
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"
+}.{
+  "exp": 1584961516,
+  "nbf": 1584957916,
   "ver": "1.0",
   "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
-  "sub": "a58e7c6c-7535-4074-93da-b0023fbaf3ac",
-  "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
-  "acr": "b2c_1a_profileedit",
+  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "acr": "b2c_1a_signup_signin",
   "nonce": "defaultNonce",
-  "iat": 1493049692,
-  "auth_time": 1493049692,
-  "city": "Redmond"
+  "iat": 1584957916,
+  "auth_time": 1584957916,
+  "name": "Emily Smith",
+  "email": "emily@outlook.com",
+  "given_name": "Emily",
+  "family_name": "Smith",
+  "balance": "202.75"
+  ...
 }
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-También puede diseñar la interacción como un perfil de validación. Para más información, consulte [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](custom-policy-rest-api-claims-validation.md).
 
-[Modificación de la edición de perfil para recopilar información adicional de sus usuarios](custom-policy-custom-attributes.md)
-
-[Referencia: Perfil técnico de RESTful](restful-technical-profile.md)
+## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información sobre cómo proteger las API, vea los siguientes artículos:
 
-* [Secure your RESTful API with basic authentication (username and password)](secure-rest-api-dotnet-basic-auth.md) (Protección de las API de RESTful con autenticación básica [nombre de usuario y contraseña])
-* [Secure your RESTful API with client certificates](secure-rest-api-dotnet-certificate-auth.md) (Protección de las API de RESTful con certificados de cliente)
+- [Tutorial: Integración de intercambios de notificaciones de API REST en los recorridos de usuario de Azure AD B2C como un paso de orquestación](custom-policy-rest-api-claims-exchange.md)
+- [Protección de la API RESTful](secure-rest-api.md)
+- [Referencia: Perfil técnico de RESTful](restful-technical-profile.md)
