@@ -18,6 +18,14 @@
       items:
         - name: "Firewall de aplicaciones web en Azure\_CDN"
           href: ./cdn/cdn-overview.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: Application Gateway
+      items:
+        - name: 'Implementación de WAF v2: plantilla de Resource Manager'
+          displayName: Resource Manager
+          href: ./ag/quick-create-template.md
 - name: Tutoriales
   items:
     - name: Application Gateway

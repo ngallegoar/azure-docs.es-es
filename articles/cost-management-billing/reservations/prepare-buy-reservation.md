@@ -1,20 +1,20 @@
 ---
-title: Prepararse para la compra de una reserva de Azure
-description: Antes de comprar una reserva de Azure, es importante que conozca algunos aspectos importantes.
+title: Adquisición de una reserva de Azure
+description: Para comprar una reserva de Azure, es importante que conozca algunos aspectos importantes.
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 03/30/2020
 ms.author: banders
-ms.openlocfilehash: 1f5ca2d43356eab98cffe8414c00d97e5744739a
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 3a45a04786bb9976a42269191c8b24282905f96f
+ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80235648"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80436983"
 ---
-# <a name="prepare-to-buy-a-reservation"></a>Prepararse para la compra de una reserva
+# <a name="buy-a-reservation"></a>Adquisición de una reserva
 
 Las reservas de Azure le ayudan a ahorrar dinero, ya que se compromete a planes de uno o tres años para muchos productos de Azure. Antes de entrar en un compromiso para comprar una reserva, asegúrese de revisar las secciones siguientes para prepararse para ello.
 
@@ -50,6 +50,17 @@ También puede actualizar el ámbito después de comprar una reserva. Para ello,
 
 ![Ejemplo que muestra un cambio en el ámbito de la reserva](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
 
+## <a name="discounted-subscription-and-offer-types"></a>Tipos de ofertas y suscripciones con descuento
+
+Los descuentos por reserva se aplican a las siguientes suscripciones aptas y tipos de ofertas.
+
+- Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P)
+- Suscripciones del contrato Microsoft Customer Agreement.
+- Planes individuales con tarifas de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P)
+- Suscripciones de CSP
+
+Los recursos que se ejecutan en una suscripción con otros tipos de oferta no recibirán el descuento por la reserva.
+
 ## <a name="purchase-reservations"></a>Compra de reservas
 
 Puede comprar reservas en Azure Portal, las API, PowerShell o la CLI. Lea los siguientes artículos que correspondan a su caso cuando esté preparado para hacer una compra de reservas:
@@ -66,6 +77,54 @@ Puede comprar reservas en Azure Portal, las API, PowerShell o la CLI. Lea los si
 - [SQL Database](../../sql-database/sql-database-reserved-capacity.md)
 - [SQL Data Warehouse](prepay-sql-data-warehouse-charges.md)
 - [Máquinas virtuales](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+
+## <a name="buy-reservations-with-monthly-payments"></a>Compra de reservas con pagos mensuales
+
+Ahora puede pagar las reservas mensualmente. A diferencia de la compra por adelantado (importe total), la opción de pago mensual divide el costo de la reserva en partes iguales cada mes del período. El costo total de las reservas por adelantado y mensuales es el mismo y no se pagan cargos adicionales por elegir el pago mensual.
+
+Si la reserva se adquiere mediante un contrato de cliente de Microsoft (MCA), el importe del pago mensual puede variar en función de la tasa de cambio actual del mercado correspondiente a su moneda local.
+
+Los pagos mensuales están disponibles para: Databricks, reservas de SUSE Linux, planes de Red Hat y proceso de Azure Red Hat OpenShift.
+
+### <a name="view-payments-made"></a>Visualización de los pagos realizados
+
+Puede ver los pagos realizados mediante las API, los datos de uso y el análisis de costos. En el caso de las reservas de pago mensual, el valor de la frecuencia aparece como **periódico** en los datos de uso y en Reservation Charges API. En el caso de las reservas pagadas por adelantado, el valor se muestra como **OneTime**.
+
+El análisis de costos muestra las compras mensuales en la vista predeterminada. Aplique el filtro **compra** en **Charge type** (Tipo de cargo) y **periódico** en **Frecuencia** para ver todas las compras. Para ver solo las reservas, aplique un filtro de **Reserva**.
+
+![Ejemplo que muestra los costos de las reservas en el análisis de costos](./media/prepare-buy-reservation/cost-analysis.png)
+
+### <a name="exchange-and-refunds"></a>Cambios y reembolsos
+
+Al igual que otras reservas, con la facturación mensual se pueden reembolsar o cambiar. 
+
+Al cambiar una reserva pagada mensualmente, el costo total de la nueva compra debe ser mayor que los pagos restantes que se cancelan de la reserva devuelta. No hay ningún otro límite ni tarifa por los cambios. Puede cambiar una reserva pagada por adelantado para comprar una nueva que se facture mensualmente. Sin embargo, el valor de la duración de la nueva reserva debe ser mayor que el prorrateado de la reserva que se va a devolver.
+
+Si cancela una reserva que se paga mensualmente, los pagos futuros cancelados se acumularán hasta el límite de reembolso de 50 000 USD.
+
+Para más información sobre los cambios y los reembolsos, consulte [Autoservicio de cambios y reembolsos de reservas de Azure](exchange-and-refund-azure-reservations.md).
+
+## <a name="reservation-notifications"></a>Notificaciones de reserva
+
+En función de cómo paga la suscripción de Azure, se enviarán notificaciones de reservas por correo electrónico a los siguientes usuarios de su organización. Se envían notificaciones para varios eventos, entre los que se incluyen: 
+
+- Purchase
+- Próxima expiración de la reserva
+- Expiry
+- Renovación
+- Cancelación
+- Cambio de ámbito
+
+Para clientes con suscripciones de EA:
+
+- Las notificaciones solo se envían a los contactos de notificación de EA.
+- Los usuarios que se agregan a una reserva a través del permiso de RBAC (IAM) no reciben ninguna notificación por correo electrónico.
+
+Para clientes con suscripciones individuales:
+
+- El comprador recibe una notificación de compra.
+- En el momento de la compra, el propietario de la cuenta de facturación de suscripción recibe una notificación de compra.
+- El propietario de la cuenta recibe todas las demás notificaciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

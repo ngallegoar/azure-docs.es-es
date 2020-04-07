@@ -456,8 +456,6 @@
           href: speech-sdk.md
         - name: Disponibilidad de escenario
           href: scenario-availability.md
-        - name: Distribuir una aplicación
-          href: ship-application.md
     - name: Guía de inicio rápido
       items:
         - name: Configuración del SDK de Voz
@@ -472,6 +470,9 @@
         - name: Configuración de OpenSSL para Linux
           displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
           href: how-to-configure-openssl-linux.md
+        - name: Configuración de RHEL/CentOS 7
+          href: how-to-configure-rhel-centos-7.md
+          displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS'
     - name: Ejemplos
       items:
         - name: Ejemplos del SDK de voz (GitHub)

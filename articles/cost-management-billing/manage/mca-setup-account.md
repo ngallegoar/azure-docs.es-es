@@ -7,19 +7,19 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 24f7a81b267e858d16ae0805f9c7ab384be3b2fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 81b6b8a7024de9ff3361e24cb14190d479e50681
+ms.sourcegitcommit: 2a09565db8681cdb76607e7ed51eecf68f4ff8f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200649"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80258063"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar la cuenta de facturación para un contrato de cliente de Microsoft
 
 Si su inscripción del Contrato Enterprise expiró o está a punto de expirar, puede firmar un contrato de cliente de Microsoft para renovarla. En este artículo se describen los cambios en la facturación existente después de la configuración y lo guiará por la configuración de la nueva cuenta de facturación. La renovación incluye los siguientes pasos:
 
 1. Aceptar el nuevo contrato de cliente de Microsoft. Trabajar con su representante de campo de Microsoft para repasar los detalles y aceptar el nuevo contrato.
-2. Configurar la nueva cuenta de facturación que se crea para el nuevo contrato de cliente de Microsoft.
+2. Configurar la nueva cuenta de facturación que se crea para el nuevo Contrato de cliente de Microsoft.
 
 Para configurar la cuenta de facturación, debe pasar la facturación de las suscripciones de Azure desde su inscripción del Contrato Enterprise a la nueva cuenta. La configuración no afecta a los servicios de Azure que se ejecutan en sus suscripciones. Sin embargo, cambia la manera en que va a administrar la facturación para las suscripciones.
 
@@ -115,7 +115,7 @@ A los contactos de notificación se les envían comunicaciones por correo electr
 
 ### <a name="spending-quotas"></a>Cuotas de gasto
 
-Las cuotas de gastos que se establecieron para los departamentos de la inscripción del Contrato Enterprise se reemplazan por los presupuestos de la nueva cuenta de facturación. Se crea un presupuesto para cada cuota de gasto establecida en los departamentos de la inscripción. Para más información sobre los presupuestos, consulte [Creación y administración de presupuestos de Azure](../cloudyn/manage-budgets.md).
+Las cuotas de gastos que se establecieron para los departamentos de la inscripción del Contrato Enterprise se reemplazan por los presupuestos de la nueva cuenta de facturación. Se crea un presupuesto para cada cuota de gasto establecida en los departamentos de la inscripción. Para más información sobre los presupuestos, vea [Tutorial: Creación y administración de presupuestos en Azure](../costs/tutorial-acm-create-budgets.md).
 
 ### <a name="cost-centers"></a>Centros de coste
 

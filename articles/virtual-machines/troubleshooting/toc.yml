@@ -77,6 +77,8 @@
           href: troubleshoot-guide-critical-process-died.md
         - name: Error crítico del servicio
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: La máquina virtual no responde al aplicar la directiva de usuarios y grupos locales
+          href: troubleshoot-vm-unresponsive-group-policy-local-users.md
         - name: No es un disco de arranque
           href: troubleshoot-guide-not-bootable-disk.md
         - name: Reinicio de bucle
@@ -87,6 +89,8 @@
           href: troubleshoot-vm-boot-configure-update.md
         - name: La máquina virtual no puede arrancar debido a Administración de arranque de Windows
           href: troubleshoot-guide-windows-boot-manager-menu.md
+        - name: La máquina virtual no responde debido a una actualización
+          href: unresponsive-vm-apply-windows-update.md
 - name: No puedo conectarme a mi máquina virtual.
   items:
     - name: RDP

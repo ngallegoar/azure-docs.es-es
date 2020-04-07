@@ -36,13 +36,13 @@ Azure Storage incluye estos servicios de datos:
 
 Para acceder a cada servicio se usa una cuenta de almacenamiento. Para comenzar, consulte [Crear una cuenta de almacenamiento](storage-account-create.md).
 
-## <a name="blob-storage"></a>Almacenamiento de blobs
+## <a name="blob-storage"></a>Blob Storage
 
 Azure Blob Storage es la solución de almacenamiento de objetos de Microsoft para la nube. Blob Storage está optimizado para el almacenamiento de cantidades masivas de datos no estructurados, como texto o datos binarios.
 
-Blob Storage resulta muy conveniente para:
+Blob Storage resulta muy conveniente para lo siguiente:
 
-- Servicio de imágenes o documentos directamente a un explorador.
+- Visualización de imágenes o documentos directamente en un explorador.
 - Almacenamiento de archivos para acceso distribuido.
 - Streaming de audio y vídeo.
 - Almacenamiento de datos para copia de seguridad y restauración, recuperación ante desastres y archivado.
@@ -52,7 +52,7 @@ Se puede acceder a los objetos de Blob Storage desde cualquier lugar del mundo a
 
 Para más información acerca de Azure Blob Storage, consulte [Introducción al almacenamiento de objetos en Azure](../blobs/storage-blobs-introduction.md).
 
-## <a name="azure-files"></a>Archivos de Azure
+## <a name="azure-files"></a>Azure Files
 
 [Azure Files](../files/storage-files-introduction.md) permite configurar recursos compartidos de archivos de red de alta disponibilidad a los que se puede acceder mediante el protocolo Bloque de mensajes del servidor (SMB) estándar. Esto significa que varias máquinas virtuales pueden compartir los mismos archivos con acceso de lectura y escritura. También puede leer los archivos mediante la interfaz REST o las bibliotecas de cliente de Storage.
 
@@ -72,9 +72,9 @@ Para más información sobre Azure Files, consulte [Introducción a Azure Files]
 
 ## <a name="queue-storage"></a>Queue Storage
 
-El servicio Azure Queue se utiliza para almacenar y recuperar mensajes. La cola de mensajes puede ser de hasta 64 KB de tamaño y contener millones de mensajes. Las colas se utilizan generalmente para almacenar listas de mensajes y procesarlas de forma asincrónica.
+El servicio Azure Queue se utiliza para almacenar y recuperar mensajes. Los mensajes de la cola pueden tener un tamaño de hasta 64 KB y una cola contener millones de mensajes. Las colas se utilizan generalmente para almacenar listas de mensajes y procesarlas de forma asincrónica.
 
-Por ejemplo, supongamos que quiere que los clientes puedan cargar imágenes y desea crear vistas en miniatura de cada una. El cliente puede esperar a que cree las vistas en miniatura mientras se cargan las imágenes. Una alternativa sería utilizar una cola. Cuando el cliente finalice la carga, escriba un mensaje en la cola. A continuación, una función de Azure recupera el mensaje de la cola y crea las vistas en miniatura. Las partes de este procesamiento se escalan por separado, por lo que controlará mejor el ajuste para usarlas.
+Por ejemplo, supongamos que quiere que los clientes puedan cargar imágenes y desea crear vistas en miniatura de cada una. El cliente puede esperar a que cree las vistas en miniatura mientras se cargan las imágenes. Una alternativa sería utilizar una cola. Cuando el cliente finalice la carga, escriba un mensaje en la cola. A continuación, haga que una función de Azure recupera el mensaje de la cola y cree las vistas en miniatura. Las partes de este procesamiento se pueden escalar por separado, por lo que controlará mejor el ajuste para usarlas.
 
 Para más información sobre las colas de Azure, consulte [Introducción a las colas](../queues/storage-queues-introduction.md).
 
@@ -84,7 +84,7 @@ Azure Table Storage ahora forma parte de Azure Cosmos DB. Para ver la documentac
 
 Para más información sobre Table Storage, consulte [Introducción a Azure Table Storage](../tables/table-storage-overview.md).
 
-## <a name="disk-storage"></a>Almacenamiento en disco
+## <a name="disk-storage"></a>Disk Storage
 
 Un disco administrado de Azure es un disco duro virtual (VHD). Se puede considerar como un disco físico en un servidor en el entorno local, pero virtualizado. Los discos administrados de Azure se almacenan como blobs en páginas, que son un objeto de almacenamiento de E/S aleatorio en Azure. Llamamos a estos discos "administrados" porque son una abstracción sobre los blobs en páginas, los contenedores de blobs y las cuentas de almacenamiento de Azure. Con los discos administrados, lo único que debe hacer es aprovisionar el disco y Azure se encarga del resto.
 
@@ -100,7 +100,7 @@ Para más información acerca de los tipos de cuentas de almacenamiento, consult
 
 Cada solicitud para Azure Storage se debe autorizar. Azure Storage admite los siguientes métodos de autorización:
 
-- **Integración de Azure Active Directory (Azure AD) para datos de blob y cola.** Azure Storage admite la autenticación y autorización con Azure AD para los servicios Blob y Queue a través del control de acceso basado en rol (RBAC). Se recomienda la autorización de solicitudes con Azure AD para mayor seguridad y facilidad de uso. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](storage-auth-aad.md).
+- **Integración de Azure Active Directory (Azure AD) para datos de blob y cola.** Azure Storage admite la autenticación y autorización con Azure AD para los servicios Blob y Queue a través del control de acceso basado en rol (RBAC). Se recomiendan la autorización de solicitudes con Azure AD para mayor seguridad y facilidad de uso. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](storage-auth-aad.md).
 - **Autorización de Azure AD a través de SMB para Azure Files (versión preliminar).** Azure Files admite la autorización basada en identidades a través de SMB (Bloque de mensajes del servidor) mediante Azure Active Directory Domain Services. Las máquinas virtuales (VM) Windows unidas al dominio pueden acceder a los recursos compartidos de archivos de Azure con las credenciales de Azure AD. Para más información, consulte [Introducción a la autenticación de Azure Active Directory sobre SMB para Azure Files (versión preliminar)](../files/storage-files-active-directory-overview.md).
 - **Autorización con clave compartida.** Los servicios de Azure Storage Blob, Queue y Table y Azure Files admiten la autorización con clave compartida. Un cliente que usa la autorización de clave compartida pasa un encabezado con cada solicitud que se firma con la clave de acceso de la cuenta de almacenamiento. Para más información, consulte el artículo sobre la [Autorización con clave compartida](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
 - **Autorización mediante las firmas de acceso compartido (SAS).** Una firma de acceso compartido (SAS) es una cadena que contiene un token de seguridad que se puede asociar a un URI para un recurso de almacenamiento. El token de seguridad encapsula las restricciones, como pueden ser los permisos y el intervalo de acceso. Para más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).

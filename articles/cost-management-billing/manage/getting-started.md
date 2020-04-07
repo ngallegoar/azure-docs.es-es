@@ -1,19 +1,19 @@
 ---
-title: Prevención de costos inesperados y administración de la facturación en Azure
-description: Obtenga información acerca de cómo evitar cargos inesperados en la factura de Azure. Use las características de administración y seguimiento de costos en su cuenta de Azure.
+title: Prevención y análisis de cargos inesperados con Administración de costos + facturación de Azure
+description: Obtenga información acerca de cómo evitar cargos inesperados en su factura de Azure y usar las características de administración y seguimiento de costos para su cuenta de Azure.
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 3/11/2020
+ms.date: 3/30/2020
 ms.author: banders
-ms.openlocfilehash: 0e0003b3adfdb6ebba49bd8d014fc0ba287ca3aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 79af6f78e8e9bf93c49deafe79f6a421cbb77d1a
+ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238149"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80475259"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Prevención de cargos inesperados con la administración de costos y facturación de Azure
 
@@ -112,11 +112,6 @@ Seleccione **Costo** en el lado izquierdo. Verá recomendaciones en la pestaña 
 
 Consulte el tutorial guiado [Optimización de costos a partir de las recomendaciones](../costs/tutorial-acm-opt-recommendations.md) para conocer las recomendaciones de Advisor sobre el ahorro de costos.
 
-## <a name="review-charges-against-your-latest-invoice"></a>Revisión de los cargos con la factura más reciente
-
-Al final del ciclo de facturación, la factura está disponible. Puede [descargar facturas y archivos de uso detallados](download-azure-invoice-daily-usage-date.md), y compararlos para asegurarse de que se le ha cobrado correctamente. Para más información sobre cómo comparar el uso diario con la factura, consulte [Entienda su factura de Microsoft Azure](../understand/review-individual-bill.md).
-
-Si usa Azure a través de un Contrato de cliente de Microsoft (MCA), también puede [comparar la factura con las transacciones ](../understand/review-customer-agreement-bill.md#review-invoiced-transactions-in-the-azure-portal) para conocer los cargos de la factura.
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>Integración con las API de facturación y consumo
 
@@ -178,9 +173,65 @@ Para algunos servicios, hay requisitos previos para que se aplique el Acuerdo de
 
 Para más información, consulte [Acuerdos de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/) y la documentación [Resumen de Acuerdos de Nivel de Servicio para servicios de Azure](https://azure.microsoft.com/support/legal/sla/summary/).
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+## <a name="analyze-unexpected-charges"></a>Análisis de cargos inesperados
 
-Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+Seguramente la infraestructura de recursos en la nube que haya creado para su organización sea compleja. Muchos tipos de recursos de Azure pueden tener distintos tipos de cargos. Los recursos de Azure pueden ser propiedad de distintos equipos de la organización y pueden tener diferentes tipos de modelos de facturación que se aplican a varios recursos. Para entender mejor los cargos, comience el análisis con una o varias de las estrategias de las siguientes secciones.
+
+### <a name="review-your-invoice-and-identify-the-resource-that-is-responsible-for-the-charge"></a>Revisión de la factura e identificación del recurso responsable del cargo
+
+La forma de adquirir los servicios de Azure le ayuda a determinar la metodología y las herramientas que tiene a su disposición a la hora de identificar el recurso asociado a un cargo. Para determinar qué metodología es aplicable, primero [determine el tipo de oferta de Azure](../costs/understand-cost-mgt-data.md#determine-your-offer-type). A continuación, identifique la categoría de cliente en la lista de [ofertas de Azure admitidas](../costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
+
+En los artículos siguientes se proporcionan pasos detallados que explican cómo revisar la factura en función del tipo de cliente. En cada artículo hay instrucciones sobre cómo descargar un archivo CSV que contiene detalles de uso y de costos de un período de facturación determinado.
+
+- [Proceso de revisión de factura de pago por uso](../understand/review-individual-bill.md#compare-invoiced-charges-with-usage-file)
+- [Proceso de revisión de factura para el contrato Enterprise](../understand/review-enterprise-agreement-bill.md)
+- [Proceso de revisión para Contrato de cliente de Microsoft](../understand/review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
+- [Proceso de revisión para Microsoft Partner Agreement](../understand/review-partner-agreement-bill.md#analyze-your-azure-usage-charges)
+
+Los cargos de la factura de Azure se suman para el mes por _medidor_. Los medidores se usan para realizar un seguimiento del uso de un recurso a lo largo del tiempo y para calcular la factura. Cuando se crea un único recurso de Azure, como una máquina virtual, se crean una o varias instancias de medidores para el recurso.
+
+Filtre el archivo CSV de uso basándose en el parámetro _MeterName_ que se muestra en la factura que desea analizar para ver todos los elementos de línea que se aplican al medidor. El parámetro _InstanceID_ para el elemento de línea corresponde al recurso de Azure que generó el cargo.
+
+Cuando haya identificado el recurso en cuestión, puede usar el análisis de costos en Azure Cost Management para analizar aún más los costos relacionados con el recurso. Para más información sobre el uso del análisis de costos, consulte [Inicio del análisis de costos](../costs/quick-acm-cost-analysis.md).
+
+### <a name="identify-spikes-in-cost-over-time"></a>Identificación de picos en el costo a lo largo del tiempo
+
+En ocasiones, es posible que no sepa qué costos recientes produjeron cambios en los cargos facturados. Para saber qué ha cambiado, puede usar el análisis de costos para [ver un desglose diario o mensual de los costos a lo largo del tiempo](../costs/cost-analysis-common-uses.md#view-costs-per-day-or-by-month). Después de crear la vista, agrupe los cargos por **servicio** o **recurso** para identificar los cambios. También puede cambiar la vista a un gráfico de **Línea** para visualizar mejor los datos.
+
+![Ejemplo que muestra costos a lo largo del tiempo en el análisis de costos](./media/getting-started/costs-over-time.png)
+
+### <a name="determine-resource-pricing-and-understand-its-billing-model"></a>Determinar los precios de los recursos y comprender su modelo de facturación
+
+Un único recurso puede acumular cargos en varios productos y servicios de Azure. Vea la página [Precios de Azure por producto](https://azure.microsoft.com/pricing/#product-pricing) para obtener más información sobre los precios de cada servicio de Azure. Por ejemplo, una única máquina virtual creada en Azure puede tener los siguientes medidores creados para realizar el seguimiento de su uso. Cada uno de ellos puede tener distintos precios.
+
+- Horas de proceso
+- Horas de dirección IP
+- Transferencia de datos de entrada
+- Transferencia de datos de salida
+- Disco administrado estándar
+- Operaciones de disco administrado estándar
+- E/S estándar: Disco
+- E/S estándar: Lectura de blob en bloques
+- E/S estándar: Escritura de blob en bloques
+- E/S estándar: Eliminación de blob en bloques
+
+Cuando se crea la máquina virtual, cada medidor comienza a emitir registros de uso. El uso y el precio del medidor se registran en el sistema de medición de Azure. Puede ver los medidores que se usaron para calcular la factura en el archivo CSV de uso.
+
+### <a name="find-the-people-responsible-for-the-resource-and-engage-them"></a>Buscar las personas responsables del recurso y contar con ellas
+
+A menudo, el equipo responsable de un recurso determinado conocerá los cambios que se han realizado para el recurso. Es útil contar con estas personas para identificar qué cargos pueden aparecer. Por ejemplo, el equipo propietario puede haber creado recientemente el recurso, actualizado su SKU (lo que cambia la tasa de recursos) o aumentado la carga en el recurso debido a cambios en el código. Siga leyendo las siguientes secciones para conocer más técnicas para determinar quién es el propietario de un recurso.
+
+#### <a name="analyze-the-audit-logs-for-the-resource"></a>Análisis de los registros de auditoría para el recurso
+
+Si tiene permisos para ver un recurso, debe poder acceder a sus registros de auditoría. Revise los registros para buscar el usuario responsable de los cambios más recientes en un recurso. Para más información, consulte [Visualización y recuperación de eventos del registro de actividad de Azure](../../azure-monitor/platform/activity-log-view.md).
+
+#### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>Análisis de los permisos de usuario en el ámbito principal del recurso
+
+Las personas con acceso de escritura a una suscripción o grupo de recursos suelen tener información sobre los recursos que se han creado. Deben ser capaces de explicar el propósito de un recurso o dirigirle a la persona que lo sepa. Para identificar a las personas con permisos para un ámbito de suscripción, consulte [Visualización de asignaciones de roles](../../role-based-access-control/check-access.md#view-role-assignments). Puede usar un proceso similar para los grupos de recursos.
+
+### <a name="get-help-to-identify-charges"></a>Ayuda para identificar cargos
+
+Si ha usado las estrategias anteriores y todavía no entiende por qué ha recibido un cargo o si necesita ayuda con problemas de facturación, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información sobre los [límites de gasto](spending-limit.md) para evitar gastos excesivos.

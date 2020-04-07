@@ -88,6 +88,10 @@
       href: app-attach.md
     - name: Uso de Microsoft Teams
       href: teams-on-wvd.md
+    - name: Configuración de Azure Multi-Factor Authentication
+      href: set-up-mfa.md
+    - name: Instalación de paquetes de idioma
+      href: language-packs.md
 - name: Conceptos
   items:
     - name: Entorno de Windows Virtual Desktop

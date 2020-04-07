@@ -75,6 +75,8 @@
           href: overview-security.md
         - name: Línea de base de seguridad
           href: security-baseline.md
+        - name: Seguridad integrada
+          href: key-vault-security-controls.md
         - name: Espacios de seguridad
           href: key-vault-ovw-security-worlds.md
         - name: Protección de un almacén de claves
