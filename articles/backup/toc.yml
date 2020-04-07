@@ -32,8 +32,6 @@
       href: tutorial-sql-backup.md
     - name: Copia de seguridad de bases de datos de SAP HANA en máquinas virtuales de Azure
       href: tutorial-backup-sap-hana-db.md
-    - name: Copia de seguridad de recursos compartidos de Azure Files
-      href: tutorial-backup-azure-files.md
     - name: Copia de seguridad de Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: Restauración de archivos en Windows Server
