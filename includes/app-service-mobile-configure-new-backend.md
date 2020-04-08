@@ -32,15 +32,15 @@ ms.locfileid: "67440208"
 
 2. Tendrá que agregar una conexión de base de datos o conectarse a una conexión existente. Primero, determine si podrá crear un almacén de datos o usar uno existente.
 
-    - **Crear un nuevo almacén de datos**: Si va a crear un almacén de datos, eche un vistazo a esta guía de inicio rápido:
+    - **Crear un nuevo almacén de datos**: si va a crear un almacén de datos, eche un vistazo a esta guía de inicio rápido:
 
         [Inicio rápido: Introducción a las bases de datos únicas en Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-quickstart-guide)
 
     - **Origen de datos existente**: Siga estas instrucciones si quiere usar una conexión de base de datos existente
 
-        1. Formato de cadena de conexión de SQL Database - `Data Source=tcp:{your_SQLServer},{port};Initial Catalog={your_catalogue};User ID={your_username};Password={your_password}`
+        1. Formato de cadena de conexión de SQL Database: `Data Source=tcp:{your_SQLServer},{port};Initial Catalog={your_catalogue};User ID={your_username};Password={your_password}`
 
-           **{your_SQLServer}** : nombre del servidor; lo encontrará en la página de información general de la base de datos y suele tener la forma de “nombre_de_servidor.database.windows.net”.
+           **{your_SQLServer}** : nombre del servidor; lo encontrará en la página de información general de la base de datos y suele tener el formato "nombre_de_servidor.database.windows.net".
             **{port}** : el puerto suele ser 1433.
             **{your_catalogue}** : nombre de la base de datos.
             **{your_username}** : nombre de usuario para acceder a la base de datos.
@@ -64,7 +64,7 @@ ms.locfileid: "67440208"
 
             6. Si va a agregar una cadena de conexión a una base de datos de SQL Azure, elija **SQLAzure** en **tipo**.
 
-3. Azure Mobile Apps tiene varios SDK para back-ends de .NET y Node.js.
+3. Azure Mobile Apps tiene varios SDK para los back-ends de .NET y Node.js.
 
    - **Back-end de Node.js**
     
@@ -92,7 +92,7 @@ ms.locfileid: "67440208"
 
         1. Descargue el proyecto de servidor .NET de Azure Mobile Apps desde el [repositorio azure-mobile-apps-quickstarts](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/dotnet/Quickstart).
 
-        2. Compile el proyecto de servidor .NET localmente en Visual Studio.
+        2. Compile el proyecto de servidor de .NET localmente en Visual Studio.
 
         3. En Visual Studio, abra el Explorador de soluciones, haga clic con el botón derecho en el proyecto `ZUMOAPPNAMEService`, elija **Publicar** y verá la ventana `Publish to App Service`. Si está trabajando en Mac, puede ver otras formas de implementar la aplicación [aquí](https://docs.microsoft.com/azure/app-service/deploy-local-git).
         
@@ -100,4 +100,4 @@ ms.locfileid: "67440208"
 
         4. Seleccione **App Service** como destino de publicación y haga clic en **Seleccionar existente**. Después, seleccione **Publicar** en la parte inferior de la ventana.
 
-        5. Primero tendrá que iniciar sesión en Visual Studio con su suscripción de Azure. Seleccione `Subscription`, `Resource Group` y luego el nombre de la aplicación. Cuando esté listo, haga clic en **Aceptar**. Se implementará el proyecto de servidor de .NET que tiene localmente en el back-end de App Service. Cuando termine la implementación, se le redirigirá a `http://{zumoappname}.azurewebsites.net/` en el explorador.                   
+        5. Primero tendrá que iniciar sesión en Visual Studio con su suscripción de Azure. Seleccione `Subscription` y `Resource Group` y, luego, el nombre de la aplicación. Cuando esté listo, haga clic en **Aceptar**. Se implementará el proyecto de servidor de .NET que tiene localmente en el back-end de App Service. Cuando termine la implementación, se le redirigirá a `http://{zumoappname}.azurewebsites.net/` en el explorador.                   

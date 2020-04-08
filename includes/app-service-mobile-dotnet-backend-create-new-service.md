@@ -19,9 +19,9 @@ ms.locfileid: "67325802"
 
 2. Haga clic en **Crear un recurso**.
 
-3. En el cuadro de búsqueda, escriba **Web App**.
+3. En el cuadro de búsqueda, escriba **Aplicación web**.
     
-4. En la lista de resultados, seleccione **Web App** en Marketplace.
+4. En la lista de resultados, seleccione **Aplicación web** en Marketplace.
 
 5. Seleccione los valores de **Suscripción** y **Grupo de recursos** (seleccione un grupo de recursos existente _o_ cree uno nuevo [con el mismo nombre que el de la aplicación]).
 
@@ -29,7 +29,7 @@ ms.locfileid: "67325802"
 
 7. Elija la opción predeterminada **Publicar** como **Código**.
 
-8. En **Pila en tiempo de ejecución**, debe seleccionar una versión en **ASP.NET** o **Nodo**. Se está creando un back-end de .NET, seleccione una versión bajo ASP.NET. De lo contrario, si se dirige a una aplicación basada en nodos, seleccione una de las versiones en Nodo.
+8. En **Pila en tiempo de ejecución**, debe seleccionar una versión en **ASP.NET** o **Nodo**. Si está creando un back-end de .NET, seleccione una versión en ASP.NET. De lo contrario, si se dirige a una aplicación basada en nodos, seleccione una de las versiones en Nodo.
 
 9. Seleccione el valor correcto de **Sistema operativo** (Linux o Windows). 
 
@@ -39,11 +39,11 @@ ms.locfileid: "67325802"
 
 12. En **Grupo de recursos**, seleccione un grupo de recursos existente _o_ cree uno nuevo (con el mismo nombre que su aplicación).
 
-13. Haga clic en **Crear**. Espere unos minutos para que se implemente el servicio correctamente antes de continuar. Observe el icono de notificaciones (campana) en el encabezado del portal para las actualizaciones de estado.
+13. Haga clic en **Crear**. Espere unos minutos para que se implemente el servicio correctamente antes de continuar. Consulte el icono de notificaciones (campana) en el encabezado del portal para comprobar si hay actualizaciones de estado.
 
 14. Una vez completada la implementación, haga clic en la sección **Detalles de implementación** y seleccione el recurso de tipo **Microsoft.Web/sites**. Navegará a la aplicación web de App Service que acaba de crear. 
 
-15. Haga clic en la hoja **Configuración** bajo **Configuración** y en **Configuración de la aplicación**, haga clic en el botón **Nueva configuración de la aplicación**.
+15. Haga clic en la hoja **Configuración** en Configuración y, en **Configuración** de la aplicación, haga clic en el botón Nueva **configuración de la aplicación**.
 
 16. En la página **Agregar o editar la configuración de la aplicación**, en el campo **Nombre** escriba **MobileAppsManagement_EXTENSION_VERSION**, en el campo Valor escriba **Más reciente** y haga clic en Aceptar.
 

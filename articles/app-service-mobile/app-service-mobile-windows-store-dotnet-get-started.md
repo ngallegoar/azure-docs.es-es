@@ -32,7 +32,7 @@ Para completar este tutorial, necesitará lo siguiente:
 * Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Windows 10
 * Visual Studio Community 2017.
-* Debe estar familiarizado con el desarrollo de aplicaciones para UWP. Visite la [documentación de UWP](https://docs.microsoft.com/windows/uwp/) para aprender a [configurar](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) para compilar aplicaciones de UWP.
+* Debe estar familiarizado con el desarrollo de aplicaciones para UWP. Visite la [documentación de UWP](https://docs.microsoft.com/windows/uwp/) para aprender obtener información sobre cómo[establecer la configuración](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) para compilar aplicaciones para UWP.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Creación de un nuevo back-end de aplicaciones móviles de Azure
 
@@ -49,7 +49,7 @@ Siga estos pasos para crear un nuevo back-end de aplicación móvil.
 
 2. Vaya a [Azure Portal](https://portal.azure.com/) y diríjase a la aplicación móvil que ha creado. En la hoja `Overview`, busque la dirección URL que es el punto de conexión público de la aplicación móvil. Por ejemplo, el nombre de sitio para el nombre de mi aplicación "test123" será https://test123.azurewebsites.net.
 
-3. Abra el archivo `App.xaml.cs` en esta carpeta - windows-uwp-cs/ZUMOAPPNAME/. El nombre de la aplicación es `ZUMOAPPNAME`.
+3. Abra el archivo `App.xaml.cs` en esta carpeta: windows-uwp-cs/ZUMOAPPNAME/. El nombre de la aplicación es `ZUMOAPPNAME`.
 
 4. En la clase `App`, reemplace el parámetro `ZUMOAPPURL` por el punto de conexión público anterior.
 
